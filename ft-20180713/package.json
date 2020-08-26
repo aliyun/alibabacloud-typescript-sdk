@@ -1,6 +1,6 @@
 {
-  "name": "@alicloud/ft20180713-test",
-  "version": "1.0.5",
+  "name": "@alicloud/ft20180713",
+  "version": "1.0.13",
   "description": "",
   "main": "dist/client.js",
   "scripts": {
@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "@alicloud/tea-typescript": "latest",
-    "@alicloud/tea-util": "^1.1.0",
+    "@alicloud/tea-util": "^1.4.0",
     "@alicloud/rpc-client": "^1.1.0",
     "@alicloud/endpoint-util": "^0.0.1"
   },
