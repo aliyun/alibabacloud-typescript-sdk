@@ -374,10 +374,14 @@ export class CalcCACSResponse extends $tea.Model {
 export class DetectKneeXRayRequest extends $tea.Model {
   url: string;
   dataFormat: string;
+  orgName: string;
+  orgId: string;
   static names(): { [key: string]: string } {
     return {
       url: 'Url',
       dataFormat: 'DataFormat',
+      orgName: 'OrgName',
+      orgId: 'OrgId',
     };
   }
 
@@ -385,6 +389,8 @@ export class DetectKneeXRayRequest extends $tea.Model {
     return {
       url: 'string',
       dataFormat: 'string',
+      orgName: 'string',
+      orgId: 'string',
     };
   }
 
@@ -418,10 +424,14 @@ export class DetectKneeXRayResponse extends $tea.Model {
 export class DetectKneeXRayAdvanceRequest extends $tea.Model {
   urlObject: Readable;
   dataFormat: string;
+  orgName: string;
+  orgId: string;
   static names(): { [key: string]: string } {
     return {
       urlObject: 'UrlObject',
       dataFormat: 'DataFormat',
+      orgName: 'OrgName',
+      orgId: 'OrgId',
     };
   }
 
@@ -429,6 +439,8 @@ export class DetectKneeXRayAdvanceRequest extends $tea.Model {
     return {
       urlObject: 'Readable',
       dataFormat: 'string',
+      orgName: 'string',
+      orgId: 'string',
     };
   }
 
@@ -439,15 +451,24 @@ export class DetectKneeXRayAdvanceRequest extends $tea.Model {
 
 export class DetectSpineMRIRequest extends $tea.Model {
   URLList: DetectSpineMRIRequestURLList[];
+  dataFormat: string;
+  orgName: string;
+  orgId: string;
   static names(): { [key: string]: string } {
     return {
       URLList: 'URLList',
+      dataFormat: 'DataFormat',
+      orgName: 'OrgName',
+      orgId: 'OrgId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       URLList: { 'type': 'array', 'itemType': DetectSpineMRIRequestURLList },
+      dataFormat: 'string',
+      orgName: 'string',
+      orgId: 'string',
     };
   }
 
@@ -527,15 +548,24 @@ export class TranslateMedResponse extends $tea.Model {
 
 export class DetectLungNoduleRequest extends $tea.Model {
   URLList: DetectLungNoduleRequestURLList[];
+  dataFormat: string;
+  orgName: string;
+  orgId: string;
   static names(): { [key: string]: string } {
     return {
       URLList: 'URLList',
+      dataFormat: 'DataFormat',
+      orgName: 'OrgName',
+      orgId: 'OrgId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       URLList: { 'type': 'array', 'itemType': DetectLungNoduleRequestURLList },
+      dataFormat: 'string',
+      orgName: 'string',
+      orgId: 'string',
     };
   }
 
@@ -568,15 +598,24 @@ export class DetectLungNoduleResponse extends $tea.Model {
 
 export class DetectCovid19CadRequest extends $tea.Model {
   URLList: DetectCovid19CadRequestURLList[];
+  dataFormat: string;
+  orgName: string;
+  orgId: string;
   static names(): { [key: string]: string } {
     return {
       URLList: 'URLList',
+      dataFormat: 'DataFormat',
+      orgName: 'OrgName',
+      orgId: 'OrgId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       URLList: { 'type': 'array', 'itemType': DetectCovid19CadRequestURLList },
+      dataFormat: 'string',
+      orgName: 'string',
+      orgId: 'string',
     };
   }
 
@@ -1147,6 +1186,9 @@ export class DetectLungNoduleResponseDataSeriesElements extends $tea.Model {
   x: number;
   z: number;
   y: number;
+  imageX: number;
+  imageY: number;
+  imageZ: number;
   static names(): { [key: string]: string } {
     return {
       category: 'Category',
@@ -1157,6 +1199,9 @@ export class DetectLungNoduleResponseDataSeriesElements extends $tea.Model {
       x: 'X',
       z: 'Z',
       y: 'Y',
+      imageX: 'ImageX',
+      imageY: 'ImageY',
+      imageZ: 'ImageZ',
     };
   }
 
@@ -1170,6 +1215,9 @@ export class DetectLungNoduleResponseDataSeriesElements extends $tea.Model {
       x: 'number',
       z: 'number',
       y: 'number',
+      imageX: 'number',
+      imageY: 'number',
+      imageZ: 'number',
     };
   }
 
@@ -1181,10 +1229,14 @@ export class DetectLungNoduleResponseDataSeriesElements extends $tea.Model {
 export class DetectLungNoduleResponseDataSeries extends $tea.Model {
   seriesInstanceUid: string;
   elements: DetectLungNoduleResponseDataSeriesElements[];
+  origin: number[];
+  spacing: number[];
   static names(): { [key: string]: string } {
     return {
       seriesInstanceUid: 'SeriesInstanceUid',
       elements: 'Elements',
+      origin: 'Origin',
+      spacing: 'Spacing',
     };
   }
 
@@ -1192,6 +1244,8 @@ export class DetectLungNoduleResponseDataSeries extends $tea.Model {
     return {
       seriesInstanceUid: 'string',
       elements: { 'type': 'array', 'itemType': DetectLungNoduleResponseDataSeriesElements },
+      origin: { 'type': 'array', 'itemType': 'number' },
+      spacing: { 'type': 'array', 'itemType': 'number' },
     };
   }
 
