@@ -951,17 +951,54 @@ export class DescribeClusterLogsResponse extends $tea.Model {
   }
 }
 
+export class DescribeClusterNodePoolDetailResponseBody extends $tea.Model {
+  autoScaling?: DescribeClusterNodePoolDetailResponseBodyAutoScaling;
+  kubernetesConfig?: DescribeClusterNodePoolDetailResponseBodyKubernetesConfig;
+  nodepoolInfo?: DescribeClusterNodePoolDetailResponseBodyNodepoolInfo;
+  scalingGroup?: DescribeClusterNodePoolDetailResponseBodyScalingGroup;
+  status?: DescribeClusterNodePoolDetailResponseBodyStatus;
+  teeConfig?: DescribeClusterNodePoolDetailResponseBodyTeeConfig;
+  static names(): { [key: string]: string } {
+    return {
+      autoScaling: 'auto_scaling',
+      kubernetesConfig: 'kubernetes_config',
+      nodepoolInfo: 'nodepool_info',
+      scalingGroup: 'scaling_group',
+      status: 'status',
+      teeConfig: 'tee_config',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoScaling: DescribeClusterNodePoolDetailResponseBodyAutoScaling,
+      kubernetesConfig: DescribeClusterNodePoolDetailResponseBodyKubernetesConfig,
+      nodepoolInfo: DescribeClusterNodePoolDetailResponseBodyNodepoolInfo,
+      scalingGroup: DescribeClusterNodePoolDetailResponseBodyScalingGroup,
+      status: DescribeClusterNodePoolDetailResponseBodyStatus,
+      teeConfig: DescribeClusterNodePoolDetailResponseBodyTeeConfig,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeClusterNodePoolDetailResponse extends $tea.Model {
   headers: { [key: string]: string };
+  body: DescribeClusterNodePoolDetailResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeClusterNodePoolDetailResponseBody,
     };
   }
 
@@ -1724,17 +1761,39 @@ export class ListTagResourcesRequest extends $tea.Model {
   }
 }
 
+export class ListTagResourcesResponseBody extends $tea.Model {
+  tagResources?: ListTagResourcesResponseBodyTagResources;
+  static names(): { [key: string]: string } {
+    return {
+      tagResources: 'tag_resources',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagResources: ListTagResourcesResponseBodyTagResources,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListTagResourcesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  body: ListTagResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListTagResourcesResponseBody,
     };
   }
 
@@ -3192,6 +3251,355 @@ export class DescribeClusterLogsResponseBody extends $tea.Model {
   }
 }
 
+export class DescribeClusterNodePoolDetailResponseBodyAutoScaling extends $tea.Model {
+  eipBandwidth?: number;
+  eipInternetChargeType?: string;
+  enable?: boolean;
+  healthCheckType?: string;
+  isBondEip?: boolean;
+  maxInstances?: number;
+  minInstances?: number;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      eipBandwidth: 'eip_bandwidth',
+      eipInternetChargeType: 'eip_internet_charge_type',
+      enable: 'enable',
+      healthCheckType: 'health_check_type',
+      isBondEip: 'is_bond_eip',
+      maxInstances: 'max_instances',
+      minInstances: 'min_instances',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      eipBandwidth: 'number',
+      eipInternetChargeType: 'string',
+      enable: 'boolean',
+      healthCheckType: 'string',
+      isBondEip: 'boolean',
+      maxInstances: 'number',
+      minInstances: 'number',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeClusterNodePoolDetailResponseBodyKubernetesConfigLabels extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'key',
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeClusterNodePoolDetailResponseBodyKubernetesConfigTaints extends $tea.Model {
+  effect?: string;
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      effect: 'effect',
+      key: 'key',
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      effect: 'string',
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeClusterNodePoolDetailResponseBodyKubernetesConfig extends $tea.Model {
+  cmsEnabled?: string;
+  cpuPolicy?: string;
+  labels?: DescribeClusterNodePoolDetailResponseBodyKubernetesConfigLabels[];
+  nodeNameMode?: string;
+  overwriteHostname?: boolean;
+  runtime?: string;
+  runtimeVersion?: string;
+  taints?: DescribeClusterNodePoolDetailResponseBodyKubernetesConfigTaints[];
+  userData?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cmsEnabled: 'cms_enabled',
+      cpuPolicy: 'cpu_policy',
+      labels: 'labels',
+      nodeNameMode: 'node_name_mode',
+      overwriteHostname: 'overwrite_hostname',
+      runtime: 'runtime',
+      runtimeVersion: 'runtime_version',
+      taints: 'taints',
+      userData: 'user_data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cmsEnabled: 'string',
+      cpuPolicy: 'string',
+      labels: { 'type': 'array', 'itemType': DescribeClusterNodePoolDetailResponseBodyKubernetesConfigLabels },
+      nodeNameMode: 'string',
+      overwriteHostname: 'boolean',
+      runtime: 'string',
+      runtimeVersion: 'string',
+      taints: { 'type': 'array', 'itemType': DescribeClusterNodePoolDetailResponseBodyKubernetesConfigTaints },
+      userData: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeClusterNodePoolDetailResponseBodyNodepoolInfo extends $tea.Model {
+  created?: string;
+  isDefault?: boolean;
+  name?: string;
+  nodepoolId?: string;
+  regionId?: string;
+  resourceGroupId?: string;
+  type?: string;
+  updated?: string;
+  static names(): { [key: string]: string } {
+    return {
+      created: 'created',
+      isDefault: 'is_default',
+      name: 'name',
+      nodepoolId: 'nodepool_id',
+      regionId: 'region_id',
+      resourceGroupId: 'resource_group_id',
+      type: 'type',
+      updated: 'updated',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      created: 'string',
+      isDefault: 'boolean',
+      name: 'string',
+      nodepoolId: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      type: 'string',
+      updated: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeClusterNodePoolDetailResponseBodyScalingGroupDataDisks extends $tea.Model {
+  category?: string;
+  encrypted?: boolean;
+  size?: string;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'category',
+      encrypted: 'encrypted',
+      size: 'size',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      encrypted: 'boolean',
+      size: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeClusterNodePoolDetailResponseBodyScalingGroupTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'key',
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeClusterNodePoolDetailResponseBodyScalingGroup extends $tea.Model {
+  autoRenew?: boolean;
+  autoRenewPeriod?: number;
+  dataDisks?: DescribeClusterNodePoolDetailResponseBodyScalingGroupDataDisks[];
+  imageId?: string;
+  instanceChargeType?: string;
+  instanceTypes?: string[];
+  multiAzPolicy?: string;
+  period?: number;
+  periodUnit?: string;
+  platform?: string;
+  ramPolicy?: string;
+  rdsInstances?: string[];
+  scalingGroupId?: string;
+  scalingPolicy?: string;
+  securityGroupId?: string;
+  systemDiskCategory?: string;
+  systemDiskSize?: number;
+  tags?: DescribeClusterNodePoolDetailResponseBodyScalingGroupTags[];
+  vswitchIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      autoRenew: 'auto_renew',
+      autoRenewPeriod: 'auto_renew_period',
+      dataDisks: 'data_disks',
+      imageId: 'image_id',
+      instanceChargeType: 'instance_charge_type',
+      instanceTypes: 'instance_types',
+      multiAzPolicy: 'multi_az_policy',
+      period: 'period',
+      periodUnit: 'period_unit',
+      platform: 'platform',
+      ramPolicy: 'ram_policy',
+      rdsInstances: 'rds_instances',
+      scalingGroupId: 'scaling_group_id',
+      scalingPolicy: 'scaling_policy',
+      securityGroupId: 'security_group_id',
+      systemDiskCategory: 'system_disk_category',
+      systemDiskSize: 'system_disk_size',
+      tags: 'tags',
+      vswitchIds: 'vswitch_ids',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoRenew: 'boolean',
+      autoRenewPeriod: 'number',
+      dataDisks: { 'type': 'array', 'itemType': DescribeClusterNodePoolDetailResponseBodyScalingGroupDataDisks },
+      imageId: 'string',
+      instanceChargeType: 'string',
+      instanceTypes: { 'type': 'array', 'itemType': 'string' },
+      multiAzPolicy: 'string',
+      period: 'number',
+      periodUnit: 'string',
+      platform: 'string',
+      ramPolicy: 'string',
+      rdsInstances: { 'type': 'array', 'itemType': 'string' },
+      scalingGroupId: 'string',
+      scalingPolicy: 'string',
+      securityGroupId: 'string',
+      systemDiskCategory: 'string',
+      systemDiskSize: 'number',
+      tags: { 'type': 'array', 'itemType': DescribeClusterNodePoolDetailResponseBodyScalingGroupTags },
+      vswitchIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeClusterNodePoolDetailResponseBodyStatus extends $tea.Model {
+  failedNodes?: number;
+  healthyNodes?: number;
+  initialNodes?: number;
+  offlineNodes?: number;
+  removingNodes?: number;
+  servingNodes?: number;
+  state?: string;
+  totalNodes?: number;
+  static names(): { [key: string]: string } {
+    return {
+      failedNodes: 'failed_nodes',
+      healthyNodes: 'healthy_nodes',
+      initialNodes: 'initial_nodes',
+      offlineNodes: 'offline_nodes',
+      removingNodes: 'removing_nodes',
+      servingNodes: 'serving_nodes',
+      state: 'state',
+      totalNodes: 'total_nodes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      failedNodes: 'number',
+      healthyNodes: 'number',
+      initialNodes: 'number',
+      offlineNodes: 'number',
+      removingNodes: 'number',
+      servingNodes: 'number',
+      state: 'string',
+      totalNodes: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeClusterNodePoolDetailResponseBodyTeeConfig extends $tea.Model {
+  teeEnable?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      teeEnable: 'tee_enable',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      teeEnable: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeClusterNodesResponseBodyNodes extends $tea.Model {
   creationTime?: string;
   errorMessage?: string;
@@ -3727,6 +4135,59 @@ export class InstallClusterAddonsRequestBody extends $tea.Model {
       name: 'string',
       required: 'string',
       version: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesResponseBodyTagResourcesTagResource extends $tea.Model {
+  resourceId?: string;
+  resourceType?: string;
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      resourceId: 'resource_id',
+      resourceType: 'resource_type',
+      tagKey: 'tag_key',
+      tagValue: 'tag_value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceId: 'string',
+      resourceType: 'string',
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesResponseBodyTagResources extends $tea.Model {
+  nextToken?: string;
+  requestId?: string;
+  tagResource?: ListTagResourcesResponseBodyTagResourcesTagResource;
+  static names(): { [key: string]: string } {
+    return {
+      nextToken: 'next_token',
+      requestId: 'request_id',
+      tagResource: 'tag_resource',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nextToken: 'string',
+      requestId: 'string',
+      tagResource: ListTagResourcesResponseBodyTagResourcesTagResource,
     };
   }
 
@@ -5112,7 +5573,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    return $tea.cast<DescribeClusterNodePoolDetailResponse>(await this.doROARequest("DescribeClusterNodePoolDetail", "2015-12-15", "HTTPS", "GET", "AK", `/clusters/${ClusterId}/nodepools/{NodepoolId}`, "none", req, runtime), new DescribeClusterNodePoolDetailResponse({}));
+    return $tea.cast<DescribeClusterNodePoolDetailResponse>(await this.doROARequest("DescribeClusterNodePoolDetail", "2015-12-15", "HTTPS", "GET", "AK", `/clusters/${ClusterId}/nodepools/{NodepoolId}`, "json", req, runtime), new DescribeClusterNodePoolDetailResponse({}));
   }
 
   async describeClusterNodePools(ClusterId: string): Promise<DescribeClusterNodePoolsResponse> {
@@ -5445,7 +5906,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListTagResourcesResponse>(await this.doROARequest("ListTagResources", "2015-12-15", "HTTPS", "GET", "AK", `/tags`, "none", req, runtime), new ListTagResourcesResponse({}));
+    return $tea.cast<ListTagResourcesResponse>(await this.doROARequest("ListTagResources", "2015-12-15", "HTTPS", "GET", "AK", `/tags`, "json", req, runtime), new ListTagResourcesResponse({}));
   }
 
   async modifyCluster(ClusterId: string, request: ModifyClusterRequest): Promise<ModifyClusterResponse> {
