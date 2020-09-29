@@ -10,6 +10,125 @@ import EndpointUtil from '@alicloud/endpoint-util';
 import { Readable } from 'stream';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class DetectSkinDiseaseRequest extends $tea.Model {
+  url: string;
+  orgId: string;
+  orgName: string;
+  static names(): { [key: string]: string } {
+    return {
+      url: 'Url',
+      orgId: 'OrgId',
+      orgName: 'OrgName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      url: 'string',
+      orgId: 'string',
+      orgName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectSkinDiseaseResponse extends $tea.Model {
+  requestId: string;
+  data: DetectSkinDiseaseResponseData;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      data: DetectSkinDiseaseResponseData,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectSkinDiseaseAdvanceRequest extends $tea.Model {
+  urlObject: Readable;
+  orgId: string;
+  orgName: string;
+  static names(): { [key: string]: string } {
+    return {
+      urlObject: 'UrlObject',
+      orgId: 'OrgId',
+      orgName: 'OrgName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      urlObject: 'Readable',
+      orgId: 'string',
+      orgName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunMedQARequest extends $tea.Model {
+  question: string;
+  orgId: string;
+  orgName: string;
+  static names(): { [key: string]: string } {
+    return {
+      question: 'Question',
+      orgId: 'OrgId',
+      orgName: 'OrgName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      question: 'string',
+      orgId: 'string',
+      orgName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunMedQAResponse extends $tea.Model {
+  requestId: string;
+  data: RunMedQAResponseData;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      data: RunMedQAResponseData,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DetectKneeKeypointXRayRequest extends $tea.Model {
   imageUrl: string;
   dataFormat: string;
@@ -687,6 +806,47 @@ export class GetAsyncJobResultResponse extends $tea.Model {
   }
 }
 
+export class DetectSkinDiseaseResponseData extends $tea.Model {
+  results: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      results: 'Results',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      results: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunMedQAResponseData extends $tea.Model {
+  answer: string;
+  similarQuestion: string[];
+  static names(): { [key: string]: string } {
+    return {
+      answer: 'Answer',
+      similarQuestion: 'SimilarQuestion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      answer: 'string',
+      similarQuestion: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DetectKneeKeypointXRayResponseDataKeyPointsTag extends $tea.Model {
   direction: string;
   label: string;
@@ -990,15 +1150,18 @@ export class CalcCACSRequestURLList extends $tea.Model {
 
 export class CalcCACSResponseData extends $tea.Model {
   score: string;
+  resultUrl: string;
   static names(): { [key: string]: string } {
     return {
       score: 'Score',
+      resultUrl: 'ResultUrl',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       score: 'string',
+      resultUrl: 'string',
     };
   }
 
@@ -1364,6 +1527,75 @@ export default class Client extends RPC {
     this._endpoint = this.getEndpoint("imageprocess", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
 
+
+  async detectSkinDisease(request: DetectSkinDiseaseRequest, runtime: $Util.RuntimeOptions): Promise<DetectSkinDiseaseResponse> {
+    Util.validateModel(request);
+    return $tea.cast<DetectSkinDiseaseResponse>(await this.doRequest("DetectSkinDisease", "HTTPS", "POST", "2020-03-20", "AK", null, $tea.toMap(request), runtime), new DetectSkinDiseaseResponse({}));
+  }
+
+  async detectSkinDiseaseAdvance(request: DetectSkinDiseaseAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<DetectSkinDiseaseResponse> {
+    // Step 0: init client
+    let accessKeyId = await this._credential.getAccessKeyId();
+    let accessKeySecret = await this._credential.getAccessKeySecret();
+    let authConfig = new $RPC.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      endpoint: "openplatform.aliyuncs.com",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenPlatform(authConfig);
+    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
+      product: "imageprocess",
+      regionId: this._regionId,
+    });
+    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
+    let ossConfig = new $OSS.Config({
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let ossClient : OSS = null;
+    let fileObj = new $FileForm.FileField({ });
+    let ossHeader = new $OSS.PostObjectRequestHeader({ });
+    let uploadRequest = new $OSS.PostObjectRequest({ });
+    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
+    RPCUtil.convert(runtime, ossRuntime);
+    let detectSkinDiseasereq = new DetectSkinDiseaseRequest({ });
+    RPCUtil.convert(request, detectSkinDiseasereq);
+    authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+    ossConfig.accessKeyId = authResponse.accessKeyId;
+    ossConfig.endpoint = RPCUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+    ossClient = new OSS(ossConfig);
+    fileObj = new $FileForm.FileField({
+      filename: authResponse.objectKey,
+      content: request.urlObject,
+      contentType: "",
+    });
+    ossHeader = new $OSS.PostObjectRequestHeader({
+      accessKeyId: authResponse.accessKeyId,
+      policy: authResponse.encodedPolicy,
+      signature: authResponse.signature,
+      key: authResponse.objectKey,
+      file: fileObj,
+      successActionStatus: "201",
+    });
+    uploadRequest = new $OSS.PostObjectRequest({
+      bucketName: authResponse.bucket,
+      header: ossHeader,
+    });
+    await ossClient.postObject(uploadRequest, ossRuntime);
+    detectSkinDiseasereq.url = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    let detectSkinDiseaseResp = await this.detectSkinDisease(detectSkinDiseasereq, runtime);
+    return detectSkinDiseaseResp;
+  }
+
+  async runMedQA(request: RunMedQARequest, runtime: $Util.RuntimeOptions): Promise<RunMedQAResponse> {
+    Util.validateModel(request);
+    return $tea.cast<RunMedQAResponse>(await this.doRequest("RunMedQA", "HTTPS", "POST", "2020-03-20", "AK", null, $tea.toMap(request), runtime), new RunMedQAResponse({}));
+  }
 
   async detectKneeKeypointXRay(request: DetectKneeKeypointXRayRequest, runtime: $Util.RuntimeOptions): Promise<DetectKneeKeypointXRayResponse> {
     Util.validateModel(request);
