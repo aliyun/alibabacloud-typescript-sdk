@@ -10,6 +10,66 @@ import EndpointUtil from '@alicloud/endpoint-util';
 import { Readable } from 'stream';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class PedestrianDetectAttributeRequest extends $tea.Model {
+  imageURL: string;
+  static names(): { [key: string]: string } {
+    return {
+      imageURL: 'ImageURL',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageURL: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PedestrianDetectAttributeResponse extends $tea.Model {
+  requestId: string;
+  data: PedestrianDetectAttributeResponseData;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      data: PedestrianDetectAttributeResponseData,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PedestrianDetectAttributeAdvanceRequest extends $tea.Model {
+  imageURLObject: Readable;
+  static names(): { [key: string]: string } {
+    return {
+      imageURLObject: 'ImageURLObject',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageURLObject: 'Readable',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DetectChefCapRequest extends $tea.Model {
   imageURL: string;
   static names(): { [key: string]: string } {
@@ -244,15 +304,18 @@ export class BlurFaceAdvanceRequest extends $tea.Model {
 }
 
 export class ExtractPedestrianFeatureAttributeRequest extends $tea.Model {
+  mode?: string;
   imageURL: string;
   static names(): { [key: string]: string } {
     return {
+      mode: 'Mode',
       imageURL: 'ImageURL',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      mode: 'string',
       imageURL: 'string',
     };
   }
@@ -276,25 +339,6 @@ export class ExtractPedestrianFeatureAttributeResponse extends $tea.Model {
     return {
       requestId: 'string',
       data: ExtractPedestrianFeatureAttributeResponseData,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ExtractPedestrianFeatureAttributeAdvanceRequest extends $tea.Model {
-  imageURLObject: Readable;
-  static names(): { [key: string]: string } {
-    return {
-      imageURLObject: 'ImageURLObject',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURLObject: 'Readable',
     };
   }
 
@@ -2111,6 +2155,378 @@ export class DetectFaceAdvanceRequest extends $tea.Model {
   }
 }
 
+export class PedestrianDetectAttributeResponseDataAttributesAge extends $tea.Model {
+  name: string;
+  score: number;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      score: 'Score',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      score: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PedestrianDetectAttributeResponseDataAttributesBackpack extends $tea.Model {
+  name: string;
+  score: number;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      score: 'Score',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      score: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PedestrianDetectAttributeResponseDataAttributesGender extends $tea.Model {
+  name: string;
+  score: number;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      score: 'Score',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      score: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PedestrianDetectAttributeResponseDataAttributesGlasses extends $tea.Model {
+  name: string;
+  score: number;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      score: 'Score',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      score: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PedestrianDetectAttributeResponseDataAttributesHandbag extends $tea.Model {
+  name: string;
+  score: number;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      score: 'Score',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      score: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PedestrianDetectAttributeResponseDataAttributesHat extends $tea.Model {
+  name: string;
+  score: number;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      score: 'Score',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      score: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PedestrianDetectAttributeResponseDataAttributesLowerColor extends $tea.Model {
+  name: string;
+  score: number;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      score: 'Score',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      score: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PedestrianDetectAttributeResponseDataAttributesLowerWear extends $tea.Model {
+  name: string;
+  score: number;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      score: 'Score',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      score: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PedestrianDetectAttributeResponseDataAttributesOrient extends $tea.Model {
+  name: string;
+  score: number;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      score: 'Score',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      score: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PedestrianDetectAttributeResponseDataAttributesShoulderBag extends $tea.Model {
+  name: string;
+  score: number;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      score: 'Score',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      score: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PedestrianDetectAttributeResponseDataAttributesUpperColor extends $tea.Model {
+  name: string;
+  score: number;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      score: 'Score',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      score: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PedestrianDetectAttributeResponseDataAttributesUpperWear extends $tea.Model {
+  name: string;
+  score: number;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      score: 'Score',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      score: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PedestrianDetectAttributeResponseDataAttributes extends $tea.Model {
+  age: PedestrianDetectAttributeResponseDataAttributesAge;
+  backpack: PedestrianDetectAttributeResponseDataAttributesBackpack;
+  gender: PedestrianDetectAttributeResponseDataAttributesGender;
+  glasses: PedestrianDetectAttributeResponseDataAttributesGlasses;
+  handbag: PedestrianDetectAttributeResponseDataAttributesHandbag;
+  hat: PedestrianDetectAttributeResponseDataAttributesHat;
+  lowerColor: PedestrianDetectAttributeResponseDataAttributesLowerColor;
+  lowerWear: PedestrianDetectAttributeResponseDataAttributesLowerWear;
+  orient: PedestrianDetectAttributeResponseDataAttributesOrient;
+  shoulderBag: PedestrianDetectAttributeResponseDataAttributesShoulderBag;
+  upperColor: PedestrianDetectAttributeResponseDataAttributesUpperColor;
+  upperWear: PedestrianDetectAttributeResponseDataAttributesUpperWear;
+  static names(): { [key: string]: string } {
+    return {
+      age: 'Age',
+      backpack: 'Backpack',
+      gender: 'Gender',
+      glasses: 'Glasses',
+      handbag: 'Handbag',
+      hat: 'Hat',
+      lowerColor: 'LowerColor',
+      lowerWear: 'LowerWear',
+      orient: 'Orient',
+      shoulderBag: 'ShoulderBag',
+      upperColor: 'UpperColor',
+      upperWear: 'UpperWear',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      age: PedestrianDetectAttributeResponseDataAttributesAge,
+      backpack: PedestrianDetectAttributeResponseDataAttributesBackpack,
+      gender: PedestrianDetectAttributeResponseDataAttributesGender,
+      glasses: PedestrianDetectAttributeResponseDataAttributesGlasses,
+      handbag: PedestrianDetectAttributeResponseDataAttributesHandbag,
+      hat: PedestrianDetectAttributeResponseDataAttributesHat,
+      lowerColor: PedestrianDetectAttributeResponseDataAttributesLowerColor,
+      lowerWear: PedestrianDetectAttributeResponseDataAttributesLowerWear,
+      orient: PedestrianDetectAttributeResponseDataAttributesOrient,
+      shoulderBag: PedestrianDetectAttributeResponseDataAttributesShoulderBag,
+      upperColor: PedestrianDetectAttributeResponseDataAttributesUpperColor,
+      upperWear: PedestrianDetectAttributeResponseDataAttributesUpperWear,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PedestrianDetectAttributeResponseDataBoxes extends $tea.Model {
+  score: number;
+  topLeftX: number;
+  topLeftY: number;
+  bottomRightX: number;
+  bottomRightY: number;
+  static names(): { [key: string]: string } {
+    return {
+      score: 'Score',
+      topLeftX: 'TopLeftX',
+      topLeftY: 'TopLeftY',
+      bottomRightX: 'BottomRightX',
+      bottomRightY: 'BottomRightY',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      score: 'number',
+      topLeftX: 'number',
+      topLeftY: 'number',
+      bottomRightX: 'number',
+      bottomRightY: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PedestrianDetectAttributeResponseData extends $tea.Model {
+  personNumber: number;
+  attributes: PedestrianDetectAttributeResponseDataAttributes[];
+  boxes: PedestrianDetectAttributeResponseDataBoxes[];
+  static names(): { [key: string]: string } {
+    return {
+      personNumber: 'PersonNumber',
+      attributes: 'Attributes',
+      boxes: 'Boxes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      personNumber: 'number',
+      attributes: { 'type': 'array', 'itemType': PedestrianDetectAttributeResponseDataAttributes },
+      boxes: { 'type': 'array', 'itemType': PedestrianDetectAttributeResponseDataBoxes },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DetectChefCapResponseDataElements extends $tea.Model {
   category: string;
   confidence: number;
@@ -3842,6 +4258,70 @@ export default class Client extends RPC {
   }
 
 
+  async pedestrianDetectAttribute(request: PedestrianDetectAttributeRequest, runtime: $Util.RuntimeOptions): Promise<PedestrianDetectAttributeResponse> {
+    Util.validateModel(request);
+    return $tea.cast<PedestrianDetectAttributeResponse>(await this.doRequest("PedestrianDetectAttribute", "HTTPS", "POST", "2019-12-30", "AK", null, $tea.toMap(request), runtime), new PedestrianDetectAttributeResponse({}));
+  }
+
+  async pedestrianDetectAttributeAdvance(request: PedestrianDetectAttributeAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<PedestrianDetectAttributeResponse> {
+    // Step 0: init client
+    let accessKeyId = await this._credential.getAccessKeyId();
+    let accessKeySecret = await this._credential.getAccessKeySecret();
+    let authConfig = new $RPC.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      endpoint: "openplatform.aliyuncs.com",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenPlatform(authConfig);
+    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
+      product: "facebody",
+      regionId: this._regionId,
+    });
+    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
+    let ossConfig = new $OSS.Config({
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let ossClient : OSS = null;
+    let fileObj = new $FileForm.FileField({ });
+    let ossHeader = new $OSS.PostObjectRequestHeader({ });
+    let uploadRequest = new $OSS.PostObjectRequest({ });
+    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
+    RPCUtil.convert(runtime, ossRuntime);
+    let pedestrianDetectAttributereq = new PedestrianDetectAttributeRequest({ });
+    RPCUtil.convert(request, pedestrianDetectAttributereq);
+    authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+    ossConfig.accessKeyId = authResponse.accessKeyId;
+    ossConfig.endpoint = RPCUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+    ossClient = new OSS(ossConfig);
+    fileObj = new $FileForm.FileField({
+      filename: authResponse.objectKey,
+      content: request.imageURLObject,
+      contentType: "",
+    });
+    ossHeader = new $OSS.PostObjectRequestHeader({
+      accessKeyId: authResponse.accessKeyId,
+      policy: authResponse.encodedPolicy,
+      signature: authResponse.signature,
+      key: authResponse.objectKey,
+      file: fileObj,
+      successActionStatus: "201",
+    });
+    uploadRequest = new $OSS.PostObjectRequest({
+      bucketName: authResponse.bucket,
+      header: ossHeader,
+    });
+    await ossClient.postObject(uploadRequest, ossRuntime);
+    pedestrianDetectAttributereq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    let pedestrianDetectAttributeResp = await this.pedestrianDetectAttribute(pedestrianDetectAttributereq, runtime);
+    return pedestrianDetectAttributeResp;
+  }
+
   async detectChefCap(request: DetectChefCapRequest, runtime: $Util.RuntimeOptions): Promise<DetectChefCapResponse> {
     Util.validateModel(request);
     return $tea.cast<DetectChefCapResponse>(await this.doRequest("DetectChefCap", "HTTPS", "POST", "2019-12-30", "AK", null, $tea.toMap(request), runtime), new DetectChefCapResponse({}));
@@ -4042,65 +4522,6 @@ export default class Client extends RPC {
   async extractPedestrianFeatureAttribute(request: ExtractPedestrianFeatureAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ExtractPedestrianFeatureAttributeResponse> {
     Util.validateModel(request);
     return $tea.cast<ExtractPedestrianFeatureAttributeResponse>(await this.doRequest("ExtractPedestrianFeatureAttribute", "HTTPS", "POST", "2019-12-30", "AK", null, $tea.toMap(request), runtime), new ExtractPedestrianFeatureAttributeResponse({}));
-  }
-
-  async extractPedestrianFeatureAttributeAdvance(request: ExtractPedestrianFeatureAttributeAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<ExtractPedestrianFeatureAttributeResponse> {
-    // Step 0: init client
-    let accessKeyId = await this._credential.getAccessKeyId();
-    let accessKeySecret = await this._credential.getAccessKeySecret();
-    let authConfig = new $RPC.Config({
-      accessKeyId: accessKeyId,
-      accessKeySecret: accessKeySecret,
-      type: "access_key",
-      endpoint: "openplatform.aliyuncs.com",
-      protocol: this._protocol,
-      regionId: this._regionId,
-    });
-    let authClient = new OpenPlatform(authConfig);
-    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
-      product: "facebody",
-      regionId: this._regionId,
-    });
-    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
-    let ossConfig = new $OSS.Config({
-      accessKeySecret: accessKeySecret,
-      type: "access_key",
-      protocol: this._protocol,
-      regionId: this._regionId,
-    });
-    let ossClient : OSS = null;
-    let fileObj = new $FileForm.FileField({ });
-    let ossHeader = new $OSS.PostObjectRequestHeader({ });
-    let uploadRequest = new $OSS.PostObjectRequest({ });
-    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
-    RPCUtil.convert(runtime, ossRuntime);
-    let extractPedestrianFeatureAttributereq = new ExtractPedestrianFeatureAttributeRequest({ });
-    RPCUtil.convert(request, extractPedestrianFeatureAttributereq);
-    authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-    ossConfig.accessKeyId = authResponse.accessKeyId;
-    ossConfig.endpoint = RPCUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
-    ossClient = new OSS(ossConfig);
-    fileObj = new $FileForm.FileField({
-      filename: authResponse.objectKey,
-      content: request.imageURLObject,
-      contentType: "",
-    });
-    ossHeader = new $OSS.PostObjectRequestHeader({
-      accessKeyId: authResponse.accessKeyId,
-      policy: authResponse.encodedPolicy,
-      signature: authResponse.signature,
-      key: authResponse.objectKey,
-      file: fileObj,
-      successActionStatus: "201",
-    });
-    uploadRequest = new $OSS.PostObjectRequest({
-      bucketName: authResponse.bucket,
-      header: ossHeader,
-    });
-    await ossClient.postObject(uploadRequest, ossRuntime);
-    extractPedestrianFeatureAttributereq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
-    let extractPedestrianFeatureAttributeResp = await this.extractPedestrianFeatureAttribute(extractPedestrianFeatureAttributereq, runtime);
-    return extractPedestrianFeatureAttributeResp;
   }
 
   async detectCelebrity(request: DetectCelebrityRequest, runtime: $Util.RuntimeOptions): Promise<DetectCelebrityResponse> {
