@@ -4940,6 +4940,8 @@ export class UpdateFileRequest extends $tea.Model {
   fileId: number;
   outputList?: string;
   resourceGroupIdentifier?: string;
+  connectionName?: string;
+  owner?: string;
   static names(): { [key: string]: string } {
     return {
       fileFolderPath: 'FileFolderPath',
@@ -4963,6 +4965,8 @@ export class UpdateFileRequest extends $tea.Model {
       fileId: 'FileId',
       outputList: 'OutputList',
       resourceGroupIdentifier: 'ResourceGroupIdentifier',
+      connectionName: 'ConnectionName',
+      owner: 'Owner',
     };
   }
 
@@ -4989,6 +4993,8 @@ export class UpdateFileRequest extends $tea.Model {
       fileId: 'number',
       outputList: 'string',
       resourceGroupIdentifier: 'string',
+      connectionName: 'string',
+      owner: 'string',
     };
   }
 
@@ -5540,6 +5546,8 @@ export class CreateFileRequest extends $tea.Model {
   inputList: string;
   projectIdentifier?: string;
   resourceGroupIdentifier?: string;
+  resourceGroupId?: number;
+  connectionName?: string;
   static names(): { [key: string]: string } {
     return {
       fileFolderPath: 'FileFolderPath',
@@ -5563,6 +5571,8 @@ export class CreateFileRequest extends $tea.Model {
       inputList: 'InputList',
       projectIdentifier: 'ProjectIdentifier',
       resourceGroupIdentifier: 'ResourceGroupIdentifier',
+      resourceGroupId: 'ResourceGroupId',
+      connectionName: 'ConnectionName',
     };
   }
 
@@ -5589,6 +5599,8 @@ export class CreateFileRequest extends $tea.Model {
       inputList: 'string',
       projectIdentifier: 'string',
       resourceGroupIdentifier: 'string',
+      resourceGroupId: 'number',
+      connectionName: 'string',
     };
   }
 
@@ -17975,7 +17987,7 @@ export default class Client extends RPC {
 
   async getQualityEntityWithOptions(request: GetQualityEntityRequest, runtime: $Util.RuntimeOptions): Promise<GetQualityEntityResponse> {
     Util.validateModel(request);
-    return $tea.cast<GetQualityEntityResponse>(await this.doRequest("GetQualityEntity", "HTTP", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new GetQualityEntityResponse({}));
+    return $tea.cast<GetQualityEntityResponse>(await this.doRequest("GetQualityEntity", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new GetQualityEntityResponse({}));
   }
 
   async getQualityEntity(request: GetQualityEntityRequest): Promise<GetQualityEntityResponse> {
@@ -18005,7 +18017,7 @@ export default class Client extends RPC {
 
   async createQualityEntityWithOptions(request: CreateQualityEntityRequest, runtime: $Util.RuntimeOptions): Promise<CreateQualityEntityResponse> {
     Util.validateModel(request);
-    return $tea.cast<CreateQualityEntityResponse>(await this.doRequest("CreateQualityEntity", "HTTP", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new CreateQualityEntityResponse({}));
+    return $tea.cast<CreateQualityEntityResponse>(await this.doRequest("CreateQualityEntity", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new CreateQualityEntityResponse({}));
   }
 
   async createQualityEntity(request: CreateQualityEntityRequest): Promise<CreateQualityEntityResponse> {
