@@ -924,7 +924,7 @@ export class GetConsumerStatusResponse extends $tea.Model {
   realtimeMonitor: boolean;
   liveMonitor: boolean;
   cdnUrlRedirectFlag: boolean;
-  businessType: boolean;
+  businessType: string;
   audit: number;
   comment: string;
   createdAt: string;
@@ -955,7 +955,7 @@ export class GetConsumerStatusResponse extends $tea.Model {
       realtimeMonitor: 'boolean',
       liveMonitor: 'boolean',
       cdnUrlRedirectFlag: 'boolean',
-      businessType: 'boolean',
+      businessType: 'string',
       audit: 'number',
       comment: 'string',
       createdAt: 'string',
