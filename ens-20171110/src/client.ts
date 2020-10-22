@@ -385,11 +385,13 @@ export class DescribeImageSharePermissionRequest extends $tea.Model {
   imageId: string;
   pageNumber?: string;
   pageSize?: string;
+  aliyunId?: number;
   static names(): { [key: string]: string } {
     return {
       imageId: 'ImageId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      aliyunId: 'AliyunId',
     };
   }
 
@@ -398,6 +400,7 @@ export class DescribeImageSharePermissionRequest extends $tea.Model {
       imageId: 'string',
       pageNumber: 'string',
       pageSize: 'string',
+      aliyunId: 'number',
     };
   }
 
