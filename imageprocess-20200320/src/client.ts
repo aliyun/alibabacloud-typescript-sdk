@@ -1352,6 +1352,7 @@ export class DetectLungNoduleResponseDataSeriesElements extends $tea.Model {
   imageX: number;
   imageY: number;
   imageZ: number;
+  SOPInstanceUID: string;
   static names(): { [key: string]: string } {
     return {
       category: 'Category',
@@ -1365,6 +1366,7 @@ export class DetectLungNoduleResponseDataSeriesElements extends $tea.Model {
       imageX: 'ImageX',
       imageY: 'ImageY',
       imageZ: 'ImageZ',
+      SOPInstanceUID: 'SOPInstanceUID',
     };
   }
 
@@ -1381,6 +1383,7 @@ export class DetectLungNoduleResponseDataSeriesElements extends $tea.Model {
       imageX: 'number',
       imageY: 'number',
       imageZ: 'number',
+      SOPInstanceUID: 'string',
     };
   }
 
