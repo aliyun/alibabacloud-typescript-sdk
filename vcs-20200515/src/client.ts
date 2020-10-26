@@ -5,6 +5,315 @@ import RPC, * as $RPC from '@alicloud/rpc-client';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class UnsubscribeDeviceEventRequest extends $tea.Model {
+  deviceId: string;
+  static names(): { [key: string]: string } {
+    return {
+      deviceId: 'DeviceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnsubscribeDeviceEventResponse extends $tea.Model {
+  code: string;
+  message: string;
+  requestId: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSubscribeDeviceRequest extends $tea.Model {
+  pageNum: number;
+  pageSize: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNum: 'PageNum',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNum: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSubscribeDeviceResponse extends $tea.Model {
+  code: string;
+  message: string;
+  requestId: string;
+  data: ListSubscribeDeviceResponseData;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+      data: ListSubscribeDeviceResponseData,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubscribeDeviceEventRequest extends $tea.Model {
+  deviceId: string;
+  pushConfig: string;
+  static names(): { [key: string]: string } {
+    return {
+      deviceId: 'DeviceId',
+      pushConfig: 'PushConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceId: 'string',
+      pushConfig: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubscribeDeviceEventResponse extends $tea.Model {
+  requestId: string;
+  code: string;
+  message: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      code: 'Code',
+      message: 'Message',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      code: 'string',
+      message: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubscribeSpaceEventRequest extends $tea.Model {
+  spaceId: string;
+  pushConfig: string;
+  static names(): { [key: string]: string } {
+    return {
+      spaceId: 'SpaceId',
+      pushConfig: 'PushConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      spaceId: 'string',
+      pushConfig: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubscribeSpaceEventResponse extends $tea.Model {
+  code: string;
+  message: string;
+  requestId: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnsubscribeSpaceEventRequest extends $tea.Model {
+  spaceId: string;
+  static names(): { [key: string]: string } {
+    return {
+      spaceId: 'SpaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      spaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnsubscribeSpaceEventResponse extends $tea.Model {
+  code: string;
+  message: string;
+  requestId: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPersonTraceDetailsRequest extends $tea.Model {
+  corpId?: string;
+  pageNumber: number;
+  pageSize: number;
+  endTime: string;
+  personId?: string;
+  startTime: string;
+  subId?: string;
+  dataSourceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      corpId: 'CorpId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      endTime: 'EndTime',
+      personId: 'PersonId',
+      startTime: 'StartTime',
+      subId: 'SubId',
+      dataSourceId: 'DataSourceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      corpId: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      endTime: 'string',
+      personId: 'string',
+      startTime: 'string',
+      subId: 'string',
+      dataSourceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPersonTraceDetailsResponse extends $tea.Model {
+  code: string;
+  message: string;
+  requestId: string;
+  pageNumber: number;
+  pageSize: number;
+  totalCount: number;
+  data: ListPersonTraceDetailsResponseData[];
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
+      data: { 'type': 'array', 'itemType': ListPersonTraceDetailsResponseData },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetMonitorListRequest extends $tea.Model {
   corpId: string;
   pageNo: number;
@@ -5411,6 +5720,108 @@ export class DeleteDeviceResponse extends $tea.Model {
   }
 }
 
+export class ListSubscribeDeviceResponseDataSubscribeList extends $tea.Model {
+  userId: string;
+  deviceId: string;
+  pushConfig: string;
+  createTime: string;
+  updateTime: string;
+  static names(): { [key: string]: string } {
+    return {
+      userId: 'UserId',
+      deviceId: 'DeviceId',
+      pushConfig: 'PushConfig',
+      createTime: 'CreateTime',
+      updateTime: 'UpdateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      userId: 'string',
+      deviceId: 'string',
+      pushConfig: 'string',
+      createTime: 'string',
+      updateTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSubscribeDeviceResponseData extends $tea.Model {
+  totalCount: number;
+  subscribeList: ListSubscribeDeviceResponseDataSubscribeList[];
+  static names(): { [key: string]: string } {
+    return {
+      totalCount: 'TotalCount',
+      subscribeList: 'SubscribeList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      totalCount: 'number',
+      subscribeList: { 'type': 'array', 'itemType': ListSubscribeDeviceResponseDataSubscribeList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPersonTraceDetailsResponseData extends $tea.Model {
+  targetPicUrlPath: string;
+  dataSourceId: string;
+  personId: string;
+  picUrlPath: string;
+  rightBottomY: string;
+  rightBottomX: string;
+  shotTime: string;
+  corpId: string;
+  subId: string;
+  leftTopY: string;
+  leftTopX: string;
+  static names(): { [key: string]: string } {
+    return {
+      targetPicUrlPath: 'TargetPicUrlPath',
+      dataSourceId: 'DataSourceId',
+      personId: 'PersonId',
+      picUrlPath: 'PicUrlPath',
+      rightBottomY: 'RightBottomY',
+      rightBottomX: 'RightBottomX',
+      shotTime: 'ShotTime',
+      corpId: 'CorpId',
+      subId: 'SubId',
+      leftTopY: 'LeftTopY',
+      leftTopX: 'LeftTopX',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      targetPicUrlPath: 'string',
+      dataSourceId: 'string',
+      personId: 'string',
+      picUrlPath: 'string',
+      rightBottomY: 'string',
+      rightBottomX: 'string',
+      shotTime: 'string',
+      corpId: 'string',
+      subId: 'string',
+      leftTopY: 'string',
+      leftTopX: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetMonitorListResponseDataRecords extends $tea.Model {
   taskId: string;
   status: string;
@@ -8010,6 +8421,8 @@ export class RecognizeImageResponseDataFaceList extends $tea.Model {
   respiratorColor: string;
   rightBottomX: string;
   rightBottomY: string;
+  quality: number;
+  keyPointQuality: number;
   static names(): { [key: string]: string } {
     return {
       feature: 'Feature',
@@ -8021,6 +8434,8 @@ export class RecognizeImageResponseDataFaceList extends $tea.Model {
       respiratorColor: 'RespiratorColor',
       rightBottomX: 'RightBottomX',
       rightBottomY: 'RightBottomY',
+      quality: 'Quality',
+      keyPointQuality: 'KeyPointQuality',
     };
   }
 
@@ -8035,6 +8450,8 @@ export class RecognizeImageResponseDataFaceList extends $tea.Model {
       respiratorColor: 'string',
       rightBottomX: 'string',
       rightBottomY: 'string',
+      quality: 'number',
+      keyPointQuality: 'number',
     };
   }
 
@@ -8333,6 +8750,66 @@ export default class Client extends RPC {
     this._endpoint = this.getEndpoint("vcs", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
 
+
+  async unsubscribeDeviceEventWithOptions(request: UnsubscribeDeviceEventRequest, runtime: $Util.RuntimeOptions): Promise<UnsubscribeDeviceEventResponse> {
+    Util.validateModel(request);
+    return $tea.cast<UnsubscribeDeviceEventResponse>(await this.doRequest("UnsubscribeDeviceEvent", "HTTPS", "POST", "2020-05-15", "AK", null, $tea.toMap(request), runtime), new UnsubscribeDeviceEventResponse({}));
+  }
+
+  async unsubscribeDeviceEvent(request: UnsubscribeDeviceEventRequest): Promise<UnsubscribeDeviceEventResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.unsubscribeDeviceEventWithOptions(request, runtime);
+  }
+
+  async listSubscribeDeviceWithOptions(request: ListSubscribeDeviceRequest, runtime: $Util.RuntimeOptions): Promise<ListSubscribeDeviceResponse> {
+    Util.validateModel(request);
+    return $tea.cast<ListSubscribeDeviceResponse>(await this.doRequest("ListSubscribeDevice", "HTTPS", "POST", "2020-05-15", "AK", null, $tea.toMap(request), runtime), new ListSubscribeDeviceResponse({}));
+  }
+
+  async listSubscribeDevice(request: ListSubscribeDeviceRequest): Promise<ListSubscribeDeviceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listSubscribeDeviceWithOptions(request, runtime);
+  }
+
+  async subscribeDeviceEventWithOptions(request: SubscribeDeviceEventRequest, runtime: $Util.RuntimeOptions): Promise<SubscribeDeviceEventResponse> {
+    Util.validateModel(request);
+    return $tea.cast<SubscribeDeviceEventResponse>(await this.doRequest("SubscribeDeviceEvent", "HTTPS", "POST", "2020-05-15", "AK", null, $tea.toMap(request), runtime), new SubscribeDeviceEventResponse({}));
+  }
+
+  async subscribeDeviceEvent(request: SubscribeDeviceEventRequest): Promise<SubscribeDeviceEventResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.subscribeDeviceEventWithOptions(request, runtime);
+  }
+
+  async subscribeSpaceEventWithOptions(request: SubscribeSpaceEventRequest, runtime: $Util.RuntimeOptions): Promise<SubscribeSpaceEventResponse> {
+    Util.validateModel(request);
+    return $tea.cast<SubscribeSpaceEventResponse>(await this.doRequest("SubscribeSpaceEvent", "HTTPS", "POST", "2020-05-15", "AK", null, $tea.toMap(request), runtime), new SubscribeSpaceEventResponse({}));
+  }
+
+  async subscribeSpaceEvent(request: SubscribeSpaceEventRequest): Promise<SubscribeSpaceEventResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.subscribeSpaceEventWithOptions(request, runtime);
+  }
+
+  async unsubscribeSpaceEventWithOptions(request: UnsubscribeSpaceEventRequest, runtime: $Util.RuntimeOptions): Promise<UnsubscribeSpaceEventResponse> {
+    Util.validateModel(request);
+    return $tea.cast<UnsubscribeSpaceEventResponse>(await this.doRequest("UnsubscribeSpaceEvent", "HTTPS", "POST", "2020-05-15", "AK", null, $tea.toMap(request), runtime), new UnsubscribeSpaceEventResponse({}));
+  }
+
+  async unsubscribeSpaceEvent(request: UnsubscribeSpaceEventRequest): Promise<UnsubscribeSpaceEventResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.unsubscribeSpaceEventWithOptions(request, runtime);
+  }
+
+  async listPersonTraceDetailsWithOptions(request: ListPersonTraceDetailsRequest, runtime: $Util.RuntimeOptions): Promise<ListPersonTraceDetailsResponse> {
+    Util.validateModel(request);
+    return $tea.cast<ListPersonTraceDetailsResponse>(await this.doRequest("ListPersonTraceDetails", "HTTPS", "POST", "2020-05-15", "AK,APP", null, $tea.toMap(request), runtime), new ListPersonTraceDetailsResponse({}));
+  }
+
+  async listPersonTraceDetails(request: ListPersonTraceDetailsRequest): Promise<ListPersonTraceDetailsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listPersonTraceDetailsWithOptions(request, runtime);
+  }
 
   async getMonitorListWithOptions(request: GetMonitorListRequest, runtime: $Util.RuntimeOptions): Promise<GetMonitorListResponse> {
     Util.validateModel(request);
