@@ -10,6 +10,126 @@ import EndpointUtil from '@alicloud/endpoint-util';
 import { Readable } from 'stream';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class SegmentHDSkyRequest extends $tea.Model {
+  imageURL: string;
+  static names(): { [key: string]: string } {
+    return {
+      imageURL: 'ImageURL',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageURL: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SegmentHDSkyResponse extends $tea.Model {
+  requestId: string;
+  data: SegmentHDSkyResponseData;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      data: SegmentHDSkyResponseData,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SegmentHDSkyAdvanceRequest extends $tea.Model {
+  imageURLObject: Readable;
+  static names(): { [key: string]: string } {
+    return {
+      imageURLObject: 'ImageURLObject',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageURLObject: 'Readable',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SegmentHDCommonImageRequest extends $tea.Model {
+  imageUrl: string;
+  static names(): { [key: string]: string } {
+    return {
+      imageUrl: 'ImageUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SegmentHDCommonImageResponse extends $tea.Model {
+  requestId: string;
+  data: SegmentHDCommonImageResponseData;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      data: SegmentHDCommonImageResponseData,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SegmentHDCommonImageAdvanceRequest extends $tea.Model {
+  imageUrlObject: Readable;
+  static names(): { [key: string]: string } {
+    return {
+      imageUrlObject: 'ImageUrlObject',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageUrlObject: 'Readable',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SegmentSkinRequest extends $tea.Model {
   URL: string;
   static names(): { [key: string]: string } {
@@ -1209,6 +1329,44 @@ export class SegmentCommonImageAdvanceRequest extends $tea.Model {
   }
 }
 
+export class SegmentHDSkyResponseData extends $tea.Model {
+  imageURL: string;
+  static names(): { [key: string]: string } {
+    return {
+      imageURL: 'ImageURL',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageURL: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SegmentHDCommonImageResponseData extends $tea.Model {
+  imageUrl: string;
+  static names(): { [key: string]: string } {
+    return {
+      imageUrl: 'ImageUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SegmentSkinResponseData extends $tea.Model {
   URL: string;
   static names(): { [key: string]: string } {
@@ -1808,6 +1966,134 @@ export default class Client extends RPC {
     this._endpoint = this.getEndpoint("imageseg", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
 
+
+  async segmentHDSky(request: SegmentHDSkyRequest, runtime: $Util.RuntimeOptions): Promise<SegmentHDSkyResponse> {
+    Util.validateModel(request);
+    return $tea.cast<SegmentHDSkyResponse>(await this.doRequest("SegmentHDSky", "HTTPS", "POST", "2019-12-30", "AK", null, $tea.toMap(request), runtime), new SegmentHDSkyResponse({}));
+  }
+
+  async segmentHDSkyAdvance(request: SegmentHDSkyAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<SegmentHDSkyResponse> {
+    // Step 0: init client
+    let accessKeyId = await this._credential.getAccessKeyId();
+    let accessKeySecret = await this._credential.getAccessKeySecret();
+    let authConfig = new $RPC.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      endpoint: "openplatform.aliyuncs.com",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenPlatform(authConfig);
+    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
+      product: "imageseg",
+      regionId: this._regionId,
+    });
+    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
+    let ossConfig = new $OSS.Config({
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let ossClient : OSS = null;
+    let fileObj = new $FileForm.FileField({ });
+    let ossHeader = new $OSS.PostObjectRequestHeader({ });
+    let uploadRequest = new $OSS.PostObjectRequest({ });
+    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
+    RPCUtil.convert(runtime, ossRuntime);
+    let segmentHDSkyreq = new SegmentHDSkyRequest({ });
+    RPCUtil.convert(request, segmentHDSkyreq);
+    authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+    ossConfig.accessKeyId = authResponse.accessKeyId;
+    ossConfig.endpoint = RPCUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+    ossClient = new OSS(ossConfig);
+    fileObj = new $FileForm.FileField({
+      filename: authResponse.objectKey,
+      content: request.imageURLObject,
+      contentType: "",
+    });
+    ossHeader = new $OSS.PostObjectRequestHeader({
+      accessKeyId: authResponse.accessKeyId,
+      policy: authResponse.encodedPolicy,
+      signature: authResponse.signature,
+      key: authResponse.objectKey,
+      file: fileObj,
+      successActionStatus: "201",
+    });
+    uploadRequest = new $OSS.PostObjectRequest({
+      bucketName: authResponse.bucket,
+      header: ossHeader,
+    });
+    await ossClient.postObject(uploadRequest, ossRuntime);
+    segmentHDSkyreq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    let segmentHDSkyResp = await this.segmentHDSky(segmentHDSkyreq, runtime);
+    return segmentHDSkyResp;
+  }
+
+  async segmentHDCommonImage(request: SegmentHDCommonImageRequest, runtime: $Util.RuntimeOptions): Promise<SegmentHDCommonImageResponse> {
+    Util.validateModel(request);
+    return $tea.cast<SegmentHDCommonImageResponse>(await this.doRequest("SegmentHDCommonImage", "HTTPS", "POST", "2019-12-30", "AK", null, $tea.toMap(request), runtime), new SegmentHDCommonImageResponse({}));
+  }
+
+  async segmentHDCommonImageAdvance(request: SegmentHDCommonImageAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<SegmentHDCommonImageResponse> {
+    // Step 0: init client
+    let accessKeyId = await this._credential.getAccessKeyId();
+    let accessKeySecret = await this._credential.getAccessKeySecret();
+    let authConfig = new $RPC.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      endpoint: "openplatform.aliyuncs.com",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenPlatform(authConfig);
+    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
+      product: "imageseg",
+      regionId: this._regionId,
+    });
+    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
+    let ossConfig = new $OSS.Config({
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let ossClient : OSS = null;
+    let fileObj = new $FileForm.FileField({ });
+    let ossHeader = new $OSS.PostObjectRequestHeader({ });
+    let uploadRequest = new $OSS.PostObjectRequest({ });
+    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
+    RPCUtil.convert(runtime, ossRuntime);
+    let segmentHDCommonImagereq = new SegmentHDCommonImageRequest({ });
+    RPCUtil.convert(request, segmentHDCommonImagereq);
+    authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+    ossConfig.accessKeyId = authResponse.accessKeyId;
+    ossConfig.endpoint = RPCUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+    ossClient = new OSS(ossConfig);
+    fileObj = new $FileForm.FileField({
+      filename: authResponse.objectKey,
+      content: request.imageUrlObject,
+      contentType: "",
+    });
+    ossHeader = new $OSS.PostObjectRequestHeader({
+      accessKeyId: authResponse.accessKeyId,
+      policy: authResponse.encodedPolicy,
+      signature: authResponse.signature,
+      key: authResponse.objectKey,
+      file: fileObj,
+      successActionStatus: "201",
+    });
+    uploadRequest = new $OSS.PostObjectRequest({
+      bucketName: authResponse.bucket,
+      header: ossHeader,
+    });
+    await ossClient.postObject(uploadRequest, ossRuntime);
+    segmentHDCommonImagereq.imageUrl = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    let segmentHDCommonImageResp = await this.segmentHDCommonImage(segmentHDCommonImagereq, runtime);
+    return segmentHDCommonImageResp;
+  }
 
   async segmentSkin(request: SegmentSkinRequest, runtime: $Util.RuntimeOptions): Promise<SegmentSkinResponse> {
     Util.validateModel(request);
