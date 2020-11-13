@@ -10,6 +10,132 @@ import EndpointUtil from '@alicloud/endpoint-util';
 import { Readable } from 'stream';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class CountCrowdRequest extends $tea.Model {
+  imageURL: string;
+  isShow?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      imageURL: 'ImageURL',
+      isShow: 'IsShow',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageURL: 'string',
+      isShow: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CountCrowdResponse extends $tea.Model {
+  requestId: string;
+  data: CountCrowdResponseData;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      data: CountCrowdResponseData,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CountCrowdAdvanceRequest extends $tea.Model {
+  imageURLObject: Readable;
+  isShow?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      imageURLObject: 'ImageURLObject',
+      isShow: 'IsShow',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageURLObject: 'Readable',
+      isShow: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateHumanAnimeStyleRequest extends $tea.Model {
+  imageURL: string;
+  static names(): { [key: string]: string } {
+    return {
+      imageURL: 'ImageURL',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageURL: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateHumanAnimeStyleResponse extends $tea.Model {
+  requestId: string;
+  data: GenerateHumanAnimeStyleResponseData;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      data: GenerateHumanAnimeStyleResponseData,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateHumanAnimeStyleAdvanceRequest extends $tea.Model {
+  imageURLObject: Readable;
+  static names(): { [key: string]: string } {
+    return {
+      imageURLObject: 'ImageURLObject',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageURLObject: 'Readable',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class PedestrianDetectAttributeRequest extends $tea.Model {
   imageURL: string;
   static names(): { [key: string]: string } {
@@ -305,11 +431,13 @@ export class BlurFaceAdvanceRequest extends $tea.Model {
 
 export class ExtractPedestrianFeatureAttributeRequest extends $tea.Model {
   mode?: string;
-  imageURL: string;
+  imageURL?: string;
+  urlList?: ExtractPedestrianFeatureAttributeRequestUrlList[];
   static names(): { [key: string]: string } {
     return {
       mode: 'Mode',
       imageURL: 'ImageURL',
+      urlList: 'UrlList',
     };
   }
 
@@ -317,6 +445,7 @@ export class ExtractPedestrianFeatureAttributeRequest extends $tea.Model {
     return {
       mode: 'string',
       imageURL: 'string',
+      urlList: { 'type': 'array', 'itemType': ExtractPedestrianFeatureAttributeRequestUrlList },
     };
   }
 
@@ -2155,6 +2284,47 @@ export class DetectFaceAdvanceRequest extends $tea.Model {
   }
 }
 
+export class CountCrowdResponseData extends $tea.Model {
+  peopleNumber: number;
+  hotMap: string;
+  static names(): { [key: string]: string } {
+    return {
+      peopleNumber: 'PeopleNumber',
+      hotMap: 'HotMap',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      peopleNumber: 'number',
+      hotMap: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateHumanAnimeStyleResponseData extends $tea.Model {
+  imageURL: string;
+  static names(): { [key: string]: string } {
+    return {
+      imageURL: 'ImageURL',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageURL: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class PedestrianDetectAttributeResponseDataAttributesAge extends $tea.Model {
   name: string;
   score: number;
@@ -2729,7 +2899,26 @@ export class BlurFaceResponseData extends $tea.Model {
   }
 }
 
-export class ExtractPedestrianFeatureAttributeResponseData extends $tea.Model {
+export class ExtractPedestrianFeatureAttributeRequestUrlList extends $tea.Model {
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExtractPedestrianFeatureAttributeResponseDataElements extends $tea.Model {
   objType: string;
   objTypeScore: number;
   feature: string;
@@ -2791,6 +2980,79 @@ export class ExtractPedestrianFeatureAttributeResponseData extends $tea.Model {
       hairScore: 'number',
       age: 'string',
       ageScore: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExtractPedestrianFeatureAttributeResponseData extends $tea.Model {
+  objType: string;
+  objTypeScore: number;
+  feature: string;
+  qualityScore: number;
+  upperColor: string;
+  upperColorScore: number;
+  upperType: string;
+  upperTypeScore: number;
+  lowerColor: string;
+  lowerColorScore: number;
+  lowerType: string;
+  lowerTypeScore: number;
+  gender: string;
+  genderScore: number;
+  hair: string;
+  hairScore: number;
+  age: string;
+  ageScore: number;
+  elements: ExtractPedestrianFeatureAttributeResponseDataElements[];
+  static names(): { [key: string]: string } {
+    return {
+      objType: 'ObjType',
+      objTypeScore: 'ObjTypeScore',
+      feature: 'Feature',
+      qualityScore: 'QualityScore',
+      upperColor: 'UpperColor',
+      upperColorScore: 'UpperColorScore',
+      upperType: 'UpperType',
+      upperTypeScore: 'UpperTypeScore',
+      lowerColor: 'LowerColor',
+      lowerColorScore: 'LowerColorScore',
+      lowerType: 'LowerType',
+      lowerTypeScore: 'LowerTypeScore',
+      gender: 'Gender',
+      genderScore: 'GenderScore',
+      hair: 'Hair',
+      hairScore: 'HairScore',
+      age: 'Age',
+      ageScore: 'AgeScore',
+      elements: 'Elements',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      objType: 'string',
+      objTypeScore: 'number',
+      feature: 'string',
+      qualityScore: 'number',
+      upperColor: 'string',
+      upperColorScore: 'number',
+      upperType: 'string',
+      upperTypeScore: 'number',
+      lowerColor: 'string',
+      lowerColorScore: 'number',
+      lowerType: 'string',
+      lowerTypeScore: 'number',
+      gender: 'string',
+      genderScore: 'number',
+      hair: 'string',
+      hairScore: 'number',
+      age: 'string',
+      ageScore: 'number',
+      elements: { 'type': 'array', 'itemType': ExtractPedestrianFeatureAttributeResponseDataElements },
     };
   }
 
@@ -4257,6 +4519,134 @@ export default class Client extends RPC {
     this._endpoint = this.getEndpoint("facebody", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
 
+
+  async countCrowd(request: CountCrowdRequest, runtime: $Util.RuntimeOptions): Promise<CountCrowdResponse> {
+    Util.validateModel(request);
+    return $tea.cast<CountCrowdResponse>(await this.doRequest("CountCrowd", "HTTPS", "POST", "2019-12-30", "AK", null, $tea.toMap(request), runtime), new CountCrowdResponse({}));
+  }
+
+  async countCrowdAdvance(request: CountCrowdAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<CountCrowdResponse> {
+    // Step 0: init client
+    let accessKeyId = await this._credential.getAccessKeyId();
+    let accessKeySecret = await this._credential.getAccessKeySecret();
+    let authConfig = new $RPC.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      endpoint: "openplatform.aliyuncs.com",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenPlatform(authConfig);
+    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
+      product: "facebody",
+      regionId: this._regionId,
+    });
+    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
+    let ossConfig = new $OSS.Config({
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let ossClient : OSS = null;
+    let fileObj = new $FileForm.FileField({ });
+    let ossHeader = new $OSS.PostObjectRequestHeader({ });
+    let uploadRequest = new $OSS.PostObjectRequest({ });
+    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
+    RPCUtil.convert(runtime, ossRuntime);
+    let countCrowdreq = new CountCrowdRequest({ });
+    RPCUtil.convert(request, countCrowdreq);
+    authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+    ossConfig.accessKeyId = authResponse.accessKeyId;
+    ossConfig.endpoint = RPCUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+    ossClient = new OSS(ossConfig);
+    fileObj = new $FileForm.FileField({
+      filename: authResponse.objectKey,
+      content: request.imageURLObject,
+      contentType: "",
+    });
+    ossHeader = new $OSS.PostObjectRequestHeader({
+      accessKeyId: authResponse.accessKeyId,
+      policy: authResponse.encodedPolicy,
+      signature: authResponse.signature,
+      key: authResponse.objectKey,
+      file: fileObj,
+      successActionStatus: "201",
+    });
+    uploadRequest = new $OSS.PostObjectRequest({
+      bucketName: authResponse.bucket,
+      header: ossHeader,
+    });
+    await ossClient.postObject(uploadRequest, ossRuntime);
+    countCrowdreq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    let countCrowdResp = await this.countCrowd(countCrowdreq, runtime);
+    return countCrowdResp;
+  }
+
+  async generateHumanAnimeStyle(request: GenerateHumanAnimeStyleRequest, runtime: $Util.RuntimeOptions): Promise<GenerateHumanAnimeStyleResponse> {
+    Util.validateModel(request);
+    return $tea.cast<GenerateHumanAnimeStyleResponse>(await this.doRequest("GenerateHumanAnimeStyle", "HTTPS", "POST", "2019-12-30", "AK", null, $tea.toMap(request), runtime), new GenerateHumanAnimeStyleResponse({}));
+  }
+
+  async generateHumanAnimeStyleAdvance(request: GenerateHumanAnimeStyleAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<GenerateHumanAnimeStyleResponse> {
+    // Step 0: init client
+    let accessKeyId = await this._credential.getAccessKeyId();
+    let accessKeySecret = await this._credential.getAccessKeySecret();
+    let authConfig = new $RPC.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      endpoint: "openplatform.aliyuncs.com",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenPlatform(authConfig);
+    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
+      product: "facebody",
+      regionId: this._regionId,
+    });
+    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
+    let ossConfig = new $OSS.Config({
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let ossClient : OSS = null;
+    let fileObj = new $FileForm.FileField({ });
+    let ossHeader = new $OSS.PostObjectRequestHeader({ });
+    let uploadRequest = new $OSS.PostObjectRequest({ });
+    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
+    RPCUtil.convert(runtime, ossRuntime);
+    let generateHumanAnimeStylereq = new GenerateHumanAnimeStyleRequest({ });
+    RPCUtil.convert(request, generateHumanAnimeStylereq);
+    authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+    ossConfig.accessKeyId = authResponse.accessKeyId;
+    ossConfig.endpoint = RPCUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+    ossClient = new OSS(ossConfig);
+    fileObj = new $FileForm.FileField({
+      filename: authResponse.objectKey,
+      content: request.imageURLObject,
+      contentType: "",
+    });
+    ossHeader = new $OSS.PostObjectRequestHeader({
+      accessKeyId: authResponse.accessKeyId,
+      policy: authResponse.encodedPolicy,
+      signature: authResponse.signature,
+      key: authResponse.objectKey,
+      file: fileObj,
+      successActionStatus: "201",
+    });
+    uploadRequest = new $OSS.PostObjectRequest({
+      bucketName: authResponse.bucket,
+      header: ossHeader,
+    });
+    await ossClient.postObject(uploadRequest, ossRuntime);
+    generateHumanAnimeStylereq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    let generateHumanAnimeStyleResp = await this.generateHumanAnimeStyle(generateHumanAnimeStylereq, runtime);
+    return generateHumanAnimeStyleResp;
+  }
 
   async pedestrianDetectAttribute(request: PedestrianDetectAttributeRequest, runtime: $Util.RuntimeOptions): Promise<PedestrianDetectAttributeResponse> {
     Util.validateModel(request);
