@@ -10,6 +10,72 @@ import EndpointUtil from '@alicloud/endpoint-util';
 import { Readable } from 'stream';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class ErasePersonRequest extends $tea.Model {
+  imageURL: string;
+  userMask: string;
+  static names(): { [key: string]: string } {
+    return {
+      imageURL: 'ImageURL',
+      userMask: 'UserMask',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageURL: 'string',
+      userMask: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ErasePersonResponse extends $tea.Model {
+  requestId: string;
+  data: ErasePersonResponseData;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      data: ErasePersonResponseData,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ErasePersonAdvanceRequest extends $tea.Model {
+  imageURLObject: Readable;
+  userMask: string;
+  static names(): { [key: string]: string } {
+    return {
+      imageURLObject: 'ImageURLObject',
+      userMask: 'UserMask',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageURLObject: 'Readable',
+      userMask: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GenerateDynamicImageRequest extends $tea.Model {
   url: string;
   operation: string;
@@ -1144,6 +1210,25 @@ export class RecolorImageResponse extends $tea.Model {
   }
 }
 
+export class ErasePersonResponseData extends $tea.Model {
+  imageUrl: string;
+  static names(): { [key: string]: string } {
+    return {
+      imageUrl: 'ImageUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GenerateDynamicImageResponseData extends $tea.Model {
   url: string;
   static names(): { [key: string]: string } {
@@ -1617,6 +1702,70 @@ export default class Client extends RPC {
     this._endpoint = this.getEndpoint("imageenhan", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
 
+
+  async erasePerson(request: ErasePersonRequest, runtime: $Util.RuntimeOptions): Promise<ErasePersonResponse> {
+    Util.validateModel(request);
+    return $tea.cast<ErasePersonResponse>(await this.doRequest("ErasePerson", "HTTPS", "POST", "2019-09-30", "AK", null, $tea.toMap(request), runtime), new ErasePersonResponse({}));
+  }
+
+  async erasePersonAdvance(request: ErasePersonAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<ErasePersonResponse> {
+    // Step 0: init client
+    let accessKeyId = await this._credential.getAccessKeyId();
+    let accessKeySecret = await this._credential.getAccessKeySecret();
+    let authConfig = new $RPC.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      endpoint: "openplatform.aliyuncs.com",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenPlatform(authConfig);
+    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
+      product: "imageenhan",
+      regionId: this._regionId,
+    });
+    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
+    let ossConfig = new $OSS.Config({
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let ossClient : OSS = null;
+    let fileObj = new $FileForm.FileField({ });
+    let ossHeader = new $OSS.PostObjectRequestHeader({ });
+    let uploadRequest = new $OSS.PostObjectRequest({ });
+    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
+    RPCUtil.convert(runtime, ossRuntime);
+    let erasePersonreq = new ErasePersonRequest({ });
+    RPCUtil.convert(request, erasePersonreq);
+    authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+    ossConfig.accessKeyId = authResponse.accessKeyId;
+    ossConfig.endpoint = RPCUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+    ossClient = new OSS(ossConfig);
+    fileObj = new $FileForm.FileField({
+      filename: authResponse.objectKey,
+      content: request.imageURLObject,
+      contentType: "",
+    });
+    ossHeader = new $OSS.PostObjectRequestHeader({
+      accessKeyId: authResponse.accessKeyId,
+      policy: authResponse.encodedPolicy,
+      signature: authResponse.signature,
+      key: authResponse.objectKey,
+      file: fileObj,
+      successActionStatus: "201",
+    });
+    uploadRequest = new $OSS.PostObjectRequest({
+      bucketName: authResponse.bucket,
+      header: ossHeader,
+    });
+    await ossClient.postObject(uploadRequest, ossRuntime);
+    erasePersonreq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    let erasePersonResp = await this.erasePerson(erasePersonreq, runtime);
+    return erasePersonResp;
+  }
 
   async generateDynamicImage(request: GenerateDynamicImageRequest, runtime: $Util.RuntimeOptions): Promise<GenerateDynamicImageResponse> {
     Util.validateModel(request);
