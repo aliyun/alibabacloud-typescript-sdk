@@ -4,6 +4,221 @@ import RPC, * as $RPC from '@alicloud/rpc-client';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class GetDagRequest extends $tea.Model {
+  dagId: number;
+  projectEnv: string;
+  static names(): { [key: string]: string } {
+    return {
+      dagId: 'DagId',
+      projectEnv: 'ProjectEnv',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dagId: 'number',
+      projectEnv: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDagResponse extends $tea.Model {
+  success: boolean;
+  httpStatusCode: number;
+  errorCode: string;
+  errorMessage: string;
+  requestId: string;
+  data: GetDagResponseData;
+  static names(): { [key: string]: string } {
+    return {
+      success: 'Success',
+      httpStatusCode: 'HttpStatusCode',
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      success: 'boolean',
+      httpStatusCode: 'number',
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      data: GetDagResponseData,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchNodesByOutputRequest extends $tea.Model {
+  projectEnv: string;
+  outputs: string;
+  static names(): { [key: string]: string } {
+    return {
+      projectEnv: 'ProjectEnv',
+      outputs: 'Outputs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectEnv: 'string',
+      outputs: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchNodesByOutputResponse extends $tea.Model {
+  success: boolean;
+  httpStatusCode: number;
+  errorCode: string;
+  errorMessage: string;
+  requestId: string;
+  data: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      success: 'Success',
+      httpStatusCode: 'HttpStatusCode',
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      success: 'boolean',
+      httpStatusCode: 'number',
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      data: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetManualDagInstancesRequest extends $tea.Model {
+  projectEnv: string;
+  projectName: string;
+  dagId: string;
+  static names(): { [key: string]: string } {
+    return {
+      projectEnv: 'ProjectEnv',
+      projectName: 'ProjectName',
+      dagId: 'DagId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectEnv: 'string',
+      projectName: 'string',
+      dagId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetManualDagInstancesResponse extends $tea.Model {
+  requestId: string;
+  instances: GetManualDagInstancesResponseInstances[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      instances: 'Instances',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      instances: { 'type': 'array', 'itemType': GetManualDagInstancesResponseInstances },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateManualDagRequest extends $tea.Model {
+  projectEnv: string;
+  projectName: string;
+  flowName: string;
+  bizDate: string;
+  nodeParameters?: string;
+  dagParameters?: string;
+  static names(): { [key: string]: string } {
+    return {
+      projectEnv: 'ProjectEnv',
+      projectName: 'ProjectName',
+      flowName: 'FlowName',
+      bizDate: 'BizDate',
+      nodeParameters: 'NodeParameters',
+      dagParameters: 'DagParameters',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectEnv: 'string',
+      projectName: 'string',
+      flowName: 'string',
+      bizDate: 'string',
+      nodeParameters: 'string',
+      dagParameters: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateManualDagResponse extends $tea.Model {
+  requestId: string;
+  dagId: number;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      dagId: 'DagId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      dagId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListQualityResultsByEntityRequest extends $tea.Model {
   entityId: number;
   startDate: string;
@@ -336,6 +551,7 @@ export class CreateTableRequest extends $tea.Model {
   envType?: number;
   themes?: CreateTableRequestThemes[];
   appGuid?: string;
+  comment?: string;
   static names(): { [key: string]: string } {
     return {
       hasPart: 'HasPart',
@@ -354,6 +570,7 @@ export class CreateTableRequest extends $tea.Model {
       envType: 'EnvType',
       themes: 'Themes',
       appGuid: 'AppGuid',
+      comment: 'Comment',
     };
   }
 
@@ -375,6 +592,7 @@ export class CreateTableRequest extends $tea.Model {
       envType: 'number',
       themes: { 'type': 'array', 'itemType': CreateTableRequestThemes },
       appGuid: 'string',
+      comment: 'string',
     };
   }
 
@@ -5401,6 +5619,7 @@ export class ListInstancesRequest extends $tea.Model {
   programType?: string;
   pageNumber?: number;
   pageSize?: number;
+  dagId?: number;
   static names(): { [key: string]: string } {
     return {
       projectEnv: 'ProjectEnv',
@@ -5412,6 +5631,7 @@ export class ListInstancesRequest extends $tea.Model {
       programType: 'ProgramType',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      dagId: 'DagId',
     };
   }
 
@@ -5426,6 +5646,7 @@ export class ListInstancesRequest extends $tea.Model {
       programType: 'string',
       pageNumber: 'number',
       pageSize: 'number',
+      dagId: 'number',
     };
   }
 
@@ -9035,6 +9256,119 @@ export class DeleteQualityRelativeNodeResponse extends $tea.Model {
   }
 }
 
+export class GetDagResponseData extends $tea.Model {
+  projectId: number;
+  dagId: number;
+  name: string;
+  type: string;
+  status: string;
+  bizdate: number;
+  gmtdate: number;
+  startTime: number;
+  finishTime: number;
+  createTime: number;
+  createUser: string;
+  modifyTime: number;
+  static names(): { [key: string]: string } {
+    return {
+      projectId: 'ProjectId',
+      dagId: 'DagId',
+      name: 'Name',
+      type: 'Type',
+      status: 'Status',
+      bizdate: 'Bizdate',
+      gmtdate: 'Gmtdate',
+      startTime: 'StartTime',
+      finishTime: 'FinishTime',
+      createTime: 'CreateTime',
+      createUser: 'CreateUser',
+      modifyTime: 'ModifyTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectId: 'number',
+      dagId: 'number',
+      name: 'string',
+      type: 'string',
+      status: 'string',
+      bizdate: 'number',
+      gmtdate: 'number',
+      startTime: 'number',
+      finishTime: 'number',
+      createTime: 'number',
+      createUser: 'string',
+      modifyTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetManualDagInstancesResponseInstances extends $tea.Model {
+  nodeId: number;
+  instanceId: number;
+  dagId: number;
+  dagType: string;
+  status: string;
+  bizDate: number;
+  cycTime: number;
+  createTime: number;
+  modifyTime: number;
+  nodeName: string;
+  beginWaitTimeTime: number;
+  beginWaitResTime: number;
+  beginRunningTime: number;
+  paramValues: string;
+  finishTime: number;
+  static names(): { [key: string]: string } {
+    return {
+      nodeId: 'NodeId',
+      instanceId: 'InstanceId',
+      dagId: 'DagId',
+      dagType: 'DagType',
+      status: 'Status',
+      bizDate: 'BizDate',
+      cycTime: 'CycTime',
+      createTime: 'CreateTime',
+      modifyTime: 'ModifyTime',
+      nodeName: 'NodeName',
+      beginWaitTimeTime: 'BeginWaitTimeTime',
+      beginWaitResTime: 'BeginWaitResTime',
+      beginRunningTime: 'BeginRunningTime',
+      paramValues: 'ParamValues',
+      finishTime: 'FinishTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nodeId: 'number',
+      instanceId: 'number',
+      dagId: 'number',
+      dagType: 'string',
+      status: 'string',
+      bizDate: 'number',
+      cycTime: 'number',
+      createTime: 'number',
+      modifyTime: 'number',
+      nodeName: 'string',
+      beginWaitTimeTime: 'number',
+      beginWaitResTime: 'number',
+      beginRunningTime: 'number',
+      paramValues: 'string',
+      finishTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListQualityResultsByEntityResponseQualityResultsRuleChecksReferenceValue extends $tea.Model {
   bizDate: number;
   discreteProperty: string;
@@ -12364,10 +12698,12 @@ export class CreateMetaCategoryResponseData extends $tea.Model {
 export class ListNodeIOResponseData extends $tea.Model {
   tableName: string;
   data: string;
+  nodeId: number;
   static names(): { [key: string]: string } {
     return {
       tableName: 'TableName',
       data: 'Data',
+      nodeId: 'NodeId',
     };
   }
 
@@ -12375,6 +12711,7 @@ export class ListNodeIOResponseData extends $tea.Model {
     return {
       tableName: 'string',
       data: 'string',
+      nodeId: 'number',
     };
   }
 
@@ -12545,6 +12882,13 @@ export class GetNodeResponseData extends $tea.Model {
   projectId: number;
   schedulerType: string;
   paramValues: string;
+  priority: number;
+  baselineId: number;
+  repeatInterval: number;
+  connection: string;
+  dqcType: number;
+  dqcDescription: string;
+  relatedFlowId: number;
   static names(): { [key: string]: string } {
     return {
       nodeId: 'NodeId',
@@ -12558,6 +12902,13 @@ export class GetNodeResponseData extends $tea.Model {
       projectId: 'ProjectId',
       schedulerType: 'SchedulerType',
       paramValues: 'ParamValues',
+      priority: 'Priority',
+      baselineId: 'BaselineId',
+      repeatInterval: 'RepeatInterval',
+      connection: 'Connection',
+      dqcType: 'DqcType',
+      dqcDescription: 'DqcDescription',
+      relatedFlowId: 'RelatedFlowId',
     };
   }
 
@@ -12574,6 +12925,13 @@ export class GetNodeResponseData extends $tea.Model {
       projectId: 'number',
       schedulerType: 'string',
       paramValues: 'string',
+      priority: 'number',
+      baselineId: 'number',
+      repeatInterval: 'number',
+      connection: 'string',
+      dqcType: 'number',
+      dqcDescription: 'string',
+      relatedFlowId: 'number',
     };
   }
 
@@ -12594,6 +12952,13 @@ export class ListNodesResponseDataNodes extends $tea.Model {
   paramValues: string;
   description: string;
   resGroupName: string;
+  priority: number;
+  baselineId: number;
+  repeatInterval: number;
+  connection: string;
+  dqcType: number;
+  dqcDescription: string;
+  relatedFlowId: number;
   static names(): { [key: string]: string } {
     return {
       nodeId: 'NodeId',
@@ -12607,6 +12972,13 @@ export class ListNodesResponseDataNodes extends $tea.Model {
       paramValues: 'ParamValues',
       description: 'Description',
       resGroupName: 'ResGroupName',
+      priority: 'Priority',
+      baselineId: 'BaselineId',
+      repeatInterval: 'RepeatInterval',
+      connection: 'Connection',
+      dqcType: 'DqcType',
+      dqcDescription: 'DqcDescription',
+      relatedFlowId: 'RelatedFlowId',
     };
   }
 
@@ -12623,6 +12995,13 @@ export class ListNodesResponseDataNodes extends $tea.Model {
       paramValues: 'string',
       description: 'string',
       resGroupName: 'string',
+      priority: 'number',
+      baselineId: 'number',
+      repeatInterval: 'number',
+      connection: 'string',
+      dqcType: 'number',
+      dqcDescription: 'string',
+      relatedFlowId: 'number',
     };
   }
 
@@ -12909,6 +13288,15 @@ export class ListInstancesResponseDataInstances extends $tea.Model {
   beginRunningTime: number;
   paramValues: string;
   finishTime: number;
+  priority: number;
+  baselineId: number;
+  repeatability: boolean;
+  repeatInterval: number;
+  connection: string;
+  dqcType: number;
+  dqcDescription: string;
+  errorMessage: string;
+  relatedFlowId: number;
   static names(): { [key: string]: string } {
     return {
       nodeId: 'NodeId',
@@ -12926,6 +13314,15 @@ export class ListInstancesResponseDataInstances extends $tea.Model {
       beginRunningTime: 'BeginRunningTime',
       paramValues: 'ParamValues',
       finishTime: 'FinishTime',
+      priority: 'Priority',
+      baselineId: 'BaselineId',
+      repeatability: 'Repeatability',
+      repeatInterval: 'RepeatInterval',
+      connection: 'Connection',
+      dqcType: 'DqcType',
+      dqcDescription: 'DqcDescription',
+      errorMessage: 'ErrorMessage',
+      relatedFlowId: 'RelatedFlowId',
     };
   }
 
@@ -12946,6 +13343,15 @@ export class ListInstancesResponseDataInstances extends $tea.Model {
       beginRunningTime: 'number',
       paramValues: 'string',
       finishTime: 'number',
+      priority: 'number',
+      baselineId: 'number',
+      repeatability: 'boolean',
+      repeatInterval: 'number',
+      connection: 'string',
+      dqcType: 'number',
+      dqcDescription: 'string',
+      errorMessage: 'string',
+      relatedFlowId: 'number',
     };
   }
 
@@ -13656,6 +14062,15 @@ export class GetInstanceResponseData extends $tea.Model {
   createTime: number;
   modifyTime: number;
   nodeName: string;
+  priority: number;
+  baselineId: number;
+  repeatability: boolean;
+  repeatInterval: number;
+  connection: string;
+  dqcType: number;
+  dqcDescription: string;
+  errorMessage: string;
+  relatedFlowId: number;
   static names(): { [key: string]: string } {
     return {
       nodeId: 'NodeId',
@@ -13673,6 +14088,15 @@ export class GetInstanceResponseData extends $tea.Model {
       createTime: 'CreateTime',
       modifyTime: 'ModifyTime',
       nodeName: 'NodeName',
+      priority: 'Priority',
+      baselineId: 'BaselineId',
+      repeatability: 'Repeatability',
+      repeatInterval: 'RepeatInterval',
+      connection: 'Connection',
+      dqcType: 'DqcType',
+      dqcDescription: 'DqcDescription',
+      errorMessage: 'ErrorMessage',
+      relatedFlowId: 'RelatedFlowId',
     };
   }
 
@@ -13693,6 +14117,15 @@ export class GetInstanceResponseData extends $tea.Model {
       createTime: 'number',
       modifyTime: 'number',
       nodeName: 'string',
+      priority: 'number',
+      baselineId: 'number',
+      repeatability: 'boolean',
+      repeatInterval: 'number',
+      connection: 'string',
+      dqcType: 'number',
+      dqcDescription: 'string',
+      errorMessage: 'string',
+      relatedFlowId: 'number',
     };
   }
 
@@ -16604,6 +17037,46 @@ export default class Client extends RPC {
     this._endpoint = this.getEndpoint("dataworks-public", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
 
+
+  async getDagWithOptions(request: GetDagRequest, runtime: $Util.RuntimeOptions): Promise<GetDagResponse> {
+    Util.validateModel(request);
+    return $tea.cast<GetDagResponse>(await this.doRequest("GetDag", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new GetDagResponse({}));
+  }
+
+  async getDag(request: GetDagRequest): Promise<GetDagResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getDagWithOptions(request, runtime);
+  }
+
+  async searchNodesByOutputWithOptions(request: SearchNodesByOutputRequest, runtime: $Util.RuntimeOptions): Promise<SearchNodesByOutputResponse> {
+    Util.validateModel(request);
+    return $tea.cast<SearchNodesByOutputResponse>(await this.doRequest("SearchNodesByOutput", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new SearchNodesByOutputResponse({}));
+  }
+
+  async searchNodesByOutput(request: SearchNodesByOutputRequest): Promise<SearchNodesByOutputResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.searchNodesByOutputWithOptions(request, runtime);
+  }
+
+  async getManualDagInstancesWithOptions(request: GetManualDagInstancesRequest, runtime: $Util.RuntimeOptions): Promise<GetManualDagInstancesResponse> {
+    Util.validateModel(request);
+    return $tea.cast<GetManualDagInstancesResponse>(await this.doRequest("GetManualDagInstances", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new GetManualDagInstancesResponse({}));
+  }
+
+  async getManualDagInstances(request: GetManualDagInstancesRequest): Promise<GetManualDagInstancesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getManualDagInstancesWithOptions(request, runtime);
+  }
+
+  async createManualDagWithOptions(request: CreateManualDagRequest, runtime: $Util.RuntimeOptions): Promise<CreateManualDagResponse> {
+    Util.validateModel(request);
+    return $tea.cast<CreateManualDagResponse>(await this.doRequest("CreateManualDag", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new CreateManualDagResponse({}));
+  }
+
+  async createManualDag(request: CreateManualDagRequest): Promise<CreateManualDagResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createManualDagWithOptions(request, runtime);
+  }
 
   async listQualityResultsByEntityWithOptions(request: ListQualityResultsByEntityRequest, runtime: $Util.RuntimeOptions): Promise<ListQualityResultsByEntityResponse> {
     Util.validateModel(request);
