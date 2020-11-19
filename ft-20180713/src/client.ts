@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import Util, * as $Util from '@alicloud/tea-util';
+import RPCUtil from '@alicloud/rpc-util';
 import RPC, * as $RPC from '@alicloud/rpc-client';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
@@ -15,6 +16,25 @@ export class TestFlowStrategy01Request extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       names: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TestFlowStrategy01ShrinkRequest extends $tea.Model {
+  namesShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      namesShrink: 'Names',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      namesShrink: 'string',
     };
   }
 
@@ -67,6 +87,34 @@ export class TestHttpApiRequest extends $tea.Model {
       stringValue: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       defaultValue: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       otherParam: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      booleanParam: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TestHttpApiShrinkRequest extends $tea.Model {
+  stringValueShrink?: string;
+  defaultValueShrink?: string;
+  otherParamShrink?: string;
+  booleanParam?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      stringValueShrink: 'StringValue',
+      defaultValueShrink: 'DefaultValue',
+      otherParamShrink: 'OtherParam',
+      booleanParam: 'BooleanParam',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      stringValueShrink: 'string',
+      defaultValueShrink: 'string',
+      otherParamShrink: 'string',
       booleanParam: 'boolean',
     };
   }
@@ -543,8 +591,8 @@ export class BatchAuditTest01ResponseDemo01 extends $tea.Model {
 }
 
 export class FtParamListRequestDisk extends $tea.Model {
-  size: string[];
-  type: string[];
+  size?: string[];
+  type?: string[];
   static names(): { [key: string]: string } {
     return {
       size: 'Size',
@@ -595,6 +643,7 @@ export default class Client extends RPC {
       'cn-hangzhou-test-306': "ft.aliyuncs.com",
       'cn-hongkong-finance-pop': "ft.aliyuncs.com",
       'cn-huhehaote': "ft.aliyuncs.com",
+      'cn-huhehaote-nebula-1': "ft.aliyuncs.com",
       'cn-qingdao': "ft.aliyuncs.com",
       'cn-qingdao-nebula': "ft.aliyuncs.com",
       'cn-shanghai-et15-b01': "ft.aliyuncs.com",
@@ -607,7 +656,9 @@ export default class Client extends RPC {
       'cn-shenzhen-st4-d01': "ft.aliyuncs.com",
       'cn-shenzhen-su18-b01': "ft.aliyuncs.com",
       'cn-wuhan': "ft.aliyuncs.com",
+      'cn-wulanchabu': "ft.aliyuncs.com",
       'cn-yushanfang': "ft.aliyuncs.com",
+      'cn-zhangbei': "ft.aliyuncs.com",
       'cn-zhangbei-na61-b01': "ft.aliyuncs.com",
       'cn-zhangjiakou-na62-a01': "ft.aliyuncs.com",
       'cn-zhengzhou-nebula-1': "ft.aliyuncs.com",
@@ -623,8 +674,14 @@ export default class Client extends RPC {
   }
 
 
-  async testFlowStrategy01WithOptions(request: TestFlowStrategy01Request, runtime: $Util.RuntimeOptions): Promise<TestFlowStrategy01Response> {
-    Util.validateModel(request);
+  async testFlowStrategy01WithOptions(tmp: TestFlowStrategy01Request, runtime: $Util.RuntimeOptions): Promise<TestFlowStrategy01Response> {
+    Util.validateModel(tmp);
+    let request = new TestFlowStrategy01ShrinkRequest({ });
+    RPCUtil.convert(tmp, request);
+    if (!Util.isUnset(tmp.names)) {
+      request.namesShrink = Util.toJSONString(tmp.names);
+    }
+
     return $tea.cast<TestFlowStrategy01Response>(await this.doRequest("TestFlowStrategy01", "HTTPS", "PUT", "2018-07-13", "AK", null, $tea.toMap(request), runtime), new TestFlowStrategy01Response({}));
   }
 
@@ -633,8 +690,22 @@ export default class Client extends RPC {
     return await this.testFlowStrategy01WithOptions(request, runtime);
   }
 
-  async testHttpApiWithOptions(request: TestHttpApiRequest, runtime: $Util.RuntimeOptions): Promise<TestHttpApiResponse> {
-    Util.validateModel(request);
+  async testHttpApiWithOptions(tmp: TestHttpApiRequest, runtime: $Util.RuntimeOptions): Promise<TestHttpApiResponse> {
+    Util.validateModel(tmp);
+    let request = new TestHttpApiShrinkRequest({ });
+    RPCUtil.convert(tmp, request);
+    if (!Util.isUnset(tmp.stringValue)) {
+      request.stringValueShrink = Util.toJSONString(tmp.stringValue);
+    }
+
+    if (!Util.isUnset(tmp.defaultValue)) {
+      request.defaultValueShrink = Util.toJSONString(tmp.defaultValue);
+    }
+
+    if (!Util.isUnset(tmp.otherParam)) {
+      request.otherParamShrink = Util.toJSONString(tmp.otherParam);
+    }
+
     return $tea.cast<TestHttpApiResponse>(await this.doRequest("TestHttpApi", "HTTPS", "POST", "2018-07-13", "AK", null, $tea.toMap(request), runtime), new TestHttpApiResponse({}));
   }
 
