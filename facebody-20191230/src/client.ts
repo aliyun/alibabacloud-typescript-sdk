@@ -3762,21 +3762,21 @@ export class DetectPedestrianResponseDataElements extends $tea.Model {
 }
 
 export class DetectPedestrianResponseData extends $tea.Model {
-  width: number;
   height: number;
+  width: number;
   elements: DetectPedestrianResponseDataElements[];
   static names(): { [key: string]: string } {
     return {
-      width: 'Width',
       height: 'Height',
+      width: 'Width',
       elements: 'Elements',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      width: 'number',
       height: 'number',
+      width: 'number',
       elements: { 'type': 'array', 'itemType': DetectPedestrianResponseDataElements },
     };
   }
