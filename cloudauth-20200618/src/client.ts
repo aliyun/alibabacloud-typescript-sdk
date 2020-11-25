@@ -1,12 +1,12 @@
 // This file is auto-generated, don't edit it
-import OSS, * as $OSS from '@alicloud/oss-client';
-import OpenPlatform, * as $OpenPlatform from '@alicloud/openplatform20191219';
+import Util, * as $Util from '@alicloud/tea-util';
 import RPCUtil from '@alicloud/rpc-util';
 import RPC, * as $RPC from '@alicloud/rpc-client';
-import OSSUtil, * as $OSSUtil from '@alicloud/oss-util';
-import Util, * as $Util from '@alicloud/tea-util';
-import FileForm, * as $FileForm from '@alicloud/tea-fileform';
 import EndpointUtil from '@alicloud/endpoint-util';
+import OSS, * as $OSS from '@alicloud/oss-client';
+import OpenPlatform, * as $OpenPlatform from '@alicloud/openplatform20191219';
+import OSSUtil, * as $OSSUtil from '@alicloud/oss-util';
+import FileForm, * as $FileForm from '@alicloud/tea-fileform';
 import { Readable } from 'stream';
 import * as $tea from '@alicloud/tea-typescript';
 
@@ -354,6 +354,11 @@ export default class Client extends RPC {
     return $tea.cast<ElementSmartVerifyResponse>(await this.doRequest("ElementSmartVerify", "HTTPS", "POST", "2020-06-18", "AK", null, $tea.toMap(request), runtime), new ElementSmartVerifyResponse({}));
   }
 
+  async elementSmartVerifySimply(request: ElementSmartVerifyRequest): Promise<ElementSmartVerifyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.elementSmartVerify(request, runtime);
+  }
+
   async elementSmartVerifyAdvance(request: ElementSmartVerifyAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<ElementSmartVerifyResponse> {
     // Step 0: init client
     let accessKeyId = await this._credential.getAccessKeyId();
@@ -384,8 +389,8 @@ export default class Client extends RPC {
     let uploadRequest = new $OSS.PostObjectRequest({ });
     let ossRuntime = new $OSSUtil.RuntimeOptions({ });
     RPCUtil.convert(runtime, ossRuntime);
-    let elementSmartVerifyreq = new ElementSmartVerifyRequest({ });
-    RPCUtil.convert(request, elementSmartVerifyreq);
+    let elementSmartVerifyReq = new ElementSmartVerifyRequest({ });
+    RPCUtil.convert(request, elementSmartVerifyReq);
     authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
     ossConfig.accessKeyId = authResponse.accessKeyId;
     ossConfig.endpoint = RPCUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
@@ -408,8 +413,8 @@ export default class Client extends RPC {
       header: ossHeader,
     });
     await ossClient.postObject(uploadRequest, ossRuntime);
-    elementSmartVerifyreq.certFile = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
-    let elementSmartVerifyResp = await this.elementSmartVerify(elementSmartVerifyreq, runtime);
+    elementSmartVerifyReq.certFile = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    let elementSmartVerifyResp = await this.elementSmartVerify(elementSmartVerifyReq, runtime);
     return elementSmartVerifyResp;
   }
 
@@ -418,9 +423,19 @@ export default class Client extends RPC {
     return $tea.cast<InitSmartVerifyResponse>(await this.doRequest("InitSmartVerify", "HTTPS", "POST", "2020-06-18", "AK", null, $tea.toMap(request), runtime), new InitSmartVerifyResponse({}));
   }
 
+  async initSmartVerifySimply(request: InitSmartVerifyRequest): Promise<InitSmartVerifyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.initSmartVerify(request, runtime);
+  }
+
   async describeSmartVerify(request: DescribeSmartVerifyRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSmartVerifyResponse> {
     Util.validateModel(request);
     return $tea.cast<DescribeSmartVerifyResponse>(await this.doRequest("DescribeSmartVerify", "HTTPS", "POST", "2020-06-18", "AK", null, $tea.toMap(request), runtime), new DescribeSmartVerifyResponse({}));
+  }
+
+  async describeSmartVerifySimply(request: DescribeSmartVerifyRequest): Promise<DescribeSmartVerifyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeSmartVerify(request, runtime);
   }
 
   getEndpoint(productId: string, regionId: string, endpointRule: string, network: string, suffix: string, endpointMap: {[key: string ]: string}, endpoint: string): string {
