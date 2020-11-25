@@ -4,6 +4,56 @@ import RPC, * as $RPC from '@alicloud/rpc-client';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class RunTriggerNodeRequest extends $tea.Model {
+  nodeId: number;
+  cycleTime: number;
+  bizDate: number;
+  appId: number;
+  static names(): { [key: string]: string } {
+    return {
+      nodeId: 'NodeId',
+      cycleTime: 'CycleTime',
+      bizDate: 'BizDate',
+      appId: 'AppId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nodeId: 'number',
+      cycleTime: 'number',
+      bizDate: 'number',
+      appId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunTriggerNodeResponse extends $tea.Model {
+  requestId: string;
+  success: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetDagRequest extends $tea.Model {
   dagId: number;
   projectEnv: string;
@@ -17037,6 +17087,16 @@ export default class Client extends RPC {
     this._endpoint = this.getEndpoint("dataworks-public", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
 
+
+  async runTriggerNodeWithOptions(request: RunTriggerNodeRequest, runtime: $Util.RuntimeOptions): Promise<RunTriggerNodeResponse> {
+    Util.validateModel(request);
+    return $tea.cast<RunTriggerNodeResponse>(await this.doRequest("RunTriggerNode", "HTTPS", "PUT", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new RunTriggerNodeResponse({}));
+  }
+
+  async runTriggerNode(request: RunTriggerNodeRequest): Promise<RunTriggerNodeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.runTriggerNodeWithOptions(request, runtime);
+  }
 
   async getDagWithOptions(request: GetDagRequest, runtime: $Util.RuntimeOptions): Promise<GetDagResponse> {
     Util.validateModel(request);
