@@ -4,6 +4,138 @@ import RPC, * as $RPC from '@alicloud/rpc-client';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class DescribeModifyParameterLogRequest extends $tea.Model {
+  DBInstanceId: string;
+  startTime?: string;
+  endTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceId: 'DBInstanceId',
+      startTime: 'StartTime',
+      endTime: 'EndTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceId: 'string',
+      startTime: 'string',
+      endTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeModifyParameterLogResponse extends $tea.Model {
+  requestId: string;
+  changelogs: DescribeModifyParameterLogResponseChangelogs[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      changelogs: 'Changelogs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      changelogs: { 'type': 'array', 'itemType': DescribeModifyParameterLogResponseChangelogs },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeParametersRequest extends $tea.Model {
+  DBInstanceId: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceId: 'DBInstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeParametersResponse extends $tea.Model {
+  requestId: string;
+  parameters: DescribeParametersResponseParameters[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      parameters: 'Parameters',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      parameters: { 'type': 'array', 'itemType': DescribeParametersResponseParameters },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyParametersRequest extends $tea.Model {
+  DBInstanceId: string;
+  parameters: string;
+  forceRestartInstance?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceId: 'DBInstanceId',
+      parameters: 'Parameters',
+      forceRestartInstance: 'ForceRestartInstance',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceId: 'string',
+      parameters: 'string',
+      forceRestartInstance: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyParametersResponse extends $tea.Model {
+  requestId: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateServiceLinkedRoleRequest extends $tea.Model {
   regionId: string;
   static names(): { [key: string]: string } {
@@ -555,7 +687,7 @@ export class DescribeDBInstanceSSLResponse extends $tea.Model {
 
 export class ModifyDBInstanceSSLRequest extends $tea.Model {
   DBInstanceId: string;
-  connectionString: string;
+  connectionString?: string;
   SSLEnabled: number;
   static names(): { [key: string]: string } {
     return {
@@ -2544,6 +2676,74 @@ export class AllocateInstancePublicConnectionResponse extends $tea.Model {
   }
 }
 
+export class DescribeModifyParameterLogResponseChangelogs extends $tea.Model {
+  parameterName: string;
+  parameterValueBefore: string;
+  parameterValueAfter: string;
+  parameterValid: string;
+  effectTime: string;
+  static names(): { [key: string]: string } {
+    return {
+      parameterName: 'ParameterName',
+      parameterValueBefore: 'ParameterValueBefore',
+      parameterValueAfter: 'ParameterValueAfter',
+      parameterValid: 'ParameterValid',
+      effectTime: 'EffectTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      parameterName: 'string',
+      parameterValueBefore: 'string',
+      parameterValueAfter: 'string',
+      parameterValid: 'string',
+      effectTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeParametersResponseParameters extends $tea.Model {
+  parameterName: string;
+  parameterValue: string;
+  currentValue: string;
+  parameterDescription: string;
+  forceRestartInstance: string;
+  isChangeableConfig: string;
+  optionalRange: string;
+  static names(): { [key: string]: string } {
+    return {
+      parameterName: 'ParameterName',
+      parameterValue: 'ParameterValue',
+      currentValue: 'CurrentValue',
+      parameterDescription: 'ParameterDescription',
+      forceRestartInstance: 'ForceRestartInstance',
+      isChangeableConfig: 'IsChangeableConfig',
+      optionalRange: 'OptionalRange',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      parameterName: 'string',
+      parameterValue: 'string',
+      currentValue: 'string',
+      parameterDescription: 'string',
+      forceRestartInstance: 'string',
+      isChangeableConfig: 'string',
+      optionalRange: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeSQLLogCountResponseItemsSeriesValues extends $tea.Model {
   point: string[];
   static names(): { [key: string]: string } {
@@ -4144,6 +4344,36 @@ export default class Client extends RPC {
     this._endpoint = this.getEndpoint("gpdb", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
 
+
+  async describeModifyParameterLogWithOptions(request: DescribeModifyParameterLogRequest, runtime: $Util.RuntimeOptions): Promise<DescribeModifyParameterLogResponse> {
+    Util.validateModel(request);
+    return $tea.cast<DescribeModifyParameterLogResponse>(await this.doRequest("DescribeModifyParameterLog", "HTTPS", "POST", "2016-05-03", "AK", null, $tea.toMap(request), runtime), new DescribeModifyParameterLogResponse({}));
+  }
+
+  async describeModifyParameterLog(request: DescribeModifyParameterLogRequest): Promise<DescribeModifyParameterLogResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeModifyParameterLogWithOptions(request, runtime);
+  }
+
+  async describeParametersWithOptions(request: DescribeParametersRequest, runtime: $Util.RuntimeOptions): Promise<DescribeParametersResponse> {
+    Util.validateModel(request);
+    return $tea.cast<DescribeParametersResponse>(await this.doRequest("DescribeParameters", "HTTPS", "POST", "2016-05-03", "AK", null, $tea.toMap(request), runtime), new DescribeParametersResponse({}));
+  }
+
+  async describeParameters(request: DescribeParametersRequest): Promise<DescribeParametersResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeParametersWithOptions(request, runtime);
+  }
+
+  async modifyParametersWithOptions(request: ModifyParametersRequest, runtime: $Util.RuntimeOptions): Promise<ModifyParametersResponse> {
+    Util.validateModel(request);
+    return $tea.cast<ModifyParametersResponse>(await this.doRequest("ModifyParameters", "HTTPS", "POST", "2016-05-03", "AK", null, $tea.toMap(request), runtime), new ModifyParametersResponse({}));
+  }
+
+  async modifyParameters(request: ModifyParametersRequest): Promise<ModifyParametersResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyParametersWithOptions(request, runtime);
+  }
 
   async createServiceLinkedRoleWithOptions(request: CreateServiceLinkedRoleRequest, runtime: $Util.RuntimeOptions): Promise<CreateServiceLinkedRoleResponse> {
     Util.validateModel(request);
