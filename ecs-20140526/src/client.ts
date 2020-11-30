@@ -2817,10 +2817,13 @@ export class CreateAutoProvisioningGroupRequest extends $tea.Model {
   payAsYouGoTargetCapacity?: string;
   spotTargetCapacity?: string;
   defaultTargetCapacityType?: string;
-  launchTemplateId: string;
+  launchTemplateId?: string;
   launchTemplateVersion?: string;
   launchTemplateConfig?: CreateAutoProvisioningGroupRequestLaunchTemplateConfig[];
   description?: string;
+  launchConfiguration?: CreateAutoProvisioningGroupRequestLaunchConfiguration;
+  systemDiskConfig?: CreateAutoProvisioningGroupRequestSystemDiskConfig[];
+  dataDiskConfig?: CreateAutoProvisioningGroupRequestDataDiskConfig[];
   static names(): { [key: string]: string } {
     return {
       regionId: 'RegionId',
@@ -2845,6 +2848,9 @@ export class CreateAutoProvisioningGroupRequest extends $tea.Model {
       launchTemplateVersion: 'LaunchTemplateVersion',
       launchTemplateConfig: 'LaunchTemplateConfig',
       description: 'Description',
+      launchConfiguration: 'LaunchConfiguration',
+      systemDiskConfig: 'SystemDiskConfig',
+      dataDiskConfig: 'DataDiskConfig',
     };
   }
 
@@ -2872,6 +2878,9 @@ export class CreateAutoProvisioningGroupRequest extends $tea.Model {
       launchTemplateVersion: 'string',
       launchTemplateConfig: { 'type': 'array', 'itemType': CreateAutoProvisioningGroupRequestLaunchTemplateConfig },
       description: 'string',
+      launchConfiguration: CreateAutoProvisioningGroupRequestLaunchConfiguration,
+      systemDiskConfig: { 'type': 'array', 'itemType': CreateAutoProvisioningGroupRequestSystemDiskConfig },
+      dataDiskConfig: { 'type': 'array', 'itemType': CreateAutoProvisioningGroupRequestDataDiskConfig },
     };
   }
 
@@ -6304,6 +6313,7 @@ export class RunInstancesRequest extends $tea.Model {
   httpTokens?: string;
   httpPutResponseHopLimit?: number;
   privatePoolOptions?: RunInstancesRequestPrivatePoolOptions;
+  isp?: string;
   static names(): { [key: string]: string } {
     return {
       regionId: 'RegionId',
@@ -6370,6 +6380,7 @@ export class RunInstancesRequest extends $tea.Model {
       httpTokens: 'HttpTokens',
       httpPutResponseHopLimit: 'HttpPutResponseHopLimit',
       privatePoolOptions: 'PrivatePoolOptions',
+      isp: 'Isp',
     };
   }
 
@@ -6439,6 +6450,7 @@ export class RunInstancesRequest extends $tea.Model {
       httpTokens: 'string',
       httpPutResponseHopLimit: 'number',
       privatePoolOptions: RunInstancesRequestPrivatePoolOptions,
+      isp: 'string',
     };
   }
 
@@ -8874,6 +8886,7 @@ export class DescribePriceRequest extends $tea.Model {
   assuranceTimes?: string;
   instanceCpuCoreCount?: number;
   instanceTypeList?: string[];
+  isp?: string;
   static names(): { [key: string]: string } {
     return {
       regionId: 'RegionId',
@@ -8897,6 +8910,7 @@ export class DescribePriceRequest extends $tea.Model {
       assuranceTimes: 'AssuranceTimes',
       instanceCpuCoreCount: 'InstanceCpuCoreCount',
       instanceTypeList: 'InstanceTypeList',
+      isp: 'Isp',
     };
   }
 
@@ -8923,6 +8937,7 @@ export class DescribePriceRequest extends $tea.Model {
       assuranceTimes: 'string',
       instanceCpuCoreCount: 'number',
       instanceTypeList: { 'type': 'array', 'itemType': 'string' },
+      isp: 'string',
     };
   }
 
@@ -14084,11 +14099,13 @@ export class ModifySnapshotAttributeRequest extends $tea.Model {
   snapshotId: string;
   snapshotName?: string;
   description?: string;
+  disableInstantAccess?: boolean;
   static names(): { [key: string]: string } {
     return {
       snapshotId: 'SnapshotId',
       snapshotName: 'SnapshotName',
       description: 'Description',
+      disableInstantAccess: 'DisableInstantAccess',
     };
   }
 
@@ -14097,6 +14114,7 @@ export class ModifySnapshotAttributeRequest extends $tea.Model {
       snapshotId: 'string',
       snapshotName: 'string',
       description: 'string',
+      disableInstantAccess: 'boolean',
     };
   }
 
@@ -14331,6 +14349,7 @@ export class ModifyInstanceNetworkSpecRequest extends $tea.Model {
   instanceId: string;
   internetMaxBandwidthOut?: number;
   internetMaxBandwidthIn?: number;
+  ISP?: string;
   networkChargeType?: string;
   allocatePublicIp?: boolean;
   startTime?: string;
@@ -14342,6 +14361,7 @@ export class ModifyInstanceNetworkSpecRequest extends $tea.Model {
       instanceId: 'InstanceId',
       internetMaxBandwidthOut: 'InternetMaxBandwidthOut',
       internetMaxBandwidthIn: 'InternetMaxBandwidthIn',
+      ISP: 'ISP',
       networkChargeType: 'NetworkChargeType',
       allocatePublicIp: 'AllocatePublicIp',
       startTime: 'StartTime',
@@ -14356,6 +14376,7 @@ export class ModifyInstanceNetworkSpecRequest extends $tea.Model {
       instanceId: 'string',
       internetMaxBandwidthOut: 'number',
       internetMaxBandwidthIn: 'number',
+      ISP: 'string',
       networkChargeType: 'string',
       allocatePublicIp: 'boolean',
       startTime: 'string',
@@ -14564,6 +14585,7 @@ export class ModifyImageAttributeRequest extends $tea.Model {
   status?: string;
   imageFamily?: string;
   bootMode?: string;
+  licenseType?: string;
   description?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14573,6 +14595,7 @@ export class ModifyImageAttributeRequest extends $tea.Model {
       status: 'Status',
       imageFamily: 'ImageFamily',
       bootMode: 'BootMode',
+      licenseType: 'LicenseType',
       description: 'Description',
     };
   }
@@ -14585,6 +14608,7 @@ export class ModifyImageAttributeRequest extends $tea.Model {
       status: 'string',
       imageFamily: 'string',
       bootMode: 'string',
+      licenseType: 'string',
       description: 'string',
     };
   }
@@ -14774,11 +14798,15 @@ export class ModifyAutoSnapshotPolicyResponse extends $tea.Model {
 
 export class LeaveSecurityGroupRequest extends $tea.Model {
   securityGroupId: string;
-  instanceId: string;
+  instanceId?: string;
+  networkInterfaceId?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       securityGroupId: 'SecurityGroupId',
       instanceId: 'InstanceId',
+      networkInterfaceId: 'NetworkInterfaceId',
+      regionId: 'RegionId',
     };
   }
 
@@ -14786,6 +14814,8 @@ export class LeaveSecurityGroupRequest extends $tea.Model {
     return {
       securityGroupId: 'string',
       instanceId: 'string',
+      networkInterfaceId: 'string',
+      regionId: 'string',
     };
   }
 
@@ -14815,11 +14845,15 @@ export class LeaveSecurityGroupResponse extends $tea.Model {
 
 export class JoinSecurityGroupRequest extends $tea.Model {
   securityGroupId: string;
-  instanceId: string;
+  instanceId?: string;
+  networkInterfaceId?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       securityGroupId: 'SecurityGroupId',
       instanceId: 'InstanceId',
+      networkInterfaceId: 'NetworkInterfaceId',
+      regionId: 'RegionId',
     };
   }
 
@@ -14827,6 +14861,8 @@ export class JoinSecurityGroupRequest extends $tea.Model {
     return {
       securityGroupId: 'string',
       instanceId: 'string',
+      networkInterfaceId: 'string',
+      regionId: 'string',
     };
   }
 
@@ -15148,6 +15184,8 @@ export class DescribeSnapshotsRequest extends $tea.Model {
   snapshotIds?: string;
   pageNumber?: number;
   pageSize?: number;
+  nextToken?: string;
+  maxResults?: number;
   snapshotName?: string;
   status?: string;
   snapshotType?: string;
@@ -15169,6 +15207,8 @@ export class DescribeSnapshotsRequest extends $tea.Model {
       snapshotIds: 'SnapshotIds',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      nextToken: 'NextToken',
+      maxResults: 'MaxResults',
       snapshotName: 'SnapshotName',
       status: 'Status',
       snapshotType: 'SnapshotType',
@@ -15193,6 +15233,8 @@ export class DescribeSnapshotsRequest extends $tea.Model {
       snapshotIds: 'string',
       pageNumber: 'number',
       pageSize: 'number',
+      nextToken: 'string',
+      maxResults: 'number',
       snapshotName: 'string',
       status: 'string',
       snapshotType: 'string',
@@ -15218,6 +15260,7 @@ export class DescribeSnapshotsResponse extends $tea.Model {
   totalCount: number;
   pageNumber: number;
   pageSize: number;
+  nextToken: string;
   snapshots: DescribeSnapshotsResponseSnapshots;
   static names(): { [key: string]: string } {
     return {
@@ -15225,6 +15268,7 @@ export class DescribeSnapshotsResponse extends $tea.Model {
       totalCount: 'TotalCount',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      nextToken: 'NextToken',
       snapshots: 'Snapshots',
     };
   }
@@ -15235,6 +15279,7 @@ export class DescribeSnapshotsResponse extends $tea.Model {
       totalCount: 'number',
       pageNumber: 'number',
       pageSize: 'number',
+      nextToken: 'string',
       snapshots: DescribeSnapshotsResponseSnapshots,
     };
   }
@@ -17114,6 +17159,8 @@ export class CreateSnapshotRequest extends $tea.Model {
   clientToken?: string;
   tag?: CreateSnapshotRequestTag[];
   resourceGroupId?: string;
+  instantAccess?: boolean;
+  instantAccessRetentionDays?: number;
   static names(): { [key: string]: string } {
     return {
       diskId: 'DiskId',
@@ -17124,6 +17171,8 @@ export class CreateSnapshotRequest extends $tea.Model {
       clientToken: 'ClientToken',
       tag: 'Tag',
       resourceGroupId: 'ResourceGroupId',
+      instantAccess: 'InstantAccess',
+      instantAccessRetentionDays: 'InstantAccessRetentionDays',
     };
   }
 
@@ -17137,6 +17186,8 @@ export class CreateSnapshotRequest extends $tea.Model {
       clientToken: 'string',
       tag: { 'type': 'array', 'itemType': CreateSnapshotRequestTag },
       resourceGroupId: 'string',
+      instantAccess: 'boolean',
+      instantAccessRetentionDays: 'number',
     };
   }
 
@@ -18256,6 +18307,7 @@ export class DescribeCapacityReservationsResponseCapacityReservationSetCapacityR
   endTimeType: string;
   instanceChargeType: string;
   platform: string;
+  timeSlot: string;
   allocatedResources: DescribeCapacityReservationsResponseCapacityReservationSetCapacityReservationItemAllocatedResources;
   static names(): { [key: string]: string } {
     return {
@@ -18270,6 +18322,7 @@ export class DescribeCapacityReservationsResponseCapacityReservationSetCapacityR
       endTimeType: 'EndTimeType',
       instanceChargeType: 'InstanceChargeType',
       platform: 'Platform',
+      timeSlot: 'TimeSlot',
       allocatedResources: 'AllocatedResources',
     };
   }
@@ -18287,6 +18340,7 @@ export class DescribeCapacityReservationsResponseCapacityReservationSetCapacityR
       endTimeType: 'string',
       instanceChargeType: 'string',
       platform: 'string',
+      timeSlot: 'string',
       allocatedResources: DescribeCapacityReservationsResponseCapacityReservationSetCapacityReservationItemAllocatedResources,
     };
   }
@@ -20383,6 +20437,129 @@ export class CreateAutoProvisioningGroupRequestLaunchTemplateConfig extends $tea
       vSwitchId: 'string',
       weightedCapacity: 'number',
       priority: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAutoProvisioningGroupRequestLaunchConfiguration extends $tea.Model {
+  imageId?: string;
+  securityGroupId?: string;
+  ioOptimized?: string;
+  dataDisk?: string[];
+  internetChargeType?: string;
+  internetMaxBandwidthIn?: number;
+  internetMaxBandwidthOut?: number;
+  instanceName?: string;
+  hostName?: string;
+  instanceDescription?: string;
+  keyPairName?: string;
+  ramRoleName?: string;
+  securityEnhancementStrategy?: string;
+  tag?: string[];
+  userData?: string;
+  systemDiskCategory?: string;
+  systemDiskSize?: number;
+  systemDiskName?: string;
+  systemDiskDescription?: string;
+  systemDiskPerformanceLevel?: string;
+  passwordInherit?: boolean;
+  resourceGroupId?: string;
+  creditSpecification?: string;
+  static names(): { [key: string]: string } {
+    return {
+      imageId: 'ImageId',
+      securityGroupId: 'SecurityGroupId',
+      ioOptimized: 'IoOptimized',
+      dataDisk: 'DataDisk',
+      internetChargeType: 'InternetChargeType',
+      internetMaxBandwidthIn: 'InternetMaxBandwidthIn',
+      internetMaxBandwidthOut: 'InternetMaxBandwidthOut',
+      instanceName: 'InstanceName',
+      hostName: 'HostName',
+      instanceDescription: 'InstanceDescription',
+      keyPairName: 'KeyPairName',
+      ramRoleName: 'RamRoleName',
+      securityEnhancementStrategy: 'SecurityEnhancementStrategy',
+      tag: 'Tag',
+      userData: 'UserData',
+      systemDiskCategory: 'SystemDiskCategory',
+      systemDiskSize: 'SystemDiskSize',
+      systemDiskName: 'SystemDiskName',
+      systemDiskDescription: 'SystemDiskDescription',
+      systemDiskPerformanceLevel: 'SystemDiskPerformanceLevel',
+      passwordInherit: 'PasswordInherit',
+      resourceGroupId: 'ResourceGroupId',
+      creditSpecification: 'CreditSpecification',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageId: 'string',
+      securityGroupId: 'string',
+      ioOptimized: 'string',
+      dataDisk: { 'type': 'array', 'itemType': 'string' },
+      internetChargeType: 'string',
+      internetMaxBandwidthIn: 'number',
+      internetMaxBandwidthOut: 'number',
+      instanceName: 'string',
+      hostName: 'string',
+      instanceDescription: 'string',
+      keyPairName: 'string',
+      ramRoleName: 'string',
+      securityEnhancementStrategy: 'string',
+      tag: { 'type': 'array', 'itemType': 'string' },
+      userData: 'string',
+      systemDiskCategory: 'string',
+      systemDiskSize: 'number',
+      systemDiskName: 'string',
+      systemDiskDescription: 'string',
+      systemDiskPerformanceLevel: 'string',
+      passwordInherit: 'boolean',
+      resourceGroupId: 'string',
+      creditSpecification: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAutoProvisioningGroupRequestSystemDiskConfig extends $tea.Model {
+  diskCategory?: string;
+  static names(): { [key: string]: string } {
+    return {
+      diskCategory: 'DiskCategory',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      diskCategory: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAutoProvisioningGroupRequestDataDiskConfig extends $tea.Model {
+  diskCategory?: string;
+  static names(): { [key: string]: string } {
+    return {
+      diskCategory: 'DiskCategory',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      diskCategory: 'string',
     };
   }
 
@@ -26447,6 +26624,7 @@ export class DescribeSnapshotLinksResponseSnapshotLinksSnapshotLink extends $tea
   sourceDiskSize: number;
   sourceDiskType: string;
   category: string;
+  instantAccess: boolean;
   totalSize: number;
   totalCount: number;
   static names(): { [key: string]: string } {
@@ -26460,6 +26638,7 @@ export class DescribeSnapshotLinksResponseSnapshotLinksSnapshotLink extends $tea
       sourceDiskSize: 'SourceDiskSize',
       sourceDiskType: 'SourceDiskType',
       category: 'Category',
+      instantAccess: 'InstantAccess',
       totalSize: 'TotalSize',
       totalCount: 'TotalCount',
     };
@@ -26476,6 +26655,7 @@ export class DescribeSnapshotLinksResponseSnapshotLinksSnapshotLink extends $tea
       sourceDiskSize: 'number',
       sourceDiskType: 'string',
       category: 'string',
+      instantAccess: 'boolean',
       totalSize: 'number',
       totalCount: 'number',
     };
@@ -29022,6 +29202,8 @@ export class DescribeSnapshotsResponseSnapshotsSnapshot extends $tea.Model {
   KMSKeyId: string;
   category: string;
   snapshotType: string;
+  instantAccess: boolean;
+  instantAccessRetentionDays: number;
   tags: DescribeSnapshotsResponseSnapshotsSnapshotTags;
   static names(): { [key: string]: string } {
     return {
@@ -29046,6 +29228,8 @@ export class DescribeSnapshotsResponseSnapshotsSnapshot extends $tea.Model {
       KMSKeyId: 'KMSKeyId',
       category: 'Category',
       snapshotType: 'SnapshotType',
+      instantAccess: 'InstantAccess',
+      instantAccessRetentionDays: 'InstantAccessRetentionDays',
       tags: 'Tags',
     };
   }
@@ -29073,6 +29257,8 @@ export class DescribeSnapshotsResponseSnapshotsSnapshot extends $tea.Model {
       KMSKeyId: 'string',
       category: 'string',
       snapshotType: 'string',
+      instantAccess: 'boolean',
+      instantAccessRetentionDays: 'number',
       tags: DescribeSnapshotsResponseSnapshotsSnapshotTags,
     };
   }
@@ -29725,15 +29911,100 @@ export class DescribeInstancesRequestTag extends $tea.Model {
   }
 }
 
+export class DescribeInstancesResponseInstancesInstanceNetworkInterfacesNetworkInterfacePrivateIpSetsPrivateIpSet extends $tea.Model {
+  privateIpAddress: string;
+  primary: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      privateIpAddress: 'PrivateIpAddress',
+      primary: 'Primary',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      privateIpAddress: 'string',
+      primary: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstancesResponseInstancesInstanceNetworkInterfacesNetworkInterfacePrivateIpSets extends $tea.Model {
+  privateIpSet: DescribeInstancesResponseInstancesInstanceNetworkInterfacesNetworkInterfacePrivateIpSetsPrivateIpSet[];
+  static names(): { [key: string]: string } {
+    return {
+      privateIpSet: 'PrivateIpSet',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      privateIpSet: { 'type': 'array', 'itemType': DescribeInstancesResponseInstancesInstanceNetworkInterfacesNetworkInterfacePrivateIpSetsPrivateIpSet },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstancesResponseInstancesInstanceNetworkInterfacesNetworkInterfaceIpv6SetsIpv6Set extends $tea.Model {
+  ipv6Address: string;
+  static names(): { [key: string]: string } {
+    return {
+      ipv6Address: 'Ipv6Address',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipv6Address: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstancesResponseInstancesInstanceNetworkInterfacesNetworkInterfaceIpv6Sets extends $tea.Model {
+  ipv6Set: DescribeInstancesResponseInstancesInstanceNetworkInterfacesNetworkInterfaceIpv6SetsIpv6Set[];
+  static names(): { [key: string]: string } {
+    return {
+      ipv6Set: 'Ipv6Set',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipv6Set: { 'type': 'array', 'itemType': DescribeInstancesResponseInstancesInstanceNetworkInterfacesNetworkInterfaceIpv6SetsIpv6Set },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeInstancesResponseInstancesInstanceNetworkInterfacesNetworkInterface extends $tea.Model {
   networkInterfaceId: string;
   macAddress: string;
   primaryIpAddress: string;
+  type: string;
+  privateIpSets: DescribeInstancesResponseInstancesInstanceNetworkInterfacesNetworkInterfacePrivateIpSets;
+  ipv6Sets: DescribeInstancesResponseInstancesInstanceNetworkInterfacesNetworkInterfaceIpv6Sets;
   static names(): { [key: string]: string } {
     return {
       networkInterfaceId: 'NetworkInterfaceId',
       macAddress: 'MacAddress',
       primaryIpAddress: 'PrimaryIpAddress',
+      type: 'Type',
+      privateIpSets: 'PrivateIpSets',
+      ipv6Sets: 'Ipv6Sets',
     };
   }
 
@@ -29742,6 +30013,9 @@ export class DescribeInstancesResponseInstancesInstanceNetworkInterfacesNetworkI
       networkInterfaceId: 'string',
       macAddress: 'string',
       primaryIpAddress: 'string',
+      type: 'string',
+      privateIpSets: DescribeInstancesResponseInstancesInstanceNetworkInterfacesNetworkInterfacePrivateIpSets,
+      ipv6Sets: DescribeInstancesResponseInstancesInstanceNetworkInterfacesNetworkInterfaceIpv6Sets,
     };
   }
 
@@ -30171,6 +30445,7 @@ export class DescribeInstancesResponseInstancesInstance extends $tea.Model {
   stoppedMode: string;
   creditSpecification: string;
   deletionProtection: boolean;
+  ISP: string;
   networkInterfaces: DescribeInstancesResponseInstancesInstanceNetworkInterfaces;
   operationLocks: DescribeInstancesResponseInstancesInstanceOperationLocks;
   tags: DescribeInstancesResponseInstancesInstanceTags;
@@ -30233,6 +30508,7 @@ export class DescribeInstancesResponseInstancesInstance extends $tea.Model {
       stoppedMode: 'StoppedMode',
       creditSpecification: 'CreditSpecification',
       deletionProtection: 'DeletionProtection',
+      ISP: 'ISP',
       networkInterfaces: 'NetworkInterfaces',
       operationLocks: 'OperationLocks',
       tags: 'Tags',
@@ -30298,6 +30574,7 @@ export class DescribeInstancesResponseInstancesInstance extends $tea.Model {
       stoppedMode: 'string',
       creditSpecification: 'string',
       deletionProtection: 'boolean',
+      ISP: 'string',
       networkInterfaces: DescribeInstancesResponseInstancesInstanceNetworkInterfaces,
       operationLocks: DescribeInstancesResponseInstancesInstanceOperationLocks,
       tags: DescribeInstancesResponseInstancesInstanceTags,
