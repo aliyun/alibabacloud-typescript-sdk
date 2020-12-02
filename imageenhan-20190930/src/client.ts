@@ -1,14 +1,74 @@
 // This file is auto-generated, don't edit it
-import OSS, * as $OSS from '@alicloud/oss-client';
-import OpenPlatform, * as $OpenPlatform from '@alicloud/openplatform20191219';
+import Util, * as $Util from '@alicloud/tea-util';
 import RPCUtil from '@alicloud/rpc-util';
 import RPC, * as $RPC from '@alicloud/rpc-client';
-import OSSUtil, * as $OSSUtil from '@alicloud/oss-util';
-import Util, * as $Util from '@alicloud/tea-util';
-import FileForm, * as $FileForm from '@alicloud/tea-fileform';
 import EndpointUtil from '@alicloud/endpoint-util';
+import OSS, * as $OSS from '@alicloud/oss-client';
+import OpenPlatform, * as $OpenPlatform from '@alicloud/openplatform20191219';
+import OSSUtil, * as $OSSUtil from '@alicloud/oss-util';
+import FileForm, * as $FileForm from '@alicloud/tea-fileform';
 import { Readable } from 'stream';
 import * as $tea from '@alicloud/tea-typescript';
+
+export class ColorizeImageRequest extends $tea.Model {
+  imageURL: string;
+  static names(): { [key: string]: string } {
+    return {
+      imageURL: 'ImageURL',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageURL: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ColorizeImageResponse extends $tea.Model {
+  requestId: string;
+  data: ColorizeImageResponseData;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      data: ColorizeImageResponseData,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ColorizeImageAdvanceRequest extends $tea.Model {
+  imageURLObject: Readable;
+  static names(): { [key: string]: string } {
+    return {
+      imageURLObject: 'ImageURLObject',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageURLObject: 'Readable',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class ErasePersonRequest extends $tea.Model {
   imageURL: string;
@@ -1210,6 +1270,25 @@ export class RecolorImageResponse extends $tea.Model {
   }
 }
 
+export class ColorizeImageResponseData extends $tea.Model {
+  imageURL: string;
+  static names(): { [key: string]: string } {
+    return {
+      imageURL: 'ImageURL',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageURL: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ErasePersonResponseData extends $tea.Model {
   imageUrl: string;
   static names(): { [key: string]: string } {
@@ -1703,9 +1782,83 @@ export default class Client extends RPC {
   }
 
 
+  async colorizeImage(request: ColorizeImageRequest, runtime: $Util.RuntimeOptions): Promise<ColorizeImageResponse> {
+    Util.validateModel(request);
+    return $tea.cast<ColorizeImageResponse>(await this.doRequest("ColorizeImage", "HTTPS", "POST", "2019-09-30", "AK", null, $tea.toMap(request), runtime), new ColorizeImageResponse({}));
+  }
+
+  async colorizeImageSimply(request: ColorizeImageRequest): Promise<ColorizeImageResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.colorizeImage(request, runtime);
+  }
+
+  async colorizeImageAdvance(request: ColorizeImageAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<ColorizeImageResponse> {
+    // Step 0: init client
+    let accessKeyId = await this._credential.getAccessKeyId();
+    let accessKeySecret = await this._credential.getAccessKeySecret();
+    let authConfig = new $RPC.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      endpoint: "openplatform.aliyuncs.com",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenPlatform(authConfig);
+    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
+      product: "imageenhan",
+      regionId: this._regionId,
+    });
+    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
+    let ossConfig = new $OSS.Config({
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let ossClient : OSS = null;
+    let fileObj = new $FileForm.FileField({ });
+    let ossHeader = new $OSS.PostObjectRequestHeader({ });
+    let uploadRequest = new $OSS.PostObjectRequest({ });
+    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
+    RPCUtil.convert(runtime, ossRuntime);
+    let colorizeImageReq = new ColorizeImageRequest({ });
+    RPCUtil.convert(request, colorizeImageReq);
+    authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+    ossConfig.accessKeyId = authResponse.accessKeyId;
+    ossConfig.endpoint = RPCUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+    ossClient = new OSS(ossConfig);
+    fileObj = new $FileForm.FileField({
+      filename: authResponse.objectKey,
+      content: request.imageURLObject,
+      contentType: "",
+    });
+    ossHeader = new $OSS.PostObjectRequestHeader({
+      accessKeyId: authResponse.accessKeyId,
+      policy: authResponse.encodedPolicy,
+      signature: authResponse.signature,
+      key: authResponse.objectKey,
+      file: fileObj,
+      successActionStatus: "201",
+    });
+    uploadRequest = new $OSS.PostObjectRequest({
+      bucketName: authResponse.bucket,
+      header: ossHeader,
+    });
+    await ossClient.postObject(uploadRequest, ossRuntime);
+    colorizeImageReq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    let colorizeImageResp = await this.colorizeImage(colorizeImageReq, runtime);
+    return colorizeImageResp;
+  }
+
   async erasePerson(request: ErasePersonRequest, runtime: $Util.RuntimeOptions): Promise<ErasePersonResponse> {
     Util.validateModel(request);
     return $tea.cast<ErasePersonResponse>(await this.doRequest("ErasePerson", "HTTPS", "POST", "2019-09-30", "AK", null, $tea.toMap(request), runtime), new ErasePersonResponse({}));
+  }
+
+  async erasePersonSimply(request: ErasePersonRequest): Promise<ErasePersonResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.erasePerson(request, runtime);
   }
 
   async erasePersonAdvance(request: ErasePersonAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<ErasePersonResponse> {
@@ -1738,8 +1891,8 @@ export default class Client extends RPC {
     let uploadRequest = new $OSS.PostObjectRequest({ });
     let ossRuntime = new $OSSUtil.RuntimeOptions({ });
     RPCUtil.convert(runtime, ossRuntime);
-    let erasePersonreq = new ErasePersonRequest({ });
-    RPCUtil.convert(request, erasePersonreq);
+    let erasePersonReq = new ErasePersonRequest({ });
+    RPCUtil.convert(request, erasePersonReq);
     authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
     ossConfig.accessKeyId = authResponse.accessKeyId;
     ossConfig.endpoint = RPCUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
@@ -1762,14 +1915,19 @@ export default class Client extends RPC {
       header: ossHeader,
     });
     await ossClient.postObject(uploadRequest, ossRuntime);
-    erasePersonreq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
-    let erasePersonResp = await this.erasePerson(erasePersonreq, runtime);
+    erasePersonReq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    let erasePersonResp = await this.erasePerson(erasePersonReq, runtime);
     return erasePersonResp;
   }
 
   async generateDynamicImage(request: GenerateDynamicImageRequest, runtime: $Util.RuntimeOptions): Promise<GenerateDynamicImageResponse> {
     Util.validateModel(request);
     return $tea.cast<GenerateDynamicImageResponse>(await this.doRequest("GenerateDynamicImage", "HTTPS", "POST", "2019-09-30", "AK", null, $tea.toMap(request), runtime), new GenerateDynamicImageResponse({}));
+  }
+
+  async generateDynamicImageSimply(request: GenerateDynamicImageRequest): Promise<GenerateDynamicImageResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.generateDynamicImage(request, runtime);
   }
 
   async generateDynamicImageAdvance(request: GenerateDynamicImageAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<GenerateDynamicImageResponse> {
@@ -1802,8 +1960,8 @@ export default class Client extends RPC {
     let uploadRequest = new $OSS.PostObjectRequest({ });
     let ossRuntime = new $OSSUtil.RuntimeOptions({ });
     RPCUtil.convert(runtime, ossRuntime);
-    let generateDynamicImagereq = new GenerateDynamicImageRequest({ });
-    RPCUtil.convert(request, generateDynamicImagereq);
+    let generateDynamicImageReq = new GenerateDynamicImageRequest({ });
+    RPCUtil.convert(request, generateDynamicImageReq);
     authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
     ossConfig.accessKeyId = authResponse.accessKeyId;
     ossConfig.endpoint = RPCUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
@@ -1826,8 +1984,8 @@ export default class Client extends RPC {
       header: ossHeader,
     });
     await ossClient.postObject(uploadRequest, ossRuntime);
-    generateDynamicImagereq.url = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
-    let generateDynamicImageResp = await this.generateDynamicImage(generateDynamicImagereq, runtime);
+    generateDynamicImageReq.url = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    let generateDynamicImageResp = await this.generateDynamicImage(generateDynamicImageReq, runtime);
     return generateDynamicImageResp;
   }
 
@@ -1836,9 +1994,19 @@ export default class Client extends RPC {
     return $tea.cast<GetAsyncJobResultResponse>(await this.doRequest("GetAsyncJobResult", "HTTPS", "POST", "2019-09-30", "AK", null, $tea.toMap(request), runtime), new GetAsyncJobResultResponse({}));
   }
 
+  async getAsyncJobResultSimply(request: GetAsyncJobResultRequest): Promise<GetAsyncJobResultResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getAsyncJobResult(request, runtime);
+  }
+
   async imitatePhotoStyle(request: ImitatePhotoStyleRequest, runtime: $Util.RuntimeOptions): Promise<ImitatePhotoStyleResponse> {
     Util.validateModel(request);
     return $tea.cast<ImitatePhotoStyleResponse>(await this.doRequest("ImitatePhotoStyle", "HTTPS", "POST", "2019-09-30", "AK", null, $tea.toMap(request), runtime), new ImitatePhotoStyleResponse({}));
+  }
+
+  async imitatePhotoStyleSimply(request: ImitatePhotoStyleRequest): Promise<ImitatePhotoStyleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.imitatePhotoStyle(request, runtime);
   }
 
   async imitatePhotoStyleAdvance(request: ImitatePhotoStyleAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<ImitatePhotoStyleResponse> {
@@ -1871,8 +2039,8 @@ export default class Client extends RPC {
     let uploadRequest = new $OSS.PostObjectRequest({ });
     let ossRuntime = new $OSSUtil.RuntimeOptions({ });
     RPCUtil.convert(runtime, ossRuntime);
-    let imitatePhotoStylereq = new ImitatePhotoStyleRequest({ });
-    RPCUtil.convert(request, imitatePhotoStylereq);
+    let imitatePhotoStyleReq = new ImitatePhotoStyleRequest({ });
+    RPCUtil.convert(request, imitatePhotoStyleReq);
     authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
     ossConfig.accessKeyId = authResponse.accessKeyId;
     ossConfig.endpoint = RPCUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
@@ -1895,14 +2063,19 @@ export default class Client extends RPC {
       header: ossHeader,
     });
     await ossClient.postObject(uploadRequest, ossRuntime);
-    imitatePhotoStylereq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
-    let imitatePhotoStyleResp = await this.imitatePhotoStyle(imitatePhotoStylereq, runtime);
+    imitatePhotoStyleReq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    let imitatePhotoStyleResp = await this.imitatePhotoStyle(imitatePhotoStyleReq, runtime);
     return imitatePhotoStyleResp;
   }
 
   async enhanceImageColor(request: EnhanceImageColorRequest, runtime: $Util.RuntimeOptions): Promise<EnhanceImageColorResponse> {
     Util.validateModel(request);
     return $tea.cast<EnhanceImageColorResponse>(await this.doRequest("EnhanceImageColor", "HTTPS", "POST", "2019-09-30", "AK", null, $tea.toMap(request), runtime), new EnhanceImageColorResponse({}));
+  }
+
+  async enhanceImageColorSimply(request: EnhanceImageColorRequest): Promise<EnhanceImageColorResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.enhanceImageColor(request, runtime);
   }
 
   async enhanceImageColorAdvance(request: EnhanceImageColorAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<EnhanceImageColorResponse> {
@@ -1935,8 +2108,8 @@ export default class Client extends RPC {
     let uploadRequest = new $OSS.PostObjectRequest({ });
     let ossRuntime = new $OSSUtil.RuntimeOptions({ });
     RPCUtil.convert(runtime, ossRuntime);
-    let enhanceImageColorreq = new EnhanceImageColorRequest({ });
-    RPCUtil.convert(request, enhanceImageColorreq);
+    let enhanceImageColorReq = new EnhanceImageColorRequest({ });
+    RPCUtil.convert(request, enhanceImageColorReq);
     authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
     ossConfig.accessKeyId = authResponse.accessKeyId;
     ossConfig.endpoint = RPCUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
@@ -1959,14 +2132,19 @@ export default class Client extends RPC {
       header: ossHeader,
     });
     await ossClient.postObject(uploadRequest, ossRuntime);
-    enhanceImageColorreq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
-    let enhanceImageColorResp = await this.enhanceImageColor(enhanceImageColorreq, runtime);
+    enhanceImageColorReq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    let enhanceImageColorResp = await this.enhanceImageColor(enhanceImageColorReq, runtime);
     return enhanceImageColorResp;
   }
 
   async recolorHDImage(request: RecolorHDImageRequest, runtime: $Util.RuntimeOptions): Promise<RecolorHDImageResponse> {
     Util.validateModel(request);
     return $tea.cast<RecolorHDImageResponse>(await this.doRequest("RecolorHDImage", "HTTPS", "POST", "2019-09-30", "AK", null, $tea.toMap(request), runtime), new RecolorHDImageResponse({}));
+  }
+
+  async recolorHDImageSimply(request: RecolorHDImageRequest): Promise<RecolorHDImageResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.recolorHDImage(request, runtime);
   }
 
   async recolorHDImageAdvance(request: RecolorHDImageAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<RecolorHDImageResponse> {
@@ -1999,8 +2177,8 @@ export default class Client extends RPC {
     let uploadRequest = new $OSS.PostObjectRequest({ });
     let ossRuntime = new $OSSUtil.RuntimeOptions({ });
     RPCUtil.convert(runtime, ossRuntime);
-    let recolorHDImagereq = new RecolorHDImageRequest({ });
-    RPCUtil.convert(request, recolorHDImagereq);
+    let recolorHDImageReq = new RecolorHDImageRequest({ });
+    RPCUtil.convert(request, recolorHDImageReq);
     authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
     ossConfig.accessKeyId = authResponse.accessKeyId;
     ossConfig.endpoint = RPCUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
@@ -2023,14 +2201,19 @@ export default class Client extends RPC {
       header: ossHeader,
     });
     await ossClient.postObject(uploadRequest, ossRuntime);
-    recolorHDImagereq.url = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
-    let recolorHDImageResp = await this.recolorHDImage(recolorHDImagereq, runtime);
+    recolorHDImageReq.url = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    let recolorHDImageResp = await this.recolorHDImage(recolorHDImageReq, runtime);
     return recolorHDImageResp;
   }
 
   async assessComposition(request: AssessCompositionRequest, runtime: $Util.RuntimeOptions): Promise<AssessCompositionResponse> {
     Util.validateModel(request);
     return $tea.cast<AssessCompositionResponse>(await this.doRequest("AssessComposition", "HTTPS", "POST", "2019-09-30", "AK", null, $tea.toMap(request), runtime), new AssessCompositionResponse({}));
+  }
+
+  async assessCompositionSimply(request: AssessCompositionRequest): Promise<AssessCompositionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.assessComposition(request, runtime);
   }
 
   async assessCompositionAdvance(request: AssessCompositionAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<AssessCompositionResponse> {
@@ -2063,8 +2246,8 @@ export default class Client extends RPC {
     let uploadRequest = new $OSS.PostObjectRequest({ });
     let ossRuntime = new $OSSUtil.RuntimeOptions({ });
     RPCUtil.convert(runtime, ossRuntime);
-    let assessCompositionreq = new AssessCompositionRequest({ });
-    RPCUtil.convert(request, assessCompositionreq);
+    let assessCompositionReq = new AssessCompositionRequest({ });
+    RPCUtil.convert(request, assessCompositionReq);
     authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
     ossConfig.accessKeyId = authResponse.accessKeyId;
     ossConfig.endpoint = RPCUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
@@ -2087,14 +2270,19 @@ export default class Client extends RPC {
       header: ossHeader,
     });
     await ossClient.postObject(uploadRequest, ossRuntime);
-    assessCompositionreq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
-    let assessCompositionResp = await this.assessComposition(assessCompositionreq, runtime);
+    assessCompositionReq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    let assessCompositionResp = await this.assessComposition(assessCompositionReq, runtime);
     return assessCompositionResp;
   }
 
   async assessSharpness(request: AssessSharpnessRequest, runtime: $Util.RuntimeOptions): Promise<AssessSharpnessResponse> {
     Util.validateModel(request);
     return $tea.cast<AssessSharpnessResponse>(await this.doRequest("AssessSharpness", "HTTPS", "POST", "2019-09-30", "AK", null, $tea.toMap(request), runtime), new AssessSharpnessResponse({}));
+  }
+
+  async assessSharpnessSimply(request: AssessSharpnessRequest): Promise<AssessSharpnessResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.assessSharpness(request, runtime);
   }
 
   async assessSharpnessAdvance(request: AssessSharpnessAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<AssessSharpnessResponse> {
@@ -2127,8 +2315,8 @@ export default class Client extends RPC {
     let uploadRequest = new $OSS.PostObjectRequest({ });
     let ossRuntime = new $OSSUtil.RuntimeOptions({ });
     RPCUtil.convert(runtime, ossRuntime);
-    let assessSharpnessreq = new AssessSharpnessRequest({ });
-    RPCUtil.convert(request, assessSharpnessreq);
+    let assessSharpnessReq = new AssessSharpnessRequest({ });
+    RPCUtil.convert(request, assessSharpnessReq);
     authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
     ossConfig.accessKeyId = authResponse.accessKeyId;
     ossConfig.endpoint = RPCUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
@@ -2151,14 +2339,19 @@ export default class Client extends RPC {
       header: ossHeader,
     });
     await ossClient.postObject(uploadRequest, ossRuntime);
-    assessSharpnessreq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
-    let assessSharpnessResp = await this.assessSharpness(assessSharpnessreq, runtime);
+    assessSharpnessReq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    let assessSharpnessResp = await this.assessSharpness(assessSharpnessReq, runtime);
     return assessSharpnessResp;
   }
 
   async assessExposure(request: AssessExposureRequest, runtime: $Util.RuntimeOptions): Promise<AssessExposureResponse> {
     Util.validateModel(request);
     return $tea.cast<AssessExposureResponse>(await this.doRequest("AssessExposure", "HTTPS", "POST", "2019-09-30", "AK", null, $tea.toMap(request), runtime), new AssessExposureResponse({}));
+  }
+
+  async assessExposureSimply(request: AssessExposureRequest): Promise<AssessExposureResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.assessExposure(request, runtime);
   }
 
   async assessExposureAdvance(request: AssessExposureAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<AssessExposureResponse> {
@@ -2191,8 +2384,8 @@ export default class Client extends RPC {
     let uploadRequest = new $OSS.PostObjectRequest({ });
     let ossRuntime = new $OSSUtil.RuntimeOptions({ });
     RPCUtil.convert(runtime, ossRuntime);
-    let assessExposurereq = new AssessExposureRequest({ });
-    RPCUtil.convert(request, assessExposurereq);
+    let assessExposureReq = new AssessExposureRequest({ });
+    RPCUtil.convert(request, assessExposureReq);
     authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
     ossConfig.accessKeyId = authResponse.accessKeyId;
     ossConfig.endpoint = RPCUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
@@ -2215,14 +2408,19 @@ export default class Client extends RPC {
       header: ossHeader,
     });
     await ossClient.postObject(uploadRequest, ossRuntime);
-    assessExposurereq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
-    let assessExposureResp = await this.assessExposure(assessExposurereq, runtime);
+    assessExposureReq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    let assessExposureResp = await this.assessExposure(assessExposureReq, runtime);
     return assessExposureResp;
   }
 
   async imageBlindCharacterWatermark(request: ImageBlindCharacterWatermarkRequest, runtime: $Util.RuntimeOptions): Promise<ImageBlindCharacterWatermarkResponse> {
     Util.validateModel(request);
     return $tea.cast<ImageBlindCharacterWatermarkResponse>(await this.doRequest("ImageBlindCharacterWatermark", "HTTPS", "POST", "2019-09-30", "AK", null, $tea.toMap(request), runtime), new ImageBlindCharacterWatermarkResponse({}));
+  }
+
+  async imageBlindCharacterWatermarkSimply(request: ImageBlindCharacterWatermarkRequest): Promise<ImageBlindCharacterWatermarkResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.imageBlindCharacterWatermark(request, runtime);
   }
 
   async imageBlindCharacterWatermarkAdvance(request: ImageBlindCharacterWatermarkAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<ImageBlindCharacterWatermarkResponse> {
@@ -2255,8 +2453,8 @@ export default class Client extends RPC {
     let uploadRequest = new $OSS.PostObjectRequest({ });
     let ossRuntime = new $OSSUtil.RuntimeOptions({ });
     RPCUtil.convert(runtime, ossRuntime);
-    let imageBlindCharacterWatermarkreq = new ImageBlindCharacterWatermarkRequest({ });
-    RPCUtil.convert(request, imageBlindCharacterWatermarkreq);
+    let imageBlindCharacterWatermarkReq = new ImageBlindCharacterWatermarkRequest({ });
+    RPCUtil.convert(request, imageBlindCharacterWatermarkReq);
     authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
     ossConfig.accessKeyId = authResponse.accessKeyId;
     ossConfig.endpoint = RPCUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
@@ -2279,14 +2477,19 @@ export default class Client extends RPC {
       header: ossHeader,
     });
     await ossClient.postObject(uploadRequest, ossRuntime);
-    imageBlindCharacterWatermarkreq.originImageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
-    let imageBlindCharacterWatermarkResp = await this.imageBlindCharacterWatermark(imageBlindCharacterWatermarkreq, runtime);
+    imageBlindCharacterWatermarkReq.originImageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    let imageBlindCharacterWatermarkResp = await this.imageBlindCharacterWatermark(imageBlindCharacterWatermarkReq, runtime);
     return imageBlindCharacterWatermarkResp;
   }
 
   async removeImageSubtitles(request: RemoveImageSubtitlesRequest, runtime: $Util.RuntimeOptions): Promise<RemoveImageSubtitlesResponse> {
     Util.validateModel(request);
     return $tea.cast<RemoveImageSubtitlesResponse>(await this.doRequest("RemoveImageSubtitles", "HTTPS", "POST", "2019-09-30", "AK", null, $tea.toMap(request), runtime), new RemoveImageSubtitlesResponse({}));
+  }
+
+  async removeImageSubtitlesSimply(request: RemoveImageSubtitlesRequest): Promise<RemoveImageSubtitlesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.removeImageSubtitles(request, runtime);
   }
 
   async removeImageSubtitlesAdvance(request: RemoveImageSubtitlesAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<RemoveImageSubtitlesResponse> {
@@ -2319,8 +2522,8 @@ export default class Client extends RPC {
     let uploadRequest = new $OSS.PostObjectRequest({ });
     let ossRuntime = new $OSSUtil.RuntimeOptions({ });
     RPCUtil.convert(runtime, ossRuntime);
-    let removeImageSubtitlesreq = new RemoveImageSubtitlesRequest({ });
-    RPCUtil.convert(request, removeImageSubtitlesreq);
+    let removeImageSubtitlesReq = new RemoveImageSubtitlesRequest({ });
+    RPCUtil.convert(request, removeImageSubtitlesReq);
     authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
     ossConfig.accessKeyId = authResponse.accessKeyId;
     ossConfig.endpoint = RPCUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
@@ -2343,14 +2546,19 @@ export default class Client extends RPC {
       header: ossHeader,
     });
     await ossClient.postObject(uploadRequest, ossRuntime);
-    removeImageSubtitlesreq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
-    let removeImageSubtitlesResp = await this.removeImageSubtitles(removeImageSubtitlesreq, runtime);
+    removeImageSubtitlesReq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    let removeImageSubtitlesResp = await this.removeImageSubtitles(removeImageSubtitlesReq, runtime);
     return removeImageSubtitlesResp;
   }
 
   async removeImageWatermark(request: RemoveImageWatermarkRequest, runtime: $Util.RuntimeOptions): Promise<RemoveImageWatermarkResponse> {
     Util.validateModel(request);
     return $tea.cast<RemoveImageWatermarkResponse>(await this.doRequest("RemoveImageWatermark", "HTTPS", "POST", "2019-09-30", "AK", null, $tea.toMap(request), runtime), new RemoveImageWatermarkResponse({}));
+  }
+
+  async removeImageWatermarkSimply(request: RemoveImageWatermarkRequest): Promise<RemoveImageWatermarkResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.removeImageWatermark(request, runtime);
   }
 
   async removeImageWatermarkAdvance(request: RemoveImageWatermarkAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<RemoveImageWatermarkResponse> {
@@ -2383,8 +2591,8 @@ export default class Client extends RPC {
     let uploadRequest = new $OSS.PostObjectRequest({ });
     let ossRuntime = new $OSSUtil.RuntimeOptions({ });
     RPCUtil.convert(runtime, ossRuntime);
-    let removeImageWatermarkreq = new RemoveImageWatermarkRequest({ });
-    RPCUtil.convert(request, removeImageWatermarkreq);
+    let removeImageWatermarkReq = new RemoveImageWatermarkRequest({ });
+    RPCUtil.convert(request, removeImageWatermarkReq);
     authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
     ossConfig.accessKeyId = authResponse.accessKeyId;
     ossConfig.endpoint = RPCUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
@@ -2407,14 +2615,19 @@ export default class Client extends RPC {
       header: ossHeader,
     });
     await ossClient.postObject(uploadRequest, ossRuntime);
-    removeImageWatermarkreq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
-    let removeImageWatermarkResp = await this.removeImageWatermark(removeImageWatermarkreq, runtime);
+    removeImageWatermarkReq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    let removeImageWatermarkResp = await this.removeImageWatermark(removeImageWatermarkReq, runtime);
     return removeImageWatermarkResp;
   }
 
   async imageBlindPicWatermark(request: ImageBlindPicWatermarkRequest, runtime: $Util.RuntimeOptions): Promise<ImageBlindPicWatermarkResponse> {
     Util.validateModel(request);
     return $tea.cast<ImageBlindPicWatermarkResponse>(await this.doRequest("ImageBlindPicWatermark", "HTTPS", "POST", "2019-09-30", "AK", null, $tea.toMap(request), runtime), new ImageBlindPicWatermarkResponse({}));
+  }
+
+  async imageBlindPicWatermarkSimply(request: ImageBlindPicWatermarkRequest): Promise<ImageBlindPicWatermarkResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.imageBlindPicWatermark(request, runtime);
   }
 
   async imageBlindPicWatermarkAdvance(request: ImageBlindPicWatermarkAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<ImageBlindPicWatermarkResponse> {
@@ -2447,8 +2660,8 @@ export default class Client extends RPC {
     let uploadRequest = new $OSS.PostObjectRequest({ });
     let ossRuntime = new $OSSUtil.RuntimeOptions({ });
     RPCUtil.convert(runtime, ossRuntime);
-    let imageBlindPicWatermarkreq = new ImageBlindPicWatermarkRequest({ });
-    RPCUtil.convert(request, imageBlindPicWatermarkreq);
+    let imageBlindPicWatermarkReq = new ImageBlindPicWatermarkRequest({ });
+    RPCUtil.convert(request, imageBlindPicWatermarkReq);
     authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
     ossConfig.accessKeyId = authResponse.accessKeyId;
     ossConfig.endpoint = RPCUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
@@ -2471,14 +2684,19 @@ export default class Client extends RPC {
       header: ossHeader,
     });
     await ossClient.postObject(uploadRequest, ossRuntime);
-    imageBlindPicWatermarkreq.originImageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
-    let imageBlindPicWatermarkResp = await this.imageBlindPicWatermark(imageBlindPicWatermarkreq, runtime);
+    imageBlindPicWatermarkReq.originImageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    let imageBlindPicWatermarkResp = await this.imageBlindPicWatermark(imageBlindPicWatermarkReq, runtime);
     return imageBlindPicWatermarkResp;
   }
 
   async intelligentComposition(request: IntelligentCompositionRequest, runtime: $Util.RuntimeOptions): Promise<IntelligentCompositionResponse> {
     Util.validateModel(request);
     return $tea.cast<IntelligentCompositionResponse>(await this.doRequest("IntelligentComposition", "HTTPS", "POST", "2019-09-30", "AK", null, $tea.toMap(request), runtime), new IntelligentCompositionResponse({}));
+  }
+
+  async intelligentCompositionSimply(request: IntelligentCompositionRequest): Promise<IntelligentCompositionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.intelligentComposition(request, runtime);
   }
 
   async intelligentCompositionAdvance(request: IntelligentCompositionAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<IntelligentCompositionResponse> {
@@ -2511,8 +2729,8 @@ export default class Client extends RPC {
     let uploadRequest = new $OSS.PostObjectRequest({ });
     let ossRuntime = new $OSSUtil.RuntimeOptions({ });
     RPCUtil.convert(runtime, ossRuntime);
-    let intelligentCompositionreq = new IntelligentCompositionRequest({ });
-    RPCUtil.convert(request, intelligentCompositionreq);
+    let intelligentCompositionReq = new IntelligentCompositionRequest({ });
+    RPCUtil.convert(request, intelligentCompositionReq);
     authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
     ossConfig.accessKeyId = authResponse.accessKeyId;
     ossConfig.endpoint = RPCUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
@@ -2535,14 +2753,19 @@ export default class Client extends RPC {
       header: ossHeader,
     });
     await ossClient.postObject(uploadRequest, ossRuntime);
-    intelligentCompositionreq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
-    let intelligentCompositionResp = await this.intelligentComposition(intelligentCompositionreq, runtime);
+    intelligentCompositionReq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    let intelligentCompositionResp = await this.intelligentComposition(intelligentCompositionReq, runtime);
     return intelligentCompositionResp;
   }
 
   async changeImageSize(request: ChangeImageSizeRequest, runtime: $Util.RuntimeOptions): Promise<ChangeImageSizeResponse> {
     Util.validateModel(request);
     return $tea.cast<ChangeImageSizeResponse>(await this.doRequest("ChangeImageSize", "HTTPS", "POST", "2019-09-30", "AK", null, $tea.toMap(request), runtime), new ChangeImageSizeResponse({}));
+  }
+
+  async changeImageSizeSimply(request: ChangeImageSizeRequest): Promise<ChangeImageSizeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.changeImageSize(request, runtime);
   }
 
   async changeImageSizeAdvance(request: ChangeImageSizeAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<ChangeImageSizeResponse> {
@@ -2575,8 +2798,8 @@ export default class Client extends RPC {
     let uploadRequest = new $OSS.PostObjectRequest({ });
     let ossRuntime = new $OSSUtil.RuntimeOptions({ });
     RPCUtil.convert(runtime, ossRuntime);
-    let changeImageSizereq = new ChangeImageSizeRequest({ });
-    RPCUtil.convert(request, changeImageSizereq);
+    let changeImageSizeReq = new ChangeImageSizeRequest({ });
+    RPCUtil.convert(request, changeImageSizeReq);
     authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
     ossConfig.accessKeyId = authResponse.accessKeyId;
     ossConfig.endpoint = RPCUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
@@ -2599,8 +2822,8 @@ export default class Client extends RPC {
       header: ossHeader,
     });
     await ossClient.postObject(uploadRequest, ossRuntime);
-    changeImageSizereq.url = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
-    let changeImageSizeResp = await this.changeImageSize(changeImageSizereq, runtime);
+    changeImageSizeReq.url = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    let changeImageSizeResp = await this.changeImageSize(changeImageSizeReq, runtime);
     return changeImageSizeResp;
   }
 
@@ -2609,9 +2832,19 @@ export default class Client extends RPC {
     return $tea.cast<ExtendImageStyleResponse>(await this.doRequest("ExtendImageStyle", "HTTPS", "POST", "2019-09-30", "AK", null, $tea.toMap(request), runtime), new ExtendImageStyleResponse({}));
   }
 
+  async extendImageStyleSimply(request: ExtendImageStyleRequest): Promise<ExtendImageStyleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.extendImageStyle(request, runtime);
+  }
+
   async makeSuperResolutionImage(request: MakeSuperResolutionImageRequest, runtime: $Util.RuntimeOptions): Promise<MakeSuperResolutionImageResponse> {
     Util.validateModel(request);
     return $tea.cast<MakeSuperResolutionImageResponse>(await this.doRequest("MakeSuperResolutionImage", "HTTPS", "POST", "2019-09-30", "AK", null, $tea.toMap(request), runtime), new MakeSuperResolutionImageResponse({}));
+  }
+
+  async makeSuperResolutionImageSimply(request: MakeSuperResolutionImageRequest): Promise<MakeSuperResolutionImageResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.makeSuperResolutionImage(request, runtime);
   }
 
   async makeSuperResolutionImageAdvance(request: MakeSuperResolutionImageAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<MakeSuperResolutionImageResponse> {
@@ -2644,8 +2877,8 @@ export default class Client extends RPC {
     let uploadRequest = new $OSS.PostObjectRequest({ });
     let ossRuntime = new $OSSUtil.RuntimeOptions({ });
     RPCUtil.convert(runtime, ossRuntime);
-    let makeSuperResolutionImagereq = new MakeSuperResolutionImageRequest({ });
-    RPCUtil.convert(request, makeSuperResolutionImagereq);
+    let makeSuperResolutionImageReq = new MakeSuperResolutionImageRequest({ });
+    RPCUtil.convert(request, makeSuperResolutionImageReq);
     authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
     ossConfig.accessKeyId = authResponse.accessKeyId;
     ossConfig.endpoint = RPCUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
@@ -2668,14 +2901,19 @@ export default class Client extends RPC {
       header: ossHeader,
     });
     await ossClient.postObject(uploadRequest, ossRuntime);
-    makeSuperResolutionImagereq.url = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
-    let makeSuperResolutionImageResp = await this.makeSuperResolutionImage(makeSuperResolutionImagereq, runtime);
+    makeSuperResolutionImageReq.url = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    let makeSuperResolutionImageResp = await this.makeSuperResolutionImage(makeSuperResolutionImageReq, runtime);
     return makeSuperResolutionImageResp;
   }
 
   async recolorImage(request: RecolorImageRequest, runtime: $Util.RuntimeOptions): Promise<RecolorImageResponse> {
     Util.validateModel(request);
     return $tea.cast<RecolorImageResponse>(await this.doRequest("RecolorImage", "HTTPS", "POST", "2019-09-30", "AK", null, $tea.toMap(request), runtime), new RecolorImageResponse({}));
+  }
+
+  async recolorImageSimply(request: RecolorImageRequest): Promise<RecolorImageResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.recolorImage(request, runtime);
   }
 
   getEndpoint(productId: string, regionId: string, endpointRule: string, network: string, suffix: string, endpointMap: {[key: string ]: string}, endpoint: string): string {
