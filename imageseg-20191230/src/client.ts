@@ -1,12 +1,12 @@
 // This file is auto-generated, don't edit it
-import OSS, * as $OSS from '@alicloud/oss-client';
-import OpenPlatform, * as $OpenPlatform from '@alicloud/openplatform20191219';
+import Util, * as $Util from '@alicloud/tea-util';
 import RPCUtil from '@alicloud/rpc-util';
 import RPC, * as $RPC from '@alicloud/rpc-client';
-import OSSUtil, * as $OSSUtil from '@alicloud/oss-util';
-import Util, * as $Util from '@alicloud/tea-util';
-import FileForm, * as $FileForm from '@alicloud/tea-fileform';
 import EndpointUtil from '@alicloud/endpoint-util';
+import OSS, * as $OSS from '@alicloud/oss-client';
+import OpenPlatform, * as $OpenPlatform from '@alicloud/openplatform20191219';
+import OSSUtil, * as $OSSUtil from '@alicloud/oss-util';
+import FileForm, * as $FileForm from '@alicloud/tea-fileform';
 import { Readable } from 'stream';
 import * as $tea from '@alicloud/tea-typescript';
 
@@ -1085,15 +1085,18 @@ export class SegmentFaceAdvanceRequest extends $tea.Model {
 
 export class SegmentHeadRequest extends $tea.Model {
   imageURL: string;
+  returnForm?: string;
   static names(): { [key: string]: string } {
     return {
       imageURL: 'ImageURL',
+      returnForm: 'ReturnForm',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       imageURL: 'string',
+      returnForm: 'string',
     };
   }
 
@@ -1126,15 +1129,18 @@ export class SegmentHeadResponse extends $tea.Model {
 
 export class SegmentHeadAdvanceRequest extends $tea.Model {
   imageURLObject: Readable;
+  returnForm?: string;
   static names(): { [key: string]: string } {
     return {
       imageURLObject: 'ImageURLObject',
+      returnForm: 'ReturnForm',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       imageURLObject: 'Readable',
+      returnForm: 'string',
     };
   }
 
@@ -1206,10 +1212,12 @@ export class SegmentCommodityAdvanceRequest extends $tea.Model {
 export class SegmentBodyRequest extends $tea.Model {
   imageURL: string;
   async?: boolean;
+  returnForm?: string;
   static names(): { [key: string]: string } {
     return {
       imageURL: 'ImageURL',
       async: 'Async',
+      returnForm: 'ReturnForm',
     };
   }
 
@@ -1217,6 +1225,7 @@ export class SegmentBodyRequest extends $tea.Model {
     return {
       imageURL: 'string',
       async: 'boolean',
+      returnForm: 'string',
     };
   }
 
@@ -1250,10 +1259,12 @@ export class SegmentBodyResponse extends $tea.Model {
 export class SegmentBodyAdvanceRequest extends $tea.Model {
   imageURLObject: Readable;
   async?: boolean;
+  returnForm?: string;
   static names(): { [key: string]: string } {
     return {
       imageURLObject: 'ImageURLObject',
       async: 'Async',
+      returnForm: 'ReturnForm',
     };
   }
 
@@ -1261,6 +1272,7 @@ export class SegmentBodyAdvanceRequest extends $tea.Model {
     return {
       imageURLObject: 'Readable',
       async: 'boolean',
+      returnForm: 'string',
     };
   }
 
@@ -1850,28 +1862,28 @@ export class SegmentFaceResponseData extends $tea.Model {
 }
 
 export class SegmentHeadResponseDataElements extends $tea.Model {
-  imageURL: string;
   x: number;
   y: number;
-  width: number;
+  imageURL: string;
   height: number;
+  width: number;
   static names(): { [key: string]: string } {
     return {
-      imageURL: 'ImageURL',
       x: 'X',
       y: 'Y',
-      width: 'Width',
+      imageURL: 'ImageURL',
       height: 'Height',
+      width: 'Width',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      imageURL: 'string',
       x: 'number',
       y: 'number',
-      width: 'number',
+      imageURL: 'string',
       height: 'number',
+      width: 'number',
     };
   }
 
@@ -1972,6 +1984,11 @@ export default class Client extends RPC {
     return $tea.cast<SegmentHDSkyResponse>(await this.doRequest("SegmentHDSky", "HTTPS", "POST", "2019-12-30", "AK", null, $tea.toMap(request), runtime), new SegmentHDSkyResponse({}));
   }
 
+  async segmentHDSkySimply(request: SegmentHDSkyRequest): Promise<SegmentHDSkyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.segmentHDSky(request, runtime);
+  }
+
   async segmentHDSkyAdvance(request: SegmentHDSkyAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<SegmentHDSkyResponse> {
     // Step 0: init client
     let accessKeyId = await this._credential.getAccessKeyId();
@@ -2002,8 +2019,8 @@ export default class Client extends RPC {
     let uploadRequest = new $OSS.PostObjectRequest({ });
     let ossRuntime = new $OSSUtil.RuntimeOptions({ });
     RPCUtil.convert(runtime, ossRuntime);
-    let segmentHDSkyreq = new SegmentHDSkyRequest({ });
-    RPCUtil.convert(request, segmentHDSkyreq);
+    let segmentHDSkyReq = new SegmentHDSkyRequest({ });
+    RPCUtil.convert(request, segmentHDSkyReq);
     authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
     ossConfig.accessKeyId = authResponse.accessKeyId;
     ossConfig.endpoint = RPCUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
@@ -2026,14 +2043,19 @@ export default class Client extends RPC {
       header: ossHeader,
     });
     await ossClient.postObject(uploadRequest, ossRuntime);
-    segmentHDSkyreq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
-    let segmentHDSkyResp = await this.segmentHDSky(segmentHDSkyreq, runtime);
+    segmentHDSkyReq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    let segmentHDSkyResp = await this.segmentHDSky(segmentHDSkyReq, runtime);
     return segmentHDSkyResp;
   }
 
   async segmentHDCommonImage(request: SegmentHDCommonImageRequest, runtime: $Util.RuntimeOptions): Promise<SegmentHDCommonImageResponse> {
     Util.validateModel(request);
     return $tea.cast<SegmentHDCommonImageResponse>(await this.doRequest("SegmentHDCommonImage", "HTTPS", "POST", "2019-12-30", "AK", null, $tea.toMap(request), runtime), new SegmentHDCommonImageResponse({}));
+  }
+
+  async segmentHDCommonImageSimply(request: SegmentHDCommonImageRequest): Promise<SegmentHDCommonImageResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.segmentHDCommonImage(request, runtime);
   }
 
   async segmentHDCommonImageAdvance(request: SegmentHDCommonImageAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<SegmentHDCommonImageResponse> {
@@ -2066,8 +2088,8 @@ export default class Client extends RPC {
     let uploadRequest = new $OSS.PostObjectRequest({ });
     let ossRuntime = new $OSSUtil.RuntimeOptions({ });
     RPCUtil.convert(runtime, ossRuntime);
-    let segmentHDCommonImagereq = new SegmentHDCommonImageRequest({ });
-    RPCUtil.convert(request, segmentHDCommonImagereq);
+    let segmentHDCommonImageReq = new SegmentHDCommonImageRequest({ });
+    RPCUtil.convert(request, segmentHDCommonImageReq);
     authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
     ossConfig.accessKeyId = authResponse.accessKeyId;
     ossConfig.endpoint = RPCUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
@@ -2090,14 +2112,19 @@ export default class Client extends RPC {
       header: ossHeader,
     });
     await ossClient.postObject(uploadRequest, ossRuntime);
-    segmentHDCommonImagereq.imageUrl = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
-    let segmentHDCommonImageResp = await this.segmentHDCommonImage(segmentHDCommonImagereq, runtime);
+    segmentHDCommonImageReq.imageUrl = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    let segmentHDCommonImageResp = await this.segmentHDCommonImage(segmentHDCommonImageReq, runtime);
     return segmentHDCommonImageResp;
   }
 
   async segmentSkin(request: SegmentSkinRequest, runtime: $Util.RuntimeOptions): Promise<SegmentSkinResponse> {
     Util.validateModel(request);
     return $tea.cast<SegmentSkinResponse>(await this.doRequest("SegmentSkin", "HTTPS", "POST", "2019-12-30", "AK", null, $tea.toMap(request), runtime), new SegmentSkinResponse({}));
+  }
+
+  async segmentSkinSimply(request: SegmentSkinRequest): Promise<SegmentSkinResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.segmentSkin(request, runtime);
   }
 
   async segmentSkinAdvance(request: SegmentSkinAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<SegmentSkinResponse> {
@@ -2130,8 +2157,8 @@ export default class Client extends RPC {
     let uploadRequest = new $OSS.PostObjectRequest({ });
     let ossRuntime = new $OSSUtil.RuntimeOptions({ });
     RPCUtil.convert(runtime, ossRuntime);
-    let segmentSkinreq = new SegmentSkinRequest({ });
-    RPCUtil.convert(request, segmentSkinreq);
+    let segmentSkinReq = new SegmentSkinRequest({ });
+    RPCUtil.convert(request, segmentSkinReq);
     authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
     ossConfig.accessKeyId = authResponse.accessKeyId;
     ossConfig.endpoint = RPCUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
@@ -2154,14 +2181,19 @@ export default class Client extends RPC {
       header: ossHeader,
     });
     await ossClient.postObject(uploadRequest, ossRuntime);
-    segmentSkinreq.URL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
-    let segmentSkinResp = await this.segmentSkin(segmentSkinreq, runtime);
+    segmentSkinReq.URL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    let segmentSkinResp = await this.segmentSkin(segmentSkinReq, runtime);
     return segmentSkinResp;
   }
 
   async changeSky(request: ChangeSkyRequest, runtime: $Util.RuntimeOptions): Promise<ChangeSkyResponse> {
     Util.validateModel(request);
     return $tea.cast<ChangeSkyResponse>(await this.doRequest("ChangeSky", "HTTPS", "POST", "2019-12-30", "AK", null, $tea.toMap(request), runtime), new ChangeSkyResponse({}));
+  }
+
+  async changeSkySimply(request: ChangeSkyRequest): Promise<ChangeSkyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.changeSky(request, runtime);
   }
 
   async changeSkyAdvance(request: ChangeSkyAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<ChangeSkyResponse> {
@@ -2194,8 +2226,8 @@ export default class Client extends RPC {
     let uploadRequest = new $OSS.PostObjectRequest({ });
     let ossRuntime = new $OSSUtil.RuntimeOptions({ });
     RPCUtil.convert(runtime, ossRuntime);
-    let changeSkyreq = new ChangeSkyRequest({ });
-    RPCUtil.convert(request, changeSkyreq);
+    let changeSkyReq = new ChangeSkyRequest({ });
+    RPCUtil.convert(request, changeSkyReq);
     authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
     ossConfig.accessKeyId = authResponse.accessKeyId;
     ossConfig.endpoint = RPCUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
@@ -2218,14 +2250,19 @@ export default class Client extends RPC {
       header: ossHeader,
     });
     await ossClient.postObject(uploadRequest, ossRuntime);
-    changeSkyreq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
-    let changeSkyResp = await this.changeSky(changeSkyreq, runtime);
+    changeSkyReq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    let changeSkyResp = await this.changeSky(changeSkyReq, runtime);
     return changeSkyResp;
   }
 
   async segmentLogo(request: SegmentLogoRequest, runtime: $Util.RuntimeOptions): Promise<SegmentLogoResponse> {
     Util.validateModel(request);
     return $tea.cast<SegmentLogoResponse>(await this.doRequest("SegmentLogo", "HTTPS", "POST", "2019-12-30", "AK", null, $tea.toMap(request), runtime), new SegmentLogoResponse({}));
+  }
+
+  async segmentLogoSimply(request: SegmentLogoRequest): Promise<SegmentLogoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.segmentLogo(request, runtime);
   }
 
   async segmentLogoAdvance(request: SegmentLogoAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<SegmentLogoResponse> {
@@ -2258,8 +2295,8 @@ export default class Client extends RPC {
     let uploadRequest = new $OSS.PostObjectRequest({ });
     let ossRuntime = new $OSSUtil.RuntimeOptions({ });
     RPCUtil.convert(runtime, ossRuntime);
-    let segmentLogoreq = new SegmentLogoRequest({ });
-    RPCUtil.convert(request, segmentLogoreq);
+    let segmentLogoReq = new SegmentLogoRequest({ });
+    RPCUtil.convert(request, segmentLogoReq);
     authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
     ossConfig.accessKeyId = authResponse.accessKeyId;
     ossConfig.endpoint = RPCUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
@@ -2282,14 +2319,19 @@ export default class Client extends RPC {
       header: ossHeader,
     });
     await ossClient.postObject(uploadRequest, ossRuntime);
-    segmentLogoreq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
-    let segmentLogoResp = await this.segmentLogo(segmentLogoreq, runtime);
+    segmentLogoReq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    let segmentLogoResp = await this.segmentLogo(segmentLogoReq, runtime);
     return segmentLogoResp;
   }
 
   async segmentScene(request: SegmentSceneRequest, runtime: $Util.RuntimeOptions): Promise<SegmentSceneResponse> {
     Util.validateModel(request);
     return $tea.cast<SegmentSceneResponse>(await this.doRequest("SegmentScene", "HTTPS", "POST", "2019-12-30", "AK", null, $tea.toMap(request), runtime), new SegmentSceneResponse({}));
+  }
+
+  async segmentSceneSimply(request: SegmentSceneRequest): Promise<SegmentSceneResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.segmentScene(request, runtime);
   }
 
   async segmentSceneAdvance(request: SegmentSceneAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<SegmentSceneResponse> {
@@ -2322,8 +2364,8 @@ export default class Client extends RPC {
     let uploadRequest = new $OSS.PostObjectRequest({ });
     let ossRuntime = new $OSSUtil.RuntimeOptions({ });
     RPCUtil.convert(runtime, ossRuntime);
-    let segmentScenereq = new SegmentSceneRequest({ });
-    RPCUtil.convert(request, segmentScenereq);
+    let segmentSceneReq = new SegmentSceneRequest({ });
+    RPCUtil.convert(request, segmentSceneReq);
     authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
     ossConfig.accessKeyId = authResponse.accessKeyId;
     ossConfig.endpoint = RPCUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
@@ -2346,14 +2388,19 @@ export default class Client extends RPC {
       header: ossHeader,
     });
     await ossClient.postObject(uploadRequest, ossRuntime);
-    segmentScenereq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
-    let segmentSceneResp = await this.segmentScene(segmentScenereq, runtime);
+    segmentSceneReq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    let segmentSceneResp = await this.segmentScene(segmentSceneReq, runtime);
     return segmentSceneResp;
   }
 
   async segmentFood(request: SegmentFoodRequest, runtime: $Util.RuntimeOptions): Promise<SegmentFoodResponse> {
     Util.validateModel(request);
     return $tea.cast<SegmentFoodResponse>(await this.doRequest("SegmentFood", "HTTPS", "POST", "2019-12-30", "AK", null, $tea.toMap(request), runtime), new SegmentFoodResponse({}));
+  }
+
+  async segmentFoodSimply(request: SegmentFoodRequest): Promise<SegmentFoodResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.segmentFood(request, runtime);
   }
 
   async segmentFoodAdvance(request: SegmentFoodAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<SegmentFoodResponse> {
@@ -2386,8 +2433,8 @@ export default class Client extends RPC {
     let uploadRequest = new $OSS.PostObjectRequest({ });
     let ossRuntime = new $OSSUtil.RuntimeOptions({ });
     RPCUtil.convert(runtime, ossRuntime);
-    let segmentFoodreq = new SegmentFoodRequest({ });
-    RPCUtil.convert(request, segmentFoodreq);
+    let segmentFoodReq = new SegmentFoodRequest({ });
+    RPCUtil.convert(request, segmentFoodReq);
     authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
     ossConfig.accessKeyId = authResponse.accessKeyId;
     ossConfig.endpoint = RPCUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
@@ -2410,14 +2457,19 @@ export default class Client extends RPC {
       header: ossHeader,
     });
     await ossClient.postObject(uploadRequest, ossRuntime);
-    segmentFoodreq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
-    let segmentFoodResp = await this.segmentFood(segmentFoodreq, runtime);
+    segmentFoodReq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    let segmentFoodResp = await this.segmentFood(segmentFoodReq, runtime);
     return segmentFoodResp;
   }
 
   async segmentCloth(request: SegmentClothRequest, runtime: $Util.RuntimeOptions): Promise<SegmentClothResponse> {
     Util.validateModel(request);
     return $tea.cast<SegmentClothResponse>(await this.doRequest("SegmentCloth", "HTTPS", "POST", "2019-12-30", "AK", null, $tea.toMap(request), runtime), new SegmentClothResponse({}));
+  }
+
+  async segmentClothSimply(request: SegmentClothRequest): Promise<SegmentClothResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.segmentCloth(request, runtime);
   }
 
   async segmentClothAdvance(request: SegmentClothAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<SegmentClothResponse> {
@@ -2450,8 +2502,8 @@ export default class Client extends RPC {
     let uploadRequest = new $OSS.PostObjectRequest({ });
     let ossRuntime = new $OSSUtil.RuntimeOptions({ });
     RPCUtil.convert(runtime, ossRuntime);
-    let segmentClothreq = new SegmentClothRequest({ });
-    RPCUtil.convert(request, segmentClothreq);
+    let segmentClothReq = new SegmentClothRequest({ });
+    RPCUtil.convert(request, segmentClothReq);
     authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
     ossConfig.accessKeyId = authResponse.accessKeyId;
     ossConfig.endpoint = RPCUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
@@ -2474,14 +2526,19 @@ export default class Client extends RPC {
       header: ossHeader,
     });
     await ossClient.postObject(uploadRequest, ossRuntime);
-    segmentClothreq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
-    let segmentClothResp = await this.segmentCloth(segmentClothreq, runtime);
+    segmentClothReq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    let segmentClothResp = await this.segmentCloth(segmentClothReq, runtime);
     return segmentClothResp;
   }
 
   async segmentAnimal(request: SegmentAnimalRequest, runtime: $Util.RuntimeOptions): Promise<SegmentAnimalResponse> {
     Util.validateModel(request);
     return $tea.cast<SegmentAnimalResponse>(await this.doRequest("SegmentAnimal", "HTTPS", "POST", "2019-12-30", "AK", null, $tea.toMap(request), runtime), new SegmentAnimalResponse({}));
+  }
+
+  async segmentAnimalSimply(request: SegmentAnimalRequest): Promise<SegmentAnimalResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.segmentAnimal(request, runtime);
   }
 
   async segmentAnimalAdvance(request: SegmentAnimalAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<SegmentAnimalResponse> {
@@ -2514,8 +2571,8 @@ export default class Client extends RPC {
     let uploadRequest = new $OSS.PostObjectRequest({ });
     let ossRuntime = new $OSSUtil.RuntimeOptions({ });
     RPCUtil.convert(runtime, ossRuntime);
-    let segmentAnimalreq = new SegmentAnimalRequest({ });
-    RPCUtil.convert(request, segmentAnimalreq);
+    let segmentAnimalReq = new SegmentAnimalRequest({ });
+    RPCUtil.convert(request, segmentAnimalReq);
     authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
     ossConfig.accessKeyId = authResponse.accessKeyId;
     ossConfig.endpoint = RPCUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
@@ -2538,14 +2595,19 @@ export default class Client extends RPC {
       header: ossHeader,
     });
     await ossClient.postObject(uploadRequest, ossRuntime);
-    segmentAnimalreq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
-    let segmentAnimalResp = await this.segmentAnimal(segmentAnimalreq, runtime);
+    segmentAnimalReq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    let segmentAnimalResp = await this.segmentAnimal(segmentAnimalReq, runtime);
     return segmentAnimalResp;
   }
 
   async segmentHDBody(request: SegmentHDBodyRequest, runtime: $Util.RuntimeOptions): Promise<SegmentHDBodyResponse> {
     Util.validateModel(request);
     return $tea.cast<SegmentHDBodyResponse>(await this.doRequest("SegmentHDBody", "HTTPS", "POST", "2019-12-30", "AK", null, $tea.toMap(request), runtime), new SegmentHDBodyResponse({}));
+  }
+
+  async segmentHDBodySimply(request: SegmentHDBodyRequest): Promise<SegmentHDBodyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.segmentHDBody(request, runtime);
   }
 
   async segmentHDBodyAdvance(request: SegmentHDBodyAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<SegmentHDBodyResponse> {
@@ -2578,8 +2640,8 @@ export default class Client extends RPC {
     let uploadRequest = new $OSS.PostObjectRequest({ });
     let ossRuntime = new $OSSUtil.RuntimeOptions({ });
     RPCUtil.convert(runtime, ossRuntime);
-    let segmentHDBodyreq = new SegmentHDBodyRequest({ });
-    RPCUtil.convert(request, segmentHDBodyreq);
+    let segmentHDBodyReq = new SegmentHDBodyRequest({ });
+    RPCUtil.convert(request, segmentHDBodyReq);
     authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
     ossConfig.accessKeyId = authResponse.accessKeyId;
     ossConfig.endpoint = RPCUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
@@ -2602,14 +2664,19 @@ export default class Client extends RPC {
       header: ossHeader,
     });
     await ossClient.postObject(uploadRequest, ossRuntime);
-    segmentHDBodyreq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
-    let segmentHDBodyResp = await this.segmentHDBody(segmentHDBodyreq, runtime);
+    segmentHDBodyReq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    let segmentHDBodyResp = await this.segmentHDBody(segmentHDBodyReq, runtime);
     return segmentHDBodyResp;
   }
 
   async segmentSky(request: SegmentSkyRequest, runtime: $Util.RuntimeOptions): Promise<SegmentSkyResponse> {
     Util.validateModel(request);
     return $tea.cast<SegmentSkyResponse>(await this.doRequest("SegmentSky", "HTTPS", "POST", "2019-12-30", "AK", null, $tea.toMap(request), runtime), new SegmentSkyResponse({}));
+  }
+
+  async segmentSkySimply(request: SegmentSkyRequest): Promise<SegmentSkyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.segmentSky(request, runtime);
   }
 
   async segmentSkyAdvance(request: SegmentSkyAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<SegmentSkyResponse> {
@@ -2642,8 +2709,8 @@ export default class Client extends RPC {
     let uploadRequest = new $OSS.PostObjectRequest({ });
     let ossRuntime = new $OSSUtil.RuntimeOptions({ });
     RPCUtil.convert(runtime, ossRuntime);
-    let segmentSkyreq = new SegmentSkyRequest({ });
-    RPCUtil.convert(request, segmentSkyreq);
+    let segmentSkyReq = new SegmentSkyRequest({ });
+    RPCUtil.convert(request, segmentSkyReq);
     authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
     ossConfig.accessKeyId = authResponse.accessKeyId;
     ossConfig.endpoint = RPCUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
@@ -2666,8 +2733,8 @@ export default class Client extends RPC {
       header: ossHeader,
     });
     await ossClient.postObject(uploadRequest, ossRuntime);
-    segmentSkyreq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
-    let segmentSkyResp = await this.segmentSky(segmentSkyreq, runtime);
+    segmentSkyReq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    let segmentSkyResp = await this.segmentSky(segmentSkyReq, runtime);
     return segmentSkyResp;
   }
 
@@ -2676,9 +2743,19 @@ export default class Client extends RPC {
     return $tea.cast<GetAsyncJobResultResponse>(await this.doRequest("GetAsyncJobResult", "HTTPS", "POST", "2019-12-30", "AK", null, $tea.toMap(request), runtime), new GetAsyncJobResultResponse({}));
   }
 
+  async getAsyncJobResultSimply(request: GetAsyncJobResultRequest): Promise<GetAsyncJobResultResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getAsyncJobResult(request, runtime);
+  }
+
   async segmentFurniture(request: SegmentFurnitureRequest, runtime: $Util.RuntimeOptions): Promise<SegmentFurnitureResponse> {
     Util.validateModel(request);
     return $tea.cast<SegmentFurnitureResponse>(await this.doRequest("SegmentFurniture", "HTTPS", "POST", "2019-12-30", "AK", null, $tea.toMap(request), runtime), new SegmentFurnitureResponse({}));
+  }
+
+  async segmentFurnitureSimply(request: SegmentFurnitureRequest): Promise<SegmentFurnitureResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.segmentFurniture(request, runtime);
   }
 
   async segmentFurnitureAdvance(request: SegmentFurnitureAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<SegmentFurnitureResponse> {
@@ -2711,8 +2788,8 @@ export default class Client extends RPC {
     let uploadRequest = new $OSS.PostObjectRequest({ });
     let ossRuntime = new $OSSUtil.RuntimeOptions({ });
     RPCUtil.convert(runtime, ossRuntime);
-    let segmentFurniturereq = new SegmentFurnitureRequest({ });
-    RPCUtil.convert(request, segmentFurniturereq);
+    let segmentFurnitureReq = new SegmentFurnitureRequest({ });
+    RPCUtil.convert(request, segmentFurnitureReq);
     authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
     ossConfig.accessKeyId = authResponse.accessKeyId;
     ossConfig.endpoint = RPCUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
@@ -2735,14 +2812,19 @@ export default class Client extends RPC {
       header: ossHeader,
     });
     await ossClient.postObject(uploadRequest, ossRuntime);
-    segmentFurniturereq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
-    let segmentFurnitureResp = await this.segmentFurniture(segmentFurniturereq, runtime);
+    segmentFurnitureReq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    let segmentFurnitureResp = await this.segmentFurniture(segmentFurnitureReq, runtime);
     return segmentFurnitureResp;
   }
 
   async refineMask(request: RefineMaskRequest, runtime: $Util.RuntimeOptions): Promise<RefineMaskResponse> {
     Util.validateModel(request);
     return $tea.cast<RefineMaskResponse>(await this.doRequest("RefineMask", "HTTPS", "POST", "2019-12-30", "AK", null, $tea.toMap(request), runtime), new RefineMaskResponse({}));
+  }
+
+  async refineMaskSimply(request: RefineMaskRequest): Promise<RefineMaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.refineMask(request, runtime);
   }
 
   async refineMaskAdvance(request: RefineMaskAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<RefineMaskResponse> {
@@ -2775,8 +2857,8 @@ export default class Client extends RPC {
     let uploadRequest = new $OSS.PostObjectRequest({ });
     let ossRuntime = new $OSSUtil.RuntimeOptions({ });
     RPCUtil.convert(runtime, ossRuntime);
-    let refineMaskreq = new RefineMaskRequest({ });
-    RPCUtil.convert(request, refineMaskreq);
+    let refineMaskReq = new RefineMaskRequest({ });
+    RPCUtil.convert(request, refineMaskReq);
     authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
     ossConfig.accessKeyId = authResponse.accessKeyId;
     ossConfig.endpoint = RPCUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
@@ -2799,14 +2881,19 @@ export default class Client extends RPC {
       header: ossHeader,
     });
     await ossClient.postObject(uploadRequest, ossRuntime);
-    refineMaskreq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
-    let refineMaskResp = await this.refineMask(refineMaskreq, runtime);
+    refineMaskReq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    let refineMaskResp = await this.refineMask(refineMaskReq, runtime);
     return refineMaskResp;
   }
 
   async parseFace(request: ParseFaceRequest, runtime: $Util.RuntimeOptions): Promise<ParseFaceResponse> {
     Util.validateModel(request);
     return $tea.cast<ParseFaceResponse>(await this.doRequest("ParseFace", "HTTPS", "POST", "2019-12-30", "AK", null, $tea.toMap(request), runtime), new ParseFaceResponse({}));
+  }
+
+  async parseFaceSimply(request: ParseFaceRequest): Promise<ParseFaceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.parseFace(request, runtime);
   }
 
   async parseFaceAdvance(request: ParseFaceAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<ParseFaceResponse> {
@@ -2839,8 +2926,8 @@ export default class Client extends RPC {
     let uploadRequest = new $OSS.PostObjectRequest({ });
     let ossRuntime = new $OSSUtil.RuntimeOptions({ });
     RPCUtil.convert(runtime, ossRuntime);
-    let parseFacereq = new ParseFaceRequest({ });
-    RPCUtil.convert(request, parseFacereq);
+    let parseFaceReq = new ParseFaceRequest({ });
+    RPCUtil.convert(request, parseFaceReq);
     authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
     ossConfig.accessKeyId = authResponse.accessKeyId;
     ossConfig.endpoint = RPCUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
@@ -2863,14 +2950,19 @@ export default class Client extends RPC {
       header: ossHeader,
     });
     await ossClient.postObject(uploadRequest, ossRuntime);
-    parseFacereq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
-    let parseFaceResp = await this.parseFace(parseFacereq, runtime);
+    parseFaceReq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    let parseFaceResp = await this.parseFace(parseFaceReq, runtime);
     return parseFaceResp;
   }
 
   async segmentVehicle(request: SegmentVehicleRequest, runtime: $Util.RuntimeOptions): Promise<SegmentVehicleResponse> {
     Util.validateModel(request);
     return $tea.cast<SegmentVehicleResponse>(await this.doRequest("SegmentVehicle", "HTTPS", "POST", "2019-12-30", "AK", null, $tea.toMap(request), runtime), new SegmentVehicleResponse({}));
+  }
+
+  async segmentVehicleSimply(request: SegmentVehicleRequest): Promise<SegmentVehicleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.segmentVehicle(request, runtime);
   }
 
   async segmentVehicleAdvance(request: SegmentVehicleAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<SegmentVehicleResponse> {
@@ -2903,8 +2995,8 @@ export default class Client extends RPC {
     let uploadRequest = new $OSS.PostObjectRequest({ });
     let ossRuntime = new $OSSUtil.RuntimeOptions({ });
     RPCUtil.convert(runtime, ossRuntime);
-    let segmentVehiclereq = new SegmentVehicleRequest({ });
-    RPCUtil.convert(request, segmentVehiclereq);
+    let segmentVehicleReq = new SegmentVehicleRequest({ });
+    RPCUtil.convert(request, segmentVehicleReq);
     authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
     ossConfig.accessKeyId = authResponse.accessKeyId;
     ossConfig.endpoint = RPCUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
@@ -2927,14 +3019,19 @@ export default class Client extends RPC {
       header: ossHeader,
     });
     await ossClient.postObject(uploadRequest, ossRuntime);
-    segmentVehiclereq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
-    let segmentVehicleResp = await this.segmentVehicle(segmentVehiclereq, runtime);
+    segmentVehicleReq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    let segmentVehicleResp = await this.segmentVehicle(segmentVehicleReq, runtime);
     return segmentVehicleResp;
   }
 
   async segmentHair(request: SegmentHairRequest, runtime: $Util.RuntimeOptions): Promise<SegmentHairResponse> {
     Util.validateModel(request);
     return $tea.cast<SegmentHairResponse>(await this.doRequest("SegmentHair", "HTTPS", "POST", "2019-12-30", "AK", null, $tea.toMap(request), runtime), new SegmentHairResponse({}));
+  }
+
+  async segmentHairSimply(request: SegmentHairRequest): Promise<SegmentHairResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.segmentHair(request, runtime);
   }
 
   async segmentHairAdvance(request: SegmentHairAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<SegmentHairResponse> {
@@ -2967,8 +3064,8 @@ export default class Client extends RPC {
     let uploadRequest = new $OSS.PostObjectRequest({ });
     let ossRuntime = new $OSSUtil.RuntimeOptions({ });
     RPCUtil.convert(runtime, ossRuntime);
-    let segmentHairreq = new SegmentHairRequest({ });
-    RPCUtil.convert(request, segmentHairreq);
+    let segmentHairReq = new SegmentHairRequest({ });
+    RPCUtil.convert(request, segmentHairReq);
     authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
     ossConfig.accessKeyId = authResponse.accessKeyId;
     ossConfig.endpoint = RPCUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
@@ -2991,14 +3088,19 @@ export default class Client extends RPC {
       header: ossHeader,
     });
     await ossClient.postObject(uploadRequest, ossRuntime);
-    segmentHairreq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
-    let segmentHairResp = await this.segmentHair(segmentHairreq, runtime);
+    segmentHairReq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    let segmentHairResp = await this.segmentHair(segmentHairReq, runtime);
     return segmentHairResp;
   }
 
   async segmentFace(request: SegmentFaceRequest, runtime: $Util.RuntimeOptions): Promise<SegmentFaceResponse> {
     Util.validateModel(request);
     return $tea.cast<SegmentFaceResponse>(await this.doRequest("SegmentFace", "HTTPS", "POST", "2019-12-30", "AK", null, $tea.toMap(request), runtime), new SegmentFaceResponse({}));
+  }
+
+  async segmentFaceSimply(request: SegmentFaceRequest): Promise<SegmentFaceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.segmentFace(request, runtime);
   }
 
   async segmentFaceAdvance(request: SegmentFaceAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<SegmentFaceResponse> {
@@ -3031,8 +3133,8 @@ export default class Client extends RPC {
     let uploadRequest = new $OSS.PostObjectRequest({ });
     let ossRuntime = new $OSSUtil.RuntimeOptions({ });
     RPCUtil.convert(runtime, ossRuntime);
-    let segmentFacereq = new SegmentFaceRequest({ });
-    RPCUtil.convert(request, segmentFacereq);
+    let segmentFaceReq = new SegmentFaceRequest({ });
+    RPCUtil.convert(request, segmentFaceReq);
     authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
     ossConfig.accessKeyId = authResponse.accessKeyId;
     ossConfig.endpoint = RPCUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
@@ -3055,14 +3157,19 @@ export default class Client extends RPC {
       header: ossHeader,
     });
     await ossClient.postObject(uploadRequest, ossRuntime);
-    segmentFacereq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
-    let segmentFaceResp = await this.segmentFace(segmentFacereq, runtime);
+    segmentFaceReq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    let segmentFaceResp = await this.segmentFace(segmentFaceReq, runtime);
     return segmentFaceResp;
   }
 
   async segmentHead(request: SegmentHeadRequest, runtime: $Util.RuntimeOptions): Promise<SegmentHeadResponse> {
     Util.validateModel(request);
     return $tea.cast<SegmentHeadResponse>(await this.doRequest("SegmentHead", "HTTPS", "POST", "2019-12-30", "AK", null, $tea.toMap(request), runtime), new SegmentHeadResponse({}));
+  }
+
+  async segmentHeadSimply(request: SegmentHeadRequest): Promise<SegmentHeadResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.segmentHead(request, runtime);
   }
 
   async segmentHeadAdvance(request: SegmentHeadAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<SegmentHeadResponse> {
@@ -3095,8 +3202,8 @@ export default class Client extends RPC {
     let uploadRequest = new $OSS.PostObjectRequest({ });
     let ossRuntime = new $OSSUtil.RuntimeOptions({ });
     RPCUtil.convert(runtime, ossRuntime);
-    let segmentHeadreq = new SegmentHeadRequest({ });
-    RPCUtil.convert(request, segmentHeadreq);
+    let segmentHeadReq = new SegmentHeadRequest({ });
+    RPCUtil.convert(request, segmentHeadReq);
     authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
     ossConfig.accessKeyId = authResponse.accessKeyId;
     ossConfig.endpoint = RPCUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
@@ -3119,14 +3226,19 @@ export default class Client extends RPC {
       header: ossHeader,
     });
     await ossClient.postObject(uploadRequest, ossRuntime);
-    segmentHeadreq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
-    let segmentHeadResp = await this.segmentHead(segmentHeadreq, runtime);
+    segmentHeadReq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    let segmentHeadResp = await this.segmentHead(segmentHeadReq, runtime);
     return segmentHeadResp;
   }
 
   async segmentCommodity(request: SegmentCommodityRequest, runtime: $Util.RuntimeOptions): Promise<SegmentCommodityResponse> {
     Util.validateModel(request);
     return $tea.cast<SegmentCommodityResponse>(await this.doRequest("SegmentCommodity", "HTTPS", "POST", "2019-12-30", "AK", null, $tea.toMap(request), runtime), new SegmentCommodityResponse({}));
+  }
+
+  async segmentCommoditySimply(request: SegmentCommodityRequest): Promise<SegmentCommodityResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.segmentCommodity(request, runtime);
   }
 
   async segmentCommodityAdvance(request: SegmentCommodityAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<SegmentCommodityResponse> {
@@ -3159,8 +3271,8 @@ export default class Client extends RPC {
     let uploadRequest = new $OSS.PostObjectRequest({ });
     let ossRuntime = new $OSSUtil.RuntimeOptions({ });
     RPCUtil.convert(runtime, ossRuntime);
-    let segmentCommodityreq = new SegmentCommodityRequest({ });
-    RPCUtil.convert(request, segmentCommodityreq);
+    let segmentCommodityReq = new SegmentCommodityRequest({ });
+    RPCUtil.convert(request, segmentCommodityReq);
     authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
     ossConfig.accessKeyId = authResponse.accessKeyId;
     ossConfig.endpoint = RPCUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
@@ -3183,14 +3295,19 @@ export default class Client extends RPC {
       header: ossHeader,
     });
     await ossClient.postObject(uploadRequest, ossRuntime);
-    segmentCommodityreq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
-    let segmentCommodityResp = await this.segmentCommodity(segmentCommodityreq, runtime);
+    segmentCommodityReq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    let segmentCommodityResp = await this.segmentCommodity(segmentCommodityReq, runtime);
     return segmentCommodityResp;
   }
 
   async segmentBody(request: SegmentBodyRequest, runtime: $Util.RuntimeOptions): Promise<SegmentBodyResponse> {
     Util.validateModel(request);
     return $tea.cast<SegmentBodyResponse>(await this.doRequest("SegmentBody", "HTTPS", "POST", "2019-12-30", "AK", null, $tea.toMap(request), runtime), new SegmentBodyResponse({}));
+  }
+
+  async segmentBodySimply(request: SegmentBodyRequest): Promise<SegmentBodyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.segmentBody(request, runtime);
   }
 
   async segmentBodyAdvance(request: SegmentBodyAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<SegmentBodyResponse> {
@@ -3223,8 +3340,8 @@ export default class Client extends RPC {
     let uploadRequest = new $OSS.PostObjectRequest({ });
     let ossRuntime = new $OSSUtil.RuntimeOptions({ });
     RPCUtil.convert(runtime, ossRuntime);
-    let segmentBodyreq = new SegmentBodyRequest({ });
-    RPCUtil.convert(request, segmentBodyreq);
+    let segmentBodyReq = new SegmentBodyRequest({ });
+    RPCUtil.convert(request, segmentBodyReq);
     authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
     ossConfig.accessKeyId = authResponse.accessKeyId;
     ossConfig.endpoint = RPCUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
@@ -3247,14 +3364,19 @@ export default class Client extends RPC {
       header: ossHeader,
     });
     await ossClient.postObject(uploadRequest, ossRuntime);
-    segmentBodyreq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
-    let segmentBodyResp = await this.segmentBody(segmentBodyreq, runtime);
+    segmentBodyReq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    let segmentBodyResp = await this.segmentBody(segmentBodyReq, runtime);
     return segmentBodyResp;
   }
 
   async segmentCommonImage(request: SegmentCommonImageRequest, runtime: $Util.RuntimeOptions): Promise<SegmentCommonImageResponse> {
     Util.validateModel(request);
     return $tea.cast<SegmentCommonImageResponse>(await this.doRequest("SegmentCommonImage", "HTTPS", "POST", "2019-12-30", "AK", null, $tea.toMap(request), runtime), new SegmentCommonImageResponse({}));
+  }
+
+  async segmentCommonImageSimply(request: SegmentCommonImageRequest): Promise<SegmentCommonImageResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.segmentCommonImage(request, runtime);
   }
 
   async segmentCommonImageAdvance(request: SegmentCommonImageAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<SegmentCommonImageResponse> {
@@ -3287,8 +3409,8 @@ export default class Client extends RPC {
     let uploadRequest = new $OSS.PostObjectRequest({ });
     let ossRuntime = new $OSSUtil.RuntimeOptions({ });
     RPCUtil.convert(runtime, ossRuntime);
-    let segmentCommonImagereq = new SegmentCommonImageRequest({ });
-    RPCUtil.convert(request, segmentCommonImagereq);
+    let segmentCommonImageReq = new SegmentCommonImageRequest({ });
+    RPCUtil.convert(request, segmentCommonImageReq);
     authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
     ossConfig.accessKeyId = authResponse.accessKeyId;
     ossConfig.endpoint = RPCUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
@@ -3311,8 +3433,8 @@ export default class Client extends RPC {
       header: ossHeader,
     });
     await ossClient.postObject(uploadRequest, ossRuntime);
-    segmentCommonImagereq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
-    let segmentCommonImageResp = await this.segmentCommonImage(segmentCommonImagereq, runtime);
+    segmentCommonImageReq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    let segmentCommonImageResp = await this.segmentCommonImage(segmentCommonImageReq, runtime);
     return segmentCommonImageResp;
   }
 
