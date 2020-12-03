@@ -1,12 +1,12 @@
 // This file is auto-generated, don't edit it
-import OSS, * as $OSS from '@alicloud/oss-client';
-import OpenPlatform, * as $OpenPlatform from '@alicloud/openplatform20191219';
+import Util, * as $Util from '@alicloud/tea-util';
 import RPCUtil from '@alicloud/rpc-util';
 import RPC, * as $RPC from '@alicloud/rpc-client';
-import OSSUtil, * as $OSSUtil from '@alicloud/oss-util';
-import Util, * as $Util from '@alicloud/tea-util';
-import FileForm, * as $FileForm from '@alicloud/tea-fileform';
 import EndpointUtil from '@alicloud/endpoint-util';
+import OSS, * as $OSS from '@alicloud/oss-client';
+import OpenPlatform, * as $OpenPlatform from '@alicloud/openplatform20191219';
+import OSSUtil, * as $OSSUtil from '@alicloud/oss-util';
+import FileForm, * as $FileForm from '@alicloud/tea-fileform';
 import { Readable } from 'stream';
 import * as $tea from '@alicloud/tea-typescript';
 
@@ -1353,6 +1353,8 @@ export class DetectLungNoduleResponseDataSeriesElements extends $tea.Model {
   imageY: number;
   imageZ: number;
   SOPInstanceUID: string;
+  volume: number;
+  meanValue: number;
   static names(): { [key: string]: string } {
     return {
       category: 'Category',
@@ -1367,6 +1369,8 @@ export class DetectLungNoduleResponseDataSeriesElements extends $tea.Model {
       imageY: 'ImageY',
       imageZ: 'ImageZ',
       SOPInstanceUID: 'SOPInstanceUID',
+      volume: 'Volume',
+      meanValue: 'MeanValue',
     };
   }
 
@@ -1384,6 +1388,8 @@ export class DetectLungNoduleResponseDataSeriesElements extends $tea.Model {
       imageY: 'number',
       imageZ: 'number',
       SOPInstanceUID: 'string',
+      volume: 'number',
+      meanValue: 'number',
     };
   }
 
@@ -1394,12 +1400,14 @@ export class DetectLungNoduleResponseDataSeriesElements extends $tea.Model {
 
 export class DetectLungNoduleResponseDataSeries extends $tea.Model {
   seriesInstanceUid: string;
+  report: string;
   elements: DetectLungNoduleResponseDataSeriesElements[];
   origin: number[];
   spacing: number[];
   static names(): { [key: string]: string } {
     return {
       seriesInstanceUid: 'SeriesInstanceUid',
+      report: 'Report',
       elements: 'Elements',
       origin: 'Origin',
       spacing: 'Spacing',
@@ -1409,6 +1417,7 @@ export class DetectLungNoduleResponseDataSeries extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       seriesInstanceUid: 'string',
+      report: 'string',
       elements: { 'type': 'array', 'itemType': DetectLungNoduleResponseDataSeriesElements },
       origin: { 'type': 'array', 'itemType': 'number' },
       spacing: { 'type': 'array', 'itemType': 'number' },
@@ -1536,6 +1545,11 @@ export default class Client extends RPC {
     return $tea.cast<DetectSkinDiseaseResponse>(await this.doRequest("DetectSkinDisease", "HTTPS", "POST", "2020-03-20", "AK", null, $tea.toMap(request), runtime), new DetectSkinDiseaseResponse({}));
   }
 
+  async detectSkinDiseaseSimply(request: DetectSkinDiseaseRequest): Promise<DetectSkinDiseaseResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.detectSkinDisease(request, runtime);
+  }
+
   async detectSkinDiseaseAdvance(request: DetectSkinDiseaseAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<DetectSkinDiseaseResponse> {
     // Step 0: init client
     let accessKeyId = await this._credential.getAccessKeyId();
@@ -1566,8 +1580,8 @@ export default class Client extends RPC {
     let uploadRequest = new $OSS.PostObjectRequest({ });
     let ossRuntime = new $OSSUtil.RuntimeOptions({ });
     RPCUtil.convert(runtime, ossRuntime);
-    let detectSkinDiseasereq = new DetectSkinDiseaseRequest({ });
-    RPCUtil.convert(request, detectSkinDiseasereq);
+    let detectSkinDiseaseReq = new DetectSkinDiseaseRequest({ });
+    RPCUtil.convert(request, detectSkinDiseaseReq);
     authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
     ossConfig.accessKeyId = authResponse.accessKeyId;
     ossConfig.endpoint = RPCUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
@@ -1590,8 +1604,8 @@ export default class Client extends RPC {
       header: ossHeader,
     });
     await ossClient.postObject(uploadRequest, ossRuntime);
-    detectSkinDiseasereq.url = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
-    let detectSkinDiseaseResp = await this.detectSkinDisease(detectSkinDiseasereq, runtime);
+    detectSkinDiseaseReq.url = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    let detectSkinDiseaseResp = await this.detectSkinDisease(detectSkinDiseaseReq, runtime);
     return detectSkinDiseaseResp;
   }
 
@@ -1600,9 +1614,19 @@ export default class Client extends RPC {
     return $tea.cast<RunMedQAResponse>(await this.doRequest("RunMedQA", "HTTPS", "POST", "2020-03-20", "AK", null, $tea.toMap(request), runtime), new RunMedQAResponse({}));
   }
 
+  async runMedQASimply(request: RunMedQARequest): Promise<RunMedQAResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.runMedQA(request, runtime);
+  }
+
   async detectKneeKeypointXRay(request: DetectKneeKeypointXRayRequest, runtime: $Util.RuntimeOptions): Promise<DetectKneeKeypointXRayResponse> {
     Util.validateModel(request);
     return $tea.cast<DetectKneeKeypointXRayResponse>(await this.doRequest("DetectKneeKeypointXRay", "HTTPS", "POST", "2020-03-20", "AK", null, $tea.toMap(request), runtime), new DetectKneeKeypointXRayResponse({}));
+  }
+
+  async detectKneeKeypointXRaySimply(request: DetectKneeKeypointXRayRequest): Promise<DetectKneeKeypointXRayResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.detectKneeKeypointXRay(request, runtime);
   }
 
   async detectKneeKeypointXRayAdvance(request: DetectKneeKeypointXRayAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<DetectKneeKeypointXRayResponse> {
@@ -1635,8 +1659,8 @@ export default class Client extends RPC {
     let uploadRequest = new $OSS.PostObjectRequest({ });
     let ossRuntime = new $OSSUtil.RuntimeOptions({ });
     RPCUtil.convert(runtime, ossRuntime);
-    let detectKneeKeypointXRayreq = new DetectKneeKeypointXRayRequest({ });
-    RPCUtil.convert(request, detectKneeKeypointXRayreq);
+    let detectKneeKeypointXRayReq = new DetectKneeKeypointXRayRequest({ });
+    RPCUtil.convert(request, detectKneeKeypointXRayReq);
     authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
     ossConfig.accessKeyId = authResponse.accessKeyId;
     ossConfig.endpoint = RPCUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
@@ -1659,14 +1683,19 @@ export default class Client extends RPC {
       header: ossHeader,
     });
     await ossClient.postObject(uploadRequest, ossRuntime);
-    detectKneeKeypointXRayreq.imageUrl = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
-    let detectKneeKeypointXRayResp = await this.detectKneeKeypointXRay(detectKneeKeypointXRayreq, runtime);
+    detectKneeKeypointXRayReq.imageUrl = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    let detectKneeKeypointXRayResp = await this.detectKneeKeypointXRay(detectKneeKeypointXRayReq, runtime);
     return detectKneeKeypointXRayResp;
   }
 
   async classifyFNF(request: ClassifyFNFRequest, runtime: $Util.RuntimeOptions): Promise<ClassifyFNFResponse> {
     Util.validateModel(request);
     return $tea.cast<ClassifyFNFResponse>(await this.doRequest("ClassifyFNF", "HTTPS", "POST", "2020-03-20", "AK", null, $tea.toMap(request), runtime), new ClassifyFNFResponse({}));
+  }
+
+  async classifyFNFSimply(request: ClassifyFNFRequest): Promise<ClassifyFNFResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.classifyFNF(request, runtime);
   }
 
   async classifyFNFAdvance(request: ClassifyFNFAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<ClassifyFNFResponse> {
@@ -1699,8 +1728,8 @@ export default class Client extends RPC {
     let uploadRequest = new $OSS.PostObjectRequest({ });
     let ossRuntime = new $OSSUtil.RuntimeOptions({ });
     RPCUtil.convert(runtime, ossRuntime);
-    let classifyFNFreq = new ClassifyFNFRequest({ });
-    RPCUtil.convert(request, classifyFNFreq);
+    let classifyFNFReq = new ClassifyFNFRequest({ });
+    RPCUtil.convert(request, classifyFNFReq);
     authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
     ossConfig.accessKeyId = authResponse.accessKeyId;
     ossConfig.endpoint = RPCUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
@@ -1723,8 +1752,8 @@ export default class Client extends RPC {
       header: ossHeader,
     });
     await ossClient.postObject(uploadRequest, ossRuntime);
-    classifyFNFreq.imageUrl = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
-    let classifyFNFResp = await this.classifyFNF(classifyFNFreq, runtime);
+    classifyFNFReq.imageUrl = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    let classifyFNFResp = await this.classifyFNF(classifyFNFReq, runtime);
     return classifyFNFResp;
   }
 
@@ -1733,9 +1762,19 @@ export default class Client extends RPC {
     return $tea.cast<RunCTRegistrationResponse>(await this.doRequest("RunCTRegistration", "HTTPS", "POST", "2020-03-20", "AK", null, $tea.toMap(request), runtime), new RunCTRegistrationResponse({}));
   }
 
+  async runCTRegistrationSimply(request: RunCTRegistrationRequest): Promise<RunCTRegistrationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.runCTRegistration(request, runtime);
+  }
+
   async detectHipKeypointXRay(request: DetectHipKeypointXRayRequest, runtime: $Util.RuntimeOptions): Promise<DetectHipKeypointXRayResponse> {
     Util.validateModel(request);
     return $tea.cast<DetectHipKeypointXRayResponse>(await this.doRequest("DetectHipKeypointXRay", "HTTPS", "POST", "2020-03-20", "AK", null, $tea.toMap(request), runtime), new DetectHipKeypointXRayResponse({}));
+  }
+
+  async detectHipKeypointXRaySimply(request: DetectHipKeypointXRayRequest): Promise<DetectHipKeypointXRayResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.detectHipKeypointXRay(request, runtime);
   }
 
   async detectHipKeypointXRayAdvance(request: DetectHipKeypointXRayAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<DetectHipKeypointXRayResponse> {
@@ -1768,8 +1807,8 @@ export default class Client extends RPC {
     let uploadRequest = new $OSS.PostObjectRequest({ });
     let ossRuntime = new $OSSUtil.RuntimeOptions({ });
     RPCUtil.convert(runtime, ossRuntime);
-    let detectHipKeypointXRayreq = new DetectHipKeypointXRayRequest({ });
-    RPCUtil.convert(request, detectHipKeypointXRayreq);
+    let detectHipKeypointXRayReq = new DetectHipKeypointXRayRequest({ });
+    RPCUtil.convert(request, detectHipKeypointXRayReq);
     authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
     ossConfig.accessKeyId = authResponse.accessKeyId;
     ossConfig.endpoint = RPCUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
@@ -1792,8 +1831,8 @@ export default class Client extends RPC {
       header: ossHeader,
     });
     await ossClient.postObject(uploadRequest, ossRuntime);
-    detectHipKeypointXRayreq.imageUrl = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
-    let detectHipKeypointXRayResp = await this.detectHipKeypointXRay(detectHipKeypointXRayreq, runtime);
+    detectHipKeypointXRayReq.imageUrl = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    let detectHipKeypointXRayResp = await this.detectHipKeypointXRay(detectHipKeypointXRayReq, runtime);
     return detectHipKeypointXRayResp;
   }
 
@@ -1802,9 +1841,19 @@ export default class Client extends RPC {
     return $tea.cast<CalcCACSResponse>(await this.doRequest("CalcCACS", "HTTPS", "POST", "2020-03-20", "AK", null, $tea.toMap(request), runtime), new CalcCACSResponse({}));
   }
 
+  async calcCACSSimply(request: CalcCACSRequest): Promise<CalcCACSResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.calcCACS(request, runtime);
+  }
+
   async detectKneeXRay(request: DetectKneeXRayRequest, runtime: $Util.RuntimeOptions): Promise<DetectKneeXRayResponse> {
     Util.validateModel(request);
     return $tea.cast<DetectKneeXRayResponse>(await this.doRequest("DetectKneeXRay", "HTTPS", "POST", "2020-03-20", "AK", null, $tea.toMap(request), runtime), new DetectKneeXRayResponse({}));
+  }
+
+  async detectKneeXRaySimply(request: DetectKneeXRayRequest): Promise<DetectKneeXRayResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.detectKneeXRay(request, runtime);
   }
 
   async detectKneeXRayAdvance(request: DetectKneeXRayAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<DetectKneeXRayResponse> {
@@ -1837,8 +1886,8 @@ export default class Client extends RPC {
     let uploadRequest = new $OSS.PostObjectRequest({ });
     let ossRuntime = new $OSSUtil.RuntimeOptions({ });
     RPCUtil.convert(runtime, ossRuntime);
-    let detectKneeXRayreq = new DetectKneeXRayRequest({ });
-    RPCUtil.convert(request, detectKneeXRayreq);
+    let detectKneeXRayReq = new DetectKneeXRayRequest({ });
+    RPCUtil.convert(request, detectKneeXRayReq);
     authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
     ossConfig.accessKeyId = authResponse.accessKeyId;
     ossConfig.endpoint = RPCUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
@@ -1861,8 +1910,8 @@ export default class Client extends RPC {
       header: ossHeader,
     });
     await ossClient.postObject(uploadRequest, ossRuntime);
-    detectKneeXRayreq.url = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
-    let detectKneeXRayResp = await this.detectKneeXRay(detectKneeXRayreq, runtime);
+    detectKneeXRayReq.url = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    let detectKneeXRayResp = await this.detectKneeXRay(detectKneeXRayReq, runtime);
     return detectKneeXRayResp;
   }
 
@@ -1871,9 +1920,19 @@ export default class Client extends RPC {
     return $tea.cast<DetectSpineMRIResponse>(await this.doRequest("DetectSpineMRI", "HTTPS", "POST", "2020-03-20", "AK", null, $tea.toMap(request), runtime), new DetectSpineMRIResponse({}));
   }
 
+  async detectSpineMRISimply(request: DetectSpineMRIRequest): Promise<DetectSpineMRIResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.detectSpineMRI(request, runtime);
+  }
+
   async translateMed(request: TranslateMedRequest, runtime: $Util.RuntimeOptions): Promise<TranslateMedResponse> {
     Util.validateModel(request);
     return $tea.cast<TranslateMedResponse>(await this.doRequest("TranslateMed", "HTTPS", "POST", "2020-03-20", "AK", null, $tea.toMap(request), runtime), new TranslateMedResponse({}));
+  }
+
+  async translateMedSimply(request: TranslateMedRequest): Promise<TranslateMedResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.translateMed(request, runtime);
   }
 
   async detectLungNodule(request: DetectLungNoduleRequest, runtime: $Util.RuntimeOptions): Promise<DetectLungNoduleResponse> {
@@ -1881,14 +1940,29 @@ export default class Client extends RPC {
     return $tea.cast<DetectLungNoduleResponse>(await this.doRequest("DetectLungNodule", "HTTPS", "POST", "2020-03-20", "AK", null, $tea.toMap(request), runtime), new DetectLungNoduleResponse({}));
   }
 
+  async detectLungNoduleSimply(request: DetectLungNoduleRequest): Promise<DetectLungNoduleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.detectLungNodule(request, runtime);
+  }
+
   async detectCovid19Cad(request: DetectCovid19CadRequest, runtime: $Util.RuntimeOptions): Promise<DetectCovid19CadResponse> {
     Util.validateModel(request);
     return $tea.cast<DetectCovid19CadResponse>(await this.doRequest("DetectCovid19Cad", "HTTPS", "POST", "2020-03-20", "AK", null, $tea.toMap(request), runtime), new DetectCovid19CadResponse({}));
   }
 
+  async detectCovid19CadSimply(request: DetectCovid19CadRequest): Promise<DetectCovid19CadResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.detectCovid19Cad(request, runtime);
+  }
+
   async getAsyncJobResult(request: GetAsyncJobResultRequest, runtime: $Util.RuntimeOptions): Promise<GetAsyncJobResultResponse> {
     Util.validateModel(request);
     return $tea.cast<GetAsyncJobResultResponse>(await this.doRequest("GetAsyncJobResult", "HTTPS", "POST", "2020-03-20", "AK", null, $tea.toMap(request), runtime), new GetAsyncJobResultResponse({}));
+  }
+
+  async getAsyncJobResultSimply(request: GetAsyncJobResultRequest): Promise<GetAsyncJobResultResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getAsyncJobResult(request, runtime);
   }
 
   getEndpoint(productId: string, regionId: string, endpointRule: string, network: string, suffix: string, endpointMap: {[key: string ]: string}, endpoint: string): string {
