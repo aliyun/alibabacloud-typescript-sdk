@@ -1151,15 +1151,18 @@ export class SegmentHeadAdvanceRequest extends $tea.Model {
 
 export class SegmentCommodityRequest extends $tea.Model {
   imageURL: string;
+  returnForm?: string;
   static names(): { [key: string]: string } {
     return {
       imageURL: 'ImageURL',
+      returnForm: 'ReturnForm',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       imageURL: 'string',
+      returnForm: 'string',
     };
   }
 
@@ -1192,15 +1195,18 @@ export class SegmentCommodityResponse extends $tea.Model {
 
 export class SegmentCommodityAdvanceRequest extends $tea.Model {
   imageURLObject: Readable;
+  returnForm?: string;
   static names(): { [key: string]: string } {
     return {
       imageURLObject: 'ImageURLObject',
+      returnForm: 'ReturnForm',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       imageURLObject: 'Readable',
+      returnForm: 'string',
     };
   }
 
