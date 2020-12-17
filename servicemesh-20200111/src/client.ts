@@ -113,8 +113,8 @@ export class GetVmAppMeshInfoResponse extends $tea.Model {
 export class GetVmMetaRequest extends $tea.Model {
   serviceMeshId: string;
   trustDomain?: string;
-  namespace: string;
-  serviceAccount: string;
+  namespace?: string;
+  serviceAccount?: string;
   static names(): { [key: string]: string } {
     return {
       serviceMeshId: 'ServiceMeshId',
@@ -695,8 +695,8 @@ export class DescribeClusterPrometheusResponse extends $tea.Model {
 }
 
 export class DescribeClusterGrafanaRequest extends $tea.Model {
-  serviceMeshId?: string;
-  k8sClusterId?: string;
+  serviceMeshId: string;
+  k8sClusterId: string;
   static names(): { [key: string]: string } {
     return {
       serviceMeshId: 'ServiceMeshId',
@@ -730,47 +730,6 @@ export class DescribeClusterGrafanaResponse extends $tea.Model {
     return {
       requestId: 'string',
       dashboards: { 'type': 'array', 'itemType': DescribeClusterGrafanaResponseDashboards },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeRegionsRequest extends $tea.Model {
-  acceptLanguage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      acceptLanguage: 'AcceptLanguage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      acceptLanguage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeRegionsResponse extends $tea.Model {
-  requestId: string;
-  businessLocations: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      businessLocations: 'BusinessLocations',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      businessLocations: 'string',
     };
   }
 
@@ -821,7 +780,7 @@ export class DescribeCensResponse extends $tea.Model {
 }
 
 export class DescribeClustersInServiceMeshRequest extends $tea.Model {
-  serviceMeshId?: string;
+  serviceMeshId: string;
   static names(): { [key: string]: string } {
     return {
       serviceMeshId: 'ServiceMeshId',
@@ -903,7 +862,7 @@ export class DescribeIngressGatewaysResponse extends $tea.Model {
 }
 
 export class DescribeUpgradeVersionRequest extends $tea.Model {
-  serviceMeshId?: string;
+  serviceMeshId: string;
   static names(): { [key: string]: string } {
     return {
       serviceMeshId: 'ServiceMeshId',
@@ -972,6 +931,10 @@ export class UpdateMeshFeatureRequest extends $tea.Model {
   sidecarInjectorLimitCPU?: string;
   sidecarInjectorLimitMemory?: string;
   sidecarInjectorWebhookAsYaml?: string;
+  cniEnabled?: boolean;
+  cniExcludeNamespaces?: string;
+  opaEnabled?: boolean;
+  http10Enabled?: boolean;
   static names(): { [key: string]: string } {
     return {
       serviceMeshId: 'ServiceMeshId',
@@ -1002,6 +965,10 @@ export class UpdateMeshFeatureRequest extends $tea.Model {
       sidecarInjectorLimitCPU: 'SidecarInjectorLimitCPU',
       sidecarInjectorLimitMemory: 'SidecarInjectorLimitMemory',
       sidecarInjectorWebhookAsYaml: 'SidecarInjectorWebhookAsYaml',
+      cniEnabled: 'CniEnabled',
+      cniExcludeNamespaces: 'CniExcludeNamespaces',
+      opaEnabled: 'OpaEnabled',
+      http10Enabled: 'Http10Enabled',
     };
   }
 
@@ -1035,6 +1002,10 @@ export class UpdateMeshFeatureRequest extends $tea.Model {
       sidecarInjectorLimitCPU: 'string',
       sidecarInjectorLimitMemory: 'string',
       sidecarInjectorWebhookAsYaml: 'string',
+      cniEnabled: 'boolean',
+      cniExcludeNamespaces: 'string',
+      opaEnabled: 'boolean',
+      http10Enabled: 'boolean',
     };
   }
 
@@ -1063,7 +1034,7 @@ export class UpdateMeshFeatureResponse extends $tea.Model {
 }
 
 export class UpgradeMeshVersionRequest extends $tea.Model {
-  serviceMeshId?: string;
+  serviceMeshId: string;
   static names(): { [key: string]: string } {
     return {
       serviceMeshId: 'ServiceMeshId',
@@ -1231,7 +1202,7 @@ export class CreateServiceMeshRequest extends $tea.Model {
   pilotPublicEip?: boolean;
   tracing?: boolean;
   name?: string;
-  vSwitches?: string;
+  vSwitches: string;
   traceSampling?: number;
   localityLoadBalancing?: boolean;
   telemetry?: boolean;
@@ -1251,6 +1222,7 @@ export class CreateServiceMeshRequest extends $tea.Model {
   excludeIPRanges?: string;
   excludeOutboundPorts?: string;
   excludeInboundPorts?: string;
+  opaEnabled?: boolean;
   static names(): { [key: string]: string } {
     return {
       regionId: 'RegionId',
@@ -1280,6 +1252,7 @@ export class CreateServiceMeshRequest extends $tea.Model {
       excludeIPRanges: 'ExcludeIPRanges',
       excludeOutboundPorts: 'ExcludeOutboundPorts',
       excludeInboundPorts: 'ExcludeInboundPorts',
+      opaEnabled: 'OpaEnabled',
     };
   }
 
@@ -1312,6 +1285,7 @@ export class CreateServiceMeshRequest extends $tea.Model {
       excludeIPRanges: 'string',
       excludeOutboundPorts: 'string',
       excludeInboundPorts: 'string',
+      opaEnabled: 'boolean',
     };
   }
 
@@ -1702,12 +1676,83 @@ export class DescribeServiceMeshesResponseServiceMeshesSpecLoadBalancer extends 
   }
 }
 
+export class DescribeServiceMeshesResponseServiceMeshesSpecMeshConfigPilot extends $tea.Model {
+  traceSampling: number;
+  http10Enabled: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      traceSampling: 'TraceSampling',
+      http10Enabled: 'Http10Enabled',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      traceSampling: 'number',
+      http10Enabled: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeServiceMeshesResponseServiceMeshesSpecMeshConfigSidecarInjectorInitCNIConfiguration extends $tea.Model {
+  enabled: boolean;
+  excludeNamespaces: string;
+  static names(): { [key: string]: string } {
+    return {
+      enabled: 'Enabled',
+      excludeNamespaces: 'ExcludeNamespaces',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enabled: 'boolean',
+      excludeNamespaces: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeServiceMeshesResponseServiceMeshesSpecMeshConfigSidecarInjector extends $tea.Model {
+  enableNamespacesByDefault: boolean;
+  autoInjectionPolicyEnabled: boolean;
+  initCNIConfiguration: DescribeServiceMeshesResponseServiceMeshesSpecMeshConfigSidecarInjectorInitCNIConfiguration;
+  static names(): { [key: string]: string } {
+    return {
+      enableNamespacesByDefault: 'EnableNamespacesByDefault',
+      autoInjectionPolicyEnabled: 'AutoInjectionPolicyEnabled',
+      initCNIConfiguration: 'InitCNIConfiguration',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enableNamespacesByDefault: 'boolean',
+      autoInjectionPolicyEnabled: 'boolean',
+      initCNIConfiguration: DescribeServiceMeshesResponseServiceMeshesSpecMeshConfigSidecarInjectorInitCNIConfiguration,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeServiceMeshesResponseServiceMeshesSpecMeshConfig extends $tea.Model {
   mtls: boolean;
   outboundTrafficPolicy: string;
   strictMtls: boolean;
   tracing: boolean;
   telemetry: boolean;
+  pilot: DescribeServiceMeshesResponseServiceMeshesSpecMeshConfigPilot;
+  sidecarInjector: DescribeServiceMeshesResponseServiceMeshesSpecMeshConfigSidecarInjector;
   static names(): { [key: string]: string } {
     return {
       mtls: 'Mtls',
@@ -1715,6 +1760,8 @@ export class DescribeServiceMeshesResponseServiceMeshesSpecMeshConfig extends $t
       strictMtls: 'StrictMtls',
       tracing: 'Tracing',
       telemetry: 'Telemetry',
+      pilot: 'Pilot',
+      sidecarInjector: 'SidecarInjector',
     };
   }
 
@@ -1725,6 +1772,8 @@ export class DescribeServiceMeshesResponseServiceMeshesSpecMeshConfig extends $t
       strictMtls: 'boolean',
       tracing: 'boolean',
       telemetry: 'boolean',
+      pilot: DescribeServiceMeshesResponseServiceMeshesSpecMeshConfigPilot,
+      sidecarInjector: DescribeServiceMeshesResponseServiceMeshesSpecMeshConfigSidecarInjector,
     };
   }
 
@@ -1909,15 +1958,18 @@ export class DescribeServiceMeshDetailResponseServiceMeshSpecLoadBalancer extend
 
 export class DescribeServiceMeshDetailResponseServiceMeshSpecMeshConfigPilot extends $tea.Model {
   traceSampling: number;
+  http10Enabled: boolean;
   static names(): { [key: string]: string } {
     return {
       traceSampling: 'TraceSampling',
+      http10Enabled: 'Http10Enabled',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       traceSampling: 'number',
+      http10Enabled: 'boolean',
     };
   }
 
@@ -2013,6 +2065,28 @@ export class DescribeServiceMeshDetailResponseServiceMeshSpecMeshConfigProxy ext
   }
 }
 
+export class DescribeServiceMeshDetailResponseServiceMeshSpecMeshConfigSidecarInjectorInitCNIConfiguration extends $tea.Model {
+  enabled: boolean;
+  excludeNamespaces: string;
+  static names(): { [key: string]: string } {
+    return {
+      enabled: 'Enabled',
+      excludeNamespaces: 'ExcludeNamespaces',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enabled: 'boolean',
+      excludeNamespaces: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeServiceMeshDetailResponseServiceMeshSpecMeshConfigSidecarInjector extends $tea.Model {
   enableNamespacesByDefault: boolean;
   autoInjectionPolicyEnabled: boolean;
@@ -2021,6 +2095,7 @@ export class DescribeServiceMeshDetailResponseServiceMeshSpecMeshConfigSidecarIn
   limitCPU: string;
   limitMemory: string;
   sidecarInjectorWebhookAsYaml: string;
+  initCNIConfiguration: DescribeServiceMeshDetailResponseServiceMeshSpecMeshConfigSidecarInjectorInitCNIConfiguration;
   static names(): { [key: string]: string } {
     return {
       enableNamespacesByDefault: 'EnableNamespacesByDefault',
@@ -2030,6 +2105,7 @@ export class DescribeServiceMeshDetailResponseServiceMeshSpecMeshConfigSidecarIn
       limitCPU: 'LimitCPU',
       limitMemory: 'LimitMemory',
       sidecarInjectorWebhookAsYaml: 'SidecarInjectorWebhookAsYaml',
+      initCNIConfiguration: 'InitCNIConfiguration',
     };
   }
 
@@ -2042,6 +2118,7 @@ export class DescribeServiceMeshDetailResponseServiceMeshSpecMeshConfigSidecarIn
       limitCPU: 'string',
       limitMemory: 'string',
       sidecarInjectorWebhookAsYaml: 'string',
+      initCNIConfiguration: DescribeServiceMeshDetailResponseServiceMeshSpecMeshConfigSidecarInjectorInitCNIConfiguration,
     };
   }
 
@@ -2346,16 +2423,6 @@ export default class Client extends RPC {
   async describeClusterGrafana(request: DescribeClusterGrafanaRequest): Promise<DescribeClusterGrafanaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeClusterGrafanaWithOptions(request, runtime);
-  }
-
-  async describeRegionsWithOptions(request: DescribeRegionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRegionsResponse> {
-    Util.validateModel(request);
-    return $tea.cast<DescribeRegionsResponse>(await this.doRequest("DescribeRegions", "HTTPS", "POST", "2020-01-11", "AK", null, $tea.toMap(request), runtime), new DescribeRegionsResponse({}));
-  }
-
-  async describeRegions(request: DescribeRegionsRequest): Promise<DescribeRegionsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeRegionsWithOptions(request, runtime);
   }
 
   async describeCensWithOptions(request: DescribeCensRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCensResponse> {
