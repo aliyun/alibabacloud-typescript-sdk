@@ -10,6 +10,228 @@ import FileForm, * as $FileForm from '@alicloud/tea-fileform';
 import { Readable } from 'stream';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class ConvertHdrVideoRequest extends $tea.Model {
+  videoURL: string;
+  HDRFormat?: string;
+  maxIlluminance?: number;
+  bitrate?: number;
+  static names(): { [key: string]: string } {
+    return {
+      videoURL: 'VideoURL',
+      HDRFormat: 'HDRFormat',
+      maxIlluminance: 'MaxIlluminance',
+      bitrate: 'Bitrate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      videoURL: 'string',
+      HDRFormat: 'string',
+      maxIlluminance: 'number',
+      bitrate: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ConvertHdrVideoResponse extends $tea.Model {
+  requestId: string;
+  data: ConvertHdrVideoResponseData;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      data: ConvertHdrVideoResponseData,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ConvertHdrVideoAdvanceRequest extends $tea.Model {
+  videoURLObject: Readable;
+  HDRFormat?: string;
+  maxIlluminance?: number;
+  bitrate?: number;
+  static names(): { [key: string]: string } {
+    return {
+      videoURLObject: 'VideoURLObject',
+      HDRFormat: 'HDRFormat',
+      maxIlluminance: 'MaxIlluminance',
+      bitrate: 'Bitrate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      videoURLObject: 'Readable',
+      HDRFormat: 'string',
+      maxIlluminance: 'number',
+      bitrate: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InterpolateVideoFrameRequest extends $tea.Model {
+  videoURL: string;
+  frameRate?: number;
+  bitrate?: number;
+  static names(): { [key: string]: string } {
+    return {
+      videoURL: 'VideoURL',
+      frameRate: 'FrameRate',
+      bitrate: 'Bitrate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      videoURL: 'string',
+      frameRate: 'number',
+      bitrate: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InterpolateVideoFrameResponse extends $tea.Model {
+  requestId: string;
+  data: InterpolateVideoFrameResponseData;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      data: InterpolateVideoFrameResponseData,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InterpolateVideoFrameAdvanceRequest extends $tea.Model {
+  videoURLObject: Readable;
+  frameRate?: number;
+  bitrate?: number;
+  static names(): { [key: string]: string } {
+    return {
+      videoURLObject: 'VideoURLObject',
+      frameRate: 'FrameRate',
+      bitrate: 'Bitrate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      videoURLObject: 'Readable',
+      frameRate: 'number',
+      bitrate: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ToneSdrVideoRequest extends $tea.Model {
+  videoURL: string;
+  bitrate?: number;
+  recolorModel?: string;
+  static names(): { [key: string]: string } {
+    return {
+      videoURL: 'VideoURL',
+      bitrate: 'Bitrate',
+      recolorModel: 'RecolorModel',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      videoURL: 'string',
+      bitrate: 'number',
+      recolorModel: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ToneSdrVideoResponse extends $tea.Model {
+  requestId: string;
+  data: ToneSdrVideoResponseData;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      data: ToneSdrVideoResponseData,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ToneSdrVideoAdvanceRequest extends $tea.Model {
+  videoURLObject: Readable;
+  bitrate?: number;
+  recolorModel?: string;
+  static names(): { [key: string]: string } {
+    return {
+      videoURLObject: 'VideoURLObject',
+      bitrate: 'Bitrate',
+      recolorModel: 'RecolorModel',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      videoURLObject: 'Readable',
+      bitrate: 'number',
+      recolorModel: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class EnhanceVideoQualityRequest extends $tea.Model {
   videoURL: string;
   outPutWidth?: number;
@@ -842,6 +1064,63 @@ export class AdjustVideoColorAdvanceRequest extends $tea.Model {
   }
 }
 
+export class ConvertHdrVideoResponseData extends $tea.Model {
+  videoURL: string;
+  static names(): { [key: string]: string } {
+    return {
+      videoURL: 'VideoURL',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      videoURL: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InterpolateVideoFrameResponseData extends $tea.Model {
+  videoURL: string;
+  static names(): { [key: string]: string } {
+    return {
+      videoURL: 'VideoURL',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      videoURL: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ToneSdrVideoResponseData extends $tea.Model {
+  videoURL: string;
+  static names(): { [key: string]: string } {
+    return {
+      videoURL: 'VideoURL',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      videoURL: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class EnhanceVideoQualityResponseData extends $tea.Model {
   videoURL: string;
   static names(): { [key: string]: string } {
@@ -1163,6 +1442,213 @@ export default class Client extends RPC {
     this._endpoint = this.getEndpoint("videoenhan", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
 
+
+  async convertHdrVideo(request: ConvertHdrVideoRequest, runtime: $Util.RuntimeOptions): Promise<ConvertHdrVideoResponse> {
+    Util.validateModel(request);
+    return $tea.cast<ConvertHdrVideoResponse>(await this.doRequest("ConvertHdrVideo", "HTTPS", "POST", "2020-03-20", "AK", null, $tea.toMap(request), runtime), new ConvertHdrVideoResponse({}));
+  }
+
+  async convertHdrVideoSimply(request: ConvertHdrVideoRequest): Promise<ConvertHdrVideoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.convertHdrVideo(request, runtime);
+  }
+
+  async convertHdrVideoAdvance(request: ConvertHdrVideoAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<ConvertHdrVideoResponse> {
+    // Step 0: init client
+    let accessKeyId = await this._credential.getAccessKeyId();
+    let accessKeySecret = await this._credential.getAccessKeySecret();
+    let authConfig = new $RPC.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      endpoint: "openplatform.aliyuncs.com",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenPlatform(authConfig);
+    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
+      product: "videoenhan",
+      regionId: this._regionId,
+    });
+    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
+    let ossConfig = new $OSS.Config({
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let ossClient : OSS = null;
+    let fileObj = new $FileForm.FileField({ });
+    let ossHeader = new $OSS.PostObjectRequestHeader({ });
+    let uploadRequest = new $OSS.PostObjectRequest({ });
+    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
+    RPCUtil.convert(runtime, ossRuntime);
+    let convertHdrVideoReq = new ConvertHdrVideoRequest({ });
+    RPCUtil.convert(request, convertHdrVideoReq);
+    authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+    ossConfig.accessKeyId = authResponse.accessKeyId;
+    ossConfig.endpoint = RPCUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+    ossClient = new OSS(ossConfig);
+    fileObj = new $FileForm.FileField({
+      filename: authResponse.objectKey,
+      content: request.videoURLObject,
+      contentType: "",
+    });
+    ossHeader = new $OSS.PostObjectRequestHeader({
+      accessKeyId: authResponse.accessKeyId,
+      policy: authResponse.encodedPolicy,
+      signature: authResponse.signature,
+      key: authResponse.objectKey,
+      file: fileObj,
+      successActionStatus: "201",
+    });
+    uploadRequest = new $OSS.PostObjectRequest({
+      bucketName: authResponse.bucket,
+      header: ossHeader,
+    });
+    await ossClient.postObject(uploadRequest, ossRuntime);
+    convertHdrVideoReq.videoURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    let convertHdrVideoResp = await this.convertHdrVideo(convertHdrVideoReq, runtime);
+    return convertHdrVideoResp;
+  }
+
+  async interpolateVideoFrame(request: InterpolateVideoFrameRequest, runtime: $Util.RuntimeOptions): Promise<InterpolateVideoFrameResponse> {
+    Util.validateModel(request);
+    return $tea.cast<InterpolateVideoFrameResponse>(await this.doRequest("InterpolateVideoFrame", "HTTPS", "POST", "2020-03-20", "AK", null, $tea.toMap(request), runtime), new InterpolateVideoFrameResponse({}));
+  }
+
+  async interpolateVideoFrameSimply(request: InterpolateVideoFrameRequest): Promise<InterpolateVideoFrameResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.interpolateVideoFrame(request, runtime);
+  }
+
+  async interpolateVideoFrameAdvance(request: InterpolateVideoFrameAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<InterpolateVideoFrameResponse> {
+    // Step 0: init client
+    let accessKeyId = await this._credential.getAccessKeyId();
+    let accessKeySecret = await this._credential.getAccessKeySecret();
+    let authConfig = new $RPC.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      endpoint: "openplatform.aliyuncs.com",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenPlatform(authConfig);
+    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
+      product: "videoenhan",
+      regionId: this._regionId,
+    });
+    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
+    let ossConfig = new $OSS.Config({
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let ossClient : OSS = null;
+    let fileObj = new $FileForm.FileField({ });
+    let ossHeader = new $OSS.PostObjectRequestHeader({ });
+    let uploadRequest = new $OSS.PostObjectRequest({ });
+    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
+    RPCUtil.convert(runtime, ossRuntime);
+    let interpolateVideoFrameReq = new InterpolateVideoFrameRequest({ });
+    RPCUtil.convert(request, interpolateVideoFrameReq);
+    authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+    ossConfig.accessKeyId = authResponse.accessKeyId;
+    ossConfig.endpoint = RPCUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+    ossClient = new OSS(ossConfig);
+    fileObj = new $FileForm.FileField({
+      filename: authResponse.objectKey,
+      content: request.videoURLObject,
+      contentType: "",
+    });
+    ossHeader = new $OSS.PostObjectRequestHeader({
+      accessKeyId: authResponse.accessKeyId,
+      policy: authResponse.encodedPolicy,
+      signature: authResponse.signature,
+      key: authResponse.objectKey,
+      file: fileObj,
+      successActionStatus: "201",
+    });
+    uploadRequest = new $OSS.PostObjectRequest({
+      bucketName: authResponse.bucket,
+      header: ossHeader,
+    });
+    await ossClient.postObject(uploadRequest, ossRuntime);
+    interpolateVideoFrameReq.videoURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    let interpolateVideoFrameResp = await this.interpolateVideoFrame(interpolateVideoFrameReq, runtime);
+    return interpolateVideoFrameResp;
+  }
+
+  async toneSdrVideo(request: ToneSdrVideoRequest, runtime: $Util.RuntimeOptions): Promise<ToneSdrVideoResponse> {
+    Util.validateModel(request);
+    return $tea.cast<ToneSdrVideoResponse>(await this.doRequest("ToneSdrVideo", "HTTPS", "POST", "2020-03-20", "AK", null, $tea.toMap(request), runtime), new ToneSdrVideoResponse({}));
+  }
+
+  async toneSdrVideoSimply(request: ToneSdrVideoRequest): Promise<ToneSdrVideoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.toneSdrVideo(request, runtime);
+  }
+
+  async toneSdrVideoAdvance(request: ToneSdrVideoAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<ToneSdrVideoResponse> {
+    // Step 0: init client
+    let accessKeyId = await this._credential.getAccessKeyId();
+    let accessKeySecret = await this._credential.getAccessKeySecret();
+    let authConfig = new $RPC.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      endpoint: "openplatform.aliyuncs.com",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenPlatform(authConfig);
+    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
+      product: "videoenhan",
+      regionId: this._regionId,
+    });
+    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
+    let ossConfig = new $OSS.Config({
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let ossClient : OSS = null;
+    let fileObj = new $FileForm.FileField({ });
+    let ossHeader = new $OSS.PostObjectRequestHeader({ });
+    let uploadRequest = new $OSS.PostObjectRequest({ });
+    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
+    RPCUtil.convert(runtime, ossRuntime);
+    let toneSdrVideoReq = new ToneSdrVideoRequest({ });
+    RPCUtil.convert(request, toneSdrVideoReq);
+    authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+    ossConfig.accessKeyId = authResponse.accessKeyId;
+    ossConfig.endpoint = RPCUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+    ossClient = new OSS(ossConfig);
+    fileObj = new $FileForm.FileField({
+      filename: authResponse.objectKey,
+      content: request.videoURLObject,
+      contentType: "",
+    });
+    ossHeader = new $OSS.PostObjectRequestHeader({
+      accessKeyId: authResponse.accessKeyId,
+      policy: authResponse.encodedPolicy,
+      signature: authResponse.signature,
+      key: authResponse.objectKey,
+      file: fileObj,
+      successActionStatus: "201",
+    });
+    uploadRequest = new $OSS.PostObjectRequest({
+      bucketName: authResponse.bucket,
+      header: ossHeader,
+    });
+    await ossClient.postObject(uploadRequest, ossRuntime);
+    toneSdrVideoReq.videoURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    let toneSdrVideoResp = await this.toneSdrVideo(toneSdrVideoReq, runtime);
+    return toneSdrVideoResp;
+  }
 
   async enhanceVideoQuality(request: EnhanceVideoQualityRequest, runtime: $Util.RuntimeOptions): Promise<EnhanceVideoQualityResponse> {
     Util.validateModel(request);
