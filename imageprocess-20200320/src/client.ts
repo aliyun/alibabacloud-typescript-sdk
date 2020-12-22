@@ -10,6 +10,109 @@ import FileForm, * as $FileForm from '@alicloud/tea-fileform';
 import { Readable } from 'stream';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class DetectRibFractureRequest extends $tea.Model {
+  URLList: DetectRibFractureRequestURLList[];
+  dataFormat: string;
+  orgName: string;
+  orgId: string;
+  sourceType: string;
+  static names(): { [key: string]: string } {
+    return {
+      URLList: 'URLList',
+      dataFormat: 'DataFormat',
+      orgName: 'OrgName',
+      orgId: 'OrgId',
+      sourceType: 'SourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      URLList: { 'type': 'array', 'itemType': DetectRibFractureRequestURLList },
+      dataFormat: 'string',
+      orgName: 'string',
+      orgId: 'string',
+      sourceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectRibFractureResponse extends $tea.Model {
+  requestId: string;
+  data: DetectRibFractureResponseData;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      data: DetectRibFractureResponseData,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScreenChestCTRequest extends $tea.Model {
+  dataFormat: string;
+  orgName: string;
+  orgId: string;
+  URLList: ScreenChestCTRequestURLList[];
+  static names(): { [key: string]: string } {
+    return {
+      dataFormat: 'DataFormat',
+      orgName: 'OrgName',
+      orgId: 'OrgId',
+      URLList: 'URLList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataFormat: 'string',
+      orgName: 'string',
+      orgId: 'string',
+      URLList: { 'type': 'array', 'itemType': ScreenChestCTRequestURLList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScreenChestCTResponse extends $tea.Model {
+  requestId: string;
+  data: ScreenChestCTResponseData;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      data: ScreenChestCTResponseData,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DetectSkinDiseaseRequest extends $tea.Model {
   url: string;
   orgId: string;
@@ -806,6 +909,289 @@ export class GetAsyncJobResultResponse extends $tea.Model {
   }
 }
 
+export class DetectRibFractureRequestURLList extends $tea.Model {
+  URL: string;
+  static names(): { [key: string]: string } {
+    return {
+      URL: 'URL',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      URL: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectRibFractureResponseDataDetections extends $tea.Model {
+  fractureId: number;
+  fractureConfidence: number;
+  fractureCategory: string;
+  coordinates: number[];
+  coordinateImage: number[];
+  static names(): { [key: string]: string } {
+    return {
+      fractureId: 'FractureId',
+      fractureConfidence: 'FractureConfidence',
+      fractureCategory: 'FractureCategory',
+      coordinates: 'Coordinates',
+      coordinateImage: 'CoordinateImage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fractureId: 'number',
+      fractureConfidence: 'number',
+      fractureCategory: 'string',
+      coordinates: { 'type': 'array', 'itemType': 'number' },
+      coordinateImage: { 'type': 'array', 'itemType': 'number' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectRibFractureResponseData extends $tea.Model {
+  resultURL: string;
+  detections: DetectRibFractureResponseDataDetections[];
+  spacing: number[];
+  origin: number[];
+  static names(): { [key: string]: string } {
+    return {
+      resultURL: 'ResultURL',
+      detections: 'Detections',
+      spacing: 'Spacing',
+      origin: 'Origin',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resultURL: 'string',
+      detections: { 'type': 'array', 'itemType': DetectRibFractureResponseDataDetections },
+      spacing: { 'type': 'array', 'itemType': 'number' },
+      origin: { 'type': 'array', 'itemType': 'number' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScreenChestCTRequestURLList extends $tea.Model {
+  URL: string;
+  static names(): { [key: string]: string } {
+    return {
+      URL: 'URL',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      URL: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScreenChestCTResponseDataLungNoduleSeriesElements extends $tea.Model {
+  category: string;
+  confidence: number;
+  diameter: number;
+  lobe: string;
+  lung: string;
+  x: number;
+  z: number;
+  y: number;
+  imageX: number;
+  imageY: number;
+  imageZ: number;
+  SOPInstanceUID: string;
+  volume: number;
+  meanValue: number;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'Category',
+      confidence: 'Confidence',
+      diameter: 'Diameter',
+      lobe: 'Lobe',
+      lung: 'Lung',
+      x: 'X',
+      z: 'Z',
+      y: 'Y',
+      imageX: 'ImageX',
+      imageY: 'ImageY',
+      imageZ: 'ImageZ',
+      SOPInstanceUID: 'SOPInstanceUID',
+      volume: 'Volume',
+      meanValue: 'MeanValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      confidence: 'number',
+      diameter: 'number',
+      lobe: 'string',
+      lung: 'string',
+      x: 'number',
+      z: 'number',
+      y: 'number',
+      imageX: 'number',
+      imageY: 'number',
+      imageZ: 'number',
+      SOPInstanceUID: 'string',
+      volume: 'number',
+      meanValue: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScreenChestCTResponseDataLungNoduleSeries extends $tea.Model {
+  seriesInstanceUid: string;
+  report: string;
+  elements: ScreenChestCTResponseDataLungNoduleSeriesElements[];
+  origin: number[];
+  spacing: number[];
+  static names(): { [key: string]: string } {
+    return {
+      seriesInstanceUid: 'SeriesInstanceUid',
+      report: 'Report',
+      elements: 'Elements',
+      origin: 'Origin',
+      spacing: 'Spacing',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      seriesInstanceUid: 'string',
+      report: 'string',
+      elements: { 'type': 'array', 'itemType': ScreenChestCTResponseDataLungNoduleSeriesElements },
+      origin: { 'type': 'array', 'itemType': 'number' },
+      spacing: { 'type': 'array', 'itemType': 'number' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScreenChestCTResponseDataLungNodule extends $tea.Model {
+  series: ScreenChestCTResponseDataLungNoduleSeries[];
+  static names(): { [key: string]: string } {
+    return {
+      series: 'Series',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      series: { 'type': 'array', 'itemType': ScreenChestCTResponseDataLungNoduleSeries },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScreenChestCTResponseDataCACS extends $tea.Model {
+  score: string;
+  resultUrl: string;
+  static names(): { [key: string]: string } {
+    return {
+      score: 'Score',
+      resultUrl: 'ResultUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      score: 'string',
+      resultUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScreenChestCTResponseDataCovid extends $tea.Model {
+  newProbability: string;
+  normalProbability: string;
+  otherProbability: string;
+  lesionRatio: string;
+  mask: string;
+  static names(): { [key: string]: string } {
+    return {
+      newProbability: 'NewProbability',
+      normalProbability: 'NormalProbability',
+      otherProbability: 'OtherProbability',
+      lesionRatio: 'LesionRatio',
+      mask: 'Mask',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      newProbability: 'string',
+      normalProbability: 'string',
+      otherProbability: 'string',
+      lesionRatio: 'string',
+      mask: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScreenChestCTResponseData extends $tea.Model {
+  lungNodule: ScreenChestCTResponseDataLungNodule;
+  CACS: ScreenChestCTResponseDataCACS;
+  covid: ScreenChestCTResponseDataCovid;
+  static names(): { [key: string]: string } {
+    return {
+      lungNodule: 'LungNodule',
+      CACS: 'CACS',
+      covid: 'Covid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      lungNodule: ScreenChestCTResponseDataLungNodule,
+      CACS: ScreenChestCTResponseDataCACS,
+      covid: ScreenChestCTResponseDataCovid,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DetectSkinDiseaseResponseData extends $tea.Model {
   results: { [key: string]: any };
   static names(): { [key: string]: string } {
@@ -1539,6 +1925,26 @@ export default class Client extends RPC {
     this._endpoint = this.getEndpoint("imageprocess", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
 
+
+  async detectRibFracture(request: DetectRibFractureRequest, runtime: $Util.RuntimeOptions): Promise<DetectRibFractureResponse> {
+    Util.validateModel(request);
+    return $tea.cast<DetectRibFractureResponse>(await this.doRequest("DetectRibFracture", "HTTPS", "POST", "2020-03-20", "AK", null, $tea.toMap(request), runtime), new DetectRibFractureResponse({}));
+  }
+
+  async detectRibFractureSimply(request: DetectRibFractureRequest): Promise<DetectRibFractureResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.detectRibFracture(request, runtime);
+  }
+
+  async screenChestCT(request: ScreenChestCTRequest, runtime: $Util.RuntimeOptions): Promise<ScreenChestCTResponse> {
+    Util.validateModel(request);
+    return $tea.cast<ScreenChestCTResponse>(await this.doRequest("ScreenChestCT", "HTTPS", "POST", "2020-03-20", "AK", null, $tea.toMap(request), runtime), new ScreenChestCTResponse({}));
+  }
+
+  async screenChestCTSimply(request: ScreenChestCTRequest): Promise<ScreenChestCTResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.screenChestCT(request, runtime);
+  }
 
   async detectSkinDisease(request: DetectSkinDiseaseRequest, runtime: $Util.RuntimeOptions): Promise<DetectSkinDiseaseResponse> {
     Util.validateModel(request);
