@@ -504,15 +504,18 @@ export class SegmentClothAdvanceRequest extends $tea.Model {
 
 export class SegmentAnimalRequest extends $tea.Model {
   imageURL: string;
+  returnForm?: string;
   static names(): { [key: string]: string } {
     return {
       imageURL: 'ImageURL',
+      returnForm: 'ReturnForm',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       imageURL: 'string',
+      returnForm: 'string',
     };
   }
 
@@ -545,15 +548,18 @@ export class SegmentAnimalResponse extends $tea.Model {
 
 export class SegmentAnimalAdvanceRequest extends $tea.Model {
   imageURLObject: Readable;
+  returnForm?: string;
   static names(): { [key: string]: string } {
     return {
       imageURLObject: 'ImageURLObject',
+      returnForm: 'ReturnForm',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       imageURLObject: 'Readable',
+      returnForm: 'string',
     };
   }
 
@@ -1295,15 +1301,18 @@ export class SegmentBodyAdvanceRequest extends $tea.Model {
 
 export class SegmentCommonImageRequest extends $tea.Model {
   imageURL: string;
+  returnForm?: string;
   static names(): { [key: string]: string } {
     return {
       imageURL: 'ImageURL',
+      returnForm: 'ReturnForm',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       imageURL: 'string',
+      returnForm: 'string',
     };
   }
 
@@ -1336,15 +1345,18 @@ export class SegmentCommonImageResponse extends $tea.Model {
 
 export class SegmentCommonImageAdvanceRequest extends $tea.Model {
   imageURLObject: Readable;
+  returnForm?: string;
   static names(): { [key: string]: string } {
     return {
       imageURLObject: 'ImageURLObject',
+      returnForm: 'ReturnForm',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       imageURLObject: 'Readable',
+      returnForm: 'string',
     };
   }
 
