@@ -8,6 +8,28 @@ import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class Runtime extends $tea.Model {
+  name?: string;
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'name',
+      version: 'version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      version: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class Taint extends $tea.Model {
   key?: string;
   value?: string;
@@ -61,20 +83,20 @@ export class DataDisk extends $tea.Model {
   }
 }
 
-export class Runtimes extends $tea.Model {
-  name?: string;
-  version?: string;
+export class Tag extends $tea.Model {
+  key?: string;
+  value?: string;
   static names(): { [key: string]: string } {
     return {
-      name: 'name',
-      version: 'version',
+      key: 'key',
+      value: 'value',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      name: 'string',
-      version: 'string',
+      key: 'string',
+      value: 'string',
     };
   }
 
@@ -128,97 +150,6 @@ export class MaintenanceWindow extends $tea.Model {
       maintenanceTime: 'string',
       duration: 'string',
       weeklyPeriod: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class Runtime extends $tea.Model {
-  name?: string;
-  version?: string;
-  static names(): { [key: string]: string } {
-    return {
-      name: 'name',
-      version: 'version',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
-      version: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class Taints extends $tea.Model {
-  key?: string;
-  value?: string;
-  effect?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'key',
-      value: 'value',
-      effect: 'effect',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-      effect: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class Tag extends $tea.Model {
-  key?: string;
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'key',
-      value: 'value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class Tags extends $tea.Model {
-  key?: string;
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'key',
-      value: 'value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
     };
   }
 
@@ -2134,28 +2065,9 @@ export class CancelComponentUpgradeResponse extends $tea.Model {
   }
 }
 
-export class DescribeClusterAddonsVersionResponseBody extends $tea.Model {
-  addonsVersion?: { [key: string]: AddonsVersionValue };
-  static names(): { [key: string]: string } {
-    return {
-      addonsVersion: 'AddonsVersion',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      addonsVersion: { 'type': 'map', 'keyType': 'string', 'valueType': AddonsVersionValue },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeClusterAddonsVersionResponse extends $tea.Model {
   headers: { [key: string]: string };
-  body: DescribeClusterAddonsVersionResponseBody;
+  body: {[key: string]: any};
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2166,7 +2078,7 @@ export class DescribeClusterAddonsVersionResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DescribeClusterAddonsVersionResponseBody,
+      body: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
     };
   }
 
@@ -3225,49 +3137,6 @@ export class StandardComponentsValue extends $tea.Model {
   }
 }
 
-export class AddonsVersionValue extends $tea.Model {
-  canUpgrade?: boolean;
-  changed?: string;
-  componentName?: string;
-  description?: string;
-  message?: string;
-  nextVersion?: string;
-  required?: boolean;
-  template?: string;
-  version?: string;
-  static names(): { [key: string]: string } {
-    return {
-      canUpgrade: 'can_upgrade',
-      changed: 'changed',
-      componentName: 'component_name',
-      description: 'description',
-      message: 'message',
-      nextVersion: 'next_version',
-      required: 'required',
-      template: 'template',
-      version: 'version',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      canUpgrade: 'boolean',
-      changed: 'string',
-      componentName: 'string',
-      description: 'string',
-      message: 'string',
-      nextVersion: 'string',
-      required: 'boolean',
-      template: 'string',
-      version: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ListTagResourcesResponseBodyTagResourcesTagResource extends $tea.Model {
   tagKey?: string;
   tagValue?: string;
@@ -3356,7 +3225,7 @@ export class DescribeKubernetesVersionMetadataResponseBody extends $tea.Model {
   capabilities?: { [key: string]: any };
   images?: DescribeKubernetesVersionMetadataResponseBodyImages[];
   metaData?: { [key: string]: any };
-  runtimes?: Runtimes[];
+  runtimes?: Runtime[];
   version?: string;
   multiAz?: string;
   static names(): { [key: string]: string } {
@@ -3375,7 +3244,7 @@ export class DescribeKubernetesVersionMetadataResponseBody extends $tea.Model {
       capabilities: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       images: { 'type': 'array', 'itemType': DescribeKubernetesVersionMetadataResponseBodyImages },
       metaData: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      runtimes: { 'type': 'array', 'itemType': Runtimes },
+      runtimes: { 'type': 'array', 'itemType': Runtime },
       version: 'string',
       multiAz: 'string',
     };
@@ -3708,6 +3577,12 @@ export class ModifyClusterNodePoolRequestScalingGroup extends $tea.Model {
   systemDiskSize?: number;
   tags?: Tag[];
   vswitchIds?: string[];
+  multiAzPolicy?: string;
+  onDemandBaseCapacity?: number;
+  onDemandPercentageAboveBaseCapacity?: number;
+  spotInstancePools?: number;
+  spotInstanceRemedy?: boolean;
+  compensateWithOnDemand?: boolean;
   static names(): { [key: string]: string } {
     return {
       dataDisks: 'data_disks',
@@ -3729,6 +3604,12 @@ export class ModifyClusterNodePoolRequestScalingGroup extends $tea.Model {
       systemDiskSize: 'system_disk_size',
       tags: 'tags',
       vswitchIds: 'vswitch_ids',
+      multiAzPolicy: 'multi_az_policy',
+      onDemandBaseCapacity: 'on_demand_base_capacity',
+      onDemandPercentageAboveBaseCapacity: 'on_demand_percentage_above_base_capacity',
+      spotInstancePools: 'spot_instance_pools',
+      spotInstanceRemedy: 'spot_instance_remedy',
+      compensateWithOnDemand: 'compensate_with_on_demand',
     };
   }
 
@@ -3753,6 +3634,12 @@ export class ModifyClusterNodePoolRequestScalingGroup extends $tea.Model {
       systemDiskSize: 'number',
       tags: { 'type': 'array', 'itemType': Tag },
       vswitchIds: { 'type': 'array', 'itemType': 'string' },
+      multiAzPolicy: 'string',
+      onDemandBaseCapacity: 'number',
+      onDemandPercentageAboveBaseCapacity: 'number',
+      spotInstancePools: 'number',
+      spotInstanceRemedy: 'boolean',
+      compensateWithOnDemand: 'boolean',
     };
   }
 
@@ -3977,6 +3864,11 @@ export class DescribeClusterNodePoolDetailResponseBodyScalingGroup extends $tea.
   instanceChargeType?: string;
   instanceTypes?: string[];
   multiAzPolicy?: string;
+  onDemandBaseCapacity?: number;
+  onDemandPercentageAboveBaseCapacity?: number;
+  spotInstancePools?: number;
+  spotInstanceRemedy?: boolean;
+  compensateWithOnDemand?: boolean;
   period?: number;
   periodUnit?: string;
   platform?: string;
@@ -4002,6 +3894,11 @@ export class DescribeClusterNodePoolDetailResponseBodyScalingGroup extends $tea.
       instanceChargeType: 'instance_charge_type',
       instanceTypes: 'instance_types',
       multiAzPolicy: 'multi_az_policy',
+      onDemandBaseCapacity: 'on_demand_base_capacity',
+      onDemandPercentageAboveBaseCapacity: 'on_demand_percentage_above_base_capacity',
+      spotInstancePools: 'spot_instance_pools',
+      spotInstanceRemedy: 'spot_instance_remedy',
+      compensateWithOnDemand: 'compensate_with_on_demand',
       period: 'period',
       periodUnit: 'period_unit',
       platform: 'platform',
@@ -4030,6 +3927,11 @@ export class DescribeClusterNodePoolDetailResponseBodyScalingGroup extends $tea.
       instanceChargeType: 'string',
       instanceTypes: { 'type': 'array', 'itemType': 'string' },
       multiAzPolicy: 'string',
+      onDemandBaseCapacity: 'number',
+      onDemandPercentageAboveBaseCapacity: 'number',
+      spotInstancePools: 'number',
+      spotInstanceRemedy: 'boolean',
+      compensateWithOnDemand: 'boolean',
       period: 'number',
       periodUnit: 'string',
       platform: 'string',
@@ -4327,6 +4229,12 @@ export class CreateClusterNodePoolRequestScalingGroup extends $tea.Model {
   systemDiskSize?: number;
   tags?: CreateClusterNodePoolRequestScalingGroupTags[];
   vswitchIds?: string[];
+  multiAzPolicy?: string;
+  onDemandBaseCapacity?: number;
+  onDemandPercentageAboveBaseCapacity?: number;
+  spotInstancePools?: number;
+  spotInstanceRemedy?: boolean;
+  compensateWithOnDemand?: boolean;
   static names(): { [key: string]: string } {
     return {
       autoRenew: 'auto_renew',
@@ -4349,6 +4257,12 @@ export class CreateClusterNodePoolRequestScalingGroup extends $tea.Model {
       systemDiskSize: 'system_disk_size',
       tags: 'tags',
       vswitchIds: 'vswitch_ids',
+      multiAzPolicy: 'multi_az_policy',
+      onDemandBaseCapacity: 'on_demand_base_capacity',
+      onDemandPercentageAboveBaseCapacity: 'on_demand_percentage_above_base_capacity',
+      spotInstancePools: 'spot_instance_pools',
+      spotInstanceRemedy: 'spot_instance_remedy',
+      compensateWithOnDemand: 'compensate_with_on_demand',
     };
   }
 
@@ -4374,6 +4288,12 @@ export class CreateClusterNodePoolRequestScalingGroup extends $tea.Model {
       systemDiskSize: 'number',
       tags: { 'type': 'array', 'itemType': CreateClusterNodePoolRequestScalingGroupTags },
       vswitchIds: { 'type': 'array', 'itemType': 'string' },
+      multiAzPolicy: 'string',
+      onDemandBaseCapacity: 'number',
+      onDemandPercentageAboveBaseCapacity: 'number',
+      spotInstancePools: 'number',
+      spotInstanceRemedy: 'boolean',
+      compensateWithOnDemand: 'boolean',
     };
   }
 
@@ -5214,6 +5134,11 @@ export class DescribeClusterNodePoolsResponseBodyNodepoolsScalingGroup extends $
   instanceChargeType?: string;
   instanceTypes?: string[];
   multiAzPolicy?: string;
+  onDemandBaseCapacity?: number;
+  onDemandPercentageAboveBaseCapacity?: number;
+  spotInstancePools?: number;
+  spotInstanceRemedy?: boolean;
+  compensateWithOnDemand?: boolean;
   period?: number;
   periodUnit?: string;
   platform?: string;
@@ -5226,7 +5151,7 @@ export class DescribeClusterNodePoolsResponseBodyNodepoolsScalingGroup extends $
   securityGroupId?: string;
   systemDiskCategory?: string;
   systemDiskSize?: number;
-  tags?: Tags[];
+  tags?: Tag[];
   vswitchIds?: string[];
   loginPassword?: string;
   keyPair?: string;
@@ -5239,6 +5164,11 @@ export class DescribeClusterNodePoolsResponseBodyNodepoolsScalingGroup extends $
       instanceChargeType: 'instance_charge_type',
       instanceTypes: 'instance_types',
       multiAzPolicy: 'multi_az_policy',
+      onDemandBaseCapacity: 'on_demand_base_capacity',
+      onDemandPercentageAboveBaseCapacity: 'on_demand_percentage_above_base_capacity',
+      spotInstancePools: 'spot_instance_pools',
+      spotInstanceRemedy: 'spot_instance_remedy',
+      compensateWithOnDemand: 'compensate_with_on_demand',
       period: 'period',
       periodUnit: 'period_unit',
       platform: 'platform',
@@ -5267,6 +5197,11 @@ export class DescribeClusterNodePoolsResponseBodyNodepoolsScalingGroup extends $
       instanceChargeType: 'string',
       instanceTypes: { 'type': 'array', 'itemType': 'string' },
       multiAzPolicy: 'string',
+      onDemandBaseCapacity: 'number',
+      onDemandPercentageAboveBaseCapacity: 'number',
+      spotInstancePools: 'number',
+      spotInstanceRemedy: 'boolean',
+      compensateWithOnDemand: 'boolean',
       period: 'number',
       periodUnit: 'string',
       platform: 'string',
@@ -5279,7 +5214,7 @@ export class DescribeClusterNodePoolsResponseBodyNodepoolsScalingGroup extends $
       securityGroupId: 'string',
       systemDiskCategory: 'string',
       systemDiskSize: 'number',
-      tags: { 'type': 'array', 'itemType': Tags },
+      tags: { 'type': 'array', 'itemType': Tag },
       vswitchIds: { 'type': 'array', 'itemType': 'string' },
       loginPassword: 'string',
       keyPair: 'string',
@@ -6623,7 +6558,7 @@ export default class Client extends OpenApi {
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<CreateTemplateResponse>(await this.doROARequestWithForm("CreateTemplate", "2015-12-15", "HTTPS", "POST", "AK", `/templates`, "json", req, runtime), new CreateTemplateResponse({}));
+    return $tea.cast<CreateTemplateResponse>(await this.doROARequest("CreateTemplate", "2015-12-15", "HTTPS", "POST", "AK", `/templates`, "json", req, runtime), new CreateTemplateResponse({}));
   }
 
   async describeClusterNodes(ClusterId: string, request: DescribeClusterNodesRequest): Promise<DescribeClusterNodesResponse> {
