@@ -2623,12 +2623,12 @@ export class DeleteBodyDbResponse extends $tea.Model {
 
 export class DetectPedestrianIntrusionRequest extends $tea.Model {
   imageURL?: string;
-  region?: DetectPedestrianIntrusionRequestRegion[];
+  detectRegion?: DetectPedestrianIntrusionRequestDetectRegion[];
   regionType?: string;
   static names(): { [key: string]: string } {
     return {
       imageURL: 'ImageURL',
-      region: 'Region',
+      detectRegion: 'DetectRegion',
       regionType: 'RegionType',
     };
   }
@@ -2636,7 +2636,7 @@ export class DetectPedestrianIntrusionRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       imageURL: 'string',
-      region: { 'type': 'array', 'itemType': DetectPedestrianIntrusionRequestRegion },
+      detectRegion: { 'type': 'array', 'itemType': DetectPedestrianIntrusionRequestDetectRegion },
       regionType: 'string',
     };
   }
@@ -2648,12 +2648,12 @@ export class DetectPedestrianIntrusionRequest extends $tea.Model {
 
 export class DetectPedestrianIntrusionAdvanceRequest extends $tea.Model {
   imageURLObject: Readable;
-  region?: DetectPedestrianIntrusionAdvanceRequestRegion[];
+  detectRegion?: DetectPedestrianIntrusionAdvanceRequestDetectRegion[];
   regionType?: string;
   static names(): { [key: string]: string } {
     return {
       imageURLObject: 'ImageURLObject',
-      region: 'Region',
+      detectRegion: 'DetectRegion',
       regionType: 'RegionType',
     };
   }
@@ -2661,7 +2661,7 @@ export class DetectPedestrianIntrusionAdvanceRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       imageURLObject: 'Readable',
-      region: { 'type': 'array', 'itemType': DetectPedestrianIntrusionAdvanceRequestRegion },
+      detectRegion: { 'type': 'array', 'itemType': DetectPedestrianIntrusionAdvanceRequestDetectRegion },
       regionType: 'string',
     };
   }
@@ -2673,12 +2673,12 @@ export class DetectPedestrianIntrusionAdvanceRequest extends $tea.Model {
 
 export class DetectPedestrianIntrusionShrinkRequest extends $tea.Model {
   imageURL?: string;
-  regionShrink?: string;
+  detectRegionShrink?: string;
   regionType?: string;
   static names(): { [key: string]: string } {
     return {
       imageURL: 'ImageURL',
-      regionShrink: 'Region',
+      detectRegionShrink: 'DetectRegion',
       regionType: 'RegionType',
     };
   }
@@ -2686,7 +2686,7 @@ export class DetectPedestrianIntrusionShrinkRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       imageURL: 'string',
-      regionShrink: 'string',
+      detectRegionShrink: 'string',
       regionType: 'string',
     };
   }
@@ -2697,14 +2697,10 @@ export class DetectPedestrianIntrusionShrinkRequest extends $tea.Model {
 }
 
 export class DetectPedestrianIntrusionResponseBody extends $tea.Model {
-  code?: string;
-  message?: string;
   requestId?: string;
   data?: DetectPedestrianIntrusionResponseBodyData;
   static names(): { [key: string]: string } {
     return {
-      code: 'Code',
-      message: 'Message',
       requestId: 'RequestId',
       data: 'Data',
     };
@@ -2712,8 +2708,6 @@ export class DetectPedestrianIntrusionResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      code: 'string',
-      message: 'string',
       requestId: 'string',
       data: DetectPedestrianIntrusionResponseBodyData,
     };
@@ -5770,7 +5764,7 @@ export class AddFaceResponseBodyData extends $tea.Model {
   }
 }
 
-export class DetectPedestrianIntrusionRequestRegionRect extends $tea.Model {
+export class DetectPedestrianIntrusionRequestDetectRegionRect extends $tea.Model {
   left?: number;
   top?: number;
   right?: number;
@@ -5798,7 +5792,7 @@ export class DetectPedestrianIntrusionRequestRegionRect extends $tea.Model {
   }
 }
 
-export class DetectPedestrianIntrusionRequestRegionLine extends $tea.Model {
+export class DetectPedestrianIntrusionRequestDetectRegionLine extends $tea.Model {
   x1?: number;
   y1?: number;
   x2?: number;
@@ -5826,9 +5820,9 @@ export class DetectPedestrianIntrusionRequestRegionLine extends $tea.Model {
   }
 }
 
-export class DetectPedestrianIntrusionRequestRegion extends $tea.Model {
-  rect?: DetectPedestrianIntrusionRequestRegionRect;
-  line?: DetectPedestrianIntrusionRequestRegionLine;
+export class DetectPedestrianIntrusionRequestDetectRegion extends $tea.Model {
+  rect?: DetectPedestrianIntrusionRequestDetectRegionRect;
+  line?: DetectPedestrianIntrusionRequestDetectRegionLine;
   static names(): { [key: string]: string } {
     return {
       rect: 'Rect',
@@ -5838,8 +5832,8 @@ export class DetectPedestrianIntrusionRequestRegion extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      rect: DetectPedestrianIntrusionRequestRegionRect,
-      line: DetectPedestrianIntrusionRequestRegionLine,
+      rect: DetectPedestrianIntrusionRequestDetectRegionRect,
+      line: DetectPedestrianIntrusionRequestDetectRegionLine,
     };
   }
 
@@ -5848,7 +5842,7 @@ export class DetectPedestrianIntrusionRequestRegion extends $tea.Model {
   }
 }
 
-export class DetectPedestrianIntrusionAdvanceRequestRegionRect extends $tea.Model {
+export class DetectPedestrianIntrusionAdvanceRequestDetectRegionRect extends $tea.Model {
   left?: number;
   top?: number;
   right?: number;
@@ -5876,7 +5870,7 @@ export class DetectPedestrianIntrusionAdvanceRequestRegionRect extends $tea.Mode
   }
 }
 
-export class DetectPedestrianIntrusionAdvanceRequestRegionLine extends $tea.Model {
+export class DetectPedestrianIntrusionAdvanceRequestDetectRegionLine extends $tea.Model {
   x1?: number;
   y1?: number;
   x2?: number;
@@ -5904,9 +5898,9 @@ export class DetectPedestrianIntrusionAdvanceRequestRegionLine extends $tea.Mode
   }
 }
 
-export class DetectPedestrianIntrusionAdvanceRequestRegion extends $tea.Model {
-  rect?: DetectPedestrianIntrusionAdvanceRequestRegionRect;
-  line?: DetectPedestrianIntrusionAdvanceRequestRegionLine;
+export class DetectPedestrianIntrusionAdvanceRequestDetectRegion extends $tea.Model {
+  rect?: DetectPedestrianIntrusionAdvanceRequestDetectRegionRect;
+  line?: DetectPedestrianIntrusionAdvanceRequestDetectRegionLine;
   static names(): { [key: string]: string } {
     return {
       rect: 'Rect',
@@ -5916,8 +5910,8 @@ export class DetectPedestrianIntrusionAdvanceRequestRegion extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      rect: DetectPedestrianIntrusionAdvanceRequestRegionRect,
-      line: DetectPedestrianIntrusionAdvanceRequestRegionLine,
+      rect: DetectPedestrianIntrusionAdvanceRequestDetectRegionRect,
+      line: DetectPedestrianIntrusionAdvanceRequestDetectRegionLine,
     };
   }
 
@@ -8453,8 +8447,8 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new DetectPedestrianIntrusionShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.region)) {
-      request.regionShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.region, "Region", "json");
+    if (!Util.isUnset(tmpReq.detectRegion)) {
+      request.detectRegionShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.detectRegion, "DetectRegion", "json");
     }
 
     let req = new $OpenApi.OpenApiRequest({
