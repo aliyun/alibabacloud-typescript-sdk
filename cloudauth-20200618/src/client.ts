@@ -10,6 +10,138 @@ import FileForm, * as $FileForm from '@alicloud/tea-fileform';
 import { Readable } from 'stream';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class ContrastSmartVerifyRequest extends $tea.Model {
+  sceneId: number;
+  outerOrderNo: string;
+  mode: string;
+  certType: string;
+  mobile?: string;
+  ip?: string;
+  userId?: string;
+  certName: string;
+  certNo: string;
+  facePicFile?: string;
+  facePicUrl?: string;
+  facePicString?: string;
+  static names(): { [key: string]: string } {
+    return {
+      sceneId: 'SceneId',
+      outerOrderNo: 'OuterOrderNo',
+      mode: 'Mode',
+      certType: 'CertType',
+      mobile: 'Mobile',
+      ip: 'Ip',
+      userId: 'UserId',
+      certName: 'CertName',
+      certNo: 'CertNo',
+      facePicFile: 'FacePicFile',
+      facePicUrl: 'FacePicUrl',
+      facePicString: 'FacePicString',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sceneId: 'number',
+      outerOrderNo: 'string',
+      mode: 'string',
+      certType: 'string',
+      mobile: 'string',
+      ip: 'string',
+      userId: 'string',
+      certName: 'string',
+      certNo: 'string',
+      facePicFile: 'string',
+      facePicUrl: 'string',
+      facePicString: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ContrastSmartVerifyResponse extends $tea.Model {
+  requestId: string;
+  message: string;
+  code: string;
+  resultObject: ContrastSmartVerifyResponseResultObject;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      message: 'Message',
+      code: 'Code',
+      resultObject: 'ResultObject',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      message: 'string',
+      code: 'string',
+      resultObject: ContrastSmartVerifyResponseResultObject,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ContrastSmartVerifyAdvanceRequest extends $tea.Model {
+  facePicFileObject: Readable;
+  sceneId: number;
+  outerOrderNo: string;
+  mode: string;
+  certType: string;
+  mobile?: string;
+  ip?: string;
+  userId?: string;
+  certName: string;
+  certNo: string;
+  facePicUrl?: string;
+  facePicString?: string;
+  static names(): { [key: string]: string } {
+    return {
+      facePicFileObject: 'FacePicFileObject',
+      sceneId: 'SceneId',
+      outerOrderNo: 'OuterOrderNo',
+      mode: 'Mode',
+      certType: 'CertType',
+      mobile: 'Mobile',
+      ip: 'Ip',
+      userId: 'UserId',
+      certName: 'CertName',
+      certNo: 'CertNo',
+      facePicUrl: 'FacePicUrl',
+      facePicString: 'FacePicString',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      facePicFileObject: 'Readable',
+      sceneId: 'number',
+      outerOrderNo: 'string',
+      mode: 'string',
+      certType: 'string',
+      mobile: 'string',
+      ip: 'string',
+      userId: 'string',
+      certName: 'string',
+      certNo: 'string',
+      facePicUrl: 'string',
+      facePicString: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ElementSmartVerifyRequest extends $tea.Model {
   sceneId?: number;
   outerOrderNo?: string;
@@ -266,6 +398,37 @@ export class DescribeSmartVerifyResponse extends $tea.Model {
   }
 }
 
+export class ContrastSmartVerifyResponseResultObject extends $tea.Model {
+  certifyId: string;
+  passed: string;
+  subCode: string;
+  verifyInfo: string;
+  riskInfo: string;
+  static names(): { [key: string]: string } {
+    return {
+      certifyId: 'CertifyId',
+      passed: 'Passed',
+      subCode: 'SubCode',
+      verifyInfo: 'VerifyInfo',
+      riskInfo: 'RiskInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      certifyId: 'string',
+      passed: 'string',
+      subCode: 'string',
+      verifyInfo: 'string',
+      riskInfo: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ElementSmartVerifyResponseResultObject extends $tea.Model {
   passed: string;
   subCode: string;
@@ -348,6 +511,75 @@ export default class Client extends RPC {
     this._endpoint = this.getEndpoint("cloudauth", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
 
+
+  async contrastSmartVerify(request: ContrastSmartVerifyRequest, runtime: $Util.RuntimeOptions): Promise<ContrastSmartVerifyResponse> {
+    Util.validateModel(request);
+    return $tea.cast<ContrastSmartVerifyResponse>(await this.doRequest("ContrastSmartVerify", "HTTPS", "POST", "2020-06-18", "AK", null, $tea.toMap(request), runtime), new ContrastSmartVerifyResponse({}));
+  }
+
+  async contrastSmartVerifySimply(request: ContrastSmartVerifyRequest): Promise<ContrastSmartVerifyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.contrastSmartVerify(request, runtime);
+  }
+
+  async contrastSmartVerifyAdvance(request: ContrastSmartVerifyAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<ContrastSmartVerifyResponse> {
+    // Step 0: init client
+    let accessKeyId = await this._credential.getAccessKeyId();
+    let accessKeySecret = await this._credential.getAccessKeySecret();
+    let authConfig = new $RPC.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      endpoint: "openplatform.aliyuncs.com",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenPlatform(authConfig);
+    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
+      product: "Cloudauth",
+      regionId: this._regionId,
+    });
+    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
+    let ossConfig = new $OSS.Config({
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let ossClient : OSS = null;
+    let fileObj = new $FileForm.FileField({ });
+    let ossHeader = new $OSS.PostObjectRequestHeader({ });
+    let uploadRequest = new $OSS.PostObjectRequest({ });
+    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
+    RPCUtil.convert(runtime, ossRuntime);
+    let contrastSmartVerifyReq = new ContrastSmartVerifyRequest({ });
+    RPCUtil.convert(request, contrastSmartVerifyReq);
+    authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+    ossConfig.accessKeyId = authResponse.accessKeyId;
+    ossConfig.endpoint = RPCUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+    ossClient = new OSS(ossConfig);
+    fileObj = new $FileForm.FileField({
+      filename: authResponse.objectKey,
+      content: request.facePicFileObject,
+      contentType: "",
+    });
+    ossHeader = new $OSS.PostObjectRequestHeader({
+      accessKeyId: authResponse.accessKeyId,
+      policy: authResponse.encodedPolicy,
+      signature: authResponse.signature,
+      key: authResponse.objectKey,
+      file: fileObj,
+      successActionStatus: "201",
+    });
+    uploadRequest = new $OSS.PostObjectRequest({
+      bucketName: authResponse.bucket,
+      header: ossHeader,
+    });
+    await ossClient.postObject(uploadRequest, ossRuntime);
+    contrastSmartVerifyReq.facePicFile = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    let contrastSmartVerifyResp = await this.contrastSmartVerify(contrastSmartVerifyReq, runtime);
+    return contrastSmartVerifyResp;
+  }
 
   async elementSmartVerify(request: ElementSmartVerifyRequest, runtime: $Util.RuntimeOptions): Promise<ElementSmartVerifyResponse> {
     Util.validateModel(request);
