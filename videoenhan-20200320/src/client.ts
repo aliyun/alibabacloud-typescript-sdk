@@ -1,35 +1,33 @@
 // This file is auto-generated, don't edit it
+/**
+ *
+ */
 import Util, * as $Util from '@alicloud/tea-util';
-import RPCUtil from '@alicloud/rpc-util';
-import RPC, * as $RPC from '@alicloud/rpc-client';
-import EndpointUtil from '@alicloud/endpoint-util';
 import OSS, * as $OSS from '@alicloud/oss-client';
+import RPC, * as $RPC from '@alicloud/rpc-client';
 import OpenPlatform, * as $OpenPlatform from '@alicloud/openplatform20191219';
 import OSSUtil, * as $OSSUtil from '@alicloud/oss-util';
 import FileForm, * as $FileForm from '@alicloud/tea-fileform';
+import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
+import OpenApiUtil from '@alicloud/openapi-util';
+import EndpointUtil from '@alicloud/endpoint-util';
 import { Readable } from 'stream';
 import * as $tea from '@alicloud/tea-typescript';
 
-export class ConvertHdrVideoRequest extends $tea.Model {
-  videoURL: string;
-  HDRFormat?: string;
-  maxIlluminance?: number;
-  bitrate?: number;
+export class GetAsyncJobResultRequest extends $tea.Model {
+  async?: boolean;
+  jobId?: string;
   static names(): { [key: string]: string } {
     return {
-      videoURL: 'VideoURL',
-      HDRFormat: 'HDRFormat',
-      maxIlluminance: 'MaxIlluminance',
-      bitrate: 'Bitrate',
+      async: 'Async',
+      jobId: 'JobId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      videoURL: 'string',
-      HDRFormat: 'string',
-      maxIlluminance: 'number',
-      bitrate: 'number',
+      async: 'boolean',
+      jobId: 'string',
     };
   }
 
@@ -38,9 +36,9 @@ export class ConvertHdrVideoRequest extends $tea.Model {
   }
 }
 
-export class ConvertHdrVideoResponse extends $tea.Model {
-  requestId: string;
-  data: ConvertHdrVideoResponseData;
+export class GetAsyncJobResultResponseBody extends $tea.Model {
+  requestId?: string;
+  data?: GetAsyncJobResultResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
@@ -51,7 +49,7 @@ export class ConvertHdrVideoResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      data: ConvertHdrVideoResponseData,
+      data: GetAsyncJobResultResponseBodyData,
     };
   }
 
@@ -60,170 +58,20 @@ export class ConvertHdrVideoResponse extends $tea.Model {
   }
 }
 
-export class ConvertHdrVideoAdvanceRequest extends $tea.Model {
-  videoURLObject: Readable;
-  HDRFormat?: string;
-  maxIlluminance?: number;
-  bitrate?: number;
+export class GetAsyncJobResultResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetAsyncJobResultResponseBody;
   static names(): { [key: string]: string } {
     return {
-      videoURLObject: 'VideoURLObject',
-      HDRFormat: 'HDRFormat',
-      maxIlluminance: 'MaxIlluminance',
-      bitrate: 'Bitrate',
+      headers: 'headers',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      videoURLObject: 'Readable',
-      HDRFormat: 'string',
-      maxIlluminance: 'number',
-      bitrate: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class InterpolateVideoFrameRequest extends $tea.Model {
-  videoURL: string;
-  frameRate?: number;
-  bitrate?: number;
-  static names(): { [key: string]: string } {
-    return {
-      videoURL: 'VideoURL',
-      frameRate: 'FrameRate',
-      bitrate: 'Bitrate',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      videoURL: 'string',
-      frameRate: 'number',
-      bitrate: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class InterpolateVideoFrameResponse extends $tea.Model {
-  requestId: string;
-  data: InterpolateVideoFrameResponseData;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      data: 'Data',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      data: InterpolateVideoFrameResponseData,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class InterpolateVideoFrameAdvanceRequest extends $tea.Model {
-  videoURLObject: Readable;
-  frameRate?: number;
-  bitrate?: number;
-  static names(): { [key: string]: string } {
-    return {
-      videoURLObject: 'VideoURLObject',
-      frameRate: 'FrameRate',
-      bitrate: 'Bitrate',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      videoURLObject: 'Readable',
-      frameRate: 'number',
-      bitrate: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ToneSdrVideoRequest extends $tea.Model {
-  videoURL: string;
-  bitrate?: number;
-  recolorModel?: string;
-  static names(): { [key: string]: string } {
-    return {
-      videoURL: 'VideoURL',
-      bitrate: 'Bitrate',
-      recolorModel: 'RecolorModel',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      videoURL: 'string',
-      bitrate: 'number',
-      recolorModel: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ToneSdrVideoResponse extends $tea.Model {
-  requestId: string;
-  data: ToneSdrVideoResponseData;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      data: 'Data',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      data: ToneSdrVideoResponseData,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ToneSdrVideoAdvanceRequest extends $tea.Model {
-  videoURLObject: Readable;
-  bitrate?: number;
-  recolorModel?: string;
-  static names(): { [key: string]: string } {
-    return {
-      videoURLObject: 'VideoURLObject',
-      bitrate: 'Bitrate',
-      recolorModel: 'RecolorModel',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      videoURLObject: 'Readable',
-      bitrate: 'number',
-      recolorModel: 'string',
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetAsyncJobResultResponseBody,
     };
   }
 
@@ -233,7 +81,8 @@ export class ToneSdrVideoAdvanceRequest extends $tea.Model {
 }
 
 export class EnhanceVideoQualityRequest extends $tea.Model {
-  videoURL: string;
+  videoURL?: string;
+  async?: boolean;
   outPutWidth?: number;
   outPutHeight?: number;
   frameRate?: number;
@@ -243,6 +92,7 @@ export class EnhanceVideoQualityRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       videoURL: 'VideoURL',
+      async: 'Async',
       outPutWidth: 'OutPutWidth',
       outPutHeight: 'OutPutHeight',
       frameRate: 'FrameRate',
@@ -255,34 +105,13 @@ export class EnhanceVideoQualityRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       videoURL: 'string',
+      async: 'boolean',
       outPutWidth: 'number',
       outPutHeight: 'number',
       frameRate: 'number',
       HDRFormat: 'string',
       maxIlluminance: 'number',
       bitrate: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class EnhanceVideoQualityResponse extends $tea.Model {
-  requestId: string;
-  data: EnhanceVideoQualityResponseData;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      data: 'Data',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      data: EnhanceVideoQualityResponseData,
     };
   }
 
@@ -293,6 +122,7 @@ export class EnhanceVideoQualityResponse extends $tea.Model {
 
 export class EnhanceVideoQualityAdvanceRequest extends $tea.Model {
   videoURLObject: Readable;
+  async?: boolean;
   outPutWidth?: number;
   outPutHeight?: number;
   frameRate?: number;
@@ -302,6 +132,7 @@ export class EnhanceVideoQualityAdvanceRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       videoURLObject: 'VideoURLObject',
+      async: 'Async',
       outPutWidth: 'OutPutWidth',
       outPutHeight: 'OutPutHeight',
       frameRate: 'FrameRate',
@@ -314,6 +145,7 @@ export class EnhanceVideoQualityAdvanceRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       videoURLObject: 'Readable',
+      async: 'boolean',
       outPutWidth: 'number',
       outPutHeight: 'number',
       frameRate: 'number',
@@ -328,34 +160,9 @@ export class EnhanceVideoQualityAdvanceRequest extends $tea.Model {
   }
 }
 
-export class MergeVideoFaceRequest extends $tea.Model {
-  videoURL: string;
-  postURL: string;
-  referenceURL: string;
-  static names(): { [key: string]: string } {
-    return {
-      videoURL: 'VideoURL',
-      postURL: 'PostURL',
-      referenceURL: 'ReferenceURL',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      videoURL: 'string',
-      postURL: 'string',
-      referenceURL: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class MergeVideoFaceResponse extends $tea.Model {
-  requestId: string;
-  data: MergeVideoFaceResponseData;
+export class EnhanceVideoQualityResponseBody extends $tea.Model {
+  requestId?: string;
+  data?: EnhanceVideoQualityResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
@@ -366,7 +173,7 @@ export class MergeVideoFaceResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      data: MergeVideoFaceResponseData,
+      data: EnhanceVideoQualityResponseBodyData,
     };
   }
 
@@ -375,131 +182,20 @@ export class MergeVideoFaceResponse extends $tea.Model {
   }
 }
 
-export class MergeVideoFaceAdvanceRequest extends $tea.Model {
-  videoURLObject: Readable;
-  postURL: string;
-  referenceURL: string;
+export class EnhanceVideoQualityResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: EnhanceVideoQualityResponseBody;
   static names(): { [key: string]: string } {
     return {
-      videoURLObject: 'VideoURLObject',
-      postURL: 'PostURL',
-      referenceURL: 'ReferenceURL',
+      headers: 'headers',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      videoURLObject: 'Readable',
-      postURL: 'string',
-      referenceURL: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ChangeVideoSizeRequest extends $tea.Model {
-  videoUrl: string;
-  width: number;
-  height: number;
-  cropType?: string;
-  fillType?: string;
-  tightness?: number;
-  r?: number;
-  g?: number;
-  b?: number;
-  static names(): { [key: string]: string } {
-    return {
-      videoUrl: 'VideoUrl',
-      width: 'Width',
-      height: 'Height',
-      cropType: 'CropType',
-      fillType: 'FillType',
-      tightness: 'Tightness',
-      r: 'R',
-      g: 'G',
-      b: 'B',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      videoUrl: 'string',
-      width: 'number',
-      height: 'number',
-      cropType: 'string',
-      fillType: 'string',
-      tightness: 'number',
-      r: 'number',
-      g: 'number',
-      b: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ChangeVideoSizeResponse extends $tea.Model {
-  requestId: string;
-  data: ChangeVideoSizeResponseData;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      data: 'Data',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      data: ChangeVideoSizeResponseData,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ChangeVideoSizeAdvanceRequest extends $tea.Model {
-  videoUrlObject: Readable;
-  width: number;
-  height: number;
-  cropType?: string;
-  fillType?: string;
-  tightness?: number;
-  r?: number;
-  g?: number;
-  b?: number;
-  static names(): { [key: string]: string } {
-    return {
-      videoUrlObject: 'VideoUrlObject',
-      width: 'Width',
-      height: 'Height',
-      cropType: 'CropType',
-      fillType: 'FillType',
-      tightness: 'Tightness',
-      r: 'R',
-      g: 'G',
-      b: 'B',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      videoUrlObject: 'Readable',
-      width: 'number',
-      height: 'number',
-      cropType: 'string',
-      fillType: 'string',
-      tightness: 'number',
-      r: 'number',
-      g: 'number',
-      b: 'number',
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: EnhanceVideoQualityResponseBody,
     };
   }
 
@@ -509,7 +205,7 @@ export class ChangeVideoSizeAdvanceRequest extends $tea.Model {
 }
 
 export class GenerateVideoRequest extends $tea.Model {
-  fileList: GenerateVideoRequestFileList[];
+  async?: boolean;
   scene?: string;
   width?: number;
   height?: number;
@@ -520,9 +216,10 @@ export class GenerateVideoRequest extends $tea.Model {
   smartEffect?: boolean;
   puzzleEffect?: boolean;
   mute?: boolean;
+  fileList?: GenerateVideoRequestFileList[];
   static names(): { [key: string]: string } {
     return {
-      fileList: 'FileList',
+      async: 'Async',
       scene: 'Scene',
       width: 'Width',
       height: 'Height',
@@ -533,12 +230,13 @@ export class GenerateVideoRequest extends $tea.Model {
       smartEffect: 'SmartEffect',
       puzzleEffect: 'PuzzleEffect',
       mute: 'Mute',
+      fileList: 'FileList',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      fileList: { 'type': 'array', 'itemType': GenerateVideoRequestFileList },
+      async: 'boolean',
       scene: 'string',
       width: 'number',
       height: 'number',
@@ -549,6 +247,29 @@ export class GenerateVideoRequest extends $tea.Model {
       smartEffect: 'boolean',
       puzzleEffect: 'boolean',
       mute: 'boolean',
+      fileList: { 'type': 'array', 'itemType': GenerateVideoRequestFileList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateVideoResponseBody extends $tea.Model {
+  requestId?: string;
+  data?: GenerateVideoResponseBodyData;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      data: GenerateVideoResponseBodyData,
     };
   }
 
@@ -558,126 +279,19 @@ export class GenerateVideoRequest extends $tea.Model {
 }
 
 export class GenerateVideoResponse extends $tea.Model {
-  requestId: string;
-  data: GenerateVideoResponseData;
+  headers: { [key: string]: string };
+  body: GenerateVideoResponseBody;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
-      data: 'Data',
+      headers: 'headers',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
-      data: GenerateVideoResponseData,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAsyncJobResultRequest extends $tea.Model {
-  jobId: string;
-  static names(): { [key: string]: string } {
-    return {
-      jobId: 'JobId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      jobId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAsyncJobResultResponse extends $tea.Model {
-  requestId: string;
-  data: GetAsyncJobResultResponseData;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      data: 'Data',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      data: GetAsyncJobResultResponseData,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SuperResolveVideoRequest extends $tea.Model {
-  videoUrl: string;
-  bitRate?: number;
-  static names(): { [key: string]: string } {
-    return {
-      videoUrl: 'VideoUrl',
-      bitRate: 'BitRate',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      videoUrl: 'string',
-      bitRate: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SuperResolveVideoResponse extends $tea.Model {
-  requestId: string;
-  data: SuperResolveVideoResponseData;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      data: 'Data',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      data: SuperResolveVideoResponseData,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SuperResolveVideoAdvanceRequest extends $tea.Model {
-  videoUrlObject: Readable;
-  bitRate?: number;
-  static names(): { [key: string]: string } {
-    return {
-      videoUrlObject: 'VideoUrlObject',
-      bitRate: 'BitRate',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      videoUrlObject: 'Readable',
-      bitRate: 'number',
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GenerateVideoResponseBody,
     };
   }
 
@@ -687,11 +301,13 @@ export class SuperResolveVideoAdvanceRequest extends $tea.Model {
 }
 
 export class EraseVideoLogoRequest extends $tea.Model {
-  videoUrl: string;
+  videoUrl?: string;
+  async?: boolean;
   boxes?: EraseVideoLogoRequestBoxes[];
   static names(): { [key: string]: string } {
     return {
       videoUrl: 'VideoUrl',
+      async: 'Async',
       boxes: 'Boxes',
     };
   }
@@ -699,29 +315,8 @@ export class EraseVideoLogoRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       videoUrl: 'string',
+      async: 'boolean',
       boxes: { 'type': 'array', 'itemType': EraseVideoLogoRequestBoxes },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class EraseVideoLogoResponse extends $tea.Model {
-  requestId: string;
-  data: EraseVideoLogoResponseData;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      data: 'Data',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      data: EraseVideoLogoResponseData,
     };
   }
 
@@ -732,10 +327,12 @@ export class EraseVideoLogoResponse extends $tea.Model {
 
 export class EraseVideoLogoAdvanceRequest extends $tea.Model {
   videoUrlObject: Readable;
+  async?: boolean;
   boxes?: EraseVideoLogoAdvanceRequestBoxes[];
   static names(): { [key: string]: string } {
     return {
       videoUrlObject: 'VideoUrlObject',
+      async: 'Async',
       boxes: 'Boxes',
     };
   }
@@ -743,6 +340,7 @@ export class EraseVideoLogoAdvanceRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       videoUrlObject: 'Readable',
+      async: 'boolean',
       boxes: { 'type': 'array', 'itemType': EraseVideoLogoAdvanceRequestBoxes },
     };
   }
@@ -752,40 +350,9 @@ export class EraseVideoLogoAdvanceRequest extends $tea.Model {
   }
 }
 
-export class EraseVideoSubtitlesRequest extends $tea.Model {
-  videoUrl: string;
-  BX?: number;
-  BY?: number;
-  BW?: number;
-  BH?: number;
-  static names(): { [key: string]: string } {
-    return {
-      videoUrl: 'VideoUrl',
-      BX: 'BX',
-      BY: 'BY',
-      BW: 'BW',
-      BH: 'BH',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      videoUrl: 'string',
-      BX: 'number',
-      BY: 'number',
-      BW: 'number',
-      BH: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class EraseVideoSubtitlesResponse extends $tea.Model {
-  requestId: string;
-  data: EraseVideoSubtitlesResponseData;
+export class EraseVideoLogoResponseBody extends $tea.Model {
+  requestId?: string;
+  data?: EraseVideoLogoResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
@@ -796,7 +363,7 @@ export class EraseVideoSubtitlesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      data: EraseVideoSubtitlesResponseData,
+      data: EraseVideoLogoResponseBodyData,
     };
   }
 
@@ -805,29 +372,20 @@ export class EraseVideoSubtitlesResponse extends $tea.Model {
   }
 }
 
-export class EraseVideoSubtitlesAdvanceRequest extends $tea.Model {
-  videoUrlObject: Readable;
-  BX?: number;
-  BY?: number;
-  BW?: number;
-  BH?: number;
+export class EraseVideoLogoResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: EraseVideoLogoResponseBody;
   static names(): { [key: string]: string } {
     return {
-      videoUrlObject: 'VideoUrlObject',
-      BX: 'BX',
-      BY: 'BY',
-      BW: 'BW',
-      BH: 'BH',
+      headers: 'headers',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      videoUrlObject: 'Readable',
-      BX: 'number',
-      BY: 'number',
-      BW: 'number',
-      BH: 'number',
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: EraseVideoLogoResponseBody,
     };
   }
 
@@ -837,13 +395,15 @@ export class EraseVideoSubtitlesAdvanceRequest extends $tea.Model {
 }
 
 export class AbstractEcommerceVideoRequest extends $tea.Model {
-  videoUrl: string;
-  duration: number;
+  videoUrl?: string;
+  async?: boolean;
+  duration?: number;
   width?: number;
   height?: number;
   static names(): { [key: string]: string } {
     return {
       videoUrl: 'VideoUrl',
+      async: 'Async',
       duration: 'Duration',
       width: 'Width',
       height: 'Height',
@@ -853,31 +413,10 @@ export class AbstractEcommerceVideoRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       videoUrl: 'string',
+      async: 'boolean',
       duration: 'number',
       width: 'number',
       height: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AbstractEcommerceVideoResponse extends $tea.Model {
-  requestId: string;
-  data: AbstractEcommerceVideoResponseData;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      data: 'Data',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      data: AbstractEcommerceVideoResponseData,
     };
   }
 
@@ -888,12 +427,14 @@ export class AbstractEcommerceVideoResponse extends $tea.Model {
 
 export class AbstractEcommerceVideoAdvanceRequest extends $tea.Model {
   videoUrlObject: Readable;
-  duration: number;
+  async?: boolean;
+  duration?: number;
   width?: number;
   height?: number;
   static names(): { [key: string]: string } {
     return {
       videoUrlObject: 'VideoUrlObject',
+      async: 'Async',
       duration: 'Duration',
       width: 'Width',
       height: 'Height',
@@ -903,6 +444,7 @@ export class AbstractEcommerceVideoAdvanceRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       videoUrlObject: 'Readable',
+      async: 'boolean',
       duration: 'number',
       width: 'number',
       height: 'number',
@@ -914,31 +456,9 @@ export class AbstractEcommerceVideoAdvanceRequest extends $tea.Model {
   }
 }
 
-export class AbstractFilmVideoRequest extends $tea.Model {
-  videoUrl: string;
-  length: number;
-  static names(): { [key: string]: string } {
-    return {
-      videoUrl: 'VideoUrl',
-      length: 'Length',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      videoUrl: 'string',
-      length: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AbstractFilmVideoResponse extends $tea.Model {
-  requestId: string;
-  data: AbstractFilmVideoResponseData;
+export class AbstractEcommerceVideoResponseBody extends $tea.Model {
+  requestId?: string;
+  data?: AbstractEcommerceVideoResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
@@ -949,7 +469,54 @@ export class AbstractFilmVideoResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      data: AbstractFilmVideoResponseData,
+      data: AbstractEcommerceVideoResponseBodyData,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AbstractEcommerceVideoResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: AbstractEcommerceVideoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: AbstractEcommerceVideoResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AbstractFilmVideoRequest extends $tea.Model {
+  videoUrl?: string;
+  async?: boolean;
+  length?: number;
+  static names(): { [key: string]: string } {
+    return {
+      videoUrl: 'VideoUrl',
+      async: 'Async',
+      length: 'Length',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      videoUrl: 'string',
+      async: 'boolean',
+      length: 'number',
     };
   }
 
@@ -960,10 +527,12 @@ export class AbstractFilmVideoResponse extends $tea.Model {
 
 export class AbstractFilmVideoAdvanceRequest extends $tea.Model {
   videoUrlObject: Readable;
-  length: number;
+  async?: boolean;
+  length?: number;
   static names(): { [key: string]: string } {
     return {
       videoUrlObject: 'VideoUrlObject',
+      async: 'Async',
       length: 'Length',
     };
   }
@@ -971,6 +540,7 @@ export class AbstractFilmVideoAdvanceRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       videoUrlObject: 'Readable',
+      async: 'boolean',
       length: 'number',
     };
   }
@@ -980,40 +550,9 @@ export class AbstractFilmVideoAdvanceRequest extends $tea.Model {
   }
 }
 
-export class AdjustVideoColorRequest extends $tea.Model {
-  videoUrl: string;
-  videoBitrate?: string;
-  videoCodec?: string;
-  videoFormat?: string;
-  mode: string;
-  static names(): { [key: string]: string } {
-    return {
-      videoUrl: 'VideoUrl',
-      videoBitrate: 'VideoBitrate',
-      videoCodec: 'VideoCodec',
-      videoFormat: 'VideoFormat',
-      mode: 'Mode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      videoUrl: 'string',
-      videoBitrate: 'string',
-      videoCodec: 'string',
-      videoFormat: 'string',
-      mode: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AdjustVideoColorResponse extends $tea.Model {
-  requestId: string;
-  data: AdjustVideoColorResponseData;
+export class AbstractFilmVideoResponseBody extends $tea.Model {
+  requestId?: string;
+  data?: AbstractFilmVideoResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
@@ -1024,7 +563,7 @@ export class AdjustVideoColorResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      data: AdjustVideoColorResponseData,
+      data: AbstractFilmVideoResponseBodyData,
     };
   }
 
@@ -1033,15 +572,39 @@ export class AdjustVideoColorResponse extends $tea.Model {
   }
 }
 
-export class AdjustVideoColorAdvanceRequest extends $tea.Model {
-  videoUrlObject: Readable;
+export class AbstractFilmVideoResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: AbstractFilmVideoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: AbstractFilmVideoResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AdjustVideoColorRequest extends $tea.Model {
+  videoUrl?: string;
+  async?: boolean;
   videoBitrate?: string;
   videoCodec?: string;
   videoFormat?: string;
-  mode: string;
+  mode?: string;
   static names(): { [key: string]: string } {
     return {
-      videoUrlObject: 'VideoUrlObject',
+      videoUrl: 'VideoUrl',
+      async: 'Async',
       videoBitrate: 'VideoBitrate',
       videoCodec: 'VideoCodec',
       videoFormat: 'VideoFormat',
@@ -1051,7 +614,8 @@ export class AdjustVideoColorAdvanceRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      videoUrlObject: 'Readable',
+      videoUrl: 'string',
+      async: 'boolean',
       videoBitrate: 'string',
       videoCodec: 'string',
       videoFormat: 'string',
@@ -1064,17 +628,32 @@ export class AdjustVideoColorAdvanceRequest extends $tea.Model {
   }
 }
 
-export class ConvertHdrVideoResponseData extends $tea.Model {
-  videoURL: string;
+export class AdjustVideoColorAdvanceRequest extends $tea.Model {
+  videoUrlObject: Readable;
+  async?: boolean;
+  videoBitrate?: string;
+  videoCodec?: string;
+  videoFormat?: string;
+  mode?: string;
   static names(): { [key: string]: string } {
     return {
-      videoURL: 'VideoURL',
+      videoUrlObject: 'VideoUrlObject',
+      async: 'Async',
+      videoBitrate: 'VideoBitrate',
+      videoCodec: 'VideoCodec',
+      videoFormat: 'VideoFormat',
+      mode: 'Mode',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      videoURL: 'string',
+      videoUrlObject: 'Readable',
+      async: 'boolean',
+      videoBitrate: 'string',
+      videoCodec: 'string',
+      videoFormat: 'string',
+      mode: 'string',
     };
   }
 
@@ -1083,17 +662,20 @@ export class ConvertHdrVideoResponseData extends $tea.Model {
   }
 }
 
-export class InterpolateVideoFrameResponseData extends $tea.Model {
-  videoURL: string;
+export class AdjustVideoColorResponseBody extends $tea.Model {
+  requestId?: string;
+  data?: AdjustVideoColorResponseBodyData;
   static names(): { [key: string]: string } {
     return {
-      videoURL: 'VideoURL',
+      requestId: 'RequestId',
+      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      videoURL: 'string',
+      requestId: 'string',
+      data: AdjustVideoColorResponseBodyData,
     };
   }
 
@@ -1102,17 +684,20 @@ export class InterpolateVideoFrameResponseData extends $tea.Model {
   }
 }
 
-export class ToneSdrVideoResponseData extends $tea.Model {
-  videoURL: string;
+export class AdjustVideoColorResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: AdjustVideoColorResponseBody;
   static names(): { [key: string]: string } {
     return {
-      videoURL: 'VideoURL',
+      headers: 'headers',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      videoURL: 'string',
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: AdjustVideoColorResponseBody,
     };
   }
 
@@ -1121,58 +706,490 @@ export class ToneSdrVideoResponseData extends $tea.Model {
   }
 }
 
-export class EnhanceVideoQualityResponseData extends $tea.Model {
-  videoURL: string;
-  static names(): { [key: string]: string } {
-    return {
-      videoURL: 'VideoURL',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      videoURL: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class MergeVideoFaceResponseData extends $tea.Model {
-  videoURL: string;
-  static names(): { [key: string]: string } {
-    return {
-      videoURL: 'VideoURL',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      videoURL: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ChangeVideoSizeResponseData extends $tea.Model {
-  videoUrl: string;
-  videoCoverUrl: string;
+export class EraseVideoSubtitlesRequest extends $tea.Model {
+  videoUrl?: string;
+  async?: boolean;
+  BX?: number;
+  BY?: number;
+  BW?: number;
+  BH?: number;
   static names(): { [key: string]: string } {
     return {
       videoUrl: 'VideoUrl',
-      videoCoverUrl: 'VideoCoverUrl',
+      async: 'Async',
+      BX: 'BX',
+      BY: 'BY',
+      BW: 'BW',
+      BH: 'BH',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       videoUrl: 'string',
-      videoCoverUrl: 'string',
+      async: 'boolean',
+      BX: 'number',
+      BY: 'number',
+      BW: 'number',
+      BH: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EraseVideoSubtitlesAdvanceRequest extends $tea.Model {
+  videoUrlObject: Readable;
+  async?: boolean;
+  BX?: number;
+  BY?: number;
+  BW?: number;
+  BH?: number;
+  static names(): { [key: string]: string } {
+    return {
+      videoUrlObject: 'VideoUrlObject',
+      async: 'Async',
+      BX: 'BX',
+      BY: 'BY',
+      BW: 'BW',
+      BH: 'BH',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      videoUrlObject: 'Readable',
+      async: 'boolean',
+      BX: 'number',
+      BY: 'number',
+      BW: 'number',
+      BH: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EraseVideoSubtitlesResponseBody extends $tea.Model {
+  requestId?: string;
+  data?: EraseVideoSubtitlesResponseBodyData;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      data: EraseVideoSubtitlesResponseBodyData,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EraseVideoSubtitlesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: EraseVideoSubtitlesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: EraseVideoSubtitlesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChangeVideoSizeRequest extends $tea.Model {
+  videoUrl?: string;
+  async?: boolean;
+  width?: number;
+  height?: number;
+  cropType?: string;
+  fillType?: string;
+  tightness?: number;
+  r?: number;
+  g?: number;
+  b?: number;
+  static names(): { [key: string]: string } {
+    return {
+      videoUrl: 'VideoUrl',
+      async: 'Async',
+      width: 'Width',
+      height: 'Height',
+      cropType: 'CropType',
+      fillType: 'FillType',
+      tightness: 'Tightness',
+      r: 'R',
+      g: 'G',
+      b: 'B',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      videoUrl: 'string',
+      async: 'boolean',
+      width: 'number',
+      height: 'number',
+      cropType: 'string',
+      fillType: 'string',
+      tightness: 'number',
+      r: 'number',
+      g: 'number',
+      b: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChangeVideoSizeAdvanceRequest extends $tea.Model {
+  videoUrlObject: Readable;
+  async?: boolean;
+  width?: number;
+  height?: number;
+  cropType?: string;
+  fillType?: string;
+  tightness?: number;
+  r?: number;
+  g?: number;
+  b?: number;
+  static names(): { [key: string]: string } {
+    return {
+      videoUrlObject: 'VideoUrlObject',
+      async: 'Async',
+      width: 'Width',
+      height: 'Height',
+      cropType: 'CropType',
+      fillType: 'FillType',
+      tightness: 'Tightness',
+      r: 'R',
+      g: 'G',
+      b: 'B',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      videoUrlObject: 'Readable',
+      async: 'boolean',
+      width: 'number',
+      height: 'number',
+      cropType: 'string',
+      fillType: 'string',
+      tightness: 'number',
+      r: 'number',
+      g: 'number',
+      b: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChangeVideoSizeResponseBody extends $tea.Model {
+  requestId?: string;
+  data?: ChangeVideoSizeResponseBodyData;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      data: ChangeVideoSizeResponseBodyData,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChangeVideoSizeResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ChangeVideoSizeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ChangeVideoSizeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MergeVideoFaceRequest extends $tea.Model {
+  videoURL?: string;
+  async?: boolean;
+  postURL?: string;
+  referenceURL?: string;
+  static names(): { [key: string]: string } {
+    return {
+      videoURL: 'VideoURL',
+      async: 'Async',
+      postURL: 'PostURL',
+      referenceURL: 'ReferenceURL',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      videoURL: 'string',
+      async: 'boolean',
+      postURL: 'string',
+      referenceURL: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MergeVideoFaceAdvanceRequest extends $tea.Model {
+  videoURLObject: Readable;
+  async?: boolean;
+  postURL?: string;
+  referenceURL?: string;
+  static names(): { [key: string]: string } {
+    return {
+      videoURLObject: 'VideoURLObject',
+      async: 'Async',
+      postURL: 'PostURL',
+      referenceURL: 'ReferenceURL',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      videoURLObject: 'Readable',
+      async: 'boolean',
+      postURL: 'string',
+      referenceURL: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MergeVideoFaceResponseBody extends $tea.Model {
+  requestId?: string;
+  data?: MergeVideoFaceResponseBodyData;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      data: MergeVideoFaceResponseBodyData,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MergeVideoFaceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: MergeVideoFaceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: MergeVideoFaceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SuperResolveVideoRequest extends $tea.Model {
+  videoUrl?: string;
+  async?: boolean;
+  bitRate?: number;
+  static names(): { [key: string]: string } {
+    return {
+      videoUrl: 'VideoUrl',
+      async: 'Async',
+      bitRate: 'BitRate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      videoUrl: 'string',
+      async: 'boolean',
+      bitRate: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SuperResolveVideoAdvanceRequest extends $tea.Model {
+  videoUrlObject: Readable;
+  async?: boolean;
+  bitRate?: number;
+  static names(): { [key: string]: string } {
+    return {
+      videoUrlObject: 'VideoUrlObject',
+      async: 'Async',
+      bitRate: 'BitRate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      videoUrlObject: 'Readable',
+      async: 'boolean',
+      bitRate: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SuperResolveVideoResponseBody extends $tea.Model {
+  requestId?: string;
+  data?: SuperResolveVideoResponseBodyData;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      data: SuperResolveVideoResponseBodyData,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SuperResolveVideoResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: SuperResolveVideoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: SuperResolveVideoResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAsyncJobResultResponseBodyData extends $tea.Model {
+  status?: string;
+  errorMessage?: string;
+  result?: string;
+  errorCode?: string;
+  jobId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      status: 'Status',
+      errorMessage: 'ErrorMessage',
+      result: 'Result',
+      errorCode: 'ErrorCode',
+      jobId: 'JobId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      status: 'string',
+      errorMessage: 'string',
+      result: 'string',
+      errorCode: 'string',
+      jobId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnhanceVideoQualityResponseBodyData extends $tea.Model {
+  videoURL?: string;
+  static names(): { [key: string]: string } {
+    return {
+      videoURL: 'VideoURL',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      videoURL: 'string',
     };
   }
 
@@ -1182,22 +1199,22 @@ export class ChangeVideoSizeResponseData extends $tea.Model {
 }
 
 export class GenerateVideoRequestFileList extends $tea.Model {
-  fileUrl: string;
-  fileName: string;
-  type: string;
+  type?: string;
+  fileUrl?: string;
+  fileName?: string;
   static names(): { [key: string]: string } {
     return {
+      type: 'Type',
       fileUrl: 'FileUrl',
       fileName: 'FileName',
-      type: 'Type',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      type: 'string',
       fileUrl: 'string',
       fileName: 'string',
-      type: 'string',
     };
   }
 
@@ -1206,69 +1223,19 @@ export class GenerateVideoRequestFileList extends $tea.Model {
   }
 }
 
-export class GenerateVideoResponseData extends $tea.Model {
-  videoUrl: string;
-  videoCoverUrl: string;
+export class GenerateVideoResponseBodyData extends $tea.Model {
+  videoCoverUrl?: string;
+  videoUrl?: string;
   static names(): { [key: string]: string } {
     return {
-      videoUrl: 'VideoUrl',
       videoCoverUrl: 'VideoCoverUrl',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      videoUrl: 'string',
-      videoCoverUrl: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAsyncJobResultResponseData extends $tea.Model {
-  jobId: string;
-  status: string;
-  result: string;
-  errorCode: string;
-  errorMessage: string;
-  static names(): { [key: string]: string } {
-    return {
-      jobId: 'JobId',
-      status: 'Status',
-      result: 'Result',
-      errorCode: 'ErrorCode',
-      errorMessage: 'ErrorMessage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      jobId: 'string',
-      status: 'string',
-      result: 'string',
-      errorCode: 'string',
-      errorMessage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SuperResolveVideoResponseData extends $tea.Model {
-  videoUrl: string;
-  static names(): { [key: string]: string } {
-    return {
       videoUrl: 'VideoUrl',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      videoCoverUrl: 'string',
       videoUrl: 'string',
     };
   }
@@ -1279,44 +1246,25 @@ export class SuperResolveVideoResponseData extends $tea.Model {
 }
 
 export class EraseVideoLogoRequestBoxes extends $tea.Model {
-  h?: number;
   w?: number;
-  x?: number;
+  h?: number;
   y?: number;
+  x?: number;
   static names(): { [key: string]: string } {
     return {
-      h: 'H',
       w: 'W',
-      x: 'X',
+      h: 'H',
       y: 'Y',
+      x: 'X',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      h: 'number',
       w: 'number',
-      x: 'number',
+      h: 'number',
       y: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class EraseVideoLogoResponseData extends $tea.Model {
-  videoUrl: string;
-  static names(): { [key: string]: string } {
-    return {
-      videoUrl: 'VideoUrl',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      videoUrl: 'string',
+      x: 'number',
     };
   }
 
@@ -1326,25 +1274,25 @@ export class EraseVideoLogoResponseData extends $tea.Model {
 }
 
 export class EraseVideoLogoAdvanceRequestBoxes extends $tea.Model {
-  h?: number;
   w?: number;
-  x?: number;
+  h?: number;
   y?: number;
+  x?: number;
   static names(): { [key: string]: string } {
     return {
-      h: 'H',
       w: 'W',
-      x: 'X',
+      h: 'H',
       y: 'Y',
+      x: 'X',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      h: 'number',
       w: 'number',
-      x: 'number',
+      h: 'number',
       y: 'number',
+      x: 'number',
     };
   }
 
@@ -1353,8 +1301,8 @@ export class EraseVideoLogoAdvanceRequestBoxes extends $tea.Model {
   }
 }
 
-export class EraseVideoSubtitlesResponseData extends $tea.Model {
-  videoUrl: string;
+export class EraseVideoLogoResponseBodyData extends $tea.Model {
+  videoUrl?: string;
   static names(): { [key: string]: string } {
     return {
       videoUrl: 'VideoUrl',
@@ -1372,20 +1320,20 @@ export class EraseVideoSubtitlesResponseData extends $tea.Model {
   }
 }
 
-export class AbstractEcommerceVideoResponseData extends $tea.Model {
-  videoUrl: string;
-  videoCoverUrl: string;
+export class AbstractEcommerceVideoResponseBodyData extends $tea.Model {
+  videoCoverUrl?: string;
+  videoUrl?: string;
   static names(): { [key: string]: string } {
     return {
-      videoUrl: 'VideoUrl',
       videoCoverUrl: 'VideoCoverUrl',
+      videoUrl: 'VideoUrl',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      videoUrl: 'string',
       videoCoverUrl: 'string',
+      videoUrl: 'string',
     };
   }
 
@@ -1394,8 +1342,8 @@ export class AbstractEcommerceVideoResponseData extends $tea.Model {
   }
 }
 
-export class AbstractFilmVideoResponseData extends $tea.Model {
-  videoUrl: string;
+export class AbstractFilmVideoResponseBodyData extends $tea.Model {
+  videoUrl?: string;
   static names(): { [key: string]: string } {
     return {
       videoUrl: 'VideoUrl',
@@ -1413,8 +1361,87 @@ export class AbstractFilmVideoResponseData extends $tea.Model {
   }
 }
 
-export class AdjustVideoColorResponseData extends $tea.Model {
-  videoUrl: string;
+export class AdjustVideoColorResponseBodyData extends $tea.Model {
+  videoUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      videoUrl: 'VideoUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      videoUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EraseVideoSubtitlesResponseBodyData extends $tea.Model {
+  videoUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      videoUrl: 'VideoUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      videoUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChangeVideoSizeResponseBodyData extends $tea.Model {
+  videoCoverUrl?: string;
+  videoUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      videoCoverUrl: 'VideoCoverUrl',
+      videoUrl: 'VideoUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      videoCoverUrl: 'string',
+      videoUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MergeVideoFaceResponseBodyData extends $tea.Model {
+  videoURL?: string;
+  static names(): { [key: string]: string } {
+    return {
+      videoURL: 'VideoURL',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      videoURL: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SuperResolveVideoResponseBodyData extends $tea.Model {
+  videoUrl?: string;
   static names(): { [key: string]: string } {
     return {
       videoUrl: 'VideoUrl',
@@ -1433,9 +1460,9 @@ export class AdjustVideoColorResponseData extends $tea.Model {
 }
 
 
-export default class Client extends RPC {
+export default class Client extends OpenApi {
 
-  constructor(config: $RPC.Config) {
+  constructor(config: $OpenApi.Config) {
     super(config);
     this._endpointRule = "regional";
     this.checkConfig(config);
@@ -1443,221 +1470,42 @@ export default class Client extends RPC {
   }
 
 
-  async convertHdrVideo(request: ConvertHdrVideoRequest, runtime: $Util.RuntimeOptions): Promise<ConvertHdrVideoResponse> {
+  getEndpoint(productId: string, regionId: string, endpointRule: string, network: string, suffix: string, endpointMap: {[key: string ]: string}, endpoint: string): string {
+    if (!Util.empty(endpoint)) {
+      return endpoint;
+    }
+
+    if (!Util.isUnset(endpointMap) && !Util.empty(endpointMap[regionId])) {
+      return endpointMap[regionId];
+    }
+
+    return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+  }
+
+  async getAsyncJobResultWithOptions(request: GetAsyncJobResultRequest, runtime: $Util.RuntimeOptions): Promise<GetAsyncJobResultResponse> {
     Util.validateModel(request);
-    return $tea.cast<ConvertHdrVideoResponse>(await this.doRequest("ConvertHdrVideo", "HTTPS", "POST", "2020-03-20", "AK", null, $tea.toMap(request), runtime), new ConvertHdrVideoResponse({}));
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<GetAsyncJobResultResponse>(await this.doRPCRequest("GetAsyncJobResult", "2020-03-20", "HTTPS", "POST", "AK", "json", req, runtime), new GetAsyncJobResultResponse({}));
   }
 
-  async convertHdrVideoSimply(request: ConvertHdrVideoRequest): Promise<ConvertHdrVideoResponse> {
+  async getAsyncJobResult(request: GetAsyncJobResultRequest): Promise<GetAsyncJobResultResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.convertHdrVideo(request, runtime);
+    return await this.getAsyncJobResultWithOptions(request, runtime);
   }
 
-  async convertHdrVideoAdvance(request: ConvertHdrVideoAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<ConvertHdrVideoResponse> {
-    // Step 0: init client
-    let accessKeyId = await this._credential.getAccessKeyId();
-    let accessKeySecret = await this._credential.getAccessKeySecret();
-    let authConfig = new $RPC.Config({
-      accessKeyId: accessKeyId,
-      accessKeySecret: accessKeySecret,
-      type: "access_key",
-      endpoint: "openplatform.aliyuncs.com",
-      protocol: this._protocol,
-      regionId: this._regionId,
-    });
-    let authClient = new OpenPlatform(authConfig);
-    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
-      product: "videoenhan",
-      regionId: this._regionId,
-    });
-    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
-    let ossConfig = new $OSS.Config({
-      accessKeySecret: accessKeySecret,
-      type: "access_key",
-      protocol: this._protocol,
-      regionId: this._regionId,
-    });
-    let ossClient : OSS = null;
-    let fileObj = new $FileForm.FileField({ });
-    let ossHeader = new $OSS.PostObjectRequestHeader({ });
-    let uploadRequest = new $OSS.PostObjectRequest({ });
-    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
-    RPCUtil.convert(runtime, ossRuntime);
-    let convertHdrVideoReq = new ConvertHdrVideoRequest({ });
-    RPCUtil.convert(request, convertHdrVideoReq);
-    authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-    ossConfig.accessKeyId = authResponse.accessKeyId;
-    ossConfig.endpoint = RPCUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
-    ossClient = new OSS(ossConfig);
-    fileObj = new $FileForm.FileField({
-      filename: authResponse.objectKey,
-      content: request.videoURLObject,
-      contentType: "",
-    });
-    ossHeader = new $OSS.PostObjectRequestHeader({
-      accessKeyId: authResponse.accessKeyId,
-      policy: authResponse.encodedPolicy,
-      signature: authResponse.signature,
-      key: authResponse.objectKey,
-      file: fileObj,
-      successActionStatus: "201",
-    });
-    uploadRequest = new $OSS.PostObjectRequest({
-      bucketName: authResponse.bucket,
-      header: ossHeader,
-    });
-    await ossClient.postObject(uploadRequest, ossRuntime);
-    convertHdrVideoReq.videoURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
-    let convertHdrVideoResp = await this.convertHdrVideo(convertHdrVideoReq, runtime);
-    return convertHdrVideoResp;
-  }
-
-  async interpolateVideoFrame(request: InterpolateVideoFrameRequest, runtime: $Util.RuntimeOptions): Promise<InterpolateVideoFrameResponse> {
+  async enhanceVideoQualityWithOptions(request: EnhanceVideoQualityRequest, runtime: $Util.RuntimeOptions): Promise<EnhanceVideoQualityResponse> {
     Util.validateModel(request);
-    return $tea.cast<InterpolateVideoFrameResponse>(await this.doRequest("InterpolateVideoFrame", "HTTPS", "POST", "2020-03-20", "AK", null, $tea.toMap(request), runtime), new InterpolateVideoFrameResponse({}));
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<EnhanceVideoQualityResponse>(await this.doRPCRequest("EnhanceVideoQuality", "2020-03-20", "HTTPS", "POST", "AK", "json", req, runtime), new EnhanceVideoQualityResponse({}));
   }
 
-  async interpolateVideoFrameSimply(request: InterpolateVideoFrameRequest): Promise<InterpolateVideoFrameResponse> {
+  async enhanceVideoQuality(request: EnhanceVideoQualityRequest): Promise<EnhanceVideoQualityResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.interpolateVideoFrame(request, runtime);
-  }
-
-  async interpolateVideoFrameAdvance(request: InterpolateVideoFrameAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<InterpolateVideoFrameResponse> {
-    // Step 0: init client
-    let accessKeyId = await this._credential.getAccessKeyId();
-    let accessKeySecret = await this._credential.getAccessKeySecret();
-    let authConfig = new $RPC.Config({
-      accessKeyId: accessKeyId,
-      accessKeySecret: accessKeySecret,
-      type: "access_key",
-      endpoint: "openplatform.aliyuncs.com",
-      protocol: this._protocol,
-      regionId: this._regionId,
-    });
-    let authClient = new OpenPlatform(authConfig);
-    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
-      product: "videoenhan",
-      regionId: this._regionId,
-    });
-    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
-    let ossConfig = new $OSS.Config({
-      accessKeySecret: accessKeySecret,
-      type: "access_key",
-      protocol: this._protocol,
-      regionId: this._regionId,
-    });
-    let ossClient : OSS = null;
-    let fileObj = new $FileForm.FileField({ });
-    let ossHeader = new $OSS.PostObjectRequestHeader({ });
-    let uploadRequest = new $OSS.PostObjectRequest({ });
-    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
-    RPCUtil.convert(runtime, ossRuntime);
-    let interpolateVideoFrameReq = new InterpolateVideoFrameRequest({ });
-    RPCUtil.convert(request, interpolateVideoFrameReq);
-    authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-    ossConfig.accessKeyId = authResponse.accessKeyId;
-    ossConfig.endpoint = RPCUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
-    ossClient = new OSS(ossConfig);
-    fileObj = new $FileForm.FileField({
-      filename: authResponse.objectKey,
-      content: request.videoURLObject,
-      contentType: "",
-    });
-    ossHeader = new $OSS.PostObjectRequestHeader({
-      accessKeyId: authResponse.accessKeyId,
-      policy: authResponse.encodedPolicy,
-      signature: authResponse.signature,
-      key: authResponse.objectKey,
-      file: fileObj,
-      successActionStatus: "201",
-    });
-    uploadRequest = new $OSS.PostObjectRequest({
-      bucketName: authResponse.bucket,
-      header: ossHeader,
-    });
-    await ossClient.postObject(uploadRequest, ossRuntime);
-    interpolateVideoFrameReq.videoURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
-    let interpolateVideoFrameResp = await this.interpolateVideoFrame(interpolateVideoFrameReq, runtime);
-    return interpolateVideoFrameResp;
-  }
-
-  async toneSdrVideo(request: ToneSdrVideoRequest, runtime: $Util.RuntimeOptions): Promise<ToneSdrVideoResponse> {
-    Util.validateModel(request);
-    return $tea.cast<ToneSdrVideoResponse>(await this.doRequest("ToneSdrVideo", "HTTPS", "POST", "2020-03-20", "AK", null, $tea.toMap(request), runtime), new ToneSdrVideoResponse({}));
-  }
-
-  async toneSdrVideoSimply(request: ToneSdrVideoRequest): Promise<ToneSdrVideoResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.toneSdrVideo(request, runtime);
-  }
-
-  async toneSdrVideoAdvance(request: ToneSdrVideoAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<ToneSdrVideoResponse> {
-    // Step 0: init client
-    let accessKeyId = await this._credential.getAccessKeyId();
-    let accessKeySecret = await this._credential.getAccessKeySecret();
-    let authConfig = new $RPC.Config({
-      accessKeyId: accessKeyId,
-      accessKeySecret: accessKeySecret,
-      type: "access_key",
-      endpoint: "openplatform.aliyuncs.com",
-      protocol: this._protocol,
-      regionId: this._regionId,
-    });
-    let authClient = new OpenPlatform(authConfig);
-    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
-      product: "videoenhan",
-      regionId: this._regionId,
-    });
-    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
-    let ossConfig = new $OSS.Config({
-      accessKeySecret: accessKeySecret,
-      type: "access_key",
-      protocol: this._protocol,
-      regionId: this._regionId,
-    });
-    let ossClient : OSS = null;
-    let fileObj = new $FileForm.FileField({ });
-    let ossHeader = new $OSS.PostObjectRequestHeader({ });
-    let uploadRequest = new $OSS.PostObjectRequest({ });
-    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
-    RPCUtil.convert(runtime, ossRuntime);
-    let toneSdrVideoReq = new ToneSdrVideoRequest({ });
-    RPCUtil.convert(request, toneSdrVideoReq);
-    authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-    ossConfig.accessKeyId = authResponse.accessKeyId;
-    ossConfig.endpoint = RPCUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
-    ossClient = new OSS(ossConfig);
-    fileObj = new $FileForm.FileField({
-      filename: authResponse.objectKey,
-      content: request.videoURLObject,
-      contentType: "",
-    });
-    ossHeader = new $OSS.PostObjectRequestHeader({
-      accessKeyId: authResponse.accessKeyId,
-      policy: authResponse.encodedPolicy,
-      signature: authResponse.signature,
-      key: authResponse.objectKey,
-      file: fileObj,
-      successActionStatus: "201",
-    });
-    uploadRequest = new $OSS.PostObjectRequest({
-      bucketName: authResponse.bucket,
-      header: ossHeader,
-    });
-    await ossClient.postObject(uploadRequest, ossRuntime);
-    toneSdrVideoReq.videoURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
-    let toneSdrVideoResp = await this.toneSdrVideo(toneSdrVideoReq, runtime);
-    return toneSdrVideoResp;
-  }
-
-  async enhanceVideoQuality(request: EnhanceVideoQualityRequest, runtime: $Util.RuntimeOptions): Promise<EnhanceVideoQualityResponse> {
-    Util.validateModel(request);
-    return $tea.cast<EnhanceVideoQualityResponse>(await this.doRequest("EnhanceVideoQuality", "HTTPS", "POST", "2020-03-20", "AK", null, $tea.toMap(request), runtime), new EnhanceVideoQualityResponse({}));
-  }
-
-  async enhanceVideoQualitySimply(request: EnhanceVideoQualityRequest): Promise<EnhanceVideoQualityResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.enhanceVideoQuality(request, runtime);
+    return await this.enhanceVideoQualityWithOptions(request, runtime);
   }
 
   async enhanceVideoQualityAdvance(request: EnhanceVideoQualityAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<EnhanceVideoQualityResponse> {
@@ -1689,12 +1537,12 @@ export default class Client extends RPC {
     let ossHeader = new $OSS.PostObjectRequestHeader({ });
     let uploadRequest = new $OSS.PostObjectRequest({ });
     let ossRuntime = new $OSSUtil.RuntimeOptions({ });
-    RPCUtil.convert(runtime, ossRuntime);
+    OpenApiUtil.convert(runtime, ossRuntime);
     let enhanceVideoQualityReq = new EnhanceVideoQualityRequest({ });
-    RPCUtil.convert(request, enhanceVideoQualityReq);
+    OpenApiUtil.convert(request, enhanceVideoQualityReq);
     authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
     ossConfig.accessKeyId = authResponse.accessKeyId;
-    ossConfig.endpoint = RPCUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+    ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
     ossClient = new OSS(ossConfig);
     fileObj = new $FileForm.FileField({
       filename: authResponse.objectKey,
@@ -1715,245 +1563,34 @@ export default class Client extends RPC {
     });
     await ossClient.postObject(uploadRequest, ossRuntime);
     enhanceVideoQualityReq.videoURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
-    let enhanceVideoQualityResp = await this.enhanceVideoQuality(enhanceVideoQualityReq, runtime);
+    let enhanceVideoQualityResp = await this.enhanceVideoQualityWithOptions(enhanceVideoQualityReq, runtime);
     return enhanceVideoQualityResp;
   }
 
-  async mergeVideoFace(request: MergeVideoFaceRequest, runtime: $Util.RuntimeOptions): Promise<MergeVideoFaceResponse> {
+  async generateVideoWithOptions(request: GenerateVideoRequest, runtime: $Util.RuntimeOptions): Promise<GenerateVideoResponse> {
     Util.validateModel(request);
-    return $tea.cast<MergeVideoFaceResponse>(await this.doRequest("MergeVideoFace", "HTTPS", "POST", "2020-03-20", "AK", null, $tea.toMap(request), runtime), new MergeVideoFaceResponse({}));
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<GenerateVideoResponse>(await this.doRPCRequest("GenerateVideo", "2020-03-20", "HTTPS", "POST", "AK", "json", req, runtime), new GenerateVideoResponse({}));
   }
 
-  async mergeVideoFaceSimply(request: MergeVideoFaceRequest): Promise<MergeVideoFaceResponse> {
+  async generateVideo(request: GenerateVideoRequest): Promise<GenerateVideoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.mergeVideoFace(request, runtime);
+    return await this.generateVideoWithOptions(request, runtime);
   }
 
-  async mergeVideoFaceAdvance(request: MergeVideoFaceAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<MergeVideoFaceResponse> {
-    // Step 0: init client
-    let accessKeyId = await this._credential.getAccessKeyId();
-    let accessKeySecret = await this._credential.getAccessKeySecret();
-    let authConfig = new $RPC.Config({
-      accessKeyId: accessKeyId,
-      accessKeySecret: accessKeySecret,
-      type: "access_key",
-      endpoint: "openplatform.aliyuncs.com",
-      protocol: this._protocol,
-      regionId: this._regionId,
-    });
-    let authClient = new OpenPlatform(authConfig);
-    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
-      product: "videoenhan",
-      regionId: this._regionId,
-    });
-    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
-    let ossConfig = new $OSS.Config({
-      accessKeySecret: accessKeySecret,
-      type: "access_key",
-      protocol: this._protocol,
-      regionId: this._regionId,
-    });
-    let ossClient : OSS = null;
-    let fileObj = new $FileForm.FileField({ });
-    let ossHeader = new $OSS.PostObjectRequestHeader({ });
-    let uploadRequest = new $OSS.PostObjectRequest({ });
-    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
-    RPCUtil.convert(runtime, ossRuntime);
-    let mergeVideoFaceReq = new MergeVideoFaceRequest({ });
-    RPCUtil.convert(request, mergeVideoFaceReq);
-    authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-    ossConfig.accessKeyId = authResponse.accessKeyId;
-    ossConfig.endpoint = RPCUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
-    ossClient = new OSS(ossConfig);
-    fileObj = new $FileForm.FileField({
-      filename: authResponse.objectKey,
-      content: request.videoURLObject,
-      contentType: "",
-    });
-    ossHeader = new $OSS.PostObjectRequestHeader({
-      accessKeyId: authResponse.accessKeyId,
-      policy: authResponse.encodedPolicy,
-      signature: authResponse.signature,
-      key: authResponse.objectKey,
-      file: fileObj,
-      successActionStatus: "201",
-    });
-    uploadRequest = new $OSS.PostObjectRequest({
-      bucketName: authResponse.bucket,
-      header: ossHeader,
-    });
-    await ossClient.postObject(uploadRequest, ossRuntime);
-    mergeVideoFaceReq.videoURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
-    let mergeVideoFaceResp = await this.mergeVideoFace(mergeVideoFaceReq, runtime);
-    return mergeVideoFaceResp;
-  }
-
-  async changeVideoSize(request: ChangeVideoSizeRequest, runtime: $Util.RuntimeOptions): Promise<ChangeVideoSizeResponse> {
+  async eraseVideoLogoWithOptions(request: EraseVideoLogoRequest, runtime: $Util.RuntimeOptions): Promise<EraseVideoLogoResponse> {
     Util.validateModel(request);
-    return $tea.cast<ChangeVideoSizeResponse>(await this.doRequest("ChangeVideoSize", "HTTPS", "POST", "2020-03-20", "AK", null, $tea.toMap(request), runtime), new ChangeVideoSizeResponse({}));
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<EraseVideoLogoResponse>(await this.doRPCRequest("EraseVideoLogo", "2020-03-20", "HTTPS", "POST", "AK", "json", req, runtime), new EraseVideoLogoResponse({}));
   }
 
-  async changeVideoSizeSimply(request: ChangeVideoSizeRequest): Promise<ChangeVideoSizeResponse> {
+  async eraseVideoLogo(request: EraseVideoLogoRequest): Promise<EraseVideoLogoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.changeVideoSize(request, runtime);
-  }
-
-  async changeVideoSizeAdvance(request: ChangeVideoSizeAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<ChangeVideoSizeResponse> {
-    // Step 0: init client
-    let accessKeyId = await this._credential.getAccessKeyId();
-    let accessKeySecret = await this._credential.getAccessKeySecret();
-    let authConfig = new $RPC.Config({
-      accessKeyId: accessKeyId,
-      accessKeySecret: accessKeySecret,
-      type: "access_key",
-      endpoint: "openplatform.aliyuncs.com",
-      protocol: this._protocol,
-      regionId: this._regionId,
-    });
-    let authClient = new OpenPlatform(authConfig);
-    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
-      product: "videoenhan",
-      regionId: this._regionId,
-    });
-    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
-    let ossConfig = new $OSS.Config({
-      accessKeySecret: accessKeySecret,
-      type: "access_key",
-      protocol: this._protocol,
-      regionId: this._regionId,
-    });
-    let ossClient : OSS = null;
-    let fileObj = new $FileForm.FileField({ });
-    let ossHeader = new $OSS.PostObjectRequestHeader({ });
-    let uploadRequest = new $OSS.PostObjectRequest({ });
-    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
-    RPCUtil.convert(runtime, ossRuntime);
-    let changeVideoSizeReq = new ChangeVideoSizeRequest({ });
-    RPCUtil.convert(request, changeVideoSizeReq);
-    authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-    ossConfig.accessKeyId = authResponse.accessKeyId;
-    ossConfig.endpoint = RPCUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
-    ossClient = new OSS(ossConfig);
-    fileObj = new $FileForm.FileField({
-      filename: authResponse.objectKey,
-      content: request.videoUrlObject,
-      contentType: "",
-    });
-    ossHeader = new $OSS.PostObjectRequestHeader({
-      accessKeyId: authResponse.accessKeyId,
-      policy: authResponse.encodedPolicy,
-      signature: authResponse.signature,
-      key: authResponse.objectKey,
-      file: fileObj,
-      successActionStatus: "201",
-    });
-    uploadRequest = new $OSS.PostObjectRequest({
-      bucketName: authResponse.bucket,
-      header: ossHeader,
-    });
-    await ossClient.postObject(uploadRequest, ossRuntime);
-    changeVideoSizeReq.videoUrl = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
-    let changeVideoSizeResp = await this.changeVideoSize(changeVideoSizeReq, runtime);
-    return changeVideoSizeResp;
-  }
-
-  async generateVideo(request: GenerateVideoRequest, runtime: $Util.RuntimeOptions): Promise<GenerateVideoResponse> {
-    Util.validateModel(request);
-    return $tea.cast<GenerateVideoResponse>(await this.doRequest("GenerateVideo", "HTTPS", "POST", "2020-03-20", "AK", null, $tea.toMap(request), runtime), new GenerateVideoResponse({}));
-  }
-
-  async generateVideoSimply(request: GenerateVideoRequest): Promise<GenerateVideoResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.generateVideo(request, runtime);
-  }
-
-  async getAsyncJobResult(request: GetAsyncJobResultRequest, runtime: $Util.RuntimeOptions): Promise<GetAsyncJobResultResponse> {
-    Util.validateModel(request);
-    return $tea.cast<GetAsyncJobResultResponse>(await this.doRequest("GetAsyncJobResult", "HTTPS", "POST", "2020-03-20", "AK", null, $tea.toMap(request), runtime), new GetAsyncJobResultResponse({}));
-  }
-
-  async getAsyncJobResultSimply(request: GetAsyncJobResultRequest): Promise<GetAsyncJobResultResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getAsyncJobResult(request, runtime);
-  }
-
-  async superResolveVideo(request: SuperResolveVideoRequest, runtime: $Util.RuntimeOptions): Promise<SuperResolveVideoResponse> {
-    Util.validateModel(request);
-    return $tea.cast<SuperResolveVideoResponse>(await this.doRequest("SuperResolveVideo", "HTTPS", "POST", "2020-03-20", "AK", null, $tea.toMap(request), runtime), new SuperResolveVideoResponse({}));
-  }
-
-  async superResolveVideoSimply(request: SuperResolveVideoRequest): Promise<SuperResolveVideoResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.superResolveVideo(request, runtime);
-  }
-
-  async superResolveVideoAdvance(request: SuperResolveVideoAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<SuperResolveVideoResponse> {
-    // Step 0: init client
-    let accessKeyId = await this._credential.getAccessKeyId();
-    let accessKeySecret = await this._credential.getAccessKeySecret();
-    let authConfig = new $RPC.Config({
-      accessKeyId: accessKeyId,
-      accessKeySecret: accessKeySecret,
-      type: "access_key",
-      endpoint: "openplatform.aliyuncs.com",
-      protocol: this._protocol,
-      regionId: this._regionId,
-    });
-    let authClient = new OpenPlatform(authConfig);
-    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
-      product: "videoenhan",
-      regionId: this._regionId,
-    });
-    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
-    let ossConfig = new $OSS.Config({
-      accessKeySecret: accessKeySecret,
-      type: "access_key",
-      protocol: this._protocol,
-      regionId: this._regionId,
-    });
-    let ossClient : OSS = null;
-    let fileObj = new $FileForm.FileField({ });
-    let ossHeader = new $OSS.PostObjectRequestHeader({ });
-    let uploadRequest = new $OSS.PostObjectRequest({ });
-    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
-    RPCUtil.convert(runtime, ossRuntime);
-    let superResolveVideoReq = new SuperResolveVideoRequest({ });
-    RPCUtil.convert(request, superResolveVideoReq);
-    authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-    ossConfig.accessKeyId = authResponse.accessKeyId;
-    ossConfig.endpoint = RPCUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
-    ossClient = new OSS(ossConfig);
-    fileObj = new $FileForm.FileField({
-      filename: authResponse.objectKey,
-      content: request.videoUrlObject,
-      contentType: "",
-    });
-    ossHeader = new $OSS.PostObjectRequestHeader({
-      accessKeyId: authResponse.accessKeyId,
-      policy: authResponse.encodedPolicy,
-      signature: authResponse.signature,
-      key: authResponse.objectKey,
-      file: fileObj,
-      successActionStatus: "201",
-    });
-    uploadRequest = new $OSS.PostObjectRequest({
-      bucketName: authResponse.bucket,
-      header: ossHeader,
-    });
-    await ossClient.postObject(uploadRequest, ossRuntime);
-    superResolveVideoReq.videoUrl = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
-    let superResolveVideoResp = await this.superResolveVideo(superResolveVideoReq, runtime);
-    return superResolveVideoResp;
-  }
-
-  async eraseVideoLogo(request: EraseVideoLogoRequest, runtime: $Util.RuntimeOptions): Promise<EraseVideoLogoResponse> {
-    Util.validateModel(request);
-    return $tea.cast<EraseVideoLogoResponse>(await this.doRequest("EraseVideoLogo", "HTTPS", "POST", "2020-03-20", "AK", null, $tea.toMap(request), runtime), new EraseVideoLogoResponse({}));
-  }
-
-  async eraseVideoLogoSimply(request: EraseVideoLogoRequest): Promise<EraseVideoLogoResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.eraseVideoLogo(request, runtime);
+    return await this.eraseVideoLogoWithOptions(request, runtime);
   }
 
   async eraseVideoLogoAdvance(request: EraseVideoLogoAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<EraseVideoLogoResponse> {
@@ -1985,12 +1622,12 @@ export default class Client extends RPC {
     let ossHeader = new $OSS.PostObjectRequestHeader({ });
     let uploadRequest = new $OSS.PostObjectRequest({ });
     let ossRuntime = new $OSSUtil.RuntimeOptions({ });
-    RPCUtil.convert(runtime, ossRuntime);
+    OpenApiUtil.convert(runtime, ossRuntime);
     let eraseVideoLogoReq = new EraseVideoLogoRequest({ });
-    RPCUtil.convert(request, eraseVideoLogoReq);
+    OpenApiUtil.convert(request, eraseVideoLogoReq);
     authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
     ossConfig.accessKeyId = authResponse.accessKeyId;
-    ossConfig.endpoint = RPCUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+    ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
     ossClient = new OSS(ossConfig);
     fileObj = new $FileForm.FileField({
       filename: authResponse.objectKey,
@@ -2011,87 +1648,21 @@ export default class Client extends RPC {
     });
     await ossClient.postObject(uploadRequest, ossRuntime);
     eraseVideoLogoReq.videoUrl = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
-    let eraseVideoLogoResp = await this.eraseVideoLogo(eraseVideoLogoReq, runtime);
+    let eraseVideoLogoResp = await this.eraseVideoLogoWithOptions(eraseVideoLogoReq, runtime);
     return eraseVideoLogoResp;
   }
 
-  async eraseVideoSubtitles(request: EraseVideoSubtitlesRequest, runtime: $Util.RuntimeOptions): Promise<EraseVideoSubtitlesResponse> {
+  async abstractEcommerceVideoWithOptions(request: AbstractEcommerceVideoRequest, runtime: $Util.RuntimeOptions): Promise<AbstractEcommerceVideoResponse> {
     Util.validateModel(request);
-    return $tea.cast<EraseVideoSubtitlesResponse>(await this.doRequest("EraseVideoSubtitles", "HTTPS", "POST", "2020-03-20", "AK", null, $tea.toMap(request), runtime), new EraseVideoSubtitlesResponse({}));
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<AbstractEcommerceVideoResponse>(await this.doRPCRequest("AbstractEcommerceVideo", "2020-03-20", "HTTPS", "POST", "AK", "json", req, runtime), new AbstractEcommerceVideoResponse({}));
   }
 
-  async eraseVideoSubtitlesSimply(request: EraseVideoSubtitlesRequest): Promise<EraseVideoSubtitlesResponse> {
+  async abstractEcommerceVideo(request: AbstractEcommerceVideoRequest): Promise<AbstractEcommerceVideoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.eraseVideoSubtitles(request, runtime);
-  }
-
-  async eraseVideoSubtitlesAdvance(request: EraseVideoSubtitlesAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<EraseVideoSubtitlesResponse> {
-    // Step 0: init client
-    let accessKeyId = await this._credential.getAccessKeyId();
-    let accessKeySecret = await this._credential.getAccessKeySecret();
-    let authConfig = new $RPC.Config({
-      accessKeyId: accessKeyId,
-      accessKeySecret: accessKeySecret,
-      type: "access_key",
-      endpoint: "openplatform.aliyuncs.com",
-      protocol: this._protocol,
-      regionId: this._regionId,
-    });
-    let authClient = new OpenPlatform(authConfig);
-    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
-      product: "videoenhan",
-      regionId: this._regionId,
-    });
-    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
-    let ossConfig = new $OSS.Config({
-      accessKeySecret: accessKeySecret,
-      type: "access_key",
-      protocol: this._protocol,
-      regionId: this._regionId,
-    });
-    let ossClient : OSS = null;
-    let fileObj = new $FileForm.FileField({ });
-    let ossHeader = new $OSS.PostObjectRequestHeader({ });
-    let uploadRequest = new $OSS.PostObjectRequest({ });
-    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
-    RPCUtil.convert(runtime, ossRuntime);
-    let eraseVideoSubtitlesReq = new EraseVideoSubtitlesRequest({ });
-    RPCUtil.convert(request, eraseVideoSubtitlesReq);
-    authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-    ossConfig.accessKeyId = authResponse.accessKeyId;
-    ossConfig.endpoint = RPCUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
-    ossClient = new OSS(ossConfig);
-    fileObj = new $FileForm.FileField({
-      filename: authResponse.objectKey,
-      content: request.videoUrlObject,
-      contentType: "",
-    });
-    ossHeader = new $OSS.PostObjectRequestHeader({
-      accessKeyId: authResponse.accessKeyId,
-      policy: authResponse.encodedPolicy,
-      signature: authResponse.signature,
-      key: authResponse.objectKey,
-      file: fileObj,
-      successActionStatus: "201",
-    });
-    uploadRequest = new $OSS.PostObjectRequest({
-      bucketName: authResponse.bucket,
-      header: ossHeader,
-    });
-    await ossClient.postObject(uploadRequest, ossRuntime);
-    eraseVideoSubtitlesReq.videoUrl = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
-    let eraseVideoSubtitlesResp = await this.eraseVideoSubtitles(eraseVideoSubtitlesReq, runtime);
-    return eraseVideoSubtitlesResp;
-  }
-
-  async abstractEcommerceVideo(request: AbstractEcommerceVideoRequest, runtime: $Util.RuntimeOptions): Promise<AbstractEcommerceVideoResponse> {
-    Util.validateModel(request);
-    return $tea.cast<AbstractEcommerceVideoResponse>(await this.doRequest("AbstractEcommerceVideo", "HTTPS", "POST", "2020-03-20", "AK", null, $tea.toMap(request), runtime), new AbstractEcommerceVideoResponse({}));
-  }
-
-  async abstractEcommerceVideoSimply(request: AbstractEcommerceVideoRequest): Promise<AbstractEcommerceVideoResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.abstractEcommerceVideo(request, runtime);
+    return await this.abstractEcommerceVideoWithOptions(request, runtime);
   }
 
   async abstractEcommerceVideoAdvance(request: AbstractEcommerceVideoAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<AbstractEcommerceVideoResponse> {
@@ -2123,12 +1694,12 @@ export default class Client extends RPC {
     let ossHeader = new $OSS.PostObjectRequestHeader({ });
     let uploadRequest = new $OSS.PostObjectRequest({ });
     let ossRuntime = new $OSSUtil.RuntimeOptions({ });
-    RPCUtil.convert(runtime, ossRuntime);
+    OpenApiUtil.convert(runtime, ossRuntime);
     let abstractEcommerceVideoReq = new AbstractEcommerceVideoRequest({ });
-    RPCUtil.convert(request, abstractEcommerceVideoReq);
+    OpenApiUtil.convert(request, abstractEcommerceVideoReq);
     authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
     ossConfig.accessKeyId = authResponse.accessKeyId;
-    ossConfig.endpoint = RPCUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+    ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
     ossClient = new OSS(ossConfig);
     fileObj = new $FileForm.FileField({
       filename: authResponse.objectKey,
@@ -2149,18 +1720,21 @@ export default class Client extends RPC {
     });
     await ossClient.postObject(uploadRequest, ossRuntime);
     abstractEcommerceVideoReq.videoUrl = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
-    let abstractEcommerceVideoResp = await this.abstractEcommerceVideo(abstractEcommerceVideoReq, runtime);
+    let abstractEcommerceVideoResp = await this.abstractEcommerceVideoWithOptions(abstractEcommerceVideoReq, runtime);
     return abstractEcommerceVideoResp;
   }
 
-  async abstractFilmVideo(request: AbstractFilmVideoRequest, runtime: $Util.RuntimeOptions): Promise<AbstractFilmVideoResponse> {
+  async abstractFilmVideoWithOptions(request: AbstractFilmVideoRequest, runtime: $Util.RuntimeOptions): Promise<AbstractFilmVideoResponse> {
     Util.validateModel(request);
-    return $tea.cast<AbstractFilmVideoResponse>(await this.doRequest("AbstractFilmVideo", "HTTPS", "POST", "2020-03-20", "AK", null, $tea.toMap(request), runtime), new AbstractFilmVideoResponse({}));
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<AbstractFilmVideoResponse>(await this.doRPCRequest("AbstractFilmVideo", "2020-03-20", "HTTPS", "POST", "AK", "json", req, runtime), new AbstractFilmVideoResponse({}));
   }
 
-  async abstractFilmVideoSimply(request: AbstractFilmVideoRequest): Promise<AbstractFilmVideoResponse> {
+  async abstractFilmVideo(request: AbstractFilmVideoRequest): Promise<AbstractFilmVideoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.abstractFilmVideo(request, runtime);
+    return await this.abstractFilmVideoWithOptions(request, runtime);
   }
 
   async abstractFilmVideoAdvance(request: AbstractFilmVideoAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<AbstractFilmVideoResponse> {
@@ -2192,12 +1766,12 @@ export default class Client extends RPC {
     let ossHeader = new $OSS.PostObjectRequestHeader({ });
     let uploadRequest = new $OSS.PostObjectRequest({ });
     let ossRuntime = new $OSSUtil.RuntimeOptions({ });
-    RPCUtil.convert(runtime, ossRuntime);
+    OpenApiUtil.convert(runtime, ossRuntime);
     let abstractFilmVideoReq = new AbstractFilmVideoRequest({ });
-    RPCUtil.convert(request, abstractFilmVideoReq);
+    OpenApiUtil.convert(request, abstractFilmVideoReq);
     authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
     ossConfig.accessKeyId = authResponse.accessKeyId;
-    ossConfig.endpoint = RPCUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+    ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
     ossClient = new OSS(ossConfig);
     fileObj = new $FileForm.FileField({
       filename: authResponse.objectKey,
@@ -2218,18 +1792,21 @@ export default class Client extends RPC {
     });
     await ossClient.postObject(uploadRequest, ossRuntime);
     abstractFilmVideoReq.videoUrl = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
-    let abstractFilmVideoResp = await this.abstractFilmVideo(abstractFilmVideoReq, runtime);
+    let abstractFilmVideoResp = await this.abstractFilmVideoWithOptions(abstractFilmVideoReq, runtime);
     return abstractFilmVideoResp;
   }
 
-  async adjustVideoColor(request: AdjustVideoColorRequest, runtime: $Util.RuntimeOptions): Promise<AdjustVideoColorResponse> {
+  async adjustVideoColorWithOptions(request: AdjustVideoColorRequest, runtime: $Util.RuntimeOptions): Promise<AdjustVideoColorResponse> {
     Util.validateModel(request);
-    return $tea.cast<AdjustVideoColorResponse>(await this.doRequest("AdjustVideoColor", "HTTPS", "POST", "2020-03-20", "AK", null, $tea.toMap(request), runtime), new AdjustVideoColorResponse({}));
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<AdjustVideoColorResponse>(await this.doRPCRequest("AdjustVideoColor", "2020-03-20", "HTTPS", "POST", "AK", "json", req, runtime), new AdjustVideoColorResponse({}));
   }
 
-  async adjustVideoColorSimply(request: AdjustVideoColorRequest): Promise<AdjustVideoColorResponse> {
+  async adjustVideoColor(request: AdjustVideoColorRequest): Promise<AdjustVideoColorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.adjustVideoColor(request, runtime);
+    return await this.adjustVideoColorWithOptions(request, runtime);
   }
 
   async adjustVideoColorAdvance(request: AdjustVideoColorAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<AdjustVideoColorResponse> {
@@ -2261,12 +1838,12 @@ export default class Client extends RPC {
     let ossHeader = new $OSS.PostObjectRequestHeader({ });
     let uploadRequest = new $OSS.PostObjectRequest({ });
     let ossRuntime = new $OSSUtil.RuntimeOptions({ });
-    RPCUtil.convert(runtime, ossRuntime);
+    OpenApiUtil.convert(runtime, ossRuntime);
     let adjustVideoColorReq = new AdjustVideoColorRequest({ });
-    RPCUtil.convert(request, adjustVideoColorReq);
+    OpenApiUtil.convert(request, adjustVideoColorReq);
     authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
     ossConfig.accessKeyId = authResponse.accessKeyId;
-    ossConfig.endpoint = RPCUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+    ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
     ossClient = new OSS(ossConfig);
     fileObj = new $FileForm.FileField({
       filename: authResponse.objectKey,
@@ -2287,20 +1864,296 @@ export default class Client extends RPC {
     });
     await ossClient.postObject(uploadRequest, ossRuntime);
     adjustVideoColorReq.videoUrl = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
-    let adjustVideoColorResp = await this.adjustVideoColor(adjustVideoColorReq, runtime);
+    let adjustVideoColorResp = await this.adjustVideoColorWithOptions(adjustVideoColorReq, runtime);
     return adjustVideoColorResp;
   }
 
-  getEndpoint(productId: string, regionId: string, endpointRule: string, network: string, suffix: string, endpointMap: {[key: string ]: string}, endpoint: string): string {
-    if (!Util.empty(endpoint)) {
-      return endpoint;
-    }
+  async eraseVideoSubtitlesWithOptions(request: EraseVideoSubtitlesRequest, runtime: $Util.RuntimeOptions): Promise<EraseVideoSubtitlesResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<EraseVideoSubtitlesResponse>(await this.doRPCRequest("EraseVideoSubtitles", "2020-03-20", "HTTPS", "POST", "AK", "json", req, runtime), new EraseVideoSubtitlesResponse({}));
+  }
 
-    if (!Util.isUnset(endpointMap) && !Util.empty(endpointMap[regionId])) {
-      return endpointMap[regionId];
-    }
+  async eraseVideoSubtitles(request: EraseVideoSubtitlesRequest): Promise<EraseVideoSubtitlesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.eraseVideoSubtitlesWithOptions(request, runtime);
+  }
 
-    return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+  async eraseVideoSubtitlesAdvance(request: EraseVideoSubtitlesAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<EraseVideoSubtitlesResponse> {
+    // Step 0: init client
+    let accessKeyId = await this._credential.getAccessKeyId();
+    let accessKeySecret = await this._credential.getAccessKeySecret();
+    let authConfig = new $RPC.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      endpoint: "openplatform.aliyuncs.com",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenPlatform(authConfig);
+    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
+      product: "videoenhan",
+      regionId: this._regionId,
+    });
+    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
+    let ossConfig = new $OSS.Config({
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let ossClient : OSS = null;
+    let fileObj = new $FileForm.FileField({ });
+    let ossHeader = new $OSS.PostObjectRequestHeader({ });
+    let uploadRequest = new $OSS.PostObjectRequest({ });
+    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
+    OpenApiUtil.convert(runtime, ossRuntime);
+    let eraseVideoSubtitlesReq = new EraseVideoSubtitlesRequest({ });
+    OpenApiUtil.convert(request, eraseVideoSubtitlesReq);
+    authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+    ossConfig.accessKeyId = authResponse.accessKeyId;
+    ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+    ossClient = new OSS(ossConfig);
+    fileObj = new $FileForm.FileField({
+      filename: authResponse.objectKey,
+      content: request.videoUrlObject,
+      contentType: "",
+    });
+    ossHeader = new $OSS.PostObjectRequestHeader({
+      accessKeyId: authResponse.accessKeyId,
+      policy: authResponse.encodedPolicy,
+      signature: authResponse.signature,
+      key: authResponse.objectKey,
+      file: fileObj,
+      successActionStatus: "201",
+    });
+    uploadRequest = new $OSS.PostObjectRequest({
+      bucketName: authResponse.bucket,
+      header: ossHeader,
+    });
+    await ossClient.postObject(uploadRequest, ossRuntime);
+    eraseVideoSubtitlesReq.videoUrl = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    let eraseVideoSubtitlesResp = await this.eraseVideoSubtitlesWithOptions(eraseVideoSubtitlesReq, runtime);
+    return eraseVideoSubtitlesResp;
+  }
+
+  async changeVideoSizeWithOptions(request: ChangeVideoSizeRequest, runtime: $Util.RuntimeOptions): Promise<ChangeVideoSizeResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<ChangeVideoSizeResponse>(await this.doRPCRequest("ChangeVideoSize", "2020-03-20", "HTTPS", "POST", "AK", "json", req, runtime), new ChangeVideoSizeResponse({}));
+  }
+
+  async changeVideoSize(request: ChangeVideoSizeRequest): Promise<ChangeVideoSizeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.changeVideoSizeWithOptions(request, runtime);
+  }
+
+  async changeVideoSizeAdvance(request: ChangeVideoSizeAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<ChangeVideoSizeResponse> {
+    // Step 0: init client
+    let accessKeyId = await this._credential.getAccessKeyId();
+    let accessKeySecret = await this._credential.getAccessKeySecret();
+    let authConfig = new $RPC.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      endpoint: "openplatform.aliyuncs.com",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenPlatform(authConfig);
+    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
+      product: "videoenhan",
+      regionId: this._regionId,
+    });
+    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
+    let ossConfig = new $OSS.Config({
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let ossClient : OSS = null;
+    let fileObj = new $FileForm.FileField({ });
+    let ossHeader = new $OSS.PostObjectRequestHeader({ });
+    let uploadRequest = new $OSS.PostObjectRequest({ });
+    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
+    OpenApiUtil.convert(runtime, ossRuntime);
+    let changeVideoSizeReq = new ChangeVideoSizeRequest({ });
+    OpenApiUtil.convert(request, changeVideoSizeReq);
+    authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+    ossConfig.accessKeyId = authResponse.accessKeyId;
+    ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+    ossClient = new OSS(ossConfig);
+    fileObj = new $FileForm.FileField({
+      filename: authResponse.objectKey,
+      content: request.videoUrlObject,
+      contentType: "",
+    });
+    ossHeader = new $OSS.PostObjectRequestHeader({
+      accessKeyId: authResponse.accessKeyId,
+      policy: authResponse.encodedPolicy,
+      signature: authResponse.signature,
+      key: authResponse.objectKey,
+      file: fileObj,
+      successActionStatus: "201",
+    });
+    uploadRequest = new $OSS.PostObjectRequest({
+      bucketName: authResponse.bucket,
+      header: ossHeader,
+    });
+    await ossClient.postObject(uploadRequest, ossRuntime);
+    changeVideoSizeReq.videoUrl = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    let changeVideoSizeResp = await this.changeVideoSizeWithOptions(changeVideoSizeReq, runtime);
+    return changeVideoSizeResp;
+  }
+
+  async mergeVideoFaceWithOptions(request: MergeVideoFaceRequest, runtime: $Util.RuntimeOptions): Promise<MergeVideoFaceResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<MergeVideoFaceResponse>(await this.doRPCRequest("MergeVideoFace", "2020-03-20", "HTTPS", "POST", "AK", "json", req, runtime), new MergeVideoFaceResponse({}));
+  }
+
+  async mergeVideoFace(request: MergeVideoFaceRequest): Promise<MergeVideoFaceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.mergeVideoFaceWithOptions(request, runtime);
+  }
+
+  async mergeVideoFaceAdvance(request: MergeVideoFaceAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<MergeVideoFaceResponse> {
+    // Step 0: init client
+    let accessKeyId = await this._credential.getAccessKeyId();
+    let accessKeySecret = await this._credential.getAccessKeySecret();
+    let authConfig = new $RPC.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      endpoint: "openplatform.aliyuncs.com",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenPlatform(authConfig);
+    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
+      product: "videoenhan",
+      regionId: this._regionId,
+    });
+    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
+    let ossConfig = new $OSS.Config({
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let ossClient : OSS = null;
+    let fileObj = new $FileForm.FileField({ });
+    let ossHeader = new $OSS.PostObjectRequestHeader({ });
+    let uploadRequest = new $OSS.PostObjectRequest({ });
+    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
+    OpenApiUtil.convert(runtime, ossRuntime);
+    let mergeVideoFaceReq = new MergeVideoFaceRequest({ });
+    OpenApiUtil.convert(request, mergeVideoFaceReq);
+    authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+    ossConfig.accessKeyId = authResponse.accessKeyId;
+    ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+    ossClient = new OSS(ossConfig);
+    fileObj = new $FileForm.FileField({
+      filename: authResponse.objectKey,
+      content: request.videoURLObject,
+      contentType: "",
+    });
+    ossHeader = new $OSS.PostObjectRequestHeader({
+      accessKeyId: authResponse.accessKeyId,
+      policy: authResponse.encodedPolicy,
+      signature: authResponse.signature,
+      key: authResponse.objectKey,
+      file: fileObj,
+      successActionStatus: "201",
+    });
+    uploadRequest = new $OSS.PostObjectRequest({
+      bucketName: authResponse.bucket,
+      header: ossHeader,
+    });
+    await ossClient.postObject(uploadRequest, ossRuntime);
+    mergeVideoFaceReq.videoURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    let mergeVideoFaceResp = await this.mergeVideoFaceWithOptions(mergeVideoFaceReq, runtime);
+    return mergeVideoFaceResp;
+  }
+
+  async superResolveVideoWithOptions(request: SuperResolveVideoRequest, runtime: $Util.RuntimeOptions): Promise<SuperResolveVideoResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<SuperResolveVideoResponse>(await this.doRPCRequest("SuperResolveVideo", "2020-03-20", "HTTPS", "POST", "AK", "json", req, runtime), new SuperResolveVideoResponse({}));
+  }
+
+  async superResolveVideo(request: SuperResolveVideoRequest): Promise<SuperResolveVideoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.superResolveVideoWithOptions(request, runtime);
+  }
+
+  async superResolveVideoAdvance(request: SuperResolveVideoAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<SuperResolveVideoResponse> {
+    // Step 0: init client
+    let accessKeyId = await this._credential.getAccessKeyId();
+    let accessKeySecret = await this._credential.getAccessKeySecret();
+    let authConfig = new $RPC.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      endpoint: "openplatform.aliyuncs.com",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenPlatform(authConfig);
+    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
+      product: "videoenhan",
+      regionId: this._regionId,
+    });
+    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
+    let ossConfig = new $OSS.Config({
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let ossClient : OSS = null;
+    let fileObj = new $FileForm.FileField({ });
+    let ossHeader = new $OSS.PostObjectRequestHeader({ });
+    let uploadRequest = new $OSS.PostObjectRequest({ });
+    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
+    OpenApiUtil.convert(runtime, ossRuntime);
+    let superResolveVideoReq = new SuperResolveVideoRequest({ });
+    OpenApiUtil.convert(request, superResolveVideoReq);
+    authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+    ossConfig.accessKeyId = authResponse.accessKeyId;
+    ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+    ossClient = new OSS(ossConfig);
+    fileObj = new $FileForm.FileField({
+      filename: authResponse.objectKey,
+      content: request.videoUrlObject,
+      contentType: "",
+    });
+    ossHeader = new $OSS.PostObjectRequestHeader({
+      accessKeyId: authResponse.accessKeyId,
+      policy: authResponse.encodedPolicy,
+      signature: authResponse.signature,
+      key: authResponse.objectKey,
+      file: fileObj,
+      successActionStatus: "201",
+    });
+    uploadRequest = new $OSS.PostObjectRequest({
+      bucketName: authResponse.bucket,
+      header: ossHeader,
+    });
+    await ossClient.postObject(uploadRequest, ossRuntime);
+    superResolveVideoReq.videoUrl = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    let superResolveVideoResp = await this.superResolveVideoWithOptions(superResolveVideoReq, runtime);
+    return superResolveVideoResp;
   }
 
 }
