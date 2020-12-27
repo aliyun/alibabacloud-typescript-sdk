@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/imagesearch20200212-test",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "",
   "main": "dist/client.js",
   "scripts": {
