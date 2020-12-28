@@ -1186,6 +1186,84 @@ export class DetectMaskResponse extends $tea.Model {
   }
 }
 
+export class GenRealPersonVerificationTokenRequest extends $tea.Model {
+  certificateName?: string;
+  certificateNumber?: string;
+  metaInfo?: string;
+  static names(): { [key: string]: string } {
+    return {
+      certificateName: 'CertificateName',
+      certificateNumber: 'CertificateNumber',
+      metaInfo: 'MetaInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      certificateName: 'string',
+      certificateNumber: 'string',
+      metaInfo: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenRealPersonVerificationTokenResponseBody extends $tea.Model {
+  requestId?: string;
+  data?: GenRealPersonVerificationTokenResponseBodyData;
+  errorMessage?: string;
+  code?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      data: 'Data',
+      errorMessage: 'ErrorMessage',
+      code: 'Code',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      data: GenRealPersonVerificationTokenResponseBodyData,
+      errorMessage: 'string',
+      code: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenRealPersonVerificationTokenResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GenRealPersonVerificationTokenResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GenRealPersonVerificationTokenResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListFaceDbsResponseBody extends $tea.Model {
   requestId?: string;
   data?: ListFaceDbsResponseBodyData;
@@ -1526,6 +1604,81 @@ export class DetectCelebrityResponse extends $tea.Model {
   }
 }
 
+export class GetRealPersonVerificationResultRequest extends $tea.Model {
+  verificationToken?: string;
+  materialHash?: string;
+  static names(): { [key: string]: string } {
+    return {
+      verificationToken: 'VerificationToken',
+      materialHash: 'MaterialHash',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      verificationToken: 'string',
+      materialHash: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRealPersonVerificationResultResponseBody extends $tea.Model {
+  requestId?: string;
+  data?: GetRealPersonVerificationResultResponseBodyData;
+  errorMessage?: string;
+  code?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      data: 'Data',
+      errorMessage: 'ErrorMessage',
+      code: 'Code',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      data: GetRealPersonVerificationResultResponseBodyData,
+      errorMessage: 'string',
+      code: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRealPersonVerificationResultResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetRealPersonVerificationResultResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetRealPersonVerificationResultResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteFaceRequest extends $tea.Model {
   dbName?: string;
   faceId?: string;
@@ -1581,56 +1734,6 @@ export class DeleteFaceResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: DeleteFaceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateBodyInstanceResponseBody extends $tea.Model {
-  requestId?: string;
-  data?: CreateBodyInstanceResponseBodyData;
-  code?: string;
-  message?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      data: 'Data',
-      code: 'Code',
-      message: 'Message',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      data: CreateBodyInstanceResponseBodyData,
-      code: 'string',
-      message: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateBodyInstanceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: CreateBodyInstanceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: CreateBodyInstanceResponseBody,
     };
   }
 
@@ -1814,21 +1917,15 @@ export class DeleteBodyPersonRequest extends $tea.Model {
 
 export class DeleteBodyPersonResponseBody extends $tea.Model {
   requestId?: string;
-  code?: string;
-  message?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      code: 'Code',
-      message: 'Message',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      code: 'string',
-      message: 'string',
     };
   }
 
@@ -2408,14 +2505,10 @@ export class CreateBodyPersonRequest extends $tea.Model {
 export class CreateBodyPersonResponseBody extends $tea.Model {
   requestId?: string;
   data?: CreateBodyPersonResponseBodyData;
-  code?: string;
-  message?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
       data: 'Data',
-      code: 'Code',
-      message: 'Message',
     };
   }
 
@@ -2423,8 +2516,6 @@ export class CreateBodyPersonResponseBody extends $tea.Model {
     return {
       requestId: 'string',
       data: CreateBodyPersonResponseBodyData,
-      code: 'string',
-      message: 'string',
     };
   }
 
@@ -2576,21 +2667,15 @@ export class DeleteBodyDbRequest extends $tea.Model {
 
 export class DeleteBodyDbResponseBody extends $tea.Model {
   requestId?: string;
-  code?: string;
-  message?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      code: 'Code',
-      message: 'Message',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      code: 'string',
-      message: 'string',
     };
   }
 
@@ -2929,14 +3014,10 @@ export class GetBodyPersonRequest extends $tea.Model {
 export class GetBodyPersonResponseBody extends $tea.Model {
   requestId?: string;
   data?: GetBodyPersonResponseBodyData;
-  code?: string;
-  message?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
       data: 'Data',
-      code: 'Code',
-      message: 'Message',
     };
   }
 
@@ -2944,8 +3025,6 @@ export class GetBodyPersonResponseBody extends $tea.Model {
     return {
       requestId: 'string',
       data: GetBodyPersonResponseBodyData,
-      code: 'string',
-      message: 'string',
     };
   }
 
@@ -3036,6 +3115,75 @@ export class DeleteFaceDbResponse extends $tea.Model {
   }
 }
 
+export class ListBodyPersonRequest extends $tea.Model {
+  dbId?: number;
+  offset?: number;
+  limit?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dbId: 'DbId',
+      offset: 'Offset',
+      limit: 'Limit',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dbId: 'number',
+      offset: 'number',
+      limit: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListBodyPersonResponseBody extends $tea.Model {
+  requestId?: string;
+  data?: ListBodyPersonResponseBodyData;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      data: ListBodyPersonResponseBodyData,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListBodyPersonResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListBodyPersonResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListBodyPersonResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListBodyDbsRequest extends $tea.Model {
   offset?: number;
   limit?: number;
@@ -3061,14 +3209,10 @@ export class ListBodyDbsRequest extends $tea.Model {
 export class ListBodyDbsResponseBody extends $tea.Model {
   requestId?: string;
   data?: ListBodyDbsResponseBodyData;
-  code?: string;
-  message?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
       data: 'Data',
-      code: 'Code',
-      message: 'Message',
     };
   }
 
@@ -3076,8 +3220,6 @@ export class ListBodyDbsResponseBody extends $tea.Model {
     return {
       requestId: 'string',
       data: ListBodyDbsResponseBodyData,
-      code: 'string',
-      message: 'string',
     };
   }
 
@@ -3477,14 +3619,10 @@ export class SearchBodyTraceShrinkRequest extends $tea.Model {
 export class SearchBodyTraceResponseBody extends $tea.Model {
   requestId?: string;
   data?: SearchBodyTraceResponseBodyData;
-  code?: string;
-  message?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
       data: 'Data',
-      code: 'Code',
-      message: 'Message',
     };
   }
 
@@ -3492,8 +3630,6 @@ export class SearchBodyTraceResponseBody extends $tea.Model {
     return {
       requestId: 'string',
       data: SearchBodyTraceResponseBodyData,
-      code: 'string',
-      message: 'string',
     };
   }
 
@@ -3939,14 +4075,10 @@ export class CreateBodyDbRequest extends $tea.Model {
 export class CreateBodyDbResponseBody extends $tea.Model {
   requestId?: string;
   data?: CreateBodyDbResponseBodyData;
-  code?: string;
-  message?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
       data: 'Data',
-      code: 'Code',
-      message: 'Message',
     };
   }
 
@@ -3954,8 +4086,6 @@ export class CreateBodyDbResponseBody extends $tea.Model {
     return {
       requestId: 'string',
       data: CreateBodyDbResponseBodyData,
-      code: 'string',
-      message: 'string',
     };
   }
 
@@ -4939,6 +5069,25 @@ export class DetectMaskResponseBodyData extends $tea.Model {
   }
 }
 
+export class GenRealPersonVerificationTokenResponseBodyData extends $tea.Model {
+  verificationToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      verificationToken: 'VerificationToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      verificationToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListFaceDbsResponseBodyDataDbList extends $tea.Model {
   name?: string;
   static names(): { [key: string]: string } {
@@ -5266,17 +5415,23 @@ export class DetectCelebrityResponseBodyData extends $tea.Model {
   }
 }
 
-export class CreateBodyInstanceResponseBodyData extends $tea.Model {
-  id?: number;
+export class GetRealPersonVerificationResultResponseBodyData extends $tea.Model {
+  pass?: boolean;
+  identityInfo?: string;
+  materialMatch?: string;
   static names(): { [key: string]: string } {
     return {
-      id: 'Id',
+      pass: 'Pass',
+      identityInfo: 'IdentityInfo',
+      materialMatch: 'MaterialMatch',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      id: 'number',
+      pass: 'boolean',
+      identityInfo: 'string',
+      materialMatch: 'string',
     };
   }
 
@@ -6263,6 +6418,59 @@ export class GetBodyPersonResponseBodyData extends $tea.Model {
       name: 'string',
       traceCount: 'number',
       traceList: { 'type': 'array', 'itemType': GetBodyPersonResponseBodyDataTraceList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListBodyPersonResponseBodyDataPersonList extends $tea.Model {
+  instanceId?: number;
+  dbId?: number;
+  name?: string;
+  traceCount?: number;
+  id?: number;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      dbId: 'DbId',
+      name: 'Name',
+      traceCount: 'TraceCount',
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'number',
+      dbId: 'number',
+      name: 'string',
+      traceCount: 'number',
+      id: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListBodyPersonResponseBodyData extends $tea.Model {
+  total?: number;
+  personList?: ListBodyPersonResponseBodyDataPersonList[];
+  static names(): { [key: string]: string } {
+    return {
+      total: 'Total',
+      personList: 'PersonList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      total: 'number',
+      personList: { 'type': 'array', 'itemType': ListBodyPersonResponseBodyDataPersonList },
     };
   }
 
@@ -7671,6 +7879,19 @@ export default class Client extends OpenApi {
     return detectMaskResp;
   }
 
+  async genRealPersonVerificationTokenWithOptions(request: GenRealPersonVerificationTokenRequest, runtime: $Util.RuntimeOptions): Promise<GenRealPersonVerificationTokenResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<GenRealPersonVerificationTokenResponse>(await this.doRPCRequest("GenRealPersonVerificationToken", "2019-12-30", "HTTPS", "POST", "AK", "json", req, runtime), new GenRealPersonVerificationTokenResponse({}));
+  }
+
+  async genRealPersonVerificationToken(request: GenRealPersonVerificationTokenRequest): Promise<GenRealPersonVerificationTokenResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.genRealPersonVerificationTokenWithOptions(request, runtime);
+  }
+
   async listFaceDbsWithOptions(runtime: $Util.RuntimeOptions): Promise<ListFaceDbsResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     return $tea.cast<ListFaceDbsResponse>(await this.doRPCRequest("ListFaceDbs", "2019-12-30", "HTTPS", "POST", "AK", "json", req, runtime), new ListFaceDbsResponse({}));
@@ -7851,6 +8072,19 @@ export default class Client extends OpenApi {
     return detectCelebrityResp;
   }
 
+  async getRealPersonVerificationResultWithOptions(request: GetRealPersonVerificationResultRequest, runtime: $Util.RuntimeOptions): Promise<GetRealPersonVerificationResultResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<GetRealPersonVerificationResultResponse>(await this.doRPCRequest("GetRealPersonVerificationResult", "2019-12-30", "HTTPS", "POST", "AK", "json", req, runtime), new GetRealPersonVerificationResultResponse({}));
+  }
+
+  async getRealPersonVerificationResult(request: GetRealPersonVerificationResultRequest): Promise<GetRealPersonVerificationResultResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getRealPersonVerificationResultWithOptions(request, runtime);
+  }
+
   async deleteFaceWithOptions(request: DeleteFaceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteFaceResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -7862,16 +8096,6 @@ export default class Client extends OpenApi {
   async deleteFace(request: DeleteFaceRequest): Promise<DeleteFaceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteFaceWithOptions(request, runtime);
-  }
-
-  async createBodyInstanceWithOptions(runtime: $Util.RuntimeOptions): Promise<CreateBodyInstanceResponse> {
-    let req = new $OpenApi.OpenApiRequest({ });
-    return $tea.cast<CreateBodyInstanceResponse>(await this.doRPCRequest("CreateBodyInstance", "2019-12-30", "HTTPS", "POST", "AK", "json", req, runtime), new CreateBodyInstanceResponse({}));
-  }
-
-  async createBodyInstance(): Promise<CreateBodyInstanceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.createBodyInstanceWithOptions(runtime);
   }
 
   async extractPedestrianFeatureAttributeWithOptions(request: ExtractPedestrianFeatureAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ExtractPedestrianFeatureAttributeResponse> {
@@ -8690,6 +8914,20 @@ export default class Client extends OpenApi {
   async deleteFaceDb(request: DeleteFaceDbRequest): Promise<DeleteFaceDbResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteFaceDbWithOptions(request, runtime);
+  }
+
+  async listBodyPersonWithOptions(request: ListBodyPersonRequest, runtime: $Util.RuntimeOptions): Promise<ListBodyPersonResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: query,
+    });
+    return $tea.cast<ListBodyPersonResponse>(await this.doRPCRequest("ListBodyPerson", "2019-12-30", "HTTPS", "GET", "AK", "json", req, runtime), new ListBodyPersonResponse({}));
+  }
+
+  async listBodyPerson(request: ListBodyPersonRequest): Promise<ListBodyPersonResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listBodyPersonWithOptions(request, runtime);
   }
 
   async listBodyDbsWithOptions(request: ListBodyDbsRequest, runtime: $Util.RuntimeOptions): Promise<ListBodyDbsResponse> {
