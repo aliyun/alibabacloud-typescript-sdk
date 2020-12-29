@@ -376,14 +376,12 @@ export class DescribeClusterAttachScriptsResponse extends $tea.Model {
 export class DescribeKubernetesVersionMetadataRequest extends $tea.Model {
   region?: string;
   clusterType?: string;
-  multiAZ?: boolean;
   kubernetesVersion?: string;
   profile?: string;
   static names(): { [key: string]: string } {
     return {
       region: 'Region',
       clusterType: 'ClusterType',
-      multiAZ: 'MultiAZ',
       kubernetesVersion: 'KubernetesVersion',
       profile: 'Profile',
     };
@@ -393,7 +391,6 @@ export class DescribeKubernetesVersionMetadataRequest extends $tea.Model {
     return {
       region: 'string',
       clusterType: 'string',
-      multiAZ: 'boolean',
       kubernetesVersion: 'string',
       profile: 'string',
     };
@@ -559,8 +556,6 @@ export class DescribeClusterDetailResponseBody extends $tea.Model {
   clusterSpec?: string;
   workerRamRoleName?: string;
   maintenanceWindow?: MaintenanceWindow;
-  parameters?: { [key: string]: any };
-  outputs?: DescribeClusterDetailResponseBodyOutputs[];
   static names(): { [key: string]: string } {
     return {
       clusterId: 'cluster_id',
@@ -592,8 +587,6 @@ export class DescribeClusterDetailResponseBody extends $tea.Model {
       clusterSpec: 'cluster_spec',
       workerRamRoleName: 'worker_ram_role_name',
       maintenanceWindow: 'maintenance_window',
-      parameters: 'parameters',
-      outputs: 'outputs',
     };
   }
 
@@ -628,8 +621,6 @@ export class DescribeClusterDetailResponseBody extends $tea.Model {
       clusterSpec: 'string',
       workerRamRoleName: 'string',
       maintenanceWindow: MaintenanceWindow,
-      parameters: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      outputs: { 'type': 'array', 'itemType': DescribeClusterDetailResponseBodyOutputs },
     };
   }
 
@@ -3065,39 +3056,17 @@ export class DeleteClusterNodesRequest extends $tea.Model {
   }
 }
 
-export class DeleteClusterNodesResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'requestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DeleteClusterNodesResponse extends $tea.Model {
   headers: { [key: string]: string };
-  body: DeleteClusterNodesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
-      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DeleteClusterNodesResponseBody,
     };
   }
 
@@ -3281,31 +3250,6 @@ export class DescribeClusterLogsResponseBody extends $tea.Model {
       logLevel: 'string',
       created: 'string',
       updated: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeClusterDetailResponseBodyOutputs extends $tea.Model {
-  outputKey?: string;
-  outputValue?: string;
-  description?: string;
-  static names(): { [key: string]: string } {
-    return {
-      outputKey: 'OutputKey',
-      outputValue: 'OutputValue',
-      description: 'Description',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      outputKey: 'string',
-      outputValue: 'string',
-      description: 'string',
     };
   }
 
@@ -5658,10 +5602,6 @@ export default class Client extends OpenApi {
       query["ClusterType"] = request.clusterType;
     }
 
-    if (!Util.isUnset(request.multiAZ)) {
-      query["MultiAZ"] = request.multiAZ;
-    }
-
     if (!Util.isUnset(request.kubernetesVersion)) {
       query["KubernetesVersion"] = request.kubernetesVersion;
     }
@@ -7135,7 +7075,7 @@ export default class Client extends OpenApi {
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<DeleteClusterNodesResponse>(await this.doROARequest("DeleteClusterNodes", "2015-12-15", "HTTPS", "POST", "AK", `/clusters/${ClusterId}/nodes`, "json", req, runtime), new DeleteClusterNodesResponse({}));
+    return $tea.cast<DeleteClusterNodesResponse>(await this.doROARequest("DeleteClusterNodes", "2015-12-15", "HTTPS", "POST", "AK", `/clusters/${ClusterId}/nodes`, "none", req, runtime), new DeleteClusterNodesResponse({}));
   }
 
 }
