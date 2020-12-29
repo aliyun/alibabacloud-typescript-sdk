@@ -11,15 +11,15 @@ import { Readable } from 'stream';
 import * as $tea from '@alicloud/tea-typescript';
 
 export class ContrastSmartVerifyRequest extends $tea.Model {
-  sceneId: number;
-  outerOrderNo: string;
-  mode: string;
-  certType: string;
+  sceneId?: number;
+  outerOrderNo?: string;
+  mode?: string;
+  certType?: string;
   mobile?: string;
   ip?: string;
   userId?: string;
-  certName: string;
-  certNo: string;
+  certName?: string;
+  certNo?: string;
   facePicFile?: string;
   facePicUrl?: string;
   facePicString?: string;
@@ -92,15 +92,15 @@ export class ContrastSmartVerifyResponse extends $tea.Model {
 
 export class ContrastSmartVerifyAdvanceRequest extends $tea.Model {
   facePicFileObject: Readable;
-  sceneId: number;
-  outerOrderNo: string;
-  mode: string;
-  certType: string;
+  sceneId?: number;
+  outerOrderNo?: string;
+  mode?: string;
+  certType?: string;
   mobile?: string;
   ip?: string;
   userId?: string;
-  certName: string;
-  certNo: string;
+  certName?: string;
+  certNo?: string;
   facePicUrl?: string;
   facePicString?: string;
   static names(): { [key: string]: string } {
