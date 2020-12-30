@@ -137,7 +137,7 @@ export class AddBackendServersRequest extends $tea.Model {
 export class AddBackendServersResponseBody extends $tea.Model {
   requestId?: string;
   loadBalancerId?: string;
-  backendServers?: AddBackendServersResponseBodyBackendServers[];
+  backendServers?: AddBackendServersResponseBodyBackendServers;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
@@ -150,7 +150,7 @@ export class AddBackendServersResponseBody extends $tea.Model {
     return {
       requestId: 'string',
       loadBalancerId: 'string',
-      backendServers: { 'type': 'array', 'itemType': AddBackendServersResponseBodyBackendServers },
+      backendServers: AddBackendServersResponseBodyBackendServers,
     };
   }
 
@@ -398,7 +398,7 @@ export class AddVServerGroupBackendServersRequest extends $tea.Model {
 export class AddVServerGroupBackendServersResponseBody extends $tea.Model {
   VServerGroupId?: string;
   requestId?: string;
-  backendServers?: AddVServerGroupBackendServersResponseBodyBackendServers[];
+  backendServers?: AddVServerGroupBackendServersResponseBodyBackendServers;
   static names(): { [key: string]: string } {
     return {
       VServerGroupId: 'VServerGroupId',
@@ -411,7 +411,7 @@ export class AddVServerGroupBackendServersResponseBody extends $tea.Model {
     return {
       VServerGroupId: 'string',
       requestId: 'string',
-      backendServers: { 'type': 'array', 'itemType': AddVServerGroupBackendServersResponseBodyBackendServers },
+      backendServers: AddVServerGroupBackendServersResponseBodyBackendServers,
     };
   }
 
@@ -1601,7 +1601,7 @@ export class CreateMasterSlaveServerGroupRequest extends $tea.Model {
 export class CreateMasterSlaveServerGroupResponseBody extends $tea.Model {
   requestId?: string;
   masterSlaveServerGroupId?: string;
-  masterSlaveBackendServers?: CreateMasterSlaveServerGroupResponseBodyMasterSlaveBackendServers[];
+  masterSlaveBackendServers?: CreateMasterSlaveServerGroupResponseBodyMasterSlaveBackendServers;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
@@ -1614,7 +1614,7 @@ export class CreateMasterSlaveServerGroupResponseBody extends $tea.Model {
     return {
       requestId: 'string',
       masterSlaveServerGroupId: 'string',
-      masterSlaveBackendServers: { 'type': 'array', 'itemType': CreateMasterSlaveServerGroupResponseBodyMasterSlaveBackendServers },
+      masterSlaveBackendServers: CreateMasterSlaveServerGroupResponseBodyMasterSlaveBackendServers,
     };
   }
 
@@ -1696,7 +1696,7 @@ export class CreateRulesRequest extends $tea.Model {
 
 export class CreateRulesResponseBody extends $tea.Model {
   requestId?: string;
-  rules?: CreateRulesResponseBodyRules[];
+  rules?: CreateRulesResponseBodyRules;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
@@ -1707,7 +1707,7 @@ export class CreateRulesResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      rules: { 'type': 'array', 'itemType': CreateRulesResponseBodyRules },
+      rules: CreateRulesResponseBodyRules,
     };
   }
 
@@ -1874,7 +1874,7 @@ export class CreateVServerGroupRequest extends $tea.Model {
 export class CreateVServerGroupResponseBody extends $tea.Model {
   VServerGroupId?: string;
   requestId?: string;
-  backendServers?: CreateVServerGroupResponseBodyBackendServers[];
+  backendServers?: CreateVServerGroupResponseBodyBackendServers;
   static names(): { [key: string]: string } {
     return {
       VServerGroupId: 'VServerGroupId',
@@ -1887,7 +1887,7 @@ export class CreateVServerGroupResponseBody extends $tea.Model {
     return {
       VServerGroupId: 'string',
       requestId: 'string',
-      backendServers: { 'type': 'array', 'itemType': CreateVServerGroupResponseBodyBackendServers },
+      backendServers: CreateVServerGroupResponseBodyBackendServers,
     };
   }
 
@@ -2772,12 +2772,12 @@ export class DescribeAccessControlListAttributeRequest extends $tea.Model {
 }
 
 export class DescribeAccessControlListAttributeResponseBody extends $tea.Model {
-  aclEntrys?: DescribeAccessControlListAttributeResponseBodyAclEntrys[];
+  aclEntrys?: DescribeAccessControlListAttributeResponseBodyAclEntrys;
   requestId?: string;
   resourceGroupId?: string;
   aclId?: string;
   addressIPVersion?: string;
-  relatedListeners?: DescribeAccessControlListAttributeResponseBodyRelatedListeners[];
+  relatedListeners?: DescribeAccessControlListAttributeResponseBodyRelatedListeners;
   aclName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2793,12 +2793,12 @@ export class DescribeAccessControlListAttributeResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      aclEntrys: { 'type': 'array', 'itemType': DescribeAccessControlListAttributeResponseBodyAclEntrys },
+      aclEntrys: DescribeAccessControlListAttributeResponseBodyAclEntrys,
       requestId: 'string',
       resourceGroupId: 'string',
       aclId: 'string',
       addressIPVersion: 'string',
-      relatedListeners: { 'type': 'array', 'itemType': DescribeAccessControlListAttributeResponseBodyRelatedListeners },
+      relatedListeners: DescribeAccessControlListAttributeResponseBodyRelatedListeners,
       aclName: 'string',
     };
   }
@@ -2890,7 +2890,7 @@ export class DescribeAccessControlListsResponseBody extends $tea.Model {
   pageSize?: number;
   requestId?: string;
   pageNumber?: number;
-  acls?: DescribeAccessControlListsResponseBodyAcls[];
+  acls?: DescribeAccessControlListsResponseBodyAcls;
   count?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2909,7 +2909,7 @@ export class DescribeAccessControlListsResponseBody extends $tea.Model {
       pageSize: 'number',
       requestId: 'string',
       pageNumber: 'number',
-      acls: { 'type': 'array', 'itemType': DescribeAccessControlListsResponseBodyAcls },
+      acls: DescribeAccessControlListsResponseBodyAcls,
       count: 'number',
     };
   }
@@ -2983,7 +2983,7 @@ export class DescribeAvailableResourceRequest extends $tea.Model {
 
 export class DescribeAvailableResourceResponseBody extends $tea.Model {
   requestId?: string;
-  availableResources?: DescribeAvailableResourceResponseBodyAvailableResources[];
+  availableResources?: DescribeAvailableResourceResponseBodyAvailableResources;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
@@ -2994,7 +2994,7 @@ export class DescribeAvailableResourceResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      availableResources: { 'type': 'array', 'itemType': DescribeAvailableResourceResponseBodyAvailableResources },
+      availableResources: DescribeAvailableResourceResponseBodyAvailableResources,
     };
   }
 
@@ -3070,7 +3070,7 @@ export class DescribeCACertificatesRequest extends $tea.Model {
 
 export class DescribeCACertificatesResponseBody extends $tea.Model {
   requestId?: string;
-  CACertificates?: DescribeCACertificatesResponseBodyCACertificates[];
+  CACertificates?: DescribeCACertificatesResponseBodyCACertificates;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
@@ -3081,7 +3081,7 @@ export class DescribeCACertificatesResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      CACertificates: { 'type': 'array', 'itemType': DescribeCACertificatesResponseBodyCACertificates },
+      CACertificates: DescribeCACertificatesResponseBodyCACertificates,
     };
   }
 
@@ -3256,7 +3256,7 @@ export class DescribeDomainExtensionsRequest extends $tea.Model {
 
 export class DescribeDomainExtensionsResponseBody extends $tea.Model {
   requestId?: string;
-  domainExtensions?: DescribeDomainExtensionsResponseBodyDomainExtensions[];
+  domainExtensions?: DescribeDomainExtensionsResponseBodyDomainExtensions;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
@@ -3267,7 +3267,7 @@ export class DescribeDomainExtensionsResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      domainExtensions: { 'type': 'array', 'itemType': DescribeDomainExtensionsResponseBodyDomainExtensions },
+      domainExtensions: DescribeDomainExtensionsResponseBodyDomainExtensions,
     };
   }
 
@@ -3346,7 +3346,7 @@ export class DescribeHealthStatusRequest extends $tea.Model {
 
 export class DescribeHealthStatusResponseBody extends $tea.Model {
   requestId?: string;
-  backendServers?: DescribeHealthStatusResponseBodyBackendServers[];
+  backendServers?: DescribeHealthStatusResponseBodyBackendServers;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
@@ -3357,7 +3357,7 @@ export class DescribeHealthStatusResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      backendServers: { 'type': 'array', 'itemType': DescribeHealthStatusResponseBodyBackendServers },
+      backendServers: DescribeHealthStatusResponseBodyBackendServers,
     };
   }
 
@@ -3527,11 +3527,11 @@ export class DescribeLoadBalancerAttributeRequest extends $tea.Model {
 export class DescribeLoadBalancerAttributeResponseBody extends $tea.Model {
   address?: string;
   resourceGroupId?: string;
-  listenerPortsAndProtocal?: DescribeLoadBalancerAttributeResponseBodyListenerPortsAndProtocal[];
-  backendServers?: DescribeLoadBalancerAttributeResponseBodyBackendServers[];
+  listenerPortsAndProtocal?: DescribeLoadBalancerAttributeResponseBodyListenerPortsAndProtocal;
+  backendServers?: DescribeLoadBalancerAttributeResponseBodyBackendServers;
   loadBalancerSpec?: string;
   modificationProtectionReason?: string;
-  listenerPorts?: number[];
+  listenerPorts?: DescribeLoadBalancerAttributeResponseBodyListenerPorts;
   requestId?: string;
   vSwitchId?: string;
   renewalStatus?: string;
@@ -3546,7 +3546,7 @@ export class DescribeLoadBalancerAttributeResponseBody extends $tea.Model {
   endTime?: string;
   addressIPVersion?: string;
   loadBalancerId?: string;
-  listenerPortsAndProtocol?: DescribeLoadBalancerAttributeResponseBodyListenerPortsAndProtocol[];
+  listenerPortsAndProtocol?: DescribeLoadBalancerAttributeResponseBodyListenerPortsAndProtocol;
   modificationProtectionStatus?: string;
   networkType?: string;
   bandwidth?: number;
@@ -3602,11 +3602,11 @@ export class DescribeLoadBalancerAttributeResponseBody extends $tea.Model {
     return {
       address: 'string',
       resourceGroupId: 'string',
-      listenerPortsAndProtocal: { 'type': 'array', 'itemType': DescribeLoadBalancerAttributeResponseBodyListenerPortsAndProtocal },
-      backendServers: { 'type': 'array', 'itemType': DescribeLoadBalancerAttributeResponseBodyBackendServers },
+      listenerPortsAndProtocal: DescribeLoadBalancerAttributeResponseBodyListenerPortsAndProtocal,
+      backendServers: DescribeLoadBalancerAttributeResponseBodyBackendServers,
       loadBalancerSpec: 'string',
       modificationProtectionReason: 'string',
-      listenerPorts: { 'type': 'array', 'itemType': 'number' },
+      listenerPorts: DescribeLoadBalancerAttributeResponseBodyListenerPorts,
       requestId: 'string',
       vSwitchId: 'string',
       renewalStatus: 'string',
@@ -3621,7 +3621,7 @@ export class DescribeLoadBalancerAttributeResponseBody extends $tea.Model {
       endTime: 'string',
       addressIPVersion: 'string',
       loadBalancerId: 'string',
-      listenerPortsAndProtocol: { 'type': 'array', 'itemType': DescribeLoadBalancerAttributeResponseBodyListenerPortsAndProtocol },
+      listenerPortsAndProtocol: DescribeLoadBalancerAttributeResponseBodyListenerPortsAndProtocol,
       modificationProtectionStatus: 'string',
       networkType: 'string',
       bandwidth: 'number',
@@ -3733,7 +3733,7 @@ export class DescribeLoadBalancerHTTPListenerAttributeResponseBody extends $tea.
   requestId?: string;
   aclId?: string;
   healthCheckTimeout?: number;
-  rules?: DescribeLoadBalancerHTTPListenerAttributeResponseBodyRules[];
+  rules?: DescribeLoadBalancerHTTPListenerAttributeResponseBodyRules;
   listenerForward?: string;
   stickySession?: string;
   aclStatus?: string;
@@ -3810,7 +3810,7 @@ export class DescribeLoadBalancerHTTPListenerAttributeResponseBody extends $tea.
       requestId: 'string',
       aclId: 'string',
       healthCheckTimeout: 'number',
-      rules: { 'type': 'array', 'itemType': DescribeLoadBalancerHTTPListenerAttributeResponseBodyRules },
+      rules: DescribeLoadBalancerHTTPListenerAttributeResponseBodyRules,
       listenerForward: 'string',
       stickySession: 'string',
       aclStatus: 'string',
@@ -3897,7 +3897,7 @@ export class DescribeLoadBalancerHTTPSListenerAttributeResponseBody extends $tea
   unhealthyThreshold?: number;
   healthCheckURI?: string;
   healthCheck?: string;
-  domainExtensions?: DescribeLoadBalancerHTTPSListenerAttributeResponseBodyDomainExtensions[];
+  domainExtensions?: DescribeLoadBalancerHTTPSListenerAttributeResponseBodyDomainExtensions;
   backendServerPort?: number;
   XForwardedFor_SLBPORT?: string;
   stickySessionType?: string;
@@ -3931,7 +3931,7 @@ export class DescribeLoadBalancerHTTPSListenerAttributeResponseBody extends $tea
   listenerPort?: number;
   XForwardedFor_ClientCertSubjectDN?: string;
   aclId?: string;
-  rules?: DescribeLoadBalancerHTTPSListenerAttributeResponseBodyRules[];
+  rules?: DescribeLoadBalancerHTTPSListenerAttributeResponseBodyRules;
   XForwardedFor_ClientCertIssuerDN?: string;
   stickySession?: string;
   XForwardedFor?: string;
@@ -3992,7 +3992,7 @@ export class DescribeLoadBalancerHTTPSListenerAttributeResponseBody extends $tea
       unhealthyThreshold: 'number',
       healthCheckURI: 'string',
       healthCheck: 'string',
-      domainExtensions: { 'type': 'array', 'itemType': DescribeLoadBalancerHTTPSListenerAttributeResponseBodyDomainExtensions },
+      domainExtensions: DescribeLoadBalancerHTTPSListenerAttributeResponseBodyDomainExtensions,
       backendServerPort: 'number',
       XForwardedFor_SLBPORT: 'string',
       stickySessionType: 'string',
@@ -4026,7 +4026,7 @@ export class DescribeLoadBalancerHTTPSListenerAttributeResponseBody extends $tea
       listenerPort: 'number',
       XForwardedFor_ClientCertSubjectDN: 'string',
       aclId: 'string',
-      rules: { 'type': 'array', 'itemType': DescribeLoadBalancerHTTPSListenerAttributeResponseBodyRules },
+      rules: DescribeLoadBalancerHTTPSListenerAttributeResponseBodyRules,
       XForwardedFor_ClientCertIssuerDN: 'string',
       stickySession: 'string',
       XForwardedFor: 'string',
@@ -4171,7 +4171,7 @@ export class DescribeLoadBalancersResponseBody extends $tea.Model {
   requestId?: string;
   pageSize?: number;
   pageNumber?: number;
-  loadBalancers?: DescribeLoadBalancersResponseBodyLoadBalancers[];
+  loadBalancers?: DescribeLoadBalancersResponseBodyLoadBalancers;
   static names(): { [key: string]: string } {
     return {
       totalCount: 'TotalCount',
@@ -4188,7 +4188,7 @@ export class DescribeLoadBalancersResponseBody extends $tea.Model {
       requestId: 'string',
       pageSize: 'number',
       pageNumber: 'number',
-      loadBalancers: { 'type': 'array', 'itemType': DescribeLoadBalancersResponseBodyLoadBalancers },
+      loadBalancers: DescribeLoadBalancersResponseBodyLoadBalancers,
     };
   }
 
@@ -4564,7 +4564,7 @@ export class DescribeMasterSlaveServerGroupAttributeResponseBody extends $tea.Mo
   masterSlaveServerGroupId?: string;
   loadBalancerId?: string;
   masterSlaveServerGroupName?: string;
-  masterSlaveBackendServers?: DescribeMasterSlaveServerGroupAttributeResponseBodyMasterSlaveBackendServers[];
+  masterSlaveBackendServers?: DescribeMasterSlaveServerGroupAttributeResponseBodyMasterSlaveBackendServers;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
@@ -4581,7 +4581,7 @@ export class DescribeMasterSlaveServerGroupAttributeResponseBody extends $tea.Mo
       masterSlaveServerGroupId: 'string',
       loadBalancerId: 'string',
       masterSlaveServerGroupName: 'string',
-      masterSlaveBackendServers: { 'type': 'array', 'itemType': DescribeMasterSlaveServerGroupAttributeResponseBodyMasterSlaveBackendServers },
+      masterSlaveBackendServers: DescribeMasterSlaveServerGroupAttributeResponseBodyMasterSlaveBackendServers,
     };
   }
 
@@ -4657,7 +4657,7 @@ export class DescribeMasterSlaveServerGroupsRequest extends $tea.Model {
 
 export class DescribeMasterSlaveServerGroupsResponseBody extends $tea.Model {
   requestId?: string;
-  masterSlaveServerGroups?: DescribeMasterSlaveServerGroupsResponseBodyMasterSlaveServerGroups[];
+  masterSlaveServerGroups?: DescribeMasterSlaveServerGroupsResponseBodyMasterSlaveServerGroups;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
@@ -4668,7 +4668,7 @@ export class DescribeMasterSlaveServerGroupsResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      masterSlaveServerGroups: { 'type': 'array', 'itemType': DescribeMasterSlaveServerGroupsResponseBodyMasterSlaveServerGroups },
+      masterSlaveServerGroups: DescribeMasterSlaveServerGroupsResponseBodyMasterSlaveServerGroups,
     };
   }
 
@@ -4741,7 +4741,7 @@ export class DescribeRegionsRequest extends $tea.Model {
 
 export class DescribeRegionsResponseBody extends $tea.Model {
   requestId?: string;
-  regions?: DescribeRegionsResponseBodyRegions[];
+  regions?: DescribeRegionsResponseBodyRegions;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
@@ -4752,7 +4752,7 @@ export class DescribeRegionsResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      regions: { 'type': 'array', 'itemType': DescribeRegionsResponseBodyRegions },
+      regions: DescribeRegionsResponseBodyRegions,
     };
   }
 
@@ -4978,7 +4978,7 @@ export class DescribeRulesRequest extends $tea.Model {
 
 export class DescribeRulesResponseBody extends $tea.Model {
   requestId?: string;
-  rules?: DescribeRulesResponseBodyRules[];
+  rules?: DescribeRulesResponseBodyRules;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
@@ -4989,7 +4989,7 @@ export class DescribeRulesResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      rules: { 'type': 'array', 'itemType': DescribeRulesResponseBodyRules },
+      rules: DescribeRulesResponseBodyRules,
     };
   }
 
@@ -5068,7 +5068,7 @@ export class DescribeServerCertificatesRequest extends $tea.Model {
 
 export class DescribeServerCertificatesResponseBody extends $tea.Model {
   requestId?: string;
-  serverCertificates?: DescribeServerCertificatesResponseBodyServerCertificates[];
+  serverCertificates?: DescribeServerCertificatesResponseBodyServerCertificates;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
@@ -5079,7 +5079,7 @@ export class DescribeServerCertificatesResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      serverCertificates: { 'type': 'array', 'itemType': DescribeServerCertificatesResponseBodyServerCertificates },
+      serverCertificates: DescribeServerCertificatesResponseBodyServerCertificates,
     };
   }
 
@@ -5164,7 +5164,7 @@ export class DescribeTagsResponseBody extends $tea.Model {
   requestId?: string;
   pageSize?: number;
   pageNumber?: number;
-  tagSets?: DescribeTagsResponseBodyTagSets[];
+  tagSets?: DescribeTagsResponseBodyTagSets;
   static names(): { [key: string]: string } {
     return {
       totalCount: 'TotalCount',
@@ -5181,7 +5181,7 @@ export class DescribeTagsResponseBody extends $tea.Model {
       requestId: 'string',
       pageSize: 'number',
       pageNumber: 'number',
-      tagSets: { 'type': 'array', 'itemType': DescribeTagsResponseBodyTagSets },
+      tagSets: DescribeTagsResponseBodyTagSets,
     };
   }
 
@@ -5257,7 +5257,7 @@ export class DescribeVServerGroupAttributeResponseBody extends $tea.Model {
   requestId?: string;
   VServerGroupName?: string;
   loadBalancerId?: string;
-  backendServers?: DescribeVServerGroupAttributeResponseBodyBackendServers[];
+  backendServers?: DescribeVServerGroupAttributeResponseBodyBackendServers;
   static names(): { [key: string]: string } {
     return {
       VServerGroupId: 'VServerGroupId',
@@ -5274,7 +5274,7 @@ export class DescribeVServerGroupAttributeResponseBody extends $tea.Model {
       requestId: 'string',
       VServerGroupName: 'string',
       loadBalancerId: 'string',
-      backendServers: { 'type': 'array', 'itemType': DescribeVServerGroupAttributeResponseBodyBackendServers },
+      backendServers: DescribeVServerGroupAttributeResponseBodyBackendServers,
     };
   }
 
@@ -5353,7 +5353,7 @@ export class DescribeVServerGroupsRequest extends $tea.Model {
 
 export class DescribeVServerGroupsResponseBody extends $tea.Model {
   requestId?: string;
-  VServerGroups?: DescribeVServerGroupsResponseBodyVServerGroups[];
+  VServerGroups?: DescribeVServerGroupsResponseBodyVServerGroups;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
@@ -5364,7 +5364,7 @@ export class DescribeVServerGroupsResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      VServerGroups: { 'type': 'array', 'itemType': DescribeVServerGroupsResponseBodyVServerGroups },
+      VServerGroups: DescribeVServerGroupsResponseBodyVServerGroups,
     };
   }
 
@@ -5434,7 +5434,7 @@ export class DescribeZonesRequest extends $tea.Model {
 
 export class DescribeZonesResponseBody extends $tea.Model {
   requestId?: string;
-  zones?: DescribeZonesResponseBodyZones[];
+  zones?: DescribeZonesResponseBodyZones;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
@@ -5445,7 +5445,7 @@ export class DescribeZonesResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      zones: { 'type': 'array', 'itemType': DescribeZonesResponseBodyZones },
+      zones: DescribeZonesResponseBodyZones,
     };
   }
 
@@ -5525,7 +5525,7 @@ export class ListTagResourcesRequest extends $tea.Model {
 export class ListTagResourcesResponseBody extends $tea.Model {
   nextToken?: string;
   requestId?: string;
-  tagResources?: ListTagResourcesResponseBodyTagResources[];
+  tagResources?: ListTagResourcesResponseBodyTagResources;
   static names(): { [key: string]: string } {
     return {
       nextToken: 'NextToken',
@@ -5538,7 +5538,7 @@ export class ListTagResourcesResponseBody extends $tea.Model {
     return {
       nextToken: 'string',
       requestId: 'string',
-      tagResources: { 'type': 'array', 'itemType': ListTagResourcesResponseBodyTagResources },
+      tagResources: ListTagResourcesResponseBodyTagResources,
     };
   }
 
@@ -6002,7 +6002,7 @@ export class ModifyVServerGroupBackendServersRequest extends $tea.Model {
 export class ModifyVServerGroupBackendServersResponseBody extends $tea.Model {
   VServerGroupId?: string;
   requestId?: string;
-  backendServers?: ModifyVServerGroupBackendServersResponseBodyBackendServers[];
+  backendServers?: ModifyVServerGroupBackendServersResponseBodyBackendServers;
   static names(): { [key: string]: string } {
     return {
       VServerGroupId: 'VServerGroupId',
@@ -6015,7 +6015,7 @@ export class ModifyVServerGroupBackendServersResponseBody extends $tea.Model {
     return {
       VServerGroupId: 'string',
       requestId: 'string',
-      backendServers: { 'type': 'array', 'itemType': ModifyVServerGroupBackendServersResponseBodyBackendServers },
+      backendServers: ModifyVServerGroupBackendServersResponseBodyBackendServers,
     };
   }
 
@@ -6176,7 +6176,7 @@ export class RemoveBackendServersRequest extends $tea.Model {
 export class RemoveBackendServersResponseBody extends $tea.Model {
   requestId?: string;
   loadBalancerId?: string;
-  backendServers?: RemoveBackendServersResponseBodyBackendServers[];
+  backendServers?: RemoveBackendServersResponseBodyBackendServers;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
@@ -6189,7 +6189,7 @@ export class RemoveBackendServersResponseBody extends $tea.Model {
     return {
       requestId: 'string',
       loadBalancerId: 'string',
-      backendServers: { 'type': 'array', 'itemType': RemoveBackendServersResponseBodyBackendServers },
+      backendServers: RemoveBackendServersResponseBodyBackendServers,
     };
   }
 
@@ -6437,7 +6437,7 @@ export class RemoveVServerGroupBackendServersRequest extends $tea.Model {
 export class RemoveVServerGroupBackendServersResponseBody extends $tea.Model {
   VServerGroupId?: string;
   requestId?: string;
-  backendServers?: RemoveVServerGroupBackendServersResponseBodyBackendServers[];
+  backendServers?: RemoveVServerGroupBackendServersResponseBodyBackendServers;
   static names(): { [key: string]: string } {
     return {
       VServerGroupId: 'VServerGroupId',
@@ -6450,7 +6450,7 @@ export class RemoveVServerGroupBackendServersResponseBody extends $tea.Model {
     return {
       VServerGroupId: 'string',
       requestId: 'string',
-      backendServers: { 'type': 'array', 'itemType': RemoveVServerGroupBackendServersResponseBodyBackendServers },
+      backendServers: RemoveVServerGroupBackendServersResponseBodyBackendServers,
     };
   }
 
@@ -6614,7 +6614,7 @@ export class SetBackendServersRequest extends $tea.Model {
 export class SetBackendServersResponseBody extends $tea.Model {
   requestId?: string;
   loadBalancerId?: string;
-  backendServers?: SetBackendServersResponseBodyBackendServers[];
+  backendServers?: SetBackendServersResponseBodyBackendServers;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
@@ -6627,7 +6627,7 @@ export class SetBackendServersResponseBody extends $tea.Model {
     return {
       requestId: 'string',
       loadBalancerId: 'string',
-      backendServers: { 'type': 'array', 'itemType': SetBackendServersResponseBodyBackendServers },
+      backendServers: SetBackendServersResponseBodyBackendServers,
     };
   }
 
@@ -8346,7 +8346,7 @@ export class SetVServerGroupAttributeResponseBody extends $tea.Model {
   VServerGroupId?: string;
   requestId?: string;
   VServerGroupName?: string;
-  backendServers?: SetVServerGroupAttributeResponseBodyBackendServers[];
+  backendServers?: SetVServerGroupAttributeResponseBodyBackendServers;
   static names(): { [key: string]: string } {
     return {
       VServerGroupId: 'VServerGroupId',
@@ -8361,7 +8361,7 @@ export class SetVServerGroupAttributeResponseBody extends $tea.Model {
       VServerGroupId: 'string',
       requestId: 'string',
       VServerGroupName: 'string',
-      backendServers: { 'type': 'array', 'itemType': SetVServerGroupAttributeResponseBodyBackendServers },
+      backendServers: SetVServerGroupAttributeResponseBodyBackendServers,
     };
   }
 
@@ -8918,7 +8918,7 @@ export class UploadServerCertificateResponseBody extends $tea.Model {
   requestId?: string;
   resourceGroupId?: string;
   createTime?: string;
-  subjectAlternativeNames?: string[];
+  subjectAlternativeNames?: UploadServerCertificateResponseBodySubjectAlternativeNames;
   aliCloudCertificateId?: string;
   aliCloudCertificateName?: string;
   isAliCloudCertificate?: number;
@@ -8955,7 +8955,7 @@ export class UploadServerCertificateResponseBody extends $tea.Model {
       requestId: 'string',
       resourceGroupId: 'string',
       createTime: 'string',
-      subjectAlternativeNames: { 'type': 'array', 'itemType': 'string' },
+      subjectAlternativeNames: UploadServerCertificateResponseBodySubjectAlternativeNames,
       aliCloudCertificateId: 'string',
       aliCloudCertificateName: 'string',
       isAliCloudCertificate: 'number',
@@ -8995,7 +8995,7 @@ export class UploadServerCertificateResponse extends $tea.Model {
   }
 }
 
-export class AddBackendServersResponseBodyBackendServers extends $tea.Model {
+export class AddBackendServersResponseBodyBackendServersBackendServer extends $tea.Model {
   type?: string;
   weight?: string;
   description?: string;
@@ -9023,7 +9023,26 @@ export class AddBackendServersResponseBodyBackendServers extends $tea.Model {
   }
 }
 
-export class AddVServerGroupBackendServersResponseBodyBackendServers extends $tea.Model {
+export class AddBackendServersResponseBodyBackendServers extends $tea.Model {
+  backendServer?: AddBackendServersResponseBodyBackendServersBackendServer[];
+  static names(): { [key: string]: string } {
+    return {
+      backendServer: 'BackendServer',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      backendServer: { 'type': 'array', 'itemType': AddBackendServersResponseBodyBackendServersBackendServer },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddVServerGroupBackendServersResponseBodyBackendServersBackendServer extends $tea.Model {
   type?: string;
   weight?: number;
   description?: string;
@@ -9046,6 +9065,25 @@ export class AddVServerGroupBackendServersResponseBodyBackendServers extends $te
       description: 'string',
       port: 'number',
       serverId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddVServerGroupBackendServersResponseBodyBackendServers extends $tea.Model {
+  backendServer?: AddVServerGroupBackendServersResponseBodyBackendServersBackendServer[];
+  static names(): { [key: string]: string } {
+    return {
+      backendServer: 'BackendServer',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      backendServer: { 'type': 'array', 'itemType': AddVServerGroupBackendServersResponseBodyBackendServersBackendServer },
     };
   }
 
@@ -9118,7 +9156,7 @@ export class CreateLoadBalancerUDPListenerRequestPortRange extends $tea.Model {
   }
 }
 
-export class CreateMasterSlaveServerGroupResponseBodyMasterSlaveBackendServers extends $tea.Model {
+export class CreateMasterSlaveServerGroupResponseBodyMasterSlaveBackendServersMasterSlaveBackendServer extends $tea.Model {
   type?: string;
   weight?: number;
   description?: string;
@@ -9152,7 +9190,26 @@ export class CreateMasterSlaveServerGroupResponseBodyMasterSlaveBackendServers e
   }
 }
 
-export class CreateRulesResponseBodyRules extends $tea.Model {
+export class CreateMasterSlaveServerGroupResponseBodyMasterSlaveBackendServers extends $tea.Model {
+  masterSlaveBackendServer?: CreateMasterSlaveServerGroupResponseBodyMasterSlaveBackendServersMasterSlaveBackendServer[];
+  static names(): { [key: string]: string } {
+    return {
+      masterSlaveBackendServer: 'MasterSlaveBackendServer',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      masterSlaveBackendServer: { 'type': 'array', 'itemType': CreateMasterSlaveServerGroupResponseBodyMasterSlaveBackendServersMasterSlaveBackendServer },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRulesResponseBodyRulesRule extends $tea.Model {
   ruleName?: string;
   ruleId?: string;
   static names(): { [key: string]: string } {
@@ -9174,7 +9231,26 @@ export class CreateRulesResponseBodyRules extends $tea.Model {
   }
 }
 
-export class CreateVServerGroupResponseBodyBackendServers extends $tea.Model {
+export class CreateRulesResponseBodyRules extends $tea.Model {
+  rule?: CreateRulesResponseBodyRulesRule[];
+  static names(): { [key: string]: string } {
+    return {
+      rule: 'Rule',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      rule: { 'type': 'array', 'itemType': CreateRulesResponseBodyRulesRule },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateVServerGroupResponseBodyBackendServersBackendServer extends $tea.Model {
   type?: string;
   weight?: number;
   description?: string;
@@ -9205,7 +9281,26 @@ export class CreateVServerGroupResponseBodyBackendServers extends $tea.Model {
   }
 }
 
-export class DescribeAccessControlListAttributeResponseBodyAclEntrys extends $tea.Model {
+export class CreateVServerGroupResponseBodyBackendServers extends $tea.Model {
+  backendServer?: CreateVServerGroupResponseBodyBackendServersBackendServer[];
+  static names(): { [key: string]: string } {
+    return {
+      backendServer: 'BackendServer',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      backendServer: { 'type': 'array', 'itemType': CreateVServerGroupResponseBodyBackendServersBackendServer },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAccessControlListAttributeResponseBodyAclEntrysAclEntry extends $tea.Model {
   aclEntryComment?: string;
   aclEntryIP?: string;
   static names(): { [key: string]: string } {
@@ -9227,7 +9322,26 @@ export class DescribeAccessControlListAttributeResponseBodyAclEntrys extends $te
   }
 }
 
-export class DescribeAccessControlListAttributeResponseBodyRelatedListeners extends $tea.Model {
+export class DescribeAccessControlListAttributeResponseBodyAclEntrys extends $tea.Model {
+  aclEntry?: DescribeAccessControlListAttributeResponseBodyAclEntrysAclEntry[];
+  static names(): { [key: string]: string } {
+    return {
+      aclEntry: 'AclEntry',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aclEntry: { 'type': 'array', 'itemType': DescribeAccessControlListAttributeResponseBodyAclEntrysAclEntry },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAccessControlListAttributeResponseBodyRelatedListenersRelatedListener extends $tea.Model {
   aclType?: string;
   protocol?: string;
   loadBalancerId?: string;
@@ -9255,6 +9369,25 @@ export class DescribeAccessControlListAttributeResponseBodyRelatedListeners exte
   }
 }
 
+export class DescribeAccessControlListAttributeResponseBodyRelatedListeners extends $tea.Model {
+  relatedListener?: DescribeAccessControlListAttributeResponseBodyRelatedListenersRelatedListener[];
+  static names(): { [key: string]: string } {
+    return {
+      relatedListener: 'RelatedListener',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      relatedListener: { 'type': 'array', 'itemType': DescribeAccessControlListAttributeResponseBodyRelatedListenersRelatedListener },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeAccessControlListsRequestTag extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
@@ -9271,7 +9404,7 @@ export class DescribeAccessControlListsRequestTag extends $tea.Model {
   }
 }
 
-export class DescribeAccessControlListsResponseBodyAcls extends $tea.Model {
+export class DescribeAccessControlListsResponseBodyAclsAcl extends $tea.Model {
   aclId?: string;
   addressIPVersion?: string;
   resourceGroupId?: string;
@@ -9299,7 +9432,26 @@ export class DescribeAccessControlListsResponseBodyAcls extends $tea.Model {
   }
 }
 
-export class DescribeAvailableResourceResponseBodyAvailableResourcesSupportResources extends $tea.Model {
+export class DescribeAccessControlListsResponseBodyAcls extends $tea.Model {
+  acl?: DescribeAccessControlListsResponseBodyAclsAcl[];
+  static names(): { [key: string]: string } {
+    return {
+      acl: 'Acl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acl: { 'type': 'array', 'itemType': DescribeAccessControlListsResponseBodyAclsAcl },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAvailableResourceResponseBodyAvailableResourcesAvailableResourceSupportResourcesSupportResource extends $tea.Model {
   addressIPVersion?: string;
   addressType?: string;
   static names(): { [key: string]: string } {
@@ -9321,9 +9473,28 @@ export class DescribeAvailableResourceResponseBodyAvailableResourcesSupportResou
   }
 }
 
-export class DescribeAvailableResourceResponseBodyAvailableResources extends $tea.Model {
+export class DescribeAvailableResourceResponseBodyAvailableResourcesAvailableResourceSupportResources extends $tea.Model {
+  supportResource?: DescribeAvailableResourceResponseBodyAvailableResourcesAvailableResourceSupportResourcesSupportResource[];
+  static names(): { [key: string]: string } {
+    return {
+      supportResource: 'SupportResource',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      supportResource: { 'type': 'array', 'itemType': DescribeAvailableResourceResponseBodyAvailableResourcesAvailableResourceSupportResourcesSupportResource },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAvailableResourceResponseBodyAvailableResourcesAvailableResource extends $tea.Model {
   slaveZoneId?: string;
-  supportResources?: DescribeAvailableResourceResponseBodyAvailableResourcesSupportResources[];
+  supportResources?: DescribeAvailableResourceResponseBodyAvailableResourcesAvailableResourceSupportResources;
   masterZoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9336,8 +9507,27 @@ export class DescribeAvailableResourceResponseBodyAvailableResources extends $te
   static types(): { [key: string]: any } {
     return {
       slaveZoneId: 'string',
-      supportResources: { 'type': 'array', 'itemType': DescribeAvailableResourceResponseBodyAvailableResourcesSupportResources },
+      supportResources: DescribeAvailableResourceResponseBodyAvailableResourcesAvailableResourceSupportResources,
       masterZoneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAvailableResourceResponseBodyAvailableResources extends $tea.Model {
+  availableResource?: DescribeAvailableResourceResponseBodyAvailableResourcesAvailableResource[];
+  static names(): { [key: string]: string } {
+    return {
+      availableResource: 'AvailableResource',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      availableResource: { 'type': 'array', 'itemType': DescribeAvailableResourceResponseBodyAvailableResourcesAvailableResource },
     };
   }
 
@@ -9362,7 +9552,7 @@ export class DescribeCACertificatesRequestTag extends $tea.Model {
   }
 }
 
-export class DescribeCACertificatesResponseBodyCACertificates extends $tea.Model {
+export class DescribeCACertificatesResponseBodyCACertificatesCACertificate extends $tea.Model {
   createTimeStamp?: number;
   expireTime?: string;
   createTime?: string;
@@ -9408,7 +9598,26 @@ export class DescribeCACertificatesResponseBodyCACertificates extends $tea.Model
   }
 }
 
-export class DescribeDomainExtensionsResponseBodyDomainExtensions extends $tea.Model {
+export class DescribeCACertificatesResponseBodyCACertificates extends $tea.Model {
+  CACertificate?: DescribeCACertificatesResponseBodyCACertificatesCACertificate[];
+  static names(): { [key: string]: string } {
+    return {
+      CACertificate: 'CACertificate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      CACertificate: { 'type': 'array', 'itemType': DescribeCACertificatesResponseBodyCACertificatesCACertificate },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDomainExtensionsResponseBodyDomainExtensionsDomainExtension extends $tea.Model {
   domain?: string;
   serverCertificateId?: string;
   domainExtensionId?: string;
@@ -9433,7 +9642,26 @@ export class DescribeDomainExtensionsResponseBodyDomainExtensions extends $tea.M
   }
 }
 
-export class DescribeHealthStatusResponseBodyBackendServers extends $tea.Model {
+export class DescribeDomainExtensionsResponseBodyDomainExtensions extends $tea.Model {
+  domainExtension?: DescribeDomainExtensionsResponseBodyDomainExtensionsDomainExtension[];
+  static names(): { [key: string]: string } {
+    return {
+      domainExtension: 'DomainExtension',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainExtension: { 'type': 'array', 'itemType': DescribeDomainExtensionsResponseBodyDomainExtensionsDomainExtension },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeHealthStatusResponseBodyBackendServersBackendServer extends $tea.Model {
   type?: string;
   eniHost?: string;
   protocol?: string;
@@ -9473,7 +9701,26 @@ export class DescribeHealthStatusResponseBodyBackendServers extends $tea.Model {
   }
 }
 
-export class DescribeLoadBalancerAttributeResponseBodyListenerPortsAndProtocal extends $tea.Model {
+export class DescribeHealthStatusResponseBodyBackendServers extends $tea.Model {
+  backendServer?: DescribeHealthStatusResponseBodyBackendServersBackendServer[];
+  static names(): { [key: string]: string } {
+    return {
+      backendServer: 'BackendServer',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      backendServer: { 'type': 'array', 'itemType': DescribeHealthStatusResponseBodyBackendServersBackendServer },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLoadBalancerAttributeResponseBodyListenerPortsAndProtocalListenerPortAndProtocal extends $tea.Model {
   listenerProtocal?: string;
   listenerPort?: number;
   static names(): { [key: string]: string } {
@@ -9495,7 +9742,26 @@ export class DescribeLoadBalancerAttributeResponseBodyListenerPortsAndProtocal e
   }
 }
 
-export class DescribeLoadBalancerAttributeResponseBodyBackendServers extends $tea.Model {
+export class DescribeLoadBalancerAttributeResponseBodyListenerPortsAndProtocal extends $tea.Model {
+  listenerPortAndProtocal?: DescribeLoadBalancerAttributeResponseBodyListenerPortsAndProtocalListenerPortAndProtocal[];
+  static names(): { [key: string]: string } {
+    return {
+      listenerPortAndProtocal: 'ListenerPortAndProtocal',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      listenerPortAndProtocal: { 'type': 'array', 'itemType': DescribeLoadBalancerAttributeResponseBodyListenerPortsAndProtocalListenerPortAndProtocal },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLoadBalancerAttributeResponseBodyBackendServersBackendServer extends $tea.Model {
   type?: string;
   weight?: number;
   description?: string;
@@ -9523,7 +9789,45 @@ export class DescribeLoadBalancerAttributeResponseBodyBackendServers extends $te
   }
 }
 
-export class DescribeLoadBalancerAttributeResponseBodyListenerPortsAndProtocol extends $tea.Model {
+export class DescribeLoadBalancerAttributeResponseBodyBackendServers extends $tea.Model {
+  backendServer?: DescribeLoadBalancerAttributeResponseBodyBackendServersBackendServer[];
+  static names(): { [key: string]: string } {
+    return {
+      backendServer: 'BackendServer',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      backendServer: { 'type': 'array', 'itemType': DescribeLoadBalancerAttributeResponseBodyBackendServersBackendServer },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLoadBalancerAttributeResponseBodyListenerPorts extends $tea.Model {
+  listenerPort?: number[];
+  static names(): { [key: string]: string } {
+    return {
+      listenerPort: 'ListenerPort',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      listenerPort: { 'type': 'array', 'itemType': 'number' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLoadBalancerAttributeResponseBodyListenerPortsAndProtocolListenerPortAndProtocol extends $tea.Model {
   listenerProtocol?: string;
   listenerForward?: string;
   description?: string;
@@ -9554,7 +9858,26 @@ export class DescribeLoadBalancerAttributeResponseBodyListenerPortsAndProtocol e
   }
 }
 
-export class DescribeLoadBalancerHTTPListenerAttributeResponseBodyRules extends $tea.Model {
+export class DescribeLoadBalancerAttributeResponseBodyListenerPortsAndProtocol extends $tea.Model {
+  listenerPortAndProtocol?: DescribeLoadBalancerAttributeResponseBodyListenerPortsAndProtocolListenerPortAndProtocol[];
+  static names(): { [key: string]: string } {
+    return {
+      listenerPortAndProtocol: 'ListenerPortAndProtocol',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      listenerPortAndProtocol: { 'type': 'array', 'itemType': DescribeLoadBalancerAttributeResponseBodyListenerPortsAndProtocolListenerPortAndProtocol },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLoadBalancerHTTPListenerAttributeResponseBodyRulesRule extends $tea.Model {
   VServerGroupId?: string;
   domain?: string;
   url?: string;
@@ -9585,7 +9908,26 @@ export class DescribeLoadBalancerHTTPListenerAttributeResponseBodyRules extends 
   }
 }
 
-export class DescribeLoadBalancerHTTPSListenerAttributeResponseBodyDomainExtensions extends $tea.Model {
+export class DescribeLoadBalancerHTTPListenerAttributeResponseBodyRules extends $tea.Model {
+  rule?: DescribeLoadBalancerHTTPListenerAttributeResponseBodyRulesRule[];
+  static names(): { [key: string]: string } {
+    return {
+      rule: 'Rule',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      rule: { 'type': 'array', 'itemType': DescribeLoadBalancerHTTPListenerAttributeResponseBodyRulesRule },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLoadBalancerHTTPSListenerAttributeResponseBodyDomainExtensionsDomainExtension extends $tea.Model {
   domain?: string;
   serverCertificateId?: string;
   domainExtensionId?: string;
@@ -9610,7 +9952,26 @@ export class DescribeLoadBalancerHTTPSListenerAttributeResponseBodyDomainExtensi
   }
 }
 
-export class DescribeLoadBalancerHTTPSListenerAttributeResponseBodyRules extends $tea.Model {
+export class DescribeLoadBalancerHTTPSListenerAttributeResponseBodyDomainExtensions extends $tea.Model {
+  domainExtension?: DescribeLoadBalancerHTTPSListenerAttributeResponseBodyDomainExtensionsDomainExtension[];
+  static names(): { [key: string]: string } {
+    return {
+      domainExtension: 'DomainExtension',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainExtension: { 'type': 'array', 'itemType': DescribeLoadBalancerHTTPSListenerAttributeResponseBodyDomainExtensionsDomainExtension },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLoadBalancerHTTPSListenerAttributeResponseBodyRulesRule extends $tea.Model {
   VServerGroupId?: string;
   domain?: string;
   url?: string;
@@ -9641,6 +10002,25 @@ export class DescribeLoadBalancerHTTPSListenerAttributeResponseBodyRules extends
   }
 }
 
+export class DescribeLoadBalancerHTTPSListenerAttributeResponseBodyRules extends $tea.Model {
+  rule?: DescribeLoadBalancerHTTPSListenerAttributeResponseBodyRulesRule[];
+  static names(): { [key: string]: string } {
+    return {
+      rule: 'Rule',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      rule: { 'type': 'array', 'itemType': DescribeLoadBalancerHTTPSListenerAttributeResponseBodyRulesRule },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeLoadBalancersRequestTag extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
@@ -9657,7 +10037,7 @@ export class DescribeLoadBalancersRequestTag extends $tea.Model {
   }
 }
 
-export class DescribeLoadBalancersResponseBodyLoadBalancers extends $tea.Model {
+export class DescribeLoadBalancersResponseBodyLoadBalancersLoadBalancer extends $tea.Model {
   vpcId?: string;
   createTimeStamp?: number;
   loadBalancerId?: string;
@@ -9733,7 +10113,26 @@ export class DescribeLoadBalancersResponseBodyLoadBalancers extends $tea.Model {
   }
 }
 
-export class DescribeMasterSlaveServerGroupAttributeResponseBodyMasterSlaveBackendServers extends $tea.Model {
+export class DescribeLoadBalancersResponseBodyLoadBalancers extends $tea.Model {
+  loadBalancer?: DescribeLoadBalancersResponseBodyLoadBalancersLoadBalancer[];
+  static names(): { [key: string]: string } {
+    return {
+      loadBalancer: 'LoadBalancer',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      loadBalancer: { 'type': 'array', 'itemType': DescribeLoadBalancersResponseBodyLoadBalancersLoadBalancer },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeMasterSlaveServerGroupAttributeResponseBodyMasterSlaveBackendServersMasterSlaveBackendServer extends $tea.Model {
   type?: string;
   weight?: number;
   description?: string;
@@ -9767,7 +10166,26 @@ export class DescribeMasterSlaveServerGroupAttributeResponseBodyMasterSlaveBacke
   }
 }
 
-export class DescribeMasterSlaveServerGroupsResponseBodyMasterSlaveServerGroupsAssociatedObjectsListeners extends $tea.Model {
+export class DescribeMasterSlaveServerGroupAttributeResponseBodyMasterSlaveBackendServers extends $tea.Model {
+  masterSlaveBackendServer?: DescribeMasterSlaveServerGroupAttributeResponseBodyMasterSlaveBackendServersMasterSlaveBackendServer[];
+  static names(): { [key: string]: string } {
+    return {
+      masterSlaveBackendServer: 'MasterSlaveBackendServer',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      masterSlaveBackendServer: { 'type': 'array', 'itemType': DescribeMasterSlaveServerGroupAttributeResponseBodyMasterSlaveBackendServersMasterSlaveBackendServer },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeMasterSlaveServerGroupsResponseBodyMasterSlaveServerGroupsMasterSlaveServerGroupAssociatedObjectsListenersListener extends $tea.Model {
   protocol?: string;
   port?: number;
   static names(): { [key: string]: string } {
@@ -9789,17 +10207,17 @@ export class DescribeMasterSlaveServerGroupsResponseBodyMasterSlaveServerGroupsA
   }
 }
 
-export class DescribeMasterSlaveServerGroupsResponseBodyMasterSlaveServerGroupsAssociatedObjects extends $tea.Model {
-  listeners?: DescribeMasterSlaveServerGroupsResponseBodyMasterSlaveServerGroupsAssociatedObjectsListeners[];
+export class DescribeMasterSlaveServerGroupsResponseBodyMasterSlaveServerGroupsMasterSlaveServerGroupAssociatedObjectsListeners extends $tea.Model {
+  listener?: DescribeMasterSlaveServerGroupsResponseBodyMasterSlaveServerGroupsMasterSlaveServerGroupAssociatedObjectsListenersListener[];
   static names(): { [key: string]: string } {
     return {
-      listeners: 'Listeners',
+      listener: 'Listener',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      listeners: { 'type': 'array', 'itemType': DescribeMasterSlaveServerGroupsResponseBodyMasterSlaveServerGroupsAssociatedObjectsListeners },
+      listener: { 'type': 'array', 'itemType': DescribeMasterSlaveServerGroupsResponseBodyMasterSlaveServerGroupsMasterSlaveServerGroupAssociatedObjectsListenersListener },
     };
   }
 
@@ -9808,9 +10226,28 @@ export class DescribeMasterSlaveServerGroupsResponseBodyMasterSlaveServerGroupsA
   }
 }
 
-export class DescribeMasterSlaveServerGroupsResponseBodyMasterSlaveServerGroups extends $tea.Model {
+export class DescribeMasterSlaveServerGroupsResponseBodyMasterSlaveServerGroupsMasterSlaveServerGroupAssociatedObjects extends $tea.Model {
+  listeners?: DescribeMasterSlaveServerGroupsResponseBodyMasterSlaveServerGroupsMasterSlaveServerGroupAssociatedObjectsListeners;
+  static names(): { [key: string]: string } {
+    return {
+      listeners: 'Listeners',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      listeners: DescribeMasterSlaveServerGroupsResponseBodyMasterSlaveServerGroupsMasterSlaveServerGroupAssociatedObjectsListeners,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeMasterSlaveServerGroupsResponseBodyMasterSlaveServerGroupsMasterSlaveServerGroup extends $tea.Model {
   masterSlaveServerGroupId?: string;
-  associatedObjects?: DescribeMasterSlaveServerGroupsResponseBodyMasterSlaveServerGroupsAssociatedObjects;
+  associatedObjects?: DescribeMasterSlaveServerGroupsResponseBodyMasterSlaveServerGroupsMasterSlaveServerGroupAssociatedObjects;
   masterSlaveServerGroupName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9823,7 +10260,7 @@ export class DescribeMasterSlaveServerGroupsResponseBodyMasterSlaveServerGroups 
   static types(): { [key: string]: any } {
     return {
       masterSlaveServerGroupId: 'string',
-      associatedObjects: DescribeMasterSlaveServerGroupsResponseBodyMasterSlaveServerGroupsAssociatedObjects,
+      associatedObjects: DescribeMasterSlaveServerGroupsResponseBodyMasterSlaveServerGroupsMasterSlaveServerGroupAssociatedObjects,
       masterSlaveServerGroupName: 'string',
     };
   }
@@ -9833,7 +10270,26 @@ export class DescribeMasterSlaveServerGroupsResponseBodyMasterSlaveServerGroups 
   }
 }
 
-export class DescribeRegionsResponseBodyRegions extends $tea.Model {
+export class DescribeMasterSlaveServerGroupsResponseBodyMasterSlaveServerGroups extends $tea.Model {
+  masterSlaveServerGroup?: DescribeMasterSlaveServerGroupsResponseBodyMasterSlaveServerGroupsMasterSlaveServerGroup[];
+  static names(): { [key: string]: string } {
+    return {
+      masterSlaveServerGroup: 'MasterSlaveServerGroup',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      masterSlaveServerGroup: { 'type': 'array', 'itemType': DescribeMasterSlaveServerGroupsResponseBodyMasterSlaveServerGroupsMasterSlaveServerGroup },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRegionsResponseBodyRegionsRegion extends $tea.Model {
   localName?: string;
   regionEndpoint?: string;
   regionId?: string;
@@ -9858,7 +10314,26 @@ export class DescribeRegionsResponseBodyRegions extends $tea.Model {
   }
 }
 
-export class DescribeRulesResponseBodyRules extends $tea.Model {
+export class DescribeRegionsResponseBodyRegions extends $tea.Model {
+  region?: DescribeRegionsResponseBodyRegionsRegion[];
+  static names(): { [key: string]: string } {
+    return {
+      region: 'Region',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      region: { 'type': 'array', 'itemType': DescribeRegionsResponseBodyRegionsRegion },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRulesResponseBodyRulesRule extends $tea.Model {
   VServerGroupId?: string;
   healthCheckHttpCode?: string;
   domain?: string;
@@ -9934,6 +10409,25 @@ export class DescribeRulesResponseBodyRules extends $tea.Model {
   }
 }
 
+export class DescribeRulesResponseBodyRules extends $tea.Model {
+  rule?: DescribeRulesResponseBodyRulesRule[];
+  static names(): { [key: string]: string } {
+    return {
+      rule: 'Rule',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      rule: { 'type': 'array', 'itemType': DescribeRulesResponseBodyRulesRule },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeServerCertificatesRequestTag extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
@@ -9950,7 +10444,26 @@ export class DescribeServerCertificatesRequestTag extends $tea.Model {
   }
 }
 
-export class DescribeServerCertificatesResponseBodyServerCertificates extends $tea.Model {
+export class DescribeServerCertificatesResponseBodyServerCertificatesServerCertificateSubjectAlternativeNames extends $tea.Model {
+  subjectAlternativeName?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      subjectAlternativeName: 'SubjectAlternativeName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      subjectAlternativeName: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeServerCertificatesResponseBodyServerCertificatesServerCertificate extends $tea.Model {
   aliCloudCertificateName?: string;
   createTimeStamp?: number;
   expireTime?: string;
@@ -9960,7 +10473,7 @@ export class DescribeServerCertificatesResponseBodyServerCertificates extends $t
   regionId?: string;
   serverCertificateName?: string;
   fingerprint?: string;
-  subjectAlternativeNames?: string[];
+  subjectAlternativeNames?: DescribeServerCertificatesResponseBodyServerCertificatesServerCertificateSubjectAlternativeNames;
   commonName?: string;
   resourceGroupId?: string;
   isAliCloudCertificate?: number;
@@ -9995,7 +10508,7 @@ export class DescribeServerCertificatesResponseBodyServerCertificates extends $t
       regionId: 'string',
       serverCertificateName: 'string',
       fingerprint: 'string',
-      subjectAlternativeNames: { 'type': 'array', 'itemType': 'string' },
+      subjectAlternativeNames: DescribeServerCertificatesResponseBodyServerCertificatesServerCertificateSubjectAlternativeNames,
       commonName: 'string',
       resourceGroupId: 'string',
       isAliCloudCertificate: 'number',
@@ -10008,7 +10521,26 @@ export class DescribeServerCertificatesResponseBodyServerCertificates extends $t
   }
 }
 
-export class DescribeTagsResponseBodyTagSets extends $tea.Model {
+export class DescribeServerCertificatesResponseBodyServerCertificates extends $tea.Model {
+  serverCertificate?: DescribeServerCertificatesResponseBodyServerCertificatesServerCertificate[];
+  static names(): { [key: string]: string } {
+    return {
+      serverCertificate: 'ServerCertificate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      serverCertificate: { 'type': 'array', 'itemType': DescribeServerCertificatesResponseBodyServerCertificatesServerCertificate },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTagsResponseBodyTagSetsTagSet extends $tea.Model {
   instanceCount?: number;
   tagValue?: string;
   tagKey?: string;
@@ -10033,7 +10565,26 @@ export class DescribeTagsResponseBodyTagSets extends $tea.Model {
   }
 }
 
-export class DescribeVServerGroupAttributeResponseBodyBackendServers extends $tea.Model {
+export class DescribeTagsResponseBodyTagSets extends $tea.Model {
+  tagSet?: DescribeTagsResponseBodyTagSetsTagSet[];
+  static names(): { [key: string]: string } {
+    return {
+      tagSet: 'TagSet',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagSet: { 'type': 'array', 'itemType': DescribeTagsResponseBodyTagSetsTagSet },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVServerGroupAttributeResponseBodyBackendServersBackendServer extends $tea.Model {
   type?: string;
   weight?: number;
   description?: string;
@@ -10064,7 +10615,26 @@ export class DescribeVServerGroupAttributeResponseBodyBackendServers extends $te
   }
 }
 
-export class DescribeVServerGroupsResponseBodyVServerGroupsAssociatedObjectsListeners extends $tea.Model {
+export class DescribeVServerGroupAttributeResponseBodyBackendServers extends $tea.Model {
+  backendServer?: DescribeVServerGroupAttributeResponseBodyBackendServersBackendServer[];
+  static names(): { [key: string]: string } {
+    return {
+      backendServer: 'BackendServer',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      backendServer: { 'type': 'array', 'itemType': DescribeVServerGroupAttributeResponseBodyBackendServersBackendServer },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVServerGroupsResponseBodyVServerGroupsVServerGroupAssociatedObjectsListenersListener extends $tea.Model {
   protocol?: string;
   port?: number;
   static names(): { [key: string]: string } {
@@ -10086,7 +10656,26 @@ export class DescribeVServerGroupsResponseBodyVServerGroupsAssociatedObjectsList
   }
 }
 
-export class DescribeVServerGroupsResponseBodyVServerGroupsAssociatedObjectsRules extends $tea.Model {
+export class DescribeVServerGroupsResponseBodyVServerGroupsVServerGroupAssociatedObjectsListeners extends $tea.Model {
+  listener?: DescribeVServerGroupsResponseBodyVServerGroupsVServerGroupAssociatedObjectsListenersListener[];
+  static names(): { [key: string]: string } {
+    return {
+      listener: 'Listener',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      listener: { 'type': 'array', 'itemType': DescribeVServerGroupsResponseBodyVServerGroupsVServerGroupAssociatedObjectsListenersListener },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVServerGroupsResponseBodyVServerGroupsVServerGroupAssociatedObjectsRulesRule extends $tea.Model {
   domain?: string;
   url?: string;
   ruleName?: string;
@@ -10114,9 +10703,28 @@ export class DescribeVServerGroupsResponseBodyVServerGroupsAssociatedObjectsRule
   }
 }
 
-export class DescribeVServerGroupsResponseBodyVServerGroupsAssociatedObjects extends $tea.Model {
-  listeners?: DescribeVServerGroupsResponseBodyVServerGroupsAssociatedObjectsListeners[];
-  rules?: DescribeVServerGroupsResponseBodyVServerGroupsAssociatedObjectsRules[];
+export class DescribeVServerGroupsResponseBodyVServerGroupsVServerGroupAssociatedObjectsRules extends $tea.Model {
+  rule?: DescribeVServerGroupsResponseBodyVServerGroupsVServerGroupAssociatedObjectsRulesRule[];
+  static names(): { [key: string]: string } {
+    return {
+      rule: 'Rule',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      rule: { 'type': 'array', 'itemType': DescribeVServerGroupsResponseBodyVServerGroupsVServerGroupAssociatedObjectsRulesRule },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVServerGroupsResponseBodyVServerGroupsVServerGroupAssociatedObjects extends $tea.Model {
+  listeners?: DescribeVServerGroupsResponseBodyVServerGroupsVServerGroupAssociatedObjectsListeners;
+  rules?: DescribeVServerGroupsResponseBodyVServerGroupsVServerGroupAssociatedObjectsRules;
   static names(): { [key: string]: string } {
     return {
       listeners: 'Listeners',
@@ -10126,8 +10734,8 @@ export class DescribeVServerGroupsResponseBodyVServerGroupsAssociatedObjects ext
 
   static types(): { [key: string]: any } {
     return {
-      listeners: { 'type': 'array', 'itemType': DescribeVServerGroupsResponseBodyVServerGroupsAssociatedObjectsListeners },
-      rules: { 'type': 'array', 'itemType': DescribeVServerGroupsResponseBodyVServerGroupsAssociatedObjectsRules },
+      listeners: DescribeVServerGroupsResponseBodyVServerGroupsVServerGroupAssociatedObjectsListeners,
+      rules: DescribeVServerGroupsResponseBodyVServerGroupsVServerGroupAssociatedObjectsRules,
     };
   }
 
@@ -10136,10 +10744,10 @@ export class DescribeVServerGroupsResponseBodyVServerGroupsAssociatedObjects ext
   }
 }
 
-export class DescribeVServerGroupsResponseBodyVServerGroups extends $tea.Model {
+export class DescribeVServerGroupsResponseBodyVServerGroupsVServerGroup extends $tea.Model {
   VServerGroupId?: string;
   VServerGroupName?: string;
-  associatedObjects?: DescribeVServerGroupsResponseBodyVServerGroupsAssociatedObjects;
+  associatedObjects?: DescribeVServerGroupsResponseBodyVServerGroupsVServerGroupAssociatedObjects;
   static names(): { [key: string]: string } {
     return {
       VServerGroupId: 'VServerGroupId',
@@ -10152,7 +10760,7 @@ export class DescribeVServerGroupsResponseBodyVServerGroups extends $tea.Model {
     return {
       VServerGroupId: 'string',
       VServerGroupName: 'string',
-      associatedObjects: DescribeVServerGroupsResponseBodyVServerGroupsAssociatedObjects,
+      associatedObjects: DescribeVServerGroupsResponseBodyVServerGroupsVServerGroupAssociatedObjects,
     };
   }
 
@@ -10161,7 +10769,26 @@ export class DescribeVServerGroupsResponseBodyVServerGroups extends $tea.Model {
   }
 }
 
-export class DescribeZonesResponseBodyZonesSlaveZones extends $tea.Model {
+export class DescribeVServerGroupsResponseBodyVServerGroups extends $tea.Model {
+  VServerGroup?: DescribeVServerGroupsResponseBodyVServerGroupsVServerGroup[];
+  static names(): { [key: string]: string } {
+    return {
+      VServerGroup: 'VServerGroup',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      VServerGroup: { 'type': 'array', 'itemType': DescribeVServerGroupsResponseBodyVServerGroupsVServerGroup },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeZonesResponseBodyZonesZoneSlaveZonesSlaveZone extends $tea.Model {
   localName?: string;
   zoneId?: string;
   static names(): { [key: string]: string } {
@@ -10183,10 +10810,29 @@ export class DescribeZonesResponseBodyZonesSlaveZones extends $tea.Model {
   }
 }
 
-export class DescribeZonesResponseBodyZones extends $tea.Model {
+export class DescribeZonesResponseBodyZonesZoneSlaveZones extends $tea.Model {
+  slaveZone?: DescribeZonesResponseBodyZonesZoneSlaveZonesSlaveZone[];
+  static names(): { [key: string]: string } {
+    return {
+      slaveZone: 'SlaveZone',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      slaveZone: { 'type': 'array', 'itemType': DescribeZonesResponseBodyZonesZoneSlaveZonesSlaveZone },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeZonesResponseBodyZonesZone extends $tea.Model {
   localName?: string;
   zoneId?: string;
-  slaveZones?: DescribeZonesResponseBodyZonesSlaveZones[];
+  slaveZones?: DescribeZonesResponseBodyZonesZoneSlaveZones;
   static names(): { [key: string]: string } {
     return {
       localName: 'LocalName',
@@ -10199,7 +10845,26 @@ export class DescribeZonesResponseBodyZones extends $tea.Model {
     return {
       localName: 'string',
       zoneId: 'string',
-      slaveZones: { 'type': 'array', 'itemType': DescribeZonesResponseBodyZonesSlaveZones },
+      slaveZones: DescribeZonesResponseBodyZonesZoneSlaveZones,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeZonesResponseBodyZones extends $tea.Model {
+  zone?: DescribeZonesResponseBodyZonesZone[];
+  static names(): { [key: string]: string } {
+    return {
+      zone: 'Zone',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      zone: { 'type': 'array', 'itemType': DescribeZonesResponseBodyZonesZone },
     };
   }
 
@@ -10230,7 +10895,7 @@ export class ListTagResourcesRequestTag extends $tea.Model {
   }
 }
 
-export class ListTagResourcesResponseBodyTagResources extends $tea.Model {
+export class ListTagResourcesResponseBodyTagResourcesTagResource extends $tea.Model {
   resourceType?: string;
   tagValue?: string;
   resourceId?: string;
@@ -10250,6 +10915,25 @@ export class ListTagResourcesResponseBodyTagResources extends $tea.Model {
       tagValue: 'string',
       resourceId: 'string',
       tagKey: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesResponseBodyTagResources extends $tea.Model {
+  tagResource?: ListTagResourcesResponseBodyTagResourcesTagResource[];
+  static names(): { [key: string]: string } {
+    return {
+      tagResource: 'TagResource',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagResource: { 'type': 'array', 'itemType': ListTagResourcesResponseBodyTagResourcesTagResource },
     };
   }
 
@@ -10320,7 +11004,7 @@ export class ListTLSCipherPoliciesResponseBodyTLSCipherPolicies extends $tea.Mod
   }
 }
 
-export class ModifyVServerGroupBackendServersResponseBodyBackendServers extends $tea.Model {
+export class ModifyVServerGroupBackendServersResponseBodyBackendServersBackendServer extends $tea.Model {
   type?: string;
   weight?: number;
   description?: string;
@@ -10342,6 +11026,53 @@ export class ModifyVServerGroupBackendServersResponseBodyBackendServers extends 
       weight: 'number',
       description: 'string',
       port: 'number',
+      serverId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyVServerGroupBackendServersResponseBodyBackendServers extends $tea.Model {
+  backendServer?: ModifyVServerGroupBackendServersResponseBodyBackendServersBackendServer[];
+  static names(): { [key: string]: string } {
+    return {
+      backendServer: 'BackendServer',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      backendServer: { 'type': 'array', 'itemType': ModifyVServerGroupBackendServersResponseBodyBackendServersBackendServer },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemoveBackendServersResponseBodyBackendServersBackendServer extends $tea.Model {
+  type?: string;
+  weight?: number;
+  description?: string;
+  serverId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      type: 'Type',
+      weight: 'Weight',
+      description: 'Description',
+      serverId: 'ServerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      type: 'string',
+      weight: 'number',
+      description: 'string',
       serverId: 'string',
     };
   }
@@ -10352,25 +11083,16 @@ export class ModifyVServerGroupBackendServersResponseBodyBackendServers extends 
 }
 
 export class RemoveBackendServersResponseBodyBackendServers extends $tea.Model {
-  type?: string;
-  weight?: number;
-  description?: string;
-  serverId?: string;
+  backendServer?: RemoveBackendServersResponseBodyBackendServersBackendServer[];
   static names(): { [key: string]: string } {
     return {
-      type: 'Type',
-      weight: 'Weight',
-      description: 'Description',
-      serverId: 'ServerId',
+      backendServer: 'BackendServer',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      type: 'string',
-      weight: 'number',
-      description: 'string',
-      serverId: 'string',
+      backendServer: { 'type': 'array', 'itemType': RemoveBackendServersResponseBodyBackendServersBackendServer },
     };
   }
 
@@ -10379,7 +11101,7 @@ export class RemoveBackendServersResponseBodyBackendServers extends $tea.Model {
   }
 }
 
-export class RemoveVServerGroupBackendServersResponseBodyBackendServers extends $tea.Model {
+export class RemoveVServerGroupBackendServersResponseBodyBackendServersBackendServer extends $tea.Model {
   type?: string;
   weight?: number;
   description?: string;
@@ -10410,7 +11132,26 @@ export class RemoveVServerGroupBackendServersResponseBodyBackendServers extends 
   }
 }
 
-export class SetBackendServersResponseBodyBackendServers extends $tea.Model {
+export class RemoveVServerGroupBackendServersResponseBodyBackendServers extends $tea.Model {
+  backendServer?: RemoveVServerGroupBackendServersResponseBodyBackendServersBackendServer[];
+  static names(): { [key: string]: string } {
+    return {
+      backendServer: 'BackendServer',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      backendServer: { 'type': 'array', 'itemType': RemoveVServerGroupBackendServersResponseBodyBackendServersBackendServer },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetBackendServersResponseBodyBackendServersBackendServer extends $tea.Model {
   type?: string;
   weight?: string;
   description?: string;
@@ -10430,6 +11171,25 @@ export class SetBackendServersResponseBodyBackendServers extends $tea.Model {
       weight: 'string',
       description: 'string',
       serverId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetBackendServersResponseBodyBackendServers extends $tea.Model {
+  backendServer?: SetBackendServersResponseBodyBackendServersBackendServer[];
+  static names(): { [key: string]: string } {
+    return {
+      backendServer: 'BackendServer',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      backendServer: { 'type': 'array', 'itemType': SetBackendServersResponseBodyBackendServersBackendServer },
     };
   }
 
@@ -10502,7 +11262,7 @@ export class SetLoadBalancerUDPListenerAttributeRequestPortRange extends $tea.Mo
   }
 }
 
-export class SetVServerGroupAttributeResponseBodyBackendServers extends $tea.Model {
+export class SetVServerGroupAttributeResponseBodyBackendServersBackendServer extends $tea.Model {
   type?: string;
   weight?: number;
   description?: string;
@@ -10533,6 +11293,25 @@ export class SetVServerGroupAttributeResponseBodyBackendServers extends $tea.Mod
   }
 }
 
+export class SetVServerGroupAttributeResponseBodyBackendServers extends $tea.Model {
+  backendServer?: SetVServerGroupAttributeResponseBodyBackendServersBackendServer[];
+  static names(): { [key: string]: string } {
+    return {
+      backendServer: 'BackendServer',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      backendServer: { 'type': 'array', 'itemType': SetVServerGroupAttributeResponseBodyBackendServersBackendServer },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class TagResourcesRequestTag extends $tea.Model {
   key?: string;
   value?: string;
@@ -10547,6 +11326,25 @@ export class TagResourcesRequestTag extends $tea.Model {
     return {
       key: 'string',
       value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UploadServerCertificateResponseBodySubjectAlternativeNames extends $tea.Model {
+  subjectAlternativeName?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      subjectAlternativeName: 'SubjectAlternativeName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      subjectAlternativeName: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
