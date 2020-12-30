@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/cloudauth20190307",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "",
   "main": "dist/client.js",
   "scripts": {
@@ -25,9 +25,11 @@
     "@alicloud/rpc-client": "^1.3.1",
     "@alicloud/endpoint-util": "^0.0.1",
     "@alicloud/oss-client": "^1.1.2",
-    "@alicloud/openplatform20191219": "1.1.1",
+    "@alicloud/openplatform20191219": "1.1.3",
     "@alicloud/oss-util": "0.0.1",
-    "@alicloud/tea-fileform": "1.0.0"
+    "@alicloud/tea-fileform": "^1.0.0",
+    "@alicloud/openapi-client": "^0.2.1",
+    "@alicloud/openapi-util": "^0.1.3"
   },
   "files": [
     "dist",
