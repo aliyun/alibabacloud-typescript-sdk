@@ -651,25 +651,6 @@ export class DescribeClusterDetailResponse extends $tea.Model {
   }
 }
 
-export class PauseComponentUpgradeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeClustersRequest extends $tea.Model {
   name?: string;
   clusterType?: string;
@@ -1330,6 +1311,7 @@ export class CreateClusterRequest extends $tea.Model {
   masterAutoRenew?: boolean;
   masterAutoRenewPeriod?: number;
   numOfNodes?: number;
+  vswitchIds?: string[];
   workerVswitchIds?: string[];
   workerInstanceTypes?: string[];
   workerSystemDiskCategory?: string;
@@ -1403,6 +1385,7 @@ export class CreateClusterRequest extends $tea.Model {
       masterAutoRenew: 'master_auto_renew',
       masterAutoRenewPeriod: 'master_auto_renew_period',
       numOfNodes: 'num_of_nodes',
+      vswitchIds: 'vswitch_ids',
       workerVswitchIds: 'worker_vswitch_ids',
       workerInstanceTypes: 'worker_instance_types',
       workerSystemDiskCategory: 'worker_system_disk_category',
@@ -1479,6 +1462,7 @@ export class CreateClusterRequest extends $tea.Model {
       masterAutoRenew: 'boolean',
       masterAutoRenewPeriod: 'number',
       numOfNodes: 'number',
+      vswitchIds: { 'type': 'array', 'itemType': 'string' },
       workerVswitchIds: { 'type': 'array', 'itemType': 'string' },
       workerInstanceTypes: { 'type': 'array', 'itemType': 'string' },
       workerSystemDiskCategory: 'string',
@@ -2037,25 +2021,6 @@ export class DeleteClusterResponse extends $tea.Model {
   }
 }
 
-export class CancelComponentUpgradeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeClusterAddonsVersionResponse extends $tea.Model {
   headers: { [key: string]: string };
   body: {[key: string]: any};
@@ -2158,25 +2123,6 @@ export class UnInstallClusterAddonsRequest extends $tea.Model {
 }
 
 export class UnInstallClusterAddonsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ResumeComponentUpgradeResponse extends $tea.Model {
   headers: { [key: string]: string };
   static names(): { [key: string]: string } {
     return {
@@ -5675,19 +5621,6 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeClusterDetailResponse>(await this.doROARequest("DescribeClusterDetail", "2015-12-15", "HTTPS", "GET", "AK", `/clusters/${ClusterId}`, "json", req, runtime), new DescribeClusterDetailResponse({}));
   }
 
-  async pauseComponentUpgrade(clusterid: string, componentid: string): Promise<PauseComponentUpgradeResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.pauseComponentUpgradeWithOptions(clusterid, componentid, headers, runtime);
-  }
-
-  async pauseComponentUpgradeWithOptions(clusterid: string, componentid: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PauseComponentUpgradeResponse> {
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-    });
-    return $tea.cast<PauseComponentUpgradeResponse>(await this.doROARequest("PauseComponentUpgrade", "2015-12-15", "HTTPS", "POST", "AK", `/clusters/${clusterid}/components/{componentid}/pause`, "none", req, runtime), new PauseComponentUpgradeResponse({}));
-  }
-
   async describeClusters(request: DescribeClustersRequest): Promise<DescribeClustersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -6204,6 +6137,10 @@ export default class Client extends OpenApi {
       body["num_of_nodes"] = request.numOfNodes;
     }
 
+    if (!Util.isUnset(request.vswitchIds)) {
+      body["vswitch_ids"] = request.vswitchIds;
+    }
+
     if (!Util.isUnset(request.workerVswitchIds)) {
       body["worker_vswitch_ids"] = request.workerVswitchIds;
     }
@@ -6567,19 +6504,6 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteClusterResponse>(await this.doROARequestWithForm("DeleteCluster", "2015-12-15", "HTTPS", "DELETE", "AK", `/clusters/${ClusterId}`, "none", req, runtime), new DeleteClusterResponse({}));
   }
 
-  async cancelComponentUpgrade(clusterId: string, componentId: string): Promise<CancelComponentUpgradeResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.cancelComponentUpgradeWithOptions(clusterId, componentId, headers, runtime);
-  }
-
-  async cancelComponentUpgradeWithOptions(clusterId: string, componentId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CancelComponentUpgradeResponse> {
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-    });
-    return $tea.cast<CancelComponentUpgradeResponse>(await this.doROARequest("CancelComponentUpgrade", "2015-12-15", "HTTPS", "POST", "AK", `/clusters/${clusterId}/components/{componentId}/cancel`, "none", req, runtime), new CancelComponentUpgradeResponse({}));
-  }
-
   async describeClusterAddonsVersion(ClusterId: string): Promise<DescribeClusterAddonsVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -6626,19 +6550,6 @@ export default class Client extends OpenApi {
       body: Util.toArray(request.addons),
     });
     return $tea.cast<UnInstallClusterAddonsResponse>(await this.doROARequest("UnInstallClusterAddons", "2015-12-15", "HTTPS", "POST", "AK", `/clusters/${ClusterId}/components/uninstall`, "none", req, runtime), new UnInstallClusterAddonsResponse({}));
-  }
-
-  async resumeComponentUpgrade(clusterid: string, componentid: string): Promise<ResumeComponentUpgradeResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.resumeComponentUpgradeWithOptions(clusterid, componentid, headers, runtime);
-  }
-
-  async resumeComponentUpgradeWithOptions(clusterid: string, componentid: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ResumeComponentUpgradeResponse> {
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-    });
-    return $tea.cast<ResumeComponentUpgradeResponse>(await this.doROARequest("ResumeComponentUpgrade", "2015-12-15", "HTTPS", "POST", "AK", `/clusters/${clusterid}/components/{componentid}/resume`, "none", req, runtime), new ResumeComponentUpgradeResponse({}));
   }
 
   async describeClustersV1(request: DescribeClustersV1Request): Promise<DescribeClustersV1Response> {
