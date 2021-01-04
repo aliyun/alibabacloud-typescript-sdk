@@ -805,7 +805,7 @@ export class QuerySendDetailsResponseBody extends $tea.Model {
   message?: string;
   requestId?: string;
   code?: string;
-  smsSendDetailDTOs?: QuerySendDetailsResponseBodySmsSendDetailDTOs[];
+  smsSendDetailDTOs?: QuerySendDetailsResponseBodySmsSendDetailDTOs;
   static names(): { [key: string]: string } {
     return {
       totalCount: 'TotalCount',
@@ -822,7 +822,7 @@ export class QuerySendDetailsResponseBody extends $tea.Model {
       message: 'string',
       requestId: 'string',
       code: 'string',
-      smsSendDetailDTOs: { 'type': 'array', 'itemType': QuerySendDetailsResponseBodySmsSendDetailDTOs },
+      smsSendDetailDTOs: QuerySendDetailsResponseBodySmsSendDetailDTOs,
     };
   }
 
@@ -1394,7 +1394,7 @@ export class ModifySmsSignRequestSignFileList extends $tea.Model {
   }
 }
 
-export class QuerySendDetailsResponseBodySmsSendDetailDTOs extends $tea.Model {
+export class QuerySendDetailsResponseBodySmsSendDetailDTOsSmsSendDetailDTO extends $tea.Model {
   errCode?: string;
   templateCode?: string;
   outId?: string;
@@ -1426,6 +1426,25 @@ export class QuerySendDetailsResponseBodySmsSendDetailDTOs extends $tea.Model {
       phoneNum: 'string',
       content: 'string',
       sendStatus: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySendDetailsResponseBodySmsSendDetailDTOs extends $tea.Model {
+  smsSendDetailDTO?: QuerySendDetailsResponseBodySmsSendDetailDTOsSmsSendDetailDTO[];
+  static names(): { [key: string]: string } {
+    return {
+      smsSendDetailDTO: 'SmsSendDetailDTO',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      smsSendDetailDTO: { 'type': 'array', 'itemType': QuerySendDetailsResponseBodySmsSendDetailDTOsSmsSendDetailDTO },
     };
   }
 
