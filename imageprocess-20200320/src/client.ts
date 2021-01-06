@@ -1,326 +1,24 @@
 // This file is auto-generated, don't edit it
+/**
+ *
+ */
 import Util, * as $Util from '@alicloud/tea-util';
-import RPCUtil from '@alicloud/rpc-util';
-import RPC, * as $RPC from '@alicloud/rpc-client';
-import EndpointUtil from '@alicloud/endpoint-util';
 import OSS, * as $OSS from '@alicloud/oss-client';
+import RPC, * as $RPC from '@alicloud/rpc-client';
 import OpenPlatform, * as $OpenPlatform from '@alicloud/openplatform20191219';
 import OSSUtil, * as $OSSUtil from '@alicloud/oss-util';
 import FileForm, * as $FileForm from '@alicloud/tea-fileform';
+import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
+import OpenApiUtil from '@alicloud/openapi-util';
+import EndpointUtil from '@alicloud/endpoint-util';
 import { Readable } from 'stream';
 import * as $tea from '@alicloud/tea-typescript';
 
-export class DetectRibFractureRequest extends $tea.Model {
-  URLList: DetectRibFractureRequestURLList[];
-  dataFormat: string;
-  orgName: string;
-  orgId: string;
-  sourceType: string;
-  static names(): { [key: string]: string } {
-    return {
-      URLList: 'URLList',
-      dataFormat: 'DataFormat',
-      orgName: 'OrgName',
-      orgId: 'OrgId',
-      sourceType: 'SourceType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      URLList: { 'type': 'array', 'itemType': DetectRibFractureRequestURLList },
-      dataFormat: 'string',
-      orgName: 'string',
-      orgId: 'string',
-      sourceType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectRibFractureResponse extends $tea.Model {
-  requestId: string;
-  data: DetectRibFractureResponseData;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      data: 'Data',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      data: DetectRibFractureResponseData,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ScreenChestCTRequest extends $tea.Model {
-  dataFormat: string;
-  orgName: string;
-  orgId: string;
-  URLList: ScreenChestCTRequestURLList[];
-  static names(): { [key: string]: string } {
-    return {
-      dataFormat: 'DataFormat',
-      orgName: 'OrgName',
-      orgId: 'OrgId',
-      URLList: 'URLList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dataFormat: 'string',
-      orgName: 'string',
-      orgId: 'string',
-      URLList: { 'type': 'array', 'itemType': ScreenChestCTRequestURLList },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ScreenChestCTResponse extends $tea.Model {
-  requestId: string;
-  data: ScreenChestCTResponseData;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      data: 'Data',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      data: ScreenChestCTResponseData,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectSkinDiseaseRequest extends $tea.Model {
-  url: string;
-  orgId: string;
-  orgName: string;
-  static names(): { [key: string]: string } {
-    return {
-      url: 'Url',
-      orgId: 'OrgId',
-      orgName: 'OrgName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      url: 'string',
-      orgId: 'string',
-      orgName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectSkinDiseaseResponse extends $tea.Model {
-  requestId: string;
-  data: DetectSkinDiseaseResponseData;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      data: 'Data',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      data: DetectSkinDiseaseResponseData,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectSkinDiseaseAdvanceRequest extends $tea.Model {
-  urlObject: Readable;
-  orgId: string;
-  orgName: string;
-  static names(): { [key: string]: string } {
-    return {
-      urlObject: 'UrlObject',
-      orgId: 'OrgId',
-      orgName: 'OrgName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      urlObject: 'Readable',
-      orgId: 'string',
-      orgName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RunMedQARequest extends $tea.Model {
-  question: string;
-  orgId: string;
-  orgName: string;
-  static names(): { [key: string]: string } {
-    return {
-      question: 'Question',
-      orgId: 'OrgId',
-      orgName: 'OrgName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      question: 'string',
-      orgId: 'string',
-      orgName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RunMedQAResponse extends $tea.Model {
-  requestId: string;
-  data: RunMedQAResponseData;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      data: 'Data',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      data: RunMedQAResponseData,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectKneeKeypointXRayRequest extends $tea.Model {
-  imageUrl: string;
-  dataFormat: string;
-  orgId: string;
-  orgName: string;
-  tracerId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      imageUrl: 'ImageUrl',
-      dataFormat: 'DataFormat',
-      orgId: 'OrgId',
-      orgName: 'OrgName',
-      tracerId: 'TracerId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageUrl: 'string',
-      dataFormat: 'string',
-      orgId: 'string',
-      orgName: 'string',
-      tracerId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectKneeKeypointXRayResponse extends $tea.Model {
-  requestId: string;
-  data: DetectKneeKeypointXRayResponseData;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      data: 'Data',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      data: DetectKneeKeypointXRayResponseData,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectKneeKeypointXRayAdvanceRequest extends $tea.Model {
-  imageUrlObject: Readable;
-  dataFormat: string;
-  orgId: string;
-  orgName: string;
-  tracerId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      imageUrlObject: 'ImageUrlObject',
-      dataFormat: 'DataFormat',
-      orgId: 'OrgId',
-      orgName: 'OrgName',
-      tracerId: 'TracerId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageUrlObject: 'Readable',
-      dataFormat: 'string',
-      orgId: 'string',
-      orgName: 'string',
-      tracerId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ClassifyFNFRequest extends $tea.Model {
-  imageUrl: string;
-  dataFormat: string;
-  orgId: string;
-  orgName: string;
+  imageUrl?: string;
+  dataFormat?: string;
+  orgId?: string;
+  orgName?: string;
   tracerId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -339,28 +37,6 @@ export class ClassifyFNFRequest extends $tea.Model {
       orgId: 'string',
       orgName: 'string',
       tracerId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ClassifyFNFResponse extends $tea.Model {
-  requestId: string;
-  data: ClassifyFNFResponseData;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      data: 'Data',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      data: ClassifyFNFResponseData,
     };
   }
 
@@ -371,9 +47,9 @@ export class ClassifyFNFResponse extends $tea.Model {
 
 export class ClassifyFNFAdvanceRequest extends $tea.Model {
   imageUrlObject: Readable;
-  dataFormat: string;
-  orgId: string;
-  orgName: string;
+  dataFormat?: string;
+  orgId?: string;
+  orgName?: string;
   tracerId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -392,6 +68,128 @@ export class ClassifyFNFAdvanceRequest extends $tea.Model {
       orgId: 'string',
       orgName: 'string',
       tracerId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ClassifyFNFResponseBody extends $tea.Model {
+  requestId?: string;
+  data?: ClassifyFNFResponseBodyData;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      data: ClassifyFNFResponseBodyData,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ClassifyFNFResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ClassifyFNFResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ClassifyFNFResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectLungNoduleRequest extends $tea.Model {
+  async?: boolean;
+  dataFormat?: string;
+  orgName?: string;
+  orgId?: string;
+  URLList?: DetectLungNoduleRequestURLList[];
+  threshold?: number;
+  static names(): { [key: string]: string } {
+    return {
+      async: 'Async',
+      dataFormat: 'DataFormat',
+      orgName: 'OrgName',
+      orgId: 'OrgId',
+      URLList: 'URLList',
+      threshold: 'Threshold',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      async: 'boolean',
+      dataFormat: 'string',
+      orgName: 'string',
+      orgId: 'string',
+      URLList: { 'type': 'array', 'itemType': DetectLungNoduleRequestURLList },
+      threshold: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectLungNoduleResponseBody extends $tea.Model {
+  requestId?: string;
+  data?: DetectLungNoduleResponseBodyData;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      data: DetectLungNoduleResponseBodyData,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectLungNoduleResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DetectLungNoduleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DetectLungNoduleResponseBody,
     };
   }
 
@@ -401,30 +199,33 @@ export class ClassifyFNFAdvanceRequest extends $tea.Model {
 }
 
 export class RunCTRegistrationRequest extends $tea.Model {
-  referenceList: RunCTRegistrationRequestReferenceList[];
-  dataFormat: string;
-  orgName: string;
-  orgId: string;
-  dataSourceType: string;
-  floatingList: RunCTRegistrationRequestFloatingList[];
+  async?: boolean;
+  dataFormat?: string;
+  orgName?: string;
+  orgId?: string;
+  dataSourceType?: string;
+  referenceList?: RunCTRegistrationRequestReferenceList[];
+  floatingList?: RunCTRegistrationRequestFloatingList[];
   static names(): { [key: string]: string } {
     return {
-      referenceList: 'ReferenceList',
+      async: 'Async',
       dataFormat: 'DataFormat',
       orgName: 'OrgName',
       orgId: 'OrgId',
       dataSourceType: 'DataSourceType',
+      referenceList: 'ReferenceList',
       floatingList: 'FloatingList',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      referenceList: { 'type': 'array', 'itemType': RunCTRegistrationRequestReferenceList },
+      async: 'boolean',
       dataFormat: 'string',
       orgName: 'string',
       orgId: 'string',
       dataSourceType: 'string',
+      referenceList: { 'type': 'array', 'itemType': RunCTRegistrationRequestReferenceList },
       floatingList: { 'type': 'array', 'itemType': RunCTRegistrationRequestFloatingList },
     };
   }
@@ -434,285 +235,42 @@ export class RunCTRegistrationRequest extends $tea.Model {
   }
 }
 
+export class RunCTRegistrationResponseBody extends $tea.Model {
+  requestId?: string;
+  data?: RunCTRegistrationResponseBodyData;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      data: RunCTRegistrationResponseBodyData,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RunCTRegistrationResponse extends $tea.Model {
-  requestId: string;
-  data: RunCTRegistrationResponseData;
+  headers: { [key: string]: string };
+  body: RunCTRegistrationResponseBody;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
-      data: 'Data',
+      headers: 'headers',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
-      data: RunCTRegistrationResponseData,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectHipKeypointXRayRequest extends $tea.Model {
-  imageUrl: string;
-  dataFormat: string;
-  orgId: string;
-  orgName: string;
-  tracerId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      imageUrl: 'ImageUrl',
-      dataFormat: 'DataFormat',
-      orgId: 'OrgId',
-      orgName: 'OrgName',
-      tracerId: 'TracerId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageUrl: 'string',
-      dataFormat: 'string',
-      orgId: 'string',
-      orgName: 'string',
-      tracerId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectHipKeypointXRayResponse extends $tea.Model {
-  requestId: string;
-  data: DetectHipKeypointXRayResponseData;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      data: 'Data',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      data: DetectHipKeypointXRayResponseData,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectHipKeypointXRayAdvanceRequest extends $tea.Model {
-  imageUrlObject: Readable;
-  dataFormat: string;
-  orgId: string;
-  orgName: string;
-  tracerId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      imageUrlObject: 'ImageUrlObject',
-      dataFormat: 'DataFormat',
-      orgId: 'OrgId',
-      orgName: 'OrgName',
-      tracerId: 'TracerId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageUrlObject: 'Readable',
-      dataFormat: 'string',
-      orgId: 'string',
-      orgName: 'string',
-      tracerId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CalcCACSRequest extends $tea.Model {
-  URLList: CalcCACSRequestURLList[];
-  dataFormat: string;
-  orgName: string;
-  orgId: string;
-  dataSourceType: string;
-  static names(): { [key: string]: string } {
-    return {
-      URLList: 'URLList',
-      dataFormat: 'DataFormat',
-      orgName: 'OrgName',
-      orgId: 'OrgId',
-      dataSourceType: 'DataSourceType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      URLList: { 'type': 'array', 'itemType': CalcCACSRequestURLList },
-      dataFormat: 'string',
-      orgName: 'string',
-      orgId: 'string',
-      dataSourceType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CalcCACSResponse extends $tea.Model {
-  requestId: string;
-  data: CalcCACSResponseData;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      data: 'Data',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      data: CalcCACSResponseData,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectKneeXRayRequest extends $tea.Model {
-  url: string;
-  dataFormat: string;
-  orgName: string;
-  orgId: string;
-  static names(): { [key: string]: string } {
-    return {
-      url: 'Url',
-      dataFormat: 'DataFormat',
-      orgName: 'OrgName',
-      orgId: 'OrgId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      url: 'string',
-      dataFormat: 'string',
-      orgName: 'string',
-      orgId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectKneeXRayResponse extends $tea.Model {
-  requestId: string;
-  data: DetectKneeXRayResponseData;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      data: 'Data',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      data: DetectKneeXRayResponseData,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectKneeXRayAdvanceRequest extends $tea.Model {
-  urlObject: Readable;
-  dataFormat: string;
-  orgName: string;
-  orgId: string;
-  static names(): { [key: string]: string } {
-    return {
-      urlObject: 'UrlObject',
-      dataFormat: 'DataFormat',
-      orgName: 'OrgName',
-      orgId: 'OrgId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      urlObject: 'Readable',
-      dataFormat: 'string',
-      orgName: 'string',
-      orgId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectSpineMRIRequest extends $tea.Model {
-  URLList: DetectSpineMRIRequestURLList[];
-  dataFormat: string;
-  orgName: string;
-  orgId: string;
-  static names(): { [key: string]: string } {
-    return {
-      URLList: 'URLList',
-      dataFormat: 'DataFormat',
-      orgName: 'OrgName',
-      orgId: 'OrgId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      URLList: { 'type': 'array', 'itemType': DetectSpineMRIRequestURLList },
-      dataFormat: 'string',
-      orgName: 'string',
-      orgId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectSpineMRIResponse extends $tea.Model {
-  requestId: string;
-  data: DetectSpineMRIResponseData;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      data: 'Data',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      data: DetectSpineMRIResponseData,
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: RunCTRegistrationResponseBody,
     };
   }
 
@@ -722,9 +280,9 @@ export class DetectSpineMRIResponse extends $tea.Model {
 }
 
 export class TranslateMedRequest extends $tea.Model {
-  fromLanguage: string;
-  toLanguage: string;
-  text: string;
+  fromLanguage?: string;
+  toLanguage?: string;
+  text?: string;
   static names(): { [key: string]: string } {
     return {
       fromLanguage: 'FromLanguage',
@@ -746,9 +304,81 @@ export class TranslateMedRequest extends $tea.Model {
   }
 }
 
+export class TranslateMedResponseBody extends $tea.Model {
+  requestId?: string;
+  data?: TranslateMedResponseBodyData;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      data: TranslateMedResponseBodyData,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class TranslateMedResponse extends $tea.Model {
-  requestId: string;
-  data: TranslateMedResponseData;
+  headers: { [key: string]: string };
+  body: TranslateMedResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: TranslateMedResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectSpineMRIRequest extends $tea.Model {
+  dataFormat?: string;
+  orgName?: string;
+  orgId?: string;
+  URLList?: DetectSpineMRIRequestURLList[];
+  static names(): { [key: string]: string } {
+    return {
+      dataFormat: 'DataFormat',
+      orgName: 'OrgName',
+      orgId: 'OrgId',
+      URLList: 'URLList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataFormat: 'string',
+      orgName: 'string',
+      orgId: 'string',
+      URLList: { 'type': 'array', 'itemType': DetectSpineMRIRequestURLList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectSpineMRIResponseBody extends $tea.Model {
+  requestId?: string;
+  data?: DetectSpineMRIResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
@@ -759,7 +389,7 @@ export class TranslateMedResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      data: TranslateMedResponseData,
+      data: DetectSpineMRIResponseBodyData,
     };
   }
 
@@ -768,14 +398,395 @@ export class TranslateMedResponse extends $tea.Model {
   }
 }
 
-export class DetectLungNoduleRequest extends $tea.Model {
-  URLList: DetectLungNoduleRequestURLList[];
-  dataFormat: string;
-  orgName: string;
-  orgId: string;
+export class DetectSpineMRIResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DetectSpineMRIResponseBody;
   static names(): { [key: string]: string } {
     return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DetectSpineMRIResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CalcCACSRequest extends $tea.Model {
+  async?: boolean;
+  dataFormat?: string;
+  orgName?: string;
+  orgId?: string;
+  dataSourceType?: string;
+  URLList?: CalcCACSRequestURLList[];
+  static names(): { [key: string]: string } {
+    return {
+      async: 'Async',
+      dataFormat: 'DataFormat',
+      orgName: 'OrgName',
+      orgId: 'OrgId',
+      dataSourceType: 'DataSourceType',
       URLList: 'URLList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      async: 'boolean',
+      dataFormat: 'string',
+      orgName: 'string',
+      orgId: 'string',
+      dataSourceType: 'string',
+      URLList: { 'type': 'array', 'itemType': CalcCACSRequestURLList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CalcCACSResponseBody extends $tea.Model {
+  requestId?: string;
+  data?: CalcCACSResponseBodyData;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      data: CalcCACSResponseBodyData,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CalcCACSResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CalcCACSResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CalcCACSResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectHipKeypointXRayRequest extends $tea.Model {
+  imageUrl?: string;
+  dataFormat?: string;
+  orgId?: string;
+  orgName?: string;
+  tracerId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      imageUrl: 'ImageUrl',
+      dataFormat: 'DataFormat',
+      orgId: 'OrgId',
+      orgName: 'OrgName',
+      tracerId: 'TracerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageUrl: 'string',
+      dataFormat: 'string',
+      orgId: 'string',
+      orgName: 'string',
+      tracerId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectHipKeypointXRayAdvanceRequest extends $tea.Model {
+  imageUrlObject: Readable;
+  dataFormat?: string;
+  orgId?: string;
+  orgName?: string;
+  tracerId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      imageUrlObject: 'ImageUrlObject',
+      dataFormat: 'DataFormat',
+      orgId: 'OrgId',
+      orgName: 'OrgName',
+      tracerId: 'TracerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageUrlObject: 'Readable',
+      dataFormat: 'string',
+      orgId: 'string',
+      orgName: 'string',
+      tracerId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectHipKeypointXRayResponseBody extends $tea.Model {
+  requestId?: string;
+  data?: DetectHipKeypointXRayResponseBodyData;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      data: DetectHipKeypointXRayResponseBodyData,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectHipKeypointXRayResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DetectHipKeypointXRayResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DetectHipKeypointXRayResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectKneeKeypointXRayRequest extends $tea.Model {
+  imageUrl?: string;
+  dataFormat?: string;
+  orgId?: string;
+  orgName?: string;
+  tracerId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      imageUrl: 'ImageUrl',
+      dataFormat: 'DataFormat',
+      orgId: 'OrgId',
+      orgName: 'OrgName',
+      tracerId: 'TracerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageUrl: 'string',
+      dataFormat: 'string',
+      orgId: 'string',
+      orgName: 'string',
+      tracerId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectKneeKeypointXRayAdvanceRequest extends $tea.Model {
+  imageUrlObject: Readable;
+  dataFormat?: string;
+  orgId?: string;
+  orgName?: string;
+  tracerId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      imageUrlObject: 'ImageUrlObject',
+      dataFormat: 'DataFormat',
+      orgId: 'OrgId',
+      orgName: 'OrgName',
+      tracerId: 'TracerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageUrlObject: 'Readable',
+      dataFormat: 'string',
+      orgId: 'string',
+      orgName: 'string',
+      tracerId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectKneeKeypointXRayResponseBody extends $tea.Model {
+  requestId?: string;
+  data?: DetectKneeKeypointXRayResponseBodyData;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      data: DetectKneeKeypointXRayResponseBodyData,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectKneeKeypointXRayResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DetectKneeKeypointXRayResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DetectKneeKeypointXRayResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunMedQARequest extends $tea.Model {
+  question?: string;
+  orgId?: string;
+  orgName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      question: 'Question',
+      orgId: 'OrgId',
+      orgName: 'OrgName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      question: 'string',
+      orgId: 'string',
+      orgName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunMedQAResponseBody extends $tea.Model {
+  requestId?: string;
+  data?: RunMedQAResponseBodyData;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      data: RunMedQAResponseBodyData,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunMedQAResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: RunMedQAResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: RunMedQAResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectKneeXRayRequest extends $tea.Model {
+  url?: string;
+  dataFormat?: string;
+  orgName?: string;
+  orgId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      url: 'Url',
       dataFormat: 'DataFormat',
       orgName: 'OrgName',
       orgId: 'OrgId',
@@ -784,7 +795,7 @@ export class DetectLungNoduleRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      URLList: { 'type': 'array', 'itemType': DetectLungNoduleRequestURLList },
+      url: 'string',
       dataFormat: 'string',
       orgName: 'string',
       orgId: 'string',
@@ -796,36 +807,14 @@ export class DetectLungNoduleRequest extends $tea.Model {
   }
 }
 
-export class DetectLungNoduleResponse extends $tea.Model {
-  requestId: string;
-  data: DetectLungNoduleResponseData;
+export class DetectKneeXRayAdvanceRequest extends $tea.Model {
+  urlObject: Readable;
+  dataFormat?: string;
+  orgName?: string;
+  orgId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
-      data: 'Data',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      data: DetectLungNoduleResponseData,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectCovid19CadRequest extends $tea.Model {
-  URLList: DetectCovid19CadRequestURLList[];
-  dataFormat: string;
-  orgName: string;
-  orgId: string;
-  static names(): { [key: string]: string } {
-    return {
-      URLList: 'URLList',
+      urlObject: 'UrlObject',
       dataFormat: 'DataFormat',
       orgName: 'OrgName',
       orgId: 'OrgId',
@@ -834,7 +823,7 @@ export class DetectCovid19CadRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      URLList: { 'type': 'array', 'itemType': DetectCovid19CadRequestURLList },
+      urlObject: 'Readable',
       dataFormat: 'string',
       orgName: 'string',
       orgId: 'string',
@@ -846,9 +835,9 @@ export class DetectCovid19CadRequest extends $tea.Model {
   }
 }
 
-export class DetectCovid19CadResponse extends $tea.Model {
-  requestId: string;
-  data: DetectCovid19CadResponseData;
+export class DetectKneeXRayResponseBody extends $tea.Model {
+  requestId?: string;
+  data?: DetectKneeXRayResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
@@ -859,7 +848,29 @@ export class DetectCovid19CadResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      data: DetectCovid19CadResponseData,
+      data: DetectKneeXRayResponseBodyData,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectKneeXRayResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DetectKneeXRayResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DetectKneeXRayResponseBody,
     };
   }
 
@@ -869,15 +880,18 @@ export class DetectCovid19CadResponse extends $tea.Model {
 }
 
 export class GetAsyncJobResultRequest extends $tea.Model {
-  jobId: string;
+  async?: boolean;
+  jobId?: string;
   static names(): { [key: string]: string } {
     return {
+      async: 'Async',
       jobId: 'JobId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      async: 'boolean',
       jobId: 'string',
     };
   }
@@ -887,9 +901,9 @@ export class GetAsyncJobResultRequest extends $tea.Model {
   }
 }
 
-export class GetAsyncJobResultResponse extends $tea.Model {
-  requestId: string;
-  data: GetAsyncJobResultResponseData;
+export class GetAsyncJobResultResponseBody extends $tea.Model {
+  requestId?: string;
+  data?: GetAsyncJobResultResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
@@ -900,7 +914,7 @@ export class GetAsyncJobResultResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      data: GetAsyncJobResultResponseData,
+      data: GetAsyncJobResultResponseBodyData,
     };
   }
 
@@ -909,8 +923,424 @@ export class GetAsyncJobResultResponse extends $tea.Model {
   }
 }
 
-export class DetectRibFractureRequestURLList extends $tea.Model {
-  URL: string;
+export class GetAsyncJobResultResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetAsyncJobResultResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetAsyncJobResultResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectRibFractureRequest extends $tea.Model {
+  async?: boolean;
+  dataFormat?: string;
+  orgName?: string;
+  orgId?: string;
+  sourceType?: string;
+  URLList?: DetectRibFractureRequestURLList[];
+  static names(): { [key: string]: string } {
+    return {
+      async: 'Async',
+      dataFormat: 'DataFormat',
+      orgName: 'OrgName',
+      orgId: 'OrgId',
+      sourceType: 'SourceType',
+      URLList: 'URLList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      async: 'boolean',
+      dataFormat: 'string',
+      orgName: 'string',
+      orgId: 'string',
+      sourceType: 'string',
+      URLList: { 'type': 'array', 'itemType': DetectRibFractureRequestURLList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectRibFractureResponseBody extends $tea.Model {
+  requestId?: string;
+  data?: DetectRibFractureResponseBodyData;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      data: DetectRibFractureResponseBodyData,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectRibFractureResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DetectRibFractureResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DetectRibFractureResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectCovid19CadRequest extends $tea.Model {
+  async?: boolean;
+  dataFormat?: string;
+  orgName?: string;
+  orgId?: string;
+  URLList?: DetectCovid19CadRequestURLList[];
+  static names(): { [key: string]: string } {
+    return {
+      async: 'Async',
+      dataFormat: 'DataFormat',
+      orgName: 'OrgName',
+      orgId: 'OrgId',
+      URLList: 'URLList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      async: 'boolean',
+      dataFormat: 'string',
+      orgName: 'string',
+      orgId: 'string',
+      URLList: { 'type': 'array', 'itemType': DetectCovid19CadRequestURLList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectCovid19CadResponseBody extends $tea.Model {
+  requestId?: string;
+  data?: DetectCovid19CadResponseBodyData;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      data: DetectCovid19CadResponseBodyData,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectCovid19CadResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DetectCovid19CadResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DetectCovid19CadResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScreenChestCTRequest extends $tea.Model {
+  async?: boolean;
+  dataFormat?: string;
+  orgName?: string;
+  orgId?: string;
+  URLList?: ScreenChestCTRequestURLList[];
+  static names(): { [key: string]: string } {
+    return {
+      async: 'Async',
+      dataFormat: 'DataFormat',
+      orgName: 'OrgName',
+      orgId: 'OrgId',
+      URLList: 'URLList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      async: 'boolean',
+      dataFormat: 'string',
+      orgName: 'string',
+      orgId: 'string',
+      URLList: { 'type': 'array', 'itemType': ScreenChestCTRequestURLList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScreenChestCTResponseBody extends $tea.Model {
+  requestId?: string;
+  data?: ScreenChestCTResponseBodyData;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      data: ScreenChestCTResponseBodyData,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScreenChestCTResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ScreenChestCTResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ScreenChestCTResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectSkinDiseaseRequest extends $tea.Model {
+  url?: string;
+  orgId?: string;
+  orgName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      url: 'Url',
+      orgId: 'OrgId',
+      orgName: 'OrgName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      url: 'string',
+      orgId: 'string',
+      orgName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectSkinDiseaseAdvanceRequest extends $tea.Model {
+  urlObject: Readable;
+  orgId?: string;
+  orgName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      urlObject: 'UrlObject',
+      orgId: 'OrgId',
+      orgName: 'OrgName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      urlObject: 'Readable',
+      orgId: 'string',
+      orgName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectSkinDiseaseResponseBody extends $tea.Model {
+  requestId?: string;
+  data?: DetectSkinDiseaseResponseBodyData;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      data: DetectSkinDiseaseResponseBodyData,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectSkinDiseaseResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DetectSkinDiseaseResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DetectSkinDiseaseResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ClassifyFNFResponseBodyDataFracturesTag extends $tea.Model {
+  label?: string;
+  static names(): { [key: string]: string } {
+    return {
+      label: 'Label',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      label: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ClassifyFNFResponseBodyDataFractures extends $tea.Model {
+  value?: number;
+  boxes?: number[];
+  tag?: ClassifyFNFResponseBodyDataFracturesTag;
+  static names(): { [key: string]: string } {
+    return {
+      value: 'Value',
+      boxes: 'Boxes',
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      value: 'number',
+      boxes: { 'type': 'array', 'itemType': 'number' },
+      tag: ClassifyFNFResponseBodyDataFracturesTag,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ClassifyFNFResponseBodyData extends $tea.Model {
+  fractures?: ClassifyFNFResponseBodyDataFractures[];
+  imageUrl?: string;
+  orgId?: string;
+  orgName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fractures: 'Fractures',
+      imageUrl: 'ImageUrl',
+      orgId: 'OrgId',
+      orgName: 'OrgName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fractures: { 'type': 'array', 'itemType': ClassifyFNFResponseBodyDataFractures },
+      imageUrl: 'string',
+      orgId: 'string',
+      orgName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectLungNoduleRequestURLList extends $tea.Model {
+  URL?: string;
   static names(): { [key: string]: string } {
     return {
       URL: 'URL',
@@ -928,134 +1358,56 @@ export class DetectRibFractureRequestURLList extends $tea.Model {
   }
 }
 
-export class DetectRibFractureResponseDataDetections extends $tea.Model {
-  fractureId: number;
-  fractureConfidence: number;
-  fractureCategory: string;
-  coordinates: number[];
-  coordinateImage: number[];
+export class DetectLungNoduleResponseBodyDataSeriesElements extends $tea.Model {
+  z?: number;
+  lobe?: string;
+  meanValue?: number;
+  imageZ?: number;
+  lung?: string;
+  confidence?: number;
+  SOPInstanceUID?: string;
+  imageX?: number;
+  y?: number;
+  category?: string;
+  volume?: number;
+  imageY?: number;
+  diameter?: number;
+  x?: number;
   static names(): { [key: string]: string } {
     return {
-      fractureId: 'FractureId',
-      fractureConfidence: 'FractureConfidence',
-      fractureCategory: 'FractureCategory',
-      coordinates: 'Coordinates',
-      coordinateImage: 'CoordinateImage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      fractureId: 'number',
-      fractureConfidence: 'number',
-      fractureCategory: 'string',
-      coordinates: { 'type': 'array', 'itemType': 'number' },
-      coordinateImage: { 'type': 'array', 'itemType': 'number' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectRibFractureResponseData extends $tea.Model {
-  resultURL: string;
-  detections: DetectRibFractureResponseDataDetections[];
-  spacing: number[];
-  origin: number[];
-  static names(): { [key: string]: string } {
-    return {
-      resultURL: 'ResultURL',
-      detections: 'Detections',
-      spacing: 'Spacing',
-      origin: 'Origin',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      resultURL: 'string',
-      detections: { 'type': 'array', 'itemType': DetectRibFractureResponseDataDetections },
-      spacing: { 'type': 'array', 'itemType': 'number' },
-      origin: { 'type': 'array', 'itemType': 'number' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ScreenChestCTRequestURLList extends $tea.Model {
-  URL: string;
-  static names(): { [key: string]: string } {
-    return {
-      URL: 'URL',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      URL: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ScreenChestCTResponseDataLungNoduleSeriesElements extends $tea.Model {
-  category: string;
-  confidence: number;
-  diameter: number;
-  lobe: string;
-  lung: string;
-  x: number;
-  z: number;
-  y: number;
-  imageX: number;
-  imageY: number;
-  imageZ: number;
-  SOPInstanceUID: string;
-  volume: number;
-  meanValue: number;
-  static names(): { [key: string]: string } {
-    return {
-      category: 'Category',
-      confidence: 'Confidence',
-      diameter: 'Diameter',
-      lobe: 'Lobe',
-      lung: 'Lung',
-      x: 'X',
       z: 'Z',
-      y: 'Y',
-      imageX: 'ImageX',
-      imageY: 'ImageY',
-      imageZ: 'ImageZ',
-      SOPInstanceUID: 'SOPInstanceUID',
-      volume: 'Volume',
+      lobe: 'Lobe',
       meanValue: 'MeanValue',
+      imageZ: 'ImageZ',
+      lung: 'Lung',
+      confidence: 'Confidence',
+      SOPInstanceUID: 'SOPInstanceUID',
+      imageX: 'ImageX',
+      y: 'Y',
+      category: 'Category',
+      volume: 'Volume',
+      imageY: 'ImageY',
+      diameter: 'Diameter',
+      x: 'X',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      category: 'string',
-      confidence: 'number',
-      diameter: 'number',
-      lobe: 'string',
-      lung: 'string',
-      x: 'number',
       z: 'number',
-      y: 'number',
-      imageX: 'number',
-      imageY: 'number',
-      imageZ: 'number',
-      SOPInstanceUID: 'string',
-      volume: 'number',
+      lobe: 'string',
       meanValue: 'number',
+      imageZ: 'number',
+      lung: 'string',
+      confidence: 'number',
+      SOPInstanceUID: 'string',
+      imageX: 'number',
+      y: 'number',
+      category: 'string',
+      volume: 'number',
+      imageY: 'number',
+      diameter: 'number',
+      x: 'number',
     };
   }
 
@@ -1064,18 +1416,18 @@ export class ScreenChestCTResponseDataLungNoduleSeriesElements extends $tea.Mode
   }
 }
 
-export class ScreenChestCTResponseDataLungNoduleSeries extends $tea.Model {
-  seriesInstanceUid: string;
-  report: string;
-  elements: ScreenChestCTResponseDataLungNoduleSeriesElements[];
-  origin: number[];
-  spacing: number[];
+export class DetectLungNoduleResponseBodyDataSeries extends $tea.Model {
+  seriesInstanceUid?: string;
+  elements?: DetectLungNoduleResponseBodyDataSeriesElements[];
+  origin?: number[];
+  report?: string;
+  spacing?: number[];
   static names(): { [key: string]: string } {
     return {
       seriesInstanceUid: 'SeriesInstanceUid',
-      report: 'Report',
       elements: 'Elements',
       origin: 'Origin',
+      report: 'Report',
       spacing: 'Spacing',
     };
   }
@@ -1083,9 +1435,9 @@ export class ScreenChestCTResponseDataLungNoduleSeries extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       seriesInstanceUid: 'string',
-      report: 'string',
-      elements: { 'type': 'array', 'itemType': ScreenChestCTResponseDataLungNoduleSeriesElements },
+      elements: { 'type': 'array', 'itemType': DetectLungNoduleResponseBodyDataSeriesElements },
       origin: { 'type': 'array', 'itemType': 'number' },
+      report: 'string',
       spacing: { 'type': 'array', 'itemType': 'number' },
     };
   }
@@ -1095,8 +1447,8 @@ export class ScreenChestCTResponseDataLungNoduleSeries extends $tea.Model {
   }
 }
 
-export class ScreenChestCTResponseDataLungNodule extends $tea.Model {
-  series: ScreenChestCTResponseDataLungNoduleSeries[];
+export class DetectLungNoduleResponseBodyData extends $tea.Model {
+  series?: DetectLungNoduleResponseBodyDataSeries[];
   static names(): { [key: string]: string } {
     return {
       series: 'Series',
@@ -1105,273 +1457,7 @@ export class ScreenChestCTResponseDataLungNodule extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      series: { 'type': 'array', 'itemType': ScreenChestCTResponseDataLungNoduleSeries },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ScreenChestCTResponseDataCACS extends $tea.Model {
-  score: string;
-  resultUrl: string;
-  static names(): { [key: string]: string } {
-    return {
-      score: 'Score',
-      resultUrl: 'ResultUrl',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      score: 'string',
-      resultUrl: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ScreenChestCTResponseDataCovid extends $tea.Model {
-  newProbability: string;
-  normalProbability: string;
-  otherProbability: string;
-  lesionRatio: string;
-  mask: string;
-  static names(): { [key: string]: string } {
-    return {
-      newProbability: 'NewProbability',
-      normalProbability: 'NormalProbability',
-      otherProbability: 'OtherProbability',
-      lesionRatio: 'LesionRatio',
-      mask: 'Mask',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      newProbability: 'string',
-      normalProbability: 'string',
-      otherProbability: 'string',
-      lesionRatio: 'string',
-      mask: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ScreenChestCTResponseData extends $tea.Model {
-  lungNodule: ScreenChestCTResponseDataLungNodule;
-  CACS: ScreenChestCTResponseDataCACS;
-  covid: ScreenChestCTResponseDataCovid;
-  static names(): { [key: string]: string } {
-    return {
-      lungNodule: 'LungNodule',
-      CACS: 'CACS',
-      covid: 'Covid',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      lungNodule: ScreenChestCTResponseDataLungNodule,
-      CACS: ScreenChestCTResponseDataCACS,
-      covid: ScreenChestCTResponseDataCovid,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectSkinDiseaseResponseData extends $tea.Model {
-  results: { [key: string]: any };
-  static names(): { [key: string]: string } {
-    return {
-      results: 'Results',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      results: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RunMedQAResponseData extends $tea.Model {
-  answer: string;
-  similarQuestion: string[];
-  static names(): { [key: string]: string } {
-    return {
-      answer: 'Answer',
-      similarQuestion: 'SimilarQuestion',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      answer: 'string',
-      similarQuestion: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectKneeKeypointXRayResponseDataKeyPointsTag extends $tea.Model {
-  direction: string;
-  label: string;
-  static names(): { [key: string]: string } {
-    return {
-      direction: 'Direction',
-      label: 'Label',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      direction: 'string',
-      label: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectKneeKeypointXRayResponseDataKeyPoints extends $tea.Model {
-  value: number;
-  tag: DetectKneeKeypointXRayResponseDataKeyPointsTag;
-  coordinates: number[];
-  static names(): { [key: string]: string } {
-    return {
-      value: 'Value',
-      tag: 'Tag',
-      coordinates: 'Coordinates',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      value: 'number',
-      tag: DetectKneeKeypointXRayResponseDataKeyPointsTag,
-      coordinates: { 'type': 'array', 'itemType': 'number' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectKneeKeypointXRayResponseData extends $tea.Model {
-  imageUrl: string;
-  orgId: string;
-  orgName: string;
-  keyPoints: DetectKneeKeypointXRayResponseDataKeyPoints[];
-  static names(): { [key: string]: string } {
-    return {
-      imageUrl: 'ImageUrl',
-      orgId: 'OrgId',
-      orgName: 'OrgName',
-      keyPoints: 'KeyPoints',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageUrl: 'string',
-      orgId: 'string',
-      orgName: 'string',
-      keyPoints: { 'type': 'array', 'itemType': DetectKneeKeypointXRayResponseDataKeyPoints },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ClassifyFNFResponseDataFracturesTag extends $tea.Model {
-  label: string;
-  static names(): { [key: string]: string } {
-    return {
-      label: 'Label',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      label: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ClassifyFNFResponseDataFractures extends $tea.Model {
-  value: number;
-  tag: ClassifyFNFResponseDataFracturesTag;
-  boxes: number[];
-  static names(): { [key: string]: string } {
-    return {
-      value: 'Value',
-      tag: 'Tag',
-      boxes: 'Boxes',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      value: 'number',
-      tag: ClassifyFNFResponseDataFracturesTag,
-      boxes: { 'type': 'array', 'itemType': 'number' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ClassifyFNFResponseData extends $tea.Model {
-  imageUrl: string;
-  orgId: string;
-  orgName: string;
-  fractures: ClassifyFNFResponseDataFractures[];
-  static names(): { [key: string]: string } {
-    return {
-      imageUrl: 'ImageUrl',
-      orgId: 'OrgId',
-      orgName: 'OrgName',
-      fractures: 'Fractures',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageUrl: 'string',
-      orgId: 'string',
-      orgName: 'string',
-      fractures: { 'type': 'array', 'itemType': ClassifyFNFResponseDataFractures },
+      series: { 'type': 'array', 'itemType': DetectLungNoduleResponseBodyDataSeries },
     };
   }
 
@@ -1381,7 +1467,7 @@ export class ClassifyFNFResponseData extends $tea.Model {
 }
 
 export class RunCTRegistrationRequestReferenceList extends $tea.Model {
-  referenceURL: string;
+  referenceURL?: string;
   static names(): { [key: string]: string } {
     return {
       referenceURL: 'ReferenceURL',
@@ -1400,7 +1486,7 @@ export class RunCTRegistrationRequestReferenceList extends $tea.Model {
 }
 
 export class RunCTRegistrationRequestFloatingList extends $tea.Model {
-  floatingURL: string;
+  floatingURL?: string;
   static names(): { [key: string]: string } {
     return {
       floatingURL: 'FloatingURL',
@@ -1418,9 +1504,9 @@ export class RunCTRegistrationRequestFloatingList extends $tea.Model {
   }
 }
 
-export class RunCTRegistrationResponseData extends $tea.Model {
-  DUrl: string;
-  NUrl: string;
+export class RunCTRegistrationResponseBodyData extends $tea.Model {
+  DUrl?: string;
+  NUrl?: string;
   static names(): { [key: string]: string } {
     return {
       DUrl: 'DUrl',
@@ -1440,9 +1526,163 @@ export class RunCTRegistrationResponseData extends $tea.Model {
   }
 }
 
-export class DetectHipKeypointXRayResponseDataKeyPointsTag extends $tea.Model {
-  direction: string;
-  label: string;
+export class TranslateMedResponseBodyData extends $tea.Model {
+  words?: number;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      words: 'Words',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      words: 'number',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectSpineMRIRequestURLList extends $tea.Model {
+  URL?: string;
+  static names(): { [key: string]: string } {
+    return {
+      URL: 'URL',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      URL: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectSpineMRIResponseBodyDataDiscs extends $tea.Model {
+  identification?: string;
+  disease?: string;
+  location?: number[];
+  static names(): { [key: string]: string } {
+    return {
+      identification: 'Identification',
+      disease: 'Disease',
+      location: 'Location',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      identification: 'string',
+      disease: 'string',
+      location: { 'type': 'array', 'itemType': 'number' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectSpineMRIResponseBodyDataVertebras extends $tea.Model {
+  identification?: string;
+  disease?: string;
+  location?: number[];
+  static names(): { [key: string]: string } {
+    return {
+      identification: 'Identification',
+      disease: 'Disease',
+      location: 'Location',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      identification: 'string',
+      disease: 'string',
+      location: { 'type': 'array', 'itemType': 'number' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectSpineMRIResponseBodyData extends $tea.Model {
+  discs?: DetectSpineMRIResponseBodyDataDiscs[];
+  vertebras?: DetectSpineMRIResponseBodyDataVertebras[];
+  static names(): { [key: string]: string } {
+    return {
+      discs: 'Discs',
+      vertebras: 'Vertebras',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      discs: { 'type': 'array', 'itemType': DetectSpineMRIResponseBodyDataDiscs },
+      vertebras: { 'type': 'array', 'itemType': DetectSpineMRIResponseBodyDataVertebras },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CalcCACSRequestURLList extends $tea.Model {
+  URL?: string;
+  static names(): { [key: string]: string } {
+    return {
+      URL: 'URL',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      URL: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CalcCACSResponseBodyData extends $tea.Model {
+  resultUrl?: string;
+  score?: string;
+  static names(): { [key: string]: string } {
+    return {
+      resultUrl: 'ResultUrl',
+      score: 'Score',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resultUrl: 'string',
+      score: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectHipKeypointXRayResponseBodyDataKeyPointsTag extends $tea.Model {
+  direction?: string;
+  label?: string;
   static names(): { [key: string]: string } {
     return {
       direction: 'Direction',
@@ -1462,23 +1702,23 @@ export class DetectHipKeypointXRayResponseDataKeyPointsTag extends $tea.Model {
   }
 }
 
-export class DetectHipKeypointXRayResponseDataKeyPoints extends $tea.Model {
-  value: number;
-  tag: DetectHipKeypointXRayResponseDataKeyPointsTag;
-  coordinates: number[];
+export class DetectHipKeypointXRayResponseBodyDataKeyPoints extends $tea.Model {
+  value?: number;
+  coordinates?: number[];
+  tag?: DetectHipKeypointXRayResponseBodyDataKeyPointsTag;
   static names(): { [key: string]: string } {
     return {
       value: 'Value',
-      tag: 'Tag',
       coordinates: 'Coordinates',
+      tag: 'Tag',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       value: 'number',
-      tag: DetectHipKeypointXRayResponseDataKeyPointsTag,
       coordinates: { 'type': 'array', 'itemType': 'number' },
+      tag: DetectHipKeypointXRayResponseBodyDataKeyPointsTag,
     };
   }
 
@@ -1487,26 +1727,26 @@ export class DetectHipKeypointXRayResponseDataKeyPoints extends $tea.Model {
   }
 }
 
-export class DetectHipKeypointXRayResponseData extends $tea.Model {
-  imageUrl: string;
-  orgId: string;
-  orgName: string;
-  keyPoints: DetectHipKeypointXRayResponseDataKeyPoints[];
+export class DetectHipKeypointXRayResponseBodyData extends $tea.Model {
+  keyPoints?: DetectHipKeypointXRayResponseBodyDataKeyPoints[];
+  imageUrl?: string;
+  orgId?: string;
+  orgName?: string;
   static names(): { [key: string]: string } {
     return {
+      keyPoints: 'KeyPoints',
       imageUrl: 'ImageUrl',
       orgId: 'OrgId',
       orgName: 'OrgName',
-      keyPoints: 'KeyPoints',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      keyPoints: { 'type': 'array', 'itemType': DetectHipKeypointXRayResponseBodyDataKeyPoints },
       imageUrl: 'string',
       orgId: 'string',
       orgName: 'string',
-      keyPoints: { 'type': 'array', 'itemType': DetectHipKeypointXRayResponseDataKeyPoints },
     };
   }
 
@@ -1515,17 +1755,20 @@ export class DetectHipKeypointXRayResponseData extends $tea.Model {
   }
 }
 
-export class CalcCACSRequestURLList extends $tea.Model {
-  URL: string;
+export class DetectKneeKeypointXRayResponseBodyDataKeyPointsTag extends $tea.Model {
+  direction?: string;
+  label?: string;
   static names(): { [key: string]: string } {
     return {
-      URL: 'URL',
+      direction: 'Direction',
+      label: 'Label',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      URL: 'string',
+      direction: 'string',
+      label: 'string',
     };
   }
 
@@ -1534,20 +1777,23 @@ export class CalcCACSRequestURLList extends $tea.Model {
   }
 }
 
-export class CalcCACSResponseData extends $tea.Model {
-  score: string;
-  resultUrl: string;
+export class DetectKneeKeypointXRayResponseBodyDataKeyPoints extends $tea.Model {
+  value?: number;
+  coordinates?: number[];
+  tag?: DetectKneeKeypointXRayResponseBodyDataKeyPointsTag;
   static names(): { [key: string]: string } {
     return {
-      score: 'Score',
-      resultUrl: 'ResultUrl',
+      value: 'Value',
+      coordinates: 'Coordinates',
+      tag: 'Tag',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      score: 'string',
-      resultUrl: 'string',
+      value: 'number',
+      coordinates: { 'type': 'array', 'itemType': 'number' },
+      tag: DetectKneeKeypointXRayResponseBodyDataKeyPointsTag,
     };
   }
 
@@ -1556,8 +1802,58 @@ export class CalcCACSResponseData extends $tea.Model {
   }
 }
 
-export class DetectKneeXRayResponseDataKLDetections extends $tea.Model {
-  detections: number[];
+export class DetectKneeKeypointXRayResponseBodyData extends $tea.Model {
+  keyPoints?: DetectKneeKeypointXRayResponseBodyDataKeyPoints[];
+  imageUrl?: string;
+  orgId?: string;
+  orgName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyPoints: 'KeyPoints',
+      imageUrl: 'ImageUrl',
+      orgId: 'OrgId',
+      orgName: 'OrgName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyPoints: { 'type': 'array', 'itemType': DetectKneeKeypointXRayResponseBodyDataKeyPoints },
+      imageUrl: 'string',
+      orgId: 'string',
+      orgName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunMedQAResponseBodyData extends $tea.Model {
+  answer?: string;
+  similarQuestion?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      answer: 'Answer',
+      similarQuestion: 'SimilarQuestion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      answer: 'string',
+      similarQuestion: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectKneeXRayResponseBodyDataKLDetections extends $tea.Model {
+  detections?: number[];
   static names(): { [key: string]: string } {
     return {
       detections: 'Detections',
@@ -1575,8 +1871,8 @@ export class DetectKneeXRayResponseDataKLDetections extends $tea.Model {
   }
 }
 
-export class DetectKneeXRayResponseData extends $tea.Model {
-  KLDetections: DetectKneeXRayResponseDataKLDetections[];
+export class DetectKneeXRayResponseBodyData extends $tea.Model {
+  KLDetections?: DetectKneeXRayResponseBodyDataKLDetections[];
   static names(): { [key: string]: string } {
     return {
       KLDetections: 'KLDetections',
@@ -1585,7 +1881,7 @@ export class DetectKneeXRayResponseData extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      KLDetections: { 'type': 'array', 'itemType': DetectKneeXRayResponseDataKLDetections },
+      KLDetections: { 'type': 'array', 'itemType': DetectKneeXRayResponseBodyDataKLDetections },
     };
   }
 
@@ -1594,8 +1890,39 @@ export class DetectKneeXRayResponseData extends $tea.Model {
   }
 }
 
-export class DetectSpineMRIRequestURLList extends $tea.Model {
-  URL: string;
+export class GetAsyncJobResultResponseBodyData extends $tea.Model {
+  status?: string;
+  errorMessage?: string;
+  result?: string;
+  errorCode?: string;
+  jobId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      status: 'Status',
+      errorMessage: 'ErrorMessage',
+      result: 'Result',
+      errorCode: 'ErrorCode',
+      jobId: 'JobId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      status: 'string',
+      errorMessage: 'string',
+      result: 'string',
+      errorCode: 'string',
+      jobId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectRibFractureRequestURLList extends $tea.Model {
+  URL?: string;
   static names(): { [key: string]: string } {
     return {
       URL: 'URL',
@@ -1613,23 +1940,29 @@ export class DetectSpineMRIRequestURLList extends $tea.Model {
   }
 }
 
-export class DetectSpineMRIResponseDataDiscs extends $tea.Model {
-  disease: string;
-  identification: string;
-  location: number[];
+export class DetectRibFractureResponseBodyDataDetections extends $tea.Model {
+  coordinates?: number[];
+  fractureId?: number;
+  coordinateImage?: number[];
+  fractureConfidence?: number;
+  fractureCategory?: string;
   static names(): { [key: string]: string } {
     return {
-      disease: 'Disease',
-      identification: 'Identification',
-      location: 'Location',
+      coordinates: 'Coordinates',
+      fractureId: 'FractureId',
+      coordinateImage: 'CoordinateImage',
+      fractureConfidence: 'FractureConfidence',
+      fractureCategory: 'FractureCategory',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      disease: 'string',
-      identification: 'string',
-      location: { 'type': 'array', 'itemType': 'number' },
+      coordinates: { 'type': 'array', 'itemType': 'number' },
+      fractureId: 'number',
+      coordinateImage: { 'type': 'array', 'itemType': 'number' },
+      fractureConfidence: 'number',
+      fractureCategory: 'string',
     };
   }
 
@@ -1638,174 +1971,25 @@ export class DetectSpineMRIResponseDataDiscs extends $tea.Model {
   }
 }
 
-export class DetectSpineMRIResponseDataVertebras extends $tea.Model {
-  disease: string;
-  identification: string;
-  location: number[];
+export class DetectRibFractureResponseBodyData extends $tea.Model {
+  detections?: DetectRibFractureResponseBodyDataDetections[];
+  origin?: number[];
+  resultURL?: string;
+  spacing?: number[];
   static names(): { [key: string]: string } {
     return {
-      disease: 'Disease',
-      identification: 'Identification',
-      location: 'Location',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      disease: 'string',
-      identification: 'string',
-      location: { 'type': 'array', 'itemType': 'number' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectSpineMRIResponseData extends $tea.Model {
-  discs: DetectSpineMRIResponseDataDiscs[];
-  vertebras: DetectSpineMRIResponseDataVertebras[];
-  static names(): { [key: string]: string } {
-    return {
-      discs: 'Discs',
-      vertebras: 'Vertebras',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      discs: { 'type': 'array', 'itemType': DetectSpineMRIResponseDataDiscs },
-      vertebras: { 'type': 'array', 'itemType': DetectSpineMRIResponseDataVertebras },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TranslateMedResponseData extends $tea.Model {
-  text: string;
-  words: number;
-  static names(): { [key: string]: string } {
-    return {
-      text: 'Text',
-      words: 'Words',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      text: 'string',
-      words: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectLungNoduleRequestURLList extends $tea.Model {
-  URL: string;
-  static names(): { [key: string]: string } {
-    return {
-      URL: 'URL',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      URL: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectLungNoduleResponseDataSeriesElements extends $tea.Model {
-  category: string;
-  confidence: number;
-  diameter: number;
-  lobe: string;
-  lung: string;
-  x: number;
-  z: number;
-  y: number;
-  imageX: number;
-  imageY: number;
-  imageZ: number;
-  SOPInstanceUID: string;
-  volume: number;
-  meanValue: number;
-  static names(): { [key: string]: string } {
-    return {
-      category: 'Category',
-      confidence: 'Confidence',
-      diameter: 'Diameter',
-      lobe: 'Lobe',
-      lung: 'Lung',
-      x: 'X',
-      z: 'Z',
-      y: 'Y',
-      imageX: 'ImageX',
-      imageY: 'ImageY',
-      imageZ: 'ImageZ',
-      SOPInstanceUID: 'SOPInstanceUID',
-      volume: 'Volume',
-      meanValue: 'MeanValue',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      category: 'string',
-      confidence: 'number',
-      diameter: 'number',
-      lobe: 'string',
-      lung: 'string',
-      x: 'number',
-      z: 'number',
-      y: 'number',
-      imageX: 'number',
-      imageY: 'number',
-      imageZ: 'number',
-      SOPInstanceUID: 'string',
-      volume: 'number',
-      meanValue: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectLungNoduleResponseDataSeries extends $tea.Model {
-  seriesInstanceUid: string;
-  report: string;
-  elements: DetectLungNoduleResponseDataSeriesElements[];
-  origin: number[];
-  spacing: number[];
-  static names(): { [key: string]: string } {
-    return {
-      seriesInstanceUid: 'SeriesInstanceUid',
-      report: 'Report',
-      elements: 'Elements',
+      detections: 'Detections',
       origin: 'Origin',
+      resultURL: 'ResultURL',
       spacing: 'Spacing',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      seriesInstanceUid: 'string',
-      report: 'string',
-      elements: { 'type': 'array', 'itemType': DetectLungNoduleResponseDataSeriesElements },
+      detections: { 'type': 'array', 'itemType': DetectRibFractureResponseBodyDataDetections },
       origin: { 'type': 'array', 'itemType': 'number' },
+      resultURL: 'string',
       spacing: { 'type': 'array', 'itemType': 'number' },
     };
   }
@@ -1815,27 +1999,8 @@ export class DetectLungNoduleResponseDataSeries extends $tea.Model {
   }
 }
 
-export class DetectLungNoduleResponseData extends $tea.Model {
-  series: DetectLungNoduleResponseDataSeries[];
-  static names(): { [key: string]: string } {
-    return {
-      series: 'Series',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      series: { 'type': 'array', 'itemType': DetectLungNoduleResponseDataSeries },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DetectCovid19CadRequestURLList extends $tea.Model {
-  URL: string;
+  URL?: string;
   static names(): { [key: string]: string } {
     return {
       URL: 'URL',
@@ -1853,28 +2018,28 @@ export class DetectCovid19CadRequestURLList extends $tea.Model {
   }
 }
 
-export class DetectCovid19CadResponseData extends $tea.Model {
-  newProbability: string;
-  normalProbability: string;
-  otherProbability: string;
-  lesionRatio: string;
-  mask: string;
+export class DetectCovid19CadResponseBodyData extends $tea.Model {
+  normalProbability?: string;
+  newProbability?: string;
+  lesionRatio?: string;
+  otherProbability?: string;
+  mask?: string;
   static names(): { [key: string]: string } {
     return {
-      newProbability: 'NewProbability',
       normalProbability: 'NormalProbability',
-      otherProbability: 'OtherProbability',
+      newProbability: 'NewProbability',
       lesionRatio: 'LesionRatio',
+      otherProbability: 'OtherProbability',
       mask: 'Mask',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      newProbability: 'string',
       normalProbability: 'string',
-      otherProbability: 'string',
+      newProbability: 'string',
       lesionRatio: 'string',
+      otherProbability: 'string',
       mask: 'string',
     };
   }
@@ -1884,29 +2049,222 @@ export class DetectCovid19CadResponseData extends $tea.Model {
   }
 }
 
-export class GetAsyncJobResultResponseData extends $tea.Model {
-  jobId: string;
-  status: string;
-  result: string;
-  errorCode: string;
-  errorMessage: string;
+export class ScreenChestCTRequestURLList extends $tea.Model {
+  URL?: string;
   static names(): { [key: string]: string } {
     return {
-      jobId: 'JobId',
-      status: 'Status',
-      result: 'Result',
-      errorCode: 'ErrorCode',
-      errorMessage: 'ErrorMessage',
+      URL: 'URL',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      jobId: 'string',
-      status: 'string',
-      result: 'string',
-      errorCode: 'string',
-      errorMessage: 'string',
+      URL: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScreenChestCTResponseBodyDataLungNoduleSeriesElements extends $tea.Model {
+  z?: number;
+  lobe?: string;
+  meanValue?: number;
+  imageZ?: number;
+  lung?: string;
+  confidence?: number;
+  SOPInstanceUID?: string;
+  imageX?: number;
+  y?: number;
+  category?: string;
+  volume?: number;
+  imageY?: number;
+  diameter?: number;
+  x?: number;
+  static names(): { [key: string]: string } {
+    return {
+      z: 'Z',
+      lobe: 'Lobe',
+      meanValue: 'MeanValue',
+      imageZ: 'ImageZ',
+      lung: 'Lung',
+      confidence: 'Confidence',
+      SOPInstanceUID: 'SOPInstanceUID',
+      imageX: 'ImageX',
+      y: 'Y',
+      category: 'Category',
+      volume: 'Volume',
+      imageY: 'ImageY',
+      diameter: 'Diameter',
+      x: 'X',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      z: 'number',
+      lobe: 'string',
+      meanValue: 'number',
+      imageZ: 'number',
+      lung: 'string',
+      confidence: 'number',
+      SOPInstanceUID: 'string',
+      imageX: 'number',
+      y: 'number',
+      category: 'string',
+      volume: 'number',
+      imageY: 'number',
+      diameter: 'number',
+      x: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScreenChestCTResponseBodyDataLungNoduleSeries extends $tea.Model {
+  seriesInstanceUid?: string;
+  elements?: ScreenChestCTResponseBodyDataLungNoduleSeriesElements[];
+  origin?: number[];
+  report?: string;
+  spacing?: number[];
+  static names(): { [key: string]: string } {
+    return {
+      seriesInstanceUid: 'SeriesInstanceUid',
+      elements: 'Elements',
+      origin: 'Origin',
+      report: 'Report',
+      spacing: 'Spacing',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      seriesInstanceUid: 'string',
+      elements: { 'type': 'array', 'itemType': ScreenChestCTResponseBodyDataLungNoduleSeriesElements },
+      origin: { 'type': 'array', 'itemType': 'number' },
+      report: 'string',
+      spacing: { 'type': 'array', 'itemType': 'number' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScreenChestCTResponseBodyDataLungNodule extends $tea.Model {
+  series?: ScreenChestCTResponseBodyDataLungNoduleSeries[];
+  static names(): { [key: string]: string } {
+    return {
+      series: 'Series',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      series: { 'type': 'array', 'itemType': ScreenChestCTResponseBodyDataLungNoduleSeries },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScreenChestCTResponseBodyDataCACS extends $tea.Model {
+  resultUrl?: string;
+  score?: string;
+  static names(): { [key: string]: string } {
+    return {
+      resultUrl: 'ResultUrl',
+      score: 'Score',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resultUrl: 'string',
+      score: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScreenChestCTResponseBodyDataCovid extends $tea.Model {
+  normalProbability?: string;
+  newProbability?: string;
+  lesionRatio?: string;
+  otherProbability?: string;
+  mask?: string;
+  static names(): { [key: string]: string } {
+    return {
+      normalProbability: 'NormalProbability',
+      newProbability: 'NewProbability',
+      lesionRatio: 'LesionRatio',
+      otherProbability: 'OtherProbability',
+      mask: 'Mask',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      normalProbability: 'string',
+      newProbability: 'string',
+      lesionRatio: 'string',
+      otherProbability: 'string',
+      mask: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScreenChestCTResponseBodyData extends $tea.Model {
+  lungNodule?: ScreenChestCTResponseBodyDataLungNodule;
+  CACS?: ScreenChestCTResponseBodyDataCACS;
+  covid?: ScreenChestCTResponseBodyDataCovid;
+  static names(): { [key: string]: string } {
+    return {
+      lungNodule: 'LungNodule',
+      CACS: 'CACS',
+      covid: 'Covid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      lungNodule: ScreenChestCTResponseBodyDataLungNodule,
+      CACS: ScreenChestCTResponseBodyDataCACS,
+      covid: ScreenChestCTResponseBodyDataCovid,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectSkinDiseaseResponseBodyData extends $tea.Model {
+  results?: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      results: 'Results',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      results: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
     };
   }
 
@@ -1916,9 +2274,9 @@ export class GetAsyncJobResultResponseData extends $tea.Model {
 }
 
 
-export default class Client extends RPC {
+export default class Client extends OpenApi {
 
-  constructor(config: $RPC.Config) {
+  constructor(config: $OpenApi.Config) {
     super(config);
     this._endpointRule = "regional";
     this.checkConfig(config);
@@ -1926,182 +2284,29 @@ export default class Client extends RPC {
   }
 
 
-  async detectRibFracture(request: DetectRibFractureRequest, runtime: $Util.RuntimeOptions): Promise<DetectRibFractureResponse> {
+  getEndpoint(productId: string, regionId: string, endpointRule: string, network: string, suffix: string, endpointMap: {[key: string ]: string}, endpoint: string): string {
+    if (!Util.empty(endpoint)) {
+      return endpoint;
+    }
+
+    if (!Util.isUnset(endpointMap) && !Util.empty(endpointMap[regionId])) {
+      return endpointMap[regionId];
+    }
+
+    return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+  }
+
+  async classifyFNFWithOptions(request: ClassifyFNFRequest, runtime: $Util.RuntimeOptions): Promise<ClassifyFNFResponse> {
     Util.validateModel(request);
-    return $tea.cast<DetectRibFractureResponse>(await this.doRequest("DetectRibFracture", "HTTPS", "POST", "2020-03-20", "AK", null, $tea.toMap(request), runtime), new DetectRibFractureResponse({}));
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<ClassifyFNFResponse>(await this.doRPCRequest("ClassifyFNF", "2020-03-20", "HTTPS", "POST", "AK", "json", req, runtime), new ClassifyFNFResponse({}));
   }
 
-  async detectRibFractureSimply(request: DetectRibFractureRequest): Promise<DetectRibFractureResponse> {
+  async classifyFNF(request: ClassifyFNFRequest): Promise<ClassifyFNFResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.detectRibFracture(request, runtime);
-  }
-
-  async screenChestCT(request: ScreenChestCTRequest, runtime: $Util.RuntimeOptions): Promise<ScreenChestCTResponse> {
-    Util.validateModel(request);
-    return $tea.cast<ScreenChestCTResponse>(await this.doRequest("ScreenChestCT", "HTTPS", "POST", "2020-03-20", "AK", null, $tea.toMap(request), runtime), new ScreenChestCTResponse({}));
-  }
-
-  async screenChestCTSimply(request: ScreenChestCTRequest): Promise<ScreenChestCTResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.screenChestCT(request, runtime);
-  }
-
-  async detectSkinDisease(request: DetectSkinDiseaseRequest, runtime: $Util.RuntimeOptions): Promise<DetectSkinDiseaseResponse> {
-    Util.validateModel(request);
-    return $tea.cast<DetectSkinDiseaseResponse>(await this.doRequest("DetectSkinDisease", "HTTPS", "POST", "2020-03-20", "AK", null, $tea.toMap(request), runtime), new DetectSkinDiseaseResponse({}));
-  }
-
-  async detectSkinDiseaseSimply(request: DetectSkinDiseaseRequest): Promise<DetectSkinDiseaseResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.detectSkinDisease(request, runtime);
-  }
-
-  async detectSkinDiseaseAdvance(request: DetectSkinDiseaseAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<DetectSkinDiseaseResponse> {
-    // Step 0: init client
-    let accessKeyId = await this._credential.getAccessKeyId();
-    let accessKeySecret = await this._credential.getAccessKeySecret();
-    let authConfig = new $RPC.Config({
-      accessKeyId: accessKeyId,
-      accessKeySecret: accessKeySecret,
-      type: "access_key",
-      endpoint: "openplatform.aliyuncs.com",
-      protocol: this._protocol,
-      regionId: this._regionId,
-    });
-    let authClient = new OpenPlatform(authConfig);
-    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
-      product: "imageprocess",
-      regionId: this._regionId,
-    });
-    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
-    let ossConfig = new $OSS.Config({
-      accessKeySecret: accessKeySecret,
-      type: "access_key",
-      protocol: this._protocol,
-      regionId: this._regionId,
-    });
-    let ossClient : OSS = null;
-    let fileObj = new $FileForm.FileField({ });
-    let ossHeader = new $OSS.PostObjectRequestHeader({ });
-    let uploadRequest = new $OSS.PostObjectRequest({ });
-    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
-    RPCUtil.convert(runtime, ossRuntime);
-    let detectSkinDiseaseReq = new DetectSkinDiseaseRequest({ });
-    RPCUtil.convert(request, detectSkinDiseaseReq);
-    authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-    ossConfig.accessKeyId = authResponse.accessKeyId;
-    ossConfig.endpoint = RPCUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
-    ossClient = new OSS(ossConfig);
-    fileObj = new $FileForm.FileField({
-      filename: authResponse.objectKey,
-      content: request.urlObject,
-      contentType: "",
-    });
-    ossHeader = new $OSS.PostObjectRequestHeader({
-      accessKeyId: authResponse.accessKeyId,
-      policy: authResponse.encodedPolicy,
-      signature: authResponse.signature,
-      key: authResponse.objectKey,
-      file: fileObj,
-      successActionStatus: "201",
-    });
-    uploadRequest = new $OSS.PostObjectRequest({
-      bucketName: authResponse.bucket,
-      header: ossHeader,
-    });
-    await ossClient.postObject(uploadRequest, ossRuntime);
-    detectSkinDiseaseReq.url = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
-    let detectSkinDiseaseResp = await this.detectSkinDisease(detectSkinDiseaseReq, runtime);
-    return detectSkinDiseaseResp;
-  }
-
-  async runMedQA(request: RunMedQARequest, runtime: $Util.RuntimeOptions): Promise<RunMedQAResponse> {
-    Util.validateModel(request);
-    return $tea.cast<RunMedQAResponse>(await this.doRequest("RunMedQA", "HTTPS", "POST", "2020-03-20", "AK", null, $tea.toMap(request), runtime), new RunMedQAResponse({}));
-  }
-
-  async runMedQASimply(request: RunMedQARequest): Promise<RunMedQAResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.runMedQA(request, runtime);
-  }
-
-  async detectKneeKeypointXRay(request: DetectKneeKeypointXRayRequest, runtime: $Util.RuntimeOptions): Promise<DetectKneeKeypointXRayResponse> {
-    Util.validateModel(request);
-    return $tea.cast<DetectKneeKeypointXRayResponse>(await this.doRequest("DetectKneeKeypointXRay", "HTTPS", "POST", "2020-03-20", "AK", null, $tea.toMap(request), runtime), new DetectKneeKeypointXRayResponse({}));
-  }
-
-  async detectKneeKeypointXRaySimply(request: DetectKneeKeypointXRayRequest): Promise<DetectKneeKeypointXRayResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.detectKneeKeypointXRay(request, runtime);
-  }
-
-  async detectKneeKeypointXRayAdvance(request: DetectKneeKeypointXRayAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<DetectKneeKeypointXRayResponse> {
-    // Step 0: init client
-    let accessKeyId = await this._credential.getAccessKeyId();
-    let accessKeySecret = await this._credential.getAccessKeySecret();
-    let authConfig = new $RPC.Config({
-      accessKeyId: accessKeyId,
-      accessKeySecret: accessKeySecret,
-      type: "access_key",
-      endpoint: "openplatform.aliyuncs.com",
-      protocol: this._protocol,
-      regionId: this._regionId,
-    });
-    let authClient = new OpenPlatform(authConfig);
-    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
-      product: "imageprocess",
-      regionId: this._regionId,
-    });
-    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
-    let ossConfig = new $OSS.Config({
-      accessKeySecret: accessKeySecret,
-      type: "access_key",
-      protocol: this._protocol,
-      regionId: this._regionId,
-    });
-    let ossClient : OSS = null;
-    let fileObj = new $FileForm.FileField({ });
-    let ossHeader = new $OSS.PostObjectRequestHeader({ });
-    let uploadRequest = new $OSS.PostObjectRequest({ });
-    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
-    RPCUtil.convert(runtime, ossRuntime);
-    let detectKneeKeypointXRayReq = new DetectKneeKeypointXRayRequest({ });
-    RPCUtil.convert(request, detectKneeKeypointXRayReq);
-    authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-    ossConfig.accessKeyId = authResponse.accessKeyId;
-    ossConfig.endpoint = RPCUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
-    ossClient = new OSS(ossConfig);
-    fileObj = new $FileForm.FileField({
-      filename: authResponse.objectKey,
-      content: request.imageUrlObject,
-      contentType: "",
-    });
-    ossHeader = new $OSS.PostObjectRequestHeader({
-      accessKeyId: authResponse.accessKeyId,
-      policy: authResponse.encodedPolicy,
-      signature: authResponse.signature,
-      key: authResponse.objectKey,
-      file: fileObj,
-      successActionStatus: "201",
-    });
-    uploadRequest = new $OSS.PostObjectRequest({
-      bucketName: authResponse.bucket,
-      header: ossHeader,
-    });
-    await ossClient.postObject(uploadRequest, ossRuntime);
-    detectKneeKeypointXRayReq.imageUrl = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
-    let detectKneeKeypointXRayResp = await this.detectKneeKeypointXRay(detectKneeKeypointXRayReq, runtime);
-    return detectKneeKeypointXRayResp;
-  }
-
-  async classifyFNF(request: ClassifyFNFRequest, runtime: $Util.RuntimeOptions): Promise<ClassifyFNFResponse> {
-    Util.validateModel(request);
-    return $tea.cast<ClassifyFNFResponse>(await this.doRequest("ClassifyFNF", "HTTPS", "POST", "2020-03-20", "AK", null, $tea.toMap(request), runtime), new ClassifyFNFResponse({}));
-  }
-
-  async classifyFNFSimply(request: ClassifyFNFRequest): Promise<ClassifyFNFResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.classifyFNF(request, runtime);
+    return await this.classifyFNFWithOptions(request, runtime);
   }
 
   async classifyFNFAdvance(request: ClassifyFNFAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<ClassifyFNFResponse> {
@@ -2133,12 +2338,12 @@ export default class Client extends RPC {
     let ossHeader = new $OSS.PostObjectRequestHeader({ });
     let uploadRequest = new $OSS.PostObjectRequest({ });
     let ossRuntime = new $OSSUtil.RuntimeOptions({ });
-    RPCUtil.convert(runtime, ossRuntime);
+    OpenApiUtil.convert(runtime, ossRuntime);
     let classifyFNFReq = new ClassifyFNFRequest({ });
-    RPCUtil.convert(request, classifyFNFReq);
+    OpenApiUtil.convert(request, classifyFNFReq);
     authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
     ossConfig.accessKeyId = authResponse.accessKeyId;
-    ossConfig.endpoint = RPCUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+    ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
     ossClient = new OSS(ossConfig);
     fileObj = new $FileForm.FileField({
       filename: authResponse.objectKey,
@@ -2159,28 +2364,86 @@ export default class Client extends RPC {
     });
     await ossClient.postObject(uploadRequest, ossRuntime);
     classifyFNFReq.imageUrl = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
-    let classifyFNFResp = await this.classifyFNF(classifyFNFReq, runtime);
+    let classifyFNFResp = await this.classifyFNFWithOptions(classifyFNFReq, runtime);
     return classifyFNFResp;
   }
 
-  async runCTRegistration(request: RunCTRegistrationRequest, runtime: $Util.RuntimeOptions): Promise<RunCTRegistrationResponse> {
+  async detectLungNoduleWithOptions(request: DetectLungNoduleRequest, runtime: $Util.RuntimeOptions): Promise<DetectLungNoduleResponse> {
     Util.validateModel(request);
-    return $tea.cast<RunCTRegistrationResponse>(await this.doRequest("RunCTRegistration", "HTTPS", "POST", "2020-03-20", "AK", null, $tea.toMap(request), runtime), new RunCTRegistrationResponse({}));
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DetectLungNoduleResponse>(await this.doRPCRequest("DetectLungNodule", "2020-03-20", "HTTPS", "POST", "AK", "json", req, runtime), new DetectLungNoduleResponse({}));
   }
 
-  async runCTRegistrationSimply(request: RunCTRegistrationRequest): Promise<RunCTRegistrationResponse> {
+  async detectLungNodule(request: DetectLungNoduleRequest): Promise<DetectLungNoduleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.runCTRegistration(request, runtime);
+    return await this.detectLungNoduleWithOptions(request, runtime);
   }
 
-  async detectHipKeypointXRay(request: DetectHipKeypointXRayRequest, runtime: $Util.RuntimeOptions): Promise<DetectHipKeypointXRayResponse> {
+  async runCTRegistrationWithOptions(request: RunCTRegistrationRequest, runtime: $Util.RuntimeOptions): Promise<RunCTRegistrationResponse> {
     Util.validateModel(request);
-    return $tea.cast<DetectHipKeypointXRayResponse>(await this.doRequest("DetectHipKeypointXRay", "HTTPS", "POST", "2020-03-20", "AK", null, $tea.toMap(request), runtime), new DetectHipKeypointXRayResponse({}));
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<RunCTRegistrationResponse>(await this.doRPCRequest("RunCTRegistration", "2020-03-20", "HTTPS", "POST", "AK", "json", req, runtime), new RunCTRegistrationResponse({}));
   }
 
-  async detectHipKeypointXRaySimply(request: DetectHipKeypointXRayRequest): Promise<DetectHipKeypointXRayResponse> {
+  async runCTRegistration(request: RunCTRegistrationRequest): Promise<RunCTRegistrationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.detectHipKeypointXRay(request, runtime);
+    return await this.runCTRegistrationWithOptions(request, runtime);
+  }
+
+  async translateMedWithOptions(request: TranslateMedRequest, runtime: $Util.RuntimeOptions): Promise<TranslateMedResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<TranslateMedResponse>(await this.doRPCRequest("TranslateMed", "2020-03-20", "HTTPS", "POST", "AK", "json", req, runtime), new TranslateMedResponse({}));
+  }
+
+  async translateMed(request: TranslateMedRequest): Promise<TranslateMedResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.translateMedWithOptions(request, runtime);
+  }
+
+  async detectSpineMRIWithOptions(request: DetectSpineMRIRequest, runtime: $Util.RuntimeOptions): Promise<DetectSpineMRIResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DetectSpineMRIResponse>(await this.doRPCRequest("DetectSpineMRI", "2020-03-20", "HTTPS", "POST", "AK", "json", req, runtime), new DetectSpineMRIResponse({}));
+  }
+
+  async detectSpineMRI(request: DetectSpineMRIRequest): Promise<DetectSpineMRIResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.detectSpineMRIWithOptions(request, runtime);
+  }
+
+  async calcCACSWithOptions(request: CalcCACSRequest, runtime: $Util.RuntimeOptions): Promise<CalcCACSResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<CalcCACSResponse>(await this.doRPCRequest("CalcCACS", "2020-03-20", "HTTPS", "POST", "AK", "json", req, runtime), new CalcCACSResponse({}));
+  }
+
+  async calcCACS(request: CalcCACSRequest): Promise<CalcCACSResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.calcCACSWithOptions(request, runtime);
+  }
+
+  async detectHipKeypointXRayWithOptions(request: DetectHipKeypointXRayRequest, runtime: $Util.RuntimeOptions): Promise<DetectHipKeypointXRayResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DetectHipKeypointXRayResponse>(await this.doRPCRequest("DetectHipKeypointXRay", "2020-03-20", "HTTPS", "POST", "AK", "json", req, runtime), new DetectHipKeypointXRayResponse({}));
+  }
+
+  async detectHipKeypointXRay(request: DetectHipKeypointXRayRequest): Promise<DetectHipKeypointXRayResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.detectHipKeypointXRayWithOptions(request, runtime);
   }
 
   async detectHipKeypointXRayAdvance(request: DetectHipKeypointXRayAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<DetectHipKeypointXRayResponse> {
@@ -2212,12 +2475,12 @@ export default class Client extends RPC {
     let ossHeader = new $OSS.PostObjectRequestHeader({ });
     let uploadRequest = new $OSS.PostObjectRequest({ });
     let ossRuntime = new $OSSUtil.RuntimeOptions({ });
-    RPCUtil.convert(runtime, ossRuntime);
+    OpenApiUtil.convert(runtime, ossRuntime);
     let detectHipKeypointXRayReq = new DetectHipKeypointXRayRequest({ });
-    RPCUtil.convert(request, detectHipKeypointXRayReq);
+    OpenApiUtil.convert(request, detectHipKeypointXRayReq);
     authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
     ossConfig.accessKeyId = authResponse.accessKeyId;
-    ossConfig.endpoint = RPCUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+    ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
     ossClient = new OSS(ossConfig);
     fileObj = new $FileForm.FileField({
       filename: authResponse.objectKey,
@@ -2238,28 +2501,106 @@ export default class Client extends RPC {
     });
     await ossClient.postObject(uploadRequest, ossRuntime);
     detectHipKeypointXRayReq.imageUrl = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
-    let detectHipKeypointXRayResp = await this.detectHipKeypointXRay(detectHipKeypointXRayReq, runtime);
+    let detectHipKeypointXRayResp = await this.detectHipKeypointXRayWithOptions(detectHipKeypointXRayReq, runtime);
     return detectHipKeypointXRayResp;
   }
 
-  async calcCACS(request: CalcCACSRequest, runtime: $Util.RuntimeOptions): Promise<CalcCACSResponse> {
+  async detectKneeKeypointXRayWithOptions(request: DetectKneeKeypointXRayRequest, runtime: $Util.RuntimeOptions): Promise<DetectKneeKeypointXRayResponse> {
     Util.validateModel(request);
-    return $tea.cast<CalcCACSResponse>(await this.doRequest("CalcCACS", "HTTPS", "POST", "2020-03-20", "AK", null, $tea.toMap(request), runtime), new CalcCACSResponse({}));
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DetectKneeKeypointXRayResponse>(await this.doRPCRequest("DetectKneeKeypointXRay", "2020-03-20", "HTTPS", "POST", "AK", "json", req, runtime), new DetectKneeKeypointXRayResponse({}));
   }
 
-  async calcCACSSimply(request: CalcCACSRequest): Promise<CalcCACSResponse> {
+  async detectKneeKeypointXRay(request: DetectKneeKeypointXRayRequest): Promise<DetectKneeKeypointXRayResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.calcCACS(request, runtime);
+    return await this.detectKneeKeypointXRayWithOptions(request, runtime);
   }
 
-  async detectKneeXRay(request: DetectKneeXRayRequest, runtime: $Util.RuntimeOptions): Promise<DetectKneeXRayResponse> {
+  async detectKneeKeypointXRayAdvance(request: DetectKneeKeypointXRayAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<DetectKneeKeypointXRayResponse> {
+    // Step 0: init client
+    let accessKeyId = await this._credential.getAccessKeyId();
+    let accessKeySecret = await this._credential.getAccessKeySecret();
+    let authConfig = new $RPC.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      endpoint: "openplatform.aliyuncs.com",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenPlatform(authConfig);
+    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
+      product: "imageprocess",
+      regionId: this._regionId,
+    });
+    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
+    let ossConfig = new $OSS.Config({
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let ossClient : OSS = null;
+    let fileObj = new $FileForm.FileField({ });
+    let ossHeader = new $OSS.PostObjectRequestHeader({ });
+    let uploadRequest = new $OSS.PostObjectRequest({ });
+    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
+    OpenApiUtil.convert(runtime, ossRuntime);
+    let detectKneeKeypointXRayReq = new DetectKneeKeypointXRayRequest({ });
+    OpenApiUtil.convert(request, detectKneeKeypointXRayReq);
+    authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+    ossConfig.accessKeyId = authResponse.accessKeyId;
+    ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+    ossClient = new OSS(ossConfig);
+    fileObj = new $FileForm.FileField({
+      filename: authResponse.objectKey,
+      content: request.imageUrlObject,
+      contentType: "",
+    });
+    ossHeader = new $OSS.PostObjectRequestHeader({
+      accessKeyId: authResponse.accessKeyId,
+      policy: authResponse.encodedPolicy,
+      signature: authResponse.signature,
+      key: authResponse.objectKey,
+      file: fileObj,
+      successActionStatus: "201",
+    });
+    uploadRequest = new $OSS.PostObjectRequest({
+      bucketName: authResponse.bucket,
+      header: ossHeader,
+    });
+    await ossClient.postObject(uploadRequest, ossRuntime);
+    detectKneeKeypointXRayReq.imageUrl = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    let detectKneeKeypointXRayResp = await this.detectKneeKeypointXRayWithOptions(detectKneeKeypointXRayReq, runtime);
+    return detectKneeKeypointXRayResp;
+  }
+
+  async runMedQAWithOptions(request: RunMedQARequest, runtime: $Util.RuntimeOptions): Promise<RunMedQAResponse> {
     Util.validateModel(request);
-    return $tea.cast<DetectKneeXRayResponse>(await this.doRequest("DetectKneeXRay", "HTTPS", "POST", "2020-03-20", "AK", null, $tea.toMap(request), runtime), new DetectKneeXRayResponse({}));
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<RunMedQAResponse>(await this.doRPCRequest("RunMedQA", "2020-03-20", "HTTPS", "POST", "AK", "json", req, runtime), new RunMedQAResponse({}));
   }
 
-  async detectKneeXRaySimply(request: DetectKneeXRayRequest): Promise<DetectKneeXRayResponse> {
+  async runMedQA(request: RunMedQARequest): Promise<RunMedQAResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.detectKneeXRay(request, runtime);
+    return await this.runMedQAWithOptions(request, runtime);
+  }
+
+  async detectKneeXRayWithOptions(request: DetectKneeXRayRequest, runtime: $Util.RuntimeOptions): Promise<DetectKneeXRayResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DetectKneeXRayResponse>(await this.doRPCRequest("DetectKneeXRay", "2020-03-20", "HTTPS", "POST", "AK", "json", req, runtime), new DetectKneeXRayResponse({}));
+  }
+
+  async detectKneeXRay(request: DetectKneeXRayRequest): Promise<DetectKneeXRayResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.detectKneeXRayWithOptions(request, runtime);
   }
 
   async detectKneeXRayAdvance(request: DetectKneeXRayAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<DetectKneeXRayResponse> {
@@ -2291,12 +2632,12 @@ export default class Client extends RPC {
     let ossHeader = new $OSS.PostObjectRequestHeader({ });
     let uploadRequest = new $OSS.PostObjectRequest({ });
     let ossRuntime = new $OSSUtil.RuntimeOptions({ });
-    RPCUtil.convert(runtime, ossRuntime);
+    OpenApiUtil.convert(runtime, ossRuntime);
     let detectKneeXRayReq = new DetectKneeXRayRequest({ });
-    RPCUtil.convert(request, detectKneeXRayReq);
+    OpenApiUtil.convert(request, detectKneeXRayReq);
     authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
     ossConfig.accessKeyId = authResponse.accessKeyId;
-    ossConfig.endpoint = RPCUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+    ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
     ossClient = new OSS(ossConfig);
     fileObj = new $FileForm.FileField({
       filename: authResponse.objectKey,
@@ -2317,70 +2658,132 @@ export default class Client extends RPC {
     });
     await ossClient.postObject(uploadRequest, ossRuntime);
     detectKneeXRayReq.url = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
-    let detectKneeXRayResp = await this.detectKneeXRay(detectKneeXRayReq, runtime);
+    let detectKneeXRayResp = await this.detectKneeXRayWithOptions(detectKneeXRayReq, runtime);
     return detectKneeXRayResp;
   }
 
-  async detectSpineMRI(request: DetectSpineMRIRequest, runtime: $Util.RuntimeOptions): Promise<DetectSpineMRIResponse> {
+  async getAsyncJobResultWithOptions(request: GetAsyncJobResultRequest, runtime: $Util.RuntimeOptions): Promise<GetAsyncJobResultResponse> {
     Util.validateModel(request);
-    return $tea.cast<DetectSpineMRIResponse>(await this.doRequest("DetectSpineMRI", "HTTPS", "POST", "2020-03-20", "AK", null, $tea.toMap(request), runtime), new DetectSpineMRIResponse({}));
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<GetAsyncJobResultResponse>(await this.doRPCRequest("GetAsyncJobResult", "2020-03-20", "HTTPS", "POST", "AK", "json", req, runtime), new GetAsyncJobResultResponse({}));
   }
 
-  async detectSpineMRISimply(request: DetectSpineMRIRequest): Promise<DetectSpineMRIResponse> {
+  async getAsyncJobResult(request: GetAsyncJobResultRequest): Promise<GetAsyncJobResultResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.detectSpineMRI(request, runtime);
+    return await this.getAsyncJobResultWithOptions(request, runtime);
   }
 
-  async translateMed(request: TranslateMedRequest, runtime: $Util.RuntimeOptions): Promise<TranslateMedResponse> {
+  async detectRibFractureWithOptions(request: DetectRibFractureRequest, runtime: $Util.RuntimeOptions): Promise<DetectRibFractureResponse> {
     Util.validateModel(request);
-    return $tea.cast<TranslateMedResponse>(await this.doRequest("TranslateMed", "HTTPS", "POST", "2020-03-20", "AK", null, $tea.toMap(request), runtime), new TranslateMedResponse({}));
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DetectRibFractureResponse>(await this.doRPCRequest("DetectRibFracture", "2020-03-20", "HTTPS", "POST", "AK", "json", req, runtime), new DetectRibFractureResponse({}));
   }
 
-  async translateMedSimply(request: TranslateMedRequest): Promise<TranslateMedResponse> {
+  async detectRibFracture(request: DetectRibFractureRequest): Promise<DetectRibFractureResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.translateMed(request, runtime);
+    return await this.detectRibFractureWithOptions(request, runtime);
   }
 
-  async detectLungNodule(request: DetectLungNoduleRequest, runtime: $Util.RuntimeOptions): Promise<DetectLungNoduleResponse> {
+  async detectCovid19CadWithOptions(request: DetectCovid19CadRequest, runtime: $Util.RuntimeOptions): Promise<DetectCovid19CadResponse> {
     Util.validateModel(request);
-    return $tea.cast<DetectLungNoduleResponse>(await this.doRequest("DetectLungNodule", "HTTPS", "POST", "2020-03-20", "AK", null, $tea.toMap(request), runtime), new DetectLungNoduleResponse({}));
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DetectCovid19CadResponse>(await this.doRPCRequest("DetectCovid19Cad", "2020-03-20", "HTTPS", "POST", "AK", "json", req, runtime), new DetectCovid19CadResponse({}));
   }
 
-  async detectLungNoduleSimply(request: DetectLungNoduleRequest): Promise<DetectLungNoduleResponse> {
+  async detectCovid19Cad(request: DetectCovid19CadRequest): Promise<DetectCovid19CadResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.detectLungNodule(request, runtime);
+    return await this.detectCovid19CadWithOptions(request, runtime);
   }
 
-  async detectCovid19Cad(request: DetectCovid19CadRequest, runtime: $Util.RuntimeOptions): Promise<DetectCovid19CadResponse> {
+  async screenChestCTWithOptions(request: ScreenChestCTRequest, runtime: $Util.RuntimeOptions): Promise<ScreenChestCTResponse> {
     Util.validateModel(request);
-    return $tea.cast<DetectCovid19CadResponse>(await this.doRequest("DetectCovid19Cad", "HTTPS", "POST", "2020-03-20", "AK", null, $tea.toMap(request), runtime), new DetectCovid19CadResponse({}));
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<ScreenChestCTResponse>(await this.doRPCRequest("ScreenChestCT", "2020-03-20", "HTTPS", "POST", "AK", "json", req, runtime), new ScreenChestCTResponse({}));
   }
 
-  async detectCovid19CadSimply(request: DetectCovid19CadRequest): Promise<DetectCovid19CadResponse> {
+  async screenChestCT(request: ScreenChestCTRequest): Promise<ScreenChestCTResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.detectCovid19Cad(request, runtime);
+    return await this.screenChestCTWithOptions(request, runtime);
   }
 
-  async getAsyncJobResult(request: GetAsyncJobResultRequest, runtime: $Util.RuntimeOptions): Promise<GetAsyncJobResultResponse> {
+  async detectSkinDiseaseWithOptions(request: DetectSkinDiseaseRequest, runtime: $Util.RuntimeOptions): Promise<DetectSkinDiseaseResponse> {
     Util.validateModel(request);
-    return $tea.cast<GetAsyncJobResultResponse>(await this.doRequest("GetAsyncJobResult", "HTTPS", "POST", "2020-03-20", "AK", null, $tea.toMap(request), runtime), new GetAsyncJobResultResponse({}));
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DetectSkinDiseaseResponse>(await this.doRPCRequest("DetectSkinDisease", "2020-03-20", "HTTPS", "POST", "AK", "json", req, runtime), new DetectSkinDiseaseResponse({}));
   }
 
-  async getAsyncJobResultSimply(request: GetAsyncJobResultRequest): Promise<GetAsyncJobResultResponse> {
+  async detectSkinDisease(request: DetectSkinDiseaseRequest): Promise<DetectSkinDiseaseResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.getAsyncJobResult(request, runtime);
+    return await this.detectSkinDiseaseWithOptions(request, runtime);
   }
 
-  getEndpoint(productId: string, regionId: string, endpointRule: string, network: string, suffix: string, endpointMap: {[key: string ]: string}, endpoint: string): string {
-    if (!Util.empty(endpoint)) {
-      return endpoint;
-    }
-
-    if (!Util.isUnset(endpointMap) && !Util.empty(endpointMap[regionId])) {
-      return endpointMap[regionId];
-    }
-
-    return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+  async detectSkinDiseaseAdvance(request: DetectSkinDiseaseAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<DetectSkinDiseaseResponse> {
+    // Step 0: init client
+    let accessKeyId = await this._credential.getAccessKeyId();
+    let accessKeySecret = await this._credential.getAccessKeySecret();
+    let authConfig = new $RPC.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      endpoint: "openplatform.aliyuncs.com",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenPlatform(authConfig);
+    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
+      product: "imageprocess",
+      regionId: this._regionId,
+    });
+    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
+    let ossConfig = new $OSS.Config({
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let ossClient : OSS = null;
+    let fileObj = new $FileForm.FileField({ });
+    let ossHeader = new $OSS.PostObjectRequestHeader({ });
+    let uploadRequest = new $OSS.PostObjectRequest({ });
+    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
+    OpenApiUtil.convert(runtime, ossRuntime);
+    let detectSkinDiseaseReq = new DetectSkinDiseaseRequest({ });
+    OpenApiUtil.convert(request, detectSkinDiseaseReq);
+    authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+    ossConfig.accessKeyId = authResponse.accessKeyId;
+    ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+    ossClient = new OSS(ossConfig);
+    fileObj = new $FileForm.FileField({
+      filename: authResponse.objectKey,
+      content: request.urlObject,
+      contentType: "",
+    });
+    ossHeader = new $OSS.PostObjectRequestHeader({
+      accessKeyId: authResponse.accessKeyId,
+      policy: authResponse.encodedPolicy,
+      signature: authResponse.signature,
+      key: authResponse.objectKey,
+      file: fileObj,
+      successActionStatus: "201",
+    });
+    uploadRequest = new $OSS.PostObjectRequest({
+      bucketName: authResponse.bucket,
+      header: ossHeader,
+    });
+    await ossClient.postObject(uploadRequest, ossRuntime);
+    detectSkinDiseaseReq.url = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    let detectSkinDiseaseResp = await this.detectSkinDiseaseWithOptions(detectSkinDiseaseReq, runtime);
+    return detectSkinDiseaseResp;
   }
 
 }
