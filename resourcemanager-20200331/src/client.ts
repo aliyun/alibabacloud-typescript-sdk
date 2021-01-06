@@ -71,21 +71,21 @@ export class GetServiceLinkedRoleDeletionStatusRequest extends $tea.Model {
 }
 
 export class GetServiceLinkedRoleDeletionStatusResponse extends $tea.Model {
-  requestId: string;
   status: string;
+  requestId: string;
   reason: GetServiceLinkedRoleDeletionStatusResponseReason;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       status: 'Status',
+      requestId: 'RequestId',
       reason: 'Reason',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       status: 'string',
+      requestId: 'string',
       reason: GetServiceLinkedRoleDeletionStatusResponseReason,
     };
   }
@@ -118,27 +118,27 @@ export class ListTrustedServiceStatusRequest extends $tea.Model {
 }
 
 export class ListTrustedServiceStatusResponse extends $tea.Model {
+  totalCount: number;
+  pageSize: number;
   requestId: string;
   pageNumber: number;
-  pageSize: number;
-  totalCount: number;
   enabledServicePrincipals: ListTrustedServiceStatusResponseEnabledServicePrincipals;
   static names(): { [key: string]: string } {
     return {
+      totalCount: 'TotalCount',
+      pageSize: 'PageSize',
       requestId: 'RequestId',
       pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      totalCount: 'TotalCount',
       enabledServicePrincipals: 'EnabledServicePrincipals',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      totalCount: 'number',
+      pageSize: 'number',
       requestId: 'string',
       pageNumber: 'number',
-      pageSize: 'number',
-      totalCount: 'number',
       enabledServicePrincipals: ListTrustedServiceStatusResponseEnabledServicePrincipals,
     };
   }
@@ -274,27 +274,27 @@ export class ListResourcesRequest extends $tea.Model {
 }
 
 export class ListResourcesResponse extends $tea.Model {
+  totalCount: number;
+  pageSize: number;
   requestId: string;
   pageNumber: number;
-  pageSize: number;
-  totalCount: number;
   resources: ListResourcesResponseResources;
   static names(): { [key: string]: string } {
     return {
+      totalCount: 'TotalCount',
+      pageSize: 'PageSize',
       requestId: 'RequestId',
       pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      totalCount: 'TotalCount',
       resources: 'Resources',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      totalCount: 'number',
+      pageSize: 'number',
       requestId: 'string',
       pageNumber: 'number',
-      pageSize: 'number',
-      totalCount: 'number',
       resources: ListResourcesResponseResources,
     };
   }
@@ -462,27 +462,27 @@ export class ListRolesRequest extends $tea.Model {
 }
 
 export class ListRolesResponse extends $tea.Model {
+  totalCount: number;
+  pageSize: number;
   requestId: string;
   pageNumber: number;
-  pageSize: number;
-  totalCount: number;
   roles: ListRolesResponseRoles;
   static names(): { [key: string]: string } {
     return {
+      totalCount: 'TotalCount',
+      pageSize: 'PageSize',
       requestId: 'RequestId',
       pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      totalCount: 'TotalCount',
       roles: 'Roles',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      totalCount: 'number',
+      pageSize: 'number',
       requestId: 'string',
       pageNumber: 'number',
-      pageSize: 'number',
-      totalCount: 'number',
       roles: ListRolesResponseRoles,
     };
   }
@@ -583,27 +583,27 @@ export class ListPolicyAttachmentsRequest extends $tea.Model {
 }
 
 export class ListPolicyAttachmentsResponse extends $tea.Model {
+  totalCount: number;
+  pageSize: number;
   requestId: string;
   pageNumber: number;
-  pageSize: number;
-  totalCount: number;
   policyAttachments: ListPolicyAttachmentsResponsePolicyAttachments;
   static names(): { [key: string]: string } {
     return {
+      totalCount: 'TotalCount',
+      pageSize: 'PageSize',
       requestId: 'RequestId',
       pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      totalCount: 'TotalCount',
       policyAttachments: 'PolicyAttachments',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      totalCount: 'number',
+      pageSize: 'number',
       requestId: 'string',
       pageNumber: 'number',
-      pageSize: 'number',
-      totalCount: 'number',
       policyAttachments: ListPolicyAttachmentsResponsePolicyAttachments,
     };
   }
@@ -959,27 +959,27 @@ export class ListResourceGroupsRequest extends $tea.Model {
 }
 
 export class ListResourceGroupsResponse extends $tea.Model {
+  totalCount: number;
+  pageSize: number;
   requestId: string;
   pageNumber: number;
-  pageSize: number;
-  totalCount: number;
   resourceGroups: ListResourceGroupsResponseResourceGroups;
   static names(): { [key: string]: string } {
     return {
+      totalCount: 'TotalCount',
+      pageSize: 'PageSize',
       requestId: 'RequestId',
       pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      totalCount: 'TotalCount',
       resourceGroups: 'ResourceGroups',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      totalCount: 'number',
+      pageSize: 'number',
       requestId: 'string',
       pageNumber: 'number',
-      pageSize: 'number',
-      totalCount: 'number',
       resourceGroups: ListResourceGroupsResponseResourceGroups,
     };
   }
@@ -1018,27 +1018,27 @@ export class ListPoliciesRequest extends $tea.Model {
 }
 
 export class ListPoliciesResponse extends $tea.Model {
+  totalCount: number;
+  pageSize: number;
   requestId: string;
   pageNumber: number;
-  pageSize: number;
-  totalCount: number;
   policies: ListPoliciesResponsePolicies;
   static names(): { [key: string]: string } {
     return {
+      totalCount: 'TotalCount',
+      pageSize: 'PageSize',
       requestId: 'RequestId',
       pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      totalCount: 'TotalCount',
       policies: 'Policies',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      totalCount: 'number',
+      pageSize: 'number',
       requestId: 'string',
       pageNumber: 'number',
-      pageSize: 'number',
-      totalCount: 'number',
       policies: ListPoliciesResponsePolicies,
     };
   }
@@ -1096,11 +1096,13 @@ export class CreateResourceAccountRequest extends $tea.Model {
   displayName: string;
   parentFolderId?: string;
   payerAccountId?: string;
+  accountNamePrefix?: string;
   static names(): { [key: string]: string } {
     return {
       displayName: 'DisplayName',
       parentFolderId: 'ParentFolderId',
       payerAccountId: 'PayerAccountId',
+      accountNamePrefix: 'AccountNamePrefix',
     };
   }
 
@@ -1109,6 +1111,7 @@ export class CreateResourceAccountRequest extends $tea.Model {
       displayName: 'string',
       parentFolderId: 'string',
       payerAccountId: 'string',
+      accountNamePrefix: 'string',
     };
   }
 
@@ -1162,27 +1165,27 @@ export class ListHandshakesForResourceDirectoryRequest extends $tea.Model {
 }
 
 export class ListHandshakesForResourceDirectoryResponse extends $tea.Model {
+  totalCount: number;
+  pageSize: number;
   requestId: string;
   pageNumber: number;
-  pageSize: number;
-  totalCount: number;
   handshakes: ListHandshakesForResourceDirectoryResponseHandshakes;
   static names(): { [key: string]: string } {
     return {
+      totalCount: 'TotalCount',
+      pageSize: 'PageSize',
       requestId: 'RequestId',
       pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      totalCount: 'TotalCount',
       handshakes: 'Handshakes',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      totalCount: 'number',
+      pageSize: 'number',
       requestId: 'string',
       pageNumber: 'number',
-      pageSize: 'number',
-      totalCount: 'number',
       handshakes: ListHandshakesForResourceDirectoryResponseHandshakes,
     };
   }
@@ -1625,27 +1628,27 @@ export class ListHandshakesForAccountRequest extends $tea.Model {
 }
 
 export class ListHandshakesForAccountResponse extends $tea.Model {
+  totalCount: number;
+  pageSize: number;
   requestId: string;
   pageNumber: number;
-  pageSize: number;
-  totalCount: number;
   handshakes: ListHandshakesForAccountResponseHandshakes;
   static names(): { [key: string]: string } {
     return {
+      totalCount: 'TotalCount',
+      pageSize: 'PageSize',
       requestId: 'RequestId',
       pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      totalCount: 'TotalCount',
       handshakes: 'Handshakes',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      totalCount: 'number',
+      pageSize: 'number',
       requestId: 'string',
       pageNumber: 'number',
-      pageSize: 'number',
-      totalCount: 'number',
       handshakes: ListHandshakesForAccountResponseHandshakes,
     };
   }
@@ -1857,27 +1860,27 @@ export class ListAccountsForParentRequest extends $tea.Model {
 }
 
 export class ListAccountsForParentResponse extends $tea.Model {
+  totalCount: number;
+  pageSize: number;
   requestId: string;
   pageNumber: number;
-  pageSize: number;
-  totalCount: number;
   accounts: ListAccountsForParentResponseAccounts;
   static names(): { [key: string]: string } {
     return {
+      totalCount: 'TotalCount',
+      pageSize: 'PageSize',
       requestId: 'RequestId',
       pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      totalCount: 'TotalCount',
       accounts: 'Accounts',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      totalCount: 'number',
+      pageSize: 'number',
       requestId: 'string',
       pageNumber: 'number',
-      pageSize: 'number',
-      totalCount: 'number',
       accounts: ListAccountsForParentResponseAccounts,
     };
   }
@@ -1998,27 +2001,27 @@ export class ListAccountsRequest extends $tea.Model {
 }
 
 export class ListAccountsResponse extends $tea.Model {
+  totalCount: number;
+  pageSize: number;
   requestId: string;
   pageNumber: number;
-  pageSize: number;
-  totalCount: number;
   accounts: ListAccountsResponseAccounts;
   static names(): { [key: string]: string } {
     return {
+      totalCount: 'TotalCount',
+      pageSize: 'PageSize',
       requestId: 'RequestId',
       pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      totalCount: 'TotalCount',
       accounts: 'Accounts',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      totalCount: 'number',
+      pageSize: 'number',
       requestId: 'string',
       pageNumber: 'number',
-      pageSize: 'number',
-      totalCount: 'number',
       accounts: ListAccountsResponseAccounts,
     };
   }
@@ -2414,22 +2417,22 @@ export class GetPayerForAccountRequest extends $tea.Model {
 }
 
 export class GetPayerForAccountResponse extends $tea.Model {
+  payerAccountName: string;
   requestId: string;
   payerAccountId: string;
-  payerAccountName: string;
   static names(): { [key: string]: string } {
     return {
+      payerAccountName: 'PayerAccountName',
       requestId: 'RequestId',
       payerAccountId: 'PayerAccountId',
-      payerAccountName: 'PayerAccountName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      payerAccountName: 'string',
       requestId: 'string',
       payerAccountId: 'string',
-      payerAccountName: 'string',
     };
   }
 
@@ -2508,27 +2511,27 @@ export class ListFoldersForParentRequest extends $tea.Model {
 }
 
 export class ListFoldersForParentResponse extends $tea.Model {
+  totalCount: number;
+  pageSize: number;
   requestId: string;
   pageNumber: number;
-  pageSize: number;
-  totalCount: number;
   folders: ListFoldersForParentResponseFolders;
   static names(): { [key: string]: string } {
     return {
+      totalCount: 'TotalCount',
+      pageSize: 'PageSize',
       requestId: 'RequestId',
       pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      totalCount: 'TotalCount',
       folders: 'Folders',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      totalCount: 'number',
+      pageSize: 'number',
       requestId: 'string',
       pageNumber: 'number',
-      pageSize: 'number',
-      totalCount: 'number',
       folders: ListFoldersForParentResponseFolders,
     };
   }
@@ -2615,37 +2618,37 @@ export class CancelCreateCloudAccountResponse extends $tea.Model {
 }
 
 export class CreateServiceLinkedRoleResponseRole extends $tea.Model {
-  arn: string;
-  assumeRolePolicyDocument: string;
-  rolePrincipalName: string;
-  createDate: string;
-  description: string;
-  roleId: string;
   roleName: string;
+  description: string;
+  assumeRolePolicyDocument: string;
   isServiceLinkedRole: boolean;
+  arn: string;
+  roleId: string;
+  createDate: string;
+  rolePrincipalName: string;
   static names(): { [key: string]: string } {
     return {
-      arn: 'Arn',
-      assumeRolePolicyDocument: 'AssumeRolePolicyDocument',
-      rolePrincipalName: 'RolePrincipalName',
-      createDate: 'CreateDate',
-      description: 'Description',
-      roleId: 'RoleId',
       roleName: 'RoleName',
+      description: 'Description',
+      assumeRolePolicyDocument: 'AssumeRolePolicyDocument',
       isServiceLinkedRole: 'IsServiceLinkedRole',
+      arn: 'Arn',
+      roleId: 'RoleId',
+      createDate: 'CreateDate',
+      rolePrincipalName: 'RolePrincipalName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      arn: 'string',
-      assumeRolePolicyDocument: 'string',
-      rolePrincipalName: 'string',
-      createDate: 'string',
-      description: 'string',
-      roleId: 'string',
       roleName: 'string',
+      description: 'string',
+      assumeRolePolicyDocument: 'string',
       isServiceLinkedRole: 'boolean',
+      arn: 'string',
+      roleId: 'string',
+      createDate: 'string',
+      rolePrincipalName: 'string',
     };
   }
 
@@ -2737,19 +2740,19 @@ export class GetServiceLinkedRoleDeletionStatusResponseReason extends $tea.Model
 }
 
 export class ListTrustedServiceStatusResponseEnabledServicePrincipalsEnabledServicePrincipal extends $tea.Model {
-  enableTime: string;
   servicePrincipal: string;
+  enableTime: string;
   static names(): { [key: string]: string } {
     return {
-      enableTime: 'EnableTime',
       servicePrincipal: 'ServicePrincipal',
+      enableTime: 'EnableTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      enableTime: 'string',
       servicePrincipal: 'string',
+      enableTime: 'string',
     };
   }
 
@@ -2778,40 +2781,40 @@ export class ListTrustedServiceStatusResponseEnabledServicePrincipals extends $t
 }
 
 export class UpdateRoleResponseRole extends $tea.Model {
-  arn: string;
-  assumeRolePolicyDocument: string;
-  rolePrincipalName: string;
-  createDate: string;
-  updateDate: string;
-  description: string;
-  roleId: string;
-  roleName: string;
   maxSessionDuration: number;
+  updateDate: string;
+  roleName: string;
+  description: string;
+  assumeRolePolicyDocument: string;
+  arn: string;
+  roleId: string;
+  createDate: string;
+  rolePrincipalName: string;
   static names(): { [key: string]: string } {
     return {
-      arn: 'Arn',
-      assumeRolePolicyDocument: 'AssumeRolePolicyDocument',
-      rolePrincipalName: 'RolePrincipalName',
-      createDate: 'CreateDate',
-      updateDate: 'UpdateDate',
-      description: 'Description',
-      roleId: 'RoleId',
-      roleName: 'RoleName',
       maxSessionDuration: 'MaxSessionDuration',
+      updateDate: 'UpdateDate',
+      roleName: 'RoleName',
+      description: 'Description',
+      assumeRolePolicyDocument: 'AssumeRolePolicyDocument',
+      arn: 'Arn',
+      roleId: 'RoleId',
+      createDate: 'CreateDate',
+      rolePrincipalName: 'RolePrincipalName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      arn: 'string',
-      assumeRolePolicyDocument: 'string',
-      rolePrincipalName: 'string',
-      createDate: 'string',
-      updateDate: 'string',
-      description: 'string',
-      roleId: 'string',
-      roleName: 'string',
       maxSessionDuration: 'number',
+      updateDate: 'string',
+      roleName: 'string',
+      description: 'string',
+      assumeRolePolicyDocument: 'string',
+      arn: 'string',
+      roleId: 'string',
+      createDate: 'string',
+      rolePrincipalName: 'string',
     };
   }
 
@@ -2822,17 +2825,17 @@ export class UpdateRoleResponseRole extends $tea.Model {
 
 export class ListResourcesResponseResourcesResource extends $tea.Model {
   resourceGroupId: string;
+  resourceId: string;
   service: string;
   resourceType: string;
-  resourceId: string;
   regionId: string;
   createDate: string;
   static names(): { [key: string]: string } {
     return {
       resourceGroupId: 'ResourceGroupId',
+      resourceId: 'ResourceId',
       service: 'Service',
       resourceType: 'ResourceType',
-      resourceId: 'ResourceId',
       regionId: 'RegionId',
       createDate: 'CreateDate',
     };
@@ -2841,9 +2844,9 @@ export class ListResourcesResponseResourcesResource extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       resourceGroupId: 'string',
+      resourceId: 'string',
       service: 'string',
       resourceType: 'string',
-      resourceId: 'string',
       regionId: 'string',
       createDate: 'string',
     };
@@ -2942,45 +2945,45 @@ export class GetRoleResponseRoleLatestDeletionTask extends $tea.Model {
 }
 
 export class GetRoleResponseRole extends $tea.Model {
-  arn: string;
-  assumeRolePolicyDocument: string;
-  rolePrincipalName: string;
-  createDate: string;
-  description: string;
-  updateDate: string;
-  roleId: string;
-  roleName: string;
-  isServiceLinkedRole: boolean;
   maxSessionDuration: number;
+  updateDate: string;
+  roleName: string;
+  description: string;
+  assumeRolePolicyDocument: string;
+  isServiceLinkedRole: boolean;
+  arn: string;
+  roleId: string;
+  createDate: string;
+  rolePrincipalName: string;
   latestDeletionTask: GetRoleResponseRoleLatestDeletionTask;
   static names(): { [key: string]: string } {
     return {
-      arn: 'Arn',
-      assumeRolePolicyDocument: 'AssumeRolePolicyDocument',
-      rolePrincipalName: 'RolePrincipalName',
-      createDate: 'CreateDate',
-      description: 'Description',
-      updateDate: 'UpdateDate',
-      roleId: 'RoleId',
-      roleName: 'RoleName',
-      isServiceLinkedRole: 'IsServiceLinkedRole',
       maxSessionDuration: 'MaxSessionDuration',
+      updateDate: 'UpdateDate',
+      roleName: 'RoleName',
+      description: 'Description',
+      assumeRolePolicyDocument: 'AssumeRolePolicyDocument',
+      isServiceLinkedRole: 'IsServiceLinkedRole',
+      arn: 'Arn',
+      roleId: 'RoleId',
+      createDate: 'CreateDate',
+      rolePrincipalName: 'RolePrincipalName',
       latestDeletionTask: 'LatestDeletionTask',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      arn: 'string',
-      assumeRolePolicyDocument: 'string',
-      rolePrincipalName: 'string',
-      createDate: 'string',
-      description: 'string',
-      updateDate: 'string',
-      roleId: 'string',
-      roleName: 'string',
-      isServiceLinkedRole: 'boolean',
       maxSessionDuration: 'number',
+      updateDate: 'string',
+      roleName: 'string',
+      description: 'string',
+      assumeRolePolicyDocument: 'string',
+      isServiceLinkedRole: 'boolean',
+      arn: 'string',
+      roleId: 'string',
+      createDate: 'string',
+      rolePrincipalName: 'string',
       latestDeletionTask: GetRoleResponseRoleLatestDeletionTask,
     };
   }
@@ -3013,42 +3016,42 @@ export class ListRolesResponseRolesRoleLatestDeletionTask extends $tea.Model {
 }
 
 export class ListRolesResponseRolesRole extends $tea.Model {
-  arn: string;
-  rolePrincipalName: string;
-  createDate: string;
-  description: string;
-  updateDate: string;
-  roleId: string;
-  roleName: string;
-  isServiceLinkedRole: boolean;
   maxSessionDuration: number;
+  updateDate: string;
+  roleName: string;
+  description: string;
+  isServiceLinkedRole: boolean;
+  arn: string;
+  roleId: string;
+  createDate: string;
+  rolePrincipalName: string;
   latestDeletionTask: ListRolesResponseRolesRoleLatestDeletionTask;
   static names(): { [key: string]: string } {
     return {
-      arn: 'Arn',
-      rolePrincipalName: 'RolePrincipalName',
-      createDate: 'CreateDate',
-      description: 'Description',
-      updateDate: 'UpdateDate',
-      roleId: 'RoleId',
-      roleName: 'RoleName',
-      isServiceLinkedRole: 'IsServiceLinkedRole',
       maxSessionDuration: 'MaxSessionDuration',
+      updateDate: 'UpdateDate',
+      roleName: 'RoleName',
+      description: 'Description',
+      isServiceLinkedRole: 'IsServiceLinkedRole',
+      arn: 'Arn',
+      roleId: 'RoleId',
+      createDate: 'CreateDate',
+      rolePrincipalName: 'RolePrincipalName',
       latestDeletionTask: 'LatestDeletionTask',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      arn: 'string',
-      rolePrincipalName: 'string',
-      createDate: 'string',
-      description: 'string',
-      updateDate: 'string',
-      roleId: 'string',
-      roleName: 'string',
-      isServiceLinkedRole: 'boolean',
       maxSessionDuration: 'number',
+      updateDate: 'string',
+      roleName: 'string',
+      description: 'string',
+      isServiceLinkedRole: 'boolean',
+      arn: 'string',
+      roleId: 'string',
+      createDate: 'string',
+      rolePrincipalName: 'string',
       latestDeletionTask: ListRolesResponseRolesRoleLatestDeletionTask,
     };
   }
@@ -3078,37 +3081,37 @@ export class ListRolesResponseRoles extends $tea.Model {
 }
 
 export class CreateRoleResponseRole extends $tea.Model {
-  arn: string;
-  assumeRolePolicyDocument: string;
-  rolePrincipalName: string;
-  createDate: string;
-  description: string;
-  roleId: string;
-  roleName: string;
   maxSessionDuration: number;
+  roleName: string;
+  description: string;
+  assumeRolePolicyDocument: string;
+  arn: string;
+  roleId: string;
+  createDate: string;
+  rolePrincipalName: string;
   static names(): { [key: string]: string } {
     return {
-      arn: 'Arn',
-      assumeRolePolicyDocument: 'AssumeRolePolicyDocument',
-      rolePrincipalName: 'RolePrincipalName',
-      createDate: 'CreateDate',
-      description: 'Description',
-      roleId: 'RoleId',
-      roleName: 'RoleName',
       maxSessionDuration: 'MaxSessionDuration',
+      roleName: 'RoleName',
+      description: 'Description',
+      assumeRolePolicyDocument: 'AssumeRolePolicyDocument',
+      arn: 'Arn',
+      roleId: 'RoleId',
+      createDate: 'CreateDate',
+      rolePrincipalName: 'RolePrincipalName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      arn: 'string',
-      assumeRolePolicyDocument: 'string',
-      rolePrincipalName: 'string',
-      createDate: 'string',
-      description: 'string',
-      roleId: 'string',
-      roleName: 'string',
       maxSessionDuration: 'number',
+      roleName: 'string',
+      description: 'string',
+      assumeRolePolicyDocument: 'string',
+      arn: 'string',
+      roleId: 'string',
+      createDate: 'string',
+      rolePrincipalName: 'string',
     };
   }
 
@@ -3118,34 +3121,34 @@ export class CreateRoleResponseRole extends $tea.Model {
 }
 
 export class ListPolicyAttachmentsResponsePolicyAttachmentsPolicyAttachment extends $tea.Model {
-  resourceGroupId: string;
   policyType: string;
-  policyName: string;
-  principalType: string;
-  principalName: string;
-  attachDate: string;
   description: string;
+  resourceGroupId: string;
+  attachDate: string;
+  policyName: string;
+  principalName: string;
+  principalType: string;
   static names(): { [key: string]: string } {
     return {
-      resourceGroupId: 'ResourceGroupId',
       policyType: 'PolicyType',
-      policyName: 'PolicyName',
-      principalType: 'PrincipalType',
-      principalName: 'PrincipalName',
-      attachDate: 'AttachDate',
       description: 'Description',
+      resourceGroupId: 'ResourceGroupId',
+      attachDate: 'AttachDate',
+      policyName: 'PolicyName',
+      principalName: 'PrincipalName',
+      principalType: 'PrincipalType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      resourceGroupId: 'string',
       policyType: 'string',
-      policyName: 'string',
-      principalType: 'string',
-      principalName: 'string',
-      attachDate: 'string',
       description: 'string',
+      resourceGroupId: 'string',
+      attachDate: 'string',
+      policyName: 'string',
+      principalName: 'string',
+      principalType: 'string',
     };
   }
 
@@ -3202,19 +3205,19 @@ export class GetPolicyVersionResponsePolicyVersion extends $tea.Model {
 }
 
 export class DeleteResourceGroupResponseResourceGroupRegionStatusesRegionStatus extends $tea.Model {
-  regionId: string;
   status: string;
+  regionId: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
       status: 'Status',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
       status: 'string',
+      regionId: 'string',
     };
   }
 
@@ -3243,33 +3246,33 @@ export class DeleteResourceGroupResponseResourceGroupRegionStatuses extends $tea
 }
 
 export class DeleteResourceGroupResponseResourceGroup extends $tea.Model {
-  id: string;
-  name: string;
-  displayName: string;
   status: string;
-  createDate: string;
   accountId: string;
+  displayName: string;
+  id: string;
+  createDate: string;
+  name: string;
   regionStatuses: DeleteResourceGroupResponseResourceGroupRegionStatuses;
   static names(): { [key: string]: string } {
     return {
-      id: 'Id',
-      name: 'Name',
-      displayName: 'DisplayName',
       status: 'Status',
-      createDate: 'CreateDate',
       accountId: 'AccountId',
+      displayName: 'DisplayName',
+      id: 'Id',
+      createDate: 'CreateDate',
+      name: 'Name',
       regionStatuses: 'RegionStatuses',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      id: 'string',
-      name: 'string',
-      displayName: 'string',
       status: 'string',
-      createDate: 'string',
       accountId: 'string',
+      displayName: 'string',
+      id: 'string',
+      createDate: 'string',
+      name: 'string',
       regionStatuses: DeleteResourceGroupResponseResourceGroupRegionStatuses,
     };
   }
@@ -3280,37 +3283,37 @@ export class DeleteResourceGroupResponseResourceGroup extends $tea.Model {
 }
 
 export class GetPolicyResponsePolicy extends $tea.Model {
-  policyName: string;
   policyType: string;
+  updateDate: string;
   description: string;
+  attachmentCount: number;
+  policyName: string;
   defaultVersion: string;
   policyDocument: string;
   createDate: string;
-  updateDate: string;
-  attachmentCount: number;
   static names(): { [key: string]: string } {
     return {
-      policyName: 'PolicyName',
       policyType: 'PolicyType',
+      updateDate: 'UpdateDate',
       description: 'Description',
+      attachmentCount: 'AttachmentCount',
+      policyName: 'PolicyName',
       defaultVersion: 'DefaultVersion',
       policyDocument: 'PolicyDocument',
       createDate: 'CreateDate',
-      updateDate: 'UpdateDate',
-      attachmentCount: 'AttachmentCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      policyName: 'string',
       policyType: 'string',
+      updateDate: 'string',
       description: 'string',
+      attachmentCount: 'number',
+      policyName: 'string',
       defaultVersion: 'string',
       policyDocument: 'string',
       createDate: 'string',
-      updateDate: 'string',
-      attachmentCount: 'number',
     };
   }
 
@@ -3320,28 +3323,28 @@ export class GetPolicyResponsePolicy extends $tea.Model {
 }
 
 export class UpdateResourceGroupResponseResourceGroup extends $tea.Model {
-  id: string;
-  name: string;
-  displayName: string;
-  createDate: string;
   accountId: string;
+  displayName: string;
+  id: string;
+  createDate: string;
+  name: string;
   static names(): { [key: string]: string } {
     return {
-      id: 'Id',
-      name: 'Name',
-      displayName: 'DisplayName',
-      createDate: 'CreateDate',
       accountId: 'AccountId',
+      displayName: 'DisplayName',
+      id: 'Id',
+      createDate: 'CreateDate',
+      name: 'Name',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      id: 'string',
-      name: 'string',
-      displayName: 'string',
-      createDate: 'string',
       accountId: 'string',
+      displayName: 'string',
+      id: 'string',
+      createDate: 'string',
+      name: 'string',
     };
   }
 
@@ -3351,31 +3354,31 @@ export class UpdateResourceGroupResponseResourceGroup extends $tea.Model {
 }
 
 export class ListResourceGroupsResponseResourceGroupsResourceGroup extends $tea.Model {
-  id: string;
-  name: string;
-  displayName: string;
   status: string;
-  createDate: string;
   accountId: string;
+  displayName: string;
+  id: string;
+  createDate: string;
+  name: string;
   static names(): { [key: string]: string } {
     return {
-      id: 'Id',
-      name: 'Name',
-      displayName: 'DisplayName',
       status: 'Status',
-      createDate: 'CreateDate',
       accountId: 'AccountId',
+      displayName: 'DisplayName',
+      id: 'Id',
+      createDate: 'CreateDate',
+      name: 'Name',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      id: 'string',
-      name: 'string',
-      displayName: 'string',
       status: 'string',
-      createDate: 'string',
       accountId: 'string',
+      displayName: 'string',
+      id: 'string',
+      createDate: 'string',
+      name: 'string',
     };
   }
 
@@ -3404,34 +3407,34 @@ export class ListResourceGroupsResponseResourceGroups extends $tea.Model {
 }
 
 export class ListPoliciesResponsePoliciesPolicy extends $tea.Model {
-  policyName: string;
   policyType: string;
+  updateDate: string;
   description: string;
+  attachmentCount: number;
+  policyName: string;
   defaultVersion: string;
   createDate: string;
-  updateDate: string;
-  attachmentCount: number;
   static names(): { [key: string]: string } {
     return {
-      policyName: 'PolicyName',
       policyType: 'PolicyType',
+      updateDate: 'UpdateDate',
       description: 'Description',
+      attachmentCount: 'AttachmentCount',
+      policyName: 'PolicyName',
       defaultVersion: 'DefaultVersion',
       createDate: 'CreateDate',
-      updateDate: 'UpdateDate',
-      attachmentCount: 'AttachmentCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      policyName: 'string',
       policyType: 'string',
+      updateDate: 'string',
       description: 'string',
+      attachmentCount: 'number',
+      policyName: 'string',
       defaultVersion: 'string',
       createDate: 'string',
-      updateDate: 'string',
-      attachmentCount: 'number',
     };
   }
 
@@ -3504,43 +3507,43 @@ export class ListPolicyVersionsResponsePolicyVersions extends $tea.Model {
 }
 
 export class CreateResourceAccountResponseAccount extends $tea.Model {
+  status: string;
+  modifyTime: string;
+  joinMethod: string;
   resourceDirectoryId: string;
+  type: string;
   accountId: string;
   displayName: string;
-  accountName: string;
-  folderId: string;
-  joinMethod: string;
   joinTime: string;
-  modifyTime: string;
-  type: string;
-  status: string;
+  folderId: string;
+  accountName: string;
   static names(): { [key: string]: string } {
     return {
+      status: 'Status',
+      modifyTime: 'ModifyTime',
+      joinMethod: 'JoinMethod',
       resourceDirectoryId: 'ResourceDirectoryId',
+      type: 'Type',
       accountId: 'AccountId',
       displayName: 'DisplayName',
-      accountName: 'AccountName',
-      folderId: 'FolderId',
-      joinMethod: 'JoinMethod',
       joinTime: 'JoinTime',
-      modifyTime: 'ModifyTime',
-      type: 'Type',
-      status: 'Status',
+      folderId: 'FolderId',
+      accountName: 'AccountName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      status: 'string',
+      modifyTime: 'string',
+      joinMethod: 'string',
       resourceDirectoryId: 'string',
+      type: 'string',
       accountId: 'string',
       displayName: 'string',
-      accountName: 'string',
-      folderId: 'string',
-      joinMethod: 'string',
       joinTime: 'string',
-      modifyTime: 'string',
-      type: 'string',
-      status: 'string',
+      folderId: 'string',
+      accountName: 'string',
     };
   }
 
@@ -3550,46 +3553,46 @@ export class CreateResourceAccountResponseAccount extends $tea.Model {
 }
 
 export class ListHandshakesForResourceDirectoryResponseHandshakesHandshake extends $tea.Model {
-  handshakeId: string;
-  resourceDirectoryId: string;
-  masterAccountId: string;
-  masterAccountName: string;
-  targetEntity: string;
-  targetType: string;
-  note: string;
   status: string;
-  createTime: string;
   modifyTime: string;
+  resourceDirectoryId: string;
+  handshakeId: string;
+  masterAccountName: string;
+  note: string;
+  createTime: string;
+  targetType: string;
+  masterAccountId: string;
   expireTime: string;
+  targetEntity: string;
   static names(): { [key: string]: string } {
     return {
-      handshakeId: 'HandshakeId',
-      resourceDirectoryId: 'ResourceDirectoryId',
-      masterAccountId: 'MasterAccountId',
-      masterAccountName: 'MasterAccountName',
-      targetEntity: 'TargetEntity',
-      targetType: 'TargetType',
-      note: 'Note',
       status: 'Status',
-      createTime: 'CreateTime',
       modifyTime: 'ModifyTime',
+      resourceDirectoryId: 'ResourceDirectoryId',
+      handshakeId: 'HandshakeId',
+      masterAccountName: 'MasterAccountName',
+      note: 'Note',
+      createTime: 'CreateTime',
+      targetType: 'TargetType',
+      masterAccountId: 'MasterAccountId',
       expireTime: 'ExpireTime',
+      targetEntity: 'TargetEntity',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      handshakeId: 'string',
-      resourceDirectoryId: 'string',
-      masterAccountId: 'string',
-      masterAccountName: 'string',
-      targetEntity: 'string',
-      targetType: 'string',
-      note: 'string',
       status: 'string',
-      createTime: 'string',
       modifyTime: 'string',
+      resourceDirectoryId: 'string',
+      handshakeId: 'string',
+      masterAccountName: 'string',
+      note: 'string',
+      createTime: 'string',
+      targetType: 'string',
+      masterAccountId: 'string',
       expireTime: 'string',
+      targetEntity: 'string',
     };
   }
 
@@ -3643,19 +3646,19 @@ export class CreatePolicyVersionResponsePolicyVersion extends $tea.Model {
 }
 
 export class GetResourceGroupResponseResourceGroupRegionStatusesRegionStatus extends $tea.Model {
-  regionId: string;
   status: string;
+  regionId: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
       status: 'Status',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
       status: 'string',
+      regionId: 'string',
     };
   }
 
@@ -3684,33 +3687,33 @@ export class GetResourceGroupResponseResourceGroupRegionStatuses extends $tea.Mo
 }
 
 export class GetResourceGroupResponseResourceGroup extends $tea.Model {
-  id: string;
-  name: string;
-  displayName: string;
   status: string;
-  createDate: string;
   accountId: string;
+  displayName: string;
+  id: string;
+  createDate: string;
+  name: string;
   regionStatuses: GetResourceGroupResponseResourceGroupRegionStatuses;
   static names(): { [key: string]: string } {
     return {
-      id: 'Id',
-      name: 'Name',
-      displayName: 'DisplayName',
       status: 'Status',
-      createDate: 'CreateDate',
       accountId: 'AccountId',
+      displayName: 'DisplayName',
+      id: 'Id',
+      createDate: 'CreateDate',
+      name: 'Name',
       regionStatuses: 'RegionStatuses',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      id: 'string',
-      name: 'string',
-      displayName: 'string',
       status: 'string',
-      createDate: 'string',
       accountId: 'string',
+      displayName: 'string',
+      id: 'string',
+      createDate: 'string',
+      name: 'string',
       regionStatuses: GetResourceGroupResponseResourceGroupRegionStatuses,
     };
   }
@@ -3752,52 +3755,52 @@ export class InitResourceDirectoryResponseResourceDirectory extends $tea.Model {
 }
 
 export class GetHandshakeResponseHandshake extends $tea.Model {
-  handshakeId: string;
-  resourceDirectoryId: string;
-  masterAccountId: string;
-  masterAccountName: string;
-  masterAccountRealName: string;
-  targetEntity: string;
-  targetType: string;
-  invitedAccountRealName: string;
-  note: string;
   status: string;
-  createTime: string;
   modifyTime: string;
+  resourceDirectoryId: string;
+  handshakeId: string;
+  masterAccountName: string;
+  note: string;
+  createTime: string;
+  targetType: string;
+  masterAccountId: string;
+  masterAccountRealName: string;
   expireTime: string;
+  invitedAccountRealName: string;
+  targetEntity: string;
   static names(): { [key: string]: string } {
     return {
-      handshakeId: 'HandshakeId',
-      resourceDirectoryId: 'ResourceDirectoryId',
-      masterAccountId: 'MasterAccountId',
-      masterAccountName: 'MasterAccountName',
-      masterAccountRealName: 'MasterAccountRealName',
-      targetEntity: 'TargetEntity',
-      targetType: 'TargetType',
-      invitedAccountRealName: 'InvitedAccountRealName',
-      note: 'Note',
       status: 'Status',
-      createTime: 'CreateTime',
       modifyTime: 'ModifyTime',
+      resourceDirectoryId: 'ResourceDirectoryId',
+      handshakeId: 'HandshakeId',
+      masterAccountName: 'MasterAccountName',
+      note: 'Note',
+      createTime: 'CreateTime',
+      targetType: 'TargetType',
+      masterAccountId: 'MasterAccountId',
+      masterAccountRealName: 'MasterAccountRealName',
       expireTime: 'ExpireTime',
+      invitedAccountRealName: 'InvitedAccountRealName',
+      targetEntity: 'TargetEntity',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      handshakeId: 'string',
-      resourceDirectoryId: 'string',
-      masterAccountId: 'string',
-      masterAccountName: 'string',
-      masterAccountRealName: 'string',
-      targetEntity: 'string',
-      targetType: 'string',
-      invitedAccountRealName: 'string',
-      note: 'string',
       status: 'string',
-      createTime: 'string',
       modifyTime: 'string',
+      resourceDirectoryId: 'string',
+      handshakeId: 'string',
+      masterAccountName: 'string',
+      note: 'string',
+      createTime: 'string',
+      targetType: 'string',
+      masterAccountId: 'string',
+      masterAccountRealName: 'string',
       expireTime: 'string',
+      invitedAccountRealName: 'string',
+      targetEntity: 'string',
     };
   }
 
@@ -3856,16 +3859,16 @@ export class CancelHandshakeResponseHandshake extends $tea.Model {
 }
 
 export class CreatePolicyResponsePolicy extends $tea.Model {
-  policyName: string;
   policyType: string;
   description: string;
+  policyName: string;
   defaultVersion: string;
   createDate: string;
   static names(): { [key: string]: string } {
     return {
-      policyName: 'PolicyName',
       policyType: 'PolicyType',
       description: 'Description',
+      policyName: 'PolicyName',
       defaultVersion: 'DefaultVersion',
       createDate: 'CreateDate',
     };
@@ -3873,9 +3876,9 @@ export class CreatePolicyResponsePolicy extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      policyName: 'string',
       policyType: 'string',
       description: 'string',
+      policyName: 'string',
       defaultVersion: 'string',
       createDate: 'string',
     };
@@ -3936,46 +3939,46 @@ export class DeclineHandshakeResponseHandshake extends $tea.Model {
 }
 
 export class ListHandshakesForAccountResponseHandshakesHandshake extends $tea.Model {
-  handshakeId: string;
-  resourceDirectoryId: string;
-  masterAccountId: string;
-  masterAccountName: string;
-  targetEntity: string;
-  targetType: string;
-  note: string;
   status: string;
-  createTime: string;
   modifyTime: string;
+  resourceDirectoryId: string;
+  handshakeId: string;
+  masterAccountName: string;
+  note: string;
+  createTime: string;
+  targetType: string;
+  masterAccountId: string;
   expireTime: string;
+  targetEntity: string;
   static names(): { [key: string]: string } {
     return {
-      handshakeId: 'HandshakeId',
-      resourceDirectoryId: 'ResourceDirectoryId',
-      masterAccountId: 'MasterAccountId',
-      masterAccountName: 'MasterAccountName',
-      targetEntity: 'TargetEntity',
-      targetType: 'TargetType',
-      note: 'Note',
       status: 'Status',
-      createTime: 'CreateTime',
       modifyTime: 'ModifyTime',
+      resourceDirectoryId: 'ResourceDirectoryId',
+      handshakeId: 'HandshakeId',
+      masterAccountName: 'MasterAccountName',
+      note: 'Note',
+      createTime: 'CreateTime',
+      targetType: 'TargetType',
+      masterAccountId: 'MasterAccountId',
       expireTime: 'ExpireTime',
+      targetEntity: 'TargetEntity',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      handshakeId: 'string',
-      resourceDirectoryId: 'string',
-      masterAccountId: 'string',
-      masterAccountName: 'string',
-      targetEntity: 'string',
-      targetType: 'string',
-      note: 'string',
       status: 'string',
-      createTime: 'string',
       modifyTime: 'string',
+      resourceDirectoryId: 'string',
+      handshakeId: 'string',
+      masterAccountName: 'string',
+      note: 'string',
+      createTime: 'string',
+      targetType: 'string',
+      masterAccountId: 'string',
       expireTime: 'string',
+      targetEntity: 'string',
     };
   }
 
@@ -4004,46 +4007,46 @@ export class ListHandshakesForAccountResponseHandshakes extends $tea.Model {
 }
 
 export class InviteAccountToResourceDirectoryResponseHandshake extends $tea.Model {
-  handshakeId: string;
-  resourceDirectoryId: string;
-  masterAccountId: string;
-  masterAccountName: string;
-  targetEntity: string;
-  targetType: string;
-  note: string;
   status: string;
-  createTime: string;
   modifyTime: string;
+  resourceDirectoryId: string;
+  handshakeId: string;
+  masterAccountName: string;
+  note: string;
+  createTime: string;
+  targetType: string;
+  masterAccountId: string;
   expireTime: string;
+  targetEntity: string;
   static names(): { [key: string]: string } {
     return {
-      handshakeId: 'HandshakeId',
-      resourceDirectoryId: 'ResourceDirectoryId',
-      masterAccountId: 'MasterAccountId',
-      masterAccountName: 'MasterAccountName',
-      targetEntity: 'TargetEntity',
-      targetType: 'TargetType',
-      note: 'Note',
       status: 'Status',
-      createTime: 'CreateTime',
       modifyTime: 'ModifyTime',
+      resourceDirectoryId: 'ResourceDirectoryId',
+      handshakeId: 'HandshakeId',
+      masterAccountName: 'MasterAccountName',
+      note: 'Note',
+      createTime: 'CreateTime',
+      targetType: 'TargetType',
+      masterAccountId: 'MasterAccountId',
       expireTime: 'ExpireTime',
+      targetEntity: 'TargetEntity',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      handshakeId: 'string',
-      resourceDirectoryId: 'string',
-      masterAccountId: 'string',
-      masterAccountName: 'string',
-      targetEntity: 'string',
-      targetType: 'string',
-      note: 'string',
       status: 'string',
-      createTime: 'string',
       modifyTime: 'string',
+      resourceDirectoryId: 'string',
+      handshakeId: 'string',
+      masterAccountName: 'string',
+      note: 'string',
+      createTime: 'string',
+      targetType: 'string',
+      masterAccountId: 'string',
       expireTime: 'string',
+      targetEntity: 'string',
     };
   }
 
@@ -4102,43 +4105,43 @@ export class AcceptHandshakeResponseHandshake extends $tea.Model {
 }
 
 export class UpdateAccountResponseAccount extends $tea.Model {
+  status: string;
+  modifyTime: string;
+  joinMethod: string;
   resourceDirectoryId: string;
+  type: string;
   accountId: string;
   displayName: string;
-  accountName: string;
-  folderId: string;
-  joinMethod: string;
   joinTime: string;
-  modifyTime: string;
-  type: string;
-  status: string;
+  folderId: string;
+  accountName: string;
   static names(): { [key: string]: string } {
     return {
+      status: 'Status',
+      modifyTime: 'ModifyTime',
+      joinMethod: 'JoinMethod',
       resourceDirectoryId: 'ResourceDirectoryId',
+      type: 'Type',
       accountId: 'AccountId',
       displayName: 'DisplayName',
-      accountName: 'AccountName',
-      folderId: 'FolderId',
-      joinMethod: 'JoinMethod',
       joinTime: 'JoinTime',
-      modifyTime: 'ModifyTime',
-      type: 'Type',
-      status: 'Status',
+      folderId: 'FolderId',
+      accountName: 'AccountName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      status: 'string',
+      modifyTime: 'string',
+      joinMethod: 'string',
       resourceDirectoryId: 'string',
+      type: 'string',
       accountId: 'string',
       displayName: 'string',
-      accountName: 'string',
-      folderId: 'string',
-      joinMethod: 'string',
       joinTime: 'string',
-      modifyTime: 'string',
-      type: 'string',
-      status: 'string',
+      folderId: 'string',
+      accountName: 'string',
     };
   }
 
@@ -4148,25 +4151,25 @@ export class UpdateAccountResponseAccount extends $tea.Model {
 }
 
 export class GetFolderResponseFolder extends $tea.Model {
+  createTime: string;
   folderId: string;
   folderName: string;
   parentFolderId: string;
-  createTime: string;
   static names(): { [key: string]: string } {
     return {
+      createTime: 'CreateTime',
       folderId: 'FolderId',
       folderName: 'FolderName',
       parentFolderId: 'ParentFolderId',
-      createTime: 'CreateTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      createTime: 'string',
       folderId: 'string',
       folderName: 'string',
       parentFolderId: 'string',
-      createTime: 'string',
     };
   }
 
@@ -4176,40 +4179,40 @@ export class GetFolderResponseFolder extends $tea.Model {
 }
 
 export class ListAccountsForParentResponseAccountsAccount extends $tea.Model {
+  status: string;
+  modifyTime: string;
+  joinMethod: string;
   resourceDirectoryId: string;
+  type: string;
   accountId: string;
   displayName: string;
-  folderId: string;
-  joinMethod: string;
   joinTime: string;
-  modifyTime: string;
-  type: string;
-  status: string;
+  folderId: string;
   static names(): { [key: string]: string } {
     return {
+      status: 'Status',
+      modifyTime: 'ModifyTime',
+      joinMethod: 'JoinMethod',
       resourceDirectoryId: 'ResourceDirectoryId',
+      type: 'Type',
       accountId: 'AccountId',
       displayName: 'DisplayName',
-      folderId: 'FolderId',
-      joinMethod: 'JoinMethod',
       joinTime: 'JoinTime',
-      modifyTime: 'ModifyTime',
-      type: 'Type',
-      status: 'Status',
+      folderId: 'FolderId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      status: 'string',
+      modifyTime: 'string',
+      joinMethod: 'string',
       resourceDirectoryId: 'string',
+      type: 'string',
       accountId: 'string',
       displayName: 'string',
-      folderId: 'string',
-      joinMethod: 'string',
       joinTime: 'string',
-      modifyTime: 'string',
-      type: 'string',
-      status: 'string',
+      folderId: 'string',
     };
   }
 
@@ -4238,19 +4241,19 @@ export class ListAccountsForParentResponseAccounts extends $tea.Model {
 }
 
 export class CreateResourceGroupResponseResourceGroupRegionStatusesRegionStatus extends $tea.Model {
-  regionId: string;
   status: string;
+  regionId: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
       status: 'Status',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
       status: 'string',
+      regionId: 'string',
     };
   }
 
@@ -4279,33 +4282,33 @@ export class CreateResourceGroupResponseResourceGroupRegionStatuses extends $tea
 }
 
 export class CreateResourceGroupResponseResourceGroup extends $tea.Model {
-  id: string;
-  name: string;
-  displayName: string;
   status: string;
-  createDate: string;
   accountId: string;
+  displayName: string;
+  id: string;
+  createDate: string;
+  name: string;
   regionStatuses: CreateResourceGroupResponseResourceGroupRegionStatuses;
   static names(): { [key: string]: string } {
     return {
-      id: 'Id',
-      name: 'Name',
-      displayName: 'DisplayName',
       status: 'Status',
-      createDate: 'CreateDate',
       accountId: 'AccountId',
+      displayName: 'DisplayName',
+      id: 'Id',
+      createDate: 'CreateDate',
+      name: 'Name',
       regionStatuses: 'RegionStatuses',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      id: 'string',
-      name: 'string',
-      displayName: 'string',
       status: 'string',
-      createDate: 'string',
       accountId: 'string',
+      displayName: 'string',
+      id: 'string',
+      createDate: 'string',
+      name: 'string',
       regionStatuses: CreateResourceGroupResponseResourceGroupRegionStatuses,
     };
   }
@@ -4365,40 +4368,40 @@ export class PromoteResourceAccountResponseAccount extends $tea.Model {
 }
 
 export class ListAccountsResponseAccountsAccount extends $tea.Model {
+  status: string;
+  modifyTime: string;
+  joinMethod: string;
   resourceDirectoryId: string;
+  type: string;
   accountId: string;
   displayName: string;
-  folderId: string;
-  joinMethod: string;
   joinTime: string;
-  modifyTime: string;
-  type: string;
-  status: string;
+  folderId: string;
   static names(): { [key: string]: string } {
     return {
+      status: 'Status',
+      modifyTime: 'ModifyTime',
+      joinMethod: 'JoinMethod',
       resourceDirectoryId: 'ResourceDirectoryId',
+      type: 'Type',
       accountId: 'AccountId',
       displayName: 'DisplayName',
-      folderId: 'FolderId',
-      joinMethod: 'JoinMethod',
       joinTime: 'JoinTime',
-      modifyTime: 'ModifyTime',
-      type: 'Type',
-      status: 'Status',
+      folderId: 'FolderId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      status: 'string',
+      modifyTime: 'string',
+      joinMethod: 'string',
       resourceDirectoryId: 'string',
+      type: 'string',
       accountId: 'string',
       displayName: 'string',
-      folderId: 'string',
-      joinMethod: 'string',
       joinTime: 'string',
-      modifyTime: 'string',
-      type: 'string',
-      status: 'string',
+      folderId: 'string',
     };
   }
 
@@ -4455,46 +4458,46 @@ export class CreateFolderResponseFolder extends $tea.Model {
 }
 
 export class GetAccountResponseAccount extends $tea.Model {
+  identityInformation: string;
+  status: string;
+  modifyTime: string;
+  joinMethod: string;
   resourceDirectoryId: string;
+  type: string;
   accountId: string;
   displayName: string;
-  accountName: string;
-  folderId: string;
-  joinMethod: string;
   joinTime: string;
-  modifyTime: string;
-  type: string;
-  status: string;
-  identityInformation: string;
+  folderId: string;
+  accountName: string;
   static names(): { [key: string]: string } {
     return {
+      identityInformation: 'IdentityInformation',
+      status: 'Status',
+      modifyTime: 'ModifyTime',
+      joinMethod: 'JoinMethod',
       resourceDirectoryId: 'ResourceDirectoryId',
+      type: 'Type',
       accountId: 'AccountId',
       displayName: 'DisplayName',
-      accountName: 'AccountName',
-      folderId: 'FolderId',
-      joinMethod: 'JoinMethod',
       joinTime: 'JoinTime',
-      modifyTime: 'ModifyTime',
-      type: 'Type',
-      status: 'Status',
-      identityInformation: 'IdentityInformation',
+      folderId: 'FolderId',
+      accountName: 'AccountName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      identityInformation: 'string',
+      status: 'string',
+      modifyTime: 'string',
+      joinMethod: 'string',
       resourceDirectoryId: 'string',
+      type: 'string',
       accountId: 'string',
       displayName: 'string',
-      accountName: 'string',
-      folderId: 'string',
-      joinMethod: 'string',
       joinTime: 'string',
-      modifyTime: 'string',
-      type: 'string',
-      status: 'string',
-      identityInformation: 'string',
+      folderId: 'string',
+      accountName: 'string',
     };
   }
 
@@ -4505,27 +4508,27 @@ export class GetAccountResponseAccount extends $tea.Model {
 
 export class GetResourceDirectoryResponseResourceDirectory extends $tea.Model {
   resourceDirectoryId: string;
-  masterAccountId: string;
   masterAccountName: string;
-  rootFolderId: string;
   createTime: string;
+  rootFolderId: string;
+  masterAccountId: string;
   static names(): { [key: string]: string } {
     return {
       resourceDirectoryId: 'ResourceDirectoryId',
-      masterAccountId: 'MasterAccountId',
       masterAccountName: 'MasterAccountName',
-      rootFolderId: 'RootFolderId',
       createTime: 'CreateTime',
+      rootFolderId: 'RootFolderId',
+      masterAccountId: 'MasterAccountId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       resourceDirectoryId: 'string',
-      masterAccountId: 'string',
       masterAccountName: 'string',
-      rootFolderId: 'string',
       createTime: 'string',
+      rootFolderId: 'string',
+      masterAccountId: 'string',
     };
   }
 
@@ -4535,25 +4538,25 @@ export class GetResourceDirectoryResponseResourceDirectory extends $tea.Model {
 }
 
 export class UpdateFolderResponseFolder extends $tea.Model {
-  folderId: string;
-  parentFolderId: string;
-  folderName: string;
   createTime: string;
+  folderId: string;
+  folderName: string;
+  parentFolderId: string;
   static names(): { [key: string]: string } {
     return {
-      folderId: 'FolderId',
-      parentFolderId: 'ParentFolderId',
-      folderName: 'FolderName',
       createTime: 'CreateTime',
+      folderId: 'FolderId',
+      folderName: 'FolderName',
+      parentFolderId: 'ParentFolderId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      folderId: 'string',
-      parentFolderId: 'string',
-      folderName: 'string',
       createTime: 'string',
+      folderId: 'string',
+      folderName: 'string',
+      parentFolderId: 'string',
     };
   }
 
@@ -4563,22 +4566,22 @@ export class UpdateFolderResponseFolder extends $tea.Model {
 }
 
 export class ListAncestorsResponseFoldersFolder extends $tea.Model {
+  createTime: string;
   folderId: string;
   folderName: string;
-  createTime: string;
   static names(): { [key: string]: string } {
     return {
+      createTime: 'CreateTime',
       folderId: 'FolderId',
       folderName: 'FolderName',
-      createTime: 'CreateTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      createTime: 'string',
       folderId: 'string',
       folderName: 'string',
-      createTime: 'string',
     };
   }
 
@@ -4705,22 +4708,22 @@ export class ResendPromoteResourceAccountEmailResponseAccount extends $tea.Model
 }
 
 export class ListFoldersForParentResponseFoldersFolder extends $tea.Model {
+  createTime: string;
   folderId: string;
   folderName: string;
-  createTime: string;
   static names(): { [key: string]: string } {
     return {
+      createTime: 'CreateTime',
       folderId: 'FolderId',
       folderName: 'FolderName',
-      createTime: 'CreateTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      createTime: 'string',
       folderId: 'string',
       folderName: 'string',
-      createTime: 'string',
     };
   }
 
