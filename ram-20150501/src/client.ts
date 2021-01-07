@@ -2348,7 +2348,7 @@ export class ListAccessKeysRequest extends $tea.Model {
 }
 
 export class ListAccessKeysResponseBody extends $tea.Model {
-  accessKeys?: ListAccessKeysResponseBodyAccessKeys[];
+  accessKeys?: ListAccessKeysResponseBodyAccessKeys;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2359,7 +2359,7 @@ export class ListAccessKeysResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      accessKeys: { 'type': 'array', 'itemType': ListAccessKeysResponseBodyAccessKeys },
+      accessKeys: ListAccessKeysResponseBodyAccessKeys,
       requestId: 'string',
     };
   }
@@ -2415,9 +2415,9 @@ export class ListEntitiesForPolicyRequest extends $tea.Model {
 
 export class ListEntitiesForPolicyResponseBody extends $tea.Model {
   requestId?: string;
-  groups?: ListEntitiesForPolicyResponseBodyGroups[];
-  roles?: ListEntitiesForPolicyResponseBodyRoles[];
-  users?: ListEntitiesForPolicyResponseBodyUsers[];
+  groups?: ListEntitiesForPolicyResponseBodyGroups;
+  roles?: ListEntitiesForPolicyResponseBodyRoles;
+  users?: ListEntitiesForPolicyResponseBodyUsers;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
@@ -2430,9 +2430,9 @@ export class ListEntitiesForPolicyResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      groups: { 'type': 'array', 'itemType': ListEntitiesForPolicyResponseBodyGroups },
-      roles: { 'type': 'array', 'itemType': ListEntitiesForPolicyResponseBodyRoles },
-      users: { 'type': 'array', 'itemType': ListEntitiesForPolicyResponseBodyUsers },
+      groups: ListEntitiesForPolicyResponseBodyGroups,
+      roles: ListEntitiesForPolicyResponseBodyRoles,
+      users: ListEntitiesForPolicyResponseBodyUsers,
     };
   }
 
@@ -2487,7 +2487,7 @@ export class ListGroupsRequest extends $tea.Model {
 
 export class ListGroupsResponseBody extends $tea.Model {
   requestId?: string;
-  groups?: ListGroupsResponseBodyGroups[];
+  groups?: ListGroupsResponseBodyGroups;
   isTruncated?: boolean;
   marker?: string;
   static names(): { [key: string]: string } {
@@ -2502,7 +2502,7 @@ export class ListGroupsResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      groups: { 'type': 'array', 'itemType': ListGroupsResponseBodyGroups },
+      groups: ListGroupsResponseBodyGroups,
       isTruncated: 'boolean',
       marker: 'string',
     };
@@ -2556,7 +2556,7 @@ export class ListGroupsForUserRequest extends $tea.Model {
 
 export class ListGroupsForUserResponseBody extends $tea.Model {
   requestId?: string;
-  groups?: ListGroupsForUserResponseBodyGroups[];
+  groups?: ListGroupsForUserResponseBodyGroups;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
@@ -2567,7 +2567,7 @@ export class ListGroupsForUserResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      groups: { 'type': 'array', 'itemType': ListGroupsForUserResponseBodyGroups },
+      groups: ListGroupsForUserResponseBodyGroups,
     };
   }
 
@@ -2624,7 +2624,7 @@ export class ListPoliciesRequest extends $tea.Model {
 }
 
 export class ListPoliciesResponseBody extends $tea.Model {
-  policies?: ListPoliciesResponseBodyPolicies[];
+  policies?: ListPoliciesResponseBodyPolicies;
   requestId?: string;
   isTruncated?: boolean;
   marker?: string;
@@ -2639,7 +2639,7 @@ export class ListPoliciesResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      policies: { 'type': 'array', 'itemType': ListPoliciesResponseBodyPolicies },
+      policies: ListPoliciesResponseBodyPolicies,
       requestId: 'string',
       isTruncated: 'boolean',
       marker: 'string',
@@ -2693,7 +2693,7 @@ export class ListPoliciesForGroupRequest extends $tea.Model {
 }
 
 export class ListPoliciesForGroupResponseBody extends $tea.Model {
-  policies?: ListPoliciesForGroupResponseBodyPolicies[];
+  policies?: ListPoliciesForGroupResponseBodyPolicies;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2704,7 +2704,7 @@ export class ListPoliciesForGroupResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      policies: { 'type': 'array', 'itemType': ListPoliciesForGroupResponseBodyPolicies },
+      policies: ListPoliciesForGroupResponseBodyPolicies,
       requestId: 'string',
     };
   }
@@ -2756,7 +2756,7 @@ export class ListPoliciesForRoleRequest extends $tea.Model {
 }
 
 export class ListPoliciesForRoleResponseBody extends $tea.Model {
-  policies?: ListPoliciesForRoleResponseBodyPolicies[];
+  policies?: ListPoliciesForRoleResponseBodyPolicies;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2767,7 +2767,7 @@ export class ListPoliciesForRoleResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      policies: { 'type': 'array', 'itemType': ListPoliciesForRoleResponseBodyPolicies },
+      policies: ListPoliciesForRoleResponseBodyPolicies,
       requestId: 'string',
     };
   }
@@ -2819,7 +2819,7 @@ export class ListPoliciesForUserRequest extends $tea.Model {
 }
 
 export class ListPoliciesForUserResponseBody extends $tea.Model {
-  policies?: ListPoliciesForUserResponseBodyPolicies[];
+  policies?: ListPoliciesForUserResponseBodyPolicies;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2830,7 +2830,7 @@ export class ListPoliciesForUserResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      policies: { 'type': 'array', 'itemType': ListPoliciesForUserResponseBodyPolicies },
+      policies: ListPoliciesForUserResponseBodyPolicies,
       requestId: 'string',
     };
   }
@@ -2886,7 +2886,7 @@ export class ListPolicyVersionsRequest extends $tea.Model {
 
 export class ListPolicyVersionsResponseBody extends $tea.Model {
   requestId?: string;
-  policyVersions?: ListPolicyVersionsResponseBodyPolicyVersions[];
+  policyVersions?: ListPolicyVersionsResponseBodyPolicyVersions;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
@@ -2897,7 +2897,7 @@ export class ListPolicyVersionsResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      policyVersions: { 'type': 'array', 'itemType': ListPolicyVersionsResponseBodyPolicyVersions },
+      policyVersions: ListPolicyVersionsResponseBodyPolicyVersions,
     };
   }
 
@@ -2953,7 +2953,7 @@ export class ListRolesRequest extends $tea.Model {
 export class ListRolesResponseBody extends $tea.Model {
   requestId?: string;
   isTruncated?: boolean;
-  roles?: ListRolesResponseBodyRoles[];
+  roles?: ListRolesResponseBodyRoles;
   marker?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2968,7 +2968,7 @@ export class ListRolesResponseBody extends $tea.Model {
     return {
       requestId: 'string',
       isTruncated: 'boolean',
-      roles: { 'type': 'array', 'itemType': ListRolesResponseBodyRoles },
+      roles: ListRolesResponseBodyRoles,
       marker: 'string',
     };
   }
@@ -3026,7 +3026,7 @@ export class ListUsersResponseBody extends $tea.Model {
   requestId?: string;
   isTruncated?: boolean;
   marker?: string;
-  users?: ListUsersResponseBodyUsers[];
+  users?: ListUsersResponseBodyUsers;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
@@ -3041,7 +3041,7 @@ export class ListUsersResponseBody extends $tea.Model {
       requestId: 'string',
       isTruncated: 'boolean',
       marker: 'string',
-      users: { 'type': 'array', 'itemType': ListUsersResponseBodyUsers },
+      users: ListUsersResponseBodyUsers,
     };
   }
 
@@ -3101,7 +3101,7 @@ export class ListUsersForGroupResponseBody extends $tea.Model {
   requestId?: string;
   isTruncated?: boolean;
   marker?: string;
-  users?: ListUsersForGroupResponseBodyUsers[];
+  users?: ListUsersForGroupResponseBodyUsers;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
@@ -3116,7 +3116,7 @@ export class ListUsersForGroupResponseBody extends $tea.Model {
       requestId: 'string',
       isTruncated: 'boolean',
       marker: 'string',
-      users: { 'type': 'array', 'itemType': ListUsersForGroupResponseBodyUsers },
+      users: ListUsersForGroupResponseBodyUsers,
     };
   }
 
@@ -3148,7 +3148,7 @@ export class ListUsersForGroupResponse extends $tea.Model {
 }
 
 export class ListVirtualMFADevicesResponseBody extends $tea.Model {
-  virtualMFADevices?: ListVirtualMFADevicesResponseBodyVirtualMFADevices[];
+  virtualMFADevices?: ListVirtualMFADevicesResponseBodyVirtualMFADevices;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3159,7 +3159,7 @@ export class ListVirtualMFADevicesResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      virtualMFADevices: { 'type': 'array', 'itemType': ListVirtualMFADevicesResponseBodyVirtualMFADevices },
+      virtualMFADevices: ListVirtualMFADevicesResponseBodyVirtualMFADevices,
       requestId: 'string',
     };
   }
@@ -4633,7 +4633,7 @@ export class GetUserMFAInfoResponseBodyMFADevice extends $tea.Model {
   }
 }
 
-export class ListAccessKeysResponseBodyAccessKeys extends $tea.Model {
+export class ListAccessKeysResponseBodyAccessKeysAccessKey extends $tea.Model {
   status?: string;
   accessKeyId?: string;
   createDate?: string;
@@ -4658,7 +4658,26 @@ export class ListAccessKeysResponseBodyAccessKeys extends $tea.Model {
   }
 }
 
-export class ListEntitiesForPolicyResponseBodyGroups extends $tea.Model {
+export class ListAccessKeysResponseBodyAccessKeys extends $tea.Model {
+  accessKey?: ListAccessKeysResponseBodyAccessKeysAccessKey[];
+  static names(): { [key: string]: string } {
+    return {
+      accessKey: 'AccessKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessKey: { 'type': 'array', 'itemType': ListAccessKeysResponseBodyAccessKeysAccessKey },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEntitiesForPolicyResponseBodyGroupsGroup extends $tea.Model {
   groupName?: string;
   comments?: string;
   attachDate?: string;
@@ -4683,7 +4702,26 @@ export class ListEntitiesForPolicyResponseBodyGroups extends $tea.Model {
   }
 }
 
-export class ListEntitiesForPolicyResponseBodyRoles extends $tea.Model {
+export class ListEntitiesForPolicyResponseBodyGroups extends $tea.Model {
+  group?: ListEntitiesForPolicyResponseBodyGroupsGroup[];
+  static names(): { [key: string]: string } {
+    return {
+      group: 'Group',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      group: { 'type': 'array', 'itemType': ListEntitiesForPolicyResponseBodyGroupsGroup },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEntitiesForPolicyResponseBodyRolesRole extends $tea.Model {
   description?: string;
   roleName?: string;
   attachDate?: string;
@@ -4714,7 +4752,26 @@ export class ListEntitiesForPolicyResponseBodyRoles extends $tea.Model {
   }
 }
 
-export class ListEntitiesForPolicyResponseBodyUsers extends $tea.Model {
+export class ListEntitiesForPolicyResponseBodyRoles extends $tea.Model {
+  role?: ListEntitiesForPolicyResponseBodyRolesRole[];
+  static names(): { [key: string]: string } {
+    return {
+      role: 'Role',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      role: { 'type': 'array', 'itemType': ListEntitiesForPolicyResponseBodyRolesRole },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEntitiesForPolicyResponseBodyUsersUser extends $tea.Model {
   displayName?: string;
   userId?: string;
   userName?: string;
@@ -4742,7 +4799,26 @@ export class ListEntitiesForPolicyResponseBodyUsers extends $tea.Model {
   }
 }
 
-export class ListGroupsResponseBodyGroups extends $tea.Model {
+export class ListEntitiesForPolicyResponseBodyUsers extends $tea.Model {
+  user?: ListEntitiesForPolicyResponseBodyUsersUser[];
+  static names(): { [key: string]: string } {
+    return {
+      user: 'User',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      user: { 'type': 'array', 'itemType': ListEntitiesForPolicyResponseBodyUsersUser },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListGroupsResponseBodyGroupsGroup extends $tea.Model {
   groupId?: string;
   updateDate?: string;
   groupName?: string;
@@ -4773,7 +4849,26 @@ export class ListGroupsResponseBodyGroups extends $tea.Model {
   }
 }
 
-export class ListGroupsForUserResponseBodyGroups extends $tea.Model {
+export class ListGroupsResponseBodyGroups extends $tea.Model {
+  group?: ListGroupsResponseBodyGroupsGroup[];
+  static names(): { [key: string]: string } {
+    return {
+      group: 'Group',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      group: { 'type': 'array', 'itemType': ListGroupsResponseBodyGroupsGroup },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListGroupsForUserResponseBodyGroupsGroup extends $tea.Model {
   groupId?: string;
   groupName?: string;
   comments?: string;
@@ -4801,7 +4896,26 @@ export class ListGroupsForUserResponseBodyGroups extends $tea.Model {
   }
 }
 
-export class ListPoliciesResponseBodyPolicies extends $tea.Model {
+export class ListGroupsForUserResponseBodyGroups extends $tea.Model {
+  group?: ListGroupsForUserResponseBodyGroupsGroup[];
+  static names(): { [key: string]: string } {
+    return {
+      group: 'Group',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      group: { 'type': 'array', 'itemType': ListGroupsForUserResponseBodyGroupsGroup },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPoliciesResponseBodyPoliciesPolicy extends $tea.Model {
   defaultVersion?: string;
   description?: string;
   updateDate?: string;
@@ -4838,7 +4952,76 @@ export class ListPoliciesResponseBodyPolicies extends $tea.Model {
   }
 }
 
+export class ListPoliciesResponseBodyPolicies extends $tea.Model {
+  policy?: ListPoliciesResponseBodyPoliciesPolicy[];
+  static names(): { [key: string]: string } {
+    return {
+      policy: 'Policy',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policy: { 'type': 'array', 'itemType': ListPoliciesResponseBodyPoliciesPolicy },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPoliciesForGroupResponseBodyPoliciesPolicy extends $tea.Model {
+  defaultVersion?: string;
+  description?: string;
+  policyName?: string;
+  attachDate?: string;
+  policyType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      defaultVersion: 'DefaultVersion',
+      description: 'Description',
+      policyName: 'PolicyName',
+      attachDate: 'AttachDate',
+      policyType: 'PolicyType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      defaultVersion: 'string',
+      description: 'string',
+      policyName: 'string',
+      attachDate: 'string',
+      policyType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListPoliciesForGroupResponseBodyPolicies extends $tea.Model {
+  policy?: ListPoliciesForGroupResponseBodyPoliciesPolicy[];
+  static names(): { [key: string]: string } {
+    return {
+      policy: 'Policy',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policy: { 'type': 'array', 'itemType': ListPoliciesForGroupResponseBodyPoliciesPolicy },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPoliciesForRoleResponseBodyPoliciesPolicy extends $tea.Model {
   defaultVersion?: string;
   description?: string;
   policyName?: string;
@@ -4870,6 +5053,25 @@ export class ListPoliciesForGroupResponseBodyPolicies extends $tea.Model {
 }
 
 export class ListPoliciesForRoleResponseBodyPolicies extends $tea.Model {
+  policy?: ListPoliciesForRoleResponseBodyPoliciesPolicy[];
+  static names(): { [key: string]: string } {
+    return {
+      policy: 'Policy',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policy: { 'type': 'array', 'itemType': ListPoliciesForRoleResponseBodyPoliciesPolicy },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPoliciesForUserResponseBodyPoliciesPolicy extends $tea.Model {
   defaultVersion?: string;
   description?: string;
   policyName?: string;
@@ -4901,28 +5103,16 @@ export class ListPoliciesForRoleResponseBodyPolicies extends $tea.Model {
 }
 
 export class ListPoliciesForUserResponseBodyPolicies extends $tea.Model {
-  defaultVersion?: string;
-  description?: string;
-  policyName?: string;
-  attachDate?: string;
-  policyType?: string;
+  policy?: ListPoliciesForUserResponseBodyPoliciesPolicy[];
   static names(): { [key: string]: string } {
     return {
-      defaultVersion: 'DefaultVersion',
-      description: 'Description',
-      policyName: 'PolicyName',
-      attachDate: 'AttachDate',
-      policyType: 'PolicyType',
+      policy: 'Policy',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      defaultVersion: 'string',
-      description: 'string',
-      policyName: 'string',
-      attachDate: 'string',
-      policyType: 'string',
+      policy: { 'type': 'array', 'itemType': ListPoliciesForUserResponseBodyPoliciesPolicy },
     };
   }
 
@@ -4931,7 +5121,7 @@ export class ListPoliciesForUserResponseBodyPolicies extends $tea.Model {
   }
 }
 
-export class ListPolicyVersionsResponseBodyPolicyVersions extends $tea.Model {
+export class ListPolicyVersionsResponseBodyPolicyVersionsPolicyVersion extends $tea.Model {
   isDefaultVersion?: boolean;
   policyDocument?: string;
   versionId?: string;
@@ -4959,7 +5149,26 @@ export class ListPolicyVersionsResponseBodyPolicyVersions extends $tea.Model {
   }
 }
 
-export class ListRolesResponseBodyRoles extends $tea.Model {
+export class ListPolicyVersionsResponseBodyPolicyVersions extends $tea.Model {
+  policyVersion?: ListPolicyVersionsResponseBodyPolicyVersionsPolicyVersion[];
+  static names(): { [key: string]: string } {
+    return {
+      policyVersion: 'PolicyVersion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policyVersion: { 'type': 'array', 'itemType': ListPolicyVersionsResponseBodyPolicyVersionsPolicyVersion },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRolesResponseBodyRolesRole extends $tea.Model {
   description?: string;
   updateDate?: string;
   maxSessionDuration?: number;
@@ -4996,7 +5205,26 @@ export class ListRolesResponseBodyRoles extends $tea.Model {
   }
 }
 
-export class ListUsersResponseBodyUsers extends $tea.Model {
+export class ListRolesResponseBodyRoles extends $tea.Model {
+  role?: ListRolesResponseBodyRolesRole[];
+  static names(): { [key: string]: string } {
+    return {
+      role: 'Role',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      role: { 'type': 'array', 'itemType': ListRolesResponseBodyRolesRole },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUsersResponseBodyUsersUser extends $tea.Model {
   displayName?: string;
   email?: string;
   updateDate?: string;
@@ -5036,7 +5264,26 @@ export class ListUsersResponseBodyUsers extends $tea.Model {
   }
 }
 
-export class ListUsersForGroupResponseBodyUsers extends $tea.Model {
+export class ListUsersResponseBodyUsers extends $tea.Model {
+  user?: ListUsersResponseBodyUsersUser[];
+  static names(): { [key: string]: string } {
+    return {
+      user: 'User',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      user: { 'type': 'array', 'itemType': ListUsersResponseBodyUsersUser },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUsersForGroupResponseBodyUsersUser extends $tea.Model {
   displayName?: string;
   joinDate?: string;
   userName?: string;
@@ -5061,7 +5308,26 @@ export class ListUsersForGroupResponseBodyUsers extends $tea.Model {
   }
 }
 
-export class ListVirtualMFADevicesResponseBodyVirtualMFADevicesUser extends $tea.Model {
+export class ListUsersForGroupResponseBodyUsers extends $tea.Model {
+  user?: ListUsersForGroupResponseBodyUsersUser[];
+  static names(): { [key: string]: string } {
+    return {
+      user: 'User',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      user: { 'type': 'array', 'itemType': ListUsersForGroupResponseBodyUsersUser },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVirtualMFADevicesResponseBodyVirtualMFADevicesVirtualMFADeviceUser extends $tea.Model {
   displayName?: string;
   userId?: string;
   userName?: string;
@@ -5086,9 +5352,9 @@ export class ListVirtualMFADevicesResponseBodyVirtualMFADevicesUser extends $tea
   }
 }
 
-export class ListVirtualMFADevicesResponseBodyVirtualMFADevices extends $tea.Model {
+export class ListVirtualMFADevicesResponseBodyVirtualMFADevicesVirtualMFADevice extends $tea.Model {
   serialNumber?: string;
-  user?: ListVirtualMFADevicesResponseBodyVirtualMFADevicesUser;
+  user?: ListVirtualMFADevicesResponseBodyVirtualMFADevicesVirtualMFADeviceUser;
   activateDate?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5101,8 +5367,27 @@ export class ListVirtualMFADevicesResponseBodyVirtualMFADevices extends $tea.Mod
   static types(): { [key: string]: any } {
     return {
       serialNumber: 'string',
-      user: ListVirtualMFADevicesResponseBodyVirtualMFADevicesUser,
+      user: ListVirtualMFADevicesResponseBodyVirtualMFADevicesVirtualMFADeviceUser,
       activateDate: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVirtualMFADevicesResponseBodyVirtualMFADevices extends $tea.Model {
+  virtualMFADevice?: ListVirtualMFADevicesResponseBodyVirtualMFADevicesVirtualMFADevice[];
+  static names(): { [key: string]: string } {
+    return {
+      virtualMFADevice: 'VirtualMFADevice',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      virtualMFADevice: { 'type': 'array', 'itemType': ListVirtualMFADevicesResponseBodyVirtualMFADevicesVirtualMFADevice },
     };
   }
 
