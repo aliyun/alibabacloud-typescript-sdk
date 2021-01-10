@@ -51,6 +51,10 @@ export class CreateContainerGroupRequest extends $tea.Model {
   hostName?: string;
   ingressBandwidth?: number;
   egressBandwidth?: number;
+  cpuOptionsCore?: number;
+  cpuOptionsThreadsPerCore?: number;
+  cpuOptionsNuma?: string;
+  ephemeralStorage?: number;
   tag?: CreateContainerGroupRequestTag[];
   imageRegistryCredential?: CreateContainerGroupRequestImageRegistryCredential[];
   container?: CreateContainerGroupRequestContainer[];
@@ -105,6 +109,10 @@ export class CreateContainerGroupRequest extends $tea.Model {
       hostName: 'HostName',
       ingressBandwidth: 'IngressBandwidth',
       egressBandwidth: 'EgressBandwidth',
+      cpuOptionsCore: 'CpuOptionsCore',
+      cpuOptionsThreadsPerCore: 'CpuOptionsThreadsPerCore',
+      cpuOptionsNuma: 'CpuOptionsNuma',
+      ephemeralStorage: 'EphemeralStorage',
       tag: 'Tag',
       imageRegistryCredential: 'ImageRegistryCredential',
       container: 'Container',
@@ -162,6 +170,10 @@ export class CreateContainerGroupRequest extends $tea.Model {
       hostName: 'string',
       ingressBandwidth: 'number',
       egressBandwidth: 'number',
+      cpuOptionsCore: 'number',
+      cpuOptionsThreadsPerCore: 'number',
+      cpuOptionsNuma: 'string',
+      ephemeralStorage: 'number',
       tag: { 'type': 'array', 'itemType': CreateContainerGroupRequestTag },
       imageRegistryCredential: { 'type': 'array', 'itemType': CreateContainerGroupRequestImageRegistryCredential },
       container: { 'type': 'array', 'itemType': CreateContainerGroupRequestContainer },
@@ -1417,6 +1429,7 @@ export class UpdateContainerGroupRequest extends $tea.Model {
   clientToken?: string;
   cpu?: number;
   memory?: number;
+  resourceGroupId?: string;
   tag?: UpdateContainerGroupRequestTag[];
   volume?: UpdateContainerGroupRequestVolume[];
   container?: UpdateContainerGroupRequestContainer[];
@@ -1435,6 +1448,7 @@ export class UpdateContainerGroupRequest extends $tea.Model {
       clientToken: 'ClientToken',
       cpu: 'Cpu',
       memory: 'Memory',
+      resourceGroupId: 'ResourceGroupId',
       tag: 'Tag',
       volume: 'Volume',
       container: 'Container',
@@ -1456,6 +1470,7 @@ export class UpdateContainerGroupRequest extends $tea.Model {
       clientToken: 'string',
       cpu: 'number',
       memory: 'number',
+      resourceGroupId: 'string',
       tag: { 'type': 'array', 'itemType': UpdateContainerGroupRequestTag },
       volume: { 'type': 'array', 'itemType': UpdateContainerGroupRequestVolume },
       container: { 'type': 'array', 'itemType': UpdateContainerGroupRequestContainer },
@@ -4205,6 +4220,7 @@ export class DescribeContainerGroupsResponseBodyContainerGroups extends $tea.Mod
   events?: DescribeContainerGroupsResponseBodyContainerGroupsEvents[];
   succeededTime?: string;
   spotStrategy?: string;
+  ephemeralStorage?: number;
   tenantEniInstanceId?: string;
   discount?: number;
   restartPolicy?: string;
@@ -4242,6 +4258,7 @@ export class DescribeContainerGroupsResponseBodyContainerGroups extends $tea.Mod
       events: 'Events',
       succeededTime: 'SucceededTime',
       spotStrategy: 'SpotStrategy',
+      ephemeralStorage: 'EphemeralStorage',
       tenantEniInstanceId: 'TenantEniInstanceId',
       discount: 'Discount',
       restartPolicy: 'RestartPolicy',
@@ -4282,6 +4299,7 @@ export class DescribeContainerGroupsResponseBodyContainerGroups extends $tea.Mod
       events: { 'type': 'array', 'itemType': DescribeContainerGroupsResponseBodyContainerGroupsEvents },
       succeededTime: 'string',
       spotStrategy: 'string',
+      ephemeralStorage: 'number',
       tenantEniInstanceId: 'string',
       discount: 'number',
       restartPolicy: 'string',
@@ -5112,30 +5130,39 @@ export class DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerI
 
 export class DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerInfosContainerStatsAcceleratorStats extends $tea.Model {
   model?: string;
+  minor?: number;
+  temperature?: number;
+  powerUsage?: number;
   memoryTotal?: number;
   make?: string;
   dutyCycle?: number;
-  id?: string;
   memoryUsed?: number;
+  id?: string;
   static names(): { [key: string]: string } {
     return {
       model: 'Model',
+      minor: 'Minor',
+      temperature: 'Temperature',
+      powerUsage: 'PowerUsage',
       memoryTotal: 'MemoryTotal',
       make: 'Make',
       dutyCycle: 'DutyCycle',
-      id: 'Id',
       memoryUsed: 'MemoryUsed',
+      id: 'Id',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       model: 'string',
+      minor: 'number',
+      temperature: 'number',
+      powerUsage: 'number',
       memoryTotal: 'number',
       make: 'string',
       dutyCycle: 'number',
-      id: 'string',
       memoryUsed: 'number',
+      id: 'string',
     };
   }
 
@@ -5396,13 +5423,193 @@ export class DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerI
   }
 }
 
+export class DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerInfosContainerStatsDiskIoStatsIoServiceBytes extends $tea.Model {
+  stats?: string;
+  minor?: number;
+  major?: number;
+  device?: string;
+  static names(): { [key: string]: string } {
+    return {
+      stats: 'Stats',
+      minor: 'Minor',
+      major: 'Major',
+      device: 'Device',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      stats: 'string',
+      minor: 'number',
+      major: 'number',
+      device: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerInfosContainerStatsDiskIoStatsIoMerged extends $tea.Model {
+  stats?: string;
+  minor?: number;
+  major?: number;
+  device?: string;
+  static names(): { [key: string]: string } {
+    return {
+      stats: 'Stats',
+      minor: 'Minor',
+      major: 'Major',
+      device: 'Device',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      stats: 'string',
+      minor: 'number',
+      major: 'number',
+      device: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerInfosContainerStatsDiskIoStatsSectors extends $tea.Model {
+  stats?: string;
+  minor?: number;
+  major?: number;
+  device?: string;
+  static names(): { [key: string]: string } {
+    return {
+      stats: 'Stats',
+      minor: 'Minor',
+      major: 'Major',
+      device: 'Device',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      stats: 'string',
+      minor: 'number',
+      major: 'number',
+      device: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerInfosContainerStatsDiskIoStatsIoQueued extends $tea.Model {
+  stats?: string;
+  minor?: number;
+  major?: number;
+  device?: string;
+  static names(): { [key: string]: string } {
+    return {
+      stats: 'Stats',
+      minor: 'Minor',
+      major: 'Major',
+      device: 'Device',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      stats: 'string',
+      minor: 'number',
+      major: 'number',
+      device: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerInfosContainerStatsDiskIoStatsIoTime extends $tea.Model {
+  stats?: string;
+  minor?: number;
+  major?: number;
+  device?: string;
+  static names(): { [key: string]: string } {
+    return {
+      stats: 'Stats',
+      minor: 'Minor',
+      major: 'Major',
+      device: 'Device',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      stats: 'string',
+      minor: 'number',
+      major: 'number',
+      device: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerInfosContainerStatsDiskIoStatsIoWaitTime extends $tea.Model {
+  stats?: string;
+  minor?: number;
+  major?: number;
+  device?: string;
+  static names(): { [key: string]: string } {
+    return {
+      stats: 'Stats',
+      minor: 'Minor',
+      major: 'Major',
+      device: 'Device',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      stats: 'string',
+      minor: 'number',
+      major: 'number',
+      device: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerInfosContainerStatsDiskIoStats extends $tea.Model {
   ioServiced?: DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerInfosContainerStatsDiskIoStatsIoServiced[];
   ioServiceTime?: DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerInfosContainerStatsDiskIoStatsIoServiceTime[];
+  ioServiceBytes?: DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerInfosContainerStatsDiskIoStatsIoServiceBytes[];
+  ioMerged?: DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerInfosContainerStatsDiskIoStatsIoMerged[];
+  sectors?: DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerInfosContainerStatsDiskIoStatsSectors[];
+  ioQueued?: DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerInfosContainerStatsDiskIoStatsIoQueued[];
+  ioTime?: DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerInfosContainerStatsDiskIoStatsIoTime[];
+  ioWaitTime?: DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerInfosContainerStatsDiskIoStatsIoWaitTime[];
   static names(): { [key: string]: string } {
     return {
       ioServiced: 'IoServiced',
       ioServiceTime: 'IoServiceTime',
+      ioServiceBytes: 'IoServiceBytes',
+      ioMerged: 'IoMerged',
+      sectors: 'Sectors',
+      ioQueued: 'IoQueued',
+      ioTime: 'IoTime',
+      ioWaitTime: 'IoWaitTime',
     };
   }
 
@@ -5410,6 +5617,12 @@ export class DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerI
     return {
       ioServiced: { 'type': 'array', 'itemType': DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerInfosContainerStatsDiskIoStatsIoServiced },
       ioServiceTime: { 'type': 'array', 'itemType': DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerInfosContainerStatsDiskIoStatsIoServiceTime },
+      ioServiceBytes: { 'type': 'array', 'itemType': DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerInfosContainerStatsDiskIoStatsIoServiceBytes },
+      ioMerged: { 'type': 'array', 'itemType': DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerInfosContainerStatsDiskIoStatsIoMerged },
+      sectors: { 'type': 'array', 'itemType': DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerInfosContainerStatsDiskIoStatsSectors },
+      ioQueued: { 'type': 'array', 'itemType': DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerInfosContainerStatsDiskIoStatsIoQueued },
+      ioTime: { 'type': 'array', 'itemType': DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerInfosContainerStatsDiskIoStatsIoTime },
+      ioWaitTime: { 'type': 'array', 'itemType': DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerInfosContainerStatsDiskIoStatsIoWaitTime },
     };
   }
 
@@ -5462,11 +5675,19 @@ export class DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerI
   aliases?: string[];
   containerSpec?: DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerInfosContainerSpec;
   containerStats?: DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerInfosContainerStats[];
+  labels?: string;
+  namespace?: string;
+  name?: string;
+  id?: string;
   static names(): { [key: string]: string } {
     return {
       aliases: 'Aliases',
       containerSpec: 'ContainerSpec',
       containerStats: 'ContainerStats',
+      labels: 'Labels',
+      namespace: 'Namespace',
+      name: 'Name',
+      id: 'Id',
     };
   }
 
@@ -5475,6 +5696,10 @@ export class DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerI
       aliases: { 'type': 'array', 'itemType': 'string' },
       containerSpec: DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerInfosContainerSpec,
       containerStats: { 'type': 'array', 'itemType': DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerInfosContainerStats },
+      labels: 'string',
+      namespace: 'string',
+      name: 'string',
+      id: 'string',
     };
   }
 
@@ -5486,10 +5711,12 @@ export class DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerI
 export class DescribeMultiContainerGroupMetricResponseBodyMonitorDatas extends $tea.Model {
   records?: DescribeMultiContainerGroupMetricResponseBodyMonitorDatasRecords[];
   containerInfos?: DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerInfos[];
+  containerGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       records: 'Records',
       containerInfos: 'ContainerInfos',
+      containerGroupId: 'ContainerGroupId',
     };
   }
 
@@ -5497,6 +5724,7 @@ export class DescribeMultiContainerGroupMetricResponseBodyMonitorDatas extends $
     return {
       records: { 'type': 'array', 'itemType': DescribeMultiContainerGroupMetricResponseBodyMonitorDatasRecords },
       containerInfos: { 'type': 'array', 'itemType': DescribeMultiContainerGroupMetricResponseBodyMonitorDatasContainerInfos },
+      containerGroupId: 'string',
     };
   }
 
