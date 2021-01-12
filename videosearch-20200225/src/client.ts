@@ -720,7 +720,7 @@ export class ListBatchTaskResponseDataList extends $tea.Model {
   bucketName: string;
   dataPath: string;
   metaFile: string;
-  modifiedTime: string;
+  modifiedTime: number;
   processMessage: string;
   static names(): { [key: string]: string } {
     return {
@@ -745,7 +745,7 @@ export class ListBatchTaskResponseDataList extends $tea.Model {
       bucketName: 'string',
       dataPath: 'string',
       metaFile: 'string',
-      modifiedTime: 'string',
+      modifiedTime: 'number',
       processMessage: 'string',
     };
   }
