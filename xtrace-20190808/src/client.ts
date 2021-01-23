@@ -7,150 +7,6 @@ import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
-export class CheckServiceLinkedRoleForDeletingRequest extends $tea.Model {
-  roleArn?: string;
-  serviceName?: string;
-  SPIRegionId?: string;
-  deletionTaskId?: string;
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      roleArn: 'RoleArn',
-      serviceName: 'ServiceName',
-      SPIRegionId: 'SPIRegionId',
-      deletionTaskId: 'DeletionTaskId',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      roleArn: 'string',
-      serviceName: 'string',
-      SPIRegionId: 'string',
-      deletionTaskId: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CheckServiceLinkedRoleForDeletingResponseBody extends $tea.Model {
-  requestId?: string;
-  deletable?: boolean;
-  roleUsages?: CheckServiceLinkedRoleForDeletingResponseBodyRoleUsages[];
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      deletable: 'Deletable',
-      roleUsages: 'RoleUsages',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      deletable: 'boolean',
-      roleUsages: { 'type': 'array', 'itemType': CheckServiceLinkedRoleForDeletingResponseBodyRoleUsages },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CheckServiceLinkedRoleForDeletingResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: CheckServiceLinkedRoleForDeletingResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: CheckServiceLinkedRoleForDeletingResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetSamplingRequest extends $tea.Model {
-  regionId?: string;
-  proxyUserId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      regionId: 'RegionId',
-      proxyUserId: 'ProxyUserId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      regionId: 'string',
-      proxyUserId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetSamplingResponseBody extends $tea.Model {
-  requestId?: string;
-  data?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      data: 'Data',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      data: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetSamplingResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: GetSamplingResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: GetSamplingResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class GetTagKeyRequest extends $tea.Model {
   regionId?: string;
   serviceName?: string;
@@ -184,7 +40,7 @@ export class GetTagKeyRequest extends $tea.Model {
 
 export class GetTagKeyResponseBody extends $tea.Model {
   requestId?: string;
-  tagKeys?: string[];
+  tagKeys?: GetTagKeyResponseBodyTagKeys;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
@@ -195,7 +51,7 @@ export class GetTagKeyResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      tagKeys: { 'type': 'array', 'itemType': 'string' },
+      tagKeys: GetTagKeyResponseBodyTagKeys,
     };
   }
 
@@ -262,7 +118,7 @@ export class GetTagValRequest extends $tea.Model {
 
 export class GetTagValResponseBody extends $tea.Model {
   requestId?: string;
-  tagValues?: string[];
+  tagValues?: GetTagValResponseBodyTagValues;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
@@ -273,7 +129,7 @@ export class GetTagValResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      tagValues: { 'type': 'array', 'itemType': 'string' },
+      tagValues: GetTagValResponseBodyTagValues,
     };
   }
 
@@ -308,11 +164,13 @@ export class GetTokenRequest extends $tea.Model {
   regionId?: string;
   appType?: string;
   proxyUserId?: string;
+  isForce?: boolean;
   static names(): { [key: string]: string } {
     return {
       regionId: 'RegionId',
       appType: 'AppType',
       proxyUserId: 'ProxyUserId',
+      isForce: 'IsForce',
     };
   }
 
@@ -321,6 +179,7 @@ export class GetTokenRequest extends $tea.Model {
       regionId: 'string',
       appType: 'string',
       proxyUserId: 'string',
+      isForce: 'boolean',
     };
   }
 
@@ -400,7 +259,7 @@ export class GetTraceRequest extends $tea.Model {
 
 export class GetTraceResponseBody extends $tea.Model {
   requestId?: string;
-  spans?: GetTraceResponseBodySpans[];
+  spans?: GetTraceResponseBodySpans;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
@@ -411,7 +270,7 @@ export class GetTraceResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      spans: { 'type': 'array', 'itemType': GetTraceResponseBodySpans },
+      spans: GetTraceResponseBodySpans,
     };
   }
 
@@ -544,7 +403,7 @@ export class ListIpOrHostsRequest extends $tea.Model {
 
 export class ListIpOrHostsResponseBody extends $tea.Model {
   requestId?: string;
-  ipNames?: string[];
+  ipNames?: ListIpOrHostsResponseBodyIpNames;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
@@ -555,7 +414,7 @@ export class ListIpOrHostsResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      ipNames: { 'type': 'array', 'itemType': 'string' },
+      ipNames: ListIpOrHostsResponseBodyIpNames,
     };
   }
 
@@ -609,7 +468,7 @@ export class ListServicesRequest extends $tea.Model {
 }
 
 export class ListServicesResponseBody extends $tea.Model {
-  services?: ListServicesResponseBodyServices[];
+  services?: ListServicesResponseBodyServices;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -620,7 +479,7 @@ export class ListServicesResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      services: { 'type': 'array', 'itemType': ListServicesResponseBodyServices },
+      services: ListServicesResponseBodyServices,
       requestId: 'string',
     };
   }
@@ -681,7 +540,7 @@ export class ListSpanNamesRequest extends $tea.Model {
 }
 
 export class ListSpanNamesResponseBody extends $tea.Model {
-  spanNames?: string[];
+  spanNames?: ListSpanNamesResponseBodySpanNames;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -692,7 +551,7 @@ export class ListSpanNamesResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      spanNames: { 'type': 'array', 'itemType': 'string' },
+      spanNames: ListSpanNamesResponseBodySpanNames,
       requestId: 'string',
     };
   }
@@ -716,50 +575,6 @@ export class ListSpanNamesResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: ListSpanNamesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OpenXtraceServiceResponseBody extends $tea.Model {
-  requestId?: string;
-  orderId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      orderId: 'OrderId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      orderId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OpenXtraceServiceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: OpenXtraceServiceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: OpenXtraceServiceResponseBody,
     };
   }
 
@@ -957,23 +772,17 @@ export class SearchTracesResponse extends $tea.Model {
   }
 }
 
-export class UpdateSamplingRequest extends $tea.Model {
-  regionId?: string;
-  proxyUserId?: string;
-  sampling?: string;
+export class GetTagKeyResponseBodyTagKeys extends $tea.Model {
+  tagKey?: string[];
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
-      proxyUserId: 'ProxyUserId',
-      sampling: 'Sampling',
+      tagKey: 'TagKey',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
-      proxyUserId: 'string',
-      sampling: 'string',
+      tagKey: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -982,64 +791,17 @@ export class UpdateSamplingRequest extends $tea.Model {
   }
 }
 
-export class UpdateSamplingResponseBody extends $tea.Model {
-  requestId?: string;
-  data?: string;
+export class GetTagValResponseBodyTagValues extends $tea.Model {
+  tagValue?: string[];
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
-      data: 'Data',
+      tagValue: 'TagValue',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
-      data: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateSamplingResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: UpdateSamplingResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: UpdateSamplingResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CheckServiceLinkedRoleForDeletingResponseBodyRoleUsages extends $tea.Model {
-  region?: string;
-  resources?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      region: 'Region',
-      resources: 'Resources',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      region: 'string',
-      resources: { 'type': 'array', 'itemType': 'string' },
+      tagValue: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -1076,7 +838,7 @@ export class GetTokenResponseBodyToken extends $tea.Model {
   }
 }
 
-export class GetTraceResponseBodySpansTagEntryList extends $tea.Model {
+export class GetTraceResponseBodySpansSpanTagEntryListTagEntry extends $tea.Model {
   key?: string;
   value?: string;
   static names(): { [key: string]: string } {
@@ -1098,7 +860,26 @@ export class GetTraceResponseBodySpansTagEntryList extends $tea.Model {
   }
 }
 
-export class GetTraceResponseBodySpansLogEventListTagEntryList extends $tea.Model {
+export class GetTraceResponseBodySpansSpanTagEntryList extends $tea.Model {
+  tagEntry?: GetTraceResponseBodySpansSpanTagEntryListTagEntry[];
+  static names(): { [key: string]: string } {
+    return {
+      tagEntry: 'TagEntry',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagEntry: { 'type': 'array', 'itemType': GetTraceResponseBodySpansSpanTagEntryListTagEntry },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTraceResponseBodySpansSpanLogEventListLogEventTagEntryListTagEntry extends $tea.Model {
   key?: string;
   value?: string;
   static names(): { [key: string]: string } {
@@ -1120,8 +901,27 @@ export class GetTraceResponseBodySpansLogEventListTagEntryList extends $tea.Mode
   }
 }
 
-export class GetTraceResponseBodySpansLogEventList extends $tea.Model {
-  tagEntryList?: GetTraceResponseBodySpansLogEventListTagEntryList[];
+export class GetTraceResponseBodySpansSpanLogEventListLogEventTagEntryList extends $tea.Model {
+  tagEntry?: GetTraceResponseBodySpansSpanLogEventListLogEventTagEntryListTagEntry[];
+  static names(): { [key: string]: string } {
+    return {
+      tagEntry: 'TagEntry',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagEntry: { 'type': 'array', 'itemType': GetTraceResponseBodySpansSpanLogEventListLogEventTagEntryListTagEntry },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTraceResponseBodySpansSpanLogEventListLogEvent extends $tea.Model {
+  tagEntryList?: GetTraceResponseBodySpansSpanLogEventListLogEventTagEntryList;
   timestamp?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1132,7 +932,7 @@ export class GetTraceResponseBodySpansLogEventList extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      tagEntryList: { 'type': 'array', 'itemType': GetTraceResponseBodySpansLogEventListTagEntryList },
+      tagEntryList: GetTraceResponseBodySpansSpanLogEventListLogEventTagEntryList,
       timestamp: 'number',
     };
   }
@@ -1142,29 +942,52 @@ export class GetTraceResponseBodySpansLogEventList extends $tea.Model {
   }
 }
 
-export class GetTraceResponseBodySpans extends $tea.Model {
-  tagEntryList?: GetTraceResponseBodySpansTagEntryList[];
-  logEventList?: GetTraceResponseBodySpansLogEventList[];
-  haveStack?: boolean;
-  serviceIp?: string;
+export class GetTraceResponseBodySpansSpanLogEventList extends $tea.Model {
+  logEvent?: GetTraceResponseBodySpansSpanLogEventListLogEvent[];
+  static names(): { [key: string]: string } {
+    return {
+      logEvent: 'LogEvent',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      logEvent: { 'type': 'array', 'itemType': GetTraceResponseBodySpansSpanLogEventListLogEvent },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTraceResponseBodySpansSpan extends $tea.Model {
+  spanId?: string;
   operationName?: string;
   resultCode?: string;
+  timestamp?: number;
+  tagEntryList?: GetTraceResponseBodySpansSpanTagEntryList;
+  logEventList?: GetTraceResponseBodySpansSpanLogEventList;
+  haveStack?: boolean;
+  serviceIp?: string;
+  parentSpanId?: string;
   duration?: number;
   rpcId?: string;
-  timestamp?: number;
   serviceName?: string;
   traceID?: string;
   static names(): { [key: string]: string } {
     return {
+      spanId: 'SpanId',
+      operationName: 'OperationName',
+      resultCode: 'ResultCode',
+      timestamp: 'Timestamp',
       tagEntryList: 'TagEntryList',
       logEventList: 'LogEventList',
       haveStack: 'HaveStack',
       serviceIp: 'ServiceIp',
-      operationName: 'OperationName',
-      resultCode: 'ResultCode',
+      parentSpanId: 'ParentSpanId',
       duration: 'Duration',
       rpcId: 'RpcId',
-      timestamp: 'Timestamp',
       serviceName: 'ServiceName',
       traceID: 'TraceID',
     };
@@ -1172,15 +995,17 @@ export class GetTraceResponseBodySpans extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      tagEntryList: { 'type': 'array', 'itemType': GetTraceResponseBodySpansTagEntryList },
-      logEventList: { 'type': 'array', 'itemType': GetTraceResponseBodySpansLogEventList },
-      haveStack: 'boolean',
-      serviceIp: 'string',
+      spanId: 'string',
       operationName: 'string',
       resultCode: 'string',
+      timestamp: 'number',
+      tagEntryList: GetTraceResponseBodySpansSpanTagEntryList,
+      logEventList: GetTraceResponseBodySpansSpanLogEventList,
+      haveStack: 'boolean',
+      serviceIp: 'string',
+      parentSpanId: 'string',
       duration: 'number',
       rpcId: 'string',
-      timestamp: 'number',
       serviceName: 'string',
       traceID: 'string',
     };
@@ -1191,7 +1016,45 @@ export class GetTraceResponseBodySpans extends $tea.Model {
   }
 }
 
-export class ListServicesResponseBodyServices extends $tea.Model {
+export class GetTraceResponseBodySpans extends $tea.Model {
+  span?: GetTraceResponseBodySpansSpan[];
+  static names(): { [key: string]: string } {
+    return {
+      span: 'Span',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      span: { 'type': 'array', 'itemType': GetTraceResponseBodySpansSpan },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListIpOrHostsResponseBodyIpNames extends $tea.Model {
+  ipName?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      ipName: 'IpName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipName: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListServicesResponseBodyServicesService extends $tea.Model {
   pid?: string;
   serviceName?: string;
   regionId?: string;
@@ -1208,6 +1071,44 @@ export class ListServicesResponseBodyServices extends $tea.Model {
       pid: 'string',
       serviceName: 'string',
       regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListServicesResponseBodyServices extends $tea.Model {
+  service?: ListServicesResponseBodyServicesService[];
+  static names(): { [key: string]: string } {
+    return {
+      service: 'Service',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      service: { 'type': 'array', 'itemType': ListServicesResponseBodyServicesService },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSpanNamesResponseBodySpanNames extends $tea.Model {
+  spanName?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      spanName: 'SpanName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      spanName: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -1260,7 +1161,7 @@ export class SearchTracesRequestTag extends $tea.Model {
   }
 }
 
-export class SearchTracesResponseBodyPageBeanTraceInfos extends $tea.Model {
+export class SearchTracesResponseBodyPageBeanTraceInfosTraceInfo extends $tea.Model {
   operationName?: string;
   serviceIp?: string;
   duration?: number;
@@ -1294,8 +1195,27 @@ export class SearchTracesResponseBodyPageBeanTraceInfos extends $tea.Model {
   }
 }
 
+export class SearchTracesResponseBodyPageBeanTraceInfos extends $tea.Model {
+  traceInfo?: SearchTracesResponseBodyPageBeanTraceInfosTraceInfo[];
+  static names(): { [key: string]: string } {
+    return {
+      traceInfo: 'TraceInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      traceInfo: { 'type': 'array', 'itemType': SearchTracesResponseBodyPageBeanTraceInfosTraceInfo },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SearchTracesResponseBodyPageBean extends $tea.Model {
-  traceInfos?: SearchTracesResponseBodyPageBeanTraceInfos[];
+  traceInfos?: SearchTracesResponseBodyPageBeanTraceInfos;
   pageSize?: number;
   pageNumber?: number;
   totalCount?: number;
@@ -1310,7 +1230,7 @@ export class SearchTracesResponseBodyPageBean extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      traceInfos: { 'type': 'array', 'itemType': SearchTracesResponseBodyPageBeanTraceInfos },
+      traceInfos: SearchTracesResponseBodyPageBeanTraceInfos,
       pageSize: 'number',
       pageNumber: 'number',
       totalCount: 'number',
@@ -1343,32 +1263,6 @@ export default class Client extends OpenApi {
     }
 
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
-  }
-
-  async checkServiceLinkedRoleForDeletingWithOptions(request: CheckServiceLinkedRoleForDeletingRequest, runtime: $Util.RuntimeOptions): Promise<CheckServiceLinkedRoleForDeletingResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<CheckServiceLinkedRoleForDeletingResponse>(await this.doRPCRequest("CheckServiceLinkedRoleForDeleting", "2019-08-08", "HTTPS", "POST", "AK", "json", req, runtime), new CheckServiceLinkedRoleForDeletingResponse({}));
-  }
-
-  async checkServiceLinkedRoleForDeleting(request: CheckServiceLinkedRoleForDeletingRequest): Promise<CheckServiceLinkedRoleForDeletingResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.checkServiceLinkedRoleForDeletingWithOptions(request, runtime);
-  }
-
-  async getSamplingWithOptions(request: GetSamplingRequest, runtime: $Util.RuntimeOptions): Promise<GetSamplingResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<GetSamplingResponse>(await this.doRPCRequest("GetSampling", "2019-08-08", "HTTPS", "POST", "AK", "json", req, runtime), new GetSamplingResponse({}));
-  }
-
-  async getSampling(request: GetSamplingRequest): Promise<GetSamplingResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getSamplingWithOptions(request, runtime);
   }
 
   async getTagKeyWithOptions(request: GetTagKeyRequest, runtime: $Util.RuntimeOptions): Promise<GetTagKeyResponse> {
@@ -1475,16 +1369,6 @@ export default class Client extends OpenApi {
     return await this.listSpanNamesWithOptions(request, runtime);
   }
 
-  async openXtraceServiceWithOptions(runtime: $Util.RuntimeOptions): Promise<OpenXtraceServiceResponse> {
-    let req = new $OpenApi.OpenApiRequest({ });
-    return $tea.cast<OpenXtraceServiceResponse>(await this.doRPCRequest("OpenXtraceService", "2019-08-08", "HTTPS", "POST", "AK", "json", req, runtime), new OpenXtraceServiceResponse({}));
-  }
-
-  async openXtraceService(): Promise<OpenXtraceServiceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.openXtraceServiceWithOptions(runtime);
-  }
-
   async queryMetricWithOptions(request: QueryMetricRequest, runtime: $Util.RuntimeOptions): Promise<QueryMetricResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -1509,19 +1393,6 @@ export default class Client extends OpenApi {
   async searchTraces(request: SearchTracesRequest): Promise<SearchTracesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.searchTracesWithOptions(request, runtime);
-  }
-
-  async updateSamplingWithOptions(request: UpdateSamplingRequest, runtime: $Util.RuntimeOptions): Promise<UpdateSamplingResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<UpdateSamplingResponse>(await this.doRPCRequest("UpdateSampling", "2019-08-08", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateSamplingResponse({}));
-  }
-
-  async updateSampling(request: UpdateSamplingRequest): Promise<UpdateSamplingResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.updateSamplingWithOptions(request, runtime);
   }
 
 }
