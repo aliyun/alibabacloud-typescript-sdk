@@ -1,8 +1,119 @@
 // This file is auto-generated, don't edit it
 import Util, * as $Util from '@alicloud/tea-util';
+import RPCUtil from '@alicloud/rpc-util';
 import RPC, * as $RPC from '@alicloud/rpc-client';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
+
+export class GetServiceRegistrySourceRequest extends $tea.Model {
+  serviceMeshId: string;
+  static names(): { [key: string]: string } {
+    return {
+      serviceMeshId: 'ServiceMeshId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      serviceMeshId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceRegistrySourceResponse extends $tea.Model {
+  requestId: string;
+  result: string;
+  status: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetServiceRegistrySourceRequest extends $tea.Model {
+  serviceMeshId: string;
+  config: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      serviceMeshId: 'ServiceMeshId',
+      config: 'Config',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      serviceMeshId: 'string',
+      config: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetServiceRegistrySourceShrinkRequest extends $tea.Model {
+  serviceMeshId: string;
+  configShrink: string;
+  static names(): { [key: string]: string } {
+    return {
+      serviceMeshId: 'ServiceMeshId',
+      configShrink: 'Config',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      serviceMeshId: 'string',
+      configShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetServiceRegistrySourceResponse extends $tea.Model {
+  requestId: string;
+  result: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class GetAutoInjectionLabelSyncStatusRequest extends $tea.Model {
   serviceMeshId: string;
@@ -403,11 +514,13 @@ export class GetDiagnosisResponse extends $tea.Model {
   requestId: string;
   result: string;
   runAt: string;
+  status: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
       result: 'Result',
       runAt: 'RunAt',
+      status: 'Status',
     };
   }
 
@@ -416,6 +529,7 @@ export class GetDiagnosisResponse extends $tea.Model {
       requestId: 'string',
       result: 'string',
       runAt: 'string',
+      status: 'string',
     };
   }
 
@@ -2219,15 +2333,18 @@ export class DescribeServiceMeshDetailResponseServiceMeshSpecMeshConfigSidecarIn
 
 export class DescribeServiceMeshDetailResponseServiceMeshSpecMeshConfigKiali extends $tea.Model {
   enabled: boolean;
+  url: string;
   static names(): { [key: string]: string } {
     return {
       enabled: 'Enabled',
+      url: 'Url',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       enabled: 'boolean',
+      url: 'string',
     };
   }
 
@@ -2426,6 +2543,32 @@ export default class Client extends RPC {
     this._endpoint = this.getEndpoint("servicemesh", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
 
+
+  async getServiceRegistrySourceWithOptions(request: GetServiceRegistrySourceRequest, runtime: $Util.RuntimeOptions): Promise<GetServiceRegistrySourceResponse> {
+    Util.validateModel(request);
+    return $tea.cast<GetServiceRegistrySourceResponse>(await this.doRequest("GetServiceRegistrySource", "HTTPS", "POST", "2020-01-11", "AK", null, $tea.toMap(request), runtime), new GetServiceRegistrySourceResponse({}));
+  }
+
+  async getServiceRegistrySource(request: GetServiceRegistrySourceRequest): Promise<GetServiceRegistrySourceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getServiceRegistrySourceWithOptions(request, runtime);
+  }
+
+  async setServiceRegistrySourceWithOptions(tmp: SetServiceRegistrySourceRequest, runtime: $Util.RuntimeOptions): Promise<SetServiceRegistrySourceResponse> {
+    Util.validateModel(tmp);
+    let request = new SetServiceRegistrySourceShrinkRequest({ });
+    RPCUtil.convert(tmp, request);
+    if (!Util.isUnset(tmp.config)) {
+      request.configShrink = Util.toJSONString(tmp.config);
+    }
+
+    return $tea.cast<SetServiceRegistrySourceResponse>(await this.doRequest("SetServiceRegistrySource", "HTTPS", "POST", "2020-01-11", "AK", null, $tea.toMap(request), runtime), new SetServiceRegistrySourceResponse({}));
+  }
+
+  async setServiceRegistrySource(request: SetServiceRegistrySourceRequest): Promise<SetServiceRegistrySourceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.setServiceRegistrySourceWithOptions(request, runtime);
+  }
 
   async getAutoInjectionLabelSyncStatusWithOptions(request: GetAutoInjectionLabelSyncStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetAutoInjectionLabelSyncStatusResponse> {
     Util.validateModel(request);
