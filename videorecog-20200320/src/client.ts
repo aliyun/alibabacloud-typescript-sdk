@@ -14,6 +14,72 @@ import EndpointUtil from '@alicloud/endpoint-util';
 import { Readable } from 'stream';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class GetAsyncJobResultRequest extends $tea.Model {
+  async?: boolean;
+  jobId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      async: 'Async',
+      jobId: 'JobId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      async: 'boolean',
+      jobId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAsyncJobResultResponseBody extends $tea.Model {
+  requestId?: string;
+  data?: GetAsyncJobResultResponseBodyData;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      data: GetAsyncJobResultResponseBodyData,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAsyncJobResultResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetAsyncJobResultResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetAsyncJobResultResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DetectVideoShotRequest extends $tea.Model {
   videoUrl?: string;
   async?: boolean;
@@ -196,20 +262,20 @@ export class GenerateVideoCoverResponse extends $tea.Model {
   }
 }
 
-export class GetAsyncJobResultRequest extends $tea.Model {
+export class UnderstandVideoContentRequest extends $tea.Model {
+  videoURL?: string;
   async?: boolean;
-  jobId?: string;
   static names(): { [key: string]: string } {
     return {
+      videoURL: 'VideoURL',
       async: 'Async',
-      jobId: 'JobId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      videoURL: 'string',
       async: 'boolean',
-      jobId: 'string',
     };
   }
 
@@ -218,9 +284,31 @@ export class GetAsyncJobResultRequest extends $tea.Model {
   }
 }
 
-export class GetAsyncJobResultResponseBody extends $tea.Model {
+export class UnderstandVideoContentAdvanceRequest extends $tea.Model {
+  videoURLObject: Readable;
+  async?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      videoURLObject: 'VideoURLObject',
+      async: 'Async',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      videoURLObject: 'Readable',
+      async: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnderstandVideoContentResponseBody extends $tea.Model {
   requestId?: string;
-  data?: GetAsyncJobResultResponseBodyData;
+  data?: UnderstandVideoContentResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
@@ -231,7 +319,7 @@ export class GetAsyncJobResultResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      data: GetAsyncJobResultResponseBodyData,
+      data: UnderstandVideoContentResponseBodyData,
     };
   }
 
@@ -240,9 +328,9 @@ export class GetAsyncJobResultResponseBody extends $tea.Model {
   }
 }
 
-export class GetAsyncJobResultResponse extends $tea.Model {
+export class UnderstandVideoContentResponse extends $tea.Model {
   headers: { [key: string]: string };
-  body: GetAsyncJobResultResponseBody;
+  body: UnderstandVideoContentResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -253,7 +341,38 @@ export class GetAsyncJobResultResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: GetAsyncJobResultResponseBody,
+      body: UnderstandVideoContentResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAsyncJobResultResponseBodyData extends $tea.Model {
+  status?: string;
+  errorMessage?: string;
+  result?: string;
+  errorCode?: string;
+  jobId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      status: 'Status',
+      errorMessage: 'ErrorMessage',
+      result: 'Result',
+      errorCode: 'ErrorCode',
+      jobId: 'JobId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      status: 'string',
+      errorMessage: 'string',
+      result: 'string',
+      errorCode: 'string',
+      jobId: 'string',
     };
   }
 
@@ -322,29 +441,48 @@ export class GenerateVideoCoverResponseBodyData extends $tea.Model {
   }
 }
 
-export class GetAsyncJobResultResponseBodyData extends $tea.Model {
-  status?: string;
-  errorMessage?: string;
-  result?: string;
-  errorCode?: string;
-  jobId?: string;
+export class UnderstandVideoContentResponseBodyDataVideoInfo extends $tea.Model {
+  width?: number;
+  height?: number;
+  duration?: number;
+  fps?: number;
   static names(): { [key: string]: string } {
     return {
-      status: 'Status',
-      errorMessage: 'ErrorMessage',
-      result: 'Result',
-      errorCode: 'ErrorCode',
-      jobId: 'JobId',
+      width: 'Width',
+      height: 'Height',
+      duration: 'Duration',
+      fps: 'Fps',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      status: 'string',
-      errorMessage: 'string',
-      result: 'string',
-      errorCode: 'string',
-      jobId: 'string',
+      width: 'number',
+      height: 'number',
+      duration: 'number',
+      fps: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnderstandVideoContentResponseBodyData extends $tea.Model {
+  tagInfo?: { [key: string]: any };
+  videoInfo?: UnderstandVideoContentResponseBodyDataVideoInfo;
+  static names(): { [key: string]: string } {
+    return {
+      tagInfo: 'TagInfo',
+      videoInfo: 'VideoInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagInfo: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      videoInfo: UnderstandVideoContentResponseBodyDataVideoInfo,
     };
   }
 
@@ -374,6 +512,19 @@ export default class Client extends OpenApi {
     }
 
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+  }
+
+  async getAsyncJobResultWithOptions(request: GetAsyncJobResultRequest, runtime: $Util.RuntimeOptions): Promise<GetAsyncJobResultResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<GetAsyncJobResultResponse>(await this.doRPCRequest("GetAsyncJobResult", "2020-03-20", "HTTPS", "POST", "AK", "json", req, runtime), new GetAsyncJobResultResponse({}));
+  }
+
+  async getAsyncJobResult(request: GetAsyncJobResultRequest): Promise<GetAsyncJobResultResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getAsyncJobResultWithOptions(request, runtime);
   }
 
   async detectVideoShotWithOptions(request: DetectVideoShotRequest, runtime: $Util.RuntimeOptions): Promise<DetectVideoShotResponse> {
@@ -520,17 +671,76 @@ export default class Client extends OpenApi {
     return generateVideoCoverResp;
   }
 
-  async getAsyncJobResultWithOptions(request: GetAsyncJobResultRequest, runtime: $Util.RuntimeOptions): Promise<GetAsyncJobResultResponse> {
+  async understandVideoContentWithOptions(request: UnderstandVideoContentRequest, runtime: $Util.RuntimeOptions): Promise<UnderstandVideoContentResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<GetAsyncJobResultResponse>(await this.doRPCRequest("GetAsyncJobResult", "2020-03-20", "HTTPS", "POST", "AK", "json", req, runtime), new GetAsyncJobResultResponse({}));
+    return $tea.cast<UnderstandVideoContentResponse>(await this.doRPCRequest("UnderstandVideoContent", "2020-03-20", "HTTPS", "POST", "AK", "json", req, runtime), new UnderstandVideoContentResponse({}));
   }
 
-  async getAsyncJobResult(request: GetAsyncJobResultRequest): Promise<GetAsyncJobResultResponse> {
+  async understandVideoContent(request: UnderstandVideoContentRequest): Promise<UnderstandVideoContentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.getAsyncJobResultWithOptions(request, runtime);
+    return await this.understandVideoContentWithOptions(request, runtime);
+  }
+
+  async understandVideoContentAdvance(request: UnderstandVideoContentAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<UnderstandVideoContentResponse> {
+    // Step 0: init client
+    let accessKeyId = await this._credential.getAccessKeyId();
+    let accessKeySecret = await this._credential.getAccessKeySecret();
+    let authConfig = new $RPC.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      endpoint: "openplatform.aliyuncs.com",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenPlatform(authConfig);
+    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
+      product: "videorecog",
+      regionId: this._regionId,
+    });
+    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
+    let ossConfig = new $OSS.Config({
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let ossClient : OSS = null;
+    let fileObj = new $FileForm.FileField({ });
+    let ossHeader = new $OSS.PostObjectRequestHeader({ });
+    let uploadRequest = new $OSS.PostObjectRequest({ });
+    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
+    OpenApiUtil.convert(runtime, ossRuntime);
+    let understandVideoContentReq = new UnderstandVideoContentRequest({ });
+    OpenApiUtil.convert(request, understandVideoContentReq);
+    authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+    ossConfig.accessKeyId = authResponse.accessKeyId;
+    ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+    ossClient = new OSS(ossConfig);
+    fileObj = new $FileForm.FileField({
+      filename: authResponse.objectKey,
+      content: request.videoURLObject,
+      contentType: "",
+    });
+    ossHeader = new $OSS.PostObjectRequestHeader({
+      accessKeyId: authResponse.accessKeyId,
+      policy: authResponse.encodedPolicy,
+      signature: authResponse.signature,
+      key: authResponse.objectKey,
+      file: fileObj,
+      successActionStatus: "201",
+    });
+    uploadRequest = new $OSS.PostObjectRequest({
+      bucketName: authResponse.bucket,
+      header: ossHeader,
+    });
+    await ossClient.postObject(uploadRequest, ossRuntime);
+    understandVideoContentReq.videoURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    let understandVideoContentResp = await this.understandVideoContentWithOptions(understandVideoContentReq, runtime);
+    return understandVideoContentResp;
   }
 
 }
