@@ -573,6 +573,44 @@ export class CreateKubernetesTriggerResponse extends $tea.Model {
   }
 }
 
+export class GrantPermissionsRequest extends $tea.Model {
+  body?: GrantPermissionsRequestBody[];
+  static names(): { [key: string]: string } {
+    return {
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      body: { 'type': 'array', 'itemType': GrantPermissionsRequestBody },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GrantPermissionsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeClusterDetailResponseBody extends $tea.Model {
   clusterId?: string;
   clusterType?: string;
@@ -690,6 +728,28 @@ export class DescribeClusterDetailResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: DescribeClusterDetailResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUserPermissionResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeUserPermissionResponseBody[];
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: { 'type': 'array', 'itemType': DescribeUserPermissionResponseBody },
     };
   }
 
@@ -3115,6 +3175,74 @@ export class DescribeClusterLogsResponseBody extends $tea.Model {
   }
 }
 
+export class GrantPermissionsRequestBody extends $tea.Model {
+  cluster?: string;
+  isCustom?: boolean;
+  roleName?: string;
+  roleType?: string;
+  namespace?: string;
+  isRamRole?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      cluster: 'cluster',
+      isCustom: 'is_custom',
+      roleName: 'role_name',
+      roleType: 'role_type',
+      namespace: 'namespace',
+      isRamRole: 'is_ram_role',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cluster: 'string',
+      isCustom: 'boolean',
+      roleName: 'string',
+      roleType: 'string',
+      namespace: 'string',
+      isRamRole: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUserPermissionResponseBody extends $tea.Model {
+  resourceId?: string;
+  resourceType?: string;
+  roleName?: string;
+  roleType?: string;
+  isOwner?: number;
+  isRamRole?: number;
+  static names(): { [key: string]: string } {
+    return {
+      resourceId: 'resource_id',
+      resourceType: 'resource_type',
+      roleName: 'role_name',
+      roleType: 'role_type',
+      isOwner: 'is_owner',
+      isRamRole: 'is_ram_role',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceId: 'string',
+      resourceType: 'string',
+      roleName: 'string',
+      roleType: 'string',
+      isOwner: 'number',
+      isRamRole: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyClusterNodePoolRequestAutoScaling extends $tea.Model {
   eipBandwidth?: number;
   eipInternetChargeType?: string;
@@ -5414,6 +5542,21 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateKubernetesTriggerResponse>(await this.doROARequest("CreateKubernetesTrigger", "2015-12-15", "HTTPS", "POST", "AK", `/triggers`, "json", req, runtime), new CreateKubernetesTriggerResponse({}));
   }
 
+  async grantPermissions(uid: string, request: GrantPermissionsRequest): Promise<GrantPermissionsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.grantPermissionsWithOptions(uid, request, headers, runtime);
+  }
+
+  async grantPermissionsWithOptions(uid: string, request: GrantPermissionsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GrantPermissionsResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: Util.toArray(request.body),
+    });
+    return $tea.cast<GrantPermissionsResponse>(await this.doROARequest("GrantPermissions", "2015-12-15", "HTTPS", "POST", "AK", `/permissions/users/${uid}`, "none", req, runtime), new GrantPermissionsResponse({}));
+  }
+
   async describeClusterDetail(ClusterId: string): Promise<DescribeClusterDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -5425,6 +5568,19 @@ export default class Client extends OpenApi {
       headers: headers,
     });
     return $tea.cast<DescribeClusterDetailResponse>(await this.doROARequest("DescribeClusterDetail", "2015-12-15", "HTTPS", "GET", "AK", `/clusters/${ClusterId}`, "json", req, runtime), new DescribeClusterDetailResponse({}));
+  }
+
+  async describeUserPermission(uid: string): Promise<DescribeUserPermissionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.describeUserPermissionWithOptions(uid, headers, runtime);
+  }
+
+  async describeUserPermissionWithOptions(uid: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeUserPermissionResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    return $tea.cast<DescribeUserPermissionResponse>(await this.doROARequest("DescribeUserPermission", "2015-12-15", "HTTPS", "GET", "AK", `/permissions/users/${uid}`, "array", req, runtime), new DescribeUserPermissionResponse({}));
   }
 
   async modifyClusterNodePool(ClusterId: string, NodepoolId: string, request: ModifyClusterNodePoolRequest): Promise<ModifyClusterNodePoolResponse> {
