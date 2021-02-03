@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/alidns20150109",
-  "version": "2.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "dist/client.js",
   "scripts": {
@@ -22,7 +22,8 @@
     "@alicloud/tea-typescript": "latest",
     "@alicloud/tea-util": "^1.4.0",
     "@alicloud/openapi-client": "^0.2.1",
-    "@alicloud/endpoint-util": "^0.0.1"
+    "@alicloud/endpoint-util": "^0.0.1",
+    "@alicloud/rpc-client": "^1.3.1"
   },
   "files": [
     "dist",
