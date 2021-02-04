@@ -1485,15 +1485,21 @@ export class DetectIPCObjectResponseBodyDataElements extends $tea.Model {
 
 export class DetectIPCObjectResponseBodyData extends $tea.Model {
   elements?: DetectIPCObjectResponseBodyDataElements[];
+  width?: number;
+  height?: number;
   static names(): { [key: string]: string } {
     return {
       elements: 'Elements',
+      width: 'Width',
+      height: 'Height',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       elements: { 'type': 'array', 'itemType': DetectIPCObjectResponseBodyDataElements },
+      width: 'number',
+      height: 'number',
     };
   }
 
