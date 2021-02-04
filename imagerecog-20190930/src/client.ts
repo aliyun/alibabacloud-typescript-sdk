@@ -14,6 +14,72 @@ import EndpointUtil from '@alicloud/endpoint-util';
 import { Readable } from 'stream';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class GetAsyncJobResultRequest extends $tea.Model {
+  jobId?: string;
+  async?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jobId: 'JobId',
+      async: 'Async',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobId: 'string',
+      async: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAsyncJobResultResponseBody extends $tea.Model {
+  requestId?: string;
+  data?: GetAsyncJobResultResponseBodyData;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      data: GetAsyncJobResultResponseBodyData,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAsyncJobResultResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetAsyncJobResultResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetAsyncJobResultResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DetectImageElementsRequest extends $tea.Model {
   url?: string;
   static names(): { [key: string]: string } {
@@ -748,10 +814,12 @@ export class RecognizeLogoResponse extends $tea.Model {
 export class TaggingImageRequest extends $tea.Model {
   imageType?: number;
   imageURL?: string;
+  async?: boolean;
   static names(): { [key: string]: string } {
     return {
       imageType: 'ImageType',
       imageURL: 'ImageURL',
+      async: 'Async',
     };
   }
 
@@ -759,6 +827,7 @@ export class TaggingImageRequest extends $tea.Model {
     return {
       imageType: 'number',
       imageURL: 'string',
+      async: 'boolean',
     };
   }
 
@@ -770,10 +839,12 @@ export class TaggingImageRequest extends $tea.Model {
 export class TaggingImageAdvanceRequest extends $tea.Model {
   imageURLObject: Readable;
   imageType?: number;
+  async?: boolean;
   static names(): { [key: string]: string } {
     return {
       imageURLObject: 'ImageURLObject',
       imageType: 'ImageType',
+      async: 'Async',
     };
   }
 
@@ -781,6 +852,7 @@ export class TaggingImageAdvanceRequest extends $tea.Model {
     return {
       imageURLObject: 'Readable',
       imageType: 'number',
+      async: 'boolean',
     };
   }
 
@@ -913,6 +985,37 @@ export class EvaluateCertificateQualityResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: EvaluateCertificateQualityResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAsyncJobResultResponseBodyData extends $tea.Model {
+  status?: string;
+  errorMessage?: string;
+  result?: string;
+  errorCode?: string;
+  jobId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      status: 'Status',
+      errorMessage: 'ErrorMessage',
+      result: 'Result',
+      errorCode: 'ErrorCode',
+      jobId: 'JobId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      status: 'string',
+      errorMessage: 'string',
+      result: 'string',
+      errorCode: 'string',
+      jobId: 'string',
     };
   }
 
@@ -1491,6 +1594,20 @@ export default class Client extends OpenApi {
     }
 
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+  }
+
+  async getAsyncJobResultWithOptions(request: GetAsyncJobResultRequest, runtime: $Util.RuntimeOptions): Promise<GetAsyncJobResultResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: query,
+    });
+    return $tea.cast<GetAsyncJobResultResponse>(await this.doRPCRequest("GetAsyncJobResult", "2019-09-30", "HTTPS", "GET", "AK", "json", req, runtime), new GetAsyncJobResultResponse({}));
+  }
+
+  async getAsyncJobResult(request: GetAsyncJobResultRequest): Promise<GetAsyncJobResultResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getAsyncJobResultWithOptions(request, runtime);
   }
 
   async detectImageElementsWithOptions(request: DetectImageElementsRequest, runtime: $Util.RuntimeOptions): Promise<DetectImageElementsResponse> {
