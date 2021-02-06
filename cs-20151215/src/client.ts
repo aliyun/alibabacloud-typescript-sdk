@@ -736,6 +736,50 @@ export class DescribeClusterDetailResponse extends $tea.Model {
   }
 }
 
+export class DescribeClustersRequest extends $tea.Model {
+  name?: string;
+  clusterType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'name',
+      clusterType: 'clusterType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      clusterType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeClustersResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeClustersResponseBody[];
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: { 'type': 'array', 'itemType': DescribeClustersResponseBody },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeUserPermissionResponse extends $tea.Model {
   headers: { [key: string]: string };
   body: DescribeUserPermissionResponseBody[];
@@ -3209,6 +3253,131 @@ export class GrantPermissionsRequestBody extends $tea.Model {
   }
 }
 
+export class DescribeClustersResponseBodyTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'key',
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeClustersResponseBody extends $tea.Model {
+  clusterId?: string;
+  clusterType?: string;
+  created?: string;
+  currentVersion?: string;
+  dataDiskCategory?: string;
+  dataDiskSize?: number;
+  deletionProtection?: boolean;
+  dockerVersion?: string;
+  externalLoadbalancerId?: string;
+  initVersion?: string;
+  masterUrl?: string;
+  metaData?: string;
+  name?: string;
+  networkMode?: string;
+  privateZone?: boolean;
+  profile?: string;
+  regionId?: string;
+  resourceGroupId?: string;
+  securityGroupId?: string;
+  size?: number;
+  state?: string;
+  subnetCidr?: string;
+  tags?: DescribeClustersResponseBodyTags[];
+  updated?: string;
+  vpcId?: string;
+  vswitchCidr?: string;
+  vswitchId?: string;
+  workerRamRoleName?: string;
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'cluster_id',
+      clusterType: 'cluster_type',
+      created: 'created',
+      currentVersion: 'current_version',
+      dataDiskCategory: 'data_disk_category',
+      dataDiskSize: 'data_disk_size',
+      deletionProtection: 'deletion_protection',
+      dockerVersion: 'docker_version',
+      externalLoadbalancerId: 'external_loadbalancer_id',
+      initVersion: 'init_version',
+      masterUrl: 'master_url',
+      metaData: 'meta_data',
+      name: 'name',
+      networkMode: 'network_mode',
+      privateZone: 'private_zone',
+      profile: 'profile',
+      regionId: 'region_id',
+      resourceGroupId: 'resource_group_id',
+      securityGroupId: 'security_group_id',
+      size: 'size',
+      state: 'state',
+      subnetCidr: 'subnet_cidr',
+      tags: 'tags',
+      updated: 'updated',
+      vpcId: 'vpc_id',
+      vswitchCidr: 'vswitch_cidr',
+      vswitchId: 'vswitch_id',
+      workerRamRoleName: 'worker_ram_role_name',
+      zoneId: 'zone_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      clusterType: 'string',
+      created: 'string',
+      currentVersion: 'string',
+      dataDiskCategory: 'string',
+      dataDiskSize: 'number',
+      deletionProtection: 'boolean',
+      dockerVersion: 'string',
+      externalLoadbalancerId: 'string',
+      initVersion: 'string',
+      masterUrl: 'string',
+      metaData: 'string',
+      name: 'string',
+      networkMode: 'string',
+      privateZone: 'boolean',
+      profile: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      securityGroupId: 'string',
+      size: 'number',
+      state: 'string',
+      subnetCidr: 'string',
+      tags: { 'type': 'array', 'itemType': DescribeClustersResponseBodyTags },
+      updated: 'string',
+      vpcId: 'string',
+      vswitchCidr: 'string',
+      vswitchId: 'string',
+      workerRamRoleName: 'string',
+      zoneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeUserPermissionResponseBody extends $tea.Model {
   resourceId?: string;
   resourceType?: string;
@@ -5568,6 +5737,30 @@ export default class Client extends OpenApi {
       headers: headers,
     });
     return $tea.cast<DescribeClusterDetailResponse>(await this.doROARequest("DescribeClusterDetail", "2015-12-15", "HTTPS", "GET", "AK", `/clusters/${ClusterId}`, "json", req, runtime), new DescribeClusterDetailResponse({}));
+  }
+
+  async describeClusters(request: DescribeClustersRequest): Promise<DescribeClustersResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.describeClustersWithOptions(request, headers, runtime);
+  }
+
+  async describeClustersWithOptions(request: DescribeClustersRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeClustersResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.name)) {
+      query["name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.clusterType)) {
+      query["clusterType"] = request.clusterType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    return $tea.cast<DescribeClustersResponse>(await this.doROARequest("DescribeClusters", "2015-12-15", "HTTPS", "GET", "AK", `/clusters`, "array", req, runtime), new DescribeClustersResponse({}));
   }
 
   async describeUserPermission(uid: string): Promise<DescribeUserPermissionResponse> {
