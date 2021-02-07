@@ -10,15 +10,18 @@ import * as $tea from '@alicloud/tea-typescript';
 
 export class AbortChangeRequest extends $tea.Model {
   changeId?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       changeId: 'ChangeId',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       changeId: 'string',
+      regionId: 'string',
     };
   }
 
@@ -89,6 +92,7 @@ export class CreateAppEnvRequest extends $tea.Model {
   templateId?: string;
   dryRun?: boolean;
   extraProperties?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       envName: 'EnvName',
@@ -102,6 +106,7 @@ export class CreateAppEnvRequest extends $tea.Model {
       templateId: 'TemplateId',
       dryRun: 'DryRun',
       extraProperties: 'ExtraProperties',
+      regionId: 'RegionId',
     };
   }
 
@@ -118,6 +123,7 @@ export class CreateAppEnvRequest extends $tea.Model {
       templateId: 'string',
       dryRun: 'boolean',
       extraProperties: 'string',
+      regionId: 'string',
     };
   }
 
@@ -181,12 +187,14 @@ export class CreateApplicationRequest extends $tea.Model {
   appDescription?: string;
   categoryName?: string;
   usingSharedStorage?: boolean;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       appName: 'AppName',
       appDescription: 'AppDescription',
       categoryName: 'CategoryName',
       usingSharedStorage: 'UsingSharedStorage',
+      regionId: 'RegionId',
     };
   }
 
@@ -196,6 +204,7 @@ export class CreateApplicationRequest extends $tea.Model {
       appDescription: 'string',
       categoryName: 'string',
       usingSharedStorage: 'boolean',
+      regionId: 'string',
     };
   }
 
@@ -264,6 +273,7 @@ export class CreateConfigTemplateRequest extends $tea.Model {
   profileName?: string;
   pkgVersionId?: string;
   optionSettings?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       templateName: 'TemplateName',
@@ -275,6 +285,7 @@ export class CreateConfigTemplateRequest extends $tea.Model {
       profileName: 'ProfileName',
       pkgVersionId: 'PkgVersionId',
       optionSettings: 'OptionSettings',
+      regionId: 'RegionId',
     };
   }
 
@@ -289,6 +300,7 @@ export class CreateConfigTemplateRequest extends $tea.Model {
       profileName: 'string',
       pkgVersionId: 'string',
       optionSettings: 'string',
+      regionId: 'string',
     };
   }
 
@@ -349,15 +361,18 @@ export class CreateConfigTemplateResponse extends $tea.Model {
 
 export class CreateOrderRequest extends $tea.Model {
   productName?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       productName: 'ProductName',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       productName: 'string',
+      regionId: 'string',
     };
   }
 
@@ -421,12 +436,14 @@ export class CreatePkgVersionRequest extends $tea.Model {
   pkgVersionDescription?: string;
   appId?: string;
   packageSource?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       pkgVersionLabel: 'PkgVersionLabel',
       pkgVersionDescription: 'PkgVersionDescription',
       appId: 'AppId',
       packageSource: 'PackageSource',
+      regionId: 'RegionId',
     };
   }
 
@@ -436,6 +453,7 @@ export class CreatePkgVersionRequest extends $tea.Model {
       pkgVersionDescription: 'string',
       appId: 'string',
       packageSource: 'string',
+      regionId: 'string',
     };
   }
 
@@ -486,6 +504,25 @@ export class CreatePkgVersionResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: CreatePkgVersionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateStorageRequest extends $tea.Model {
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
     };
   }
 
@@ -546,15 +583,18 @@ export class CreateStorageResponse extends $tea.Model {
 
 export class DeleteAppEnvRequest extends $tea.Model {
   envId?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       envId: 'EnvId',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       envId: 'string',
+      regionId: 'string',
     };
   }
 
@@ -612,15 +652,18 @@ export class DeleteAppEnvResponse extends $tea.Model {
 
 export class DeleteApplicationRequest extends $tea.Model {
   appId?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       appId: 'string',
+      regionId: 'string',
     };
   }
 
@@ -678,15 +721,18 @@ export class DeleteApplicationResponse extends $tea.Model {
 
 export class DeleteChangeRequest extends $tea.Model {
   changeId?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       changeId: 'ChangeId',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       changeId: 'string',
+      regionId: 'string',
     };
   }
 
@@ -744,15 +790,18 @@ export class DeleteChangeResponse extends $tea.Model {
 
 export class DeleteConfigTemplateRequest extends $tea.Model {
   templateId?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       templateId: 'TemplateId',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       templateId: 'string',
+      regionId: 'string',
     };
   }
 
@@ -810,15 +859,18 @@ export class DeleteConfigTemplateResponse extends $tea.Model {
 
 export class DeletePkgVersionRequest extends $tea.Model {
   pkgVersionId?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       pkgVersionId: 'PkgVersionId',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       pkgVersionId: 'string',
+      regionId: 'string',
     };
   }
 
@@ -881,6 +933,7 @@ export class DeployAppEnvRequest extends $tea.Model {
   batchInterval?: number;
   pauseBetweenBatches?: boolean;
   pkgVersionId?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       envId: 'EnvId',
@@ -889,6 +942,7 @@ export class DeployAppEnvRequest extends $tea.Model {
       batchInterval: 'BatchInterval',
       pauseBetweenBatches: 'PauseBetweenBatches',
       pkgVersionId: 'PkgVersionId',
+      regionId: 'RegionId',
     };
   }
 
@@ -900,6 +954,7 @@ export class DeployAppEnvRequest extends $tea.Model {
       batchInterval: 'number',
       pauseBetweenBatches: 'boolean',
       pkgVersionId: 'string',
+      regionId: 'string',
     };
   }
 
@@ -960,15 +1015,18 @@ export class DeployAppEnvResponse extends $tea.Model {
 
 export class DescribeAppEnvInstanceHealthRequest extends $tea.Model {
   envId?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       envId: 'EnvId',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       envId: 'string',
+      regionId: 'string',
     };
   }
 
@@ -1037,6 +1095,7 @@ export class DescribeAppEnvsRequest extends $tea.Model {
   envSearch?: string;
   recentUpdated?: boolean;
   stackSearch?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       envId: 'EnvId',
@@ -1048,6 +1107,7 @@ export class DescribeAppEnvsRequest extends $tea.Model {
       envSearch: 'EnvSearch',
       recentUpdated: 'RecentUpdated',
       stackSearch: 'StackSearch',
+      regionId: 'RegionId',
     };
   }
 
@@ -1062,6 +1122,7 @@ export class DescribeAppEnvsRequest extends $tea.Model {
       envSearch: 'string',
       recentUpdated: 'boolean',
       stackSearch: 'string',
+      regionId: 'string',
     };
   }
 
@@ -1131,15 +1192,18 @@ export class DescribeAppEnvsResponse extends $tea.Model {
 
 export class DescribeAppEnvStatusRequest extends $tea.Model {
   envId?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       envId: 'EnvId',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       envId: 'string',
+      regionId: 'string',
     };
   }
 
@@ -1207,6 +1271,7 @@ export class DescribeApplicationsRequest extends $tea.Model {
   envSearch?: string;
   stackSearch?: string;
   categorySearch?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
@@ -1217,6 +1282,7 @@ export class DescribeApplicationsRequest extends $tea.Model {
       envSearch: 'EnvSearch',
       stackSearch: 'StackSearch',
       categorySearch: 'CategorySearch',
+      regionId: 'RegionId',
     };
   }
 
@@ -1230,6 +1296,7 @@ export class DescribeApplicationsRequest extends $tea.Model {
       envSearch: 'string',
       stackSearch: 'string',
       categorySearch: 'string',
+      regionId: 'string',
     };
   }
 
@@ -1297,6 +1364,25 @@ export class DescribeApplicationsResponse extends $tea.Model {
   }
 }
 
+export class DescribeCategoriesRequest extends $tea.Model {
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeCategoriesResponseBody extends $tea.Model {
   message?: string;
   requestId?: string;
@@ -1350,10 +1436,12 @@ export class DescribeCategoriesResponse extends $tea.Model {
 export class DescribeChangeRequest extends $tea.Model {
   envId?: string;
   changeId?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       envId: 'EnvId',
       changeId: 'ChangeId',
+      regionId: 'RegionId',
     };
   }
 
@@ -1361,6 +1449,7 @@ export class DescribeChangeRequest extends $tea.Model {
     return {
       envId: 'string',
       changeId: 'string',
+      regionId: 'string',
     };
   }
 
@@ -1424,12 +1513,14 @@ export class DescribeChangesRequest extends $tea.Model {
   actionName?: string;
   pageSize?: number;
   pageNumber?: number;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       envId: 'EnvId',
       actionName: 'ActionName',
       pageSize: 'PageSize',
       pageNumber: 'PageNumber',
+      regionId: 'RegionId',
     };
   }
 
@@ -1439,6 +1530,7 @@ export class DescribeChangesRequest extends $tea.Model {
       actionName: 'string',
       pageSize: 'number',
       pageNumber: 'number',
+      regionId: 'string',
     };
   }
 
@@ -1511,12 +1603,14 @@ export class DescribeConfigIndexRequest extends $tea.Model {
   envId?: string;
   profileName?: string;
   templateId?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       stackId: 'StackId',
       envId: 'EnvId',
       profileName: 'ProfileName',
       templateId: 'TemplateId',
+      regionId: 'RegionId',
     };
   }
 
@@ -1526,6 +1620,7 @@ export class DescribeConfigIndexRequest extends $tea.Model {
       envId: 'string',
       profileName: 'string',
       templateId: 'string',
+      regionId: 'string',
     };
   }
 
@@ -1594,11 +1689,13 @@ export class DescribeConfigOptionsRequest extends $tea.Model {
   stackId?: string;
   envId?: string;
   profileName?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       stackId: 'StackId',
       envId: 'EnvId',
       profileName: 'ProfileName',
+      regionId: 'RegionId',
     };
   }
 
@@ -1607,6 +1704,7 @@ export class DescribeConfigOptionsRequest extends $tea.Model {
       stackId: 'string',
       envId: 'string',
       profileName: 'string',
+      regionId: 'string',
     };
   }
 
@@ -1670,12 +1768,14 @@ export class DescribeConfigSettingsRequest extends $tea.Model {
   templateId?: string;
   pathName?: string;
   optionName?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       envId: 'EnvId',
       templateId: 'TemplateId',
       pathName: 'PathName',
       optionName: 'OptionName',
+      regionId: 'RegionId',
     };
   }
 
@@ -1685,6 +1785,7 @@ export class DescribeConfigSettingsRequest extends $tea.Model {
       templateId: 'string',
       pathName: 'string',
       optionName: 'string',
+      regionId: 'string',
     };
   }
 
@@ -1749,6 +1850,7 @@ export class DescribeConfigTemplatesRequest extends $tea.Model {
   templateSearch?: string;
   pageSize?: number;
   pageNumber?: number;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
@@ -1756,6 +1858,7 @@ export class DescribeConfigTemplatesRequest extends $tea.Model {
       templateSearch: 'TemplateSearch',
       pageSize: 'PageSize',
       pageNumber: 'PageNumber',
+      regionId: 'RegionId',
     };
   }
 
@@ -1766,6 +1869,7 @@ export class DescribeConfigTemplatesRequest extends $tea.Model {
       templateSearch: 'string',
       pageSize: 'number',
       pageNumber: 'number',
+      regionId: 'string',
     };
   }
 
@@ -1835,15 +1939,18 @@ export class DescribeConfigTemplatesResponse extends $tea.Model {
 
 export class DescribeEnvResourceRequest extends $tea.Model {
   envId?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       envId: 'EnvId',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       envId: 'string',
+      regionId: 'string',
     };
   }
 
@@ -1911,6 +2018,7 @@ export class DescribeEventsRequest extends $tea.Model {
   changeId?: string;
   lastChangeEvents?: boolean;
   reverseByTimestamp?: boolean;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       envId: 'EnvId',
@@ -1921,6 +2029,7 @@ export class DescribeEventsRequest extends $tea.Model {
       changeId: 'ChangeId',
       lastChangeEvents: 'LastChangeEvents',
       reverseByTimestamp: 'ReverseByTimestamp',
+      regionId: 'RegionId',
     };
   }
 
@@ -1934,6 +2043,7 @@ export class DescribeEventsRequest extends $tea.Model {
       changeId: 'string',
       lastChangeEvents: 'boolean',
       reverseByTimestamp: 'boolean',
+      regionId: 'string',
     };
   }
 
@@ -2003,15 +2113,18 @@ export class DescribeEventsResponse extends $tea.Model {
 
 export class DescribeGatherLogResultRequest extends $tea.Model {
   changeId?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       changeId: 'ChangeId',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       changeId: 'string',
+      regionId: 'string',
     };
   }
 
@@ -2072,15 +2185,18 @@ export class DescribeGatherLogResultResponse extends $tea.Model {
 
 export class DescribeGatherStatsResultRequest extends $tea.Model {
   changeId?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       changeId: 'ChangeId',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       changeId: 'string',
+      regionId: 'string',
     };
   }
 
@@ -2141,15 +2257,18 @@ export class DescribeGatherStatsResultResponse extends $tea.Model {
 
 export class DescribeInstanceHealthRequest extends $tea.Model {
   instanceId?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
+      regionId: 'string',
     };
   }
 
@@ -2214,6 +2333,7 @@ export class DescribePkgVersionsRequest extends $tea.Model {
   pageNumber?: number;
   pkgVersionLabel?: string;
   pkgVersionSearch?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
@@ -2221,6 +2341,7 @@ export class DescribePkgVersionsRequest extends $tea.Model {
       pageNumber: 'PageNumber',
       pkgVersionLabel: 'PkgVersionLabel',
       pkgVersionSearch: 'PkgVersionSearch',
+      regionId: 'RegionId',
     };
   }
 
@@ -2231,6 +2352,7 @@ export class DescribePkgVersionsRequest extends $tea.Model {
       pageNumber: 'number',
       pkgVersionLabel: 'string',
       pkgVersionSearch: 'string',
+      regionId: 'string',
     };
   }
 
@@ -2302,11 +2424,13 @@ export class DescribePublicConfigTemplatesRequest extends $tea.Model {
   categoryName?: string;
   pageSize?: number;
   pageNumber?: number;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       categoryName: 'CategoryName',
       pageSize: 'PageSize',
       pageNumber: 'PageNumber',
+      regionId: 'RegionId',
     };
   }
 
@@ -2315,6 +2439,7 @@ export class DescribePublicConfigTemplatesRequest extends $tea.Model {
       categoryName: 'string',
       pageSize: 'number',
       pageNumber: 'number',
+      regionId: 'string',
     };
   }
 
@@ -2387,12 +2512,14 @@ export class DescribeStacksRequest extends $tea.Model {
   categoryName?: string;
   pageSize?: number;
   pageNumber?: number;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       recommendedOnly: 'RecommendedOnly',
       categoryName: 'CategoryName',
       pageSize: 'PageSize',
       pageNumber: 'PageNumber',
+      regionId: 'RegionId',
     };
   }
 
@@ -2402,6 +2529,7 @@ export class DescribeStacksRequest extends $tea.Model {
       categoryName: 'string',
       pageSize: 'number',
       pageNumber: 'number',
+      regionId: 'string',
     };
   }
 
@@ -2471,15 +2599,18 @@ export class DescribeStacksResponse extends $tea.Model {
 
 export class DescribeStorageRequest extends $tea.Model {
   usingSharedStorage?: boolean;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       usingSharedStorage: 'UsingSharedStorage',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       usingSharedStorage: 'boolean',
+      regionId: 'string',
     };
   }
 
@@ -2542,11 +2673,13 @@ export class GatherAppEnvLogRequest extends $tea.Model {
   envId?: string;
   targetInstances?: string;
   logPath?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       envId: 'EnvId',
       targetInstances: 'TargetInstances',
       logPath: 'LogPath',
+      regionId: 'RegionId',
     };
   }
 
@@ -2555,6 +2688,7 @@ export class GatherAppEnvLogRequest extends $tea.Model {
       envId: 'string',
       targetInstances: 'string',
       logPath: 'string',
+      regionId: 'string',
     };
   }
 
@@ -2616,10 +2750,12 @@ export class GatherAppEnvLogResponse extends $tea.Model {
 export class GatherAppEnvStatsRequest extends $tea.Model {
   envId?: string;
   targetInstances?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       envId: 'EnvId',
       targetInstances: 'TargetInstances',
+      regionId: 'RegionId',
     };
   }
 
@@ -2627,6 +2763,7 @@ export class GatherAppEnvStatsRequest extends $tea.Model {
     return {
       envId: 'string',
       targetInstances: 'string',
+      regionId: 'string',
     };
   }
 
@@ -2687,15 +2824,18 @@ export class GatherAppEnvStatsResponse extends $tea.Model {
 
 export class PauseChangeRequest extends $tea.Model {
   changeId?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       changeId: 'ChangeId',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       changeId: 'string',
+      regionId: 'string',
     };
   }
 
@@ -2757,10 +2897,12 @@ export class PauseChangeResponse extends $tea.Model {
 export class RebuildAppEnvRequest extends $tea.Model {
   envId?: string;
   dryRun?: boolean;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       envId: 'EnvId',
       dryRun: 'DryRun',
+      regionId: 'RegionId',
     };
   }
 
@@ -2768,6 +2910,7 @@ export class RebuildAppEnvRequest extends $tea.Model {
     return {
       envId: 'string',
       dryRun: 'boolean',
+      regionId: 'string',
     };
   }
 
@@ -2832,6 +2975,7 @@ export class RestartAppEnvRequest extends $tea.Model {
   batchPercent?: number;
   batchInterval?: number;
   pauseBetweenBatches?: boolean;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       envId: 'EnvId',
@@ -2839,6 +2983,7 @@ export class RestartAppEnvRequest extends $tea.Model {
       batchPercent: 'BatchPercent',
       batchInterval: 'BatchInterval',
       pauseBetweenBatches: 'PauseBetweenBatches',
+      regionId: 'RegionId',
     };
   }
 
@@ -2849,6 +2994,7 @@ export class RestartAppEnvRequest extends $tea.Model {
       batchPercent: 'number',
       batchInterval: 'number',
       pauseBetweenBatches: 'boolean',
+      regionId: 'string',
     };
   }
 
@@ -2909,15 +3055,18 @@ export class RestartAppEnvResponse extends $tea.Model {
 
 export class ResumeChangeRequest extends $tea.Model {
   changeId?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       changeId: 'ChangeId',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       changeId: 'string',
+      regionId: 'string',
     };
   }
 
@@ -2978,15 +3127,18 @@ export class ResumeChangeResponse extends $tea.Model {
 
 export class StartAppEnvRequest extends $tea.Model {
   envId?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       envId: 'EnvId',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       envId: 'string',
+      regionId: 'string',
     };
   }
 
@@ -3047,15 +3199,18 @@ export class StartAppEnvResponse extends $tea.Model {
 
 export class StopAppEnvRequest extends $tea.Model {
   envId?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       envId: 'EnvId',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       envId: 'string',
+      regionId: 'string',
     };
   }
 
@@ -3117,10 +3272,12 @@ export class StopAppEnvResponse extends $tea.Model {
 export class TerminateAppEnvRequest extends $tea.Model {
   envId?: string;
   dryRun?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       envId: 'EnvId',
       dryRun: 'DryRun',
+      regionId: 'RegionId',
     };
   }
 
@@ -3128,6 +3285,7 @@ export class TerminateAppEnvRequest extends $tea.Model {
     return {
       envId: 'string',
       dryRun: 'string',
+      regionId: 'string',
     };
   }
 
@@ -3198,6 +3356,7 @@ export class UpdateAppEnvRequest extends $tea.Model {
   batchPercent?: string;
   batchInterval?: string;
   pauseBetweenBatches?: boolean;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       envDescription: 'EnvDescription',
@@ -3211,6 +3370,7 @@ export class UpdateAppEnvRequest extends $tea.Model {
       batchPercent: 'BatchPercent',
       batchInterval: 'BatchInterval',
       pauseBetweenBatches: 'PauseBetweenBatches',
+      regionId: 'RegionId',
     };
   }
 
@@ -3227,6 +3387,7 @@ export class UpdateAppEnvRequest extends $tea.Model {
       batchPercent: 'string',
       batchInterval: 'string',
       pauseBetweenBatches: 'boolean',
+      regionId: 'string',
     };
   }
 
@@ -3288,10 +3449,12 @@ export class UpdateAppEnvResponse extends $tea.Model {
 export class UpdateApplicationRequest extends $tea.Model {
   appId?: string;
   appDescription?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
       appDescription: 'AppDescription',
+      regionId: 'RegionId',
     };
   }
 
@@ -3299,6 +3462,7 @@ export class UpdateApplicationRequest extends $tea.Model {
     return {
       appId: 'string',
       appDescription: 'string',
+      regionId: 'string',
     };
   }
 
@@ -3361,11 +3525,13 @@ export class UpdateConfigTemplateRequest extends $tea.Model {
   templateDescription?: string;
   templateId?: string;
   optionSettings?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       templateDescription: 'TemplateDescription',
       templateId: 'TemplateId',
       optionSettings: 'OptionSettings',
+      regionId: 'RegionId',
     };
   }
 
@@ -3374,6 +3540,7 @@ export class UpdateConfigTemplateRequest extends $tea.Model {
       templateDescription: 'string',
       templateId: 'string',
       optionSettings: 'string',
+      regionId: 'string',
     };
   }
 
@@ -3437,12 +3604,14 @@ export class ValidateConfigSettingRequest extends $tea.Model {
   templateId?: string;
   stackId?: string;
   optionSettings?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       envId: 'EnvId',
       templateId: 'TemplateId',
       stackId: 'StackId',
       optionSettings: 'OptionSettings',
+      regionId: 'RegionId',
     };
   }
 
@@ -3452,6 +3621,7 @@ export class ValidateConfigSettingRequest extends $tea.Model {
       templateId: 'string',
       stackId: 'string',
       optionSettings: 'string',
+      regionId: 'string',
     };
   }
 
@@ -6537,6 +6707,11 @@ export default class Client extends OpenApi {
 
   async abortChangeWithOptions(request: AbortChangeRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<AbortChangeResponse> {
     Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.changeId)) {
       body["ChangeId"] = request.changeId;
@@ -6544,6 +6719,7 @@ export default class Client extends OpenApi {
 
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     return $tea.cast<AbortChangeResponse>(await this.doROARequestWithForm("AbortChange", "2019-03-20", "HTTPS", "POST", "AK", `/pop/v1/wam/change/abort`, "json", req, runtime), new AbortChangeResponse({}));
@@ -6557,6 +6733,11 @@ export default class Client extends OpenApi {
 
   async createAppEnvWithOptions(request: CreateAppEnvRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateAppEnvResponse> {
     Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.envName)) {
       body["EnvName"] = request.envName;
@@ -6604,6 +6785,7 @@ export default class Client extends OpenApi {
 
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     return $tea.cast<CreateAppEnvResponse>(await this.doROARequestWithForm("CreateAppEnv", "2019-03-20", "HTTPS", "POST", "AK", `/pop/v1/wam/appEnv`, "json", req, runtime), new CreateAppEnvResponse({}));
@@ -6617,6 +6799,11 @@ export default class Client extends OpenApi {
 
   async createApplicationWithOptions(request: CreateApplicationRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateApplicationResponse> {
     Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.appName)) {
       body["AppName"] = request.appName;
@@ -6636,6 +6823,7 @@ export default class Client extends OpenApi {
 
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     return $tea.cast<CreateApplicationResponse>(await this.doROARequestWithForm("CreateApplication", "2019-03-20", "HTTPS", "POST", "AK", `/pop/v1/wam/application`, "json", req, runtime), new CreateApplicationResponse({}));
@@ -6649,6 +6837,11 @@ export default class Client extends OpenApi {
 
   async createConfigTemplateWithOptions(request: CreateConfigTemplateRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateConfigTemplateResponse> {
     Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.templateName)) {
       body["TemplateName"] = request.templateName;
@@ -6688,6 +6881,7 @@ export default class Client extends OpenApi {
 
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     return $tea.cast<CreateConfigTemplateResponse>(await this.doROARequestWithForm("CreateConfigTemplate", "2019-03-20", "HTTPS", "POST", "AK", `/pop/v1/wam/configTemplate`, "json", req, runtime), new CreateConfigTemplateResponse({}));
@@ -6701,6 +6895,11 @@ export default class Client extends OpenApi {
 
   async createOrderWithOptions(request: CreateOrderRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateOrderResponse> {
     Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.productName)) {
       body["ProductName"] = request.productName;
@@ -6708,6 +6907,7 @@ export default class Client extends OpenApi {
 
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     return $tea.cast<CreateOrderResponse>(await this.doROARequestWithForm("CreateOrder", "2019-03-20", "HTTPS", "POST", "AK", `/pop/v1/paas/createOrder`, "json", req, runtime), new CreateOrderResponse({}));
@@ -6721,6 +6921,11 @@ export default class Client extends OpenApi {
 
   async createPkgVersionWithOptions(request: CreatePkgVersionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreatePkgVersionResponse> {
     Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.pkgVersionLabel)) {
       body["PkgVersionLabel"] = request.pkgVersionLabel;
@@ -6740,20 +6945,28 @@ export default class Client extends OpenApi {
 
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     return $tea.cast<CreatePkgVersionResponse>(await this.doROARequestWithForm("CreatePkgVersion", "2019-03-20", "HTTPS", "POST", "AK", `/pop/v1/wam/pkgVersion`, "json", req, runtime), new CreatePkgVersionResponse({}));
   }
 
-  async createStorage(): Promise<CreateStorageResponse> {
+  async createStorage(request: CreateStorageRequest): Promise<CreateStorageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.createStorageWithOptions(headers, runtime);
+    return await this.createStorageWithOptions(request, headers, runtime);
   }
 
-  async createStorageWithOptions(headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateStorageResponse> {
+  async createStorageWithOptions(request: CreateStorageRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateStorageResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
     });
     return $tea.cast<CreateStorageResponse>(await this.doROARequest("CreateStorage", "2019-03-20", "HTTPS", "POST", "AK", `/pop/v1/wam/storage`, "json", req, runtime), new CreateStorageResponse({}));
   }
@@ -6769,6 +6982,10 @@ export default class Client extends OpenApi {
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.envId)) {
       query["EnvId"] = request.envId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -6791,6 +7008,10 @@ export default class Client extends OpenApi {
       query["AppId"] = request.appId;
     }
 
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
@@ -6809,6 +7030,10 @@ export default class Client extends OpenApi {
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.changeId)) {
       query["ChangeId"] = request.changeId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -6831,6 +7056,10 @@ export default class Client extends OpenApi {
       query["TemplateId"] = request.templateId;
     }
 
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
@@ -6851,6 +7080,10 @@ export default class Client extends OpenApi {
       query["PkgVersionId"] = request.pkgVersionId;
     }
 
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
@@ -6866,6 +7099,11 @@ export default class Client extends OpenApi {
 
   async deployAppEnvWithOptions(request: DeployAppEnvRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeployAppEnvResponse> {
     Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.envId)) {
       body["EnvId"] = request.envId;
@@ -6893,6 +7131,7 @@ export default class Client extends OpenApi {
 
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     return $tea.cast<DeployAppEnvResponse>(await this.doROARequestWithForm("DeployAppEnv", "2019-03-20", "HTTPS", "POST", "AK", `/pop/v1/wam/appEnv/deploy`, "json", req, runtime), new DeployAppEnvResponse({}));
@@ -6909,6 +7148,10 @@ export default class Client extends OpenApi {
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.envId)) {
       query["EnvId"] = request.envId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -6963,6 +7206,10 @@ export default class Client extends OpenApi {
       query["StackSearch"] = request.stackSearch;
     }
 
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
@@ -6981,6 +7228,10 @@ export default class Client extends OpenApi {
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.envId)) {
       query["EnvId"] = request.envId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -7031,6 +7282,10 @@ export default class Client extends OpenApi {
       query["CategorySearch"] = request.categorySearch;
     }
 
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
@@ -7038,15 +7293,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeApplicationsResponse>(await this.doROARequest("DescribeApplications", "2019-03-20", "HTTPS", "GET", "AK", `/pop/v1/wam/application`, "json", req, runtime), new DescribeApplicationsResponse({}));
   }
 
-  async describeCategories(): Promise<DescribeCategoriesResponse> {
+  async describeCategories(request: DescribeCategoriesRequest): Promise<DescribeCategoriesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.describeCategoriesWithOptions(headers, runtime);
+    return await this.describeCategoriesWithOptions(request, headers, runtime);
   }
 
-  async describeCategoriesWithOptions(headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeCategoriesResponse> {
+  async describeCategoriesWithOptions(request: DescribeCategoriesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeCategoriesResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
     });
     return $tea.cast<DescribeCategoriesResponse>(await this.doROARequest("DescribeCategories", "2019-03-20", "HTTPS", "GET", "AK", `/pop/v1/wam/category`, "json", req, runtime), new DescribeCategoriesResponse({}));
   }
@@ -7066,6 +7328,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.changeId)) {
       query["ChangeId"] = request.changeId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -7100,6 +7366,10 @@ export default class Client extends OpenApi {
       query["PageNumber"] = request.pageNumber;
     }
 
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
@@ -7132,6 +7402,10 @@ export default class Client extends OpenApi {
       query["TemplateId"] = request.templateId;
     }
 
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
@@ -7158,6 +7432,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.profileName)) {
       query["ProfileName"] = request.profileName;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -7190,6 +7468,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.optionName)) {
       query["OptionName"] = request.optionName;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -7228,6 +7510,10 @@ export default class Client extends OpenApi {
       query["PageNumber"] = request.pageNumber;
     }
 
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
@@ -7246,6 +7532,10 @@ export default class Client extends OpenApi {
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.envId)) {
       query["EnvId"] = request.envId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -7296,6 +7586,10 @@ export default class Client extends OpenApi {
       query["ReverseByTimestamp"] = request.reverseByTimestamp;
     }
 
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
@@ -7314,6 +7608,10 @@ export default class Client extends OpenApi {
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.changeId)) {
       query["ChangeId"] = request.changeId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -7336,6 +7634,10 @@ export default class Client extends OpenApi {
       query["ChangeId"] = request.changeId;
     }
 
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
@@ -7354,6 +7656,10 @@ export default class Client extends OpenApi {
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -7392,6 +7698,10 @@ export default class Client extends OpenApi {
       query["PkgVersionSearch"] = request.pkgVersionSearch;
     }
 
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
@@ -7418,6 +7728,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -7452,6 +7766,10 @@ export default class Client extends OpenApi {
       query["PageNumber"] = request.pageNumber;
     }
 
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
@@ -7472,6 +7790,10 @@ export default class Client extends OpenApi {
       query["UsingSharedStorage"] = request.usingSharedStorage;
     }
 
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
@@ -7487,6 +7809,11 @@ export default class Client extends OpenApi {
 
   async gatherAppEnvLogWithOptions(request: GatherAppEnvLogRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GatherAppEnvLogResponse> {
     Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.envId)) {
       body["EnvId"] = request.envId;
@@ -7502,6 +7829,7 @@ export default class Client extends OpenApi {
 
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     return $tea.cast<GatherAppEnvLogResponse>(await this.doROARequestWithForm("GatherAppEnvLog", "2019-03-20", "HTTPS", "POST", "AK", `/pop/v1/wam/appEnv/gatherLog`, "json", req, runtime), new GatherAppEnvLogResponse({}));
@@ -7515,6 +7843,11 @@ export default class Client extends OpenApi {
 
   async gatherAppEnvStatsWithOptions(request: GatherAppEnvStatsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GatherAppEnvStatsResponse> {
     Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.envId)) {
       body["EnvId"] = request.envId;
@@ -7526,6 +7859,7 @@ export default class Client extends OpenApi {
 
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     return $tea.cast<GatherAppEnvStatsResponse>(await this.doROARequestWithForm("GatherAppEnvStats", "2019-03-20", "HTTPS", "POST", "AK", `/pop/v1/wam/appEnv/gatherStats`, "json", req, runtime), new GatherAppEnvStatsResponse({}));
@@ -7539,6 +7873,11 @@ export default class Client extends OpenApi {
 
   async pauseChangeWithOptions(request: PauseChangeRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PauseChangeResponse> {
     Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.changeId)) {
       body["ChangeId"] = request.changeId;
@@ -7546,6 +7885,7 @@ export default class Client extends OpenApi {
 
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     return $tea.cast<PauseChangeResponse>(await this.doROARequestWithForm("PauseChange", "2019-03-20", "HTTPS", "POST", "AK", `/pop/v1/wam/change/pause`, "json", req, runtime), new PauseChangeResponse({}));
@@ -7559,6 +7899,11 @@ export default class Client extends OpenApi {
 
   async rebuildAppEnvWithOptions(request: RebuildAppEnvRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RebuildAppEnvResponse> {
     Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.envId)) {
       body["EnvId"] = request.envId;
@@ -7570,6 +7915,7 @@ export default class Client extends OpenApi {
 
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     return $tea.cast<RebuildAppEnvResponse>(await this.doROARequestWithForm("RebuildAppEnv", "2019-03-20", "HTTPS", "POST", "AK", `/pop/v1/wam/appEnv/rebuild`, "json", req, runtime), new RebuildAppEnvResponse({}));
@@ -7583,6 +7929,11 @@ export default class Client extends OpenApi {
 
   async restartAppEnvWithOptions(request: RestartAppEnvRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RestartAppEnvResponse> {
     Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.envId)) {
       body["EnvId"] = request.envId;
@@ -7606,6 +7957,7 @@ export default class Client extends OpenApi {
 
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     return $tea.cast<RestartAppEnvResponse>(await this.doROARequestWithForm("RestartAppEnv", "2019-03-20", "HTTPS", "POST", "AK", `/pop/v1/wam/appEnv/restart`, "json", req, runtime), new RestartAppEnvResponse({}));
@@ -7619,6 +7971,11 @@ export default class Client extends OpenApi {
 
   async resumeChangeWithOptions(request: ResumeChangeRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ResumeChangeResponse> {
     Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.changeId)) {
       body["ChangeId"] = request.changeId;
@@ -7626,6 +7983,7 @@ export default class Client extends OpenApi {
 
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     return $tea.cast<ResumeChangeResponse>(await this.doROARequestWithForm("ResumeChange", "2019-03-20", "HTTPS", "POST", "AK", `/pop/v1/wam/change/resume`, "json", req, runtime), new ResumeChangeResponse({}));
@@ -7639,6 +7997,11 @@ export default class Client extends OpenApi {
 
   async startAppEnvWithOptions(request: StartAppEnvRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StartAppEnvResponse> {
     Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.envId)) {
       body["EnvId"] = request.envId;
@@ -7646,6 +8009,7 @@ export default class Client extends OpenApi {
 
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     return $tea.cast<StartAppEnvResponse>(await this.doROARequestWithForm("StartAppEnv", "2019-03-20", "HTTPS", "POST", "AK", `/pop/v1/wam/appEnv/start`, "json", req, runtime), new StartAppEnvResponse({}));
@@ -7659,6 +8023,11 @@ export default class Client extends OpenApi {
 
   async stopAppEnvWithOptions(request: StopAppEnvRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StopAppEnvResponse> {
     Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.envId)) {
       body["EnvId"] = request.envId;
@@ -7666,6 +8035,7 @@ export default class Client extends OpenApi {
 
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     return $tea.cast<StopAppEnvResponse>(await this.doROARequestWithForm("StopAppEnv", "2019-03-20", "HTTPS", "POST", "AK", `/pop/v1/wam/appEnv/stop`, "json", req, runtime), new StopAppEnvResponse({}));
@@ -7679,6 +8049,11 @@ export default class Client extends OpenApi {
 
   async terminateAppEnvWithOptions(request: TerminateAppEnvRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<TerminateAppEnvResponse> {
     Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.envId)) {
       body["EnvId"] = request.envId;
@@ -7690,6 +8065,7 @@ export default class Client extends OpenApi {
 
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     return $tea.cast<TerminateAppEnvResponse>(await this.doROARequestWithForm("TerminateAppEnv", "2019-03-20", "HTTPS", "POST", "AK", `/pop/v1/wam/appEnv/terminate`, "json", req, runtime), new TerminateAppEnvResponse({}));
@@ -7703,6 +8079,11 @@ export default class Client extends OpenApi {
 
   async updateAppEnvWithOptions(request: UpdateAppEnvRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateAppEnvResponse> {
     Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.envDescription)) {
       body["EnvDescription"] = request.envDescription;
@@ -7750,6 +8131,7 @@ export default class Client extends OpenApi {
 
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     return $tea.cast<UpdateAppEnvResponse>(await this.doROARequestWithForm("UpdateAppEnv", "2019-03-20", "HTTPS", "PUT", "AK", `/pop/v1/wam/appEnv`, "json", req, runtime), new UpdateAppEnvResponse({}));
@@ -7763,6 +8145,11 @@ export default class Client extends OpenApi {
 
   async updateApplicationWithOptions(request: UpdateApplicationRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateApplicationResponse> {
     Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.appId)) {
       body["AppId"] = request.appId;
@@ -7774,6 +8161,7 @@ export default class Client extends OpenApi {
 
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     return $tea.cast<UpdateApplicationResponse>(await this.doROARequestWithForm("UpdateApplication", "2019-03-20", "HTTPS", "PUT", "AK", `/pop/v1/wam/application`, "json", req, runtime), new UpdateApplicationResponse({}));
@@ -7787,6 +8175,11 @@ export default class Client extends OpenApi {
 
   async updateConfigTemplateWithOptions(request: UpdateConfigTemplateRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateConfigTemplateResponse> {
     Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.templateDescription)) {
       body["TemplateDescription"] = request.templateDescription;
@@ -7802,6 +8195,7 @@ export default class Client extends OpenApi {
 
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     return $tea.cast<UpdateConfigTemplateResponse>(await this.doROARequestWithForm("UpdateConfigTemplate", "2019-03-20", "HTTPS", "PUT", "AK", `/pop/v1/wam/configTemplate`, "json", req, runtime), new UpdateConfigTemplateResponse({}));
@@ -7815,6 +8209,11 @@ export default class Client extends OpenApi {
 
   async validateConfigSettingWithOptions(request: ValidateConfigSettingRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ValidateConfigSettingResponse> {
     Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.envId)) {
       body["EnvId"] = request.envId;
@@ -7834,6 +8233,7 @@ export default class Client extends OpenApi {
 
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     return $tea.cast<ValidateConfigSettingResponse>(await this.doROARequestWithForm("ValidateConfigSetting", "2019-03-20", "HTTPS", "POST", "AK", `/pop/v1/wam/config/configSetting/validate`, "json", req, runtime), new ValidateConfigSettingResponse({}));
