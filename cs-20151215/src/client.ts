@@ -420,6 +420,50 @@ export class DescribeClusterAttachScriptsResponse extends $tea.Model {
   }
 }
 
+export class RemoveClusterNodesRequest extends $tea.Model {
+  drainNode?: boolean;
+  nodes?: string[];
+  releaseNode?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      drainNode: 'drain_node',
+      nodes: 'nodes',
+      releaseNode: 'release_node',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      drainNode: 'boolean',
+      nodes: { 'type': 'array', 'itemType': 'string' },
+      releaseNode: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemoveClusterNodesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeKubernetesVersionMetadataRequest extends $tea.Model {
   region?: string;
   clusterType?: string;
@@ -1214,6 +1258,148 @@ export class DescribeClusterUserKubeconfigResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: DescribeClusterUserKubeconfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScaleClusterRequest extends $tea.Model {
+  cloudMonitorFlags?: boolean;
+  count?: number;
+  cpuPolicy?: string;
+  disableRollback?: boolean;
+  keyPair?: string;
+  loginPassword?: string;
+  tags?: ScaleClusterRequestTags[];
+  taints?: ScaleClusterRequestTaints[];
+  vswitchIds?: string[];
+  workerAutoRenew?: boolean;
+  workerAutoRenewPeriod?: number;
+  workerDataDisk?: boolean;
+  workerDataDisks?: ScaleClusterRequestWorkerDataDisks[];
+  workerInstanceChargeType?: string;
+  workerInstanceTypes?: string[];
+  workerPeriod?: number;
+  workerPeriodUnit?: string;
+  workerSystemDiskCategory?: string;
+  workerSystemDiskSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      cloudMonitorFlags: 'cloud_monitor_flags',
+      count: 'count',
+      cpuPolicy: 'cpu_policy',
+      disableRollback: 'disable_rollback',
+      keyPair: 'key_pair',
+      loginPassword: 'login_password',
+      tags: 'tags',
+      taints: 'taints',
+      vswitchIds: 'vswitch_ids',
+      workerAutoRenew: 'worker_auto_renew',
+      workerAutoRenewPeriod: 'worker_auto_renew_period',
+      workerDataDisk: 'worker_data_disk',
+      workerDataDisks: 'worker_data_disks',
+      workerInstanceChargeType: 'worker_instance_charge_type',
+      workerInstanceTypes: 'worker_instance_types',
+      workerPeriod: 'worker_period',
+      workerPeriodUnit: 'worker_period_unit',
+      workerSystemDiskCategory: 'worker_system_disk_category',
+      workerSystemDiskSize: 'worker_system_disk_size',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cloudMonitorFlags: 'boolean',
+      count: 'number',
+      cpuPolicy: 'string',
+      disableRollback: 'boolean',
+      keyPair: 'string',
+      loginPassword: 'string',
+      tags: { 'type': 'array', 'itemType': ScaleClusterRequestTags },
+      taints: { 'type': 'array', 'itemType': ScaleClusterRequestTaints },
+      vswitchIds: { 'type': 'array', 'itemType': 'string' },
+      workerAutoRenew: 'boolean',
+      workerAutoRenewPeriod: 'number',
+      workerDataDisk: 'boolean',
+      workerDataDisks: { 'type': 'array', 'itemType': ScaleClusterRequestWorkerDataDisks },
+      workerInstanceChargeType: 'string',
+      workerInstanceTypes: { 'type': 'array', 'itemType': 'string' },
+      workerPeriod: 'number',
+      workerPeriodUnit: 'string',
+      workerSystemDiskCategory: 'string',
+      workerSystemDiskSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScaleClusterResponseBody extends $tea.Model {
+  clusterId?: string;
+  requestId?: string;
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'cluster_id',
+      requestId: 'request_id',
+      taskId: 'task_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      requestId: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScaleClusterResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ScaleClusterResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ScaleClusterResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeClusterAddonUpgradeStatusResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: {[key: string]: any};
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
     };
   }
 
@@ -2049,6 +2235,25 @@ export class DeleteClusterResponse extends $tea.Model {
   }
 }
 
+export class MigrateClusterResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeClusterAddonsVersionResponse extends $tea.Model {
   headers: { [key: string]: string };
   body: {[key: string]: any};
@@ -2445,6 +2650,25 @@ export class UpgradeClusterAddonsResponse extends $tea.Model {
   }
 }
 
+export class DescribeClusterNamespacesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteKubernetesTriggerResponse extends $tea.Model {
   headers: { [key: string]: string };
   static names(): { [key: string]: string } {
@@ -2656,6 +2880,66 @@ export class DescribeClusterNodePoolsResponse extends $tea.Model {
   }
 }
 
+export class DescribeClusterV2UserKubeconfigRequest extends $tea.Model {
+  privateIpAddress?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      privateIpAddress: 'PrivateIpAddress',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      privateIpAddress: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeClusterV2UserKubeconfigResponseBody extends $tea.Model {
+  config?: string;
+  static names(): { [key: string]: string } {
+    return {
+      config: 'config',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      config: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeClusterV2UserKubeconfigResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeClusterV2UserKubeconfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeClusterV2UserKubeconfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ScaleOutClusterRequest extends $tea.Model {
   count?: number;
   keyPair?: string;
@@ -2774,6 +3058,25 @@ export class ScaleOutClusterResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: ScaleOutClusterResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateK8sClusterUserConfigExpireResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
     };
   }
 
@@ -4347,6 +4650,75 @@ export class CreateClusterNodePoolRequestManagement extends $tea.Model {
   }
 }
 
+export class ScaleClusterRequestTags extends $tea.Model {
+  key?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'key',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScaleClusterRequestTaints extends $tea.Model {
+  effect?: string;
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      effect: 'effect',
+      key: 'key',
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      effect: 'string',
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScaleClusterRequestWorkerDataDisks extends $tea.Model {
+  category?: string;
+  encrypted?: string;
+  size?: string;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'category',
+      encrypted: 'encrypted',
+      size: 'size',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      encrypted: 'string',
+      size: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeAddonsResponseBodyComponentGroupsItems extends $tea.Model {
   name?: string;
   static names(): { [key: string]: string } {
@@ -5634,6 +6006,34 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeClusterAttachScriptsResponse>(await this.doROARequest("DescribeClusterAttachScripts", "2015-12-15", "HTTPS", "POST", "AK", `/clusters/${ClusterId}/attachscript`, "string", req, runtime), new DescribeClusterAttachScriptsResponse({}));
   }
 
+  async removeClusterNodes(ClusterId: string, request: RemoveClusterNodesRequest): Promise<RemoveClusterNodesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.removeClusterNodesWithOptions(ClusterId, request, headers, runtime);
+  }
+
+  async removeClusterNodesWithOptions(ClusterId: string, request: RemoveClusterNodesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RemoveClusterNodesResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.drainNode)) {
+      body["drain_node"] = request.drainNode;
+    }
+
+    if (!Util.isUnset(request.nodes)) {
+      body["nodes"] = request.nodes;
+    }
+
+    if (!Util.isUnset(request.releaseNode)) {
+      body["release_node"] = request.releaseNode;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    return $tea.cast<RemoveClusterNodesResponse>(await this.doROARequest("RemoveClusterNodes", "2015-12-15", "HTTPS", "POST", "AK", `/api/v2/clusters/${ClusterId}/nodes/remove`, "none", req, runtime), new RemoveClusterNodesResponse({}));
+  }
+
   async describeKubernetesVersionMetadata(request: DescribeKubernetesVersionMetadataRequest): Promise<DescribeKubernetesVersionMetadataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -5948,6 +6348,111 @@ export default class Client extends OpenApi {
       query: OpenApiUtil.query(query),
     });
     return $tea.cast<DescribeClusterUserKubeconfigResponse>(await this.doROARequest("DescribeClusterUserKubeconfig", "2015-12-15", "HTTPS", "GET", "AK", `/k8s/${ClusterId}/user_config`, "json", req, runtime), new DescribeClusterUserKubeconfigResponse({}));
+  }
+
+  async scaleCluster(ClusterId: string, request: ScaleClusterRequest): Promise<ScaleClusterResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.scaleClusterWithOptions(ClusterId, request, headers, runtime);
+  }
+
+  async scaleClusterWithOptions(ClusterId: string, request: ScaleClusterRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ScaleClusterResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.cloudMonitorFlags)) {
+      body["cloud_monitor_flags"] = request.cloudMonitorFlags;
+    }
+
+    if (!Util.isUnset(request.count)) {
+      body["count"] = request.count;
+    }
+
+    if (!Util.isUnset(request.cpuPolicy)) {
+      body["cpu_policy"] = request.cpuPolicy;
+    }
+
+    if (!Util.isUnset(request.disableRollback)) {
+      body["disable_rollback"] = request.disableRollback;
+    }
+
+    if (!Util.isUnset(request.keyPair)) {
+      body["key_pair"] = request.keyPair;
+    }
+
+    if (!Util.isUnset(request.loginPassword)) {
+      body["login_password"] = request.loginPassword;
+    }
+
+    if (!Util.isUnset(request.tags)) {
+      body["tags"] = request.tags;
+    }
+
+    if (!Util.isUnset(request.taints)) {
+      body["taints"] = request.taints;
+    }
+
+    if (!Util.isUnset(request.vswitchIds)) {
+      body["vswitch_ids"] = request.vswitchIds;
+    }
+
+    if (!Util.isUnset(request.workerAutoRenew)) {
+      body["worker_auto_renew"] = request.workerAutoRenew;
+    }
+
+    if (!Util.isUnset(request.workerAutoRenewPeriod)) {
+      body["worker_auto_renew_period"] = request.workerAutoRenewPeriod;
+    }
+
+    if (!Util.isUnset(request.workerDataDisk)) {
+      body["worker_data_disk"] = request.workerDataDisk;
+    }
+
+    if (!Util.isUnset(request.workerDataDisks)) {
+      body["worker_data_disks"] = request.workerDataDisks;
+    }
+
+    if (!Util.isUnset(request.workerInstanceChargeType)) {
+      body["worker_instance_charge_type"] = request.workerInstanceChargeType;
+    }
+
+    if (!Util.isUnset(request.workerInstanceTypes)) {
+      body["worker_instance_types"] = request.workerInstanceTypes;
+    }
+
+    if (!Util.isUnset(request.workerPeriod)) {
+      body["worker_period"] = request.workerPeriod;
+    }
+
+    if (!Util.isUnset(request.workerPeriodUnit)) {
+      body["worker_period_unit"] = request.workerPeriodUnit;
+    }
+
+    if (!Util.isUnset(request.workerSystemDiskCategory)) {
+      body["worker_system_disk_category"] = request.workerSystemDiskCategory;
+    }
+
+    if (!Util.isUnset(request.workerSystemDiskSize)) {
+      body["worker_system_disk_size"] = request.workerSystemDiskSize;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    return $tea.cast<ScaleClusterResponse>(await this.doROARequest("ScaleCluster", "2015-12-15", "HTTPS", "PUT", "AK", `/clusters/${ClusterId}`, "json", req, runtime), new ScaleClusterResponse({}));
+  }
+
+  async describeClusterAddonUpgradeStatus(ClusterId: string, ComponentId: string): Promise<DescribeClusterAddonUpgradeStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.describeClusterAddonUpgradeStatusWithOptions(ClusterId, ComponentId, headers, runtime);
+  }
+
+  async describeClusterAddonUpgradeStatusWithOptions(ClusterId: string, ComponentId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeClusterAddonUpgradeStatusResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    return $tea.cast<DescribeClusterAddonUpgradeStatusResponse>(await this.doROARequest("DescribeClusterAddonUpgradeStatus", "2015-12-15", "HTTPS", "GET", "AK", `/clusters/${ClusterId}/components/${ComponentId}/upgradestatus`, "json", req, runtime), new DescribeClusterAddonUpgradeStatusResponse({}));
   }
 
   async describeAddons(request: DescribeAddonsRequest): Promise<DescribeAddonsResponse> {
@@ -6550,6 +7055,19 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteClusterResponse>(await this.doROARequestWithForm("DeleteCluster", "2015-12-15", "HTTPS", "DELETE", "AK", `/clusters/${ClusterId}`, "none", req, runtime), new DeleteClusterResponse({}));
   }
 
+  async migrateCluster(clusterId: string): Promise<MigrateClusterResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.migrateClusterWithOptions(clusterId, headers, runtime);
+  }
+
+  async migrateClusterWithOptions(clusterId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<MigrateClusterResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    return $tea.cast<MigrateClusterResponse>(await this.doROARequest("MigrateCluster", "2015-12-15", "HTTPS", "POST", "AK", `/clusters/${clusterId}/migrate`, "none", req, runtime), new MigrateClusterResponse({}));
+  }
+
   async describeClusterAddonsVersion(ClusterId: string): Promise<DescribeClusterAddonsVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -6727,6 +7245,19 @@ export default class Client extends OpenApi {
     return $tea.cast<UpgradeClusterAddonsResponse>(await this.doROARequest("UpgradeClusterAddons", "2015-12-15", "HTTPS", "POST", "AK", `/clusters/${ClusterId}/components/upgrade`, "none", req, runtime), new UpgradeClusterAddonsResponse({}));
   }
 
+  async describeClusterNamespaces(ClusterId: string): Promise<DescribeClusterNamespacesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.describeClusterNamespacesWithOptions(ClusterId, headers, runtime);
+  }
+
+  async describeClusterNamespacesWithOptions(ClusterId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeClusterNamespacesResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    return $tea.cast<DescribeClusterNamespacesResponse>(await this.doROARequest("DescribeClusterNamespaces", "2015-12-15", "HTTPS", "GET", "AK", `/k8s/${ClusterId}/namespaces`, "none", req, runtime), new DescribeClusterNamespacesResponse({}));
+  }
+
   async deleteKubernetesTrigger(Id: string): Promise<DeleteKubernetesTriggerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -6812,6 +7343,26 @@ export default class Client extends OpenApi {
       headers: headers,
     });
     return $tea.cast<DescribeClusterNodePoolsResponse>(await this.doROARequest("DescribeClusterNodePools", "2015-12-15", "HTTPS", "GET", "AK", `/clusters/${ClusterId}/nodepools`, "json", req, runtime), new DescribeClusterNodePoolsResponse({}));
+  }
+
+  async describeClusterV2UserKubeconfig(ClusterId: string, request: DescribeClusterV2UserKubeconfigRequest): Promise<DescribeClusterV2UserKubeconfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.describeClusterV2UserKubeconfigWithOptions(ClusterId, request, headers, runtime);
+  }
+
+  async describeClusterV2UserKubeconfigWithOptions(ClusterId: string, request: DescribeClusterV2UserKubeconfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeClusterV2UserKubeconfigResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.privateIpAddress)) {
+      query["PrivateIpAddress"] = request.privateIpAddress;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    return $tea.cast<DescribeClusterV2UserKubeconfigResponse>(await this.doROARequest("DescribeClusterV2UserKubeconfig", "2015-12-15", "HTTPS", "GET", "AK", `/api/v2/k8s/${ClusterId}/user_config`, "json", req, runtime), new DescribeClusterV2UserKubeconfigResponse({}));
   }
 
   async scaleOutCluster(ClusterId: string, request: ScaleOutClusterRequest): Promise<ScaleOutClusterResponse> {
@@ -6912,6 +7463,19 @@ export default class Client extends OpenApi {
       body: OpenApiUtil.parseToMap(body),
     });
     return $tea.cast<ScaleOutClusterResponse>(await this.doROARequest("ScaleOutCluster", "2015-12-15", "HTTPS", "POST", "AK", `/api/v2/clusters/${ClusterId}`, "json", req, runtime), new ScaleOutClusterResponse({}));
+  }
+
+  async updateK8sClusterUserConfigExpire(ClusterId: string): Promise<UpdateK8sClusterUserConfigExpireResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateK8sClusterUserConfigExpireWithOptions(ClusterId, headers, runtime);
+  }
+
+  async updateK8sClusterUserConfigExpireWithOptions(ClusterId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateK8sClusterUserConfigExpireResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    return $tea.cast<UpdateK8sClusterUserConfigExpireResponse>(await this.doROARequest("UpdateK8sClusterUserConfigExpire", "2015-12-15", "HTTPS", "POST", "AK", `/k8s/${ClusterId}/user_config/expire`, "none", req, runtime), new UpdateK8sClusterUserConfigExpireResponse({}));
   }
 
   async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
