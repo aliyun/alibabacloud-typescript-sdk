@@ -5282,11 +5282,15 @@ export class PedestrianDetectAttributeResponseBodyData extends $tea.Model {
   attributes?: PedestrianDetectAttributeResponseBodyDataAttributes[];
   boxes?: PedestrianDetectAttributeResponseBodyDataBoxes[];
   personNumber?: number;
+  width?: number;
+  height?: number;
   static names(): { [key: string]: string } {
     return {
       attributes: 'Attributes',
       boxes: 'Boxes',
       personNumber: 'PersonNumber',
+      width: 'Width',
+      height: 'Height',
     };
   }
 
@@ -5295,6 +5299,8 @@ export class PedestrianDetectAttributeResponseBodyData extends $tea.Model {
       attributes: { 'type': 'array', 'itemType': PedestrianDetectAttributeResponseBodyDataAttributes },
       boxes: { 'type': 'array', 'itemType': PedestrianDetectAttributeResponseBodyDataBoxes },
       personNumber: 'number',
+      width: 'number',
+      height: 'number',
     };
   }
 
