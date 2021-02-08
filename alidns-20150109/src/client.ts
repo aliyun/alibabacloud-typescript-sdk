@@ -85,6 +85,93 @@ export class AddCustomLineResponse extends $tea.Model {
   }
 }
 
+export class AddDnsCacheDomainRequest extends $tea.Model {
+  lang?: string;
+  userClientIp?: string;
+  domainName?: string;
+  instanceId?: string;
+  cacheTtlMin?: number;
+  cacheTtlMax?: number;
+  sourceProtocol?: string;
+  sourceEdns?: string;
+  remark?: string;
+  sourceDnsServer?: AddDnsCacheDomainRequestSourceDnsServer[];
+  static names(): { [key: string]: string } {
+    return {
+      lang: 'Lang',
+      userClientIp: 'UserClientIp',
+      domainName: 'DomainName',
+      instanceId: 'InstanceId',
+      cacheTtlMin: 'CacheTtlMin',
+      cacheTtlMax: 'CacheTtlMax',
+      sourceProtocol: 'SourceProtocol',
+      sourceEdns: 'SourceEdns',
+      remark: 'Remark',
+      sourceDnsServer: 'SourceDnsServer',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      lang: 'string',
+      userClientIp: 'string',
+      domainName: 'string',
+      instanceId: 'string',
+      cacheTtlMin: 'number',
+      cacheTtlMax: 'number',
+      sourceProtocol: 'string',
+      sourceEdns: 'string',
+      remark: 'string',
+      sourceDnsServer: { 'type': 'array', 'itemType': AddDnsCacheDomainRequestSourceDnsServer },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddDnsCacheDomainResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddDnsCacheDomainResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: AddDnsCacheDomainResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: AddDnsCacheDomainResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AddDnsGtmAccessStrategyRequest extends $tea.Model {
   lang?: string;
   userClientIp?: string;
@@ -1426,6 +1513,72 @@ export class DeleteCustomLinesResponse extends $tea.Model {
   }
 }
 
+export class DeleteDnsCacheDomainRequest extends $tea.Model {
+  lang?: string;
+  userClientIp?: string;
+  domainName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      lang: 'Lang',
+      userClientIp: 'UserClientIp',
+      domainName: 'DomainName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      lang: 'string',
+      userClientIp: 'string',
+      domainName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDnsCacheDomainResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDnsCacheDomainResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DeleteDnsCacheDomainResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DeleteDnsCacheDomainResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteDnsGtmAccessStrategyRequest extends $tea.Model {
   lang?: string;
   userClientIp?: string;
@@ -2389,6 +2542,90 @@ export class DescribeCustomLinesResponse extends $tea.Model {
   }
 }
 
+export class DescribeDnsCacheDomainsRequest extends $tea.Model {
+  lang?: string;
+  userClientIp?: string;
+  keyword?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      lang: 'Lang',
+      userClientIp: 'UserClientIp',
+      keyword: 'Keyword',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      lang: 'string',
+      userClientIp: 'string',
+      keyword: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDnsCacheDomainsResponseBody extends $tea.Model {
+  domains?: DescribeDnsCacheDomainsResponseBodyDomains[];
+  totalCount?: number;
+  pageSize?: number;
+  requestId?: string;
+  pageNumber?: number;
+  static names(): { [key: string]: string } {
+    return {
+      domains: 'Domains',
+      totalCount: 'TotalCount',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      pageNumber: 'PageNumber',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domains: { 'type': 'array', 'itemType': DescribeDnsCacheDomainsResponseBodyDomains },
+      totalCount: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      pageNumber: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDnsCacheDomainsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeDnsCacheDomainsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeDnsCacheDomainsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDnsGtmAccessStrategiesRequest extends $tea.Model {
   lang?: string;
   userClientIp?: string;
@@ -2649,30 +2886,39 @@ export class DescribeDnsGtmAccessStrategyAvailableConfigRequest extends $tea.Mod
 }
 
 export class DescribeDnsGtmAccessStrategyAvailableConfigResponseBody extends $tea.Model {
+  selectedDomainLines?: DescribeDnsGtmAccessStrategyAvailableConfigResponseBodySelectedDomainLines;
   domainAddrPools?: DescribeDnsGtmAccessStrategyAvailableConfigResponseBodyDomainAddrPools;
   ipv4AddrPools?: DescribeDnsGtmAccessStrategyAvailableConfigResponseBodyIpv4AddrPools;
   requestId?: string;
+  selectedIpv4Lines?: DescribeDnsGtmAccessStrategyAvailableConfigResponseBodySelectedIpv4Lines;
   ipv6AddrPools?: DescribeDnsGtmAccessStrategyAvailableConfigResponseBodyIpv6AddrPools;
   suggestSetDefaultLine?: boolean;
+  selectedIpv6Lines?: DescribeDnsGtmAccessStrategyAvailableConfigResponseBodySelectedIpv6Lines;
   lines?: DescribeDnsGtmAccessStrategyAvailableConfigResponseBodyLines;
   static names(): { [key: string]: string } {
     return {
+      selectedDomainLines: 'SelectedDomainLines',
       domainAddrPools: 'DomainAddrPools',
       ipv4AddrPools: 'Ipv4AddrPools',
       requestId: 'RequestId',
+      selectedIpv4Lines: 'SelectedIpv4Lines',
       ipv6AddrPools: 'Ipv6AddrPools',
       suggestSetDefaultLine: 'SuggestSetDefaultLine',
+      selectedIpv6Lines: 'SelectedIpv6Lines',
       lines: 'Lines',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      selectedDomainLines: DescribeDnsGtmAccessStrategyAvailableConfigResponseBodySelectedDomainLines,
       domainAddrPools: DescribeDnsGtmAccessStrategyAvailableConfigResponseBodyDomainAddrPools,
       ipv4AddrPools: DescribeDnsGtmAccessStrategyAvailableConfigResponseBodyIpv4AddrPools,
       requestId: 'string',
+      selectedIpv4Lines: DescribeDnsGtmAccessStrategyAvailableConfigResponseBodySelectedIpv4Lines,
       ipv6AddrPools: DescribeDnsGtmAccessStrategyAvailableConfigResponseBodyIpv6AddrPools,
       suggestSetDefaultLine: 'boolean',
+      selectedIpv6Lines: DescribeDnsGtmAccessStrategyAvailableConfigResponseBodySelectedIpv6Lines,
       lines: DescribeDnsGtmAccessStrategyAvailableConfigResponseBodyLines,
     };
   }
@@ -3976,6 +4222,7 @@ export class DescribeDNSSLBSubDomainsRequest extends $tea.Model {
   domainName?: string;
   pageNumber?: number;
   pageSize?: number;
+  rr?: string;
   static names(): { [key: string]: string } {
     return {
       lang: 'Lang',
@@ -3983,6 +4230,7 @@ export class DescribeDNSSLBSubDomainsRequest extends $tea.Model {
       domainName: 'DomainName',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      rr: 'Rr',
     };
   }
 
@@ -3993,6 +4241,7 @@ export class DescribeDNSSLBSubDomainsRequest extends $tea.Model {
       domainName: 'string',
       pageNumber: 'number',
       pageSize: 'number',
+      rr: 'string',
     };
   }
 
@@ -8615,6 +8864,7 @@ export class SetDNSSLBStatusRequest extends $tea.Model {
   open?: boolean;
   domainName?: string;
   type?: string;
+  line?: string;
   static names(): { [key: string]: string } {
     return {
       lang: 'Lang',
@@ -8623,6 +8873,7 @@ export class SetDNSSLBStatusRequest extends $tea.Model {
       open: 'Open',
       domainName: 'DomainName',
       type: 'Type',
+      line: 'Line',
     };
   }
 
@@ -8634,6 +8885,7 @@ export class SetDNSSLBStatusRequest extends $tea.Model {
       open: 'boolean',
       domainName: 'string',
       type: 'string',
+      line: 'string',
     };
   }
 
@@ -9404,6 +9656,159 @@ export class UpdateCustomLineResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: UpdateCustomLineResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDnsCacheDomainRequest extends $tea.Model {
+  lang?: string;
+  userClientIp?: string;
+  domainName?: string;
+  instanceId?: string;
+  cacheTtlMin?: number;
+  cacheTtlMax?: number;
+  sourceProtocol?: string;
+  sourceEdns?: string;
+  sourceDnsServer?: UpdateDnsCacheDomainRequestSourceDnsServer[];
+  static names(): { [key: string]: string } {
+    return {
+      lang: 'Lang',
+      userClientIp: 'UserClientIp',
+      domainName: 'DomainName',
+      instanceId: 'InstanceId',
+      cacheTtlMin: 'CacheTtlMin',
+      cacheTtlMax: 'CacheTtlMax',
+      sourceProtocol: 'SourceProtocol',
+      sourceEdns: 'SourceEdns',
+      sourceDnsServer: 'SourceDnsServer',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      lang: 'string',
+      userClientIp: 'string',
+      domainName: 'string',
+      instanceId: 'string',
+      cacheTtlMin: 'number',
+      cacheTtlMax: 'number',
+      sourceProtocol: 'string',
+      sourceEdns: 'string',
+      sourceDnsServer: { 'type': 'array', 'itemType': UpdateDnsCacheDomainRequestSourceDnsServer },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDnsCacheDomainResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDnsCacheDomainResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: UpdateDnsCacheDomainResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: UpdateDnsCacheDomainResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDnsCacheDomainRemarkRequest extends $tea.Model {
+  lang?: string;
+  userClientIp?: string;
+  domainName?: string;
+  remark?: string;
+  static names(): { [key: string]: string } {
+    return {
+      lang: 'Lang',
+      userClientIp: 'UserClientIp',
+      domainName: 'DomainName',
+      remark: 'Remark',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      lang: 'string',
+      userClientIp: 'string',
+      domainName: 'string',
+      remark: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDnsCacheDomainRemarkResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDnsCacheDomainRemarkResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: UpdateDnsCacheDomainRemarkResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: UpdateDnsCacheDomainRemarkResponseBody,
     };
   }
 
@@ -10637,6 +11042,28 @@ export class AddCustomLineRequestIpSegment extends $tea.Model {
   }
 }
 
+export class AddDnsCacheDomainRequestSourceDnsServer extends $tea.Model {
+  host?: string;
+  port?: string;
+  static names(): { [key: string]: string } {
+    return {
+      host: 'Host',
+      port: 'Port',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      host: 'string',
+      port: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AddDnsGtmAccessStrategyRequestDefaultAddrPool extends $tea.Model {
   lbaWeight?: number;
   id?: string;
@@ -10974,6 +11401,92 @@ export class DescribeCustomLinesResponseBodyCustomLines extends $tea.Model {
   }
 }
 
+export class DescribeDnsCacheDomainsResponseBodyDomainsSourceDnsServers extends $tea.Model {
+  host?: string;
+  port?: string;
+  static names(): { [key: string]: string } {
+    return {
+      host: 'Host',
+      port: 'Port',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      host: 'string',
+      port: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDnsCacheDomainsResponseBodyDomains extends $tea.Model {
+  sourceProtocol?: string;
+  updateTime?: string;
+  remark?: string;
+  expireTime?: string;
+  createTime?: string;
+  instanceId?: string;
+  sourceEdns?: string;
+  domainName?: string;
+  domainId?: string;
+  updateTimestamp?: number;
+  expireTimestamp?: number;
+  cacheTtlMax?: number;
+  cacheTtlMin?: number;
+  versionCode?: string;
+  sourceDnsServers?: DescribeDnsCacheDomainsResponseBodyDomainsSourceDnsServers[];
+  createTimestamp?: number;
+  static names(): { [key: string]: string } {
+    return {
+      sourceProtocol: 'SourceProtocol',
+      updateTime: 'UpdateTime',
+      remark: 'Remark',
+      expireTime: 'ExpireTime',
+      createTime: 'CreateTime',
+      instanceId: 'InstanceId',
+      sourceEdns: 'SourceEdns',
+      domainName: 'DomainName',
+      domainId: 'DomainId',
+      updateTimestamp: 'UpdateTimestamp',
+      expireTimestamp: 'ExpireTimestamp',
+      cacheTtlMax: 'CacheTtlMax',
+      cacheTtlMin: 'CacheTtlMin',
+      versionCode: 'VersionCode',
+      sourceDnsServers: 'SourceDnsServers',
+      createTimestamp: 'CreateTimestamp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sourceProtocol: 'string',
+      updateTime: 'string',
+      remark: 'string',
+      expireTime: 'string',
+      createTime: 'string',
+      instanceId: 'string',
+      sourceEdns: 'string',
+      domainName: 'string',
+      domainId: 'string',
+      updateTimestamp: 'number',
+      expireTimestamp: 'number',
+      cacheTtlMax: 'number',
+      cacheTtlMin: 'number',
+      versionCode: 'string',
+      sourceDnsServers: { 'type': 'array', 'itemType': DescribeDnsCacheDomainsResponseBodyDomainsSourceDnsServers },
+      createTimestamp: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDnsGtmAccessStrategiesResponseBodyStrategiesStrategyEffectiveAddrPoolsEffectiveAddrPool extends $tea.Model {
   lbaWeight?: number;
   name?: string;
@@ -11271,6 +11784,25 @@ export class DescribeDnsGtmAccessStrategyResponseBodyLines extends $tea.Model {
   }
 }
 
+export class DescribeDnsGtmAccessStrategyAvailableConfigResponseBodySelectedDomainLines extends $tea.Model {
+  selectedDomainLine?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      selectedDomainLine: 'SelectedDomainLine',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      selectedDomainLine: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDnsGtmAccessStrategyAvailableConfigResponseBodyDomainAddrPoolsDomainAddrPool extends $tea.Model {
   name?: string;
   addrCount?: number;
@@ -11359,6 +11891,25 @@ export class DescribeDnsGtmAccessStrategyAvailableConfigResponseBodyIpv4AddrPool
   }
 }
 
+export class DescribeDnsGtmAccessStrategyAvailableConfigResponseBodySelectedIpv4Lines extends $tea.Model {
+  selectedIpv4Line?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      selectedIpv4Line: 'SelectedIpv4Line',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      selectedIpv4Line: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDnsGtmAccessStrategyAvailableConfigResponseBodyIpv6AddrPoolsIpv6AddrPool extends $tea.Model {
   name?: string;
   addrCount?: number;
@@ -11395,6 +11946,25 @@ export class DescribeDnsGtmAccessStrategyAvailableConfigResponseBodyIpv6AddrPool
   static types(): { [key: string]: any } {
     return {
       ipv6AddrPool: { 'type': 'array', 'itemType': DescribeDnsGtmAccessStrategyAvailableConfigResponseBodyIpv6AddrPoolsIpv6AddrPool },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDnsGtmAccessStrategyAvailableConfigResponseBodySelectedIpv6Lines extends $tea.Model {
+  selectedIpv6Line?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      selectedIpv6Line: 'SelectedIpv6Line',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      selectedIpv6Line: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -12451,17 +13021,60 @@ export class DescribeDnsProductInstancesResponseBodyDnsProducts extends $tea.Mod
   }
 }
 
+export class DescribeDNSSLBSubDomainsResponseBodySlbSubDomainsSlbSubDomainLineAlgorithmsLineAlgorithm extends $tea.Model {
+  line?: string;
+  open?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      line: 'Line',
+      open: 'Open',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      line: 'string',
+      open: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDNSSLBSubDomainsResponseBodySlbSubDomainsSlbSubDomainLineAlgorithms extends $tea.Model {
+  lineAlgorithm?: DescribeDNSSLBSubDomainsResponseBodySlbSubDomainsSlbSubDomainLineAlgorithmsLineAlgorithm[];
+  static names(): { [key: string]: string } {
+    return {
+      lineAlgorithm: 'LineAlgorithm',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      lineAlgorithm: { 'type': 'array', 'itemType': DescribeDNSSLBSubDomainsResponseBodySlbSubDomainsSlbSubDomainLineAlgorithmsLineAlgorithm },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDNSSLBSubDomainsResponseBodySlbSubDomainsSlbSubDomain extends $tea.Model {
   type?: string;
   recordCount?: number;
   open?: boolean;
   subDomain?: string;
+  lineAlgorithms?: DescribeDNSSLBSubDomainsResponseBodySlbSubDomainsSlbSubDomainLineAlgorithms;
   static names(): { [key: string]: string } {
     return {
       type: 'Type',
       recordCount: 'RecordCount',
       open: 'Open',
       subDomain: 'SubDomain',
+      lineAlgorithms: 'LineAlgorithms',
     };
   }
 
@@ -12471,6 +13084,7 @@ export class DescribeDNSSLBSubDomainsResponseBodySlbSubDomainsSlbSubDomain exten
       recordCount: 'number',
       open: 'boolean',
       subDomain: 'string',
+      lineAlgorithms: DescribeDNSSLBSubDomainsResponseBodySlbSubDomainsSlbSubDomainLineAlgorithms,
     };
   }
 
@@ -14760,6 +15374,28 @@ export class UpdateCustomLineRequestIpSegment extends $tea.Model {
   }
 }
 
+export class UpdateDnsCacheDomainRequestSourceDnsServer extends $tea.Model {
+  host?: string;
+  port?: string;
+  static names(): { [key: string]: string } {
+    return {
+      host: 'Host',
+      port: 'Port',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      host: 'string',
+      port: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateDnsGtmAccessStrategyRequestDefaultAddrPool extends $tea.Model {
   lbaWeight?: number;
   id?: string;
@@ -15024,6 +15660,19 @@ export default class Client extends OpenApi {
     return await this.addCustomLineWithOptions(request, runtime);
   }
 
+  async addDnsCacheDomainWithOptions(request: AddDnsCacheDomainRequest, runtime: $Util.RuntimeOptions): Promise<AddDnsCacheDomainResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<AddDnsCacheDomainResponse>(await this.doRPCRequest("AddDnsCacheDomain", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new AddDnsCacheDomainResponse({}));
+  }
+
+  async addDnsCacheDomain(request: AddDnsCacheDomainRequest): Promise<AddDnsCacheDomainResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.addDnsCacheDomainWithOptions(request, runtime);
+  }
+
   async addDnsGtmAccessStrategyWithOptions(request: AddDnsGtmAccessStrategyRequest, runtime: $Util.RuntimeOptions): Promise<AddDnsGtmAccessStrategyResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -15232,6 +15881,19 @@ export default class Client extends OpenApi {
     return await this.deleteCustomLinesWithOptions(request, runtime);
   }
 
+  async deleteDnsCacheDomainWithOptions(request: DeleteDnsCacheDomainRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDnsCacheDomainResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DeleteDnsCacheDomainResponse>(await this.doRPCRequest("DeleteDnsCacheDomain", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteDnsCacheDomainResponse({}));
+  }
+
+  async deleteDnsCacheDomain(request: DeleteDnsCacheDomainRequest): Promise<DeleteDnsCacheDomainResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteDnsCacheDomainWithOptions(request, runtime);
+  }
+
   async deleteDnsGtmAccessStrategyWithOptions(request: DeleteDnsGtmAccessStrategyRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDnsGtmAccessStrategyResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -15399,6 +16061,19 @@ export default class Client extends OpenApi {
   async describeCustomLines(request: DescribeCustomLinesRequest): Promise<DescribeCustomLinesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeCustomLinesWithOptions(request, runtime);
+  }
+
+  async describeDnsCacheDomainsWithOptions(request: DescribeDnsCacheDomainsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDnsCacheDomainsResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DescribeDnsCacheDomainsResponse>(await this.doRPCRequest("DescribeDnsCacheDomains", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeDnsCacheDomainsResponse({}));
+  }
+
+  async describeDnsCacheDomains(request: DescribeDnsCacheDomainsRequest): Promise<DescribeDnsCacheDomainsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDnsCacheDomainsWithOptions(request, runtime);
   }
 
   async describeDnsGtmAccessStrategiesWithOptions(request: DescribeDnsGtmAccessStrategiesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDnsGtmAccessStrategiesResponse> {
@@ -16465,6 +17140,32 @@ export default class Client extends OpenApi {
   async updateCustomLine(request: UpdateCustomLineRequest): Promise<UpdateCustomLineResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateCustomLineWithOptions(request, runtime);
+  }
+
+  async updateDnsCacheDomainWithOptions(request: UpdateDnsCacheDomainRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDnsCacheDomainResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<UpdateDnsCacheDomainResponse>(await this.doRPCRequest("UpdateDnsCacheDomain", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateDnsCacheDomainResponse({}));
+  }
+
+  async updateDnsCacheDomain(request: UpdateDnsCacheDomainRequest): Promise<UpdateDnsCacheDomainResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateDnsCacheDomainWithOptions(request, runtime);
+  }
+
+  async updateDnsCacheDomainRemarkWithOptions(request: UpdateDnsCacheDomainRemarkRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDnsCacheDomainRemarkResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<UpdateDnsCacheDomainRemarkResponse>(await this.doRPCRequest("UpdateDnsCacheDomainRemark", "2015-01-09", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateDnsCacheDomainRemarkResponse({}));
+  }
+
+  async updateDnsCacheDomainRemark(request: UpdateDnsCacheDomainRemarkRequest): Promise<UpdateDnsCacheDomainRemarkResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateDnsCacheDomainRemarkWithOptions(request, runtime);
   }
 
   async updateDnsGtmAccessStrategyWithOptions(request: UpdateDnsGtmAccessStrategyRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDnsGtmAccessStrategyResponse> {
