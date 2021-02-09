@@ -780,6 +780,25 @@ export class DescribeClusterDetailResponse extends $tea.Model {
   }
 }
 
+export class PauseComponentUpgradeResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeClustersRequest extends $tea.Model {
   name?: string;
   clusterType?: string;
@@ -1797,6 +1816,44 @@ export class UpgradeClusterResponse extends $tea.Model {
   }
 }
 
+export class CancelWorkflowRequest extends $tea.Model {
+  action?: string;
+  static names(): { [key: string]: string } {
+    return {
+      action: 'action',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      action: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CancelWorkflowResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AttachInstancesRequest extends $tea.Model {
   instances?: string[];
   keyPair?: string;
@@ -2235,6 +2292,25 @@ export class DeleteClusterResponse extends $tea.Model {
   }
 }
 
+export class CancelComponentUpgradeResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class MigrateClusterResponse extends $tea.Model {
   headers: { [key: string]: string };
   static names(): { [key: string]: string } {
@@ -2356,6 +2432,25 @@ export class UnInstallClusterAddonsRequest extends $tea.Model {
 }
 
 export class UnInstallClusterAddonsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ResumeComponentUpgradeResponse extends $tea.Model {
   headers: { [key: string]: string };
   static names(): { [key: string]: string } {
     return {
@@ -2543,7 +2638,97 @@ export class DescribeTaskInfoResponse extends $tea.Model {
   }
 }
 
+export class DescirbeWorkflowResponseBody extends $tea.Model {
+  createTime?: string;
+  duration?: string;
+  finishTime?: string;
+  inputDataSize?: string;
+  jobName?: string;
+  jobNamespace?: string;
+  outputDataSize?: string;
+  status?: string;
+  totalBases?: string;
+  totalReads?: string;
+  userInputData?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'create_time',
+      duration: 'duration',
+      finishTime: 'finish_time',
+      inputDataSize: 'input_data_size',
+      jobName: 'job_name',
+      jobNamespace: 'job_namespace',
+      outputDataSize: 'output_data_size',
+      status: 'status',
+      totalBases: 'total_bases',
+      totalReads: 'total_reads',
+      userInputData: 'user_input_data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      duration: 'string',
+      finishTime: 'string',
+      inputDataSize: 'string',
+      jobName: 'string',
+      jobNamespace: 'string',
+      outputDataSize: 'string',
+      status: 'string',
+      totalBases: 'string',
+      totalReads: 'string',
+      userInputData: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescirbeWorkflowResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescirbeWorkflowResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescirbeWorkflowResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CancelClusterUpgradeResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemoveWorkflowResponse extends $tea.Model {
   headers: { [key: string]: string };
   static names(): { [key: string]: string } {
     return {
@@ -2801,6 +2986,47 @@ export class DescribeClusterAddonsUpgradeStatusResponse extends $tea.Model {
   }
 }
 
+export class DescribeWorkflowsResponseBody extends $tea.Model {
+  jobs?: DescribeWorkflowsResponseBodyJobs[];
+  static names(): { [key: string]: string } {
+    return {
+      jobs: 'jobs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobs: { 'type': 'array', 'itemType': DescribeWorkflowsResponseBodyJobs },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeWorkflowsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeWorkflowsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeWorkflowsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class InstallClusterAddonsRequest extends $tea.Model {
   body?: InstallClusterAddonsRequestBody[];
   static names(): { [key: string]: string } {
@@ -2932,6 +3158,120 @@ export class DescribeClusterV2UserKubeconfigResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: DescribeClusterV2UserKubeconfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartWorkflowRequest extends $tea.Model {
+  workflowType?: string;
+  service?: string;
+  mappingOssRegion?: string;
+  mappingFastqFirstFilename?: string;
+  mappingFastqSecondFilename?: string;
+  mappingBucketName?: string;
+  mappingFastqPath?: string;
+  mappingReferencePath?: string;
+  mappingIsMarkDup?: string;
+  mappingBamOutPath?: string;
+  mappingBamOutFilename?: string;
+  wgsOssRegion?: string;
+  wgsFastqFirstFilename?: string;
+  wgsFastqSecondFilename?: string;
+  wgsBucketName?: string;
+  wgsFastqPath?: string;
+  wgsReferencePath?: string;
+  wgsVcfOutPath?: string;
+  wgsVcfOutFilename?: string;
+  static names(): { [key: string]: string } {
+    return {
+      workflowType: 'workflow_type',
+      service: 'service',
+      mappingOssRegion: 'mapping_oss_region',
+      mappingFastqFirstFilename: 'mapping_fastq_first_filename',
+      mappingFastqSecondFilename: 'mapping_fastq_second_filename',
+      mappingBucketName: 'mapping_bucket_name',
+      mappingFastqPath: 'mapping_fastq_path',
+      mappingReferencePath: 'mapping_reference_path',
+      mappingIsMarkDup: 'mapping_is_mark_dup',
+      mappingBamOutPath: 'mapping_bam_out_path',
+      mappingBamOutFilename: 'mapping_bam_out_filename',
+      wgsOssRegion: 'wgs_oss_region',
+      wgsFastqFirstFilename: 'wgs_fastq_first_filename',
+      wgsFastqSecondFilename: 'wgs_fastq_second_filename',
+      wgsBucketName: 'wgs_bucket_name',
+      wgsFastqPath: 'wgs_fastq_path',
+      wgsReferencePath: 'wgs_reference_path',
+      wgsVcfOutPath: 'wgs_vcf_out_path',
+      wgsVcfOutFilename: 'wgs_vcf_out_filename',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      workflowType: 'string',
+      service: 'string',
+      mappingOssRegion: 'string',
+      mappingFastqFirstFilename: 'string',
+      mappingFastqSecondFilename: 'string',
+      mappingBucketName: 'string',
+      mappingFastqPath: 'string',
+      mappingReferencePath: 'string',
+      mappingIsMarkDup: 'string',
+      mappingBamOutPath: 'string',
+      mappingBamOutFilename: 'string',
+      wgsOssRegion: 'string',
+      wgsFastqFirstFilename: 'string',
+      wgsFastqSecondFilename: 'string',
+      wgsBucketName: 'string',
+      wgsFastqPath: 'string',
+      wgsReferencePath: 'string',
+      wgsVcfOutPath: 'string',
+      wgsVcfOutFilename: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartWorkflowResponseBody extends $tea.Model {
+  jobName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jobName: 'JobName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartWorkflowResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: StartWorkflowResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: StartWorkflowResponseBody,
     };
   }
 
@@ -5298,6 +5638,31 @@ export class UpgradeClusterAddonsRequestBody extends $tea.Model {
   }
 }
 
+export class DescribeWorkflowsResponseBodyJobs extends $tea.Model {
+  clusterId?: string;
+  jobName?: string;
+  createTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'cluster_id',
+      jobName: 'job_name',
+      createTime: 'create_time',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      jobName: 'string',
+      createTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class InstallClusterAddonsRequestBody extends $tea.Model {
   name?: string;
   version?: string;
@@ -6139,6 +6504,19 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeClusterDetailResponse>(await this.doROARequest("DescribeClusterDetail", "2015-12-15", "HTTPS", "GET", "AK", `/clusters/${ClusterId}`, "json", req, runtime), new DescribeClusterDetailResponse({}));
   }
 
+  async pauseComponentUpgrade(clusterid: string, componentid: string): Promise<PauseComponentUpgradeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.pauseComponentUpgradeWithOptions(clusterid, componentid, headers, runtime);
+  }
+
+  async pauseComponentUpgradeWithOptions(clusterid: string, componentid: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PauseComponentUpgradeResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    return $tea.cast<PauseComponentUpgradeResponse>(await this.doROARequest("PauseComponentUpgrade", "2015-12-15", "HTTPS", "POST", "AK", `/clusters/${clusterid}/components/${componentid}/pause`, "none", req, runtime), new PauseComponentUpgradeResponse({}));
+  }
+
   async describeClusters(request: DescribeClustersRequest): Promise<DescribeClustersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -6811,6 +7189,26 @@ export default class Client extends OpenApi {
     return $tea.cast<UpgradeClusterResponse>(await this.doROARequest("UpgradeCluster", "2015-12-15", "HTTPS", "POST", "AK", `/api/v2/clusters/${ClusterId}/upgrade`, "none", req, runtime), new UpgradeClusterResponse({}));
   }
 
+  async cancelWorkflow(workflowName: string, request: CancelWorkflowRequest): Promise<CancelWorkflowResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.cancelWorkflowWithOptions(workflowName, request, headers, runtime);
+  }
+
+  async cancelWorkflowWithOptions(workflowName: string, request: CancelWorkflowRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CancelWorkflowResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.action)) {
+      body["action"] = request.action;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    return $tea.cast<CancelWorkflowResponse>(await this.doROARequest("CancelWorkflow", "2015-12-15", "HTTPS", "PUT", "AK", `/gs/workflow/${workflowName}`, "none", req, runtime), new CancelWorkflowResponse({}));
+  }
+
   async attachInstances(ClusterId: string, request: AttachInstancesRequest): Promise<AttachInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -7055,6 +7453,19 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteClusterResponse>(await this.doROARequestWithForm("DeleteCluster", "2015-12-15", "HTTPS", "DELETE", "AK", `/clusters/${ClusterId}`, "none", req, runtime), new DeleteClusterResponse({}));
   }
 
+  async cancelComponentUpgrade(clusterId: string, componentId: string): Promise<CancelComponentUpgradeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.cancelComponentUpgradeWithOptions(clusterId, componentId, headers, runtime);
+  }
+
+  async cancelComponentUpgradeWithOptions(clusterId: string, componentId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CancelComponentUpgradeResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    return $tea.cast<CancelComponentUpgradeResponse>(await this.doROARequest("CancelComponentUpgrade", "2015-12-15", "HTTPS", "POST", "AK", `/clusters/${clusterId}/components/${componentId}/cancel`, "none", req, runtime), new CancelComponentUpgradeResponse({}));
+  }
+
   async migrateCluster(clusterId: string): Promise<MigrateClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -7114,6 +7525,19 @@ export default class Client extends OpenApi {
       body: Util.toArray(request.addons),
     });
     return $tea.cast<UnInstallClusterAddonsResponse>(await this.doROARequest("UnInstallClusterAddons", "2015-12-15", "HTTPS", "POST", "AK", `/clusters/${ClusterId}/components/uninstall`, "none", req, runtime), new UnInstallClusterAddonsResponse({}));
+  }
+
+  async resumeComponentUpgrade(clusterid: string, componentid: string): Promise<ResumeComponentUpgradeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.resumeComponentUpgradeWithOptions(clusterid, componentid, headers, runtime);
+  }
+
+  async resumeComponentUpgradeWithOptions(clusterid: string, componentid: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ResumeComponentUpgradeResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    return $tea.cast<ResumeComponentUpgradeResponse>(await this.doROARequest("ResumeComponentUpgrade", "2015-12-15", "HTTPS", "POST", "AK", `/clusters/${clusterid}/components/${componentid}/resume`, "none", req, runtime), new ResumeComponentUpgradeResponse({}));
   }
 
   async describeClustersV1(request: DescribeClustersV1Request): Promise<DescribeClustersV1Response> {
@@ -7181,6 +7605,19 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeTaskInfoResponse>(await this.doROARequest("DescribeTaskInfo", "2015-12-15", "HTTPS", "GET", "AK", `/tasks/${taskId}`, "json", req, runtime), new DescribeTaskInfoResponse({}));
   }
 
+  async descirbeWorkflow(workflowName: string): Promise<DescirbeWorkflowResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.descirbeWorkflowWithOptions(workflowName, headers, runtime);
+  }
+
+  async descirbeWorkflowWithOptions(workflowName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescirbeWorkflowResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    return $tea.cast<DescirbeWorkflowResponse>(await this.doROARequest("DescirbeWorkflow", "2015-12-15", "HTTPS", "GET", "AK", `/gs/workflow/${workflowName}`, "json", req, runtime), new DescirbeWorkflowResponse({}));
+  }
+
   async cancelClusterUpgrade(ClusterId: string): Promise<CancelClusterUpgradeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -7192,6 +7629,19 @@ export default class Client extends OpenApi {
       headers: headers,
     });
     return $tea.cast<CancelClusterUpgradeResponse>(await this.doROARequest("CancelClusterUpgrade", "2015-12-15", "HTTPS", "POST", "AK", `/api/v2/clusters/${ClusterId}/upgrade/cancel`, "none", req, runtime), new CancelClusterUpgradeResponse({}));
+  }
+
+  async removeWorkflow(workflowName: string): Promise<RemoveWorkflowResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.removeWorkflowWithOptions(workflowName, headers, runtime);
+  }
+
+  async removeWorkflowWithOptions(workflowName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RemoveWorkflowResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    return $tea.cast<RemoveWorkflowResponse>(await this.doROARequest("RemoveWorkflow", "2015-12-15", "HTTPS", "DELETE", "AK", `/gs/workflow/${workflowName}`, "none", req, runtime), new RemoveWorkflowResponse({}));
   }
 
   async updateTemplate(TemplateId: string, request: UpdateTemplateRequest): Promise<UpdateTemplateResponse> {
@@ -7317,6 +7767,19 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeClusterAddonsUpgradeStatusResponse>(await this.doROARequest("DescribeClusterAddonsUpgradeStatus", "2015-12-15", "HTTPS", "GET", "AK", `/clusters/[ClusterId]/components/upgradestatus`, "json", req, runtime), new DescribeClusterAddonsUpgradeStatusResponse({}));
   }
 
+  async describeWorkflows(): Promise<DescribeWorkflowsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.describeWorkflowsWithOptions(headers, runtime);
+  }
+
+  async describeWorkflowsWithOptions(headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeWorkflowsResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    return $tea.cast<DescribeWorkflowsResponse>(await this.doROARequest("DescribeWorkflows", "2015-12-15", "HTTPS", "GET", "AK", `/gs/workflows`, "json", req, runtime), new DescribeWorkflowsResponse({}));
+  }
+
   async installClusterAddons(ClusterId: string, request: InstallClusterAddonsRequest): Promise<InstallClusterAddonsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -7363,6 +7826,98 @@ export default class Client extends OpenApi {
       query: OpenApiUtil.query(query),
     });
     return $tea.cast<DescribeClusterV2UserKubeconfigResponse>(await this.doROARequest("DescribeClusterV2UserKubeconfig", "2015-12-15", "HTTPS", "GET", "AK", `/api/v2/k8s/${ClusterId}/user_config`, "json", req, runtime), new DescribeClusterV2UserKubeconfigResponse({}));
+  }
+
+  async startWorkflow(request: StartWorkflowRequest): Promise<StartWorkflowResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.startWorkflowWithOptions(request, headers, runtime);
+  }
+
+  async startWorkflowWithOptions(request: StartWorkflowRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StartWorkflowResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.workflowType)) {
+      body["workflow_type"] = request.workflowType;
+    }
+
+    if (!Util.isUnset(request.service)) {
+      body["service"] = request.service;
+    }
+
+    if (!Util.isUnset(request.mappingOssRegion)) {
+      body["mapping_oss_region"] = request.mappingOssRegion;
+    }
+
+    if (!Util.isUnset(request.mappingFastqFirstFilename)) {
+      body["mapping_fastq_first_filename"] = request.mappingFastqFirstFilename;
+    }
+
+    if (!Util.isUnset(request.mappingFastqSecondFilename)) {
+      body["mapping_fastq_second_filename"] = request.mappingFastqSecondFilename;
+    }
+
+    if (!Util.isUnset(request.mappingBucketName)) {
+      body["mapping_bucket_name"] = request.mappingBucketName;
+    }
+
+    if (!Util.isUnset(request.mappingFastqPath)) {
+      body["mapping_fastq_path"] = request.mappingFastqPath;
+    }
+
+    if (!Util.isUnset(request.mappingReferencePath)) {
+      body["mapping_reference_path"] = request.mappingReferencePath;
+    }
+
+    if (!Util.isUnset(request.mappingIsMarkDup)) {
+      body["mapping_is_mark_dup"] = request.mappingIsMarkDup;
+    }
+
+    if (!Util.isUnset(request.mappingBamOutPath)) {
+      body["mapping_bam_out_path"] = request.mappingBamOutPath;
+    }
+
+    if (!Util.isUnset(request.mappingBamOutFilename)) {
+      body["mapping_bam_out_filename"] = request.mappingBamOutFilename;
+    }
+
+    if (!Util.isUnset(request.wgsOssRegion)) {
+      body["wgs_oss_region"] = request.wgsOssRegion;
+    }
+
+    if (!Util.isUnset(request.wgsFastqFirstFilename)) {
+      body["wgs_fastq_first_filename"] = request.wgsFastqFirstFilename;
+    }
+
+    if (!Util.isUnset(request.wgsFastqSecondFilename)) {
+      body["wgs_fastq_second_filename"] = request.wgsFastqSecondFilename;
+    }
+
+    if (!Util.isUnset(request.wgsBucketName)) {
+      body["wgs_bucket_name"] = request.wgsBucketName;
+    }
+
+    if (!Util.isUnset(request.wgsFastqPath)) {
+      body["wgs_fastq_path"] = request.wgsFastqPath;
+    }
+
+    if (!Util.isUnset(request.wgsReferencePath)) {
+      body["wgs_reference_path"] = request.wgsReferencePath;
+    }
+
+    if (!Util.isUnset(request.wgsVcfOutPath)) {
+      body["wgs_vcf_out_path"] = request.wgsVcfOutPath;
+    }
+
+    if (!Util.isUnset(request.wgsVcfOutFilename)) {
+      body["wgs_vcf_out_filename"] = request.wgsVcfOutFilename;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    return $tea.cast<StartWorkflowResponse>(await this.doROARequest("StartWorkflow", "2015-12-15", "HTTPS", "POST", "AK", `/gs/workflow`, "json", req, runtime), new StartWorkflowResponse({}));
   }
 
   async scaleOutCluster(ClusterId: string, request: ScaleOutClusterRequest): Promise<ScaleOutClusterResponse> {
