@@ -1179,7 +1179,7 @@ export class CreateMonitorGroupByResourceGroupIdResponse extends $tea.Model {
 }
 
 export class CreateMonitorGroupInstancesRequest extends $tea.Model {
-  groupId?: number;
+  groupId?: string;
   instances?: CreateMonitorGroupInstancesRequestInstances[];
   static names(): { [key: string]: string } {
     return {
@@ -1190,7 +1190,7 @@ export class CreateMonitorGroupInstancesRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      groupId: 'number',
+      groupId: 'string',
       instances: { 'type': 'array', 'itemType': CreateMonitorGroupInstancesRequestInstances },
     };
   }
@@ -3180,90 +3180,6 @@ export class DescribeAlertHistoryListResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: DescribeAlertHistoryListResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeAlertingMetricRuleResourcesRequest extends $tea.Model {
-  ruleId?: string;
-  groupId?: string;
-  page?: number;
-  pageSize?: number;
-  static names(): { [key: string]: string } {
-    return {
-      ruleId: 'RuleId',
-      groupId: 'GroupId',
-      page: 'Page',
-      pageSize: 'PageSize',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ruleId: 'string',
-      groupId: 'string',
-      page: 'number',
-      pageSize: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeAlertingMetricRuleResourcesResponseBody extends $tea.Model {
-  message?: string;
-  requestId?: string;
-  total?: number;
-  resources?: DescribeAlertingMetricRuleResourcesResponseBodyResources;
-  code?: number;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      message: 'Message',
-      requestId: 'RequestId',
-      total: 'Total',
-      resources: 'Resources',
-      code: 'Code',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      message: 'string',
-      requestId: 'string',
-      total: 'number',
-      resources: DescribeAlertingMetricRuleResourcesResponseBodyResources,
-      code: 'number',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeAlertingMetricRuleResourcesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DescribeAlertingMetricRuleResourcesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DescribeAlertingMetricRuleResourcesResponseBody,
     };
   }
 
@@ -12549,83 +12465,6 @@ export class DescribeAlertHistoryListResponseBodyAlarmHistoryList extends $tea.M
   }
 }
 
-export class DescribeAlertingMetricRuleResourcesResponseBodyResourcesResource extends $tea.Model {
-  metricName?: string;
-  retryTimes?: string;
-  metricValues?: string;
-  namespace?: string;
-  ruleName?: string;
-  ruleId?: string;
-  startTime?: string;
-  resource?: string;
-  lastModifyTime?: string;
-  groupId?: string;
-  lastAlertTime?: string;
-  threshold?: string;
-  statistics?: string;
-  enable?: string;
-  static names(): { [key: string]: string } {
-    return {
-      metricName: 'MetricName',
-      retryTimes: 'RetryTimes',
-      metricValues: 'MetricValues',
-      namespace: 'Namespace',
-      ruleName: 'RuleName',
-      ruleId: 'RuleId',
-      startTime: 'StartTime',
-      resource: 'Resource',
-      lastModifyTime: 'LastModifyTime',
-      groupId: 'GroupId',
-      lastAlertTime: 'LastAlertTime',
-      threshold: 'Threshold',
-      statistics: 'Statistics',
-      enable: 'Enable',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      metricName: 'string',
-      retryTimes: 'string',
-      metricValues: 'string',
-      namespace: 'string',
-      ruleName: 'string',
-      ruleId: 'string',
-      startTime: 'string',
-      resource: 'string',
-      lastModifyTime: 'string',
-      groupId: 'string',
-      lastAlertTime: 'string',
-      threshold: 'string',
-      statistics: 'string',
-      enable: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeAlertingMetricRuleResourcesResponseBodyResources extends $tea.Model {
-  resource?: DescribeAlertingMetricRuleResourcesResponseBodyResourcesResource[];
-  static names(): { [key: string]: string } {
-    return {
-      resource: 'Resource',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      resource: { 'type': 'array', 'itemType': DescribeAlertingMetricRuleResourcesResponseBodyResourcesResource },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeAlertLogCountResponseBodyAlertLogCountLogs extends $tea.Model {
   value?: string;
   name?: string;
@@ -19187,20 +19026,6 @@ export default class Client extends OpenApi {
   async describeAlertHistoryList(request: DescribeAlertHistoryListRequest): Promise<DescribeAlertHistoryListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAlertHistoryListWithOptions(request, runtime);
-  }
-
-  async describeAlertingMetricRuleResourcesWithOptions(request: DescribeAlertingMetricRuleResourcesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAlertingMetricRuleResourcesResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
-      query: query,
-    });
-    return $tea.cast<DescribeAlertingMetricRuleResourcesResponse>(await this.doRPCRequest("DescribeAlertingMetricRuleResources", "2019-01-01", "HTTPS", "GET", "AK", "json", req, runtime), new DescribeAlertingMetricRuleResourcesResponse({}));
-  }
-
-  async describeAlertingMetricRuleResources(request: DescribeAlertingMetricRuleResourcesRequest): Promise<DescribeAlertingMetricRuleResourcesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeAlertingMetricRuleResourcesWithOptions(request, runtime);
   }
 
   async describeAlertLogCountWithOptions(request: DescribeAlertLogCountRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAlertLogCountResponse> {
