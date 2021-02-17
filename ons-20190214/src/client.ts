@@ -610,7 +610,7 @@ export class OnsDLQMessageResendByIdRequest extends $tea.Model {
 
 export class OnsDLQMessageResendByIdResponseBody extends $tea.Model {
   requestId?: string;
-  data?: string[];
+  data?: OnsDLQMessageResendByIdResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
@@ -621,7 +621,7 @@ export class OnsDLQMessageResendByIdResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      data: { 'type': 'array', 'itemType': 'string' },
+      data: OnsDLQMessageResendByIdResponseBodyData,
     };
   }
 
@@ -880,21 +880,18 @@ export class OnsGroupListRequest extends $tea.Model {
 
 export class OnsGroupListResponseBody extends $tea.Model {
   requestId?: string;
-  data?: OnsGroupListResponseBodyData[];
-  helpUrl?: string;
+  data?: OnsGroupListResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
       data: 'Data',
-      helpUrl: 'HelpUrl',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      data: { 'type': 'array', 'itemType': OnsGroupListResponseBodyData },
-      helpUrl: 'string',
+      data: OnsGroupListResponseBodyData,
     };
   }
 
@@ -1201,7 +1198,7 @@ export class OnsInstanceInServiceListRequest extends $tea.Model {
 
 export class OnsInstanceInServiceListResponseBody extends $tea.Model {
   requestId?: string;
-  data?: OnsInstanceInServiceListResponseBodyData[];
+  data?: OnsInstanceInServiceListResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
@@ -1212,7 +1209,7 @@ export class OnsInstanceInServiceListResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      data: { 'type': 'array', 'itemType': OnsInstanceInServiceListResponseBodyData },
+      data: OnsInstanceInServiceListResponseBodyData,
     };
   }
 
@@ -1336,7 +1333,7 @@ export class OnsMessageGetByKeyRequest extends $tea.Model {
 
 export class OnsMessageGetByKeyResponseBody extends $tea.Model {
   requestId?: string;
-  data?: OnsMessageGetByKeyResponseBodyData[];
+  data?: OnsMessageGetByKeyResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
@@ -1347,7 +1344,7 @@ export class OnsMessageGetByKeyResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      data: { 'type': 'array', 'itemType': OnsMessageGetByKeyResponseBodyData },
+      data: OnsMessageGetByKeyResponseBodyData,
     };
   }
 
@@ -1702,7 +1699,7 @@ export class OnsMessageTraceRequest extends $tea.Model {
 
 export class OnsMessageTraceResponseBody extends $tea.Model {
   requestId?: string;
-  data?: OnsMessageTraceResponseBodyData[];
+  data?: OnsMessageTraceResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
@@ -1713,7 +1710,7 @@ export class OnsMessageTraceResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      data: { 'type': 'array', 'itemType': OnsMessageTraceResponseBodyData },
+      data: OnsMessageTraceResponseBodyData,
     };
   }
 
@@ -1894,7 +1891,7 @@ export class OnsMqttGroupIdListRequest extends $tea.Model {
 
 export class OnsMqttGroupIdListResponseBody extends $tea.Model {
   requestId?: string;
-  data?: OnsMqttGroupIdListResponseBodyData[];
+  data?: OnsMqttGroupIdListResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
@@ -1905,7 +1902,7 @@ export class OnsMqttGroupIdListResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      data: { 'type': 'array', 'itemType': OnsMqttGroupIdListResponseBodyData },
+      data: OnsMqttGroupIdListResponseBodyData,
     };
   }
 
@@ -2298,7 +2295,7 @@ export class OnsMqttQueryMsgTransTrendResponse extends $tea.Model {
 
 export class OnsRegionListResponseBody extends $tea.Model {
   requestId?: string;
-  data?: OnsRegionListResponseBodyData[];
+  data?: OnsRegionListResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
@@ -2309,7 +2306,7 @@ export class OnsRegionListResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      data: { 'type': 'array', 'itemType': OnsRegionListResponseBodyData },
+      data: OnsRegionListResponseBodyData,
     };
   }
 
@@ -2499,21 +2496,18 @@ export class OnsTopicListRequest extends $tea.Model {
 
 export class OnsTopicListResponseBody extends $tea.Model {
   requestId?: string;
-  data?: OnsTopicListResponseBodyData[];
-  helpUrl?: string;
+  data?: OnsTopicListResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
       data: 'Data',
-      helpUrl: 'HelpUrl',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      data: { 'type': 'array', 'itemType': OnsTopicListResponseBodyData },
-      helpUrl: 'string',
+      data: OnsTopicListResponseBodyData,
     };
   }
 
@@ -3502,7 +3496,7 @@ export class ListTagResourcesResponseBodyTagResources extends $tea.Model {
   }
 }
 
-export class OnsConsumerAccumulateResponseBodyDataDetailInTopicList extends $tea.Model {
+export class OnsConsumerAccumulateResponseBodyDataDetailInTopicListDetailInTopicDo extends $tea.Model {
   delayTime?: number;
   totalDiff?: number;
   lastTimestamp?: number;
@@ -3530,13 +3524,32 @@ export class OnsConsumerAccumulateResponseBodyDataDetailInTopicList extends $tea
   }
 }
 
+export class OnsConsumerAccumulateResponseBodyDataDetailInTopicList extends $tea.Model {
+  detailInTopicDo?: OnsConsumerAccumulateResponseBodyDataDetailInTopicListDetailInTopicDo[];
+  static names(): { [key: string]: string } {
+    return {
+      detailInTopicDo: 'DetailInTopicDo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      detailInTopicDo: { 'type': 'array', 'itemType': OnsConsumerAccumulateResponseBodyDataDetailInTopicListDetailInTopicDo },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class OnsConsumerAccumulateResponseBodyData extends $tea.Model {
   consumeTps?: number;
   delayTime?: number;
   lastTimestamp?: number;
   totalDiff?: number;
   online?: boolean;
-  detailInTopicList?: OnsConsumerAccumulateResponseBodyDataDetailInTopicList[];
+  detailInTopicList?: OnsConsumerAccumulateResponseBodyDataDetailInTopicList;
   static names(): { [key: string]: string } {
     return {
       consumeTps: 'ConsumeTps',
@@ -3555,7 +3568,7 @@ export class OnsConsumerAccumulateResponseBodyData extends $tea.Model {
       lastTimestamp: 'number',
       totalDiff: 'number',
       online: 'boolean',
-      detailInTopicList: { 'type': 'array', 'itemType': OnsConsumerAccumulateResponseBodyDataDetailInTopicList },
+      detailInTopicList: OnsConsumerAccumulateResponseBodyDataDetailInTopicList,
     };
   }
 
@@ -3564,7 +3577,7 @@ export class OnsConsumerAccumulateResponseBodyData extends $tea.Model {
   }
 }
 
-export class OnsConsumerGetConnectionResponseBodyDataConnectionList extends $tea.Model {
+export class OnsConsumerGetConnectionResponseBodyDataConnectionListConnectionDo extends $tea.Model {
   version?: string;
   clientAddr?: string;
   language?: string;
@@ -3592,17 +3605,17 @@ export class OnsConsumerGetConnectionResponseBodyDataConnectionList extends $tea
   }
 }
 
-export class OnsConsumerGetConnectionResponseBodyData extends $tea.Model {
-  connectionList?: OnsConsumerGetConnectionResponseBodyDataConnectionList[];
+export class OnsConsumerGetConnectionResponseBodyDataConnectionList extends $tea.Model {
+  connectionDo?: OnsConsumerGetConnectionResponseBodyDataConnectionListConnectionDo[];
   static names(): { [key: string]: string } {
     return {
-      connectionList: 'ConnectionList',
+      connectionDo: 'ConnectionDo',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      connectionList: { 'type': 'array', 'itemType': OnsConsumerGetConnectionResponseBodyDataConnectionList },
+      connectionDo: { 'type': 'array', 'itemType': OnsConsumerGetConnectionResponseBodyDataConnectionListConnectionDo },
     };
   }
 
@@ -3611,7 +3624,26 @@ export class OnsConsumerGetConnectionResponseBodyData extends $tea.Model {
   }
 }
 
-export class OnsConsumerStatusResponseBodyDataConnectionSet extends $tea.Model {
+export class OnsConsumerGetConnectionResponseBodyData extends $tea.Model {
+  connectionList?: OnsConsumerGetConnectionResponseBodyDataConnectionList;
+  static names(): { [key: string]: string } {
+    return {
+      connectionList: 'ConnectionList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      connectionList: OnsConsumerGetConnectionResponseBodyDataConnectionList,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsConsumerStatusResponseBodyDataConnectionSetConnectionDo extends $tea.Model {
   remoteIP?: string;
   version?: string;
   clientAddr?: string;
@@ -3642,7 +3674,26 @@ export class OnsConsumerStatusResponseBodyDataConnectionSet extends $tea.Model {
   }
 }
 
-export class OnsConsumerStatusResponseBodyDataConsumerConnectionInfoListRunningDataList extends $tea.Model {
+export class OnsConsumerStatusResponseBodyDataConnectionSet extends $tea.Model {
+  connectionDo?: OnsConsumerStatusResponseBodyDataConnectionSetConnectionDo[];
+  static names(): { [key: string]: string } {
+    return {
+      connectionDo: 'ConnectionDo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      connectionDo: { 'type': 'array', 'itemType': OnsConsumerStatusResponseBodyDataConnectionSetConnectionDo },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsConsumerStatusResponseBodyDataConsumerConnectionInfoListConsumerConnectionInfoDoRunningDataListConsumerRunningDataDo extends $tea.Model {
   groupId?: string;
   rt?: number;
   topic?: string;
@@ -3676,11 +3727,49 @@ export class OnsConsumerStatusResponseBodyDataConsumerConnectionInfoListRunningD
   }
 }
 
-export class OnsConsumerStatusResponseBodyDataConsumerConnectionInfoListSubscriptionSet extends $tea.Model {
+export class OnsConsumerStatusResponseBodyDataConsumerConnectionInfoListConsumerConnectionInfoDoRunningDataList extends $tea.Model {
+  consumerRunningDataDo?: OnsConsumerStatusResponseBodyDataConsumerConnectionInfoListConsumerConnectionInfoDoRunningDataListConsumerRunningDataDo[];
+  static names(): { [key: string]: string } {
+    return {
+      consumerRunningDataDo: 'ConsumerRunningDataDo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      consumerRunningDataDo: { 'type': 'array', 'itemType': OnsConsumerStatusResponseBodyDataConsumerConnectionInfoListConsumerConnectionInfoDoRunningDataListConsumerRunningDataDo },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsConsumerStatusResponseBodyDataConsumerConnectionInfoListConsumerConnectionInfoDoSubscriptionSetSubscriptionDataTagsSet extends $tea.Model {
+  tag?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tag: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsConsumerStatusResponseBodyDataConsumerConnectionInfoListConsumerConnectionInfoDoSubscriptionSetSubscriptionData extends $tea.Model {
   subString?: string;
   subVersion?: number;
   topic?: string;
-  tagsSet?: string[];
+  tagsSet?: OnsConsumerStatusResponseBodyDataConsumerConnectionInfoListConsumerConnectionInfoDoSubscriptionSetSubscriptionDataTagsSet;
   static names(): { [key: string]: string } {
     return {
       subString: 'SubString',
@@ -3695,7 +3784,7 @@ export class OnsConsumerStatusResponseBodyDataConsumerConnectionInfoListSubscrip
       subString: 'string',
       subVersion: 'number',
       topic: 'string',
-      tagsSet: { 'type': 'array', 'itemType': 'string' },
+      tagsSet: OnsConsumerStatusResponseBodyDataConsumerConnectionInfoListConsumerConnectionInfoDoSubscriptionSetSubscriptionDataTagsSet,
     };
   }
 
@@ -3704,8 +3793,46 @@ export class OnsConsumerStatusResponseBodyDataConsumerConnectionInfoListSubscrip
   }
 }
 
-export class OnsConsumerStatusResponseBodyDataConsumerConnectionInfoListJstack extends $tea.Model {
-  trackList?: string[];
+export class OnsConsumerStatusResponseBodyDataConsumerConnectionInfoListConsumerConnectionInfoDoSubscriptionSet extends $tea.Model {
+  subscriptionData?: OnsConsumerStatusResponseBodyDataConsumerConnectionInfoListConsumerConnectionInfoDoSubscriptionSetSubscriptionData[];
+  static names(): { [key: string]: string } {
+    return {
+      subscriptionData: 'SubscriptionData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      subscriptionData: { 'type': 'array', 'itemType': OnsConsumerStatusResponseBodyDataConsumerConnectionInfoListConsumerConnectionInfoDoSubscriptionSetSubscriptionData },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsConsumerStatusResponseBodyDataConsumerConnectionInfoListConsumerConnectionInfoDoJstackThreadTrackDoTrackList extends $tea.Model {
+  track?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      track: 'Track',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      track: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsConsumerStatusResponseBodyDataConsumerConnectionInfoListConsumerConnectionInfoDoJstackThreadTrackDo extends $tea.Model {
+  trackList?: OnsConsumerStatusResponseBodyDataConsumerConnectionInfoListConsumerConnectionInfoDoJstackThreadTrackDoTrackList;
   thread?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3716,7 +3843,7 @@ export class OnsConsumerStatusResponseBodyDataConsumerConnectionInfoListJstack e
 
   static types(): { [key: string]: any } {
     return {
-      trackList: { 'type': 'array', 'itemType': 'string' },
+      trackList: OnsConsumerStatusResponseBodyDataConsumerConnectionInfoListConsumerConnectionInfoDoJstackThreadTrackDoTrackList,
       thread: 'string',
     };
   }
@@ -3726,11 +3853,30 @@ export class OnsConsumerStatusResponseBodyDataConsumerConnectionInfoListJstack e
   }
 }
 
-export class OnsConsumerStatusResponseBodyDataConsumerConnectionInfoList extends $tea.Model {
+export class OnsConsumerStatusResponseBodyDataConsumerConnectionInfoListConsumerConnectionInfoDoJstack extends $tea.Model {
+  threadTrackDo?: OnsConsumerStatusResponseBodyDataConsumerConnectionInfoListConsumerConnectionInfoDoJstackThreadTrackDo[];
+  static names(): { [key: string]: string } {
+    return {
+      threadTrackDo: 'ThreadTrackDo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      threadTrackDo: { 'type': 'array', 'itemType': OnsConsumerStatusResponseBodyDataConsumerConnectionInfoListConsumerConnectionInfoDoJstackThreadTrackDo },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsConsumerStatusResponseBodyDataConsumerConnectionInfoListConsumerConnectionInfoDo extends $tea.Model {
   consumeModel?: string;
-  runningDataList?: OnsConsumerStatusResponseBodyDataConsumerConnectionInfoListRunningDataList[];
-  subscriptionSet?: OnsConsumerStatusResponseBodyDataConsumerConnectionInfoListSubscriptionSet[];
-  jstack?: OnsConsumerStatusResponseBodyDataConsumerConnectionInfoListJstack[];
+  runningDataList?: OnsConsumerStatusResponseBodyDataConsumerConnectionInfoListConsumerConnectionInfoDoRunningDataList;
+  subscriptionSet?: OnsConsumerStatusResponseBodyDataConsumerConnectionInfoListConsumerConnectionInfoDoSubscriptionSet;
+  jstack?: OnsConsumerStatusResponseBodyDataConsumerConnectionInfoListConsumerConnectionInfoDoJstack;
   lastTimeStamp?: number;
   startTimeStamp?: number;
   language?: string;
@@ -3759,9 +3905,9 @@ export class OnsConsumerStatusResponseBodyDataConsumerConnectionInfoList extends
   static types(): { [key: string]: any } {
     return {
       consumeModel: 'string',
-      runningDataList: { 'type': 'array', 'itemType': OnsConsumerStatusResponseBodyDataConsumerConnectionInfoListRunningDataList },
-      subscriptionSet: { 'type': 'array', 'itemType': OnsConsumerStatusResponseBodyDataConsumerConnectionInfoListSubscriptionSet },
-      jstack: { 'type': 'array', 'itemType': OnsConsumerStatusResponseBodyDataConsumerConnectionInfoListJstack },
+      runningDataList: OnsConsumerStatusResponseBodyDataConsumerConnectionInfoListConsumerConnectionInfoDoRunningDataList,
+      subscriptionSet: OnsConsumerStatusResponseBodyDataConsumerConnectionInfoListConsumerConnectionInfoDoSubscriptionSet,
+      jstack: OnsConsumerStatusResponseBodyDataConsumerConnectionInfoListConsumerConnectionInfoDoJstack,
       lastTimeStamp: 'number',
       startTimeStamp: 'number',
       language: 'string',
@@ -3778,7 +3924,26 @@ export class OnsConsumerStatusResponseBodyDataConsumerConnectionInfoList extends
   }
 }
 
-export class OnsConsumerStatusResponseBodyDataDetailInTopicList extends $tea.Model {
+export class OnsConsumerStatusResponseBodyDataConsumerConnectionInfoList extends $tea.Model {
+  consumerConnectionInfoDo?: OnsConsumerStatusResponseBodyDataConsumerConnectionInfoListConsumerConnectionInfoDo[];
+  static names(): { [key: string]: string } {
+    return {
+      consumerConnectionInfoDo: 'ConsumerConnectionInfoDo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      consumerConnectionInfoDo: { 'type': 'array', 'itemType': OnsConsumerStatusResponseBodyDataConsumerConnectionInfoListConsumerConnectionInfoDo },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsConsumerStatusResponseBodyDataDetailInTopicListDetailInTopicDo extends $tea.Model {
   delayTime?: number;
   totalDiff?: number;
   lastTimestamp?: number;
@@ -3806,14 +3971,33 @@ export class OnsConsumerStatusResponseBodyDataDetailInTopicList extends $tea.Mod
   }
 }
 
+export class OnsConsumerStatusResponseBodyDataDetailInTopicList extends $tea.Model {
+  detailInTopicDo?: OnsConsumerStatusResponseBodyDataDetailInTopicListDetailInTopicDo[];
+  static names(): { [key: string]: string } {
+    return {
+      detailInTopicDo: 'DetailInTopicDo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      detailInTopicDo: { 'type': 'array', 'itemType': OnsConsumerStatusResponseBodyDataDetailInTopicListDetailInTopicDo },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class OnsConsumerStatusResponseBodyData extends $tea.Model {
   consumeTps?: number;
   consumeModel?: string;
-  connectionSet?: OnsConsumerStatusResponseBodyDataConnectionSet[];
+  connectionSet?: OnsConsumerStatusResponseBodyDataConnectionSet;
   totalDiff?: number;
-  consumerConnectionInfoList?: OnsConsumerStatusResponseBodyDataConsumerConnectionInfoList[];
+  consumerConnectionInfoList?: OnsConsumerStatusResponseBodyDataConsumerConnectionInfoList;
   instanceId?: string;
-  detailInTopicList?: OnsConsumerStatusResponseBodyDataDetailInTopicList[];
+  detailInTopicList?: OnsConsumerStatusResponseBodyDataDetailInTopicList;
   subscriptionSame?: boolean;
   delayTime?: number;
   lastTimestamp?: number;
@@ -3840,11 +4024,11 @@ export class OnsConsumerStatusResponseBodyData extends $tea.Model {
     return {
       consumeTps: 'number',
       consumeModel: 'string',
-      connectionSet: { 'type': 'array', 'itemType': OnsConsumerStatusResponseBodyDataConnectionSet },
+      connectionSet: OnsConsumerStatusResponseBodyDataConnectionSet,
       totalDiff: 'number',
-      consumerConnectionInfoList: { 'type': 'array', 'itemType': OnsConsumerStatusResponseBodyDataConsumerConnectionInfoList },
+      consumerConnectionInfoList: OnsConsumerStatusResponseBodyDataConsumerConnectionInfoList,
       instanceId: 'string',
-      detailInTopicList: { 'type': 'array', 'itemType': OnsConsumerStatusResponseBodyDataDetailInTopicList },
+      detailInTopicList: OnsConsumerStatusResponseBodyDataDetailInTopicList,
       subscriptionSame: 'boolean',
       delayTime: 'number',
       lastTimestamp: 'number',
@@ -3889,7 +4073,7 @@ export class OnsConsumerTimeSpanResponseBodyData extends $tea.Model {
   }
 }
 
-export class OnsDLQMessageGetByIdResponseBodyDataPropertyList extends $tea.Model {
+export class OnsDLQMessageGetByIdResponseBodyDataPropertyListMessageProperty extends $tea.Model {
   value?: string;
   name?: string;
   static names(): { [key: string]: string } {
@@ -3903,6 +4087,25 @@ export class OnsDLQMessageGetByIdResponseBodyDataPropertyList extends $tea.Model
     return {
       value: 'string',
       name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsDLQMessageGetByIdResponseBodyDataPropertyList extends $tea.Model {
+  messageProperty?: OnsDLQMessageGetByIdResponseBodyDataPropertyListMessageProperty[];
+  static names(): { [key: string]: string } {
+    return {
+      messageProperty: 'MessageProperty',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      messageProperty: { 'type': 'array', 'itemType': OnsDLQMessageGetByIdResponseBodyDataPropertyListMessageProperty },
     };
   }
 
@@ -3919,7 +4122,7 @@ export class OnsDLQMessageGetByIdResponseBodyData extends $tea.Model {
   msgId?: string;
   storeHost?: string;
   topic?: string;
-  propertyList?: OnsDLQMessageGetByIdResponseBodyDataPropertyList[];
+  propertyList?: OnsDLQMessageGetByIdResponseBodyDataPropertyList;
   bornTimestamp?: number;
   bodyCRC?: number;
   bornHost?: string;
@@ -3948,7 +4151,7 @@ export class OnsDLQMessageGetByIdResponseBodyData extends $tea.Model {
       msgId: 'string',
       storeHost: 'string',
       topic: 'string',
-      propertyList: { 'type': 'array', 'itemType': OnsDLQMessageGetByIdResponseBodyDataPropertyList },
+      propertyList: OnsDLQMessageGetByIdResponseBodyDataPropertyList,
       bornTimestamp: 'number',
       bodyCRC: 'number',
       bornHost: 'string',
@@ -3960,7 +4163,7 @@ export class OnsDLQMessageGetByIdResponseBodyData extends $tea.Model {
   }
 }
 
-export class OnsDLQMessagePageQueryByGroupIdResponseBodyMsgFoundDoMsgFoundListPropertyList extends $tea.Model {
+export class OnsDLQMessagePageQueryByGroupIdResponseBodyMsgFoundDoMsgFoundListOnsRestMessageDoPropertyListMessageProperty extends $tea.Model {
   value?: string;
   name?: string;
   static names(): { [key: string]: string } {
@@ -3982,7 +4185,26 @@ export class OnsDLQMessagePageQueryByGroupIdResponseBodyMsgFoundDoMsgFoundListPr
   }
 }
 
-export class OnsDLQMessagePageQueryByGroupIdResponseBodyMsgFoundDoMsgFoundList extends $tea.Model {
+export class OnsDLQMessagePageQueryByGroupIdResponseBodyMsgFoundDoMsgFoundListOnsRestMessageDoPropertyList extends $tea.Model {
+  messageProperty?: OnsDLQMessagePageQueryByGroupIdResponseBodyMsgFoundDoMsgFoundListOnsRestMessageDoPropertyListMessageProperty[];
+  static names(): { [key: string]: string } {
+    return {
+      messageProperty: 'MessageProperty',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      messageProperty: { 'type': 'array', 'itemType': OnsDLQMessagePageQueryByGroupIdResponseBodyMsgFoundDoMsgFoundListOnsRestMessageDoPropertyListMessageProperty },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsDLQMessagePageQueryByGroupIdResponseBodyMsgFoundDoMsgFoundListOnsRestMessageDo extends $tea.Model {
   storeSize?: number;
   reconsumeTimes?: number;
   storeTimestamp?: number;
@@ -3990,7 +4212,7 @@ export class OnsDLQMessagePageQueryByGroupIdResponseBodyMsgFoundDoMsgFoundList e
   msgId?: string;
   storeHost?: string;
   topic?: string;
-  propertyList?: OnsDLQMessagePageQueryByGroupIdResponseBodyMsgFoundDoMsgFoundListPropertyList[];
+  propertyList?: OnsDLQMessagePageQueryByGroupIdResponseBodyMsgFoundDoMsgFoundListOnsRestMessageDoPropertyList;
   bornTimestamp?: number;
   bodyCRC?: number;
   bornHost?: string;
@@ -4019,7 +4241,7 @@ export class OnsDLQMessagePageQueryByGroupIdResponseBodyMsgFoundDoMsgFoundList e
       msgId: 'string',
       storeHost: 'string',
       topic: 'string',
-      propertyList: { 'type': 'array', 'itemType': OnsDLQMessagePageQueryByGroupIdResponseBodyMsgFoundDoMsgFoundListPropertyList },
+      propertyList: OnsDLQMessagePageQueryByGroupIdResponseBodyMsgFoundDoMsgFoundListOnsRestMessageDoPropertyList,
       bornTimestamp: 'number',
       bodyCRC: 'number',
       bornHost: 'string',
@@ -4031,9 +4253,28 @@ export class OnsDLQMessagePageQueryByGroupIdResponseBodyMsgFoundDoMsgFoundList e
   }
 }
 
+export class OnsDLQMessagePageQueryByGroupIdResponseBodyMsgFoundDoMsgFoundList extends $tea.Model {
+  onsRestMessageDo?: OnsDLQMessagePageQueryByGroupIdResponseBodyMsgFoundDoMsgFoundListOnsRestMessageDo[];
+  static names(): { [key: string]: string } {
+    return {
+      onsRestMessageDo: 'OnsRestMessageDo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      onsRestMessageDo: { 'type': 'array', 'itemType': OnsDLQMessagePageQueryByGroupIdResponseBodyMsgFoundDoMsgFoundListOnsRestMessageDo },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class OnsDLQMessagePageQueryByGroupIdResponseBodyMsgFoundDo extends $tea.Model {
   currentPage?: number;
-  msgFoundList?: OnsDLQMessagePageQueryByGroupIdResponseBodyMsgFoundDoMsgFoundList[];
+  msgFoundList?: OnsDLQMessagePageQueryByGroupIdResponseBodyMsgFoundDoMsgFoundList;
   maxPageCount?: number;
   taskId?: string;
   static names(): { [key: string]: string } {
@@ -4048,9 +4289,28 @@ export class OnsDLQMessagePageQueryByGroupIdResponseBodyMsgFoundDo extends $tea.
   static types(): { [key: string]: any } {
     return {
       currentPage: 'number',
-      msgFoundList: { 'type': 'array', 'itemType': OnsDLQMessagePageQueryByGroupIdResponseBodyMsgFoundDoMsgFoundList },
+      msgFoundList: OnsDLQMessagePageQueryByGroupIdResponseBodyMsgFoundDoMsgFoundList,
       maxPageCount: 'number',
       taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsDLQMessageResendByIdResponseBodyData extends $tea.Model {
+  msgId?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      msgId: 'MsgId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      msgId: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -4081,7 +4341,7 @@ export class OnsGroupListRequestTag extends $tea.Model {
   }
 }
 
-export class OnsGroupListResponseBodyDataTags extends $tea.Model {
+export class OnsGroupListResponseBodyDataSubscribeInfoDoTagsTag extends $tea.Model {
   key?: string;
   value?: string;
   static names(): { [key: string]: string } {
@@ -4103,14 +4363,33 @@ export class OnsGroupListResponseBodyDataTags extends $tea.Model {
   }
 }
 
-export class OnsGroupListResponseBodyData extends $tea.Model {
+export class OnsGroupListResponseBodyDataSubscribeInfoDoTags extends $tea.Model {
+  tag?: OnsGroupListResponseBodyDataSubscribeInfoDoTagsTag[];
+  static names(): { [key: string]: string } {
+    return {
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tag: { 'type': 'array', 'itemType': OnsGroupListResponseBodyDataSubscribeInfoDoTagsTag },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsGroupListResponseBodyDataSubscribeInfoDo extends $tea.Model {
   owner?: string;
   updateTime?: number;
   independentNaming?: boolean;
   groupId?: string;
   remark?: string;
   createTime?: number;
-  tags?: OnsGroupListResponseBodyDataTags[];
+  tags?: OnsGroupListResponseBodyDataSubscribeInfoDoTags;
   instanceId?: string;
   groupType?: string;
   static names(): { [key: string]: string } {
@@ -4135,7 +4414,7 @@ export class OnsGroupListResponseBodyData extends $tea.Model {
       groupId: 'string',
       remark: 'string',
       createTime: 'number',
-      tags: { 'type': 'array', 'itemType': OnsGroupListResponseBodyDataTags },
+      tags: OnsGroupListResponseBodyDataSubscribeInfoDoTags,
       instanceId: 'string',
       groupType: 'string',
     };
@@ -4146,7 +4425,26 @@ export class OnsGroupListResponseBodyData extends $tea.Model {
   }
 }
 
-export class OnsGroupSubDetailResponseBodyDataSubscriptionDataList extends $tea.Model {
+export class OnsGroupListResponseBodyData extends $tea.Model {
+  subscribeInfoDo?: OnsGroupListResponseBodyDataSubscribeInfoDo[];
+  static names(): { [key: string]: string } {
+    return {
+      subscribeInfoDo: 'SubscribeInfoDo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      subscribeInfoDo: { 'type': 'array', 'itemType': OnsGroupListResponseBodyDataSubscribeInfoDo },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsGroupSubDetailResponseBodyDataSubscriptionDataListSubscriptionDataList extends $tea.Model {
   subString?: string;
   topic?: string;
   static names(): { [key: string]: string } {
@@ -4168,8 +4466,27 @@ export class OnsGroupSubDetailResponseBodyDataSubscriptionDataList extends $tea.
   }
 }
 
+export class OnsGroupSubDetailResponseBodyDataSubscriptionDataList extends $tea.Model {
+  subscriptionDataList?: OnsGroupSubDetailResponseBodyDataSubscriptionDataListSubscriptionDataList[];
+  static names(): { [key: string]: string } {
+    return {
+      subscriptionDataList: 'SubscriptionDataList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      subscriptionDataList: { 'type': 'array', 'itemType': OnsGroupSubDetailResponseBodyDataSubscriptionDataListSubscriptionDataList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class OnsGroupSubDetailResponseBodyData extends $tea.Model {
-  subscriptionDataList?: OnsGroupSubDetailResponseBodyDataSubscriptionDataList[];
+  subscriptionDataList?: OnsGroupSubDetailResponseBodyDataSubscriptionDataList;
   groupId?: string;
   messageModel?: string;
   online?: boolean;
@@ -4184,7 +4501,7 @@ export class OnsGroupSubDetailResponseBodyData extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      subscriptionDataList: { 'type': 'array', 'itemType': OnsGroupSubDetailResponseBodyDataSubscriptionDataList },
+      subscriptionDataList: OnsGroupSubDetailResponseBodyDataSubscriptionDataList,
       groupId: 'string',
       messageModel: 'string',
       online: 'boolean',
@@ -4314,7 +4631,7 @@ export class OnsInstanceInServiceListRequestTag extends $tea.Model {
   }
 }
 
-export class OnsInstanceInServiceListResponseBodyDataTags extends $tea.Model {
+export class OnsInstanceInServiceListResponseBodyDataInstanceVOTagsTag extends $tea.Model {
   key?: string;
   value?: string;
   static names(): { [key: string]: string } {
@@ -4336,12 +4653,31 @@ export class OnsInstanceInServiceListResponseBodyDataTags extends $tea.Model {
   }
 }
 
-export class OnsInstanceInServiceListResponseBodyData extends $tea.Model {
+export class OnsInstanceInServiceListResponseBodyDataInstanceVOTags extends $tea.Model {
+  tag?: OnsInstanceInServiceListResponseBodyDataInstanceVOTagsTag[];
+  static names(): { [key: string]: string } {
+    return {
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tag: { 'type': 'array', 'itemType': OnsInstanceInServiceListResponseBodyDataInstanceVOTagsTag },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsInstanceInServiceListResponseBodyDataInstanceVO extends $tea.Model {
   independentNaming?: boolean;
   instanceName?: string;
   releaseTime?: number;
   instanceStatus?: number;
-  tags?: OnsInstanceInServiceListResponseBodyDataTags[];
+  tags?: OnsInstanceInServiceListResponseBodyDataInstanceVOTags;
   instanceId?: string;
   instanceType?: number;
   static names(): { [key: string]: string } {
@@ -4362,7 +4698,7 @@ export class OnsInstanceInServiceListResponseBodyData extends $tea.Model {
       instanceName: 'string',
       releaseTime: 'number',
       instanceStatus: 'number',
-      tags: { 'type': 'array', 'itemType': OnsInstanceInServiceListResponseBodyDataTags },
+      tags: OnsInstanceInServiceListResponseBodyDataInstanceVOTags,
       instanceId: 'string',
       instanceType: 'number',
     };
@@ -4373,7 +4709,26 @@ export class OnsInstanceInServiceListResponseBodyData extends $tea.Model {
   }
 }
 
-export class OnsMessageGetByKeyResponseBodyDataPropertyList extends $tea.Model {
+export class OnsInstanceInServiceListResponseBodyData extends $tea.Model {
+  instanceVO?: OnsInstanceInServiceListResponseBodyDataInstanceVO[];
+  static names(): { [key: string]: string } {
+    return {
+      instanceVO: 'InstanceVO',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceVO: { 'type': 'array', 'itemType': OnsInstanceInServiceListResponseBodyDataInstanceVO },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsMessageGetByKeyResponseBodyDataOnsRestMessageDoPropertyListMessageProperty extends $tea.Model {
   value?: string;
   name?: string;
   static names(): { [key: string]: string } {
@@ -4395,7 +4750,26 @@ export class OnsMessageGetByKeyResponseBodyDataPropertyList extends $tea.Model {
   }
 }
 
-export class OnsMessageGetByKeyResponseBodyData extends $tea.Model {
+export class OnsMessageGetByKeyResponseBodyDataOnsRestMessageDoPropertyList extends $tea.Model {
+  messageProperty?: OnsMessageGetByKeyResponseBodyDataOnsRestMessageDoPropertyListMessageProperty[];
+  static names(): { [key: string]: string } {
+    return {
+      messageProperty: 'MessageProperty',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      messageProperty: { 'type': 'array', 'itemType': OnsMessageGetByKeyResponseBodyDataOnsRestMessageDoPropertyListMessageProperty },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsMessageGetByKeyResponseBodyDataOnsRestMessageDo extends $tea.Model {
   storeSize?: number;
   reconsumeTimes?: number;
   storeTimestamp?: number;
@@ -4403,7 +4777,7 @@ export class OnsMessageGetByKeyResponseBodyData extends $tea.Model {
   msgId?: string;
   storeHost?: string;
   topic?: string;
-  propertyList?: OnsMessageGetByKeyResponseBodyDataPropertyList[];
+  propertyList?: OnsMessageGetByKeyResponseBodyDataOnsRestMessageDoPropertyList;
   bornTimestamp?: number;
   bodyCRC?: number;
   bornHost?: string;
@@ -4432,7 +4806,7 @@ export class OnsMessageGetByKeyResponseBodyData extends $tea.Model {
       msgId: 'string',
       storeHost: 'string',
       topic: 'string',
-      propertyList: { 'type': 'array', 'itemType': OnsMessageGetByKeyResponseBodyDataPropertyList },
+      propertyList: OnsMessageGetByKeyResponseBodyDataOnsRestMessageDoPropertyList,
       bornTimestamp: 'number',
       bodyCRC: 'number',
       bornHost: 'string',
@@ -4444,7 +4818,26 @@ export class OnsMessageGetByKeyResponseBodyData extends $tea.Model {
   }
 }
 
-export class OnsMessageGetByMsgIdResponseBodyDataPropertyList extends $tea.Model {
+export class OnsMessageGetByKeyResponseBodyData extends $tea.Model {
+  onsRestMessageDo?: OnsMessageGetByKeyResponseBodyDataOnsRestMessageDo[];
+  static names(): { [key: string]: string } {
+    return {
+      onsRestMessageDo: 'OnsRestMessageDo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      onsRestMessageDo: { 'type': 'array', 'itemType': OnsMessageGetByKeyResponseBodyDataOnsRestMessageDo },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsMessageGetByMsgIdResponseBodyDataPropertyListMessageProperty extends $tea.Model {
   value?: string;
   name?: string;
   static names(): { [key: string]: string } {
@@ -4458,6 +4851,25 @@ export class OnsMessageGetByMsgIdResponseBodyDataPropertyList extends $tea.Model
     return {
       value: 'string',
       name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsMessageGetByMsgIdResponseBodyDataPropertyList extends $tea.Model {
+  messageProperty?: OnsMessageGetByMsgIdResponseBodyDataPropertyListMessageProperty[];
+  static names(): { [key: string]: string } {
+    return {
+      messageProperty: 'MessageProperty',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      messageProperty: { 'type': 'array', 'itemType': OnsMessageGetByMsgIdResponseBodyDataPropertyListMessageProperty },
     };
   }
 
@@ -4474,7 +4886,7 @@ export class OnsMessageGetByMsgIdResponseBodyData extends $tea.Model {
   msgId?: string;
   storeHost?: string;
   topic?: string;
-  propertyList?: OnsMessageGetByMsgIdResponseBodyDataPropertyList[];
+  propertyList?: OnsMessageGetByMsgIdResponseBodyDataPropertyList;
   bornTimestamp?: number;
   bodyCRC?: number;
   bornHost?: string;
@@ -4503,7 +4915,7 @@ export class OnsMessageGetByMsgIdResponseBodyData extends $tea.Model {
       msgId: 'string',
       storeHost: 'string',
       topic: 'string',
-      propertyList: { 'type': 'array', 'itemType': OnsMessageGetByMsgIdResponseBodyDataPropertyList },
+      propertyList: OnsMessageGetByMsgIdResponseBodyDataPropertyList,
       bornTimestamp: 'number',
       bodyCRC: 'number',
       bornHost: 'string',
@@ -4515,7 +4927,7 @@ export class OnsMessageGetByMsgIdResponseBodyData extends $tea.Model {
   }
 }
 
-export class OnsMessagePageQueryByTopicResponseBodyMsgFoundDoMsgFoundListPropertyList extends $tea.Model {
+export class OnsMessagePageQueryByTopicResponseBodyMsgFoundDoMsgFoundListOnsRestMessageDoPropertyListMessageProperty extends $tea.Model {
   value?: string;
   name?: string;
   static names(): { [key: string]: string } {
@@ -4537,7 +4949,26 @@ export class OnsMessagePageQueryByTopicResponseBodyMsgFoundDoMsgFoundListPropert
   }
 }
 
-export class OnsMessagePageQueryByTopicResponseBodyMsgFoundDoMsgFoundList extends $tea.Model {
+export class OnsMessagePageQueryByTopicResponseBodyMsgFoundDoMsgFoundListOnsRestMessageDoPropertyList extends $tea.Model {
+  messageProperty?: OnsMessagePageQueryByTopicResponseBodyMsgFoundDoMsgFoundListOnsRestMessageDoPropertyListMessageProperty[];
+  static names(): { [key: string]: string } {
+    return {
+      messageProperty: 'MessageProperty',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      messageProperty: { 'type': 'array', 'itemType': OnsMessagePageQueryByTopicResponseBodyMsgFoundDoMsgFoundListOnsRestMessageDoPropertyListMessageProperty },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsMessagePageQueryByTopicResponseBodyMsgFoundDoMsgFoundListOnsRestMessageDo extends $tea.Model {
   storeSize?: number;
   reconsumeTimes?: number;
   storeTimestamp?: number;
@@ -4545,7 +4976,7 @@ export class OnsMessagePageQueryByTopicResponseBodyMsgFoundDoMsgFoundList extend
   msgId?: string;
   storeHost?: string;
   topic?: string;
-  propertyList?: OnsMessagePageQueryByTopicResponseBodyMsgFoundDoMsgFoundListPropertyList[];
+  propertyList?: OnsMessagePageQueryByTopicResponseBodyMsgFoundDoMsgFoundListOnsRestMessageDoPropertyList;
   bornTimestamp?: number;
   bodyCRC?: number;
   bornHost?: string;
@@ -4574,7 +5005,7 @@ export class OnsMessagePageQueryByTopicResponseBodyMsgFoundDoMsgFoundList extend
       msgId: 'string',
       storeHost: 'string',
       topic: 'string',
-      propertyList: { 'type': 'array', 'itemType': OnsMessagePageQueryByTopicResponseBodyMsgFoundDoMsgFoundListPropertyList },
+      propertyList: OnsMessagePageQueryByTopicResponseBodyMsgFoundDoMsgFoundListOnsRestMessageDoPropertyList,
       bornTimestamp: 'number',
       bodyCRC: 'number',
       bornHost: 'string',
@@ -4586,9 +5017,28 @@ export class OnsMessagePageQueryByTopicResponseBodyMsgFoundDoMsgFoundList extend
   }
 }
 
+export class OnsMessagePageQueryByTopicResponseBodyMsgFoundDoMsgFoundList extends $tea.Model {
+  onsRestMessageDo?: OnsMessagePageQueryByTopicResponseBodyMsgFoundDoMsgFoundListOnsRestMessageDo[];
+  static names(): { [key: string]: string } {
+    return {
+      onsRestMessageDo: 'OnsRestMessageDo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      onsRestMessageDo: { 'type': 'array', 'itemType': OnsMessagePageQueryByTopicResponseBodyMsgFoundDoMsgFoundListOnsRestMessageDo },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class OnsMessagePageQueryByTopicResponseBodyMsgFoundDo extends $tea.Model {
   currentPage?: number;
-  msgFoundList?: OnsMessagePageQueryByTopicResponseBodyMsgFoundDoMsgFoundList[];
+  msgFoundList?: OnsMessagePageQueryByTopicResponseBodyMsgFoundDoMsgFoundList;
   maxPageCount?: number;
   taskId?: string;
   static names(): { [key: string]: string } {
@@ -4603,7 +5053,7 @@ export class OnsMessagePageQueryByTopicResponseBodyMsgFoundDo extends $tea.Model
   static types(): { [key: string]: any } {
     return {
       currentPage: 'number',
-      msgFoundList: { 'type': 'array', 'itemType': OnsMessagePageQueryByTopicResponseBodyMsgFoundDoMsgFoundList },
+      msgFoundList: OnsMessagePageQueryByTopicResponseBodyMsgFoundDoMsgFoundList,
       maxPageCount: 'number',
       taskId: 'string',
     };
@@ -4614,7 +5064,7 @@ export class OnsMessagePageQueryByTopicResponseBodyMsgFoundDo extends $tea.Model
   }
 }
 
-export class OnsMessageTraceResponseBodyData extends $tea.Model {
+export class OnsMessageTraceResponseBodyDataMessageTrack extends $tea.Model {
   trackType?: string;
   consumerGroup?: string;
   instanceId?: string;
@@ -4639,7 +5089,26 @@ export class OnsMessageTraceResponseBodyData extends $tea.Model {
   }
 }
 
-export class OnsMqttGroupIdListResponseBodyData extends $tea.Model {
+export class OnsMessageTraceResponseBodyData extends $tea.Model {
+  messageTrack?: OnsMessageTraceResponseBodyDataMessageTrack[];
+  static names(): { [key: string]: string } {
+    return {
+      messageTrack: 'MessageTrack',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      messageTrack: { 'type': 'array', 'itemType': OnsMessageTraceResponseBodyDataMessageTrack },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsMqttGroupIdListResponseBodyDataMqttGroupIdDo extends $tea.Model {
   updateTime?: number;
   independentNaming?: boolean;
   groupId?: string;
@@ -4670,7 +5139,26 @@ export class OnsMqttGroupIdListResponseBodyData extends $tea.Model {
   }
 }
 
-export class OnsMqttQueryClientByClientIdResponseBodyMqttClientInfoDoSubScriptonData extends $tea.Model {
+export class OnsMqttGroupIdListResponseBodyData extends $tea.Model {
+  mqttGroupIdDo?: OnsMqttGroupIdListResponseBodyDataMqttGroupIdDo[];
+  static names(): { [key: string]: string } {
+    return {
+      mqttGroupIdDo: 'MqttGroupIdDo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mqttGroupIdDo: { 'type': 'array', 'itemType': OnsMqttGroupIdListResponseBodyDataMqttGroupIdDo },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsMqttQueryClientByClientIdResponseBodyMqttClientInfoDoSubScriptonDataSubscriptionDo extends $tea.Model {
   subTopic?: string;
   parentTopic?: string;
   qos?: number;
@@ -4695,12 +5183,31 @@ export class OnsMqttQueryClientByClientIdResponseBodyMqttClientInfoDoSubScripton
   }
 }
 
+export class OnsMqttQueryClientByClientIdResponseBodyMqttClientInfoDoSubScriptonData extends $tea.Model {
+  subscriptionDo?: OnsMqttQueryClientByClientIdResponseBodyMqttClientInfoDoSubScriptonDataSubscriptionDo[];
+  static names(): { [key: string]: string } {
+    return {
+      subscriptionDo: 'SubscriptionDo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      subscriptionDo: { 'type': 'array', 'itemType': OnsMqttQueryClientByClientIdResponseBodyMqttClientInfoDoSubScriptonDataSubscriptionDo },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class OnsMqttQueryClientByClientIdResponseBodyMqttClientInfoDo extends $tea.Model {
   online?: boolean;
   lastTouch?: number;
   socketChannel?: string;
   clientId?: string;
-  subScriptonData?: OnsMqttQueryClientByClientIdResponseBodyMqttClientInfoDoSubScriptonData[];
+  subScriptonData?: OnsMqttQueryClientByClientIdResponseBodyMqttClientInfoDoSubScriptonData;
   static names(): { [key: string]: string } {
     return {
       online: 'Online',
@@ -4717,7 +5224,7 @@ export class OnsMqttQueryClientByClientIdResponseBodyMqttClientInfoDo extends $t
       lastTouch: 'number',
       socketChannel: 'string',
       clientId: 'string',
-      subScriptonData: { 'type': 'array', 'itemType': OnsMqttQueryClientByClientIdResponseBodyMqttClientInfoDoSubScriptonData },
+      subScriptonData: OnsMqttQueryClientByClientIdResponseBodyMqttClientInfoDoSubScriptonData,
     };
   }
 
@@ -4764,7 +5271,7 @@ export class OnsMqttQueryClientByTopicResponseBodyMqttClientSetDo extends $tea.M
   }
 }
 
-export class OnsMqttQueryHistoryOnlineResponseBodyDataRecords extends $tea.Model {
+export class OnsMqttQueryHistoryOnlineResponseBodyDataRecordsStatsDataDo extends $tea.Model {
   y?: number;
   x?: number;
   static names(): { [key: string]: string } {
@@ -4778,6 +5285,25 @@ export class OnsMqttQueryHistoryOnlineResponseBodyDataRecords extends $tea.Model
     return {
       y: 'number',
       x: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsMqttQueryHistoryOnlineResponseBodyDataRecords extends $tea.Model {
+  statsDataDo?: OnsMqttQueryHistoryOnlineResponseBodyDataRecordsStatsDataDo[];
+  static names(): { [key: string]: string } {
+    return {
+      statsDataDo: 'StatsDataDo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      statsDataDo: { 'type': 'array', 'itemType': OnsMqttQueryHistoryOnlineResponseBodyDataRecordsStatsDataDo },
     };
   }
 
@@ -4787,7 +5313,7 @@ export class OnsMqttQueryHistoryOnlineResponseBodyDataRecords extends $tea.Model
 }
 
 export class OnsMqttQueryHistoryOnlineResponseBodyData extends $tea.Model {
-  records?: OnsMqttQueryHistoryOnlineResponseBodyDataRecords[];
+  records?: OnsMqttQueryHistoryOnlineResponseBodyDataRecords;
   XUnit?: string;
   YUnit?: string;
   title?: string;
@@ -4802,7 +5328,7 @@ export class OnsMqttQueryHistoryOnlineResponseBodyData extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      records: { 'type': 'array', 'itemType': OnsMqttQueryHistoryOnlineResponseBodyDataRecords },
+      records: OnsMqttQueryHistoryOnlineResponseBodyDataRecords,
       XUnit: 'string',
       YUnit: 'string',
       title: 'string',
@@ -4814,7 +5340,7 @@ export class OnsMqttQueryHistoryOnlineResponseBodyData extends $tea.Model {
   }
 }
 
-export class OnsMqttQueryMsgTransTrendResponseBodyDataRecords extends $tea.Model {
+export class OnsMqttQueryMsgTransTrendResponseBodyDataRecordsStatsDataDo extends $tea.Model {
   y?: number;
   x?: number;
   static names(): { [key: string]: string } {
@@ -4836,8 +5362,27 @@ export class OnsMqttQueryMsgTransTrendResponseBodyDataRecords extends $tea.Model
   }
 }
 
+export class OnsMqttQueryMsgTransTrendResponseBodyDataRecords extends $tea.Model {
+  statsDataDo?: OnsMqttQueryMsgTransTrendResponseBodyDataRecordsStatsDataDo[];
+  static names(): { [key: string]: string } {
+    return {
+      statsDataDo: 'StatsDataDo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      statsDataDo: { 'type': 'array', 'itemType': OnsMqttQueryMsgTransTrendResponseBodyDataRecordsStatsDataDo },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class OnsMqttQueryMsgTransTrendResponseBodyData extends $tea.Model {
-  records?: OnsMqttQueryMsgTransTrendResponseBodyDataRecords[];
+  records?: OnsMqttQueryMsgTransTrendResponseBodyDataRecords;
   XUnit?: string;
   YUnit?: string;
   title?: string;
@@ -4852,7 +5397,7 @@ export class OnsMqttQueryMsgTransTrendResponseBodyData extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      records: { 'type': 'array', 'itemType': OnsMqttQueryMsgTransTrendResponseBodyDataRecords },
+      records: OnsMqttQueryMsgTransTrendResponseBodyDataRecords,
       XUnit: 'string',
       YUnit: 'string',
       title: 'string',
@@ -4864,7 +5409,7 @@ export class OnsMqttQueryMsgTransTrendResponseBodyData extends $tea.Model {
   }
 }
 
-export class OnsRegionListResponseBodyData extends $tea.Model {
+export class OnsRegionListResponseBodyDataRegionDo extends $tea.Model {
   regionName?: string;
   onsRegionId?: string;
   static names(): { [key: string]: string } {
@@ -4878,6 +5423,25 @@ export class OnsRegionListResponseBodyData extends $tea.Model {
     return {
       regionName: 'string',
       onsRegionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsRegionListResponseBodyData extends $tea.Model {
+  regionDo?: OnsRegionListResponseBodyDataRegionDo[];
+  static names(): { [key: string]: string } {
+    return {
+      regionDo: 'RegionDo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionDo: { 'type': 'array', 'itemType': OnsRegionListResponseBodyDataRegionDo },
     };
   }
 
@@ -4908,7 +5472,7 @@ export class OnsTopicListRequestTag extends $tea.Model {
   }
 }
 
-export class OnsTopicListResponseBodyDataTags extends $tea.Model {
+export class OnsTopicListResponseBodyDataPublishInfoDoTagsTag extends $tea.Model {
   key?: string;
   value?: string;
   static names(): { [key: string]: string } {
@@ -4930,7 +5494,26 @@ export class OnsTopicListResponseBodyDataTags extends $tea.Model {
   }
 }
 
-export class OnsTopicListResponseBodyData extends $tea.Model {
+export class OnsTopicListResponseBodyDataPublishInfoDoTags extends $tea.Model {
+  tag?: OnsTopicListResponseBodyDataPublishInfoDoTagsTag[];
+  static names(): { [key: string]: string } {
+    return {
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tag: { 'type': 'array', 'itemType': OnsTopicListResponseBodyDataPublishInfoDoTagsTag },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsTopicListResponseBodyDataPublishInfoDo extends $tea.Model {
   messageType?: number;
   relationName?: string;
   owner?: string;
@@ -4939,7 +5522,7 @@ export class OnsTopicListResponseBodyData extends $tea.Model {
   relation?: number;
   createTime?: number;
   topic?: string;
-  tags?: OnsTopicListResponseBodyDataTags[];
+  tags?: OnsTopicListResponseBodyDataPublishInfoDoTags;
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4966,8 +5549,27 @@ export class OnsTopicListResponseBodyData extends $tea.Model {
       relation: 'number',
       createTime: 'number',
       topic: 'string',
-      tags: { 'type': 'array', 'itemType': OnsTopicListResponseBodyDataTags },
+      tags: OnsTopicListResponseBodyDataPublishInfoDoTags,
       instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsTopicListResponseBodyData extends $tea.Model {
+  publishInfoDo?: OnsTopicListResponseBodyDataPublishInfoDo[];
+  static names(): { [key: string]: string } {
+    return {
+      publishInfoDo: 'PublishInfoDo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      publishInfoDo: { 'type': 'array', 'itemType': OnsTopicListResponseBodyDataPublishInfoDo },
     };
   }
 
@@ -5001,7 +5603,7 @@ export class OnsTopicStatusResponseBodyData extends $tea.Model {
   }
 }
 
-export class OnsTopicSubDetailResponseBodyDataSubscriptionDataList extends $tea.Model {
+export class OnsTopicSubDetailResponseBodyDataSubscriptionDataListSubscriptionDataList extends $tea.Model {
   groupId?: string;
   messageModel?: string;
   subString?: string;
@@ -5026,8 +5628,27 @@ export class OnsTopicSubDetailResponseBodyDataSubscriptionDataList extends $tea.
   }
 }
 
+export class OnsTopicSubDetailResponseBodyDataSubscriptionDataList extends $tea.Model {
+  subscriptionDataList?: OnsTopicSubDetailResponseBodyDataSubscriptionDataListSubscriptionDataList[];
+  static names(): { [key: string]: string } {
+    return {
+      subscriptionDataList: 'SubscriptionDataList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      subscriptionDataList: { 'type': 'array', 'itemType': OnsTopicSubDetailResponseBodyDataSubscriptionDataListSubscriptionDataList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class OnsTopicSubDetailResponseBodyData extends $tea.Model {
-  subscriptionDataList?: OnsTopicSubDetailResponseBodyDataSubscriptionDataList[];
+  subscriptionDataList?: OnsTopicSubDetailResponseBodyDataSubscriptionDataList;
   topic?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5038,7 +5659,7 @@ export class OnsTopicSubDetailResponseBodyData extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      subscriptionDataList: { 'type': 'array', 'itemType': OnsTopicSubDetailResponseBodyDataSubscriptionDataList },
+      subscriptionDataList: OnsTopicSubDetailResponseBodyDataSubscriptionDataList,
       topic: 'string',
     };
   }
@@ -5048,7 +5669,7 @@ export class OnsTopicSubDetailResponseBodyData extends $tea.Model {
   }
 }
 
-export class OnsTraceGetResultResponseBodyTraceDataTraceListSubListClientList extends $tea.Model {
+export class OnsTraceGetResultResponseBodyTraceDataTraceListTraceMapDoSubListSubMapDoClientListSubClientInfoDo extends $tea.Model {
   status?: string;
   subTime?: number;
   reconsumeTimes?: number;
@@ -5082,8 +5703,27 @@ export class OnsTraceGetResultResponseBodyTraceDataTraceListSubListClientList ex
   }
 }
 
-export class OnsTraceGetResultResponseBodyTraceDataTraceListSubList extends $tea.Model {
-  clientList?: OnsTraceGetResultResponseBodyTraceDataTraceListSubListClientList[];
+export class OnsTraceGetResultResponseBodyTraceDataTraceListTraceMapDoSubListSubMapDoClientList extends $tea.Model {
+  subClientInfoDo?: OnsTraceGetResultResponseBodyTraceDataTraceListTraceMapDoSubListSubMapDoClientListSubClientInfoDo[];
+  static names(): { [key: string]: string } {
+    return {
+      subClientInfoDo: 'SubClientInfoDo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      subClientInfoDo: { 'type': 'array', 'itemType': OnsTraceGetResultResponseBodyTraceDataTraceListTraceMapDoSubListSubMapDoClientListSubClientInfoDo },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsTraceGetResultResponseBodyTraceDataTraceListTraceMapDoSubListSubMapDo extends $tea.Model {
+  clientList?: OnsTraceGetResultResponseBodyTraceDataTraceListTraceMapDoSubListSubMapDoClientList;
   failCount?: number;
   subGroupName?: string;
   successCount?: number;
@@ -5098,7 +5738,7 @@ export class OnsTraceGetResultResponseBodyTraceDataTraceListSubList extends $tea
 
   static types(): { [key: string]: any } {
     return {
-      clientList: { 'type': 'array', 'itemType': OnsTraceGetResultResponseBodyTraceDataTraceListSubListClientList },
+      clientList: OnsTraceGetResultResponseBodyTraceDataTraceListTraceMapDoSubListSubMapDoClientList,
       failCount: 'number',
       subGroupName: 'string',
       successCount: 'number',
@@ -5110,11 +5750,30 @@ export class OnsTraceGetResultResponseBodyTraceDataTraceListSubList extends $tea
   }
 }
 
-export class OnsTraceGetResultResponseBodyTraceDataTraceList extends $tea.Model {
+export class OnsTraceGetResultResponseBodyTraceDataTraceListTraceMapDoSubList extends $tea.Model {
+  subMapDo?: OnsTraceGetResultResponseBodyTraceDataTraceListTraceMapDoSubListSubMapDo[];
+  static names(): { [key: string]: string } {
+    return {
+      subMapDo: 'SubMapDo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      subMapDo: { 'type': 'array', 'itemType': OnsTraceGetResultResponseBodyTraceDataTraceListTraceMapDoSubListSubMapDo },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsTraceGetResultResponseBodyTraceDataTraceListTraceMapDo extends $tea.Model {
   status?: string;
   msgKey?: string;
   pubTime?: number;
-  subList?: OnsTraceGetResultResponseBodyTraceDataTraceListSubList[];
+  subList?: OnsTraceGetResultResponseBodyTraceDataTraceListTraceMapDoSubList;
   topic?: string;
   costTime?: number;
   tag?: string;
@@ -5141,13 +5800,32 @@ export class OnsTraceGetResultResponseBodyTraceDataTraceList extends $tea.Model 
       status: 'string',
       msgKey: 'string',
       pubTime: 'number',
-      subList: { 'type': 'array', 'itemType': OnsTraceGetResultResponseBodyTraceDataTraceListSubList },
+      subList: OnsTraceGetResultResponseBodyTraceDataTraceListTraceMapDoSubList,
       topic: 'string',
       costTime: 'number',
       tag: 'string',
       msgId: 'string',
       pubGroupName: 'string',
       bornHost: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsTraceGetResultResponseBodyTraceDataTraceList extends $tea.Model {
+  traceMapDo?: OnsTraceGetResultResponseBodyTraceDataTraceListTraceMapDo[];
+  static names(): { [key: string]: string } {
+    return {
+      traceMapDo: 'TraceMapDo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      traceMapDo: { 'type': 'array', 'itemType': OnsTraceGetResultResponseBodyTraceDataTraceListTraceMapDo },
     };
   }
 
@@ -5165,7 +5843,7 @@ export class OnsTraceGetResultResponseBodyTraceData extends $tea.Model {
   userId?: string;
   instanceId?: string;
   msgId?: string;
-  traceList?: OnsTraceGetResultResponseBodyTraceDataTraceList[];
+  traceList?: OnsTraceGetResultResponseBodyTraceDataTraceList;
   queryId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5192,7 +5870,7 @@ export class OnsTraceGetResultResponseBodyTraceData extends $tea.Model {
       userId: 'string',
       instanceId: 'string',
       msgId: 'string',
-      traceList: { 'type': 'array', 'itemType': OnsTraceGetResultResponseBodyTraceDataTraceList },
+      traceList: OnsTraceGetResultResponseBodyTraceDataTraceList,
       queryId: 'string',
     };
   }
@@ -5202,7 +5880,7 @@ export class OnsTraceGetResultResponseBodyTraceData extends $tea.Model {
   }
 }
 
-export class OnsTrendGroupOutputTpsResponseBodyDataRecords extends $tea.Model {
+export class OnsTrendGroupOutputTpsResponseBodyDataRecordsStatsDataDo extends $tea.Model {
   y?: number;
   x?: number;
   static names(): { [key: string]: string } {
@@ -5224,8 +5902,27 @@ export class OnsTrendGroupOutputTpsResponseBodyDataRecords extends $tea.Model {
   }
 }
 
+export class OnsTrendGroupOutputTpsResponseBodyDataRecords extends $tea.Model {
+  statsDataDo?: OnsTrendGroupOutputTpsResponseBodyDataRecordsStatsDataDo[];
+  static names(): { [key: string]: string } {
+    return {
+      statsDataDo: 'StatsDataDo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      statsDataDo: { 'type': 'array', 'itemType': OnsTrendGroupOutputTpsResponseBodyDataRecordsStatsDataDo },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class OnsTrendGroupOutputTpsResponseBodyData extends $tea.Model {
-  records?: OnsTrendGroupOutputTpsResponseBodyDataRecords[];
+  records?: OnsTrendGroupOutputTpsResponseBodyDataRecords;
   XUnit?: string;
   YUnit?: string;
   title?: string;
@@ -5240,7 +5937,7 @@ export class OnsTrendGroupOutputTpsResponseBodyData extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      records: { 'type': 'array', 'itemType': OnsTrendGroupOutputTpsResponseBodyDataRecords },
+      records: OnsTrendGroupOutputTpsResponseBodyDataRecords,
       XUnit: 'string',
       YUnit: 'string',
       title: 'string',
@@ -5252,7 +5949,7 @@ export class OnsTrendGroupOutputTpsResponseBodyData extends $tea.Model {
   }
 }
 
-export class OnsTrendTopicInputTpsResponseBodyDataRecords extends $tea.Model {
+export class OnsTrendTopicInputTpsResponseBodyDataRecordsStatsDataDo extends $tea.Model {
   y?: number;
   x?: number;
   static names(): { [key: string]: string } {
@@ -5274,8 +5971,27 @@ export class OnsTrendTopicInputTpsResponseBodyDataRecords extends $tea.Model {
   }
 }
 
+export class OnsTrendTopicInputTpsResponseBodyDataRecords extends $tea.Model {
+  statsDataDo?: OnsTrendTopicInputTpsResponseBodyDataRecordsStatsDataDo[];
+  static names(): { [key: string]: string } {
+    return {
+      statsDataDo: 'StatsDataDo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      statsDataDo: { 'type': 'array', 'itemType': OnsTrendTopicInputTpsResponseBodyDataRecordsStatsDataDo },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class OnsTrendTopicInputTpsResponseBodyData extends $tea.Model {
-  records?: OnsTrendTopicInputTpsResponseBodyDataRecords[];
+  records?: OnsTrendTopicInputTpsResponseBodyDataRecords;
   XUnit?: string;
   YUnit?: string;
   title?: string;
@@ -5290,7 +6006,7 @@ export class OnsTrendTopicInputTpsResponseBodyData extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      records: { 'type': 'array', 'itemType': OnsTrendTopicInputTpsResponseBodyDataRecords },
+      records: OnsTrendTopicInputTpsResponseBodyDataRecords,
       XUnit: 'string',
       YUnit: 'string',
       title: 'string',
