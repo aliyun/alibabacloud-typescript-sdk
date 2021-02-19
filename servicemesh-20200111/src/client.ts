@@ -1094,6 +1094,12 @@ export class UpdateMeshFeatureRequest extends $tea.Model {
   customizedPrometheus?: boolean;
   prometheusUrl?: string;
   accessLogEnabled?: boolean;
+  MSEEnabled?: boolean;
+  redisFilterEnabled?: boolean;
+  mysqlFilterEnabled?: boolean;
+  thriftFilterEnabled?: boolean;
+  webAssemblyFilterEnabled?: boolean;
+  DNSProxyingEnabled?: boolean;
   static names(): { [key: string]: string } {
     return {
       serviceMeshId: 'ServiceMeshId',
@@ -1132,6 +1138,12 @@ export class UpdateMeshFeatureRequest extends $tea.Model {
       customizedPrometheus: 'CustomizedPrometheus',
       prometheusUrl: 'PrometheusUrl',
       accessLogEnabled: 'AccessLogEnabled',
+      MSEEnabled: 'MSEEnabled',
+      redisFilterEnabled: 'RedisFilterEnabled',
+      mysqlFilterEnabled: 'MysqlFilterEnabled',
+      thriftFilterEnabled: 'ThriftFilterEnabled',
+      webAssemblyFilterEnabled: 'WebAssemblyFilterEnabled',
+      DNSProxyingEnabled: 'DNSProxyingEnabled',
     };
   }
 
@@ -1173,6 +1185,12 @@ export class UpdateMeshFeatureRequest extends $tea.Model {
       customizedPrometheus: 'boolean',
       prometheusUrl: 'string',
       accessLogEnabled: 'boolean',
+      MSEEnabled: 'boolean',
+      redisFilterEnabled: 'boolean',
+      mysqlFilterEnabled: 'boolean',
+      thriftFilterEnabled: 'boolean',
+      webAssemblyFilterEnabled: 'boolean',
+      DNSProxyingEnabled: 'boolean',
     };
   }
 
@@ -1394,6 +1412,12 @@ export class CreateServiceMeshRequest extends $tea.Model {
   accessLogEnabled?: boolean;
   customizedPrometheus?: boolean;
   prometheusUrl?: string;
+  redisFilterEnabled?: boolean;
+  mysqlFilterEnabled?: boolean;
+  thriftFilterEnabled?: boolean;
+  webAssemblyFilterEnabled?: boolean;
+  MSEEnabled?: boolean;
+  DNSProxyingEnabled?: boolean;
   static names(): { [key: string]: string } {
     return {
       regionId: 'RegionId',
@@ -1428,6 +1452,12 @@ export class CreateServiceMeshRequest extends $tea.Model {
       accessLogEnabled: 'AccessLogEnabled',
       customizedPrometheus: 'CustomizedPrometheus',
       prometheusUrl: 'PrometheusUrl',
+      redisFilterEnabled: 'RedisFilterEnabled',
+      mysqlFilterEnabled: 'MysqlFilterEnabled',
+      thriftFilterEnabled: 'ThriftFilterEnabled',
+      webAssemblyFilterEnabled: 'WebAssemblyFilterEnabled',
+      MSEEnabled: 'MSEEnabled',
+      DNSProxyingEnabled: 'DNSProxyingEnabled',
     };
   }
 
@@ -1465,6 +1495,12 @@ export class CreateServiceMeshRequest extends $tea.Model {
       accessLogEnabled: 'boolean',
       customizedPrometheus: 'boolean',
       prometheusUrl: 'string',
+      redisFilterEnabled: 'boolean',
+      mysqlFilterEnabled: 'boolean',
+      thriftFilterEnabled: 'boolean',
+      webAssemblyFilterEnabled: 'boolean',
+      MSEEnabled: 'boolean',
+      DNSProxyingEnabled: 'boolean',
     };
   }
 
