@@ -5,6 +5,90 @@ import RPC, * as $RPC from '@alicloud/rpc-client';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class FtDynamicAddressHttpVpcRequest extends $tea.Model {
+  stringValue?: { [key: string]: any };
+  defaultValue?: { [key: string]: any };
+  otherParam?: { [key: string]: any };
+  booleanParam?: boolean;
+  p1?: string;
+  static names(): { [key: string]: string } {
+    return {
+      stringValue: 'StringValue',
+      defaultValue: 'DefaultValue',
+      otherParam: 'OtherParam',
+      booleanParam: 'BooleanParam',
+      p1: 'P1',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      stringValue: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      defaultValue: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      otherParam: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      booleanParam: 'boolean',
+      p1: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FtDynamicAddressHttpVpcShrinkRequest extends $tea.Model {
+  stringValueShrink?: string;
+  defaultValueShrink?: string;
+  otherParamShrink?: string;
+  booleanParam?: boolean;
+  p1?: string;
+  static names(): { [key: string]: string } {
+    return {
+      stringValueShrink: 'StringValue',
+      defaultValueShrink: 'DefaultValue',
+      otherParamShrink: 'OtherParam',
+      booleanParam: 'BooleanParam',
+      p1: 'P1',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      stringValueShrink: 'string',
+      defaultValueShrink: 'string',
+      otherParamShrink: 'string',
+      booleanParam: 'boolean',
+      p1: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FtDynamicAddressHttpVpcResponse extends $tea.Model {
+  params: string;
+  serviceRpcSign: string;
+  static names(): { [key: string]: string } {
+    return {
+      params: 'Params',
+      serviceRpcSign: 'ServiceRpcSign',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      params: 'string',
+      serviceRpcSign: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class TestFlowStrategy01Request extends $tea.Model {
   names?: { [key: string]: any };
   static names(): { [key: string]: string } {
@@ -673,6 +757,30 @@ export default class Client extends RPC {
     this._endpoint = this.getEndpoint("ft", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
 
+
+  async ftDynamicAddressHttpVpcWithOptions(tmp: FtDynamicAddressHttpVpcRequest, runtime: $Util.RuntimeOptions): Promise<FtDynamicAddressHttpVpcResponse> {
+    Util.validateModel(tmp);
+    let request = new FtDynamicAddressHttpVpcShrinkRequest({ });
+    RPCUtil.convert(tmp, request);
+    if (!Util.isUnset(tmp.stringValue)) {
+      request.stringValueShrink = Util.toJSONString(tmp.stringValue);
+    }
+
+    if (!Util.isUnset(tmp.defaultValue)) {
+      request.defaultValueShrink = Util.toJSONString(tmp.defaultValue);
+    }
+
+    if (!Util.isUnset(tmp.otherParam)) {
+      request.otherParamShrink = Util.toJSONString(tmp.otherParam);
+    }
+
+    return $tea.cast<FtDynamicAddressHttpVpcResponse>(await this.doRequest("FtDynamicAddressHttpVpc", "HTTPS", "POST", "2018-07-13", "AK", null, $tea.toMap(request), runtime), new FtDynamicAddressHttpVpcResponse({}));
+  }
+
+  async ftDynamicAddressHttpVpc(request: FtDynamicAddressHttpVpcRequest): Promise<FtDynamicAddressHttpVpcResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.ftDynamicAddressHttpVpcWithOptions(request, runtime);
+  }
 
   async testFlowStrategy01WithOptions(tmp: TestFlowStrategy01Request, runtime: $Util.RuntimeOptions): Promise<TestFlowStrategy01Response> {
     Util.validateModel(tmp);
