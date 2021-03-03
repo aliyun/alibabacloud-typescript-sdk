@@ -961,6 +961,93 @@ export class DescribeDomainBasicConfigsResponse extends $tea.Model {
   }
 }
 
+export class DescribeDomainListRequest extends $tea.Model {
+  sourceIp?: string;
+  resourceGroupId?: string;
+  instanceId?: string;
+  domainName?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  isSub?: number;
+  domainNames?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      sourceIp: 'SourceIp',
+      resourceGroupId: 'ResourceGroupId',
+      instanceId: 'InstanceId',
+      domainName: 'DomainName',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      isSub: 'IsSub',
+      domainNames: 'DomainNames',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sourceIp: 'string',
+      resourceGroupId: 'string',
+      instanceId: 'string',
+      domainName: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      isSub: 'number',
+      domainNames: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDomainListResponseBody extends $tea.Model {
+  totalCount?: number;
+  requestId?: string;
+  domainNames?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      totalCount: 'TotalCount',
+      requestId: 'RequestId',
+      domainNames: 'DomainNames',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      totalCount: 'number',
+      requestId: 'string',
+      domainNames: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDomainListResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeDomainListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeDomainListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDomainNamesRequest extends $tea.Model {
   sourceIp?: string;
   lang?: string;
@@ -1339,6 +1426,168 @@ export class DescribeInstanceSpecInfoResponse extends $tea.Model {
   }
 }
 
+export class DescribeLogServiceStatusRequest extends $tea.Model {
+  sourceIp?: string;
+  instanceId?: string;
+  region?: string;
+  resourceGroupId?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  domainNames?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      sourceIp: 'SourceIp',
+      instanceId: 'InstanceId',
+      region: 'Region',
+      resourceGroupId: 'ResourceGroupId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      domainNames: 'DomainNames',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sourceIp: 'string',
+      instanceId: 'string',
+      region: 'string',
+      resourceGroupId: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      domainNames: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLogServiceStatusResponseBody extends $tea.Model {
+  totalCount?: number;
+  requestId?: string;
+  domainStatus?: DescribeLogServiceStatusResponseBodyDomainStatus[];
+  static names(): { [key: string]: string } {
+    return {
+      totalCount: 'TotalCount',
+      requestId: 'RequestId',
+      domainStatus: 'DomainStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      totalCount: 'number',
+      requestId: 'string',
+      domainStatus: { 'type': 'array', 'itemType': DescribeLogServiceStatusResponseBodyDomainStatus },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLogServiceStatusResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeLogServiceStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeLogServiceStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeProtectionModuleCodeConfigRequest extends $tea.Model {
+  sourceIp?: string;
+  lang?: string;
+  codeType?: number;
+  codeValue?: number;
+  instanceId?: string;
+  resourceGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      sourceIp: 'SourceIp',
+      lang: 'Lang',
+      codeType: 'CodeType',
+      codeValue: 'CodeValue',
+      instanceId: 'InstanceId',
+      resourceGroupId: 'ResourceGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sourceIp: 'string',
+      lang: 'string',
+      codeType: 'number',
+      codeValue: 'number',
+      instanceId: 'string',
+      resourceGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeProtectionModuleCodeConfigResponseBody extends $tea.Model {
+  requestId?: string;
+  codeConfigs?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      codeConfigs: 'CodeConfigs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      codeConfigs: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeProtectionModuleCodeConfigResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeProtectionModuleCodeConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeProtectionModuleCodeConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeProtectionModuleModeRequest extends $tea.Model {
   sourceIp?: string;
   lang?: string;
@@ -1589,14 +1838,12 @@ export class DescribeWafSourceIpSegmentRequest extends $tea.Model {
   sourceIp?: string;
   lang?: string;
   instanceId?: string;
-  region?: string;
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       sourceIp: 'SourceIp',
       lang: 'Lang',
       instanceId: 'InstanceId',
-      region: 'Region',
       resourceGroupId: 'ResourceGroupId',
     };
   }
@@ -1606,7 +1853,6 @@ export class DescribeWafSourceIpSegmentRequest extends $tea.Model {
       sourceIp: 'string',
       lang: 'string',
       instanceId: 'string',
-      region: 'string',
       resourceGroupId: 'string',
     };
   }
@@ -1663,26 +1909,83 @@ export class DescribeWafSourceIpSegmentResponse extends $tea.Model {
   }
 }
 
-export class ModifyDomainClusterTypeRequest extends $tea.Model {
+export class ModifyDomainRequest extends $tea.Model {
   sourceIp?: string;
+  lang?: string;
   instanceId?: string;
   domain?: string;
+  sourceIps?: string;
+  loadBalancing?: number;
+  httpPort?: string;
+  httpsPort?: string;
+  http2Port?: string;
+  httpsRedirect?: number;
+  httpToUserIp?: number;
+  isAccessProduct?: number;
+  xffHeaderMode?: number;
+  xffHeaders?: string;
+  logHeaders?: string;
+  bindingIpv6?: number;
   clusterType?: number;
+  connectionTime?: number;
+  readTime?: number;
+  writeTime?: number;
+  accessType?: string;
+  cloudNativeInstances?: string;
+  ipFollowStatus?: number;
   static names(): { [key: string]: string } {
     return {
       sourceIp: 'SourceIp',
+      lang: 'Lang',
       instanceId: 'InstanceId',
       domain: 'Domain',
+      sourceIps: 'SourceIps',
+      loadBalancing: 'LoadBalancing',
+      httpPort: 'HttpPort',
+      httpsPort: 'HttpsPort',
+      http2Port: 'Http2Port',
+      httpsRedirect: 'HttpsRedirect',
+      httpToUserIp: 'HttpToUserIp',
+      isAccessProduct: 'IsAccessProduct',
+      xffHeaderMode: 'XffHeaderMode',
+      xffHeaders: 'XffHeaders',
+      logHeaders: 'LogHeaders',
+      bindingIpv6: 'BindingIpv6',
       clusterType: 'ClusterType',
+      connectionTime: 'ConnectionTime',
+      readTime: 'ReadTime',
+      writeTime: 'WriteTime',
+      accessType: 'AccessType',
+      cloudNativeInstances: 'CloudNativeInstances',
+      ipFollowStatus: 'IpFollowStatus',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       sourceIp: 'string',
+      lang: 'string',
       instanceId: 'string',
       domain: 'string',
+      sourceIps: 'string',
+      loadBalancing: 'number',
+      httpPort: 'string',
+      httpsPort: 'string',
+      http2Port: 'string',
+      httpsRedirect: 'number',
+      httpToUserIp: 'number',
+      isAccessProduct: 'number',
+      xffHeaderMode: 'number',
+      xffHeaders: 'string',
+      logHeaders: 'string',
+      bindingIpv6: 'number',
       clusterType: 'number',
+      connectionTime: 'number',
+      readTime: 'number',
+      writeTime: 'number',
+      accessType: 'string',
+      cloudNativeInstances: 'string',
+      ipFollowStatus: 'number',
     };
   }
 
@@ -1691,7 +1994,7 @@ export class ModifyDomainClusterTypeRequest extends $tea.Model {
   }
 }
 
-export class ModifyDomainClusterTypeResponseBody extends $tea.Model {
+export class ModifyDomainResponseBody extends $tea.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1710,9 +2013,9 @@ export class ModifyDomainClusterTypeResponseBody extends $tea.Model {
   }
 }
 
-export class ModifyDomainClusterTypeResponse extends $tea.Model {
+export class ModifyDomainResponse extends $tea.Model {
   headers: { [key: string]: string };
-  body: ModifyDomainClusterTypeResponseBody;
+  body: ModifyDomainResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1723,7 +2026,7 @@ export class ModifyDomainClusterTypeResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ModifyDomainClusterTypeResponseBody,
+      body: ModifyDomainResponseBody,
     };
   }
 
@@ -2471,12 +2774,14 @@ export class DescribeDomainResponseBodyDomainCloudNativeInstancesProtocolPortCon
 
 export class DescribeDomainResponseBodyDomainCloudNativeInstances extends $tea.Model {
   protocolPortConfigs?: DescribeDomainResponseBodyDomainCloudNativeInstancesProtocolPortConfigs[];
+  redirectionTypeName?: string;
   cloudNativeProductName?: string;
   instanceId?: string;
   IPAddressList?: string;
   static names(): { [key: string]: string } {
     return {
       protocolPortConfigs: 'ProtocolPortConfigs',
+      redirectionTypeName: 'RedirectionTypeName',
       cloudNativeProductName: 'CloudNativeProductName',
       instanceId: 'InstanceId',
       IPAddressList: 'IPAddressList',
@@ -2486,6 +2791,7 @@ export class DescribeDomainResponseBodyDomainCloudNativeInstances extends $tea.M
   static types(): { [key: string]: any } {
     return {
       protocolPortConfigs: { 'type': 'array', 'itemType': DescribeDomainResponseBodyDomainCloudNativeInstancesProtocolPortConfigs },
+      redirectionTypeName: 'string',
       cloudNativeProductName: 'string',
       instanceId: 'string',
       IPAddressList: 'string',
@@ -2823,11 +3129,33 @@ export class DescribeInstanceSpecInfoResponseBodyInstanceSpecInfos extends $tea.
   }
 }
 
+export class DescribeLogServiceStatusResponseBodyDomainStatus extends $tea.Model {
+  domain?: string;
+  slsLogActive?: number;
+  static names(): { [key: string]: string } {
+    return {
+      domain: 'Domain',
+      slsLogActive: 'SlsLogActive',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domain: 'string',
+      slsLogActive: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeProtectionModuleRulesResponseBodyRules extends $tea.Model {
   status?: number;
   time?: number;
   version?: number;
-  content?: string;
+  content?: { [key: string]: any };
   ruleId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2844,7 +3172,7 @@ export class DescribeProtectionModuleRulesResponseBodyRules extends $tea.Model {
       status: 'number',
       time: 'number',
       version: 'number',
-      content: 'string',
+      content: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       ruleId: 'number',
     };
   }
@@ -3059,6 +3387,19 @@ export default class Client extends OpenApi {
     return await this.describeDomainBasicConfigsWithOptions(request, runtime);
   }
 
+  async describeDomainListWithOptions(request: DescribeDomainListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainListResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DescribeDomainListResponse>(await this.doRPCRequest("DescribeDomainList", "2019-09-10", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeDomainListResponse({}));
+  }
+
+  async describeDomainList(request: DescribeDomainListRequest): Promise<DescribeDomainListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDomainListWithOptions(request, runtime);
+  }
+
   async describeDomainNamesWithOptions(request: DescribeDomainNamesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainNamesResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -3124,6 +3465,32 @@ export default class Client extends OpenApi {
     return await this.describeInstanceSpecInfoWithOptions(request, runtime);
   }
 
+  async describeLogServiceStatusWithOptions(request: DescribeLogServiceStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeLogServiceStatusResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DescribeLogServiceStatusResponse>(await this.doRPCRequest("DescribeLogServiceStatus", "2019-09-10", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeLogServiceStatusResponse({}));
+  }
+
+  async describeLogServiceStatus(request: DescribeLogServiceStatusRequest): Promise<DescribeLogServiceStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeLogServiceStatusWithOptions(request, runtime);
+  }
+
+  async describeProtectionModuleCodeConfigWithOptions(request: DescribeProtectionModuleCodeConfigRequest, runtime: $Util.RuntimeOptions): Promise<DescribeProtectionModuleCodeConfigResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DescribeProtectionModuleCodeConfigResponse>(await this.doRPCRequest("DescribeProtectionModuleCodeConfig", "2019-09-10", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeProtectionModuleCodeConfigResponse({}));
+  }
+
+  async describeProtectionModuleCodeConfig(request: DescribeProtectionModuleCodeConfigRequest): Promise<DescribeProtectionModuleCodeConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeProtectionModuleCodeConfigWithOptions(request, runtime);
+  }
+
   async describeProtectionModuleModeWithOptions(request: DescribeProtectionModuleModeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeProtectionModuleModeResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -3176,17 +3543,17 @@ export default class Client extends OpenApi {
     return await this.describeWafSourceIpSegmentWithOptions(request, runtime);
   }
 
-  async modifyDomainClusterTypeWithOptions(request: ModifyDomainClusterTypeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDomainClusterTypeResponse> {
+  async modifyDomainWithOptions(request: ModifyDomainRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDomainResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<ModifyDomainClusterTypeResponse>(await this.doRPCRequest("ModifyDomainClusterType", "2019-09-10", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyDomainClusterTypeResponse({}));
+    return $tea.cast<ModifyDomainResponse>(await this.doRPCRequest("ModifyDomain", "2019-09-10", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyDomainResponse({}));
   }
 
-  async modifyDomainClusterType(request: ModifyDomainClusterTypeRequest): Promise<ModifyDomainClusterTypeResponse> {
+  async modifyDomain(request: ModifyDomainRequest): Promise<ModifyDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.modifyDomainClusterTypeWithOptions(request, runtime);
+    return await this.modifyDomainWithOptions(request, runtime);
   }
 
   async modifyDomainIpv6StatusWithOptions(request: ModifyDomainIpv6StatusRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDomainIpv6StatusResponse> {
