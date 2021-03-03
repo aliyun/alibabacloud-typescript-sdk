@@ -2069,55 +2069,55 @@ export class ScreenChestCTRequestURLList extends $tea.Model {
 }
 
 export class ScreenChestCTResponseBodyDataLungNoduleSeriesElements extends $tea.Model {
-  z?: number;
   lobe?: string;
   meanValue?: number;
-  imageZ?: number;
   lung?: string;
   confidence?: number;
   SOPInstanceUID?: string;
-  imageX?: number;
-  y?: number;
   category?: string;
   volume?: number;
-  imageY?: number;
   diameter?: number;
   x?: number;
+  y?: number;
+  z?: number;
+  imageX?: number;
+  imageY?: number;
+  imageZ?: number;
   static names(): { [key: string]: string } {
     return {
-      z: 'Z',
       lobe: 'Lobe',
       meanValue: 'MeanValue',
-      imageZ: 'ImageZ',
       lung: 'Lung',
       confidence: 'Confidence',
       SOPInstanceUID: 'SOPInstanceUID',
-      imageX: 'ImageX',
-      y: 'Y',
       category: 'Category',
       volume: 'Volume',
-      imageY: 'ImageY',
       diameter: 'Diameter',
       x: 'X',
+      y: 'Y',
+      z: 'Z',
+      imageX: 'ImageX',
+      imageY: 'ImageY',
+      imageZ: 'ImageZ',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      z: 'number',
       lobe: 'string',
       meanValue: 'number',
-      imageZ: 'number',
       lung: 'string',
       confidence: 'number',
       SOPInstanceUID: 'string',
-      imageX: 'number',
-      y: 'number',
       category: 'string',
       volume: 'number',
-      imageY: 'number',
       diameter: 'number',
       x: 'number',
+      y: 'number',
+      z: 'number',
+      imageX: 'number',
+      imageY: 'number',
+      imageZ: 'number',
     };
   }
 
@@ -2229,15 +2229,76 @@ export class ScreenChestCTResponseBodyDataCovid extends $tea.Model {
   }
 }
 
+export class ScreenChestCTResponseBodyDataDetectRibFractureDetections extends $tea.Model {
+  fractureId?: number;
+  fractureConfidence?: number;
+  fractureCategory?: number;
+  coordinates?: number[];
+  coordinateImage?: number[];
+  static names(): { [key: string]: string } {
+    return {
+      fractureId: 'FractureId',
+      fractureConfidence: 'FractureConfidence',
+      fractureCategory: 'FractureCategory',
+      coordinates: 'Coordinates',
+      coordinateImage: 'CoordinateImage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fractureId: 'number',
+      fractureConfidence: 'number',
+      fractureCategory: 'number',
+      coordinates: { 'type': 'array', 'itemType': 'number' },
+      coordinateImage: { 'type': 'array', 'itemType': 'number' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScreenChestCTResponseBodyDataDetectRibFracture extends $tea.Model {
+  resultURL?: string;
+  spacing?: number[];
+  origin?: number[];
+  detections?: ScreenChestCTResponseBodyDataDetectRibFractureDetections[];
+  static names(): { [key: string]: string } {
+    return {
+      resultURL: 'ResultURL',
+      spacing: 'Spacing',
+      origin: 'Origin',
+      detections: 'Detections',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resultURL: 'string',
+      spacing: { 'type': 'array', 'itemType': 'number' },
+      origin: { 'type': 'array', 'itemType': 'number' },
+      detections: { 'type': 'array', 'itemType': ScreenChestCTResponseBodyDataDetectRibFractureDetections },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ScreenChestCTResponseBodyData extends $tea.Model {
   lungNodule?: ScreenChestCTResponseBodyDataLungNodule;
   CACS?: ScreenChestCTResponseBodyDataCACS;
   covid?: ScreenChestCTResponseBodyDataCovid;
+  detectRibFracture?: ScreenChestCTResponseBodyDataDetectRibFracture;
   static names(): { [key: string]: string } {
     return {
       lungNodule: 'LungNodule',
       CACS: 'CACS',
       covid: 'Covid',
+      detectRibFracture: 'DetectRibFracture',
     };
   }
 
@@ -2246,6 +2307,7 @@ export class ScreenChestCTResponseBodyData extends $tea.Model {
       lungNodule: ScreenChestCTResponseBodyDataLungNodule,
       CACS: ScreenChestCTResponseBodyDataCACS,
       covid: ScreenChestCTResponseBodyDataCovid,
+      detectRibFracture: ScreenChestCTResponseBodyDataDetectRibFracture,
     };
   }
 
