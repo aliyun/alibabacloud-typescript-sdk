@@ -1570,6 +1570,105 @@ export class CreateMediaResponse extends $tea.Model {
   }
 }
 
+export class CreatePredictiveJobGroupRequest extends $tea.Model {
+  instanceId?: string;
+  skillGroupId?: string;
+  strategyJson?: string;
+  name?: string;
+  description?: string;
+  timingSchedule?: boolean;
+  jobFilePath?: string;
+  isDraft?: boolean;
+  jobsJson?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      skillGroupId: 'SkillGroupId',
+      strategyJson: 'StrategyJson',
+      name: 'Name',
+      description: 'Description',
+      timingSchedule: 'TimingSchedule',
+      jobFilePath: 'JobFilePath',
+      isDraft: 'IsDraft',
+      jobsJson: 'JobsJson',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      skillGroupId: 'string',
+      strategyJson: 'string',
+      name: 'string',
+      description: 'string',
+      timingSchedule: 'boolean',
+      jobFilePath: 'string',
+      isDraft: 'boolean',
+      jobsJson: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePredictiveJobGroupResponseBody extends $tea.Model {
+  jobGroupId?: string;
+  requestId?: string;
+  message?: string;
+  httpStatusCode?: number;
+  code?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      jobGroupId: 'JobGroupId',
+      requestId: 'RequestId',
+      message: 'Message',
+      httpStatusCode: 'HttpStatusCode',
+      code: 'Code',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobGroupId: 'string',
+      requestId: 'string',
+      message: 'string',
+      httpStatusCode: 'number',
+      code: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePredictiveJobGroupResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CreatePredictiveJobGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CreatePredictiveJobGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateScenarioRequest extends $tea.Model {
   instanceId?: string;
   name?: string;
@@ -3331,6 +3430,186 @@ export class FindUsersResponse extends $tea.Model {
   }
 }
 
+export class GenerateAgentStatisticReportRequest extends $tea.Model {
+  instanceId?: string;
+  agentId?: string;
+  startDate?: string;
+  endDate?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      agentId: 'AgentId',
+      startDate: 'StartDate',
+      endDate: 'EndDate',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      agentId: 'string',
+      startDate: 'string',
+      endDate: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateAgentStatisticReportResponseBody extends $tea.Model {
+  requestId?: string;
+  success?: boolean;
+  code?: string;
+  message?: string;
+  httpStatusCode?: number;
+  dataList?: GenerateAgentStatisticReportResponseBodyDataList;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+      code: 'Code',
+      message: 'Message',
+      httpStatusCode: 'HttpStatusCode',
+      dataList: 'DataList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+      code: 'string',
+      message: 'string',
+      httpStatusCode: 'number',
+      dataList: GenerateAgentStatisticReportResponseBodyDataList,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateAgentStatisticReportResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GenerateAgentStatisticReportResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GenerateAgentStatisticReportResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAgentDataRequest extends $tea.Model {
+  instanceId?: string;
+  startDay?: string;
+  endDay?: string;
+  userId?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      startDay: 'StartDay',
+      endDay: 'EndDay',
+      userId: 'UserId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      startDay: 'string',
+      endDay: 'string',
+      userId: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAgentDataResponseBody extends $tea.Model {
+  requestId?: string;
+  success?: boolean;
+  code?: string;
+  message?: string;
+  httpStatusCode?: number;
+  dataList?: GetAgentDataResponseBodyDataList;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+      code: 'Code',
+      message: 'Message',
+      httpStatusCode: 'HttpStatusCode',
+      dataList: 'DataList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+      code: 'string',
+      message: 'string',
+      httpStatusCode: 'number',
+      dataList: GetAgentDataResponseBodyDataList,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAgentDataResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetAgentDataResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetAgentDataResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetCallMeasureSummaryReportRequest extends $tea.Model {
   intervalType?: string;
   year?: number;
@@ -4226,6 +4505,87 @@ export class GetJobDataUploadParamsResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: GetJobDataUploadParamsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetJobFileUploadUrlRequest extends $tea.Model {
+  instanceId?: string;
+  fileName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      fileName: 'FileName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      fileName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetJobFileUploadUrlResponseBody extends $tea.Model {
+  filePath?: string;
+  uploadUrl?: string;
+  requestId?: string;
+  message?: string;
+  httpStatusCode?: number;
+  code?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      filePath: 'FilePath',
+      uploadUrl: 'UploadUrl',
+      requestId: 'RequestId',
+      message: 'Message',
+      httpStatusCode: 'HttpStatusCode',
+      code: 'Code',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      filePath: 'string',
+      uploadUrl: 'string',
+      requestId: 'string',
+      message: 'string',
+      httpStatusCode: 'number',
+      code: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetJobFileUploadUrlResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetJobFileUploadUrlResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetJobFileUploadUrlResponseBody,
     };
   }
 
@@ -7728,6 +8088,96 @@ export class ListRealTimeAgentResponse extends $tea.Model {
   }
 }
 
+export class ListRecentCallRecordsRequest extends $tea.Model {
+  instanceId?: string;
+  startTime?: number;
+  stopTime?: number;
+  pageNumber?: number;
+  pageSize?: number;
+  criteria?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      startTime: 'StartTime',
+      stopTime: 'StopTime',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      criteria: 'Criteria',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      startTime: 'number',
+      stopTime: 'number',
+      pageNumber: 'number',
+      pageSize: 'number',
+      criteria: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRecentCallRecordsResponseBody extends $tea.Model {
+  requestId?: string;
+  success?: boolean;
+  code?: string;
+  message?: string;
+  httpStatusCode?: number;
+  callDetailRecords?: ListRecentCallRecordsResponseBodyCallDetailRecords;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+      code: 'Code',
+      message: 'Message',
+      httpStatusCode: 'HttpStatusCode',
+      callDetailRecords: 'CallDetailRecords',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+      code: 'string',
+      message: 'string',
+      httpStatusCode: 'number',
+      callDetailRecords: ListRecentCallRecordsResponseBodyCallDetailRecords,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRecentCallRecordsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListRecentCallRecordsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListRecentCallRecordsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListRecordingOfDualTrackRequest extends $tea.Model {
   instanceId?: string;
   connectId?: string;
@@ -10690,6 +11140,84 @@ export class PublishContactFlowVersionResponse extends $tea.Model {
   }
 }
 
+export class PublishPredictiveJobGroupRequest extends $tea.Model {
+  instanceId?: string;
+  jobGroupId?: string;
+  skillGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      jobGroupId: 'JobGroupId',
+      skillGroupId: 'SkillGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      jobGroupId: 'string',
+      skillGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PublishPredictiveJobGroupResponseBody extends $tea.Model {
+  message?: string;
+  requestId?: string;
+  httpStatusCode?: number;
+  code?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      requestId: 'RequestId',
+      httpStatusCode: 'HttpStatusCode',
+      code: 'Code',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      requestId: 'string',
+      httpStatusCode: 'number',
+      code: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PublishPredictiveJobGroupResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: PublishPredictiveJobGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: PublishPredictiveJobGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class PublishSurveyRequest extends $tea.Model {
   instanceId?: string;
   scenarioId?: string;
@@ -11303,6 +11831,90 @@ export class ResumeJobsResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: ResumeJobsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ResumePredictiveJobsRequest extends $tea.Model {
+  instanceId?: string;
+  skillGroupId?: string;
+  all?: boolean;
+  jobGroupId?: string;
+  jobId?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      skillGroupId: 'SkillGroupId',
+      all: 'All',
+      jobGroupId: 'JobGroupId',
+      jobId: 'JobId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      skillGroupId: 'string',
+      all: 'boolean',
+      jobGroupId: 'string',
+      jobId: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ResumePredictiveJobsResponseBody extends $tea.Model {
+  message?: string;
+  requestId?: string;
+  httpStatusCode?: number;
+  code?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      requestId: 'RequestId',
+      httpStatusCode: 'HttpStatusCode',
+      code: 'Code',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      requestId: 'string',
+      httpStatusCode: 'number',
+      code: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ResumePredictiveJobsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ResumePredictiveJobsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ResumePredictiveJobsResponseBody,
     };
   }
 
@@ -12017,6 +12629,90 @@ export class SuspendJobsResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: SuspendJobsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SuspendPredictiveJobsRequest extends $tea.Model {
+  instanceId?: string;
+  skillGroupId?: string;
+  all?: boolean;
+  jobGroupId?: string;
+  jobId?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      skillGroupId: 'SkillGroupId',
+      all: 'All',
+      jobGroupId: 'JobGroupId',
+      jobId: 'JobId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      skillGroupId: 'string',
+      all: 'boolean',
+      jobGroupId: 'string',
+      jobId: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SuspendPredictiveJobsResponseBody extends $tea.Model {
+  message?: string;
+  requestId?: string;
+  httpStatusCode?: number;
+  code?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      requestId: 'RequestId',
+      httpStatusCode: 'HttpStatusCode',
+      code: 'Code',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      requestId: 'string',
+      httpStatusCode: 'number',
+      code: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SuspendPredictiveJobsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: SuspendPredictiveJobsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: SuspendPredictiveJobsResponseBody,
     };
   }
 
@@ -14152,6 +14848,599 @@ export class FindUsersResponseBodyUsers extends $tea.Model {
       pageNumber: 'number',
       pageSize: 'number',
       totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateAgentStatisticReportResponseBodyDataListListGenerateAgentStatisticInbound extends $tea.Model {
+  totalTalkTime?: number;
+  maxTalkTime?: number;
+  averageTalkTime?: number;
+  totalHoldTime?: number;
+  maxHoldTime?: number;
+  averageHoldTime?: number;
+  totalWorkTime?: number;
+  maxWorkTime?: number;
+  averageWorkTime?: number;
+  satisfactionSurveysOffered?: number;
+  satisfactionSurveysResponded?: number;
+  satisfactionIndex?: number;
+  callsOffered?: number;
+  callsHandled?: number;
+  handleRate?: number;
+  totalRingTime?: number;
+  maxRingTime?: number;
+  averageRingTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      totalTalkTime: 'TotalTalkTime',
+      maxTalkTime: 'MaxTalkTime',
+      averageTalkTime: 'AverageTalkTime',
+      totalHoldTime: 'TotalHoldTime',
+      maxHoldTime: 'MaxHoldTime',
+      averageHoldTime: 'AverageHoldTime',
+      totalWorkTime: 'TotalWorkTime',
+      maxWorkTime: 'MaxWorkTime',
+      averageWorkTime: 'AverageWorkTime',
+      satisfactionSurveysOffered: 'SatisfactionSurveysOffered',
+      satisfactionSurveysResponded: 'SatisfactionSurveysResponded',
+      satisfactionIndex: 'SatisfactionIndex',
+      callsOffered: 'CallsOffered',
+      callsHandled: 'CallsHandled',
+      handleRate: 'HandleRate',
+      totalRingTime: 'TotalRingTime',
+      maxRingTime: 'MaxRingTime',
+      averageRingTime: 'AverageRingTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      totalTalkTime: 'number',
+      maxTalkTime: 'number',
+      averageTalkTime: 'number',
+      totalHoldTime: 'number',
+      maxHoldTime: 'number',
+      averageHoldTime: 'number',
+      totalWorkTime: 'number',
+      maxWorkTime: 'number',
+      averageWorkTime: 'number',
+      satisfactionSurveysOffered: 'number',
+      satisfactionSurveysResponded: 'number',
+      satisfactionIndex: 'number',
+      callsOffered: 'number',
+      callsHandled: 'number',
+      handleRate: 'number',
+      totalRingTime: 'number',
+      maxRingTime: 'number',
+      averageRingTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateAgentStatisticReportResponseBodyDataListListGenerateAgentStatisticOutbound extends $tea.Model {
+  totalTalkTime?: number;
+  maxTalkTime?: number;
+  averageTalkTime?: number;
+  totalHoldTime?: number;
+  maxHoldTime?: number;
+  averageHoldTime?: number;
+  totalWorkTime?: number;
+  maxWorkTime?: number;
+  averageWorkTime?: number;
+  satisfactionSurveysOffered?: number;
+  satisfactionSurveysResponded?: number;
+  satisfactionIndex?: number;
+  callsDialed?: number;
+  callsAnswered?: number;
+  answerRate?: number;
+  totalDialingTime?: number;
+  maxDialingTime?: number;
+  averageDialingTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      totalTalkTime: 'TotalTalkTime',
+      maxTalkTime: 'MaxTalkTime',
+      averageTalkTime: 'AverageTalkTime',
+      totalHoldTime: 'TotalHoldTime',
+      maxHoldTime: 'MaxHoldTime',
+      averageHoldTime: 'AverageHoldTime',
+      totalWorkTime: 'TotalWorkTime',
+      maxWorkTime: 'MaxWorkTime',
+      averageWorkTime: 'AverageWorkTime',
+      satisfactionSurveysOffered: 'SatisfactionSurveysOffered',
+      satisfactionSurveysResponded: 'SatisfactionSurveysResponded',
+      satisfactionIndex: 'SatisfactionIndex',
+      callsDialed: 'CallsDialed',
+      callsAnswered: 'CallsAnswered',
+      answerRate: 'AnswerRate',
+      totalDialingTime: 'TotalDialingTime',
+      maxDialingTime: 'MaxDialingTime',
+      averageDialingTime: 'AverageDialingTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      totalTalkTime: 'number',
+      maxTalkTime: 'number',
+      averageTalkTime: 'number',
+      totalHoldTime: 'number',
+      maxHoldTime: 'number',
+      averageHoldTime: 'number',
+      totalWorkTime: 'number',
+      maxWorkTime: 'number',
+      averageWorkTime: 'number',
+      satisfactionSurveysOffered: 'number',
+      satisfactionSurveysResponded: 'number',
+      satisfactionIndex: 'number',
+      callsDialed: 'number',
+      callsAnswered: 'number',
+      answerRate: 'number',
+      totalDialingTime: 'number',
+      maxDialingTime: 'number',
+      averageDialingTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateAgentStatisticReportResponseBodyDataListListGenerateAgentStatisticOverall extends $tea.Model {
+  totalTalkTime?: number;
+  maxTalkTime?: number;
+  averageTalkTime?: number;
+  totalHoldTime?: number;
+  maxHoldTime?: number;
+  averageHoldTime?: number;
+  totalWorkTime?: number;
+  maxWorkTime?: number;
+  averageWorkTime?: number;
+  satisfactionSurveysOffered?: number;
+  satisfactionSurveysResponded?: number;
+  satisfactionIndex?: number;
+  totalCalls?: number;
+  static names(): { [key: string]: string } {
+    return {
+      totalTalkTime: 'TotalTalkTime',
+      maxTalkTime: 'MaxTalkTime',
+      averageTalkTime: 'AverageTalkTime',
+      totalHoldTime: 'TotalHoldTime',
+      maxHoldTime: 'MaxHoldTime',
+      averageHoldTime: 'AverageHoldTime',
+      totalWorkTime: 'TotalWorkTime',
+      maxWorkTime: 'MaxWorkTime',
+      averageWorkTime: 'AverageWorkTime',
+      satisfactionSurveysOffered: 'SatisfactionSurveysOffered',
+      satisfactionSurveysResponded: 'SatisfactionSurveysResponded',
+      satisfactionIndex: 'SatisfactionIndex',
+      totalCalls: 'TotalCalls',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      totalTalkTime: 'number',
+      maxTalkTime: 'number',
+      averageTalkTime: 'number',
+      totalHoldTime: 'number',
+      maxHoldTime: 'number',
+      averageHoldTime: 'number',
+      totalWorkTime: 'number',
+      maxWorkTime: 'number',
+      averageWorkTime: 'number',
+      satisfactionSurveysOffered: 'number',
+      satisfactionSurveysResponded: 'number',
+      satisfactionIndex: 'number',
+      totalCalls: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateAgentStatisticReportResponseBodyDataListListGenerateAgentStatistic extends $tea.Model {
+  agentId?: string;
+  loginName?: string;
+  agentName?: string;
+  skillGroupIds?: string;
+  skillGroupNames?: string;
+  instanceId?: string;
+  recordDate?: string;
+  totalLoggedInTime?: number;
+  totalBreakTime?: number;
+  occupancyRate?: number;
+  totalReadyTime?: number;
+  maxReadyTime?: number;
+  averageReadyTime?: number;
+  inbound?: GenerateAgentStatisticReportResponseBodyDataListListGenerateAgentStatisticInbound;
+  outbound?: GenerateAgentStatisticReportResponseBodyDataListListGenerateAgentStatisticOutbound;
+  overall?: GenerateAgentStatisticReportResponseBodyDataListListGenerateAgentStatisticOverall;
+  static names(): { [key: string]: string } {
+    return {
+      agentId: 'AgentId',
+      loginName: 'LoginName',
+      agentName: 'AgentName',
+      skillGroupIds: 'SkillGroupIds',
+      skillGroupNames: 'SkillGroupNames',
+      instanceId: 'InstanceId',
+      recordDate: 'RecordDate',
+      totalLoggedInTime: 'TotalLoggedInTime',
+      totalBreakTime: 'TotalBreakTime',
+      occupancyRate: 'OccupancyRate',
+      totalReadyTime: 'TotalReadyTime',
+      maxReadyTime: 'MaxReadyTime',
+      averageReadyTime: 'AverageReadyTime',
+      inbound: 'Inbound',
+      outbound: 'Outbound',
+      overall: 'Overall',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentId: 'string',
+      loginName: 'string',
+      agentName: 'string',
+      skillGroupIds: 'string',
+      skillGroupNames: 'string',
+      instanceId: 'string',
+      recordDate: 'string',
+      totalLoggedInTime: 'number',
+      totalBreakTime: 'number',
+      occupancyRate: 'number',
+      totalReadyTime: 'number',
+      maxReadyTime: 'number',
+      averageReadyTime: 'number',
+      inbound: GenerateAgentStatisticReportResponseBodyDataListListGenerateAgentStatisticInbound,
+      outbound: GenerateAgentStatisticReportResponseBodyDataListListGenerateAgentStatisticOutbound,
+      overall: GenerateAgentStatisticReportResponseBodyDataListListGenerateAgentStatisticOverall,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateAgentStatisticReportResponseBodyDataListList extends $tea.Model {
+  generateAgentStatistic?: GenerateAgentStatisticReportResponseBodyDataListListGenerateAgentStatistic[];
+  static names(): { [key: string]: string } {
+    return {
+      generateAgentStatistic: 'GenerateAgentStatistic',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      generateAgentStatistic: { 'type': 'array', 'itemType': GenerateAgentStatisticReportResponseBodyDataListListGenerateAgentStatistic },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateAgentStatisticReportResponseBodyDataList extends $tea.Model {
+  totalCount?: number;
+  pageNumber?: number;
+  pageSize?: number;
+  list?: GenerateAgentStatisticReportResponseBodyDataListList;
+  static names(): { [key: string]: string } {
+    return {
+      totalCount: 'TotalCount',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      list: 'List',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      totalCount: 'number',
+      pageNumber: 'number',
+      pageSize: 'number',
+      list: GenerateAgentStatisticReportResponseBodyDataListList,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAgentDataResponseBodyDataListListInbound extends $tea.Model {
+  totalTalkTime?: number;
+  maxTalkTime?: number;
+  averageTalkTime?: number;
+  totalHoldTime?: number;
+  maxHoldTime?: number;
+  averageHoldTime?: number;
+  totalWorkTime?: number;
+  maxWorkTime?: number;
+  averageWorkTime?: number;
+  satisfactionSurveysOffered?: number;
+  satisfactionSurveysResponded?: number;
+  satisfactionIndex?: number;
+  callsOffered?: number;
+  callsHandled?: number;
+  handleRate?: number;
+  totalRingTime?: number;
+  maxRingTime?: number;
+  averageRingTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      totalTalkTime: 'TotalTalkTime',
+      maxTalkTime: 'MaxTalkTime',
+      averageTalkTime: 'AverageTalkTime',
+      totalHoldTime: 'TotalHoldTime',
+      maxHoldTime: 'MaxHoldTime',
+      averageHoldTime: 'AverageHoldTime',
+      totalWorkTime: 'TotalWorkTime',
+      maxWorkTime: 'MaxWorkTime',
+      averageWorkTime: 'AverageWorkTime',
+      satisfactionSurveysOffered: 'SatisfactionSurveysOffered',
+      satisfactionSurveysResponded: 'SatisfactionSurveysResponded',
+      satisfactionIndex: 'SatisfactionIndex',
+      callsOffered: 'CallsOffered',
+      callsHandled: 'CallsHandled',
+      handleRate: 'HandleRate',
+      totalRingTime: 'TotalRingTime',
+      maxRingTime: 'MaxRingTime',
+      averageRingTime: 'AverageRingTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      totalTalkTime: 'number',
+      maxTalkTime: 'number',
+      averageTalkTime: 'number',
+      totalHoldTime: 'number',
+      maxHoldTime: 'number',
+      averageHoldTime: 'number',
+      totalWorkTime: 'number',
+      maxWorkTime: 'number',
+      averageWorkTime: 'number',
+      satisfactionSurveysOffered: 'number',
+      satisfactionSurveysResponded: 'number',
+      satisfactionIndex: 'number',
+      callsOffered: 'number',
+      callsHandled: 'number',
+      handleRate: 'number',
+      totalRingTime: 'number',
+      maxRingTime: 'number',
+      averageRingTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAgentDataResponseBodyDataListListOutbound extends $tea.Model {
+  totalTalkTime?: number;
+  maxTalkTime?: number;
+  averageTalkTime?: number;
+  totalHoldTime?: number;
+  maxHoldTime?: number;
+  averageHoldTime?: number;
+  totalWorkTime?: number;
+  maxWorkTime?: number;
+  averageWorkTime?: number;
+  satisfactionSurveysOffered?: number;
+  satisfactionSurveysResponded?: number;
+  satisfactionIndex?: number;
+  callsDialed?: number;
+  callsAnswered?: number;
+  answerRate?: number;
+  totalDialingTime?: number;
+  maxDialingTime?: number;
+  averageDialingTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      totalTalkTime: 'TotalTalkTime',
+      maxTalkTime: 'MaxTalkTime',
+      averageTalkTime: 'AverageTalkTime',
+      totalHoldTime: 'TotalHoldTime',
+      maxHoldTime: 'MaxHoldTime',
+      averageHoldTime: 'AverageHoldTime',
+      totalWorkTime: 'TotalWorkTime',
+      maxWorkTime: 'MaxWorkTime',
+      averageWorkTime: 'AverageWorkTime',
+      satisfactionSurveysOffered: 'SatisfactionSurveysOffered',
+      satisfactionSurveysResponded: 'SatisfactionSurveysResponded',
+      satisfactionIndex: 'SatisfactionIndex',
+      callsDialed: 'CallsDialed',
+      callsAnswered: 'CallsAnswered',
+      answerRate: 'AnswerRate',
+      totalDialingTime: 'TotalDialingTime',
+      maxDialingTime: 'MaxDialingTime',
+      averageDialingTime: 'AverageDialingTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      totalTalkTime: 'number',
+      maxTalkTime: 'number',
+      averageTalkTime: 'number',
+      totalHoldTime: 'number',
+      maxHoldTime: 'number',
+      averageHoldTime: 'number',
+      totalWorkTime: 'number',
+      maxWorkTime: 'number',
+      averageWorkTime: 'number',
+      satisfactionSurveysOffered: 'number',
+      satisfactionSurveysResponded: 'number',
+      satisfactionIndex: 'number',
+      callsDialed: 'number',
+      callsAnswered: 'number',
+      answerRate: 'number',
+      totalDialingTime: 'number',
+      maxDialingTime: 'number',
+      averageDialingTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAgentDataResponseBodyDataListListOverall extends $tea.Model {
+  totalTalkTime?: number;
+  maxTalkTime?: number;
+  averageTalkTime?: number;
+  totalHoldTime?: number;
+  maxHoldTime?: number;
+  averageHoldTime?: number;
+  totalWorkTime?: number;
+  maxWorkTime?: number;
+  averageWorkTime?: number;
+  satisfactionSurveysOffered?: number;
+  satisfactionSurveysResponded?: number;
+  satisfactionIndex?: number;
+  totalCalls?: number;
+  static names(): { [key: string]: string } {
+    return {
+      totalTalkTime: 'TotalTalkTime',
+      maxTalkTime: 'MaxTalkTime',
+      averageTalkTime: 'AverageTalkTime',
+      totalHoldTime: 'TotalHoldTime',
+      maxHoldTime: 'MaxHoldTime',
+      averageHoldTime: 'AverageHoldTime',
+      totalWorkTime: 'TotalWorkTime',
+      maxWorkTime: 'MaxWorkTime',
+      averageWorkTime: 'AverageWorkTime',
+      satisfactionSurveysOffered: 'SatisfactionSurveysOffered',
+      satisfactionSurveysResponded: 'SatisfactionSurveysResponded',
+      satisfactionIndex: 'SatisfactionIndex',
+      totalCalls: 'TotalCalls',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      totalTalkTime: 'number',
+      maxTalkTime: 'number',
+      averageTalkTime: 'number',
+      totalHoldTime: 'number',
+      maxHoldTime: 'number',
+      averageHoldTime: 'number',
+      totalWorkTime: 'number',
+      maxWorkTime: 'number',
+      averageWorkTime: 'number',
+      satisfactionSurveysOffered: 'number',
+      satisfactionSurveysResponded: 'number',
+      satisfactionIndex: 'number',
+      totalCalls: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAgentDataResponseBodyDataListList extends $tea.Model {
+  agentId?: string;
+  loginName?: string;
+  agentName?: string;
+  skillGroupIds?: string;
+  skillGroupNames?: string;
+  instanceId?: string;
+  recordDate?: string;
+  totalLoggedInTime?: number;
+  totalBreakTime?: number;
+  occupancyRate?: number;
+  totalReadyTime?: number;
+  maxReadyTime?: number;
+  averageReadyTime?: number;
+  inbound?: GetAgentDataResponseBodyDataListListInbound;
+  outbound?: GetAgentDataResponseBodyDataListListOutbound;
+  overall?: GetAgentDataResponseBodyDataListListOverall;
+  static names(): { [key: string]: string } {
+    return {
+      agentId: 'AgentId',
+      loginName: 'LoginName',
+      agentName: 'AgentName',
+      skillGroupIds: 'SkillGroupIds',
+      skillGroupNames: 'SkillGroupNames',
+      instanceId: 'InstanceId',
+      recordDate: 'RecordDate',
+      totalLoggedInTime: 'TotalLoggedInTime',
+      totalBreakTime: 'TotalBreakTime',
+      occupancyRate: 'OccupancyRate',
+      totalReadyTime: 'TotalReadyTime',
+      maxReadyTime: 'MaxReadyTime',
+      averageReadyTime: 'AverageReadyTime',
+      inbound: 'Inbound',
+      outbound: 'Outbound',
+      overall: 'Overall',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentId: 'string',
+      loginName: 'string',
+      agentName: 'string',
+      skillGroupIds: 'string',
+      skillGroupNames: 'string',
+      instanceId: 'string',
+      recordDate: 'string',
+      totalLoggedInTime: 'number',
+      totalBreakTime: 'number',
+      occupancyRate: 'number',
+      totalReadyTime: 'number',
+      maxReadyTime: 'number',
+      averageReadyTime: 'number',
+      inbound: GetAgentDataResponseBodyDataListListInbound,
+      outbound: GetAgentDataResponseBodyDataListListOutbound,
+      overall: GetAgentDataResponseBodyDataListListOverall,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAgentDataResponseBodyDataList extends $tea.Model {
+  totalCount?: number;
+  pageNumber?: number;
+  pageSize?: number;
+  list?: GetAgentDataResponseBodyDataListList[];
+  static names(): { [key: string]: string } {
+    return {
+      totalCount: 'TotalCount',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      list: 'List',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      totalCount: 'number',
+      pageNumber: 'number',
+      pageSize: 'number',
+      list: { 'type': 'array', 'itemType': GetAgentDataResponseBodyDataListList },
     };
   }
 
@@ -20969,6 +22258,262 @@ export class ListRealTimeAgentResponseBodyData extends $tea.Model {
   }
 }
 
+export class ListRecentCallRecordsResponseBodyCallDetailRecordsListCallDetailRecordAgentsCallDetailAgent extends $tea.Model {
+  contactId?: string;
+  agentId?: string;
+  agentName?: string;
+  skillGroupName?: string;
+  queueTime?: number;
+  ringTime?: number;
+  startTime?: number;
+  talkTime?: number;
+  holdTime?: number;
+  workTime?: number;
+  satisfaction?: string;
+  feedback?: string;
+  static names(): { [key: string]: string } {
+    return {
+      contactId: 'ContactId',
+      agentId: 'AgentId',
+      agentName: 'AgentName',
+      skillGroupName: 'SkillGroupName',
+      queueTime: 'QueueTime',
+      ringTime: 'RingTime',
+      startTime: 'StartTime',
+      talkTime: 'TalkTime',
+      holdTime: 'HoldTime',
+      workTime: 'WorkTime',
+      satisfaction: 'Satisfaction',
+      feedback: 'Feedback',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      contactId: 'string',
+      agentId: 'string',
+      agentName: 'string',
+      skillGroupName: 'string',
+      queueTime: 'number',
+      ringTime: 'number',
+      startTime: 'number',
+      talkTime: 'number',
+      holdTime: 'number',
+      workTime: 'number',
+      satisfaction: 'string',
+      feedback: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRecentCallRecordsResponseBodyCallDetailRecordsListCallDetailRecordAgents extends $tea.Model {
+  callDetailAgent?: ListRecentCallRecordsResponseBodyCallDetailRecordsListCallDetailRecordAgentsCallDetailAgent[];
+  static names(): { [key: string]: string } {
+    return {
+      callDetailAgent: 'CallDetailAgent',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      callDetailAgent: { 'type': 'array', 'itemType': ListRecentCallRecordsResponseBodyCallDetailRecordsListCallDetailRecordAgentsCallDetailAgent },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRecentCallRecordsResponseBodyCallDetailRecordsListCallDetailRecordRecordingsRecording extends $tea.Model {
+  contactId?: string;
+  contactType?: string;
+  agentId?: string;
+  agentName?: string;
+  callingNumber?: string;
+  calledNumber?: string;
+  startTime?: number;
+  duration?: number;
+  fileName?: string;
+  filePath?: string;
+  fileDescription?: string;
+  channel?: string;
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      contactId: 'ContactId',
+      contactType: 'ContactType',
+      agentId: 'AgentId',
+      agentName: 'AgentName',
+      callingNumber: 'CallingNumber',
+      calledNumber: 'CalledNumber',
+      startTime: 'StartTime',
+      duration: 'Duration',
+      fileName: 'FileName',
+      filePath: 'FilePath',
+      fileDescription: 'FileDescription',
+      channel: 'Channel',
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      contactId: 'string',
+      contactType: 'string',
+      agentId: 'string',
+      agentName: 'string',
+      callingNumber: 'string',
+      calledNumber: 'string',
+      startTime: 'number',
+      duration: 'number',
+      fileName: 'string',
+      filePath: 'string',
+      fileDescription: 'string',
+      channel: 'string',
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRecentCallRecordsResponseBodyCallDetailRecordsListCallDetailRecordRecordings extends $tea.Model {
+  recording?: ListRecentCallRecordsResponseBodyCallDetailRecordsListCallDetailRecordRecordingsRecording[];
+  static names(): { [key: string]: string } {
+    return {
+      recording: 'Recording',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      recording: { 'type': 'array', 'itemType': ListRecentCallRecordsResponseBodyCallDetailRecordsListCallDetailRecordRecordingsRecording },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRecentCallRecordsResponseBodyCallDetailRecordsListCallDetailRecord extends $tea.Model {
+  contactId?: string;
+  startTime?: number;
+  duration?: number;
+  satisfaction?: number;
+  contactType?: string;
+  contactDisposition?: string;
+  callingNumber?: string;
+  calledNumber?: string;
+  agentNames?: string;
+  skillGroupNames?: string;
+  instanceId?: string;
+  extraAttr?: string;
+  satisfactionDesc?: string;
+  feedback?: string;
+  agents?: ListRecentCallRecordsResponseBodyCallDetailRecordsListCallDetailRecordAgents;
+  recordings?: ListRecentCallRecordsResponseBodyCallDetailRecordsListCallDetailRecordRecordings;
+  static names(): { [key: string]: string } {
+    return {
+      contactId: 'ContactId',
+      startTime: 'StartTime',
+      duration: 'Duration',
+      satisfaction: 'Satisfaction',
+      contactType: 'ContactType',
+      contactDisposition: 'ContactDisposition',
+      callingNumber: 'CallingNumber',
+      calledNumber: 'CalledNumber',
+      agentNames: 'AgentNames',
+      skillGroupNames: 'SkillGroupNames',
+      instanceId: 'InstanceId',
+      extraAttr: 'ExtraAttr',
+      satisfactionDesc: 'SatisfactionDesc',
+      feedback: 'Feedback',
+      agents: 'Agents',
+      recordings: 'Recordings',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      contactId: 'string',
+      startTime: 'number',
+      duration: 'number',
+      satisfaction: 'number',
+      contactType: 'string',
+      contactDisposition: 'string',
+      callingNumber: 'string',
+      calledNumber: 'string',
+      agentNames: 'string',
+      skillGroupNames: 'string',
+      instanceId: 'string',
+      extraAttr: 'string',
+      satisfactionDesc: 'string',
+      feedback: 'string',
+      agents: ListRecentCallRecordsResponseBodyCallDetailRecordsListCallDetailRecordAgents,
+      recordings: ListRecentCallRecordsResponseBodyCallDetailRecordsListCallDetailRecordRecordings,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRecentCallRecordsResponseBodyCallDetailRecordsList extends $tea.Model {
+  callDetailRecord?: ListRecentCallRecordsResponseBodyCallDetailRecordsListCallDetailRecord[];
+  static names(): { [key: string]: string } {
+    return {
+      callDetailRecord: 'CallDetailRecord',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      callDetailRecord: { 'type': 'array', 'itemType': ListRecentCallRecordsResponseBodyCallDetailRecordsListCallDetailRecord },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRecentCallRecordsResponseBodyCallDetailRecords extends $tea.Model {
+  totalCount?: number;
+  pageNumber?: number;
+  pageSize?: number;
+  list?: ListRecentCallRecordsResponseBodyCallDetailRecordsList;
+  static names(): { [key: string]: string } {
+    return {
+      totalCount: 'TotalCount',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      list: 'List',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      totalCount: 'number',
+      pageNumber: 'number',
+      pageSize: 'number',
+      list: ListRecentCallRecordsResponseBodyCallDetailRecordsList,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListRecordingOfDualTrackResponseBodyRecordingsListRecording extends $tea.Model {
   contactType?: string;
   agentId?: string;
@@ -25008,6 +26553,19 @@ export default class Client extends OpenApi {
     return await this.createMediaWithOptions(request, runtime);
   }
 
+  async createPredictiveJobGroupWithOptions(request: CreatePredictiveJobGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreatePredictiveJobGroupResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<CreatePredictiveJobGroupResponse>(await this.doRPCRequest("CreatePredictiveJobGroup", "2017-07-05", "HTTPS", "POST", "AK", "json", req, runtime), new CreatePredictiveJobGroupResponse({}));
+  }
+
+  async createPredictiveJobGroup(request: CreatePredictiveJobGroupRequest): Promise<CreatePredictiveJobGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createPredictiveJobGroupWithOptions(request, runtime);
+  }
+
   async createScenarioWithOptions(request: CreateScenarioRequest, runtime: $Util.RuntimeOptions): Promise<CreateScenarioResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -25281,6 +26839,32 @@ export default class Client extends OpenApi {
     return await this.findUsersWithOptions(request, runtime);
   }
 
+  async generateAgentStatisticReportWithOptions(request: GenerateAgentStatisticReportRequest, runtime: $Util.RuntimeOptions): Promise<GenerateAgentStatisticReportResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<GenerateAgentStatisticReportResponse>(await this.doRPCRequest("GenerateAgentStatisticReport", "2017-07-05", "HTTPS", "POST", "AK", "json", req, runtime), new GenerateAgentStatisticReportResponse({}));
+  }
+
+  async generateAgentStatisticReport(request: GenerateAgentStatisticReportRequest): Promise<GenerateAgentStatisticReportResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.generateAgentStatisticReportWithOptions(request, runtime);
+  }
+
+  async getAgentDataWithOptions(request: GetAgentDataRequest, runtime: $Util.RuntimeOptions): Promise<GetAgentDataResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<GetAgentDataResponse>(await this.doRPCRequest("GetAgentData", "2017-07-05", "HTTPS", "POST", "AK", "json", req, runtime), new GetAgentDataResponse({}));
+  }
+
+  async getAgentData(request: GetAgentDataRequest): Promise<GetAgentDataResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getAgentDataWithOptions(request, runtime);
+  }
+
   async getCallMeasureSummaryReportWithOptions(request: GetCallMeasureSummaryReportRequest, runtime: $Util.RuntimeOptions): Promise<GetCallMeasureSummaryReportResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -25422,6 +27006,19 @@ export default class Client extends OpenApi {
   async getJobDataUploadParams(request: GetJobDataUploadParamsRequest): Promise<GetJobDataUploadParamsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getJobDataUploadParamsWithOptions(request, runtime);
+  }
+
+  async getJobFileUploadUrlWithOptions(request: GetJobFileUploadUrlRequest, runtime: $Util.RuntimeOptions): Promise<GetJobFileUploadUrlResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<GetJobFileUploadUrlResponse>(await this.doRPCRequest("GetJobFileUploadUrl", "2017-07-05", "HTTPS", "POST", "AK", "json", req, runtime), new GetJobFileUploadUrlResponse({}));
+  }
+
+  async getJobFileUploadUrl(request: GetJobFileUploadUrlRequest): Promise<GetJobFileUploadUrlResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getJobFileUploadUrlWithOptions(request, runtime);
   }
 
   async getJobGroupWithOptions(request: GetJobGroupRequest, runtime: $Util.RuntimeOptions): Promise<GetJobGroupResponse> {
@@ -25967,6 +27564,19 @@ export default class Client extends OpenApi {
     return await this.listRealTimeAgentWithOptions(request, runtime);
   }
 
+  async listRecentCallRecordsWithOptions(request: ListRecentCallRecordsRequest, runtime: $Util.RuntimeOptions): Promise<ListRecentCallRecordsResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<ListRecentCallRecordsResponse>(await this.doRPCRequest("ListRecentCallRecords", "2017-07-05", "HTTPS", "POST", "AK", "json", req, runtime), new ListRecentCallRecordsResponse({}));
+  }
+
+  async listRecentCallRecords(request: ListRecentCallRecordsRequest): Promise<ListRecentCallRecordsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listRecentCallRecordsWithOptions(request, runtime);
+  }
+
   async listRecordingOfDualTrackWithOptions(request: ListRecordingOfDualTrackRequest, runtime: $Util.RuntimeOptions): Promise<ListRecordingOfDualTrackResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -26429,6 +28039,19 @@ export default class Client extends OpenApi {
     return await this.publishContactFlowVersionWithOptions(request, runtime);
   }
 
+  async publishPredictiveJobGroupWithOptions(request: PublishPredictiveJobGroupRequest, runtime: $Util.RuntimeOptions): Promise<PublishPredictiveJobGroupResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<PublishPredictiveJobGroupResponse>(await this.doRPCRequest("PublishPredictiveJobGroup", "2017-07-05", "HTTPS", "POST", "AK", "json", req, runtime), new PublishPredictiveJobGroupResponse({}));
+  }
+
+  async publishPredictiveJobGroup(request: PublishPredictiveJobGroupRequest): Promise<PublishPredictiveJobGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.publishPredictiveJobGroupWithOptions(request, runtime);
+  }
+
   async publishSurveyWithOptions(request: PublishSurveyRequest, runtime: $Util.RuntimeOptions): Promise<PublishSurveyResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -26533,6 +28156,19 @@ export default class Client extends OpenApi {
     return await this.resumeJobsWithOptions(request, runtime);
   }
 
+  async resumePredictiveJobsWithOptions(request: ResumePredictiveJobsRequest, runtime: $Util.RuntimeOptions): Promise<ResumePredictiveJobsResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<ResumePredictiveJobsResponse>(await this.doRPCRequest("ResumePredictiveJobs", "2017-07-05", "HTTPS", "POST", "AK", "json", req, runtime), new ResumePredictiveJobsResponse({}));
+  }
+
+  async resumePredictiveJobs(request: ResumePredictiveJobsRequest): Promise<ResumePredictiveJobsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.resumePredictiveJobsWithOptions(request, runtime);
+  }
+
   async saveStatsWithOptions(request: SaveStatsRequest, runtime: $Util.RuntimeOptions): Promise<SaveStatsResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -26635,6 +28271,19 @@ export default class Client extends OpenApi {
   async suspendJobs(request: SuspendJobsRequest): Promise<SuspendJobsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.suspendJobsWithOptions(request, runtime);
+  }
+
+  async suspendPredictiveJobsWithOptions(request: SuspendPredictiveJobsRequest, runtime: $Util.RuntimeOptions): Promise<SuspendPredictiveJobsResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<SuspendPredictiveJobsResponse>(await this.doRPCRequest("SuspendPredictiveJobs", "2017-07-05", "HTTPS", "POST", "AK", "json", req, runtime), new SuspendPredictiveJobsResponse({}));
+  }
+
+  async suspendPredictiveJobs(request: SuspendPredictiveJobsRequest): Promise<SuspendPredictiveJobsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.suspendPredictiveJobsWithOptions(request, runtime);
   }
 
   async taskPreparingWithOptions(request: TaskPreparingRequest, runtime: $Util.RuntimeOptions): Promise<TaskPreparingResponse> {
