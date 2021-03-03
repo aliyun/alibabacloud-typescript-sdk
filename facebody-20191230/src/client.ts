@@ -590,22 +590,25 @@ export class GetFaceEntityResponse extends $tea.Model {
 }
 
 export class CompareFaceRequest extends $tea.Model {
-  imageType?: number;
+  qualityScoreThreshold?: number;
   imageURLA?: string;
   imageURLB?: string;
+  imageType?: number;
   static names(): { [key: string]: string } {
     return {
-      imageType: 'ImageType',
+      qualityScoreThreshold: 'QualityScoreThreshold',
       imageURLA: 'ImageURLA',
       imageURLB: 'ImageURLB',
+      imageType: 'ImageType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      imageType: 'number',
+      qualityScoreThreshold: 'number',
       imageURLA: 'string',
       imageURLB: 'string',
+      imageType: 'number',
     };
   }
 
@@ -617,10 +620,12 @@ export class CompareFaceRequest extends $tea.Model {
 export class CompareFaceResponseBody extends $tea.Model {
   requestId?: string;
   data?: CompareFaceResponseBodyData;
+  code?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
       data: 'Data',
+      code: 'Code',
     };
   }
 
@@ -628,6 +633,7 @@ export class CompareFaceResponseBody extends $tea.Model {
     return {
       requestId: 'string',
       data: CompareFaceResponseBodyData,
+      code: 'string',
     };
   }
 
@@ -4908,12 +4914,18 @@ export class CompareFaceResponseBodyData extends $tea.Model {
   rectBList?: number[];
   confidence?: number;
   rectAList?: number[];
+  qualityScoreA?: number;
+  qualityScoreB?: number;
+  messageTips?: string;
   static names(): { [key: string]: string } {
     return {
       thresholds: 'Thresholds',
       rectBList: 'RectBList',
       confidence: 'Confidence',
       rectAList: 'RectAList',
+      qualityScoreA: 'QualityScoreA',
+      qualityScoreB: 'QualityScoreB',
+      messageTips: 'MessageTips',
     };
   }
 
@@ -4923,6 +4935,9 @@ export class CompareFaceResponseBodyData extends $tea.Model {
       rectBList: { 'type': 'array', 'itemType': 'number' },
       confidence: 'number',
       rectAList: { 'type': 'array', 'itemType': 'number' },
+      qualityScoreA: 'number',
+      qualityScoreB: 'number',
+      messageTips: 'string',
     };
   }
 
