@@ -3309,6 +3309,100 @@ export class GetBodyPersonResponse extends $tea.Model {
   }
 }
 
+export class RecognizeHandGestureRequest extends $tea.Model {
+  appId?: string;
+  imageURL?: string;
+  gestureType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      imageURL: 'ImageURL',
+      gestureType: 'GestureType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      imageURL: 'string',
+      gestureType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeHandGestureAdvanceRequest extends $tea.Model {
+  imageURLObject: Readable;
+  appId?: string;
+  gestureType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      imageURLObject: 'ImageURLObject',
+      appId: 'AppId',
+      gestureType: 'GestureType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageURLObject: 'Readable',
+      appId: 'string',
+      gestureType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeHandGestureResponseBody extends $tea.Model {
+  requestId?: string;
+  data?: RecognizeHandGestureResponseBodyData;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      data: RecognizeHandGestureResponseBodyData,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeHandGestureResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: RecognizeHandGestureResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: RecognizeHandGestureResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteFaceDbRequest extends $tea.Model {
   name?: string;
   static names(): { [key: string]: string } {
@@ -6925,6 +7019,40 @@ export class GetBodyPersonResponseBodyData extends $tea.Model {
   }
 }
 
+export class RecognizeHandGestureResponseBodyData extends $tea.Model {
+  type?: string;
+  x?: number;
+  y?: number;
+  width?: number;
+  height?: number;
+  score?: number;
+  static names(): { [key: string]: string } {
+    return {
+      type: 'Type',
+      x: 'X',
+      y: 'Y',
+      width: 'Width',
+      height: 'Height',
+      score: 'Score',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      type: 'string',
+      x: 'number',
+      y: 'number',
+      width: 'number',
+      height: 'number',
+      score: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListBodyPersonResponseBodyDataPersonList extends $tea.Model {
   dbId?: number;
   name?: string;
@@ -9574,6 +9702,78 @@ export default class Client extends OpenApi {
   async getBodyPerson(request: GetBodyPersonRequest): Promise<GetBodyPersonResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getBodyPersonWithOptions(request, runtime);
+  }
+
+  async recognizeHandGestureWithOptions(request: RecognizeHandGestureRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeHandGestureResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<RecognizeHandGestureResponse>(await this.doRPCRequest("RecognizeHandGesture", "2019-12-30", "HTTPS", "POST", "AK", "json", req, runtime), new RecognizeHandGestureResponse({}));
+  }
+
+  async recognizeHandGesture(request: RecognizeHandGestureRequest): Promise<RecognizeHandGestureResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.recognizeHandGestureWithOptions(request, runtime);
+  }
+
+  async recognizeHandGestureAdvance(request: RecognizeHandGestureAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeHandGestureResponse> {
+    // Step 0: init client
+    let accessKeyId = await this._credential.getAccessKeyId();
+    let accessKeySecret = await this._credential.getAccessKeySecret();
+    let authConfig = new $RPC.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      endpoint: "openplatform.aliyuncs.com",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenPlatform(authConfig);
+    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
+      product: "facebody",
+      regionId: this._regionId,
+    });
+    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
+    let ossConfig = new $OSS.Config({
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let ossClient : OSS = null;
+    let fileObj = new $FileForm.FileField({ });
+    let ossHeader = new $OSS.PostObjectRequestHeader({ });
+    let uploadRequest = new $OSS.PostObjectRequest({ });
+    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
+    OpenApiUtil.convert(runtime, ossRuntime);
+    let recognizeHandGestureReq = new RecognizeHandGestureRequest({ });
+    OpenApiUtil.convert(request, recognizeHandGestureReq);
+    authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+    ossConfig.accessKeyId = authResponse.accessKeyId;
+    ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+    ossClient = new OSS(ossConfig);
+    fileObj = new $FileForm.FileField({
+      filename: authResponse.objectKey,
+      content: request.imageURLObject,
+      contentType: "",
+    });
+    ossHeader = new $OSS.PostObjectRequestHeader({
+      accessKeyId: authResponse.accessKeyId,
+      policy: authResponse.encodedPolicy,
+      signature: authResponse.signature,
+      key: authResponse.objectKey,
+      file: fileObj,
+      successActionStatus: "201",
+    });
+    uploadRequest = new $OSS.PostObjectRequest({
+      bucketName: authResponse.bucket,
+      header: ossHeader,
+    });
+    await ossClient.postObject(uploadRequest, ossRuntime);
+    recognizeHandGestureReq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    let recognizeHandGestureResp = await this.recognizeHandGestureWithOptions(recognizeHandGestureReq, runtime);
+    return recognizeHandGestureResp;
   }
 
   async deleteFaceDbWithOptions(request: DeleteFaceDbRequest, runtime: $Util.RuntimeOptions): Promise<DeleteFaceDbResponse> {
