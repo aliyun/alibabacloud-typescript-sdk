@@ -1414,10 +1414,12 @@ export class ScriptHistory extends $tea.Model {
 export class GetDeviceConfigRequest extends $tea.Model {
   deviceId?: string;
   date?: string;
+  instanceId?: string;
   static names(): { [key: string]: string } {
     return {
       deviceId: 'DeviceId',
       date: 'Date',
+      instanceId: 'InstanceId',
     };
   }
 
@@ -1425,6 +1427,7 @@ export class GetDeviceConfigRequest extends $tea.Model {
     return {
       deviceId: 'string',
       date: 'string',
+      instanceId: 'string',
     };
   }
 
@@ -1479,15 +1482,18 @@ export class GetDeviceConfigResponse extends $tea.Model {
 
 export class DeleteDeviceRequest extends $tea.Model {
   deviceId?: string;
+  instanceId?: string;
   static names(): { [key: string]: string } {
     return {
       deviceId: 'DeviceId',
+      instanceId: 'InstanceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       deviceId: 'string',
+      instanceId: 'string',
     };
   }
 
@@ -1539,15 +1545,18 @@ export class DeleteDeviceResponse extends $tea.Model {
 
 export class GetDedicatedLineRequest extends $tea.Model {
   dedicatedLineId?: string;
+  instanceId?: string;
   static names(): { [key: string]: string } {
     return {
       dedicatedLineId: 'DedicatedLineId',
+      instanceId: 'InstanceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       dedicatedLineId: 'string',
+      instanceId: 'string',
     };
   }
 
@@ -1602,15 +1611,18 @@ export class GetDedicatedLineResponse extends $tea.Model {
 
 export class DeleteDedicatedLineRequest extends $tea.Model {
   dedicatedLineId?: string;
+  instanceId?: string;
   static names(): { [key: string]: string } {
     return {
       dedicatedLineId: 'DedicatedLineId',
+      instanceId: 'InstanceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       dedicatedLineId: 'string',
+      instanceId: 'string',
     };
   }
 
@@ -1665,12 +1677,14 @@ export class ListDeviceValuesRequest extends $tea.Model {
   deviceFormName?: string;
   attributeKeyword?: string;
   attributeGroup?: string;
+  instanceId?: string;
   static names(): { [key: string]: string } {
     return {
       deviceFormId: 'DeviceFormId',
       deviceFormName: 'DeviceFormName',
       attributeKeyword: 'AttributeKeyword',
       attributeGroup: 'AttributeGroup',
+      instanceId: 'InstanceId',
     };
   }
 
@@ -1680,6 +1694,7 @@ export class ListDeviceValuesRequest extends $tea.Model {
       deviceFormName: 'string',
       attributeKeyword: 'string',
       attributeGroup: 'string',
+      instanceId: 'string',
     };
   }
 
@@ -1734,15 +1749,18 @@ export class ListDeviceValuesResponse extends $tea.Model {
 
 export class EnableNotificationRequest extends $tea.Model {
   list?: EnableNotificationRequestList[];
+  instanceId?: string;
   static names(): { [key: string]: string } {
     return {
       list: 'List',
+      instanceId: 'InstanceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       list: { 'type': 'array', 'itemType': EnableNotificationRequestList },
+      instanceId: 'string',
     };
   }
 
@@ -1797,12 +1815,14 @@ export class UpdateDevicePropertyRequest extends $tea.Model {
   propertyFormat?: string;
   propertyContent?: string;
   propertyName?: string;
+  instanceId?: string;
   static names(): { [key: string]: string } {
     return {
       devicePropertyId: 'DevicePropertyId',
       propertyFormat: 'PropertyFormat',
       propertyContent: 'PropertyContent',
       propertyName: 'PropertyName',
+      instanceId: 'InstanceId',
     };
   }
 
@@ -1812,6 +1832,7 @@ export class UpdateDevicePropertyRequest extends $tea.Model {
       propertyFormat: 'string',
       propertyContent: 'string',
       propertyName: 'string',
+      instanceId: 'string',
     };
   }
 
@@ -1869,6 +1890,7 @@ export class ListNotificationHistoriesRequest extends $tea.Model {
   type?: string;
   dedicatedLineId?: string;
   aggregateDataId?: string;
+  instanceId?: string;
   static names(): { [key: string]: string } {
     return {
       nextToken: 'NextToken',
@@ -1878,6 +1900,7 @@ export class ListNotificationHistoriesRequest extends $tea.Model {
       type: 'Type',
       dedicatedLineId: 'DedicatedLineId',
       aggregateDataId: 'AggregateDataId',
+      instanceId: 'InstanceId',
     };
   }
 
@@ -1890,6 +1913,7 @@ export class ListNotificationHistoriesRequest extends $tea.Model {
       type: 'string',
       dedicatedLineId: 'string',
       aggregateDataId: 'string',
+      instanceId: 'string',
     };
   }
 
@@ -1953,15 +1977,18 @@ export class ListNotificationHistoriesResponse extends $tea.Model {
 
 export class DeleteDevicePropertyRequest extends $tea.Model {
   devicePropertyId?: string;
+  instanceId?: string;
   static names(): { [key: string]: string } {
     return {
       devicePropertyId: 'DevicePropertyId',
+      instanceId: 'InstanceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       devicePropertyId: 'string',
+      instanceId: 'string',
     };
   }
 
@@ -2015,11 +2042,13 @@ export class ListDevicePropertiesRequest extends $tea.Model {
   maxResults?: number;
   nextToken?: string;
   deviceFormId?: string;
+  instanceId?: string;
   static names(): { [key: string]: string } {
     return {
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
       deviceFormId: 'DeviceFormId',
+      instanceId: 'InstanceId',
     };
   }
 
@@ -2028,6 +2057,7 @@ export class ListDevicePropertiesRequest extends $tea.Model {
       maxResults: 'number',
       nextToken: 'string',
       deviceFormId: 'string',
+      instanceId: 'string',
     };
   }
 
@@ -2096,6 +2126,7 @@ export class ListInspectionTasksRequest extends $tea.Model {
   hostName?: string;
   ip?: string;
   taskStatus?: string;
+  instanceId?: string;
   static names(): { [key: string]: string } {
     return {
       maxResults: 'MaxResults',
@@ -2104,6 +2135,7 @@ export class ListInspectionTasksRequest extends $tea.Model {
       hostName: 'HostName',
       ip: 'Ip',
       taskStatus: 'TaskStatus',
+      instanceId: 'InstanceId',
     };
   }
 
@@ -2115,6 +2147,7 @@ export class ListInspectionTasksRequest extends $tea.Model {
       hostName: 'string',
       ip: 'string',
       taskStatus: 'string',
+      instanceId: 'string',
     };
   }
 
@@ -2177,11 +2210,13 @@ export class GetDevicePropertyRequest extends $tea.Model {
   devicePropertyId?: string;
   propertyKey?: string;
   deviceFormId?: string;
+  instanceId?: string;
   static names(): { [key: string]: string } {
     return {
       devicePropertyId: 'DevicePropertyId',
       propertyKey: 'PropertyKey',
       deviceFormId: 'DeviceFormId',
+      instanceId: 'InstanceId',
     };
   }
 
@@ -2190,6 +2225,7 @@ export class GetDevicePropertyRequest extends $tea.Model {
       devicePropertyId: 'string',
       propertyKey: 'string',
       deviceFormId: 'string',
+      instanceId: 'string',
     };
   }
 
@@ -2244,15 +2280,18 @@ export class GetDevicePropertyResponse extends $tea.Model {
 
 export class ListDedicatedLinesRequest extends $tea.Model {
   physicalSpaceId?: string;
+  instanceId?: string;
   static names(): { [key: string]: string } {
     return {
       physicalSpaceId: 'PhysicalSpaceId',
+      instanceId: 'InstanceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       physicalSpaceId: 'string',
+      instanceId: 'string',
     };
   }
 
@@ -2308,10 +2347,12 @@ export class ListDedicatedLinesResponse extends $tea.Model {
 export class ListDeviceFormsRequest extends $tea.Model {
   maxResults?: number;
   nextToken?: string;
+  instanceId?: string;
   static names(): { [key: string]: string } {
     return {
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
+      instanceId: 'InstanceId',
     };
   }
 
@@ -2319,6 +2360,7 @@ export class ListDeviceFormsRequest extends $tea.Model {
     return {
       maxResults: 'number',
       nextToken: 'string',
+      instanceId: 'string',
     };
   }
 
@@ -2382,15 +2424,18 @@ export class ListDeviceFormsResponse extends $tea.Model {
 
 export class GetRealtimeTaskRequest extends $tea.Model {
   taskId?: string;
+  instanceId?: string;
   static names(): { [key: string]: string } {
     return {
       taskId: 'TaskId',
+      instanceId: 'InstanceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       taskId: 'string',
+      instanceId: 'string',
     };
   }
 
@@ -2451,6 +2496,7 @@ export class ListAlarmStatusHistoriesRequest extends $tea.Model {
   type?: string;
   aggregateDataId?: string;
   dedicatedLineId?: string;
+  instanceId?: string;
   static names(): { [key: string]: string } {
     return {
       start: 'Start',
@@ -2460,6 +2506,7 @@ export class ListAlarmStatusHistoriesRequest extends $tea.Model {
       type: 'Type',
       aggregateDataId: 'AggregateDataId',
       dedicatedLineId: 'DedicatedLineId',
+      instanceId: 'InstanceId',
     };
   }
 
@@ -2472,6 +2519,7 @@ export class ListAlarmStatusHistoriesRequest extends $tea.Model {
       type: 'string',
       aggregateDataId: 'string',
       dedicatedLineId: 'string',
+      instanceId: 'string',
     };
   }
 
@@ -2531,6 +2579,7 @@ export class CreateDeviceFormRequest extends $tea.Model {
   detailDisplay?: boolean;
   uniqueKey?: string;
   clientToken?: string;
+  instanceId?: string;
   static names(): { [key: string]: string } {
     return {
       deviceFormName: 'DeviceFormName',
@@ -2539,6 +2588,7 @@ export class CreateDeviceFormRequest extends $tea.Model {
       detailDisplay: 'DetailDisplay',
       uniqueKey: 'UniqueKey',
       clientToken: 'ClientToken',
+      instanceId: 'InstanceId',
     };
   }
 
@@ -2550,6 +2600,7 @@ export class CreateDeviceFormRequest extends $tea.Model {
       detailDisplay: 'boolean',
       uniqueKey: 'string',
       clientToken: 'string',
+      instanceId: 'string',
     };
   }
 
@@ -2607,12 +2658,14 @@ export class ListPhysicalSpacesRequest extends $tea.Model {
   nextToken?: string;
   physicalSpaceIds?: string[];
   physicalSpaceName?: string;
+  instanceId?: string;
   static names(): { [key: string]: string } {
     return {
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
       physicalSpaceIds: 'PhysicalSpaceIds',
       physicalSpaceName: 'PhysicalSpaceName',
+      instanceId: 'InstanceId',
     };
   }
 
@@ -2622,6 +2675,7 @@ export class ListPhysicalSpacesRequest extends $tea.Model {
       nextToken: 'string',
       physicalSpaceIds: { 'type': 'array', 'itemType': 'string' },
       physicalSpaceName: 'string',
+      instanceId: 'string',
     };
   }
 
@@ -2694,6 +2748,7 @@ export class ListMonitorDataRequest extends $tea.Model {
   aggregateDataId?: string;
   portCollectionId?: string;
   dedicatedLineId?: string;
+  instanceId?: string;
   static names(): { [key: string]: string } {
     return {
       start: 'Start',
@@ -2706,6 +2761,7 @@ export class ListMonitorDataRequest extends $tea.Model {
       aggregateDataId: 'AggregateDataId',
       portCollectionId: 'PortCollectionId',
       dedicatedLineId: 'DedicatedLineId',
+      instanceId: 'InstanceId',
     };
   }
 
@@ -2721,6 +2777,7 @@ export class ListMonitorDataRequest extends $tea.Model {
       aggregateDataId: 'string',
       portCollectionId: 'string',
       dedicatedLineId: 'string',
+      instanceId: 'string',
     };
   }
 
@@ -2776,10 +2833,12 @@ export class ListMonitorDataResponse extends $tea.Model {
 export class CreateRealtimeTaskRequest extends $tea.Model {
   deviceId?: string;
   script?: string;
+  instanceId?: string;
   static names(): { [key: string]: string } {
     return {
       deviceId: 'DeviceId',
       script: 'Script',
+      instanceId: 'InstanceId',
     };
   }
 
@@ -2787,6 +2846,7 @@ export class CreateRealtimeTaskRequest extends $tea.Model {
     return {
       deviceId: 'string',
       script: 'string',
+      instanceId: 'string',
     };
   }
 
@@ -2841,15 +2901,18 @@ export class CreateRealtimeTaskResponse extends $tea.Model {
 
 export class GetDeviceFormRequest extends $tea.Model {
   deviceFormId?: string;
+  instanceId?: string;
   static names(): { [key: string]: string } {
     return {
       deviceFormId: 'DeviceFormId',
+      instanceId: 'InstanceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       deviceFormId: 'string',
+      instanceId: 'string',
     };
   }
 
@@ -2927,6 +2990,7 @@ export class CreateDeviceRequest extends $tea.Model {
   snmpPrivacyProtocol?: string;
   extAttributes?: string;
   clientToken?: string;
+  instanceId?: string;
   static names(): { [key: string]: string } {
     return {
       deviceFormId: 'DeviceFormId',
@@ -2953,6 +3017,7 @@ export class CreateDeviceRequest extends $tea.Model {
       snmpPrivacyProtocol: 'SnmpPrivacyProtocol',
       extAttributes: 'ExtAttributes',
       clientToken: 'ClientToken',
+      instanceId: 'InstanceId',
     };
   }
 
@@ -2982,6 +3047,7 @@ export class CreateDeviceRequest extends $tea.Model {
       snmpPrivacyProtocol: 'string',
       extAttributes: 'string',
       clientToken: 'string',
+      instanceId: 'string',
     };
   }
 
@@ -3043,6 +3109,7 @@ export class UpdateDedicatedLineRequest extends $tea.Model {
   dedicatedLineRole?: string;
   deviceId?: string;
   devicePort?: string;
+  instanceId?: string;
   static names(): { [key: string]: string } {
     return {
       dedicatedLineId: 'DedicatedLineId',
@@ -3053,6 +3120,7 @@ export class UpdateDedicatedLineRequest extends $tea.Model {
       dedicatedLineRole: 'DedicatedLineRole',
       deviceId: 'DeviceId',
       devicePort: 'DevicePort',
+      instanceId: 'InstanceId',
     };
   }
 
@@ -3066,6 +3134,7 @@ export class UpdateDedicatedLineRequest extends $tea.Model {
       dedicatedLineRole: 'string',
       deviceId: 'string',
       devicePort: 'string',
+      instanceId: 'string',
     };
   }
 
@@ -3115,17 +3184,64 @@ export class UpdateDedicatedLineResponse extends $tea.Model {
   }
 }
 
+export class ListInstancesResponseBody extends $tea.Model {
+  requestId?: string;
+  instances?: ListInstancesResponseBodyInstances[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      instances: 'Instances',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      instances: { 'type': 'array', 'itemType': ListInstancesResponseBodyInstances },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstancesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListInstancesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListInstancesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteInspectionTaskRequest extends $tea.Model {
   taskId?: string;
+  instanceId?: string;
   static names(): { [key: string]: string } {
     return {
       taskId: 'TaskId',
+      instanceId: 'InstanceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       taskId: 'string',
+      instanceId: 'string',
     };
   }
 
@@ -3182,6 +3298,7 @@ export class UpdatePhysicalSpaceRequest extends $tea.Model {
   province?: string;
   city?: string;
   address?: string;
+  instanceId?: string;
   static names(): { [key: string]: string } {
     return {
       physicalSpaceId: 'PhysicalSpaceId',
@@ -3190,6 +3307,7 @@ export class UpdatePhysicalSpaceRequest extends $tea.Model {
       province: 'Province',
       city: 'City',
       address: 'Address',
+      instanceId: 'InstanceId',
     };
   }
 
@@ -3201,6 +3319,7 @@ export class UpdatePhysicalSpaceRequest extends $tea.Model {
       province: 'string',
       city: 'string',
       address: 'string',
+      instanceId: 'string',
     };
   }
 
@@ -3256,6 +3375,7 @@ export class GetAlarmStatusRequest extends $tea.Model {
   type?: string;
   aggregateDataId?: string;
   dedicatedLineId?: string;
+  instanceId?: string;
   static names(): { [key: string]: string } {
     return {
       deviceId: 'DeviceId',
@@ -3263,6 +3383,7 @@ export class GetAlarmStatusRequest extends $tea.Model {
       type: 'Type',
       aggregateDataId: 'AggregateDataId',
       dedicatedLineId: 'DedicatedLineId',
+      instanceId: 'InstanceId',
     };
   }
 
@@ -3273,6 +3394,7 @@ export class GetAlarmStatusRequest extends $tea.Model {
       type: 'string',
       aggregateDataId: 'string',
       dedicatedLineId: 'string',
+      instanceId: 'string',
     };
   }
 
@@ -3330,12 +3452,14 @@ export class ListTasksHistoriesRequest extends $tea.Model {
   nextToken?: string;
   itemId?: string;
   deviceId?: string;
+  instanceId?: string;
   static names(): { [key: string]: string } {
     return {
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
       itemId: 'ItemId',
       deviceId: 'DeviceId',
+      instanceId: 'InstanceId',
     };
   }
 
@@ -3345,6 +3469,7 @@ export class ListTasksHistoriesRequest extends $tea.Model {
       nextToken: 'string',
       itemId: 'string',
       deviceId: 'string',
+      instanceId: 'string',
     };
   }
 
@@ -3410,6 +3535,7 @@ export class CreateDevicePropertyRequest extends $tea.Model {
   propertyFormat?: string;
   propertyContent?: string;
   clientToken?: string;
+  instanceId?: string;
   static names(): { [key: string]: string } {
     return {
       deviceFormId: 'DeviceFormId',
@@ -3418,6 +3544,7 @@ export class CreateDevicePropertyRequest extends $tea.Model {
       propertyFormat: 'PropertyFormat',
       propertyContent: 'PropertyContent',
       clientToken: 'ClientToken',
+      instanceId: 'InstanceId',
     };
   }
 
@@ -3429,6 +3556,7 @@ export class CreateDevicePropertyRequest extends $tea.Model {
       propertyFormat: 'string',
       propertyContent: 'string',
       clientToken: 'string',
+      instanceId: 'string',
     };
   }
 
@@ -3483,15 +3611,18 @@ export class CreateDevicePropertyResponse extends $tea.Model {
 
 export class RetryTasksRequest extends $tea.Model {
   retryTasks?: RetryTasksRequestRetryTasks[];
+  instanceId?: string;
   static names(): { [key: string]: string } {
     return {
       retryTasks: 'RetryTasks',
+      instanceId: 'InstanceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       retryTasks: { 'type': 'array', 'itemType': RetryTasksRequestRetryTasks },
+      instanceId: 'string',
     };
   }
 
@@ -3502,15 +3633,18 @@ export class RetryTasksRequest extends $tea.Model {
 
 export class RetryTasksShrinkRequest extends $tea.Model {
   retryTasksShrink?: string;
+  instanceId?: string;
   static names(): { [key: string]: string } {
     return {
       retryTasksShrink: 'RetryTasks',
+      instanceId: 'InstanceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       retryTasksShrink: 'string',
+      instanceId: 'string',
     };
   }
 
@@ -3565,12 +3699,14 @@ export class CreateTimePeriodRequest extends $tea.Model {
   timePeriodDescription?: string;
   expression?: string;
   clientToken?: string;
+  instanceId?: string;
   static names(): { [key: string]: string } {
     return {
       timePeriodName: 'TimePeriodName',
       timePeriodDescription: 'TimePeriodDescription',
       expression: 'Expression',
       clientToken: 'ClientToken',
+      instanceId: 'InstanceId',
     };
   }
 
@@ -3580,6 +3716,7 @@ export class CreateTimePeriodRequest extends $tea.Model {
       timePeriodDescription: 'string',
       expression: 'string',
       clientToken: 'string',
+      instanceId: 'string',
     };
   }
 
@@ -3634,15 +3771,18 @@ export class CreateTimePeriodResponse extends $tea.Model {
 
 export class DeleteDeviceFormRequest extends $tea.Model {
   deviceFormId?: string;
+  instanceId?: string;
   static names(): { [key: string]: string } {
     return {
       deviceFormId: 'DeviceFormId',
+      instanceId: 'InstanceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       deviceFormId: 'string',
+      instanceId: 'string',
     };
   }
 
@@ -3705,7 +3845,9 @@ export class ListDevicesRequest extends $tea.Model {
   vendor?: string[];
   model?: string[];
   serviceStatus?: string[];
+  securityDomain?: string[];
   extAttributes?: string;
+  instanceId?: string;
   static names(): { [key: string]: string } {
     return {
       maxResults: 'MaxResults',
@@ -3720,7 +3862,9 @@ export class ListDevicesRequest extends $tea.Model {
       vendor: 'Vendor',
       model: 'Model',
       serviceStatus: 'ServiceStatus',
+      securityDomain: 'SecurityDomain',
       extAttributes: 'ExtAttributes',
+      instanceId: 'InstanceId',
     };
   }
 
@@ -3738,7 +3882,9 @@ export class ListDevicesRequest extends $tea.Model {
       vendor: { 'type': 'array', 'itemType': 'string' },
       model: { 'type': 'array', 'itemType': 'string' },
       serviceStatus: { 'type': 'array', 'itemType': 'string' },
+      securityDomain: { 'type': 'array', 'itemType': 'string' },
       extAttributes: 'string',
+      instanceId: 'string',
     };
   }
 
@@ -3806,6 +3952,7 @@ export class UpdateDeviceFormRequest extends $tea.Model {
   accountConfig?: boolean;
   attributeList?: UpdateDeviceFormRequestAttributeList[];
   detailDisplay?: boolean;
+  instanceId?: string;
   static names(): { [key: string]: string } {
     return {
       deviceFormId: 'DeviceFormId',
@@ -3813,6 +3960,7 @@ export class UpdateDeviceFormRequest extends $tea.Model {
       accountConfig: 'AccountConfig',
       attributeList: 'AttributeList',
       detailDisplay: 'DetailDisplay',
+      instanceId: 'InstanceId',
     };
   }
 
@@ -3823,6 +3971,7 @@ export class UpdateDeviceFormRequest extends $tea.Model {
       accountConfig: 'boolean',
       attributeList: { 'type': 'array', 'itemType': UpdateDeviceFormRequestAttributeList },
       detailDisplay: 'boolean',
+      instanceId: 'string',
     };
   }
 
@@ -3837,6 +3986,7 @@ export class UpdateDeviceFormShrinkRequest extends $tea.Model {
   accountConfig?: boolean;
   attributeListShrink?: string;
   detailDisplay?: boolean;
+  instanceId?: string;
   static names(): { [key: string]: string } {
     return {
       deviceFormId: 'DeviceFormId',
@@ -3844,6 +3994,7 @@ export class UpdateDeviceFormShrinkRequest extends $tea.Model {
       accountConfig: 'AccountConfig',
       attributeListShrink: 'AttributeList',
       detailDisplay: 'DetailDisplay',
+      instanceId: 'InstanceId',
     };
   }
 
@@ -3854,6 +4005,7 @@ export class UpdateDeviceFormShrinkRequest extends $tea.Model {
       accountConfig: 'boolean',
       attributeListShrink: 'string',
       detailDisplay: 'boolean',
+      instanceId: 'string',
     };
   }
 
@@ -3927,6 +4079,7 @@ export class UpdateDeviceRequest extends $tea.Model {
   snmpPrivacyPassphase?: string;
   snmpPrivacyProtocol?: string;
   extAttributes?: string;
+  instanceId?: string;
   static names(): { [key: string]: string } {
     return {
       deviceId: 'DeviceId',
@@ -3952,6 +4105,7 @@ export class UpdateDeviceRequest extends $tea.Model {
       snmpPrivacyPassphase: 'SnmpPrivacyPassphase',
       snmpPrivacyProtocol: 'SnmpPrivacyProtocol',
       extAttributes: 'ExtAttributes',
+      instanceId: 'InstanceId',
     };
   }
 
@@ -3980,6 +4134,7 @@ export class UpdateDeviceRequest extends $tea.Model {
       snmpPrivacyPassphase: 'string',
       snmpPrivacyProtocol: 'string',
       extAttributes: 'string',
+      instanceId: 'string',
     };
   }
 
@@ -4043,6 +4198,7 @@ export class CreateMonitorItemRequest extends $tea.Model {
   alarmRuleList?: CreateMonitorItemRequestAlarmRuleList[];
   type?: string;
   clientToken?: string;
+  instanceId?: string;
   static names(): { [key: string]: string } {
     return {
       monitorItemName: 'MonitorItemName',
@@ -4058,6 +4214,7 @@ export class CreateMonitorItemRequest extends $tea.Model {
       alarmRuleList: 'AlarmRuleList',
       type: 'Type',
       clientToken: 'ClientToken',
+      instanceId: 'InstanceId',
     };
   }
 
@@ -4076,6 +4233,7 @@ export class CreateMonitorItemRequest extends $tea.Model {
       alarmRuleList: { 'type': 'array', 'itemType': CreateMonitorItemRequestAlarmRuleList },
       type: 'string',
       clientToken: 'string',
+      instanceId: 'string',
     };
   }
 
@@ -4135,6 +4293,7 @@ export class CreatePhysicalSpaceRequest extends $tea.Model {
   city?: string;
   address?: string;
   clientToken?: string;
+  instanceId?: string;
   static names(): { [key: string]: string } {
     return {
       physicalSpaceName: 'PhysicalSpaceName',
@@ -4143,6 +4302,7 @@ export class CreatePhysicalSpaceRequest extends $tea.Model {
       city: 'City',
       address: 'Address',
       clientToken: 'ClientToken',
+      instanceId: 'InstanceId',
     };
   }
 
@@ -4154,6 +4314,7 @@ export class CreatePhysicalSpaceRequest extends $tea.Model {
       city: 'string',
       address: 'string',
       clientToken: 'string',
+      instanceId: 'string',
     };
   }
 
@@ -4208,15 +4369,18 @@ export class CreatePhysicalSpaceResponse extends $tea.Model {
 
 export class GetDeviceRequest extends $tea.Model {
   deviceId?: string;
+  instanceId?: string;
   static names(): { [key: string]: string } {
     return {
       deviceId: 'DeviceId',
+      instanceId: 'InstanceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       deviceId: 'string',
+      instanceId: 'string',
     };
   }
 
@@ -4283,6 +4447,7 @@ export class UpdateDevicesRequest extends $tea.Model {
   snmpAuthProtocol?: string;
   snmpPrivacyPassphase?: string;
   snmpPrivacyProtocol?: string;
+  instanceId?: string;
   static names(): { [key: string]: string } {
     return {
       deviceIds: 'DeviceIds',
@@ -4298,6 +4463,7 @@ export class UpdateDevicesRequest extends $tea.Model {
       snmpAuthProtocol: 'SnmpAuthProtocol',
       snmpPrivacyPassphase: 'SnmpPrivacyPassphase',
       snmpPrivacyProtocol: 'SnmpPrivacyProtocol',
+      instanceId: 'InstanceId',
     };
   }
 
@@ -4316,6 +4482,7 @@ export class UpdateDevicesRequest extends $tea.Model {
       snmpAuthProtocol: 'string',
       snmpPrivacyPassphase: 'string',
       snmpPrivacyProtocol: 'string',
+      instanceId: 'string',
     };
   }
 
@@ -4365,15 +4532,70 @@ export class UpdateDevicesResponse extends $tea.Model {
   }
 }
 
+export class ListRegionsResponseBody extends $tea.Model {
+  requestId?: string;
+  data?: string;
+  success?: boolean;
+  message?: string;
+  code?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      data: 'Data',
+      success: 'Success',
+      message: 'Message',
+      code: 'Code',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      data: 'string',
+      success: 'boolean',
+      message: 'string',
+      code: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRegionsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListRegionsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListRegionsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DisableNotificationRequest extends $tea.Model {
   expiryTime?: string;
   reason?: string;
   list?: DisableNotificationRequestList[];
+  instanceId?: string;
   static names(): { [key: string]: string } {
     return {
       expiryTime: 'ExpiryTime',
       reason: 'Reason',
       list: 'List',
+      instanceId: 'InstanceId',
     };
   }
 
@@ -4382,6 +4604,7 @@ export class DisableNotificationRequest extends $tea.Model {
       expiryTime: 'string',
       reason: 'string',
       list: { 'type': 'array', 'itemType': DisableNotificationRequestList },
+      instanceId: 'string',
     };
   }
 
@@ -4435,11 +4658,13 @@ export class GetDeviceConfigDiffRequest extends $tea.Model {
   deviceId?: string;
   startDate?: string;
   endDate?: string;
+  instanceId?: string;
   static names(): { [key: string]: string } {
     return {
       deviceId: 'DeviceId',
       startDate: 'StartDate',
       endDate: 'EndDate',
+      instanceId: 'InstanceId',
     };
   }
 
@@ -4448,6 +4673,7 @@ export class GetDeviceConfigDiffRequest extends $tea.Model {
       deviceId: 'string',
       startDate: 'string',
       endDate: 'string',
+      instanceId: 'string',
     };
   }
 
@@ -4502,15 +4728,18 @@ export class GetDeviceConfigDiffResponse extends $tea.Model {
 
 export class GetInspectionTaskRequest extends $tea.Model {
   taskId?: string;
+  instanceId?: string;
   static names(): { [key: string]: string } {
     return {
       taskId: 'TaskId',
+      instanceId: 'InstanceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       taskId: 'string',
+      instanceId: 'string',
     };
   }
 
@@ -4617,6 +4846,7 @@ export class ListAlarmStatusRequest extends $tea.Model {
   deviceId?: string;
   monitorItemId?: string;
   type?: string;
+  instanceId?: string;
   static names(): { [key: string]: string } {
     return {
       nextToken: 'NextToken',
@@ -4627,6 +4857,7 @@ export class ListAlarmStatusRequest extends $tea.Model {
       deviceId: 'DeviceId',
       monitorItemId: 'MonitorItemId',
       type: 'Type',
+      instanceId: 'InstanceId',
     };
   }
 
@@ -4640,6 +4871,7 @@ export class ListAlarmStatusRequest extends $tea.Model {
       deviceId: 'string',
       monitorItemId: 'string',
       type: 'string',
+      instanceId: 'string',
     };
   }
 
@@ -4703,15 +4935,18 @@ export class ListAlarmStatusResponse extends $tea.Model {
 
 export class GetPhysicalSpaceRequest extends $tea.Model {
   physicalSpaceId?: string;
+  instanceId?: string;
   static names(): { [key: string]: string } {
     return {
       physicalSpaceId: 'PhysicalSpaceId',
+      instanceId: 'InstanceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       physicalSpaceId: 'string',
+      instanceId: 'string',
     };
   }
 
@@ -4766,15 +5001,18 @@ export class GetPhysicalSpaceResponse extends $tea.Model {
 
 export class DeletePhysicalSpaceRequest extends $tea.Model {
   physicalSpaceId?: string;
+  instanceId?: string;
   static names(): { [key: string]: string } {
     return {
       physicalSpaceId: 'PhysicalSpaceId',
+      instanceId: 'InstanceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       physicalSpaceId: 'string',
+      instanceId: 'string',
     };
   }
 
@@ -4834,6 +5072,7 @@ export class CreateDedicatedLineRequest extends $tea.Model {
   deviceId?: string;
   devicePort?: string;
   clientToken?: string;
+  instanceId?: string;
   static names(): { [key: string]: string } {
     return {
       physicalSpaceId: 'PhysicalSpaceId',
@@ -4845,6 +5084,7 @@ export class CreateDedicatedLineRequest extends $tea.Model {
       deviceId: 'DeviceId',
       devicePort: 'DevicePort',
       clientToken: 'ClientToken',
+      instanceId: 'InstanceId',
     };
   }
 
@@ -4859,6 +5099,7 @@ export class CreateDedicatedLineRequest extends $tea.Model {
       deviceId: 'string',
       devicePort: 'string',
       clientToken: 'string',
+      instanceId: 'string',
     };
   }
 
@@ -5912,6 +6153,40 @@ export class GetDeviceFormResponseBodyDeviceForm extends $tea.Model {
   }
 }
 
+export class ListInstancesResponseBodyInstances extends $tea.Model {
+  instanceId?: string;
+  instanceName?: string;
+  instanceSpec?: string;
+  instanceOpenDate?: string;
+  instanceEndDate?: string;
+  instanceDeviceMaxCount?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      instanceName: 'InstanceName',
+      instanceSpec: 'InstanceSpec',
+      instanceOpenDate: 'InstanceOpenDate',
+      instanceEndDate: 'InstanceEndDate',
+      instanceDeviceMaxCount: 'InstanceDeviceMaxCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      instanceName: 'string',
+      instanceSpec: 'string',
+      instanceOpenDate: 'string',
+      instanceEndDate: 'string',
+      instanceDeviceMaxCount: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetAlarmStatusResponseBodyAlarmStatusResourceDevice extends $tea.Model {
   hostName?: string;
   ip?: string;
@@ -6352,8 +6627,8 @@ export class UpdateDeviceFormRequestAttributeList extends $tea.Model {
   attributeReference?: string;
   attributeTableDisplay?: boolean;
   attributePlaceholder?: string;
-  attributeQuery?: string;
-  attributeFuzzyQuery?: string;
+  attributeQuery?: boolean;
+  attributeFuzzyQuery?: boolean;
   static names(): { [key: string]: string } {
     return {
       attributeKey: 'AttributeKey',
@@ -6381,8 +6656,8 @@ export class UpdateDeviceFormRequestAttributeList extends $tea.Model {
       attributeReference: 'string',
       attributeTableDisplay: 'boolean',
       attributePlaceholder: 'string',
-      attributeQuery: 'string',
-      attributeFuzzyQuery: 'string',
+      attributeQuery: 'boolean',
+      attributeFuzzyQuery: 'boolean',
     };
   }
 
@@ -7138,6 +7413,16 @@ export default class Client extends OpenApi {
     return await this.updateDedicatedLineWithOptions(request, runtime);
   }
 
+  async listInstancesWithOptions(runtime: $Util.RuntimeOptions): Promise<ListInstancesResponse> {
+    let req = new $OpenApi.OpenApiRequest({ });
+    return $tea.cast<ListInstancesResponse>(await this.doRPCRequest("ListInstances", "2020-08-25", "HTTPS", "GET", "AK", "json", req, runtime), new ListInstancesResponse({}));
+  }
+
+  async listInstances(): Promise<ListInstancesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listInstancesWithOptions(runtime);
+  }
+
   async deleteInspectionTaskWithOptions(request: DeleteInspectionTaskRequest, runtime: $Util.RuntimeOptions): Promise<DeleteInspectionTaskResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -7348,6 +7633,16 @@ export default class Client extends OpenApi {
   async updateDevices(request: UpdateDevicesRequest): Promise<UpdateDevicesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateDevicesWithOptions(request, runtime);
+  }
+
+  async listRegionsWithOptions(runtime: $Util.RuntimeOptions): Promise<ListRegionsResponse> {
+    let req = new $OpenApi.OpenApiRequest({ });
+    return $tea.cast<ListRegionsResponse>(await this.doRPCRequest("ListRegions", "2020-08-25", "HTTPS", "GET", "AK", "json", req, runtime), new ListRegionsResponse({}));
+  }
+
+  async listRegions(): Promise<ListRegionsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listRegionsWithOptions(runtime);
   }
 
   async disableNotificationWithOptions(request: DisableNotificationRequest, runtime: $Util.RuntimeOptions): Promise<DisableNotificationResponse> {
