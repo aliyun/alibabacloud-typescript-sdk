@@ -261,7 +261,7 @@ export class DescribeHiTSDBInstanceRequest extends $tea.Model {
 }
 
 export class DescribeHiTSDBInstanceResponseBody extends $tea.Model {
-  autoRenew?: boolean;
+  autoRenew?: string;
   gmtCreated?: string;
   cpuNumber?: string;
   memSize?: string;
@@ -328,7 +328,7 @@ export class DescribeHiTSDBInstanceResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      autoRenew: 'boolean',
+      autoRenew: 'string',
       gmtCreated: 'string',
       cpuNumber: 'string',
       memSize: 'string',
@@ -490,6 +490,243 @@ export class DescribeHiTSDBInstanceListResponse extends $tea.Model {
   }
 }
 
+export class DescribeHiTSDBInstanceSecurityIpListRequest extends $tea.Model {
+  securityToken?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  ownerAccount?: string;
+  instanceId?: string;
+  groupName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      securityToken: 'SecurityToken',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      ownerAccount: 'OwnerAccount',
+      instanceId: 'InstanceId',
+      groupName: 'GroupName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      securityToken: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      ownerAccount: 'string',
+      instanceId: 'string',
+      groupName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeHiTSDBInstanceSecurityIpListResponseBody extends $tea.Model {
+  requestId?: string;
+  securityIpList?: DescribeHiTSDBInstanceSecurityIpListResponseBodySecurityIpList[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      securityIpList: 'SecurityIpList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      securityIpList: { 'type': 'array', 'itemType': DescribeHiTSDBInstanceSecurityIpListResponseBodySecurityIpList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeHiTSDBInstanceSecurityIpListResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeHiTSDBInstanceSecurityIpListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeHiTSDBInstanceSecurityIpListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRegionsRequest extends $tea.Model {
+  securityToken?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  ownerAccount?: string;
+  acceptLanguage?: string;
+  static names(): { [key: string]: string } {
+    return {
+      securityToken: 'SecurityToken',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      ownerAccount: 'OwnerAccount',
+      acceptLanguage: 'AcceptLanguage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      securityToken: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      ownerAccount: 'string',
+      acceptLanguage: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRegionsResponseBody extends $tea.Model {
+  requestId?: string;
+  regions?: DescribeRegionsResponseBodyRegions;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      regions: 'Regions',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      regions: DescribeRegionsResponseBodyRegions,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRegionsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeRegionsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeRegionsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeZonesRequest extends $tea.Model {
+  securityToken?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  ownerAccount?: string;
+  language?: string;
+  static names(): { [key: string]: string } {
+    return {
+      securityToken: 'SecurityToken',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      ownerAccount: 'OwnerAccount',
+      language: 'Language',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      securityToken: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      ownerAccount: 'string',
+      language: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeZonesResponseBody extends $tea.Model {
+  requestId?: string;
+  zoneList?: DescribeZonesResponseBodyZoneList;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      zoneList: 'ZoneList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      zoneList: DescribeZonesResponseBodyZoneList,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeZonesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeZonesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeZonesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyHiTSDBInstanceClassRequest extends $tea.Model {
   securityToken?: string;
   ownerId?: number;
@@ -574,6 +811,87 @@ export class ModifyHiTSDBInstanceClassResponse extends $tea.Model {
   }
 }
 
+export class ModifyHiTSDBInstanceSecurityIpListRequest extends $tea.Model {
+  securityToken?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  ownerAccount?: string;
+  instanceId?: string;
+  securityIpList?: string;
+  groupName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      securityToken: 'SecurityToken',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      ownerAccount: 'OwnerAccount',
+      instanceId: 'InstanceId',
+      securityIpList: 'SecurityIpList',
+      groupName: 'GroupName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      securityToken: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      ownerAccount: 'string',
+      instanceId: 'string',
+      securityIpList: 'string',
+      groupName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyHiTSDBInstanceSecurityIpListResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyHiTSDBInstanceSecurityIpListResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ModifyHiTSDBInstanceSecurityIpListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ModifyHiTSDBInstanceSecurityIpListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RenameHiTSDBInstanceAliasRequest extends $tea.Model {
   securityToken?: string;
   ownerId?: number;
@@ -647,6 +965,246 @@ export class RenameHiTSDBInstanceAliasResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: RenameHiTSDBInstanceAliasResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RenewTSDBInstanceRequest extends $tea.Model {
+  securityToken?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  ownerAccount?: string;
+  regionId?: string;
+  instanceId?: string;
+  pricingCycle?: string;
+  duration?: number;
+  static names(): { [key: string]: string } {
+    return {
+      securityToken: 'SecurityToken',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      ownerAccount: 'OwnerAccount',
+      regionId: 'RegionId',
+      instanceId: 'InstanceId',
+      pricingCycle: 'PricingCycle',
+      duration: 'Duration',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      securityToken: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      ownerAccount: 'string',
+      regionId: 'string',
+      instanceId: 'string',
+      pricingCycle: 'string',
+      duration: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RenewTSDBInstanceResponseBody extends $tea.Model {
+  requestId?: string;
+  orderId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      orderId: 'OrderId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      orderId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RenewTSDBInstanceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: RenewTSDBInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: RenewTSDBInstanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RestartHiTSDBInstanceRequest extends $tea.Model {
+  securityToken?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  ownerAccount?: string;
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      securityToken: 'SecurityToken',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      ownerAccount: 'OwnerAccount',
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      securityToken: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      ownerAccount: 'string',
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RestartHiTSDBInstanceResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RestartHiTSDBInstanceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: RestartHiTSDBInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: RestartHiTSDBInstanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SwitchHiTSDBInstancePublicNetRequest extends $tea.Model {
+  securityToken?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  ownerAccount?: string;
+  instanceId?: string;
+  switchAction?: number;
+  static names(): { [key: string]: string } {
+    return {
+      securityToken: 'SecurityToken',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      ownerAccount: 'OwnerAccount',
+      instanceId: 'InstanceId',
+      switchAction: 'SwitchAction',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      securityToken: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      ownerAccount: 'string',
+      instanceId: 'string',
+      switchAction: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SwitchHiTSDBInstancePublicNetResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SwitchHiTSDBInstancePublicNetResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: SwitchHiTSDBInstancePublicNetResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: SwitchHiTSDBInstancePublicNetResponseBody,
     };
   }
 
@@ -751,6 +1309,110 @@ export class DescribeHiTSDBInstanceListResponseBodyInstanceList extends $tea.Mod
       zoneId: 'string',
       instanceStatus: 'string',
       gmtExpire: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeHiTSDBInstanceSecurityIpListResponseBodySecurityIpList extends $tea.Model {
+  ip?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ip: 'Ip',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ip: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRegionsResponseBodyRegionsRegion extends $tea.Model {
+  localName?: string;
+  regionEndpoint?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      localName: 'LocalName',
+      regionEndpoint: 'RegionEndpoint',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      localName: 'string',
+      regionEndpoint: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRegionsResponseBodyRegions extends $tea.Model {
+  region?: DescribeRegionsResponseBodyRegionsRegion[];
+  static names(): { [key: string]: string } {
+    return {
+      region: 'Region',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      region: { 'type': 'array', 'itemType': DescribeRegionsResponseBodyRegionsRegion },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeZonesResponseBodyZoneListZoneModel extends $tea.Model {
+  localName?: string;
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      localName: 'LocalName',
+      zoneId: 'ZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      localName: 'string',
+      zoneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeZonesResponseBodyZoneList extends $tea.Model {
+  zoneModel?: DescribeZonesResponseBodyZoneListZoneModel[];
+  static names(): { [key: string]: string } {
+    return {
+      zoneModel: 'ZoneModel',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      zoneModel: { 'type': 'array', 'itemType': DescribeZonesResponseBodyZoneListZoneModel },
     };
   }
 
@@ -883,6 +1545,45 @@ export default class Client extends OpenApi {
     return await this.describeHiTSDBInstanceListWithOptions(request, runtime);
   }
 
+  async describeHiTSDBInstanceSecurityIpListWithOptions(request: DescribeHiTSDBInstanceSecurityIpListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeHiTSDBInstanceSecurityIpListResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DescribeHiTSDBInstanceSecurityIpListResponse>(await this.doRPCRequest("DescribeHiTSDBInstanceSecurityIpList", "2017-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeHiTSDBInstanceSecurityIpListResponse({}));
+  }
+
+  async describeHiTSDBInstanceSecurityIpList(request: DescribeHiTSDBInstanceSecurityIpListRequest): Promise<DescribeHiTSDBInstanceSecurityIpListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeHiTSDBInstanceSecurityIpListWithOptions(request, runtime);
+  }
+
+  async describeRegionsWithOptions(request: DescribeRegionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRegionsResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DescribeRegionsResponse>(await this.doRPCRequest("DescribeRegions", "2017-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeRegionsResponse({}));
+  }
+
+  async describeRegions(request: DescribeRegionsRequest): Promise<DescribeRegionsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeRegionsWithOptions(request, runtime);
+  }
+
+  async describeZonesWithOptions(request: DescribeZonesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeZonesResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DescribeZonesResponse>(await this.doRPCRequest("DescribeZones", "2017-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeZonesResponse({}));
+  }
+
+  async describeZones(request: DescribeZonesRequest): Promise<DescribeZonesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeZonesWithOptions(request, runtime);
+  }
+
   async modifyHiTSDBInstanceClassWithOptions(request: ModifyHiTSDBInstanceClassRequest, runtime: $Util.RuntimeOptions): Promise<ModifyHiTSDBInstanceClassResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -896,6 +1597,19 @@ export default class Client extends OpenApi {
     return await this.modifyHiTSDBInstanceClassWithOptions(request, runtime);
   }
 
+  async modifyHiTSDBInstanceSecurityIpListWithOptions(request: ModifyHiTSDBInstanceSecurityIpListRequest, runtime: $Util.RuntimeOptions): Promise<ModifyHiTSDBInstanceSecurityIpListResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<ModifyHiTSDBInstanceSecurityIpListResponse>(await this.doRPCRequest("ModifyHiTSDBInstanceSecurityIpList", "2017-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyHiTSDBInstanceSecurityIpListResponse({}));
+  }
+
+  async modifyHiTSDBInstanceSecurityIpList(request: ModifyHiTSDBInstanceSecurityIpListRequest): Promise<ModifyHiTSDBInstanceSecurityIpListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyHiTSDBInstanceSecurityIpListWithOptions(request, runtime);
+  }
+
   async renameHiTSDBInstanceAliasWithOptions(request: RenameHiTSDBInstanceAliasRequest, runtime: $Util.RuntimeOptions): Promise<RenameHiTSDBInstanceAliasResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -907,6 +1621,45 @@ export default class Client extends OpenApi {
   async renameHiTSDBInstanceAlias(request: RenameHiTSDBInstanceAliasRequest): Promise<RenameHiTSDBInstanceAliasResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.renameHiTSDBInstanceAliasWithOptions(request, runtime);
+  }
+
+  async renewTSDBInstanceWithOptions(request: RenewTSDBInstanceRequest, runtime: $Util.RuntimeOptions): Promise<RenewTSDBInstanceResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<RenewTSDBInstanceResponse>(await this.doRPCRequest("RenewTSDBInstance", "2017-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new RenewTSDBInstanceResponse({}));
+  }
+
+  async renewTSDBInstance(request: RenewTSDBInstanceRequest): Promise<RenewTSDBInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.renewTSDBInstanceWithOptions(request, runtime);
+  }
+
+  async restartHiTSDBInstanceWithOptions(request: RestartHiTSDBInstanceRequest, runtime: $Util.RuntimeOptions): Promise<RestartHiTSDBInstanceResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<RestartHiTSDBInstanceResponse>(await this.doRPCRequest("RestartHiTSDBInstance", "2017-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new RestartHiTSDBInstanceResponse({}));
+  }
+
+  async restartHiTSDBInstance(request: RestartHiTSDBInstanceRequest): Promise<RestartHiTSDBInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.restartHiTSDBInstanceWithOptions(request, runtime);
+  }
+
+  async switchHiTSDBInstancePublicNetWithOptions(request: SwitchHiTSDBInstancePublicNetRequest, runtime: $Util.RuntimeOptions): Promise<SwitchHiTSDBInstancePublicNetResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<SwitchHiTSDBInstancePublicNetResponse>(await this.doRPCRequest("SwitchHiTSDBInstancePublicNet", "2017-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new SwitchHiTSDBInstancePublicNetResponse({}));
+  }
+
+  async switchHiTSDBInstancePublicNet(request: SwitchHiTSDBInstancePublicNetRequest): Promise<SwitchHiTSDBInstancePublicNetResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.switchHiTSDBInstancePublicNetWithOptions(request, runtime);
   }
 
 }
