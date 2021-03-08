@@ -155,6 +155,8 @@ export class AddEditingProjectRequest extends $tea.Model {
   timeline?: string;
   coverURL?: string;
   division?: string;
+  FEExtend?: string;
+  duration?: number;
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
@@ -166,6 +168,8 @@ export class AddEditingProjectRequest extends $tea.Model {
       timeline: 'Timeline',
       coverURL: 'CoverURL',
       division: 'Division',
+      FEExtend: 'FEExtend',
+      duration: 'Duration',
     };
   }
 
@@ -180,6 +184,8 @@ export class AddEditingProjectRequest extends $tea.Model {
       timeline: 'string',
       coverURL: 'string',
       division: 'string',
+      FEExtend: 'string',
+      duration: 'number',
     };
   }
 
@@ -4204,6 +4210,69 @@ export class DetachAppPolicyFromIdentityResponse extends $tea.Model {
   }
 }
 
+export class GetAICaptionExtractionJobsRequest extends $tea.Model {
+  jobIds?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jobIds: 'JobIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobIds: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAICaptionExtractionJobsResponseBody extends $tea.Model {
+  requestId?: string;
+  AICaptionExtractionJobList?: GetAICaptionExtractionJobsResponseBodyAICaptionExtractionJobList[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      AICaptionExtractionJobList: 'AICaptionExtractionJobList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      AICaptionExtractionJobList: { 'type': 'array', 'itemType': GetAICaptionExtractionJobsResponseBodyAICaptionExtractionJobList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAICaptionExtractionJobsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetAICaptionExtractionJobsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetAICaptionExtractionJobsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetAIImageJobsRequest extends $tea.Model {
   ownerId?: string;
   resourceOwnerId?: string;
@@ -4280,24 +4349,15 @@ export class GetAIImageJobsResponse extends $tea.Model {
 }
 
 export class GetAIMediaAuditJobRequest extends $tea.Model {
-  ownerId?: string;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
   jobId?: string;
   static names(): { [key: string]: string } {
     return {
-      ownerId: 'OwnerId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
       jobId: 'JobId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      ownerId: 'string',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
       jobId: 'string',
     };
   }
@@ -4861,6 +4921,7 @@ export class GetEditingProjectRequest extends $tea.Model {
   resourceOwnerAccount?: string;
   ownerAccount?: string;
   projectId?: string;
+  FEExtendFlag?: number;
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
@@ -4868,6 +4929,7 @@ export class GetEditingProjectRequest extends $tea.Model {
       resourceOwnerAccount: 'ResourceOwnerAccount',
       ownerAccount: 'OwnerAccount',
       projectId: 'ProjectId',
+      FEExtendFlag: 'FEExtendFlag',
     };
   }
 
@@ -4878,6 +4940,7 @@ export class GetEditingProjectRequest extends $tea.Model {
       resourceOwnerAccount: 'string',
       ownerAccount: 'string',
       projectId: 'string',
+      FEExtendFlag: 'number',
     };
   }
 
@@ -5159,28 +5222,16 @@ export class GetMediaAuditAudioResultDetailResponse extends $tea.Model {
 }
 
 export class GetMediaAuditResultRequest extends $tea.Model {
-  ownerId?: string;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
   mediaId?: string;
-  resourceRealOwnerId?: number;
   static names(): { [key: string]: string } {
     return {
-      ownerId: 'OwnerId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
       mediaId: 'MediaId',
-      resourceRealOwnerId: 'ResourceRealOwnerId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      ownerId: 'string',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
       mediaId: 'string',
-      resourceRealOwnerId: 'number',
     };
   }
 
@@ -5234,16 +5285,10 @@ export class GetMediaAuditResultResponse extends $tea.Model {
 }
 
 export class GetMediaAuditResultDetailRequest extends $tea.Model {
-  ownerId?: string;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
   mediaId?: string;
   pageNo?: number;
   static names(): { [key: string]: string } {
     return {
-      ownerId: 'OwnerId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
       mediaId: 'MediaId',
       pageNo: 'PageNo',
     };
@@ -5251,9 +5296,6 @@ export class GetMediaAuditResultDetailRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      ownerId: 'string',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
       mediaId: 'string',
       pageNo: 'number',
     };
@@ -5309,24 +5351,15 @@ export class GetMediaAuditResultDetailResponse extends $tea.Model {
 }
 
 export class GetMediaAuditResultTimelineRequest extends $tea.Model {
-  ownerId?: string;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
   mediaId?: string;
   static names(): { [key: string]: string } {
     return {
-      ownerId: 'OwnerId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
       mediaId: 'MediaId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      ownerId: 'string',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
       mediaId: 'string',
     };
   }
@@ -5702,24 +5735,15 @@ export class GetPlayInfoResponse extends $tea.Model {
 }
 
 export class GetTranscodeSummaryRequest extends $tea.Model {
-  ownerId?: number;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
   videoIds?: string;
   static names(): { [key: string]: string } {
     return {
-      ownerId: 'OwnerId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
       videoIds: 'VideoIds',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      ownerId: 'number',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
       videoIds: 'string',
     };
   }
@@ -5777,24 +5801,15 @@ export class GetTranscodeSummaryResponse extends $tea.Model {
 }
 
 export class GetTranscodeTaskRequest extends $tea.Model {
-  ownerId?: number;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
   transcodeTaskId?: string;
   static names(): { [key: string]: string } {
     return {
-      ownerId: 'OwnerId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
       transcodeTaskId: 'TranscodeTaskId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      ownerId: 'number',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
       transcodeTaskId: 'string',
     };
   }
@@ -8626,6 +8641,78 @@ export class SetVodDomainCertificateResponse extends $tea.Model {
   }
 }
 
+export class SubmitAICaptionExtractionJobRequest extends $tea.Model {
+  videoId?: string;
+  jobConfig?: string;
+  AIPipelineId?: string;
+  userData?: string;
+  static names(): { [key: string]: string } {
+    return {
+      videoId: 'VideoId',
+      jobConfig: 'JobConfig',
+      AIPipelineId: 'AIPipelineId',
+      userData: 'UserData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      videoId: 'string',
+      jobConfig: 'string',
+      AIPipelineId: 'string',
+      userData: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitAICaptionExtractionJobResponseBody extends $tea.Model {
+  requestId?: string;
+  jobId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      jobId: 'JobId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      jobId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitAICaptionExtractionJobResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: SubmitAICaptionExtractionJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: SubmitAICaptionExtractionJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SubmitAIImageAuditJobRequest extends $tea.Model {
   ownerId?: string;
   resourceOwnerId?: string;
@@ -9836,6 +9923,8 @@ export class UpdateEditingProjectRequest extends $tea.Model {
   timeline?: string;
   description?: string;
   coverURL?: string;
+  FEExtend?: string;
+  duration?: number;
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
@@ -9847,6 +9936,8 @@ export class UpdateEditingProjectRequest extends $tea.Model {
       timeline: 'Timeline',
       description: 'Description',
       coverURL: 'CoverURL',
+      FEExtend: 'FEExtend',
+      duration: 'Duration',
     };
   }
 
@@ -9861,6 +9952,8 @@ export class UpdateEditingProjectRequest extends $tea.Model {
       timeline: 'string',
       description: 'string',
       coverURL: 'string',
+      FEExtend: 'string',
+      duration: 'number',
     };
   }
 
@@ -12004,6 +12097,49 @@ export class DescribeVodUserTagsResponseBodyTags extends $tea.Model {
   }
 }
 
+export class GetAICaptionExtractionJobsResponseBodyAICaptionExtractionJobList extends $tea.Model {
+  status?: string;
+  creationTime?: string;
+  videoId?: string;
+  jobId?: string;
+  userData?: string;
+  code?: string;
+  AICaptionExtractionResult?: string;
+  message?: string;
+  templateConfig?: string;
+  static names(): { [key: string]: string } {
+    return {
+      status: 'Status',
+      creationTime: 'CreationTime',
+      videoId: 'VideoId',
+      jobId: 'JobId',
+      userData: 'UserData',
+      code: 'Code',
+      AICaptionExtractionResult: 'AICaptionExtractionResult',
+      message: 'Message',
+      templateConfig: 'TemplateConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      status: 'string',
+      creationTime: 'string',
+      videoId: 'string',
+      jobId: 'string',
+      userData: 'string',
+      code: 'string',
+      AICaptionExtractionResult: 'string',
+      message: 'string',
+      templateConfig: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetAIImageJobsResponseBodyAIImageJobList extends $tea.Model {
   status?: string;
   creationTime?: string;
@@ -12101,6 +12237,34 @@ export class GetAIMediaAuditJobResponseBodyMediaAuditJobDataImageResult extends 
       result: { 'type': 'array', 'itemType': GetAIMediaAuditJobResponseBodyMediaAuditJobDataImageResultResult },
       url: 'string',
       label: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAIMediaAuditJobResponseBodyMediaAuditJobDataAudioResult extends $tea.Model {
+  suggestion?: string;
+  score?: string;
+  label?: string;
+  scene?: string;
+  static names(): { [key: string]: string } {
+    return {
+      suggestion: 'Suggestion',
+      score: 'Score',
+      label: 'Label',
+      scene: 'Scene',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      suggestion: 'string',
+      score: 'string',
+      label: 'string',
+      scene: 'string',
     };
   }
 
@@ -12603,6 +12767,7 @@ export class GetAIMediaAuditJobResponseBodyMediaAuditJobDataTextResult extends $
 export class GetAIMediaAuditJobResponseBodyMediaAuditJobData extends $tea.Model {
   suggestion?: string;
   imageResult?: GetAIMediaAuditJobResponseBodyMediaAuditJobDataImageResult[];
+  audioResult?: GetAIMediaAuditJobResponseBodyMediaAuditJobDataAudioResult[];
   videoResult?: GetAIMediaAuditJobResponseBodyMediaAuditJobDataVideoResult;
   abnormalModules?: string;
   label?: string;
@@ -12611,6 +12776,7 @@ export class GetAIMediaAuditJobResponseBodyMediaAuditJobData extends $tea.Model 
     return {
       suggestion: 'Suggestion',
       imageResult: 'ImageResult',
+      audioResult: 'AudioResult',
       videoResult: 'VideoResult',
       abnormalModules: 'AbnormalModules',
       label: 'Label',
@@ -12622,6 +12788,7 @@ export class GetAIMediaAuditJobResponseBodyMediaAuditJobData extends $tea.Model 
     return {
       suggestion: 'string',
       imageResult: { 'type': 'array', 'itemType': GetAIMediaAuditJobResponseBodyMediaAuditJobDataImageResult },
+      audioResult: { 'type': 'array', 'itemType': GetAIMediaAuditJobResponseBodyMediaAuditJobDataAudioResult },
       videoResult: GetAIMediaAuditJobResponseBodyMediaAuditJobDataVideoResult,
       abnormalModules: 'string',
       label: 'string',
@@ -13220,6 +13387,7 @@ export class GetEditingProjectMaterialsResponseBodyMaterialListMaterial extends 
   sprites?: GetEditingProjectMaterialsResponseBodyMaterialListMaterialSprites;
   cateId?: number;
   tags?: string;
+  materialType?: string;
   spriteConfig?: string;
   source?: string;
   snapshots?: GetEditingProjectMaterialsResponseBodyMaterialListMaterialSnapshots;
@@ -13238,6 +13406,7 @@ export class GetEditingProjectMaterialsResponseBodyMaterialListMaterial extends 
       sprites: 'Sprites',
       cateId: 'CateId',
       tags: 'Tags',
+      materialType: 'MaterialType',
       spriteConfig: 'SpriteConfig',
       source: 'Source',
       snapshots: 'Snapshots',
@@ -13259,6 +13428,7 @@ export class GetEditingProjectMaterialsResponseBodyMaterialListMaterial extends 
       sprites: GetEditingProjectMaterialsResponseBodyMaterialListMaterialSprites,
       cateId: 'number',
       tags: 'string',
+      materialType: 'string',
       spriteConfig: 'string',
       source: 'string',
       snapshots: GetEditingProjectMaterialsResponseBodyMaterialListMaterialSnapshots,
@@ -17785,6 +17955,19 @@ export default class Client extends OpenApi {
     return await this.detachAppPolicyFromIdentityWithOptions(request, runtime);
   }
 
+  async getAICaptionExtractionJobsWithOptions(request: GetAICaptionExtractionJobsRequest, runtime: $Util.RuntimeOptions): Promise<GetAICaptionExtractionJobsResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<GetAICaptionExtractionJobsResponse>(await this.doRPCRequest("GetAICaptionExtractionJobs", "2017-03-21", "HTTPS", "POST", "AK", "json", req, runtime), new GetAICaptionExtractionJobsResponse({}));
+  }
+
+  async getAICaptionExtractionJobs(request: GetAICaptionExtractionJobsRequest): Promise<GetAICaptionExtractionJobsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getAICaptionExtractionJobsWithOptions(request, runtime);
+  }
+
   async getAIImageJobsWithOptions(request: GetAIImageJobsRequest, runtime: $Util.RuntimeOptions): Promise<GetAIImageJobsResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -18563,6 +18746,19 @@ export default class Client extends OpenApi {
   async setVodDomainCertificate(request: SetVodDomainCertificateRequest): Promise<SetVodDomainCertificateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setVodDomainCertificateWithOptions(request, runtime);
+  }
+
+  async submitAICaptionExtractionJobWithOptions(request: SubmitAICaptionExtractionJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitAICaptionExtractionJobResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<SubmitAICaptionExtractionJobResponse>(await this.doRPCRequest("SubmitAICaptionExtractionJob", "2017-03-21", "HTTPS", "POST", "AK", "json", req, runtime), new SubmitAICaptionExtractionJobResponse({}));
+  }
+
+  async submitAICaptionExtractionJob(request: SubmitAICaptionExtractionJobRequest): Promise<SubmitAICaptionExtractionJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.submitAICaptionExtractionJobWithOptions(request, runtime);
   }
 
   async submitAIImageAuditJobWithOptions(request: SubmitAIImageAuditJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitAIImageAuditJobResponse> {
