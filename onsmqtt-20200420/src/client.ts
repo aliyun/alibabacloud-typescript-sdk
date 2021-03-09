@@ -271,6 +271,72 @@ export class DeleteGroupIdResponse extends $tea.Model {
   }
 }
 
+export class GetDeviceCredentialRequest extends $tea.Model {
+  clientId?: string;
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientId: 'ClientId',
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientId: 'string',
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDeviceCredentialResponseBody extends $tea.Model {
+  requestId?: string;
+  deviceCredential?: GetDeviceCredentialResponseBodyDeviceCredential;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      deviceCredential: 'DeviceCredential',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      deviceCredential: GetDeviceCredentialResponseBodyDeviceCredential,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDeviceCredentialResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetDeviceCredentialResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetDeviceCredentialResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListGroupIdRequest extends $tea.Model {
   instanceId?: string;
   static names(): { [key: string]: string } {
@@ -466,6 +532,138 @@ export class QueryTokenResponse extends $tea.Model {
   }
 }
 
+export class RefreshDeviceCredentialRequest extends $tea.Model {
+  clientId?: string;
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientId: 'ClientId',
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientId: 'string',
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RefreshDeviceCredentialResponseBody extends $tea.Model {
+  requestId?: string;
+  deviceCredential?: RefreshDeviceCredentialResponseBodyDeviceCredential;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      deviceCredential: 'DeviceCredential',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      deviceCredential: RefreshDeviceCredentialResponseBodyDeviceCredential,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RefreshDeviceCredentialResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: RefreshDeviceCredentialResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: RefreshDeviceCredentialResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RegisterDeviceCredentialRequest extends $tea.Model {
+  clientId?: string;
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientId: 'ClientId',
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientId: 'string',
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RegisterDeviceCredentialResponseBody extends $tea.Model {
+  requestId?: string;
+  deviceCredential?: RegisterDeviceCredentialResponseBodyDeviceCredential;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      deviceCredential: 'DeviceCredential',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      deviceCredential: RegisterDeviceCredentialResponseBodyDeviceCredential,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RegisterDeviceCredentialResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: RegisterDeviceCredentialResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: RegisterDeviceCredentialResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RevokeTokenRequest extends $tea.Model {
   token?: string;
   instanceId?: string;
@@ -598,6 +796,69 @@ export class SendMessageResponse extends $tea.Model {
   }
 }
 
+export class UnRegisterDeviceCredentialRequest extends $tea.Model {
+  clientId?: string;
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientId: 'ClientId',
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientId: 'string',
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnRegisterDeviceCredentialResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnRegisterDeviceCredentialResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: UnRegisterDeviceCredentialResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: UnRegisterDeviceCredentialResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class BatchQuerySessionByClientIdsResponseBodyOnlineStatusList extends $tea.Model {
   onlineStatus?: boolean;
   clientId?: string;
@@ -611,6 +872,40 @@ export class BatchQuerySessionByClientIdsResponseBodyOnlineStatusList extends $t
   static types(): { [key: string]: any } {
     return {
       onlineStatus: 'boolean',
+      clientId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDeviceCredentialResponseBodyDeviceCredential extends $tea.Model {
+  updateTime?: number;
+  deviceAccessKeyId?: string;
+  createTime?: number;
+  instanceId?: string;
+  deviceAccessKeySecret?: string;
+  clientId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      updateTime: 'UpdateTime',
+      deviceAccessKeyId: 'DeviceAccessKeyId',
+      createTime: 'CreateTime',
+      instanceId: 'InstanceId',
+      deviceAccessKeySecret: 'DeviceAccessKeySecret',
+      clientId: 'ClientId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      updateTime: 'number',
+      deviceAccessKeyId: 'string',
+      createTime: 'number',
+      instanceId: 'string',
+      deviceAccessKeySecret: 'string',
       clientId: 'string',
     };
   }
@@ -643,6 +938,74 @@ export class ListGroupIdResponseBodyData extends $tea.Model {
       groupId: 'string',
       createTime: 'number',
       instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RefreshDeviceCredentialResponseBodyDeviceCredential extends $tea.Model {
+  updateTime?: number;
+  deviceAccessKeyId?: string;
+  createTime?: number;
+  instanceId?: string;
+  deviceAccessKeySecret?: string;
+  clientId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      updateTime: 'UpdateTime',
+      deviceAccessKeyId: 'DeviceAccessKeyId',
+      createTime: 'CreateTime',
+      instanceId: 'InstanceId',
+      deviceAccessKeySecret: 'DeviceAccessKeySecret',
+      clientId: 'ClientId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      updateTime: 'number',
+      deviceAccessKeyId: 'string',
+      createTime: 'number',
+      instanceId: 'string',
+      deviceAccessKeySecret: 'string',
+      clientId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RegisterDeviceCredentialResponseBodyDeviceCredential extends $tea.Model {
+  updateTime?: number;
+  deviceAccessKeyId?: string;
+  createTime?: number;
+  instanceId?: string;
+  deviceAccessKeySecret?: string;
+  clientId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      updateTime: 'UpdateTime',
+      deviceAccessKeyId: 'DeviceAccessKeyId',
+      createTime: 'CreateTime',
+      instanceId: 'InstanceId',
+      deviceAccessKeySecret: 'DeviceAccessKeySecret',
+      clientId: 'ClientId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      updateTime: 'number',
+      deviceAccessKeyId: 'string',
+      createTime: 'number',
+      instanceId: 'string',
+      deviceAccessKeySecret: 'string',
+      clientId: 'string',
     };
   }
 
@@ -726,6 +1089,19 @@ export default class Client extends OpenApi {
     return await this.deleteGroupIdWithOptions(request, runtime);
   }
 
+  async getDeviceCredentialWithOptions(request: GetDeviceCredentialRequest, runtime: $Util.RuntimeOptions): Promise<GetDeviceCredentialResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<GetDeviceCredentialResponse>(await this.doRPCRequest("GetDeviceCredential", "2020-04-20", "HTTPS", "POST", "AK", "json", req, runtime), new GetDeviceCredentialResponse({}));
+  }
+
+  async getDeviceCredential(request: GetDeviceCredentialRequest): Promise<GetDeviceCredentialResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getDeviceCredentialWithOptions(request, runtime);
+  }
+
   async listGroupIdWithOptions(request: ListGroupIdRequest, runtime: $Util.RuntimeOptions): Promise<ListGroupIdResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -765,6 +1141,32 @@ export default class Client extends OpenApi {
     return await this.queryTokenWithOptions(request, runtime);
   }
 
+  async refreshDeviceCredentialWithOptions(request: RefreshDeviceCredentialRequest, runtime: $Util.RuntimeOptions): Promise<RefreshDeviceCredentialResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<RefreshDeviceCredentialResponse>(await this.doRPCRequest("RefreshDeviceCredential", "2020-04-20", "HTTPS", "POST", "AK", "json", req, runtime), new RefreshDeviceCredentialResponse({}));
+  }
+
+  async refreshDeviceCredential(request: RefreshDeviceCredentialRequest): Promise<RefreshDeviceCredentialResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.refreshDeviceCredentialWithOptions(request, runtime);
+  }
+
+  async registerDeviceCredentialWithOptions(request: RegisterDeviceCredentialRequest, runtime: $Util.RuntimeOptions): Promise<RegisterDeviceCredentialResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<RegisterDeviceCredentialResponse>(await this.doRPCRequest("RegisterDeviceCredential", "2020-04-20", "HTTPS", "POST", "AK", "json", req, runtime), new RegisterDeviceCredentialResponse({}));
+  }
+
+  async registerDeviceCredential(request: RegisterDeviceCredentialRequest): Promise<RegisterDeviceCredentialResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.registerDeviceCredentialWithOptions(request, runtime);
+  }
+
   async revokeTokenWithOptions(request: RevokeTokenRequest, runtime: $Util.RuntimeOptions): Promise<RevokeTokenResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -789,6 +1191,19 @@ export default class Client extends OpenApi {
   async sendMessage(request: SendMessageRequest): Promise<SendMessageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.sendMessageWithOptions(request, runtime);
+  }
+
+  async unRegisterDeviceCredentialWithOptions(request: UnRegisterDeviceCredentialRequest, runtime: $Util.RuntimeOptions): Promise<UnRegisterDeviceCredentialResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<UnRegisterDeviceCredentialResponse>(await this.doRPCRequest("UnRegisterDeviceCredential", "2020-04-20", "HTTPS", "POST", "AK", "json", req, runtime), new UnRegisterDeviceCredentialResponse({}));
+  }
+
+  async unRegisterDeviceCredential(request: UnRegisterDeviceCredentialRequest): Promise<UnRegisterDeviceCredentialResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.unRegisterDeviceCredentialWithOptions(request, runtime);
   }
 
 }
