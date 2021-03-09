@@ -13,18 +13,18 @@ export class BatchAddDeviceGroupRelationsRequest extends $tea.Model {
   apiRevision?: string;
   iotInstanceId?: string;
   groupId?: string;
+  device?: BatchAddDeviceGroupRelationsRequestDevice[];
   realTenantId?: string;
   realTripartiteKey?: string;
-  device?: BatchAddDeviceGroupRelationsRequestDevice[];
   static names(): { [key: string]: string } {
     return {
       apiProduct: 'ApiProduct',
       apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       groupId: 'GroupId',
+      device: 'Device',
       realTenantId: 'RealTenantId',
       realTripartiteKey: 'RealTripartiteKey',
-      device: 'Device',
     };
   }
 
@@ -34,9 +34,9 @@ export class BatchAddDeviceGroupRelationsRequest extends $tea.Model {
       apiRevision: 'string',
       iotInstanceId: 'string',
       groupId: 'string',
+      device: { 'type': 'array', 'itemType': BatchAddDeviceGroupRelationsRequestDevice },
       realTenantId: 'string',
       realTripartiteKey: 'string',
-      device: { 'type': 'array', 'itemType': BatchAddDeviceGroupRelationsRequestDevice },
     };
   }
 
@@ -46,37 +46,37 @@ export class BatchAddDeviceGroupRelationsRequest extends $tea.Model {
 }
 
 export class BatchAddDeviceGroupRelationsResponseBody extends $tea.Model {
-  validDeviceCount?: number;
-  successAddedDeviceCount?: number;
   requestId?: string;
-  exceedTenGroupDeviceCount?: number;
-  errorMessage?: string;
-  alreadyRelatedGroupDeviceCount?: number;
-  code?: string;
   success?: boolean;
+  code?: string;
+  validDeviceCount?: number;
+  exceedTenGroupDeviceCount?: number;
+  alreadyRelatedGroupDeviceCount?: number;
+  successAddedDeviceCount?: number;
+  errorMessage?: string;
   static names(): { [key: string]: string } {
     return {
-      validDeviceCount: 'ValidDeviceCount',
-      successAddedDeviceCount: 'SuccessAddedDeviceCount',
       requestId: 'RequestId',
-      exceedTenGroupDeviceCount: 'ExceedTenGroupDeviceCount',
-      errorMessage: 'ErrorMessage',
-      alreadyRelatedGroupDeviceCount: 'AlreadyRelatedGroupDeviceCount',
-      code: 'Code',
       success: 'Success',
+      code: 'Code',
+      validDeviceCount: 'ValidDeviceCount',
+      exceedTenGroupDeviceCount: 'ExceedTenGroupDeviceCount',
+      alreadyRelatedGroupDeviceCount: 'AlreadyRelatedGroupDeviceCount',
+      successAddedDeviceCount: 'SuccessAddedDeviceCount',
+      errorMessage: 'ErrorMessage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      validDeviceCount: 'number',
-      successAddedDeviceCount: 'number',
       requestId: 'string',
-      exceedTenGroupDeviceCount: 'number',
-      errorMessage: 'string',
-      alreadyRelatedGroupDeviceCount: 'number',
-      code: 'string',
       success: 'boolean',
+      code: 'string',
+      validDeviceCount: 'number',
+      exceedTenGroupDeviceCount: 'number',
+      alreadyRelatedGroupDeviceCount: 'number',
+      successAddedDeviceCount: 'number',
+      errorMessage: 'string',
     };
   }
 
@@ -111,19 +111,19 @@ export class BatchAddThingTopoRequest extends $tea.Model {
   apiProduct?: string;
   apiRevision?: string;
   iotInstanceId?: string;
-  gwProductKey?: string;
-  ext?: { [key: string]: any };
-  gwDeviceName?: string;
   topoAddItem?: BatchAddThingTopoRequestTopoAddItem[];
+  gwProductKey?: string;
+  ext?: string;
+  gwDeviceName?: string;
   static names(): { [key: string]: string } {
     return {
       apiProduct: 'ApiProduct',
       apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
+      topoAddItem: 'TopoAddItem',
       gwProductKey: 'GwProductKey',
       ext: 'Ext',
       gwDeviceName: 'GwDeviceName',
-      topoAddItem: 'TopoAddItem',
     };
   }
 
@@ -132,47 +132,10 @@ export class BatchAddThingTopoRequest extends $tea.Model {
       apiProduct: 'string',
       apiRevision: 'string',
       iotInstanceId: 'string',
-      gwProductKey: 'string',
-      ext: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      gwDeviceName: 'string',
       topoAddItem: { 'type': 'array', 'itemType': BatchAddThingTopoRequestTopoAddItem },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BatchAddThingTopoShrinkRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
-  iotInstanceId?: string;
-  gwProductKey?: string;
-  extShrink?: string;
-  gwDeviceName?: string;
-  topoAddItem?: BatchAddThingTopoShrinkRequestTopoAddItem[];
-  static names(): { [key: string]: string } {
-    return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
-      iotInstanceId: 'IotInstanceId',
-      gwProductKey: 'GwProductKey',
-      extShrink: 'Ext',
-      gwDeviceName: 'GwDeviceName',
-      topoAddItem: 'TopoAddItem',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      apiProduct: 'string',
-      apiRevision: 'string',
-      iotInstanceId: 'string',
       gwProductKey: 'string',
-      extShrink: 'string',
+      ext: 'string',
       gwDeviceName: 'string',
-      topoAddItem: { 'type': 'array', 'itemType': BatchAddThingTopoShrinkRequestTopoAddItem },
     };
   }
 
@@ -183,24 +146,24 @@ export class BatchAddThingTopoShrinkRequest extends $tea.Model {
 
 export class BatchAddThingTopoResponseBody extends $tea.Model {
   requestId?: string;
-  errorMessage?: string;
-  code?: string;
   success?: boolean;
+  code?: string;
+  errorMessage?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      errorMessage: 'ErrorMessage',
-      code: 'Code',
       success: 'Success',
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      errorMessage: 'string',
-      code: 'string',
       success: 'boolean',
+      code: 'string',
+      errorMessage: 'string',
     };
   }
 
@@ -267,24 +230,24 @@ export class BatchBindDeviceToEdgeInstanceWithDriverRequest extends $tea.Model {
 
 export class BatchBindDeviceToEdgeInstanceWithDriverResponseBody extends $tea.Model {
   requestId?: string;
-  errorMessage?: string;
-  code?: string;
   success?: boolean;
+  code?: string;
+  errorMessage?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      errorMessage: 'ErrorMessage',
-      code: 'Code',
       success: 'Success',
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      errorMessage: 'string',
-      code: 'string',
       success: 'boolean',
+      code: 'string',
+      errorMessage: 'string',
     };
   }
 
@@ -322,6 +285,8 @@ export class BatchCheckDeviceNamesRequest extends $tea.Model {
   productKey?: string;
   deviceName?: string[];
   deviceNameList?: BatchCheckDeviceNamesRequestDeviceNameList[];
+  realTenantId?: string;
+  realTripartiteKey?: string;
   static names(): { [key: string]: string } {
     return {
       apiProduct: 'ApiProduct',
@@ -330,6 +295,8 @@ export class BatchCheckDeviceNamesRequest extends $tea.Model {
       productKey: 'ProductKey',
       deviceName: 'DeviceName',
       deviceNameList: 'DeviceNameList',
+      realTenantId: 'RealTenantId',
+      realTripartiteKey: 'RealTripartiteKey',
     };
   }
 
@@ -341,6 +308,8 @@ export class BatchCheckDeviceNamesRequest extends $tea.Model {
       productKey: 'string',
       deviceName: { 'type': 'array', 'itemType': 'string' },
       deviceNameList: { 'type': 'array', 'itemType': BatchCheckDeviceNamesRequestDeviceNameList },
+      realTenantId: 'string',
+      realTripartiteKey: 'string',
     };
   }
 
@@ -351,27 +320,27 @@ export class BatchCheckDeviceNamesRequest extends $tea.Model {
 
 export class BatchCheckDeviceNamesResponseBody extends $tea.Model {
   requestId?: string;
-  data?: BatchCheckDeviceNamesResponseBodyData;
-  errorMessage?: string;
-  code?: string;
   success?: boolean;
+  code?: string;
+  errorMessage?: string;
+  data?: BatchCheckDeviceNamesResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      data: 'Data',
-      errorMessage: 'ErrorMessage',
-      code: 'Code',
       success: 'Success',
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
+      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      data: BatchCheckDeviceNamesResponseBodyData,
-      errorMessage: 'string',
-      code: 'string',
       success: 'boolean',
+      code: 'string',
+      errorMessage: 'string',
+      data: BatchCheckDeviceNamesResponseBodyData,
     };
   }
 
@@ -435,24 +404,24 @@ export class BatchClearEdgeInstanceDeviceConfigRequest extends $tea.Model {
 
 export class BatchClearEdgeInstanceDeviceConfigResponseBody extends $tea.Model {
   requestId?: string;
-  errorMessage?: string;
-  code?: string;
   success?: boolean;
+  code?: string;
+  errorMessage?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      errorMessage: 'ErrorMessage',
-      code: 'Code',
       success: 'Success',
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      errorMessage: 'string',
-      code: 'string',
       success: 'boolean',
+      code: 'string',
+      errorMessage: 'string',
     };
   }
 
@@ -488,18 +457,18 @@ export class BatchDeleteDeviceGroupRelationsRequest extends $tea.Model {
   apiRevision?: string;
   iotInstanceId?: string;
   groupId?: string;
+  device?: BatchDeleteDeviceGroupRelationsRequestDevice[];
   realTenantId?: string;
   realTripartiteKey?: string;
-  device?: BatchDeleteDeviceGroupRelationsRequestDevice[];
   static names(): { [key: string]: string } {
     return {
       apiProduct: 'ApiProduct',
       apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       groupId: 'GroupId',
+      device: 'Device',
       realTenantId: 'RealTenantId',
       realTripartiteKey: 'RealTripartiteKey',
-      device: 'Device',
     };
   }
 
@@ -509,9 +478,9 @@ export class BatchDeleteDeviceGroupRelationsRequest extends $tea.Model {
       apiRevision: 'string',
       iotInstanceId: 'string',
       groupId: 'string',
+      device: { 'type': 'array', 'itemType': BatchDeleteDeviceGroupRelationsRequestDevice },
       realTenantId: 'string',
       realTripartiteKey: 'string',
-      device: { 'type': 'array', 'itemType': BatchDeleteDeviceGroupRelationsRequestDevice },
     };
   }
 
@@ -521,34 +490,34 @@ export class BatchDeleteDeviceGroupRelationsRequest extends $tea.Model {
 }
 
 export class BatchDeleteDeviceGroupRelationsResponseBody extends $tea.Model {
-  validDeviceCount?: number;
   requestId?: string;
-  successDeviceCount?: number;
-  errorMessage?: string;
-  alreadyRelatedGroupDeviceCount?: number;
-  code?: string;
   success?: boolean;
+  code?: string;
+  errorMessage?: string;
+  validDeviceCount?: number;
+  alreadyRelatedGroupDeviceCount?: number;
+  successDeviceCount?: number;
   static names(): { [key: string]: string } {
     return {
-      validDeviceCount: 'ValidDeviceCount',
       requestId: 'RequestId',
-      successDeviceCount: 'SuccessDeviceCount',
-      errorMessage: 'ErrorMessage',
-      alreadyRelatedGroupDeviceCount: 'AlreadyRelatedGroupDeviceCount',
-      code: 'Code',
       success: 'Success',
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
+      validDeviceCount: 'ValidDeviceCount',
+      alreadyRelatedGroupDeviceCount: 'AlreadyRelatedGroupDeviceCount',
+      successDeviceCount: 'SuccessDeviceCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      validDeviceCount: 'number',
       requestId: 'string',
-      successDeviceCount: 'number',
-      errorMessage: 'string',
-      alreadyRelatedGroupDeviceCount: 'number',
-      code: 'string',
       success: 'boolean',
+      code: 'string',
+      errorMessage: 'string',
+      validDeviceCount: 'number',
+      alreadyRelatedGroupDeviceCount: 'number',
+      successDeviceCount: 'number',
     };
   }
 
@@ -615,24 +584,24 @@ export class BatchDeleteEdgeInstanceChannelRequest extends $tea.Model {
 
 export class BatchDeleteEdgeInstanceChannelResponseBody extends $tea.Model {
   requestId?: string;
-  errorMessage?: string;
-  code?: string;
   success?: boolean;
+  code?: string;
+  errorMessage?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      errorMessage: 'ErrorMessage',
-      code: 'Code',
       success: 'Success',
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      errorMessage: 'string',
-      code: 'string',
       success: 'boolean',
+      code: 'string',
+      errorMessage: 'string',
     };
   }
 
@@ -693,27 +662,27 @@ export class BatchGetDeviceBindStatusRequest extends $tea.Model {
 
 export class BatchGetDeviceBindStatusResponseBody extends $tea.Model {
   requestId?: string;
-  data?: BatchGetDeviceBindStatusResponseBodyData[];
-  errorMessage?: string;
-  code?: string;
   success?: boolean;
+  code?: string;
+  errorMessage?: string;
+  data?: BatchGetDeviceBindStatusResponseBodyData[];
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      data: 'Data',
-      errorMessage: 'ErrorMessage',
-      code: 'Code',
       success: 'Success',
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
+      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      data: { 'type': 'array', 'itemType': BatchGetDeviceBindStatusResponseBodyData },
-      errorMessage: 'string',
-      code: 'string',
       success: 'boolean',
+      code: 'string',
+      errorMessage: 'string',
+      data: { 'type': 'array', 'itemType': BatchGetDeviceBindStatusResponseBodyData },
     };
   }
 
@@ -747,17 +716,17 @@ export class BatchGetDeviceBindStatusResponse extends $tea.Model {
 export class BatchGetDeviceStateRequest extends $tea.Model {
   apiProduct?: string;
   apiRevision?: string;
+  deviceName?: string[];
   iotInstanceId?: string;
   productKey?: string;
-  deviceName?: string[];
   iotId?: string[];
   static names(): { [key: string]: string } {
     return {
       apiProduct: 'ApiProduct',
       apiRevision: 'ApiRevision',
+      deviceName: 'DeviceName',
       iotInstanceId: 'IotInstanceId',
       productKey: 'ProductKey',
-      deviceName: 'DeviceName',
       iotId: 'IotId',
     };
   }
@@ -766,9 +735,9 @@ export class BatchGetDeviceStateRequest extends $tea.Model {
     return {
       apiProduct: 'string',
       apiRevision: 'string',
+      deviceName: { 'type': 'array', 'itemType': 'string' },
       iotInstanceId: 'string',
       productKey: 'string',
-      deviceName: { 'type': 'array', 'itemType': 'string' },
       iotId: { 'type': 'array', 'itemType': 'string' },
     };
   }
@@ -780,27 +749,27 @@ export class BatchGetDeviceStateRequest extends $tea.Model {
 
 export class BatchGetDeviceStateResponseBody extends $tea.Model {
   requestId?: string;
-  deviceStatusList?: BatchGetDeviceStateResponseBodyDeviceStatusList;
-  errorMessage?: string;
-  code?: string;
   success?: boolean;
+  code?: string;
+  errorMessage?: string;
+  deviceStatusList?: BatchGetDeviceStateResponseBodyDeviceStatusList;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      deviceStatusList: 'DeviceStatusList',
-      errorMessage: 'ErrorMessage',
-      code: 'Code',
       success: 'Success',
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
+      deviceStatusList: 'DeviceStatusList',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      deviceStatusList: BatchGetDeviceStateResponseBodyDeviceStatusList,
-      errorMessage: 'string',
-      code: 'string',
       success: 'boolean',
+      code: 'string',
+      errorMessage: 'string',
+      deviceStatusList: BatchGetDeviceStateResponseBodyDeviceStatusList,
     };
   }
 
@@ -861,27 +830,27 @@ export class BatchGetEdgeDriverRequest extends $tea.Model {
 
 export class BatchGetEdgeDriverResponseBody extends $tea.Model {
   requestId?: string;
+  success?: boolean;
+  code?: string;
   errorMessage?: string;
   driverList?: BatchGetEdgeDriverResponseBodyDriverList[];
-  code?: string;
-  success?: boolean;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
+      success: 'Success',
+      code: 'Code',
       errorMessage: 'ErrorMessage',
       driverList: 'DriverList',
-      code: 'Code',
-      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
+      success: 'boolean',
+      code: 'string',
       errorMessage: 'string',
       driverList: { 'type': 'array', 'itemType': BatchGetEdgeDriverResponseBodyDriverList },
-      code: 'string',
-      success: 'boolean',
     };
   }
 
@@ -948,27 +917,27 @@ export class BatchGetEdgeInstanceChannelRequest extends $tea.Model {
 
 export class BatchGetEdgeInstanceChannelResponseBody extends $tea.Model {
   requestId?: string;
-  data?: BatchGetEdgeInstanceChannelResponseBodyData;
-  errorMessage?: string;
-  code?: string;
   success?: boolean;
+  code?: string;
+  errorMessage?: string;
+  data?: BatchGetEdgeInstanceChannelResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      data: 'Data',
-      errorMessage: 'ErrorMessage',
-      code: 'Code',
       success: 'Success',
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
+      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      data: BatchGetEdgeInstanceChannelResponseBodyData,
-      errorMessage: 'string',
-      code: 'string',
       success: 'boolean',
+      code: 'string',
+      errorMessage: 'string',
+      data: BatchGetEdgeInstanceChannelResponseBodyData,
     };
   }
 
@@ -1035,16 +1004,16 @@ export class BatchGetEdgeInstanceDeviceChannelRequest extends $tea.Model {
 
 export class BatchGetEdgeInstanceDeviceChannelResponseBody extends $tea.Model {
   requestId?: string;
-  errorMessage?: string;
-  code?: string;
   success?: boolean;
+  code?: string;
+  errorMessage?: string;
   deviceChannelList?: BatchGetEdgeInstanceDeviceChannelResponseBodyDeviceChannelList[];
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      errorMessage: 'ErrorMessage',
-      code: 'Code',
       success: 'Success',
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
       deviceChannelList: 'DeviceChannelList',
     };
   }
@@ -1052,9 +1021,9 @@ export class BatchGetEdgeInstanceDeviceChannelResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      errorMessage: 'string',
-      code: 'string',
       success: 'boolean',
+      code: 'string',
+      errorMessage: 'string',
       deviceChannelList: { 'type': 'array', 'itemType': BatchGetEdgeInstanceDeviceChannelResponseBodyDeviceChannelList },
     };
   }
@@ -1118,28 +1087,28 @@ export class BatchGetEdgeInstanceDeviceConfigRequest extends $tea.Model {
 }
 
 export class BatchGetEdgeInstanceDeviceConfigResponseBody extends $tea.Model {
-  deviceConfigList?: BatchGetEdgeInstanceDeviceConfigResponseBodyDeviceConfigList[];
   requestId?: string;
-  errorMessage?: string;
-  code?: string;
   success?: boolean;
+  code?: string;
+  errorMessage?: string;
+  deviceConfigList?: BatchGetEdgeInstanceDeviceConfigResponseBodyDeviceConfigList[];
   static names(): { [key: string]: string } {
     return {
-      deviceConfigList: 'DeviceConfigList',
       requestId: 'RequestId',
-      errorMessage: 'ErrorMessage',
-      code: 'Code',
       success: 'Success',
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
+      deviceConfigList: 'DeviceConfigList',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      deviceConfigList: { 'type': 'array', 'itemType': BatchGetEdgeInstanceDeviceConfigResponseBodyDeviceConfigList },
       requestId: 'string',
-      errorMessage: 'string',
-      code: 'string',
       success: 'boolean',
+      code: 'string',
+      errorMessage: 'string',
+      deviceConfigList: { 'type': 'array', 'itemType': BatchGetEdgeInstanceDeviceConfigResponseBodyDeviceConfigList },
     };
   }
 
@@ -1203,27 +1172,27 @@ export class BatchGetEdgeInstanceDeviceDriverRequest extends $tea.Model {
 
 export class BatchGetEdgeInstanceDeviceDriverResponseBody extends $tea.Model {
   requestId?: string;
+  success?: boolean;
+  code?: string;
   errorMessage?: string;
   deviceDriverList?: BatchGetEdgeInstanceDeviceDriverResponseBodyDeviceDriverList[];
-  code?: string;
-  success?: boolean;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
+      success: 'Success',
+      code: 'Code',
       errorMessage: 'ErrorMessage',
       deviceDriverList: 'DeviceDriverList',
-      code: 'Code',
-      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
+      success: 'boolean',
+      code: 'string',
       errorMessage: 'string',
       deviceDriverList: { 'type': 'array', 'itemType': BatchGetEdgeInstanceDeviceDriverResponseBodyDeviceDriverList },
-      code: 'string',
-      success: 'boolean',
     };
   }
 
@@ -1287,27 +1256,27 @@ export class BatchGetEdgeInstanceDriverConfigsRequest extends $tea.Model {
 
 export class BatchGetEdgeInstanceDriverConfigsResponseBody extends $tea.Model {
   requestId?: string;
-  driverConfigList?: BatchGetEdgeInstanceDriverConfigsResponseBodyDriverConfigList[];
-  errorMessage?: string;
-  code?: string;
   success?: boolean;
+  code?: string;
+  errorMessage?: string;
+  driverConfigList?: BatchGetEdgeInstanceDriverConfigsResponseBodyDriverConfigList[];
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      driverConfigList: 'DriverConfigList',
-      errorMessage: 'ErrorMessage',
-      code: 'Code',
       success: 'Success',
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
+      driverConfigList: 'DriverConfigList',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      driverConfigList: { 'type': 'array', 'itemType': BatchGetEdgeInstanceDriverConfigsResponseBodyDriverConfigList },
-      errorMessage: 'string',
-      code: 'string',
       success: 'boolean',
+      code: 'string',
+      errorMessage: 'string',
+      driverConfigList: { 'type': 'array', 'itemType': BatchGetEdgeInstanceDriverConfigsResponseBodyDriverConfigList },
     };
   }
 
@@ -1342,21 +1311,21 @@ export class BatchPubRequest extends $tea.Model {
   apiProduct?: string;
   apiRevision?: string;
   iotInstanceId?: string;
+  deviceName?: string[];
   productKey?: string;
   qos?: number;
   topicShortName?: string;
   messageContent?: string;
-  deviceName?: string[];
   static names(): { [key: string]: string } {
     return {
       apiProduct: 'ApiProduct',
       apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
+      deviceName: 'DeviceName',
       productKey: 'ProductKey',
       qos: 'Qos',
       topicShortName: 'TopicShortName',
       messageContent: 'MessageContent',
-      deviceName: 'DeviceName',
     };
   }
 
@@ -1365,11 +1334,11 @@ export class BatchPubRequest extends $tea.Model {
       apiProduct: 'string',
       apiRevision: 'string',
       iotInstanceId: 'string',
+      deviceName: { 'type': 'array', 'itemType': 'string' },
       productKey: 'string',
       qos: 'number',
       topicShortName: 'string',
       messageContent: 'string',
-      deviceName: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -1380,24 +1349,24 @@ export class BatchPubRequest extends $tea.Model {
 
 export class BatchPubResponseBody extends $tea.Model {
   requestId?: string;
-  errorMessage?: string;
-  code?: string;
   success?: boolean;
+  code?: string;
+  errorMessage?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      errorMessage: 'ErrorMessage',
-      code: 'Code',
       success: 'Success',
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      errorMessage: 'string',
-      code: 'string',
       success: 'boolean',
+      code: 'string',
+      errorMessage: 'string',
     };
   }
 
@@ -1431,20 +1400,20 @@ export class BatchPubResponse extends $tea.Model {
 export class BatchQueryDeviceDetailRequest extends $tea.Model {
   apiProduct?: string;
   apiRevision?: string;
+  deviceName?: string[];
   productKey?: string;
   iotInstanceId?: string;
   realTenantId?: string;
   realTripartiteKey?: string;
-  deviceName?: string[];
   static names(): { [key: string]: string } {
     return {
       apiProduct: 'ApiProduct',
       apiRevision: 'ApiRevision',
+      deviceName: 'DeviceName',
       productKey: 'ProductKey',
       iotInstanceId: 'IotInstanceId',
       realTenantId: 'RealTenantId',
       realTripartiteKey: 'RealTripartiteKey',
-      deviceName: 'DeviceName',
     };
   }
 
@@ -1452,11 +1421,11 @@ export class BatchQueryDeviceDetailRequest extends $tea.Model {
     return {
       apiProduct: 'string',
       apiRevision: 'string',
+      deviceName: { 'type': 'array', 'itemType': 'string' },
       productKey: 'string',
       iotInstanceId: 'string',
       realTenantId: 'string',
       realTripartiteKey: 'string',
-      deviceName: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -1467,27 +1436,27 @@ export class BatchQueryDeviceDetailRequest extends $tea.Model {
 
 export class BatchQueryDeviceDetailResponseBody extends $tea.Model {
   requestId?: string;
-  data?: BatchQueryDeviceDetailResponseBodyData;
-  errorMessage?: string;
-  code?: string;
   success?: boolean;
+  code?: string;
+  errorMessage?: string;
+  data?: BatchQueryDeviceDetailResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      data: 'Data',
-      errorMessage: 'ErrorMessage',
-      code: 'Code',
       success: 'Success',
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
+      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      data: BatchQueryDeviceDetailResponseBodyData,
-      errorMessage: 'string',
-      code: 'string',
       success: 'boolean',
+      code: 'string',
+      errorMessage: 'string',
+      data: BatchQueryDeviceDetailResponseBodyData,
     };
   }
 
@@ -1524,6 +1493,8 @@ export class BatchRegisterDeviceRequest extends $tea.Model {
   iotInstanceId?: string;
   productKey?: string;
   count?: number;
+  realTenantId?: string;
+  realTripartiteKey?: string;
   static names(): { [key: string]: string } {
     return {
       apiProduct: 'ApiProduct',
@@ -1531,6 +1502,8 @@ export class BatchRegisterDeviceRequest extends $tea.Model {
       iotInstanceId: 'IotInstanceId',
       productKey: 'ProductKey',
       count: 'Count',
+      realTenantId: 'RealTenantId',
+      realTripartiteKey: 'RealTripartiteKey',
     };
   }
 
@@ -1541,6 +1514,8 @@ export class BatchRegisterDeviceRequest extends $tea.Model {
       iotInstanceId: 'string',
       productKey: 'string',
       count: 'number',
+      realTenantId: 'string',
+      realTripartiteKey: 'string',
     };
   }
 
@@ -1551,27 +1526,27 @@ export class BatchRegisterDeviceRequest extends $tea.Model {
 
 export class BatchRegisterDeviceResponseBody extends $tea.Model {
   requestId?: string;
-  data?: BatchRegisterDeviceResponseBodyData;
-  errorMessage?: string;
-  code?: string;
   success?: boolean;
+  code?: string;
+  errorMessage?: string;
+  data?: BatchRegisterDeviceResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      data: 'Data',
-      errorMessage: 'ErrorMessage',
-      code: 'Code',
       success: 'Success',
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
+      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      data: BatchRegisterDeviceResponseBodyData,
-      errorMessage: 'string',
-      code: 'string',
       success: 'boolean',
+      code: 'string',
+      errorMessage: 'string',
+      data: BatchRegisterDeviceResponseBodyData,
     };
   }
 
@@ -1608,6 +1583,8 @@ export class BatchRegisterDeviceWithApplyIdRequest extends $tea.Model {
   iotInstanceId?: string;
   productKey?: string;
   applyId?: number;
+  realTenantId?: string;
+  realTripartiteKey?: string;
   static names(): { [key: string]: string } {
     return {
       apiProduct: 'ApiProduct',
@@ -1615,6 +1592,8 @@ export class BatchRegisterDeviceWithApplyIdRequest extends $tea.Model {
       iotInstanceId: 'IotInstanceId',
       productKey: 'ProductKey',
       applyId: 'ApplyId',
+      realTenantId: 'RealTenantId',
+      realTripartiteKey: 'RealTripartiteKey',
     };
   }
 
@@ -1625,6 +1604,8 @@ export class BatchRegisterDeviceWithApplyIdRequest extends $tea.Model {
       iotInstanceId: 'string',
       productKey: 'string',
       applyId: 'number',
+      realTenantId: 'string',
+      realTripartiteKey: 'string',
     };
   }
 
@@ -1635,27 +1616,27 @@ export class BatchRegisterDeviceWithApplyIdRequest extends $tea.Model {
 
 export class BatchRegisterDeviceWithApplyIdResponseBody extends $tea.Model {
   requestId?: string;
-  data?: BatchRegisterDeviceWithApplyIdResponseBodyData;
-  errorMessage?: string;
-  code?: string;
   success?: boolean;
+  code?: string;
+  errorMessage?: string;
+  data?: BatchRegisterDeviceWithApplyIdResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      data: 'Data',
-      errorMessage: 'ErrorMessage',
-      code: 'Code',
       success: 'Success',
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
+      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      data: BatchRegisterDeviceWithApplyIdResponseBodyData,
-      errorMessage: 'string',
-      code: 'string',
       success: 'boolean',
+      code: 'string',
+      errorMessage: 'string',
+      data: BatchRegisterDeviceWithApplyIdResponseBodyData,
     };
   }
 
@@ -1725,24 +1706,24 @@ export class BatchSetEdgeInstanceDeviceChannelRequest extends $tea.Model {
 
 export class BatchSetEdgeInstanceDeviceChannelResponseBody extends $tea.Model {
   requestId?: string;
-  errorMessage?: string;
-  code?: string;
   success?: boolean;
+  code?: string;
+  errorMessage?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      errorMessage: 'ErrorMessage',
-      code: 'Code',
       success: 'Success',
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      errorMessage: 'string',
-      code: 'string',
       success: 'boolean',
+      code: 'string',
+      errorMessage: 'string',
     };
   }
 
@@ -1806,24 +1787,24 @@ export class BatchSetEdgeInstanceDeviceConfigRequest extends $tea.Model {
 
 export class BatchSetEdgeInstanceDeviceConfigResponseBody extends $tea.Model {
   requestId?: string;
-  errorMessage?: string;
-  code?: string;
   success?: boolean;
+  code?: string;
+  errorMessage?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      errorMessage: 'ErrorMessage',
-      code: 'Code',
       success: 'Success',
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      errorMessage: 'string',
-      code: 'string',
       success: 'boolean',
+      code: 'string',
+      errorMessage: 'string',
     };
   }
 
@@ -1887,24 +1868,24 @@ export class BatchUnbindDeviceFromEdgeInstanceRequest extends $tea.Model {
 
 export class BatchUnbindDeviceFromEdgeInstanceResponseBody extends $tea.Model {
   requestId?: string;
-  errorMessage?: string;
-  code?: string;
   success?: boolean;
+  code?: string;
+  errorMessage?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      errorMessage: 'ErrorMessage',
-      code: 'Code',
       success: 'Success',
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      errorMessage: 'string',
-      code: 'string',
       success: 'boolean',
+      code: 'string',
+      errorMessage: 'string',
     };
   }
 
@@ -1939,17 +1920,17 @@ export class BatchUpdateDeviceNicknameRequest extends $tea.Model {
   apiProduct?: string;
   apiRevision?: string;
   iotInstanceId?: string;
+  deviceNicknameInfo?: BatchUpdateDeviceNicknameRequestDeviceNicknameInfo[];
   realTenantId?: string;
   realTripartiteKey?: string;
-  deviceNicknameInfo?: BatchUpdateDeviceNicknameRequestDeviceNicknameInfo[];
   static names(): { [key: string]: string } {
     return {
       apiProduct: 'ApiProduct',
       apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
+      deviceNicknameInfo: 'DeviceNicknameInfo',
       realTenantId: 'RealTenantId',
       realTripartiteKey: 'RealTripartiteKey',
-      deviceNicknameInfo: 'DeviceNicknameInfo',
     };
   }
 
@@ -1958,9 +1939,9 @@ export class BatchUpdateDeviceNicknameRequest extends $tea.Model {
       apiProduct: 'string',
       apiRevision: 'string',
       iotInstanceId: 'string',
+      deviceNicknameInfo: { 'type': 'array', 'itemType': BatchUpdateDeviceNicknameRequestDeviceNicknameInfo },
       realTenantId: 'string',
       realTripartiteKey: 'string',
-      deviceNicknameInfo: { 'type': 'array', 'itemType': BatchUpdateDeviceNicknameRequestDeviceNicknameInfo },
     };
   }
 
@@ -1971,24 +1952,24 @@ export class BatchUpdateDeviceNicknameRequest extends $tea.Model {
 
 export class BatchUpdateDeviceNicknameResponseBody extends $tea.Model {
   requestId?: string;
-  errorMessage?: string;
-  code?: string;
   success?: boolean;
+  code?: string;
+  errorMessage?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      errorMessage: 'ErrorMessage',
-      code: 'Code',
       success: 'Success',
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      errorMessage: 'string',
-      code: 'string',
       success: 'boolean',
+      code: 'string',
+      errorMessage: 'string',
     };
   }
 
@@ -2055,24 +2036,24 @@ export class BindApplicationToEdgeInstanceRequest extends $tea.Model {
 
 export class BindApplicationToEdgeInstanceResponseBody extends $tea.Model {
   requestId?: string;
-  errorMessage?: string;
-  code?: string;
   success?: boolean;
+  code?: string;
+  errorMessage?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      errorMessage: 'ErrorMessage',
-      code: 'Code',
       success: 'Success',
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      errorMessage: 'string',
-      code: 'string',
       success: 'boolean',
+      code: 'string',
+      errorMessage: 'string',
     };
   }
 
@@ -2142,24 +2123,24 @@ export class BindDriverToEdgeInstanceRequest extends $tea.Model {
 
 export class BindDriverToEdgeInstanceResponseBody extends $tea.Model {
   requestId?: string;
-  errorMessage?: string;
-  code?: string;
   success?: boolean;
+  code?: string;
+  errorMessage?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      errorMessage: 'ErrorMessage',
-      code: 'Code',
       success: 'Success',
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      errorMessage: 'string',
-      code: 'string',
       success: 'boolean',
+      code: 'string',
+      errorMessage: 'string',
     };
   }
 
@@ -2229,24 +2210,24 @@ export class BindGatewayToEdgeInstanceRequest extends $tea.Model {
 
 export class BindGatewayToEdgeInstanceResponseBody extends $tea.Model {
   requestId?: string;
-  errorMessage?: string;
-  code?: string;
   success?: boolean;
+  code?: string;
+  errorMessage?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      errorMessage: 'ErrorMessage',
-      code: 'Code',
       success: 'Success',
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      errorMessage: 'string',
-      code: 'string',
       success: 'boolean',
+      code: 'string',
+      errorMessage: 'string',
     };
   }
 
@@ -2313,24 +2294,24 @@ export class BindRoleToEdgeInstanceRequest extends $tea.Model {
 
 export class BindRoleToEdgeInstanceResponseBody extends $tea.Model {
   requestId?: string;
-  errorMessage?: string;
-  code?: string;
   success?: boolean;
+  code?: string;
+  errorMessage?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      errorMessage: 'ErrorMessage',
-      code: 'Code',
       success: 'Success',
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      errorMessage: 'string',
-      code: 'string',
       success: 'boolean',
+      code: 'string',
+      errorMessage: 'string',
     };
   }
 
@@ -2394,24 +2375,24 @@ export class BindSceneRuleToEdgeInstanceRequest extends $tea.Model {
 
 export class BindSceneRuleToEdgeInstanceResponseBody extends $tea.Model {
   requestId?: string;
+  success?: boolean;
   errorMessage?: string;
   code?: string;
-  success?: boolean;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
+      success: 'Success',
       errorMessage: 'ErrorMessage',
       code: 'Code',
-      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
+      success: 'boolean',
       errorMessage: 'string',
       code: 'string',
-      success: 'boolean',
     };
   }
 
@@ -2472,24 +2453,24 @@ export class CancelJobRequest extends $tea.Model {
 
 export class CancelJobResponseBody extends $tea.Model {
   requestId?: string;
-  errorMessage?: string;
-  code?: string;
   success?: boolean;
+  code?: string;
+  errorMessage?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      errorMessage: 'ErrorMessage',
-      code: 'Code',
       success: 'Success',
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      errorMessage: 'string',
-      code: 'string',
       success: 'boolean',
+      code: 'string',
+      errorMessage: 'string',
     };
   }
 
@@ -2550,24 +2531,24 @@ export class CancelOTAStrategyByJobRequest extends $tea.Model {
 
 export class CancelOTAStrategyByJobResponseBody extends $tea.Model {
   requestId?: string;
-  errorMessage?: string;
-  code?: string;
   success?: boolean;
+  code?: string;
+  errorMessage?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      errorMessage: 'ErrorMessage',
-      code: 'Code',
       success: 'Success',
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      errorMessage: 'string',
-      code: 'string',
       success: 'boolean',
+      code: 'string',
+      errorMessage: 'string',
     };
   }
 
@@ -2604,8 +2585,8 @@ export class CancelOTATaskByDeviceRequest extends $tea.Model {
   iotInstanceId?: string;
   firmwareId?: string;
   productKey?: string;
-  jobId?: string;
   deviceName?: string[];
+  jobId?: string;
   static names(): { [key: string]: string } {
     return {
       apiProduct: 'ApiProduct',
@@ -2613,8 +2594,8 @@ export class CancelOTATaskByDeviceRequest extends $tea.Model {
       iotInstanceId: 'IotInstanceId',
       firmwareId: 'FirmwareId',
       productKey: 'ProductKey',
-      jobId: 'JobId',
       deviceName: 'DeviceName',
+      jobId: 'JobId',
     };
   }
 
@@ -2625,8 +2606,8 @@ export class CancelOTATaskByDeviceRequest extends $tea.Model {
       iotInstanceId: 'string',
       firmwareId: 'string',
       productKey: 'string',
-      jobId: 'string',
       deviceName: { 'type': 'array', 'itemType': 'string' },
+      jobId: 'string',
     };
   }
 
@@ -2637,24 +2618,24 @@ export class CancelOTATaskByDeviceRequest extends $tea.Model {
 
 export class CancelOTATaskByDeviceResponseBody extends $tea.Model {
   requestId?: string;
-  errorMessage?: string;
-  code?: string;
   success?: boolean;
+  code?: string;
+  errorMessage?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      errorMessage: 'ErrorMessage',
-      code: 'Code',
       success: 'Success',
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      errorMessage: 'string',
-      code: 'string',
       success: 'boolean',
+      code: 'string',
+      errorMessage: 'string',
     };
   }
 
@@ -2727,24 +2708,24 @@ export class CancelOTATaskByJobRequest extends $tea.Model {
 
 export class CancelOTATaskByJobResponseBody extends $tea.Model {
   requestId?: string;
-  errorMessage?: string;
-  code?: string;
   success?: boolean;
+  code?: string;
+  errorMessage?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      errorMessage: 'ErrorMessage',
-      code: 'Code',
       success: 'Success',
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      errorMessage: 'string',
-      code: 'string',
       success: 'boolean',
+      code: 'string',
+      errorMessage: 'string',
     };
   }
 
@@ -2808,24 +2789,24 @@ export class ClearEdgeInstanceDriverConfigsRequest extends $tea.Model {
 
 export class ClearEdgeInstanceDriverConfigsResponseBody extends $tea.Model {
   requestId?: string;
-  errorMessage?: string;
-  code?: string;
   success?: boolean;
+  code?: string;
+  errorMessage?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      errorMessage: 'ErrorMessage',
-      code: 'Code',
       success: 'Success',
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      errorMessage: 'string',
-      code: 'string',
       success: 'boolean',
+      code: 'string',
+      errorMessage: 'string',
     };
   }
 
@@ -2886,24 +2867,24 @@ export class CloseEdgeInstanceDeploymentRequest extends $tea.Model {
 
 export class CloseEdgeInstanceDeploymentResponseBody extends $tea.Model {
   requestId?: string;
-  errorMessage?: string;
-  code?: string;
   success?: boolean;
+  code?: string;
+  errorMessage?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      errorMessage: 'ErrorMessage',
-      code: 'Code',
       success: 'Success',
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      errorMessage: 'string',
-      code: 'string',
       success: 'boolean',
+      code: 'string',
+      errorMessage: 'string',
     };
   }
 
@@ -2979,24 +2960,24 @@ export class CopyThingModelRequest extends $tea.Model {
 
 export class CopyThingModelResponseBody extends $tea.Model {
   requestId?: string;
-  errorMessage?: string;
-  code?: string;
   success?: boolean;
+  code?: string;
+  errorMessage?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      errorMessage: 'ErrorMessage',
-      code: 'Code',
       success: 'Success',
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      errorMessage: 'string',
-      code: 'string',
       success: 'boolean',
+      code: 'string',
+      errorMessage: 'string',
     };
   }
 
@@ -3057,27 +3038,27 @@ export class CreateConsumerGroupRequest extends $tea.Model {
 
 export class CreateConsumerGroupResponseBody extends $tea.Model {
   requestId?: string;
-  errorMessage?: string;
-  code?: string;
   success?: boolean;
+  errorMessage?: string;
   groupId?: string;
+  code?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      errorMessage: 'ErrorMessage',
-      code: 'Code',
       success: 'Success',
+      errorMessage: 'ErrorMessage',
       groupId: 'GroupId',
+      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      errorMessage: 'string',
-      code: 'string',
       success: 'boolean',
+      errorMessage: 'string',
       groupId: 'string',
+      code: 'string',
     };
   }
 
@@ -3141,24 +3122,24 @@ export class CreateConsumerGroupSubscribeRelationRequest extends $tea.Model {
 
 export class CreateConsumerGroupSubscribeRelationResponseBody extends $tea.Model {
   requestId?: string;
-  errorMessage?: string;
-  code?: string;
   success?: boolean;
+  code?: string;
+  errorMessage?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      errorMessage: 'ErrorMessage',
-      code: 'Code',
       success: 'Success',
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      errorMessage: 'string',
-      code: 'string',
       success: 'boolean',
+      code: 'string',
+      errorMessage: 'string',
     };
   }
 
@@ -3194,24 +3175,24 @@ export class CreateDataAPIServiceRequest extends $tea.Model {
   apiRevision?: string;
   displayName?: string;
   originSql?: string;
+  requestParam?: CreateDataAPIServiceRequestRequestParam[];
   desc?: string;
+  responseParam?: CreateDataAPIServiceRequestResponseParam[];
   templateSql?: string;
   apiPath?: string;
   iotInstanceId?: string;
-  requestParam?: CreateDataAPIServiceRequestRequestParam[];
-  responseParam?: CreateDataAPIServiceRequestResponseParam[];
   static names(): { [key: string]: string } {
     return {
       apiProduct: 'ApiProduct',
       apiRevision: 'ApiRevision',
       displayName: 'DisplayName',
       originSql: 'OriginSql',
+      requestParam: 'RequestParam',
       desc: 'Desc',
+      responseParam: 'ResponseParam',
       templateSql: 'TemplateSql',
       apiPath: 'ApiPath',
       iotInstanceId: 'IotInstanceId',
-      requestParam: 'RequestParam',
-      responseParam: 'ResponseParam',
     };
   }
 
@@ -3221,12 +3202,12 @@ export class CreateDataAPIServiceRequest extends $tea.Model {
       apiRevision: 'string',
       displayName: 'string',
       originSql: 'string',
+      requestParam: { 'type': 'array', 'itemType': CreateDataAPIServiceRequestRequestParam },
       desc: 'string',
+      responseParam: { 'type': 'array', 'itemType': CreateDataAPIServiceRequestResponseParam },
       templateSql: 'string',
       apiPath: 'string',
       iotInstanceId: 'string',
-      requestParam: { 'type': 'array', 'itemType': CreateDataAPIServiceRequestRequestParam },
-      responseParam: { 'type': 'array', 'itemType': CreateDataAPIServiceRequestResponseParam },
     };
   }
 
@@ -3237,27 +3218,27 @@ export class CreateDataAPIServiceRequest extends $tea.Model {
 
 export class CreateDataAPIServiceResponseBody extends $tea.Model {
   requestId?: string;
-  data?: CreateDataAPIServiceResponseBodyData;
-  errorMessage?: string;
-  code?: string;
   success?: boolean;
+  code?: string;
+  errorMessage?: string;
+  data?: CreateDataAPIServiceResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      data: 'Data',
-      errorMessage: 'ErrorMessage',
-      code: 'Code',
       success: 'Success',
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
+      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      data: CreateDataAPIServiceResponseBodyData,
-      errorMessage: 'string',
-      code: 'string',
       success: 'boolean',
+      code: 'string',
+      errorMessage: 'string',
+      data: CreateDataAPIServiceResponseBodyData,
     };
   }
 
@@ -3280,6 +3261,105 @@ export class CreateDataAPIServiceResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: CreateDataAPIServiceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDeviceDistributeJobRequest extends $tea.Model {
+  apiProduct?: string;
+  apiRevision?: string;
+  deviceName?: string[];
+  sourceInstanceId?: string;
+  productKey?: string;
+  targetUid?: string;
+  targetAliyunId?: string;
+  captcha?: string;
+  targetInstanceConfig?: CreateDeviceDistributeJobRequestTargetInstanceConfig[];
+  strategy?: number;
+  static names(): { [key: string]: string } {
+    return {
+      apiProduct: 'ApiProduct',
+      apiRevision: 'ApiRevision',
+      deviceName: 'DeviceName',
+      sourceInstanceId: 'SourceInstanceId',
+      productKey: 'ProductKey',
+      targetUid: 'TargetUid',
+      targetAliyunId: 'TargetAliyunId',
+      captcha: 'Captcha',
+      targetInstanceConfig: 'TargetInstanceConfig',
+      strategy: 'Strategy',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiProduct: 'string',
+      apiRevision: 'string',
+      deviceName: { 'type': 'array', 'itemType': 'string' },
+      sourceInstanceId: 'string',
+      productKey: 'string',
+      targetUid: 'string',
+      targetAliyunId: 'string',
+      captcha: 'string',
+      targetInstanceConfig: { 'type': 'array', 'itemType': CreateDeviceDistributeJobRequestTargetInstanceConfig },
+      strategy: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDeviceDistributeJobResponseBody extends $tea.Model {
+  requestId?: string;
+  success?: boolean;
+  code?: string;
+  errorMessage?: string;
+  jobId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
+      jobId: 'JobId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+      code: 'string',
+      errorMessage: 'string',
+      jobId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDeviceDistributeJobResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CreateDeviceDistributeJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CreateDeviceDistributeJobResponseBody,
     };
   }
 
@@ -3330,27 +3410,27 @@ export class CreateDeviceGroupRequest extends $tea.Model {
 
 export class CreateDeviceGroupResponseBody extends $tea.Model {
   requestId?: string;
-  data?: CreateDeviceGroupResponseBodyData;
-  errorMessage?: string;
-  code?: string;
   success?: boolean;
+  code?: string;
+  errorMessage?: string;
+  data?: CreateDeviceGroupResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      data: 'Data',
-      errorMessage: 'ErrorMessage',
-      code: 'Code',
       success: 'Success',
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
+      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      data: CreateDeviceGroupResponseBodyData,
-      errorMessage: 'string',
-      code: 'string',
       success: 'boolean',
+      code: 'string',
+      errorMessage: 'string',
+      data: CreateDeviceGroupResponseBodyData,
     };
   }
 
@@ -3422,28 +3502,28 @@ export class CreateEdgeDriverRequest extends $tea.Model {
 }
 
 export class CreateEdgeDriverResponseBody extends $tea.Model {
-  driverId?: string;
   requestId?: string;
-  errorMessage?: string;
-  code?: string;
   success?: boolean;
+  code?: string;
+  errorMessage?: string;
+  driverId?: string;
   static names(): { [key: string]: string } {
     return {
-      driverId: 'DriverId',
       requestId: 'RequestId',
-      errorMessage: 'ErrorMessage',
-      code: 'Code',
       success: 'Success',
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
+      driverId: 'DriverId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      driverId: 'string',
       requestId: 'string',
-      errorMessage: 'string',
-      code: 'string',
       success: 'boolean',
+      code: 'string',
+      errorMessage: 'string',
+      driverId: 'string',
     };
   }
 
@@ -3528,24 +3608,24 @@ export class CreateEdgeDriverVersionRequest extends $tea.Model {
 
 export class CreateEdgeDriverVersionResponseBody extends $tea.Model {
   requestId?: string;
-  errorMessage?: string;
-  code?: string;
   success?: boolean;
+  code?: string;
+  errorMessage?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      errorMessage: 'ErrorMessage',
-      code: 'Code',
       success: 'Success',
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      errorMessage: 'string',
-      code: 'string',
       success: 'boolean',
+      code: 'string',
+      errorMessage: 'string',
     };
   }
 
@@ -3612,27 +3692,27 @@ export class CreateEdgeInstanceRequest extends $tea.Model {
 
 export class CreateEdgeInstanceResponseBody extends $tea.Model {
   requestId?: string;
-  instanceId?: string;
+  success?: boolean;
   errorMessage?: string;
   code?: string;
-  success?: boolean;
+  instanceId?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      instanceId: 'InstanceId',
+      success: 'Success',
       errorMessage: 'ErrorMessage',
       code: 'Code',
-      success: 'Success',
+      instanceId: 'InstanceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      instanceId: 'string',
+      success: 'boolean',
       errorMessage: 'string',
       code: 'string',
-      success: 'boolean',
+      instanceId: 'string',
     };
   }
 
@@ -3702,27 +3782,27 @@ export class CreateEdgeInstanceChannelRequest extends $tea.Model {
 
 export class CreateEdgeInstanceChannelResponseBody extends $tea.Model {
   requestId?: string;
-  data?: string;
-  errorMessage?: string;
-  code?: string;
   success?: boolean;
+  code?: string;
+  errorMessage?: string;
+  data?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      data: 'Data',
-      errorMessage: 'ErrorMessage',
-      code: 'Code',
       success: 'Success',
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
+      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      data: 'string',
-      errorMessage: 'string',
-      code: 'string',
       success: 'boolean',
+      code: 'string',
+      errorMessage: 'string',
+      data: 'string',
     };
   }
 
@@ -3785,28 +3865,28 @@ export class CreateEdgeInstanceDeploymentRequest extends $tea.Model {
 }
 
 export class CreateEdgeInstanceDeploymentResponseBody extends $tea.Model {
-  deploymentId?: string;
   requestId?: string;
-  errorMessage?: string;
-  code?: string;
   success?: boolean;
+  code?: string;
+  errorMessage?: string;
+  deploymentId?: string;
   static names(): { [key: string]: string } {
     return {
-      deploymentId: 'DeploymentId',
       requestId: 'RequestId',
-      errorMessage: 'ErrorMessage',
-      code: 'Code',
       success: 'Success',
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
+      deploymentId: 'DeploymentId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      deploymentId: 'string',
       requestId: 'string',
-      errorMessage: 'string',
-      code: 'string',
       success: 'boolean',
+      code: 'string',
+      errorMessage: 'string',
+      deploymentId: 'string',
     };
   }
 
@@ -3879,27 +3959,27 @@ export class CreateEdgeOssPreSignedAddressRequest extends $tea.Model {
 
 export class CreateEdgeOssPreSignedAddressResponseBody extends $tea.Model {
   requestId?: string;
-  data?: CreateEdgeOssPreSignedAddressResponseBodyData;
-  errorMessage?: string;
-  code?: string;
   success?: boolean;
+  code?: string;
+  errorMessage?: string;
+  data?: CreateEdgeOssPreSignedAddressResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      data: 'Data',
-      errorMessage: 'ErrorMessage',
-      code: 'Code',
       success: 'Success',
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
+      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      data: CreateEdgeOssPreSignedAddressResponseBodyData,
-      errorMessage: 'string',
-      code: 'string',
       success: 'boolean',
+      code: 'string',
+      errorMessage: 'string',
+      data: CreateEdgeOssPreSignedAddressResponseBodyData,
     };
   }
 
@@ -3937,11 +4017,11 @@ export class CreateJobRequest extends $tea.Model {
   description?: string;
   jobDocument?: string;
   type?: string;
-  jobFile?: { [key: string]: any };
+  jobFile?: string;
   jobName?: string;
-  timeoutConfig?: { [key: string]: any };
-  rolloutConfig?: { [key: string]: any };
-  targetConfig?: { [key: string]: any };
+  timeoutConfig?: string;
+  rolloutConfig?: string;
+  targetConfig?: string;
   static names(): { [key: string]: string } {
     return {
       apiProduct: 'ApiProduct',
@@ -3966,60 +4046,11 @@ export class CreateJobRequest extends $tea.Model {
       description: 'string',
       jobDocument: 'string',
       type: 'string',
-      jobFile: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      jobFile: 'string',
       jobName: 'string',
-      timeoutConfig: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      rolloutConfig: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      targetConfig: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateJobShrinkRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
-  iotInstanceId?: string;
-  description?: string;
-  jobDocument?: string;
-  type?: string;
-  jobFileShrink?: string;
-  jobName?: string;
-  timeoutConfigShrink?: string;
-  rolloutConfigShrink?: string;
-  targetConfigShrink?: string;
-  static names(): { [key: string]: string } {
-    return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
-      iotInstanceId: 'IotInstanceId',
-      description: 'Description',
-      jobDocument: 'JobDocument',
-      type: 'Type',
-      jobFileShrink: 'JobFile',
-      jobName: 'JobName',
-      timeoutConfigShrink: 'TimeoutConfig',
-      rolloutConfigShrink: 'RolloutConfig',
-      targetConfigShrink: 'TargetConfig',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      apiProduct: 'string',
-      apiRevision: 'string',
-      iotInstanceId: 'string',
-      description: 'string',
-      jobDocument: 'string',
-      type: 'string',
-      jobFileShrink: 'string',
-      jobName: 'string',
-      timeoutConfigShrink: 'string',
-      rolloutConfigShrink: 'string',
-      targetConfigShrink: 'string',
+      timeoutConfig: 'string',
+      rolloutConfig: 'string',
+      targetConfig: 'string',
     };
   }
 
@@ -4030,16 +4061,16 @@ export class CreateJobShrinkRequest extends $tea.Model {
 
 export class CreateJobResponseBody extends $tea.Model {
   requestId?: string;
-  errorMessage?: string;
-  code?: string;
   success?: boolean;
+  code?: string;
+  errorMessage?: string;
   jobId?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      errorMessage: 'ErrorMessage',
-      code: 'Code',
       success: 'Success',
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
       jobId: 'JobId',
     };
   }
@@ -4047,9 +4078,9 @@ export class CreateJobResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      errorMessage: 'string',
-      code: 'string',
       success: 'boolean',
+      code: 'string',
+      errorMessage: 'string',
       jobId: 'string',
     };
   }
@@ -4113,28 +4144,28 @@ export class CreateLoRaNodesTaskRequest extends $tea.Model {
 }
 
 export class CreateLoRaNodesTaskResponseBody extends $tea.Model {
-  taskId?: string;
   requestId?: string;
-  errorMessage?: string;
-  code?: string;
   success?: boolean;
+  code?: string;
+  errorMessage?: string;
+  taskId?: string;
   static names(): { [key: string]: string } {
     return {
-      taskId: 'TaskId',
       requestId: 'RequestId',
-      errorMessage: 'ErrorMessage',
-      code: 'Code',
       success: 'Success',
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
+      taskId: 'TaskId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      taskId: 'string',
       requestId: 'string',
-      errorMessage: 'string',
-      code: 'string',
       success: 'boolean',
+      code: 'string',
+      errorMessage: 'string',
+      taskId: 'string',
     };
   }
 
@@ -4171,13 +4202,13 @@ export class CreateOTADynamicUpgradeJobRequest extends $tea.Model {
   iotInstanceId?: string;
   firmwareId?: string;
   productKey?: string;
+  srcVersion?: string[];
   retryInterval?: number;
   retryCount?: number;
   timeoutInMinutes?: number;
   maximumPerMinute?: number;
   overwriteMode?: number;
   dynamicMode?: number;
-  srcVersion?: string[];
   tag?: CreateOTADynamicUpgradeJobRequestTag[];
   static names(): { [key: string]: string } {
     return {
@@ -4186,13 +4217,13 @@ export class CreateOTADynamicUpgradeJobRequest extends $tea.Model {
       iotInstanceId: 'IotInstanceId',
       firmwareId: 'FirmwareId',
       productKey: 'ProductKey',
+      srcVersion: 'SrcVersion',
       retryInterval: 'RetryInterval',
       retryCount: 'RetryCount',
       timeoutInMinutes: 'TimeoutInMinutes',
       maximumPerMinute: 'MaximumPerMinute',
       overwriteMode: 'OverwriteMode',
       dynamicMode: 'DynamicMode',
-      srcVersion: 'SrcVersion',
       tag: 'Tag',
     };
   }
@@ -4204,13 +4235,13 @@ export class CreateOTADynamicUpgradeJobRequest extends $tea.Model {
       iotInstanceId: 'string',
       firmwareId: 'string',
       productKey: 'string',
+      srcVersion: { 'type': 'array', 'itemType': 'string' },
       retryInterval: 'number',
       retryCount: 'number',
       timeoutInMinutes: 'number',
       maximumPerMinute: 'number',
       overwriteMode: 'number',
       dynamicMode: 'number',
-      srcVersion: { 'type': 'array', 'itemType': 'string' },
       tag: { 'type': 'array', 'itemType': CreateOTADynamicUpgradeJobRequestTag },
     };
   }
@@ -4222,27 +4253,27 @@ export class CreateOTADynamicUpgradeJobRequest extends $tea.Model {
 
 export class CreateOTADynamicUpgradeJobResponseBody extends $tea.Model {
   requestId?: string;
-  data?: CreateOTADynamicUpgradeJobResponseBodyData;
-  errorMessage?: string;
-  code?: string;
   success?: boolean;
+  code?: string;
+  errorMessage?: string;
+  data?: CreateOTADynamicUpgradeJobResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      data: 'Data',
-      errorMessage: 'ErrorMessage',
-      code: 'Code',
       success: 'Success',
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
+      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      data: CreateOTADynamicUpgradeJobResponseBodyData,
-      errorMessage: 'string',
-      code: 'string',
       success: 'boolean',
+      code: 'string',
+      errorMessage: 'string',
+      data: CreateOTADynamicUpgradeJobResponseBodyData,
     };
   }
 
@@ -4336,27 +4367,27 @@ export class CreateOTAFirmwareRequest extends $tea.Model {
 
 export class CreateOTAFirmwareResponseBody extends $tea.Model {
   requestId?: string;
-  data?: CreateOTAFirmwareResponseBodyData;
-  errorMessage?: string;
-  code?: string;
   success?: boolean;
+  code?: string;
+  errorMessage?: string;
+  data?: CreateOTAFirmwareResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      data: 'Data',
-      errorMessage: 'ErrorMessage',
-      code: 'Code',
       success: 'Success',
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
+      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      data: CreateOTAFirmwareResponseBodyData,
-      errorMessage: 'string',
-      code: 'string',
       success: 'boolean',
+      code: 'string',
+      errorMessage: 'string',
+      data: CreateOTAFirmwareResponseBodyData,
     };
   }
 
@@ -4426,24 +4457,24 @@ export class CreateOTAModuleRequest extends $tea.Model {
 
 export class CreateOTAModuleResponseBody extends $tea.Model {
   requestId?: string;
-  errorMessage?: string;
-  code?: string;
   success?: boolean;
+  code?: string;
+  errorMessage?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      errorMessage: 'ErrorMessage',
-      code: 'Code',
       success: 'Success',
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      errorMessage: 'string',
-      code: 'string',
       success: 'boolean',
+      code: 'string',
+      errorMessage: 'string',
     };
   }
 
@@ -4481,18 +4512,18 @@ export class CreateOTAStaticUpgradeJobRequest extends $tea.Model {
   firmwareId?: string;
   productKey?: string;
   targetSelection?: string;
+  srcVersion?: string[];
   scheduleTime?: number;
   retryInterval?: number;
   retryCount?: number;
   timeoutInMinutes?: number;
   maximumPerMinute?: number;
   grayPercent?: string;
+  targetDeviceName?: string[];
   scheduleFinishTime?: number;
   overwriteMode?: number;
-  dnListFileUrl?: string;
-  srcVersion?: string[];
-  targetDeviceName?: string[];
   tag?: CreateOTAStaticUpgradeJobRequestTag[];
+  dnListFileUrl?: string;
   static names(): { [key: string]: string } {
     return {
       apiProduct: 'ApiProduct',
@@ -4501,18 +4532,18 @@ export class CreateOTAStaticUpgradeJobRequest extends $tea.Model {
       firmwareId: 'FirmwareId',
       productKey: 'ProductKey',
       targetSelection: 'TargetSelection',
+      srcVersion: 'SrcVersion',
       scheduleTime: 'ScheduleTime',
       retryInterval: 'RetryInterval',
       retryCount: 'RetryCount',
       timeoutInMinutes: 'TimeoutInMinutes',
       maximumPerMinute: 'MaximumPerMinute',
       grayPercent: 'GrayPercent',
+      targetDeviceName: 'TargetDeviceName',
       scheduleFinishTime: 'ScheduleFinishTime',
       overwriteMode: 'OverwriteMode',
-      dnListFileUrl: 'DnListFileUrl',
-      srcVersion: 'SrcVersion',
-      targetDeviceName: 'TargetDeviceName',
       tag: 'Tag',
+      dnListFileUrl: 'DnListFileUrl',
     };
   }
 
@@ -4524,18 +4555,18 @@ export class CreateOTAStaticUpgradeJobRequest extends $tea.Model {
       firmwareId: 'string',
       productKey: 'string',
       targetSelection: 'string',
+      srcVersion: { 'type': 'array', 'itemType': 'string' },
       scheduleTime: 'number',
       retryInterval: 'number',
       retryCount: 'number',
       timeoutInMinutes: 'number',
       maximumPerMinute: 'number',
       grayPercent: 'string',
+      targetDeviceName: { 'type': 'array', 'itemType': 'string' },
       scheduleFinishTime: 'number',
       overwriteMode: 'number',
-      dnListFileUrl: 'string',
-      srcVersion: { 'type': 'array', 'itemType': 'string' },
-      targetDeviceName: { 'type': 'array', 'itemType': 'string' },
       tag: { 'type': 'array', 'itemType': CreateOTAStaticUpgradeJobRequestTag },
+      dnListFileUrl: 'string',
     };
   }
 
@@ -4546,27 +4577,27 @@ export class CreateOTAStaticUpgradeJobRequest extends $tea.Model {
 
 export class CreateOTAStaticUpgradeJobResponseBody extends $tea.Model {
   requestId?: string;
-  data?: CreateOTAStaticUpgradeJobResponseBodyData;
-  errorMessage?: string;
-  code?: string;
   success?: boolean;
+  code?: string;
+  errorMessage?: string;
+  data?: CreateOTAStaticUpgradeJobResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      data: 'Data',
-      errorMessage: 'ErrorMessage',
-      code: 'Code',
       success: 'Success',
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
+      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      data: CreateOTAStaticUpgradeJobResponseBodyData,
-      errorMessage: 'string',
-      code: 'string',
       success: 'boolean',
+      code: 'string',
+      errorMessage: 'string',
+      data: CreateOTAStaticUpgradeJobResponseBodyData,
     };
   }
 
@@ -4636,27 +4667,27 @@ export class CreateOTAVerifyJobRequest extends $tea.Model {
 
 export class CreateOTAVerifyJobResponseBody extends $tea.Model {
   requestId?: string;
-  data?: CreateOTAVerifyJobResponseBodyData;
-  errorMessage?: string;
-  code?: string;
   success?: boolean;
+  code?: string;
+  errorMessage?: string;
+  data?: CreateOTAVerifyJobResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      data: 'Data',
-      errorMessage: 'ErrorMessage',
-      code: 'Code',
       success: 'Success',
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
+      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      data: CreateOTAVerifyJobResponseBodyData,
-      errorMessage: 'string',
-      code: 'string',
       success: 'boolean',
+      code: 'string',
+      errorMessage: 'string',
+      data: CreateOTAVerifyJobResponseBodyData,
     };
   }
 
@@ -4765,30 +4796,30 @@ export class CreateProductRequest extends $tea.Model {
 
 export class CreateProductResponseBody extends $tea.Model {
   requestId?: string;
-  data?: CreateProductResponseBodyData;
-  errorMessage?: string;
-  code?: string;
-  productKey?: string;
   success?: boolean;
+  code?: string;
+  errorMessage?: string;
+  productKey?: string;
+  data?: CreateProductResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      data: 'Data',
-      errorMessage: 'ErrorMessage',
-      code: 'Code',
-      productKey: 'ProductKey',
       success: 'Success',
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
+      productKey: 'ProductKey',
+      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      data: CreateProductResponseBodyData,
-      errorMessage: 'string',
-      code: 'string',
-      productKey: 'string',
       success: 'boolean',
+      code: 'string',
+      errorMessage: 'string',
+      productKey: 'string',
+      data: CreateProductResponseBodyData,
     };
   }
 
@@ -4819,23 +4850,116 @@ export class CreateProductResponse extends $tea.Model {
   }
 }
 
+export class CreateProductDistributeJobRequest extends $tea.Model {
+  apiProduct?: string;
+  apiRevision?: string;
+  sourceInstanceId?: string;
+  productKey?: string;
+  targetInstanceId?: string;
+  targetUid?: string;
+  captcha?: string;
+  targetAliyunId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      apiProduct: 'ApiProduct',
+      apiRevision: 'ApiRevision',
+      sourceInstanceId: 'SourceInstanceId',
+      productKey: 'ProductKey',
+      targetInstanceId: 'TargetInstanceId',
+      targetUid: 'TargetUid',
+      captcha: 'Captcha',
+      targetAliyunId: 'TargetAliyunId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiProduct: 'string',
+      apiRevision: 'string',
+      sourceInstanceId: 'string',
+      productKey: 'string',
+      targetInstanceId: 'string',
+      targetUid: 'string',
+      captcha: 'string',
+      targetAliyunId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateProductDistributeJobResponseBody extends $tea.Model {
+  requestId?: string;
+  success?: boolean;
+  code?: string;
+  errorMessage?: string;
+  jobId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
+      jobId: 'JobId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+      code: 'string',
+      errorMessage: 'string',
+      jobId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateProductDistributeJobResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CreateProductDistributeJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CreateProductDistributeJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateProductTagsRequest extends $tea.Model {
   apiProduct?: string;
   apiRevision?: string;
   iotInstanceId?: string;
   productKey?: string;
+  productTag?: CreateProductTagsRequestProductTag[];
   realTenantId?: string;
   realTripartiteKey?: string;
-  productTag?: CreateProductTagsRequestProductTag[];
   static names(): { [key: string]: string } {
     return {
       apiProduct: 'ApiProduct',
       apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       productKey: 'ProductKey',
+      productTag: 'ProductTag',
       realTenantId: 'RealTenantId',
       realTripartiteKey: 'RealTripartiteKey',
-      productTag: 'ProductTag',
     };
   }
 
@@ -4845,9 +4969,9 @@ export class CreateProductTagsRequest extends $tea.Model {
       apiRevision: 'string',
       iotInstanceId: 'string',
       productKey: 'string',
+      productTag: { 'type': 'array', 'itemType': CreateProductTagsRequestProductTag },
       realTenantId: 'string',
       realTripartiteKey: 'string',
-      productTag: { 'type': 'array', 'itemType': CreateProductTagsRequestProductTag },
     };
   }
 
@@ -4858,27 +4982,27 @@ export class CreateProductTagsRequest extends $tea.Model {
 
 export class CreateProductTagsResponseBody extends $tea.Model {
   requestId?: string;
-  invalidProductTags?: CreateProductTagsResponseBodyInvalidProductTags;
+  success?: boolean;
   errorMessage?: string;
   code?: string;
-  success?: boolean;
+  invalidProductTags?: CreateProductTagsResponseBodyInvalidProductTags;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      invalidProductTags: 'InvalidProductTags',
+      success: 'Success',
       errorMessage: 'ErrorMessage',
       code: 'Code',
-      success: 'Success',
+      invalidProductTags: 'InvalidProductTags',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      invalidProductTags: CreateProductTagsResponseBodyInvalidProductTags,
+      success: 'boolean',
       errorMessage: 'string',
       code: 'string',
-      success: 'boolean',
+      invalidProductTags: CreateProductTagsResponseBodyInvalidProductTags,
     };
   }
 
@@ -4948,27 +5072,27 @@ export class CreateProductTopicRequest extends $tea.Model {
 
 export class CreateProductTopicResponseBody extends $tea.Model {
   requestId?: string;
-  topicId?: number;
-  errorMessage?: string;
-  code?: string;
   success?: boolean;
+  code?: string;
+  errorMessage?: string;
+  topicId?: number;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      topicId: 'TopicId',
-      errorMessage: 'ErrorMessage',
-      code: 'Code',
       success: 'Success',
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
+      topicId: 'TopicId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      topicId: 'number',
-      errorMessage: 'string',
-      code: 'string',
       success: 'boolean',
+      code: 'string',
+      errorMessage: 'string',
+      topicId: 'number',
     };
   }
 
@@ -5056,27 +5180,27 @@ export class CreateRuleRequest extends $tea.Model {
 
 export class CreateRuleResponseBody extends $tea.Model {
   requestId?: string;
-  ruleId?: number;
-  errorMessage?: string;
-  code?: string;
   success?: boolean;
+  code?: string;
+  errorMessage?: string;
+  ruleId?: number;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      ruleId: 'RuleId',
-      errorMessage: 'ErrorMessage',
-      code: 'Code',
       success: 'Success',
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
+      ruleId: 'RuleId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      ruleId: 'number',
-      errorMessage: 'string',
-      code: 'string',
       success: 'boolean',
+      code: 'string',
+      errorMessage: 'string',
+      ruleId: 'number',
     };
   }
 
@@ -5145,28 +5269,28 @@ export class CreateRuleActionRequest extends $tea.Model {
 }
 
 export class CreateRuleActionResponseBody extends $tea.Model {
-  actionId?: number;
   requestId?: string;
-  errorMessage?: string;
   code?: string;
   success?: boolean;
+  errorMessage?: string;
+  actionId?: number;
   static names(): { [key: string]: string } {
     return {
-      actionId: 'ActionId',
       requestId: 'RequestId',
-      errorMessage: 'ErrorMessage',
       code: 'Code',
       success: 'Success',
+      errorMessage: 'ErrorMessage',
+      actionId: 'ActionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      actionId: 'number',
       requestId: 'string',
-      errorMessage: 'string',
       code: 'string',
       success: 'boolean',
+      errorMessage: 'string',
+      actionId: 'number',
     };
   }
 
@@ -5189,6 +5313,87 @@ export class CreateRuleActionResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: CreateRuleActionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRulengDistributeJobRequest extends $tea.Model {
+  apiProduct?: string;
+  apiRevision?: string;
+  productKey?: string;
+  sourceInstanceId?: string;
+  targetInstanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      apiProduct: 'ApiProduct',
+      apiRevision: 'ApiRevision',
+      productKey: 'ProductKey',
+      sourceInstanceId: 'SourceInstanceId',
+      targetInstanceId: 'TargetInstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiProduct: 'string',
+      apiRevision: 'string',
+      productKey: 'string',
+      sourceInstanceId: 'string',
+      targetInstanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRulengDistributeJobResponseBody extends $tea.Model {
+  requestId?: string;
+  success?: boolean;
+  code?: string;
+  errorMessage?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+      code: 'string',
+      errorMessage: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRulengDistributeJobResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CreateRulengDistributeJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CreateRulengDistributeJobResponseBody,
     };
   }
 
@@ -5233,27 +5438,27 @@ export class CreateSceneRuleRequest extends $tea.Model {
 
 export class CreateSceneRuleResponseBody extends $tea.Model {
   requestId?: string;
-  ruleId?: string;
-  errorMessage?: string;
-  code?: string;
   success?: boolean;
+  code?: string;
+  errorMessage?: string;
+  ruleId?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      ruleId: 'RuleId',
-      errorMessage: 'ErrorMessage',
-      code: 'Code',
       success: 'Success',
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
+      ruleId: 'RuleId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      ruleId: 'string',
-      errorMessage: 'string',
-      code: 'string',
       success: 'boolean',
+      code: 'string',
+      errorMessage: 'string',
+      ruleId: 'string',
     };
   }
 
@@ -5296,12 +5501,12 @@ export class CreateSubscribeRelationRequest extends $tea.Model {
   foundDeviceListFlag?: boolean;
   mnsConfiguration?: string;
   type?: string;
+  consumerGroupIds?: string[];
   otaEventFlag?: boolean;
   thingHistoryFlag?: boolean;
   deviceTagFlag?: boolean;
   otaVersionFlag?: boolean;
   otaJobFlag?: boolean;
-  consumerGroupIds?: string[];
   static names(): { [key: string]: string } {
     return {
       apiProduct: 'ApiProduct',
@@ -5315,12 +5520,12 @@ export class CreateSubscribeRelationRequest extends $tea.Model {
       foundDeviceListFlag: 'FoundDeviceListFlag',
       mnsConfiguration: 'MnsConfiguration',
       type: 'Type',
+      consumerGroupIds: 'ConsumerGroupIds',
       otaEventFlag: 'OtaEventFlag',
       thingHistoryFlag: 'ThingHistoryFlag',
       deviceTagFlag: 'DeviceTagFlag',
       otaVersionFlag: 'OtaVersionFlag',
       otaJobFlag: 'OtaJobFlag',
-      consumerGroupIds: 'ConsumerGroupIds',
     };
   }
 
@@ -5337,12 +5542,12 @@ export class CreateSubscribeRelationRequest extends $tea.Model {
       foundDeviceListFlag: 'boolean',
       mnsConfiguration: 'string',
       type: 'string',
+      consumerGroupIds: { 'type': 'array', 'itemType': 'string' },
       otaEventFlag: 'boolean',
       thingHistoryFlag: 'boolean',
       deviceTagFlag: 'boolean',
       otaVersionFlag: 'boolean',
       otaJobFlag: 'boolean',
-      consumerGroupIds: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -5353,24 +5558,24 @@ export class CreateSubscribeRelationRequest extends $tea.Model {
 
 export class CreateSubscribeRelationResponseBody extends $tea.Model {
   requestId?: string;
-  errorMessage?: string;
-  code?: string;
   success?: boolean;
+  code?: string;
+  errorMessage?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      errorMessage: 'ErrorMessage',
-      code: 'Code',
       success: 'Success',
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      errorMessage: 'string',
-      code: 'string',
       success: 'boolean',
+      code: 'string',
+      errorMessage: 'string',
     };
   }
 
@@ -5446,24 +5651,24 @@ export class CreateThingModelRequest extends $tea.Model {
 
 export class CreateThingModelResponseBody extends $tea.Model {
   requestId?: string;
-  errorMessage?: string;
-  code?: string;
   success?: boolean;
+  code?: string;
+  errorMessage?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      errorMessage: 'ErrorMessage',
-      code: 'Code',
       success: 'Success',
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      errorMessage: 'string',
-      code: 'string',
       success: 'boolean',
+      code: 'string',
+      errorMessage: 'string',
     };
   }
 
@@ -5530,24 +5735,24 @@ export class CreateThingScriptRequest extends $tea.Model {
 
 export class CreateThingScriptResponseBody extends $tea.Model {
   requestId?: string;
-  errorMessage?: string;
-  code?: string;
   success?: boolean;
+  code?: string;
+  errorMessage?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      errorMessage: 'ErrorMessage',
-      code: 'Code',
       success: 'Success',
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      errorMessage: 'string',
-      code: 'string',
       success: 'boolean',
+      code: 'string',
+      errorMessage: 'string',
     };
   }
 
@@ -5582,15 +5787,15 @@ export class CreateTopicRouteTableRequest extends $tea.Model {
   apiProduct?: string;
   apiRevision?: string;
   iotInstanceId?: string;
-  srcTopic?: string;
   dstTopic?: string[];
+  srcTopic?: string;
   static names(): { [key: string]: string } {
     return {
       apiProduct: 'ApiProduct',
       apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
-      srcTopic: 'SrcTopic',
       dstTopic: 'DstTopic',
+      srcTopic: 'SrcTopic',
     };
   }
 
@@ -5599,8 +5804,8 @@ export class CreateTopicRouteTableRequest extends $tea.Model {
       apiProduct: 'string',
       apiRevision: 'string',
       iotInstanceId: 'string',
-      srcTopic: 'string',
       dstTopic: { 'type': 'array', 'itemType': 'string' },
+      srcTopic: 'string',
     };
   }
 
@@ -5611,30 +5816,30 @@ export class CreateTopicRouteTableRequest extends $tea.Model {
 
 export class CreateTopicRouteTableResponseBody extends $tea.Model {
   requestId?: string;
-  failureTopics?: CreateTopicRouteTableResponseBodyFailureTopics;
-  errorMessage?: string;
+  success?: boolean;
   code?: string;
   isAllSucceed?: boolean;
-  success?: boolean;
+  errorMessage?: string;
+  failureTopics?: CreateTopicRouteTableResponseBodyFailureTopics;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      failureTopics: 'FailureTopics',
-      errorMessage: 'ErrorMessage',
+      success: 'Success',
       code: 'Code',
       isAllSucceed: 'IsAllSucceed',
-      success: 'Success',
+      errorMessage: 'ErrorMessage',
+      failureTopics: 'FailureTopics',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      failureTopics: CreateTopicRouteTableResponseBodyFailureTopics,
-      errorMessage: 'string',
+      success: 'boolean',
       code: 'string',
       isAllSucceed: 'boolean',
-      success: 'boolean',
+      errorMessage: 'string',
+      failureTopics: CreateTopicRouteTableResponseBodyFailureTopics,
     };
   }
 
@@ -5657,87 +5862,6 @@ export class CreateTopicRouteTableResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: CreateTopicRouteTableResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteClientIdsRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
-  iotId?: string;
-  iotInstanceId?: string;
-  authConfig?: string;
-  static names(): { [key: string]: string } {
-    return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
-      iotId: 'IotId',
-      iotInstanceId: 'IotInstanceId',
-      authConfig: 'AuthConfig',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      apiProduct: 'string',
-      apiRevision: 'string',
-      iotId: 'string',
-      iotInstanceId: 'string',
-      authConfig: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteClientIdsResponseBody extends $tea.Model {
-  requestId?: string;
-  errorMessage?: string;
-  code?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      errorMessage: 'ErrorMessage',
-      code: 'Code',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      errorMessage: 'string',
-      code: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteClientIdsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DeleteClientIdsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DeleteClientIdsResponseBody,
     };
   }
 
@@ -5776,24 +5900,24 @@ export class DeleteConsumerGroupRequest extends $tea.Model {
 
 export class DeleteConsumerGroupResponseBody extends $tea.Model {
   requestId?: string;
+  success?: boolean;
   errorMessage?: string;
   code?: string;
-  success?: boolean;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
+      success: 'Success',
       errorMessage: 'ErrorMessage',
       code: 'Code',
-      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
+      success: 'boolean',
       errorMessage: 'string',
       code: 'string',
-      success: 'boolean',
     };
   }
 
@@ -5857,24 +5981,24 @@ export class DeleteConsumerGroupSubscribeRelationRequest extends $tea.Model {
 
 export class DeleteConsumerGroupSubscribeRelationResponseBody extends $tea.Model {
   requestId?: string;
-  errorMessage?: string;
-  code?: string;
   success?: boolean;
+  code?: string;
+  errorMessage?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      errorMessage: 'ErrorMessage',
-      code: 'Code',
       success: 'Success',
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      errorMessage: 'string',
-      code: 'string',
       success: 'boolean',
+      code: 'string',
+      errorMessage: 'string',
     };
   }
 
@@ -5947,24 +6071,24 @@ export class DeleteDeviceRequest extends $tea.Model {
 
 export class DeleteDeviceResponseBody extends $tea.Model {
   requestId?: string;
-  errorMessage?: string;
-  code?: string;
   success?: boolean;
+  code?: string;
+  errorMessage?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      errorMessage: 'ErrorMessage',
-      code: 'Code',
       success: 'Success',
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      errorMessage: 'string',
-      code: 'string',
       success: 'boolean',
+      code: 'string',
+      errorMessage: 'string',
     };
   }
 
@@ -5987,6 +6111,81 @@ export class DeleteDeviceResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: DeleteDeviceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDeviceDistributeJobRequest extends $tea.Model {
+  apiProduct?: string;
+  apiRevision?: string;
+  jobId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      apiProduct: 'ApiProduct',
+      apiRevision: 'ApiRevision',
+      jobId: 'JobId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiProduct: 'string',
+      apiRevision: 'string',
+      jobId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDeviceDistributeJobResponseBody extends $tea.Model {
+  requestId?: string;
+  success?: boolean;
+  code?: string;
+  errorMessage?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+      code: 'string',
+      errorMessage: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDeviceDistributeJobResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DeleteDeviceDistributeJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DeleteDeviceDistributeJobResponseBody,
     };
   }
 
@@ -6034,24 +6233,24 @@ export class DeleteDeviceFileRequest extends $tea.Model {
 
 export class DeleteDeviceFileResponseBody extends $tea.Model {
   requestId?: string;
-  errorMessage?: string;
-  code?: string;
   success?: boolean;
+  code?: string;
+  errorMessage?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      errorMessage: 'ErrorMessage',
-      code: 'Code',
       success: 'Success',
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      errorMessage: 'string',
-      code: 'string',
       success: 'boolean',
+      code: 'string',
+      errorMessage: 'string',
     };
   }
 
@@ -6118,24 +6317,24 @@ export class DeleteDeviceGroupRequest extends $tea.Model {
 
 export class DeleteDeviceGroupResponseBody extends $tea.Model {
   requestId?: string;
-  errorMessage?: string;
-  code?: string;
   success?: boolean;
+  code?: string;
+  errorMessage?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      errorMessage: 'ErrorMessage',
-      code: 'Code',
       success: 'Success',
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      errorMessage: 'string',
-      code: 'string',
       success: 'boolean',
+      code: 'string',
+      errorMessage: 'string',
     };
   }
 
@@ -6205,24 +6404,24 @@ export class DeleteDevicePropRequest extends $tea.Model {
 
 export class DeleteDevicePropResponseBody extends $tea.Model {
   requestId?: string;
-  errorMessage?: string;
-  code?: string;
   success?: boolean;
+  code?: string;
+  errorMessage?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      errorMessage: 'ErrorMessage',
-      code: 'Code',
       success: 'Success',
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      errorMessage: 'string',
-      code: 'string',
       success: 'boolean',
+      code: 'string',
+      errorMessage: 'string',
     };
   }
 
@@ -6283,24 +6482,24 @@ export class DeleteEdgeDriverRequest extends $tea.Model {
 
 export class DeleteEdgeDriverResponseBody extends $tea.Model {
   requestId?: string;
-  errorMessage?: string;
-  code?: string;
   success?: boolean;
+  code?: string;
+  errorMessage?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      errorMessage: 'ErrorMessage',
-      code: 'Code',
       success: 'Success',
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      errorMessage: 'string',
-      code: 'string',
       success: 'boolean',
+      code: 'string',
+      errorMessage: 'string',
     };
   }
 
@@ -6364,24 +6563,24 @@ export class DeleteEdgeDriverVersionRequest extends $tea.Model {
 
 export class DeleteEdgeDriverVersionResponseBody extends $tea.Model {
   requestId?: string;
-  errorMessage?: string;
-  code?: string;
   success?: boolean;
+  code?: string;
+  errorMessage?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      errorMessage: 'ErrorMessage',
-      code: 'Code',
       success: 'Success',
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      errorMessage: 'string',
-      code: 'string',
       success: 'boolean',
+      code: 'string',
+      errorMessage: 'string',
     };
   }
 
@@ -6442,24 +6641,24 @@ export class DeleteEdgeInstanceRequest extends $tea.Model {
 
 export class DeleteEdgeInstanceResponseBody extends $tea.Model {
   requestId?: string;
-  errorMessage?: string;
-  code?: string;
   success?: boolean;
+  code?: string;
+  errorMessage?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      errorMessage: 'ErrorMessage',
-      code: 'Code',
       success: 'Success',
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      errorMessage: 'string',
-      code: 'string',
       success: 'boolean',
+      code: 'string',
+      errorMessage: 'string',
     };
   }
 
@@ -6520,24 +6719,24 @@ export class DeleteJobRequest extends $tea.Model {
 
 export class DeleteJobResponseBody extends $tea.Model {
   requestId?: string;
-  errorMessage?: string;
-  code?: string;
   success?: boolean;
+  code?: string;
+  errorMessage?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      errorMessage: 'ErrorMessage',
-      code: 'Code',
       success: 'Success',
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      errorMessage: 'string',
-      code: 'string',
       success: 'boolean',
+      code: 'string',
+      errorMessage: 'string',
     };
   }
 
@@ -6598,24 +6797,24 @@ export class DeleteOTAFirmwareRequest extends $tea.Model {
 
 export class DeleteOTAFirmwareResponseBody extends $tea.Model {
   requestId?: string;
-  errorMessage?: string;
-  code?: string;
   success?: boolean;
+  code?: string;
+  errorMessage?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      errorMessage: 'ErrorMessage',
-      code: 'Code',
       success: 'Success',
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      errorMessage: 'string',
-      code: 'string',
       success: 'boolean',
+      code: 'string',
+      errorMessage: 'string',
     };
   }
 
@@ -6682,24 +6881,24 @@ export class DeleteOTAModuleRequest extends $tea.Model {
 
 export class DeleteOTAModuleResponseBody extends $tea.Model {
   requestId?: string;
-  errorMessage?: string;
-  code?: string;
   success?: boolean;
+  code?: string;
+  errorMessage?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      errorMessage: 'ErrorMessage',
-      code: 'Code',
       success: 'Success',
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      errorMessage: 'string',
-      code: 'string',
       success: 'boolean',
+      code: 'string',
+      errorMessage: 'string',
     };
   }
 
@@ -6766,24 +6965,24 @@ export class DeleteProductRequest extends $tea.Model {
 
 export class DeleteProductResponseBody extends $tea.Model {
   requestId?: string;
-  errorMessage?: string;
-  code?: string;
   success?: boolean;
+  code?: string;
+  errorMessage?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      errorMessage: 'ErrorMessage',
-      code: 'Code',
       success: 'Success',
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      errorMessage: 'string',
-      code: 'string',
       success: 'boolean',
+      code: 'string',
+      errorMessage: 'string',
     };
   }
 
@@ -6818,19 +7017,19 @@ export class DeleteProductTagsRequest extends $tea.Model {
   apiProduct?: string;
   apiRevision?: string;
   iotInstanceId?: string;
+  productTagKey?: string[];
   productKey?: string;
   realTenantId?: string;
   realTripartiteKey?: string;
-  productTagKey?: string[];
   static names(): { [key: string]: string } {
     return {
       apiProduct: 'ApiProduct',
       apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
+      productTagKey: 'ProductTagKey',
       productKey: 'ProductKey',
       realTenantId: 'RealTenantId',
       realTripartiteKey: 'RealTripartiteKey',
-      productTagKey: 'ProductTagKey',
     };
   }
 
@@ -6839,10 +7038,10 @@ export class DeleteProductTagsRequest extends $tea.Model {
       apiProduct: 'string',
       apiRevision: 'string',
       iotInstanceId: 'string',
+      productTagKey: { 'type': 'array', 'itemType': 'string' },
       productKey: 'string',
       realTenantId: 'string',
       realTripartiteKey: 'string',
-      productTagKey: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -6853,24 +7052,24 @@ export class DeleteProductTagsRequest extends $tea.Model {
 
 export class DeleteProductTagsResponseBody extends $tea.Model {
   requestId?: string;
+  success?: boolean;
   errorMessage?: string;
   code?: string;
-  success?: boolean;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
+      success: 'Success',
       errorMessage: 'ErrorMessage',
       code: 'Code',
-      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
+      success: 'boolean',
       errorMessage: 'string',
       code: 'string',
-      success: 'boolean',
     };
   }
 
@@ -6931,24 +7130,24 @@ export class DeleteProductTopicRequest extends $tea.Model {
 
 export class DeleteProductTopicResponseBody extends $tea.Model {
   requestId?: string;
-  errorMessage?: string;
-  code?: string;
   success?: boolean;
+  code?: string;
+  errorMessage?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      errorMessage: 'ErrorMessage',
-      code: 'Code',
       success: 'Success',
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      errorMessage: 'string',
-      code: 'string',
       success: 'boolean',
+      code: 'string',
+      errorMessage: 'string',
     };
   }
 
@@ -7009,24 +7208,24 @@ export class DeleteRuleRequest extends $tea.Model {
 
 export class DeleteRuleResponseBody extends $tea.Model {
   requestId?: string;
-  errorMessage?: string;
-  code?: string;
   success?: boolean;
+  code?: string;
+  errorMessage?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      errorMessage: 'ErrorMessage',
-      code: 'Code',
       success: 'Success',
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      errorMessage: 'string',
-      code: 'string',
       success: 'boolean',
+      code: 'string',
+      errorMessage: 'string',
     };
   }
 
@@ -7087,24 +7286,24 @@ export class DeleteRuleActionRequest extends $tea.Model {
 
 export class DeleteRuleActionResponseBody extends $tea.Model {
   requestId?: string;
-  errorMessage?: string;
-  code?: string;
   success?: boolean;
+  code?: string;
+  errorMessage?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      errorMessage: 'ErrorMessage',
-      code: 'Code',
       success: 'Success',
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      errorMessage: 'string',
-      code: 'string',
       success: 'boolean',
+      code: 'string',
+      errorMessage: 'string',
     };
   }
 
@@ -7165,24 +7364,24 @@ export class DeleteSceneRuleRequest extends $tea.Model {
 
 export class DeleteSceneRuleResponseBody extends $tea.Model {
   requestId?: string;
+  success?: boolean;
   errorMessage?: string;
   code?: string;
-  success?: boolean;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
+      success: 'Success',
       errorMessage: 'ErrorMessage',
       code: 'Code',
-      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
+      success: 'boolean',
       errorMessage: 'string',
       code: 'string',
-      success: 'boolean',
     };
   }
 
@@ -7246,24 +7445,24 @@ export class DeleteSubscribeRelationRequest extends $tea.Model {
 
 export class DeleteSubscribeRelationResponseBody extends $tea.Model {
   requestId?: string;
-  errorMessage?: string;
-  code?: string;
   success?: boolean;
+  code?: string;
+  errorMessage?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      errorMessage: 'ErrorMessage',
-      code: 'Code',
       success: 'Success',
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      errorMessage: 'string',
-      code: 'string',
       success: 'boolean',
+      code: 'string',
+      errorMessage: 'string',
     };
   }
 
@@ -7300,13 +7499,13 @@ export class DeleteThingModelRequest extends $tea.Model {
   iotInstanceId?: string;
   resourceGroupId?: string;
   productKey?: string;
+  propertyIdentifier?: string[];
+  serviceIdentifier?: string[];
+  eventIdentifier?: string[];
   functionBlockId?: string;
   isClearAllFunction?: boolean;
   realTenantId?: string;
   realTripartiteKey?: string;
-  propertyIdentifier?: string[];
-  serviceIdentifier?: string[];
-  eventIdentifier?: string[];
   static names(): { [key: string]: string } {
     return {
       apiProduct: 'ApiProduct',
@@ -7314,13 +7513,13 @@ export class DeleteThingModelRequest extends $tea.Model {
       iotInstanceId: 'IotInstanceId',
       resourceGroupId: 'ResourceGroupId',
       productKey: 'ProductKey',
+      propertyIdentifier: 'PropertyIdentifier',
+      serviceIdentifier: 'ServiceIdentifier',
+      eventIdentifier: 'EventIdentifier',
       functionBlockId: 'FunctionBlockId',
       isClearAllFunction: 'IsClearAllFunction',
       realTenantId: 'RealTenantId',
       realTripartiteKey: 'RealTripartiteKey',
-      propertyIdentifier: 'PropertyIdentifier',
-      serviceIdentifier: 'ServiceIdentifier',
-      eventIdentifier: 'EventIdentifier',
     };
   }
 
@@ -7331,13 +7530,13 @@ export class DeleteThingModelRequest extends $tea.Model {
       iotInstanceId: 'string',
       resourceGroupId: 'string',
       productKey: 'string',
+      propertyIdentifier: { 'type': 'array', 'itemType': 'string' },
+      serviceIdentifier: { 'type': 'array', 'itemType': 'string' },
+      eventIdentifier: { 'type': 'array', 'itemType': 'string' },
       functionBlockId: 'string',
       isClearAllFunction: 'boolean',
       realTenantId: 'string',
       realTripartiteKey: 'string',
-      propertyIdentifier: { 'type': 'array', 'itemType': 'string' },
-      serviceIdentifier: { 'type': 'array', 'itemType': 'string' },
-      eventIdentifier: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -7348,24 +7547,24 @@ export class DeleteThingModelRequest extends $tea.Model {
 
 export class DeleteThingModelResponseBody extends $tea.Model {
   requestId?: string;
-  errorMessage?: string;
-  code?: string;
   success?: boolean;
+  code?: string;
+  errorMessage?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      errorMessage: 'ErrorMessage',
-      code: 'Code',
       success: 'Success',
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      errorMessage: 'string',
-      code: 'string',
       success: 'boolean',
+      code: 'string',
+      errorMessage: 'string',
     };
   }
 
@@ -7400,15 +7599,15 @@ export class DeleteTopicRouteTableRequest extends $tea.Model {
   apiProduct?: string;
   apiRevision?: string;
   iotInstanceId?: string;
-  srcTopic?: string;
   dstTopic?: string[];
+  srcTopic?: string;
   static names(): { [key: string]: string } {
     return {
       apiProduct: 'ApiProduct',
       apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
-      srcTopic: 'SrcTopic',
       dstTopic: 'DstTopic',
+      srcTopic: 'SrcTopic',
     };
   }
 
@@ -7417,8 +7616,8 @@ export class DeleteTopicRouteTableRequest extends $tea.Model {
       apiProduct: 'string',
       apiRevision: 'string',
       iotInstanceId: 'string',
-      srcTopic: 'string',
       dstTopic: { 'type': 'array', 'itemType': 'string' },
+      srcTopic: 'string',
     };
   }
 
@@ -7429,30 +7628,30 @@ export class DeleteTopicRouteTableRequest extends $tea.Model {
 
 export class DeleteTopicRouteTableResponseBody extends $tea.Model {
   requestId?: string;
-  failureTopics?: DeleteTopicRouteTableResponseBodyFailureTopics;
-  errorMessage?: string;
+  success?: boolean;
   code?: string;
   isAllSucceed?: boolean;
-  success?: boolean;
+  errorMessage?: string;
+  failureTopics?: DeleteTopicRouteTableResponseBodyFailureTopics;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      failureTopics: 'FailureTopics',
-      errorMessage: 'ErrorMessage',
+      success: 'Success',
       code: 'Code',
       isAllSucceed: 'IsAllSucceed',
-      success: 'Success',
+      errorMessage: 'ErrorMessage',
+      failureTopics: 'FailureTopics',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      failureTopics: DeleteTopicRouteTableResponseBodyFailureTopics,
-      errorMessage: 'string',
+      success: 'boolean',
       code: 'string',
       isAllSucceed: 'boolean',
-      success: 'boolean',
+      errorMessage: 'string',
+      failureTopics: DeleteTopicRouteTableResponseBodyFailureTopics,
     };
   }
 
@@ -7513,24 +7712,24 @@ export class DisableSceneRuleRequest extends $tea.Model {
 
 export class DisableSceneRuleResponseBody extends $tea.Model {
   requestId?: string;
+  success?: boolean;
   errorMessage?: string;
   code?: string;
-  success?: boolean;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
+      success: 'Success',
       errorMessage: 'ErrorMessage',
       code: 'Code',
-      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
+      success: 'boolean',
       errorMessage: 'string',
       code: 'string',
-      success: 'boolean',
     };
   }
 
@@ -7568,6 +7767,8 @@ export class DisableThingRequest extends $tea.Model {
   productKey?: string;
   deviceName?: string;
   iotId?: string;
+  realTenantId?: string;
+  realTripartiteKey?: string;
   static names(): { [key: string]: string } {
     return {
       apiProduct: 'ApiProduct',
@@ -7576,6 +7777,8 @@ export class DisableThingRequest extends $tea.Model {
       productKey: 'ProductKey',
       deviceName: 'DeviceName',
       iotId: 'IotId',
+      realTenantId: 'RealTenantId',
+      realTripartiteKey: 'RealTripartiteKey',
     };
   }
 
@@ -7587,6 +7790,8 @@ export class DisableThingRequest extends $tea.Model {
       productKey: 'string',
       deviceName: 'string',
       iotId: 'string',
+      realTenantId: 'string',
+      realTripartiteKey: 'string',
     };
   }
 
@@ -7597,24 +7802,24 @@ export class DisableThingRequest extends $tea.Model {
 
 export class DisableThingResponseBody extends $tea.Model {
   requestId?: string;
-  errorMessage?: string;
-  code?: string;
   success?: boolean;
+  code?: string;
+  errorMessage?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      errorMessage: 'ErrorMessage',
-      code: 'Code',
       success: 'Success',
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      errorMessage: 'string',
-      code: 'string',
       success: 'boolean',
+      code: 'string',
+      errorMessage: 'string',
     };
   }
 
@@ -7675,24 +7880,24 @@ export class EnableSceneRuleRequest extends $tea.Model {
 
 export class EnableSceneRuleResponseBody extends $tea.Model {
   requestId?: string;
+  success?: boolean;
   errorMessage?: string;
   code?: string;
-  success?: boolean;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
+      success: 'Success',
       errorMessage: 'ErrorMessage',
       code: 'Code',
-      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
+      success: 'boolean',
       errorMessage: 'string',
       code: 'string',
-      success: 'boolean',
     };
   }
 
@@ -7730,6 +7935,8 @@ export class EnableThingRequest extends $tea.Model {
   productKey?: string;
   deviceName?: string;
   iotId?: string;
+  realTenantId?: string;
+  realTripartiteKey?: string;
   static names(): { [key: string]: string } {
     return {
       apiProduct: 'ApiProduct',
@@ -7738,6 +7945,8 @@ export class EnableThingRequest extends $tea.Model {
       productKey: 'ProductKey',
       deviceName: 'DeviceName',
       iotId: 'IotId',
+      realTenantId: 'RealTenantId',
+      realTripartiteKey: 'RealTripartiteKey',
     };
   }
 
@@ -7749,6 +7958,8 @@ export class EnableThingRequest extends $tea.Model {
       productKey: 'string',
       deviceName: 'string',
       iotId: 'string',
+      realTenantId: 'string',
+      realTripartiteKey: 'string',
     };
   }
 
@@ -7759,24 +7970,24 @@ export class EnableThingRequest extends $tea.Model {
 
 export class EnableThingResponseBody extends $tea.Model {
   requestId?: string;
-  errorMessage?: string;
-  code?: string;
   success?: boolean;
+  code?: string;
+  errorMessage?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      errorMessage: 'ErrorMessage',
-      code: 'Code',
       success: 'Success',
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      errorMessage: 'string',
-      code: 'string',
       success: 'boolean',
+      code: 'string',
+      errorMessage: 'string',
     };
   }
 
@@ -7834,27 +8045,27 @@ export class GenerateDeviceNameListURLRequest extends $tea.Model {
 
 export class GenerateDeviceNameListURLResponseBody extends $tea.Model {
   requestId?: string;
-  data?: GenerateDeviceNameListURLResponseBodyData;
-  errorMessage?: string;
-  code?: string;
   success?: boolean;
+  code?: string;
+  errorMessage?: string;
+  data?: GenerateDeviceNameListURLResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      data: 'Data',
-      errorMessage: 'ErrorMessage',
-      code: 'Code',
       success: 'Success',
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
+      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      data: GenerateDeviceNameListURLResponseBodyData,
-      errorMessage: 'string',
-      code: 'string',
       success: 'boolean',
+      code: 'string',
+      errorMessage: 'string',
+      data: GenerateDeviceNameListURLResponseBodyData,
     };
   }
 
@@ -7918,27 +8129,27 @@ export class GenerateFileUploadURLRequest extends $tea.Model {
 
 export class GenerateFileUploadURLResponseBody extends $tea.Model {
   requestId?: string;
-  data?: GenerateFileUploadURLResponseBodyData;
-  errorMessage?: string;
-  code?: string;
   success?: boolean;
+  code?: string;
+  errorMessage?: string;
+  data?: GenerateFileUploadURLResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      data: 'Data',
-      errorMessage: 'ErrorMessage',
-      code: 'Code',
       success: 'Success',
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
+      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      data: GenerateFileUploadURLResponseBodyData,
-      errorMessage: 'string',
-      code: 'string',
       success: 'boolean',
+      code: 'string',
+      errorMessage: 'string',
+      data: GenerateFileUploadURLResponseBodyData,
     };
   }
 
@@ -7999,27 +8210,27 @@ export class GenerateOTAUploadURLRequest extends $tea.Model {
 
 export class GenerateOTAUploadURLResponseBody extends $tea.Model {
   requestId?: string;
-  data?: GenerateOTAUploadURLResponseBodyData;
-  errorMessage?: string;
-  code?: string;
   success?: boolean;
+  code?: string;
+  errorMessage?: string;
+  data?: GenerateOTAUploadURLResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      data: 'Data',
-      errorMessage: 'ErrorMessage',
-      code: 'Code',
       success: 'Success',
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
+      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      data: GenerateOTAUploadURLResponseBodyData,
-      errorMessage: 'string',
-      code: 'string',
       success: 'boolean',
+      code: 'string',
+      errorMessage: 'string',
+      data: GenerateOTAUploadURLResponseBodyData,
     };
   }
 
@@ -8080,27 +8291,27 @@ export class GetDataAPIServiceDetailRequest extends $tea.Model {
 
 export class GetDataAPIServiceDetailResponseBody extends $tea.Model {
   requestId?: string;
-  data?: GetDataAPIServiceDetailResponseBodyData;
-  errorMessage?: string;
-  code?: string;
   success?: boolean;
+  code?: string;
+  errorMessage?: string;
+  data?: GetDataAPIServiceDetailResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      data: 'Data',
-      errorMessage: 'ErrorMessage',
-      code: 'Code',
       success: 'Success',
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
+      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      data: GetDataAPIServiceDetailResponseBodyData,
-      errorMessage: 'string',
-      code: 'string',
       success: 'boolean',
+      code: 'string',
+      errorMessage: 'string',
+      data: GetDataAPIServiceDetailResponseBodyData,
     };
   }
 
@@ -8164,27 +8375,27 @@ export class GetDeviceShadowRequest extends $tea.Model {
 
 export class GetDeviceShadowResponseBody extends $tea.Model {
   requestId?: string;
-  errorMessage?: string;
-  code?: string;
-  shadowMessage?: string;
   success?: boolean;
+  code?: string;
+  errorMessage?: string;
+  shadowMessage?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      errorMessage: 'ErrorMessage',
-      code: 'Code',
-      shadowMessage: 'ShadowMessage',
       success: 'Success',
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
+      shadowMessage: 'ShadowMessage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      errorMessage: 'string',
-      code: 'string',
-      shadowMessage: 'string',
       success: 'boolean',
+      code: 'string',
+      errorMessage: 'string',
+      shadowMessage: 'string',
     };
   }
 
@@ -8251,27 +8462,27 @@ export class GetDeviceStatusRequest extends $tea.Model {
 
 export class GetDeviceStatusResponseBody extends $tea.Model {
   requestId?: string;
-  data?: GetDeviceStatusResponseBodyData;
-  errorMessage?: string;
-  code?: string;
   success?: boolean;
+  code?: string;
+  errorMessage?: string;
+  data?: GetDeviceStatusResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      data: 'Data',
-      errorMessage: 'ErrorMessage',
-      code: 'Code',
       success: 'Success',
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
+      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      data: GetDeviceStatusResponseBodyData,
-      errorMessage: 'string',
-      code: 'string',
       success: 'boolean',
+      code: 'string',
+      errorMessage: 'string',
+      data: GetDeviceStatusResponseBodyData,
     };
   }
 
@@ -8335,27 +8546,27 @@ export class GetEdgeDriverVersionRequest extends $tea.Model {
 
 export class GetEdgeDriverVersionResponseBody extends $tea.Model {
   requestId?: string;
-  data?: GetEdgeDriverVersionResponseBodyData;
-  errorMessage?: string;
-  code?: string;
   success?: boolean;
+  code?: string;
+  errorMessage?: string;
+  data?: GetEdgeDriverVersionResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      data: 'Data',
-      errorMessage: 'ErrorMessage',
-      code: 'Code',
       success: 'Success',
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
+      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      data: GetEdgeDriverVersionResponseBodyData,
-      errorMessage: 'string',
-      code: 'string',
       success: 'boolean',
+      code: 'string',
+      errorMessage: 'string',
+      data: GetEdgeDriverVersionResponseBodyData,
     };
   }
 
@@ -8416,27 +8627,27 @@ export class GetEdgeInstanceRequest extends $tea.Model {
 
 export class GetEdgeInstanceResponseBody extends $tea.Model {
   requestId?: string;
-  data?: GetEdgeInstanceResponseBodyData;
-  errorMessage?: string;
-  code?: string;
   success?: boolean;
+  code?: string;
+  errorMessage?: string;
+  data?: GetEdgeInstanceResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      data: 'Data',
-      errorMessage: 'ErrorMessage',
-      code: 'Code',
       success: 'Success',
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
+      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      data: GetEdgeInstanceResponseBodyData,
-      errorMessage: 'string',
-      code: 'string',
       success: 'boolean',
+      code: 'string',
+      errorMessage: 'string',
+      data: GetEdgeInstanceResponseBodyData,
     };
   }
 
@@ -8500,27 +8711,27 @@ export class GetEdgeInstanceDeploymentRequest extends $tea.Model {
 
 export class GetEdgeInstanceDeploymentResponseBody extends $tea.Model {
   requestId?: string;
-  data?: GetEdgeInstanceDeploymentResponseBodyData;
-  errorMessage?: string;
-  code?: string;
   success?: boolean;
+  code?: string;
+  errorMessage?: string;
+  data?: GetEdgeInstanceDeploymentResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      data: 'Data',
-      errorMessage: 'ErrorMessage',
-      code: 'Code',
       success: 'Success',
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
+      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      data: GetEdgeInstanceDeploymentResponseBodyData,
-      errorMessage: 'string',
-      code: 'string',
       success: 'boolean',
+      code: 'string',
+      errorMessage: 'string',
+      data: GetEdgeInstanceDeploymentResponseBodyData,
     };
   }
 
@@ -8587,27 +8798,27 @@ export class GetGatewayBySubDeviceRequest extends $tea.Model {
 
 export class GetGatewayBySubDeviceResponseBody extends $tea.Model {
   requestId?: string;
-  data?: GetGatewayBySubDeviceResponseBodyData;
-  errorMessage?: string;
-  code?: string;
   success?: boolean;
+  code?: string;
+  errorMessage?: string;
+  data?: GetGatewayBySubDeviceResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      data: 'Data',
-      errorMessage: 'ErrorMessage',
-      code: 'Code',
       success: 'Success',
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
+      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      data: GetGatewayBySubDeviceResponseBodyData,
-      errorMessage: 'string',
-      code: 'string',
       success: 'boolean',
+      code: 'string',
+      errorMessage: 'string',
+      data: GetGatewayBySubDeviceResponseBodyData,
     };
   }
 
@@ -8667,40 +8878,40 @@ export class GetLoraNodesTaskRequest extends $tea.Model {
 }
 
 export class GetLoraNodesTaskResponseBody extends $tea.Model {
-  totalCount?: number;
-  successDevEuis?: GetLoraNodesTaskResponseBodySuccessDevEuis;
-  taskId?: string;
   requestId?: string;
-  errorMessage?: string;
-  successCount?: number;
-  taskState?: string;
-  code?: string;
   success?: boolean;
+  code?: string;
+  errorMessage?: string;
+  taskId?: string;
+  taskState?: string;
+  totalCount?: number;
+  successCount?: number;
+  successDevEuis?: GetLoraNodesTaskResponseBodySuccessDevEuis;
   static names(): { [key: string]: string } {
     return {
-      totalCount: 'TotalCount',
-      successDevEuis: 'SuccessDevEuis',
-      taskId: 'TaskId',
       requestId: 'RequestId',
-      errorMessage: 'ErrorMessage',
-      successCount: 'SuccessCount',
-      taskState: 'TaskState',
-      code: 'Code',
       success: 'Success',
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
+      taskId: 'TaskId',
+      taskState: 'TaskState',
+      totalCount: 'TotalCount',
+      successCount: 'SuccessCount',
+      successDevEuis: 'SuccessDevEuis',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      totalCount: 'number',
-      successDevEuis: GetLoraNodesTaskResponseBodySuccessDevEuis,
-      taskId: 'string',
       requestId: 'string',
-      errorMessage: 'string',
-      successCount: 'number',
-      taskState: 'string',
-      code: 'string',
       success: 'boolean',
+      code: 'string',
+      errorMessage: 'string',
+      taskId: 'string',
+      taskState: 'string',
+      totalCount: 'number',
+      successCount: 'number',
+      successDevEuis: GetLoraNodesTaskResponseBodySuccessDevEuis,
     };
   }
 
@@ -8760,40 +8971,40 @@ export class GetNodesAddingTaskRequest extends $tea.Model {
 }
 
 export class GetNodesAddingTaskResponseBody extends $tea.Model {
-  totalCount?: number;
-  successDevEuis?: GetNodesAddingTaskResponseBodySuccessDevEuis;
-  taskId?: string;
   requestId?: string;
-  errorMessage?: string;
-  successCount?: number;
-  taskState?: string;
-  code?: string;
   success?: boolean;
+  code?: string;
+  errorMessage?: string;
+  taskId?: string;
+  taskState?: string;
+  totalCount?: number;
+  successCount?: number;
+  successDevEuis?: GetNodesAddingTaskResponseBodySuccessDevEuis;
   static names(): { [key: string]: string } {
     return {
-      totalCount: 'TotalCount',
-      successDevEuis: 'SuccessDevEuis',
-      taskId: 'TaskId',
       requestId: 'RequestId',
-      errorMessage: 'ErrorMessage',
-      successCount: 'SuccessCount',
-      taskState: 'TaskState',
-      code: 'Code',
       success: 'Success',
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
+      taskId: 'TaskId',
+      taskState: 'TaskState',
+      totalCount: 'TotalCount',
+      successCount: 'SuccessCount',
+      successDevEuis: 'SuccessDevEuis',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      totalCount: 'number',
-      successDevEuis: GetNodesAddingTaskResponseBodySuccessDevEuis,
-      taskId: 'string',
       requestId: 'string',
-      errorMessage: 'string',
-      successCount: 'number',
-      taskState: 'string',
-      code: 'string',
       success: 'boolean',
+      code: 'string',
+      errorMessage: 'string',
+      taskId: 'string',
+      taskState: 'string',
+      totalCount: 'number',
+      successCount: 'number',
+      successDevEuis: GetNodesAddingTaskResponseBodySuccessDevEuis,
     };
   }
 
@@ -8854,27 +9065,27 @@ export class GetRuleRequest extends $tea.Model {
 
 export class GetRuleResponseBody extends $tea.Model {
   requestId?: string;
+  success?: boolean;
+  code?: string;
   errorMessage?: string;
   ruleInfo?: GetRuleResponseBodyRuleInfo;
-  code?: string;
-  success?: boolean;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
+      success: 'Success',
+      code: 'Code',
       errorMessage: 'ErrorMessage',
       ruleInfo: 'RuleInfo',
-      code: 'Code',
-      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
+      success: 'boolean',
+      code: 'string',
       errorMessage: 'string',
       ruleInfo: GetRuleResponseBodyRuleInfo,
-      code: 'string',
-      success: 'boolean',
     };
   }
 
@@ -8935,27 +9146,27 @@ export class GetRuleActionRequest extends $tea.Model {
 
 export class GetRuleActionResponseBody extends $tea.Model {
   requestId?: string;
-  ruleActionInfo?: GetRuleActionResponseBodyRuleActionInfo;
-  errorMessage?: string;
-  code?: string;
   success?: boolean;
+  code?: string;
+  errorMessage?: string;
+  ruleActionInfo?: GetRuleActionResponseBodyRuleActionInfo;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      ruleActionInfo: 'RuleActionInfo',
-      errorMessage: 'ErrorMessage',
-      code: 'Code',
       success: 'Success',
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
+      ruleActionInfo: 'RuleActionInfo',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      ruleActionInfo: GetRuleActionResponseBodyRuleActionInfo,
-      errorMessage: 'string',
-      code: 'string',
       success: 'boolean',
+      code: 'string',
+      errorMessage: 'string',
+      ruleActionInfo: GetRuleActionResponseBodyRuleActionInfo,
     };
   }
 
@@ -9016,27 +9227,27 @@ export class GetSceneRuleRequest extends $tea.Model {
 
 export class GetSceneRuleResponseBody extends $tea.Model {
   requestId?: string;
-  data?: GetSceneRuleResponseBodyData;
+  success?: boolean;
   errorMessage?: string;
   code?: string;
-  success?: boolean;
+  data?: GetSceneRuleResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      data: 'Data',
+      success: 'Success',
       errorMessage: 'ErrorMessage',
       code: 'Code',
-      success: 'Success',
+      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      data: GetSceneRuleResponseBodyData,
+      success: 'boolean',
       errorMessage: 'string',
       code: 'string',
-      success: 'boolean',
+      data: GetSceneRuleResponseBodyData,
     };
   }
 
@@ -9115,27 +9326,27 @@ export class GetThingModelTslRequest extends $tea.Model {
 
 export class GetThingModelTslResponseBody extends $tea.Model {
   requestId?: string;
-  data?: GetThingModelTslResponseBodyData;
-  errorMessage?: string;
-  code?: string;
   success?: boolean;
+  code?: string;
+  errorMessage?: string;
+  data?: GetThingModelTslResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      data: 'Data',
-      errorMessage: 'ErrorMessage',
-      code: 'Code',
       success: 'Success',
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
+      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      data: GetThingModelTslResponseBodyData,
-      errorMessage: 'string',
-      code: 'string',
       success: 'boolean',
+      code: 'string',
+      errorMessage: 'string',
+      data: GetThingModelTslResponseBodyData,
     };
   }
 
@@ -9214,27 +9425,27 @@ export class GetThingModelTslPublishedRequest extends $tea.Model {
 
 export class GetThingModelTslPublishedResponseBody extends $tea.Model {
   requestId?: string;
-  data?: GetThingModelTslPublishedResponseBodyData;
-  errorMessage?: string;
-  code?: string;
   success?: boolean;
+  code?: string;
+  errorMessage?: string;
+  data?: GetThingModelTslPublishedResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      data: 'Data',
-      errorMessage: 'ErrorMessage',
-      code: 'Code',
       success: 'Success',
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
+      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      data: GetThingModelTslPublishedResponseBodyData,
-      errorMessage: 'string',
-      code: 'string',
       success: 'boolean',
+      code: 'string',
+      errorMessage: 'string',
+      data: GetThingModelTslPublishedResponseBodyData,
     };
   }
 
@@ -9295,27 +9506,27 @@ export class GetThingScriptRequest extends $tea.Model {
 
 export class GetThingScriptResponseBody extends $tea.Model {
   requestId?: string;
-  data?: GetThingScriptResponseBodyData;
-  errorMessage?: string;
-  code?: string;
   success?: boolean;
+  code?: string;
+  errorMessage?: string;
+  data?: GetThingScriptResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      data: 'Data',
-      errorMessage: 'ErrorMessage',
-      code: 'Code',
       success: 'Success',
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
+      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      data: GetThingScriptResponseBodyData,
-      errorMessage: 'string',
-      code: 'string',
       success: 'boolean',
+      code: 'string',
+      errorMessage: 'string',
+      data: GetThingScriptResponseBodyData,
     };
   }
 
@@ -9379,27 +9590,27 @@ export class GetThingTemplateRequest extends $tea.Model {
 
 export class GetThingTemplateResponseBody extends $tea.Model {
   requestId?: string;
-  thingModelJSON?: string;
-  errorMessage?: string;
-  code?: string;
   success?: boolean;
+  code?: string;
+  errorMessage?: string;
+  thingModelJSON?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      thingModelJSON: 'ThingModelJSON',
-      errorMessage: 'ErrorMessage',
-      code: 'Code',
       success: 'Success',
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
+      thingModelJSON: 'ThingModelJSON',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      thingModelJSON: 'string',
-      errorMessage: 'string',
-      code: 'string',
       success: 'boolean',
+      code: 'string',
+      errorMessage: 'string',
+      thingModelJSON: 'string',
     };
   }
 
@@ -9472,27 +9683,27 @@ export class GetThingTopoRequest extends $tea.Model {
 
 export class GetThingTopoResponseBody extends $tea.Model {
   requestId?: string;
-  data?: GetThingTopoResponseBodyData;
-  errorMessage?: string;
-  code?: string;
   success?: boolean;
+  code?: string;
+  errorMessage?: string;
+  data?: GetThingTopoResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      data: 'Data',
-      errorMessage: 'ErrorMessage',
-      code: 'Code',
       success: 'Success',
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
+      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      data: GetThingTopoResponseBodyData,
-      errorMessage: 'string',
-      code: 'string',
       success: 'boolean',
+      code: 'string',
+      errorMessage: 'string',
+      data: GetThingTopoResponseBodyData,
     };
   }
 
@@ -9574,24 +9785,24 @@ export class ImportThingModelTslRequest extends $tea.Model {
 
 export class ImportThingModelTslResponseBody extends $tea.Model {
   requestId?: string;
-  errorMessage?: string;
-  code?: string;
   success?: boolean;
+  code?: string;
+  errorMessage?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      errorMessage: 'ErrorMessage',
-      code: 'Code',
       success: 'Success',
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      errorMessage: 'string',
-      code: 'string',
       success: 'boolean',
+      code: 'string',
+      errorMessage: 'string',
     };
   }
 
@@ -9626,15 +9837,15 @@ export class InvokeDataAPIServiceRequest extends $tea.Model {
   apiProduct?: string;
   apiRevision?: string;
   apiSrn?: string;
-  iotInstanceId?: string;
   param?: InvokeDataAPIServiceRequestParam[];
+  iotInstanceId?: string;
   static names(): { [key: string]: string } {
     return {
       apiProduct: 'ApiProduct',
       apiRevision: 'ApiRevision',
       apiSrn: 'ApiSrn',
-      iotInstanceId: 'IotInstanceId',
       param: 'Param',
+      iotInstanceId: 'IotInstanceId',
     };
   }
 
@@ -9643,8 +9854,8 @@ export class InvokeDataAPIServiceRequest extends $tea.Model {
       apiProduct: 'string',
       apiRevision: 'string',
       apiSrn: 'string',
-      iotInstanceId: 'string',
       param: { 'type': 'array', 'itemType': InvokeDataAPIServiceRequestParam },
+      iotInstanceId: 'string',
     };
   }
 
@@ -9655,27 +9866,27 @@ export class InvokeDataAPIServiceRequest extends $tea.Model {
 
 export class InvokeDataAPIServiceResponseBody extends $tea.Model {
   requestId?: string;
-  data?: InvokeDataAPIServiceResponseBodyData;
-  errorMessage?: string;
-  code?: string;
   success?: boolean;
+  code?: string;
+  errorMessage?: string;
+  data?: InvokeDataAPIServiceResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      data: 'Data',
-      errorMessage: 'ErrorMessage',
-      code: 'Code',
       success: 'Success',
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
+      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      data: InvokeDataAPIServiceResponseBodyData,
-      errorMessage: 'string',
-      code: 'string',
       success: 'boolean',
+      code: 'string',
+      errorMessage: 'string',
+      data: InvokeDataAPIServiceResponseBodyData,
     };
   }
 
@@ -9715,6 +9926,8 @@ export class InvokeThingServiceRequest extends $tea.Model {
   identifier?: string;
   args?: string;
   iotId?: string;
+  realTenantId?: string;
+  realTripartiteKey?: string;
   static names(): { [key: string]: string } {
     return {
       apiProduct: 'ApiProduct',
@@ -9725,6 +9938,8 @@ export class InvokeThingServiceRequest extends $tea.Model {
       identifier: 'Identifier',
       args: 'Args',
       iotId: 'IotId',
+      realTenantId: 'RealTenantId',
+      realTripartiteKey: 'RealTripartiteKey',
     };
   }
 
@@ -9738,6 +9953,8 @@ export class InvokeThingServiceRequest extends $tea.Model {
       identifier: 'string',
       args: 'string',
       iotId: 'string',
+      realTenantId: 'string',
+      realTripartiteKey: 'string',
     };
   }
 
@@ -9748,27 +9965,27 @@ export class InvokeThingServiceRequest extends $tea.Model {
 
 export class InvokeThingServiceResponseBody extends $tea.Model {
   requestId?: string;
-  data?: InvokeThingServiceResponseBodyData;
+  success?: boolean;
   errorMessage?: string;
   code?: string;
-  success?: boolean;
+  data?: InvokeThingServiceResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      data: 'Data',
+      success: 'Success',
       errorMessage: 'ErrorMessage',
       code: 'Code',
-      success: 'Success',
+      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      data: InvokeThingServiceResponseBodyData,
+      success: 'boolean',
       errorMessage: 'string',
       code: 'string',
-      success: 'boolean',
+      data: InvokeThingServiceResponseBodyData,
     };
   }
 
@@ -9802,20 +10019,20 @@ export class InvokeThingServiceResponse extends $tea.Model {
 export class InvokeThingsServiceRequest extends $tea.Model {
   apiProduct?: string;
   apiRevision?: string;
+  deviceName?: string[];
   iotInstanceId?: string;
   productKey?: string;
   identifier?: string;
   args?: string;
-  deviceName?: string[];
   static names(): { [key: string]: string } {
     return {
       apiProduct: 'ApiProduct',
       apiRevision: 'ApiRevision',
+      deviceName: 'DeviceName',
       iotInstanceId: 'IotInstanceId',
       productKey: 'ProductKey',
       identifier: 'Identifier',
       args: 'Args',
-      deviceName: 'DeviceName',
     };
   }
 
@@ -9823,11 +10040,11 @@ export class InvokeThingsServiceRequest extends $tea.Model {
     return {
       apiProduct: 'string',
       apiRevision: 'string',
+      deviceName: { 'type': 'array', 'itemType': 'string' },
       iotInstanceId: 'string',
       productKey: 'string',
       identifier: 'string',
       args: 'string',
-      deviceName: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -9838,24 +10055,24 @@ export class InvokeThingsServiceRequest extends $tea.Model {
 
 export class InvokeThingsServiceResponseBody extends $tea.Model {
   requestId?: string;
+  success?: boolean;
   errorMessage?: string;
   code?: string;
-  success?: boolean;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
+      success: 'Success',
       errorMessage: 'ErrorMessage',
       code: 'Code',
-      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
+      success: 'boolean',
       errorMessage: 'string',
       code: 'string',
-      success: 'boolean',
     };
   }
 
@@ -9878,6 +10095,282 @@ export class InvokeThingsServiceResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: InvokeThingsServiceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDeviceDistributeJobRequest extends $tea.Model {
+  apiProduct?: string;
+  apiRevision?: string;
+  targetUid?: string;
+  currentPage?: number;
+  pageSize?: number;
+  status?: number;
+  static names(): { [key: string]: string } {
+    return {
+      apiProduct: 'ApiProduct',
+      apiRevision: 'ApiRevision',
+      targetUid: 'TargetUid',
+      currentPage: 'CurrentPage',
+      pageSize: 'PageSize',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiProduct: 'string',
+      apiRevision: 'string',
+      targetUid: 'string',
+      currentPage: 'number',
+      pageSize: 'number',
+      status: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDeviceDistributeJobResponseBody extends $tea.Model {
+  requestId?: string;
+  success?: boolean;
+  code?: string;
+  errorMessage?: string;
+  data?: ListDeviceDistributeJobResponseBodyData;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+      code: 'string',
+      errorMessage: 'string',
+      data: ListDeviceDistributeJobResponseBodyData,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDeviceDistributeJobResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListDeviceDistributeJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListDeviceDistributeJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDistributedDeviceRequest extends $tea.Model {
+  apiProduct?: string;
+  apiRevision?: string;
+  pageSize?: number;
+  productKey?: string;
+  deviceName?: string;
+  currentPage?: number;
+  targetUid?: string;
+  sourceInstanceId?: string;
+  targetInstanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      apiProduct: 'ApiProduct',
+      apiRevision: 'ApiRevision',
+      pageSize: 'PageSize',
+      productKey: 'ProductKey',
+      deviceName: 'DeviceName',
+      currentPage: 'CurrentPage',
+      targetUid: 'TargetUid',
+      sourceInstanceId: 'SourceInstanceId',
+      targetInstanceId: 'TargetInstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiProduct: 'string',
+      apiRevision: 'string',
+      pageSize: 'number',
+      productKey: 'string',
+      deviceName: 'string',
+      currentPage: 'number',
+      targetUid: 'string',
+      sourceInstanceId: 'string',
+      targetInstanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDistributedDeviceResponseBody extends $tea.Model {
+  requestId?: string;
+  success?: boolean;
+  code?: string;
+  errorMessage?: string;
+  data?: ListDistributedDeviceResponseBodyData;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+      code: 'string',
+      errorMessage: 'string',
+      data: ListDistributedDeviceResponseBodyData,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDistributedDeviceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListDistributedDeviceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListDistributedDeviceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDistributedProductRequest extends $tea.Model {
+  apiProduct?: string;
+  apiRevision?: string;
+  pageSize?: number;
+  sourceInstanceId?: string;
+  productKey?: string;
+  targetInstanceId?: string;
+  targetUid?: string;
+  currentPage?: number;
+  static names(): { [key: string]: string } {
+    return {
+      apiProduct: 'ApiProduct',
+      apiRevision: 'ApiRevision',
+      pageSize: 'PageSize',
+      sourceInstanceId: 'SourceInstanceId',
+      productKey: 'ProductKey',
+      targetInstanceId: 'TargetInstanceId',
+      targetUid: 'TargetUid',
+      currentPage: 'CurrentPage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiProduct: 'string',
+      apiRevision: 'string',
+      pageSize: 'number',
+      sourceInstanceId: 'string',
+      productKey: 'string',
+      targetInstanceId: 'string',
+      targetUid: 'string',
+      currentPage: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDistributedProductResponseBody extends $tea.Model {
+  requestId?: string;
+  success?: boolean;
+  code?: string;
+  errorMessage?: string;
+  data?: ListDistributedProductResponseBodyData;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+      code: 'string',
+      errorMessage: 'string',
+      data: ListDistributedProductResponseBodyData,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDistributedProductResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListDistributedProductResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListDistributedProductResponseBody,
     };
   }
 
@@ -11398,6 +11891,69 @@ export class NotifyAddThingTopoResponse extends $tea.Model {
   }
 }
 
+export class OpenIotServiceRequest extends $tea.Model {
+  ownerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OpenIotServiceResponseBody extends $tea.Model {
+  requestId?: string;
+  orderId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      orderId: 'OrderId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      orderId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OpenIotServiceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: OpenIotServiceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: OpenIotServiceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class PubRequest extends $tea.Model {
   apiProduct?: string;
   apiRevision?: string;
@@ -11791,6 +12347,8 @@ export class QueryBatchRegisterDeviceStatusRequest extends $tea.Model {
   iotInstanceId?: string;
   productKey?: string;
   applyId?: number;
+  realTenantId?: string;
+  realTripartiteKey?: string;
   static names(): { [key: string]: string } {
     return {
       apiProduct: 'ApiProduct',
@@ -11798,6 +12356,8 @@ export class QueryBatchRegisterDeviceStatusRequest extends $tea.Model {
       iotInstanceId: 'IotInstanceId',
       productKey: 'ProductKey',
       applyId: 'ApplyId',
+      realTenantId: 'RealTenantId',
+      realTripartiteKey: 'RealTripartiteKey',
     };
   }
 
@@ -11808,6 +12368,8 @@ export class QueryBatchRegisterDeviceStatusRequest extends $tea.Model {
       iotInstanceId: 'string',
       productKey: 'string',
       applyId: 'number',
+      realTenantId: 'string',
+      realTripartiteKey: 'string',
     };
   }
 
@@ -11942,90 +12504,6 @@ export class QueryCertUrlByApplyIdResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: QueryCertUrlByApplyIdResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryClientIdsRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
-  iotId?: string;
-  iotInstanceId?: string;
-  authConfig?: string;
-  static names(): { [key: string]: string } {
-    return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
-      iotId: 'IotId',
-      iotInstanceId: 'IotInstanceId',
-      authConfig: 'AuthConfig',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      apiProduct: 'string',
-      apiRevision: 'string',
-      iotId: 'string',
-      iotInstanceId: 'string',
-      authConfig: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryClientIdsResponseBody extends $tea.Model {
-  requestId?: string;
-  success?: boolean;
-  code?: string;
-  errorMessage?: string;
-  data?: QueryClientIdsResponseBodyData;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      success: 'Success',
-      code: 'Code',
-      errorMessage: 'ErrorMessage',
-      data: 'Data',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      success: 'boolean',
-      code: 'string',
-      errorMessage: 'string',
-      data: QueryClientIdsResponseBodyData,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryClientIdsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: QueryClientIdsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: QueryClientIdsResponseBody,
     };
   }
 
@@ -12410,6 +12888,8 @@ export class QueryDeviceRequest extends $tea.Model {
   pageSize?: number;
   productKey?: string;
   currentPage?: number;
+  realTenantId?: string;
+  realTripartiteKey?: string;
   static names(): { [key: string]: string } {
     return {
       apiProduct: 'ApiProduct',
@@ -12418,6 +12898,8 @@ export class QueryDeviceRequest extends $tea.Model {
       pageSize: 'PageSize',
       productKey: 'ProductKey',
       currentPage: 'CurrentPage',
+      realTenantId: 'RealTenantId',
+      realTripartiteKey: 'RealTripartiteKey',
     };
   }
 
@@ -12429,6 +12911,8 @@ export class QueryDeviceRequest extends $tea.Model {
       pageSize: 'number',
       productKey: 'string',
       currentPage: 'number',
+      realTenantId: 'string',
+      realTripartiteKey: 'string',
     };
   }
 
@@ -13075,6 +13559,162 @@ export class QueryDeviceDetailResponse extends $tea.Model {
   }
 }
 
+export class QueryDeviceDistributeDetailRequest extends $tea.Model {
+  apiProduct?: string;
+  apiRevision?: string;
+  jobId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      apiProduct: 'ApiProduct',
+      apiRevision: 'ApiRevision',
+      jobId: 'JobId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiProduct: 'string',
+      apiRevision: 'string',
+      jobId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDeviceDistributeDetailResponseBody extends $tea.Model {
+  requestId?: string;
+  success?: boolean;
+  code?: string;
+  errorMessage?: string;
+  file?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
+      file: 'File',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+      code: 'string',
+      errorMessage: 'string',
+      file: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDeviceDistributeDetailResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: QueryDeviceDistributeDetailResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: QueryDeviceDistributeDetailResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDeviceDistributeJobRequest extends $tea.Model {
+  apiProduct?: string;
+  apiRevision?: string;
+  jobId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      apiProduct: 'ApiProduct',
+      apiRevision: 'ApiRevision',
+      jobId: 'JobId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiProduct: 'string',
+      apiRevision: 'string',
+      jobId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDeviceDistributeJobResponseBody extends $tea.Model {
+  requestId?: string;
+  success?: boolean;
+  code?: string;
+  errorMessage?: string;
+  data?: QueryDeviceDistributeJobResponseBodyData;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+      code: 'string',
+      errorMessage: 'string',
+      data: QueryDeviceDistributeJobResponseBodyData,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDeviceDistributeJobResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: QueryDeviceDistributeJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: QueryDeviceDistributeJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryDeviceEventDataRequest extends $tea.Model {
   apiProduct?: string;
   apiRevision?: string;
@@ -13387,6 +14027,8 @@ export class QueryDeviceGroupByDeviceRequest extends $tea.Model {
   iotInstanceId?: string;
   productKey?: string;
   deviceName?: string;
+  realTenantId?: string;
+  realTripartiteKey?: string;
   static names(): { [key: string]: string } {
     return {
       apiProduct: 'ApiProduct',
@@ -13394,6 +14036,8 @@ export class QueryDeviceGroupByDeviceRequest extends $tea.Model {
       iotInstanceId: 'IotInstanceId',
       productKey: 'ProductKey',
       deviceName: 'DeviceName',
+      realTenantId: 'RealTenantId',
+      realTripartiteKey: 'RealTripartiteKey',
     };
   }
 
@@ -13404,6 +14048,8 @@ export class QueryDeviceGroupByDeviceRequest extends $tea.Model {
       iotInstanceId: 'string',
       productKey: 'string',
       deviceName: 'string',
+      realTenantId: 'string',
+      realTripartiteKey: 'string',
     };
   }
 
@@ -16256,6 +16902,8 @@ export class QueryPageByApplyIdRequest extends $tea.Model {
   pageSize?: number;
   applyId?: number;
   currentPage?: number;
+  realTenantId?: string;
+  realTripartiteKey?: string;
   static names(): { [key: string]: string } {
     return {
       apiProduct: 'ApiProduct',
@@ -16264,6 +16912,8 @@ export class QueryPageByApplyIdRequest extends $tea.Model {
       pageSize: 'PageSize',
       applyId: 'ApplyId',
       currentPage: 'CurrentPage',
+      realTenantId: 'RealTenantId',
+      realTripartiteKey: 'RealTripartiteKey',
     };
   }
 
@@ -16275,6 +16925,8 @@ export class QueryPageByApplyIdRequest extends $tea.Model {
       pageSize: 'number',
       applyId: 'number',
       currentPage: 'number',
+      realTenantId: 'string',
+      realTripartiteKey: 'string',
     };
   }
 
@@ -16524,6 +17176,8 @@ export class QueryProductListRequest extends $tea.Model {
   resourceGroupId?: string;
   aliyunCommodityCode?: string;
   currentPage?: number;
+  realTenantId?: string;
+  realTripartiteKey?: string;
   static names(): { [key: string]: string } {
     return {
       apiProduct: 'ApiProduct',
@@ -16533,6 +17187,8 @@ export class QueryProductListRequest extends $tea.Model {
       resourceGroupId: 'ResourceGroupId',
       aliyunCommodityCode: 'AliyunCommodityCode',
       currentPage: 'CurrentPage',
+      realTenantId: 'RealTenantId',
+      realTripartiteKey: 'RealTripartiteKey',
     };
   }
 
@@ -16545,6 +17201,8 @@ export class QueryProductListRequest extends $tea.Model {
       resourceGroupId: 'string',
       aliyunCommodityCode: 'string',
       currentPage: 'number',
+      realTenantId: 'string',
+      realTripartiteKey: 'string',
     };
   }
 
@@ -18941,6 +19599,7 @@ export class SpeechByCombinationRequest extends $tea.Model {
   iotId?: string;
   productKey?: string;
   deviceName?: string;
+  iotInstanceId?: string;
   static names(): { [key: string]: string } {
     return {
       apiProduct: 'ApiProduct',
@@ -18949,6 +19608,7 @@ export class SpeechByCombinationRequest extends $tea.Model {
       iotId: 'IotId',
       productKey: 'ProductKey',
       deviceName: 'DeviceName',
+      iotInstanceId: 'IotInstanceId',
     };
   }
 
@@ -18960,6 +19620,7 @@ export class SpeechByCombinationRequest extends $tea.Model {
       iotId: 'string',
       productKey: 'string',
       deviceName: 'string',
+      iotInstanceId: 'string',
     };
   }
 
@@ -19250,90 +19911,6 @@ export class StopRuleResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: StopRuleResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TransformClientIdRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
-  iotId?: string;
-  clientId?: string;
-  iotInstanceId?: string;
-  authConfig?: string;
-  static names(): { [key: string]: string } {
-    return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
-      iotId: 'IotId',
-      clientId: 'ClientId',
-      iotInstanceId: 'IotInstanceId',
-      authConfig: 'AuthConfig',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      apiProduct: 'string',
-      apiRevision: 'string',
-      iotId: 'string',
-      clientId: 'string',
-      iotInstanceId: 'string',
-      authConfig: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TransformClientIdResponseBody extends $tea.Model {
-  requestId?: string;
-  success?: boolean;
-  code?: string;
-  errorMessage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      success: 'Success',
-      code: 'Code',
-      errorMessage: 'ErrorMessage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      success: 'boolean',
-      code: 'string',
-      errorMessage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TransformClientIdResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: TransformClientIdResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: TransformClientIdResponseBody,
     };
   }
 
@@ -20456,6 +21033,8 @@ export class UpdateProductRequest extends $tea.Model {
   description?: string;
   productKey?: string;
   productName?: string;
+  realTenantId?: string;
+  realTripartiteKey?: string;
   static names(): { [key: string]: string } {
     return {
       apiProduct: 'ApiProduct',
@@ -20464,6 +21043,8 @@ export class UpdateProductRequest extends $tea.Model {
       description: 'Description',
       productKey: 'ProductKey',
       productName: 'ProductName',
+      realTenantId: 'RealTenantId',
+      realTripartiteKey: 'RealTripartiteKey',
     };
   }
 
@@ -20475,6 +21056,8 @@ export class UpdateProductRequest extends $tea.Model {
       description: 'string',
       productKey: 'string',
       productName: 'string',
+      realTenantId: 'string',
+      realTripartiteKey: 'string',
     };
   }
 
@@ -21465,16 +22048,16 @@ export class BatchAddThingTopoRequestTopoAddItem extends $tea.Model {
   productKey?: string;
   deviceName?: string;
   sign?: string;
-  timestamp?: string;
   signMethod?: string;
+  timestamp?: string;
   clientId?: string;
   static names(): { [key: string]: string } {
     return {
       productKey: 'ProductKey',
       deviceName: 'DeviceName',
       sign: 'Sign',
-      timestamp: 'Timestamp',
       signMethod: 'SignMethod',
+      timestamp: 'Timestamp',
       clientId: 'ClientId',
     };
   }
@@ -21484,42 +22067,8 @@ export class BatchAddThingTopoRequestTopoAddItem extends $tea.Model {
       productKey: 'string',
       deviceName: 'string',
       sign: 'string',
-      timestamp: 'string',
       signMethod: 'string',
-      clientId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BatchAddThingTopoShrinkRequestTopoAddItem extends $tea.Model {
-  productKey?: string;
-  deviceName?: string;
-  sign?: string;
-  timestamp?: string;
-  signMethod?: string;
-  clientId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      productKey: 'ProductKey',
-      deviceName: 'DeviceName',
-      sign: 'Sign',
-      timestamp: 'Timestamp',
-      signMethod: 'SignMethod',
-      clientId: 'ClientId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      productKey: 'string',
-      deviceName: 'string',
-      sign: 'string',
       timestamp: 'string',
-      signMethod: 'string',
       clientId: 'string',
     };
   }
@@ -21530,19 +22079,19 @@ export class BatchAddThingTopoShrinkRequestTopoAddItem extends $tea.Model {
 }
 
 export class BatchCheckDeviceNamesRequestDeviceNameList extends $tea.Model {
-  deviceNickname?: string;
   deviceName?: string;
+  deviceNickname?: string;
   static names(): { [key: string]: string } {
     return {
-      deviceNickname: 'DeviceNickname',
       deviceName: 'DeviceName',
+      deviceNickname: 'DeviceNickname',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      deviceNickname: 'string',
       deviceName: 'string',
+      deviceNickname: 'string',
     };
   }
 
@@ -21637,19 +22186,19 @@ export class BatchDeleteDeviceGroupRelationsRequestDevice extends $tea.Model {
 }
 
 export class BatchGetDeviceBindStatusResponseBodyData extends $tea.Model {
-  bindStatus?: number;
   iotId?: string;
+  bindStatus?: number;
   static names(): { [key: string]: string } {
     return {
-      bindStatus: 'BindStatus',
       iotId: 'IotId',
+      bindStatus: 'BindStatus',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      bindStatus: 'number',
       iotId: 'string',
+      bindStatus: 'number',
     };
   }
 
@@ -21659,30 +22208,30 @@ export class BatchGetDeviceBindStatusResponseBodyData extends $tea.Model {
 }
 
 export class BatchGetDeviceStateResponseBodyDeviceStatusListDeviceStatus extends $tea.Model {
-  status?: string;
-  lastOnlineTime?: string;
-  deviceName?: string;
   deviceId?: string;
+  deviceName?: string;
+  status?: string;
   asAddress?: string;
+  lastOnlineTime?: string;
   iotId?: string;
   static names(): { [key: string]: string } {
     return {
-      status: 'Status',
-      lastOnlineTime: 'LastOnlineTime',
-      deviceName: 'DeviceName',
       deviceId: 'DeviceId',
+      deviceName: 'DeviceName',
+      status: 'Status',
       asAddress: 'AsAddress',
+      lastOnlineTime: 'LastOnlineTime',
       iotId: 'IotId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      status: 'string',
-      lastOnlineTime: 'string',
-      deviceName: 'string',
       deviceId: 'string',
+      deviceName: 'string',
+      status: 'string',
       asAddress: 'string',
+      lastOnlineTime: 'string',
       iotId: 'string',
     };
   }
@@ -21712,40 +22261,40 @@ export class BatchGetDeviceStateResponseBodyDeviceStatusList extends $tea.Model 
 }
 
 export class BatchGetEdgeDriverResponseBodyDriverList extends $tea.Model {
-  gmtCreateTimestamp?: number;
-  type?: number;
-  cpuArch?: string;
   driverId?: string;
-  isBuiltIn?: boolean;
-  gmtModifiedTimestamp?: number;
-  runtime?: string;
   driverName?: string;
   driverProtocol?: string;
+  runtime?: string;
+  cpuArch?: string;
+  type?: number;
+  isBuiltIn?: boolean;
+  gmtCreateTimestamp?: number;
+  gmtModifiedTimestamp?: number;
   static names(): { [key: string]: string } {
     return {
-      gmtCreateTimestamp: 'GmtCreateTimestamp',
-      type: 'Type',
-      cpuArch: 'CpuArch',
       driverId: 'DriverId',
-      isBuiltIn: 'IsBuiltIn',
-      gmtModifiedTimestamp: 'GmtModifiedTimestamp',
-      runtime: 'Runtime',
       driverName: 'DriverName',
       driverProtocol: 'DriverProtocol',
+      runtime: 'Runtime',
+      cpuArch: 'CpuArch',
+      type: 'Type',
+      isBuiltIn: 'IsBuiltIn',
+      gmtCreateTimestamp: 'GmtCreateTimestamp',
+      gmtModifiedTimestamp: 'GmtModifiedTimestamp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      gmtCreateTimestamp: 'number',
-      type: 'number',
-      cpuArch: 'string',
       driverId: 'string',
-      isBuiltIn: 'boolean',
-      gmtModifiedTimestamp: 'number',
-      runtime: 'string',
       driverName: 'string',
       driverProtocol: 'string',
+      runtime: 'string',
+      cpuArch: 'string',
+      type: 'number',
+      isBuiltIn: 'boolean',
+      gmtCreateTimestamp: 'number',
+      gmtModifiedTimestamp: 'number',
     };
   }
 
@@ -21755,25 +22304,25 @@ export class BatchGetEdgeDriverResponseBodyDriverList extends $tea.Model {
 }
 
 export class BatchGetEdgeInstanceChannelResponseBodyDataChannelConfigListConfig extends $tea.Model {
-  key?: string;
   configId?: string;
   format?: string;
   content?: string;
+  key?: string;
   static names(): { [key: string]: string } {
     return {
-      key: 'Key',
       configId: 'ConfigId',
       format: 'Format',
       content: 'Content',
+      key: 'Key',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      key: 'string',
       configId: 'string',
       format: 'string',
       content: 'string',
+      key: 'string',
     };
   }
 
@@ -21802,21 +22351,21 @@ export class BatchGetEdgeInstanceChannelResponseBodyDataChannelConfigList extend
 }
 
 export class BatchGetEdgeInstanceChannelResponseBodyDataChannel extends $tea.Model {
-  channelName?: string;
   channelId?: string;
+  channelName?: string;
   configList?: BatchGetEdgeInstanceChannelResponseBodyDataChannelConfigList;
   static names(): { [key: string]: string } {
     return {
-      channelName: 'ChannelName',
       channelId: 'ChannelId',
+      channelName: 'ChannelName',
       configList: 'ConfigList',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      channelName: 'string',
       channelId: 'string',
+      channelName: 'string',
       configList: BatchGetEdgeInstanceChannelResponseBodyDataChannelConfigList,
     };
   }
@@ -21846,21 +22395,21 @@ export class BatchGetEdgeInstanceChannelResponseBodyData extends $tea.Model {
 }
 
 export class BatchGetEdgeInstanceDeviceChannelResponseBodyDeviceChannelList extends $tea.Model {
-  channelName?: string;
   channelId?: string;
+  channelName?: string;
   iotId?: string;
   static names(): { [key: string]: string } {
     return {
-      channelName: 'ChannelName',
       channelId: 'ChannelId',
+      channelName: 'ChannelName',
       iotId: 'IotId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      channelName: 'string',
       channelId: 'string',
+      channelName: 'string',
       iotId: 'string',
     };
   }
@@ -21871,19 +22420,19 @@ export class BatchGetEdgeInstanceDeviceChannelResponseBodyDeviceChannelList exte
 }
 
 export class BatchGetEdgeInstanceDeviceConfigResponseBodyDeviceConfigListConfig extends $tea.Model {
-  content?: string;
   format?: string;
+  content?: string;
   static names(): { [key: string]: string } {
     return {
-      content: 'Content',
       format: 'Format',
+      content: 'Content',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      content: 'string',
       format: 'string',
+      content: 'string',
     };
   }
 
@@ -21893,19 +22442,19 @@ export class BatchGetEdgeInstanceDeviceConfigResponseBodyDeviceConfigListConfig 
 }
 
 export class BatchGetEdgeInstanceDeviceConfigResponseBodyDeviceConfigList extends $tea.Model {
-  config?: BatchGetEdgeInstanceDeviceConfigResponseBodyDeviceConfigListConfig;
   iotId?: string;
+  config?: BatchGetEdgeInstanceDeviceConfigResponseBodyDeviceConfigListConfig;
   static names(): { [key: string]: string } {
     return {
-      config: 'Config',
       iotId: 'IotId',
+      config: 'Config',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      config: BatchGetEdgeInstanceDeviceConfigResponseBodyDeviceConfigListConfig,
       iotId: 'string',
+      config: BatchGetEdgeInstanceDeviceConfigResponseBodyDeviceConfigListConfig,
     };
   }
 
@@ -21937,25 +22486,25 @@ export class BatchGetEdgeInstanceDeviceDriverResponseBodyDeviceDriverList extend
 }
 
 export class BatchGetEdgeInstanceDriverConfigsResponseBodyDriverConfigListConfigList extends $tea.Model {
-  key?: string;
   configId?: string;
   format?: string;
   content?: string;
+  key?: string;
   static names(): { [key: string]: string } {
     return {
-      key: 'Key',
       configId: 'ConfigId',
       format: 'Format',
       content: 'Content',
+      key: 'Key',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      key: 'string',
       configId: 'string',
       format: 'string',
       content: 'string',
+      key: 'string',
     };
   }
 
@@ -21987,55 +22536,55 @@ export class BatchGetEdgeInstanceDriverConfigsResponseBodyDriverConfigList exten
 }
 
 export class BatchQueryDeviceDetailResponseBodyDataData extends $tea.Model {
-  status?: string;
-  utcActive?: string;
+  productKey?: string;
   productName?: string;
   deviceName?: string;
-  firmwareVersion?: string;
+  nickname?: string;
+  deviceSecret?: string;
+  iotId?: string;
   utcCreate?: string;
-  productKey?: string;
+  gmtCreate?: string;
+  utcActive?: string;
+  gmtActive?: string;
+  status?: string;
+  firmwareVersion?: string;
   nodeType?: number;
   region?: string;
-  deviceSecret?: string;
-  gmtActive?: string;
-  gmtCreate?: string;
-  nickname?: string;
-  iotId?: string;
   static names(): { [key: string]: string } {
     return {
-      status: 'Status',
-      utcActive: 'UtcActive',
+      productKey: 'ProductKey',
       productName: 'ProductName',
       deviceName: 'DeviceName',
-      firmwareVersion: 'FirmwareVersion',
+      nickname: 'Nickname',
+      deviceSecret: 'DeviceSecret',
+      iotId: 'IotId',
       utcCreate: 'UtcCreate',
-      productKey: 'ProductKey',
+      gmtCreate: 'GmtCreate',
+      utcActive: 'UtcActive',
+      gmtActive: 'GmtActive',
+      status: 'Status',
+      firmwareVersion: 'FirmwareVersion',
       nodeType: 'NodeType',
       region: 'Region',
-      deviceSecret: 'DeviceSecret',
-      gmtActive: 'GmtActive',
-      gmtCreate: 'GmtCreate',
-      nickname: 'Nickname',
-      iotId: 'IotId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      status: 'string',
-      utcActive: 'string',
+      productKey: 'string',
       productName: 'string',
       deviceName: 'string',
-      firmwareVersion: 'string',
+      nickname: 'string',
+      deviceSecret: 'string',
+      iotId: 'string',
       utcCreate: 'string',
-      productKey: 'string',
+      gmtCreate: 'string',
+      utcActive: 'string',
+      gmtActive: 'string',
+      status: 'string',
+      firmwareVersion: 'string',
       nodeType: 'number',
       region: 'string',
-      deviceSecret: 'string',
-      gmtActive: 'string',
-      gmtCreate: 'string',
-      nickname: 'string',
-      iotId: 'string',
     };
   }
 
@@ -22102,19 +22651,19 @@ export class BatchRegisterDeviceWithApplyIdResponseBodyData extends $tea.Model {
 }
 
 export class BatchSetEdgeInstanceDeviceConfigRequestDeviceConfigs extends $tea.Model {
-  content?: string;
   iotId?: string;
+  content?: string;
   static names(): { [key: string]: string } {
     return {
-      content: 'Content',
       iotId: 'IotId',
+      content: 'Content',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      content: 'string',
       iotId: 'string',
+      content: 'string',
     };
   }
 
@@ -22152,28 +22701,28 @@ export class BatchUpdateDeviceNicknameRequestDeviceNicknameInfo extends $tea.Mod
 }
 
 export class CreateDataAPIServiceRequestRequestParam extends $tea.Model {
-  type?: string;
-  required?: boolean;
-  example?: string;
   name?: string;
+  type?: string;
   desc?: string;
+  example?: string;
+  required?: boolean;
   static names(): { [key: string]: string } {
     return {
-      type: 'Type',
-      required: 'Required',
-      example: 'Example',
       name: 'Name',
+      type: 'Type',
       desc: 'Desc',
+      example: 'Example',
+      required: 'Required',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      type: 'string',
-      required: 'boolean',
-      example: 'string',
       name: 'string',
+      type: 'string',
       desc: 'string',
+      example: 'string',
+      required: 'boolean',
     };
   }
 
@@ -22183,28 +22732,28 @@ export class CreateDataAPIServiceRequestRequestParam extends $tea.Model {
 }
 
 export class CreateDataAPIServiceRequestResponseParam extends $tea.Model {
-  type?: string;
-  required?: boolean;
-  example?: string;
   name?: string;
+  type?: string;
   desc?: string;
+  example?: string;
+  required?: boolean;
   static names(): { [key: string]: string } {
     return {
-      type: 'Type',
-      required: 'Required',
-      example: 'Example',
       name: 'Name',
+      type: 'Type',
       desc: 'Desc',
+      example: 'Example',
+      required: 'Required',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      type: 'string',
-      required: 'boolean',
-      example: 'string',
       name: 'string',
+      type: 'string',
       desc: 'string',
+      example: 'string',
+      required: 'boolean',
     };
   }
 
@@ -22238,16 +22787,35 @@ export class CreateDataAPIServiceResponseBodyData extends $tea.Model {
   }
 }
 
+export class CreateDeviceDistributeJobRequestTargetInstanceConfig extends $tea.Model {
+  targetInstanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      targetInstanceId: 'TargetInstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      targetInstanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateDeviceGroupResponseBodyData extends $tea.Model {
   groupId?: string;
-  groupName?: string;
   utcCreate?: string;
+  groupName?: string;
   groupDesc?: string;
   static names(): { [key: string]: string } {
     return {
       groupId: 'GroupId',
-      groupName: 'GroupName',
       utcCreate: 'UtcCreate',
+      groupName: 'GroupName',
       groupDesc: 'GroupDesc',
     };
   }
@@ -22255,8 +22823,8 @@ export class CreateDeviceGroupResponseBodyData extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       groupId: 'string',
-      groupName: 'string',
       utcCreate: 'string',
+      groupName: 'string',
       groupDesc: 'string',
     };
   }
@@ -22267,22 +22835,22 @@ export class CreateDeviceGroupResponseBodyData extends $tea.Model {
 }
 
 export class CreateEdgeInstanceChannelRequestConfigs extends $tea.Model {
-  key?: string;
-  content?: string;
   format?: string;
+  content?: string;
+  key?: string;
   static names(): { [key: string]: string } {
     return {
-      key: 'Key',
-      content: 'Content',
       format: 'Format',
+      content: 'Content',
+      key: 'Key',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      key: 'string',
-      content: 'string',
       format: 'string',
+      content: 'string',
+      key: 'string',
     };
   }
 
@@ -22292,19 +22860,19 @@ export class CreateEdgeInstanceChannelRequestConfigs extends $tea.Model {
 }
 
 export class CreateEdgeOssPreSignedAddressResponseBodyData extends $tea.Model {
-  ossAddress?: string;
   ossPreSignedAddress?: string;
+  ossAddress?: string;
   static names(): { [key: string]: string } {
     return {
-      ossAddress: 'OssAddress',
       ossPreSignedAddress: 'OssPreSignedAddress',
+      ossAddress: 'OssAddress',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      ossAddress: 'string',
       ossPreSignedAddress: 'string',
+      ossAddress: 'string',
     };
   }
 
@@ -22380,19 +22948,19 @@ export class CreateOTADynamicUpgradeJobResponseBodyData extends $tea.Model {
 }
 
 export class CreateOTAFirmwareResponseBodyData extends $tea.Model {
-  utcCreate?: string;
   firmwareId?: string;
+  utcCreate?: string;
   static names(): { [key: string]: string } {
     return {
-      utcCreate: 'UtcCreate',
       firmwareId: 'FirmwareId',
+      utcCreate: 'UtcCreate',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      utcCreate: 'string',
       firmwareId: 'string',
+      utcCreate: 'string',
     };
   }
 
@@ -22468,43 +23036,43 @@ export class CreateOTAVerifyJobResponseBodyData extends $tea.Model {
 }
 
 export class CreateProductResponseBodyData extends $tea.Model {
-  authType?: string;
+  dataFormat?: number;
+  description?: string;
+  nodeType?: number;
   productKey?: string;
   productName?: string;
-  nodeType?: number;
-  description?: string;
-  id2?: boolean;
-  productSecret?: string;
-  protocolType?: string;
-  dataFormat?: number;
   aliyunCommodityCode?: string;
+  id2?: boolean;
+  protocolType?: string;
+  authType?: string;
+  productSecret?: string;
   static names(): { [key: string]: string } {
     return {
-      authType: 'AuthType',
+      dataFormat: 'DataFormat',
+      description: 'Description',
+      nodeType: 'NodeType',
       productKey: 'ProductKey',
       productName: 'ProductName',
-      nodeType: 'NodeType',
-      description: 'Description',
-      id2: 'Id2',
-      productSecret: 'ProductSecret',
-      protocolType: 'ProtocolType',
-      dataFormat: 'DataFormat',
       aliyunCommodityCode: 'AliyunCommodityCode',
+      id2: 'Id2',
+      protocolType: 'ProtocolType',
+      authType: 'AuthType',
+      productSecret: 'ProductSecret',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      authType: 'string',
+      dataFormat: 'number',
+      description: 'string',
+      nodeType: 'number',
       productKey: 'string',
       productName: 'string',
-      nodeType: 'number',
-      description: 'string',
-      id2: 'boolean',
-      productSecret: 'string',
-      protocolType: 'string',
-      dataFormat: 'number',
       aliyunCommodityCode: 'string',
+      id2: 'boolean',
+      protocolType: 'string',
+      authType: 'string',
+      productSecret: 'string',
     };
   }
 
@@ -22514,19 +23082,19 @@ export class CreateProductResponseBodyData extends $tea.Model {
 }
 
 export class CreateProductTagsRequestProductTag extends $tea.Model {
-  tagValue?: string;
   tagKey?: string;
+  tagValue?: string;
   static names(): { [key: string]: string } {
     return {
-      tagValue: 'TagValue',
       tagKey: 'TagKey',
+      tagValue: 'TagValue',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      tagValue: 'string',
       tagKey: 'string',
+      tagValue: 'string',
     };
   }
 
@@ -22536,19 +23104,19 @@ export class CreateProductTagsRequestProductTag extends $tea.Model {
 }
 
 export class CreateProductTagsResponseBodyInvalidProductTagsProductTag extends $tea.Model {
-  tagValue?: string;
   tagKey?: string;
+  tagValue?: string;
   static names(): { [key: string]: string } {
     return {
-      tagValue: 'TagValue',
       tagKey: 'TagKey',
+      tagValue: 'TagValue',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      tagValue: 'string',
       tagKey: 'string',
+      tagValue: 'string',
     };
   }
 
@@ -22577,7 +23145,7 @@ export class CreateProductTagsResponseBodyInvalidProductTags extends $tea.Model 
 }
 
 export class CreateTopicRouteTableResponseBodyFailureTopics extends $tea.Model {
-  topic?: { [key: string]: any }[];
+  topic?: { [key: string]: string }[];
   static names(): { [key: string]: string } {
     return {
       topic: 'Topic',
@@ -22586,7 +23154,7 @@ export class CreateTopicRouteTableResponseBodyFailureTopics extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      topic: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
+      topic: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'string' } },
     };
   }
 
@@ -22596,7 +23164,7 @@ export class CreateTopicRouteTableResponseBodyFailureTopics extends $tea.Model {
 }
 
 export class DeleteTopicRouteTableResponseBodyFailureTopics extends $tea.Model {
-  topic?: { [key: string]: any }[];
+  topic?: { [key: string]: string }[];
   static names(): { [key: string]: string } {
     return {
       topic: 'Topic',
@@ -22605,7 +23173,7 @@ export class DeleteTopicRouteTableResponseBodyFailureTopics extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      topic: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
+      topic: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'string' } },
     };
   }
 
@@ -22616,36 +23184,36 @@ export class DeleteTopicRouteTableResponseBodyFailureTopics extends $tea.Model {
 
 export class GenerateDeviceNameListURLResponseBodyData extends $tea.Model {
   key?: string;
-  signature?: string;
   host?: string;
-  fileUrl?: string;
   policy?: string;
-  objectStorage?: string;
-  utcCreate?: string;
   accessKeyId?: string;
+  signature?: string;
+  fileUrl?: string;
+  utcCreate?: string;
+  objectStorage?: string;
   static names(): { [key: string]: string } {
     return {
       key: 'Key',
-      signature: 'Signature',
       host: 'Host',
-      fileUrl: 'FileUrl',
       policy: 'Policy',
-      objectStorage: 'ObjectStorage',
-      utcCreate: 'UtcCreate',
       accessKeyId: 'AccessKeyId',
+      signature: 'Signature',
+      fileUrl: 'FileUrl',
+      utcCreate: 'UtcCreate',
+      objectStorage: 'ObjectStorage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       key: 'string',
-      signature: 'string',
       host: 'string',
-      fileUrl: 'string',
       policy: 'string',
-      objectStorage: 'string',
-      utcCreate: 'string',
       accessKeyId: 'string',
+      signature: 'string',
+      fileUrl: 'string',
+      utcCreate: 'string',
+      objectStorage: 'string',
     };
   }
 
@@ -22656,18 +23224,18 @@ export class GenerateDeviceNameListURLResponseBodyData extends $tea.Model {
 
 export class GenerateFileUploadURLResponseBodyData extends $tea.Model {
   key?: string;
-  ossAccessKeyId?: string;
-  signature?: string;
   host?: string;
   policy?: string;
+  ossAccessKeyId?: string;
+  signature?: string;
   objectStorage?: string;
   static names(): { [key: string]: string } {
     return {
       key: 'Key',
-      ossAccessKeyId: 'OssAccessKeyId',
-      signature: 'Signature',
       host: 'Host',
       policy: 'Policy',
+      ossAccessKeyId: 'OssAccessKeyId',
+      signature: 'Signature',
       objectStorage: 'ObjectStorage',
     };
   }
@@ -22675,10 +23243,10 @@ export class GenerateFileUploadURLResponseBodyData extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       key: 'string',
-      ossAccessKeyId: 'string',
-      signature: 'string',
       host: 'string',
       policy: 'string',
+      ossAccessKeyId: 'string',
+      signature: 'string',
       objectStorage: 'string',
     };
   }
@@ -22690,36 +23258,36 @@ export class GenerateFileUploadURLResponseBodyData extends $tea.Model {
 
 export class GenerateOTAUploadURLResponseBodyData extends $tea.Model {
   key?: string;
-  OSSAccessKeyId?: string;
-  signature?: string;
   host?: string;
   policy?: string;
-  objectStorage?: string;
+  OSSAccessKeyId?: string;
+  signature?: string;
   firmwareUrl?: string;
   utcCreate?: string;
+  objectStorage?: string;
   static names(): { [key: string]: string } {
     return {
       key: 'Key',
-      OSSAccessKeyId: 'OSSAccessKeyId',
-      signature: 'Signature',
       host: 'Host',
       policy: 'Policy',
-      objectStorage: 'ObjectStorage',
+      OSSAccessKeyId: 'OSSAccessKeyId',
+      signature: 'Signature',
       firmwareUrl: 'FirmwareUrl',
       utcCreate: 'UtcCreate',
+      objectStorage: 'ObjectStorage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       key: 'string',
-      OSSAccessKeyId: 'string',
-      signature: 'string',
       host: 'string',
       policy: 'string',
-      objectStorage: 'string',
+      OSSAccessKeyId: 'string',
+      signature: 'string',
       firmwareUrl: 'string',
       utcCreate: 'string',
+      objectStorage: 'string',
     };
   }
 
@@ -22729,28 +23297,28 @@ export class GenerateOTAUploadURLResponseBodyData extends $tea.Model {
 }
 
 export class GetDataAPIServiceDetailResponseBodyDataSqlTemplateDTORequestParamsRequestParams extends $tea.Model {
-  type?: string;
-  required?: boolean;
-  example?: string;
   name?: string;
+  type?: string;
   desc?: string;
+  example?: string;
+  required?: boolean;
   static names(): { [key: string]: string } {
     return {
-      type: 'Type',
-      required: 'Required',
-      example: 'Example',
       name: 'Name',
+      type: 'Type',
       desc: 'Desc',
+      example: 'Example',
+      required: 'Required',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      type: 'string',
-      required: 'boolean',
-      example: 'string',
       name: 'string',
+      type: 'string',
       desc: 'string',
+      example: 'string',
+      required: 'boolean',
     };
   }
 
@@ -22779,28 +23347,28 @@ export class GetDataAPIServiceDetailResponseBodyDataSqlTemplateDTORequestParams 
 }
 
 export class GetDataAPIServiceDetailResponseBodyDataSqlTemplateDTOResponseParamsResponseParams extends $tea.Model {
-  type?: string;
-  required?: boolean;
-  example?: string;
   name?: string;
+  type?: string;
   desc?: string;
+  example?: string;
+  required?: boolean;
   static names(): { [key: string]: string } {
     return {
-      type: 'Type',
-      required: 'Required',
-      example: 'Example',
       name: 'Name',
+      type: 'Type',
       desc: 'Desc',
+      example: 'Example',
+      required: 'Required',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      type: 'string',
-      required: 'boolean',
-      example: 'string',
       name: 'string',
+      type: 'string',
       desc: 'string',
+      example: 'string',
+      required: 'boolean',
     };
   }
 
@@ -22829,25 +23397,25 @@ export class GetDataAPIServiceDetailResponseBodyDataSqlTemplateDTOResponseParams
 }
 
 export class GetDataAPIServiceDetailResponseBodyDataSqlTemplateDTO extends $tea.Model {
-  requestParams?: GetDataAPIServiceDetailResponseBodyDataSqlTemplateDTORequestParams;
   originSql?: string;
-  responseParams?: GetDataAPIServiceDetailResponseBodyDataSqlTemplateDTOResponseParams;
   templateSql?: string;
+  requestParams?: GetDataAPIServiceDetailResponseBodyDataSqlTemplateDTORequestParams;
+  responseParams?: GetDataAPIServiceDetailResponseBodyDataSqlTemplateDTOResponseParams;
   static names(): { [key: string]: string } {
     return {
-      requestParams: 'RequestParams',
       originSql: 'OriginSql',
-      responseParams: 'ResponseParams',
       templateSql: 'TemplateSql',
+      requestParams: 'RequestParams',
+      responseParams: 'ResponseParams',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestParams: GetDataAPIServiceDetailResponseBodyDataSqlTemplateDTORequestParams,
       originSql: 'string',
-      responseParams: GetDataAPIServiceDetailResponseBodyDataSqlTemplateDTOResponseParams,
       templateSql: 'string',
+      requestParams: GetDataAPIServiceDetailResponseBodyDataSqlTemplateDTORequestParams,
+      responseParams: GetDataAPIServiceDetailResponseBodyDataSqlTemplateDTOResponseParams,
     };
   }
 
@@ -22857,46 +23425,46 @@ export class GetDataAPIServiceDetailResponseBodyDataSqlTemplateDTO extends $tea.
 }
 
 export class GetDataAPIServiceDetailResponseBodyData extends $tea.Model {
-  displayName?: string;
-  status?: number;
   apiSrn?: string;
-  sqlTemplateDTO?: GetDataAPIServiceDetailResponseBodyDataSqlTemplateDTO;
-  description?: string;
+  status?: number;
+  displayName?: string;
+  apiPath?: string;
   createTime?: number;
   lastUpdateTime?: number;
-  requestMethod?: string;
   dateFormat?: string;
+  requestMethod?: string;
   requestProtocol?: string;
-  apiPath?: string;
+  description?: string;
+  sqlTemplateDTO?: GetDataAPIServiceDetailResponseBodyDataSqlTemplateDTO;
   static names(): { [key: string]: string } {
     return {
-      displayName: 'DisplayName',
-      status: 'Status',
       apiSrn: 'ApiSrn',
-      sqlTemplateDTO: 'SqlTemplateDTO',
-      description: 'Description',
+      status: 'Status',
+      displayName: 'DisplayName',
+      apiPath: 'ApiPath',
       createTime: 'CreateTime',
       lastUpdateTime: 'LastUpdateTime',
-      requestMethod: 'RequestMethod',
       dateFormat: 'DateFormat',
+      requestMethod: 'RequestMethod',
       requestProtocol: 'RequestProtocol',
-      apiPath: 'ApiPath',
+      description: 'Description',
+      sqlTemplateDTO: 'SqlTemplateDTO',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      displayName: 'string',
-      status: 'number',
       apiSrn: 'string',
-      sqlTemplateDTO: GetDataAPIServiceDetailResponseBodyDataSqlTemplateDTO,
-      description: 'string',
+      status: 'number',
+      displayName: 'string',
+      apiPath: 'string',
       createTime: 'number',
       lastUpdateTime: 'number',
-      requestMethod: 'string',
       dateFormat: 'string',
+      requestMethod: 'string',
       requestProtocol: 'string',
-      apiPath: 'string',
+      description: 'string',
+      sqlTemplateDTO: GetDataAPIServiceDetailResponseBodyDataSqlTemplateDTO,
     };
   }
 
@@ -22925,49 +23493,49 @@ export class GetDeviceStatusResponseBodyData extends $tea.Model {
 }
 
 export class GetEdgeDriverVersionResponseBodyData extends $tea.Model {
-  gmtCreateTimestamp?: number;
-  configCheckRule?: string;
-  edgeVersion?: string;
   driverId?: string;
-  gmtModifiedTimestamp?: number;
-  versionState?: string;
-  containerConfig?: string;
-  description?: string;
-  driverConfig?: string;
-  argument?: string;
   driverVersion?: string;
+  versionState?: string;
+  edgeVersion?: string;
+  description?: string;
   sourceConfig?: string;
+  driverConfig?: string;
+  containerConfig?: string;
+  configCheckRule?: string;
+  gmtCreateTimestamp?: number;
+  gmtModifiedTimestamp?: number;
+  argument?: string;
   static names(): { [key: string]: string } {
     return {
-      gmtCreateTimestamp: 'GmtCreateTimestamp',
-      configCheckRule: 'ConfigCheckRule',
-      edgeVersion: 'EdgeVersion',
       driverId: 'DriverId',
-      gmtModifiedTimestamp: 'GmtModifiedTimestamp',
-      versionState: 'VersionState',
-      containerConfig: 'ContainerConfig',
-      description: 'Description',
-      driverConfig: 'DriverConfig',
-      argument: 'Argument',
       driverVersion: 'DriverVersion',
+      versionState: 'VersionState',
+      edgeVersion: 'EdgeVersion',
+      description: 'Description',
       sourceConfig: 'SourceConfig',
+      driverConfig: 'DriverConfig',
+      containerConfig: 'ContainerConfig',
+      configCheckRule: 'ConfigCheckRule',
+      gmtCreateTimestamp: 'GmtCreateTimestamp',
+      gmtModifiedTimestamp: 'GmtModifiedTimestamp',
+      argument: 'Argument',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      gmtCreateTimestamp: 'number',
-      configCheckRule: 'string',
-      edgeVersion: 'string',
       driverId: 'string',
-      gmtModifiedTimestamp: 'number',
-      versionState: 'string',
-      containerConfig: 'string',
-      description: 'string',
-      driverConfig: 'string',
-      argument: 'string',
       driverVersion: 'string',
+      versionState: 'string',
+      edgeVersion: 'string',
+      description: 'string',
       sourceConfig: 'string',
+      driverConfig: 'string',
+      containerConfig: 'string',
+      configCheckRule: 'string',
+      gmtCreateTimestamp: 'number',
+      gmtModifiedTimestamp: 'number',
+      argument: 'string',
     };
   }
 
@@ -22977,61 +23545,61 @@ export class GetEdgeDriverVersionResponseBodyData extends $tea.Model {
 }
 
 export class GetEdgeInstanceResponseBodyData extends $tea.Model {
-  type?: string;
-  gmtCreateTimestamp?: number;
-  roleArn?: string;
-  roleAttachTime?: string;
-  spec?: number;
-  gmtModifiedTimestamp?: number;
-  tags?: string;
-  roleName?: string;
   instanceId?: string;
-  gmtModified?: string;
-  roleAttachTimestamp?: number;
-  latestDeploymentType?: string;
-  latestDeploymentStatus?: number;
+  name?: string;
+  tags?: string;
+  type?: string;
+  spec?: number;
   bizEnable?: boolean;
   gmtCreate?: string;
-  name?: string;
+  gmtModified?: string;
+  roleArn?: string;
+  roleName?: string;
+  roleAttachTime?: string;
+  latestDeploymentStatus?: number;
+  latestDeploymentType?: string;
+  gmtCreateTimestamp?: number;
+  gmtModifiedTimestamp?: number;
+  roleAttachTimestamp?: number;
   static names(): { [key: string]: string } {
     return {
-      type: 'Type',
-      gmtCreateTimestamp: 'GmtCreateTimestamp',
-      roleArn: 'RoleArn',
-      roleAttachTime: 'RoleAttachTime',
-      spec: 'Spec',
-      gmtModifiedTimestamp: 'GmtModifiedTimestamp',
-      tags: 'Tags',
-      roleName: 'RoleName',
       instanceId: 'InstanceId',
-      gmtModified: 'GmtModified',
-      roleAttachTimestamp: 'RoleAttachTimestamp',
-      latestDeploymentType: 'LatestDeploymentType',
-      latestDeploymentStatus: 'LatestDeploymentStatus',
+      name: 'Name',
+      tags: 'Tags',
+      type: 'Type',
+      spec: 'Spec',
       bizEnable: 'BizEnable',
       gmtCreate: 'GmtCreate',
-      name: 'Name',
+      gmtModified: 'GmtModified',
+      roleArn: 'RoleArn',
+      roleName: 'RoleName',
+      roleAttachTime: 'RoleAttachTime',
+      latestDeploymentStatus: 'LatestDeploymentStatus',
+      latestDeploymentType: 'LatestDeploymentType',
+      gmtCreateTimestamp: 'GmtCreateTimestamp',
+      gmtModifiedTimestamp: 'GmtModifiedTimestamp',
+      roleAttachTimestamp: 'RoleAttachTimestamp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      type: 'string',
-      gmtCreateTimestamp: 'number',
-      roleArn: 'string',
-      roleAttachTime: 'string',
-      spec: 'number',
-      gmtModifiedTimestamp: 'number',
-      tags: 'string',
-      roleName: 'string',
       instanceId: 'string',
-      gmtModified: 'string',
-      roleAttachTimestamp: 'number',
-      latestDeploymentType: 'string',
-      latestDeploymentStatus: 'number',
+      name: 'string',
+      tags: 'string',
+      type: 'string',
+      spec: 'number',
       bizEnable: 'boolean',
       gmtCreate: 'string',
-      name: 'string',
+      gmtModified: 'string',
+      roleArn: 'string',
+      roleName: 'string',
+      roleAttachTime: 'string',
+      latestDeploymentStatus: 'number',
+      latestDeploymentType: 'string',
+      gmtCreateTimestamp: 'number',
+      gmtModifiedTimestamp: 'number',
+      roleAttachTimestamp: 'number',
     };
   }
 
@@ -23041,55 +23609,55 @@ export class GetEdgeInstanceResponseBodyData extends $tea.Model {
 }
 
 export class GetEdgeInstanceDeploymentResponseBodyDataTaskListResourceSnapshotList extends $tea.Model {
-  gmtCreateTimestamp?: number;
-  status?: number;
-  stage?: number;
-  gmtModifiedTimestamp?: number;
-  log?: string;
-  gmtModified?: string;
-  operateType?: number;
-  resourceType?: string;
-  snapshotId?: string;
-  gmtCompleted?: string;
   gmtCreate?: string;
-  gmtCompletedTimestamp?: number;
+  gmtModified?: string;
+  gmtCompleted?: string;
+  snapshotId?: string;
+  resourceType?: string;
   resourceId?: string;
   resourceName?: string;
+  operateType?: number;
+  stage?: number;
+  status?: number;
+  log?: string;
+  gmtCreateTimestamp?: number;
+  gmtModifiedTimestamp?: number;
+  gmtCompletedTimestamp?: number;
   static names(): { [key: string]: string } {
     return {
-      gmtCreateTimestamp: 'GmtCreateTimestamp',
-      status: 'Status',
-      stage: 'Stage',
-      gmtModifiedTimestamp: 'GmtModifiedTimestamp',
-      log: 'Log',
-      gmtModified: 'GmtModified',
-      operateType: 'OperateType',
-      resourceType: 'ResourceType',
-      snapshotId: 'SnapshotId',
-      gmtCompleted: 'GmtCompleted',
       gmtCreate: 'GmtCreate',
-      gmtCompletedTimestamp: 'GmtCompletedTimestamp',
+      gmtModified: 'GmtModified',
+      gmtCompleted: 'GmtCompleted',
+      snapshotId: 'SnapshotId',
+      resourceType: 'ResourceType',
       resourceId: 'ResourceId',
       resourceName: 'ResourceName',
+      operateType: 'OperateType',
+      stage: 'Stage',
+      status: 'Status',
+      log: 'Log',
+      gmtCreateTimestamp: 'GmtCreateTimestamp',
+      gmtModifiedTimestamp: 'GmtModifiedTimestamp',
+      gmtCompletedTimestamp: 'GmtCompletedTimestamp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      gmtCreateTimestamp: 'number',
-      status: 'number',
-      stage: 'number',
-      gmtModifiedTimestamp: 'number',
-      log: 'string',
-      gmtModified: 'string',
-      operateType: 'number',
-      resourceType: 'string',
-      snapshotId: 'string',
-      gmtCompleted: 'string',
       gmtCreate: 'string',
-      gmtCompletedTimestamp: 'number',
+      gmtModified: 'string',
+      gmtCompleted: 'string',
+      snapshotId: 'string',
+      resourceType: 'string',
       resourceId: 'string',
       resourceName: 'string',
+      operateType: 'number',
+      stage: 'number',
+      status: 'number',
+      log: 'string',
+      gmtCreateTimestamp: 'number',
+      gmtModifiedTimestamp: 'number',
+      gmtCompletedTimestamp: 'number',
     };
   }
 
@@ -23099,46 +23667,46 @@ export class GetEdgeInstanceDeploymentResponseBodyDataTaskListResourceSnapshotLi
 }
 
 export class GetEdgeInstanceDeploymentResponseBodyDataTaskList extends $tea.Model {
-  gmtCreateTimestamp?: number;
-  status?: number;
-  resourceSnapshotList?: GetEdgeInstanceDeploymentResponseBodyDataTaskListResourceSnapshotList[];
-  stage?: number;
-  gatewayId?: string;
-  gmtModifiedTimestamp?: number;
-  gmtCompleted?: string;
   gmtCreate?: string;
-  gmtCompletedTimestamp?: number;
   gmtModified?: string;
+  gmtCompleted?: string;
+  gatewayId?: string;
   taskId?: string;
+  stage?: number;
+  status?: number;
+  gmtCreateTimestamp?: number;
+  gmtModifiedTimestamp?: number;
+  gmtCompletedTimestamp?: number;
+  resourceSnapshotList?: GetEdgeInstanceDeploymentResponseBodyDataTaskListResourceSnapshotList[];
   static names(): { [key: string]: string } {
     return {
-      gmtCreateTimestamp: 'GmtCreateTimestamp',
-      status: 'Status',
-      resourceSnapshotList: 'ResourceSnapshotList',
-      stage: 'Stage',
-      gatewayId: 'GatewayId',
-      gmtModifiedTimestamp: 'GmtModifiedTimestamp',
-      gmtCompleted: 'GmtCompleted',
       gmtCreate: 'GmtCreate',
-      gmtCompletedTimestamp: 'GmtCompletedTimestamp',
       gmtModified: 'GmtModified',
+      gmtCompleted: 'GmtCompleted',
+      gatewayId: 'GatewayId',
       taskId: 'TaskId',
+      stage: 'Stage',
+      status: 'Status',
+      gmtCreateTimestamp: 'GmtCreateTimestamp',
+      gmtModifiedTimestamp: 'GmtModifiedTimestamp',
+      gmtCompletedTimestamp: 'GmtCompletedTimestamp',
+      resourceSnapshotList: 'ResourceSnapshotList',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      gmtCreateTimestamp: 'number',
-      status: 'number',
-      resourceSnapshotList: { 'type': 'array', 'itemType': GetEdgeInstanceDeploymentResponseBodyDataTaskListResourceSnapshotList },
-      stage: 'number',
-      gatewayId: 'string',
-      gmtModifiedTimestamp: 'number',
-      gmtCompleted: 'string',
       gmtCreate: 'string',
-      gmtCompletedTimestamp: 'number',
       gmtModified: 'string',
+      gmtCompleted: 'string',
+      gatewayId: 'string',
       taskId: 'string',
+      stage: 'number',
+      status: 'number',
+      gmtCreateTimestamp: 'number',
+      gmtModifiedTimestamp: 'number',
+      gmtCompletedTimestamp: 'number',
+      resourceSnapshotList: { 'type': 'array', 'itemType': GetEdgeInstanceDeploymentResponseBodyDataTaskListResourceSnapshotList },
     };
   }
 
@@ -23148,46 +23716,46 @@ export class GetEdgeInstanceDeploymentResponseBodyDataTaskList extends $tea.Mode
 }
 
 export class GetEdgeInstanceDeploymentResponseBodyData extends $tea.Model {
-  gmtCreateTimestamp?: number;
-  type?: string;
-  status?: number;
+  gmtCreate?: string;
+  gmtModified?: string;
+  gmtCompleted?: string;
   deploymentId?: string;
   description?: string;
+  status?: number;
+  type?: string;
+  gmtCreateTimestamp?: number;
   gmtModifiedTimestamp?: number;
-  taskList?: GetEdgeInstanceDeploymentResponseBodyDataTaskList[];
-  gmtCompleted?: string;
-  gmtCreate?: string;
   gmtCompletedTimestamp?: number;
-  gmtModified?: string;
+  taskList?: GetEdgeInstanceDeploymentResponseBodyDataTaskList[];
   static names(): { [key: string]: string } {
     return {
-      gmtCreateTimestamp: 'GmtCreateTimestamp',
-      type: 'Type',
-      status: 'Status',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      gmtCompleted: 'GmtCompleted',
       deploymentId: 'DeploymentId',
       description: 'Description',
+      status: 'Status',
+      type: 'Type',
+      gmtCreateTimestamp: 'GmtCreateTimestamp',
       gmtModifiedTimestamp: 'GmtModifiedTimestamp',
-      taskList: 'TaskList',
-      gmtCompleted: 'GmtCompleted',
-      gmtCreate: 'GmtCreate',
       gmtCompletedTimestamp: 'GmtCompletedTimestamp',
-      gmtModified: 'GmtModified',
+      taskList: 'TaskList',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      gmtCreateTimestamp: 'number',
-      type: 'string',
-      status: 'number',
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      gmtCompleted: 'string',
       deploymentId: 'string',
       description: 'string',
+      status: 'number',
+      type: 'string',
+      gmtCreateTimestamp: 'number',
       gmtModifiedTimestamp: 'number',
-      taskList: { 'type': 'array', 'itemType': GetEdgeInstanceDeploymentResponseBodyDataTaskList },
-      gmtCompleted: 'string',
-      gmtCreate: 'string',
       gmtCompletedTimestamp: 'number',
-      gmtModified: 'string',
+      taskList: { 'type': 'array', 'itemType': GetEdgeInstanceDeploymentResponseBodyDataTaskList },
     };
   }
 
@@ -23197,61 +23765,61 @@ export class GetEdgeInstanceDeploymentResponseBodyData extends $tea.Model {
 }
 
 export class GetGatewayBySubDeviceResponseBodyData extends $tea.Model {
-  status?: string;
-  utcActive?: string;
-  productName?: string;
-  deviceName?: string;
-  utcCreate?: string;
-  firmwareVersion?: string;
-  gmtOnline?: string;
-  region?: string;
-  iotId?: string;
-  utcOnline?: string;
   productKey?: string;
+  productName?: string;
+  deviceSecret?: string;
+  deviceName?: string;
+  firmwareVersion?: string;
+  gmtCreate?: string;
+  utcCreate?: string;
+  gmtActive?: string;
+  utcActive?: string;
+  gmtOnline?: string;
+  utcOnline?: string;
+  status?: string;
   ipAddress?: string;
   nodeType?: string;
-  deviceSecret?: string;
-  gmtCreate?: string;
-  gmtActive?: string;
+  region?: string;
+  iotId?: string;
   static names(): { [key: string]: string } {
     return {
-      status: 'Status',
-      utcActive: 'UtcActive',
-      productName: 'ProductName',
-      deviceName: 'DeviceName',
-      utcCreate: 'UtcCreate',
-      firmwareVersion: 'FirmwareVersion',
-      gmtOnline: 'GmtOnline',
-      region: 'region',
-      iotId: 'iotId',
-      utcOnline: 'UtcOnline',
       productKey: 'ProductKey',
+      productName: 'ProductName',
+      deviceSecret: 'DeviceSecret',
+      deviceName: 'DeviceName',
+      firmwareVersion: 'FirmwareVersion',
+      gmtCreate: 'GmtCreate',
+      utcCreate: 'UtcCreate',
+      gmtActive: 'GmtActive',
+      utcActive: 'UtcActive',
+      gmtOnline: 'GmtOnline',
+      utcOnline: 'UtcOnline',
+      status: 'Status',
       ipAddress: 'IpAddress',
       nodeType: 'NodeType',
-      deviceSecret: 'DeviceSecret',
-      gmtCreate: 'GmtCreate',
-      gmtActive: 'GmtActive',
+      region: 'region',
+      iotId: 'iotId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      status: 'string',
-      utcActive: 'string',
-      productName: 'string',
-      deviceName: 'string',
-      utcCreate: 'string',
-      firmwareVersion: 'string',
-      gmtOnline: 'string',
-      region: 'string',
-      iotId: 'string',
-      utcOnline: 'string',
       productKey: 'string',
+      productName: 'string',
+      deviceSecret: 'string',
+      deviceName: 'string',
+      firmwareVersion: 'string',
+      gmtCreate: 'string',
+      utcCreate: 'string',
+      gmtActive: 'string',
+      utcActive: 'string',
+      gmtOnline: 'string',
+      utcOnline: 'string',
+      status: 'string',
       ipAddress: 'string',
       nodeType: 'string',
-      deviceSecret: 'string',
-      gmtCreate: 'string',
-      gmtActive: 'string',
+      region: 'string',
+      iotId: 'string',
     };
   }
 
@@ -23299,61 +23867,61 @@ export class GetNodesAddingTaskResponseBodySuccessDevEuis extends $tea.Model {
 }
 
 export class GetRuleResponseBodyRuleInfo extends $tea.Model {
-  status?: string;
-  modified?: string;
-  dataType?: string;
+  id?: number;
   select?: string;
-  utcCreated?: string;
-  createUserId?: number;
-  topicType?: number;
-  where?: string;
-  productKey?: string;
-  utcModified?: string;
   topic?: string;
   shortTopic?: string;
-  ruleDesc?: string;
+  where?: string;
+  status?: string;
+  createUserId?: number;
+  productKey?: string;
   name?: string;
+  ruleDesc?: string;
+  dataType?: string;
   created?: string;
-  id?: number;
+  utcCreated?: string;
+  modified?: string;
+  utcModified?: string;
+  topicType?: number;
   static names(): { [key: string]: string } {
     return {
-      status: 'Status',
-      modified: 'Modified',
-      dataType: 'DataType',
+      id: 'Id',
       select: 'Select',
-      utcCreated: 'UtcCreated',
-      createUserId: 'CreateUserId',
-      topicType: 'TopicType',
-      where: 'Where',
-      productKey: 'ProductKey',
-      utcModified: 'UtcModified',
       topic: 'Topic',
       shortTopic: 'ShortTopic',
-      ruleDesc: 'RuleDesc',
+      where: 'Where',
+      status: 'Status',
+      createUserId: 'CreateUserId',
+      productKey: 'ProductKey',
       name: 'Name',
+      ruleDesc: 'RuleDesc',
+      dataType: 'DataType',
       created: 'Created',
-      id: 'Id',
+      utcCreated: 'UtcCreated',
+      modified: 'Modified',
+      utcModified: 'UtcModified',
+      topicType: 'TopicType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      status: 'string',
-      modified: 'string',
-      dataType: 'string',
+      id: 'number',
       select: 'string',
-      utcCreated: 'string',
-      createUserId: 'number',
-      topicType: 'number',
-      where: 'string',
-      productKey: 'string',
-      utcModified: 'string',
       topic: 'string',
       shortTopic: 'string',
-      ruleDesc: 'string',
+      where: 'string',
+      status: 'string',
+      createUserId: 'number',
+      productKey: 'string',
       name: 'string',
+      ruleDesc: 'string',
+      dataType: 'string',
       created: 'string',
-      id: 'number',
+      utcCreated: 'string',
+      modified: 'string',
+      utcModified: 'string',
+      topicType: 'number',
     };
   }
 
@@ -23363,28 +23931,28 @@ export class GetRuleResponseBodyRuleInfo extends $tea.Model {
 }
 
 export class GetRuleActionResponseBodyRuleActionInfo extends $tea.Model {
+  id?: number;
+  ruleId?: number;
   type?: string;
   configuration?: string;
   errorActionFlag?: boolean;
-  id?: number;
-  ruleId?: number;
   static names(): { [key: string]: string } {
     return {
+      id: 'Id',
+      ruleId: 'RuleId',
       type: 'Type',
       configuration: 'Configuration',
       errorActionFlag: 'ErrorActionFlag',
-      id: 'Id',
-      ruleId: 'RuleId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      id: 'number',
+      ruleId: 'number',
       type: 'string',
       configuration: 'string',
       errorActionFlag: 'boolean',
-      id: 'number',
-      ruleId: 'number',
     };
   }
 
@@ -23394,31 +23962,31 @@ export class GetRuleActionResponseBodyRuleActionInfo extends $tea.Model {
 }
 
 export class GetSceneRuleResponseBodyData extends $tea.Model {
-  ruleStatus?: number;
-  ruleContent?: string;
   gmtCreate?: number;
   gmtModified?: number;
-  ruleDescription?: string;
   ruleName?: string;
+  ruleContent?: string;
+  ruleDescription?: string;
+  ruleStatus?: number;
   static names(): { [key: string]: string } {
     return {
-      ruleStatus: 'RuleStatus',
-      ruleContent: 'RuleContent',
       gmtCreate: 'GmtCreate',
       gmtModified: 'GmtModified',
-      ruleDescription: 'RuleDescription',
       ruleName: 'RuleName',
+      ruleContent: 'RuleContent',
+      ruleDescription: 'RuleDescription',
+      ruleStatus: 'RuleStatus',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      ruleStatus: 'number',
-      ruleContent: 'string',
       gmtCreate: 'number',
       gmtModified: 'number',
-      ruleDescription: 'string',
       ruleName: 'string',
+      ruleContent: 'string',
+      ruleDescription: 'string',
+      ruleStatus: 'number',
     };
   }
 
@@ -23494,22 +24062,22 @@ export class GetThingScriptResponseBodyData extends $tea.Model {
 }
 
 export class GetThingTopoResponseBodyDataListDeviceInfo extends $tea.Model {
+  iotId?: string;
   productKey?: string;
   deviceName?: string;
-  iotId?: string;
   static names(): { [key: string]: string } {
     return {
+      iotId: 'IotId',
       productKey: 'ProductKey',
       deviceName: 'DeviceName',
-      iotId: 'IotId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      iotId: 'string',
       productKey: 'string',
       deviceName: 'string',
-      iotId: 'string',
     };
   }
 
@@ -23538,28 +24106,28 @@ export class GetThingTopoResponseBodyDataList extends $tea.Model {
 }
 
 export class GetThingTopoResponseBodyData extends $tea.Model {
+  total?: number;
   currentPage?: number;
-  list?: GetThingTopoResponseBodyDataList;
   pageSize?: number;
   pageCount?: number;
-  total?: number;
+  list?: GetThingTopoResponseBodyDataList;
   static names(): { [key: string]: string } {
     return {
+      total: 'Total',
       currentPage: 'CurrentPage',
-      list: 'List',
       pageSize: 'PageSize',
       pageCount: 'PageCount',
-      total: 'Total',
+      list: 'List',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      total: 'number',
       currentPage: 'number',
-      list: GetThingTopoResponseBodyDataList,
       pageSize: 'number',
       pageCount: 'number',
-      total: 'number',
+      list: GetThingTopoResponseBodyDataList,
     };
   }
 
@@ -23569,47 +24137,28 @@ export class GetThingTopoResponseBodyData extends $tea.Model {
 }
 
 export class InvokeDataAPIServiceRequestParam extends $tea.Model {
-  paramName?: string;
   paramType?: string;
-  paramValue?: string;
-  listParamType?: string;
   listParamValue?: string[];
+  listParamType?: string;
+  paramName?: string;
+  paramValue?: string;
   static names(): { [key: string]: string } {
     return {
-      paramName: 'ParamName',
       paramType: 'ParamType',
-      paramValue: 'ParamValue',
-      listParamType: 'ListParamType',
       listParamValue: 'ListParamValue',
+      listParamType: 'ListParamType',
+      paramName: 'ParamName',
+      paramValue: 'ParamValue',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      paramName: 'string',
       paramType: 'string',
-      paramValue: 'string',
-      listParamType: 'string',
       listParamValue: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class InvokeDataAPIServiceResponseBodyDataResultList extends $tea.Model {
-  resultList?: { [key: string]: any }[];
-  static names(): { [key: string]: string } {
-    return {
-      resultList: 'ResultList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      resultList: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
+      listParamType: 'string',
+      paramName: 'string',
+      paramValue: 'string',
     };
   }
 
@@ -23637,29 +24186,48 @@ export class InvokeDataAPIServiceResponseBodyDataFieldNameList extends $tea.Mode
   }
 }
 
-export class InvokeDataAPIServiceResponseBodyData extends $tea.Model {
-  resultList?: InvokeDataAPIServiceResponseBodyDataResultList;
-  apiSrn?: string;
-  fieldNameList?: InvokeDataAPIServiceResponseBodyDataFieldNameList;
-  pageNo?: number;
-  pageSize?: number;
+export class InvokeDataAPIServiceResponseBodyDataResultList extends $tea.Model {
+  resultList?: { [key: string]: string }[];
   static names(): { [key: string]: string } {
     return {
       resultList: 'ResultList',
-      apiSrn: 'ApiSrn',
-      fieldNameList: 'FieldNameList',
-      pageNo: 'PageNo',
-      pageSize: 'PageSize',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      resultList: InvokeDataAPIServiceResponseBodyDataResultList,
-      apiSrn: 'string',
-      fieldNameList: InvokeDataAPIServiceResponseBodyDataFieldNameList,
+      resultList: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'string' } },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InvokeDataAPIServiceResponseBodyData extends $tea.Model {
+  pageNo?: number;
+  pageSize?: number;
+  apiSrn?: string;
+  fieldNameList?: InvokeDataAPIServiceResponseBodyDataFieldNameList;
+  resultList?: InvokeDataAPIServiceResponseBodyDataResultList;
+  static names(): { [key: string]: string } {
+    return {
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      apiSrn: 'ApiSrn',
+      fieldNameList: 'FieldNameList',
+      resultList: 'ResultList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
       pageNo: 'number',
       pageSize: 'number',
+      apiSrn: 'string',
+      fieldNameList: InvokeDataAPIServiceResponseBodyDataFieldNameList,
+      resultList: InvokeDataAPIServiceResponseBodyDataResultList,
     };
   }
 
@@ -23669,19 +24237,330 @@ export class InvokeDataAPIServiceResponseBodyData extends $tea.Model {
 }
 
 export class InvokeThingServiceResponseBodyData extends $tea.Model {
-  messageId?: string;
   result?: string;
+  messageId?: string;
   static names(): { [key: string]: string } {
     return {
-      messageId: 'MessageId',
       result: 'Result',
+      messageId: 'MessageId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      messageId: 'string',
       result: 'string',
+      messageId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDeviceDistributeJobResponseBodyDataJobInfoItemsTargetInstanceConfigsTargetInstanceConfigs extends $tea.Model {
+  targetInstanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      targetInstanceId: 'TargetInstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      targetInstanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDeviceDistributeJobResponseBodyDataJobInfoItemsTargetInstanceConfigs extends $tea.Model {
+  targetInstanceConfigs?: ListDeviceDistributeJobResponseBodyDataJobInfoItemsTargetInstanceConfigsTargetInstanceConfigs[];
+  static names(): { [key: string]: string } {
+    return {
+      targetInstanceConfigs: 'targetInstanceConfigs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      targetInstanceConfigs: { 'type': 'array', 'itemType': ListDeviceDistributeJobResponseBodyDataJobInfoItemsTargetInstanceConfigsTargetInstanceConfigs },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDeviceDistributeJobResponseBodyDataJobInfoItems extends $tea.Model {
+  gmtCreate?: number;
+  sourceUid?: string;
+  targetUid?: string;
+  jobId?: string;
+  sourceInstanceId?: string;
+  productKey?: string;
+  total?: number;
+  status?: number;
+  strategy?: number;
+  targetInstanceConfigs?: ListDeviceDistributeJobResponseBodyDataJobInfoItemsTargetInstanceConfigs;
+  static names(): { [key: string]: string } {
+    return {
+      gmtCreate: 'GmtCreate',
+      sourceUid: 'SourceUid',
+      targetUid: 'TargetUid',
+      jobId: 'JobId',
+      sourceInstanceId: 'SourceInstanceId',
+      productKey: 'ProductKey',
+      total: 'Total',
+      status: 'Status',
+      strategy: 'Strategy',
+      targetInstanceConfigs: 'TargetInstanceConfigs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      gmtCreate: 'number',
+      sourceUid: 'string',
+      targetUid: 'string',
+      jobId: 'string',
+      sourceInstanceId: 'string',
+      productKey: 'string',
+      total: 'number',
+      status: 'number',
+      strategy: 'number',
+      targetInstanceConfigs: ListDeviceDistributeJobResponseBodyDataJobInfoItemsTargetInstanceConfigs,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDeviceDistributeJobResponseBodyDataJobInfo extends $tea.Model {
+  items?: ListDeviceDistributeJobResponseBodyDataJobInfoItems[];
+  static names(): { [key: string]: string } {
+    return {
+      items: 'items',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      items: { 'type': 'array', 'itemType': ListDeviceDistributeJobResponseBodyDataJobInfoItems },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDeviceDistributeJobResponseBodyData extends $tea.Model {
+  total?: number;
+  jobInfo?: ListDeviceDistributeJobResponseBodyDataJobInfo;
+  static names(): { [key: string]: string } {
+    return {
+      total: 'Total',
+      jobInfo: 'JobInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      total: 'number',
+      jobInfo: ListDeviceDistributeJobResponseBodyDataJobInfo,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDistributedDeviceResponseBodyDataInfoItems extends $tea.Model {
+  sourceUid?: string;
+  targetUid?: string;
+  productKey?: string;
+  deviceName?: string;
+  sourceInstanceId?: string;
+  targetInstanceId?: string;
+  gmtCreate?: number;
+  targetAliyunId?: string;
+  sourceRegion?: string;
+  targetRegion?: string;
+  sourceInstanceName?: string;
+  targetInstanceName?: string;
+  gmtModified?: number;
+  static names(): { [key: string]: string } {
+    return {
+      sourceUid: 'SourceUid',
+      targetUid: 'TargetUid',
+      productKey: 'ProductKey',
+      deviceName: 'DeviceName',
+      sourceInstanceId: 'SourceInstanceId',
+      targetInstanceId: 'TargetInstanceId',
+      gmtCreate: 'GmtCreate',
+      targetAliyunId: 'TargetAliyunId',
+      sourceRegion: 'SourceRegion',
+      targetRegion: 'TargetRegion',
+      sourceInstanceName: 'SourceInstanceName',
+      targetInstanceName: 'TargetInstanceName',
+      gmtModified: 'GmtModified',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sourceUid: 'string',
+      targetUid: 'string',
+      productKey: 'string',
+      deviceName: 'string',
+      sourceInstanceId: 'string',
+      targetInstanceId: 'string',
+      gmtCreate: 'number',
+      targetAliyunId: 'string',
+      sourceRegion: 'string',
+      targetRegion: 'string',
+      sourceInstanceName: 'string',
+      targetInstanceName: 'string',
+      gmtModified: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDistributedDeviceResponseBodyDataInfo extends $tea.Model {
+  items?: ListDistributedDeviceResponseBodyDataInfoItems[];
+  static names(): { [key: string]: string } {
+    return {
+      items: 'items',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      items: { 'type': 'array', 'itemType': ListDistributedDeviceResponseBodyDataInfoItems },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDistributedDeviceResponseBodyData extends $tea.Model {
+  total?: number;
+  info?: ListDistributedDeviceResponseBodyDataInfo;
+  static names(): { [key: string]: string } {
+    return {
+      total: 'Total',
+      info: 'Info',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      total: 'number',
+      info: ListDistributedDeviceResponseBodyDataInfo,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDistributedProductResponseBodyDataInfoItems extends $tea.Model {
+  sourceUid?: string;
+  targetUid?: string;
+  productKey?: string;
+  sourceInstanceId?: string;
+  targetInstanceId?: string;
+  gmtCreate?: number;
+  targetAliyunId?: string;
+  sourceRegion?: string;
+  targetRegion?: string;
+  sourceInstanceName?: string;
+  targetInstanceName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      sourceUid: 'SourceUid',
+      targetUid: 'TargetUid',
+      productKey: 'ProductKey',
+      sourceInstanceId: 'SourceInstanceId',
+      targetInstanceId: 'TargetInstanceId',
+      gmtCreate: 'GmtCreate',
+      targetAliyunId: 'TargetAliyunId',
+      sourceRegion: 'SourceRegion',
+      targetRegion: 'TargetRegion',
+      sourceInstanceName: 'SourceInstanceName',
+      targetInstanceName: 'TargetInstanceName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sourceUid: 'string',
+      targetUid: 'string',
+      productKey: 'string',
+      sourceInstanceId: 'string',
+      targetInstanceId: 'string',
+      gmtCreate: 'number',
+      targetAliyunId: 'string',
+      sourceRegion: 'string',
+      targetRegion: 'string',
+      sourceInstanceName: 'string',
+      targetInstanceName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDistributedProductResponseBodyDataInfo extends $tea.Model {
+  items?: ListDistributedProductResponseBodyDataInfoItems[];
+  static names(): { [key: string]: string } {
+    return {
+      items: 'items',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      items: { 'type': 'array', 'itemType': ListDistributedProductResponseBodyDataInfoItems },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDistributedProductResponseBodyData extends $tea.Model {
+  total?: number;
+  info?: ListDistributedProductResponseBodyDataInfo;
+  static names(): { [key: string]: string } {
+    return {
+      total: 'Total',
+      info: 'Info',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      total: 'number',
+      info: ListDistributedProductResponseBodyDataInfo,
     };
   }
 
@@ -24856,50 +25735,6 @@ export class QueryBatchRegisterDeviceStatusResponseBodyData extends $tea.Model {
   }
 }
 
-export class QueryClientIdsResponseBodyDataDynamicRegClientIds extends $tea.Model {
-  clientId?: string;
-  createTime?: number;
-  static names(): { [key: string]: string } {
-    return {
-      clientId: 'ClientId',
-      createTime: 'CreateTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clientId: 'string',
-      createTime: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryClientIdsResponseBodyData extends $tea.Model {
-  iotId?: string;
-  dynamicRegClientIds?: QueryClientIdsResponseBodyDataDynamicRegClientIds[];
-  static names(): { [key: string]: string } {
-    return {
-      iotId: 'IotId',
-      dynamicRegClientIds: 'DynamicRegClientIds',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      iotId: 'string',
-      dynamicRegClientIds: { 'type': 'array', 'itemType': QueryClientIdsResponseBodyDataDynamicRegClientIds },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class QueryConsumerGroupByGroupIdResponseBodyData extends $tea.Model {
   groupId?: string;
   groupName?: string;
@@ -25548,6 +26383,90 @@ export class QueryDeviceDetailResponseBodyData extends $tea.Model {
       region: 'string',
       owner: 'boolean',
       nickname: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDeviceDistributeJobResponseBodyDataTargetInstanceConfigsTargetInstanceConfigs extends $tea.Model {
+  targetInstanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      targetInstanceId: 'TargetInstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      targetInstanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDeviceDistributeJobResponseBodyDataTargetInstanceConfigs extends $tea.Model {
+  targetInstanceConfigs?: QueryDeviceDistributeJobResponseBodyDataTargetInstanceConfigsTargetInstanceConfigs[];
+  static names(): { [key: string]: string } {
+    return {
+      targetInstanceConfigs: 'targetInstanceConfigs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      targetInstanceConfigs: { 'type': 'array', 'itemType': QueryDeviceDistributeJobResponseBodyDataTargetInstanceConfigsTargetInstanceConfigs },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDeviceDistributeJobResponseBodyData extends $tea.Model {
+  sourceUid?: string;
+  targetUid?: string;
+  sourceInstanceId?: string;
+  jobId?: string;
+  productKey?: string;
+  total?: number;
+  status?: number;
+  gmtCreate?: number;
+  strategy?: number;
+  targetInstanceConfigs?: QueryDeviceDistributeJobResponseBodyDataTargetInstanceConfigs;
+  static names(): { [key: string]: string } {
+    return {
+      sourceUid: 'SourceUid',
+      targetUid: 'TargetUid',
+      sourceInstanceId: 'SourceInstanceId',
+      jobId: 'JobId',
+      productKey: 'ProductKey',
+      total: 'Total',
+      status: 'Status',
+      gmtCreate: 'GmtCreate',
+      strategy: 'Strategy',
+      targetInstanceConfigs: 'TargetInstanceConfigs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sourceUid: 'string',
+      targetUid: 'string',
+      sourceInstanceId: 'string',
+      jobId: 'string',
+      productKey: 'string',
+      total: 'number',
+      status: 'number',
+      gmtCreate: 'number',
+      strategy: 'number',
+      targetInstanceConfigs: QueryDeviceDistributeJobResponseBodyDataTargetInstanceConfigs,
     };
   }
 
@@ -28245,7 +29164,7 @@ export class QuerySuperDeviceGroupResponseBodyData extends $tea.Model {
   }
 }
 
-export class QueryTaskResponseBodyDataData extends $tea.Model {
+export class QueryTaskResponseBodyData extends $tea.Model {
   jobId?: string;
   jobName?: string;
   taskId?: string;
@@ -28289,25 +29208,6 @@ export class QueryTaskResponseBodyDataData extends $tea.Model {
       statusDetail: 'string',
       status: 'string',
       message: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryTaskResponseBodyData extends $tea.Model {
-  data?: QueryTaskResponseBodyDataData[];
-  static names(): { [key: string]: string } {
-    return {
-      data: 'data',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: { 'type': 'array', 'itemType': QueryTaskResponseBodyDataData },
     };
   }
 
@@ -28734,14 +29634,8 @@ export default class Client extends OpenApi {
     return await this.batchAddDeviceGroupRelationsWithOptions(request, runtime);
   }
 
-  async batchAddThingTopoWithOptions(tmpReq: BatchAddThingTopoRequest, runtime: $Util.RuntimeOptions): Promise<BatchAddThingTopoResponse> {
-    Util.validateModel(tmpReq);
-    let request = new BatchAddThingTopoShrinkRequest({ });
-    OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.ext)) {
-      request.extShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ext, "Ext", "json");
-    }
-
+  async batchAddThingTopoWithOptions(request: BatchAddThingTopoRequest, runtime: $Util.RuntimeOptions): Promise<BatchAddThingTopoResponse> {
+    Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
@@ -29221,6 +30115,19 @@ export default class Client extends OpenApi {
     return await this.createDataAPIServiceWithOptions(request, runtime);
   }
 
+  async createDeviceDistributeJobWithOptions(request: CreateDeviceDistributeJobRequest, runtime: $Util.RuntimeOptions): Promise<CreateDeviceDistributeJobResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<CreateDeviceDistributeJobResponse>(await this.doRPCRequest("CreateDeviceDistributeJob", "2018-01-20", "HTTPS", "POST", "AK", "json", req, runtime), new CreateDeviceDistributeJobResponse({}));
+  }
+
+  async createDeviceDistributeJob(request: CreateDeviceDistributeJobRequest): Promise<CreateDeviceDistributeJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createDeviceDistributeJobWithOptions(request, runtime);
+  }
+
   async createDeviceGroupWithOptions(request: CreateDeviceGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateDeviceGroupResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -29312,26 +30219,8 @@ export default class Client extends OpenApi {
     return await this.createEdgeOssPreSignedAddressWithOptions(request, runtime);
   }
 
-  async createJobWithOptions(tmpReq: CreateJobRequest, runtime: $Util.RuntimeOptions): Promise<CreateJobResponse> {
-    Util.validateModel(tmpReq);
-    let request = new CreateJobShrinkRequest({ });
-    OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.jobFile)) {
-      request.jobFileShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.jobFile, "JobFile", "json");
-    }
-
-    if (!Util.isUnset(tmpReq.timeoutConfig)) {
-      request.timeoutConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.timeoutConfig, "TimeoutConfig", "json");
-    }
-
-    if (!Util.isUnset(tmpReq.rolloutConfig)) {
-      request.rolloutConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.rolloutConfig, "RolloutConfig", "json");
-    }
-
-    if (!Util.isUnset(tmpReq.targetConfig)) {
-      request.targetConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.targetConfig, "TargetConfig", "json");
-    }
-
+  async createJobWithOptions(request: CreateJobRequest, runtime: $Util.RuntimeOptions): Promise<CreateJobResponse> {
+    Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
@@ -29434,6 +30323,19 @@ export default class Client extends OpenApi {
     return await this.createProductWithOptions(request, runtime);
   }
 
+  async createProductDistributeJobWithOptions(request: CreateProductDistributeJobRequest, runtime: $Util.RuntimeOptions): Promise<CreateProductDistributeJobResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<CreateProductDistributeJobResponse>(await this.doRPCRequest("CreateProductDistributeJob", "2018-01-20", "HTTPS", "POST", "AK", "json", req, runtime), new CreateProductDistributeJobResponse({}));
+  }
+
+  async createProductDistributeJob(request: CreateProductDistributeJobRequest): Promise<CreateProductDistributeJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createProductDistributeJobWithOptions(request, runtime);
+  }
+
   async createProductTagsWithOptions(request: CreateProductTagsRequest, runtime: $Util.RuntimeOptions): Promise<CreateProductTagsResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -29484,6 +30386,19 @@ export default class Client extends OpenApi {
   async createRuleAction(request: CreateRuleActionRequest): Promise<CreateRuleActionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createRuleActionWithOptions(request, runtime);
+  }
+
+  async createRulengDistributeJobWithOptions(request: CreateRulengDistributeJobRequest, runtime: $Util.RuntimeOptions): Promise<CreateRulengDistributeJobResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<CreateRulengDistributeJobResponse>(await this.doRPCRequest("CreateRulengDistributeJob", "2018-01-20", "HTTPS", "POST", "AK", "json", req, runtime), new CreateRulengDistributeJobResponse({}));
+  }
+
+  async createRulengDistributeJob(request: CreateRulengDistributeJobRequest): Promise<CreateRulengDistributeJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createRulengDistributeJobWithOptions(request, runtime);
   }
 
   async createSceneRuleWithOptions(request: CreateSceneRuleRequest, runtime: $Util.RuntimeOptions): Promise<CreateSceneRuleResponse> {
@@ -29551,19 +30466,6 @@ export default class Client extends OpenApi {
     return await this.createTopicRouteTableWithOptions(request, runtime);
   }
 
-  async deleteClientIdsWithOptions(request: DeleteClientIdsRequest, runtime: $Util.RuntimeOptions): Promise<DeleteClientIdsResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<DeleteClientIdsResponse>(await this.doRPCRequest("DeleteClientIds", "2018-01-20", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteClientIdsResponse({}));
-  }
-
-  async deleteClientIds(request: DeleteClientIdsRequest): Promise<DeleteClientIdsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.deleteClientIdsWithOptions(request, runtime);
-  }
-
   async deleteConsumerGroupWithOptions(request: DeleteConsumerGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteConsumerGroupResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -29601,6 +30503,19 @@ export default class Client extends OpenApi {
   async deleteDevice(request: DeleteDeviceRequest): Promise<DeleteDeviceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDeviceWithOptions(request, runtime);
+  }
+
+  async deleteDeviceDistributeJobWithOptions(request: DeleteDeviceDistributeJobRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDeviceDistributeJobResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DeleteDeviceDistributeJobResponse>(await this.doRPCRequest("DeleteDeviceDistributeJob", "2018-01-20", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteDeviceDistributeJobResponse({}));
+  }
+
+  async deleteDeviceDistributeJob(request: DeleteDeviceDistributeJobRequest): Promise<DeleteDeviceDistributeJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteDeviceDistributeJobWithOptions(request, runtime);
   }
 
   async deleteDeviceFileWithOptions(request: DeleteDeviceFileRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDeviceFileResponse> {
@@ -30201,6 +31116,45 @@ export default class Client extends OpenApi {
     return await this.invokeThingsServiceWithOptions(request, runtime);
   }
 
+  async listDeviceDistributeJobWithOptions(request: ListDeviceDistributeJobRequest, runtime: $Util.RuntimeOptions): Promise<ListDeviceDistributeJobResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<ListDeviceDistributeJobResponse>(await this.doRPCRequest("ListDeviceDistributeJob", "2018-01-20", "HTTPS", "POST", "AK", "json", req, runtime), new ListDeviceDistributeJobResponse({}));
+  }
+
+  async listDeviceDistributeJob(request: ListDeviceDistributeJobRequest): Promise<ListDeviceDistributeJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listDeviceDistributeJobWithOptions(request, runtime);
+  }
+
+  async listDistributedDeviceWithOptions(request: ListDistributedDeviceRequest, runtime: $Util.RuntimeOptions): Promise<ListDistributedDeviceResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<ListDistributedDeviceResponse>(await this.doRPCRequest("ListDistributedDevice", "2018-01-20", "HTTPS", "POST", "AK", "json", req, runtime), new ListDistributedDeviceResponse({}));
+  }
+
+  async listDistributedDevice(request: ListDistributedDeviceRequest): Promise<ListDistributedDeviceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listDistributedDeviceWithOptions(request, runtime);
+  }
+
+  async listDistributedProductWithOptions(request: ListDistributedProductRequest, runtime: $Util.RuntimeOptions): Promise<ListDistributedProductResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<ListDistributedProductResponse>(await this.doRPCRequest("ListDistributedProduct", "2018-01-20", "HTTPS", "POST", "AK", "json", req, runtime), new ListDistributedProductResponse({}));
+  }
+
+  async listDistributedProduct(request: ListDistributedProductRequest): Promise<ListDistributedProductResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listDistributedProductWithOptions(request, runtime);
+  }
+
   async listJobWithOptions(request: ListJobRequest, runtime: $Util.RuntimeOptions): Promise<ListJobResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -30410,6 +31364,19 @@ export default class Client extends OpenApi {
     return await this.notifyAddThingTopoWithOptions(request, runtime);
   }
 
+  async openIotServiceWithOptions(request: OpenIotServiceRequest, runtime: $Util.RuntimeOptions): Promise<OpenIotServiceResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<OpenIotServiceResponse>(await this.doRPCRequest("OpenIotService", "2018-01-20", "HTTPS", "POST", "AK", "json", req, runtime), new OpenIotServiceResponse({}));
+  }
+
+  async openIotService(request: OpenIotServiceRequest): Promise<OpenIotServiceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.openIotServiceWithOptions(request, runtime);
+  }
+
   async pubWithOptions(request: PubRequest, runtime: $Util.RuntimeOptions): Promise<PubResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -30486,19 +31453,6 @@ export default class Client extends OpenApi {
   async queryCertUrlByApplyId(request: QueryCertUrlByApplyIdRequest): Promise<QueryCertUrlByApplyIdResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryCertUrlByApplyIdWithOptions(request, runtime);
-  }
-
-  async queryClientIdsWithOptions(request: QueryClientIdsRequest, runtime: $Util.RuntimeOptions): Promise<QueryClientIdsResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<QueryClientIdsResponse>(await this.doRPCRequest("QueryClientIds", "2018-01-20", "HTTPS", "POST", "AK", "json", req, runtime), new QueryClientIdsResponse({}));
-  }
-
-  async queryClientIds(request: QueryClientIdsRequest): Promise<QueryClientIdsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.queryClientIdsWithOptions(request, runtime);
   }
 
   async queryConsumerGroupByGroupIdWithOptions(request: QueryConsumerGroupByGroupIdRequest, runtime: $Util.RuntimeOptions): Promise<QueryConsumerGroupByGroupIdResponse> {
@@ -30642,6 +31596,32 @@ export default class Client extends OpenApi {
   async queryDeviceDetail(request: QueryDeviceDetailRequest): Promise<QueryDeviceDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryDeviceDetailWithOptions(request, runtime);
+  }
+
+  async queryDeviceDistributeDetailWithOptions(request: QueryDeviceDistributeDetailRequest, runtime: $Util.RuntimeOptions): Promise<QueryDeviceDistributeDetailResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<QueryDeviceDistributeDetailResponse>(await this.doRPCRequest("QueryDeviceDistributeDetail", "2018-01-20", "HTTPS", "POST", "AK", "json", req, runtime), new QueryDeviceDistributeDetailResponse({}));
+  }
+
+  async queryDeviceDistributeDetail(request: QueryDeviceDistributeDetailRequest): Promise<QueryDeviceDistributeDetailResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryDeviceDistributeDetailWithOptions(request, runtime);
+  }
+
+  async queryDeviceDistributeJobWithOptions(request: QueryDeviceDistributeJobRequest, runtime: $Util.RuntimeOptions): Promise<QueryDeviceDistributeJobResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<QueryDeviceDistributeJobResponse>(await this.doRPCRequest("QueryDeviceDistributeJob", "2018-01-20", "HTTPS", "POST", "AK", "json", req, runtime), new QueryDeviceDistributeJobResponse({}));
+  }
+
+  async queryDeviceDistributeJob(request: QueryDeviceDistributeJobRequest): Promise<QueryDeviceDistributeJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryDeviceDistributeJobWithOptions(request, runtime);
   }
 
   async queryDeviceEventDataWithOptions(request: QueryDeviceEventDataRequest, runtime: $Util.RuntimeOptions): Promise<QueryDeviceEventDataResponse> {
@@ -31527,19 +32507,6 @@ export default class Client extends OpenApi {
   async stopRule(request: StopRuleRequest): Promise<StopRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.stopRuleWithOptions(request, runtime);
-  }
-
-  async transformClientIdWithOptions(request: TransformClientIdRequest, runtime: $Util.RuntimeOptions): Promise<TransformClientIdResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<TransformClientIdResponse>(await this.doRPCRequest("TransformClientId", "2018-01-20", "HTTPS", "POST", "AK", "json", req, runtime), new TransformClientIdResponse({}));
-  }
-
-  async transformClientId(request: TransformClientIdRequest): Promise<TransformClientIdResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.transformClientIdWithOptions(request, runtime);
   }
 
   async triggerSceneRuleWithOptions(request: TriggerSceneRuleRequest, runtime: $Util.RuntimeOptions): Promise<TriggerSceneRuleResponse> {
