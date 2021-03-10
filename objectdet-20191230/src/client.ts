@@ -14,182 +14,6 @@ import EndpointUtil from '@alicloud/endpoint-util';
 import { Readable } from 'stream';
 import * as $tea from '@alicloud/tea-typescript';
 
-export class DetectTransparentImageRequest extends $tea.Model {
-  imageURL?: string;
-  static names(): { [key: string]: string } {
-    return {
-      imageURL: 'ImageURL',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURL: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectTransparentImageAdvanceRequest extends $tea.Model {
-  imageURLObject: Readable;
-  static names(): { [key: string]: string } {
-    return {
-      imageURLObject: 'ImageURLObject',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURLObject: 'Readable',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectTransparentImageResponseBody extends $tea.Model {
-  requestId?: string;
-  data?: DetectTransparentImageResponseBodyData;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      data: 'Data',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      data: DetectTransparentImageResponseBodyData,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectTransparentImageResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DetectTransparentImageResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DetectTransparentImageResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectVehicleICongestionRequest extends $tea.Model {
-  imageURL?: string;
-  roadRegions?: DetectVehicleICongestionRequestRoadRegions[];
-  preRegionIntersectFeatures?: DetectVehicleICongestionRequestPreRegionIntersectFeatures[];
-  static names(): { [key: string]: string } {
-    return {
-      imageURL: 'ImageURL',
-      roadRegions: 'RoadRegions',
-      preRegionIntersectFeatures: 'PreRegionIntersectFeatures',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURL: 'string',
-      roadRegions: { 'type': 'array', 'itemType': DetectVehicleICongestionRequestRoadRegions },
-      preRegionIntersectFeatures: { 'type': 'array', 'itemType': DetectVehicleICongestionRequestPreRegionIntersectFeatures },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectVehicleICongestionShrinkRequest extends $tea.Model {
-  imageURL?: string;
-  roadRegionsShrink?: string;
-  preRegionIntersectFeaturesShrink?: string;
-  static names(): { [key: string]: string } {
-    return {
-      imageURL: 'ImageURL',
-      roadRegionsShrink: 'RoadRegions',
-      preRegionIntersectFeaturesShrink: 'PreRegionIntersectFeatures',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURL: 'string',
-      roadRegionsShrink: 'string',
-      preRegionIntersectFeaturesShrink: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectVehicleICongestionResponseBody extends $tea.Model {
-  requestId?: string;
-  data?: DetectVehicleICongestionResponseBodyData;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      data: 'Data',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      data: DetectVehicleICongestionResponseBodyData,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectVehicleICongestionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DetectVehicleICongestionResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DetectVehicleICongestionResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ClassifyVehicleInsuranceRequest extends $tea.Model {
   imageURL?: string;
   static names(): { [key: string]: string } {
@@ -335,169 +159,6 @@ export class DetectIPCObjectResponse extends $tea.Model {
   }
 }
 
-export class GetVehicleRepairPlanRequest extends $tea.Model {
-  taskId?: string;
-  carNumberImage?: string;
-  vinCodeImage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      taskId: 'TaskId',
-      carNumberImage: 'CarNumberImage',
-      vinCodeImage: 'VinCodeImage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      taskId: 'string',
-      carNumberImage: 'string',
-      vinCodeImage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetVehicleRepairPlanResponseBody extends $tea.Model {
-  httpCode?: number;
-  requestId?: string;
-  data?: GetVehicleRepairPlanResponseBodyData;
-  errorMessage?: string;
-  code?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      httpCode: 'HttpCode',
-      requestId: 'RequestId',
-      data: 'Data',
-      errorMessage: 'ErrorMessage',
-      code: 'Code',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      httpCode: 'number',
-      requestId: 'string',
-      data: GetVehicleRepairPlanResponseBodyData,
-      errorMessage: 'string',
-      code: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetVehicleRepairPlanResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: GetVehicleRepairPlanResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: GetVehicleRepairPlanResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectWhiteBaseImageRequest extends $tea.Model {
-  imageURL?: string;
-  static names(): { [key: string]: string } {
-    return {
-      imageURL: 'ImageURL',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURL: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectWhiteBaseImageAdvanceRequest extends $tea.Model {
-  imageURLObject: Readable;
-  static names(): { [key: string]: string } {
-    return {
-      imageURLObject: 'ImageURLObject',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURLObject: 'Readable',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectWhiteBaseImageResponseBody extends $tea.Model {
-  requestId?: string;
-  data?: DetectWhiteBaseImageResponseBodyData;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      data: 'Data',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      data: DetectWhiteBaseImageResponseBodyData,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectWhiteBaseImageResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DetectWhiteBaseImageResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DetectWhiteBaseImageResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DetectMainBodyRequest extends $tea.Model {
   imageURL?: string;
   static names(): { [key: string]: string } {
@@ -572,6 +233,170 @@ export class DetectMainBodyResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: DetectMainBodyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectObjectRequest extends $tea.Model {
+  imageURL?: string;
+  static names(): { [key: string]: string } {
+    return {
+      imageURL: 'ImageURL',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageURL: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectObjectAdvanceRequest extends $tea.Model {
+  imageURLObject: Readable;
+  static names(): { [key: string]: string } {
+    return {
+      imageURLObject: 'ImageURLObject',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageURLObject: 'Readable',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectObjectResponseBody extends $tea.Model {
+  requestId?: string;
+  data?: DetectObjectResponseBodyData;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      data: DetectObjectResponseBodyData,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectObjectResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DetectObjectResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DetectObjectResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectTransparentImageRequest extends $tea.Model {
+  imageURL?: string;
+  static names(): { [key: string]: string } {
+    return {
+      imageURL: 'ImageURL',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageURL: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectTransparentImageAdvanceRequest extends $tea.Model {
+  imageURLObject: Readable;
+  static names(): { [key: string]: string } {
+    return {
+      imageURLObject: 'ImageURLObject',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageURLObject: 'Readable',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectTransparentImageResponseBody extends $tea.Model {
+  requestId?: string;
+  data?: DetectTransparentImageResponseBodyData;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      data: DetectTransparentImageResponseBodyData,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectTransparentImageResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DetectTransparentImageResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DetectTransparentImageResponseBody,
     };
   }
 
@@ -668,6 +493,100 @@ export class DetectVehicleResponse extends $tea.Model {
   }
 }
 
+export class DetectVehicleICongestionRequest extends $tea.Model {
+  imageURL?: string;
+  roadRegions?: DetectVehicleICongestionRequestRoadRegions[];
+  preRegionIntersectFeatures?: DetectVehicleICongestionRequestPreRegionIntersectFeatures[];
+  static names(): { [key: string]: string } {
+    return {
+      imageURL: 'ImageURL',
+      roadRegions: 'RoadRegions',
+      preRegionIntersectFeatures: 'PreRegionIntersectFeatures',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageURL: 'string',
+      roadRegions: { 'type': 'array', 'itemType': DetectVehicleICongestionRequestRoadRegions },
+      preRegionIntersectFeatures: { 'type': 'array', 'itemType': DetectVehicleICongestionRequestPreRegionIntersectFeatures },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectVehicleICongestionShrinkRequest extends $tea.Model {
+  imageURL?: string;
+  roadRegionsShrink?: string;
+  preRegionIntersectFeaturesShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      imageURL: 'ImageURL',
+      roadRegionsShrink: 'RoadRegions',
+      preRegionIntersectFeaturesShrink: 'PreRegionIntersectFeatures',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageURL: 'string',
+      roadRegionsShrink: 'string',
+      preRegionIntersectFeaturesShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectVehicleICongestionResponseBody extends $tea.Model {
+  requestId?: string;
+  data?: DetectVehicleICongestionResponseBodyData;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      data: DetectVehicleICongestionResponseBodyData,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectVehicleICongestionResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DetectVehicleICongestionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DetectVehicleICongestionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DetectVehicleIllegalParkingRequest extends $tea.Model {
   imageURL?: string;
   roadRegions?: DetectVehicleIllegalParkingRequestRoadRegions[];
@@ -748,6 +667,244 @@ export class DetectVehicleIllegalParkingResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: DetectVehicleIllegalParkingResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectWhiteBaseImageRequest extends $tea.Model {
+  imageURL?: string;
+  static names(): { [key: string]: string } {
+    return {
+      imageURL: 'ImageURL',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageURL: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectWhiteBaseImageAdvanceRequest extends $tea.Model {
+  imageURLObject: Readable;
+  static names(): { [key: string]: string } {
+    return {
+      imageURLObject: 'ImageURLObject',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageURLObject: 'Readable',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectWhiteBaseImageResponseBody extends $tea.Model {
+  requestId?: string;
+  data?: DetectWhiteBaseImageResponseBodyData;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      data: DetectWhiteBaseImageResponseBodyData,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectWhiteBaseImageResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DetectWhiteBaseImageResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DetectWhiteBaseImageResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateVehicleRepairPlanRequest extends $tea.Model {
+  damageImageList?: GenerateVehicleRepairPlanRequestDamageImageList[];
+  static names(): { [key: string]: string } {
+    return {
+      damageImageList: 'DamageImageList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      damageImageList: { 'type': 'array', 'itemType': GenerateVehicleRepairPlanRequestDamageImageList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateVehicleRepairPlanResponseBody extends $tea.Model {
+  httpCode?: number;
+  requestId?: string;
+  data?: GenerateVehicleRepairPlanResponseBodyData;
+  errorMessage?: string;
+  code?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      httpCode: 'HttpCode',
+      requestId: 'RequestId',
+      data: 'Data',
+      errorMessage: 'ErrorMessage',
+      code: 'Code',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      httpCode: 'number',
+      requestId: 'string',
+      data: GenerateVehicleRepairPlanResponseBodyData,
+      errorMessage: 'string',
+      code: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateVehicleRepairPlanResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GenerateVehicleRepairPlanResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GenerateVehicleRepairPlanResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVehicleRepairPlanRequest extends $tea.Model {
+  taskId?: string;
+  carNumberImage?: string;
+  vinCodeImage?: string;
+  static names(): { [key: string]: string } {
+    return {
+      taskId: 'TaskId',
+      carNumberImage: 'CarNumberImage',
+      vinCodeImage: 'VinCodeImage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskId: 'string',
+      carNumberImage: 'string',
+      vinCodeImage: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVehicleRepairPlanResponseBody extends $tea.Model {
+  httpCode?: number;
+  requestId?: string;
+  data?: GetVehicleRepairPlanResponseBodyData;
+  errorMessage?: string;
+  code?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      httpCode: 'HttpCode',
+      requestId: 'RequestId',
+      data: 'Data',
+      errorMessage: 'ErrorMessage',
+      code: 'Code',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      httpCode: 'number',
+      requestId: 'string',
+      data: GetVehicleRepairPlanResponseBodyData,
+      errorMessage: 'string',
+      code: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVehicleRepairPlanResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetVehicleRepairPlanResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetVehicleRepairPlanResponseBody,
     };
   }
 
@@ -1002,17 +1159,20 @@ export class RecognizeVehiclePartsResponse extends $tea.Model {
   }
 }
 
-export class GenerateVehicleRepairPlanRequest extends $tea.Model {
-  damageImageList?: GenerateVehicleRepairPlanRequestDamageImageList[];
+export class ClassifyVehicleInsuranceResponseBodyDataLabels extends $tea.Model {
+  score?: number;
+  name?: string;
   static names(): { [key: string]: string } {
     return {
-      damageImageList: 'DamageImageList',
+      score: 'Score',
+      name: 'Name',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      damageImageList: { 'type': 'array', 'itemType': GenerateVehicleRepairPlanRequestDamageImageList },
+      score: 'number',
+      name: 'string',
     };
   }
 
@@ -1021,32 +1181,20 @@ export class GenerateVehicleRepairPlanRequest extends $tea.Model {
   }
 }
 
-export class GenerateVehicleRepairPlanResponseBody extends $tea.Model {
-  httpCode?: number;
-  requestId?: string;
-  data?: GenerateVehicleRepairPlanResponseBodyData;
-  errorMessage?: string;
-  code?: string;
-  success?: boolean;
+export class ClassifyVehicleInsuranceResponseBodyData extends $tea.Model {
+  labels?: ClassifyVehicleInsuranceResponseBodyDataLabels[];
+  threshold?: number;
   static names(): { [key: string]: string } {
     return {
-      httpCode: 'HttpCode',
-      requestId: 'RequestId',
-      data: 'Data',
-      errorMessage: 'ErrorMessage',
-      code: 'Code',
-      success: 'Success',
+      labels: 'Labels',
+      threshold: 'Threshold',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      httpCode: 'number',
-      requestId: 'string',
-      data: GenerateVehicleRepairPlanResponseBodyData,
-      errorMessage: 'string',
-      code: 'string',
-      success: 'boolean',
+      labels: { 'type': 'array', 'itemType': ClassifyVehicleInsuranceResponseBodyDataLabels },
+      threshold: 'number',
     };
   }
 
@@ -1055,20 +1203,26 @@ export class GenerateVehicleRepairPlanResponseBody extends $tea.Model {
   }
 }
 
-export class GenerateVehicleRepairPlanResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: GenerateVehicleRepairPlanResponseBody;
+export class DetectIPCObjectResponseBodyDataElements extends $tea.Model {
+  type?: string;
+  score?: number;
+  box?: number[];
+  targetRate?: number;
   static names(): { [key: string]: string } {
     return {
-      headers: 'headers',
-      body: 'body',
+      type: 'Type',
+      score: 'Score',
+      box: 'Box',
+      targetRate: 'TargetRate',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: GenerateVehicleRepairPlanResponseBody,
+      type: 'string',
+      score: 'number',
+      box: { 'type': 'array', 'itemType': 'number' },
+      targetRate: 'number',
     };
   }
 
@@ -1077,17 +1231,23 @@ export class GenerateVehicleRepairPlanResponse extends $tea.Model {
   }
 }
 
-export class DetectObjectRequest extends $tea.Model {
-  imageURL?: string;
+export class DetectIPCObjectResponseBodyData extends $tea.Model {
+  elements?: DetectIPCObjectResponseBodyDataElements[];
+  width?: number;
+  height?: number;
   static names(): { [key: string]: string } {
     return {
-      imageURL: 'ImageURL',
+      elements: 'Elements',
+      width: 'Width',
+      height: 'Height',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      imageURL: 'string',
+      elements: { 'type': 'array', 'itemType': DetectIPCObjectResponseBodyDataElements },
+      width: 'number',
+      height: 'number',
     };
   }
 
@@ -1096,17 +1256,26 @@ export class DetectObjectRequest extends $tea.Model {
   }
 }
 
-export class DetectObjectAdvanceRequest extends $tea.Model {
-  imageURLObject: Readable;
+export class DetectMainBodyResponseBodyDataLocation extends $tea.Model {
+  width?: number;
+  height?: number;
+  y?: number;
+  x?: number;
   static names(): { [key: string]: string } {
     return {
-      imageURLObject: 'ImageURLObject',
+      width: 'Width',
+      height: 'Height',
+      y: 'Y',
+      x: 'X',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      imageURLObject: 'Readable',
+      width: 'number',
+      height: 'number',
+      y: 'number',
+      x: 'number',
     };
   }
 
@@ -1115,20 +1284,17 @@ export class DetectObjectAdvanceRequest extends $tea.Model {
   }
 }
 
-export class DetectObjectResponseBody extends $tea.Model {
-  requestId?: string;
-  data?: DetectObjectResponseBodyData;
+export class DetectMainBodyResponseBodyData extends $tea.Model {
+  location?: DetectMainBodyResponseBodyDataLocation;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
-      data: 'Data',
+      location: 'Location',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
-      data: DetectObjectResponseBodyData,
+      location: DetectMainBodyResponseBodyDataLocation,
     };
   }
 
@@ -1137,20 +1303,48 @@ export class DetectObjectResponseBody extends $tea.Model {
   }
 }
 
-export class DetectObjectResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DetectObjectResponseBody;
+export class DetectObjectResponseBodyDataElements extends $tea.Model {
+  type?: string;
+  boxes?: number[];
+  score?: number;
   static names(): { [key: string]: string } {
     return {
-      headers: 'headers',
-      body: 'body',
+      type: 'Type',
+      boxes: 'Boxes',
+      score: 'Score',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DetectObjectResponseBody,
+      type: 'string',
+      boxes: { 'type': 'array', 'itemType': 'number' },
+      score: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectObjectResponseBodyData extends $tea.Model {
+  elements?: DetectObjectResponseBodyDataElements[];
+  width?: number;
+  height?: number;
+  static names(): { [key: string]: string } {
+    return {
+      elements: 'Elements',
+      width: 'Width',
+      height: 'Height',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      elements: { 'type': 'array', 'itemType': DetectObjectResponseBodyDataElements },
+      width: 'number',
+      height: 'number',
     };
   }
 
@@ -1189,6 +1383,59 @@ export class DetectTransparentImageResponseBodyData extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       elements: { 'type': 'array', 'itemType': DetectTransparentImageResponseBodyDataElements },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectVehicleResponseBodyDataDetectObjectInfoList extends $tea.Model {
+  type?: string;
+  boxes?: number[];
+  score?: number;
+  id?: number;
+  static names(): { [key: string]: string } {
+    return {
+      type: 'Type',
+      boxes: 'Boxes',
+      score: 'Score',
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      type: 'string',
+      boxes: { 'type': 'array', 'itemType': 'number' },
+      score: 'number',
+      id: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectVehicleResponseBodyData extends $tea.Model {
+  detectObjectInfoList?: DetectVehicleResponseBodyDataDetectObjectInfoList[];
+  width?: number;
+  height?: number;
+  static names(): { [key: string]: string } {
+    return {
+      detectObjectInfoList: 'DetectObjectInfoList',
+      width: 'Width',
+      height: 'Height',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      detectObjectInfoList: { 'type': 'array', 'itemType': DetectVehicleResponseBodyDataDetectObjectInfoList },
+      width: 'number',
+      height: 'number',
     };
   }
 
@@ -1414,309 +1661,6 @@ export class DetectVehicleICongestionResponseBodyData extends $tea.Model {
   }
 }
 
-export class ClassifyVehicleInsuranceResponseBodyDataLabels extends $tea.Model {
-  score?: number;
-  name?: string;
-  static names(): { [key: string]: string } {
-    return {
-      score: 'Score',
-      name: 'Name',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      score: 'number',
-      name: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ClassifyVehicleInsuranceResponseBodyData extends $tea.Model {
-  labels?: ClassifyVehicleInsuranceResponseBodyDataLabels[];
-  threshold?: number;
-  static names(): { [key: string]: string } {
-    return {
-      labels: 'Labels',
-      threshold: 'Threshold',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      labels: { 'type': 'array', 'itemType': ClassifyVehicleInsuranceResponseBodyDataLabels },
-      threshold: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectIPCObjectResponseBodyDataElements extends $tea.Model {
-  type?: string;
-  score?: number;
-  box?: number[];
-  static names(): { [key: string]: string } {
-    return {
-      type: 'Type',
-      score: 'Score',
-      box: 'Box',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      type: 'string',
-      score: 'number',
-      box: { 'type': 'array', 'itemType': 'number' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectIPCObjectResponseBodyData extends $tea.Model {
-  elements?: DetectIPCObjectResponseBodyDataElements[];
-  width?: number;
-  height?: number;
-  static names(): { [key: string]: string } {
-    return {
-      elements: 'Elements',
-      width: 'Width',
-      height: 'Height',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      elements: { 'type': 'array', 'itemType': DetectIPCObjectResponseBodyDataElements },
-      width: 'number',
-      height: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetVehicleRepairPlanResponseBodyDataRepairParts extends $tea.Model {
-  relationType?: string;
-  partsStdCode?: string;
-  partNameMatch?: boolean;
-  repairFee?: string;
-  outStandardPartsName?: string;
-  partsStdName?: string;
-  repairTypeName?: string;
-  repairType?: string;
-  oeMatch?: boolean;
-  outStandardPartsId?: string;
-  garageType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      relationType: 'RelationType',
-      partsStdCode: 'PartsStdCode',
-      partNameMatch: 'PartNameMatch',
-      repairFee: 'RepairFee',
-      outStandardPartsName: 'OutStandardPartsName',
-      partsStdName: 'PartsStdName',
-      repairTypeName: 'RepairTypeName',
-      repairType: 'RepairType',
-      oeMatch: 'OeMatch',
-      outStandardPartsId: 'OutStandardPartsId',
-      garageType: 'GarageType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      relationType: 'string',
-      partsStdCode: 'string',
-      partNameMatch: 'boolean',
-      repairFee: 'string',
-      outStandardPartsName: 'string',
-      partsStdName: 'string',
-      repairTypeName: 'string',
-      repairType: 'string',
-      oeMatch: 'boolean',
-      outStandardPartsId: 'string',
-      garageType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetVehicleRepairPlanResponseBodyData extends $tea.Model {
-  repairParts?: GetVehicleRepairPlanResponseBodyDataRepairParts[];
-  frameNo?: string;
-  static names(): { [key: string]: string } {
-    return {
-      repairParts: 'RepairParts',
-      frameNo: 'FrameNo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      repairParts: { 'type': 'array', 'itemType': GetVehicleRepairPlanResponseBodyDataRepairParts },
-      frameNo: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectWhiteBaseImageResponseBodyDataElements extends $tea.Model {
-  whiteBase?: number;
-  static names(): { [key: string]: string } {
-    return {
-      whiteBase: 'WhiteBase',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      whiteBase: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectWhiteBaseImageResponseBodyData extends $tea.Model {
-  elements?: DetectWhiteBaseImageResponseBodyDataElements[];
-  static names(): { [key: string]: string } {
-    return {
-      elements: 'Elements',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      elements: { 'type': 'array', 'itemType': DetectWhiteBaseImageResponseBodyDataElements },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectMainBodyResponseBodyDataLocation extends $tea.Model {
-  width?: number;
-  height?: number;
-  y?: number;
-  x?: number;
-  static names(): { [key: string]: string } {
-    return {
-      width: 'Width',
-      height: 'Height',
-      y: 'Y',
-      x: 'X',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      width: 'number',
-      height: 'number',
-      y: 'number',
-      x: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectMainBodyResponseBodyData extends $tea.Model {
-  location?: DetectMainBodyResponseBodyDataLocation;
-  static names(): { [key: string]: string } {
-    return {
-      location: 'Location',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      location: DetectMainBodyResponseBodyDataLocation,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectVehicleResponseBodyDataDetectObjectInfoList extends $tea.Model {
-  type?: string;
-  boxes?: number[];
-  score?: number;
-  id?: number;
-  static names(): { [key: string]: string } {
-    return {
-      type: 'Type',
-      boxes: 'Boxes',
-      score: 'Score',
-      id: 'Id',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      type: 'string',
-      boxes: { 'type': 'array', 'itemType': 'number' },
-      score: 'number',
-      id: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectVehicleResponseBodyData extends $tea.Model {
-  detectObjectInfoList?: DetectVehicleResponseBodyDataDetectObjectInfoList[];
-  width?: number;
-  height?: number;
-  static names(): { [key: string]: string } {
-    return {
-      detectObjectInfoList: 'DetectObjectInfoList',
-      width: 'Width',
-      height: 'Height',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      detectObjectInfoList: { 'type': 'array', 'itemType': DetectVehicleResponseBodyDataDetectObjectInfoList },
-      width: 'number',
-      height: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DetectVehicleIllegalParkingRequestRoadRegionsRoadRegionPoint extends $tea.Model {
   x?: number;
   y?: number;
@@ -1871,6 +1815,156 @@ export class DetectVehicleIllegalParkingResponseBodyData extends $tea.Model {
   }
 }
 
+export class DetectWhiteBaseImageResponseBodyDataElements extends $tea.Model {
+  whiteBase?: number;
+  static names(): { [key: string]: string } {
+    return {
+      whiteBase: 'WhiteBase',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      whiteBase: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectWhiteBaseImageResponseBodyData extends $tea.Model {
+  elements?: DetectWhiteBaseImageResponseBodyDataElements[];
+  static names(): { [key: string]: string } {
+    return {
+      elements: 'Elements',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      elements: { 'type': 'array', 'itemType': DetectWhiteBaseImageResponseBodyDataElements },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateVehicleRepairPlanRequestDamageImageList extends $tea.Model {
+  createTimeStamp?: string;
+  imageUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTimeStamp: 'CreateTimeStamp',
+      imageUrl: 'ImageUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTimeStamp: 'string',
+      imageUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateVehicleRepairPlanResponseBodyData extends $tea.Model {
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVehicleRepairPlanResponseBodyDataRepairParts extends $tea.Model {
+  relationType?: string;
+  partsStdCode?: string;
+  partNameMatch?: boolean;
+  repairFee?: string;
+  outStandardPartsName?: string;
+  partsStdName?: string;
+  repairTypeName?: string;
+  repairType?: string;
+  oeMatch?: boolean;
+  outStandardPartsId?: string;
+  garageType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      relationType: 'RelationType',
+      partsStdCode: 'PartsStdCode',
+      partNameMatch: 'PartNameMatch',
+      repairFee: 'RepairFee',
+      outStandardPartsName: 'OutStandardPartsName',
+      partsStdName: 'PartsStdName',
+      repairTypeName: 'RepairTypeName',
+      repairType: 'RepairType',
+      oeMatch: 'OeMatch',
+      outStandardPartsId: 'OutStandardPartsId',
+      garageType: 'GarageType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      relationType: 'string',
+      partsStdCode: 'string',
+      partNameMatch: 'boolean',
+      repairFee: 'string',
+      outStandardPartsName: 'string',
+      partsStdName: 'string',
+      repairTypeName: 'string',
+      repairType: 'string',
+      oeMatch: 'boolean',
+      outStandardPartsId: 'string',
+      garageType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVehicleRepairPlanResponseBodyData extends $tea.Model {
+  repairParts?: GetVehicleRepairPlanResponseBodyDataRepairParts[];
+  frameNo?: string;
+  static names(): { [key: string]: string } {
+    return {
+      repairParts: 'RepairParts',
+      frameNo: 'FrameNo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      repairParts: { 'type': 'array', 'itemType': GetVehicleRepairPlanResponseBodyDataRepairParts },
+      frameNo: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RecognizeVehicleDamageResponseBodyDataElements extends $tea.Model {
   type?: string;
   scores?: number[];
@@ -2012,97 +2106,6 @@ export class RecognizeVehiclePartsResponseBodyData extends $tea.Model {
   }
 }
 
-export class GenerateVehicleRepairPlanRequestDamageImageList extends $tea.Model {
-  createTimeStamp?: string;
-  imageUrl?: string;
-  static names(): { [key: string]: string } {
-    return {
-      createTimeStamp: 'CreateTimeStamp',
-      imageUrl: 'ImageUrl',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      createTimeStamp: 'string',
-      imageUrl: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GenerateVehicleRepairPlanResponseBodyData extends $tea.Model {
-  taskId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      taskId: 'TaskId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      taskId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectObjectResponseBodyDataElements extends $tea.Model {
-  type?: string;
-  boxes?: number[];
-  score?: number;
-  static names(): { [key: string]: string } {
-    return {
-      type: 'Type',
-      boxes: 'Boxes',
-      score: 'Score',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      type: 'string',
-      boxes: { 'type': 'array', 'itemType': 'number' },
-      score: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectObjectResponseBodyData extends $tea.Model {
-  elements?: DetectObjectResponseBodyDataElements[];
-  width?: number;
-  height?: number;
-  static names(): { [key: string]: string } {
-    return {
-      elements: 'Elements',
-      width: 'Width',
-      height: 'Height',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      elements: { 'type': 'array', 'itemType': DetectObjectResponseBodyDataElements },
-      width: 'number',
-      height: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 
 export default class Client extends OpenApi {
 
@@ -2124,101 +2127,6 @@ export default class Client extends OpenApi {
     }
 
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
-  }
-
-  async detectTransparentImageWithOptions(request: DetectTransparentImageRequest, runtime: $Util.RuntimeOptions): Promise<DetectTransparentImageResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<DetectTransparentImageResponse>(await this.doRPCRequest("DetectTransparentImage", "2019-12-30", "HTTPS", "POST", "AK", "json", req, runtime), new DetectTransparentImageResponse({}));
-  }
-
-  async detectTransparentImage(request: DetectTransparentImageRequest): Promise<DetectTransparentImageResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.detectTransparentImageWithOptions(request, runtime);
-  }
-
-  async detectTransparentImageAdvance(request: DetectTransparentImageAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<DetectTransparentImageResponse> {
-    // Step 0: init client
-    let accessKeyId = await this._credential.getAccessKeyId();
-    let accessKeySecret = await this._credential.getAccessKeySecret();
-    let authConfig = new $RPC.Config({
-      accessKeyId: accessKeyId,
-      accessKeySecret: accessKeySecret,
-      type: "access_key",
-      endpoint: "openplatform.aliyuncs.com",
-      protocol: this._protocol,
-      regionId: this._regionId,
-    });
-    let authClient = new OpenPlatform(authConfig);
-    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
-      product: "objectdet",
-      regionId: this._regionId,
-    });
-    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
-    let ossConfig = new $OSS.Config({
-      accessKeySecret: accessKeySecret,
-      type: "access_key",
-      protocol: this._protocol,
-      regionId: this._regionId,
-    });
-    let ossClient : OSS = null;
-    let fileObj = new $FileForm.FileField({ });
-    let ossHeader = new $OSS.PostObjectRequestHeader({ });
-    let uploadRequest = new $OSS.PostObjectRequest({ });
-    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
-    OpenApiUtil.convert(runtime, ossRuntime);
-    let detectTransparentImageReq = new DetectTransparentImageRequest({ });
-    OpenApiUtil.convert(request, detectTransparentImageReq);
-    authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-    ossConfig.accessKeyId = authResponse.accessKeyId;
-    ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
-    ossClient = new OSS(ossConfig);
-    fileObj = new $FileForm.FileField({
-      filename: authResponse.objectKey,
-      content: request.imageURLObject,
-      contentType: "",
-    });
-    ossHeader = new $OSS.PostObjectRequestHeader({
-      accessKeyId: authResponse.accessKeyId,
-      policy: authResponse.encodedPolicy,
-      signature: authResponse.signature,
-      key: authResponse.objectKey,
-      file: fileObj,
-      successActionStatus: "201",
-    });
-    uploadRequest = new $OSS.PostObjectRequest({
-      bucketName: authResponse.bucket,
-      header: ossHeader,
-    });
-    await ossClient.postObject(uploadRequest, ossRuntime);
-    detectTransparentImageReq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
-    let detectTransparentImageResp = await this.detectTransparentImageWithOptions(detectTransparentImageReq, runtime);
-    return detectTransparentImageResp;
-  }
-
-  async detectVehicleICongestionWithOptions(tmpReq: DetectVehicleICongestionRequest, runtime: $Util.RuntimeOptions): Promise<DetectVehicleICongestionResponse> {
-    Util.validateModel(tmpReq);
-    let request = new DetectVehicleICongestionShrinkRequest({ });
-    OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.roadRegions)) {
-      request.roadRegionsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.roadRegions, "RoadRegions", "json");
-    }
-
-    if (!Util.isUnset(tmpReq.preRegionIntersectFeatures)) {
-      request.preRegionIntersectFeaturesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.preRegionIntersectFeatures, "PreRegionIntersectFeatures", "json");
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<DetectVehicleICongestionResponse>(await this.doRPCRequest("DetectVehicleICongestion", "2019-12-30", "HTTPS", "POST", "AK", "json", req, runtime), new DetectVehicleICongestionResponse({}));
-  }
-
-  async detectVehicleICongestion(request: DetectVehicleICongestionRequest): Promise<DetectVehicleICongestionResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.detectVehicleICongestionWithOptions(request, runtime);
   }
 
   async classifyVehicleInsuranceWithOptions(request: ClassifyVehicleInsuranceRequest, runtime: $Util.RuntimeOptions): Promise<ClassifyVehicleInsuranceResponse> {
@@ -2306,91 +2214,6 @@ export default class Client extends OpenApi {
     return await this.detectIPCObjectWithOptions(request, runtime);
   }
 
-  async getVehicleRepairPlanWithOptions(request: GetVehicleRepairPlanRequest, runtime: $Util.RuntimeOptions): Promise<GetVehicleRepairPlanResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<GetVehicleRepairPlanResponse>(await this.doRPCRequest("GetVehicleRepairPlan", "2019-12-30", "HTTPS", "POST", "AK", "json", req, runtime), new GetVehicleRepairPlanResponse({}));
-  }
-
-  async getVehicleRepairPlan(request: GetVehicleRepairPlanRequest): Promise<GetVehicleRepairPlanResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getVehicleRepairPlanWithOptions(request, runtime);
-  }
-
-  async detectWhiteBaseImageWithOptions(request: DetectWhiteBaseImageRequest, runtime: $Util.RuntimeOptions): Promise<DetectWhiteBaseImageResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<DetectWhiteBaseImageResponse>(await this.doRPCRequest("DetectWhiteBaseImage", "2019-12-30", "HTTPS", "POST", "AK", "json", req, runtime), new DetectWhiteBaseImageResponse({}));
-  }
-
-  async detectWhiteBaseImage(request: DetectWhiteBaseImageRequest): Promise<DetectWhiteBaseImageResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.detectWhiteBaseImageWithOptions(request, runtime);
-  }
-
-  async detectWhiteBaseImageAdvance(request: DetectWhiteBaseImageAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<DetectWhiteBaseImageResponse> {
-    // Step 0: init client
-    let accessKeyId = await this._credential.getAccessKeyId();
-    let accessKeySecret = await this._credential.getAccessKeySecret();
-    let authConfig = new $RPC.Config({
-      accessKeyId: accessKeyId,
-      accessKeySecret: accessKeySecret,
-      type: "access_key",
-      endpoint: "openplatform.aliyuncs.com",
-      protocol: this._protocol,
-      regionId: this._regionId,
-    });
-    let authClient = new OpenPlatform(authConfig);
-    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
-      product: "objectdet",
-      regionId: this._regionId,
-    });
-    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
-    let ossConfig = new $OSS.Config({
-      accessKeySecret: accessKeySecret,
-      type: "access_key",
-      protocol: this._protocol,
-      regionId: this._regionId,
-    });
-    let ossClient : OSS = null;
-    let fileObj = new $FileForm.FileField({ });
-    let ossHeader = new $OSS.PostObjectRequestHeader({ });
-    let uploadRequest = new $OSS.PostObjectRequest({ });
-    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
-    OpenApiUtil.convert(runtime, ossRuntime);
-    let detectWhiteBaseImageReq = new DetectWhiteBaseImageRequest({ });
-    OpenApiUtil.convert(request, detectWhiteBaseImageReq);
-    authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-    ossConfig.accessKeyId = authResponse.accessKeyId;
-    ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
-    ossClient = new OSS(ossConfig);
-    fileObj = new $FileForm.FileField({
-      filename: authResponse.objectKey,
-      content: request.imageURLObject,
-      contentType: "",
-    });
-    ossHeader = new $OSS.PostObjectRequestHeader({
-      accessKeyId: authResponse.accessKeyId,
-      policy: authResponse.encodedPolicy,
-      signature: authResponse.signature,
-      key: authResponse.objectKey,
-      file: fileObj,
-      successActionStatus: "201",
-    });
-    uploadRequest = new $OSS.PostObjectRequest({
-      bucketName: authResponse.bucket,
-      header: ossHeader,
-    });
-    await ossClient.postObject(uploadRequest, ossRuntime);
-    detectWhiteBaseImageReq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
-    let detectWhiteBaseImageResp = await this.detectWhiteBaseImageWithOptions(detectWhiteBaseImageReq, runtime);
-    return detectWhiteBaseImageResp;
-  }
-
   async detectMainBodyWithOptions(request: DetectMainBodyRequest, runtime: $Util.RuntimeOptions): Promise<DetectMainBodyResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -2461,6 +2284,150 @@ export default class Client extends OpenApi {
     detectMainBodyReq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
     let detectMainBodyResp = await this.detectMainBodyWithOptions(detectMainBodyReq, runtime);
     return detectMainBodyResp;
+  }
+
+  async detectObjectWithOptions(request: DetectObjectRequest, runtime: $Util.RuntimeOptions): Promise<DetectObjectResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DetectObjectResponse>(await this.doRPCRequest("DetectObject", "2019-12-30", "HTTPS", "POST", "AK", "json", req, runtime), new DetectObjectResponse({}));
+  }
+
+  async detectObject(request: DetectObjectRequest): Promise<DetectObjectResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.detectObjectWithOptions(request, runtime);
+  }
+
+  async detectObjectAdvance(request: DetectObjectAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<DetectObjectResponse> {
+    // Step 0: init client
+    let accessKeyId = await this._credential.getAccessKeyId();
+    let accessKeySecret = await this._credential.getAccessKeySecret();
+    let authConfig = new $RPC.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      endpoint: "openplatform.aliyuncs.com",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenPlatform(authConfig);
+    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
+      product: "objectdet",
+      regionId: this._regionId,
+    });
+    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
+    let ossConfig = new $OSS.Config({
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let ossClient : OSS = null;
+    let fileObj = new $FileForm.FileField({ });
+    let ossHeader = new $OSS.PostObjectRequestHeader({ });
+    let uploadRequest = new $OSS.PostObjectRequest({ });
+    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
+    OpenApiUtil.convert(runtime, ossRuntime);
+    let detectObjectReq = new DetectObjectRequest({ });
+    OpenApiUtil.convert(request, detectObjectReq);
+    authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+    ossConfig.accessKeyId = authResponse.accessKeyId;
+    ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+    ossClient = new OSS(ossConfig);
+    fileObj = new $FileForm.FileField({
+      filename: authResponse.objectKey,
+      content: request.imageURLObject,
+      contentType: "",
+    });
+    ossHeader = new $OSS.PostObjectRequestHeader({
+      accessKeyId: authResponse.accessKeyId,
+      policy: authResponse.encodedPolicy,
+      signature: authResponse.signature,
+      key: authResponse.objectKey,
+      file: fileObj,
+      successActionStatus: "201",
+    });
+    uploadRequest = new $OSS.PostObjectRequest({
+      bucketName: authResponse.bucket,
+      header: ossHeader,
+    });
+    await ossClient.postObject(uploadRequest, ossRuntime);
+    detectObjectReq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    let detectObjectResp = await this.detectObjectWithOptions(detectObjectReq, runtime);
+    return detectObjectResp;
+  }
+
+  async detectTransparentImageWithOptions(request: DetectTransparentImageRequest, runtime: $Util.RuntimeOptions): Promise<DetectTransparentImageResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DetectTransparentImageResponse>(await this.doRPCRequest("DetectTransparentImage", "2019-12-30", "HTTPS", "POST", "AK", "json", req, runtime), new DetectTransparentImageResponse({}));
+  }
+
+  async detectTransparentImage(request: DetectTransparentImageRequest): Promise<DetectTransparentImageResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.detectTransparentImageWithOptions(request, runtime);
+  }
+
+  async detectTransparentImageAdvance(request: DetectTransparentImageAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<DetectTransparentImageResponse> {
+    // Step 0: init client
+    let accessKeyId = await this._credential.getAccessKeyId();
+    let accessKeySecret = await this._credential.getAccessKeySecret();
+    let authConfig = new $RPC.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      endpoint: "openplatform.aliyuncs.com",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenPlatform(authConfig);
+    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
+      product: "objectdet",
+      regionId: this._regionId,
+    });
+    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
+    let ossConfig = new $OSS.Config({
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let ossClient : OSS = null;
+    let fileObj = new $FileForm.FileField({ });
+    let ossHeader = new $OSS.PostObjectRequestHeader({ });
+    let uploadRequest = new $OSS.PostObjectRequest({ });
+    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
+    OpenApiUtil.convert(runtime, ossRuntime);
+    let detectTransparentImageReq = new DetectTransparentImageRequest({ });
+    OpenApiUtil.convert(request, detectTransparentImageReq);
+    authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+    ossConfig.accessKeyId = authResponse.accessKeyId;
+    ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+    ossClient = new OSS(ossConfig);
+    fileObj = new $FileForm.FileField({
+      filename: authResponse.objectKey,
+      content: request.imageURLObject,
+      contentType: "",
+    });
+    ossHeader = new $OSS.PostObjectRequestHeader({
+      accessKeyId: authResponse.accessKeyId,
+      policy: authResponse.encodedPolicy,
+      signature: authResponse.signature,
+      key: authResponse.objectKey,
+      file: fileObj,
+      successActionStatus: "201",
+    });
+    uploadRequest = new $OSS.PostObjectRequest({
+      bucketName: authResponse.bucket,
+      header: ossHeader,
+    });
+    await ossClient.postObject(uploadRequest, ossRuntime);
+    detectTransparentImageReq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    let detectTransparentImageResp = await this.detectTransparentImageWithOptions(detectTransparentImageReq, runtime);
+    return detectTransparentImageResp;
   }
 
   async detectVehicleWithOptions(request: DetectVehicleRequest, runtime: $Util.RuntimeOptions): Promise<DetectVehicleResponse> {
@@ -2535,6 +2502,29 @@ export default class Client extends OpenApi {
     return detectVehicleResp;
   }
 
+  async detectVehicleICongestionWithOptions(tmpReq: DetectVehicleICongestionRequest, runtime: $Util.RuntimeOptions): Promise<DetectVehicleICongestionResponse> {
+    Util.validateModel(tmpReq);
+    let request = new DetectVehicleICongestionShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.roadRegions)) {
+      request.roadRegionsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.roadRegions, "RoadRegions", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.preRegionIntersectFeatures)) {
+      request.preRegionIntersectFeaturesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.preRegionIntersectFeatures, "PreRegionIntersectFeatures", "json");
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DetectVehicleICongestionResponse>(await this.doRPCRequest("DetectVehicleICongestion", "2019-12-30", "HTTPS", "POST", "AK", "json", req, runtime), new DetectVehicleICongestionResponse({}));
+  }
+
+  async detectVehicleICongestion(request: DetectVehicleICongestionRequest): Promise<DetectVehicleICongestionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.detectVehicleICongestionWithOptions(request, runtime);
+  }
+
   async detectVehicleIllegalParkingWithOptions(tmpReq: DetectVehicleIllegalParkingRequest, runtime: $Util.RuntimeOptions): Promise<DetectVehicleIllegalParkingResponse> {
     Util.validateModel(tmpReq);
     let request = new DetectVehicleIllegalParkingShrinkRequest({ });
@@ -2552,6 +2542,104 @@ export default class Client extends OpenApi {
   async detectVehicleIllegalParking(request: DetectVehicleIllegalParkingRequest): Promise<DetectVehicleIllegalParkingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.detectVehicleIllegalParkingWithOptions(request, runtime);
+  }
+
+  async detectWhiteBaseImageWithOptions(request: DetectWhiteBaseImageRequest, runtime: $Util.RuntimeOptions): Promise<DetectWhiteBaseImageResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DetectWhiteBaseImageResponse>(await this.doRPCRequest("DetectWhiteBaseImage", "2019-12-30", "HTTPS", "POST", "AK", "json", req, runtime), new DetectWhiteBaseImageResponse({}));
+  }
+
+  async detectWhiteBaseImage(request: DetectWhiteBaseImageRequest): Promise<DetectWhiteBaseImageResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.detectWhiteBaseImageWithOptions(request, runtime);
+  }
+
+  async detectWhiteBaseImageAdvance(request: DetectWhiteBaseImageAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<DetectWhiteBaseImageResponse> {
+    // Step 0: init client
+    let accessKeyId = await this._credential.getAccessKeyId();
+    let accessKeySecret = await this._credential.getAccessKeySecret();
+    let authConfig = new $RPC.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      endpoint: "openplatform.aliyuncs.com",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenPlatform(authConfig);
+    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
+      product: "objectdet",
+      regionId: this._regionId,
+    });
+    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
+    let ossConfig = new $OSS.Config({
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let ossClient : OSS = null;
+    let fileObj = new $FileForm.FileField({ });
+    let ossHeader = new $OSS.PostObjectRequestHeader({ });
+    let uploadRequest = new $OSS.PostObjectRequest({ });
+    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
+    OpenApiUtil.convert(runtime, ossRuntime);
+    let detectWhiteBaseImageReq = new DetectWhiteBaseImageRequest({ });
+    OpenApiUtil.convert(request, detectWhiteBaseImageReq);
+    authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+    ossConfig.accessKeyId = authResponse.accessKeyId;
+    ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+    ossClient = new OSS(ossConfig);
+    fileObj = new $FileForm.FileField({
+      filename: authResponse.objectKey,
+      content: request.imageURLObject,
+      contentType: "",
+    });
+    ossHeader = new $OSS.PostObjectRequestHeader({
+      accessKeyId: authResponse.accessKeyId,
+      policy: authResponse.encodedPolicy,
+      signature: authResponse.signature,
+      key: authResponse.objectKey,
+      file: fileObj,
+      successActionStatus: "201",
+    });
+    uploadRequest = new $OSS.PostObjectRequest({
+      bucketName: authResponse.bucket,
+      header: ossHeader,
+    });
+    await ossClient.postObject(uploadRequest, ossRuntime);
+    detectWhiteBaseImageReq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    let detectWhiteBaseImageResp = await this.detectWhiteBaseImageWithOptions(detectWhiteBaseImageReq, runtime);
+    return detectWhiteBaseImageResp;
+  }
+
+  async generateVehicleRepairPlanWithOptions(request: GenerateVehicleRepairPlanRequest, runtime: $Util.RuntimeOptions): Promise<GenerateVehicleRepairPlanResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<GenerateVehicleRepairPlanResponse>(await this.doRPCRequest("GenerateVehicleRepairPlan", "2019-12-30", "HTTPS", "POST", "AK", "json", req, runtime), new GenerateVehicleRepairPlanResponse({}));
+  }
+
+  async generateVehicleRepairPlan(request: GenerateVehicleRepairPlanRequest): Promise<GenerateVehicleRepairPlanResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.generateVehicleRepairPlanWithOptions(request, runtime);
+  }
+
+  async getVehicleRepairPlanWithOptions(request: GetVehicleRepairPlanRequest, runtime: $Util.RuntimeOptions): Promise<GetVehicleRepairPlanResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<GetVehicleRepairPlanResponse>(await this.doRPCRequest("GetVehicleRepairPlan", "2019-12-30", "HTTPS", "POST", "AK", "json", req, runtime), new GetVehicleRepairPlanResponse({}));
+  }
+
+  async getVehicleRepairPlan(request: GetVehicleRepairPlanRequest): Promise<GetVehicleRepairPlanResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getVehicleRepairPlanWithOptions(request, runtime);
   }
 
   async recognizeVehicleDamageWithOptions(request: RecognizeVehicleDamageRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeVehicleDamageResponse> {
@@ -2768,91 +2856,6 @@ export default class Client extends OpenApi {
     recognizeVehiclePartsReq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
     let recognizeVehiclePartsResp = await this.recognizeVehiclePartsWithOptions(recognizeVehiclePartsReq, runtime);
     return recognizeVehiclePartsResp;
-  }
-
-  async generateVehicleRepairPlanWithOptions(request: GenerateVehicleRepairPlanRequest, runtime: $Util.RuntimeOptions): Promise<GenerateVehicleRepairPlanResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<GenerateVehicleRepairPlanResponse>(await this.doRPCRequest("GenerateVehicleRepairPlan", "2019-12-30", "HTTPS", "POST", "AK", "json", req, runtime), new GenerateVehicleRepairPlanResponse({}));
-  }
-
-  async generateVehicleRepairPlan(request: GenerateVehicleRepairPlanRequest): Promise<GenerateVehicleRepairPlanResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.generateVehicleRepairPlanWithOptions(request, runtime);
-  }
-
-  async detectObjectWithOptions(request: DetectObjectRequest, runtime: $Util.RuntimeOptions): Promise<DetectObjectResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<DetectObjectResponse>(await this.doRPCRequest("DetectObject", "2019-12-30", "HTTPS", "POST", "AK", "json", req, runtime), new DetectObjectResponse({}));
-  }
-
-  async detectObject(request: DetectObjectRequest): Promise<DetectObjectResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.detectObjectWithOptions(request, runtime);
-  }
-
-  async detectObjectAdvance(request: DetectObjectAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<DetectObjectResponse> {
-    // Step 0: init client
-    let accessKeyId = await this._credential.getAccessKeyId();
-    let accessKeySecret = await this._credential.getAccessKeySecret();
-    let authConfig = new $RPC.Config({
-      accessKeyId: accessKeyId,
-      accessKeySecret: accessKeySecret,
-      type: "access_key",
-      endpoint: "openplatform.aliyuncs.com",
-      protocol: this._protocol,
-      regionId: this._regionId,
-    });
-    let authClient = new OpenPlatform(authConfig);
-    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
-      product: "objectdet",
-      regionId: this._regionId,
-    });
-    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
-    let ossConfig = new $OSS.Config({
-      accessKeySecret: accessKeySecret,
-      type: "access_key",
-      protocol: this._protocol,
-      regionId: this._regionId,
-    });
-    let ossClient : OSS = null;
-    let fileObj = new $FileForm.FileField({ });
-    let ossHeader = new $OSS.PostObjectRequestHeader({ });
-    let uploadRequest = new $OSS.PostObjectRequest({ });
-    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
-    OpenApiUtil.convert(runtime, ossRuntime);
-    let detectObjectReq = new DetectObjectRequest({ });
-    OpenApiUtil.convert(request, detectObjectReq);
-    authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-    ossConfig.accessKeyId = authResponse.accessKeyId;
-    ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
-    ossClient = new OSS(ossConfig);
-    fileObj = new $FileForm.FileField({
-      filename: authResponse.objectKey,
-      content: request.imageURLObject,
-      contentType: "",
-    });
-    ossHeader = new $OSS.PostObjectRequestHeader({
-      accessKeyId: authResponse.accessKeyId,
-      policy: authResponse.encodedPolicy,
-      signature: authResponse.signature,
-      key: authResponse.objectKey,
-      file: fileObj,
-      successActionStatus: "201",
-    });
-    uploadRequest = new $OSS.PostObjectRequest({
-      bucketName: authResponse.bucket,
-      header: ossHeader,
-    });
-    await ossClient.postObject(uploadRequest, ossRuntime);
-    detectObjectReq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
-    let detectObjectResp = await this.detectObjectWithOptions(detectObjectReq, runtime);
-    return detectObjectResp;
   }
 
 }
