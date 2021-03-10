@@ -10,15 +10,18 @@ import * as $tea from '@alicloud/tea-typescript';
 
 export class SubmitStructSyncOrderApprovalRequest extends $tea.Model {
   orderId?: number;
+  tid?: number;
   static names(): { [key: string]: string } {
     return {
       orderId: 'OrderId',
+      tid: 'Tid',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       orderId: 'number',
+      tid: 'number',
     };
   }
 
@@ -599,10 +602,12 @@ export class GetMetaTableDetailInfoResponse extends $tea.Model {
 export class GetDataCorrectSQLFileRequest extends $tea.Model {
   orderId?: number;
   orderActionName?: string;
+  tid?: number;
   static names(): { [key: string]: string } {
     return {
       orderId: 'OrderId',
       orderActionName: 'OrderActionName',
+      tid: 'Tid',
     };
   }
 
@@ -610,6 +615,7 @@ export class GetDataCorrectSQLFileRequest extends $tea.Model {
     return {
       orderId: 'number',
       orderActionName: 'string',
+      tid: 'number',
     };
   }
 
@@ -671,12 +677,128 @@ export class GetDataCorrectSQLFileResponse extends $tea.Model {
   }
 }
 
+export class CreateFreeLockCorrectOrderRequest extends $tea.Model {
+  comment?: string;
+  relatedUserList?: number[];
+  param?: CreateFreeLockCorrectOrderRequestParam;
+  attachmentKey?: string;
+  tid?: number;
+  static names(): { [key: string]: string } {
+    return {
+      comment: 'Comment',
+      relatedUserList: 'RelatedUserList',
+      param: 'Param',
+      attachmentKey: 'AttachmentKey',
+      tid: 'Tid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      comment: 'string',
+      relatedUserList: { 'type': 'array', 'itemType': 'number' },
+      param: CreateFreeLockCorrectOrderRequestParam,
+      attachmentKey: 'string',
+      tid: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateFreeLockCorrectOrderShrinkRequest extends $tea.Model {
+  comment?: string;
+  relatedUserListShrink?: string;
+  paramShrink?: string;
+  attachmentKey?: string;
+  tid?: number;
+  static names(): { [key: string]: string } {
+    return {
+      comment: 'Comment',
+      relatedUserListShrink: 'RelatedUserList',
+      paramShrink: 'Param',
+      attachmentKey: 'AttachmentKey',
+      tid: 'Tid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      comment: 'string',
+      relatedUserListShrink: 'string',
+      paramShrink: 'string',
+      attachmentKey: 'string',
+      tid: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateFreeLockCorrectOrderResponseBody extends $tea.Model {
+  requestId?: string;
+  success?: boolean;
+  errorMessage?: string;
+  errorCode?: string;
+  createOrderResult?: number[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+      errorMessage: 'ErrorMessage',
+      errorCode: 'ErrorCode',
+      createOrderResult: 'CreateOrderResult',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+      errorMessage: 'string',
+      errorCode: 'string',
+      createOrderResult: { 'type': 'array', 'itemType': 'number' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateFreeLockCorrectOrderResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CreateFreeLockCorrectOrderResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CreateFreeLockCorrectOrderResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateOrderRequest extends $tea.Model {
   tid?: number;
   comment?: string;
   pluginParam?: { [key: string]: any };
   relatedUserList?: string;
   pluginType?: string;
+  attachmentKey?: string;
   static names(): { [key: string]: string } {
     return {
       tid: 'Tid',
@@ -684,6 +806,7 @@ export class CreateOrderRequest extends $tea.Model {
       pluginParam: 'PluginParam',
       relatedUserList: 'RelatedUserList',
       pluginType: 'PluginType',
+      attachmentKey: 'AttachmentKey',
     };
   }
 
@@ -694,6 +817,7 @@ export class CreateOrderRequest extends $tea.Model {
       pluginParam: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       relatedUserList: 'string',
       pluginType: 'string',
+      attachmentKey: 'string',
     };
   }
 
@@ -708,6 +832,7 @@ export class CreateOrderShrinkRequest extends $tea.Model {
   pluginParamShrink?: string;
   relatedUserList?: string;
   pluginType?: string;
+  attachmentKey?: string;
   static names(): { [key: string]: string } {
     return {
       tid: 'Tid',
@@ -715,6 +840,7 @@ export class CreateOrderShrinkRequest extends $tea.Model {
       pluginParamShrink: 'PluginParam',
       relatedUserList: 'RelatedUserList',
       pluginType: 'PluginType',
+      attachmentKey: 'AttachmentKey',
     };
   }
 
@@ -725,6 +851,7 @@ export class CreateOrderShrinkRequest extends $tea.Model {
       pluginParamShrink: 'string',
       relatedUserList: 'string',
       pluginType: 'string',
+      attachmentKey: 'string',
     };
   }
 
@@ -1220,15 +1347,18 @@ export class ListInstancesResponse extends $tea.Model {
 
 export class GetUserUploadFileJobRequest extends $tea.Model {
   jobKey?: string;
+  tid?: number;
   static names(): { [key: string]: string } {
     return {
       jobKey: 'JobKey',
+      tid: 'Tid',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       jobKey: 'string',
+      tid: 'number',
     };
   }
 
@@ -1292,15 +1422,18 @@ export class GetUserUploadFileJobResponse extends $tea.Model {
 
 export class GetStructSyncJobDetailRequest extends $tea.Model {
   orderId?: number;
+  tid?: number;
   static names(): { [key: string]: string } {
     return {
       orderId: 'OrderId',
+      tid: 'Tid',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       orderId: 'number',
+      tid: 'number',
     };
   }
 
@@ -1367,12 +1500,14 @@ export class CreateUploadOSSFileJobRequest extends $tea.Model {
   fileName?: string;
   uploadType?: string;
   uploadTarget?: CreateUploadOSSFileJobRequestUploadTarget;
+  tid?: number;
   static names(): { [key: string]: string } {
     return {
       fileSource: 'FileSource',
       fileName: 'FileName',
       uploadType: 'UploadType',
       uploadTarget: 'UploadTarget',
+      tid: 'Tid',
     };
   }
 
@@ -1382,6 +1517,7 @@ export class CreateUploadOSSFileJobRequest extends $tea.Model {
       fileName: 'string',
       uploadType: 'string',
       uploadTarget: CreateUploadOSSFileJobRequestUploadTarget,
+      tid: 'number',
     };
   }
 
@@ -1395,12 +1531,14 @@ export class CreateUploadOSSFileJobShrinkRequest extends $tea.Model {
   fileName?: string;
   uploadType?: string;
   uploadTargetShrink?: string;
+  tid?: number;
   static names(): { [key: string]: string } {
     return {
       fileSource: 'FileSource',
       fileName: 'FileName',
       uploadType: 'UploadType',
       uploadTargetShrink: 'UploadTarget',
+      tid: 'Tid',
     };
   }
 
@@ -1410,6 +1548,7 @@ export class CreateUploadOSSFileJobShrinkRequest extends $tea.Model {
       fileName: 'string',
       uploadType: 'string',
       uploadTargetShrink: 'string',
+      tid: 'number',
     };
   }
 
@@ -1722,15 +1861,18 @@ export class GetUserResponse extends $tea.Model {
 
 export class ExecuteStructSyncRequest extends $tea.Model {
   orderId?: number;
+  tid?: number;
   static names(): { [key: string]: string } {
     return {
       orderId: 'OrderId',
+      tid: 'Tid',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       orderId: 'number',
+      tid: 'number',
     };
   }
 
@@ -2399,11 +2541,13 @@ export class ListDBTaskSQLJobDetailRequest extends $tea.Model {
   jobId?: number;
   pageNumber?: number;
   pageSize?: number;
+  tid?: number;
   static names(): { [key: string]: string } {
     return {
       jobId: 'JobId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      tid: 'Tid',
     };
   }
 
@@ -2412,6 +2556,7 @@ export class ListDBTaskSQLJobDetailRequest extends $tea.Model {
       jobId: 'number',
       pageNumber: 'number',
       pageSize: 'number',
+      tid: 'number',
     };
   }
 
@@ -2615,6 +2760,25 @@ export class GetApprovalDetailResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: GetApprovalDetailResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserActiveTenantRequest extends $tea.Model {
+  tid?: number;
+  static names(): { [key: string]: string } {
+    return {
+      tid: 'Tid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tid: 'number',
     };
   }
 
@@ -2840,15 +3004,18 @@ export class GetInstanceResponse extends $tea.Model {
 
 export class GetPermApplyOrderDetailRequest extends $tea.Model {
   orderId?: number;
+  tid?: number;
   static names(): { [key: string]: string } {
     return {
       orderId: 'OrderId',
+      tid: 'Tid',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       orderId: 'number',
+      tid: 'number',
     };
   }
 
@@ -3078,6 +3245,81 @@ export class ListLogicTablesResponse extends $tea.Model {
   }
 }
 
+export class GetTableTopologyRequest extends $tea.Model {
+  tableGuid?: string;
+  tid?: number;
+  static names(): { [key: string]: string } {
+    return {
+      tableGuid: 'TableGuid',
+      tid: 'Tid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tableGuid: 'string',
+      tid: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTableTopologyResponseBody extends $tea.Model {
+  requestId?: string;
+  success?: boolean;
+  errorMessage?: string;
+  errorCode?: string;
+  tableTopology?: GetTableTopologyResponseBodyTableTopology;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+      errorMessage: 'ErrorMessage',
+      errorCode: 'ErrorCode',
+      tableTopology: 'TableTopology',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+      errorMessage: 'string',
+      errorCode: 'string',
+      tableTopology: GetTableTopologyResponseBodyTableTopology,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTableTopologyResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetTableTopologyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetTableTopologyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetDataExportDownloadURLRequest extends $tea.Model {
   tid?: number;
   orderId?: number;
@@ -3148,6 +3390,121 @@ export class GetDataExportDownloadURLResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: GetDataExportDownloadURLResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataCronClearOrderRequest extends $tea.Model {
+  comment?: string;
+  relatedUserList?: number[];
+  param?: CreateDataCronClearOrderRequestParam;
+  attachmentKey?: string;
+  tid?: number;
+  static names(): { [key: string]: string } {
+    return {
+      comment: 'Comment',
+      relatedUserList: 'RelatedUserList',
+      param: 'Param',
+      attachmentKey: 'AttachmentKey',
+      tid: 'Tid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      comment: 'string',
+      relatedUserList: { 'type': 'array', 'itemType': 'number' },
+      param: CreateDataCronClearOrderRequestParam,
+      attachmentKey: 'string',
+      tid: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataCronClearOrderShrinkRequest extends $tea.Model {
+  comment?: string;
+  relatedUserListShrink?: string;
+  paramShrink?: string;
+  attachmentKey?: string;
+  tid?: number;
+  static names(): { [key: string]: string } {
+    return {
+      comment: 'Comment',
+      relatedUserListShrink: 'RelatedUserList',
+      paramShrink: 'Param',
+      attachmentKey: 'AttachmentKey',
+      tid: 'Tid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      comment: 'string',
+      relatedUserListShrink: 'string',
+      paramShrink: 'string',
+      attachmentKey: 'string',
+      tid: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataCronClearOrderResponseBody extends $tea.Model {
+  requestId?: string;
+  success?: boolean;
+  errorMessage?: string;
+  errorCode?: string;
+  createOrderResult?: number[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+      errorMessage: 'ErrorMessage',
+      errorCode: 'ErrorCode',
+      createOrderResult: 'CreateOrderResult',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+      errorMessage: 'string',
+      errorCode: 'string',
+      createOrderResult: { 'type': 'array', 'itemType': 'number' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataCronClearOrderResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CreateDataCronClearOrderResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CreateDataCronClearOrderResponseBody,
     };
   }
 
@@ -3329,15 +3686,18 @@ export class GetDatabaseResponse extends $tea.Model {
 
 export class GetOwnerApplyOrderDetailRequest extends $tea.Model {
   orderId?: number;
+  tid?: number;
   static names(): { [key: string]: string } {
     return {
       orderId: 'OrderId',
+      tid: 'Tid',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       orderId: 'number',
+      tid: 'number',
     };
   }
 
@@ -3592,11 +3952,13 @@ export class ListDBTaskSQLJobRequest extends $tea.Model {
   DBTaskGroupId?: number;
   pageNumber?: number;
   pageSize?: number;
+  tid?: number;
   static names(): { [key: string]: string } {
     return {
       DBTaskGroupId: 'DBTaskGroupId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      tid: 'Tid',
     };
   }
 
@@ -3605,6 +3967,7 @@ export class ListDBTaskSQLJobRequest extends $tea.Model {
       DBTaskGroupId: 'number',
       pageNumber: 'number',
       pageSize: 'number',
+      tid: 'number',
     };
   }
 
@@ -3741,17 +4104,103 @@ export class DeleteUserResponse extends $tea.Model {
   }
 }
 
+export class GetDataCronClearTaskDetailListRequest extends $tea.Model {
+  orderId?: number;
+  pageNumber?: number;
+  pageSize?: number;
+  tid?: number;
+  static names(): { [key: string]: string } {
+    return {
+      orderId: 'OrderId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      tid: 'Tid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      orderId: 'number',
+      pageNumber: 'number',
+      pageSize: 'number',
+      tid: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDataCronClearTaskDetailListResponseBody extends $tea.Model {
+  requestId?: string;
+  success?: boolean;
+  errorMessage?: string;
+  errorCode?: string;
+  dataCronClearTaskDetailList?: GetDataCronClearTaskDetailListResponseBodyDataCronClearTaskDetailList[];
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+      errorMessage: 'ErrorMessage',
+      errorCode: 'ErrorCode',
+      dataCronClearTaskDetailList: 'DataCronClearTaskDetailList',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+      errorMessage: 'string',
+      errorCode: 'string',
+      dataCronClearTaskDetailList: { 'type': 'array', 'itemType': GetDataCronClearTaskDetailListResponseBodyDataCronClearTaskDetailList },
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDataCronClearTaskDetailListResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetDataCronClearTaskDetailListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetDataCronClearTaskDetailListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetStructSyncJobAnalyzeResultRequest extends $tea.Model {
   orderId?: number;
   compareType?: string;
   pageNumber?: number;
   pageSize?: number;
+  tid?: number;
   static names(): { [key: string]: string } {
     return {
       orderId: 'OrderId',
       compareType: 'CompareType',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      tid: 'Tid',
     };
   }
 
@@ -3761,6 +4210,7 @@ export class GetStructSyncJobAnalyzeResultRequest extends $tea.Model {
       compareType: 'string',
       pageNumber: 'number',
       pageSize: 'number',
+      tid: 'number',
     };
   }
 
@@ -3900,17 +4350,94 @@ export class ApproveOrderResponse extends $tea.Model {
   }
 }
 
+export class GetDataCorrectTaskDetailRequest extends $tea.Model {
+  orderId?: number;
+  tid?: number;
+  static names(): { [key: string]: string } {
+    return {
+      orderId: 'OrderId',
+      tid: 'Tid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      orderId: 'number',
+      tid: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDataCorrectTaskDetailResponseBody extends $tea.Model {
+  requestId?: string;
+  success?: boolean;
+  errorMessage?: string;
+  errorCode?: string;
+  dataCorrectTaskDetail?: GetDataCorrectTaskDetailResponseBodyDataCorrectTaskDetail;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+      errorMessage: 'ErrorMessage',
+      errorCode: 'ErrorCode',
+      dataCorrectTaskDetail: 'DataCorrectTaskDetail',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+      errorMessage: 'string',
+      errorCode: 'string',
+      dataCorrectTaskDetail: GetDataCorrectTaskDetailResponseBodyDataCorrectTaskDetail,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDataCorrectTaskDetailResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetDataCorrectTaskDetailResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetDataCorrectTaskDetailResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateUploadFileJobRequest extends $tea.Model {
   fileSource?: string;
   fileName?: string;
   uploadType?: string;
   uploadURL?: string;
+  tid?: number;
   static names(): { [key: string]: string } {
     return {
       fileSource: 'FileSource',
       fileName: 'FileName',
       uploadType: 'UploadType',
       uploadURL: 'UploadURL',
+      tid: 'Tid',
     };
   }
 
@@ -3920,6 +4447,7 @@ export class CreateUploadFileJobRequest extends $tea.Model {
       fileName: 'string',
       uploadType: 'string',
       uploadURL: 'string',
+      tid: 'number',
     };
   }
 
@@ -4054,6 +4582,121 @@ export class ListLogicDatabasesResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: ListLogicDatabasesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataImportOrderRequest extends $tea.Model {
+  comment?: string;
+  relatedUserList?: number[];
+  param?: CreateDataImportOrderRequestParam;
+  attachmentKey?: string;
+  tid?: number;
+  static names(): { [key: string]: string } {
+    return {
+      comment: 'Comment',
+      relatedUserList: 'RelatedUserList',
+      param: 'Param',
+      attachmentKey: 'AttachmentKey',
+      tid: 'Tid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      comment: 'string',
+      relatedUserList: { 'type': 'array', 'itemType': 'number' },
+      param: CreateDataImportOrderRequestParam,
+      attachmentKey: 'string',
+      tid: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataImportOrderShrinkRequest extends $tea.Model {
+  comment?: string;
+  relatedUserListShrink?: string;
+  paramShrink?: string;
+  attachmentKey?: string;
+  tid?: number;
+  static names(): { [key: string]: string } {
+    return {
+      comment: 'Comment',
+      relatedUserListShrink: 'RelatedUserList',
+      paramShrink: 'Param',
+      attachmentKey: 'AttachmentKey',
+      tid: 'Tid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      comment: 'string',
+      relatedUserListShrink: 'string',
+      paramShrink: 'string',
+      attachmentKey: 'string',
+      tid: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataImportOrderResponseBody extends $tea.Model {
+  requestId?: string;
+  success?: boolean;
+  errorMessage?: string;
+  errorCode?: string;
+  createOrderResult?: number[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+      errorMessage: 'ErrorMessage',
+      errorCode: 'ErrorCode',
+      createOrderResult: 'CreateOrderResult',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+      errorMessage: 'string',
+      errorCode: 'string',
+      createOrderResult: { 'type': 'array', 'itemType': 'number' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataImportOrderResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CreateDataImportOrderResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CreateDataImportOrderResponseBody,
     };
   }
 
@@ -4389,6 +5032,25 @@ export class GetOrderBaseInfoResponse extends $tea.Model {
   }
 }
 
+export class ListUserTenantsRequest extends $tea.Model {
+  tid?: number;
+  static names(): { [key: string]: string } {
+    return {
+      tid: 'Tid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tid: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListUserTenantsResponseBody extends $tea.Model {
   requestId?: string;
   tenantList?: ListUserTenantsResponseBodyTenantList[];
@@ -4512,6 +5174,121 @@ export class SetOwnersResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: SetOwnersResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataCorrectOrderRequest extends $tea.Model {
+  comment?: string;
+  relatedUserList?: number[];
+  param?: CreateDataCorrectOrderRequestParam;
+  attachmentKey?: string;
+  tid?: number;
+  static names(): { [key: string]: string } {
+    return {
+      comment: 'Comment',
+      relatedUserList: 'RelatedUserList',
+      param: 'Param',
+      attachmentKey: 'AttachmentKey',
+      tid: 'Tid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      comment: 'string',
+      relatedUserList: { 'type': 'array', 'itemType': 'number' },
+      param: CreateDataCorrectOrderRequestParam,
+      attachmentKey: 'string',
+      tid: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataCorrectOrderShrinkRequest extends $tea.Model {
+  comment?: string;
+  relatedUserListShrink?: string;
+  paramShrink?: string;
+  attachmentKey?: string;
+  tid?: number;
+  static names(): { [key: string]: string } {
+    return {
+      comment: 'Comment',
+      relatedUserListShrink: 'RelatedUserList',
+      paramShrink: 'Param',
+      attachmentKey: 'AttachmentKey',
+      tid: 'Tid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      comment: 'string',
+      relatedUserListShrink: 'string',
+      paramShrink: 'string',
+      attachmentKey: 'string',
+      tid: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataCorrectOrderResponseBody extends $tea.Model {
+  requestId?: string;
+  success?: boolean;
+  errorMessage?: string;
+  errorCode?: string;
+  createOrderResult?: number[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+      errorMessage: 'ErrorMessage',
+      errorCode: 'ErrorCode',
+      createOrderResult: 'CreateOrderResult',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+      errorMessage: 'string',
+      errorCode: 'string',
+      createOrderResult: { 'type': 'array', 'itemType': 'number' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataCorrectOrderResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CreateDataCorrectOrderResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CreateDataCorrectOrderResponseBody,
     };
   }
 
@@ -4840,11 +5617,15 @@ export class CreateStructSyncOrderRequest extends $tea.Model {
   comment?: string;
   relatedUserList?: number[];
   param?: CreateStructSyncOrderRequestParam;
+  attachmentKey?: string;
+  tid?: number;
   static names(): { [key: string]: string } {
     return {
       comment: 'Comment',
       relatedUserList: 'RelatedUserList',
       param: 'Param',
+      attachmentKey: 'AttachmentKey',
+      tid: 'Tid',
     };
   }
 
@@ -4853,6 +5634,8 @@ export class CreateStructSyncOrderRequest extends $tea.Model {
       comment: 'string',
       relatedUserList: { 'type': 'array', 'itemType': 'number' },
       param: CreateStructSyncOrderRequestParam,
+      attachmentKey: 'string',
+      tid: 'number',
     };
   }
 
@@ -4865,11 +5648,15 @@ export class CreateStructSyncOrderShrinkRequest extends $tea.Model {
   comment?: string;
   relatedUserListShrink?: string;
   paramShrink?: string;
+  attachmentKey?: string;
+  tid?: number;
   static names(): { [key: string]: string } {
     return {
       comment: 'Comment',
       relatedUserListShrink: 'RelatedUserList',
       paramShrink: 'Param',
+      attachmentKey: 'AttachmentKey',
+      tid: 'Tid',
     };
   }
 
@@ -4878,6 +5665,8 @@ export class CreateStructSyncOrderShrinkRequest extends $tea.Model {
       comment: 'string',
       relatedUserListShrink: 'string',
       paramShrink: 'string',
+      attachmentKey: 'string',
+      tid: 'number',
     };
   }
 
@@ -5318,15 +6107,18 @@ export class ListWorkFlowNodesResponse extends $tea.Model {
 
 export class GetStructSyncOrderDetailRequest extends $tea.Model {
   orderId?: number;
+  tid?: number;
   static names(): { [key: string]: string } {
     return {
       orderId: 'OrderId',
+      tid: 'Tid',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       orderId: 'number',
+      tid: 'number',
     };
   }
 
@@ -5560,11 +6352,13 @@ export class GetStructSyncExecSqlDetailRequest extends $tea.Model {
   orderId?: number;
   pageNumber?: number;
   pageSize?: number;
+  tid?: number;
   static names(): { [key: string]: string } {
     return {
       orderId: 'OrderId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      tid: 'Tid',
     };
   }
 
@@ -5573,6 +6367,7 @@ export class GetStructSyncExecSqlDetailRequest extends $tea.Model {
       orderId: 'number',
       pageNumber: 'number',
       pageSize: 'number',
+      tid: 'number',
     };
   }
 
@@ -6176,6 +6971,68 @@ export class GetMetaTableDetailInfoResponseBodyDetailInfo extends $tea.Model {
     return {
       indexList: { 'type': 'array', 'itemType': GetMetaTableDetailInfoResponseBodyDetailInfoIndexList },
       columnList: { 'type': 'array', 'itemType': GetMetaTableDetailInfoResponseBodyDetailInfoColumnList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateFreeLockCorrectOrderRequestParamDbItemList extends $tea.Model {
+  dbId?: number;
+  logic?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      dbId: 'DbId',
+      logic: 'Logic',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dbId: 'number',
+      logic: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateFreeLockCorrectOrderRequestParam extends $tea.Model {
+  classify?: string;
+  execSQL?: string;
+  sqlType?: string;
+  attachmentName?: string;
+  rollbackSQL?: string;
+  rollbackAttachmentName?: string;
+  rollbackSqlType?: string;
+  dbItemList?: CreateFreeLockCorrectOrderRequestParamDbItemList[];
+  static names(): { [key: string]: string } {
+    return {
+      classify: 'Classify',
+      execSQL: 'ExecSQL',
+      sqlType: 'SqlType',
+      attachmentName: 'AttachmentName',
+      rollbackSQL: 'RollbackSQL',
+      rollbackAttachmentName: 'RollbackAttachmentName',
+      rollbackSqlType: 'RollbackSqlType',
+      dbItemList: 'DbItemList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      classify: 'string',
+      execSQL: 'string',
+      sqlType: 'string',
+      attachmentName: 'string',
+      rollbackSQL: 'string',
+      rollbackAttachmentName: 'string',
+      rollbackSqlType: 'string',
+      dbItemList: { 'type': 'array', 'itemType': CreateFreeLockCorrectOrderRequestParamDbItemList },
     };
   }
 
@@ -6883,6 +7740,7 @@ export class GetStructSyncJobDetailResponseBodyStructSyncJobDetail extends $tea.
   sqlCount?: number;
   executeCount?: number;
   securityRule?: string;
+  DBTaskGroupId?: number;
   static names(): { [key: string]: string } {
     return {
       jobStatus: 'JobStatus',
@@ -6892,6 +7750,7 @@ export class GetStructSyncJobDetailResponseBodyStructSyncJobDetail extends $tea.
       sqlCount: 'SqlCount',
       executeCount: 'ExecuteCount',
       securityRule: 'SecurityRule',
+      DBTaskGroupId: 'DBTaskGroupId',
     };
   }
 
@@ -6904,6 +7763,7 @@ export class GetStructSyncJobDetailResponseBodyStructSyncJobDetail extends $tea.
       sqlCount: 'number',
       executeCount: 'number',
       securityRule: 'string',
+      DBTaskGroupId: 'number',
     };
   }
 
@@ -7295,11 +8155,13 @@ export class GetDataCorrectOrderDetailResponseBodyDataCorrectOrderDetail extends
   preCheckDetail?: GetDataCorrectOrderDetailResponseBodyDataCorrectOrderDetailPreCheckDetail;
   orderDetail?: GetDataCorrectOrderDetailResponseBodyDataCorrectOrderDetailOrderDetail;
   databaseList?: GetDataCorrectOrderDetailResponseBodyDataCorrectOrderDetailDatabaseList;
+  status?: string;
   static names(): { [key: string]: string } {
     return {
       preCheckDetail: 'PreCheckDetail',
       orderDetail: 'OrderDetail',
       databaseList: 'DatabaseList',
+      status: 'Status',
     };
   }
 
@@ -7308,6 +8170,7 @@ export class GetDataCorrectOrderDetailResponseBodyDataCorrectOrderDetail extends
       preCheckDetail: GetDataCorrectOrderDetailResponseBodyDataCorrectOrderDetailPreCheckDetail,
       orderDetail: GetDataCorrectOrderDetailResponseBodyDataCorrectOrderDetailOrderDetail,
       databaseList: GetDataCorrectOrderDetailResponseBodyDataCorrectOrderDetailDatabaseList,
+      status: 'string',
     };
   }
 
@@ -8175,6 +9038,83 @@ export class ListLogicTablesResponseBodyLogicTableList extends $tea.Model {
   }
 }
 
+export class GetTableTopologyResponseBodyTableTopologyTableTopologyInfoList extends $tea.Model {
+  tableNameList?: string;
+  tableNameExpr?: string;
+  tableCount?: number;
+  dbId?: number;
+  dbSearchName?: string;
+  instanceId?: number;
+  regionId?: string;
+  instanceResourceId?: string;
+  instanceSource?: string;
+  dbName?: string;
+  dbType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tableNameList: 'TableNameList',
+      tableNameExpr: 'TableNameExpr',
+      tableCount: 'TableCount',
+      dbId: 'DbId',
+      dbSearchName: 'DbSearchName',
+      instanceId: 'InstanceId',
+      regionId: 'RegionId',
+      instanceResourceId: 'InstanceResourceId',
+      instanceSource: 'InstanceSource',
+      dbName: 'DbName',
+      dbType: 'DbType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tableNameList: 'string',
+      tableNameExpr: 'string',
+      tableCount: 'number',
+      dbId: 'number',
+      dbSearchName: 'string',
+      instanceId: 'number',
+      regionId: 'string',
+      instanceResourceId: 'string',
+      instanceSource: 'string',
+      dbName: 'string',
+      dbType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTableTopologyResponseBodyTableTopology extends $tea.Model {
+  tableGuid?: string;
+  tableName?: string;
+  tableTopologyInfoList?: GetTableTopologyResponseBodyTableTopologyTableTopologyInfoList[];
+  logic?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      tableGuid: 'TableGuid',
+      tableName: 'TableName',
+      tableTopologyInfoList: 'TableTopologyInfoList',
+      logic: 'Logic',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tableGuid: 'string',
+      tableName: 'string',
+      tableTopologyInfoList: { 'type': 'array', 'itemType': GetTableTopologyResponseBodyTableTopologyTableTopologyInfoList },
+      logic: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetDataExportDownloadURLResponseBodyDownloadURLResult extends $tea.Model {
   hasResult?: boolean;
   tipMessage?: string;
@@ -8192,6 +9132,93 @@ export class GetDataExportDownloadURLResponseBodyDownloadURLResult extends $tea.
       hasResult: 'boolean',
       tipMessage: 'string',
       URL: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataCronClearOrderRequestParamDbItemList extends $tea.Model {
+  dbId?: number;
+  logic?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      dbId: 'DbId',
+      logic: 'Logic',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dbId: 'number',
+      logic: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataCronClearOrderRequestParamCronClearItemList extends $tea.Model {
+  tableName?: string;
+  columnName?: string;
+  remainDays?: number;
+  timeUnit?: string;
+  filterSQL?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tableName: 'TableName',
+      columnName: 'ColumnName',
+      remainDays: 'RemainDays',
+      timeUnit: 'TimeUnit',
+      filterSQL: 'FilterSQL',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tableName: 'string',
+      columnName: 'string',
+      remainDays: 'number',
+      timeUnit: 'string',
+      filterSQL: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataCronClearOrderRequestParam extends $tea.Model {
+  classify?: string;
+  dbItemList?: CreateDataCronClearOrderRequestParamDbItemList[];
+  cronFormat?: string;
+  cronClearItemList?: CreateDataCronClearOrderRequestParamCronClearItemList[];
+  specifyDuration?: boolean;
+  durationHour?: number;
+  static names(): { [key: string]: string } {
+    return {
+      classify: 'Classify',
+      dbItemList: 'DbItemList',
+      cronFormat: 'CronFormat',
+      cronClearItemList: 'CronClearItemList',
+      specifyDuration: 'specifyDuration',
+      durationHour: 'DurationHour',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      classify: 'string',
+      dbItemList: { 'type': 'array', 'itemType': CreateDataCronClearOrderRequestParamDbItemList },
+      cronFormat: 'string',
+      cronClearItemList: { 'type': 'array', 'itemType': CreateDataCronClearOrderRequestParamCronClearItemList },
+      specifyDuration: 'boolean',
+      durationHour: 'number',
     };
   }
 
@@ -8606,6 +9633,34 @@ export class ListDBTaskSQLJobResponseBodyDBTaskSQLJobList extends $tea.Model {
   }
 }
 
+export class GetDataCronClearTaskDetailListResponseBodyDataCronClearTaskDetailList extends $tea.Model {
+  DBTaskGroupId?: number;
+  jobStatus?: string;
+  actualAffectRows?: number;
+  createTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBTaskGroupId: 'DBTaskGroupId',
+      jobStatus: 'jobStatus',
+      actualAffectRows: 'ActualAffectRows',
+      createTime: 'CreateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBTaskGroupId: 'number',
+      jobStatus: 'string',
+      actualAffectRows: 'number',
+      createTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetStructSyncJobAnalyzeResultResponseBodyStructSyncJobAnalyzeResultSummaryList extends $tea.Model {
   compareType?: string;
   count?: number;
@@ -8667,6 +9722,34 @@ export class GetStructSyncJobAnalyzeResultResponseBodyStructSyncJobAnalyzeResult
     return {
       summaryList: { 'type': 'array', 'itemType': GetStructSyncJobAnalyzeResultResponseBodyStructSyncJobAnalyzeResultSummaryList },
       resultList: { 'type': 'array', 'itemType': GetStructSyncJobAnalyzeResultResponseBodyStructSyncJobAnalyzeResultResultList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDataCorrectTaskDetailResponseBodyDataCorrectTaskDetail extends $tea.Model {
+  DBTaskGroupId?: number;
+  jobStatus?: string;
+  actualAffectRows?: number;
+  createTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBTaskGroupId: 'DBTaskGroupId',
+      jobStatus: 'jobStatus',
+      actualAffectRows: 'ActualAffectRows',
+      createTime: 'CreateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBTaskGroupId: 'number',
+      jobStatus: 'string',
+      actualAffectRows: 'number',
+      createTime: 'string',
     };
   }
 
@@ -8764,6 +9847,83 @@ export class ListLogicDatabasesResponseBodyLogicDatabaseList extends $tea.Model 
   static types(): { [key: string]: any } {
     return {
       logicDatabase: { 'type': 'array', 'itemType': ListLogicDatabasesResponseBodyLogicDatabaseListLogicDatabase },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataImportOrderRequestParamDbItemList extends $tea.Model {
+  dbId?: number;
+  logic?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      dbId: 'DbId',
+      logic: 'Logic',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dbId: 'number',
+      logic: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataImportOrderRequestParam extends $tea.Model {
+  classify?: string;
+  attachmentName?: string;
+  dbItemList?: CreateDataImportOrderRequestParamDbItemList[];
+  fileType?: string;
+  fileEncoding?: string;
+  tableName?: string;
+  insertType?: string;
+  csvFirstRowIsColumnDef?: boolean;
+  ignoreError?: boolean;
+  importMode?: string;
+  rollbackSQL?: string;
+  rollbackAttachmentName?: string;
+  rollbackSqlType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      classify: 'Classify',
+      attachmentName: 'AttachmentName',
+      dbItemList: 'DbItemList',
+      fileType: 'FileType',
+      fileEncoding: 'FileEncoding',
+      tableName: 'TableName',
+      insertType: 'InsertType',
+      csvFirstRowIsColumnDef: 'CsvFirstRowIsColumnDef',
+      ignoreError: 'IgnoreError',
+      importMode: 'ImportMode',
+      rollbackSQL: 'RollbackSQL',
+      rollbackAttachmentName: 'RollbackAttachmentName',
+      rollbackSqlType: 'RollbackSqlType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      classify: 'string',
+      attachmentName: 'string',
+      dbItemList: { 'type': 'array', 'itemType': CreateDataImportOrderRequestParamDbItemList },
+      fileType: 'string',
+      fileEncoding: 'string',
+      tableName: 'string',
+      insertType: 'string',
+      csvFirstRowIsColumnDef: 'boolean',
+      ignoreError: 'boolean',
+      importMode: 'string',
+      rollbackSQL: 'string',
+      rollbackAttachmentName: 'string',
+      rollbackSqlType: 'string',
     };
   }
 
@@ -8944,6 +10104,71 @@ export class ListUserTenantsResponseBodyTenantList extends $tea.Model {
       status: 'string',
       tid: 'number',
       tenantName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataCorrectOrderRequestParamDbItemList extends $tea.Model {
+  dbId?: number;
+  logic?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      dbId: 'DbId',
+      logic: 'Logic',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dbId: 'number',
+      logic: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataCorrectOrderRequestParam extends $tea.Model {
+  classify?: string;
+  estimateAffectRows?: number;
+  execSQL?: string;
+  sqlType?: string;
+  attachmentName?: string;
+  rollbackSQL?: string;
+  rollbackAttachmentName?: string;
+  rollbackSqlType?: string;
+  dbItemList?: CreateDataCorrectOrderRequestParamDbItemList[];
+  static names(): { [key: string]: string } {
+    return {
+      classify: 'Classify',
+      estimateAffectRows: 'EstimateAffectRows',
+      execSQL: 'ExecSQL',
+      sqlType: 'SqlType',
+      attachmentName: 'AttachmentName',
+      rollbackSQL: 'RollbackSQL',
+      rollbackAttachmentName: 'RollbackAttachmentName',
+      rollbackSqlType: 'RollbackSqlType',
+      dbItemList: 'DbItemList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      classify: 'string',
+      estimateAffectRows: 'number',
+      execSQL: 'string',
+      sqlType: 'string',
+      attachmentName: 'string',
+      rollbackSQL: 'string',
+      rollbackAttachmentName: 'string',
+      rollbackSqlType: 'string',
+      dbItemList: { 'type': 'array', 'itemType': CreateDataCorrectOrderRequestParamDbItemList },
     };
   }
 
@@ -9855,6 +11080,29 @@ export default class Client extends OpenApi {
     return await this.getDataCorrectSQLFileWithOptions(request, runtime);
   }
 
+  async createFreeLockCorrectOrderWithOptions(tmpReq: CreateFreeLockCorrectOrderRequest, runtime: $Util.RuntimeOptions): Promise<CreateFreeLockCorrectOrderResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateFreeLockCorrectOrderShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.relatedUserList)) {
+      request.relatedUserListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.relatedUserList, "RelatedUserList", "json");
+    }
+
+    if (!Util.isUnset($tea.toMap(tmpReq.param))) {
+      request.paramShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.param), "Param", "json");
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<CreateFreeLockCorrectOrderResponse>(await this.doRPCRequest("CreateFreeLockCorrectOrder", "2018-11-01", "HTTPS", "POST", "AK", "json", req, runtime), new CreateFreeLockCorrectOrderResponse({}));
+  }
+
+  async createFreeLockCorrectOrder(request: CreateFreeLockCorrectOrderRequest): Promise<CreateFreeLockCorrectOrderResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createFreeLockCorrectOrderWithOptions(request, runtime);
+  }
+
   async createOrderWithOptions(tmpReq: CreateOrderRequest, runtime: $Util.RuntimeOptions): Promise<CreateOrderResponse> {
     Util.validateModel(tmpReq);
     let request = new CreateOrderShrinkRequest({ });
@@ -10166,14 +11414,17 @@ export default class Client extends OpenApi {
     return await this.getApprovalDetailWithOptions(request, runtime);
   }
 
-  async getUserActiveTenantWithOptions(runtime: $Util.RuntimeOptions): Promise<GetUserActiveTenantResponse> {
-    let req = new $OpenApi.OpenApiRequest({ });
+  async getUserActiveTenantWithOptions(request: GetUserActiveTenantRequest, runtime: $Util.RuntimeOptions): Promise<GetUserActiveTenantResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
     return $tea.cast<GetUserActiveTenantResponse>(await this.doRPCRequest("GetUserActiveTenant", "2018-11-01", "HTTPS", "POST", "AK", "json", req, runtime), new GetUserActiveTenantResponse({}));
   }
 
-  async getUserActiveTenant(): Promise<GetUserActiveTenantResponse> {
+  async getUserActiveTenant(request: GetUserActiveTenantRequest): Promise<GetUserActiveTenantResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.getUserActiveTenantWithOptions(runtime);
+    return await this.getUserActiveTenantWithOptions(request, runtime);
   }
 
   async registerUserWithOptions(request: RegisterUserRequest, runtime: $Util.RuntimeOptions): Promise<RegisterUserResponse> {
@@ -10241,6 +11492,19 @@ export default class Client extends OpenApi {
     return await this.listLogicTablesWithOptions(request, runtime);
   }
 
+  async getTableTopologyWithOptions(request: GetTableTopologyRequest, runtime: $Util.RuntimeOptions): Promise<GetTableTopologyResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<GetTableTopologyResponse>(await this.doRPCRequest("GetTableTopology", "2018-11-01", "HTTPS", "POST", "AK", "json", req, runtime), new GetTableTopologyResponse({}));
+  }
+
+  async getTableTopology(request: GetTableTopologyRequest): Promise<GetTableTopologyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getTableTopologyWithOptions(request, runtime);
+  }
+
   async getDataExportDownloadURLWithOptions(request: GetDataExportDownloadURLRequest, runtime: $Util.RuntimeOptions): Promise<GetDataExportDownloadURLResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -10252,6 +11516,29 @@ export default class Client extends OpenApi {
   async getDataExportDownloadURL(request: GetDataExportDownloadURLRequest): Promise<GetDataExportDownloadURLResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getDataExportDownloadURLWithOptions(request, runtime);
+  }
+
+  async createDataCronClearOrderWithOptions(tmpReq: CreateDataCronClearOrderRequest, runtime: $Util.RuntimeOptions): Promise<CreateDataCronClearOrderResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateDataCronClearOrderShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.relatedUserList)) {
+      request.relatedUserListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.relatedUserList, "RelatedUserList", "json");
+    }
+
+    if (!Util.isUnset($tea.toMap(tmpReq.param))) {
+      request.paramShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.param), "Param", "json");
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<CreateDataCronClearOrderResponse>(await this.doRPCRequest("CreateDataCronClearOrder", "2018-11-01", "HTTPS", "POST", "AK", "json", req, runtime), new CreateDataCronClearOrderResponse({}));
+  }
+
+  async createDataCronClearOrder(request: CreateDataCronClearOrderRequest): Promise<CreateDataCronClearOrderResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createDataCronClearOrderWithOptions(request, runtime);
   }
 
   async createPublishGroupTaskWithOptions(request: CreatePublishGroupTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreatePublishGroupTaskResponse> {
@@ -10345,6 +11632,19 @@ export default class Client extends OpenApi {
     return await this.deleteUserWithOptions(request, runtime);
   }
 
+  async getDataCronClearTaskDetailListWithOptions(request: GetDataCronClearTaskDetailListRequest, runtime: $Util.RuntimeOptions): Promise<GetDataCronClearTaskDetailListResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<GetDataCronClearTaskDetailListResponse>(await this.doRPCRequest("GetDataCronClearTaskDetailList", "2018-11-01", "HTTPS", "POST", "AK", "json", req, runtime), new GetDataCronClearTaskDetailListResponse({}));
+  }
+
+  async getDataCronClearTaskDetailList(request: GetDataCronClearTaskDetailListRequest): Promise<GetDataCronClearTaskDetailListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getDataCronClearTaskDetailListWithOptions(request, runtime);
+  }
+
   async getStructSyncJobAnalyzeResultWithOptions(request: GetStructSyncJobAnalyzeResultRequest, runtime: $Util.RuntimeOptions): Promise<GetStructSyncJobAnalyzeResultResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -10371,6 +11671,19 @@ export default class Client extends OpenApi {
     return await this.approveOrderWithOptions(request, runtime);
   }
 
+  async getDataCorrectTaskDetailWithOptions(request: GetDataCorrectTaskDetailRequest, runtime: $Util.RuntimeOptions): Promise<GetDataCorrectTaskDetailResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<GetDataCorrectTaskDetailResponse>(await this.doRPCRequest("GetDataCorrectTaskDetail", "2018-11-01", "HTTPS", "POST", "AK", "json", req, runtime), new GetDataCorrectTaskDetailResponse({}));
+  }
+
+  async getDataCorrectTaskDetail(request: GetDataCorrectTaskDetailRequest): Promise<GetDataCorrectTaskDetailResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getDataCorrectTaskDetailWithOptions(request, runtime);
+  }
+
   async createUploadFileJobWithOptions(request: CreateUploadFileJobRequest, runtime: $Util.RuntimeOptions): Promise<CreateUploadFileJobResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -10395,6 +11708,29 @@ export default class Client extends OpenApi {
   async listLogicDatabases(request: ListLogicDatabasesRequest): Promise<ListLogicDatabasesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listLogicDatabasesWithOptions(request, runtime);
+  }
+
+  async createDataImportOrderWithOptions(tmpReq: CreateDataImportOrderRequest, runtime: $Util.RuntimeOptions): Promise<CreateDataImportOrderResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateDataImportOrderShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.relatedUserList)) {
+      request.relatedUserListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.relatedUserList, "RelatedUserList", "json");
+    }
+
+    if (!Util.isUnset($tea.toMap(tmpReq.param))) {
+      request.paramShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.param), "Param", "json");
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<CreateDataImportOrderResponse>(await this.doRPCRequest("CreateDataImportOrder", "2018-11-01", "HTTPS", "POST", "AK", "json", req, runtime), new CreateDataImportOrderResponse({}));
+  }
+
+  async createDataImportOrder(request: CreateDataImportOrderRequest): Promise<CreateDataImportOrderResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createDataImportOrderWithOptions(request, runtime);
   }
 
   async closeOrderWithOptions(request: CloseOrderRequest, runtime: $Util.RuntimeOptions): Promise<CloseOrderResponse> {
@@ -10449,14 +11785,17 @@ export default class Client extends OpenApi {
     return await this.getOrderBaseInfoWithOptions(request, runtime);
   }
 
-  async listUserTenantsWithOptions(runtime: $Util.RuntimeOptions): Promise<ListUserTenantsResponse> {
-    let req = new $OpenApi.OpenApiRequest({ });
+  async listUserTenantsWithOptions(request: ListUserTenantsRequest, runtime: $Util.RuntimeOptions): Promise<ListUserTenantsResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
     return $tea.cast<ListUserTenantsResponse>(await this.doRPCRequest("ListUserTenants", "2018-11-01", "HTTPS", "POST", "AK", "json", req, runtime), new ListUserTenantsResponse({}));
   }
 
-  async listUserTenants(): Promise<ListUserTenantsResponse> {
+  async listUserTenants(request: ListUserTenantsRequest): Promise<ListUserTenantsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.listUserTenantsWithOptions(runtime);
+    return await this.listUserTenantsWithOptions(request, runtime);
   }
 
   async setOwnersWithOptions(request: SetOwnersRequest, runtime: $Util.RuntimeOptions): Promise<SetOwnersResponse> {
@@ -10470,6 +11809,29 @@ export default class Client extends OpenApi {
   async setOwners(request: SetOwnersRequest): Promise<SetOwnersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setOwnersWithOptions(request, runtime);
+  }
+
+  async createDataCorrectOrderWithOptions(tmpReq: CreateDataCorrectOrderRequest, runtime: $Util.RuntimeOptions): Promise<CreateDataCorrectOrderResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateDataCorrectOrderShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.relatedUserList)) {
+      request.relatedUserListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.relatedUserList, "RelatedUserList", "json");
+    }
+
+    if (!Util.isUnset($tea.toMap(tmpReq.param))) {
+      request.paramShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.param), "Param", "json");
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<CreateDataCorrectOrderResponse>(await this.doRPCRequest("CreateDataCorrectOrder", "2018-11-01", "HTTPS", "POST", "AK", "json", req, runtime), new CreateDataCorrectOrderResponse({}));
+  }
+
+  async createDataCorrectOrder(request: CreateDataCorrectOrderRequest): Promise<CreateDataCorrectOrderResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createDataCorrectOrderWithOptions(request, runtime);
   }
 
   async getLogicDatabaseWithOptions(request: GetLogicDatabaseRequest, runtime: $Util.RuntimeOptions): Promise<GetLogicDatabaseResponse> {
