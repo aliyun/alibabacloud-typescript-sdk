@@ -363,10 +363,14 @@ export class RecognizeFaceResponse extends $tea.Model {
 export class VerifyFaceMaskRequest extends $tea.Model {
   imageURL?: string;
   refUrl?: string;
+  imageData?: Buffer;
+  refData?: Buffer;
   static names(): { [key: string]: string } {
     return {
       imageURL: 'ImageURL',
       refUrl: 'RefUrl',
+      imageData: 'ImageData',
+      refData: 'RefData',
     };
   }
 
@@ -374,28 +378,8 @@ export class VerifyFaceMaskRequest extends $tea.Model {
     return {
       imageURL: 'string',
       refUrl: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class VerifyFaceMaskAdvanceRequest extends $tea.Model {
-  imageURLObject: Readable;
-  refUrl?: string;
-  static names(): { [key: string]: string } {
-    return {
-      imageURLObject: 'ImageURLObject',
-      refUrl: 'RefUrl',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURLObject: 'Readable',
-      refUrl: 'string',
+      imageData: 'Buffer',
+      refData: 'Buffer',
     };
   }
 
@@ -453,14 +437,16 @@ export class DetectIPCPedestrianRequest extends $tea.Model {
   imageData?: string;
   width?: number;
   height?: number;
-  URLList?: DetectIPCPedestrianRequestURLList[];
+  imageURL?: string;
+  dataId?: string;
   static names(): { [key: string]: string } {
     return {
       continueOnError: 'ContinueOnError',
       imageData: 'ImageData',
       width: 'Width',
       height: 'Height',
-      URLList: 'URLList',
+      imageURL: 'ImageURL',
+      dataId: 'DataId',
     };
   }
 
@@ -470,7 +456,42 @@ export class DetectIPCPedestrianRequest extends $tea.Model {
       imageData: 'string',
       width: 'number',
       height: 'number',
-      URLList: { 'type': 'array', 'itemType': DetectIPCPedestrianRequestURLList },
+      imageURL: 'string',
+      dataId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectIPCPedestrianAdvanceRequest extends $tea.Model {
+  imageURLObject: Readable;
+  continueOnError?: boolean;
+  imageData?: string;
+  width?: number;
+  height?: number;
+  dataId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      imageURLObject: 'ImageURLObject',
+      continueOnError: 'ContinueOnError',
+      imageData: 'ImageData',
+      width: 'Width',
+      height: 'Height',
+      dataId: 'DataId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageURLObject: 'Readable',
+      continueOnError: 'boolean',
+      imageData: 'string',
+      width: 'number',
+      height: 'number',
+      dataId: 'string',
     };
   }
 
@@ -591,24 +612,30 @@ export class GetFaceEntityResponse extends $tea.Model {
 
 export class CompareFaceRequest extends $tea.Model {
   qualityScoreThreshold?: number;
+  imageType?: number;
   imageURLA?: string;
   imageURLB?: string;
-  imageType?: number;
+  imageDataA?: Buffer;
+  imageDataB?: Buffer;
   static names(): { [key: string]: string } {
     return {
       qualityScoreThreshold: 'QualityScoreThreshold',
+      imageType: 'ImageType',
       imageURLA: 'ImageURLA',
       imageURLB: 'ImageURLB',
-      imageType: 'ImageType',
+      imageDataA: 'ImageDataA',
+      imageDataB: 'ImageDataB',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       qualityScoreThreshold: 'number',
+      imageType: 'number',
       imageURLA: 'string',
       imageURLB: 'string',
-      imageType: 'number',
+      imageDataA: 'Buffer',
+      imageDataB: 'Buffer',
     };
   }
 
@@ -1390,11 +1417,13 @@ export class RecognizeActionRequest extends $tea.Model {
   type?: number;
   videoUrl?: string;
   URLList?: RecognizeActionRequestURLList[];
+  videoData?: Buffer;
   static names(): { [key: string]: string } {
     return {
       type: 'Type',
       videoUrl: 'VideoUrl',
       URLList: 'URLList',
+      videoData: 'VideoData',
     };
   }
 
@@ -1403,6 +1432,7 @@ export class RecognizeActionRequest extends $tea.Model {
       type: 'number',
       videoUrl: 'string',
       URLList: { 'type': 'array', 'itemType': RecognizeActionRequestURLList },
+      videoData: 'Buffer',
     };
   }
 
@@ -2211,47 +2241,28 @@ export class DetectPedestrianResponse extends $tea.Model {
 }
 
 export class SwapFacialFeaturesRequest extends $tea.Model {
+  editPart?: string;
   sourceImageURL?: string;
-  editPart?: string;
   targetImageURL?: string;
+  sourceImageData?: Buffer;
+  targetImageData?: Buffer;
   static names(): { [key: string]: string } {
     return {
+      editPart: 'EditPart',
       sourceImageURL: 'SourceImageURL',
-      editPart: 'EditPart',
       targetImageURL: 'TargetImageURL',
+      sourceImageData: 'SourceImageData',
+      targetImageData: 'TargetImageData',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      editPart: 'string',
       sourceImageURL: 'string',
-      editPart: 'string',
       targetImageURL: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SwapFacialFeaturesAdvanceRequest extends $tea.Model {
-  sourceImageURLObject: Readable;
-  editPart?: string;
-  targetImageURL?: string;
-  static names(): { [key: string]: string } {
-    return {
-      sourceImageURLObject: 'SourceImageURLObject',
-      editPart: 'EditPart',
-      targetImageURL: 'TargetImageURL',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      sourceImageURLObject: 'Readable',
-      editPart: 'string',
-      targetImageURL: 'string',
+      sourceImageData: 'Buffer',
+      targetImageData: 'Buffer',
     };
   }
 
@@ -4880,22 +4891,6 @@ export class VerifyFaceMaskResponseBodyData extends $tea.Model {
   }
 }
 
-export class DetectIPCPedestrianRequestURLList extends $tea.Model {
-  static names(): { [key: string]: string } {
-    return {
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DetectIPCPedestrianResponseBodyDataImageInfoListElements extends $tea.Model {
   boxes?: number[];
   score?: number;
@@ -5686,15 +5681,18 @@ export class ListFaceDbsResponseBodyData extends $tea.Model {
 
 export class RecognizeActionRequestURLList extends $tea.Model {
   URL?: string;
+  imageData?: Buffer;
   static names(): { [key: string]: string } {
     return {
       URL: 'URL',
+      imageData: 'imageData',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       URL: 'string',
+      imageData: 'Buffer',
     };
   }
 
@@ -7992,7 +7990,20 @@ export default class Client extends OpenApi {
     return await this.verifyFaceMaskWithOptions(request, runtime);
   }
 
-  async verifyFaceMaskAdvance(request: VerifyFaceMaskAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<VerifyFaceMaskResponse> {
+  async detectIPCPedestrianWithOptions(request: DetectIPCPedestrianRequest, runtime: $Util.RuntimeOptions): Promise<DetectIPCPedestrianResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DetectIPCPedestrianResponse>(await this.doRPCRequest("DetectIPCPedestrian", "2019-12-30", "HTTPS", "POST", "AK", "json", req, runtime), new DetectIPCPedestrianResponse({}));
+  }
+
+  async detectIPCPedestrian(request: DetectIPCPedestrianRequest): Promise<DetectIPCPedestrianResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.detectIPCPedestrianWithOptions(request, runtime);
+  }
+
+  async detectIPCPedestrianAdvance(request: DetectIPCPedestrianAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<DetectIPCPedestrianResponse> {
     // Step 0: init client
     let accessKeyId = await this._credential.getAccessKeyId();
     let accessKeySecret = await this._credential.getAccessKeySecret();
@@ -8022,8 +8033,8 @@ export default class Client extends OpenApi {
     let uploadRequest = new $OSS.PostObjectRequest({ });
     let ossRuntime = new $OSSUtil.RuntimeOptions({ });
     OpenApiUtil.convert(runtime, ossRuntime);
-    let verifyFaceMaskReq = new VerifyFaceMaskRequest({ });
-    OpenApiUtil.convert(request, verifyFaceMaskReq);
+    let detectIPCPedestrianReq = new DetectIPCPedestrianRequest({ });
+    OpenApiUtil.convert(request, detectIPCPedestrianReq);
     authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
     ossConfig.accessKeyId = authResponse.accessKeyId;
     ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
@@ -8046,22 +8057,9 @@ export default class Client extends OpenApi {
       header: ossHeader,
     });
     await ossClient.postObject(uploadRequest, ossRuntime);
-    verifyFaceMaskReq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
-    let verifyFaceMaskResp = await this.verifyFaceMaskWithOptions(verifyFaceMaskReq, runtime);
-    return verifyFaceMaskResp;
-  }
-
-  async detectIPCPedestrianWithOptions(request: DetectIPCPedestrianRequest, runtime: $Util.RuntimeOptions): Promise<DetectIPCPedestrianResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<DetectIPCPedestrianResponse>(await this.doRPCRequest("DetectIPCPedestrian", "2019-12-30", "HTTPS", "POST", "AK", "json", req, runtime), new DetectIPCPedestrianResponse({}));
-  }
-
-  async detectIPCPedestrian(request: DetectIPCPedestrianRequest): Promise<DetectIPCPedestrianResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.detectIPCPedestrianWithOptions(request, runtime);
+    detectIPCPedestrianReq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    let detectIPCPedestrianResp = await this.detectIPCPedestrianWithOptions(detectIPCPedestrianReq, runtime);
+    return detectIPCPedestrianResp;
   }
 
   async getFaceEntityWithOptions(request: GetFaceEntityRequest, runtime: $Util.RuntimeOptions): Promise<GetFaceEntityResponse> {
@@ -9008,65 +9006,6 @@ export default class Client extends OpenApi {
   async swapFacialFeatures(request: SwapFacialFeaturesRequest): Promise<SwapFacialFeaturesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.swapFacialFeaturesWithOptions(request, runtime);
-  }
-
-  async swapFacialFeaturesAdvance(request: SwapFacialFeaturesAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<SwapFacialFeaturesResponse> {
-    // Step 0: init client
-    let accessKeyId = await this._credential.getAccessKeyId();
-    let accessKeySecret = await this._credential.getAccessKeySecret();
-    let authConfig = new $RPC.Config({
-      accessKeyId: accessKeyId,
-      accessKeySecret: accessKeySecret,
-      type: "access_key",
-      endpoint: "openplatform.aliyuncs.com",
-      protocol: this._protocol,
-      regionId: this._regionId,
-    });
-    let authClient = new OpenPlatform(authConfig);
-    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
-      product: "facebody",
-      regionId: this._regionId,
-    });
-    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
-    let ossConfig = new $OSS.Config({
-      accessKeySecret: accessKeySecret,
-      type: "access_key",
-      protocol: this._protocol,
-      regionId: this._regionId,
-    });
-    let ossClient : OSS = null;
-    let fileObj = new $FileForm.FileField({ });
-    let ossHeader = new $OSS.PostObjectRequestHeader({ });
-    let uploadRequest = new $OSS.PostObjectRequest({ });
-    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
-    OpenApiUtil.convert(runtime, ossRuntime);
-    let swapFacialFeaturesReq = new SwapFacialFeaturesRequest({ });
-    OpenApiUtil.convert(request, swapFacialFeaturesReq);
-    authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-    ossConfig.accessKeyId = authResponse.accessKeyId;
-    ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
-    ossClient = new OSS(ossConfig);
-    fileObj = new $FileForm.FileField({
-      filename: authResponse.objectKey,
-      content: request.sourceImageURLObject,
-      contentType: "",
-    });
-    ossHeader = new $OSS.PostObjectRequestHeader({
-      accessKeyId: authResponse.accessKeyId,
-      policy: authResponse.encodedPolicy,
-      signature: authResponse.signature,
-      key: authResponse.objectKey,
-      file: fileObj,
-      successActionStatus: "201",
-    });
-    uploadRequest = new $OSS.PostObjectRequest({
-      bucketName: authResponse.bucket,
-      header: ossHeader,
-    });
-    await ossClient.postObject(uploadRequest, ossRuntime);
-    swapFacialFeaturesReq.sourceImageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
-    let swapFacialFeaturesResp = await this.swapFacialFeaturesWithOptions(swapFacialFeaturesReq, runtime);
-    return swapFacialFeaturesResp;
   }
 
   async searchFaceWithOptions(request: SearchFaceRequest, runtime: $Util.RuntimeOptions): Promise<SearchFaceResponse> {
