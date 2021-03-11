@@ -2493,25 +2493,25 @@ export class GetResultCallbackRequest extends $tea.Model {
 }
 
 export class GetResultCallbackResponseBody extends $tea.Model {
-  requestId?: string;
-  success?: boolean;
-  code?: string;
   message?: string;
+  requestId?: string;
+  code?: string;
+  success?: boolean;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
-      success: 'Success',
-      code: 'Code',
       message: 'Message',
+      requestId: 'RequestId',
+      code: 'Code',
+      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
-      success: 'boolean',
-      code: 'string',
       message: 'string',
+      requestId: 'string',
+      code: 'string',
+      success: 'boolean',
     };
   }
 
@@ -5656,81 +5656,6 @@ export class UpdateRuleResponse extends $tea.Model {
   }
 }
 
-export class UpdateRuleForAntRequest extends $tea.Model {
-  resourceOwnerId?: number;
-  jsonStr?: string;
-  static names(): { [key: string]: string } {
-    return {
-      resourceOwnerId: 'ResourceOwnerId',
-      jsonStr: 'JsonStr',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      resourceOwnerId: 'number',
-      jsonStr: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateRuleForAntResponseBody extends $tea.Model {
-  message?: string;
-  requestId?: string;
-  data?: UpdateRuleForAntResponseBodyData;
-  code?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      message: 'Message',
-      requestId: 'RequestId',
-      data: 'Data',
-      code: 'Code',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      message: 'string',
-      requestId: 'string',
-      data: UpdateRuleForAntResponseBodyData,
-      code: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateRuleForAntResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: UpdateRuleForAntResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: UpdateRuleForAntResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class UpdateScoreForApiRequest extends $tea.Model {
   resourceOwnerId?: number;
   jsonStr?: string;
@@ -8084,14 +8009,16 @@ export class GetResultResponseBodyDataResultInfoRecording extends $tea.Model {
 
 export class GetResultResponseBodyDataResultInfo extends $tea.Model {
   status?: number;
+  assignmentTime?: string;
+  lastDataId?: string;
   errorMessage?: string;
-  reviewer?: string;
-  createTime?: string;
   reviewStatus?: number;
+  createTime?: string;
+  reviewer?: string;
   taskName?: string;
   reviewTimeLong?: string;
-  reviewResult?: number;
   score?: number;
+  reviewResult?: number;
   agent?: GetResultResponseBodyDataResultInfoAgent;
   createTimeLong?: string;
   asrResult?: GetResultResponseBodyDataResultInfoAsrResult;
@@ -8101,18 +8028,21 @@ export class GetResultResponseBodyDataResultInfo extends $tea.Model {
   hitResult?: GetResultResponseBodyDataResultInfoHitResult;
   recording?: GetResultResponseBodyDataResultInfoRecording;
   taskId?: string;
+  reviewType?: number;
   resolver?: string;
   static names(): { [key: string]: string } {
     return {
       status: 'Status',
+      assignmentTime: 'AssignmentTime',
+      lastDataId: 'LastDataId',
       errorMessage: 'ErrorMessage',
-      reviewer: 'Reviewer',
-      createTime: 'CreateTime',
       reviewStatus: 'ReviewStatus',
+      createTime: 'CreateTime',
+      reviewer: 'Reviewer',
       taskName: 'TaskName',
       reviewTimeLong: 'ReviewTimeLong',
-      reviewResult: 'ReviewResult',
       score: 'Score',
+      reviewResult: 'ReviewResult',
       agent: 'Agent',
       createTimeLong: 'CreateTimeLong',
       asrResult: 'AsrResult',
@@ -8122,6 +8052,7 @@ export class GetResultResponseBodyDataResultInfo extends $tea.Model {
       hitResult: 'HitResult',
       recording: 'Recording',
       taskId: 'TaskId',
+      reviewType: 'ReviewType',
       resolver: 'Resolver',
     };
   }
@@ -8129,14 +8060,16 @@ export class GetResultResponseBodyDataResultInfo extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       status: 'number',
+      assignmentTime: 'string',
+      lastDataId: 'string',
       errorMessage: 'string',
-      reviewer: 'string',
-      createTime: 'string',
       reviewStatus: 'number',
+      createTime: 'string',
+      reviewer: 'string',
       taskName: 'string',
       reviewTimeLong: 'string',
-      reviewResult: 'number',
       score: 'number',
+      reviewResult: 'number',
       agent: GetResultResponseBodyDataResultInfoAgent,
       createTimeLong: 'string',
       asrResult: GetResultResponseBodyDataResultInfoAsrResult,
@@ -8146,6 +8079,7 @@ export class GetResultResponseBodyDataResultInfo extends $tea.Model {
       hitResult: GetResultResponseBodyDataResultInfoHitResult,
       recording: GetResultResponseBodyDataResultInfoRecording,
       taskId: 'string',
+      reviewType: 'number',
       resolver: 'string',
     };
   }
@@ -11451,6 +11385,53 @@ export class ListSkillGroupConfigResponseBodyDataSkillGroupConfigRuleList extend
   }
 }
 
+export class ListSkillGroupConfigResponseBodyDataSkillGroupConfigSkillGroupScreensSkillGroupScreen extends $tea.Model {
+  value?: string;
+  dataType?: number;
+  symbol?: number;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      value: 'Value',
+      dataType: 'DataType',
+      symbol: 'Symbol',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      value: 'string',
+      dataType: 'number',
+      symbol: 'number',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSkillGroupConfigResponseBodyDataSkillGroupConfigSkillGroupScreens extends $tea.Model {
+  skillGroupScreen?: ListSkillGroupConfigResponseBodyDataSkillGroupConfigSkillGroupScreensSkillGroupScreen[];
+  static names(): { [key: string]: string } {
+    return {
+      skillGroupScreen: 'SkillGroupScreen',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      skillGroupScreen: { 'type': 'array', 'itemType': ListSkillGroupConfigResponseBodyDataSkillGroupConfigSkillGroupScreensSkillGroupScreen },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListSkillGroupConfigResponseBodyDataSkillGroupConfig extends $tea.Model {
   status?: number;
   type?: number;
@@ -11459,6 +11440,7 @@ export class ListSkillGroupConfigResponseBodyDataSkillGroupConfig extends $tea.M
   allContentQualityCheck?: number;
   createTime?: string;
   skillGroupId?: string;
+  screenSwitch?: boolean;
   instanceId?: string;
   vocabId?: number;
   skillGroupFrom?: number;
@@ -11470,6 +11452,7 @@ export class ListSkillGroupConfigResponseBodyDataSkillGroupConfig extends $tea.M
   name?: string;
   modelId?: number;
   id?: number;
+  skillGroupScreens?: ListSkillGroupConfigResponseBodyDataSkillGroupConfigSkillGroupScreens;
   qualityCheckType?: number;
   vocabName?: string;
   static names(): { [key: string]: string } {
@@ -11481,6 +11464,7 @@ export class ListSkillGroupConfigResponseBodyDataSkillGroupConfig extends $tea.M
       allContentQualityCheck: 'AllContentQualityCheck',
       createTime: 'CreateTime',
       skillGroupId: 'SkillGroupId',
+      screenSwitch: 'ScreenSwitch',
       instanceId: 'InstanceId',
       vocabId: 'VocabId',
       skillGroupFrom: 'SkillGroupFrom',
@@ -11492,6 +11476,7 @@ export class ListSkillGroupConfigResponseBodyDataSkillGroupConfig extends $tea.M
       name: 'Name',
       modelId: 'ModelId',
       id: 'Id',
+      skillGroupScreens: 'SkillGroupScreens',
       qualityCheckType: 'QualityCheckType',
       vocabName: 'VocabName',
     };
@@ -11506,6 +11491,7 @@ export class ListSkillGroupConfigResponseBodyDataSkillGroupConfig extends $tea.M
       allContentQualityCheck: 'number',
       createTime: 'string',
       skillGroupId: 'string',
+      screenSwitch: 'boolean',
       instanceId: 'string',
       vocabId: 'number',
       skillGroupFrom: 'number',
@@ -11517,6 +11503,7 @@ export class ListSkillGroupConfigResponseBodyDataSkillGroupConfig extends $tea.M
       name: 'string',
       modelId: 'number',
       id: 'number',
+      skillGroupScreens: ListSkillGroupConfigResponseBodyDataSkillGroupConfigSkillGroupScreens,
       qualityCheckType: 'number',
       vocabName: 'string',
     };
@@ -12931,25 +12918,6 @@ export class TestRuleResponseBodyData extends $tea.Model {
   }
 }
 
-export class UpdateRuleForAntResponseBodyData extends $tea.Model {
-  ridInfo?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      ridInfo: 'RidInfo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ridInfo: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class UpdateSyncQualityCheckDataResponseBodyData extends $tea.Model {
   tid?: string;
   taskId?: string;
@@ -13417,62 +13385,7 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApi.Config) {
     super(config);
-    this._endpointRule = "regional";
-    this._endpointMap = {
-      'ap-northeast-1': "qualitycheck.aliyuncs.com",
-      'ap-northeast-2-pop': "qualitycheck.aliyuncs.com",
-      'ap-south-1': "qualitycheck.aliyuncs.com",
-      'ap-southeast-1': "qualitycheck.aliyuncs.com",
-      'ap-southeast-2': "qualitycheck.aliyuncs.com",
-      'ap-southeast-3': "qualitycheck.aliyuncs.com",
-      'ap-southeast-5': "qualitycheck.aliyuncs.com",
-      'cn-beijing': "qualitycheck.aliyuncs.com",
-      'cn-beijing-finance-1': "qualitycheck.aliyuncs.com",
-      'cn-beijing-finance-pop': "qualitycheck.aliyuncs.com",
-      'cn-beijing-gov-1': "qualitycheck.aliyuncs.com",
-      'cn-beijing-nu16-b01': "qualitycheck.aliyuncs.com",
-      'cn-chengdu': "qualitycheck.aliyuncs.com",
-      'cn-edge-1': "qualitycheck.aliyuncs.com",
-      'cn-fujian': "qualitycheck.aliyuncs.com",
-      'cn-haidian-cm12-c01': "qualitycheck.aliyuncs.com",
-      'cn-hangzhou-bj-b01': "qualitycheck.aliyuncs.com",
-      'cn-hangzhou-finance': "qualitycheck.aliyuncs.com",
-      'cn-hangzhou-internal-prod-1': "qualitycheck.aliyuncs.com",
-      'cn-hangzhou-internal-test-1': "qualitycheck.aliyuncs.com",
-      'cn-hangzhou-internal-test-2': "qualitycheck.aliyuncs.com",
-      'cn-hangzhou-internal-test-3': "qualitycheck.aliyuncs.com",
-      'cn-hangzhou-test-306': "qualitycheck.aliyuncs.com",
-      'cn-hongkong': "qualitycheck.aliyuncs.com",
-      'cn-hongkong-finance-pop': "qualitycheck.aliyuncs.com",
-      'cn-huhehaote': "qualitycheck.aliyuncs.com",
-      'cn-north-2-gov-1': "qualitycheck.aliyuncs.com",
-      'cn-qingdao': "qualitycheck.aliyuncs.com",
-      'cn-qingdao-nebula': "qualitycheck.aliyuncs.com",
-      'cn-shanghai': "qualitycheck.aliyuncs.com",
-      'cn-shanghai-et15-b01': "qualitycheck.aliyuncs.com",
-      'cn-shanghai-et2-b01': "qualitycheck.aliyuncs.com",
-      'cn-shanghai-finance-1': "qualitycheck.aliyuncs.com",
-      'cn-shanghai-inner': "qualitycheck.aliyuncs.com",
-      'cn-shanghai-internal-test-1': "qualitycheck.aliyuncs.com",
-      'cn-shenzhen': "qualitycheck.aliyuncs.com",
-      'cn-shenzhen-finance-1': "qualitycheck.aliyuncs.com",
-      'cn-shenzhen-inner': "qualitycheck.aliyuncs.com",
-      'cn-shenzhen-st4-d01': "qualitycheck.aliyuncs.com",
-      'cn-shenzhen-su18-b01': "qualitycheck.aliyuncs.com",
-      'cn-wuhan': "qualitycheck.aliyuncs.com",
-      'cn-yushanfang': "qualitycheck.aliyuncs.com",
-      'cn-zhangbei-na61-b01': "qualitycheck.aliyuncs.com",
-      'cn-zhangjiakou': "qualitycheck.aliyuncs.com",
-      'cn-zhangjiakou-na62-a01': "qualitycheck.aliyuncs.com",
-      'cn-zhengzhou-nebula-1': "qualitycheck.aliyuncs.com",
-      'eu-central-1': "qualitycheck.aliyuncs.com",
-      'eu-west-1': "qualitycheck.aliyuncs.com",
-      'eu-west-1-oxs': "qualitycheck.aliyuncs.com",
-      'me-east-1': "qualitycheck.aliyuncs.com",
-      'rus-west-1-pop': "qualitycheck.aliyuncs.com",
-      'us-east-1': "qualitycheck.aliyuncs.com",
-      'us-west-1': "qualitycheck.aliyuncs.com",
-    };
+    this._endpointRule = "";
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("qualitycheck", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
@@ -14450,19 +14363,6 @@ export default class Client extends OpenApi {
   async updateRule(request: UpdateRuleRequest): Promise<UpdateRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateRuleWithOptions(request, runtime);
-  }
-
-  async updateRuleForAntWithOptions(request: UpdateRuleForAntRequest, runtime: $Util.RuntimeOptions): Promise<UpdateRuleForAntResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<UpdateRuleForAntResponse>(await this.doRPCRequest("UpdateRuleForAnt", "2019-01-15", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateRuleForAntResponse({}));
-  }
-
-  async updateRuleForAnt(request: UpdateRuleForAntRequest): Promise<UpdateRuleForAntResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.updateRuleForAntWithOptions(request, runtime);
   }
 
   async updateScoreForApiWithOptions(request: UpdateScoreForApiRequest, runtime: $Util.RuntimeOptions): Promise<UpdateScoreForApiResponse> {
