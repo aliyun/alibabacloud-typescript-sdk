@@ -616,6 +616,7 @@ export class CreateInstanceRequest extends $tea.Model {
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   ownerAccount?: string;
+  regionId?: string;
   token?: string;
   instanceName?: string;
   password?: string;
@@ -645,6 +646,7 @@ export class CreateInstanceRequest extends $tea.Model {
   shardCount?: number;
   globalInstanceId?: string;
   globalInstance?: boolean;
+  secondaryZoneId?: string;
   static names(): { [key: string]: string } {
     return {
       securityToken: 'SecurityToken',
@@ -652,6 +654,7 @@ export class CreateInstanceRequest extends $tea.Model {
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       ownerAccount: 'OwnerAccount',
+      regionId: 'RegionId',
       token: 'Token',
       instanceName: 'InstanceName',
       password: 'Password',
@@ -681,6 +684,7 @@ export class CreateInstanceRequest extends $tea.Model {
       shardCount: 'ShardCount',
       globalInstanceId: 'GlobalInstanceId',
       globalInstance: 'GlobalInstance',
+      secondaryZoneId: 'SecondaryZoneId',
     };
   }
 
@@ -691,6 +695,7 @@ export class CreateInstanceRequest extends $tea.Model {
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       ownerAccount: 'string',
+      regionId: 'string',
       token: 'string',
       instanceName: 'string',
       password: 'string',
@@ -720,6 +725,7 @@ export class CreateInstanceRequest extends $tea.Model {
       shardCount: 'number',
       globalInstanceId: 'string',
       globalInstance: 'boolean',
+      secondaryZoneId: 'string',
     };
   }
 
@@ -821,6 +827,195 @@ export class CreateInstanceResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: CreateInstanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTairInstanceRequest extends $tea.Model {
+  securityToken?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  ownerAccount?: string;
+  regionId?: string;
+  instanceName?: string;
+  password?: string;
+  instanceClass?: string;
+  zoneId?: string;
+  chargeType?: string;
+  vpcId?: string;
+  vSwitchId?: string;
+  period?: number;
+  businessInfo?: string;
+  couponNo?: string;
+  srcDBInstanceId?: string;
+  backupId?: string;
+  privateIpAddress?: string;
+  autoUseCoupon?: string;
+  autoRenew?: string;
+  autoRenewPeriod?: string;
+  resourceGroupId?: number;
+  autoPay?: boolean;
+  clientToken?: string;
+  storageType?: string;
+  storage?: number;
+  shardType?: string;
+  shardCount?: number;
+  engineVersion?: string;
+  instanceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      securityToken: 'SecurityToken',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      ownerAccount: 'OwnerAccount',
+      regionId: 'RegionId',
+      instanceName: 'InstanceName',
+      password: 'Password',
+      instanceClass: 'InstanceClass',
+      zoneId: 'ZoneId',
+      chargeType: 'ChargeType',
+      vpcId: 'VpcId',
+      vSwitchId: 'VSwitchId',
+      period: 'Period',
+      businessInfo: 'BusinessInfo',
+      couponNo: 'CouponNo',
+      srcDBInstanceId: 'SrcDBInstanceId',
+      backupId: 'BackupId',
+      privateIpAddress: 'PrivateIpAddress',
+      autoUseCoupon: 'AutoUseCoupon',
+      autoRenew: 'AutoRenew',
+      autoRenewPeriod: 'AutoRenewPeriod',
+      resourceGroupId: 'ResourceGroupId',
+      autoPay: 'AutoPay',
+      clientToken: 'ClientToken',
+      storageType: 'StorageType',
+      storage: 'Storage',
+      shardType: 'ShardType',
+      shardCount: 'ShardCount',
+      engineVersion: 'EngineVersion',
+      instanceType: 'InstanceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      securityToken: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      ownerAccount: 'string',
+      regionId: 'string',
+      instanceName: 'string',
+      password: 'string',
+      instanceClass: 'string',
+      zoneId: 'string',
+      chargeType: 'string',
+      vpcId: 'string',
+      vSwitchId: 'string',
+      period: 'number',
+      businessInfo: 'string',
+      couponNo: 'string',
+      srcDBInstanceId: 'string',
+      backupId: 'string',
+      privateIpAddress: 'string',
+      autoUseCoupon: 'string',
+      autoRenew: 'string',
+      autoRenewPeriod: 'string',
+      resourceGroupId: 'number',
+      autoPay: 'boolean',
+      clientToken: 'string',
+      storageType: 'string',
+      storage: 'number',
+      shardType: 'string',
+      shardCount: 'number',
+      engineVersion: 'string',
+      instanceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTairInstanceResponseBody extends $tea.Model {
+  connections?: number;
+  taskId?: string;
+  requestId?: string;
+  zoneId?: string;
+  instanceId?: string;
+  config?: string;
+  port?: number;
+  connectionDomain?: string;
+  instanceName?: string;
+  QPS?: number;
+  chargeType?: string;
+  instanceStatus?: string;
+  bandwidth?: number;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      connections: 'Connections',
+      taskId: 'TaskId',
+      requestId: 'RequestId',
+      zoneId: 'ZoneId',
+      instanceId: 'InstanceId',
+      config: 'Config',
+      port: 'Port',
+      connectionDomain: 'ConnectionDomain',
+      instanceName: 'InstanceName',
+      QPS: 'QPS',
+      chargeType: 'ChargeType',
+      instanceStatus: 'InstanceStatus',
+      bandwidth: 'Bandwidth',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      connections: 'number',
+      taskId: 'string',
+      requestId: 'string',
+      zoneId: 'string',
+      instanceId: 'string',
+      config: 'string',
+      port: 'number',
+      connectionDomain: 'string',
+      instanceName: 'string',
+      QPS: 'number',
+      chargeType: 'string',
+      instanceStatus: 'string',
+      bandwidth: 'number',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTairInstanceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CreateTairInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CreateTairInstanceResponseBody,
     };
   }
 
@@ -1568,105 +1763,6 @@ export class DescribeAuditRecordsResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: DescribeAuditRecordsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeAvailableResourceRequest extends $tea.Model {
-  securityToken?: string;
-  ownerId?: number;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  ownerAccount?: string;
-  zoneId?: string;
-  instanceChargeType?: string;
-  orderType?: string;
-  level?: string;
-  engine?: string;
-  resourceGroupId?: string;
-  instanceId?: string;
-  acceptLanguage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      securityToken: 'SecurityToken',
-      ownerId: 'OwnerId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-      ownerAccount: 'OwnerAccount',
-      zoneId: 'ZoneId',
-      instanceChargeType: 'InstanceChargeType',
-      orderType: 'OrderType',
-      level: 'Level',
-      engine: 'Engine',
-      resourceGroupId: 'ResourceGroupId',
-      instanceId: 'InstanceId',
-      acceptLanguage: 'AcceptLanguage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      securityToken: 'string',
-      ownerId: 'number',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-      ownerAccount: 'string',
-      zoneId: 'string',
-      instanceChargeType: 'string',
-      orderType: 'string',
-      level: 'string',
-      engine: 'string',
-      resourceGroupId: 'string',
-      instanceId: 'string',
-      acceptLanguage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeAvailableResourceResponseBody extends $tea.Model {
-  requestId?: string;
-  availableZones?: DescribeAvailableResourceResponseBodyAvailableZones;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      availableZones: 'AvailableZones',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      availableZones: DescribeAvailableResourceResponseBodyAvailableZones,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeAvailableResourceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DescribeAvailableResourceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DescribeAvailableResourceResponseBody,
     };
   }
 
@@ -3007,6 +3103,7 @@ export class DescribeInstancesRequest extends $tea.Model {
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   ownerAccount?: string;
+  regionId?: string;
   instanceIds?: string;
   instanceStatus?: string;
   chargeType?: string;
@@ -3034,6 +3131,7 @@ export class DescribeInstancesRequest extends $tea.Model {
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       ownerAccount: 'OwnerAccount',
+      regionId: 'RegionId',
       instanceIds: 'InstanceIds',
       instanceStatus: 'InstanceStatus',
       chargeType: 'ChargeType',
@@ -3064,6 +3162,7 @@ export class DescribeInstancesRequest extends $tea.Model {
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       ownerAccount: 'string',
+      regionId: 'string',
       instanceIds: 'string',
       instanceStatus: 'string',
       chargeType: 'string',
@@ -3271,11 +3370,13 @@ export class DescribeIntranetAttributeRequest extends $tea.Model {
 
 export class DescribeIntranetAttributeResponseBody extends $tea.Model {
   intranetBandwidth?: number;
+  bandwidthExpireTime?: string;
   requestId?: string;
   expireTime?: string;
   static names(): { [key: string]: string } {
     return {
       intranetBandwidth: 'IntranetBandwidth',
+      bandwidthExpireTime: 'BandwidthExpireTime',
       requestId: 'RequestId',
       expireTime: 'ExpireTime',
     };
@@ -3284,6 +3385,7 @@ export class DescribeIntranetAttributeResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       intranetBandwidth: 'number',
+      bandwidthExpireTime: 'string',
       requestId: 'string',
       expireTime: 'string',
     };
@@ -3667,6 +3769,7 @@ export class DescribePriceRequest extends $tea.Model {
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   ownerAccount?: string;
+  regionId?: string;
   capacity?: number;
   instanceClass?: string;
   orderType?: string;
@@ -3688,6 +3791,7 @@ export class DescribePriceRequest extends $tea.Model {
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       ownerAccount: 'OwnerAccount',
+      regionId: 'RegionId',
       capacity: 'Capacity',
       instanceClass: 'InstanceClass',
       orderType: 'OrderType',
@@ -3712,6 +3816,7 @@ export class DescribePriceRequest extends $tea.Model {
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       ownerAccount: 'string',
+      regionId: 'string',
       capacity: 'number',
       instanceClass: 'string',
       orderType: 'string',
@@ -3877,6 +3982,7 @@ export class DescribeRoleZoneInfoRequest extends $tea.Model {
   queryType?: number;
   pageNumber?: number;
   pageSize?: number;
+  role?: string;
   static names(): { [key: string]: string } {
     return {
       securityToken: 'SecurityToken',
@@ -3890,6 +3996,7 @@ export class DescribeRoleZoneInfoRequest extends $tea.Model {
       queryType: 'QueryType',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      role: 'Role',
     };
   }
 
@@ -3906,6 +4013,7 @@ export class DescribeRoleZoneInfoRequest extends $tea.Model {
       queryType: 'number',
       pageNumber: 'number',
       pageSize: 'number',
+      role: 'string',
     };
   }
 
@@ -4789,6 +4897,99 @@ export class DescribeZonesResponse extends $tea.Model {
   }
 }
 
+export class EnableAdditionalBandwidthRequest extends $tea.Model {
+  securityToken?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  ownerAccount?: string;
+  instanceId?: string;
+  couponNo?: string;
+  autoPay?: boolean;
+  nodeId?: string;
+  bandwidth?: string;
+  orderTimeLength?: string;
+  static names(): { [key: string]: string } {
+    return {
+      securityToken: 'SecurityToken',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      ownerAccount: 'OwnerAccount',
+      instanceId: 'InstanceId',
+      couponNo: 'CouponNo',
+      autoPay: 'AutoPay',
+      nodeId: 'NodeId',
+      bandwidth: 'Bandwidth',
+      orderTimeLength: 'OrderTimeLength',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      securityToken: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      ownerAccount: 'string',
+      instanceId: 'string',
+      couponNo: 'string',
+      autoPay: 'boolean',
+      nodeId: 'string',
+      bandwidth: 'string',
+      orderTimeLength: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnableAdditionalBandwidthResponseBody extends $tea.Model {
+  requestId?: string;
+  orderId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      orderId: 'OrderId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      orderId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnableAdditionalBandwidthResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: EnableAdditionalBandwidthResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: EnableAdditionalBandwidthResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class FlushExpireKeysRequest extends $tea.Model {
   securityToken?: string;
   ownerId?: number;
@@ -5519,6 +5720,99 @@ export class ModifyActiveOperationTaskResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: ModifyActiveOperationTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyAuditLogConfigRequest extends $tea.Model {
+  securityToken?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  ownerAccount?: string;
+  instanceId?: string;
+  auditLogSwitchSource?: string;
+  serviceType?: string;
+  retention?: number;
+  proxyAudit?: string;
+  dbAudit?: boolean;
+  auditCommand?: string;
+  static names(): { [key: string]: string } {
+    return {
+      securityToken: 'SecurityToken',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      ownerAccount: 'OwnerAccount',
+      instanceId: 'InstanceId',
+      auditLogSwitchSource: 'AuditLogSwitchSource',
+      serviceType: 'ServiceType',
+      retention: 'Retention',
+      proxyAudit: 'ProxyAudit',
+      dbAudit: 'DbAudit',
+      auditCommand: 'AuditCommand',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      securityToken: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      ownerAccount: 'string',
+      instanceId: 'string',
+      auditLogSwitchSource: 'string',
+      serviceType: 'string',
+      retention: 'number',
+      proxyAudit: 'string',
+      dbAudit: 'boolean',
+      auditCommand: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyAuditLogConfigResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyAuditLogConfigResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ModifyAuditLogConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ModifyAuditLogConfigResponseBody,
     };
   }
 
@@ -6563,6 +6857,8 @@ export class ModifyIntranetAttributeRequest extends $tea.Model {
   resourceOwnerId?: number;
   ownerAccount?: string;
   instanceId?: string;
+  bandWidth?: number;
+  nodeId?: string;
   static names(): { [key: string]: string } {
     return {
       securityToken: 'SecurityToken',
@@ -6571,6 +6867,8 @@ export class ModifyIntranetAttributeRequest extends $tea.Model {
       resourceOwnerId: 'ResourceOwnerId',
       ownerAccount: 'OwnerAccount',
       instanceId: 'InstanceId',
+      bandWidth: 'BandWidth',
+      nodeId: 'NodeId',
     };
   }
 
@@ -6582,6 +6880,8 @@ export class ModifyIntranetAttributeRequest extends $tea.Model {
       resourceOwnerId: 'number',
       ownerAccount: 'string',
       instanceId: 'string',
+      bandWidth: 'number',
+      nodeId: 'string',
     };
   }
 
@@ -8399,381 +8699,6 @@ export class DescribeAuditRecordsResponseBodyItems extends $tea.Model {
   }
 }
 
-export class DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEditionTypesSupportedEditionTypeSupportedSeriesTypesSupportedSeriesTypeSupportedEngineVersionsSupportedEngineVersionSupportedArchitectureTypesSupportedArchitectureTypeSupportedShardNumbersSupportedShardNumberSupportedNodeTypesSupportedNodeTypeAvailableResourcesAvailableResource extends $tea.Model {
-  instanceClassRemark?: string;
-  instanceClass?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceClassRemark: 'InstanceClassRemark',
-      instanceClass: 'InstanceClass',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceClassRemark: 'string',
-      instanceClass: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEditionTypesSupportedEditionTypeSupportedSeriesTypesSupportedSeriesTypeSupportedEngineVersionsSupportedEngineVersionSupportedArchitectureTypesSupportedArchitectureTypeSupportedShardNumbersSupportedShardNumberSupportedNodeTypesSupportedNodeTypeAvailableResources extends $tea.Model {
-  availableResource?: DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEditionTypesSupportedEditionTypeSupportedSeriesTypesSupportedSeriesTypeSupportedEngineVersionsSupportedEngineVersionSupportedArchitectureTypesSupportedArchitectureTypeSupportedShardNumbersSupportedShardNumberSupportedNodeTypesSupportedNodeTypeAvailableResourcesAvailableResource[];
-  static names(): { [key: string]: string } {
-    return {
-      availableResource: 'AvailableResource',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      availableResource: { 'type': 'array', 'itemType': DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEditionTypesSupportedEditionTypeSupportedSeriesTypesSupportedSeriesTypeSupportedEngineVersionsSupportedEngineVersionSupportedArchitectureTypesSupportedArchitectureTypeSupportedShardNumbersSupportedShardNumberSupportedNodeTypesSupportedNodeTypeAvailableResourcesAvailableResource },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEditionTypesSupportedEditionTypeSupportedSeriesTypesSupportedSeriesTypeSupportedEngineVersionsSupportedEngineVersionSupportedArchitectureTypesSupportedArchitectureTypeSupportedShardNumbersSupportedShardNumberSupportedNodeTypesSupportedNodeType extends $tea.Model {
-  supportedNodeType?: string;
-  availableResources?: DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEditionTypesSupportedEditionTypeSupportedSeriesTypesSupportedSeriesTypeSupportedEngineVersionsSupportedEngineVersionSupportedArchitectureTypesSupportedArchitectureTypeSupportedShardNumbersSupportedShardNumberSupportedNodeTypesSupportedNodeTypeAvailableResources;
-  static names(): { [key: string]: string } {
-    return {
-      supportedNodeType: 'SupportedNodeType',
-      availableResources: 'AvailableResources',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      supportedNodeType: 'string',
-      availableResources: DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEditionTypesSupportedEditionTypeSupportedSeriesTypesSupportedSeriesTypeSupportedEngineVersionsSupportedEngineVersionSupportedArchitectureTypesSupportedArchitectureTypeSupportedShardNumbersSupportedShardNumberSupportedNodeTypesSupportedNodeTypeAvailableResources,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEditionTypesSupportedEditionTypeSupportedSeriesTypesSupportedSeriesTypeSupportedEngineVersionsSupportedEngineVersionSupportedArchitectureTypesSupportedArchitectureTypeSupportedShardNumbersSupportedShardNumberSupportedNodeTypes extends $tea.Model {
-  supportedNodeType?: DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEditionTypesSupportedEditionTypeSupportedSeriesTypesSupportedSeriesTypeSupportedEngineVersionsSupportedEngineVersionSupportedArchitectureTypesSupportedArchitectureTypeSupportedShardNumbersSupportedShardNumberSupportedNodeTypesSupportedNodeType[];
-  static names(): { [key: string]: string } {
-    return {
-      supportedNodeType: 'SupportedNodeType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      supportedNodeType: { 'type': 'array', 'itemType': DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEditionTypesSupportedEditionTypeSupportedSeriesTypesSupportedSeriesTypeSupportedEngineVersionsSupportedEngineVersionSupportedArchitectureTypesSupportedArchitectureTypeSupportedShardNumbersSupportedShardNumberSupportedNodeTypesSupportedNodeType },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEditionTypesSupportedEditionTypeSupportedSeriesTypesSupportedSeriesTypeSupportedEngineVersionsSupportedEngineVersionSupportedArchitectureTypesSupportedArchitectureTypeSupportedShardNumbersSupportedShardNumber extends $tea.Model {
-  supportedNodeTypes?: DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEditionTypesSupportedEditionTypeSupportedSeriesTypesSupportedSeriesTypeSupportedEngineVersionsSupportedEngineVersionSupportedArchitectureTypesSupportedArchitectureTypeSupportedShardNumbersSupportedShardNumberSupportedNodeTypes;
-  shardNumber?: string;
-  static names(): { [key: string]: string } {
-    return {
-      supportedNodeTypes: 'SupportedNodeTypes',
-      shardNumber: 'ShardNumber',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      supportedNodeTypes: DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEditionTypesSupportedEditionTypeSupportedSeriesTypesSupportedSeriesTypeSupportedEngineVersionsSupportedEngineVersionSupportedArchitectureTypesSupportedArchitectureTypeSupportedShardNumbersSupportedShardNumberSupportedNodeTypes,
-      shardNumber: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEditionTypesSupportedEditionTypeSupportedSeriesTypesSupportedSeriesTypeSupportedEngineVersionsSupportedEngineVersionSupportedArchitectureTypesSupportedArchitectureTypeSupportedShardNumbers extends $tea.Model {
-  supportedShardNumber?: DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEditionTypesSupportedEditionTypeSupportedSeriesTypesSupportedSeriesTypeSupportedEngineVersionsSupportedEngineVersionSupportedArchitectureTypesSupportedArchitectureTypeSupportedShardNumbersSupportedShardNumber[];
-  static names(): { [key: string]: string } {
-    return {
-      supportedShardNumber: 'SupportedShardNumber',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      supportedShardNumber: { 'type': 'array', 'itemType': DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEditionTypesSupportedEditionTypeSupportedSeriesTypesSupportedSeriesTypeSupportedEngineVersionsSupportedEngineVersionSupportedArchitectureTypesSupportedArchitectureTypeSupportedShardNumbersSupportedShardNumber },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEditionTypesSupportedEditionTypeSupportedSeriesTypesSupportedSeriesTypeSupportedEngineVersionsSupportedEngineVersionSupportedArchitectureTypesSupportedArchitectureType extends $tea.Model {
-  supportedShardNumbers?: DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEditionTypesSupportedEditionTypeSupportedSeriesTypesSupportedSeriesTypeSupportedEngineVersionsSupportedEngineVersionSupportedArchitectureTypesSupportedArchitectureTypeSupportedShardNumbers;
-  architecture?: string;
-  static names(): { [key: string]: string } {
-    return {
-      supportedShardNumbers: 'SupportedShardNumbers',
-      architecture: 'Architecture',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      supportedShardNumbers: DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEditionTypesSupportedEditionTypeSupportedSeriesTypesSupportedSeriesTypeSupportedEngineVersionsSupportedEngineVersionSupportedArchitectureTypesSupportedArchitectureTypeSupportedShardNumbers,
-      architecture: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEditionTypesSupportedEditionTypeSupportedSeriesTypesSupportedSeriesTypeSupportedEngineVersionsSupportedEngineVersionSupportedArchitectureTypes extends $tea.Model {
-  supportedArchitectureType?: DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEditionTypesSupportedEditionTypeSupportedSeriesTypesSupportedSeriesTypeSupportedEngineVersionsSupportedEngineVersionSupportedArchitectureTypesSupportedArchitectureType[];
-  static names(): { [key: string]: string } {
-    return {
-      supportedArchitectureType: 'SupportedArchitectureType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      supportedArchitectureType: { 'type': 'array', 'itemType': DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEditionTypesSupportedEditionTypeSupportedSeriesTypesSupportedSeriesTypeSupportedEngineVersionsSupportedEngineVersionSupportedArchitectureTypesSupportedArchitectureType },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEditionTypesSupportedEditionTypeSupportedSeriesTypesSupportedSeriesTypeSupportedEngineVersionsSupportedEngineVersion extends $tea.Model {
-  supportedArchitectureTypes?: DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEditionTypesSupportedEditionTypeSupportedSeriesTypesSupportedSeriesTypeSupportedEngineVersionsSupportedEngineVersionSupportedArchitectureTypes;
-  version?: string;
-  static names(): { [key: string]: string } {
-    return {
-      supportedArchitectureTypes: 'SupportedArchitectureTypes',
-      version: 'Version',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      supportedArchitectureTypes: DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEditionTypesSupportedEditionTypeSupportedSeriesTypesSupportedSeriesTypeSupportedEngineVersionsSupportedEngineVersionSupportedArchitectureTypes,
-      version: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEditionTypesSupportedEditionTypeSupportedSeriesTypesSupportedSeriesTypeSupportedEngineVersions extends $tea.Model {
-  supportedEngineVersion?: DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEditionTypesSupportedEditionTypeSupportedSeriesTypesSupportedSeriesTypeSupportedEngineVersionsSupportedEngineVersion[];
-  static names(): { [key: string]: string } {
-    return {
-      supportedEngineVersion: 'SupportedEngineVersion',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      supportedEngineVersion: { 'type': 'array', 'itemType': DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEditionTypesSupportedEditionTypeSupportedSeriesTypesSupportedSeriesTypeSupportedEngineVersionsSupportedEngineVersion },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEditionTypesSupportedEditionTypeSupportedSeriesTypesSupportedSeriesType extends $tea.Model {
-  supportedEngineVersions?: DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEditionTypesSupportedEditionTypeSupportedSeriesTypesSupportedSeriesTypeSupportedEngineVersions;
-  seriesType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      supportedEngineVersions: 'SupportedEngineVersions',
-      seriesType: 'SeriesType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      supportedEngineVersions: DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEditionTypesSupportedEditionTypeSupportedSeriesTypesSupportedSeriesTypeSupportedEngineVersions,
-      seriesType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEditionTypesSupportedEditionTypeSupportedSeriesTypes extends $tea.Model {
-  supportedSeriesType?: DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEditionTypesSupportedEditionTypeSupportedSeriesTypesSupportedSeriesType[];
-  static names(): { [key: string]: string } {
-    return {
-      supportedSeriesType: 'SupportedSeriesType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      supportedSeriesType: { 'type': 'array', 'itemType': DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEditionTypesSupportedEditionTypeSupportedSeriesTypesSupportedSeriesType },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEditionTypesSupportedEditionType extends $tea.Model {
-  supportedSeriesTypes?: DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEditionTypesSupportedEditionTypeSupportedSeriesTypes;
-  editionType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      supportedSeriesTypes: 'SupportedSeriesTypes',
-      editionType: 'EditionType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      supportedSeriesTypes: DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEditionTypesSupportedEditionTypeSupportedSeriesTypes,
-      editionType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEditionTypes extends $tea.Model {
-  supportedEditionType?: DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEditionTypesSupportedEditionType[];
-  static names(): { [key: string]: string } {
-    return {
-      supportedEditionType: 'SupportedEditionType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      supportedEditionType: { 'type': 'array', 'itemType': DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEditionTypesSupportedEditionType },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngine extends $tea.Model {
-  engine?: string;
-  supportedEditionTypes?: DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEditionTypes;
-  static names(): { [key: string]: string } {
-    return {
-      engine: 'Engine',
-      supportedEditionTypes: 'SupportedEditionTypes',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      engine: 'string',
-      supportedEditionTypes: DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEditionTypes,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEngines extends $tea.Model {
-  supportedEngine?: DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngine[];
-  static names(): { [key: string]: string } {
-    return {
-      supportedEngine: 'SupportedEngine',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      supportedEngine: { 'type': 'array', 'itemType': DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngine },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeAvailableResourceResponseBodyAvailableZonesAvailableZone extends $tea.Model {
-  supportedEngines?: DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEngines;
-  zoneId?: string;
-  zoneName?: string;
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      supportedEngines: 'SupportedEngines',
-      zoneId: 'ZoneId',
-      zoneName: 'ZoneName',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      supportedEngines: DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEngines,
-      zoneId: 'string',
-      zoneName: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeAvailableResourceResponseBodyAvailableZones extends $tea.Model {
-  availableZone?: DescribeAvailableResourceResponseBodyAvailableZonesAvailableZone[];
-  static names(): { [key: string]: string } {
-    return {
-      availableZone: 'AvailableZone',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      availableZone: { 'type': 'array', 'itemType': DescribeAvailableResourceResponseBodyAvailableZonesAvailableZone },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeBackupsResponseBodyBackupsBackup extends $tea.Model {
   backupStatus?: string;
   backupType?: string;
@@ -8975,6 +8900,7 @@ export class DescribeClusterMemberInfoResponseBodyClusterChildren extends $tea.M
   userId?: string;
   diskSizeMB?: number;
   bandWidth?: number;
+  currentBandWidth?: number;
   classCode?: string;
   bizType?: string;
   service?: string;
@@ -8991,6 +8917,7 @@ export class DescribeClusterMemberInfoResponseBodyClusterChildren extends $tea.M
       userId: 'UserId',
       diskSizeMB: 'DiskSizeMB',
       bandWidth: 'BandWidth',
+      currentBandWidth: 'CurrentBandWidth',
       classCode: 'ClassCode',
       bizType: 'BizType',
       service: 'Service',
@@ -9010,6 +8937,7 @@ export class DescribeClusterMemberInfoResponseBodyClusterChildren extends $tea.M
       userId: 'string',
       diskSizeMB: 'number',
       bandWidth: 'number',
+      currentBandWidth: 'number',
       classCode: 'string',
       bizType: 'string',
       service: 'string',
@@ -9148,6 +9076,8 @@ export class DescribeDedicatedClusterInstanceListResponseBodyInstances extends $
   storageType?: string;
   instanceNodeList?: DescribeDedicatedClusterInstanceListResponseBodyInstancesInstanceNodeList[];
   instanceId?: string;
+  bandWidth?: number;
+  currentBandWidth?: number;
   engineVersion?: string;
   regionId?: string;
   instanceName?: string;
@@ -9171,6 +9101,8 @@ export class DescribeDedicatedClusterInstanceListResponseBodyInstances extends $
       storageType: 'StorageType',
       instanceNodeList: 'InstanceNodeList',
       instanceId: 'InstanceId',
+      bandWidth: 'BandWidth',
+      currentBandWidth: 'CurrentBandWidth',
       engineVersion: 'EngineVersion',
       regionId: 'RegionId',
       instanceName: 'InstanceName',
@@ -9197,6 +9129,8 @@ export class DescribeDedicatedClusterInstanceListResponseBodyInstances extends $
       storageType: 'string',
       instanceNodeList: { 'type': 'array', 'itemType': DescribeDedicatedClusterInstanceListResponseBodyInstancesInstanceNodeList },
       instanceId: 'string',
+      bandWidth: 'number',
+      currentBandWidth: 'number',
       engineVersion: 'string',
       regionId: 'string',
       instanceName: 'string',
@@ -10306,39 +10240,48 @@ export class DescribeRegionsResponseBodyRegionIds extends $tea.Model {
 }
 
 export class DescribeRoleZoneInfoResponseBodyNodeNodeInfo extends $tea.Model {
+  defaultBandWidth?: number;
   currentMinorVersion?: string;
+  currentBandWidth?: number;
   insType?: number;
   isLatestVersion?: number;
-  insName?: string;
   nodeType?: string;
+  insName?: string;
   zoneId?: string;
-  role?: string;
+  isOpenBandWidthService?: boolean;
   custinsId?: string;
+  role?: string;
   nodeId?: string;
   static names(): { [key: string]: string } {
     return {
+      defaultBandWidth: 'DefaultBandWidth',
       currentMinorVersion: 'CurrentMinorVersion',
+      currentBandWidth: 'CurrentBandWidth',
       insType: 'InsType',
       isLatestVersion: 'IsLatestVersion',
-      insName: 'InsName',
       nodeType: 'NodeType',
+      insName: 'InsName',
       zoneId: 'ZoneId',
-      role: 'Role',
+      isOpenBandWidthService: 'IsOpenBandWidthService',
       custinsId: 'CustinsId',
+      role: 'Role',
       nodeId: 'NodeId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      defaultBandWidth: 'number',
       currentMinorVersion: 'string',
+      currentBandWidth: 'number',
       insType: 'number',
       isLatestVersion: 'number',
-      insName: 'string',
       nodeType: 'string',
+      insName: 'string',
       zoneId: 'string',
-      role: 'string',
+      isOpenBandWidthService: 'boolean',
       custinsId: 'string',
+      role: 'string',
       nodeId: 'string',
     };
   }
@@ -11110,6 +11053,19 @@ export default class Client extends OpenApi {
     return await this.createInstanceWithOptions(request, runtime);
   }
 
+  async createTairInstanceWithOptions(request: CreateTairInstanceRequest, runtime: $Util.RuntimeOptions): Promise<CreateTairInstanceResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<CreateTairInstanceResponse>(await this.doRPCRequest("CreateTairInstance", "2015-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new CreateTairInstanceResponse({}));
+  }
+
+  async createTairInstance(request: CreateTairInstanceRequest): Promise<CreateTairInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createTairInstanceWithOptions(request, runtime);
+  }
+
   async createUserClusterHostWithOptions(request: CreateUserClusterHostRequest, runtime: $Util.RuntimeOptions): Promise<CreateUserClusterHostResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -11212,19 +11168,6 @@ export default class Client extends OpenApi {
   async describeAuditRecords(request: DescribeAuditRecordsRequest): Promise<DescribeAuditRecordsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAuditRecordsWithOptions(request, runtime);
-  }
-
-  async describeAvailableResourceWithOptions(request: DescribeAvailableResourceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAvailableResourceResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<DescribeAvailableResourceResponse>(await this.doRPCRequest("DescribeAvailableResource", "2015-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeAvailableResourceResponse({}));
-  }
-
-  async describeAvailableResource(request: DescribeAvailableResourceRequest): Promise<DescribeAvailableResourceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeAvailableResourceWithOptions(request, runtime);
   }
 
   async describeBackupPolicyWithOptions(request: DescribeBackupPolicyRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBackupPolicyResponse> {
@@ -11643,6 +11586,19 @@ export default class Client extends OpenApi {
     return await this.describeZonesWithOptions(request, runtime);
   }
 
+  async enableAdditionalBandwidthWithOptions(request: EnableAdditionalBandwidthRequest, runtime: $Util.RuntimeOptions): Promise<EnableAdditionalBandwidthResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<EnableAdditionalBandwidthResponse>(await this.doRPCRequest("EnableAdditionalBandwidth", "2015-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new EnableAdditionalBandwidthResponse({}));
+  }
+
+  async enableAdditionalBandwidth(request: EnableAdditionalBandwidthRequest): Promise<EnableAdditionalBandwidthResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.enableAdditionalBandwidthWithOptions(request, runtime);
+  }
+
   async flushExpireKeysWithOptions(request: FlushExpireKeysRequest, runtime: $Util.RuntimeOptions): Promise<FlushExpireKeysResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -11758,6 +11714,19 @@ export default class Client extends OpenApi {
   async modifyActiveOperationTask(request: ModifyActiveOperationTaskRequest): Promise<ModifyActiveOperationTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyActiveOperationTaskWithOptions(request, runtime);
+  }
+
+  async modifyAuditLogConfigWithOptions(request: ModifyAuditLogConfigRequest, runtime: $Util.RuntimeOptions): Promise<ModifyAuditLogConfigResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<ModifyAuditLogConfigResponse>(await this.doRPCRequest("ModifyAuditLogConfig", "2015-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyAuditLogConfigResponse({}));
+  }
+
+  async modifyAuditLogConfig(request: ModifyAuditLogConfigRequest): Promise<ModifyAuditLogConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyAuditLogConfigWithOptions(request, runtime);
   }
 
   async modifyBackupPolicyWithOptions(request: ModifyBackupPolicyRequest, runtime: $Util.RuntimeOptions): Promise<ModifyBackupPolicyResponse> {
