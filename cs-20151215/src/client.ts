@@ -2899,15 +2899,18 @@ export class UpgradeClusterAddonsResponse extends $tea.Model {
 
 export class DescribeClusterNamespacesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  body: string[];
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -7913,7 +7916,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    return $tea.cast<DescribeClusterNamespacesResponse>(await this.doROARequest("DescribeClusterNamespaces", "2015-12-15", "HTTPS", "GET", "AK", `/k8s/${ClusterId}/namespaces`, "none", req, runtime), new DescribeClusterNamespacesResponse({}));
+    return $tea.cast<DescribeClusterNamespacesResponse>(await this.doROARequest("DescribeClusterNamespaces", "2015-12-15", "HTTPS", "GET", "AK", `/k8s/${ClusterId}/namespaces`, "array", req, runtime), new DescribeClusterNamespacesResponse({}));
   }
 
   async deleteKubernetesTrigger(Id: string): Promise<DeleteKubernetesTriggerResponse> {
