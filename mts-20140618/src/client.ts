@@ -1632,55 +1632,55 @@ export class CheckResourceRequest extends $tea.Model {
 }
 
 export class CheckResourceResponseBody extends $tea.Model {
+  gmtWakeup?: string;
+  hid?: number;
+  message?: string;
+  taskIdentifier?: string;
+  success?: boolean;
+  url?: string;
   interrupt?: boolean;
   invoker?: string;
+  taskExtraData?: string;
+  country?: string;
+  prompt?: string;
+  level?: number;
   pk?: string;
   bid?: string;
-  hid?: number;
-  country?: string;
-  taskIdentifier?: string;
-  taskExtraData?: string;
-  gmtWakeup?: string;
-  success?: boolean;
-  message?: string;
-  level?: number;
-  url?: string;
-  prompt?: string;
   static names(): { [key: string]: string } {
     return {
+      gmtWakeup: 'GmtWakeup',
+      hid: 'Hid',
+      message: 'Message',
+      taskIdentifier: 'TaskIdentifier',
+      success: 'Success',
+      url: 'Url',
       interrupt: 'Interrupt',
       invoker: 'Invoker',
+      taskExtraData: 'TaskExtraData',
+      country: 'Country',
+      prompt: 'Prompt',
+      level: 'Level',
       pk: 'Pk',
       bid: 'Bid',
-      hid: 'Hid',
-      country: 'Country',
-      taskIdentifier: 'TaskIdentifier',
-      taskExtraData: 'TaskExtraData',
-      gmtWakeup: 'GmtWakeup',
-      success: 'Success',
-      message: 'Message',
-      level: 'Level',
-      url: 'Url',
-      prompt: 'Prompt',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      gmtWakeup: 'string',
+      hid: 'number',
+      message: 'string',
+      taskIdentifier: 'string',
+      success: 'boolean',
+      url: 'string',
       interrupt: 'boolean',
       invoker: 'string',
+      taskExtraData: 'string',
+      country: 'string',
+      prompt: 'string',
+      level: 'number',
       pk: 'string',
       bid: 'string',
-      hid: 'number',
-      country: 'string',
-      taskIdentifier: 'string',
-      taskExtraData: 'string',
-      gmtWakeup: 'string',
-      success: 'boolean',
-      message: 'string',
-      level: 'number',
-      url: 'string',
-      prompt: 'string',
     };
   }
 
@@ -2064,22 +2064,22 @@ export class DecryptKeyRequest extends $tea.Model {
 }
 
 export class DecryptKeyResponseBody extends $tea.Model {
+  rand?: string;
   requestId?: string;
   plaintext?: string;
-  rand?: string;
   static names(): { [key: string]: string } {
     return {
+      rand: 'Rand',
       requestId: 'RequestId',
       plaintext: 'Plaintext',
-      rand: 'Rand',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      rand: 'string',
       requestId: 'string',
       plaintext: 'string',
-      rand: 'string',
     };
   }
 
@@ -3351,27 +3351,27 @@ export class ListAsrPipelineRequest extends $tea.Model {
 }
 
 export class ListAsrPipelineResponseBody extends $tea.Model {
-  requestId?: string;
   totalCount?: number;
-  pageNumber?: number;
   pageSize?: number;
+  requestId?: string;
+  pageNumber?: number;
   pipelineList?: ListAsrPipelineResponseBodyPipelineList;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       totalCount: 'TotalCount',
-      pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      requestId: 'RequestId',
+      pageNumber: 'PageNumber',
       pipelineList: 'PipelineList',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       totalCount: 'number',
-      pageNumber: 'number',
       pageSize: 'number',
+      requestId: 'string',
+      pageNumber: 'number',
       pipelineList: ListAsrPipelineResponseBodyPipelineList,
     };
   }
@@ -3441,27 +3441,27 @@ export class ListCensorPipelineRequest extends $tea.Model {
 }
 
 export class ListCensorPipelineResponseBody extends $tea.Model {
-  requestId?: string;
   totalCount?: number;
-  pageNumber?: number;
   pageSize?: number;
+  requestId?: string;
+  pageNumber?: number;
   pipelineList?: ListCensorPipelineResponseBodyPipelineList;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       totalCount: 'TotalCount',
-      pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      requestId: 'RequestId',
+      pageNumber: 'PageNumber',
       pipelineList: 'PipelineList',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       totalCount: 'number',
-      pageNumber: 'number',
       pageSize: 'number',
+      requestId: 'string',
+      pageNumber: 'number',
       pipelineList: ListCensorPipelineResponseBodyPipelineList,
     };
   }
@@ -3531,27 +3531,27 @@ export class ListCoverPipelineRequest extends $tea.Model {
 }
 
 export class ListCoverPipelineResponseBody extends $tea.Model {
-  requestId?: string;
   totalCount?: number;
-  pageNumber?: number;
   pageSize?: number;
+  requestId?: string;
+  pageNumber?: number;
   pipelineList?: ListCoverPipelineResponseBodyPipelineList;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       totalCount: 'TotalCount',
-      pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      requestId: 'RequestId',
+      pageNumber: 'PageNumber',
       pipelineList: 'PipelineList',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       totalCount: 'number',
-      pageNumber: 'number',
       pageSize: 'number',
+      requestId: 'string',
+      pageNumber: 'number',
       pipelineList: ListCoverPipelineResponseBodyPipelineList,
     };
   }
@@ -3739,6 +3739,90 @@ export class ListFpShotDBResponse extends $tea.Model {
   }
 }
 
+export class ListFpShotFilesRequest extends $tea.Model {
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  nextPageToken?: string;
+  pageSize?: number;
+  fpDBId?: string;
+  ownerAccount?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      nextPageToken: 'NextPageToken',
+      pageSize: 'PageSize',
+      fpDBId: 'FpDBId',
+      ownerAccount: 'OwnerAccount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      nextPageToken: 'string',
+      pageSize: 'number',
+      fpDBId: 'string',
+      ownerAccount: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListFpShotFilesResponseBody extends $tea.Model {
+  requestId?: string;
+  nextPageToken?: string;
+  fpShotFileList?: ListFpShotFilesResponseBodyFpShotFileList;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      nextPageToken: 'NextPageToken',
+      fpShotFileList: 'FpShotFileList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      nextPageToken: 'string',
+      fpShotFileList: ListFpShotFilesResponseBodyFpShotFileList,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListFpShotFilesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListFpShotFilesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListFpShotFilesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListFpShotNotaryRequest extends $tea.Model {
   ownerId?: number;
   resourceOwnerAccount?: string;
@@ -3784,21 +3868,21 @@ export class ListFpShotNotaryRequest extends $tea.Model {
 
 export class ListFpShotNotaryResponseBody extends $tea.Model {
   requestId?: string;
-  nextPageToken?: string;
   fpShotNotaryList?: ListFpShotNotaryResponseBodyFpShotNotaryList;
+  nextPageToken?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      nextPageToken: 'NextPageToken',
       fpShotNotaryList: 'FpShotNotaryList',
+      nextPageToken: 'NextPageToken',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      nextPageToken: 'string',
       fpShotNotaryList: ListFpShotNotaryResponseBodyFpShotNotaryList,
+      nextPageToken: 'string',
     };
   }
 
@@ -4137,27 +4221,27 @@ export class ListPornPipelineRequest extends $tea.Model {
 }
 
 export class ListPornPipelineResponseBody extends $tea.Model {
-  requestId?: string;
   totalCount?: number;
-  pageNumber?: number;
   pageSize?: number;
+  requestId?: string;
+  pageNumber?: number;
   pipelineList?: ListPornPipelineResponseBodyPipelineList;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       totalCount: 'TotalCount',
-      pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      requestId: 'RequestId',
+      pageNumber: 'PageNumber',
       pipelineList: 'PipelineList',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       totalCount: 'number',
-      pageNumber: 'number',
       pageSize: 'number',
+      requestId: 'string',
+      pageNumber: 'number',
       pipelineList: ListPornPipelineResponseBodyPipelineList,
     };
   }
@@ -4227,27 +4311,27 @@ export class ListTerrorismPipelineRequest extends $tea.Model {
 }
 
 export class ListTerrorismPipelineResponseBody extends $tea.Model {
-  requestId?: string;
   totalCount?: number;
-  pageNumber?: number;
   pageSize?: number;
+  requestId?: string;
+  pageNumber?: number;
   pipelineList?: ListTerrorismPipelineResponseBodyPipelineList;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       totalCount: 'TotalCount',
-      pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      requestId: 'RequestId',
+      pageNumber: 'PageNumber',
       pipelineList: 'PipelineList',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       totalCount: 'number',
-      pageNumber: 'number',
       pageSize: 'number',
+      requestId: 'string',
+      pageNumber: 'number',
       pipelineList: ListTerrorismPipelineResponseBodyPipelineList,
     };
   }
@@ -4329,46 +4413,46 @@ export class LogicalDeleteResourceRequest extends $tea.Model {
 }
 
 export class LogicalDeleteResourceResponseBody extends $tea.Model {
-  interrupt?: boolean;
-  invoker?: string;
-  pk?: string;
-  bid?: string;
+  gmtWakeup?: string;
   hid?: number;
-  country?: string;
+  invoker?: string;
+  message?: string;
   taskIdentifier?: string;
   taskExtraData?: string;
-  gmtWakeup?: string;
+  country?: string;
+  pk?: string;
+  bid?: string;
   success?: boolean;
-  message?: string;
+  interrupt?: boolean;
   static names(): { [key: string]: string } {
     return {
-      interrupt: 'Interrupt',
-      invoker: 'Invoker',
-      pk: 'Pk',
-      bid: 'Bid',
+      gmtWakeup: 'GmtWakeup',
       hid: 'Hid',
-      country: 'Country',
+      invoker: 'Invoker',
+      message: 'Message',
       taskIdentifier: 'TaskIdentifier',
       taskExtraData: 'TaskExtraData',
-      gmtWakeup: 'GmtWakeup',
+      country: 'Country',
+      pk: 'Pk',
+      bid: 'Bid',
       success: 'Success',
-      message: 'Message',
+      interrupt: 'Interrupt',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      interrupt: 'boolean',
-      invoker: 'string',
-      pk: 'string',
-      bid: 'string',
+      gmtWakeup: 'string',
       hid: 'number',
-      country: 'string',
+      invoker: 'string',
+      message: 'string',
       taskIdentifier: 'string',
       taskExtraData: 'string',
-      gmtWakeup: 'string',
+      country: 'string',
+      pk: 'string',
+      bid: 'string',
       success: 'boolean',
-      message: 'string',
+      interrupt: 'boolean',
     };
   }
 
@@ -4449,46 +4533,46 @@ export class PhysicalDeleteResourceRequest extends $tea.Model {
 }
 
 export class PhysicalDeleteResourceResponseBody extends $tea.Model {
-  interrupt?: boolean;
-  invoker?: string;
-  pk?: string;
-  bid?: string;
+  gmtWakeup?: string;
   hid?: number;
-  country?: string;
+  invoker?: string;
+  message?: string;
   taskIdentifier?: string;
   taskExtraData?: string;
-  gmtWakeup?: string;
+  country?: string;
+  pk?: string;
+  bid?: string;
   success?: boolean;
-  message?: string;
+  interrupt?: boolean;
   static names(): { [key: string]: string } {
     return {
-      interrupt: 'Interrupt',
-      invoker: 'Invoker',
-      pk: 'Pk',
-      bid: 'Bid',
+      gmtWakeup: 'GmtWakeup',
       hid: 'Hid',
-      country: 'Country',
+      invoker: 'Invoker',
+      message: 'Message',
       taskIdentifier: 'TaskIdentifier',
       taskExtraData: 'TaskExtraData',
-      gmtWakeup: 'GmtWakeup',
+      country: 'Country',
+      pk: 'Pk',
+      bid: 'Bid',
       success: 'Success',
-      message: 'Message',
+      interrupt: 'Interrupt',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      interrupt: 'boolean',
-      invoker: 'string',
-      pk: 'string',
-      bid: 'string',
+      gmtWakeup: 'string',
       hid: 'number',
-      country: 'string',
+      invoker: 'string',
+      message: 'string',
       taskIdentifier: 'string',
       taskExtraData: 'string',
-      gmtWakeup: 'string',
+      country: 'string',
+      pk: 'string',
+      bid: 'string',
       success: 'boolean',
-      message: 'string',
+      interrupt: 'boolean',
     };
   }
 
@@ -5034,22 +5118,22 @@ export class QueryAuthConfigRequest extends $tea.Model {
 }
 
 export class QueryAuthConfigResponseBody extends $tea.Model {
-  requestId?: string;
-  key1?: string;
   key2?: string;
+  key1?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
-      key1: 'Key1',
       key2: 'Key2',
+      key1: 'Key1',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
-      key1: 'string',
       key2: 'string',
+      key1: 'string',
+      requestId: 'string',
     };
   }
 
@@ -5725,6 +5809,162 @@ export class QueryFpCompareJobListResponse extends $tea.Model {
   }
 }
 
+export class QueryFpDBDeleteJobListRequest extends $tea.Model {
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  jobIds?: string;
+  ownerAccount?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      jobIds: 'JobIds',
+      ownerAccount: 'OwnerAccount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      jobIds: 'string',
+      ownerAccount: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryFpDBDeleteJobListResponseBody extends $tea.Model {
+  requestId?: string;
+  fpDBDeleteJobList?: QueryFpDBDeleteJobListResponseBodyFpDBDeleteJobList;
+  nonExistIds?: QueryFpDBDeleteJobListResponseBodyNonExistIds;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      fpDBDeleteJobList: 'FpDBDeleteJobList',
+      nonExistIds: 'NonExistIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      fpDBDeleteJobList: QueryFpDBDeleteJobListResponseBodyFpDBDeleteJobList,
+      nonExistIds: QueryFpDBDeleteJobListResponseBodyNonExistIds,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryFpDBDeleteJobListResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: QueryFpDBDeleteJobListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: QueryFpDBDeleteJobListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryFpFileDeleteJobListRequest extends $tea.Model {
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  jobIds?: string;
+  ownerAccount?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      jobIds: 'JobIds',
+      ownerAccount: 'OwnerAccount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      jobIds: 'string',
+      ownerAccount: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryFpFileDeleteJobListResponseBody extends $tea.Model {
+  requestId?: string;
+  fpFileDeleteJobList?: QueryFpFileDeleteJobListResponseBodyFpFileDeleteJobList;
+  nonExistIds?: QueryFpFileDeleteJobListResponseBodyNonExistIds;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      fpFileDeleteJobList: 'FpFileDeleteJobList',
+      nonExistIds: 'NonExistIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      fpFileDeleteJobList: QueryFpFileDeleteJobListResponseBodyFpFileDeleteJobList,
+      nonExistIds: QueryFpFileDeleteJobListResponseBodyNonExistIds,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryFpFileDeleteJobListResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: QueryFpFileDeleteJobListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: QueryFpFileDeleteJobListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryFpImportResultRequest extends $tea.Model {
   ownerId?: number;
   resourceOwnerAccount?: string;
@@ -5990,6 +6230,87 @@ export class QueryImageSearchJobListResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: QueryImageSearchJobListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryInnerJobRequest extends $tea.Model {
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  jobId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      jobId: 'JobId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      jobId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryInnerJobResponseBody extends $tea.Model {
+  status?: string;
+  suggestion?: string;
+  requestId?: string;
+  video?: QueryInnerJobResponseBodyVideo;
+  image?: QueryInnerJobResponseBodyImage;
+  static names(): { [key: string]: string } {
+    return {
+      status: 'Status',
+      suggestion: 'Suggestion',
+      requestId: 'RequestId',
+      video: 'Video',
+      image: 'Image',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      status: 'string',
+      suggestion: 'string',
+      requestId: 'string',
+      video: QueryInnerJobResponseBodyVideo,
+      image: QueryInnerJobResponseBodyImage,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryInnerJobResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: QueryInnerJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: QueryInnerJobResponseBody,
     };
   }
 
@@ -8371,6 +8692,78 @@ export class QueryVideoPoseJobListResponse extends $tea.Model {
   }
 }
 
+export class QueryVideoQualityJobRequest extends $tea.Model {
+  userId?: number;
+  jobId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      userId: 'UserId',
+      jobId: 'JobId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      userId: 'number',
+      jobId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryVideoQualityJobResponseBody extends $tea.Model {
+  message?: string;
+  requestId?: string;
+  job?: QueryVideoQualityJobResponseBodyJob;
+  code?: string;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      requestId: 'RequestId',
+      job: 'Job',
+      code: 'Code',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      requestId: 'string',
+      job: QueryVideoQualityJobResponseBodyJob,
+      code: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryVideoQualityJobResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: QueryVideoQualityJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: QueryVideoQualityJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryVideoSplitJobListRequest extends $tea.Model {
   ownerId?: number;
   resourceOwnerAccount?: string;
@@ -8889,19 +9282,19 @@ export class RegisterMediaDetailScenarioRequest extends $tea.Model {
 }
 
 export class RegisterMediaDetailScenarioResponseBody extends $tea.Model {
-  requestId?: string;
   scenarioId?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       scenarioId: 'ScenarioId',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       scenarioId: 'string',
+      requestId: 'string',
     };
   }
 
@@ -10245,22 +10638,22 @@ export class SetAuthConfigRequest extends $tea.Model {
 }
 
 export class SetAuthConfigResponseBody extends $tea.Model {
-  requestId?: string;
-  key1?: string;
   key2?: string;
+  key1?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
-      key1: 'Key1',
       key2: 'Key2',
+      key1: 'Key1',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
-      key1: 'string',
       key2: 'string',
+      key1: 'string',
+      requestId: 'string',
     };
   }
 
@@ -10926,19 +11319,19 @@ export class SubmitEditingJobsRequest extends $tea.Model {
 }
 
 export class SubmitEditingJobsResponseBody extends $tea.Model {
-  requestId?: string;
   jobResultList?: SubmitEditingJobsResponseBodyJobResultList;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       jobResultList: 'JobResultList',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       jobResultList: SubmitEditingJobsResponseBodyJobResultList,
+      requestId: 'string',
     };
   }
 
@@ -11135,6 +11528,174 @@ export class SubmitFpCompareJobResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: SubmitFpCompareJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitFpDBDeleteJobRequest extends $tea.Model {
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  pipelineId?: string;
+  fpDBId?: string;
+  userData?: string;
+  delType?: string;
+  ownerAccount?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      pipelineId: 'PipelineId',
+      fpDBId: 'FpDBId',
+      userData: 'UserData',
+      delType: 'DelType',
+      ownerAccount: 'OwnerAccount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      pipelineId: 'string',
+      fpDBId: 'string',
+      userData: 'string',
+      delType: 'string',
+      ownerAccount: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitFpDBDeleteJobResponseBody extends $tea.Model {
+  requestId?: string;
+  jobId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      jobId: 'JobId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      jobId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitFpDBDeleteJobResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: SubmitFpDBDeleteJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: SubmitFpDBDeleteJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitFpFileDeleteJobRequest extends $tea.Model {
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  pipelineId?: string;
+  fpDBId?: string;
+  userData?: string;
+  fileIds?: string;
+  ownerAccount?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      pipelineId: 'PipelineId',
+      fpDBId: 'FpDBId',
+      userData: 'UserData',
+      fileIds: 'FileIds',
+      ownerAccount: 'OwnerAccount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      pipelineId: 'string',
+      fpDBId: 'string',
+      userData: 'string',
+      fileIds: 'string',
+      ownerAccount: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitFpFileDeleteJobResponseBody extends $tea.Model {
+  requestId?: string;
+  jobId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      jobId: 'JobId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      jobId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitFpFileDeleteJobResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: SubmitFpFileDeleteJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: SubmitFpFileDeleteJobResponseBody,
     };
   }
 
@@ -11390,6 +11951,90 @@ export class SubmitImageSearchJobResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: SubmitImageSearchJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitInnerJobRequest extends $tea.Model {
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  pipelineId?: string;
+  video?: string;
+  images?: string;
+  uid?: number;
+  config?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      pipelineId: 'PipelineId',
+      video: 'Video',
+      images: 'Images',
+      uid: 'Uid',
+      config: 'Config',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      pipelineId: 'string',
+      video: 'string',
+      images: 'string',
+      uid: 'number',
+      config: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitInnerJobResponseBody extends $tea.Model {
+  requestId?: string;
+  jobId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      jobId: 'JobId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      jobId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitInnerJobResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: SubmitInnerJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: SubmitInnerJobResponseBody,
     };
   }
 
@@ -12794,6 +13439,102 @@ export class SubmitVideoPoseJobResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: SubmitVideoPoseJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitVideoQualityJobRequest extends $tea.Model {
+  userId?: number;
+  pipelineId?: string;
+  sourceType?: string;
+  modelId?: string;
+  input?: string;
+  output?: string;
+  jobParams?: string;
+  scheduleParams?: string;
+  userData?: string;
+  notifyUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      userId: 'UserId',
+      pipelineId: 'PipelineId',
+      sourceType: 'SourceType',
+      modelId: 'ModelId',
+      input: 'Input',
+      output: 'Output',
+      jobParams: 'JobParams',
+      scheduleParams: 'ScheduleParams',
+      userData: 'UserData',
+      notifyUrl: 'NotifyUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      userId: 'number',
+      pipelineId: 'string',
+      sourceType: 'string',
+      modelId: 'string',
+      input: 'string',
+      output: 'string',
+      jobParams: 'string',
+      scheduleParams: 'string',
+      userData: 'string',
+      notifyUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitVideoQualityJobResponseBody extends $tea.Model {
+  message?: string;
+  requestId?: string;
+  code?: string;
+  jobId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      requestId: 'RequestId',
+      code: 'Code',
+      jobId: 'JobId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      requestId: 'string',
+      code: 'string',
+      jobId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitVideoQualityJobResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: SubmitVideoQualityJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: SubmitVideoQualityJobResponseBody,
     };
   }
 
@@ -14857,28 +15598,28 @@ export class AddAsrPipelineResponseBodyPipelineNotifyConfig extends $tea.Model {
 }
 
 export class AddAsrPipelineResponseBodyPipeline extends $tea.Model {
-  id?: string;
-  name?: string;
-  priority?: number;
   state?: string;
   notifyConfig?: AddAsrPipelineResponseBodyPipelineNotifyConfig;
+  priority?: number;
+  name?: string;
+  id?: string;
   static names(): { [key: string]: string } {
     return {
-      id: 'Id',
-      name: 'Name',
-      priority: 'Priority',
       state: 'State',
       notifyConfig: 'NotifyConfig',
+      priority: 'Priority',
+      name: 'Name',
+      id: 'Id',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      id: 'string',
-      name: 'string',
-      priority: 'number',
       state: 'string',
       notifyConfig: AddAsrPipelineResponseBodyPipelineNotifyConfig,
+      priority: 'number',
+      name: 'string',
+      id: 'string',
     };
   }
 
@@ -14938,28 +15679,28 @@ export class AddCensorPipelineResponseBodyPipelineNotifyConfig extends $tea.Mode
 }
 
 export class AddCensorPipelineResponseBodyPipeline extends $tea.Model {
-  id?: string;
-  name?: string;
-  priority?: number;
   state?: string;
   notifyConfig?: AddCensorPipelineResponseBodyPipelineNotifyConfig;
+  priority?: number;
+  name?: string;
+  id?: string;
   static names(): { [key: string]: string } {
     return {
-      id: 'Id',
-      name: 'Name',
-      priority: 'Priority',
       state: 'State',
       notifyConfig: 'NotifyConfig',
+      priority: 'Priority',
+      name: 'Name',
+      id: 'Id',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      id: 'string',
-      name: 'string',
-      priority: 'number',
       state: 'string',
       notifyConfig: AddCensorPipelineResponseBodyPipelineNotifyConfig,
+      priority: 'number',
+      name: 'string',
+      id: 'string',
     };
   }
 
@@ -14991,31 +15732,31 @@ export class AddCoverPipelineResponseBodyPipelineNotifyConfig extends $tea.Model
 }
 
 export class AddCoverPipelineResponseBodyPipeline extends $tea.Model {
-  id?: string;
-  name?: string;
-  priority?: string;
   state?: string;
-  role?: string;
   notifyConfig?: AddCoverPipelineResponseBodyPipelineNotifyConfig;
+  priority?: string;
+  role?: string;
+  name?: string;
+  id?: string;
   static names(): { [key: string]: string } {
     return {
-      id: 'Id',
-      name: 'Name',
-      priority: 'Priority',
       state: 'State',
-      role: 'Role',
       notifyConfig: 'NotifyConfig',
+      priority: 'Priority',
+      role: 'Role',
+      name: 'Name',
+      id: 'Id',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      id: 'string',
-      name: 'string',
-      priority: 'string',
       state: 'string',
-      role: 'string',
       notifyConfig: AddCoverPipelineResponseBodyPipelineNotifyConfig,
+      priority: 'string',
+      role: 'string',
+      name: 'string',
+      id: 'string',
     };
   }
 
@@ -15025,49 +15766,49 @@ export class AddCoverPipelineResponseBodyPipeline extends $tea.Model {
 }
 
 export class AddMCTemplateResponseBodyTemplate extends $tea.Model {
-  templateId?: string;
-  name?: string;
-  porn?: string;
-  terrorism?: string;
-  politics?: string;
-  ad?: string;
-  qrcode?: string;
-  live?: string;
   logo?: string;
   abuse?: string;
-  contraband?: string;
+  terrorism?: string;
+  politics?: string;
+  qrcode?: string;
   spam?: string;
+  live?: string;
+  contraband?: string;
+  ad?: string;
+  porn?: string;
+  name?: string;
+  templateId?: string;
   static names(): { [key: string]: string } {
     return {
-      templateId: 'TemplateId',
-      name: 'Name',
-      porn: 'Porn',
-      terrorism: 'Terrorism',
-      politics: 'Politics',
-      ad: 'Ad',
-      qrcode: 'Qrcode',
-      live: 'Live',
       logo: 'Logo',
       abuse: 'Abuse',
-      contraband: 'Contraband',
+      terrorism: 'Terrorism',
+      politics: 'Politics',
+      qrcode: 'Qrcode',
       spam: 'Spam',
+      live: 'Live',
+      contraband: 'Contraband',
+      ad: 'Ad',
+      porn: 'Porn',
+      name: 'Name',
+      templateId: 'TemplateId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      templateId: 'string',
-      name: 'string',
-      porn: 'string',
-      terrorism: 'string',
-      politics: 'string',
-      ad: 'string',
-      qrcode: 'string',
-      live: 'string',
       logo: 'string',
       abuse: 'string',
-      contraband: 'string',
+      terrorism: 'string',
+      politics: 'string',
+      qrcode: 'string',
       spam: 'string',
+      live: 'string',
+      contraband: 'string',
+      ad: 'string',
+      porn: 'string',
+      name: 'string',
+      templateId: 'string',
     };
   }
 
@@ -15241,25 +15982,25 @@ export class AddMediaWorkflowResponseBodyMediaWorkflow extends $tea.Model {
 }
 
 export class AddPipelineResponseBodyPipelineNotifyConfig extends $tea.Model {
-  topic?: string;
-  queueName?: string;
   mqTopic?: string;
+  queueName?: string;
   mqTag?: string;
+  topic?: string;
   static names(): { [key: string]: string } {
     return {
-      topic: 'Topic',
-      queueName: 'QueueName',
       mqTopic: 'MqTopic',
+      queueName: 'QueueName',
       mqTag: 'MqTag',
+      topic: 'Topic',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      topic: 'string',
-      queueName: 'string',
       mqTopic: 'string',
+      queueName: 'string',
       mqTag: 'string',
+      topic: 'string',
     };
   }
 
@@ -15269,37 +16010,37 @@ export class AddPipelineResponseBodyPipelineNotifyConfig extends $tea.Model {
 }
 
 export class AddPipelineResponseBodyPipeline extends $tea.Model {
-  id?: string;
-  name?: string;
-  state?: string;
   speed?: string;
+  state?: string;
   speedLevel?: number;
-  quotaAllocate?: number;
-  role?: string;
   notifyConfig?: AddPipelineResponseBodyPipelineNotifyConfig;
+  role?: string;
+  name?: string;
+  id?: string;
+  quotaAllocate?: number;
   static names(): { [key: string]: string } {
     return {
-      id: 'Id',
-      name: 'Name',
-      state: 'State',
       speed: 'Speed',
+      state: 'State',
       speedLevel: 'SpeedLevel',
-      quotaAllocate: 'QuotaAllocate',
-      role: 'Role',
       notifyConfig: 'NotifyConfig',
+      role: 'Role',
+      name: 'Name',
+      id: 'Id',
+      quotaAllocate: 'QuotaAllocate',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      id: 'string',
-      name: 'string',
-      state: 'string',
       speed: 'string',
+      state: 'string',
       speedLevel: 'number',
-      quotaAllocate: 'number',
-      role: 'string',
       notifyConfig: AddPipelineResponseBodyPipelineNotifyConfig,
+      role: 'string',
+      name: 'string',
+      id: 'string',
+      quotaAllocate: 'number',
     };
   }
 
@@ -15331,28 +16072,28 @@ export class AddPornPipelineResponseBodyPipelineNotifyConfig extends $tea.Model 
 }
 
 export class AddPornPipelineResponseBodyPipeline extends $tea.Model {
-  id?: string;
-  name?: string;
-  priority?: number;
   state?: string;
   notifyConfig?: AddPornPipelineResponseBodyPipelineNotifyConfig;
+  priority?: number;
+  name?: string;
+  id?: string;
   static names(): { [key: string]: string } {
     return {
-      id: 'Id',
-      name: 'Name',
-      priority: 'Priority',
       state: 'State',
       notifyConfig: 'NotifyConfig',
+      priority: 'Priority',
+      name: 'Name',
+      id: 'Id',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      id: 'string',
-      name: 'string',
-      priority: 'number',
       state: 'string',
       notifyConfig: AddPornPipelineResponseBodyPipelineNotifyConfig,
+      priority: 'number',
+      name: 'string',
+      id: 'string',
     };
   }
 
@@ -15740,28 +16481,28 @@ export class AddTerrorismPipelineResponseBodyPipelineNotifyConfig extends $tea.M
 }
 
 export class AddTerrorismPipelineResponseBodyPipeline extends $tea.Model {
-  id?: string;
-  name?: string;
-  priority?: number;
   state?: string;
   notifyConfig?: AddTerrorismPipelineResponseBodyPipelineNotifyConfig;
+  priority?: number;
+  name?: string;
+  id?: string;
   static names(): { [key: string]: string } {
     return {
-      id: 'Id',
-      name: 'Name',
-      priority: 'Priority',
       state: 'State',
       notifyConfig: 'NotifyConfig',
+      priority: 'Priority',
+      name: 'Name',
+      id: 'Id',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      id: 'string',
-      name: 'string',
-      priority: 'number',
       state: 'string',
       notifyConfig: AddTerrorismPipelineResponseBodyPipelineNotifyConfig,
+      priority: 'number',
+      name: 'string',
+      id: 'string',
     };
   }
 
@@ -16004,31 +16745,31 @@ export class DeleteMediaWorkflowResponseBodyMediaWorkflow extends $tea.Model {
 }
 
 export class DescribeMtsUserResourcePackageResponseBodyResourcePackageInfosResourcePackageInfo extends $tea.Model {
+  displayName?: string;
+  status?: string;
+  commodityCode?: string;
   currCapacity?: string;
   initCapacity?: string;
-  commodityCode?: string;
-  displayName?: string;
   instanceId?: string;
-  status?: string;
   static names(): { [key: string]: string } {
     return {
+      displayName: 'DisplayName',
+      status: 'Status',
+      commodityCode: 'CommodityCode',
       currCapacity: 'CurrCapacity',
       initCapacity: 'InitCapacity',
-      commodityCode: 'CommodityCode',
-      displayName: 'DisplayName',
       instanceId: 'InstanceId',
-      status: 'Status',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      displayName: 'string',
+      status: 'string',
+      commodityCode: 'string',
       currCapacity: 'string',
       initCapacity: 'string',
-      commodityCode: 'string',
-      displayName: 'string',
       instanceId: 'string',
-      status: 'string',
     };
   }
 
@@ -16145,19 +16886,19 @@ export class ListAllMediaBucketResponseBodyMediaBucketList extends $tea.Model {
 }
 
 export class ListAsrPipelineResponseBodyPipelineListPipelineNotifyConfig extends $tea.Model {
-  topic?: string;
   queueName?: string;
+  topic?: string;
   static names(): { [key: string]: string } {
     return {
-      topic: 'Topic',
       queueName: 'QueueName',
+      topic: 'Topic',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      topic: 'string',
       queueName: 'string',
+      topic: 'string',
     };
   }
 
@@ -16167,28 +16908,28 @@ export class ListAsrPipelineResponseBodyPipelineListPipelineNotifyConfig extends
 }
 
 export class ListAsrPipelineResponseBodyPipelineListPipeline extends $tea.Model {
-  id?: string;
-  name?: string;
   state?: string;
-  priority?: string;
   notifyConfig?: ListAsrPipelineResponseBodyPipelineListPipelineNotifyConfig;
+  priority?: string;
+  name?: string;
+  id?: string;
   static names(): { [key: string]: string } {
     return {
-      id: 'Id',
-      name: 'Name',
       state: 'State',
-      priority: 'Priority',
       notifyConfig: 'NotifyConfig',
+      priority: 'Priority',
+      name: 'Name',
+      id: 'Id',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      id: 'string',
-      name: 'string',
       state: 'string',
-      priority: 'string',
       notifyConfig: ListAsrPipelineResponseBodyPipelineListPipelineNotifyConfig,
+      priority: 'string',
+      name: 'string',
+      id: 'string',
     };
   }
 
@@ -16239,28 +16980,28 @@ export class ListCensorPipelineResponseBodyPipelineListPipelineNotifyConfig exte
 }
 
 export class ListCensorPipelineResponseBodyPipelineListPipeline extends $tea.Model {
-  id?: string;
-  name?: string;
   state?: string;
-  priority?: string;
   notifyConfig?: ListCensorPipelineResponseBodyPipelineListPipelineNotifyConfig;
+  priority?: string;
+  name?: string;
+  id?: string;
   static names(): { [key: string]: string } {
     return {
-      id: 'Id',
-      name: 'Name',
       state: 'State',
-      priority: 'Priority',
       notifyConfig: 'NotifyConfig',
+      priority: 'Priority',
+      name: 'Name',
+      id: 'Id',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      id: 'string',
-      name: 'string',
       state: 'string',
-      priority: 'string',
       notifyConfig: ListCensorPipelineResponseBodyPipelineListPipelineNotifyConfig,
+      priority: 'string',
+      name: 'string',
+      id: 'string',
     };
   }
 
@@ -16289,43 +17030,43 @@ export class ListCensorPipelineResponseBodyPipelineList extends $tea.Model {
 }
 
 export class ListCoverPipelineResponseBodyPipelineListPipeline extends $tea.Model {
-  userId?: number;
-  pipelineId?: string;
-  name?: string;
   state?: string;
-  priority?: string;
   quotaNum?: number;
-  quotaUsed?: number;
+  userId?: number;
   notifyConfig?: string;
-  role?: string;
   extendConfig?: string;
+  priority?: string;
+  role?: string;
+  name?: string;
+  pipelineId?: string;
+  quotaUsed?: number;
   static names(): { [key: string]: string } {
     return {
-      userId: 'UserId',
-      pipelineId: 'PipelineId',
-      name: 'Name',
       state: 'State',
-      priority: 'Priority',
       quotaNum: 'quotaNum',
-      quotaUsed: 'quotaUsed',
+      userId: 'UserId',
       notifyConfig: 'NotifyConfig',
-      role: 'Role',
       extendConfig: 'ExtendConfig',
+      priority: 'Priority',
+      role: 'Role',
+      name: 'Name',
+      pipelineId: 'PipelineId',
+      quotaUsed: 'quotaUsed',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      userId: 'number',
-      pipelineId: 'string',
-      name: 'string',
       state: 'string',
-      priority: 'string',
       quotaNum: 'number',
-      quotaUsed: 'number',
+      userId: 'number',
       notifyConfig: 'string',
-      role: 'string',
       extendConfig: 'string',
+      priority: 'string',
+      role: 'string',
+      name: 'string',
+      pipelineId: 'string',
+      quotaUsed: 'number',
     };
   }
 
@@ -16557,35 +17298,104 @@ export class ListFpShotDBResponseBodyNonExistIds extends $tea.Model {
   }
 }
 
-export class ListFpShotNotaryResponseBodyFpShotNotaryListFpShotNotary extends $tea.Model {
-  transactionId?: string;
-  txHash?: string;
-  fpDBId?: string;
-  jobId?: string;
-  detail?: string;
-  creationTime?: string;
-  finishTime?: string;
+export class ListFpShotFilesResponseBodyFpShotFileListFpShotFileInputFile extends $tea.Model {
+  object?: string;
+  location?: string;
+  bucket?: string;
   static names(): { [key: string]: string } {
     return {
-      transactionId: 'TransactionId',
-      txHash: 'TxHash',
-      fpDBId: 'FpDBId',
-      jobId: 'JobId',
-      detail: 'Detail',
-      creationTime: 'CreationTime',
-      finishTime: 'FinishTime',
+      object: 'Object',
+      location: 'Location',
+      bucket: 'Bucket',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      transactionId: 'string',
-      txHash: 'string',
-      fpDBId: 'string',
-      jobId: 'string',
-      detail: 'string',
+      object: 'string',
+      location: 'string',
+      bucket: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListFpShotFilesResponseBodyFpShotFileListFpShotFile extends $tea.Model {
+  primaryKey?: string;
+  inputFile?: ListFpShotFilesResponseBodyFpShotFileListFpShotFileInputFile;
+  fileId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      primaryKey: 'PrimaryKey',
+      inputFile: 'InputFile',
+      fileId: 'FileId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      primaryKey: 'string',
+      inputFile: ListFpShotFilesResponseBodyFpShotFileListFpShotFileInputFile,
+      fileId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListFpShotFilesResponseBodyFpShotFileList extends $tea.Model {
+  fpShotFile?: ListFpShotFilesResponseBodyFpShotFileListFpShotFile[];
+  static names(): { [key: string]: string } {
+    return {
+      fpShotFile: 'FpShotFile',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fpShotFile: { 'type': 'array', 'itemType': ListFpShotFilesResponseBodyFpShotFileListFpShotFile },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListFpShotNotaryResponseBodyFpShotNotaryListFpShotNotary extends $tea.Model {
+  creationTime?: string;
+  finishTime?: string;
+  jobId?: string;
+  txHash?: string;
+  transactionId?: string;
+  fpDBId?: string;
+  detail?: string;
+  static names(): { [key: string]: string } {
+    return {
+      creationTime: 'CreationTime',
+      finishTime: 'FinishTime',
+      jobId: 'JobId',
+      txHash: 'TxHash',
+      transactionId: 'TransactionId',
+      fpDBId: 'FpDBId',
+      detail: 'Detail',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
       creationTime: 'string',
       finishTime: 'string',
+      jobId: 'string',
+      txHash: 'string',
+      transactionId: 'string',
+      fpDBId: 'string',
+      detail: 'string',
     };
   }
 
@@ -18459,28 +19269,28 @@ export class ListPornPipelineResponseBodyPipelineListPipelineNotifyConfig extend
 }
 
 export class ListPornPipelineResponseBodyPipelineListPipeline extends $tea.Model {
-  id?: string;
-  name?: string;
   state?: string;
-  priority?: string;
   notifyConfig?: ListPornPipelineResponseBodyPipelineListPipelineNotifyConfig;
+  priority?: string;
+  name?: string;
+  id?: string;
   static names(): { [key: string]: string } {
     return {
-      id: 'Id',
-      name: 'Name',
       state: 'State',
-      priority: 'Priority',
       notifyConfig: 'NotifyConfig',
+      priority: 'Priority',
+      name: 'Name',
+      id: 'Id',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      id: 'string',
-      name: 'string',
       state: 'string',
-      priority: 'string',
       notifyConfig: ListPornPipelineResponseBodyPipelineListPipelineNotifyConfig,
+      priority: 'string',
+      name: 'string',
+      id: 'string',
     };
   }
 
@@ -18531,28 +19341,28 @@ export class ListTerrorismPipelineResponseBodyPipelineListPipelineNotifyConfig e
 }
 
 export class ListTerrorismPipelineResponseBodyPipelineListPipeline extends $tea.Model {
-  id?: string;
-  name?: string;
   state?: string;
-  priority?: string;
   notifyConfig?: ListTerrorismPipelineResponseBodyPipelineListPipelineNotifyConfig;
+  priority?: string;
+  name?: string;
+  id?: string;
   static names(): { [key: string]: string } {
     return {
-      id: 'Id',
-      name: 'Name',
       state: 'State',
-      priority: 'Priority',
       notifyConfig: 'NotifyConfig',
+      priority: 'Priority',
+      name: 'Name',
+      id: 'Id',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      id: 'string',
-      name: 'string',
       state: 'string',
-      priority: 'string',
       notifyConfig: ListTerrorismPipelineResponseBodyPipelineListPipelineNotifyConfig,
+      priority: 'string',
+      name: 'string',
+      id: 'string',
     };
   }
 
@@ -18581,25 +19391,25 @@ export class ListTerrorismPipelineResponseBodyPipelineList extends $tea.Model {
 }
 
 export class PlayerAuthResponseBodySwitchListSwitch extends $tea.Model {
-  state?: string;
   functionId?: string;
-  switchId?: string;
   functionName?: string;
+  state?: string;
+  switchId?: string;
   static names(): { [key: string]: string } {
     return {
-      state: 'State',
       functionId: 'FunctionId',
-      switchId: 'SwitchId',
       functionName: 'FunctionName',
+      state: 'State',
+      switchId: 'SwitchId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      state: 'string',
       functionId: 'string',
-      switchId: 'string',
       functionName: 'string',
+      state: 'string',
+      switchId: 'string',
     };
   }
 
@@ -24834,6 +25644,174 @@ export class QueryFpCompareJobListResponseBodyNonExistIds extends $tea.Model {
   }
 }
 
+export class QueryFpDBDeleteJobListResponseBodyFpDBDeleteJobListFpDBDeleteJob extends $tea.Model {
+  creationTime?: string;
+  status?: string;
+  finishTime?: string;
+  delType?: string;
+  userData?: string;
+  code?: string;
+  message?: string;
+  pipelineId?: string;
+  fpDBId?: string;
+  id?: string;
+  static names(): { [key: string]: string } {
+    return {
+      creationTime: 'CreationTime',
+      status: 'Status',
+      finishTime: 'FinishTime',
+      delType: 'DelType',
+      userData: 'UserData',
+      code: 'Code',
+      message: 'Message',
+      pipelineId: 'PipelineId',
+      fpDBId: 'FpDBId',
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      creationTime: 'string',
+      status: 'string',
+      finishTime: 'string',
+      delType: 'string',
+      userData: 'string',
+      code: 'string',
+      message: 'string',
+      pipelineId: 'string',
+      fpDBId: 'string',
+      id: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryFpDBDeleteJobListResponseBodyFpDBDeleteJobList extends $tea.Model {
+  fpDBDeleteJob?: QueryFpDBDeleteJobListResponseBodyFpDBDeleteJobListFpDBDeleteJob[];
+  static names(): { [key: string]: string } {
+    return {
+      fpDBDeleteJob: 'FpDBDeleteJob',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fpDBDeleteJob: { 'type': 'array', 'itemType': QueryFpDBDeleteJobListResponseBodyFpDBDeleteJobListFpDBDeleteJob },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryFpDBDeleteJobListResponseBodyNonExistIds extends $tea.Model {
+  string?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      string: 'String',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      string: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryFpFileDeleteJobListResponseBodyFpFileDeleteJobListFpFileDeleteJob extends $tea.Model {
+  creationTime?: string;
+  status?: string;
+  finishTime?: string;
+  userData?: string;
+  code?: string;
+  message?: string;
+  pipelineId?: string;
+  fpDBId?: string;
+  id?: string;
+  fileIds?: string;
+  static names(): { [key: string]: string } {
+    return {
+      creationTime: 'CreationTime',
+      status: 'Status',
+      finishTime: 'FinishTime',
+      userData: 'UserData',
+      code: 'Code',
+      message: 'Message',
+      pipelineId: 'PipelineId',
+      fpDBId: 'FpDBId',
+      id: 'Id',
+      fileIds: 'FileIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      creationTime: 'string',
+      status: 'string',
+      finishTime: 'string',
+      userData: 'string',
+      code: 'string',
+      message: 'string',
+      pipelineId: 'string',
+      fpDBId: 'string',
+      id: 'string',
+      fileIds: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryFpFileDeleteJobListResponseBodyFpFileDeleteJobList extends $tea.Model {
+  fpFileDeleteJob?: QueryFpFileDeleteJobListResponseBodyFpFileDeleteJobListFpFileDeleteJob[];
+  static names(): { [key: string]: string } {
+    return {
+      fpFileDeleteJob: 'FpFileDeleteJob',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fpFileDeleteJob: { 'type': 'array', 'itemType': QueryFpFileDeleteJobListResponseBodyFpFileDeleteJobListFpFileDeleteJob },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryFpFileDeleteJobListResponseBodyNonExistIds extends $tea.Model {
+  string?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      string: 'String',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      string: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryFpImportResultResponseBodyPageInfo extends $tea.Model {
   pageIndex?: number;
   pageSize?: number;
@@ -25558,6 +26536,75 @@ export class QueryImageSearchJobListResponseBodyNonExistIds extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       string: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryInnerJobResponseBodyVideo extends $tea.Model {
+  index?: number;
+  result?: number;
+  code?: string;
+  static names(): { [key: string]: string } {
+    return {
+      index: 'Index',
+      result: 'Result',
+      code: 'Code',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      index: 'number',
+      result: 'number',
+      code: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryInnerJobResponseBodyImageResult extends $tea.Model {
+  index?: number;
+  result?: number;
+  code?: string;
+  static names(): { [key: string]: string } {
+    return {
+      index: 'Index',
+      result: 'Result',
+      code: 'Code',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      index: 'number',
+      result: 'number',
+      code: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryInnerJobResponseBodyImage extends $tea.Model {
+  result?: QueryInnerJobResponseBodyImageResult[];
+  static names(): { [key: string]: string } {
+    return {
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      result: { 'type': 'array', 'itemType': QueryInnerJobResponseBodyImageResult },
     };
   }
 
@@ -29844,19 +30891,19 @@ export class QueryMcuJobResponseBodyJobResult extends $tea.Model {
 }
 
 export class QueryMcuTemplateResponseBodyTemplatesJob extends $tea.Model {
-  templateId?: string;
   template?: string;
+  templateId?: string;
   static names(): { [key: string]: string } {
     return {
-      templateId: 'TemplateId',
       template: 'Template',
+      templateId: 'TemplateId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      templateId: 'string',
       template: 'string',
+      templateId: 'string',
     };
   }
 
@@ -36566,6 +37613,40 @@ export class QueryVideoPoseJobListResponseBodyJobList extends $tea.Model {
   }
 }
 
+export class QueryVideoQualityJobResponseBodyJob extends $tea.Model {
+  status?: string;
+  jobId?: string;
+  userId?: number;
+  videoQualityResults?: string;
+  message?: string;
+  output?: string;
+  static names(): { [key: string]: string } {
+    return {
+      status: 'Status',
+      jobId: 'JobId',
+      userId: 'UserId',
+      videoQualityResults: 'VideoQualityResults',
+      message: 'Message',
+      output: 'Output',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      status: 'string',
+      jobId: 'string',
+      userId: 'number',
+      videoQualityResults: 'string',
+      message: 'string',
+      output: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryVideoSplitJobListResponseBodyJobListJobVideoSplitResultVideoSplitListVideoSplit extends $tea.Model {
   endTime?: string;
   startTime?: string;
@@ -37105,22 +38186,22 @@ export class RefreshCdnDomainConfigsCacheResponseBodyFailedDomains extends $tea.
 }
 
 export class RegisterMediaDetailPersonResponseBodyRegisteredPersonagesRegisteredPersonageImageFile extends $tea.Model {
-  bucket?: string;
-  location?: string;
   object?: string;
+  location?: string;
+  bucket?: string;
   static names(): { [key: string]: string } {
     return {
-      bucket: 'Bucket',
-      location: 'Location',
       object: 'Object',
+      location: 'Location',
+      bucket: 'Bucket',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      bucket: 'string',
-      location: 'string',
       object: 'string',
+      location: 'string',
+      bucket: 'string',
     };
   }
 
@@ -37130,34 +38211,34 @@ export class RegisterMediaDetailPersonResponseBodyRegisteredPersonagesRegistered
 }
 
 export class RegisterMediaDetailPersonResponseBodyRegisteredPersonagesRegisteredPersonage extends $tea.Model {
+  quality?: string;
+  imageFile?: RegisterMediaDetailPersonResponseBodyRegisteredPersonagesRegisteredPersonageImageFile;
   personName?: string;
+  gender?: string;
   faceId?: string;
   target?: string;
-  quality?: string;
-  gender?: string;
   imageId?: string;
-  imageFile?: RegisterMediaDetailPersonResponseBodyRegisteredPersonagesRegisteredPersonageImageFile;
   static names(): { [key: string]: string } {
     return {
+      quality: 'Quality',
+      imageFile: 'ImageFile',
       personName: 'PersonName',
+      gender: 'Gender',
       faceId: 'FaceId',
       target: 'Target',
-      quality: 'Quality',
-      gender: 'Gender',
       imageId: 'ImageId',
-      imageFile: 'ImageFile',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      quality: 'string',
+      imageFile: RegisterMediaDetailPersonResponseBodyRegisteredPersonagesRegisteredPersonageImageFile,
       personName: 'string',
+      gender: 'string',
       faceId: 'string',
       target: 'string',
-      quality: 'string',
-      gender: 'string',
       imageId: 'string',
-      imageFile: RegisterMediaDetailPersonResponseBodyRegisteredPersonagesRegisteredPersonageImageFile,
     };
   }
 
@@ -37186,22 +38267,22 @@ export class RegisterMediaDetailPersonResponseBodyRegisteredPersonages extends $
 }
 
 export class RegisterMediaDetailPersonResponseBodyFailedImagesFailedImageImageFile extends $tea.Model {
-  bucket?: string;
-  location?: string;
   object?: string;
+  location?: string;
+  bucket?: string;
   static names(): { [key: string]: string } {
     return {
-      bucket: 'Bucket',
-      location: 'Location',
       object: 'Object',
+      location: 'Location',
+      bucket: 'Bucket',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      bucket: 'string',
-      location: 'string',
       object: 'string',
+      location: 'string',
+      bucket: 'string',
     };
   }
 
@@ -37211,22 +38292,22 @@ export class RegisterMediaDetailPersonResponseBodyFailedImagesFailedImageImageFi
 }
 
 export class RegisterMediaDetailPersonResponseBodyFailedImagesFailedImage extends $tea.Model {
-  code?: string;
-  success?: string;
   imageFile?: RegisterMediaDetailPersonResponseBodyFailedImagesFailedImageImageFile;
+  success?: string;
+  code?: string;
   static names(): { [key: string]: string } {
     return {
-      code: 'Code',
-      success: 'Success',
       imageFile: 'ImageFile',
+      success: 'Success',
+      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      code: 'string',
-      success: 'string',
       imageFile: RegisterMediaDetailPersonResponseBodyFailedImagesFailedImageImageFile,
+      success: 'string',
+      code: 'string',
     };
   }
 
@@ -38465,54 +39546,26 @@ export class SubmitAnalysisJobResponseBodyAnalysisJob extends $tea.Model {
   }
 }
 
-export class SubmitBeautifyJobsResponseBodyJobListJobInput extends $tea.Model {
-  bucket?: string;
-  location?: string;
-  object?: string;
-  roleArn?: string;
-  static names(): { [key: string]: string } {
-    return {
-      bucket: 'Bucket',
-      location: 'Location',
-      object: 'Object',
-      roleArn: 'RoleArn',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bucket: 'string',
-      location: 'string',
-      object: 'string',
-      roleArn: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class SubmitBeautifyJobsResponseBodyJobListJobBeautifyConfigOutputFile extends $tea.Model {
-  bucket?: string;
-  location?: string;
-  object?: string;
   roleArn?: string;
+  object?: string;
+  location?: string;
+  bucket?: string;
   static names(): { [key: string]: string } {
     return {
-      bucket: 'Bucket',
-      location: 'Location',
-      object: 'Object',
       roleArn: 'RoleArn',
+      object: 'Object',
+      location: 'Location',
+      bucket: 'Bucket',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      bucket: 'string',
-      location: 'string',
-      object: 'string',
       roleArn: 'string',
+      object: 'string',
+      location: 'string',
+      bucket: 'string',
     };
   }
 
@@ -38532,6 +39585,34 @@ export class SubmitBeautifyJobsResponseBodyJobListJobBeautifyConfig extends $tea
   static types(): { [key: string]: any } {
     return {
       outputFile: SubmitBeautifyJobsResponseBodyJobListJobBeautifyConfigOutputFile,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitBeautifyJobsResponseBodyJobListJobInput extends $tea.Model {
+  roleArn?: string;
+  object?: string;
+  location?: string;
+  bucket?: string;
+  static names(): { [key: string]: string } {
+    return {
+      roleArn: 'RoleArn',
+      object: 'Object',
+      location: 'Location',
+      bucket: 'Bucket',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      roleArn: 'string',
+      object: 'string',
+      location: 'string',
+      bucket: 'string',
     };
   }
 
@@ -38566,43 +39647,43 @@ export class SubmitBeautifyJobsResponseBodyJobListJobMNSMessageResult extends $t
 }
 
 export class SubmitBeautifyJobsResponseBodyJobListJob extends $tea.Model {
-  id?: string;
-  userData?: string;
-  pipelineId?: string;
+  creationTime?: string;
+  beautifyConfig?: SubmitBeautifyJobsResponseBodyJobListJobBeautifyConfig;
   state?: string;
+  userData?: string;
   code?: string;
   message?: string;
-  creationTime?: string;
+  pipelineId?: string;
   input?: SubmitBeautifyJobsResponseBodyJobListJobInput;
-  beautifyConfig?: SubmitBeautifyJobsResponseBodyJobListJobBeautifyConfig;
   MNSMessageResult?: SubmitBeautifyJobsResponseBodyJobListJobMNSMessageResult;
+  id?: string;
   static names(): { [key: string]: string } {
     return {
-      id: 'Id',
-      userData: 'UserData',
-      pipelineId: 'PipelineId',
+      creationTime: 'CreationTime',
+      beautifyConfig: 'BeautifyConfig',
       state: 'State',
+      userData: 'UserData',
       code: 'Code',
       message: 'Message',
-      creationTime: 'CreationTime',
+      pipelineId: 'PipelineId',
       input: 'Input',
-      beautifyConfig: 'BeautifyConfig',
       MNSMessageResult: 'MNSMessageResult',
+      id: 'Id',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      id: 'string',
-      userData: 'string',
-      pipelineId: 'string',
+      creationTime: 'string',
+      beautifyConfig: SubmitBeautifyJobsResponseBodyJobListJobBeautifyConfig,
       state: 'string',
+      userData: 'string',
       code: 'string',
       message: 'string',
-      creationTime: 'string',
+      pipelineId: 'string',
       input: SubmitBeautifyJobsResponseBodyJobListJobInput,
-      beautifyConfig: SubmitBeautifyJobsResponseBodyJobListJobBeautifyConfig,
       MNSMessageResult: SubmitBeautifyJobsResponseBodyJobListJobMNSMessageResult,
+      id: 'string',
     };
   }
 
@@ -38630,23 +39711,20 @@ export class SubmitBeautifyJobsResponseBodyJobList extends $tea.Model {
   }
 }
 
-export class SubmitComplexJobResponseBodyComplexJobInputsInputsEditingInputsEditingInputInputFile extends $tea.Model {
-  bucket?: string;
-  location?: string;
-  object?: string;
+export class SubmitComplexJobResponseBodyComplexJobTranscodeOutputVideoBitrateBnd extends $tea.Model {
+  max?: string;
+  min?: string;
   static names(): { [key: string]: string } {
     return {
-      bucket: 'Bucket',
-      location: 'Location',
-      object: 'Object',
+      max: 'Max',
+      min: 'Min',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      bucket: 'string',
-      location: 'string',
-      object: 'string',
+      max: 'string',
+      min: 'string',
     };
   }
 
@@ -38655,377 +39733,71 @@ export class SubmitComplexJobResponseBodyComplexJobInputsInputsEditingInputsEdit
   }
 }
 
-export class SubmitComplexJobResponseBodyComplexJobInputsInputsEditingInputsEditingInputInputConfig extends $tea.Model {
-  deinterlaceMethod?: string;
-  isNormalSar?: string;
-  static names(): { [key: string]: string } {
-    return {
-      deinterlaceMethod: 'DeinterlaceMethod',
-      isNormalSar: 'IsNormalSar',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      deinterlaceMethod: 'string',
-      isNormalSar: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitComplexJobResponseBodyComplexJobInputsInputsEditingInputsEditingInput extends $tea.Model {
-  id?: string;
-  inputFile?: SubmitComplexJobResponseBodyComplexJobInputsInputsEditingInputsEditingInputInputFile;
-  inputConfig?: SubmitComplexJobResponseBodyComplexJobInputsInputsEditingInputsEditingInputInputConfig;
-  static names(): { [key: string]: string } {
-    return {
-      id: 'Id',
-      inputFile: 'InputFile',
-      inputConfig: 'InputConfig',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      id: 'string',
-      inputFile: SubmitComplexJobResponseBodyComplexJobInputsInputsEditingInputsEditingInputInputFile,
-      inputConfig: SubmitComplexJobResponseBodyComplexJobInputsInputsEditingInputsEditingInputInputConfig,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitComplexJobResponseBodyComplexJobInputsInputsEditingInputs extends $tea.Model {
-  editingInput?: SubmitComplexJobResponseBodyComplexJobInputsInputsEditingInputsEditingInput[];
-  static names(): { [key: string]: string } {
-    return {
-      editingInput: 'EditingInput',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      editingInput: { 'type': 'array', 'itemType': SubmitComplexJobResponseBodyComplexJobInputsInputsEditingInputsEditingInput },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitComplexJobResponseBodyComplexJobInputsInputs extends $tea.Model {
-  editingInputs?: SubmitComplexJobResponseBodyComplexJobInputsInputsEditingInputs;
-  static names(): { [key: string]: string } {
-    return {
-      editingInputs: 'EditingInputs',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      editingInputs: SubmitComplexJobResponseBodyComplexJobInputsInputsEditingInputs,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitComplexJobResponseBodyComplexJobInputs extends $tea.Model {
-  inputs?: SubmitComplexJobResponseBodyComplexJobInputsInputs[];
-  static names(): { [key: string]: string } {
-    return {
-      inputs: 'Inputs',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      inputs: { 'type': 'array', 'itemType': SubmitComplexJobResponseBodyComplexJobInputsInputs },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitComplexJobResponseBodyComplexJobComplexEditingConfigsComplexEditingConfigsEditingClipListClipEffectsEffect extends $tea.Model {
-  effect?: string;
-  effectConfig?: string;
-  static names(): { [key: string]: string } {
-    return {
-      effect: 'Effect',
-      effectConfig: 'EffectConfig',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      effect: 'string',
-      effectConfig: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitComplexJobResponseBodyComplexJobComplexEditingConfigsComplexEditingConfigsEditingClipListClipEffects extends $tea.Model {
-  effect?: SubmitComplexJobResponseBodyComplexJobComplexEditingConfigsComplexEditingConfigsEditingClipListClipEffectsEffect[];
-  static names(): { [key: string]: string } {
-    return {
-      effect: 'Effect',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      effect: { 'type': 'array', 'itemType': SubmitComplexJobResponseBodyComplexJobComplexEditingConfigsComplexEditingConfigsEditingClipListClipEffectsEffect },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitComplexJobResponseBodyComplexJobComplexEditingConfigsComplexEditingConfigsEditingClipListClip extends $tea.Model {
-  id?: string;
-  type?: string;
-  sourceType?: string;
-  sourceID?: string;
-  sourceStrmMap?: string;
-  in?: string;
-  out?: string;
-  effects?: SubmitComplexJobResponseBodyComplexJobComplexEditingConfigsComplexEditingConfigsEditingClipListClipEffects;
-  static names(): { [key: string]: string } {
-    return {
-      id: 'Id',
-      type: 'Type',
-      sourceType: 'SourceType',
-      sourceID: 'SourceID',
-      sourceStrmMap: 'SourceStrmMap',
-      in: 'In',
-      out: 'Out',
-      effects: 'Effects',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      id: 'string',
-      type: 'string',
-      sourceType: 'string',
-      sourceID: 'string',
-      sourceStrmMap: 'string',
-      in: 'string',
-      out: 'string',
-      effects: SubmitComplexJobResponseBodyComplexJobComplexEditingConfigsComplexEditingConfigsEditingClipListClipEffects,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitComplexJobResponseBodyComplexJobComplexEditingConfigsComplexEditingConfigsEditingClipList extends $tea.Model {
-  clip?: SubmitComplexJobResponseBodyComplexJobComplexEditingConfigsComplexEditingConfigsEditingClipListClip[];
-  static names(): { [key: string]: string } {
-    return {
-      clip: 'Clip',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clip: { 'type': 'array', 'itemType': SubmitComplexJobResponseBodyComplexJobComplexEditingConfigsComplexEditingConfigsEditingClipListClip },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitComplexJobResponseBodyComplexJobComplexEditingConfigsComplexEditingConfigsEditingTimelineTrackListTrackClipsClipClipsConfigClipsConfigVideo extends $tea.Model {
-  l?: string;
-  t?: string;
-  static names(): { [key: string]: string } {
-    return {
-      l: 'L',
-      t: 'T',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      l: 'string',
-      t: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitComplexJobResponseBodyComplexJobComplexEditingConfigsComplexEditingConfigsEditingTimelineTrackListTrackClipsClipClipsConfig extends $tea.Model {
-  clipsConfigVideo?: SubmitComplexJobResponseBodyComplexJobComplexEditingConfigsComplexEditingConfigsEditingTimelineTrackListTrackClipsClipClipsConfigClipsConfigVideo;
-  static names(): { [key: string]: string } {
-    return {
-      clipsConfigVideo: 'ClipsConfigVideo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clipsConfigVideo: SubmitComplexJobResponseBodyComplexJobComplexEditingConfigsComplexEditingConfigsEditingTimelineTrackListTrackClipsClipClipsConfigClipsConfigVideo,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitComplexJobResponseBodyComplexJobComplexEditingConfigsComplexEditingConfigsEditingTimelineTrackListTrackClipsClip extends $tea.Model {
-  clipID?: string;
-  in?: string;
-  out?: string;
-  clipsConfig?: SubmitComplexJobResponseBodyComplexJobComplexEditingConfigsComplexEditingConfigsEditingTimelineTrackListTrackClipsClipClipsConfig;
-  static names(): { [key: string]: string } {
-    return {
-      clipID: 'clipID',
-      in: 'In',
-      out: 'Out',
-      clipsConfig: 'ClipsConfig',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clipID: 'string',
-      in: 'string',
-      out: 'string',
-      clipsConfig: SubmitComplexJobResponseBodyComplexJobComplexEditingConfigsComplexEditingConfigsEditingTimelineTrackListTrackClipsClipClipsConfig,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitComplexJobResponseBodyComplexJobComplexEditingConfigsComplexEditingConfigsEditingTimelineTrackListTrackClips extends $tea.Model {
-  clip?: SubmitComplexJobResponseBodyComplexJobComplexEditingConfigsComplexEditingConfigsEditingTimelineTrackListTrackClipsClip[];
-  static names(): { [key: string]: string } {
-    return {
-      clip: 'Clip',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clip: { 'type': 'array', 'itemType': SubmitComplexJobResponseBodyComplexJobComplexEditingConfigsComplexEditingConfigsEditingTimelineTrackListTrackClipsClip },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitComplexJobResponseBodyComplexJobComplexEditingConfigsComplexEditingConfigsEditingTimelineTrackListTrack extends $tea.Model {
-  id?: string;
-  type?: string;
-  order?: string;
-  clips?: SubmitComplexJobResponseBodyComplexJobComplexEditingConfigsComplexEditingConfigsEditingTimelineTrackListTrackClips;
-  static names(): { [key: string]: string } {
-    return {
-      id: 'Id',
-      type: 'Type',
-      order: 'Order',
-      clips: 'Clips',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      id: 'string',
-      type: 'string',
-      order: 'string',
-      clips: SubmitComplexJobResponseBodyComplexJobComplexEditingConfigsComplexEditingConfigsEditingTimelineTrackListTrackClips,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitComplexJobResponseBodyComplexJobComplexEditingConfigsComplexEditingConfigsEditingTimelineTrackList extends $tea.Model {
-  track?: SubmitComplexJobResponseBodyComplexJobComplexEditingConfigsComplexEditingConfigsEditingTimelineTrackListTrack[];
-  static names(): { [key: string]: string } {
-    return {
-      track: 'Track',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      track: { 'type': 'array', 'itemType': SubmitComplexJobResponseBodyComplexJobComplexEditingConfigsComplexEditingConfigsEditingTimelineTrackListTrack },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitComplexJobResponseBodyComplexJobComplexEditingConfigsComplexEditingConfigsEditingTimelineTimelineConfigTimelineConfigVideo extends $tea.Model {
-  width?: string;
+export class SubmitComplexJobResponseBodyComplexJobTranscodeOutputVideo extends $tea.Model {
+  bufsize?: string;
+  degrain?: string;
+  bitrateBnd?: SubmitComplexJobResponseBodyComplexJobTranscodeOutputVideoBitrateBnd;
+  pixFmt?: string;
+  pad?: string;
+  codec?: string;
   height?: string;
-  bgColor?: string;
+  qscale?: string;
+  crop?: string;
+  bitrate?: string;
+  maxrate?: string;
+  maxFps?: string;
+  profile?: string;
+  crf?: string;
+  gop?: string;
+  width?: string;
   fps?: string;
-  renderRatio?: string;
-  reclosePrec?: string;
-  isGpuData?: string;
-  isOneTrackData?: string;
+  preset?: string;
+  scanMode?: string;
   static names(): { [key: string]: string } {
     return {
-      width: 'Width',
+      bufsize: 'Bufsize',
+      degrain: 'Degrain',
+      bitrateBnd: 'BitrateBnd',
+      pixFmt: 'PixFmt',
+      pad: 'Pad',
+      codec: 'Codec',
       height: 'Height',
-      bgColor: 'BgColor',
+      qscale: 'Qscale',
+      crop: 'Crop',
+      bitrate: 'Bitrate',
+      maxrate: 'Maxrate',
+      maxFps: 'MaxFps',
+      profile: 'Profile',
+      crf: 'Crf',
+      gop: 'Gop',
+      width: 'Width',
       fps: 'Fps',
-      renderRatio: 'RenderRatio',
-      reclosePrec: 'ReclosePrec',
-      isGpuData: 'IsGpuData',
-      isOneTrackData: 'IsOneTrackData',
+      preset: 'Preset',
+      scanMode: 'ScanMode',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      width: 'string',
+      bufsize: 'string',
+      degrain: 'string',
+      bitrateBnd: SubmitComplexJobResponseBodyComplexJobTranscodeOutputVideoBitrateBnd,
+      pixFmt: 'string',
+      pad: 'string',
+      codec: 'string',
       height: 'string',
-      bgColor: 'string',
+      qscale: 'string',
+      crop: 'string',
+      bitrate: 'string',
+      maxrate: 'string',
+      maxFps: 'string',
+      profile: 'string',
+      crf: 'string',
+      gop: 'string',
+      width: 'string',
       fps: 'string',
-      renderRatio: 'string',
-      reclosePrec: 'string',
-      isGpuData: 'string',
-      isOneTrackData: 'string',
+      preset: 'string',
+      scanMode: 'string',
     };
   }
 
@@ -39034,23 +39806,41 @@ export class SubmitComplexJobResponseBodyComplexJobComplexEditingConfigsComplexE
   }
 }
 
-export class SubmitComplexJobResponseBodyComplexJobComplexEditingConfigsComplexEditingConfigsEditingTimelineTimelineConfigTimelineConfigAudio extends $tea.Model {
-  samplerate?: string;
-  channelLayout?: string;
-  channels?: string;
+export class SubmitComplexJobResponseBodyComplexJobTranscodeOutputTransConfig extends $tea.Model {
+  isCheckAudioBitrate?: string;
+  isCheckReso?: string;
+  transMode?: string;
+  isCheckVideoBitrateFail?: string;
+  adjDarMethod?: string;
+  duration?: string;
+  isCheckVideoBitrate?: string;
+  isCheckResoFail?: string;
+  isCheckAudioBitrateFail?: string;
   static names(): { [key: string]: string } {
     return {
-      samplerate: 'Samplerate',
-      channelLayout: 'ChannelLayout',
-      channels: 'Channels',
+      isCheckAudioBitrate: 'IsCheckAudioBitrate',
+      isCheckReso: 'IsCheckReso',
+      transMode: 'TransMode',
+      isCheckVideoBitrateFail: 'IsCheckVideoBitrateFail',
+      adjDarMethod: 'AdjDarMethod',
+      duration: 'Duration',
+      isCheckVideoBitrate: 'IsCheckVideoBitrate',
+      isCheckResoFail: 'IsCheckResoFail',
+      isCheckAudioBitrateFail: 'IsCheckAudioBitrateFail',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      samplerate: 'string',
-      channelLayout: 'string',
-      channels: 'string',
+      isCheckAudioBitrate: 'string',
+      isCheckReso: 'string',
+      transMode: 'string',
+      isCheckVideoBitrateFail: 'string',
+      adjDarMethod: 'string',
+      duration: 'string',
+      isCheckVideoBitrate: 'string',
+      isCheckResoFail: 'string',
+      isCheckAudioBitrateFail: 'string',
     };
   }
 
@@ -39059,102 +39849,32 @@ export class SubmitComplexJobResponseBodyComplexJobComplexEditingConfigsComplexE
   }
 }
 
-export class SubmitComplexJobResponseBodyComplexJobComplexEditingConfigsComplexEditingConfigsEditingTimelineTimelineConfig extends $tea.Model {
-  timelineConfigVideo?: SubmitComplexJobResponseBodyComplexJobComplexEditingConfigsComplexEditingConfigsEditingTimelineTimelineConfigTimelineConfigVideo;
-  timelineConfigAudio?: SubmitComplexJobResponseBodyComplexJobComplexEditingConfigsComplexEditingConfigsEditingTimelineTimelineConfigTimelineConfigAudio;
+export class SubmitComplexJobResponseBodyComplexJobTranscodeOutputEncryption extends $tea.Model {
+  type?: string;
+  key?: string;
+  keyType?: string;
+  id?: string;
+  keyUri?: string;
+  skipCnt?: string;
   static names(): { [key: string]: string } {
     return {
-      timelineConfigVideo: 'TimelineConfigVideo',
-      timelineConfigAudio: 'TimelineConfigAudio',
+      type: 'Type',
+      key: 'Key',
+      keyType: 'KeyType',
+      id: 'Id',
+      keyUri: 'KeyUri',
+      skipCnt: 'SkipCnt',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      timelineConfigVideo: SubmitComplexJobResponseBodyComplexJobComplexEditingConfigsComplexEditingConfigsEditingTimelineTimelineConfigTimelineConfigVideo,
-      timelineConfigAudio: SubmitComplexJobResponseBodyComplexJobComplexEditingConfigsComplexEditingConfigsEditingTimelineTimelineConfigTimelineConfigAudio,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitComplexJobResponseBodyComplexJobComplexEditingConfigsComplexEditingConfigsEditingTimeline extends $tea.Model {
-  trackList?: SubmitComplexJobResponseBodyComplexJobComplexEditingConfigsComplexEditingConfigsEditingTimelineTrackList;
-  timelineConfig?: SubmitComplexJobResponseBodyComplexJobComplexEditingConfigsComplexEditingConfigsEditingTimelineTimelineConfig;
-  static names(): { [key: string]: string } {
-    return {
-      trackList: 'TrackList',
-      timelineConfig: 'TimelineConfig',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      trackList: SubmitComplexJobResponseBodyComplexJobComplexEditingConfigsComplexEditingConfigsEditingTimelineTrackList,
-      timelineConfig: SubmitComplexJobResponseBodyComplexJobComplexEditingConfigsComplexEditingConfigsEditingTimelineTimelineConfig,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitComplexJobResponseBodyComplexJobComplexEditingConfigsComplexEditingConfigsEditing extends $tea.Model {
-  clipList?: SubmitComplexJobResponseBodyComplexJobComplexEditingConfigsComplexEditingConfigsEditingClipList;
-  timeline?: SubmitComplexJobResponseBodyComplexJobComplexEditingConfigsComplexEditingConfigsEditingTimeline;
-  static names(): { [key: string]: string } {
-    return {
-      clipList: 'ClipList',
-      timeline: 'Timeline',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clipList: SubmitComplexJobResponseBodyComplexJobComplexEditingConfigsComplexEditingConfigsEditingClipList,
-      timeline: SubmitComplexJobResponseBodyComplexJobComplexEditingConfigsComplexEditingConfigsEditingTimeline,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitComplexJobResponseBodyComplexJobComplexEditingConfigsComplexEditingConfigs extends $tea.Model {
-  editing?: SubmitComplexJobResponseBodyComplexJobComplexEditingConfigsComplexEditingConfigsEditing;
-  static names(): { [key: string]: string } {
-    return {
-      editing: 'Editing',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      editing: SubmitComplexJobResponseBodyComplexJobComplexEditingConfigsComplexEditingConfigsEditing,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitComplexJobResponseBodyComplexJobComplexEditingConfigs extends $tea.Model {
-  complexEditingConfigs?: SubmitComplexJobResponseBodyComplexJobComplexEditingConfigsComplexEditingConfigs[];
-  static names(): { [key: string]: string } {
-    return {
-      complexEditingConfigs: 'ComplexEditingConfigs',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      complexEditingConfigs: { 'type': 'array', 'itemType': SubmitComplexJobResponseBodyComplexJobComplexEditingConfigsComplexEditingConfigs },
+      type: 'string',
+      key: 'string',
+      keyType: 'string',
+      id: 'string',
+      keyUri: 'string',
+      skipCnt: 'string',
     };
   }
 
@@ -39164,22 +39884,22 @@ export class SubmitComplexJobResponseBodyComplexJobComplexEditingConfigs extends
 }
 
 export class SubmitComplexJobResponseBodyComplexJobTranscodeOutputWaterMarkListWaterMarkInputFile extends $tea.Model {
-  bucket?: string;
-  location?: string;
   object?: string;
+  location?: string;
+  bucket?: string;
   static names(): { [key: string]: string } {
     return {
-      bucket: 'Bucket',
-      location: 'Location',
       object: 'Object',
+      location: 'Location',
+      bucket: 'Bucket',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      bucket: 'string',
-      location: 'string',
       object: 'string',
+      location: 'string',
+      bucket: 'string',
     };
   }
 
@@ -39189,37 +39909,37 @@ export class SubmitComplexJobResponseBodyComplexJobTranscodeOutputWaterMarkListW
 }
 
 export class SubmitComplexJobResponseBodyComplexJobTranscodeOutputWaterMarkListWaterMark extends $tea.Model {
-  waterMarkTemplateId?: string;
+  type?: string;
+  referPos?: string;
+  dx?: string;
   width?: string;
   height?: string;
-  dx?: string;
-  dy?: string;
-  referPos?: string;
-  type?: string;
   inputFile?: SubmitComplexJobResponseBodyComplexJobTranscodeOutputWaterMarkListWaterMarkInputFile;
+  waterMarkTemplateId?: string;
+  dy?: string;
   static names(): { [key: string]: string } {
     return {
-      waterMarkTemplateId: 'WaterMarkTemplateId',
+      type: 'Type',
+      referPos: 'ReferPos',
+      dx: 'Dx',
       width: 'Width',
       height: 'Height',
-      dx: 'Dx',
-      dy: 'Dy',
-      referPos: 'ReferPos',
-      type: 'Type',
       inputFile: 'InputFile',
+      waterMarkTemplateId: 'WaterMarkTemplateId',
+      dy: 'Dy',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      waterMarkTemplateId: 'string',
+      type: 'string',
+      referPos: 'string',
+      dx: 'string',
       width: 'string',
       height: 'string',
-      dx: 'string',
-      dy: 'string',
-      referPos: 'string',
-      type: 'string',
       inputFile: SubmitComplexJobResponseBodyComplexJobTranscodeOutputWaterMarkListWaterMarkInputFile,
+      waterMarkTemplateId: 'string',
+      dy: 'string',
     };
   }
 
@@ -39247,26 +39967,126 @@ export class SubmitComplexJobResponseBodyComplexJobTranscodeOutputWaterMarkList 
   }
 }
 
-export class SubmitComplexJobResponseBodyComplexJobTranscodeOutputMergeListMerge extends $tea.Model {
-  mergeURL?: string;
-  start?: string;
-  duration?: string;
-  roleArn?: string;
+export class SubmitComplexJobResponseBodyComplexJobTranscodeOutputM3U8NonStandardSupportTS extends $tea.Model {
+  sizeSupport?: boolean;
+  md5Support?: boolean;
   static names(): { [key: string]: string } {
     return {
-      mergeURL: 'MergeURL',
-      start: 'Start',
-      duration: 'Duration',
-      roleArn: 'RoleArn',
+      sizeSupport: 'SizeSupport',
+      md5Support: 'Md5Support',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      mergeURL: 'string',
+      sizeSupport: 'boolean',
+      md5Support: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitComplexJobResponseBodyComplexJobTranscodeOutputM3U8NonStandardSupport extends $tea.Model {
+  TS?: SubmitComplexJobResponseBodyComplexJobTranscodeOutputM3U8NonStandardSupportTS;
+  static names(): { [key: string]: string } {
+    return {
+      TS: 'TS',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      TS: SubmitComplexJobResponseBodyComplexJobTranscodeOutputM3U8NonStandardSupportTS,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitComplexJobResponseBodyComplexJobTranscodeOutputAudioVolume extends $tea.Model {
+  method?: string;
+  level?: string;
+  static names(): { [key: string]: string } {
+    return {
+      method: 'Method',
+      level: 'Level',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      method: 'string',
+      level: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitComplexJobResponseBodyComplexJobTranscodeOutputAudio extends $tea.Model {
+  profile?: string;
+  codec?: string;
+  samplerate?: string;
+  qscale?: string;
+  channels?: string;
+  volume?: SubmitComplexJobResponseBodyComplexJobTranscodeOutputAudioVolume;
+  bitrate?: string;
+  static names(): { [key: string]: string } {
+    return {
+      profile: 'Profile',
+      codec: 'Codec',
+      samplerate: 'Samplerate',
+      qscale: 'Qscale',
+      channels: 'Channels',
+      volume: 'Volume',
+      bitrate: 'Bitrate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      profile: 'string',
+      codec: 'string',
+      samplerate: 'string',
+      qscale: 'string',
+      channels: 'string',
+      volume: SubmitComplexJobResponseBodyComplexJobTranscodeOutputAudioVolume,
+      bitrate: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitComplexJobResponseBodyComplexJobTranscodeOutputMergeListMerge extends $tea.Model {
+  start?: string;
+  roleArn?: string;
+  mergeURL?: string;
+  duration?: string;
+  static names(): { [key: string]: string } {
+    return {
+      start: 'Start',
+      roleArn: 'RoleArn',
+      mergeURL: 'MergeURL',
+      duration: 'Duration',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
       start: 'string',
-      duration: 'string',
       roleArn: 'string',
+      mergeURL: 'string',
+      duration: 'string',
     };
   }
 
@@ -39294,23 +40114,42 @@ export class SubmitComplexJobResponseBodyComplexJobTranscodeOutputMergeList exte
   }
 }
 
-export class SubmitComplexJobResponseBodyComplexJobTranscodeOutputDigiWaterMarkInputFile extends $tea.Model {
-  bucket?: string;
-  location?: string;
-  object?: string;
+export class SubmitComplexJobResponseBodyComplexJobTranscodeOutputSuperReso extends $tea.Model {
+  isHalfSample?: string;
   static names(): { [key: string]: string } {
     return {
-      bucket: 'Bucket',
-      location: 'Location',
-      object: 'Object',
+      isHalfSample: 'IsHalfSample',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      bucket: 'string',
-      location: 'string',
+      isHalfSample: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitComplexJobResponseBodyComplexJobTranscodeOutputDigiWaterMarkInputFile extends $tea.Model {
+  object?: string;
+  location?: string;
+  bucket?: string;
+  static names(): { [key: string]: string } {
+    return {
+      object: 'Object',
+      location: 'Location',
+      bucket: 'Bucket',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
       object: 'string',
+      location: 'string',
+      bucket: 'string',
     };
   }
 
@@ -39345,25 +40184,25 @@ export class SubmitComplexJobResponseBodyComplexJobTranscodeOutputDigiWaterMark 
 }
 
 export class SubmitComplexJobResponseBodyComplexJobTranscodeOutputOutputFile extends $tea.Model {
-  bucket?: string;
-  location?: string;
-  object?: string;
   roleArn?: string;
+  object?: string;
+  location?: string;
+  bucket?: string;
   static names(): { [key: string]: string } {
     return {
-      bucket: 'Bucket',
-      location: 'Location',
-      object: 'Object',
       roleArn: 'RoleArn',
+      object: 'Object',
+      location: 'Location',
+      bucket: 'Bucket',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      bucket: 'string',
-      location: 'string',
-      object: 'string',
       roleArn: 'string',
+      object: 'string',
+      location: 'string',
+      bucket: 'string',
     };
   }
 
@@ -39372,20 +40211,17 @@ export class SubmitComplexJobResponseBodyComplexJobTranscodeOutputOutputFile ext
   }
 }
 
-export class SubmitComplexJobResponseBodyComplexJobTranscodeOutputM3U8NonStandardSupportTS extends $tea.Model {
-  md5Support?: boolean;
-  sizeSupport?: boolean;
+export class SubmitComplexJobResponseBodyComplexJobTranscodeOutputContainer extends $tea.Model {
+  format?: string;
   static names(): { [key: string]: string } {
     return {
-      md5Support: 'Md5Support',
-      sizeSupport: 'SizeSupport',
+      format: 'Format',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      md5Support: 'boolean',
-      sizeSupport: 'boolean',
+      format: 'string',
     };
   }
 
@@ -39394,17 +40230,237 @@ export class SubmitComplexJobResponseBodyComplexJobTranscodeOutputM3U8NonStandar
   }
 }
 
-export class SubmitComplexJobResponseBodyComplexJobTranscodeOutputM3U8NonStandardSupport extends $tea.Model {
-  TS?: SubmitComplexJobResponseBodyComplexJobTranscodeOutputM3U8NonStandardSupportTS;
+export class SubmitComplexJobResponseBodyComplexJobTranscodeOutputClipTimeSpan extends $tea.Model {
+  seek?: string;
+  duration?: string;
   static names(): { [key: string]: string } {
     return {
-      TS: 'TS',
+      seek: 'Seek',
+      duration: 'Duration',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      TS: SubmitComplexJobResponseBodyComplexJobTranscodeOutputM3U8NonStandardSupportTS,
+      seek: 'string',
+      duration: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitComplexJobResponseBodyComplexJobTranscodeOutputClip extends $tea.Model {
+  timeSpan?: SubmitComplexJobResponseBodyComplexJobTranscodeOutputClipTimeSpan;
+  static names(): { [key: string]: string } {
+    return {
+      timeSpan: 'TimeSpan',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      timeSpan: SubmitComplexJobResponseBodyComplexJobTranscodeOutputClipTimeSpan,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitComplexJobResponseBodyComplexJobTranscodeOutputMuxConfigGif extends $tea.Model {
+  finalDelay?: string;
+  ditherMode?: string;
+  loop?: string;
+  isCustomPalette?: string;
+  static names(): { [key: string]: string } {
+    return {
+      finalDelay: 'FinalDelay',
+      ditherMode: 'DitherMode',
+      loop: 'Loop',
+      isCustomPalette: 'IsCustomPalette',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      finalDelay: 'string',
+      ditherMode: 'string',
+      loop: 'string',
+      isCustomPalette: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitComplexJobResponseBodyComplexJobTranscodeOutputMuxConfigSegment extends $tea.Model {
+  duration?: string;
+  static names(): { [key: string]: string } {
+    return {
+      duration: 'Duration',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      duration: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitComplexJobResponseBodyComplexJobTranscodeOutputMuxConfig extends $tea.Model {
+  gif?: SubmitComplexJobResponseBodyComplexJobTranscodeOutputMuxConfigGif;
+  segment?: SubmitComplexJobResponseBodyComplexJobTranscodeOutputMuxConfigSegment;
+  static names(): { [key: string]: string } {
+    return {
+      gif: 'Gif',
+      segment: 'Segment',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      gif: SubmitComplexJobResponseBodyComplexJobTranscodeOutputMuxConfigGif,
+      segment: SubmitComplexJobResponseBodyComplexJobTranscodeOutputMuxConfigSegment,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitComplexJobResponseBodyComplexJobTranscodeOutputSubtitleConfigExtSubtitleListExtSubtitleInput extends $tea.Model {
+  object?: string;
+  location?: string;
+  bucket?: string;
+  static names(): { [key: string]: string } {
+    return {
+      object: 'Object',
+      location: 'Location',
+      bucket: 'Bucket',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      object: 'string',
+      location: 'string',
+      bucket: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitComplexJobResponseBodyComplexJobTranscodeOutputSubtitleConfigExtSubtitleListExtSubtitle extends $tea.Model {
+  charEnc?: string;
+  fontName?: string;
+  input?: SubmitComplexJobResponseBodyComplexJobTranscodeOutputSubtitleConfigExtSubtitleListExtSubtitleInput;
+  static names(): { [key: string]: string } {
+    return {
+      charEnc: 'CharEnc',
+      fontName: 'FontName',
+      input: 'Input',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      charEnc: 'string',
+      fontName: 'string',
+      input: SubmitComplexJobResponseBodyComplexJobTranscodeOutputSubtitleConfigExtSubtitleListExtSubtitleInput,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitComplexJobResponseBodyComplexJobTranscodeOutputSubtitleConfigExtSubtitleList extends $tea.Model {
+  extSubtitle?: SubmitComplexJobResponseBodyComplexJobTranscodeOutputSubtitleConfigExtSubtitleListExtSubtitle[];
+  static names(): { [key: string]: string } {
+    return {
+      extSubtitle: 'ExtSubtitle',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      extSubtitle: { 'type': 'array', 'itemType': SubmitComplexJobResponseBodyComplexJobTranscodeOutputSubtitleConfigExtSubtitleListExtSubtitle },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitComplexJobResponseBodyComplexJobTranscodeOutputSubtitleConfigSubtitleListSubtitle extends $tea.Model {
+  map?: string;
+  static names(): { [key: string]: string } {
+    return {
+      map: 'Map',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      map: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitComplexJobResponseBodyComplexJobTranscodeOutputSubtitleConfigSubtitleList extends $tea.Model {
+  subtitle?: SubmitComplexJobResponseBodyComplexJobTranscodeOutputSubtitleConfigSubtitleListSubtitle[];
+  static names(): { [key: string]: string } {
+    return {
+      subtitle: 'Subtitle',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      subtitle: { 'type': 'array', 'itemType': SubmitComplexJobResponseBodyComplexJobTranscodeOutputSubtitleConfigSubtitleListSubtitle },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitComplexJobResponseBodyComplexJobTranscodeOutputSubtitleConfig extends $tea.Model {
+  extSubtitleList?: SubmitComplexJobResponseBodyComplexJobTranscodeOutputSubtitleConfigExtSubtitleList;
+  subtitleList?: SubmitComplexJobResponseBodyComplexJobTranscodeOutputSubtitleConfigSubtitleList;
+  static names(): { [key: string]: string } {
+    return {
+      extSubtitleList: 'ExtSubtitleList',
+      subtitleList: 'SubtitleList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      extSubtitleList: SubmitComplexJobResponseBodyComplexJobTranscodeOutputSubtitleConfigExtSubtitleList,
+      subtitleList: SubmitComplexJobResponseBodyComplexJobTranscodeOutputSubtitleConfigSubtitleList,
     };
   }
 
@@ -39415,21 +40471,21 @@ export class SubmitComplexJobResponseBodyComplexJobTranscodeOutputM3U8NonStandar
 
 export class SubmitComplexJobResponseBodyComplexJobTranscodeOutputPropertiesStreamsVideoStreamListVideoStreamNetworkCost extends $tea.Model {
   preloadTime?: string;
-  costBandwidth?: string;
   avgBitrate?: string;
+  costBandwidth?: string;
   static names(): { [key: string]: string } {
     return {
       preloadTime: 'PreloadTime',
-      costBandwidth: 'CostBandwidth',
       avgBitrate: 'AvgBitrate',
+      costBandwidth: 'CostBandwidth',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       preloadTime: 'string',
-      costBandwidth: 'string',
       avgBitrate: 'string',
+      costBandwidth: 'string',
     };
   }
 
@@ -39440,81 +40496,81 @@ export class SubmitComplexJobResponseBodyComplexJobTranscodeOutputPropertiesStre
 
 export class SubmitComplexJobResponseBodyComplexJobTranscodeOutputPropertiesStreamsVideoStreamListVideoStream extends $tea.Model {
   index?: string;
-  codecName?: string;
-  codecLongName?: string;
-  profile?: string;
-  codecTimeBase?: string;
-  codecTagString?: string;
-  codecTag?: string;
-  width?: string;
-  height?: string;
-  hasBFrames?: string;
-  sar?: string;
-  dar?: string;
-  pixFmt?: string;
-  level?: string;
-  fps?: string;
-  avgFPS?: string;
   timebase?: string;
-  startTime?: string;
-  duration?: string;
-  bitrate?: string;
-  numFrames?: string;
+  avgFPS?: string;
+  pixFmt?: string;
+  sar?: string;
   lang?: string;
+  codecLongName?: string;
+  height?: string;
+  numFrames?: string;
+  bitrate?: string;
+  codecTagString?: string;
+  hasBFrames?: string;
+  profile?: string;
+  startTime?: string;
   networkCost?: SubmitComplexJobResponseBodyComplexJobTranscodeOutputPropertiesStreamsVideoStreamListVideoStreamNetworkCost;
+  dar?: string;
+  codecName?: string;
+  width?: string;
+  duration?: string;
+  fps?: string;
+  codecTag?: string;
+  codecTimeBase?: string;
+  level?: string;
   static names(): { [key: string]: string } {
     return {
       index: 'Index',
-      codecName: 'CodecName',
-      codecLongName: 'CodecLongName',
-      profile: 'Profile',
-      codecTimeBase: 'CodecTimeBase',
-      codecTagString: 'CodecTagString',
-      codecTag: 'CodecTag',
-      width: 'Width',
-      height: 'Height',
-      hasBFrames: 'HasBFrames',
-      sar: 'Sar',
-      dar: 'Dar',
-      pixFmt: 'PixFmt',
-      level: 'Level',
-      fps: 'Fps',
-      avgFPS: 'AvgFPS',
       timebase: 'Timebase',
-      startTime: 'StartTime',
-      duration: 'Duration',
-      bitrate: 'Bitrate',
-      numFrames: 'NumFrames',
+      avgFPS: 'AvgFPS',
+      pixFmt: 'PixFmt',
+      sar: 'Sar',
       lang: 'Lang',
+      codecLongName: 'CodecLongName',
+      height: 'Height',
+      numFrames: 'NumFrames',
+      bitrate: 'Bitrate',
+      codecTagString: 'CodecTagString',
+      hasBFrames: 'HasBFrames',
+      profile: 'Profile',
+      startTime: 'StartTime',
       networkCost: 'NetworkCost',
+      dar: 'Dar',
+      codecName: 'CodecName',
+      width: 'Width',
+      duration: 'Duration',
+      fps: 'Fps',
+      codecTag: 'CodecTag',
+      codecTimeBase: 'CodecTimeBase',
+      level: 'Level',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       index: 'string',
-      codecName: 'string',
-      codecLongName: 'string',
-      profile: 'string',
-      codecTimeBase: 'string',
-      codecTagString: 'string',
-      codecTag: 'string',
-      width: 'string',
-      height: 'string',
-      hasBFrames: 'string',
-      sar: 'string',
-      dar: 'string',
-      pixFmt: 'string',
-      level: 'string',
-      fps: 'string',
-      avgFPS: 'string',
       timebase: 'string',
-      startTime: 'string',
-      duration: 'string',
-      bitrate: 'string',
-      numFrames: 'string',
+      avgFPS: 'string',
+      pixFmt: 'string',
+      sar: 'string',
       lang: 'string',
+      codecLongName: 'string',
+      height: 'string',
+      numFrames: 'string',
+      bitrate: 'string',
+      codecTagString: 'string',
+      hasBFrames: 'string',
+      profile: 'string',
+      startTime: 'string',
       networkCost: SubmitComplexJobResponseBodyComplexJobTranscodeOutputPropertiesStreamsVideoStreamListVideoStreamNetworkCost,
+      dar: 'string',
+      codecName: 'string',
+      width: 'string',
+      duration: 'string',
+      fps: 'string',
+      codecTag: 'string',
+      codecTimeBase: 'string',
+      level: 'string',
     };
   }
 
@@ -39543,61 +40599,61 @@ export class SubmitComplexJobResponseBodyComplexJobTranscodeOutputPropertiesStre
 }
 
 export class SubmitComplexJobResponseBodyComplexJobTranscodeOutputPropertiesStreamsAudioStreamListAudioStream extends $tea.Model {
-  index?: string;
-  codecName?: string;
-  codecTimeBase?: string;
-  codecLongName?: string;
-  codecTagString?: string;
-  codecTag?: string;
-  sampleFmt?: string;
-  samplerate?: string;
-  channels?: string;
-  channelLayout?: string;
   timebase?: string;
-  startTime?: string;
-  duration?: string;
-  bitrate?: string;
-  numFrames?: string;
+  index?: string;
+  sampleFmt?: string;
+  channelLayout?: string;
   lang?: string;
+  samplerate?: string;
+  codecLongName?: string;
+  channels?: string;
+  numFrames?: string;
+  bitrate?: string;
+  codecTagString?: string;
+  startTime?: string;
+  codecName?: string;
+  duration?: string;
+  codecTag?: string;
+  codecTimeBase?: string;
   static names(): { [key: string]: string } {
     return {
-      index: 'Index',
-      codecName: 'CodecName',
-      codecTimeBase: 'CodecTimeBase',
-      codecLongName: 'CodecLongName',
-      codecTagString: 'CodecTagString',
-      codecTag: 'CodecTag',
-      sampleFmt: 'SampleFmt',
-      samplerate: 'Samplerate',
-      channels: 'Channels',
-      channelLayout: 'ChannelLayout',
       timebase: 'Timebase',
-      startTime: 'StartTime',
-      duration: 'Duration',
-      bitrate: 'Bitrate',
-      numFrames: 'NumFrames',
+      index: 'Index',
+      sampleFmt: 'SampleFmt',
+      channelLayout: 'ChannelLayout',
       lang: 'Lang',
+      samplerate: 'Samplerate',
+      codecLongName: 'CodecLongName',
+      channels: 'Channels',
+      numFrames: 'NumFrames',
+      bitrate: 'Bitrate',
+      codecTagString: 'CodecTagString',
+      startTime: 'StartTime',
+      codecName: 'CodecName',
+      duration: 'Duration',
+      codecTag: 'CodecTag',
+      codecTimeBase: 'CodecTimeBase',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      index: 'string',
-      codecName: 'string',
-      codecTimeBase: 'string',
-      codecLongName: 'string',
-      codecTagString: 'string',
-      codecTag: 'string',
-      sampleFmt: 'string',
-      samplerate: 'string',
-      channels: 'string',
-      channelLayout: 'string',
       timebase: 'string',
-      startTime: 'string',
-      duration: 'string',
-      bitrate: 'string',
-      numFrames: 'string',
+      index: 'string',
+      sampleFmt: 'string',
+      channelLayout: 'string',
       lang: 'string',
+      samplerate: 'string',
+      codecLongName: 'string',
+      channels: 'string',
+      numFrames: 'string',
+      bitrate: 'string',
+      codecTagString: 'string',
+      startTime: 'string',
+      codecName: 'string',
+      duration: 'string',
+      codecTag: 'string',
+      codecTimeBase: 'string',
     };
   }
 
@@ -39692,37 +40748,37 @@ export class SubmitComplexJobResponseBodyComplexJobTranscodeOutputPropertiesStre
 }
 
 export class SubmitComplexJobResponseBodyComplexJobTranscodeOutputPropertiesFormat extends $tea.Model {
-  numStreams?: string;
-  numPrograms?: string;
-  formatName?: string;
-  formatLongName?: string;
   startTime?: string;
-  duration?: string;
+  numPrograms?: string;
   size?: string;
+  numStreams?: string;
+  formatLongName?: string;
+  duration?: string;
   bitrate?: string;
+  formatName?: string;
   static names(): { [key: string]: string } {
     return {
-      numStreams: 'NumStreams',
-      numPrograms: 'NumPrograms',
-      formatName: 'FormatName',
-      formatLongName: 'FormatLongName',
       startTime: 'StartTime',
-      duration: 'Duration',
+      numPrograms: 'NumPrograms',
       size: 'Size',
+      numStreams: 'NumStreams',
+      formatLongName: 'FormatLongName',
+      duration: 'Duration',
       bitrate: 'Bitrate',
+      formatName: 'FormatName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      numStreams: 'string',
-      numPrograms: 'string',
-      formatName: 'string',
-      formatLongName: 'string',
       startTime: 'string',
-      duration: 'string',
+      numPrograms: 'string',
       size: 'string',
+      numStreams: 'string',
+      formatLongName: 'string',
+      duration: 'string',
       bitrate: 'string',
+      formatName: 'string',
     };
   }
 
@@ -39734,24 +40790,24 @@ export class SubmitComplexJobResponseBodyComplexJobTranscodeOutputPropertiesForm
 export class SubmitComplexJobResponseBodyComplexJobTranscodeOutputProperties extends $tea.Model {
   width?: string;
   height?: string;
-  bitrate?: string;
   duration?: string;
   fps?: string;
-  fileSize?: string;
+  bitrate?: string;
   fileFormat?: string;
   streams?: SubmitComplexJobResponseBodyComplexJobTranscodeOutputPropertiesStreams;
   format?: SubmitComplexJobResponseBodyComplexJobTranscodeOutputPropertiesFormat;
+  fileSize?: string;
   static names(): { [key: string]: string } {
     return {
       width: 'Width',
       height: 'Height',
-      bitrate: 'Bitrate',
       duration: 'Duration',
       fps: 'Fps',
-      fileSize: 'FileSize',
+      bitrate: 'Bitrate',
       fileFormat: 'FileFormat',
       streams: 'Streams',
       format: 'Format',
+      fileSize: 'FileSize',
     };
   }
 
@@ -39759,521 +40815,13 @@ export class SubmitComplexJobResponseBodyComplexJobTranscodeOutputProperties ext
     return {
       width: 'string',
       height: 'string',
-      bitrate: 'string',
       duration: 'string',
       fps: 'string',
-      fileSize: 'string',
+      bitrate: 'string',
       fileFormat: 'string',
       streams: SubmitComplexJobResponseBodyComplexJobTranscodeOutputPropertiesStreams,
       format: SubmitComplexJobResponseBodyComplexJobTranscodeOutputPropertiesFormat,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitComplexJobResponseBodyComplexJobTranscodeOutputClipTimeSpan extends $tea.Model {
-  seek?: string;
-  duration?: string;
-  static names(): { [key: string]: string } {
-    return {
-      seek: 'Seek',
-      duration: 'Duration',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      seek: 'string',
-      duration: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitComplexJobResponseBodyComplexJobTranscodeOutputClip extends $tea.Model {
-  timeSpan?: SubmitComplexJobResponseBodyComplexJobTranscodeOutputClipTimeSpan;
-  static names(): { [key: string]: string } {
-    return {
-      timeSpan: 'TimeSpan',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      timeSpan: SubmitComplexJobResponseBodyComplexJobTranscodeOutputClipTimeSpan,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitComplexJobResponseBodyComplexJobTranscodeOutputSuperReso extends $tea.Model {
-  isHalfSample?: string;
-  static names(): { [key: string]: string } {
-    return {
-      isHalfSample: 'IsHalfSample',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      isHalfSample: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitComplexJobResponseBodyComplexJobTranscodeOutputSubtitleConfigSubtitleListSubtitle extends $tea.Model {
-  map?: string;
-  static names(): { [key: string]: string } {
-    return {
-      map: 'Map',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      map: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitComplexJobResponseBodyComplexJobTranscodeOutputSubtitleConfigSubtitleList extends $tea.Model {
-  subtitle?: SubmitComplexJobResponseBodyComplexJobTranscodeOutputSubtitleConfigSubtitleListSubtitle[];
-  static names(): { [key: string]: string } {
-    return {
-      subtitle: 'Subtitle',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      subtitle: { 'type': 'array', 'itemType': SubmitComplexJobResponseBodyComplexJobTranscodeOutputSubtitleConfigSubtitleListSubtitle },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitComplexJobResponseBodyComplexJobTranscodeOutputSubtitleConfigExtSubtitleListExtSubtitleInput extends $tea.Model {
-  bucket?: string;
-  location?: string;
-  object?: string;
-  static names(): { [key: string]: string } {
-    return {
-      bucket: 'Bucket',
-      location: 'Location',
-      object: 'Object',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bucket: 'string',
-      location: 'string',
-      object: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitComplexJobResponseBodyComplexJobTranscodeOutputSubtitleConfigExtSubtitleListExtSubtitle extends $tea.Model {
-  fontName?: string;
-  charEnc?: string;
-  input?: SubmitComplexJobResponseBodyComplexJobTranscodeOutputSubtitleConfigExtSubtitleListExtSubtitleInput;
-  static names(): { [key: string]: string } {
-    return {
-      fontName: 'FontName',
-      charEnc: 'CharEnc',
-      input: 'Input',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      fontName: 'string',
-      charEnc: 'string',
-      input: SubmitComplexJobResponseBodyComplexJobTranscodeOutputSubtitleConfigExtSubtitleListExtSubtitleInput,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitComplexJobResponseBodyComplexJobTranscodeOutputSubtitleConfigExtSubtitleList extends $tea.Model {
-  extSubtitle?: SubmitComplexJobResponseBodyComplexJobTranscodeOutputSubtitleConfigExtSubtitleListExtSubtitle[];
-  static names(): { [key: string]: string } {
-    return {
-      extSubtitle: 'ExtSubtitle',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      extSubtitle: { 'type': 'array', 'itemType': SubmitComplexJobResponseBodyComplexJobTranscodeOutputSubtitleConfigExtSubtitleListExtSubtitle },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitComplexJobResponseBodyComplexJobTranscodeOutputSubtitleConfig extends $tea.Model {
-  subtitleList?: SubmitComplexJobResponseBodyComplexJobTranscodeOutputSubtitleConfigSubtitleList;
-  extSubtitleList?: SubmitComplexJobResponseBodyComplexJobTranscodeOutputSubtitleConfigExtSubtitleList;
-  static names(): { [key: string]: string } {
-    return {
-      subtitleList: 'SubtitleList',
-      extSubtitleList: 'ExtSubtitleList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      subtitleList: SubmitComplexJobResponseBodyComplexJobTranscodeOutputSubtitleConfigSubtitleList,
-      extSubtitleList: SubmitComplexJobResponseBodyComplexJobTranscodeOutputSubtitleConfigExtSubtitleList,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitComplexJobResponseBodyComplexJobTranscodeOutputTransConfig extends $tea.Model {
-  transMode?: string;
-  isCheckReso?: string;
-  isCheckResoFail?: string;
-  isCheckVideoBitrate?: string;
-  isCheckAudioBitrate?: string;
-  adjDarMethod?: string;
-  isCheckVideoBitrateFail?: string;
-  isCheckAudioBitrateFail?: string;
-  duration?: string;
-  static names(): { [key: string]: string } {
-    return {
-      transMode: 'TransMode',
-      isCheckReso: 'IsCheckReso',
-      isCheckResoFail: 'IsCheckResoFail',
-      isCheckVideoBitrate: 'IsCheckVideoBitrate',
-      isCheckAudioBitrate: 'IsCheckAudioBitrate',
-      adjDarMethod: 'AdjDarMethod',
-      isCheckVideoBitrateFail: 'IsCheckVideoBitrateFail',
-      isCheckAudioBitrateFail: 'IsCheckAudioBitrateFail',
-      duration: 'Duration',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      transMode: 'string',
-      isCheckReso: 'string',
-      isCheckResoFail: 'string',
-      isCheckVideoBitrate: 'string',
-      isCheckAudioBitrate: 'string',
-      adjDarMethod: 'string',
-      isCheckVideoBitrateFail: 'string',
-      isCheckAudioBitrateFail: 'string',
-      duration: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitComplexJobResponseBodyComplexJobTranscodeOutputMuxConfigSegment extends $tea.Model {
-  duration?: string;
-  static names(): { [key: string]: string } {
-    return {
-      duration: 'Duration',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      duration: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitComplexJobResponseBodyComplexJobTranscodeOutputMuxConfigGif extends $tea.Model {
-  loop?: string;
-  finalDelay?: string;
-  isCustomPalette?: string;
-  ditherMode?: string;
-  static names(): { [key: string]: string } {
-    return {
-      loop: 'Loop',
-      finalDelay: 'FinalDelay',
-      isCustomPalette: 'IsCustomPalette',
-      ditherMode: 'DitherMode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      loop: 'string',
-      finalDelay: 'string',
-      isCustomPalette: 'string',
-      ditherMode: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitComplexJobResponseBodyComplexJobTranscodeOutputMuxConfig extends $tea.Model {
-  segment?: SubmitComplexJobResponseBodyComplexJobTranscodeOutputMuxConfigSegment;
-  gif?: SubmitComplexJobResponseBodyComplexJobTranscodeOutputMuxConfigGif;
-  static names(): { [key: string]: string } {
-    return {
-      segment: 'Segment',
-      gif: 'Gif',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      segment: SubmitComplexJobResponseBodyComplexJobTranscodeOutputMuxConfigSegment,
-      gif: SubmitComplexJobResponseBodyComplexJobTranscodeOutputMuxConfigGif,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitComplexJobResponseBodyComplexJobTranscodeOutputAudioVolume extends $tea.Model {
-  level?: string;
-  method?: string;
-  static names(): { [key: string]: string } {
-    return {
-      level: 'Level',
-      method: 'Method',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      level: 'string',
-      method: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitComplexJobResponseBodyComplexJobTranscodeOutputAudio extends $tea.Model {
-  codec?: string;
-  profile?: string;
-  samplerate?: string;
-  bitrate?: string;
-  channels?: string;
-  qscale?: string;
-  volume?: SubmitComplexJobResponseBodyComplexJobTranscodeOutputAudioVolume;
-  static names(): { [key: string]: string } {
-    return {
-      codec: 'Codec',
-      profile: 'Profile',
-      samplerate: 'Samplerate',
-      bitrate: 'Bitrate',
-      channels: 'Channels',
-      qscale: 'Qscale',
-      volume: 'Volume',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      codec: 'string',
-      profile: 'string',
-      samplerate: 'string',
-      bitrate: 'string',
-      channels: 'string',
-      qscale: 'string',
-      volume: SubmitComplexJobResponseBodyComplexJobTranscodeOutputAudioVolume,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitComplexJobResponseBodyComplexJobTranscodeOutputVideoBitrateBnd extends $tea.Model {
-  max?: string;
-  min?: string;
-  static names(): { [key: string]: string } {
-    return {
-      max: 'Max',
-      min: 'Min',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      max: 'string',
-      min: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitComplexJobResponseBodyComplexJobTranscodeOutputVideo extends $tea.Model {
-  codec?: string;
-  profile?: string;
-  bitrate?: string;
-  crf?: string;
-  width?: string;
-  height?: string;
-  fps?: string;
-  gop?: string;
-  preset?: string;
-  scanMode?: string;
-  bufsize?: string;
-  maxrate?: string;
-  pixFmt?: string;
-  degrain?: string;
-  qscale?: string;
-  crop?: string;
-  pad?: string;
-  maxFps?: string;
-  bitrateBnd?: SubmitComplexJobResponseBodyComplexJobTranscodeOutputVideoBitrateBnd;
-  static names(): { [key: string]: string } {
-    return {
-      codec: 'Codec',
-      profile: 'Profile',
-      bitrate: 'Bitrate',
-      crf: 'Crf',
-      width: 'Width',
-      height: 'Height',
-      fps: 'Fps',
-      gop: 'Gop',
-      preset: 'Preset',
-      scanMode: 'ScanMode',
-      bufsize: 'Bufsize',
-      maxrate: 'Maxrate',
-      pixFmt: 'PixFmt',
-      degrain: 'Degrain',
-      qscale: 'Qscale',
-      crop: 'Crop',
-      pad: 'Pad',
-      maxFps: 'MaxFps',
-      bitrateBnd: 'BitrateBnd',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      codec: 'string',
-      profile: 'string',
-      bitrate: 'string',
-      crf: 'string',
-      width: 'string',
-      height: 'string',
-      fps: 'string',
-      gop: 'string',
-      preset: 'string',
-      scanMode: 'string',
-      bufsize: 'string',
-      maxrate: 'string',
-      pixFmt: 'string',
-      degrain: 'string',
-      qscale: 'string',
-      crop: 'string',
-      pad: 'string',
-      maxFps: 'string',
-      bitrateBnd: SubmitComplexJobResponseBodyComplexJobTranscodeOutputVideoBitrateBnd,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitComplexJobResponseBodyComplexJobTranscodeOutputContainer extends $tea.Model {
-  format?: string;
-  static names(): { [key: string]: string } {
-    return {
-      format: 'Format',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      format: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitComplexJobResponseBodyComplexJobTranscodeOutputEncryption extends $tea.Model {
-  type?: string;
-  id?: string;
-  key?: string;
-  keyUri?: string;
-  keyType?: string;
-  skipCnt?: string;
-  static names(): { [key: string]: string } {
-    return {
-      type: 'Type',
-      id: 'Id',
-      key: 'Key',
-      keyUri: 'KeyUri',
-      keyType: 'KeyType',
-      skipCnt: 'SkipCnt',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      type: 'string',
-      id: 'string',
-      key: 'string',
-      keyUri: 'string',
-      keyType: 'string',
-      skipCnt: 'string',
+      fileSize: 'string',
     };
   }
 
@@ -40283,85 +40831,85 @@ export class SubmitComplexJobResponseBodyComplexJobTranscodeOutputEncryption ext
 }
 
 export class SubmitComplexJobResponseBodyComplexJobTranscodeOutput extends $tea.Model {
-  templateId?: string;
-  userData?: string;
-  rotate?: string;
-  videoStreamMap?: string;
-  audioStreamMap?: string;
-  deWatermark?: string;
-  priority?: string;
-  waterMarkConfigUrl?: string;
-  mergeConfigUrl?: string;
-  waterMarkList?: SubmitComplexJobResponseBodyComplexJobTranscodeOutputWaterMarkList;
-  mergeList?: SubmitComplexJobResponseBodyComplexJobTranscodeOutputMergeList;
-  digiWaterMark?: SubmitComplexJobResponseBodyComplexJobTranscodeOutputDigiWaterMark;
-  outputFile?: SubmitComplexJobResponseBodyComplexJobTranscodeOutputOutputFile;
-  m3U8NonStandardSupport?: SubmitComplexJobResponseBodyComplexJobTranscodeOutputM3U8NonStandardSupport;
-  properties?: SubmitComplexJobResponseBodyComplexJobTranscodeOutputProperties;
-  clip?: SubmitComplexJobResponseBodyComplexJobTranscodeOutputClip;
-  superReso?: SubmitComplexJobResponseBodyComplexJobTranscodeOutputSuperReso;
-  subtitleConfig?: SubmitComplexJobResponseBodyComplexJobTranscodeOutputSubtitleConfig;
-  transConfig?: SubmitComplexJobResponseBodyComplexJobTranscodeOutputTransConfig;
-  muxConfig?: SubmitComplexJobResponseBodyComplexJobTranscodeOutputMuxConfig;
-  audio?: SubmitComplexJobResponseBodyComplexJobTranscodeOutputAudio;
   video?: SubmitComplexJobResponseBodyComplexJobTranscodeOutputVideo;
-  container?: SubmitComplexJobResponseBodyComplexJobTranscodeOutputContainer;
+  transConfig?: SubmitComplexJobResponseBodyComplexJobTranscodeOutputTransConfig;
   encryption?: SubmitComplexJobResponseBodyComplexJobTranscodeOutputEncryption;
+  waterMarkList?: SubmitComplexJobResponseBodyComplexJobTranscodeOutputWaterMarkList;
+  deWatermark?: string;
+  waterMarkConfigUrl?: string;
+  m3U8NonStandardSupport?: SubmitComplexJobResponseBodyComplexJobTranscodeOutputM3U8NonStandardSupport;
+  priority?: string;
+  audio?: SubmitComplexJobResponseBodyComplexJobTranscodeOutputAudio;
+  audioStreamMap?: string;
+  mergeList?: SubmitComplexJobResponseBodyComplexJobTranscodeOutputMergeList;
+  superReso?: SubmitComplexJobResponseBodyComplexJobTranscodeOutputSuperReso;
+  userData?: string;
+  digiWaterMark?: SubmitComplexJobResponseBodyComplexJobTranscodeOutputDigiWaterMark;
+  videoStreamMap?: string;
+  outputFile?: SubmitComplexJobResponseBodyComplexJobTranscodeOutputOutputFile;
+  rotate?: string;
+  container?: SubmitComplexJobResponseBodyComplexJobTranscodeOutputContainer;
+  clip?: SubmitComplexJobResponseBodyComplexJobTranscodeOutputClip;
+  mergeConfigUrl?: string;
+  muxConfig?: SubmitComplexJobResponseBodyComplexJobTranscodeOutputMuxConfig;
+  templateId?: string;
+  subtitleConfig?: SubmitComplexJobResponseBodyComplexJobTranscodeOutputSubtitleConfig;
+  properties?: SubmitComplexJobResponseBodyComplexJobTranscodeOutputProperties;
   static names(): { [key: string]: string } {
     return {
-      templateId: 'TemplateId',
-      userData: 'UserData',
-      rotate: 'Rotate',
-      videoStreamMap: 'VideoStreamMap',
-      audioStreamMap: 'AudioStreamMap',
-      deWatermark: 'DeWatermark',
-      priority: 'Priority',
-      waterMarkConfigUrl: 'WaterMarkConfigUrl',
-      mergeConfigUrl: 'MergeConfigUrl',
-      waterMarkList: 'WaterMarkList',
-      mergeList: 'MergeList',
-      digiWaterMark: 'DigiWaterMark',
-      outputFile: 'OutputFile',
-      m3U8NonStandardSupport: 'M3U8NonStandardSupport',
-      properties: 'Properties',
-      clip: 'Clip',
-      superReso: 'SuperReso',
-      subtitleConfig: 'SubtitleConfig',
-      transConfig: 'TransConfig',
-      muxConfig: 'MuxConfig',
-      audio: 'Audio',
       video: 'Video',
-      container: 'Container',
+      transConfig: 'TransConfig',
       encryption: 'Encryption',
+      waterMarkList: 'WaterMarkList',
+      deWatermark: 'DeWatermark',
+      waterMarkConfigUrl: 'WaterMarkConfigUrl',
+      m3U8NonStandardSupport: 'M3U8NonStandardSupport',
+      priority: 'Priority',
+      audio: 'Audio',
+      audioStreamMap: 'AudioStreamMap',
+      mergeList: 'MergeList',
+      superReso: 'SuperReso',
+      userData: 'UserData',
+      digiWaterMark: 'DigiWaterMark',
+      videoStreamMap: 'VideoStreamMap',
+      outputFile: 'OutputFile',
+      rotate: 'Rotate',
+      container: 'Container',
+      clip: 'Clip',
+      mergeConfigUrl: 'MergeConfigUrl',
+      muxConfig: 'MuxConfig',
+      templateId: 'TemplateId',
+      subtitleConfig: 'SubtitleConfig',
+      properties: 'Properties',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      templateId: 'string',
-      userData: 'string',
-      rotate: 'string',
-      videoStreamMap: 'string',
-      audioStreamMap: 'string',
-      deWatermark: 'string',
-      priority: 'string',
-      waterMarkConfigUrl: 'string',
-      mergeConfigUrl: 'string',
-      waterMarkList: SubmitComplexJobResponseBodyComplexJobTranscodeOutputWaterMarkList,
-      mergeList: SubmitComplexJobResponseBodyComplexJobTranscodeOutputMergeList,
-      digiWaterMark: SubmitComplexJobResponseBodyComplexJobTranscodeOutputDigiWaterMark,
-      outputFile: SubmitComplexJobResponseBodyComplexJobTranscodeOutputOutputFile,
-      m3U8NonStandardSupport: SubmitComplexJobResponseBodyComplexJobTranscodeOutputM3U8NonStandardSupport,
-      properties: SubmitComplexJobResponseBodyComplexJobTranscodeOutputProperties,
-      clip: SubmitComplexJobResponseBodyComplexJobTranscodeOutputClip,
-      superReso: SubmitComplexJobResponseBodyComplexJobTranscodeOutputSuperReso,
-      subtitleConfig: SubmitComplexJobResponseBodyComplexJobTranscodeOutputSubtitleConfig,
-      transConfig: SubmitComplexJobResponseBodyComplexJobTranscodeOutputTransConfig,
-      muxConfig: SubmitComplexJobResponseBodyComplexJobTranscodeOutputMuxConfig,
-      audio: SubmitComplexJobResponseBodyComplexJobTranscodeOutputAudio,
       video: SubmitComplexJobResponseBodyComplexJobTranscodeOutputVideo,
-      container: SubmitComplexJobResponseBodyComplexJobTranscodeOutputContainer,
+      transConfig: SubmitComplexJobResponseBodyComplexJobTranscodeOutputTransConfig,
       encryption: SubmitComplexJobResponseBodyComplexJobTranscodeOutputEncryption,
+      waterMarkList: SubmitComplexJobResponseBodyComplexJobTranscodeOutputWaterMarkList,
+      deWatermark: 'string',
+      waterMarkConfigUrl: 'string',
+      m3U8NonStandardSupport: SubmitComplexJobResponseBodyComplexJobTranscodeOutputM3U8NonStandardSupport,
+      priority: 'string',
+      audio: SubmitComplexJobResponseBodyComplexJobTranscodeOutputAudio,
+      audioStreamMap: 'string',
+      mergeList: SubmitComplexJobResponseBodyComplexJobTranscodeOutputMergeList,
+      superReso: SubmitComplexJobResponseBodyComplexJobTranscodeOutputSuperReso,
+      userData: 'string',
+      digiWaterMark: SubmitComplexJobResponseBodyComplexJobTranscodeOutputDigiWaterMark,
+      videoStreamMap: 'string',
+      outputFile: SubmitComplexJobResponseBodyComplexJobTranscodeOutputOutputFile,
+      rotate: 'string',
+      container: SubmitComplexJobResponseBodyComplexJobTranscodeOutputContainer,
+      clip: SubmitComplexJobResponseBodyComplexJobTranscodeOutputClip,
+      mergeConfigUrl: 'string',
+      muxConfig: SubmitComplexJobResponseBodyComplexJobTranscodeOutputMuxConfig,
+      templateId: 'string',
+      subtitleConfig: SubmitComplexJobResponseBodyComplexJobTranscodeOutputSubtitleConfig,
+      properties: SubmitComplexJobResponseBodyComplexJobTranscodeOutputProperties,
     };
   }
 
@@ -40395,50 +40943,583 @@ export class SubmitComplexJobResponseBodyComplexJobMNSMessageResult extends $tea
   }
 }
 
-export class SubmitComplexJobResponseBodyComplexJob extends $tea.Model {
-  jobId?: string;
-  state?: string;
-  code?: string;
-  message?: string;
-  percent?: number;
-  pipelineId?: string;
-  creationTime?: string;
-  finishTime?: string;
-  inputs?: SubmitComplexJobResponseBodyComplexJobInputs;
-  complexEditingConfigs?: SubmitComplexJobResponseBodyComplexJobComplexEditingConfigs;
-  transcodeOutput?: SubmitComplexJobResponseBodyComplexJobTranscodeOutput;
-  MNSMessageResult?: SubmitComplexJobResponseBodyComplexJobMNSMessageResult;
+export class SubmitComplexJobResponseBodyComplexJobComplexEditingConfigsComplexEditingConfigsEditingTimelineTrackListTrackClipsClipClipsConfigClipsConfigVideo extends $tea.Model {
+  t?: string;
+  l?: string;
   static names(): { [key: string]: string } {
     return {
-      jobId: 'JobId',
-      state: 'State',
-      code: 'Code',
-      message: 'Message',
-      percent: 'Percent',
-      pipelineId: 'PipelineId',
-      creationTime: 'CreationTime',
-      finishTime: 'FinishTime',
-      inputs: 'Inputs',
-      complexEditingConfigs: 'ComplexEditingConfigs',
-      transcodeOutput: 'transcodeOutput',
-      MNSMessageResult: 'MNSMessageResult',
+      t: 'T',
+      l: 'L',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      jobId: 'string',
-      state: 'string',
-      code: 'string',
-      message: 'string',
-      percent: 'number',
-      pipelineId: 'string',
+      t: 'string',
+      l: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitComplexJobResponseBodyComplexJobComplexEditingConfigsComplexEditingConfigsEditingTimelineTrackListTrackClipsClipClipsConfig extends $tea.Model {
+  clipsConfigVideo?: SubmitComplexJobResponseBodyComplexJobComplexEditingConfigsComplexEditingConfigsEditingTimelineTrackListTrackClipsClipClipsConfigClipsConfigVideo;
+  static names(): { [key: string]: string } {
+    return {
+      clipsConfigVideo: 'ClipsConfigVideo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clipsConfigVideo: SubmitComplexJobResponseBodyComplexJobComplexEditingConfigsComplexEditingConfigsEditingTimelineTrackListTrackClipsClipClipsConfigClipsConfigVideo,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitComplexJobResponseBodyComplexJobComplexEditingConfigsComplexEditingConfigsEditingTimelineTrackListTrackClipsClip extends $tea.Model {
+  clipsConfig?: SubmitComplexJobResponseBodyComplexJobComplexEditingConfigsComplexEditingConfigsEditingTimelineTrackListTrackClipsClipClipsConfig;
+  out?: string;
+  in?: string;
+  clipID?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clipsConfig: 'ClipsConfig',
+      out: 'Out',
+      in: 'In',
+      clipID: 'clipID',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clipsConfig: SubmitComplexJobResponseBodyComplexJobComplexEditingConfigsComplexEditingConfigsEditingTimelineTrackListTrackClipsClipClipsConfig,
+      out: 'string',
+      in: 'string',
+      clipID: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitComplexJobResponseBodyComplexJobComplexEditingConfigsComplexEditingConfigsEditingTimelineTrackListTrackClips extends $tea.Model {
+  clip?: SubmitComplexJobResponseBodyComplexJobComplexEditingConfigsComplexEditingConfigsEditingTimelineTrackListTrackClipsClip[];
+  static names(): { [key: string]: string } {
+    return {
+      clip: 'Clip',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clip: { 'type': 'array', 'itemType': SubmitComplexJobResponseBodyComplexJobComplexEditingConfigsComplexEditingConfigsEditingTimelineTrackListTrackClipsClip },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitComplexJobResponseBodyComplexJobComplexEditingConfigsComplexEditingConfigsEditingTimelineTrackListTrack extends $tea.Model {
+  type?: string;
+  order?: string;
+  id?: string;
+  clips?: SubmitComplexJobResponseBodyComplexJobComplexEditingConfigsComplexEditingConfigsEditingTimelineTrackListTrackClips;
+  static names(): { [key: string]: string } {
+    return {
+      type: 'Type',
+      order: 'Order',
+      id: 'Id',
+      clips: 'Clips',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      type: 'string',
+      order: 'string',
+      id: 'string',
+      clips: SubmitComplexJobResponseBodyComplexJobComplexEditingConfigsComplexEditingConfigsEditingTimelineTrackListTrackClips,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitComplexJobResponseBodyComplexJobComplexEditingConfigsComplexEditingConfigsEditingTimelineTrackList extends $tea.Model {
+  track?: SubmitComplexJobResponseBodyComplexJobComplexEditingConfigsComplexEditingConfigsEditingTimelineTrackListTrack[];
+  static names(): { [key: string]: string } {
+    return {
+      track: 'Track',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      track: { 'type': 'array', 'itemType': SubmitComplexJobResponseBodyComplexJobComplexEditingConfigsComplexEditingConfigsEditingTimelineTrackListTrack },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitComplexJobResponseBodyComplexJobComplexEditingConfigsComplexEditingConfigsEditingTimelineTimelineConfigTimelineConfigAudio extends $tea.Model {
+  channelLayout?: string;
+  samplerate?: string;
+  channels?: string;
+  static names(): { [key: string]: string } {
+    return {
+      channelLayout: 'ChannelLayout',
+      samplerate: 'Samplerate',
+      channels: 'Channels',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      channelLayout: 'string',
+      samplerate: 'string',
+      channels: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitComplexJobResponseBodyComplexJobComplexEditingConfigsComplexEditingConfigsEditingTimelineTimelineConfigTimelineConfigVideo extends $tea.Model {
+  bgColor?: string;
+  width?: string;
+  renderRatio?: string;
+  isGpuData?: string;
+  height?: string;
+  isOneTrackData?: string;
+  fps?: string;
+  reclosePrec?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bgColor: 'BgColor',
+      width: 'Width',
+      renderRatio: 'RenderRatio',
+      isGpuData: 'IsGpuData',
+      height: 'Height',
+      isOneTrackData: 'IsOneTrackData',
+      fps: 'Fps',
+      reclosePrec: 'ReclosePrec',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bgColor: 'string',
+      width: 'string',
+      renderRatio: 'string',
+      isGpuData: 'string',
+      height: 'string',
+      isOneTrackData: 'string',
+      fps: 'string',
+      reclosePrec: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitComplexJobResponseBodyComplexJobComplexEditingConfigsComplexEditingConfigsEditingTimelineTimelineConfig extends $tea.Model {
+  timelineConfigAudio?: SubmitComplexJobResponseBodyComplexJobComplexEditingConfigsComplexEditingConfigsEditingTimelineTimelineConfigTimelineConfigAudio;
+  timelineConfigVideo?: SubmitComplexJobResponseBodyComplexJobComplexEditingConfigsComplexEditingConfigsEditingTimelineTimelineConfigTimelineConfigVideo;
+  static names(): { [key: string]: string } {
+    return {
+      timelineConfigAudio: 'TimelineConfigAudio',
+      timelineConfigVideo: 'TimelineConfigVideo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      timelineConfigAudio: SubmitComplexJobResponseBodyComplexJobComplexEditingConfigsComplexEditingConfigsEditingTimelineTimelineConfigTimelineConfigAudio,
+      timelineConfigVideo: SubmitComplexJobResponseBodyComplexJobComplexEditingConfigsComplexEditingConfigsEditingTimelineTimelineConfigTimelineConfigVideo,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitComplexJobResponseBodyComplexJobComplexEditingConfigsComplexEditingConfigsEditingTimeline extends $tea.Model {
+  trackList?: SubmitComplexJobResponseBodyComplexJobComplexEditingConfigsComplexEditingConfigsEditingTimelineTrackList;
+  timelineConfig?: SubmitComplexJobResponseBodyComplexJobComplexEditingConfigsComplexEditingConfigsEditingTimelineTimelineConfig;
+  static names(): { [key: string]: string } {
+    return {
+      trackList: 'TrackList',
+      timelineConfig: 'TimelineConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      trackList: SubmitComplexJobResponseBodyComplexJobComplexEditingConfigsComplexEditingConfigsEditingTimelineTrackList,
+      timelineConfig: SubmitComplexJobResponseBodyComplexJobComplexEditingConfigsComplexEditingConfigsEditingTimelineTimelineConfig,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitComplexJobResponseBodyComplexJobComplexEditingConfigsComplexEditingConfigsEditingClipListClipEffectsEffect extends $tea.Model {
+  effect?: string;
+  effectConfig?: string;
+  static names(): { [key: string]: string } {
+    return {
+      effect: 'Effect',
+      effectConfig: 'EffectConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      effect: 'string',
+      effectConfig: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitComplexJobResponseBodyComplexJobComplexEditingConfigsComplexEditingConfigsEditingClipListClipEffects extends $tea.Model {
+  effect?: SubmitComplexJobResponseBodyComplexJobComplexEditingConfigsComplexEditingConfigsEditingClipListClipEffectsEffect[];
+  static names(): { [key: string]: string } {
+    return {
+      effect: 'Effect',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      effect: { 'type': 'array', 'itemType': SubmitComplexJobResponseBodyComplexJobComplexEditingConfigsComplexEditingConfigsEditingClipListClipEffectsEffect },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitComplexJobResponseBodyComplexJobComplexEditingConfigsComplexEditingConfigsEditingClipListClip extends $tea.Model {
+  type?: string;
+  sourceID?: string;
+  effects?: SubmitComplexJobResponseBodyComplexJobComplexEditingConfigsComplexEditingConfigsEditingClipListClipEffects;
+  sourceType?: string;
+  sourceStrmMap?: string;
+  out?: string;
+  in?: string;
+  id?: string;
+  static names(): { [key: string]: string } {
+    return {
+      type: 'Type',
+      sourceID: 'SourceID',
+      effects: 'Effects',
+      sourceType: 'SourceType',
+      sourceStrmMap: 'SourceStrmMap',
+      out: 'Out',
+      in: 'In',
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      type: 'string',
+      sourceID: 'string',
+      effects: SubmitComplexJobResponseBodyComplexJobComplexEditingConfigsComplexEditingConfigsEditingClipListClipEffects,
+      sourceType: 'string',
+      sourceStrmMap: 'string',
+      out: 'string',
+      in: 'string',
+      id: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitComplexJobResponseBodyComplexJobComplexEditingConfigsComplexEditingConfigsEditingClipList extends $tea.Model {
+  clip?: SubmitComplexJobResponseBodyComplexJobComplexEditingConfigsComplexEditingConfigsEditingClipListClip[];
+  static names(): { [key: string]: string } {
+    return {
+      clip: 'Clip',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clip: { 'type': 'array', 'itemType': SubmitComplexJobResponseBodyComplexJobComplexEditingConfigsComplexEditingConfigsEditingClipListClip },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitComplexJobResponseBodyComplexJobComplexEditingConfigsComplexEditingConfigsEditing extends $tea.Model {
+  timeline?: SubmitComplexJobResponseBodyComplexJobComplexEditingConfigsComplexEditingConfigsEditingTimeline;
+  clipList?: SubmitComplexJobResponseBodyComplexJobComplexEditingConfigsComplexEditingConfigsEditingClipList;
+  static names(): { [key: string]: string } {
+    return {
+      timeline: 'Timeline',
+      clipList: 'ClipList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      timeline: SubmitComplexJobResponseBodyComplexJobComplexEditingConfigsComplexEditingConfigsEditingTimeline,
+      clipList: SubmitComplexJobResponseBodyComplexJobComplexEditingConfigsComplexEditingConfigsEditingClipList,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitComplexJobResponseBodyComplexJobComplexEditingConfigsComplexEditingConfigs extends $tea.Model {
+  editing?: SubmitComplexJobResponseBodyComplexJobComplexEditingConfigsComplexEditingConfigsEditing;
+  static names(): { [key: string]: string } {
+    return {
+      editing: 'Editing',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      editing: SubmitComplexJobResponseBodyComplexJobComplexEditingConfigsComplexEditingConfigsEditing,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitComplexJobResponseBodyComplexJobComplexEditingConfigs extends $tea.Model {
+  complexEditingConfigs?: SubmitComplexJobResponseBodyComplexJobComplexEditingConfigsComplexEditingConfigs[];
+  static names(): { [key: string]: string } {
+    return {
+      complexEditingConfigs: 'ComplexEditingConfigs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      complexEditingConfigs: { 'type': 'array', 'itemType': SubmitComplexJobResponseBodyComplexJobComplexEditingConfigsComplexEditingConfigs },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitComplexJobResponseBodyComplexJobInputsInputsEditingInputsEditingInputInputFile extends $tea.Model {
+  object?: string;
+  location?: string;
+  bucket?: string;
+  static names(): { [key: string]: string } {
+    return {
+      object: 'Object',
+      location: 'Location',
+      bucket: 'Bucket',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      object: 'string',
+      location: 'string',
+      bucket: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitComplexJobResponseBodyComplexJobInputsInputsEditingInputsEditingInputInputConfig extends $tea.Model {
+  isNormalSar?: string;
+  deinterlaceMethod?: string;
+  static names(): { [key: string]: string } {
+    return {
+      isNormalSar: 'IsNormalSar',
+      deinterlaceMethod: 'DeinterlaceMethod',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      isNormalSar: 'string',
+      deinterlaceMethod: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitComplexJobResponseBodyComplexJobInputsInputsEditingInputsEditingInput extends $tea.Model {
+  inputFile?: SubmitComplexJobResponseBodyComplexJobInputsInputsEditingInputsEditingInputInputFile;
+  inputConfig?: SubmitComplexJobResponseBodyComplexJobInputsInputsEditingInputsEditingInputInputConfig;
+  id?: string;
+  static names(): { [key: string]: string } {
+    return {
+      inputFile: 'InputFile',
+      inputConfig: 'InputConfig',
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inputFile: SubmitComplexJobResponseBodyComplexJobInputsInputsEditingInputsEditingInputInputFile,
+      inputConfig: SubmitComplexJobResponseBodyComplexJobInputsInputsEditingInputsEditingInputInputConfig,
+      id: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitComplexJobResponseBodyComplexJobInputsInputsEditingInputs extends $tea.Model {
+  editingInput?: SubmitComplexJobResponseBodyComplexJobInputsInputsEditingInputsEditingInput[];
+  static names(): { [key: string]: string } {
+    return {
+      editingInput: 'EditingInput',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      editingInput: { 'type': 'array', 'itemType': SubmitComplexJobResponseBodyComplexJobInputsInputsEditingInputsEditingInput },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitComplexJobResponseBodyComplexJobInputsInputs extends $tea.Model {
+  editingInputs?: SubmitComplexJobResponseBodyComplexJobInputsInputsEditingInputs;
+  static names(): { [key: string]: string } {
+    return {
+      editingInputs: 'EditingInputs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      editingInputs: SubmitComplexJobResponseBodyComplexJobInputsInputsEditingInputs,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitComplexJobResponseBodyComplexJobInputs extends $tea.Model {
+  inputs?: SubmitComplexJobResponseBodyComplexJobInputsInputs[];
+  static names(): { [key: string]: string } {
+    return {
+      inputs: 'Inputs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inputs: { 'type': 'array', 'itemType': SubmitComplexJobResponseBodyComplexJobInputsInputs },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitComplexJobResponseBodyComplexJob extends $tea.Model {
+  creationTime?: string;
+  percent?: number;
+  finishTime?: string;
+  state?: string;
+  transcodeOutput?: SubmitComplexJobResponseBodyComplexJobTranscodeOutput;
+  message?: string;
+  MNSMessageResult?: SubmitComplexJobResponseBodyComplexJobMNSMessageResult;
+  complexEditingConfigs?: SubmitComplexJobResponseBodyComplexJobComplexEditingConfigs;
+  inputs?: SubmitComplexJobResponseBodyComplexJobInputs;
+  jobId?: string;
+  code?: string;
+  pipelineId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      creationTime: 'CreationTime',
+      percent: 'Percent',
+      finishTime: 'FinishTime',
+      state: 'State',
+      transcodeOutput: 'transcodeOutput',
+      message: 'Message',
+      MNSMessageResult: 'MNSMessageResult',
+      complexEditingConfigs: 'ComplexEditingConfigs',
+      inputs: 'Inputs',
+      jobId: 'JobId',
+      code: 'Code',
+      pipelineId: 'PipelineId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
       creationTime: 'string',
+      percent: 'number',
       finishTime: 'string',
-      inputs: SubmitComplexJobResponseBodyComplexJobInputs,
-      complexEditingConfigs: SubmitComplexJobResponseBodyComplexJobComplexEditingConfigs,
+      state: 'string',
       transcodeOutput: SubmitComplexJobResponseBodyComplexJobTranscodeOutput,
+      message: 'string',
       MNSMessageResult: SubmitComplexJobResponseBodyComplexJobMNSMessageResult,
+      complexEditingConfigs: SubmitComplexJobResponseBodyComplexJobComplexEditingConfigs,
+      inputs: SubmitComplexJobResponseBodyComplexJobInputs,
+      jobId: 'string',
+      code: 'string',
+      pipelineId: 'string',
     };
   }
 
@@ -40448,22 +41529,22 @@ export class SubmitComplexJobResponseBodyComplexJob extends $tea.Model {
 }
 
 export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingInputsEditingInputInputFile extends $tea.Model {
-  bucket?: string;
-  location?: string;
   object?: string;
+  location?: string;
+  bucket?: string;
   static names(): { [key: string]: string } {
     return {
-      bucket: 'Bucket',
-      location: 'Location',
       object: 'Object',
+      location: 'Location',
+      bucket: 'Bucket',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      bucket: 'string',
-      location: 'string',
       object: 'string',
+      location: 'string',
+      bucket: 'string',
     };
   }
 
@@ -40473,19 +41554,19 @@ export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingInputs
 }
 
 export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingInputsEditingInputInputConfig extends $tea.Model {
-  deinterlaceMethod?: string;
   isNormalSar?: string;
+  deinterlaceMethod?: string;
   static names(): { [key: string]: string } {
     return {
-      deinterlaceMethod: 'DeinterlaceMethod',
       isNormalSar: 'IsNormalSar',
+      deinterlaceMethod: 'DeinterlaceMethod',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      deinterlaceMethod: 'string',
       isNormalSar: 'string',
+      deinterlaceMethod: 'string',
     };
   }
 
@@ -40495,22 +41576,22 @@ export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingInputs
 }
 
 export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingInputsEditingInput extends $tea.Model {
-  id?: string;
   inputFile?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingInputsEditingInputInputFile;
   inputConfig?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingInputsEditingInputInputConfig;
+  id?: string;
   static names(): { [key: string]: string } {
     return {
-      id: 'Id',
       inputFile: 'InputFile',
       inputConfig: 'InputConfig',
+      id: 'Id',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      id: 'string',
       inputFile: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingInputsEditingInputInputFile,
       inputConfig: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingInputsEditingInputInputConfig,
+      id: 'string',
     };
   }
 
@@ -40538,23 +41619,195 @@ export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingInputs
   }
 }
 
-export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigWaterMarkListWaterMarkInputFile extends $tea.Model {
-  bucket?: string;
-  location?: string;
-  object?: string;
+export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigVideoBitrateBnd extends $tea.Model {
+  max?: string;
+  min?: string;
   static names(): { [key: string]: string } {
     return {
-      bucket: 'Bucket',
-      location: 'Location',
-      object: 'Object',
+      max: 'Max',
+      min: 'Min',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      bucket: 'string',
-      location: 'string',
+      max: 'string',
+      min: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigVideo extends $tea.Model {
+  bufsize?: string;
+  degrain?: string;
+  bitrateBnd?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigVideoBitrateBnd;
+  pixFmt?: string;
+  pad?: string;
+  codec?: string;
+  height?: string;
+  qscale?: string;
+  crop?: string;
+  bitrate?: string;
+  maxrate?: string;
+  maxFps?: string;
+  profile?: string;
+  crf?: string;
+  gop?: string;
+  width?: string;
+  fps?: string;
+  preset?: string;
+  scanMode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bufsize: 'Bufsize',
+      degrain: 'Degrain',
+      bitrateBnd: 'BitrateBnd',
+      pixFmt: 'PixFmt',
+      pad: 'Pad',
+      codec: 'Codec',
+      height: 'Height',
+      qscale: 'Qscale',
+      crop: 'Crop',
+      bitrate: 'Bitrate',
+      maxrate: 'Maxrate',
+      maxFps: 'MaxFps',
+      profile: 'Profile',
+      crf: 'Crf',
+      gop: 'Gop',
+      width: 'Width',
+      fps: 'Fps',
+      preset: 'Preset',
+      scanMode: 'ScanMode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bufsize: 'string',
+      degrain: 'string',
+      bitrateBnd: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigVideoBitrateBnd,
+      pixFmt: 'string',
+      pad: 'string',
+      codec: 'string',
+      height: 'string',
+      qscale: 'string',
+      crop: 'string',
+      bitrate: 'string',
+      maxrate: 'string',
+      maxFps: 'string',
+      profile: 'string',
+      crf: 'string',
+      gop: 'string',
+      width: 'string',
+      fps: 'string',
+      preset: 'string',
+      scanMode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigTransConfig extends $tea.Model {
+  isCheckAudioBitrate?: string;
+  isCheckReso?: string;
+  transMode?: string;
+  isCheckVideoBitrateFail?: string;
+  adjDarMethod?: string;
+  duration?: string;
+  isCheckVideoBitrate?: string;
+  isCheckResoFail?: string;
+  isCheckAudioBitrateFail?: string;
+  static names(): { [key: string]: string } {
+    return {
+      isCheckAudioBitrate: 'IsCheckAudioBitrate',
+      isCheckReso: 'IsCheckReso',
+      transMode: 'TransMode',
+      isCheckVideoBitrateFail: 'IsCheckVideoBitrateFail',
+      adjDarMethod: 'AdjDarMethod',
+      duration: 'Duration',
+      isCheckVideoBitrate: 'IsCheckVideoBitrate',
+      isCheckResoFail: 'IsCheckResoFail',
+      isCheckAudioBitrateFail: 'IsCheckAudioBitrateFail',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      isCheckAudioBitrate: 'string',
+      isCheckReso: 'string',
+      transMode: 'string',
+      isCheckVideoBitrateFail: 'string',
+      adjDarMethod: 'string',
+      duration: 'string',
+      isCheckVideoBitrate: 'string',
+      isCheckResoFail: 'string',
+      isCheckAudioBitrateFail: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEncryption extends $tea.Model {
+  type?: string;
+  key?: string;
+  keyType?: string;
+  id?: string;
+  keyUri?: string;
+  skipCnt?: string;
+  static names(): { [key: string]: string } {
+    return {
+      type: 'Type',
+      key: 'Key',
+      keyType: 'KeyType',
+      id: 'Id',
+      keyUri: 'KeyUri',
+      skipCnt: 'SkipCnt',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      type: 'string',
+      key: 'string',
+      keyType: 'string',
+      id: 'string',
+      keyUri: 'string',
+      skipCnt: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigWaterMarkListWaterMarkInputFile extends $tea.Model {
+  object?: string;
+  location?: string;
+  bucket?: string;
+  static names(): { [key: string]: string } {
+    return {
+      object: 'Object',
+      location: 'Location',
+      bucket: 'Bucket',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
       object: 'string',
+      location: 'string',
+      bucket: 'string',
     };
   }
 
@@ -40564,37 +41817,37 @@ export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfig
 }
 
 export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigWaterMarkListWaterMark extends $tea.Model {
-  waterMarkTemplateId?: string;
+  type?: string;
+  referPos?: string;
+  dx?: string;
   width?: string;
   height?: string;
-  dx?: string;
-  dy?: string;
-  referPos?: string;
-  type?: string;
   inputFile?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigWaterMarkListWaterMarkInputFile;
+  waterMarkTemplateId?: string;
+  dy?: string;
   static names(): { [key: string]: string } {
     return {
-      waterMarkTemplateId: 'WaterMarkTemplateId',
+      type: 'Type',
+      referPos: 'ReferPos',
+      dx: 'Dx',
       width: 'Width',
       height: 'Height',
-      dx: 'Dx',
-      dy: 'Dy',
-      referPos: 'ReferPos',
-      type: 'Type',
       inputFile: 'InputFile',
+      waterMarkTemplateId: 'WaterMarkTemplateId',
+      dy: 'Dy',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      waterMarkTemplateId: 'string',
+      type: 'string',
+      referPos: 'string',
+      dx: 'string',
       width: 'string',
       height: 'string',
-      dx: 'string',
-      dy: 'string',
-      referPos: 'string',
-      type: 'string',
       inputFile: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigWaterMarkListWaterMarkInputFile,
+      waterMarkTemplateId: 'string',
+      dy: 'string',
     };
   }
 
@@ -40622,26 +41875,126 @@ export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfig
   }
 }
 
-export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigMergeListMerge extends $tea.Model {
-  mergeURL?: string;
-  start?: string;
-  duration?: string;
-  roleArn?: string;
+export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigM3U8NonStandardSupportTS extends $tea.Model {
+  sizeSupport?: boolean;
+  md5Support?: boolean;
   static names(): { [key: string]: string } {
     return {
-      mergeURL: 'MergeURL',
-      start: 'Start',
-      duration: 'Duration',
-      roleArn: 'RoleArn',
+      sizeSupport: 'SizeSupport',
+      md5Support: 'Md5Support',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      mergeURL: 'string',
+      sizeSupport: 'boolean',
+      md5Support: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigM3U8NonStandardSupport extends $tea.Model {
+  TS?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigM3U8NonStandardSupportTS;
+  static names(): { [key: string]: string } {
+    return {
+      TS: 'TS',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      TS: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigM3U8NonStandardSupportTS,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigAudioVolume extends $tea.Model {
+  method?: string;
+  level?: string;
+  static names(): { [key: string]: string } {
+    return {
+      method: 'Method',
+      level: 'Level',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      method: 'string',
+      level: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigAudio extends $tea.Model {
+  profile?: string;
+  codec?: string;
+  samplerate?: string;
+  qscale?: string;
+  channels?: string;
+  volume?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigAudioVolume;
+  bitrate?: string;
+  static names(): { [key: string]: string } {
+    return {
+      profile: 'Profile',
+      codec: 'Codec',
+      samplerate: 'Samplerate',
+      qscale: 'Qscale',
+      channels: 'Channels',
+      volume: 'Volume',
+      bitrate: 'Bitrate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      profile: 'string',
+      codec: 'string',
+      samplerate: 'string',
+      qscale: 'string',
+      channels: 'string',
+      volume: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigAudioVolume,
+      bitrate: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigMergeListMerge extends $tea.Model {
+  start?: string;
+  roleArn?: string;
+  mergeURL?: string;
+  duration?: string;
+  static names(): { [key: string]: string } {
+    return {
+      start: 'Start',
+      roleArn: 'RoleArn',
+      mergeURL: 'MergeURL',
+      duration: 'Duration',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
       start: 'string',
-      duration: 'string',
       roleArn: 'string',
+      mergeURL: 'string',
+      duration: 'string',
     };
   }
 
@@ -40669,23 +42022,42 @@ export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfig
   }
 }
 
-export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigDigiWaterMarkInputFile extends $tea.Model {
-  bucket?: string;
-  location?: string;
-  object?: string;
+export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigSuperReso extends $tea.Model {
+  isHalfSample?: string;
   static names(): { [key: string]: string } {
     return {
-      bucket: 'Bucket',
-      location: 'Location',
-      object: 'Object',
+      isHalfSample: 'IsHalfSample',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      bucket: 'string',
-      location: 'string',
+      isHalfSample: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigDigiWaterMarkInputFile extends $tea.Model {
+  object?: string;
+  location?: string;
+  bucket?: string;
+  static names(): { [key: string]: string } {
+    return {
+      object: 'Object',
+      location: 'Location',
+      bucket: 'Bucket',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
       object: 'string',
+      location: 'string',
+      bucket: 'string',
     };
   }
 
@@ -40720,25 +42092,25 @@ export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfig
 }
 
 export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigOutputFile extends $tea.Model {
-  bucket?: string;
-  location?: string;
-  object?: string;
   roleArn?: string;
+  object?: string;
+  location?: string;
+  bucket?: string;
   static names(): { [key: string]: string } {
     return {
-      bucket: 'Bucket',
-      location: 'Location',
-      object: 'Object',
       roleArn: 'RoleArn',
+      object: 'Object',
+      location: 'Location',
+      bucket: 'Bucket',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      bucket: 'string',
-      location: 'string',
-      object: 'string',
       roleArn: 'string',
+      object: 'string',
+      location: 'string',
+      bucket: 'string',
     };
   }
 
@@ -40747,20 +42119,20 @@ export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfig
   }
 }
 
-export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigM3U8NonStandardSupportTS extends $tea.Model {
-  md5Support?: boolean;
-  sizeSupport?: boolean;
+export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingTimelineTrackListTrackClipsClipClipsConfigClipsConfigVideo extends $tea.Model {
+  t?: string;
+  l?: string;
   static names(): { [key: string]: string } {
     return {
-      md5Support: 'Md5Support',
-      sizeSupport: 'SizeSupport',
+      t: 'T',
+      l: 'L',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      md5Support: 'boolean',
-      sizeSupport: 'boolean',
+      t: 'string',
+      l: 'string',
     };
   }
 
@@ -40769,17 +42141,600 @@ export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfig
   }
 }
 
-export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigM3U8NonStandardSupport extends $tea.Model {
-  TS?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigM3U8NonStandardSupportTS;
+export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingTimelineTrackListTrackClipsClipClipsConfig extends $tea.Model {
+  clipsConfigVideo?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingTimelineTrackListTrackClipsClipClipsConfigClipsConfigVideo;
   static names(): { [key: string]: string } {
     return {
-      TS: 'TS',
+      clipsConfigVideo: 'ClipsConfigVideo',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      TS: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigM3U8NonStandardSupportTS,
+      clipsConfigVideo: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingTimelineTrackListTrackClipsClipClipsConfigClipsConfigVideo,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingTimelineTrackListTrackClipsClip extends $tea.Model {
+  clipsConfig?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingTimelineTrackListTrackClipsClipClipsConfig;
+  out?: string;
+  in?: string;
+  clipID?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clipsConfig: 'ClipsConfig',
+      out: 'Out',
+      in: 'In',
+      clipID: 'clipID',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clipsConfig: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingTimelineTrackListTrackClipsClipClipsConfig,
+      out: 'string',
+      in: 'string',
+      clipID: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingTimelineTrackListTrackClips extends $tea.Model {
+  clip?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingTimelineTrackListTrackClipsClip[];
+  static names(): { [key: string]: string } {
+    return {
+      clip: 'Clip',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clip: { 'type': 'array', 'itemType': SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingTimelineTrackListTrackClipsClip },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingTimelineTrackListTrack extends $tea.Model {
+  type?: string;
+  order?: string;
+  id?: string;
+  clips?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingTimelineTrackListTrackClips;
+  static names(): { [key: string]: string } {
+    return {
+      type: 'Type',
+      order: 'Order',
+      id: 'Id',
+      clips: 'Clips',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      type: 'string',
+      order: 'string',
+      id: 'string',
+      clips: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingTimelineTrackListTrackClips,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingTimelineTrackList extends $tea.Model {
+  track?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingTimelineTrackListTrack[];
+  static names(): { [key: string]: string } {
+    return {
+      track: 'Track',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      track: { 'type': 'array', 'itemType': SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingTimelineTrackListTrack },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingTimelineTimelineConfigTimelineConfigAudio extends $tea.Model {
+  channelLayout?: string;
+  samplerate?: string;
+  channels?: string;
+  static names(): { [key: string]: string } {
+    return {
+      channelLayout: 'ChannelLayout',
+      samplerate: 'Samplerate',
+      channels: 'Channels',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      channelLayout: 'string',
+      samplerate: 'string',
+      channels: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingTimelineTimelineConfigTimelineConfigVideo extends $tea.Model {
+  bgColor?: string;
+  width?: string;
+  renderRatio?: string;
+  isGpuData?: string;
+  height?: string;
+  isOneTrackData?: string;
+  fps?: string;
+  reclosePrec?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bgColor: 'BgColor',
+      width: 'Width',
+      renderRatio: 'RenderRatio',
+      isGpuData: 'IsGpuData',
+      height: 'Height',
+      isOneTrackData: 'IsOneTrackData',
+      fps: 'Fps',
+      reclosePrec: 'ReclosePrec',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bgColor: 'string',
+      width: 'string',
+      renderRatio: 'string',
+      isGpuData: 'string',
+      height: 'string',
+      isOneTrackData: 'string',
+      fps: 'string',
+      reclosePrec: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingTimelineTimelineConfig extends $tea.Model {
+  timelineConfigAudio?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingTimelineTimelineConfigTimelineConfigAudio;
+  timelineConfigVideo?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingTimelineTimelineConfigTimelineConfigVideo;
+  static names(): { [key: string]: string } {
+    return {
+      timelineConfigAudio: 'TimelineConfigAudio',
+      timelineConfigVideo: 'TimelineConfigVideo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      timelineConfigAudio: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingTimelineTimelineConfigTimelineConfigAudio,
+      timelineConfigVideo: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingTimelineTimelineConfigTimelineConfigVideo,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingTimeline extends $tea.Model {
+  trackList?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingTimelineTrackList;
+  timelineConfig?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingTimelineTimelineConfig;
+  static names(): { [key: string]: string } {
+    return {
+      trackList: 'TrackList',
+      timelineConfig: 'TimelineConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      trackList: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingTimelineTrackList,
+      timelineConfig: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingTimelineTimelineConfig,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingClipListClipEffectsEffect extends $tea.Model {
+  effect?: string;
+  effectConfig?: string;
+  static names(): { [key: string]: string } {
+    return {
+      effect: 'Effect',
+      effectConfig: 'EffectConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      effect: 'string',
+      effectConfig: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingClipListClipEffects extends $tea.Model {
+  effect?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingClipListClipEffectsEffect[];
+  static names(): { [key: string]: string } {
+    return {
+      effect: 'Effect',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      effect: { 'type': 'array', 'itemType': SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingClipListClipEffectsEffect },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingClipListClip extends $tea.Model {
+  type?: string;
+  sourceID?: string;
+  effects?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingClipListClipEffects;
+  sourceType?: string;
+  sourceStrmMap?: string;
+  out?: string;
+  in?: string;
+  id?: string;
+  static names(): { [key: string]: string } {
+    return {
+      type: 'Type',
+      sourceID: 'SourceID',
+      effects: 'Effects',
+      sourceType: 'SourceType',
+      sourceStrmMap: 'SourceStrmMap',
+      out: 'Out',
+      in: 'In',
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      type: 'string',
+      sourceID: 'string',
+      effects: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingClipListClipEffects,
+      sourceType: 'string',
+      sourceStrmMap: 'string',
+      out: 'string',
+      in: 'string',
+      id: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingClipList extends $tea.Model {
+  clip?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingClipListClip[];
+  static names(): { [key: string]: string } {
+    return {
+      clip: 'Clip',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clip: { 'type': 'array', 'itemType': SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingClipListClip },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditing extends $tea.Model {
+  timeline?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingTimeline;
+  clipList?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingClipList;
+  static names(): { [key: string]: string } {
+    return {
+      timeline: 'Timeline',
+      clipList: 'ClipList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      timeline: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingTimeline,
+      clipList: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingClipList,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigContainer extends $tea.Model {
+  format?: string;
+  static names(): { [key: string]: string } {
+    return {
+      format: 'Format',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      format: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigClipTimeSpan extends $tea.Model {
+  seek?: string;
+  duration?: string;
+  static names(): { [key: string]: string } {
+    return {
+      seek: 'Seek',
+      duration: 'Duration',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      seek: 'string',
+      duration: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigClip extends $tea.Model {
+  timeSpan?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigClipTimeSpan;
+  static names(): { [key: string]: string } {
+    return {
+      timeSpan: 'TimeSpan',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      timeSpan: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigClipTimeSpan,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigMuxConfigGif extends $tea.Model {
+  finalDelay?: string;
+  ditherMode?: string;
+  loop?: string;
+  isCustomPalette?: string;
+  static names(): { [key: string]: string } {
+    return {
+      finalDelay: 'FinalDelay',
+      ditherMode: 'DitherMode',
+      loop: 'Loop',
+      isCustomPalette: 'IsCustomPalette',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      finalDelay: 'string',
+      ditherMode: 'string',
+      loop: 'string',
+      isCustomPalette: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigMuxConfigSegment extends $tea.Model {
+  duration?: string;
+  static names(): { [key: string]: string } {
+    return {
+      duration: 'Duration',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      duration: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigMuxConfig extends $tea.Model {
+  gif?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigMuxConfigGif;
+  segment?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigMuxConfigSegment;
+  static names(): { [key: string]: string } {
+    return {
+      gif: 'Gif',
+      segment: 'Segment',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      gif: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigMuxConfigGif,
+      segment: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigMuxConfigSegment,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigSubtitleConfigExtSubtitleListExtSubtitleInput extends $tea.Model {
+  object?: string;
+  location?: string;
+  bucket?: string;
+  static names(): { [key: string]: string } {
+    return {
+      object: 'Object',
+      location: 'Location',
+      bucket: 'Bucket',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      object: 'string',
+      location: 'string',
+      bucket: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigSubtitleConfigExtSubtitleListExtSubtitle extends $tea.Model {
+  charEnc?: string;
+  fontName?: string;
+  input?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigSubtitleConfigExtSubtitleListExtSubtitleInput;
+  static names(): { [key: string]: string } {
+    return {
+      charEnc: 'CharEnc',
+      fontName: 'FontName',
+      input: 'Input',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      charEnc: 'string',
+      fontName: 'string',
+      input: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigSubtitleConfigExtSubtitleListExtSubtitleInput,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigSubtitleConfigExtSubtitleList extends $tea.Model {
+  extSubtitle?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigSubtitleConfigExtSubtitleListExtSubtitle[];
+  static names(): { [key: string]: string } {
+    return {
+      extSubtitle: 'ExtSubtitle',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      extSubtitle: { 'type': 'array', 'itemType': SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigSubtitleConfigExtSubtitleListExtSubtitle },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigSubtitleConfigSubtitleListSubtitle extends $tea.Model {
+  map?: string;
+  static names(): { [key: string]: string } {
+    return {
+      map: 'Map',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      map: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigSubtitleConfigSubtitleList extends $tea.Model {
+  subtitle?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigSubtitleConfigSubtitleListSubtitle[];
+  static names(): { [key: string]: string } {
+    return {
+      subtitle: 'Subtitle',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      subtitle: { 'type': 'array', 'itemType': SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigSubtitleConfigSubtitleListSubtitle },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigSubtitleConfig extends $tea.Model {
+  extSubtitleList?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigSubtitleConfigExtSubtitleList;
+  subtitleList?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigSubtitleConfigSubtitleList;
+  static names(): { [key: string]: string } {
+    return {
+      extSubtitleList: 'ExtSubtitleList',
+      subtitleList: 'SubtitleList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      extSubtitleList: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigSubtitleConfigExtSubtitleList,
+      subtitleList: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigSubtitleConfigSubtitleList,
     };
   }
 
@@ -40790,21 +42745,21 @@ export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfig
 
 export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigPropertiesStreamsVideoStreamListVideoStreamNetworkCost extends $tea.Model {
   preloadTime?: string;
-  costBandwidth?: string;
   avgBitrate?: string;
+  costBandwidth?: string;
   static names(): { [key: string]: string } {
     return {
       preloadTime: 'PreloadTime',
-      costBandwidth: 'CostBandwidth',
       avgBitrate: 'AvgBitrate',
+      costBandwidth: 'CostBandwidth',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       preloadTime: 'string',
-      costBandwidth: 'string',
       avgBitrate: 'string',
+      costBandwidth: 'string',
     };
   }
 
@@ -40815,81 +42770,81 @@ export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfig
 
 export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigPropertiesStreamsVideoStreamListVideoStream extends $tea.Model {
   index?: string;
-  codecName?: string;
-  codecLongName?: string;
-  profile?: string;
-  codecTimeBase?: string;
-  codecTagString?: string;
-  codecTag?: string;
-  width?: string;
-  height?: string;
-  hasBFrames?: string;
-  sar?: string;
-  dar?: string;
-  pixFmt?: string;
-  level?: string;
-  fps?: string;
-  avgFPS?: string;
   timebase?: string;
-  startTime?: string;
-  duration?: string;
-  bitrate?: string;
-  numFrames?: string;
+  avgFPS?: string;
+  pixFmt?: string;
+  sar?: string;
   lang?: string;
+  codecLongName?: string;
+  height?: string;
+  numFrames?: string;
+  bitrate?: string;
+  codecTagString?: string;
+  hasBFrames?: string;
+  profile?: string;
+  startTime?: string;
   networkCost?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigPropertiesStreamsVideoStreamListVideoStreamNetworkCost;
+  dar?: string;
+  codecName?: string;
+  width?: string;
+  duration?: string;
+  fps?: string;
+  codecTag?: string;
+  codecTimeBase?: string;
+  level?: string;
   static names(): { [key: string]: string } {
     return {
       index: 'Index',
-      codecName: 'CodecName',
-      codecLongName: 'CodecLongName',
-      profile: 'Profile',
-      codecTimeBase: 'CodecTimeBase',
-      codecTagString: 'CodecTagString',
-      codecTag: 'CodecTag',
-      width: 'Width',
-      height: 'Height',
-      hasBFrames: 'HasBFrames',
-      sar: 'Sar',
-      dar: 'Dar',
-      pixFmt: 'PixFmt',
-      level: 'Level',
-      fps: 'Fps',
-      avgFPS: 'AvgFPS',
       timebase: 'Timebase',
-      startTime: 'StartTime',
-      duration: 'Duration',
-      bitrate: 'Bitrate',
-      numFrames: 'NumFrames',
+      avgFPS: 'AvgFPS',
+      pixFmt: 'PixFmt',
+      sar: 'Sar',
       lang: 'Lang',
+      codecLongName: 'CodecLongName',
+      height: 'Height',
+      numFrames: 'NumFrames',
+      bitrate: 'Bitrate',
+      codecTagString: 'CodecTagString',
+      hasBFrames: 'HasBFrames',
+      profile: 'Profile',
+      startTime: 'StartTime',
       networkCost: 'NetworkCost',
+      dar: 'Dar',
+      codecName: 'CodecName',
+      width: 'Width',
+      duration: 'Duration',
+      fps: 'Fps',
+      codecTag: 'CodecTag',
+      codecTimeBase: 'CodecTimeBase',
+      level: 'Level',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       index: 'string',
-      codecName: 'string',
-      codecLongName: 'string',
-      profile: 'string',
-      codecTimeBase: 'string',
-      codecTagString: 'string',
-      codecTag: 'string',
-      width: 'string',
-      height: 'string',
-      hasBFrames: 'string',
-      sar: 'string',
-      dar: 'string',
-      pixFmt: 'string',
-      level: 'string',
-      fps: 'string',
-      avgFPS: 'string',
       timebase: 'string',
-      startTime: 'string',
-      duration: 'string',
-      bitrate: 'string',
-      numFrames: 'string',
+      avgFPS: 'string',
+      pixFmt: 'string',
+      sar: 'string',
       lang: 'string',
+      codecLongName: 'string',
+      height: 'string',
+      numFrames: 'string',
+      bitrate: 'string',
+      codecTagString: 'string',
+      hasBFrames: 'string',
+      profile: 'string',
+      startTime: 'string',
       networkCost: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigPropertiesStreamsVideoStreamListVideoStreamNetworkCost,
+      dar: 'string',
+      codecName: 'string',
+      width: 'string',
+      duration: 'string',
+      fps: 'string',
+      codecTag: 'string',
+      codecTimeBase: 'string',
+      level: 'string',
     };
   }
 
@@ -40918,61 +42873,61 @@ export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfig
 }
 
 export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigPropertiesStreamsAudioStreamListAudioStream extends $tea.Model {
-  index?: string;
-  codecName?: string;
-  codecTimeBase?: string;
-  codecLongName?: string;
-  codecTagString?: string;
-  codecTag?: string;
-  sampleFmt?: string;
-  samplerate?: string;
-  channels?: string;
-  channelLayout?: string;
   timebase?: string;
-  startTime?: string;
-  duration?: string;
-  bitrate?: string;
-  numFrames?: string;
+  index?: string;
+  sampleFmt?: string;
+  channelLayout?: string;
   lang?: string;
+  samplerate?: string;
+  codecLongName?: string;
+  channels?: string;
+  numFrames?: string;
+  bitrate?: string;
+  codecTagString?: string;
+  startTime?: string;
+  codecName?: string;
+  duration?: string;
+  codecTag?: string;
+  codecTimeBase?: string;
   static names(): { [key: string]: string } {
     return {
-      index: 'Index',
-      codecName: 'CodecName',
-      codecTimeBase: 'CodecTimeBase',
-      codecLongName: 'CodecLongName',
-      codecTagString: 'CodecTagString',
-      codecTag: 'CodecTag',
-      sampleFmt: 'SampleFmt',
-      samplerate: 'Samplerate',
-      channels: 'Channels',
-      channelLayout: 'ChannelLayout',
       timebase: 'Timebase',
-      startTime: 'StartTime',
-      duration: 'Duration',
-      bitrate: 'Bitrate',
-      numFrames: 'NumFrames',
+      index: 'Index',
+      sampleFmt: 'SampleFmt',
+      channelLayout: 'ChannelLayout',
       lang: 'Lang',
+      samplerate: 'Samplerate',
+      codecLongName: 'CodecLongName',
+      channels: 'Channels',
+      numFrames: 'NumFrames',
+      bitrate: 'Bitrate',
+      codecTagString: 'CodecTagString',
+      startTime: 'StartTime',
+      codecName: 'CodecName',
+      duration: 'Duration',
+      codecTag: 'CodecTag',
+      codecTimeBase: 'CodecTimeBase',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      index: 'string',
-      codecName: 'string',
-      codecTimeBase: 'string',
-      codecLongName: 'string',
-      codecTagString: 'string',
-      codecTag: 'string',
-      sampleFmt: 'string',
-      samplerate: 'string',
-      channels: 'string',
-      channelLayout: 'string',
       timebase: 'string',
-      startTime: 'string',
-      duration: 'string',
-      bitrate: 'string',
-      numFrames: 'string',
+      index: 'string',
+      sampleFmt: 'string',
+      channelLayout: 'string',
       lang: 'string',
+      samplerate: 'string',
+      codecLongName: 'string',
+      channels: 'string',
+      numFrames: 'string',
+      bitrate: 'string',
+      codecTagString: 'string',
+      startTime: 'string',
+      codecName: 'string',
+      duration: 'string',
+      codecTag: 'string',
+      codecTimeBase: 'string',
     };
   }
 
@@ -41067,37 +43022,37 @@ export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfig
 }
 
 export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigPropertiesFormat extends $tea.Model {
-  numStreams?: string;
-  numPrograms?: string;
-  formatName?: string;
-  formatLongName?: string;
   startTime?: string;
-  duration?: string;
+  numPrograms?: string;
   size?: string;
+  numStreams?: string;
+  formatLongName?: string;
+  duration?: string;
   bitrate?: string;
+  formatName?: string;
   static names(): { [key: string]: string } {
     return {
-      numStreams: 'NumStreams',
-      numPrograms: 'NumPrograms',
-      formatName: 'FormatName',
-      formatLongName: 'FormatLongName',
       startTime: 'StartTime',
-      duration: 'Duration',
+      numPrograms: 'NumPrograms',
       size: 'Size',
+      numStreams: 'NumStreams',
+      formatLongName: 'FormatLongName',
+      duration: 'Duration',
       bitrate: 'Bitrate',
+      formatName: 'FormatName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      numStreams: 'string',
-      numPrograms: 'string',
-      formatName: 'string',
-      formatLongName: 'string',
       startTime: 'string',
-      duration: 'string',
+      numPrograms: 'string',
       size: 'string',
+      numStreams: 'string',
+      formatLongName: 'string',
+      duration: 'string',
       bitrate: 'string',
+      formatName: 'string',
     };
   }
 
@@ -41109,24 +43064,24 @@ export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfig
 export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigProperties extends $tea.Model {
   width?: string;
   height?: string;
-  bitrate?: string;
   duration?: string;
   fps?: string;
-  fileSize?: string;
+  bitrate?: string;
   fileFormat?: string;
   streams?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigPropertiesStreams;
   format?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigPropertiesFormat;
+  fileSize?: string;
   static names(): { [key: string]: string } {
     return {
       width: 'Width',
       height: 'Height',
-      bitrate: 'Bitrate',
       duration: 'Duration',
       fps: 'Fps',
-      fileSize: 'FileSize',
+      bitrate: 'Bitrate',
       fileFormat: 'FileFormat',
       streams: 'Streams',
       format: 'Format',
+      fileSize: 'FileSize',
     };
   }
 
@@ -41134,887 +43089,13 @@ export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfig
     return {
       width: 'string',
       height: 'string',
-      bitrate: 'string',
       duration: 'string',
       fps: 'string',
-      fileSize: 'string',
+      bitrate: 'string',
       fileFormat: 'string',
       streams: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigPropertiesStreams,
       format: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigPropertiesFormat,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigClipTimeSpan extends $tea.Model {
-  seek?: string;
-  duration?: string;
-  static names(): { [key: string]: string } {
-    return {
-      seek: 'Seek',
-      duration: 'Duration',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      seek: 'string',
-      duration: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigClip extends $tea.Model {
-  timeSpan?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigClipTimeSpan;
-  static names(): { [key: string]: string } {
-    return {
-      timeSpan: 'TimeSpan',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      timeSpan: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigClipTimeSpan,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigSuperReso extends $tea.Model {
-  isHalfSample?: string;
-  static names(): { [key: string]: string } {
-    return {
-      isHalfSample: 'IsHalfSample',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      isHalfSample: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigSubtitleConfigSubtitleListSubtitle extends $tea.Model {
-  map?: string;
-  static names(): { [key: string]: string } {
-    return {
-      map: 'Map',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      map: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigSubtitleConfigSubtitleList extends $tea.Model {
-  subtitle?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigSubtitleConfigSubtitleListSubtitle[];
-  static names(): { [key: string]: string } {
-    return {
-      subtitle: 'Subtitle',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      subtitle: { 'type': 'array', 'itemType': SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigSubtitleConfigSubtitleListSubtitle },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigSubtitleConfigExtSubtitleListExtSubtitleInput extends $tea.Model {
-  bucket?: string;
-  location?: string;
-  object?: string;
-  static names(): { [key: string]: string } {
-    return {
-      bucket: 'Bucket',
-      location: 'Location',
-      object: 'Object',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bucket: 'string',
-      location: 'string',
-      object: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigSubtitleConfigExtSubtitleListExtSubtitle extends $tea.Model {
-  fontName?: string;
-  charEnc?: string;
-  input?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigSubtitleConfigExtSubtitleListExtSubtitleInput;
-  static names(): { [key: string]: string } {
-    return {
-      fontName: 'FontName',
-      charEnc: 'CharEnc',
-      input: 'Input',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      fontName: 'string',
-      charEnc: 'string',
-      input: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigSubtitleConfigExtSubtitleListExtSubtitleInput,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigSubtitleConfigExtSubtitleList extends $tea.Model {
-  extSubtitle?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigSubtitleConfigExtSubtitleListExtSubtitle[];
-  static names(): { [key: string]: string } {
-    return {
-      extSubtitle: 'ExtSubtitle',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      extSubtitle: { 'type': 'array', 'itemType': SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigSubtitleConfigExtSubtitleListExtSubtitle },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigSubtitleConfig extends $tea.Model {
-  subtitleList?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigSubtitleConfigSubtitleList;
-  extSubtitleList?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigSubtitleConfigExtSubtitleList;
-  static names(): { [key: string]: string } {
-    return {
-      subtitleList: 'SubtitleList',
-      extSubtitleList: 'ExtSubtitleList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      subtitleList: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigSubtitleConfigSubtitleList,
-      extSubtitleList: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigSubtitleConfigExtSubtitleList,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigTransConfig extends $tea.Model {
-  transMode?: string;
-  isCheckReso?: string;
-  isCheckResoFail?: string;
-  isCheckVideoBitrate?: string;
-  isCheckAudioBitrate?: string;
-  adjDarMethod?: string;
-  isCheckVideoBitrateFail?: string;
-  isCheckAudioBitrateFail?: string;
-  duration?: string;
-  static names(): { [key: string]: string } {
-    return {
-      transMode: 'TransMode',
-      isCheckReso: 'IsCheckReso',
-      isCheckResoFail: 'IsCheckResoFail',
-      isCheckVideoBitrate: 'IsCheckVideoBitrate',
-      isCheckAudioBitrate: 'IsCheckAudioBitrate',
-      adjDarMethod: 'AdjDarMethod',
-      isCheckVideoBitrateFail: 'IsCheckVideoBitrateFail',
-      isCheckAudioBitrateFail: 'IsCheckAudioBitrateFail',
-      duration: 'Duration',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      transMode: 'string',
-      isCheckReso: 'string',
-      isCheckResoFail: 'string',
-      isCheckVideoBitrate: 'string',
-      isCheckAudioBitrate: 'string',
-      adjDarMethod: 'string',
-      isCheckVideoBitrateFail: 'string',
-      isCheckAudioBitrateFail: 'string',
-      duration: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigMuxConfigSegment extends $tea.Model {
-  duration?: string;
-  static names(): { [key: string]: string } {
-    return {
-      duration: 'Duration',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      duration: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigMuxConfigGif extends $tea.Model {
-  loop?: string;
-  finalDelay?: string;
-  isCustomPalette?: string;
-  ditherMode?: string;
-  static names(): { [key: string]: string } {
-    return {
-      loop: 'Loop',
-      finalDelay: 'FinalDelay',
-      isCustomPalette: 'IsCustomPalette',
-      ditherMode: 'DitherMode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      loop: 'string',
-      finalDelay: 'string',
-      isCustomPalette: 'string',
-      ditherMode: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigMuxConfig extends $tea.Model {
-  segment?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigMuxConfigSegment;
-  gif?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigMuxConfigGif;
-  static names(): { [key: string]: string } {
-    return {
-      segment: 'Segment',
-      gif: 'Gif',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      segment: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigMuxConfigSegment,
-      gif: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigMuxConfigGif,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigAudioVolume extends $tea.Model {
-  level?: string;
-  method?: string;
-  static names(): { [key: string]: string } {
-    return {
-      level: 'Level',
-      method: 'Method',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      level: 'string',
-      method: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigAudio extends $tea.Model {
-  codec?: string;
-  profile?: string;
-  samplerate?: string;
-  bitrate?: string;
-  channels?: string;
-  qscale?: string;
-  volume?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigAudioVolume;
-  static names(): { [key: string]: string } {
-    return {
-      codec: 'Codec',
-      profile: 'Profile',
-      samplerate: 'Samplerate',
-      bitrate: 'Bitrate',
-      channels: 'Channels',
-      qscale: 'Qscale',
-      volume: 'Volume',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      codec: 'string',
-      profile: 'string',
-      samplerate: 'string',
-      bitrate: 'string',
-      channels: 'string',
-      qscale: 'string',
-      volume: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigAudioVolume,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigVideoBitrateBnd extends $tea.Model {
-  max?: string;
-  min?: string;
-  static names(): { [key: string]: string } {
-    return {
-      max: 'Max',
-      min: 'Min',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      max: 'string',
-      min: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigVideo extends $tea.Model {
-  codec?: string;
-  profile?: string;
-  bitrate?: string;
-  crf?: string;
-  width?: string;
-  height?: string;
-  fps?: string;
-  gop?: string;
-  preset?: string;
-  scanMode?: string;
-  bufsize?: string;
-  maxrate?: string;
-  pixFmt?: string;
-  degrain?: string;
-  qscale?: string;
-  crop?: string;
-  pad?: string;
-  maxFps?: string;
-  bitrateBnd?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigVideoBitrateBnd;
-  static names(): { [key: string]: string } {
-    return {
-      codec: 'Codec',
-      profile: 'Profile',
-      bitrate: 'Bitrate',
-      crf: 'Crf',
-      width: 'Width',
-      height: 'Height',
-      fps: 'Fps',
-      gop: 'Gop',
-      preset: 'Preset',
-      scanMode: 'ScanMode',
-      bufsize: 'Bufsize',
-      maxrate: 'Maxrate',
-      pixFmt: 'PixFmt',
-      degrain: 'Degrain',
-      qscale: 'Qscale',
-      crop: 'Crop',
-      pad: 'Pad',
-      maxFps: 'MaxFps',
-      bitrateBnd: 'BitrateBnd',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      codec: 'string',
-      profile: 'string',
-      bitrate: 'string',
-      crf: 'string',
-      width: 'string',
-      height: 'string',
-      fps: 'string',
-      gop: 'string',
-      preset: 'string',
-      scanMode: 'string',
-      bufsize: 'string',
-      maxrate: 'string',
-      pixFmt: 'string',
-      degrain: 'string',
-      qscale: 'string',
-      crop: 'string',
-      pad: 'string',
-      maxFps: 'string',
-      bitrateBnd: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigVideoBitrateBnd,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigContainer extends $tea.Model {
-  format?: string;
-  static names(): { [key: string]: string } {
-    return {
-      format: 'Format',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      format: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEncryption extends $tea.Model {
-  type?: string;
-  id?: string;
-  key?: string;
-  keyUri?: string;
-  keyType?: string;
-  skipCnt?: string;
-  static names(): { [key: string]: string } {
-    return {
-      type: 'Type',
-      id: 'Id',
-      key: 'Key',
-      keyUri: 'KeyUri',
-      keyType: 'KeyType',
-      skipCnt: 'SkipCnt',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      type: 'string',
-      id: 'string',
-      key: 'string',
-      keyUri: 'string',
-      keyType: 'string',
-      skipCnt: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingClipListClipEffectsEffect extends $tea.Model {
-  effect?: string;
-  effectConfig?: string;
-  static names(): { [key: string]: string } {
-    return {
-      effect: 'Effect',
-      effectConfig: 'EffectConfig',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      effect: 'string',
-      effectConfig: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingClipListClipEffects extends $tea.Model {
-  effect?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingClipListClipEffectsEffect[];
-  static names(): { [key: string]: string } {
-    return {
-      effect: 'Effect',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      effect: { 'type': 'array', 'itemType': SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingClipListClipEffectsEffect },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingClipListClip extends $tea.Model {
-  id?: string;
-  type?: string;
-  sourceType?: string;
-  sourceID?: string;
-  sourceStrmMap?: string;
-  in?: string;
-  out?: string;
-  effects?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingClipListClipEffects;
-  static names(): { [key: string]: string } {
-    return {
-      id: 'Id',
-      type: 'Type',
-      sourceType: 'SourceType',
-      sourceID: 'SourceID',
-      sourceStrmMap: 'SourceStrmMap',
-      in: 'In',
-      out: 'Out',
-      effects: 'Effects',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      id: 'string',
-      type: 'string',
-      sourceType: 'string',
-      sourceID: 'string',
-      sourceStrmMap: 'string',
-      in: 'string',
-      out: 'string',
-      effects: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingClipListClipEffects,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingClipList extends $tea.Model {
-  clip?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingClipListClip[];
-  static names(): { [key: string]: string } {
-    return {
-      clip: 'Clip',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clip: { 'type': 'array', 'itemType': SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingClipListClip },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingTimelineTrackListTrackClipsClipClipsConfigClipsConfigVideo extends $tea.Model {
-  l?: string;
-  t?: string;
-  static names(): { [key: string]: string } {
-    return {
-      l: 'L',
-      t: 'T',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      l: 'string',
-      t: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingTimelineTrackListTrackClipsClipClipsConfig extends $tea.Model {
-  clipsConfigVideo?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingTimelineTrackListTrackClipsClipClipsConfigClipsConfigVideo;
-  static names(): { [key: string]: string } {
-    return {
-      clipsConfigVideo: 'ClipsConfigVideo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clipsConfigVideo: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingTimelineTrackListTrackClipsClipClipsConfigClipsConfigVideo,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingTimelineTrackListTrackClipsClip extends $tea.Model {
-  clipID?: string;
-  in?: string;
-  out?: string;
-  clipsConfig?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingTimelineTrackListTrackClipsClipClipsConfig;
-  static names(): { [key: string]: string } {
-    return {
-      clipID: 'clipID',
-      in: 'In',
-      out: 'Out',
-      clipsConfig: 'ClipsConfig',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clipID: 'string',
-      in: 'string',
-      out: 'string',
-      clipsConfig: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingTimelineTrackListTrackClipsClipClipsConfig,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingTimelineTrackListTrackClips extends $tea.Model {
-  clip?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingTimelineTrackListTrackClipsClip[];
-  static names(): { [key: string]: string } {
-    return {
-      clip: 'Clip',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clip: { 'type': 'array', 'itemType': SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingTimelineTrackListTrackClipsClip },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingTimelineTrackListTrack extends $tea.Model {
-  id?: string;
-  type?: string;
-  order?: string;
-  clips?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingTimelineTrackListTrackClips;
-  static names(): { [key: string]: string } {
-    return {
-      id: 'Id',
-      type: 'Type',
-      order: 'Order',
-      clips: 'Clips',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      id: 'string',
-      type: 'string',
-      order: 'string',
-      clips: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingTimelineTrackListTrackClips,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingTimelineTrackList extends $tea.Model {
-  track?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingTimelineTrackListTrack[];
-  static names(): { [key: string]: string } {
-    return {
-      track: 'Track',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      track: { 'type': 'array', 'itemType': SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingTimelineTrackListTrack },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingTimelineTimelineConfigTimelineConfigVideo extends $tea.Model {
-  width?: string;
-  height?: string;
-  bgColor?: string;
-  fps?: string;
-  renderRatio?: string;
-  reclosePrec?: string;
-  isGpuData?: string;
-  isOneTrackData?: string;
-  static names(): { [key: string]: string } {
-    return {
-      width: 'Width',
-      height: 'Height',
-      bgColor: 'BgColor',
-      fps: 'Fps',
-      renderRatio: 'RenderRatio',
-      reclosePrec: 'ReclosePrec',
-      isGpuData: 'IsGpuData',
-      isOneTrackData: 'IsOneTrackData',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      width: 'string',
-      height: 'string',
-      bgColor: 'string',
-      fps: 'string',
-      renderRatio: 'string',
-      reclosePrec: 'string',
-      isGpuData: 'string',
-      isOneTrackData: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingTimelineTimelineConfigTimelineConfigAudio extends $tea.Model {
-  samplerate?: string;
-  channelLayout?: string;
-  channels?: string;
-  static names(): { [key: string]: string } {
-    return {
-      samplerate: 'Samplerate',
-      channelLayout: 'ChannelLayout',
-      channels: 'Channels',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      samplerate: 'string',
-      channelLayout: 'string',
-      channels: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingTimelineTimelineConfig extends $tea.Model {
-  timelineConfigVideo?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingTimelineTimelineConfigTimelineConfigVideo;
-  timelineConfigAudio?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingTimelineTimelineConfigTimelineConfigAudio;
-  static names(): { [key: string]: string } {
-    return {
-      timelineConfigVideo: 'TimelineConfigVideo',
-      timelineConfigAudio: 'TimelineConfigAudio',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      timelineConfigVideo: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingTimelineTimelineConfigTimelineConfigVideo,
-      timelineConfigAudio: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingTimelineTimelineConfigTimelineConfigAudio,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingTimeline extends $tea.Model {
-  trackList?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingTimelineTrackList;
-  timelineConfig?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingTimelineTimelineConfig;
-  static names(): { [key: string]: string } {
-    return {
-      trackList: 'TrackList',
-      timelineConfig: 'TimelineConfig',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      trackList: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingTimelineTrackList,
-      timelineConfig: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingTimelineTimelineConfig,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditing extends $tea.Model {
-  clipList?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingClipList;
-  timeline?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingTimeline;
-  static names(): { [key: string]: string } {
-    return {
-      clipList: 'ClipList',
-      timeline: 'Timeline',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clipList: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingClipList,
-      timeline: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditingTimeline,
+      fileSize: 'string',
     };
   }
 
@@ -42024,88 +43105,88 @@ export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfig
 }
 
 export class SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfig extends $tea.Model {
-  templateId?: string;
-  userData?: string;
-  rotate?: string;
-  videoStreamMap?: string;
-  audioStreamMap?: string;
-  deWatermark?: string;
-  priority?: string;
-  waterMarkConfigUrl?: string;
-  mergeConfigUrl?: string;
-  waterMarkList?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigWaterMarkList;
-  mergeList?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigMergeList;
-  digiWaterMark?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigDigiWaterMark;
-  outputFile?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigOutputFile;
-  m3U8NonStandardSupport?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigM3U8NonStandardSupport;
-  properties?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigProperties;
-  clip?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigClip;
-  superReso?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigSuperReso;
-  subtitleConfig?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigSubtitleConfig;
-  transConfig?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigTransConfig;
-  muxConfig?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigMuxConfig;
-  audio?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigAudio;
   video?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigVideo;
-  container?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigContainer;
+  transConfig?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigTransConfig;
   encryption?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEncryption;
+  waterMarkList?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigWaterMarkList;
+  deWatermark?: string;
+  waterMarkConfigUrl?: string;
+  m3U8NonStandardSupport?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigM3U8NonStandardSupport;
+  priority?: string;
+  audio?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigAudio;
+  audioStreamMap?: string;
+  mergeList?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigMergeList;
+  superReso?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigSuperReso;
+  userData?: string;
+  digiWaterMark?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigDigiWaterMark;
+  videoStreamMap?: string;
+  outputFile?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigOutputFile;
+  rotate?: string;
   editing?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditing;
+  container?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigContainer;
+  clip?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigClip;
+  mergeConfigUrl?: string;
+  muxConfig?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigMuxConfig;
+  templateId?: string;
+  subtitleConfig?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigSubtitleConfig;
+  properties?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigProperties;
   static names(): { [key: string]: string } {
     return {
-      templateId: 'TemplateId',
-      userData: 'UserData',
-      rotate: 'Rotate',
-      videoStreamMap: 'VideoStreamMap',
-      audioStreamMap: 'AudioStreamMap',
-      deWatermark: 'DeWatermark',
-      priority: 'Priority',
-      waterMarkConfigUrl: 'WaterMarkConfigUrl',
-      mergeConfigUrl: 'MergeConfigUrl',
-      waterMarkList: 'WaterMarkList',
-      mergeList: 'MergeList',
-      digiWaterMark: 'DigiWaterMark',
-      outputFile: 'OutputFile',
-      m3U8NonStandardSupport: 'M3U8NonStandardSupport',
-      properties: 'Properties',
-      clip: 'Clip',
-      superReso: 'SuperReso',
-      subtitleConfig: 'SubtitleConfig',
-      transConfig: 'TransConfig',
-      muxConfig: 'MuxConfig',
-      audio: 'Audio',
       video: 'Video',
-      container: 'Container',
+      transConfig: 'TransConfig',
       encryption: 'Encryption',
+      waterMarkList: 'WaterMarkList',
+      deWatermark: 'DeWatermark',
+      waterMarkConfigUrl: 'WaterMarkConfigUrl',
+      m3U8NonStandardSupport: 'M3U8NonStandardSupport',
+      priority: 'Priority',
+      audio: 'Audio',
+      audioStreamMap: 'AudioStreamMap',
+      mergeList: 'MergeList',
+      superReso: 'SuperReso',
+      userData: 'UserData',
+      digiWaterMark: 'DigiWaterMark',
+      videoStreamMap: 'VideoStreamMap',
+      outputFile: 'OutputFile',
+      rotate: 'Rotate',
       editing: 'Editing',
+      container: 'Container',
+      clip: 'Clip',
+      mergeConfigUrl: 'MergeConfigUrl',
+      muxConfig: 'MuxConfig',
+      templateId: 'TemplateId',
+      subtitleConfig: 'SubtitleConfig',
+      properties: 'Properties',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      templateId: 'string',
-      userData: 'string',
-      rotate: 'string',
-      videoStreamMap: 'string',
-      audioStreamMap: 'string',
-      deWatermark: 'string',
-      priority: 'string',
-      waterMarkConfigUrl: 'string',
-      mergeConfigUrl: 'string',
-      waterMarkList: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigWaterMarkList,
-      mergeList: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigMergeList,
-      digiWaterMark: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigDigiWaterMark,
-      outputFile: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigOutputFile,
-      m3U8NonStandardSupport: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigM3U8NonStandardSupport,
-      properties: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigProperties,
-      clip: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigClip,
-      superReso: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigSuperReso,
-      subtitleConfig: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigSubtitleConfig,
-      transConfig: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigTransConfig,
-      muxConfig: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigMuxConfig,
-      audio: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigAudio,
       video: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigVideo,
-      container: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigContainer,
+      transConfig: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigTransConfig,
       encryption: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEncryption,
+      waterMarkList: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigWaterMarkList,
+      deWatermark: 'string',
+      waterMarkConfigUrl: 'string',
+      m3U8NonStandardSupport: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigM3U8NonStandardSupport,
+      priority: 'string',
+      audio: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigAudio,
+      audioStreamMap: 'string',
+      mergeList: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigMergeList,
+      superReso: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigSuperReso,
+      userData: 'string',
+      digiWaterMark: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigDigiWaterMark,
+      videoStreamMap: 'string',
+      outputFile: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigOutputFile,
+      rotate: 'string',
       editing: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigEditing,
+      container: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigContainer,
+      clip: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigClip,
+      mergeConfigUrl: 'string',
+      muxConfig: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigMuxConfig,
+      templateId: 'string',
+      subtitleConfig: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigSubtitleConfig,
+      properties: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfigProperties,
     };
   }
 
@@ -42140,28 +43221,28 @@ export class SubmitEditingJobsResponseBodyJobResultListJobResultJobMNSMessageRes
 }
 
 export class SubmitEditingJobsResponseBodyJobResultListJobResultJob extends $tea.Model {
-  jobId?: string;
+  creationTime?: string;
+  percent?: number;
+  finishTime?: string;
   state?: string;
+  jobId?: string;
   code?: string;
   message?: string;
-  percent?: number;
-  pipelineId?: string;
-  creationTime?: string;
-  finishTime?: string;
   editingInputs?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingInputs;
+  pipelineId?: string;
   editingConfig?: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfig;
   MNSMessageResult?: SubmitEditingJobsResponseBodyJobResultListJobResultJobMNSMessageResult;
   static names(): { [key: string]: string } {
     return {
-      jobId: 'JobId',
+      creationTime: 'CreationTime',
+      percent: 'Percent',
+      finishTime: 'FinishTime',
       state: 'State',
+      jobId: 'JobId',
       code: 'Code',
       message: 'Message',
-      percent: 'Percent',
-      pipelineId: 'PipelineId',
-      creationTime: 'CreationTime',
-      finishTime: 'FinishTime',
       editingInputs: 'EditingInputs',
+      pipelineId: 'PipelineId',
       editingConfig: 'EditingConfig',
       MNSMessageResult: 'MNSMessageResult',
     };
@@ -42169,15 +43250,15 @@ export class SubmitEditingJobsResponseBodyJobResultListJobResultJob extends $tea
 
   static types(): { [key: string]: any } {
     return {
-      jobId: 'string',
+      creationTime: 'string',
+      percent: 'number',
+      finishTime: 'string',
       state: 'string',
+      jobId: 'string',
       code: 'string',
       message: 'string',
-      percent: 'number',
-      pipelineId: 'string',
-      creationTime: 'string',
-      finishTime: 'string',
       editingInputs: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingInputs,
+      pipelineId: 'string',
       editingConfig: SubmitEditingJobsResponseBodyJobResultListJobResultJobEditingConfig,
       MNSMessageResult: SubmitEditingJobsResponseBodyJobResultListJobResultJobMNSMessageResult,
     };
@@ -42189,25 +43270,25 @@ export class SubmitEditingJobsResponseBodyJobResultListJobResultJob extends $tea
 }
 
 export class SubmitEditingJobsResponseBodyJobResultListJobResult extends $tea.Model {
+  job?: SubmitEditingJobsResponseBodyJobResultListJobResultJob;
   success?: boolean;
   code?: string;
   message?: string;
-  job?: SubmitEditingJobsResponseBodyJobResultListJobResultJob;
   static names(): { [key: string]: string } {
     return {
+      job: 'Job',
       success: 'Success',
       code: 'Code',
       message: 'Message',
-      job: 'Job',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      job: SubmitEditingJobsResponseBodyJobResultListJobResultJob,
       success: 'boolean',
       code: 'string',
       message: 'string',
-      job: SubmitEditingJobsResponseBodyJobResultListJobResultJob,
     };
   }
 
@@ -42227,34 +43308,6 @@ export class SubmitEditingJobsResponseBodyJobResultList extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       jobResult: { 'type': 'array', 'itemType': SubmitEditingJobsResponseBodyJobResultListJobResult },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitImageQualityJobResponseBodyImageQualityJobInput extends $tea.Model {
-  bucket?: string;
-  location?: string;
-  object?: string;
-  url?: string;
-  static names(): { [key: string]: string } {
-    return {
-      bucket: 'Bucket',
-      location: 'Location',
-      object: 'Object',
-      url: 'Url',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bucket: 'string',
-      location: 'string',
-      object: 'string',
-      url: 'string',
     };
   }
 
@@ -42288,35 +43341,63 @@ export class SubmitImageQualityJobResponseBodyImageQualityJobResult extends $tea
   }
 }
 
-export class SubmitImageQualityJobResponseBodyImageQualityJob extends $tea.Model {
-  jobId?: string;
-  userData?: string;
-  pipelineId?: string;
-  state?: string;
-  creationTime?: string;
-  input?: SubmitImageQualityJobResponseBodyImageQualityJobInput;
-  result?: SubmitImageQualityJobResponseBodyImageQualityJobResult;
+export class SubmitImageQualityJobResponseBodyImageQualityJobInput extends $tea.Model {
+  url?: string;
+  object?: string;
+  location?: string;
+  bucket?: string;
   static names(): { [key: string]: string } {
     return {
-      jobId: 'JobId',
-      userData: 'UserData',
-      pipelineId: 'PipelineId',
-      state: 'State',
-      creationTime: 'CreationTime',
-      input: 'Input',
-      result: 'Result',
+      url: 'Url',
+      object: 'Object',
+      location: 'Location',
+      bucket: 'Bucket',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      url: 'string',
+      object: 'string',
+      location: 'string',
+      bucket: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitImageQualityJobResponseBodyImageQualityJob extends $tea.Model {
+  creationTime?: string;
+  result?: SubmitImageQualityJobResponseBodyImageQualityJobResult;
+  state?: string;
+  jobId?: string;
+  userData?: string;
+  pipelineId?: string;
+  input?: SubmitImageQualityJobResponseBodyImageQualityJobInput;
+  static names(): { [key: string]: string } {
+    return {
+      creationTime: 'CreationTime',
+      result: 'Result',
+      state: 'State',
+      jobId: 'JobId',
+      userData: 'UserData',
+      pipelineId: 'PipelineId',
+      input: 'Input',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      creationTime: 'string',
+      result: SubmitImageQualityJobResponseBodyImageQualityJobResult,
+      state: 'string',
       jobId: 'string',
       userData: 'string',
       pipelineId: 'string',
-      state: 'string',
-      creationTime: 'string',
       input: SubmitImageQualityJobResponseBodyImageQualityJobInput,
-      result: SubmitImageQualityJobResponseBodyImageQualityJobResult,
     };
   }
 
@@ -44702,26 +45783,26 @@ export class SubmitSubtitleJobResponseBodySubtitleJob extends $tea.Model {
   }
 }
 
-export class SubmitVideoPoseJobResponseBodyVideoPoseJobInput extends $tea.Model {
-  bucket?: string;
-  location?: string;
-  object?: string;
+export class SubmitVideoPoseJobResponseBodyVideoPoseJobOutputConfigDataFile extends $tea.Model {
   roleArn?: string;
+  object?: string;
+  location?: string;
+  bucket?: string;
   static names(): { [key: string]: string } {
     return {
-      bucket: 'Bucket',
-      location: 'Location',
-      object: 'Object',
       roleArn: 'RoleArn',
+      object: 'Object',
+      location: 'Location',
+      bucket: 'Bucket',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      bucket: 'string',
-      location: 'string',
-      object: 'string',
       roleArn: 'string',
+      object: 'string',
+      location: 'string',
+      bucket: 'string',
     };
   }
 
@@ -44731,53 +45812,25 @@ export class SubmitVideoPoseJobResponseBodyVideoPoseJobInput extends $tea.Model 
 }
 
 export class SubmitVideoPoseJobResponseBodyVideoPoseJobOutputConfigVideoFile extends $tea.Model {
-  bucket?: string;
-  location?: string;
-  object?: string;
   roleArn?: string;
+  object?: string;
+  location?: string;
+  bucket?: string;
   static names(): { [key: string]: string } {
     return {
-      bucket: 'Bucket',
-      location: 'Location',
-      object: 'Object',
       roleArn: 'RoleArn',
+      object: 'Object',
+      location: 'Location',
+      bucket: 'Bucket',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      bucket: 'string',
-      location: 'string',
-      object: 'string',
       roleArn: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitVideoPoseJobResponseBodyVideoPoseJobOutputConfigDataFile extends $tea.Model {
-  bucket?: string;
-  location?: string;
-  object?: string;
-  roleArn?: string;
-  static names(): { [key: string]: string } {
-    return {
-      bucket: 'Bucket',
-      location: 'Location',
-      object: 'Object',
-      roleArn: 'RoleArn',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bucket: 'string',
-      location: 'string',
       object: 'string',
-      roleArn: 'string',
+      location: 'string',
+      bucket: 'string',
     };
   }
 
@@ -44787,19 +45840,72 @@ export class SubmitVideoPoseJobResponseBodyVideoPoseJobOutputConfigDataFile exte
 }
 
 export class SubmitVideoPoseJobResponseBodyVideoPoseJobOutputConfig extends $tea.Model {
-  videoFile?: SubmitVideoPoseJobResponseBodyVideoPoseJobOutputConfigVideoFile;
   dataFile?: SubmitVideoPoseJobResponseBodyVideoPoseJobOutputConfigDataFile;
+  videoFile?: SubmitVideoPoseJobResponseBodyVideoPoseJobOutputConfigVideoFile;
   static names(): { [key: string]: string } {
     return {
-      videoFile: 'VideoFile',
       dataFile: 'DataFile',
+      videoFile: 'VideoFile',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      videoFile: SubmitVideoPoseJobResponseBodyVideoPoseJobOutputConfigVideoFile,
       dataFile: SubmitVideoPoseJobResponseBodyVideoPoseJobOutputConfigDataFile,
+      videoFile: SubmitVideoPoseJobResponseBodyVideoPoseJobOutputConfigVideoFile,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitVideoPoseJobResponseBodyVideoPoseJobMNSMessageResult extends $tea.Model {
+  messageId?: string;
+  errorMessage?: string;
+  errorCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      messageId: 'MessageId',
+      errorMessage: 'ErrorMessage',
+      errorCode: 'ErrorCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      messageId: 'string',
+      errorMessage: 'string',
+      errorCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitVideoPoseJobResponseBodyVideoPoseJobInput extends $tea.Model {
+  roleArn?: string;
+  object?: string;
+  location?: string;
+  bucket?: string;
+  static names(): { [key: string]: string } {
+    return {
+      roleArn: 'RoleArn',
+      object: 'Object',
+      location: 'Location',
+      bucket: 'Bucket',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      roleArn: 'string',
+      object: 'string',
+      location: 'string',
+      bucket: 'string',
     };
   }
 
@@ -44810,21 +45916,21 @@ export class SubmitVideoPoseJobResponseBodyVideoPoseJobOutputConfig extends $tea
 
 export class SubmitVideoPoseJobResponseBodyVideoPoseJobPropertiesStreamsVideoStreamListVideoStreamNetworkCost extends $tea.Model {
   preloadTime?: string;
-  costBandwidth?: string;
   avgBitrate?: string;
+  costBandwidth?: string;
   static names(): { [key: string]: string } {
     return {
       preloadTime: 'PreloadTime',
-      costBandwidth: 'CostBandwidth',
       avgBitrate: 'AvgBitrate',
+      costBandwidth: 'CostBandwidth',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       preloadTime: 'string',
-      costBandwidth: 'string',
       avgBitrate: 'string',
+      costBandwidth: 'string',
     };
   }
 
@@ -44834,85 +45940,85 @@ export class SubmitVideoPoseJobResponseBodyVideoPoseJobPropertiesStreamsVideoStr
 }
 
 export class SubmitVideoPoseJobResponseBodyVideoPoseJobPropertiesStreamsVideoStreamListVideoStream extends $tea.Model {
-  index?: string;
-  codecName?: string;
-  codecLongName?: string;
-  profile?: string;
-  codecTimeBase?: string;
-  codecTagString?: string;
-  codecTag?: string;
-  width?: string;
-  height?: string;
-  hasBFrames?: string;
   sar?: string;
-  dar?: string;
-  pixFmt?: string;
-  level?: string;
-  fps?: string;
-  avgFPS?: string;
-  timebase?: string;
-  startTime?: string;
-  duration?: string;
-  bitrate?: string;
-  numFrames?: string;
-  lang?: string;
-  rotate?: string;
+  height?: string;
+  codecTagString?: string;
   networkCost?: SubmitVideoPoseJobResponseBodyVideoPoseJobPropertiesStreamsVideoStreamListVideoStreamNetworkCost;
+  width?: string;
+  index?: string;
+  timebase?: string;
+  avgFPS?: string;
+  pixFmt?: string;
+  lang?: string;
+  codecLongName?: string;
+  numFrames?: string;
+  rotate?: string;
+  bitrate?: string;
+  hasBFrames?: string;
+  profile?: string;
+  startTime?: string;
+  dar?: string;
+  codecName?: string;
+  duration?: string;
+  fps?: string;
+  codecTag?: string;
+  codecTimeBase?: string;
+  level?: string;
   static names(): { [key: string]: string } {
     return {
-      index: 'Index',
-      codecName: 'CodecName',
-      codecLongName: 'CodecLongName',
-      profile: 'Profile',
-      codecTimeBase: 'CodecTimeBase',
-      codecTagString: 'CodecTagString',
-      codecTag: 'CodecTag',
-      width: 'Width',
-      height: 'Height',
-      hasBFrames: 'HasBFrames',
       sar: 'Sar',
-      dar: 'Dar',
-      pixFmt: 'PixFmt',
-      level: 'Level',
-      fps: 'Fps',
-      avgFPS: 'AvgFPS',
-      timebase: 'Timebase',
-      startTime: 'StartTime',
-      duration: 'Duration',
-      bitrate: 'Bitrate',
-      numFrames: 'NumFrames',
-      lang: 'Lang',
-      rotate: 'Rotate',
+      height: 'Height',
+      codecTagString: 'CodecTagString',
       networkCost: 'NetworkCost',
+      width: 'Width',
+      index: 'Index',
+      timebase: 'Timebase',
+      avgFPS: 'AvgFPS',
+      pixFmt: 'PixFmt',
+      lang: 'Lang',
+      codecLongName: 'CodecLongName',
+      numFrames: 'NumFrames',
+      rotate: 'Rotate',
+      bitrate: 'Bitrate',
+      hasBFrames: 'HasBFrames',
+      profile: 'Profile',
+      startTime: 'StartTime',
+      dar: 'Dar',
+      codecName: 'CodecName',
+      duration: 'Duration',
+      fps: 'Fps',
+      codecTag: 'CodecTag',
+      codecTimeBase: 'CodecTimeBase',
+      level: 'Level',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      index: 'string',
-      codecName: 'string',
-      codecLongName: 'string',
-      profile: 'string',
-      codecTimeBase: 'string',
-      codecTagString: 'string',
-      codecTag: 'string',
-      width: 'string',
-      height: 'string',
-      hasBFrames: 'string',
       sar: 'string',
-      dar: 'string',
-      pixFmt: 'string',
-      level: 'string',
-      fps: 'string',
-      avgFPS: 'string',
-      timebase: 'string',
-      startTime: 'string',
-      duration: 'string',
-      bitrate: 'string',
-      numFrames: 'string',
-      lang: 'string',
-      rotate: 'string',
+      height: 'string',
+      codecTagString: 'string',
       networkCost: SubmitVideoPoseJobResponseBodyVideoPoseJobPropertiesStreamsVideoStreamListVideoStreamNetworkCost,
+      width: 'string',
+      index: 'string',
+      timebase: 'string',
+      avgFPS: 'string',
+      pixFmt: 'string',
+      lang: 'string',
+      codecLongName: 'string',
+      numFrames: 'string',
+      rotate: 'string',
+      bitrate: 'string',
+      hasBFrames: 'string',
+      profile: 'string',
+      startTime: 'string',
+      dar: 'string',
+      codecName: 'string',
+      duration: 'string',
+      fps: 'string',
+      codecTag: 'string',
+      codecTimeBase: 'string',
+      level: 'string',
     };
   }
 
@@ -44941,61 +46047,61 @@ export class SubmitVideoPoseJobResponseBodyVideoPoseJobPropertiesStreamsVideoStr
 }
 
 export class SubmitVideoPoseJobResponseBodyVideoPoseJobPropertiesStreamsAudioStreamListAudioStream extends $tea.Model {
-  index?: string;
-  codecName?: string;
-  codecTimeBase?: string;
-  codecLongName?: string;
-  codecTagString?: string;
-  codecTag?: string;
-  sampleFmt?: string;
-  samplerate?: string;
-  channels?: string;
-  channelLayout?: string;
   timebase?: string;
-  startTime?: string;
-  duration?: string;
-  bitrate?: string;
-  numFrames?: string;
+  index?: string;
+  sampleFmt?: string;
+  channelLayout?: string;
   lang?: string;
+  samplerate?: string;
+  codecLongName?: string;
+  channels?: string;
+  numFrames?: string;
+  bitrate?: string;
+  codecTagString?: string;
+  startTime?: string;
+  codecName?: string;
+  duration?: string;
+  codecTag?: string;
+  codecTimeBase?: string;
   static names(): { [key: string]: string } {
     return {
-      index: 'Index',
-      codecName: 'CodecName',
-      codecTimeBase: 'CodecTimeBase',
-      codecLongName: 'CodecLongName',
-      codecTagString: 'CodecTagString',
-      codecTag: 'CodecTag',
-      sampleFmt: 'SampleFmt',
-      samplerate: 'Samplerate',
-      channels: 'Channels',
-      channelLayout: 'ChannelLayout',
       timebase: 'Timebase',
-      startTime: 'StartTime',
-      duration: 'Duration',
-      bitrate: 'Bitrate',
-      numFrames: 'NumFrames',
+      index: 'Index',
+      sampleFmt: 'SampleFmt',
+      channelLayout: 'ChannelLayout',
       lang: 'Lang',
+      samplerate: 'Samplerate',
+      codecLongName: 'CodecLongName',
+      channels: 'Channels',
+      numFrames: 'NumFrames',
+      bitrate: 'Bitrate',
+      codecTagString: 'CodecTagString',
+      startTime: 'StartTime',
+      codecName: 'CodecName',
+      duration: 'Duration',
+      codecTag: 'CodecTag',
+      codecTimeBase: 'CodecTimeBase',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      index: 'string',
-      codecName: 'string',
-      codecTimeBase: 'string',
-      codecLongName: 'string',
-      codecTagString: 'string',
-      codecTag: 'string',
-      sampleFmt: 'string',
-      samplerate: 'string',
-      channels: 'string',
-      channelLayout: 'string',
       timebase: 'string',
-      startTime: 'string',
-      duration: 'string',
-      bitrate: 'string',
-      numFrames: 'string',
+      index: 'string',
+      sampleFmt: 'string',
+      channelLayout: 'string',
       lang: 'string',
+      samplerate: 'string',
+      codecLongName: 'string',
+      channels: 'string',
+      numFrames: 'string',
+      bitrate: 'string',
+      codecTagString: 'string',
+      startTime: 'string',
+      codecName: 'string',
+      duration: 'string',
+      codecTag: 'string',
+      codecTimeBase: 'string',
     };
   }
 
@@ -45024,43 +46130,43 @@ export class SubmitVideoPoseJobResponseBodyVideoPoseJobPropertiesStreamsAudioStr
 }
 
 export class SubmitVideoPoseJobResponseBodyVideoPoseJobPropertiesStreamsSubtitleStreamListSubtitleStream extends $tea.Model {
-  index?: string;
-  codecName?: string;
-  codecTimeBase?: string;
-  codecLongName?: string;
-  codecTagString?: string;
-  codecTag?: string;
   timebase?: string;
+  index?: string;
   startTime?: string;
-  duration?: string;
+  codecName?: string;
   lang?: string;
+  codecLongName?: string;
+  duration?: string;
+  codecTag?: string;
+  codecTimeBase?: string;
+  codecTagString?: string;
   static names(): { [key: string]: string } {
     return {
-      index: 'Index',
-      codecName: 'CodecName',
-      codecTimeBase: 'CodecTimeBase',
-      codecLongName: 'CodecLongName',
-      codecTagString: 'CodecTagString',
-      codecTag: 'CodecTag',
       timebase: 'Timebase',
+      index: 'Index',
       startTime: 'StartTime',
-      duration: 'Duration',
+      codecName: 'CodecName',
       lang: 'Lang',
+      codecLongName: 'CodecLongName',
+      duration: 'Duration',
+      codecTag: 'CodecTag',
+      codecTimeBase: 'CodecTimeBase',
+      codecTagString: 'CodecTagString',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      index: 'string',
-      codecName: 'string',
-      codecTimeBase: 'string',
-      codecLongName: 'string',
-      codecTagString: 'string',
-      codecTag: 'string',
       timebase: 'string',
+      index: 'string',
       startTime: 'string',
-      duration: 'string',
+      codecName: 'string',
       lang: 'string',
+      codecLongName: 'string',
+      duration: 'string',
+      codecTag: 'string',
+      codecTimeBase: 'string',
+      codecTagString: 'string',
     };
   }
 
@@ -45114,37 +46220,37 @@ export class SubmitVideoPoseJobResponseBodyVideoPoseJobPropertiesStreams extends
 }
 
 export class SubmitVideoPoseJobResponseBodyVideoPoseJobPropertiesFormat extends $tea.Model {
-  numStreams?: string;
-  numPrograms?: string;
-  formatName?: string;
-  formatLongName?: string;
   startTime?: string;
-  duration?: string;
+  numPrograms?: string;
   size?: string;
+  numStreams?: string;
+  formatLongName?: string;
+  duration?: string;
   bitrate?: string;
+  formatName?: string;
   static names(): { [key: string]: string } {
     return {
-      numStreams: 'NumStreams',
-      numPrograms: 'NumPrograms',
-      formatName: 'FormatName',
-      formatLongName: 'FormatLongName',
       startTime: 'StartTime',
-      duration: 'Duration',
+      numPrograms: 'NumPrograms',
       size: 'Size',
+      numStreams: 'NumStreams',
+      formatLongName: 'FormatLongName',
+      duration: 'Duration',
       bitrate: 'Bitrate',
+      formatName: 'FormatName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      numStreams: 'string',
-      numPrograms: 'string',
-      formatName: 'string',
-      formatLongName: 'string',
       startTime: 'string',
-      duration: 'string',
+      numPrograms: 'string',
       size: 'string',
+      numStreams: 'string',
+      formatLongName: 'string',
+      duration: 'string',
       bitrate: 'string',
+      formatName: 'string',
     };
   }
 
@@ -45156,24 +46262,24 @@ export class SubmitVideoPoseJobResponseBodyVideoPoseJobPropertiesFormat extends 
 export class SubmitVideoPoseJobResponseBodyVideoPoseJobProperties extends $tea.Model {
   width?: string;
   height?: string;
-  bitrate?: string;
   duration?: string;
   fps?: string;
-  fileSize?: string;
+  bitrate?: string;
   fileFormat?: string;
   streams?: SubmitVideoPoseJobResponseBodyVideoPoseJobPropertiesStreams;
   format?: SubmitVideoPoseJobResponseBodyVideoPoseJobPropertiesFormat;
+  fileSize?: string;
   static names(): { [key: string]: string } {
     return {
       width: 'Width',
       height: 'Height',
-      bitrate: 'Bitrate',
       duration: 'Duration',
       fps: 'Fps',
-      fileSize: 'FileSize',
+      bitrate: 'Bitrate',
       fileFormat: 'FileFormat',
       streams: 'Streams',
       format: 'Format',
+      fileSize: 'FileSize',
     };
   }
 
@@ -45181,38 +46287,13 @@ export class SubmitVideoPoseJobResponseBodyVideoPoseJobProperties extends $tea.M
     return {
       width: 'string',
       height: 'string',
-      bitrate: 'string',
       duration: 'string',
       fps: 'string',
-      fileSize: 'string',
+      bitrate: 'string',
       fileFormat: 'string',
       streams: SubmitVideoPoseJobResponseBodyVideoPoseJobPropertiesStreams,
       format: SubmitVideoPoseJobResponseBodyVideoPoseJobPropertiesFormat,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitVideoPoseJobResponseBodyVideoPoseJobMNSMessageResult extends $tea.Model {
-  messageId?: string;
-  errorMessage?: string;
-  errorCode?: string;
-  static names(): { [key: string]: string } {
-    return {
-      messageId: 'MessageId',
-      errorMessage: 'ErrorMessage',
-      errorCode: 'ErrorCode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      messageId: 'string',
-      errorMessage: 'string',
-      errorCode: 'string',
+      fileSize: 'string',
     };
   }
 
@@ -45222,37 +46303,37 @@ export class SubmitVideoPoseJobResponseBodyVideoPoseJobMNSMessageResult extends 
 }
 
 export class SubmitVideoPoseJobResponseBodyVideoPoseJob extends $tea.Model {
-  jobId?: string;
-  pipelineId?: string;
-  userData?: string;
-  state?: string;
-  input?: SubmitVideoPoseJobResponseBodyVideoPoseJobInput;
   outputConfig?: SubmitVideoPoseJobResponseBodyVideoPoseJobOutputConfig;
-  properties?: SubmitVideoPoseJobResponseBodyVideoPoseJobProperties;
+  state?: string;
+  jobId?: string;
+  userData?: string;
+  pipelineId?: string;
   MNSMessageResult?: SubmitVideoPoseJobResponseBodyVideoPoseJobMNSMessageResult;
+  input?: SubmitVideoPoseJobResponseBodyVideoPoseJobInput;
+  properties?: SubmitVideoPoseJobResponseBodyVideoPoseJobProperties;
   static names(): { [key: string]: string } {
     return {
-      jobId: 'JobId',
-      pipelineId: 'PipelineId',
-      userData: 'UserData',
-      state: 'State',
-      input: 'Input',
       outputConfig: 'OutputConfig',
-      properties: 'Properties',
+      state: 'State',
+      jobId: 'JobId',
+      userData: 'UserData',
+      pipelineId: 'PipelineId',
       MNSMessageResult: 'MNSMessageResult',
+      input: 'Input',
+      properties: 'Properties',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      jobId: 'string',
-      pipelineId: 'string',
-      userData: 'string',
-      state: 'string',
-      input: SubmitVideoPoseJobResponseBodyVideoPoseJobInput,
       outputConfig: SubmitVideoPoseJobResponseBodyVideoPoseJobOutputConfig,
-      properties: SubmitVideoPoseJobResponseBodyVideoPoseJobProperties,
+      state: 'string',
+      jobId: 'string',
+      userData: 'string',
+      pipelineId: 'string',
       MNSMessageResult: SubmitVideoPoseJobResponseBodyVideoPoseJobMNSMessageResult,
+      input: SubmitVideoPoseJobResponseBodyVideoPoseJobInput,
+      properties: SubmitVideoPoseJobResponseBodyVideoPoseJobProperties,
     };
   }
 
@@ -45262,19 +46343,19 @@ export class SubmitVideoPoseJobResponseBodyVideoPoseJob extends $tea.Model {
 }
 
 export class UpdateAsrPipelineResponseBodyPipelineNotifyConfig extends $tea.Model {
-  topic?: string;
   queueName?: string;
+  topic?: string;
   static names(): { [key: string]: string } {
     return {
-      topic: 'Topic',
       queueName: 'QueueName',
+      topic: 'Topic',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      topic: 'string',
       queueName: 'string',
+      topic: 'string',
     };
   }
 
@@ -45284,28 +46365,28 @@ export class UpdateAsrPipelineResponseBodyPipelineNotifyConfig extends $tea.Mode
 }
 
 export class UpdateAsrPipelineResponseBodyPipeline extends $tea.Model {
-  id?: string;
-  name?: string;
   state?: string;
-  priority?: number;
   notifyConfig?: UpdateAsrPipelineResponseBodyPipelineNotifyConfig;
+  priority?: number;
+  name?: string;
+  id?: string;
   static names(): { [key: string]: string } {
     return {
-      id: 'Id',
-      name: 'Name',
       state: 'State',
-      priority: 'Priority',
       notifyConfig: 'NotifyConfig',
+      priority: 'Priority',
+      name: 'Name',
+      id: 'Id',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      id: 'string',
-      name: 'string',
       state: 'string',
-      priority: 'number',
       notifyConfig: UpdateAsrPipelineResponseBodyPipelineNotifyConfig,
+      priority: 'number',
+      name: 'string',
+      id: 'string',
     };
   }
 
@@ -45337,28 +46418,28 @@ export class UpdateCensorPipelineResponseBodyPipelineNotifyConfig extends $tea.M
 }
 
 export class UpdateCensorPipelineResponseBodyPipeline extends $tea.Model {
-  id?: string;
-  name?: string;
   state?: string;
-  priority?: number;
   notifyConfig?: UpdateCensorPipelineResponseBodyPipelineNotifyConfig;
+  priority?: number;
+  name?: string;
+  id?: string;
   static names(): { [key: string]: string } {
     return {
-      id: 'Id',
-      name: 'Name',
       state: 'State',
-      priority: 'Priority',
       notifyConfig: 'NotifyConfig',
+      priority: 'Priority',
+      name: 'Name',
+      id: 'Id',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      id: 'string',
-      name: 'string',
       state: 'string',
-      priority: 'number',
       notifyConfig: UpdateCensorPipelineResponseBodyPipelineNotifyConfig,
+      priority: 'number',
+      name: 'string',
+      id: 'string',
     };
   }
 
@@ -45390,31 +46471,31 @@ export class UpdateCoverPipelineResponseBodyPipelineNotifyConfig extends $tea.Mo
 }
 
 export class UpdateCoverPipelineResponseBodyPipeline extends $tea.Model {
-  id?: string;
-  name?: string;
   state?: string;
+  notifyConfig?: UpdateCoverPipelineResponseBodyPipelineNotifyConfig;
   priority?: number;
   role?: string;
-  notifyConfig?: UpdateCoverPipelineResponseBodyPipelineNotifyConfig;
+  name?: string;
+  id?: string;
   static names(): { [key: string]: string } {
     return {
-      id: 'Id',
-      name: 'Name',
       state: 'State',
+      notifyConfig: 'NotifyConfig',
       priority: 'Priority',
       role: 'Role',
-      notifyConfig: 'NotifyConfig',
+      name: 'Name',
+      id: 'Id',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      id: 'string',
-      name: 'string',
       state: 'string',
+      notifyConfig: UpdateCoverPipelineResponseBodyPipelineNotifyConfig,
       priority: 'number',
       role: 'string',
-      notifyConfig: UpdateCoverPipelineResponseBodyPipelineNotifyConfig,
+      name: 'string',
+      id: 'string',
     };
   }
 
@@ -45424,52 +46505,52 @@ export class UpdateCoverPipelineResponseBodyPipeline extends $tea.Model {
 }
 
 export class UpdateMCTemplateResponseBodyTemplate extends $tea.Model {
-  templateId?: string;
-  name?: string;
-  state?: string;
-  porn?: string;
-  terrorism?: string;
-  politics?: string;
-  ad?: string;
-  qrcode?: string;
-  live?: string;
   logo?: string;
   abuse?: string;
-  contraband?: string;
+  state?: string;
+  terrorism?: string;
+  politics?: string;
+  qrcode?: string;
+  live?: string;
   spam?: string;
+  contraband?: string;
+  ad?: string;
+  porn?: string;
+  name?: string;
+  templateId?: string;
   static names(): { [key: string]: string } {
     return {
-      templateId: 'TemplateId',
-      name: 'Name',
-      state: 'State',
-      porn: 'Porn',
-      terrorism: 'Terrorism',
-      politics: 'Politics',
-      ad: 'Ad',
-      qrcode: 'Qrcode',
-      live: 'Live',
       logo: 'Logo',
       abuse: 'Abuse',
-      contraband: 'Contraband',
+      state: 'State',
+      terrorism: 'Terrorism',
+      politics: 'Politics',
+      qrcode: 'Qrcode',
+      live: 'Live',
       spam: 'Spam',
+      contraband: 'Contraband',
+      ad: 'Ad',
+      porn: 'Porn',
+      name: 'Name',
+      templateId: 'TemplateId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      templateId: 'string',
-      name: 'string',
-      state: 'string',
-      porn: 'string',
-      terrorism: 'string',
-      politics: 'string',
-      ad: 'string',
-      qrcode: 'string',
-      live: 'string',
       logo: 'string',
       abuse: 'string',
-      contraband: 'string',
+      state: 'string',
+      terrorism: 'string',
+      politics: 'string',
+      qrcode: 'string',
+      live: 'string',
       spam: 'string',
+      contraband: 'string',
+      ad: 'string',
+      porn: 'string',
+      name: 'string',
+      templateId: 'string',
     };
   }
 
@@ -45764,28 +46845,28 @@ export class UpdatePornPipelineResponseBodyPipelineNotifyConfig extends $tea.Mod
 }
 
 export class UpdatePornPipelineResponseBodyPipeline extends $tea.Model {
-  id?: string;
-  name?: string;
   state?: string;
-  priority?: number;
   notifyConfig?: UpdatePornPipelineResponseBodyPipelineNotifyConfig;
+  priority?: number;
+  name?: string;
+  id?: string;
   static names(): { [key: string]: string } {
     return {
-      id: 'Id',
-      name: 'Name',
       state: 'State',
-      priority: 'Priority',
       notifyConfig: 'NotifyConfig',
+      priority: 'Priority',
+      name: 'Name',
+      id: 'Id',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      id: 'string',
-      name: 'string',
       state: 'string',
-      priority: 'number',
       notifyConfig: UpdatePornPipelineResponseBodyPipelineNotifyConfig,
+      priority: 'number',
+      name: 'string',
+      id: 'string',
     };
   }
 
@@ -46148,28 +47229,28 @@ export class UpdateTerrorismPipelineResponseBodyPipelineNotifyConfig extends $te
 }
 
 export class UpdateTerrorismPipelineResponseBodyPipeline extends $tea.Model {
-  id?: string;
-  name?: string;
   state?: string;
-  priority?: number;
   notifyConfig?: UpdateTerrorismPipelineResponseBodyPipelineNotifyConfig;
+  priority?: number;
+  name?: string;
+  id?: string;
   static names(): { [key: string]: string } {
     return {
-      id: 'Id',
-      name: 'Name',
       state: 'State',
-      priority: 'Priority',
       notifyConfig: 'NotifyConfig',
+      priority: 'Priority',
+      name: 'Name',
+      id: 'Id',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      id: 'string',
-      name: 'string',
       state: 'string',
-      priority: 'number',
       notifyConfig: UpdateTerrorismPipelineResponseBodyPipelineNotifyConfig,
+      priority: 'number',
+      name: 'string',
+      id: 'string',
     };
   }
 
@@ -46940,6 +48021,19 @@ export default class Client extends OpenApi {
     return await this.listFpShotDBWithOptions(request, runtime);
   }
 
+  async listFpShotFilesWithOptions(request: ListFpShotFilesRequest, runtime: $Util.RuntimeOptions): Promise<ListFpShotFilesResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<ListFpShotFilesResponse>(await this.doRPCRequest("ListFpShotFiles", "2014-06-18", "HTTPS", "POST", "AK", "json", req, runtime), new ListFpShotFilesResponse({}));
+  }
+
+  async listFpShotFiles(request: ListFpShotFilesRequest): Promise<ListFpShotFilesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listFpShotFilesWithOptions(request, runtime);
+  }
+
   async listFpShotNotaryWithOptions(request: ListFpShotNotaryRequest, runtime: $Util.RuntimeOptions): Promise<ListFpShotNotaryResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -47239,6 +48333,32 @@ export default class Client extends OpenApi {
     return await this.queryFpCompareJobListWithOptions(request, runtime);
   }
 
+  async queryFpDBDeleteJobListWithOptions(request: QueryFpDBDeleteJobListRequest, runtime: $Util.RuntimeOptions): Promise<QueryFpDBDeleteJobListResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<QueryFpDBDeleteJobListResponse>(await this.doRPCRequest("QueryFpDBDeleteJobList", "2014-06-18", "HTTPS", "POST", "AK", "json", req, runtime), new QueryFpDBDeleteJobListResponse({}));
+  }
+
+  async queryFpDBDeleteJobList(request: QueryFpDBDeleteJobListRequest): Promise<QueryFpDBDeleteJobListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryFpDBDeleteJobListWithOptions(request, runtime);
+  }
+
+  async queryFpFileDeleteJobListWithOptions(request: QueryFpFileDeleteJobListRequest, runtime: $Util.RuntimeOptions): Promise<QueryFpFileDeleteJobListResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<QueryFpFileDeleteJobListResponse>(await this.doRPCRequest("QueryFpFileDeleteJobList", "2014-06-18", "HTTPS", "POST", "AK", "json", req, runtime), new QueryFpFileDeleteJobListResponse({}));
+  }
+
+  async queryFpFileDeleteJobList(request: QueryFpFileDeleteJobListRequest): Promise<QueryFpFileDeleteJobListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryFpFileDeleteJobListWithOptions(request, runtime);
+  }
+
   async queryFpImportResultWithOptions(request: QueryFpImportResultRequest, runtime: $Util.RuntimeOptions): Promise<QueryFpImportResultResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -47276,6 +48396,19 @@ export default class Client extends OpenApi {
   async queryImageSearchJobList(request: QueryImageSearchJobListRequest): Promise<QueryImageSearchJobListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryImageSearchJobListWithOptions(request, runtime);
+  }
+
+  async queryInnerJobWithOptions(request: QueryInnerJobRequest, runtime: $Util.RuntimeOptions): Promise<QueryInnerJobResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<QueryInnerJobResponse>(await this.doRPCRequest("QueryInnerJob", "2014-06-18", "HTTPS", "POST", "AK", "json", req, runtime), new QueryInnerJobResponse({}));
+  }
+
+  async queryInnerJob(request: QueryInnerJobRequest): Promise<QueryInnerJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryInnerJobWithOptions(request, runtime);
   }
 
   async queryIProductionJobWithOptions(request: QueryIProductionJobRequest, runtime: $Util.RuntimeOptions): Promise<QueryIProductionJobResponse> {
@@ -47653,6 +48786,19 @@ export default class Client extends OpenApi {
   async queryVideoPoseJobList(request: QueryVideoPoseJobListRequest): Promise<QueryVideoPoseJobListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryVideoPoseJobListWithOptions(request, runtime);
+  }
+
+  async queryVideoQualityJobWithOptions(request: QueryVideoQualityJobRequest, runtime: $Util.RuntimeOptions): Promise<QueryVideoQualityJobResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<QueryVideoQualityJobResponse>(await this.doRPCRequest("QueryVideoQualityJob", "2014-06-18", "HTTPS", "POST", "AK", "json", req, runtime), new QueryVideoQualityJobResponse({}));
+  }
+
+  async queryVideoQualityJob(request: QueryVideoQualityJobRequest): Promise<QueryVideoQualityJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryVideoQualityJobWithOptions(request, runtime);
   }
 
   async queryVideoSplitJobListWithOptions(request: QueryVideoSplitJobListRequest, runtime: $Util.RuntimeOptions): Promise<QueryVideoSplitJobListResponse> {
@@ -48084,6 +49230,32 @@ export default class Client extends OpenApi {
     return await this.submitFpCompareJobWithOptions(request, runtime);
   }
 
+  async submitFpDBDeleteJobWithOptions(request: SubmitFpDBDeleteJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitFpDBDeleteJobResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<SubmitFpDBDeleteJobResponse>(await this.doRPCRequest("SubmitFpDBDeleteJob", "2014-06-18", "HTTPS", "POST", "AK", "json", req, runtime), new SubmitFpDBDeleteJobResponse({}));
+  }
+
+  async submitFpDBDeleteJob(request: SubmitFpDBDeleteJobRequest): Promise<SubmitFpDBDeleteJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.submitFpDBDeleteJobWithOptions(request, runtime);
+  }
+
+  async submitFpFileDeleteJobWithOptions(request: SubmitFpFileDeleteJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitFpFileDeleteJobResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<SubmitFpFileDeleteJobResponse>(await this.doRPCRequest("SubmitFpFileDeleteJob", "2014-06-18", "HTTPS", "POST", "AK", "json", req, runtime), new SubmitFpFileDeleteJobResponse({}));
+  }
+
+  async submitFpFileDeleteJob(request: SubmitFpFileDeleteJobRequest): Promise<SubmitFpFileDeleteJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.submitFpFileDeleteJobWithOptions(request, runtime);
+  }
+
   async submitFpShotJobWithOptions(request: SubmitFpShotJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitFpShotJobResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -48121,6 +49293,19 @@ export default class Client extends OpenApi {
   async submitImageSearchJob(request: SubmitImageSearchJobRequest): Promise<SubmitImageSearchJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.submitImageSearchJobWithOptions(request, runtime);
+  }
+
+  async submitInnerJobWithOptions(request: SubmitInnerJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitInnerJobResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<SubmitInnerJobResponse>(await this.doRPCRequest("SubmitInnerJob", "2014-06-18", "HTTPS", "POST", "AK", "json", req, runtime), new SubmitInnerJobResponse({}));
+  }
+
+  async submitInnerJob(request: SubmitInnerJobRequest): Promise<SubmitInnerJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.submitInnerJobWithOptions(request, runtime);
   }
 
   async submitIProductionJobWithOptions(request: SubmitIProductionJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitIProductionJobResponse> {
@@ -48329,6 +49514,19 @@ export default class Client extends OpenApi {
   async submitVideoPoseJob(request: SubmitVideoPoseJobRequest): Promise<SubmitVideoPoseJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.submitVideoPoseJobWithOptions(request, runtime);
+  }
+
+  async submitVideoQualityJobWithOptions(request: SubmitVideoQualityJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitVideoQualityJobResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<SubmitVideoQualityJobResponse>(await this.doRPCRequest("SubmitVideoQualityJob", "2014-06-18", "HTTPS", "POST", "AK", "json", req, runtime), new SubmitVideoQualityJobResponse({}));
+  }
+
+  async submitVideoQualityJob(request: SubmitVideoQualityJobRequest): Promise<SubmitVideoQualityJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.submitVideoQualityJobWithOptions(request, runtime);
   }
 
   async submitVideoSplitJobWithOptions(request: SubmitVideoSplitJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitVideoSplitJobResponse> {
