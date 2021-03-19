@@ -1031,6 +1031,108 @@ export class DescribeResourcePackageProductResponse extends $tea.Model {
   }
 }
 
+export class DescribeSplitItemBillRequest extends $tea.Model {
+  billingCycle?: string;
+  productCode?: string;
+  productType?: string;
+  subscriptionType?: string;
+  ownerId?: number;
+  nextToken?: string;
+  maxResults?: number;
+  billOwnerId?: number;
+  instanceID?: string;
+  splitItemID?: string;
+  tagFilter?: DescribeSplitItemBillRequestTagFilter[];
+  static names(): { [key: string]: string } {
+    return {
+      billingCycle: 'BillingCycle',
+      productCode: 'ProductCode',
+      productType: 'ProductType',
+      subscriptionType: 'SubscriptionType',
+      ownerId: 'OwnerId',
+      nextToken: 'NextToken',
+      maxResults: 'MaxResults',
+      billOwnerId: 'BillOwnerId',
+      instanceID: 'InstanceID',
+      splitItemID: 'SplitItemID',
+      tagFilter: 'TagFilter',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      billingCycle: 'string',
+      productCode: 'string',
+      productType: 'string',
+      subscriptionType: 'string',
+      ownerId: 'number',
+      nextToken: 'string',
+      maxResults: 'number',
+      billOwnerId: 'number',
+      instanceID: 'string',
+      splitItemID: 'string',
+      tagFilter: { 'type': 'array', 'itemType': DescribeSplitItemBillRequestTagFilter },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSplitItemBillResponseBody extends $tea.Model {
+  message?: string;
+  requestId?: string;
+  data?: DescribeSplitItemBillResponseBodyData;
+  code?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      requestId: 'RequestId',
+      data: 'Data',
+      code: 'Code',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      requestId: 'string',
+      data: DescribeSplitItemBillResponseBodyData,
+      code: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSplitItemBillResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeSplitItemBillResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeSplitItemBillResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class EnableBillGenerationRequest extends $tea.Model {
   productCode?: string;
   ownerId?: number;
@@ -3024,6 +3126,87 @@ export class QueryInstanceBillResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: QueryInstanceBillResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryInstanceByTagRequest extends $tea.Model {
+  resourceType?: string;
+  resourceId?: string[];
+  tag?: QueryInstanceByTagRequestTag[];
+  static names(): { [key: string]: string } {
+    return {
+      resourceType: 'ResourceType',
+      resourceId: 'ResourceId',
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceType: 'string',
+      resourceId: { 'type': 'array', 'itemType': 'string' },
+      tag: { 'type': 'array', 'itemType': QueryInstanceByTagRequestTag },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryInstanceByTagResponseBody extends $tea.Model {
+  message?: string;
+  nextToken?: string;
+  requestId?: string;
+  tagResource?: QueryInstanceByTagResponseBodyTagResource[];
+  code?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      tagResource: 'TagResource',
+      code: 'Code',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      nextToken: 'string',
+      requestId: 'string',
+      tagResource: { 'type': 'array', 'itemType': QueryInstanceByTagResponseBodyTagResource },
+      code: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryInstanceByTagResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: QueryInstanceByTagResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: QueryInstanceByTagResponseBody,
     };
   }
 
@@ -5366,6 +5549,84 @@ export class SubscribeBillToOSSResponse extends $tea.Model {
   }
 }
 
+export class TagResourcesRequest extends $tea.Model {
+  resourceType?: string;
+  resourceId?: string[];
+  tag?: TagResourcesRequestTag[];
+  static names(): { [key: string]: string } {
+    return {
+      resourceType: 'ResourceType',
+      resourceId: 'ResourceId',
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceType: 'string',
+      resourceId: { 'type': 'array', 'itemType': 'string' },
+      tag: { 'type': 'array', 'itemType': TagResourcesRequestTag },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TagResourcesResponseBody extends $tea.Model {
+  message?: string;
+  requestId?: string;
+  data?: boolean;
+  code?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      requestId: 'RequestId',
+      data: 'Data',
+      code: 'Code',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      requestId: 'string',
+      data: 'boolean',
+      code: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TagResourcesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: TagResourcesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: TagResourcesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UnsubscribeBillToOSSRequest extends $tea.Model {
   subscribeType?: string;
   multAccountRelSubscribe?: string;
@@ -5430,6 +5691,87 @@ export class UnsubscribeBillToOSSResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: UnsubscribeBillToOSSResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UntagResourcesRequest extends $tea.Model {
+  resourceType?: string;
+  all?: boolean;
+  resourceId?: string[];
+  tagKey?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      resourceType: 'ResourceType',
+      all: 'All',
+      resourceId: 'ResourceId',
+      tagKey: 'TagKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceType: 'string',
+      all: 'boolean',
+      resourceId: { 'type': 'array', 'itemType': 'string' },
+      tagKey: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UntagResourcesResponseBody extends $tea.Model {
+  message?: string;
+  requestId?: string;
+  data?: boolean;
+  code?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      requestId: 'RequestId',
+      data: 'Data',
+      code: 'Code',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      requestId: 'string',
+      data: 'boolean',
+      code: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UntagResourcesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: UntagResourcesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: UntagResourcesResponseBody,
     };
   }
 
@@ -6057,6 +6399,219 @@ export class DescribeResourcePackageProductResponseBodyData extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       resourcePackages: DescribeResourcePackageProductResponseBodyDataResourcePackages,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSplitItemBillRequestTagFilter extends $tea.Model {
+  tagValues?: string[];
+  tagKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagValues: 'TagValues',
+      tagKey: 'TagKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagValues: { 'type': 'array', 'itemType': 'string' },
+      tagKey: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSplitItemBillResponseBodyDataItems extends $tea.Model {
+  billingDate?: string;
+  instanceConfig?: string;
+  internetIP?: string;
+  splitItemID?: string;
+  item?: string;
+  splitAccountID?: string;
+  tag?: string;
+  instanceID?: string;
+  currency?: string;
+  deductedByCashCoupons?: number;
+  subscriptionType?: string;
+  instanceSpec?: string;
+  billingItem?: string;
+  deductedByCoupons?: number;
+  region?: string;
+  outstandingAmount?: number;
+  costUnit?: string;
+  listPriceUnit?: string;
+  resourceGroup?: string;
+  pipCode?: string;
+  pretaxAmount?: number;
+  servicePeriodUnit?: string;
+  productName?: string;
+  commodityCode?: string;
+  splitProductDetail?: string;
+  nickName?: string;
+  productDetail?: string;
+  usage?: string;
+  intranetIP?: string;
+  ownerID?: string;
+  splitCommodityCode?: string;
+  deductedByPrepaidCard?: number;
+  usageUnit?: string;
+  paymentAmount?: number;
+  invoiceDiscount?: number;
+  deductedByResourcePackage?: string;
+  productType?: string;
+  splitBillingCycle?: string;
+  servicePeriod?: string;
+  splitItemName?: string;
+  zone?: string;
+  listPrice?: string;
+  pretaxGrossAmount?: number;
+  splitAccountName?: string;
+  productCode?: string;
+  billingType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      billingDate: 'BillingDate',
+      instanceConfig: 'InstanceConfig',
+      internetIP: 'InternetIP',
+      splitItemID: 'SplitItemID',
+      item: 'Item',
+      splitAccountID: 'SplitAccountID',
+      tag: 'Tag',
+      instanceID: 'InstanceID',
+      currency: 'Currency',
+      deductedByCashCoupons: 'DeductedByCashCoupons',
+      subscriptionType: 'SubscriptionType',
+      instanceSpec: 'InstanceSpec',
+      billingItem: 'BillingItem',
+      deductedByCoupons: 'DeductedByCoupons',
+      region: 'Region',
+      outstandingAmount: 'OutstandingAmount',
+      costUnit: 'CostUnit',
+      listPriceUnit: 'ListPriceUnit',
+      resourceGroup: 'ResourceGroup',
+      pipCode: 'PipCode',
+      pretaxAmount: 'PretaxAmount',
+      servicePeriodUnit: 'ServicePeriodUnit',
+      productName: 'ProductName',
+      commodityCode: 'CommodityCode',
+      splitProductDetail: 'SplitProductDetail',
+      nickName: 'NickName',
+      productDetail: 'ProductDetail',
+      usage: 'Usage',
+      intranetIP: 'IntranetIP',
+      ownerID: 'OwnerID',
+      splitCommodityCode: 'SplitCommodityCode',
+      deductedByPrepaidCard: 'DeductedByPrepaidCard',
+      usageUnit: 'UsageUnit',
+      paymentAmount: 'PaymentAmount',
+      invoiceDiscount: 'InvoiceDiscount',
+      deductedByResourcePackage: 'DeductedByResourcePackage',
+      productType: 'ProductType',
+      splitBillingCycle: 'SplitBillingCycle',
+      servicePeriod: 'ServicePeriod',
+      splitItemName: 'SplitItemName',
+      zone: 'Zone',
+      listPrice: 'ListPrice',
+      pretaxGrossAmount: 'PretaxGrossAmount',
+      splitAccountName: 'SplitAccountName',
+      productCode: 'ProductCode',
+      billingType: 'BillingType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      billingDate: 'string',
+      instanceConfig: 'string',
+      internetIP: 'string',
+      splitItemID: 'string',
+      item: 'string',
+      splitAccountID: 'string',
+      tag: 'string',
+      instanceID: 'string',
+      currency: 'string',
+      deductedByCashCoupons: 'number',
+      subscriptionType: 'string',
+      instanceSpec: 'string',
+      billingItem: 'string',
+      deductedByCoupons: 'number',
+      region: 'string',
+      outstandingAmount: 'number',
+      costUnit: 'string',
+      listPriceUnit: 'string',
+      resourceGroup: 'string',
+      pipCode: 'string',
+      pretaxAmount: 'number',
+      servicePeriodUnit: 'string',
+      productName: 'string',
+      commodityCode: 'string',
+      splitProductDetail: 'string',
+      nickName: 'string',
+      productDetail: 'string',
+      usage: 'string',
+      intranetIP: 'string',
+      ownerID: 'string',
+      splitCommodityCode: 'string',
+      deductedByPrepaidCard: 'number',
+      usageUnit: 'string',
+      paymentAmount: 'number',
+      invoiceDiscount: 'number',
+      deductedByResourcePackage: 'string',
+      productType: 'string',
+      splitBillingCycle: 'string',
+      servicePeriod: 'string',
+      splitItemName: 'string',
+      zone: 'string',
+      listPrice: 'string',
+      pretaxGrossAmount: 'number',
+      splitAccountName: 'string',
+      productCode: 'string',
+      billingType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSplitItemBillResponseBodyData extends $tea.Model {
+  items?: DescribeSplitItemBillResponseBodyDataItems[];
+  nextToken?: string;
+  billingCycle?: string;
+  maxResults?: number;
+  accountID?: string;
+  totalCount?: number;
+  accountName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      items: 'Items',
+      nextToken: 'NextToken',
+      billingCycle: 'BillingCycle',
+      maxResults: 'MaxResults',
+      accountID: 'AccountID',
+      totalCount: 'TotalCount',
+      accountName: 'AccountName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      items: { 'type': 'array', 'itemType': DescribeSplitItemBillResponseBodyDataItems },
+      nextToken: 'string',
+      billingCycle: 'string',
+      maxResults: 'number',
+      accountID: 'string',
+      totalCount: 'number',
+      accountName: 'string',
     };
   }
 
@@ -8298,6 +8853,75 @@ export class QueryInstanceBillResponseBodyData extends $tea.Model {
   }
 }
 
+export class QueryInstanceByTagRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryInstanceByTagResponseBodyTagResourceTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryInstanceByTagResponseBodyTagResource extends $tea.Model {
+  resourceType?: string;
+  tag?: QueryInstanceByTagResponseBodyTagResourceTag[];
+  resourceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      resourceType: 'ResourceType',
+      tag: 'Tag',
+      resourceId: 'ResourceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceType: 'string',
+      tag: { 'type': 'array', 'itemType': QueryInstanceByTagResponseBodyTagResourceTag },
+      resourceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryInstanceGaapCostResponseBodyDataModulesModule extends $tea.Model {
   accountingUnit?: string;
   billType?: string;
@@ -10234,6 +10858,28 @@ export class RenewResourcePackageResponseBodyData extends $tea.Model {
   }
 }
 
+export class TagResourcesRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpgradeResourcePackageResponseBodyData extends $tea.Model {
   instanceId?: string;
   orderId?: number;
@@ -10489,6 +11135,19 @@ export default class Client extends OpenApi {
   async describeResourcePackageProduct(request: DescribeResourcePackageProductRequest): Promise<DescribeResourcePackageProductResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeResourcePackageProductWithOptions(request, runtime);
+  }
+
+  async describeSplitItemBillWithOptions(request: DescribeSplitItemBillRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSplitItemBillResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DescribeSplitItemBillResponse>(await this.doRPCRequest("DescribeSplitItemBill", "2017-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeSplitItemBillResponse({}));
+  }
+
+  async describeSplitItemBill(request: DescribeSplitItemBillRequest): Promise<DescribeSplitItemBillResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeSplitItemBillWithOptions(request, runtime);
   }
 
   async enableBillGenerationWithOptions(request: EnableBillGenerationRequest, runtime: $Util.RuntimeOptions): Promise<EnableBillGenerationResponse> {
@@ -10792,6 +11451,19 @@ export default class Client extends OpenApi {
   async queryInstanceBill(request: QueryInstanceBillRequest): Promise<QueryInstanceBillResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryInstanceBillWithOptions(request, runtime);
+  }
+
+  async queryInstanceByTagWithOptions(request: QueryInstanceByTagRequest, runtime: $Util.RuntimeOptions): Promise<QueryInstanceByTagResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<QueryInstanceByTagResponse>(await this.doRPCRequest("QueryInstanceByTag", "2017-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new QueryInstanceByTagResponse({}));
+  }
+
+  async queryInstanceByTag(request: QueryInstanceByTagRequest): Promise<QueryInstanceByTagResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryInstanceByTagWithOptions(request, runtime);
   }
 
   async queryInstanceGaapCostWithOptions(request: QueryInstanceGaapCostRequest, runtime: $Util.RuntimeOptions): Promise<QueryInstanceGaapCostResponse> {
@@ -11146,6 +11818,19 @@ export default class Client extends OpenApi {
     return await this.subscribeBillToOSSWithOptions(request, runtime);
   }
 
+  async tagResourcesWithOptions(request: TagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<TagResourcesResponse>(await this.doRPCRequest("TagResources", "2017-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new TagResourcesResponse({}));
+  }
+
+  async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.tagResourcesWithOptions(request, runtime);
+  }
+
   async unsubscribeBillToOSSWithOptions(request: UnsubscribeBillToOSSRequest, runtime: $Util.RuntimeOptions): Promise<UnsubscribeBillToOSSResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -11157,6 +11842,19 @@ export default class Client extends OpenApi {
   async unsubscribeBillToOSS(request: UnsubscribeBillToOSSRequest): Promise<UnsubscribeBillToOSSResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.unsubscribeBillToOSSWithOptions(request, runtime);
+  }
+
+  async untagResourcesWithOptions(request: UntagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<UntagResourcesResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<UntagResourcesResponse>(await this.doRPCRequest("UntagResources", "2017-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new UntagResourcesResponse({}));
+  }
+
+  async untagResources(request: UntagResourcesRequest): Promise<UntagResourcesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.untagResourcesWithOptions(request, runtime);
   }
 
   async upgradeResourcePackageWithOptions(request: UpgradeResourcePackageRequest, runtime: $Util.RuntimeOptions): Promise<UpgradeResourcePackageResponse> {
