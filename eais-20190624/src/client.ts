@@ -84,12 +84,16 @@ export class CreateEaiRequest extends $tea.Model {
   instanceType?: string;
   clientToken?: string;
   instanceName?: string;
+  securityGroupId?: string;
+  vSwitchId?: string;
   static names(): { [key: string]: string } {
     return {
       regionId: 'RegionId',
       instanceType: 'InstanceType',
       clientToken: 'ClientToken',
       instanceName: 'InstanceName',
+      securityGroupId: 'SecurityGroupId',
+      vSwitchId: 'VSwitchId',
     };
   }
 
@@ -99,6 +103,8 @@ export class CreateEaiRequest extends $tea.Model {
       instanceType: 'string',
       clientToken: 'string',
       instanceName: 'string',
+      securityGroupId: 'string',
+      vSwitchId: 'string',
     };
   }
 
