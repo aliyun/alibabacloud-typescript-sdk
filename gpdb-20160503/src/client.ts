@@ -450,6 +450,7 @@ export class CreateECSDBInstanceRequest extends $tea.Model {
   privateIpAddress?: string;
   encryptionKey?: string;
   encryptionType?: string;
+  masterNodeNum?: number;
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
@@ -473,6 +474,7 @@ export class CreateECSDBInstanceRequest extends $tea.Model {
       privateIpAddress: 'PrivateIpAddress',
       encryptionKey: 'EncryptionKey',
       encryptionType: 'EncryptionType',
+      masterNodeNum: 'MasterNodeNum',
     };
   }
 
@@ -499,6 +501,7 @@ export class CreateECSDBInstanceRequest extends $tea.Model {
       privateIpAddress: 'string',
       encryptionKey: 'string',
       encryptionType: 'string',
+      masterNodeNum: 'number',
     };
   }
 
@@ -510,16 +513,16 @@ export class CreateECSDBInstanceRequest extends $tea.Model {
 export class CreateECSDBInstanceResponse extends $tea.Model {
   requestId: string;
   DBInstanceId: string;
+  port: string;
   orderId: string;
   connectionString: string;
-  port: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
       DBInstanceId: 'DBInstanceId',
+      port: 'Port',
       orderId: 'OrderId',
       connectionString: 'ConnectionString',
-      port: 'Port',
     };
   }
 
@@ -527,9 +530,9 @@ export class CreateECSDBInstanceResponse extends $tea.Model {
     return {
       requestId: 'string',
       DBInstanceId: 'string',
+      port: 'string',
       orderId: 'string',
       connectionString: 'string',
-      port: 'string',
     };
   }
 
@@ -1799,10 +1802,12 @@ export class ResetAccountPasswordResponse extends $tea.Model {
 export class ReleaseInstancePublicConnectionRequest extends $tea.Model {
   DBInstanceId: string;
   currentConnectionString: string;
+  addressType?: string;
   static names(): { [key: string]: string } {
     return {
       DBInstanceId: 'DBInstanceId',
       currentConnectionString: 'CurrentConnectionString',
+      addressType: 'AddressType',
     };
   }
 
@@ -1810,6 +1815,7 @@ export class ReleaseInstancePublicConnectionRequest extends $tea.Model {
     return {
       DBInstanceId: 'string',
       currentConnectionString: 'string',
+      addressType: 'string',
     };
   }
 
@@ -2254,9 +2260,9 @@ export class DescribeDBInstancesRequest extends $tea.Model {
   DBInstanceDescription?: string;
   instanceNetworkType?: string;
   DBInstanceIds?: string;
-  tag?: DescribeDBInstancesRequestTag[];
   pageSize?: number;
   pageNumber?: number;
+  tag?: DescribeDBInstancesRequestTag[];
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
@@ -2264,9 +2270,9 @@ export class DescribeDBInstancesRequest extends $tea.Model {
       DBInstanceDescription: 'DBInstanceDescription',
       instanceNetworkType: 'InstanceNetworkType',
       DBInstanceIds: 'DBInstanceIds',
-      tag: 'Tag',
       pageSize: 'PageSize',
       pageNumber: 'PageNumber',
+      tag: 'Tag',
     };
   }
 
@@ -2277,9 +2283,9 @@ export class DescribeDBInstancesRequest extends $tea.Model {
       DBInstanceDescription: 'string',
       instanceNetworkType: 'string',
       DBInstanceIds: 'string',
-      tag: { 'type': 'array', 'itemType': DescribeDBInstancesRequestTag },
       pageSize: 'number',
       pageNumber: 'number',
+      tag: { 'type': 'array', 'itemType': DescribeDBInstancesRequestTag },
     };
   }
 
@@ -2289,27 +2295,27 @@ export class DescribeDBInstancesRequest extends $tea.Model {
 }
 
 export class DescribeDBInstancesResponse extends $tea.Model {
-  requestId: string;
-  pageNumber: number;
   totalRecordCount: number;
   pageRecordCount: number;
+  requestId: string;
+  pageNumber: number;
   items: DescribeDBInstancesResponseItems;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
-      pageNumber: 'PageNumber',
       totalRecordCount: 'TotalRecordCount',
       pageRecordCount: 'PageRecordCount',
+      requestId: 'RequestId',
+      pageNumber: 'PageNumber',
       items: 'Items',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
-      pageNumber: 'number',
       totalRecordCount: 'number',
       pageRecordCount: 'number',
+      requestId: 'string',
+      pageNumber: 'number',
       items: DescribeDBInstancesResponseItems,
     };
   }
@@ -2797,6 +2803,7 @@ export class AllocateInstancePublicConnectionRequest extends $tea.Model {
   DBInstanceId: string;
   connectionStringPrefix: string;
   port: string;
+  addressType?: string;
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
@@ -2805,6 +2812,7 @@ export class AllocateInstancePublicConnectionRequest extends $tea.Model {
       DBInstanceId: 'DBInstanceId',
       connectionStringPrefix: 'ConnectionStringPrefix',
       port: 'Port',
+      addressType: 'AddressType',
     };
   }
 
@@ -2816,6 +2824,7 @@ export class AllocateInstancePublicConnectionRequest extends $tea.Model {
       DBInstanceId: 'string',
       connectionStringPrefix: 'string',
       port: 'string',
+      addressType: 'string',
     };
   }
 
@@ -3118,19 +3127,19 @@ export class DescribeDBClusterPerformanceResponsePerformanceKeys extends $tea.Mo
 }
 
 export class DescribeDBInstanceOnECSAttributeResponseItemsDBInstanceAttributeTagsTag extends $tea.Model {
-  key: string;
   value: string;
+  key: string;
   static names(): { [key: string]: string } {
     return {
-      key: 'Key',
       value: 'Value',
+      key: 'Key',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      key: 'string',
       value: 'string',
+      key: 'string',
     };
   }
 
@@ -3159,93 +3168,96 @@ export class DescribeDBInstanceOnECSAttributeResponseItemsDBInstanceAttributeTag
 }
 
 export class DescribeDBInstanceOnECSAttributeResponseItemsDBInstanceAttribute extends $tea.Model {
-  DBInstanceId: string;
-  payType: string;
-  regionId: string;
-  engine: string;
-  engineVersion: string;
-  DBInstanceClass: string;
-  DBInstanceStatus: string;
-  DBInstanceDescription: string;
-  lockMode: string;
-  creationTime: string;
-  expireTime: string;
-  zoneId: string;
-  instanceNetworkType: string;
-  vpcId: string;
-  connectionMode: string;
-  storageType: string;
-  instanceDeployType: string;
+  masterNodeNum: number;
   segNodeNum: number;
-  memorySize: number;
-  cpuCores: number;
-  storageSize: number;
-  vSwitchId: string;
-  connectionString: string;
   port: string;
-  encryptionType: string;
   encryptionKey: string;
+  instanceNetworkType: string;
+  DBInstanceId: string;
+  engine: string;
+  DBInstanceDescription: string;
+  memorySize: number;
+  encryptionType: string;
+  engineVersion: string;
+  storageType: string;
+  zoneId: string;
+  DBInstanceStatus: string;
+  DBInstanceClass: string;
+  vSwitchId: string;
+  storageSize: number;
+  lockMode: string;
+  payType: string;
+  vpcId: string;
+  cpuCores: number;
+  connectionMode: string;
+  instanceDeployType: string;
+  creationTime: string;
+  regionId: string;
+  expireTime: string;
+  connectionString: string;
   tags: DescribeDBInstanceOnECSAttributeResponseItemsDBInstanceAttributeTags;
   static names(): { [key: string]: string } {
     return {
-      DBInstanceId: 'DBInstanceId',
-      payType: 'PayType',
-      regionId: 'RegionId',
-      engine: 'Engine',
-      engineVersion: 'EngineVersion',
-      DBInstanceClass: 'DBInstanceClass',
-      DBInstanceStatus: 'DBInstanceStatus',
-      DBInstanceDescription: 'DBInstanceDescription',
-      lockMode: 'LockMode',
-      creationTime: 'CreationTime',
-      expireTime: 'ExpireTime',
-      zoneId: 'ZoneId',
-      instanceNetworkType: 'InstanceNetworkType',
-      vpcId: 'VpcId',
-      connectionMode: 'ConnectionMode',
-      storageType: 'StorageType',
-      instanceDeployType: 'InstanceDeployType',
+      masterNodeNum: 'MasterNodeNum',
       segNodeNum: 'SegNodeNum',
-      memorySize: 'MemorySize',
-      cpuCores: 'CpuCores',
-      storageSize: 'StorageSize',
-      vSwitchId: 'VSwitchId',
-      connectionString: 'ConnectionString',
       port: 'Port',
-      encryptionType: 'EncryptionType',
       encryptionKey: 'EncryptionKey',
+      instanceNetworkType: 'InstanceNetworkType',
+      DBInstanceId: 'DBInstanceId',
+      engine: 'Engine',
+      DBInstanceDescription: 'DBInstanceDescription',
+      memorySize: 'MemorySize',
+      encryptionType: 'EncryptionType',
+      engineVersion: 'EngineVersion',
+      storageType: 'StorageType',
+      zoneId: 'ZoneId',
+      DBInstanceStatus: 'DBInstanceStatus',
+      DBInstanceClass: 'DBInstanceClass',
+      vSwitchId: 'VSwitchId',
+      storageSize: 'StorageSize',
+      lockMode: 'LockMode',
+      payType: 'PayType',
+      vpcId: 'VpcId',
+      cpuCores: 'CpuCores',
+      connectionMode: 'ConnectionMode',
+      instanceDeployType: 'InstanceDeployType',
+      creationTime: 'CreationTime',
+      regionId: 'RegionId',
+      expireTime: 'ExpireTime',
+      connectionString: 'ConnectionString',
       tags: 'Tags',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      DBInstanceId: 'string',
-      payType: 'string',
-      regionId: 'string',
-      engine: 'string',
-      engineVersion: 'string',
-      DBInstanceClass: 'string',
-      DBInstanceStatus: 'string',
-      DBInstanceDescription: 'string',
-      lockMode: 'string',
-      creationTime: 'string',
-      expireTime: 'string',
-      zoneId: 'string',
-      instanceNetworkType: 'string',
-      vpcId: 'string',
-      connectionMode: 'string',
-      storageType: 'string',
-      instanceDeployType: 'string',
+      masterNodeNum: 'number',
       segNodeNum: 'number',
-      memorySize: 'number',
-      cpuCores: 'number',
-      storageSize: 'number',
-      vSwitchId: 'string',
-      connectionString: 'string',
       port: 'string',
-      encryptionType: 'string',
       encryptionKey: 'string',
+      instanceNetworkType: 'string',
+      DBInstanceId: 'string',
+      engine: 'string',
+      DBInstanceDescription: 'string',
+      memorySize: 'number',
+      encryptionType: 'string',
+      engineVersion: 'string',
+      storageType: 'string',
+      zoneId: 'string',
+      DBInstanceStatus: 'string',
+      DBInstanceClass: 'string',
+      vSwitchId: 'string',
+      storageSize: 'number',
+      lockMode: 'string',
+      payType: 'string',
+      vpcId: 'string',
+      cpuCores: 'number',
+      connectionMode: 'string',
+      instanceDeployType: 'string',
+      creationTime: 'string',
+      regionId: 'string',
+      expireTime: 'string',
+      connectionString: 'string',
       tags: DescribeDBInstanceOnECSAttributeResponseItemsDBInstanceAttributeTags,
     };
   }
@@ -4036,19 +4048,19 @@ export class DescribeDBInstancesRequestTag extends $tea.Model {
 }
 
 export class DescribeDBInstancesResponseItemsDBInstanceTagsTag extends $tea.Model {
-  key: string;
   value: string;
+  key: string;
   static names(): { [key: string]: string } {
     return {
-      key: 'Key',
       value: 'Value',
+      key: 'Key',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      key: 'string',
       value: 'string',
+      key: 'string',
     };
   }
 
@@ -4077,69 +4089,72 @@ export class DescribeDBInstancesResponseItemsDBInstanceTags extends $tea.Model {
 }
 
 export class DescribeDBInstancesResponseItemsDBInstance extends $tea.Model {
-  DBInstanceId: string;
-  DBInstanceDescription: string;
+  engineVersion: string;
+  storageType: string;
+  zoneId: string;
+  DBInstanceStatus: string;
+  DBInstanceNetType: string;
+  vSwitchId: string;
+  createTime: string;
+  lockMode: string;
   payType: string;
   instanceNetworkType: string;
-  connectionMode: string;
-  regionId: string;
-  zoneId: string;
-  expireTime: string;
-  DBInstanceStatus: string;
-  engine: string;
-  engineVersion: string;
-  DBInstanceNetType: string;
-  lockMode: string;
-  lockReason: string;
-  createTime: string;
   vpcId: string;
-  vSwitchId: string;
+  DBInstanceId: string;
+  connectionMode: string;
   instanceDeployType: string;
+  regionId: string;
+  lockReason: string;
+  expireTime: string;
+  DBInstanceDescription: string;
+  engine: string;
   tags: DescribeDBInstancesResponseItemsDBInstanceTags;
   static names(): { [key: string]: string } {
     return {
-      DBInstanceId: 'DBInstanceId',
-      DBInstanceDescription: 'DBInstanceDescription',
+      engineVersion: 'EngineVersion',
+      storageType: 'StorageType',
+      zoneId: 'ZoneId',
+      DBInstanceStatus: 'DBInstanceStatus',
+      DBInstanceNetType: 'DBInstanceNetType',
+      vSwitchId: 'VSwitchId',
+      createTime: 'CreateTime',
+      lockMode: 'LockMode',
       payType: 'PayType',
       instanceNetworkType: 'InstanceNetworkType',
-      connectionMode: 'ConnectionMode',
-      regionId: 'RegionId',
-      zoneId: 'ZoneId',
-      expireTime: 'ExpireTime',
-      DBInstanceStatus: 'DBInstanceStatus',
-      engine: 'Engine',
-      engineVersion: 'EngineVersion',
-      DBInstanceNetType: 'DBInstanceNetType',
-      lockMode: 'LockMode',
-      lockReason: 'LockReason',
-      createTime: 'CreateTime',
       vpcId: 'VpcId',
-      vSwitchId: 'VSwitchId',
+      DBInstanceId: 'DBInstanceId',
+      connectionMode: 'ConnectionMode',
       instanceDeployType: 'InstanceDeployType',
+      regionId: 'RegionId',
+      lockReason: 'LockReason',
+      expireTime: 'ExpireTime',
+      DBInstanceDescription: 'DBInstanceDescription',
+      engine: 'Engine',
       tags: 'Tags',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      DBInstanceId: 'string',
-      DBInstanceDescription: 'string',
+      engineVersion: 'string',
+      storageType: 'string',
+      zoneId: 'string',
+      DBInstanceStatus: 'string',
+      DBInstanceNetType: 'string',
+      vSwitchId: 'string',
+      createTime: 'string',
+      lockMode: 'string',
       payType: 'string',
       instanceNetworkType: 'string',
-      connectionMode: 'string',
-      regionId: 'string',
-      zoneId: 'string',
-      expireTime: 'string',
-      DBInstanceStatus: 'string',
-      engine: 'string',
-      engineVersion: 'string',
-      DBInstanceNetType: 'string',
-      lockMode: 'string',
-      lockReason: 'string',
-      createTime: 'string',
       vpcId: 'string',
-      vSwitchId: 'string',
+      DBInstanceId: 'string',
+      connectionMode: 'string',
       instanceDeployType: 'string',
+      regionId: 'string',
+      lockReason: 'string',
+      expireTime: 'string',
+      DBInstanceDescription: 'string',
+      engine: 'string',
       tags: DescribeDBInstancesResponseItemsDBInstanceTags,
     };
   }
@@ -4169,34 +4184,37 @@ export class DescribeDBInstancesResponseItems extends $tea.Model {
 }
 
 export class DescribeDBInstanceNetInfoResponseDBInstanceNetInfosDBInstanceNetInfo extends $tea.Model {
-  connectionString: string;
-  IPAddress: string;
   IPType: string;
-  port: string;
   VPCId: string;
+  port: string;
   vSwitchId: string;
   vpcInstanceId: string;
+  addressType: string;
+  IPAddress: string;
+  connectionString: string;
   static names(): { [key: string]: string } {
     return {
-      connectionString: 'ConnectionString',
-      IPAddress: 'IPAddress',
       IPType: 'IPType',
-      port: 'Port',
       VPCId: 'VPCId',
+      port: 'Port',
       vSwitchId: 'VSwitchId',
       vpcInstanceId: 'VpcInstanceId',
+      addressType: 'AddressType',
+      IPAddress: 'IPAddress',
+      connectionString: 'ConnectionString',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      connectionString: 'string',
-      IPAddress: 'string',
       IPType: 'string',
-      port: 'string',
       VPCId: 'string',
+      port: 'string',
       vSwitchId: 'string',
       vpcInstanceId: 'string',
+      addressType: 'string',
+      IPAddress: 'string',
+      connectionString: 'string',
     };
   }
 
