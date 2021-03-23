@@ -437,6 +437,99 @@ export class ConnectAssistDeviceResponse extends $tea.Model {
   }
 }
 
+export class CountActivatedOrNewRegistrationDeviceRequest extends $tea.Model {
+  projectId?: string;
+  deviceType?: string;
+  deviceBrandId?: string;
+  deviceBrand?: string;
+  deviceModelId?: string;
+  deviceModel?: string;
+  deviceCountStatType?: string;
+  isQueryNewRegistrationDevice?: string;
+  startTime?: string;
+  endTime?: string;
+  isQueryYearlyActivate?: string;
+  static names(): { [key: string]: string } {
+    return {
+      projectId: 'ProjectId',
+      deviceType: 'DeviceType',
+      deviceBrandId: 'DeviceBrandId',
+      deviceBrand: 'DeviceBrand',
+      deviceModelId: 'DeviceModelId',
+      deviceModel: 'DeviceModel',
+      deviceCountStatType: 'DeviceCountStatType',
+      isQueryNewRegistrationDevice: 'IsQueryNewRegistrationDevice',
+      startTime: 'StartTime',
+      endTime: 'EndTime',
+      isQueryYearlyActivate: 'IsQueryYearlyActivate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectId: 'string',
+      deviceType: 'string',
+      deviceBrandId: 'string',
+      deviceBrand: 'string',
+      deviceModelId: 'string',
+      deviceModel: 'string',
+      deviceCountStatType: 'string',
+      isQueryNewRegistrationDevice: 'string',
+      startTime: 'string',
+      endTime: 'string',
+      isQueryYearlyActivate: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CountActivatedOrNewRegistrationDeviceResponseBody extends $tea.Model {
+  requestId?: string;
+  statistics?: CountActivatedOrNewRegistrationDeviceResponseBodyStatistics;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      statistics: 'Statistics',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      statistics: CountActivatedOrNewRegistrationDeviceResponseBodyStatistics,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CountActivatedOrNewRegistrationDeviceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CountActivatedOrNewRegistrationDeviceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CountActivatedOrNewRegistrationDeviceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CountDeviceBrandsRequest extends $tea.Model {
   deviceBrandId?: number;
   deviceBrand?: string;
@@ -809,19 +902,19 @@ export class CreateAppVersionRequest extends $tea.Model {
 }
 
 export class CreateAppVersionResponseBody extends $tea.Model {
-  versionId?: string;
   requestId?: string;
+  versionId?: string;
   static names(): { [key: string]: string } {
     return {
-      versionId: 'VersionId',
       requestId: 'RequestId',
+      versionId: 'VersionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      versionId: 'string',
       requestId: 'string',
+      versionId: 'string',
     };
   }
 
@@ -893,19 +986,19 @@ export class CreateCustomizedFilterRequest extends $tea.Model {
 }
 
 export class CreateCustomizedFilterResponseBody extends $tea.Model {
-  customizedFilterId?: string;
   requestId?: string;
+  customizedFilterId?: string;
   static names(): { [key: string]: string } {
     return {
-      customizedFilterId: 'CustomizedFilterId',
       requestId: 'RequestId',
+      customizedFilterId: 'CustomizedFilterId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      customizedFilterId: 'string',
       requestId: 'string',
+      customizedFilterId: 'string',
     };
   }
 
@@ -1463,19 +1556,19 @@ export class CreateOsVersionRequest extends $tea.Model {
 }
 
 export class CreateOsVersionResponseBody extends $tea.Model {
-  versionId?: string;
   requestId?: string;
+  versionId?: string;
   static names(): { [key: string]: string } {
     return {
-      versionId: 'VersionId',
       requestId: 'RequestId',
+      versionId: 'VersionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      versionId: 'string',
       requestId: 'string',
+      versionId: 'string',
     };
   }
 
@@ -2333,19 +2426,19 @@ export class CreateVersionTestRequest extends $tea.Model {
 }
 
 export class CreateVersionTestResponseBody extends $tea.Model {
-  testId?: string;
   requestId?: string;
+  testId?: string;
   static names(): { [key: string]: string } {
     return {
-      testId: 'TestId',
       requestId: 'RequestId',
+      testId: 'TestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      testId: 'string',
       requestId: 'string',
+      testId: 'string',
     };
   }
 
@@ -4307,19 +4400,19 @@ export class DescribeAppVersionRequest extends $tea.Model {
 }
 
 export class DescribeAppVersionResponseBody extends $tea.Model {
-  appVersion?: DescribeAppVersionResponseBodyAppVersion;
   requestId?: string;
+  appVersion?: DescribeAppVersionResponseBodyAppVersion;
   static names(): { [key: string]: string } {
     return {
-      appVersion: 'AppVersion',
       requestId: 'RequestId',
+      appVersion: 'AppVersion',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      appVersion: DescribeAppVersionResponseBodyAppVersion,
       requestId: 'string',
+      appVersion: DescribeAppVersionResponseBodyAppVersion,
     };
   }
 
@@ -4374,18 +4467,18 @@ export class DescribeAssistReportRequest extends $tea.Model {
 
 export class DescribeAssistReportResponseBody extends $tea.Model {
   requestId?: string;
-  assistResult?: string;
-  assistReason?: string;
   assistId?: string;
   assistDescription?: string;
+  assistResult?: string;
+  assistReason?: string;
   assistTag?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      assistResult: 'AssistResult',
-      assistReason: 'AssistReason',
       assistId: 'AssistId',
       assistDescription: 'AssistDescription',
+      assistResult: 'AssistResult',
+      assistReason: 'AssistReason',
       assistTag: 'AssistTag',
     };
   }
@@ -4393,10 +4486,10 @@ export class DescribeAssistReportResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      assistResult: 'string',
-      assistReason: 'string',
       assistId: 'string',
       assistDescription: 'string',
+      assistResult: 'string',
+      assistReason: 'string',
       assistTag: 'string',
     };
   }
@@ -4589,19 +4682,19 @@ export class DescribeCustomizedFilterRequest extends $tea.Model {
 }
 
 export class DescribeCustomizedFilterResponseBody extends $tea.Model {
-  customizedFilter?: DescribeCustomizedFilterResponseBodyCustomizedFilter;
   requestId?: string;
+  customizedFilter?: DescribeCustomizedFilterResponseBodyCustomizedFilter;
   static names(): { [key: string]: string } {
     return {
-      customizedFilter: 'CustomizedFilter',
       requestId: 'RequestId',
+      customizedFilter: 'CustomizedFilter',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      customizedFilter: DescribeCustomizedFilterResponseBodyCustomizedFilter,
       requestId: 'string',
+      customizedFilter: DescribeCustomizedFilterResponseBodyCustomizedFilter,
     };
   }
 
@@ -5003,19 +5096,19 @@ export class DescribeDeviceModelRequest extends $tea.Model {
 }
 
 export class DescribeDeviceModelResponseBody extends $tea.Model {
-  deviceModel?: DescribeDeviceModelResponseBodyDeviceModel;
   requestId?: string;
+  deviceModel?: DescribeDeviceModelResponseBodyDeviceModel;
   static names(): { [key: string]: string } {
     return {
-      deviceModel: 'DeviceModel',
       requestId: 'RequestId',
+      deviceModel: 'DeviceModel',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      deviceModel: DescribeDeviceModelResponseBodyDeviceModel,
       requestId: 'string',
+      deviceModel: DescribeDeviceModelResponseBodyDeviceModel,
     };
   }
 
@@ -5351,19 +5444,19 @@ export class DescribeMqttClientStatusRequest extends $tea.Model {
 }
 
 export class DescribeMqttClientStatusResponseBody extends $tea.Model {
-  clientStatus?: DescribeMqttClientStatusResponseBodyClientStatus;
   requestId?: string;
+  clientStatus?: DescribeMqttClientStatusResponseBodyClientStatus;
   static names(): { [key: string]: string } {
     return {
-      clientStatus: 'ClientStatus',
       requestId: 'RequestId',
+      clientStatus: 'ClientStatus',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      clientStatus: DescribeMqttClientStatusResponseBodyClientStatus,
       requestId: 'string',
+      clientStatus: DescribeMqttClientStatusResponseBodyClientStatus,
     };
   }
 
@@ -5564,19 +5657,19 @@ export class DescribeOpenAccountRequest extends $tea.Model {
 }
 
 export class DescribeOpenAccountResponseBody extends $tea.Model {
-  openAccount?: DescribeOpenAccountResponseBodyOpenAccount;
   requestId?: string;
+  openAccount?: DescribeOpenAccountResponseBodyOpenAccount;
   static names(): { [key: string]: string } {
     return {
-      openAccount: 'OpenAccount',
       requestId: 'RequestId',
+      openAccount: 'OpenAccount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      openAccount: DescribeOpenAccountResponseBodyOpenAccount,
       requestId: 'string',
+      openAccount: DescribeOpenAccountResponseBodyOpenAccount,
     };
   }
 
@@ -5693,19 +5786,19 @@ export class DescribeProjectRequest extends $tea.Model {
 }
 
 export class DescribeProjectResponseBody extends $tea.Model {
-  project?: DescribeProjectResponseBodyProject;
   requestId?: string;
+  project?: DescribeProjectResponseBodyProject;
   static names(): { [key: string]: string } {
     return {
-      project: 'Project',
       requestId: 'RequestId',
+      project: 'Project',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      project: DescribeProjectResponseBodyProject,
       requestId: 'string',
+      project: DescribeProjectResponseBodyProject,
     };
   }
 
@@ -6062,19 +6155,19 @@ export class FindAppVersionsRequest extends $tea.Model {
 }
 
 export class FindAppVersionsResponseBody extends $tea.Model {
-  appVersionList?: FindAppVersionsResponseBodyAppVersionList;
   requestId?: string;
+  appVersionList?: FindAppVersionsResponseBodyAppVersionList;
   static names(): { [key: string]: string } {
     return {
-      appVersionList: 'AppVersionList',
       requestId: 'RequestId',
+      appVersionList: 'AppVersionList',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      appVersionList: FindAppVersionsResponseBodyAppVersionList,
       requestId: 'string',
+      appVersionList: FindAppVersionsResponseBodyAppVersionList,
     };
   }
 
@@ -6140,19 +6233,19 @@ export class FindCustomizedFiltersRequest extends $tea.Model {
 }
 
 export class FindCustomizedFiltersResponseBody extends $tea.Model {
-  customizedFilterList?: FindCustomizedFiltersResponseBodyCustomizedFilterList;
   requestId?: string;
+  customizedFilterList?: FindCustomizedFiltersResponseBodyCustomizedFilterList;
   static names(): { [key: string]: string } {
     return {
-      customizedFilterList: 'CustomizedFilterList',
       requestId: 'RequestId',
+      customizedFilterList: 'CustomizedFilterList',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      customizedFilterList: FindCustomizedFiltersResponseBodyCustomizedFilterList,
       requestId: 'string',
+      customizedFilterList: FindCustomizedFiltersResponseBodyCustomizedFilterList,
     };
   }
 
@@ -6917,19 +7010,19 @@ export class FindVersionMessageSendRecordsRequest extends $tea.Model {
 }
 
 export class FindVersionMessageSendRecordsResponseBody extends $tea.Model {
-  messageSendRecordList?: FindVersionMessageSendRecordsResponseBodyMessageSendRecordList;
   requestId?: string;
+  messageSendRecordList?: FindVersionMessageSendRecordsResponseBodyMessageSendRecordList;
   static names(): { [key: string]: string } {
     return {
-      messageSendRecordList: 'MessageSendRecordList',
       requestId: 'RequestId',
+      messageSendRecordList: 'MessageSendRecordList',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      messageSendRecordList: FindVersionMessageSendRecordsResponseBodyMessageSendRecordList,
       requestId: 'string',
+      messageSendRecordList: FindVersionMessageSendRecordsResponseBodyMessageSendRecordList,
     };
   }
 
@@ -7142,22 +7235,22 @@ export class GenerateAssistFileUploadUrlRequest extends $tea.Model {
 }
 
 export class GenerateAssistFileUploadUrlResponseBody extends $tea.Model {
+  requestId?: string;
   fileKey?: string;
   uploadUrl?: string;
-  requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      requestId: 'RequestId',
       fileKey: 'FileKey',
       uploadUrl: 'UploadUrl',
-      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      requestId: 'string',
       fileKey: 'string',
       uploadUrl: 'string',
-      requestId: 'string',
     };
   }
 
@@ -7776,6 +7869,81 @@ export class GetNamespaceDataResponse extends $tea.Model {
   }
 }
 
+export class GetNamespaceStatisticsDataRequest extends $tea.Model {
+  projectId?: string;
+  namespace?: string;
+  dimensionType?: string;
+  startTime?: string;
+  endTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      projectId: 'ProjectId',
+      namespace: 'Namespace',
+      dimensionType: 'DimensionType',
+      startTime: 'StartTime',
+      endTime: 'EndTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectId: 'string',
+      namespace: 'string',
+      dimensionType: 'string',
+      startTime: 'string',
+      endTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetNamespaceStatisticsDataResponseBody extends $tea.Model {
+  requestId?: string;
+  statistics?: GetNamespaceStatisticsDataResponseBodyStatistics;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      statistics: 'Statistics',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      statistics: GetNamespaceStatisticsDataResponseBodyStatistics,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetNamespaceStatisticsDataResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetNamespaceStatisticsDataResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetNamespaceStatisticsDataResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetOssUploadMetaRequest extends $tea.Model {
   projectId?: string;
   ext?: string;
@@ -7937,19 +8105,19 @@ export class ListApiGatewayAppsRequest extends $tea.Model {
 }
 
 export class ListApiGatewayAppsResponseBody extends $tea.Model {
-  apiGatewayApps?: ListApiGatewayAppsResponseBodyApiGatewayApps[];
   requestId?: string;
+  apiGatewayApps?: ListApiGatewayAppsResponseBodyApiGatewayApps[];
   static names(): { [key: string]: string } {
     return {
-      apiGatewayApps: 'ApiGatewayApps',
       requestId: 'RequestId',
+      apiGatewayApps: 'ApiGatewayApps',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      apiGatewayApps: { 'type': 'array', 'itemType': ListApiGatewayAppsResponseBodyApiGatewayApps },
       requestId: 'string',
+      apiGatewayApps: { 'type': 'array', 'itemType': ListApiGatewayAppsResponseBodyApiGatewayApps },
     };
   }
 
@@ -8138,27 +8306,27 @@ export class ListAssistDevicesRequest extends $tea.Model {
 }
 
 export class ListAssistDevicesResponseBody extends $tea.Model {
-  totalCount?: number;
   requestId?: string;
-  perPage?: number;
   pageIndex?: number;
+  perPage?: number;
+  totalCount?: number;
   devices?: ListAssistDevicesResponseBodyDevices[];
   static names(): { [key: string]: string } {
     return {
-      totalCount: 'TotalCount',
       requestId: 'RequestId',
-      perPage: 'PerPage',
       pageIndex: 'PageIndex',
+      perPage: 'PerPage',
+      totalCount: 'TotalCount',
       devices: 'Devices',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      totalCount: 'number',
       requestId: 'string',
-      perPage: 'number',
       pageIndex: 'number',
+      perPage: 'number',
+      totalCount: 'number',
       devices: { 'type': 'array', 'itemType': ListAssistDevicesResponseBodyDevices },
     };
   }
@@ -8219,28 +8387,28 @@ export class ListAssistHistoriesRequest extends $tea.Model {
 }
 
 export class ListAssistHistoriesResponseBody extends $tea.Model {
-  totalCount?: number;
   requestId?: string;
-  perPage?: number;
-  histories?: ListAssistHistoriesResponseBodyHistories[];
   pageIndex?: number;
+  perPage?: number;
+  totalCount?: number;
+  histories?: ListAssistHistoriesResponseBodyHistories[];
   static names(): { [key: string]: string } {
     return {
-      totalCount: 'TotalCount',
       requestId: 'RequestId',
-      perPage: 'PerPage',
-      histories: 'Histories',
       pageIndex: 'PageIndex',
+      perPage: 'PerPage',
+      totalCount: 'TotalCount',
+      histories: 'Histories',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      totalCount: 'number',
       requestId: 'string',
-      perPage: 'number',
-      histories: { 'type': 'array', 'itemType': ListAssistHistoriesResponseBodyHistories },
       pageIndex: 'number',
+      perPage: 'number',
+      totalCount: 'number',
+      histories: { 'type': 'array', 'itemType': ListAssistHistoriesResponseBodyHistories },
     };
   }
 
@@ -8423,19 +8591,19 @@ export class ListClientPluginVersionsRequest extends $tea.Model {
 }
 
 export class ListClientPluginVersionsResponseBody extends $tea.Model {
-  clientPluginVersions?: ListClientPluginVersionsResponseBodyClientPluginVersions[];
   requestId?: string;
+  clientPluginVersions?: ListClientPluginVersionsResponseBodyClientPluginVersions[];
   static names(): { [key: string]: string } {
     return {
-      clientPluginVersions: 'ClientPluginVersions',
       requestId: 'RequestId',
+      clientPluginVersions: 'ClientPluginVersions',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      clientPluginVersions: { 'type': 'array', 'itemType': ListClientPluginVersionsResponseBodyClientPluginVersions },
       requestId: 'string',
+      clientPluginVersions: { 'type': 'array', 'itemType': ListClientPluginVersionsResponseBodyClientPluginVersions },
     };
   }
 
@@ -8486,19 +8654,19 @@ export class ListClientSdksRequest extends $tea.Model {
 }
 
 export class ListClientSdksResponseBody extends $tea.Model {
-  clientSdks?: ListClientSdksResponseBodyClientSdks[];
   requestId?: string;
+  clientSdks?: ListClientSdksResponseBodyClientSdks[];
   static names(): { [key: string]: string } {
     return {
-      clientSdks: 'ClientSdks',
       requestId: 'RequestId',
+      clientSdks: 'ClientSdks',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      clientSdks: { 'type': 'array', 'itemType': ListClientSdksResponseBodyClientSdks },
       requestId: 'string',
+      clientSdks: { 'type': 'array', 'itemType': ListClientSdksResponseBodyClientSdks },
     };
   }
 
@@ -8705,19 +8873,19 @@ export class ListDeviceBrandsRequest extends $tea.Model {
 }
 
 export class ListDeviceBrandsResponseBody extends $tea.Model {
-  deviceBrands?: ListDeviceBrandsResponseBodyDeviceBrands[];
   requestId?: string;
+  deviceBrands?: ListDeviceBrandsResponseBodyDeviceBrands[];
   static names(): { [key: string]: string } {
     return {
-      deviceBrands: 'DeviceBrands',
       requestId: 'RequestId',
+      deviceBrands: 'DeviceBrands',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      deviceBrands: { 'type': 'array', 'itemType': ListDeviceBrandsResponseBodyDeviceBrands },
       requestId: 'string',
+      deviceBrands: { 'type': 'array', 'itemType': ListDeviceBrandsResponseBodyDeviceBrands },
     };
   }
 
@@ -8768,19 +8936,19 @@ export class ListDeviceModelRequest extends $tea.Model {
 }
 
 export class ListDeviceModelResponseBody extends $tea.Model {
-  modelList?: ListDeviceModelResponseBodyModelList[];
   requestId?: string;
+  modelList?: ListDeviceModelResponseBodyModelList[];
   static names(): { [key: string]: string } {
     return {
-      modelList: 'ModelList',
       requestId: 'RequestId',
+      modelList: 'ModelList',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      modelList: { 'type': 'array', 'itemType': ListDeviceModelResponseBodyModelList },
       requestId: 'string',
+      modelList: { 'type': 'array', 'itemType': ListDeviceModelResponseBodyModelList },
     };
   }
 
@@ -8849,19 +9017,19 @@ export class ListDeviceModelsRequest extends $tea.Model {
 }
 
 export class ListDeviceModelsResponseBody extends $tea.Model {
-  deviceModels?: ListDeviceModelsResponseBodyDeviceModels[];
   requestId?: string;
+  deviceModels?: ListDeviceModelsResponseBodyDeviceModels[];
   static names(): { [key: string]: string } {
     return {
-      deviceModels: 'DeviceModels',
       requestId: 'RequestId',
+      deviceModels: 'DeviceModels',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      deviceModels: { 'type': 'array', 'itemType': ListDeviceModelsResponseBodyDeviceModels },
       requestId: 'string',
+      deviceModels: { 'type': 'array', 'itemType': ListDeviceModelsResponseBodyDeviceModels },
     };
   }
 
@@ -9065,19 +9233,19 @@ export class ListFunctionExecuteLogRequest extends $tea.Model {
 }
 
 export class ListFunctionExecuteLogResponseBody extends $tea.Model {
-  logList?: ListFunctionExecuteLogResponseBodyLogList;
   requestId?: string;
+  logList?: ListFunctionExecuteLogResponseBodyLogList;
   static names(): { [key: string]: string } {
     return {
-      logList: 'LogList',
       requestId: 'RequestId',
+      logList: 'LogList',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      logList: ListFunctionExecuteLogResponseBodyLogList,
       requestId: 'string',
+      logList: ListFunctionExecuteLogResponseBodyLogList,
     };
   }
 
@@ -9353,19 +9521,19 @@ export class ListMessageReceiversRequest extends $tea.Model {
 }
 
 export class ListMessageReceiversResponseBody extends $tea.Model {
-  messageReceivers?: ListMessageReceiversResponseBodyMessageReceivers;
   requestId?: string;
+  messageReceivers?: ListMessageReceiversResponseBodyMessageReceivers;
   static names(): { [key: string]: string } {
     return {
-      messageReceivers: 'MessageReceivers',
       requestId: 'RequestId',
+      messageReceivers: 'MessageReceivers',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      messageReceivers: ListMessageReceiversResponseBodyMessageReceivers,
       requestId: 'string',
+      messageReceivers: ListMessageReceiversResponseBodyMessageReceivers,
     };
   }
 
@@ -9638,19 +9806,19 @@ export class ListNamespacesRequest extends $tea.Model {
 }
 
 export class ListNamespacesResponseBody extends $tea.Model {
-  namespaces?: ListNamespacesResponseBodyNamespaces[];
   requestId?: string;
+  namespaces?: ListNamespacesResponseBodyNamespaces[];
   static names(): { [key: string]: string } {
     return {
-      namespaces: 'Namespaces',
       requestId: 'RequestId',
+      namespaces: 'Namespaces',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      namespaces: { 'type': 'array', 'itemType': ListNamespacesResponseBodyNamespaces },
       requestId: 'string',
+      namespaces: { 'type': 'array', 'itemType': ListNamespacesResponseBodyNamespaces },
     };
   }
 
@@ -10271,19 +10439,19 @@ export class ListShadowSchemaDeviceModelsRequest extends $tea.Model {
 }
 
 export class ListShadowSchemaDeviceModelsResponseBody extends $tea.Model {
-  modelList?: ListShadowSchemaDeviceModelsResponseBodyModelList[];
   requestId?: string;
+  modelList?: ListShadowSchemaDeviceModelsResponseBodyModelList[];
   static names(): { [key: string]: string } {
     return {
-      modelList: 'ModelList',
       requestId: 'RequestId',
+      modelList: 'ModelList',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      modelList: { 'type': 'array', 'itemType': ListShadowSchemaDeviceModelsResponseBodyModelList },
       requestId: 'string',
+      modelList: { 'type': 'array', 'itemType': ListShadowSchemaDeviceModelsResponseBodyModelList },
     };
   }
 
@@ -12800,23 +12968,67 @@ export class UpdateVersionPrepublishActiveStatusResponse extends $tea.Model {
   }
 }
 
+export class CountActivatedOrNewRegistrationDeviceResponseBodyStatisticsSeries extends $tea.Model {
+  name?: string;
+  data?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      data: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CountActivatedOrNewRegistrationDeviceResponseBodyStatistics extends $tea.Model {
+  categories?: string[];
+  series?: CountActivatedOrNewRegistrationDeviceResponseBodyStatisticsSeries[];
+  static names(): { [key: string]: string } {
+    return {
+      categories: 'Categories',
+      series: 'Series',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      categories: { 'type': 'array', 'itemType': 'string' },
+      series: { 'type': 'array', 'itemType': CountActivatedOrNewRegistrationDeviceResponseBodyStatisticsSeries },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CountYunIdInfoResponseBodyYunIdInfo extends $tea.Model {
   totalBrandCount?: number;
-  totalDeviceCount?: number;
   totalDeviceModelCount?: number;
+  totalDeviceCount?: number;
   static names(): { [key: string]: string } {
     return {
       totalBrandCount: 'TotalBrandCount',
-      totalDeviceCount: 'TotalDeviceCount',
       totalDeviceModelCount: 'TotalDeviceModelCount',
+      totalDeviceCount: 'TotalDeviceCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       totalBrandCount: 'number',
-      totalDeviceCount: 'number',
       totalDeviceModelCount: 'number',
+      totalDeviceCount: 'number',
     };
   }
 
@@ -12826,16 +13038,16 @@ export class CountYunIdInfoResponseBodyYunIdInfo extends $tea.Model {
 }
 
 export class DescribeApiGatewayAppSecurityResponseBodyApiGatewayAppSecurity extends $tea.Model {
+  gatewayAppId?: string;
   gatewayAppKey?: string;
   gatewayAppSecret?: string;
-  gatewayAppId?: string;
   gmtCreate?: number;
   gmtModified?: number;
   static names(): { [key: string]: string } {
     return {
+      gatewayAppId: 'GatewayAppId',
       gatewayAppKey: 'GatewayAppKey',
       gatewayAppSecret: 'GatewayAppSecret',
-      gatewayAppId: 'GatewayAppId',
       gmtCreate: 'GmtCreate',
       gmtModified: 'GmtModified',
     };
@@ -12843,9 +13055,9 @@ export class DescribeApiGatewayAppSecurityResponseBodyApiGatewayAppSecurity exte
 
   static types(): { [key: string]: any } {
     return {
+      gatewayAppId: 'string',
       gatewayAppKey: 'string',
       gatewayAppSecret: 'string',
-      gatewayAppId: 'string',
       gmtCreate: 'number',
       gmtModified: 'number',
     };
@@ -12857,30 +13069,30 @@ export class DescribeApiGatewayAppSecurityResponseBodyApiGatewayAppSecurity exte
 }
 
 export class DescribeAppVersionResponseBodyAppVersionAdapters extends $tea.Model {
-  deviceModelId?: string;
-  maxOsVersion?: string;
-  minOsVersion?: string;
-  versionId?: number;
   id?: number;
+  versionId?: number;
+  deviceModelId?: string;
+  minOsVersion?: string;
+  maxOsVersion?: string;
   deviceModelName?: string;
   static names(): { [key: string]: string } {
     return {
-      deviceModelId: 'DeviceModelId',
-      maxOsVersion: 'MaxOsVersion',
-      minOsVersion: 'MinOsVersion',
-      versionId: 'VersionId',
       id: 'Id',
+      versionId: 'VersionId',
+      deviceModelId: 'DeviceModelId',
+      minOsVersion: 'MinOsVersion',
+      maxOsVersion: 'MaxOsVersion',
       deviceModelName: 'DeviceModelName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      deviceModelId: 'string',
-      maxOsVersion: 'string',
-      minOsVersion: 'string',
-      versionId: 'number',
       id: 'number',
+      versionId: 'number',
+      deviceModelId: 'string',
+      minOsVersion: 'string',
+      maxOsVersion: 'string',
       deviceModelName: 'string',
     };
   }
@@ -12891,97 +13103,97 @@ export class DescribeAppVersionResponseBodyAppVersionAdapters extends $tea.Model
 }
 
 export class DescribeAppVersionResponseBodyAppVersion extends $tea.Model {
-  status?: string;
-  isAllowNewInstall?: string;
+  id?: number;
+  appId?: string;
+  versionCode?: number;
   releaseNote?: string;
-  packageName?: string;
   remark?: string;
-  statusName?: string;
+  status?: string;
+  appVersion?: string;
+  downloadUrl?: string;
+  originalUrl?: string;
+  isForceUpgrade?: string;
+  isSilentUpgrade?: string;
+  md5?: string;
   apkMd5?: string;
+  size?: string;
+  gmtCreate?: string;
+  gmtModify?: string;
+  isNeedRestart?: string;
+  isAllowNewInstall?: string;
+  restartType?: string;
+  restartAppType?: string;
   restartAppParam?: string;
+  installType?: string;
+  blackVersionList?: string;
   whiteVersionList?: string;
   appName?: string;
-  appId?: string;
-  restartAppType?: string;
-  versionCode?: number;
-  blackVersionList?: string;
-  gmtModify?: string;
-  downloadUrl?: string;
+  statusName?: string;
+  packageName?: string;
   adapters?: DescribeAppVersionResponseBodyAppVersionAdapters[];
-  isSilentUpgrade?: string;
-  installType?: string;
-  isNeedRestart?: string;
-  size?: string;
-  restartType?: string;
-  gmtCreate?: string;
-  md5?: string;
-  appVersion?: string;
-  isForceUpgrade?: string;
-  id?: number;
-  originalUrl?: string;
   static names(): { [key: string]: string } {
     return {
-      status: 'Status',
-      isAllowNewInstall: 'IsAllowNewInstall',
+      id: 'Id',
+      appId: 'AppId',
+      versionCode: 'VersionCode',
       releaseNote: 'ReleaseNote',
-      packageName: 'PackageName',
       remark: 'Remark',
-      statusName: 'StatusName',
+      status: 'Status',
+      appVersion: 'AppVersion',
+      downloadUrl: 'DownloadUrl',
+      originalUrl: 'OriginalUrl',
+      isForceUpgrade: 'IsForceUpgrade',
+      isSilentUpgrade: 'IsSilentUpgrade',
+      md5: 'Md5',
       apkMd5: 'ApkMd5',
+      size: 'Size',
+      gmtCreate: 'GmtCreate',
+      gmtModify: 'GmtModify',
+      isNeedRestart: 'IsNeedRestart',
+      isAllowNewInstall: 'IsAllowNewInstall',
+      restartType: 'RestartType',
+      restartAppType: 'RestartAppType',
       restartAppParam: 'RestartAppParam',
+      installType: 'InstallType',
+      blackVersionList: 'BlackVersionList',
       whiteVersionList: 'WhiteVersionList',
       appName: 'AppName',
-      appId: 'AppId',
-      restartAppType: 'RestartAppType',
-      versionCode: 'VersionCode',
-      blackVersionList: 'BlackVersionList',
-      gmtModify: 'GmtModify',
-      downloadUrl: 'DownloadUrl',
+      statusName: 'StatusName',
+      packageName: 'PackageName',
       adapters: 'Adapters',
-      isSilentUpgrade: 'IsSilentUpgrade',
-      installType: 'InstallType',
-      isNeedRestart: 'IsNeedRestart',
-      size: 'Size',
-      restartType: 'RestartType',
-      gmtCreate: 'GmtCreate',
-      md5: 'Md5',
-      appVersion: 'AppVersion',
-      isForceUpgrade: 'IsForceUpgrade',
-      id: 'Id',
-      originalUrl: 'OriginalUrl',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      status: 'string',
-      isAllowNewInstall: 'string',
+      id: 'number',
+      appId: 'string',
+      versionCode: 'number',
       releaseNote: 'string',
-      packageName: 'string',
       remark: 'string',
-      statusName: 'string',
+      status: 'string',
+      appVersion: 'string',
+      downloadUrl: 'string',
+      originalUrl: 'string',
+      isForceUpgrade: 'string',
+      isSilentUpgrade: 'string',
+      md5: 'string',
       apkMd5: 'string',
+      size: 'string',
+      gmtCreate: 'string',
+      gmtModify: 'string',
+      isNeedRestart: 'string',
+      isAllowNewInstall: 'string',
+      restartType: 'string',
+      restartAppType: 'string',
       restartAppParam: 'string',
+      installType: 'string',
+      blackVersionList: 'string',
       whiteVersionList: 'string',
       appName: 'string',
-      appId: 'string',
-      restartAppType: 'string',
-      versionCode: 'number',
-      blackVersionList: 'string',
-      gmtModify: 'string',
-      downloadUrl: 'string',
+      statusName: 'string',
+      packageName: 'string',
       adapters: { 'type': 'array', 'itemType': DescribeAppVersionResponseBodyAppVersionAdapters },
-      isSilentUpgrade: 'string',
-      installType: 'string',
-      isNeedRestart: 'string',
-      size: 'string',
-      restartType: 'string',
-      gmtCreate: 'string',
-      md5: 'string',
-      appVersion: 'string',
-      isForceUpgrade: 'string',
-      id: 'number',
-      originalUrl: 'string',
     };
   }
 
@@ -12991,49 +13203,49 @@ export class DescribeAppVersionResponseBodyAppVersion extends $tea.Model {
 }
 
 export class DescribeCustomizedFilterResponseBodyCustomizedFilter extends $tea.Model {
-  gmtCreateTimestamp?: number;
-  gmtModify?: string;
-  valueCompareType?: string;
-  versionId?: number;
-  gmtModifyTimestamp?: number;
-  value?: string;
-  valueType?: string;
-  gmtCreate?: string;
-  blackWhiteType?: string;
-  name?: string;
-  versionType?: string;
   id?: number;
+  versionType?: string;
+  versionId?: number;
+  name?: string;
+  value?: string;
+  valueCompareType?: string;
+  blackWhiteType?: string;
+  gmtCreate?: string;
+  gmtModify?: string;
+  valueType?: string;
+  gmtCreateTimestamp?: number;
+  gmtModifyTimestamp?: number;
   static names(): { [key: string]: string } {
     return {
-      gmtCreateTimestamp: 'GmtCreateTimestamp',
-      gmtModify: 'GmtModify',
-      valueCompareType: 'ValueCompareType',
-      versionId: 'VersionId',
-      gmtModifyTimestamp: 'GmtModifyTimestamp',
-      value: 'Value',
-      valueType: 'ValueType',
-      gmtCreate: 'GmtCreate',
-      blackWhiteType: 'BlackWhiteType',
-      name: 'Name',
-      versionType: 'VersionType',
       id: 'Id',
+      versionType: 'VersionType',
+      versionId: 'VersionId',
+      name: 'Name',
+      value: 'Value',
+      valueCompareType: 'ValueCompareType',
+      blackWhiteType: 'BlackWhiteType',
+      gmtCreate: 'GmtCreate',
+      gmtModify: 'GmtModify',
+      valueType: 'ValueType',
+      gmtCreateTimestamp: 'GmtCreateTimestamp',
+      gmtModifyTimestamp: 'GmtModifyTimestamp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      gmtCreateTimestamp: 'number',
-      gmtModify: 'string',
-      valueCompareType: 'string',
-      versionId: 'number',
-      gmtModifyTimestamp: 'number',
-      value: 'string',
-      valueType: 'string',
-      gmtCreate: 'string',
-      blackWhiteType: 'string',
-      name: 'string',
-      versionType: 'string',
       id: 'number',
+      versionType: 'string',
+      versionId: 'number',
+      name: 'string',
+      value: 'string',
+      valueCompareType: 'string',
+      blackWhiteType: 'string',
+      gmtCreate: 'string',
+      gmtModify: 'string',
+      valueType: 'string',
+      gmtCreateTimestamp: 'number',
+      gmtModifyTimestamp: 'number',
     };
   }
 
@@ -13043,76 +13255,76 @@ export class DescribeCustomizedFilterResponseBodyCustomizedFilter extends $tea.M
 }
 
 export class DescribeDeviceResponseBodyDeviceInfo extends $tea.Model {
-  serialNumber?: string;
-  status?: string;
-  deviceModelId?: number;
-  macAddress?: string;
   deviceId?: string;
   deviceType?: string;
+  usageType?: number;
+  usageTypeDesc?: string;
+  deviceModel?: string;
+  deviceModelId?: number;
+  deviceProduct?: string;
+  deviceBrandId?: number;
+  deviceBrand?: string;
+  uuid?: string;
+  vin?: string;
+  serialNumber?: string;
+  macAddress?: string;
+  hardwareId?: string;
+  softwareId?: string;
+  region?: string;
+  name?: string;
+  attributes?: string;
   projectId?: string;
   osPlatform?: string;
-  deviceModel?: string;
-  usageType?: number;
-  vin?: string;
-  usageTypeDesc?: string;
-  uuid?: string;
-  hardwareId?: string;
-  deviceBrandId?: number;
-  region?: string;
-  attributes?: string;
-  softwareId?: string;
-  name?: string;
-  deviceBrand?: string;
-  deviceProduct?: string;
+  status?: string;
   static names(): { [key: string]: string } {
     return {
-      serialNumber: 'SerialNumber',
-      status: 'Status',
-      deviceModelId: 'DeviceModelId',
-      macAddress: 'MacAddress',
       deviceId: 'DeviceId',
       deviceType: 'DeviceType',
+      usageType: 'UsageType',
+      usageTypeDesc: 'UsageTypeDesc',
+      deviceModel: 'DeviceModel',
+      deviceModelId: 'DeviceModelId',
+      deviceProduct: 'DeviceProduct',
+      deviceBrandId: 'DeviceBrandId',
+      deviceBrand: 'DeviceBrand',
+      uuid: 'Uuid',
+      vin: 'Vin',
+      serialNumber: 'SerialNumber',
+      macAddress: 'MacAddress',
+      hardwareId: 'HardwareId',
+      softwareId: 'SoftwareId',
+      region: 'Region',
+      name: 'Name',
+      attributes: 'Attributes',
       projectId: 'ProjectId',
       osPlatform: 'OsPlatform',
-      deviceModel: 'DeviceModel',
-      usageType: 'UsageType',
-      vin: 'Vin',
-      usageTypeDesc: 'UsageTypeDesc',
-      uuid: 'Uuid',
-      hardwareId: 'HardwareId',
-      deviceBrandId: 'DeviceBrandId',
-      region: 'Region',
-      attributes: 'Attributes',
-      softwareId: 'SoftwareId',
-      name: 'Name',
-      deviceBrand: 'DeviceBrand',
-      deviceProduct: 'DeviceProduct',
+      status: 'Status',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      serialNumber: 'string',
-      status: 'string',
-      deviceModelId: 'number',
-      macAddress: 'string',
       deviceId: 'string',
       deviceType: 'string',
+      usageType: 'number',
+      usageTypeDesc: 'string',
+      deviceModel: 'string',
+      deviceModelId: 'number',
+      deviceProduct: 'string',
+      deviceBrandId: 'number',
+      deviceBrand: 'string',
+      uuid: 'string',
+      vin: 'string',
+      serialNumber: 'string',
+      macAddress: 'string',
+      hardwareId: 'string',
+      softwareId: 'string',
+      region: 'string',
+      name: 'string',
+      attributes: 'string',
       projectId: 'string',
       osPlatform: 'string',
-      deviceModel: 'string',
-      usageType: 'number',
-      vin: 'string',
-      usageTypeDesc: 'string',
-      uuid: 'string',
-      hardwareId: 'string',
-      deviceBrandId: 'number',
-      region: 'string',
-      attributes: 'string',
-      softwareId: 'string',
-      name: 'string',
-      deviceBrand: 'string',
-      deviceProduct: 'string',
+      status: 'string',
     };
   }
 
@@ -13123,27 +13335,27 @@ export class DescribeDeviceResponseBodyDeviceInfo extends $tea.Model {
 
 export class DescribeDeviceBrandResponseBodyDeviceBrand extends $tea.Model {
   deviceBrandId?: number;
-  description?: string;
+  deviceBrand?: string;
   projectId?: string;
   manufacture?: string;
-  deviceBrand?: string;
+  description?: string;
   static names(): { [key: string]: string } {
     return {
       deviceBrandId: 'DeviceBrandId',
-      description: 'Description',
+      deviceBrand: 'DeviceBrand',
       projectId: 'ProjectId',
       manufacture: 'Manufacture',
-      deviceBrand: 'DeviceBrand',
+      description: 'Description',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       deviceBrandId: 'number',
-      description: 'string',
+      deviceBrand: 'string',
       projectId: 'string',
       manufacture: 'string',
-      deviceBrand: 'string',
+      description: 'string',
     };
   }
 
@@ -13153,64 +13365,64 @@ export class DescribeDeviceBrandResponseBodyDeviceBrand extends $tea.Model {
 }
 
 export class DescribeDeviceInfoResponseBodyDeviceInfo extends $tea.Model {
-  serialNumber?: string;
-  status?: string;
-  deviceModelId?: number;
-  macAddress?: string;
   deviceId?: string;
   deviceType?: string;
-  projectId?: string;
-  deviceModel?: string;
   usageType?: number;
-  vin?: string;
   usageTypeDesc?: string;
-  uuid?: string;
-  hardwareId?: string;
-  region?: string;
-  softwareId?: string;
-  name?: string;
+  deviceModel?: string;
+  deviceModelId?: number;
   deviceBrand?: string;
+  uuid?: string;
+  vin?: string;
+  serialNumber?: string;
+  macAddress?: string;
+  hardwareId?: string;
+  softwareId?: string;
+  region?: string;
+  name?: string;
+  projectId?: string;
+  status?: string;
   static names(): { [key: string]: string } {
     return {
-      serialNumber: 'SerialNumber',
-      status: 'Status',
-      deviceModelId: 'DeviceModelId',
-      macAddress: 'MacAddress',
       deviceId: 'DeviceId',
       deviceType: 'DeviceType',
-      projectId: 'ProjectId',
-      deviceModel: 'DeviceModel',
       usageType: 'UsageType',
-      vin: 'Vin',
       usageTypeDesc: 'UsageTypeDesc',
-      uuid: 'Uuid',
-      hardwareId: 'HardwareId',
-      region: 'Region',
-      softwareId: 'SoftwareId',
-      name: 'Name',
+      deviceModel: 'DeviceModel',
+      deviceModelId: 'DeviceModelId',
       deviceBrand: 'DeviceBrand',
+      uuid: 'Uuid',
+      vin: 'Vin',
+      serialNumber: 'SerialNumber',
+      macAddress: 'MacAddress',
+      hardwareId: 'HardwareId',
+      softwareId: 'SoftwareId',
+      region: 'Region',
+      name: 'Name',
+      projectId: 'ProjectId',
+      status: 'Status',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      serialNumber: 'string',
-      status: 'string',
-      deviceModelId: 'number',
-      macAddress: 'string',
       deviceId: 'string',
       deviceType: 'string',
-      projectId: 'string',
-      deviceModel: 'string',
       usageType: 'number',
-      vin: 'string',
       usageTypeDesc: 'string',
-      uuid: 'string',
-      hardwareId: 'string',
-      region: 'string',
-      softwareId: 'string',
-      name: 'string',
+      deviceModel: 'string',
+      deviceModelId: 'number',
       deviceBrand: 'string',
+      uuid: 'string',
+      vin: 'string',
+      serialNumber: 'string',
+      macAddress: 'string',
+      hardwareId: 'string',
+      softwareId: 'string',
+      region: 'string',
+      name: 'string',
+      projectId: 'string',
+      status: 'string',
     };
   }
 
@@ -13221,57 +13433,57 @@ export class DescribeDeviceInfoResponseBodyDeviceInfo extends $tea.Model {
 
 export class DescribeDeviceModelResponseBodyDeviceModel extends $tea.Model {
   deviceModelId?: number;
-  hardwareType?: string;
-  deviceName?: string;
   deviceType?: string;
-  canCreateDeviceId?: number;
-  projectId?: string;
-  osPlatform?: string;
+  hardwareType?: string;
   deviceModel?: string;
-  securityChip?: string;
-  deviceLogoUrl?: string;
-  description?: string;
-  objectKey?: string;
-  initUsageTypeDesc?: string;
-  initUsageType?: number;
   deviceBrand?: string;
+  canCreateDeviceId?: number;
+  initUsageType?: number;
+  initUsageTypeDesc?: string;
+  description?: string;
+  projectId?: string;
+  securityChip?: string;
+  osPlatform?: string;
+  objectKey?: string;
+  deviceLogoUrl?: string;
+  deviceName?: string;
   static names(): { [key: string]: string } {
     return {
       deviceModelId: 'DeviceModelId',
-      hardwareType: 'HardwareType',
-      deviceName: 'DeviceName',
       deviceType: 'DeviceType',
-      canCreateDeviceId: 'CanCreateDeviceId',
-      projectId: 'ProjectId',
-      osPlatform: 'OsPlatform',
+      hardwareType: 'HardwareType',
       deviceModel: 'DeviceModel',
-      securityChip: 'SecurityChip',
-      deviceLogoUrl: 'DeviceLogoUrl',
-      description: 'Description',
-      objectKey: 'ObjectKey',
-      initUsageTypeDesc: 'InitUsageTypeDesc',
-      initUsageType: 'InitUsageType',
       deviceBrand: 'DeviceBrand',
+      canCreateDeviceId: 'CanCreateDeviceId',
+      initUsageType: 'InitUsageType',
+      initUsageTypeDesc: 'InitUsageTypeDesc',
+      description: 'Description',
+      projectId: 'ProjectId',
+      securityChip: 'SecurityChip',
+      osPlatform: 'OsPlatform',
+      objectKey: 'ObjectKey',
+      deviceLogoUrl: 'DeviceLogoUrl',
+      deviceName: 'DeviceName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       deviceModelId: 'number',
-      hardwareType: 'string',
-      deviceName: 'string',
       deviceType: 'string',
-      canCreateDeviceId: 'number',
-      projectId: 'string',
-      osPlatform: 'string',
+      hardwareType: 'string',
       deviceModel: 'string',
-      securityChip: 'string',
-      deviceLogoUrl: 'string',
-      description: 'string',
-      objectKey: 'string',
-      initUsageTypeDesc: 'string',
-      initUsageType: 'number',
       deviceBrand: 'string',
+      canCreateDeviceId: 'number',
+      initUsageType: 'number',
+      initUsageTypeDesc: 'string',
+      description: 'string',
+      projectId: 'string',
+      securityChip: 'string',
+      osPlatform: 'string',
+      objectKey: 'string',
+      deviceLogoUrl: 'string',
+      deviceName: 'string',
     };
   }
 
@@ -13281,37 +13493,37 @@ export class DescribeDeviceModelResponseBodyDeviceModel extends $tea.Model {
 }
 
 export class DescribeDeviceOnlineInfoResponseBodyDevices extends $tea.Model {
-  loginTime?: number;
-  deviceId?: string;
-  online?: number;
   projectId?: string;
-  iasId?: string;
-  systemVersion?: string;
   terminal?: string;
+  iasId?: string;
+  deviceId?: string;
   clientVersion?: string;
+  systemVersion?: string;
+  online?: number;
+  loginTime?: number;
   static names(): { [key: string]: string } {
     return {
-      loginTime: 'LoginTime',
-      deviceId: 'DeviceId',
-      online: 'Online',
       projectId: 'ProjectId',
-      iasId: 'IasId',
-      systemVersion: 'SystemVersion',
       terminal: 'Terminal',
+      iasId: 'IasId',
+      deviceId: 'DeviceId',
       clientVersion: 'ClientVersion',
+      systemVersion: 'SystemVersion',
+      online: 'Online',
+      loginTime: 'LoginTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      loginTime: 'number',
-      deviceId: 'string',
-      online: 'number',
       projectId: 'string',
-      iasId: 'string',
-      systemVersion: 'string',
       terminal: 'string',
+      iasId: 'string',
+      deviceId: 'string',
       clientVersion: 'string',
+      systemVersion: 'string',
+      online: 'number',
+      loginTime: 'number',
     };
   }
 
@@ -13321,19 +13533,19 @@ export class DescribeDeviceOnlineInfoResponseBodyDevices extends $tea.Model {
 }
 
 export class DescribeDeviceShadowResponseBodyDeviceShadow extends $tea.Model {
-  deviceShadow?: string;
   deviceInfo?: string;
+  deviceShadow?: string;
   static names(): { [key: string]: string } {
     return {
-      deviceShadow: 'DeviceShadow',
       deviceInfo: 'DeviceInfo',
+      deviceShadow: 'DeviceShadow',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      deviceShadow: 'string',
       deviceInfo: 'string',
+      deviceShadow: 'string',
     };
   }
 
@@ -13343,48 +13555,48 @@ export class DescribeDeviceShadowResponseBodyDeviceShadow extends $tea.Model {
 }
 
 export class DescribeDeviceValiditySchemaResponseBodyItemList extends $tea.Model {
-  minimum?: number;
-  type?: string;
-  maximum?: number;
-  itemType?: string;
-  enumListStr?: string;
-  exclusiveMinimum?: boolean;
-  maxLength?: number;
-  required?: string;
-  description?: string;
-  exclusiveMaximum?: boolean;
   path?: string;
+  type?: string;
+  itemType?: string;
+  description?: string;
+  required?: string;
+  maximum?: number;
+  minimum?: number;
+  exclusiveMaximum?: boolean;
+  exclusiveMinimum?: boolean;
+  enumListStr?: string;
+  maxLength?: number;
   minLength?: number;
   static names(): { [key: string]: string } {
     return {
-      minimum: 'Minimum',
-      type: 'Type',
-      maximum: 'Maximum',
-      itemType: 'ItemType',
-      enumListStr: 'EnumListStr',
-      exclusiveMinimum: 'ExclusiveMinimum',
-      maxLength: 'MaxLength',
-      required: 'Required',
-      description: 'Description',
-      exclusiveMaximum: 'ExclusiveMaximum',
       path: 'Path',
+      type: 'Type',
+      itemType: 'ItemType',
+      description: 'Description',
+      required: 'Required',
+      maximum: 'Maximum',
+      minimum: 'Minimum',
+      exclusiveMaximum: 'ExclusiveMaximum',
+      exclusiveMinimum: 'ExclusiveMinimum',
+      enumListStr: 'EnumListStr',
+      maxLength: 'MaxLength',
       minLength: 'MinLength',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      minimum: 'number',
-      type: 'string',
-      maximum: 'number',
-      itemType: 'string',
-      enumListStr: 'string',
-      exclusiveMinimum: 'boolean',
-      maxLength: 'number',
-      required: 'string',
-      description: 'string',
-      exclusiveMaximum: 'boolean',
       path: 'string',
+      type: 'string',
+      itemType: 'string',
+      description: 'string',
+      required: 'string',
+      maximum: 'number',
+      minimum: 'number',
+      exclusiveMaximum: 'boolean',
+      exclusiveMinimum: 'boolean',
+      enumListStr: 'string',
+      maxLength: 'number',
       minLength: 'number',
     };
   }
@@ -13395,64 +13607,64 @@ export class DescribeDeviceValiditySchemaResponseBodyItemList extends $tea.Model
 }
 
 export class DescribeMessageResponseBodyMessage extends $tea.Model {
-  type?: number;
-  action?: string;
+  id?: number;
   projectId?: string;
-  predictSendCnt?: number;
-  uri?: string;
-  desc?: string;
-  auditMsg?: string;
   appName?: string;
   appKey?: string;
+  type?: number;
+  sendStatus?: number;
+  title?: string;
+  desc?: string;
+  action?: string;
+  uri?: string;
+  parameter?: string;
+  predictSendCnt?: number;
+  ackCnt?: number;
   gmtCreateTime?: number;
   exipiredTime?: number;
-  ackCnt?: number;
-  title?: string;
-  parameter?: string;
   audit?: number;
-  id?: number;
-  sendStatus?: number;
+  auditMsg?: string;
   static names(): { [key: string]: string } {
     return {
-      type: 'Type',
-      action: 'Action',
+      id: 'Id',
       projectId: 'ProjectId',
-      predictSendCnt: 'PredictSendCnt',
-      uri: 'Uri',
-      desc: 'Desc',
-      auditMsg: 'AuditMsg',
       appName: 'AppName',
       appKey: 'AppKey',
+      type: 'Type',
+      sendStatus: 'SendStatus',
+      title: 'Title',
+      desc: 'Desc',
+      action: 'Action',
+      uri: 'Uri',
+      parameter: 'Parameter',
+      predictSendCnt: 'PredictSendCnt',
+      ackCnt: 'AckCnt',
       gmtCreateTime: 'GmtCreateTime',
       exipiredTime: 'ExipiredTime',
-      ackCnt: 'AckCnt',
-      title: 'Title',
-      parameter: 'Parameter',
       audit: 'Audit',
-      id: 'Id',
-      sendStatus: 'SendStatus',
+      auditMsg: 'AuditMsg',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      type: 'number',
-      action: 'string',
+      id: 'number',
       projectId: 'string',
-      predictSendCnt: 'number',
-      uri: 'string',
-      desc: 'string',
-      auditMsg: 'string',
       appName: 'string',
       appKey: 'string',
+      type: 'number',
+      sendStatus: 'number',
+      title: 'string',
+      desc: 'string',
+      action: 'string',
+      uri: 'string',
+      parameter: 'string',
+      predictSendCnt: 'number',
+      ackCnt: 'number',
       gmtCreateTime: 'number',
       exipiredTime: 'number',
-      ackCnt: 'number',
-      title: 'string',
-      parameter: 'string',
       audit: 'number',
-      id: 'number',
-      sendStatus: 'number',
+      auditMsg: 'string',
     };
   }
 
@@ -13463,21 +13675,21 @@ export class DescribeMessageResponseBodyMessage extends $tea.Model {
 
 export class DescribeMqttClientStatusResponseBodyClientStatus extends $tea.Model {
   status?: number;
-  cleanSession?: string;
   lastUpdate?: number;
+  cleanSession?: string;
   static names(): { [key: string]: string } {
     return {
       status: 'Status',
-      cleanSession: 'CleanSession',
       lastUpdate: 'LastUpdate',
+      cleanSession: 'CleanSession',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       status: 'number',
-      cleanSession: 'string',
       lastUpdate: 'number',
+      cleanSession: 'string',
     };
   }
 
@@ -13487,31 +13699,31 @@ export class DescribeMqttClientStatusResponseBodyClientStatus extends $tea.Model
 }
 
 export class DescribeMqttMessageResponseBodyMessage extends $tea.Model {
-  time?: number;
-  appKey?: string;
   mid?: string;
+  appKey?: string;
   topic?: string;
-  payload?: string;
   qoS?: number;
+  payload?: string;
+  time?: number;
   static names(): { [key: string]: string } {
     return {
-      time: 'Time',
-      appKey: 'AppKey',
       mid: 'Mid',
+      appKey: 'AppKey',
       topic: 'Topic',
-      payload: 'Payload',
       qoS: 'QoS',
+      payload: 'Payload',
+      time: 'Time',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      time: 'number',
-      appKey: 'string',
       mid: 'string',
+      appKey: 'string',
       topic: 'string',
-      payload: 'string',
       qoS: 'number',
+      payload: 'string',
+      time: 'number',
     };
   }
 
@@ -13543,46 +13755,46 @@ export class DescribeMqttTopicSubscriptionResponseBodySubscription extends $tea.
 }
 
 export class DescribeOpenAccountResponseBodyOpenAccount extends $tea.Model {
-  status?: number;
-  type?: number;
-  displayName?: string;
-  createAccessKey?: string;
-  openId?: string;
-  mobile?: string;
-  region?: string;
   identityId?: string;
+  aliyunId?: string;
+  displayName?: string;
   loginId?: string;
   idp?: string;
-  aliyunId?: string;
+  openId?: string;
+  mobile?: string;
+  type?: number;
+  status?: number;
+  region?: string;
+  createAccessKey?: string;
   static names(): { [key: string]: string } {
     return {
-      status: 'Status',
-      type: 'Type',
-      displayName: 'DisplayName',
-      createAccessKey: 'CreateAccessKey',
-      openId: 'OpenId',
-      mobile: 'Mobile',
-      region: 'Region',
       identityId: 'IdentityId',
+      aliyunId: 'AliyunId',
+      displayName: 'DisplayName',
       loginId: 'LoginId',
       idp: 'Idp',
-      aliyunId: 'AliyunId',
+      openId: 'OpenId',
+      mobile: 'Mobile',
+      type: 'Type',
+      status: 'Status',
+      region: 'Region',
+      createAccessKey: 'CreateAccessKey',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      status: 'number',
-      type: 'number',
-      displayName: 'string',
-      createAccessKey: 'string',
-      openId: 'string',
-      mobile: 'string',
-      region: 'string',
       identityId: 'string',
+      aliyunId: 'string',
+      displayName: 'string',
       loginId: 'string',
       idp: 'string',
-      aliyunId: 'string',
+      openId: 'string',
+      mobile: 'string',
+      type: 'number',
+      status: 'number',
+      region: 'string',
+      createAccessKey: 'string',
     };
   }
 
@@ -13592,43 +13804,43 @@ export class DescribeOpenAccountResponseBodyOpenAccount extends $tea.Model {
 }
 
 export class DescribeOsVersionResponseBodyOsVersionRomList extends $tea.Model {
-  gmtModify?: string;
-  splitNum?: string;
-  downloadUrl?: string;
-  size?: string;
-  gmtCreate?: string;
-  versionId?: number;
-  md5?: string;
-  baseVersion?: string;
   id?: number;
+  versionId?: number;
+  baseVersion?: string;
+  downloadUrl?: string;
   originalUrl?: string;
+  md5?: string;
+  size?: string;
+  splitNum?: string;
+  gmtCreate?: string;
+  gmtModify?: string;
   static names(): { [key: string]: string } {
     return {
-      gmtModify: 'GmtModify',
-      splitNum: 'SplitNum',
-      downloadUrl: 'DownloadUrl',
-      size: 'Size',
-      gmtCreate: 'GmtCreate',
-      versionId: 'VersionId',
-      md5: 'Md5',
-      baseVersion: 'BaseVersion',
       id: 'Id',
+      versionId: 'VersionId',
+      baseVersion: 'BaseVersion',
+      downloadUrl: 'DownloadUrl',
       originalUrl: 'OriginalUrl',
+      md5: 'Md5',
+      size: 'Size',
+      splitNum: 'SplitNum',
+      gmtCreate: 'GmtCreate',
+      gmtModify: 'GmtModify',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      gmtModify: 'string',
-      splitNum: 'string',
-      downloadUrl: 'string',
-      size: 'string',
-      gmtCreate: 'string',
-      versionId: 'number',
-      md5: 'string',
-      baseVersion: 'string',
       id: 'number',
+      versionId: 'number',
+      baseVersion: 'string',
+      downloadUrl: 'string',
       originalUrl: 'string',
+      md5: 'string',
+      size: 'string',
+      splitNum: 'string',
+      gmtCreate: 'string',
+      gmtModify: 'string',
     };
   }
 
@@ -13639,21 +13851,21 @@ export class DescribeOsVersionResponseBodyOsVersionRomList extends $tea.Model {
 
 export class DescribeOsVersionResponseBodyOsVersionNightUpgradeOption extends $tea.Model {
   downloadType?: string;
-  isAllowedCancel?: string;
   isShowTip?: string;
+  isAllowedCancel?: string;
   static names(): { [key: string]: string } {
     return {
       downloadType: 'DownloadType',
-      isAllowedCancel: 'IsAllowedCancel',
       isShowTip: 'IsShowTip',
+      isAllowedCancel: 'IsAllowedCancel',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       downloadType: 'string',
-      isAllowedCancel: 'string',
       isShowTip: 'string',
+      isAllowedCancel: 'string',
     };
   }
 
@@ -13663,76 +13875,76 @@ export class DescribeOsVersionResponseBodyOsVersionNightUpgradeOption extends $t
 }
 
 export class DescribeOsVersionResponseBodyOsVersion extends $tea.Model {
-  status?: string;
+  id?: number;
   deviceModelId?: string;
-  blackVersionList?: string;
-  isMilestone?: string;
-  gmtModify?: string;
+  systemVersion?: string;
   releaseNote?: string;
   remark?: string;
-  systemVersion?: string;
+  status?: string;
+  blackVersionList?: string;
+  whiteVersionList?: string;
+  minClientVersion?: string;
+  maxClientVersion?: string;
+  isMilestone?: string;
+  isForceUpgrade?: string;
+  isForceNightUpgrade?: string;
+  gmtCreate?: string;
+  gmtModify?: string;
   statusName?: string;
   deviceModelName?: string;
-  whiteVersionList?: string;
-  maxClientVersion?: string;
-  romList?: DescribeOsVersionResponseBodyOsVersionRomList[];
-  minClientVersion?: string;
-  nightUpgradeOption?: DescribeOsVersionResponseBodyOsVersionNightUpgradeOption;
-  gmtCreate?: string;
-  isForceNightUpgrade?: string;
-  mobileDownloadMaxSize?: string;
   enableMobileDownload?: string;
-  isForceUpgrade?: string;
-  id?: number;
+  mobileDownloadMaxSize?: string;
+  romList?: DescribeOsVersionResponseBodyOsVersionRomList[];
+  nightUpgradeOption?: DescribeOsVersionResponseBodyOsVersionNightUpgradeOption;
   static names(): { [key: string]: string } {
     return {
-      status: 'Status',
+      id: 'Id',
       deviceModelId: 'DeviceModelId',
-      blackVersionList: 'BlackVersionList',
-      isMilestone: 'IsMilestone',
-      gmtModify: 'GmtModify',
+      systemVersion: 'SystemVersion',
       releaseNote: 'ReleaseNote',
       remark: 'Remark',
-      systemVersion: 'SystemVersion',
+      status: 'Status',
+      blackVersionList: 'BlackVersionList',
+      whiteVersionList: 'WhiteVersionList',
+      minClientVersion: 'MinClientVersion',
+      maxClientVersion: 'MaxClientVersion',
+      isMilestone: 'IsMilestone',
+      isForceUpgrade: 'IsForceUpgrade',
+      isForceNightUpgrade: 'IsForceNightUpgrade',
+      gmtCreate: 'GmtCreate',
+      gmtModify: 'GmtModify',
       statusName: 'StatusName',
       deviceModelName: 'DeviceModelName',
-      whiteVersionList: 'WhiteVersionList',
-      maxClientVersion: 'MaxClientVersion',
-      romList: 'RomList',
-      minClientVersion: 'MinClientVersion',
-      nightUpgradeOption: 'NightUpgradeOption',
-      gmtCreate: 'GmtCreate',
-      isForceNightUpgrade: 'IsForceNightUpgrade',
-      mobileDownloadMaxSize: 'MobileDownloadMaxSize',
       enableMobileDownload: 'EnableMobileDownload',
-      isForceUpgrade: 'IsForceUpgrade',
-      id: 'Id',
+      mobileDownloadMaxSize: 'MobileDownloadMaxSize',
+      romList: 'RomList',
+      nightUpgradeOption: 'NightUpgradeOption',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      status: 'string',
+      id: 'number',
       deviceModelId: 'string',
-      blackVersionList: 'string',
-      isMilestone: 'string',
-      gmtModify: 'string',
+      systemVersion: 'string',
       releaseNote: 'string',
       remark: 'string',
-      systemVersion: 'string',
+      status: 'string',
+      blackVersionList: 'string',
+      whiteVersionList: 'string',
+      minClientVersion: 'string',
+      maxClientVersion: 'string',
+      isMilestone: 'string',
+      isForceUpgrade: 'string',
+      isForceNightUpgrade: 'string',
+      gmtCreate: 'string',
+      gmtModify: 'string',
       statusName: 'string',
       deviceModelName: 'string',
-      whiteVersionList: 'string',
-      maxClientVersion: 'string',
-      romList: { 'type': 'array', 'itemType': DescribeOsVersionResponseBodyOsVersionRomList },
-      minClientVersion: 'string',
-      nightUpgradeOption: DescribeOsVersionResponseBodyOsVersionNightUpgradeOption,
-      gmtCreate: 'string',
-      isForceNightUpgrade: 'string',
-      mobileDownloadMaxSize: 'string',
       enableMobileDownload: 'string',
-      isForceUpgrade: 'string',
-      id: 'number',
+      mobileDownloadMaxSize: 'string',
+      romList: { 'type': 'array', 'itemType': DescribeOsVersionResponseBodyOsVersionRomList },
+      nightUpgradeOption: DescribeOsVersionResponseBodyOsVersionNightUpgradeOption,
     };
   }
 
@@ -13742,39 +13954,39 @@ export class DescribeOsVersionResponseBodyOsVersion extends $tea.Model {
 }
 
 export class DescribeProjectResponseBodyProject extends $tea.Model {
+  id?: number;
+  projectId?: string;
+  userId?: string;
+  name?: string;
   status?: number;
   description?: string;
-  userId?: string;
-  projectId?: string;
   gmtCreate?: number;
   gmtModified?: number;
-  name?: string;
-  id?: number;
   creator?: string;
   static names(): { [key: string]: string } {
     return {
+      id: 'Id',
+      projectId: 'ProjectId',
+      userId: 'UserId',
+      name: 'Name',
       status: 'Status',
       description: 'Description',
-      userId: 'UserId',
-      projectId: 'ProjectId',
       gmtCreate: 'GmtCreate',
       gmtModified: 'GmtModified',
-      name: 'Name',
-      id: 'Id',
       creator: 'Creator',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      id: 'number',
+      projectId: 'string',
+      userId: 'string',
+      name: 'string',
       status: 'number',
       description: 'string',
-      userId: 'string',
-      projectId: 'string',
       gmtCreate: 'number',
       gmtModified: 'number',
-      name: 'string',
-      id: 'number',
       creator: 'string',
     };
   }
@@ -13785,31 +13997,31 @@ export class DescribeProjectResponseBodyProject extends $tea.Model {
 }
 
 export class DescribeProjectAppSecurityResponseBodyProjectAppSecurity extends $tea.Model {
-  appSecret?: string;
-  appKey?: string;
+  id?: number;
   appId?: string;
+  appKey?: string;
+  appSecret?: string;
   gmtCreate?: number;
   gmtModified?: number;
-  id?: number;
   static names(): { [key: string]: string } {
     return {
-      appSecret: 'AppSecret',
-      appKey: 'AppKey',
+      id: 'Id',
       appId: 'AppId',
+      appKey: 'AppKey',
+      appSecret: 'AppSecret',
       gmtCreate: 'GmtCreate',
       gmtModified: 'GmtModified',
-      id: 'Id',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      appSecret: 'string',
-      appKey: 'string',
+      id: 'number',
       appId: 'string',
+      appKey: 'string',
+      appSecret: 'string',
       gmtCreate: 'number',
       gmtModified: 'number',
-      id: 'number',
     };
   }
 
@@ -13819,30 +14031,30 @@ export class DescribeProjectAppSecurityResponseBodyProjectAppSecurity extends $t
 }
 
 export class DescribeVersionDeviceGroupResponseBodyDeviceGroup extends $tea.Model {
-  gmtModify?: string;
+  id?: number;
+  name?: string;
   description?: string;
   gmtCreate?: string;
-  name?: string;
-  id?: number;
+  gmtModify?: string;
   maxCount?: string;
   static names(): { [key: string]: string } {
     return {
-      gmtModify: 'GmtModify',
+      id: 'Id',
+      name: 'Name',
       description: 'Description',
       gmtCreate: 'GmtCreate',
-      name: 'Name',
-      id: 'Id',
+      gmtModify: 'GmtModify',
       maxCount: 'MaxCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      gmtModify: 'string',
+      id: 'number',
+      name: 'string',
       description: 'string',
       gmtCreate: 'string',
-      name: 'string',
-      id: 'number',
+      gmtModify: 'string',
       maxCount: 'string',
     };
   }
@@ -13853,73 +14065,73 @@ export class DescribeVersionDeviceGroupResponseBodyDeviceGroup extends $tea.Mode
 }
 
 export class FindAppVersionsResponseBodyAppVersionListItems extends $tea.Model {
-  status?: string;
-  gmtCreateTimestamp?: number;
-  gmtModify?: string;
-  isAllowNewInstall?: string;
-  statusName?: string;
-  restartAppParam?: string;
-  isSilentUpgrade?: string;
-  appPackageName?: string;
-  gmtModifyTimestamp?: number;
-  appName?: string;
-  installType?: string;
-  isNeedRestart?: string;
-  restartAppType?: string;
-  appId?: string;
-  restartType?: string;
-  gmtCreate?: string;
-  appVersion?: string;
-  versionCode?: string;
-  isForceUpgrade?: string;
   id?: number;
+  appId?: string;
+  versionCode?: string;
+  status?: string;
+  gmtCreate?: string;
+  gmtModify?: string;
+  appVersion?: string;
+  isNeedRestart?: string;
+  isForceUpgrade?: string;
+  isSilentUpgrade?: string;
+  isAllowNewInstall?: string;
+  restartType?: string;
+  restartAppType?: string;
+  restartAppParam?: string;
+  installType?: string;
+  appName?: string;
+  appPackageName?: string;
+  statusName?: string;
+  gmtCreateTimestamp?: number;
+  gmtModifyTimestamp?: number;
   static names(): { [key: string]: string } {
     return {
-      status: 'Status',
-      gmtCreateTimestamp: 'GmtCreateTimestamp',
-      gmtModify: 'GmtModify',
-      isAllowNewInstall: 'IsAllowNewInstall',
-      statusName: 'StatusName',
-      restartAppParam: 'RestartAppParam',
-      isSilentUpgrade: 'IsSilentUpgrade',
-      appPackageName: 'AppPackageName',
-      gmtModifyTimestamp: 'GmtModifyTimestamp',
-      appName: 'AppName',
-      installType: 'InstallType',
-      isNeedRestart: 'IsNeedRestart',
-      restartAppType: 'RestartAppType',
-      appId: 'AppId',
-      restartType: 'RestartType',
-      gmtCreate: 'GmtCreate',
-      appVersion: 'AppVersion',
-      versionCode: 'VersionCode',
-      isForceUpgrade: 'IsForceUpgrade',
       id: 'Id',
+      appId: 'AppId',
+      versionCode: 'VersionCode',
+      status: 'Status',
+      gmtCreate: 'GmtCreate',
+      gmtModify: 'GmtModify',
+      appVersion: 'AppVersion',
+      isNeedRestart: 'IsNeedRestart',
+      isForceUpgrade: 'IsForceUpgrade',
+      isSilentUpgrade: 'IsSilentUpgrade',
+      isAllowNewInstall: 'IsAllowNewInstall',
+      restartType: 'RestartType',
+      restartAppType: 'RestartAppType',
+      restartAppParam: 'RestartAppParam',
+      installType: 'InstallType',
+      appName: 'AppName',
+      appPackageName: 'AppPackageName',
+      statusName: 'StatusName',
+      gmtCreateTimestamp: 'GmtCreateTimestamp',
+      gmtModifyTimestamp: 'GmtModifyTimestamp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      status: 'string',
-      gmtCreateTimestamp: 'number',
-      gmtModify: 'string',
-      isAllowNewInstall: 'string',
-      statusName: 'string',
-      restartAppParam: 'string',
-      isSilentUpgrade: 'string',
-      appPackageName: 'string',
-      gmtModifyTimestamp: 'number',
-      appName: 'string',
-      installType: 'string',
-      isNeedRestart: 'string',
-      restartAppType: 'string',
-      appId: 'string',
-      restartType: 'string',
-      gmtCreate: 'string',
-      appVersion: 'string',
-      versionCode: 'string',
-      isForceUpgrade: 'string',
       id: 'number',
+      appId: 'string',
+      versionCode: 'string',
+      status: 'string',
+      gmtCreate: 'string',
+      gmtModify: 'string',
+      appVersion: 'string',
+      isNeedRestart: 'string',
+      isForceUpgrade: 'string',
+      isSilentUpgrade: 'string',
+      isAllowNewInstall: 'string',
+      restartType: 'string',
+      restartAppType: 'string',
+      restartAppParam: 'string',
+      installType: 'string',
+      appName: 'string',
+      appPackageName: 'string',
+      statusName: 'string',
+      gmtCreateTimestamp: 'number',
+      gmtModifyTimestamp: 'number',
     };
   }
 
@@ -13929,19 +14141,19 @@ export class FindAppVersionsResponseBodyAppVersionListItems extends $tea.Model {
 }
 
 export class FindAppVersionsResponseBodyAppVersionList extends $tea.Model {
-  items?: FindAppVersionsResponseBodyAppVersionListItems[];
   totalCount?: number;
+  items?: FindAppVersionsResponseBodyAppVersionListItems[];
   static names(): { [key: string]: string } {
     return {
-      items: 'Items',
       totalCount: 'TotalCount',
+      items: 'Items',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      items: { 'type': 'array', 'itemType': FindAppVersionsResponseBodyAppVersionListItems },
       totalCount: 'number',
+      items: { 'type': 'array', 'itemType': FindAppVersionsResponseBodyAppVersionListItems },
     };
   }
 
@@ -13951,40 +14163,40 @@ export class FindAppVersionsResponseBodyAppVersionList extends $tea.Model {
 }
 
 export class FindCustomizedFiltersResponseBodyCustomizedFilterListItems extends $tea.Model {
-  gmtModifyTimestamp?: number;
-  gmtCreateTimestamp?: number;
-  value?: string;
-  gmtModify?: string;
-  valueCompareType?: string;
-  gmtCreate?: string;
-  blackWhiteType?: string;
-  name?: string;
   id?: number;
+  name?: string;
+  value?: string;
+  valueCompareType?: string;
+  blackWhiteType?: string;
+  gmtCreate?: string;
+  gmtModify?: string;
+  gmtCreateTimestamp?: number;
+  gmtModifyTimestamp?: number;
   static names(): { [key: string]: string } {
     return {
-      gmtModifyTimestamp: 'GmtModifyTimestamp',
-      gmtCreateTimestamp: 'GmtCreateTimestamp',
-      value: 'Value',
-      gmtModify: 'GmtModify',
-      valueCompareType: 'ValueCompareType',
-      gmtCreate: 'GmtCreate',
-      blackWhiteType: 'BlackWhiteType',
-      name: 'Name',
       id: 'Id',
+      name: 'Name',
+      value: 'Value',
+      valueCompareType: 'ValueCompareType',
+      blackWhiteType: 'BlackWhiteType',
+      gmtCreate: 'GmtCreate',
+      gmtModify: 'GmtModify',
+      gmtCreateTimestamp: 'GmtCreateTimestamp',
+      gmtModifyTimestamp: 'GmtModifyTimestamp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      gmtModifyTimestamp: 'number',
-      gmtCreateTimestamp: 'number',
-      value: 'string',
-      gmtModify: 'string',
-      valueCompareType: 'string',
-      gmtCreate: 'string',
-      blackWhiteType: 'string',
-      name: 'string',
       id: 'number',
+      name: 'string',
+      value: 'string',
+      valueCompareType: 'string',
+      blackWhiteType: 'string',
+      gmtCreate: 'string',
+      gmtModify: 'string',
+      gmtCreateTimestamp: 'number',
+      gmtModifyTimestamp: 'number',
     };
   }
 
@@ -13994,19 +14206,19 @@ export class FindCustomizedFiltersResponseBodyCustomizedFilterListItems extends 
 }
 
 export class FindCustomizedFiltersResponseBodyCustomizedFilterList extends $tea.Model {
-  items?: FindCustomizedFiltersResponseBodyCustomizedFilterListItems[];
   totalCount?: number;
+  items?: FindCustomizedFiltersResponseBodyCustomizedFilterListItems[];
   static names(): { [key: string]: string } {
     return {
-      items: 'Items',
       totalCount: 'TotalCount',
+      items: 'Items',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      items: { 'type': 'array', 'itemType': FindCustomizedFiltersResponseBodyCustomizedFilterListItems },
       totalCount: 'number',
+      items: { 'type': 'array', 'itemType': FindCustomizedFiltersResponseBodyCustomizedFilterListItems },
     };
   }
 
@@ -14016,28 +14228,28 @@ export class FindCustomizedFiltersResponseBodyCustomizedFilterList extends $tea.
 }
 
 export class FindCustomizedPropertiesResponseBodyCustomizedPropertyListItems extends $tea.Model {
-  gmtCreateTimestamp?: number;
+  id?: number;
+  name?: string;
   value?: string;
   gmtCreate?: string;
-  name?: string;
-  id?: number;
+  gmtCreateTimestamp?: number;
   static names(): { [key: string]: string } {
     return {
-      gmtCreateTimestamp: 'GmtCreateTimestamp',
+      id: 'Id',
+      name: 'Name',
       value: 'Value',
       gmtCreate: 'GmtCreate',
-      name: 'Name',
-      id: 'Id',
+      gmtCreateTimestamp: 'GmtCreateTimestamp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      gmtCreateTimestamp: 'number',
+      id: 'number',
+      name: 'string',
       value: 'string',
       gmtCreate: 'string',
-      name: 'string',
-      id: 'number',
+      gmtCreateTimestamp: 'number',
     };
   }
 
@@ -14047,19 +14259,19 @@ export class FindCustomizedPropertiesResponseBodyCustomizedPropertyListItems ext
 }
 
 export class FindCustomizedPropertiesResponseBodyCustomizedPropertyList extends $tea.Model {
-  items?: FindCustomizedPropertiesResponseBodyCustomizedPropertyListItems[];
   totalCount?: number;
+  items?: FindCustomizedPropertiesResponseBodyCustomizedPropertyListItems[];
   static names(): { [key: string]: string } {
     return {
-      items: 'Items',
       totalCount: 'TotalCount',
+      items: 'Items',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      items: { 'type': 'array', 'itemType': FindCustomizedPropertiesResponseBodyCustomizedPropertyListItems },
       totalCount: 'number',
+      items: { 'type': 'array', 'itemType': FindCustomizedPropertiesResponseBodyCustomizedPropertyListItems },
     };
   }
 
@@ -14069,61 +14281,61 @@ export class FindCustomizedPropertiesResponseBodyCustomizedPropertyList extends 
 }
 
 export class FindOsVersionsResponseBodyOsVersionListItems extends $tea.Model {
-  status?: string;
-  gmtCreateTimestamp?: number;
+  id?: number;
   deviceModelId?: string;
-  gmtModify?: string;
-  isMilestone?: string;
-  remark?: string;
   systemVersion?: string;
-  statusName?: string;
-  isForceReboot?: string;
-  deviceModelName?: string;
+  status?: string;
+  isMilestone?: string;
+  isForceUpgrade?: string;
   isSilentUpgrade?: string;
-  gmtModifyTimestamp?: number;
+  isForceReboot?: string;
   isForceNightUpgrade?: string;
   gmtCreate?: string;
-  isForceUpgrade?: string;
-  id?: number;
+  gmtModify?: string;
+  remark?: string;
+  statusName?: string;
+  deviceModelName?: string;
+  gmtCreateTimestamp?: number;
+  gmtModifyTimestamp?: number;
   static names(): { [key: string]: string } {
     return {
-      status: 'Status',
-      gmtCreateTimestamp: 'GmtCreateTimestamp',
+      id: 'Id',
       deviceModelId: 'DeviceModelId',
-      gmtModify: 'GmtModify',
-      isMilestone: 'IsMilestone',
-      remark: 'Remark',
       systemVersion: 'SystemVersion',
-      statusName: 'StatusName',
-      isForceReboot: 'IsForceReboot',
-      deviceModelName: 'DeviceModelName',
+      status: 'Status',
+      isMilestone: 'IsMilestone',
+      isForceUpgrade: 'IsForceUpgrade',
       isSilentUpgrade: 'IsSilentUpgrade',
-      gmtModifyTimestamp: 'GmtModifyTimestamp',
+      isForceReboot: 'IsForceReboot',
       isForceNightUpgrade: 'IsForceNightUpgrade',
       gmtCreate: 'GmtCreate',
-      isForceUpgrade: 'IsForceUpgrade',
-      id: 'Id',
+      gmtModify: 'GmtModify',
+      remark: 'Remark',
+      statusName: 'StatusName',
+      deviceModelName: 'DeviceModelName',
+      gmtCreateTimestamp: 'GmtCreateTimestamp',
+      gmtModifyTimestamp: 'GmtModifyTimestamp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      status: 'string',
-      gmtCreateTimestamp: 'number',
+      id: 'number',
       deviceModelId: 'string',
-      gmtModify: 'string',
-      isMilestone: 'string',
-      remark: 'string',
       systemVersion: 'string',
-      statusName: 'string',
-      isForceReboot: 'string',
-      deviceModelName: 'string',
+      status: 'string',
+      isMilestone: 'string',
+      isForceUpgrade: 'string',
       isSilentUpgrade: 'string',
-      gmtModifyTimestamp: 'number',
+      isForceReboot: 'string',
       isForceNightUpgrade: 'string',
       gmtCreate: 'string',
-      isForceUpgrade: 'string',
-      id: 'number',
+      gmtModify: 'string',
+      remark: 'string',
+      statusName: 'string',
+      deviceModelName: 'string',
+      gmtCreateTimestamp: 'number',
+      gmtModifyTimestamp: 'number',
     };
   }
 
@@ -14133,19 +14345,19 @@ export class FindOsVersionsResponseBodyOsVersionListItems extends $tea.Model {
 }
 
 export class FindOsVersionsResponseBodyOsVersionList extends $tea.Model {
-  items?: FindOsVersionsResponseBodyOsVersionListItems[];
   totalCount?: number;
+  items?: FindOsVersionsResponseBodyOsVersionListItems[];
   static names(): { [key: string]: string } {
     return {
-      items: 'Items',
       totalCount: 'TotalCount',
+      items: 'Items',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      items: { 'type': 'array', 'itemType': FindOsVersionsResponseBodyOsVersionListItems },
       totalCount: 'number',
+      items: { 'type': 'array', 'itemType': FindOsVersionsResponseBodyOsVersionListItems },
     };
   }
 
@@ -14155,52 +14367,52 @@ export class FindOsVersionsResponseBodyOsVersionList extends $tea.Model {
 }
 
 export class FindPrepublishesByParentIdResponseBodyPrepublishListItems extends $tea.Model {
-  gmtCreateTimestamp?: number;
-  deviceModelId?: string;
-  gmtModify?: string;
-  isActive?: string;
+  id?: number;
+  name?: string;
+  versionType?: string;
   versionId?: string;
   barrierCount?: string;
-  isTotalPrepublish?: string;
-  gmtModifyTimestamp?: number;
+  deviceModelId?: string;
   parentId?: string;
+  isActive?: string;
+  isTotalPrepublish?: string;
   gmtCreate?: string;
-  name?: string;
-  id?: number;
-  versionType?: string;
+  gmtModify?: string;
+  gmtCreateTimestamp?: number;
+  gmtModifyTimestamp?: number;
   static names(): { [key: string]: string } {
     return {
-      gmtCreateTimestamp: 'GmtCreateTimestamp',
-      deviceModelId: 'DeviceModelId',
-      gmtModify: 'GmtModify',
-      isActive: 'IsActive',
+      id: 'Id',
+      name: 'Name',
+      versionType: 'VersionType',
       versionId: 'VersionId',
       barrierCount: 'BarrierCount',
-      isTotalPrepublish: 'IsTotalPrepublish',
-      gmtModifyTimestamp: 'GmtModifyTimestamp',
+      deviceModelId: 'DeviceModelId',
       parentId: 'ParentId',
+      isActive: 'IsActive',
+      isTotalPrepublish: 'IsTotalPrepublish',
       gmtCreate: 'GmtCreate',
-      name: 'Name',
-      id: 'Id',
-      versionType: 'VersionType',
+      gmtModify: 'GmtModify',
+      gmtCreateTimestamp: 'GmtCreateTimestamp',
+      gmtModifyTimestamp: 'GmtModifyTimestamp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      gmtCreateTimestamp: 'number',
-      deviceModelId: 'string',
-      gmtModify: 'string',
-      isActive: 'string',
+      id: 'number',
+      name: 'string',
+      versionType: 'string',
       versionId: 'string',
       barrierCount: 'string',
-      isTotalPrepublish: 'string',
-      gmtModifyTimestamp: 'number',
+      deviceModelId: 'string',
       parentId: 'string',
+      isActive: 'string',
+      isTotalPrepublish: 'string',
       gmtCreate: 'string',
-      name: 'string',
-      id: 'number',
-      versionType: 'string',
+      gmtModify: 'string',
+      gmtCreateTimestamp: 'number',
+      gmtModifyTimestamp: 'number',
     };
   }
 
@@ -14210,19 +14422,19 @@ export class FindPrepublishesByParentIdResponseBodyPrepublishListItems extends $
 }
 
 export class FindPrepublishesByParentIdResponseBodyPrepublishList extends $tea.Model {
-  items?: FindPrepublishesByParentIdResponseBodyPrepublishListItems[];
   totalCount?: number;
+  items?: FindPrepublishesByParentIdResponseBodyPrepublishListItems[];
   static names(): { [key: string]: string } {
     return {
-      items: 'Items',
       totalCount: 'TotalCount',
+      items: 'Items',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      items: { 'type': 'array', 'itemType': FindPrepublishesByParentIdResponseBodyPrepublishListItems },
       totalCount: 'number',
+      items: { 'type': 'array', 'itemType': FindPrepublishesByParentIdResponseBodyPrepublishListItems },
     };
   }
 
@@ -14232,58 +14444,58 @@ export class FindPrepublishesByParentIdResponseBodyPrepublishList extends $tea.M
 }
 
 export class FindPrepublishesByVersionIdResponseBodyPrepublishList extends $tea.Model {
-  gmtCreateTimestamp?: number;
-  deviceModelId?: string;
-  gmtModify?: string;
-  isActive?: string;
+  id?: string;
+  name?: string;
+  versionType?: string;
   versionId?: string;
   barrierCount?: string;
-  deviceModelName?: string;
-  isTotalPrepublish?: string;
-  gmtModifyTimestamp?: number;
+  deviceModelId?: string;
   parentId?: string;
+  isActive?: string;
+  isTotalPrepublish?: string;
   gmtCreate?: string;
-  name?: string;
-  id?: string;
-  versionType?: string;
+  gmtModify?: string;
+  deviceModelName?: string;
   passedCount?: string;
+  gmtCreateTimestamp?: number;
+  gmtModifyTimestamp?: number;
   static names(): { [key: string]: string } {
     return {
-      gmtCreateTimestamp: 'GmtCreateTimestamp',
-      deviceModelId: 'DeviceModelId',
-      gmtModify: 'GmtModify',
-      isActive: 'IsActive',
+      id: 'Id',
+      name: 'Name',
+      versionType: 'VersionType',
       versionId: 'VersionId',
       barrierCount: 'BarrierCount',
-      deviceModelName: 'DeviceModelName',
-      isTotalPrepublish: 'IsTotalPrepublish',
-      gmtModifyTimestamp: 'GmtModifyTimestamp',
+      deviceModelId: 'DeviceModelId',
       parentId: 'ParentId',
+      isActive: 'IsActive',
+      isTotalPrepublish: 'IsTotalPrepublish',
       gmtCreate: 'GmtCreate',
-      name: 'Name',
-      id: 'Id',
-      versionType: 'VersionType',
+      gmtModify: 'GmtModify',
+      deviceModelName: 'DeviceModelName',
       passedCount: 'PassedCount',
+      gmtCreateTimestamp: 'GmtCreateTimestamp',
+      gmtModifyTimestamp: 'GmtModifyTimestamp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      gmtCreateTimestamp: 'number',
-      deviceModelId: 'string',
-      gmtModify: 'string',
-      isActive: 'string',
+      id: 'string',
+      name: 'string',
+      versionType: 'string',
       versionId: 'string',
       barrierCount: 'string',
-      deviceModelName: 'string',
-      isTotalPrepublish: 'string',
-      gmtModifyTimestamp: 'number',
+      deviceModelId: 'string',
       parentId: 'string',
+      isActive: 'string',
+      isTotalPrepublish: 'string',
       gmtCreate: 'string',
-      name: 'string',
-      id: 'string',
-      versionType: 'string',
+      gmtModify: 'string',
+      deviceModelName: 'string',
       passedCount: 'string',
+      gmtCreateTimestamp: 'number',
+      gmtModifyTimestamp: 'number',
     };
   }
 
@@ -14293,22 +14505,22 @@ export class FindPrepublishesByVersionIdResponseBodyPrepublishList extends $tea.
 }
 
 export class FindPrepublishPassedDevicesResponseBodyDeviceListItems extends $tea.Model {
-  gmtCreateTimestamp?: number;
   deviceId?: string;
   gmtCreate?: string;
+  gmtCreateTimestamp?: number;
   static names(): { [key: string]: string } {
     return {
-      gmtCreateTimestamp: 'GmtCreateTimestamp',
       deviceId: 'DeviceId',
       gmtCreate: 'GmtCreate',
+      gmtCreateTimestamp: 'GmtCreateTimestamp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      gmtCreateTimestamp: 'number',
       deviceId: 'string',
       gmtCreate: 'string',
+      gmtCreateTimestamp: 'number',
     };
   }
 
@@ -14318,19 +14530,19 @@ export class FindPrepublishPassedDevicesResponseBodyDeviceListItems extends $tea
 }
 
 export class FindPrepublishPassedDevicesResponseBodyDeviceList extends $tea.Model {
-  items?: FindPrepublishPassedDevicesResponseBodyDeviceListItems[];
   totalCount?: number;
+  items?: FindPrepublishPassedDevicesResponseBodyDeviceListItems[];
   static names(): { [key: string]: string } {
     return {
-      items: 'Items',
       totalCount: 'TotalCount',
+      items: 'Items',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      items: { 'type': 'array', 'itemType': FindPrepublishPassedDevicesResponseBodyDeviceListItems },
       totalCount: 'number',
+      items: { 'type': 'array', 'itemType': FindPrepublishPassedDevicesResponseBodyDeviceListItems },
     };
   }
 
@@ -14340,31 +14552,31 @@ export class FindPrepublishPassedDevicesResponseBodyDeviceList extends $tea.Mode
 }
 
 export class FindVersionBlackDevicesResponseBodyDeviceListItems extends $tea.Model {
-  gmtCreateTimestamp?: number;
-  originalId?: string;
+  id?: number;
   deviceId?: string;
+  originalId?: string;
   idType?: string;
   gmtCreate?: string;
-  id?: number;
+  gmtCreateTimestamp?: number;
   static names(): { [key: string]: string } {
     return {
-      gmtCreateTimestamp: 'GmtCreateTimestamp',
-      originalId: 'OriginalId',
+      id: 'Id',
       deviceId: 'DeviceId',
+      originalId: 'OriginalId',
       idType: 'IdType',
       gmtCreate: 'GmtCreate',
-      id: 'Id',
+      gmtCreateTimestamp: 'GmtCreateTimestamp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      gmtCreateTimestamp: 'number',
-      originalId: 'string',
+      id: 'number',
       deviceId: 'string',
+      originalId: 'string',
       idType: 'string',
       gmtCreate: 'string',
-      id: 'number',
+      gmtCreateTimestamp: 'number',
     };
   }
 
@@ -14374,19 +14586,19 @@ export class FindVersionBlackDevicesResponseBodyDeviceListItems extends $tea.Mod
 }
 
 export class FindVersionBlackDevicesResponseBodyDeviceList extends $tea.Model {
-  items?: FindVersionBlackDevicesResponseBodyDeviceListItems[];
   totalCount?: number;
+  items?: FindVersionBlackDevicesResponseBodyDeviceListItems[];
   static names(): { [key: string]: string } {
     return {
-      items: 'Items',
       totalCount: 'TotalCount',
+      items: 'Items',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      items: { 'type': 'array', 'itemType': FindVersionBlackDevicesResponseBodyDeviceListItems },
       totalCount: 'number',
+      items: { 'type': 'array', 'itemType': FindVersionBlackDevicesResponseBodyDeviceListItems },
     };
   }
 
@@ -14396,37 +14608,37 @@ export class FindVersionBlackDevicesResponseBodyDeviceList extends $tea.Model {
 }
 
 export class FindVersionDeviceGroupsResponseBodyDeviceGroupListItems extends $tea.Model {
-  gmtModifyTimestamp?: number;
-  gmtCreateTimestamp?: number;
+  id?: number;
+  name?: string;
+  gmtCreate?: string;
   gmtModify?: string;
   description?: string;
-  gmtCreate?: string;
-  name?: string;
-  id?: number;
   maxCount?: string;
+  gmtCreateTimestamp?: number;
+  gmtModifyTimestamp?: number;
   static names(): { [key: string]: string } {
     return {
-      gmtModifyTimestamp: 'GmtModifyTimestamp',
-      gmtCreateTimestamp: 'GmtCreateTimestamp',
+      id: 'Id',
+      name: 'Name',
+      gmtCreate: 'GmtCreate',
       gmtModify: 'GmtModify',
       description: 'Description',
-      gmtCreate: 'GmtCreate',
-      name: 'Name',
-      id: 'Id',
       maxCount: 'MaxCount',
+      gmtCreateTimestamp: 'GmtCreateTimestamp',
+      gmtModifyTimestamp: 'GmtModifyTimestamp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      gmtModifyTimestamp: 'number',
-      gmtCreateTimestamp: 'number',
+      id: 'number',
+      name: 'string',
+      gmtCreate: 'string',
       gmtModify: 'string',
       description: 'string',
-      gmtCreate: 'string',
-      name: 'string',
-      id: 'number',
       maxCount: 'string',
+      gmtCreateTimestamp: 'number',
+      gmtModifyTimestamp: 'number',
     };
   }
 
@@ -14436,19 +14648,19 @@ export class FindVersionDeviceGroupsResponseBodyDeviceGroupListItems extends $te
 }
 
 export class FindVersionDeviceGroupsResponseBodyDeviceGroupList extends $tea.Model {
-  items?: FindVersionDeviceGroupsResponseBodyDeviceGroupListItems[];
   totalCount?: number;
+  items?: FindVersionDeviceGroupsResponseBodyDeviceGroupListItems[];
   static names(): { [key: string]: string } {
     return {
-      items: 'Items',
       totalCount: 'TotalCount',
+      items: 'Items',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      items: { 'type': 'array', 'itemType': FindVersionDeviceGroupsResponseBodyDeviceGroupListItems },
       totalCount: 'number',
+      items: { 'type': 'array', 'itemType': FindVersionDeviceGroupsResponseBodyDeviceGroupListItems },
     };
   }
 
@@ -14458,31 +14670,31 @@ export class FindVersionDeviceGroupsResponseBodyDeviceGroupList extends $tea.Mod
 }
 
 export class FindVersionGroupDevicesResponseBodyGroupDeviceListItems extends $tea.Model {
-  gmtCreateTimestamp?: number;
-  originalId?: string;
+  id?: string;
   deviceId?: string;
   idType?: string;
+  originalId?: string;
   gmtCreate?: string;
-  id?: string;
+  gmtCreateTimestamp?: number;
   static names(): { [key: string]: string } {
     return {
-      gmtCreateTimestamp: 'GmtCreateTimestamp',
-      originalId: 'OriginalId',
+      id: 'Id',
       deviceId: 'DeviceId',
       idType: 'IdType',
+      originalId: 'OriginalId',
       gmtCreate: 'GmtCreate',
-      id: 'Id',
+      gmtCreateTimestamp: 'GmtCreateTimestamp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      gmtCreateTimestamp: 'number',
-      originalId: 'string',
+      id: 'string',
       deviceId: 'string',
       idType: 'string',
+      originalId: 'string',
       gmtCreate: 'string',
-      id: 'string',
+      gmtCreateTimestamp: 'number',
     };
   }
 
@@ -14492,19 +14704,19 @@ export class FindVersionGroupDevicesResponseBodyGroupDeviceListItems extends $te
 }
 
 export class FindVersionGroupDevicesResponseBodyGroupDeviceList extends $tea.Model {
-  items?: FindVersionGroupDevicesResponseBodyGroupDeviceListItems[];
   totalCount?: number;
+  items?: FindVersionGroupDevicesResponseBodyGroupDeviceListItems[];
   static names(): { [key: string]: string } {
     return {
-      items: 'Items',
       totalCount: 'TotalCount',
+      items: 'Items',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      items: { 'type': 'array', 'itemType': FindVersionGroupDevicesResponseBodyGroupDeviceListItems },
       totalCount: 'number',
+      items: { 'type': 'array', 'itemType': FindVersionGroupDevicesResponseBodyGroupDeviceListItems },
     };
   }
 
@@ -14514,46 +14726,46 @@ export class FindVersionGroupDevicesResponseBodyGroupDeviceList extends $tea.Mod
 }
 
 export class FindVersionMessagesResponseBodyMessageListItems extends $tea.Model {
-  gmtModifyTimestamp?: number;
-  gmtCreateTimestamp?: number;
-  status?: string;
-  gmtModify?: string;
+  id?: number;
   messageId?: string;
+  versionId?: string;
+  testId?: string;
+  status?: string;
+  statusDesc?: string;
   deviceId?: string;
   gmtCreate?: string;
-  versionId?: string;
-  statusDesc?: string;
-  testId?: string;
-  id?: number;
+  gmtModify?: string;
+  gmtCreateTimestamp?: number;
+  gmtModifyTimestamp?: number;
   static names(): { [key: string]: string } {
     return {
-      gmtModifyTimestamp: 'GmtModifyTimestamp',
-      gmtCreateTimestamp: 'GmtCreateTimestamp',
-      status: 'Status',
-      gmtModify: 'GmtModify',
+      id: 'Id',
       messageId: 'MessageId',
+      versionId: 'VersionId',
+      testId: 'TestId',
+      status: 'Status',
+      statusDesc: 'StatusDesc',
       deviceId: 'DeviceId',
       gmtCreate: 'GmtCreate',
-      versionId: 'VersionId',
-      statusDesc: 'StatusDesc',
-      testId: 'TestId',
-      id: 'Id',
+      gmtModify: 'GmtModify',
+      gmtCreateTimestamp: 'GmtCreateTimestamp',
+      gmtModifyTimestamp: 'GmtModifyTimestamp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      gmtModifyTimestamp: 'number',
-      gmtCreateTimestamp: 'number',
-      status: 'string',
-      gmtModify: 'string',
+      id: 'number',
       messageId: 'string',
+      versionId: 'string',
+      testId: 'string',
+      status: 'string',
+      statusDesc: 'string',
       deviceId: 'string',
       gmtCreate: 'string',
-      versionId: 'string',
-      statusDesc: 'string',
-      testId: 'string',
-      id: 'number',
+      gmtModify: 'string',
+      gmtCreateTimestamp: 'number',
+      gmtModifyTimestamp: 'number',
     };
   }
 
@@ -14563,19 +14775,19 @@ export class FindVersionMessagesResponseBodyMessageListItems extends $tea.Model 
 }
 
 export class FindVersionMessagesResponseBodyMessageList extends $tea.Model {
-  items?: FindVersionMessagesResponseBodyMessageListItems[];
   totalCount?: number;
+  items?: FindVersionMessagesResponseBodyMessageListItems[];
   static names(): { [key: string]: string } {
     return {
-      items: 'Items',
       totalCount: 'TotalCount',
+      items: 'Items',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      items: { 'type': 'array', 'itemType': FindVersionMessagesResponseBodyMessageListItems },
       totalCount: 'number',
+      items: { 'type': 'array', 'itemType': FindVersionMessagesResponseBodyMessageListItems },
     };
   }
 
@@ -14585,46 +14797,46 @@ export class FindVersionMessagesResponseBodyMessageList extends $tea.Model {
 }
 
 export class FindVersionMessageSendRecordsResponseBodyMessageSendRecordListItems extends $tea.Model {
-  gmtCreateTimestamp?: number;
+  id?: number;
   messageType?: string;
+  versionId?: string;
+  targetId?: string;
+  result?: string;
+  resultDesc?: string;
+  succeededCount?: string;
   failedCount?: string;
   skippedCount?: string;
-  result?: string;
-  succeededCount?: string;
   gmtCreate?: string;
-  versionId?: string;
-  resultDesc?: string;
-  targetId?: string;
-  id?: number;
+  gmtCreateTimestamp?: number;
   static names(): { [key: string]: string } {
     return {
-      gmtCreateTimestamp: 'GmtCreateTimestamp',
+      id: 'Id',
       messageType: 'MessageType',
+      versionId: 'VersionId',
+      targetId: 'TargetId',
+      result: 'Result',
+      resultDesc: 'ResultDesc',
+      succeededCount: 'SucceededCount',
       failedCount: 'FailedCount',
       skippedCount: 'SkippedCount',
-      result: 'Result',
-      succeededCount: 'SucceededCount',
       gmtCreate: 'GmtCreate',
-      versionId: 'VersionId',
-      resultDesc: 'ResultDesc',
-      targetId: 'TargetId',
-      id: 'Id',
+      gmtCreateTimestamp: 'GmtCreateTimestamp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      gmtCreateTimestamp: 'number',
+      id: 'number',
       messageType: 'string',
+      versionId: 'string',
+      targetId: 'string',
+      result: 'string',
+      resultDesc: 'string',
+      succeededCount: 'string',
       failedCount: 'string',
       skippedCount: 'string',
-      result: 'string',
-      succeededCount: 'string',
       gmtCreate: 'string',
-      versionId: 'string',
-      resultDesc: 'string',
-      targetId: 'string',
-      id: 'number',
+      gmtCreateTimestamp: 'number',
     };
   }
 
@@ -14634,19 +14846,19 @@ export class FindVersionMessageSendRecordsResponseBodyMessageSendRecordListItems
 }
 
 export class FindVersionMessageSendRecordsResponseBodyMessageSendRecordList extends $tea.Model {
-  items?: FindVersionMessageSendRecordsResponseBodyMessageSendRecordListItems[];
   totalCount?: number;
+  items?: FindVersionMessageSendRecordsResponseBodyMessageSendRecordListItems[];
   static names(): { [key: string]: string } {
     return {
-      items: 'Items',
       totalCount: 'TotalCount',
+      items: 'Items',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      items: { 'type': 'array', 'itemType': FindVersionMessageSendRecordsResponseBodyMessageSendRecordListItems },
       totalCount: 'number',
+      items: { 'type': 'array', 'itemType': FindVersionMessageSendRecordsResponseBodyMessageSendRecordListItems },
     };
   }
 
@@ -14656,55 +14868,55 @@ export class FindVersionMessageSendRecordsResponseBodyMessageSendRecordList exte
 }
 
 export class FindVersionTestsResponseBodyVersionTestListItems extends $tea.Model {
-  gmtCreateTimestamp?: number;
-  gmtModify?: string;
-  versionId?: string;
-  gmtModifyTimestamp?: number;
-  failedCount?: string;
-  deviceGroupId?: string;
-  skippedCount?: string;
-  description?: string;
-  succeededCount?: string;
-  deviceGroupName?: string;
-  gmtCreate?: string;
-  name?: string;
   id?: number;
+  versionId?: string;
   versionType?: string;
+  name?: string;
+  description?: string;
+  gmtCreate?: string;
+  gmtModify?: string;
+  deviceGroupId?: string;
+  deviceGroupName?: string;
+  succeededCount?: string;
+  failedCount?: string;
+  skippedCount?: string;
+  gmtCreateTimestamp?: number;
+  gmtModifyTimestamp?: number;
   static names(): { [key: string]: string } {
     return {
-      gmtCreateTimestamp: 'GmtCreateTimestamp',
-      gmtModify: 'GmtModify',
-      versionId: 'VersionId',
-      gmtModifyTimestamp: 'GmtModifyTimestamp',
-      failedCount: 'FailedCount',
-      deviceGroupId: 'DeviceGroupId',
-      skippedCount: 'SkippedCount',
-      description: 'Description',
-      succeededCount: 'SucceededCount',
-      deviceGroupName: 'DeviceGroupName',
-      gmtCreate: 'GmtCreate',
-      name: 'Name',
       id: 'Id',
+      versionId: 'VersionId',
       versionType: 'VersionType',
+      name: 'Name',
+      description: 'Description',
+      gmtCreate: 'GmtCreate',
+      gmtModify: 'GmtModify',
+      deviceGroupId: 'DeviceGroupId',
+      deviceGroupName: 'DeviceGroupName',
+      succeededCount: 'SucceededCount',
+      failedCount: 'FailedCount',
+      skippedCount: 'SkippedCount',
+      gmtCreateTimestamp: 'GmtCreateTimestamp',
+      gmtModifyTimestamp: 'GmtModifyTimestamp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      gmtCreateTimestamp: 'number',
-      gmtModify: 'string',
-      versionId: 'string',
-      gmtModifyTimestamp: 'number',
-      failedCount: 'string',
-      deviceGroupId: 'string',
-      skippedCount: 'string',
-      description: 'string',
-      succeededCount: 'string',
-      deviceGroupName: 'string',
-      gmtCreate: 'string',
-      name: 'string',
       id: 'number',
+      versionId: 'string',
       versionType: 'string',
+      name: 'string',
+      description: 'string',
+      gmtCreate: 'string',
+      gmtModify: 'string',
+      deviceGroupId: 'string',
+      deviceGroupName: 'string',
+      succeededCount: 'string',
+      failedCount: 'string',
+      skippedCount: 'string',
+      gmtCreateTimestamp: 'number',
+      gmtModifyTimestamp: 'number',
     };
   }
 
@@ -14714,19 +14926,19 @@ export class FindVersionTestsResponseBodyVersionTestListItems extends $tea.Model
 }
 
 export class FindVersionTestsResponseBodyVersionTestList extends $tea.Model {
-  items?: FindVersionTestsResponseBodyVersionTestListItems[];
   totalCount?: number;
+  items?: FindVersionTestsResponseBodyVersionTestListItems[];
   static names(): { [key: string]: string } {
     return {
-      items: 'Items',
       totalCount: 'TotalCount',
+      items: 'Items',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      items: { 'type': 'array', 'itemType': FindVersionTestsResponseBodyVersionTestListItems },
       totalCount: 'number',
+      items: { 'type': 'array', 'itemType': FindVersionTestsResponseBodyVersionTestListItems },
     };
   }
 
@@ -14736,31 +14948,31 @@ export class FindVersionTestsResponseBodyVersionTestList extends $tea.Model {
 }
 
 export class FindVersionWhiteDevicesResponseBodyDeviceListItems extends $tea.Model {
-  gmtCreateTimestamp?: number;
-  originalId?: string;
+  id?: number;
   deviceId?: string;
+  originalId?: string;
   idType?: string;
   gmtCreate?: string;
-  id?: number;
+  gmtCreateTimestamp?: number;
   static names(): { [key: string]: string } {
     return {
-      gmtCreateTimestamp: 'GmtCreateTimestamp',
-      originalId: 'OriginalId',
+      id: 'Id',
       deviceId: 'DeviceId',
+      originalId: 'OriginalId',
       idType: 'IdType',
       gmtCreate: 'GmtCreate',
-      id: 'Id',
+      gmtCreateTimestamp: 'GmtCreateTimestamp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      gmtCreateTimestamp: 'number',
-      originalId: 'string',
+      id: 'number',
       deviceId: 'string',
+      originalId: 'string',
       idType: 'string',
       gmtCreate: 'string',
-      id: 'number',
+      gmtCreateTimestamp: 'number',
     };
   }
 
@@ -14770,19 +14982,19 @@ export class FindVersionWhiteDevicesResponseBodyDeviceListItems extends $tea.Mod
 }
 
 export class FindVersionWhiteDevicesResponseBodyDeviceList extends $tea.Model {
-  items?: FindVersionWhiteDevicesResponseBodyDeviceListItems[];
   totalCount?: number;
+  items?: FindVersionWhiteDevicesResponseBodyDeviceListItems[];
   static names(): { [key: string]: string } {
     return {
-      items: 'Items',
       totalCount: 'TotalCount',
+      items: 'Items',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      items: { 'type': 'array', 'itemType': FindVersionWhiteDevicesResponseBodyDeviceListItems },
       totalCount: 'number',
+      items: { 'type': 'array', 'itemType': FindVersionWhiteDevicesResponseBodyDeviceListItems },
     };
   }
 
@@ -14792,28 +15004,28 @@ export class FindVersionWhiteDevicesResponseBodyDeviceList extends $tea.Model {
 }
 
 export class GenerateFunctionFileUploadMetaResponseBodyUploadMetaPostObjectPolicy extends $tea.Model {
+  accessId?: string;
+  expire?: string;
+  policy?: string;
   signature?: string;
   host?: string;
-  policy?: string;
-  expire?: string;
-  accessId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessId: 'AccessId',
+      expire: 'Expire',
+      policy: 'Policy',
       signature: 'Signature',
       host: 'Host',
-      policy: 'Policy',
-      expire: 'Expire',
-      accessId: 'AccessId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      accessId: 'string',
+      expire: 'string',
+      policy: 'string',
       signature: 'string',
       host: 'string',
-      policy: 'string',
-      expire: 'string',
-      accessId: 'string',
     };
   }
 
@@ -14823,22 +15035,22 @@ export class GenerateFunctionFileUploadMetaResponseBodyUploadMetaPostObjectPolic
 }
 
 export class GenerateFunctionFileUploadMetaResponseBodyUploadMeta extends $tea.Model {
-  postObjectPolicy?: GenerateFunctionFileUploadMetaResponseBodyUploadMetaPostObjectPolicy;
   securityToken?: string;
   objectKey?: string;
+  postObjectPolicy?: GenerateFunctionFileUploadMetaResponseBodyUploadMetaPostObjectPolicy;
   static names(): { [key: string]: string } {
     return {
-      postObjectPolicy: 'PostObjectPolicy',
       securityToken: 'SecurityToken',
       objectKey: 'ObjectKey',
+      postObjectPolicy: 'PostObjectPolicy',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      postObjectPolicy: GenerateFunctionFileUploadMetaResponseBodyUploadMetaPostObjectPolicy,
       securityToken: 'string',
       objectKey: 'string',
+      postObjectPolicy: GenerateFunctionFileUploadMetaResponseBodyUploadMetaPostObjectPolicy,
     };
   }
 
@@ -14848,28 +15060,28 @@ export class GenerateFunctionFileUploadMetaResponseBodyUploadMeta extends $tea.M
 }
 
 export class GenerateOssPostPolicyResponseBodyOssPostPolicy extends $tea.Model {
+  accessId?: string;
+  policy?: string;
   signature?: string;
   host?: string;
-  policy?: string;
   expire?: string;
-  accessId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessId: 'AccessId',
+      policy: 'Policy',
       signature: 'Signature',
       host: 'Host',
-      policy: 'Policy',
       expire: 'Expire',
-      accessId: 'AccessId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      accessId: 'string',
+      policy: 'string',
       signature: 'string',
       host: 'string',
-      policy: 'string',
       expire: 'string',
-      accessId: 'string',
     };
   }
 
@@ -14879,28 +15091,28 @@ export class GenerateOssPostPolicyResponseBodyOssPostPolicy extends $tea.Model {
 }
 
 export class GenerateOssUploadMetaResponseBodyOssUploadMeta extends $tea.Model {
-  securityToken?: string;
-  objectKey?: string;
-  accessKeySecret?: string;
   accessKeyId?: string;
+  accessKeySecret?: string;
+  securityToken?: string;
   bucket?: string;
+  objectKey?: string;
   static names(): { [key: string]: string } {
     return {
-      securityToken: 'SecurityToken',
-      objectKey: 'ObjectKey',
-      accessKeySecret: 'AccessKeySecret',
       accessKeyId: 'AccessKeyId',
+      accessKeySecret: 'AccessKeySecret',
+      securityToken: 'SecurityToken',
       bucket: 'Bucket',
+      objectKey: 'ObjectKey',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      securityToken: 'string',
-      objectKey: 'string',
-      accessKeySecret: 'string',
       accessKeyId: 'string',
+      accessKeySecret: 'string',
+      securityToken: 'string',
       bucket: 'string',
+      objectKey: 'string',
     };
   }
 
@@ -14948,34 +15160,34 @@ export class GenerateSysAppDownloadInfoResponseBodySysAppDownloadInfo extends $t
 }
 
 export class GetDeviceAppUpdateFunnelEventsResponseBodyEventList extends $tea.Model {
-  packageName?: string;
+  tenantId?: string;
   deviceId?: string;
   targetVersionCode?: string;
   event?: string;
-  reportTimestamp?: number;
   reportTime?: string;
-  tenantId?: string;
+  packageName?: string;
+  reportTimestamp?: number;
   static names(): { [key: string]: string } {
     return {
-      packageName: 'PackageName',
+      tenantId: 'TenantId',
       deviceId: 'DeviceId',
       targetVersionCode: 'TargetVersionCode',
       event: 'Event',
-      reportTimestamp: 'ReportTimestamp',
       reportTime: 'ReportTime',
-      tenantId: 'TenantId',
+      packageName: 'PackageName',
+      reportTimestamp: 'ReportTimestamp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      packageName: 'string',
+      tenantId: 'string',
       deviceId: 'string',
       targetVersionCode: 'string',
       event: 'string',
-      reportTimestamp: 'number',
       reportTime: 'string',
-      tenantId: 'string',
+      packageName: 'string',
+      reportTimestamp: 'number',
     };
   }
 
@@ -14985,31 +15197,75 @@ export class GetDeviceAppUpdateFunnelEventsResponseBodyEventList extends $tea.Mo
 }
 
 export class GetDeviceSystemUpdateFunnelEventsResponseBodyEventList extends $tea.Model {
+  tenantId?: string;
   deviceId?: string;
   targetVersion?: string;
   event?: string;
-  reportTimestamp?: number;
   reportTime?: string;
-  tenantId?: string;
+  reportTimestamp?: number;
   static names(): { [key: string]: string } {
     return {
+      tenantId: 'TenantId',
       deviceId: 'DeviceId',
       targetVersion: 'TargetVersion',
       event: 'Event',
-      reportTimestamp: 'ReportTimestamp',
       reportTime: 'ReportTime',
-      tenantId: 'TenantId',
+      reportTimestamp: 'ReportTimestamp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      tenantId: 'string',
       deviceId: 'string',
       targetVersion: 'string',
       event: 'string',
-      reportTimestamp: 'number',
       reportTime: 'string',
-      tenantId: 'string',
+      reportTimestamp: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetNamespaceStatisticsDataResponseBodyStatisticsSeries extends $tea.Model {
+  name?: string;
+  data?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      data: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetNamespaceStatisticsDataResponseBodyStatistics extends $tea.Model {
+  categories?: string[];
+  series?: GetNamespaceStatisticsDataResponseBodyStatisticsSeries[];
+  static names(): { [key: string]: string } {
+    return {
+      categories: 'Categories',
+      series: 'Series',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      categories: { 'type': 'array', 'itemType': 'string' },
+      series: { 'type': 'array', 'itemType': GetNamespaceStatisticsDataResponseBodyStatisticsSeries },
     };
   }
 
@@ -15019,31 +15275,31 @@ export class GetDeviceSystemUpdateFunnelEventsResponseBodyEventList extends $tea
 }
 
 export class GetOssUploadMetaResponseBodyOssUploadMeta extends $tea.Model {
-  accessKey?: string;
-  signature?: string;
-  host?: string;
-  policy?: string;
-  securityToken?: string;
   objectKey?: string;
+  accessKey?: string;
+  policy?: string;
+  signature?: string;
+  securityToken?: string;
+  host?: string;
   static names(): { [key: string]: string } {
     return {
-      accessKey: 'AccessKey',
-      signature: 'Signature',
-      host: 'Host',
-      policy: 'Policy',
-      securityToken: 'SecurityToken',
       objectKey: 'ObjectKey',
+      accessKey: 'AccessKey',
+      policy: 'Policy',
+      signature: 'Signature',
+      securityToken: 'SecurityToken',
+      host: 'Host',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      accessKey: 'string',
-      signature: 'string',
-      host: 'string',
-      policy: 'string',
-      securityToken: 'string',
       objectKey: 'string',
+      accessKey: 'string',
+      policy: 'string',
+      signature: 'string',
+      securityToken: 'string',
+      host: 'string',
     };
   }
 
@@ -15053,19 +15309,19 @@ export class GetOssUploadMetaResponseBodyOssUploadMeta extends $tea.Model {
 }
 
 export class InvokeFunctionResponseBodyResult extends $tea.Model {
-  output?: string;
   backEndRequestId?: string;
+  output?: string;
   static names(): { [key: string]: string } {
     return {
-      output: 'Output',
       backEndRequestId: 'BackEndRequestId',
+      output: 'Output',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      output: 'string',
       backEndRequestId: 'string',
+      output: 'string',
     };
   }
 
@@ -15075,40 +15331,40 @@ export class InvokeFunctionResponseBodyResult extends $tea.Model {
 }
 
 export class ListApiGatewayAppsResponseBodyApiGatewayApps extends $tea.Model {
-  gatewayAppKey?: string;
-  status?: number;
-  gatewayAppSecret?: string;
-  gatewayAppId?: string;
-  userId?: string;
+  id?: number;
   projectId?: string;
+  userId?: string;
+  status?: number;
   gmtCreate?: number;
   gmtModified?: number;
-  id?: number;
+  gatewayAppKey?: string;
+  gatewayAppSecret?: string;
+  gatewayAppId?: string;
   static names(): { [key: string]: string } {
     return {
-      gatewayAppKey: 'GatewayAppKey',
-      status: 'Status',
-      gatewayAppSecret: 'GatewayAppSecret',
-      gatewayAppId: 'GatewayAppId',
-      userId: 'UserId',
+      id: 'Id',
       projectId: 'ProjectId',
+      userId: 'UserId',
+      status: 'Status',
       gmtCreate: 'GmtCreate',
       gmtModified: 'GmtModified',
-      id: 'Id',
+      gatewayAppKey: 'GatewayAppKey',
+      gatewayAppSecret: 'GatewayAppSecret',
+      gatewayAppId: 'GatewayAppId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      gatewayAppKey: 'string',
-      status: 'number',
-      gatewayAppSecret: 'string',
-      gatewayAppId: 'string',
-      userId: 'string',
+      id: 'number',
       projectId: 'string',
+      userId: 'string',
+      status: 'number',
       gmtCreate: 'number',
       gmtModified: 'number',
-      id: 'number',
+      gatewayAppKey: 'string',
+      gatewayAppSecret: 'string',
+      gatewayAppId: 'string',
     };
   }
 
@@ -15118,25 +15374,25 @@ export class ListApiGatewayAppsResponseBodyApiGatewayApps extends $tea.Model {
 }
 
 export class ListAppsResponseBodyApps extends $tea.Model {
-  appName?: string;
   appKey?: string;
-  osType?: number;
+  appName?: string;
   appPackage?: string;
+  osType?: number;
   static names(): { [key: string]: string } {
     return {
-      appName: 'AppName',
       appKey: 'AppKey',
-      osType: 'OsType',
+      appName: 'AppName',
       appPackage: 'AppPackage',
+      osType: 'OsType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      appName: 'string',
       appKey: 'string',
-      osType: 'number',
+      appName: 'string',
       appPackage: 'string',
+      osType: 'number',
     };
   }
 
@@ -15146,37 +15402,37 @@ export class ListAppsResponseBodyApps extends $tea.Model {
 }
 
 export class ListAssistActionDetailsResponseBodyResults extends $tea.Model {
-  type?: string;
-  action?: string;
-  data?: string;
   deviceId?: string;
+  action?: string;
+  timestamp?: string;
+  type?: string;
+  data?: string;
+  ID?: string;
   createdAt?: number;
   updatedAt?: number;
-  timestamp?: string;
-  ID?: string;
   static names(): { [key: string]: string } {
     return {
-      type: 'Type',
-      action: 'Action',
-      data: 'Data',
       deviceId: 'DeviceId',
+      action: 'Action',
+      timestamp: 'Timestamp',
+      type: 'Type',
+      data: 'Data',
+      ID: 'ID',
       createdAt: 'CreatedAt',
       updatedAt: 'UpdatedAt',
-      timestamp: 'Timestamp',
-      ID: 'ID',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      type: 'string',
-      action: 'string',
-      data: 'string',
       deviceId: 'string',
+      action: 'string',
+      timestamp: 'string',
+      type: 'string',
+      data: 'string',
+      ID: 'string',
       createdAt: 'number',
       updatedAt: 'number',
-      timestamp: 'string',
-      ID: 'string',
     };
   }
 
@@ -15186,34 +15442,34 @@ export class ListAssistActionDetailsResponseBodyResults extends $tea.Model {
 }
 
 export class ListAssistDevicesResponseBodyDevices extends $tea.Model {
+  deviceId?: string;
+  deviceName?: string;
   serialNumber?: string;
   hardwareId?: string;
-  deviceName?: string;
-  accessTime?: number;
-  deviceId?: string;
   UUID?: string;
   VIN?: string;
+  accessTime?: number;
   static names(): { [key: string]: string } {
     return {
+      deviceId: 'DeviceId',
+      deviceName: 'DeviceName',
       serialNumber: 'SerialNumber',
       hardwareId: 'HardwareId',
-      deviceName: 'DeviceName',
-      accessTime: 'AccessTime',
-      deviceId: 'DeviceId',
       UUID: 'UUID',
       VIN: 'VIN',
+      accessTime: 'AccessTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      deviceId: 'string',
+      deviceName: 'string',
       serialNumber: 'string',
       hardwareId: 'string',
-      deviceName: 'string',
-      accessTime: 'number',
-      deviceId: 'string',
       UUID: 'string',
       VIN: 'string',
+      accessTime: 'number',
     };
   }
 
@@ -15223,46 +15479,46 @@ export class ListAssistDevicesResponseBodyDevices extends $tea.Model {
 }
 
 export class ListAssistHistoriesResponseBodyHistories extends $tea.Model {
-  serialNumber?: string;
-  endTime?: number;
-  startTime?: number;
-  UNAME?: string;
-  hardwareId?: string;
+  ID?: string;
   deviceName?: string;
-  UUID?: string;
+  startTime?: number;
+  endTime?: number;
   deviceId?: string;
+  serialNumber?: string;
+  hardwareId?: string;
+  UUID?: string;
   VIN?: string;
   UID?: string;
-  ID?: string;
+  UNAME?: string;
   static names(): { [key: string]: string } {
     return {
-      serialNumber: 'SerialNumber',
-      endTime: 'EndTime',
-      startTime: 'StartTime',
-      UNAME: 'UNAME',
-      hardwareId: 'HardwareId',
+      ID: 'ID',
       deviceName: 'DeviceName',
-      UUID: 'UUID',
+      startTime: 'StartTime',
+      endTime: 'EndTime',
       deviceId: 'DeviceId',
+      serialNumber: 'SerialNumber',
+      hardwareId: 'HardwareId',
+      UUID: 'UUID',
       VIN: 'VIN',
       UID: 'UID',
-      ID: 'ID',
+      UNAME: 'UNAME',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      serialNumber: 'string',
-      endTime: 'number',
-      startTime: 'number',
-      UNAME: 'string',
-      hardwareId: 'string',
+      ID: 'string',
       deviceName: 'string',
-      UUID: 'string',
+      startTime: 'number',
+      endTime: 'number',
       deviceId: 'string',
+      serialNumber: 'string',
+      hardwareId: 'string',
+      UUID: 'string',
       VIN: 'string',
       UID: 'string',
-      ID: 'string',
+      UNAME: 'string',
     };
   }
 
@@ -15272,30 +15528,30 @@ export class ListAssistHistoriesResponseBodyHistories extends $tea.Model {
 }
 
 export class ListAssistHistoryDetailsResponseBodyActions extends $tea.Model {
-  action?: string;
-  createdAt?: number;
-  timestamp?: string;
-  updatedAt?: number;
   assistId?: string;
+  action?: string;
+  timestamp?: string;
+  createdAt?: number;
+  updatedAt?: number;
   ID?: string;
   static names(): { [key: string]: string } {
     return {
-      action: 'Action',
-      createdAt: 'CreatedAt',
-      timestamp: 'Timestamp',
-      updatedAt: 'UpdatedAt',
       assistId: 'AssistId',
+      action: 'Action',
+      timestamp: 'Timestamp',
+      createdAt: 'CreatedAt',
+      updatedAt: 'UpdatedAt',
       ID: 'ID',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      action: 'string',
-      createdAt: 'number',
-      timestamp: 'string',
-      updatedAt: 'number',
       assistId: 'string',
+      action: 'string',
+      timestamp: 'string',
+      createdAt: 'number',
+      updatedAt: 'number',
       ID: 'string',
     };
   }
@@ -15306,19 +15562,19 @@ export class ListAssistHistoryDetailsResponseBodyActions extends $tea.Model {
 }
 
 export class ListClientPluginsResponseBodyClientPlugins extends $tea.Model {
-  pkgName?: string;
   name?: string;
+  pkgName?: string;
   static names(): { [key: string]: string } {
     return {
-      pkgName: 'PkgName',
       name: 'Name',
+      pkgName: 'PkgName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      pkgName: 'string',
       name: 'string',
+      pkgName: 'string',
     };
   }
 
@@ -15328,31 +15584,31 @@ export class ListClientPluginsResponseBodyClientPlugins extends $tea.Model {
 }
 
 export class ListClientPluginVersionsResponseBodyClientPluginVersions extends $tea.Model {
-  version?: string;
-  downloadUrl?: string;
-  size?: number;
   pkgName?: string;
   versionCode?: number;
+  version?: string;
+  size?: number;
   id?: number;
+  downloadUrl?: string;
   static names(): { [key: string]: string } {
     return {
-      version: 'Version',
-      downloadUrl: 'DownloadUrl',
-      size: 'Size',
       pkgName: 'PkgName',
       versionCode: 'VersionCode',
+      version: 'Version',
+      size: 'Size',
       id: 'Id',
+      downloadUrl: 'DownloadUrl',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      version: 'string',
-      downloadUrl: 'string',
-      size: 'number',
       pkgName: 'string',
       versionCode: 'number',
+      version: 'string',
+      size: 'number',
       id: 'number',
+      downloadUrl: 'string',
     };
   }
 
@@ -15362,62 +15618,34 @@ export class ListClientPluginVersionsResponseBodyClientPluginVersions extends $t
 }
 
 export class ListClientSdksResponseBodyClientSdks extends $tea.Model {
-  osType?: number;
+  id?: number;
   gmtCreate?: number;
   gmtModified?: number;
   name?: string;
   pkgName?: string;
   pkgType?: number;
-  id?: number;
+  osType?: number;
   static names(): { [key: string]: string } {
     return {
-      osType: 'OsType',
+      id: 'Id',
       gmtCreate: 'GmtCreate',
       gmtModified: 'GmtModified',
       name: 'Name',
       pkgName: 'PkgName',
       pkgType: 'PkgType',
-      id: 'Id',
+      osType: 'OsType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      osType: 'number',
+      id: 'number',
       gmtCreate: 'number',
       gmtModified: 'number',
       name: 'string',
       pkgName: 'string',
       pkgType: 'number',
-      id: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListConnectLogsResponseBodyLogsPagination extends $tea.Model {
-  pageIndex?: number;
-  totalPageCount?: number;
-  pageSize?: number;
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      pageIndex: 'PageIndex',
-      totalPageCount: 'TotalPageCount',
-      pageSize: 'PageSize',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageIndex: 'number',
-      totalPageCount: 'number',
-      pageSize: 'number',
-      totalCount: 'number',
+      osType: 'number',
     };
   }
 
@@ -15427,37 +15655,65 @@ export class ListConnectLogsResponseBodyLogsPagination extends $tea.Model {
 }
 
 export class ListConnectLogsResponseBodyLogsList extends $tea.Model {
-  sid?: string;
-  status?: string;
-  time?: number;
   deviceId?: string;
   systemVersion?: string;
+  terminal?: string;
   ip?: string;
   netWorking?: string;
-  terminal?: string;
+  time?: number;
+  status?: string;
+  sid?: string;
   static names(): { [key: string]: string } {
     return {
-      sid: 'Sid',
-      status: 'Status',
-      time: 'Time',
       deviceId: 'DeviceId',
       systemVersion: 'SystemVersion',
+      terminal: 'Terminal',
       ip: 'Ip',
       netWorking: 'NetWorking',
-      terminal: 'Terminal',
+      time: 'Time',
+      status: 'Status',
+      sid: 'Sid',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      sid: 'string',
-      status: 'string',
-      time: 'number',
       deviceId: 'string',
       systemVersion: 'string',
+      terminal: 'string',
       ip: 'string',
       netWorking: 'string',
-      terminal: 'string',
+      time: 'number',
+      status: 'string',
+      sid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListConnectLogsResponseBodyLogsPagination extends $tea.Model {
+  totalCount?: number;
+  totalPageCount?: number;
+  pageIndex?: number;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      totalCount: 'TotalCount',
+      totalPageCount: 'TotalPageCount',
+      pageIndex: 'PageIndex',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      totalCount: 'number',
+      totalPageCount: 'number',
+      pageIndex: 'number',
+      pageSize: 'number',
     };
   }
 
@@ -15467,19 +15723,19 @@ export class ListConnectLogsResponseBodyLogsList extends $tea.Model {
 }
 
 export class ListConnectLogsResponseBodyLogs extends $tea.Model {
-  pagination?: ListConnectLogsResponseBodyLogsPagination;
   list?: ListConnectLogsResponseBodyLogsList[];
+  pagination?: ListConnectLogsResponseBodyLogsPagination;
   static names(): { [key: string]: string } {
     return {
-      pagination: 'Pagination',
       list: 'List',
+      pagination: 'Pagination',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      pagination: ListConnectLogsResponseBodyLogsPagination,
       list: { 'type': 'array', 'itemType': ListConnectLogsResponseBodyLogsList },
+      pagination: ListConnectLogsResponseBodyLogsPagination,
     };
   }
 
@@ -15489,31 +15745,31 @@ export class ListConnectLogsResponseBodyLogs extends $tea.Model {
 }
 
 export class ListDeployedFunctionsResponseBodyFunctions extends $tea.Model {
-  projectId?: string;
-  gmtCreate?: number;
-  name?: string;
-  gmtModified?: number;
   id?: number;
+  projectId?: string;
+  name?: string;
   fileId?: number;
+  gmtCreate?: number;
+  gmtModified?: number;
   static names(): { [key: string]: string } {
     return {
-      projectId: 'ProjectId',
-      gmtCreate: 'GmtCreate',
-      name: 'Name',
-      gmtModified: 'GmtModified',
       id: 'Id',
+      projectId: 'ProjectId',
+      name: 'Name',
       fileId: 'FileId',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      projectId: 'string',
-      gmtCreate: 'number',
-      name: 'string',
-      gmtModified: 'number',
       id: 'number',
+      projectId: 'string',
+      name: 'string',
       fileId: 'number',
+      gmtCreate: 'number',
+      gmtModified: 'number',
     };
   }
 
@@ -15524,27 +15780,27 @@ export class ListDeployedFunctionsResponseBodyFunctions extends $tea.Model {
 
 export class ListDeviceBrandsResponseBodyDeviceBrands extends $tea.Model {
   deviceBrandId?: number;
-  description?: string;
+  deviceBrand?: string;
   projectId?: string;
   manufacture?: string;
-  deviceBrand?: string;
+  description?: string;
   static names(): { [key: string]: string } {
     return {
       deviceBrandId: 'DeviceBrandId',
-      description: 'Description',
+      deviceBrand: 'DeviceBrand',
       projectId: 'ProjectId',
       manufacture: 'Manufacture',
-      deviceBrand: 'DeviceBrand',
+      description: 'Description',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       deviceBrandId: 'number',
-      description: 'string',
+      deviceBrand: 'string',
       projectId: 'string',
       manufacture: 'string',
-      deviceBrand: 'string',
+      description: 'string',
     };
   }
 
@@ -15555,48 +15811,48 @@ export class ListDeviceBrandsResponseBodyDeviceBrands extends $tea.Model {
 
 export class ListDeviceModelResponseBodyModelList extends $tea.Model {
   deviceModelId?: number;
-  hardwareType?: string;
   deviceType?: string;
-  canCreateDeviceId?: number;
-  projectId?: string;
-  osPlatform?: string;
+  hardwareType?: string;
   deviceModel?: string;
-  securityChip?: string;
-  description?: string;
-  initUsageTypeDesc?: string;
-  initUsageType?: number;
   deviceBrand?: string;
+  canCreateDeviceId?: number;
+  initUsageType?: number;
+  initUsageTypeDesc?: string;
+  description?: string;
+  projectId?: string;
+  securityChip?: string;
+  osPlatform?: string;
   static names(): { [key: string]: string } {
     return {
       deviceModelId: 'DeviceModelId',
-      hardwareType: 'HardwareType',
       deviceType: 'DeviceType',
-      canCreateDeviceId: 'CanCreateDeviceId',
-      projectId: 'ProjectId',
-      osPlatform: 'OsPlatform',
+      hardwareType: 'HardwareType',
       deviceModel: 'DeviceModel',
-      securityChip: 'SecurityChip',
-      description: 'Description',
-      initUsageTypeDesc: 'InitUsageTypeDesc',
-      initUsageType: 'InitUsageType',
       deviceBrand: 'DeviceBrand',
+      canCreateDeviceId: 'CanCreateDeviceId',
+      initUsageType: 'InitUsageType',
+      initUsageTypeDesc: 'InitUsageTypeDesc',
+      description: 'Description',
+      projectId: 'ProjectId',
+      securityChip: 'SecurityChip',
+      osPlatform: 'OsPlatform',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       deviceModelId: 'number',
-      hardwareType: 'string',
       deviceType: 'string',
-      canCreateDeviceId: 'number',
-      projectId: 'string',
-      osPlatform: 'string',
+      hardwareType: 'string',
       deviceModel: 'string',
-      securityChip: 'string',
-      description: 'string',
-      initUsageTypeDesc: 'string',
-      initUsageType: 'number',
       deviceBrand: 'string',
+      canCreateDeviceId: 'number',
+      initUsageType: 'number',
+      initUsageTypeDesc: 'string',
+      description: 'string',
+      projectId: 'string',
+      securityChip: 'string',
+      osPlatform: 'string',
     };
   }
 
@@ -15607,57 +15863,57 @@ export class ListDeviceModelResponseBodyModelList extends $tea.Model {
 
 export class ListDeviceModelsResponseBodyDeviceModels extends $tea.Model {
   deviceModelId?: number;
-  hardwareType?: string;
-  deviceName?: string;
   deviceType?: string;
-  canCreateDeviceId?: number;
-  projectId?: string;
-  osPlatform?: string;
+  hardwareType?: string;
   deviceModel?: string;
-  securityChip?: string;
-  deviceLogoUrl?: string;
-  description?: string;
-  objectKey?: string;
-  initUsageTypeDesc?: string;
-  initUsageType?: number;
   deviceBrand?: string;
+  canCreateDeviceId?: number;
+  initUsageType?: number;
+  initUsageTypeDesc?: string;
+  description?: string;
+  projectId?: string;
+  securityChip?: string;
+  osPlatform?: string;
+  objectKey?: string;
+  deviceLogoUrl?: string;
+  deviceName?: string;
   static names(): { [key: string]: string } {
     return {
       deviceModelId: 'DeviceModelId',
-      hardwareType: 'HardwareType',
-      deviceName: 'DeviceName',
       deviceType: 'DeviceType',
-      canCreateDeviceId: 'CanCreateDeviceId',
-      projectId: 'ProjectId',
-      osPlatform: 'OsPlatform',
+      hardwareType: 'HardwareType',
       deviceModel: 'DeviceModel',
-      securityChip: 'SecurityChip',
-      deviceLogoUrl: 'DeviceLogoUrl',
-      description: 'Description',
-      objectKey: 'ObjectKey',
-      initUsageTypeDesc: 'InitUsageTypeDesc',
-      initUsageType: 'InitUsageType',
       deviceBrand: 'DeviceBrand',
+      canCreateDeviceId: 'CanCreateDeviceId',
+      initUsageType: 'InitUsageType',
+      initUsageTypeDesc: 'InitUsageTypeDesc',
+      description: 'Description',
+      projectId: 'ProjectId',
+      securityChip: 'SecurityChip',
+      osPlatform: 'OsPlatform',
+      objectKey: 'ObjectKey',
+      deviceLogoUrl: 'DeviceLogoUrl',
+      deviceName: 'DeviceName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       deviceModelId: 'number',
-      hardwareType: 'string',
-      deviceName: 'string',
       deviceType: 'string',
-      canCreateDeviceId: 'number',
-      projectId: 'string',
-      osPlatform: 'string',
+      hardwareType: 'string',
       deviceModel: 'string',
-      securityChip: 'string',
-      deviceLogoUrl: 'string',
-      description: 'string',
-      objectKey: 'string',
-      initUsageTypeDesc: 'string',
-      initUsageType: 'number',
       deviceBrand: 'string',
+      canCreateDeviceId: 'number',
+      initUsageType: 'number',
+      initUsageTypeDesc: 'string',
+      description: 'string',
+      projectId: 'string',
+      securityChip: 'string',
+      osPlatform: 'string',
+      objectKey: 'string',
+      deviceLogoUrl: 'string',
+      deviceName: 'string',
     };
   }
 
@@ -15667,64 +15923,64 @@ export class ListDeviceModelsResponseBodyDeviceModels extends $tea.Model {
 }
 
 export class ListDevicesResponseBodyDevices extends $tea.Model {
-  serialNumber?: string;
-  status?: string;
-  deviceModelId?: number;
-  macAddress?: string;
   deviceId?: string;
   deviceType?: string;
-  projectId?: string;
-  deviceModel?: string;
   usageType?: number;
-  vin?: string;
   usageTypeDesc?: string;
-  uuid?: string;
-  hardwareId?: string;
-  region?: string;
-  softwareId?: string;
-  name?: string;
+  deviceModel?: string;
+  deviceModelId?: number;
   deviceBrand?: string;
+  uuid?: string;
+  vin?: string;
+  serialNumber?: string;
+  macAddress?: string;
+  hardwareId?: string;
+  softwareId?: string;
+  region?: string;
+  name?: string;
+  projectId?: string;
+  status?: string;
   static names(): { [key: string]: string } {
     return {
-      serialNumber: 'SerialNumber',
-      status: 'Status',
-      deviceModelId: 'DeviceModelId',
-      macAddress: 'MacAddress',
       deviceId: 'DeviceId',
       deviceType: 'DeviceType',
-      projectId: 'ProjectId',
-      deviceModel: 'DeviceModel',
       usageType: 'UsageType',
-      vin: 'Vin',
       usageTypeDesc: 'UsageTypeDesc',
-      uuid: 'Uuid',
-      hardwareId: 'HardwareId',
-      region: 'Region',
-      softwareId: 'SoftwareId',
-      name: 'Name',
+      deviceModel: 'DeviceModel',
+      deviceModelId: 'DeviceModelId',
       deviceBrand: 'DeviceBrand',
+      uuid: 'Uuid',
+      vin: 'Vin',
+      serialNumber: 'SerialNumber',
+      macAddress: 'MacAddress',
+      hardwareId: 'HardwareId',
+      softwareId: 'SoftwareId',
+      region: 'Region',
+      name: 'Name',
+      projectId: 'ProjectId',
+      status: 'Status',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      serialNumber: 'string',
-      status: 'string',
-      deviceModelId: 'number',
-      macAddress: 'string',
       deviceId: 'string',
       deviceType: 'string',
-      projectId: 'string',
-      deviceModel: 'string',
       usageType: 'number',
-      vin: 'string',
       usageTypeDesc: 'string',
-      uuid: 'string',
-      hardwareId: 'string',
-      region: 'string',
-      softwareId: 'string',
-      name: 'string',
+      deviceModel: 'string',
+      deviceModelId: 'number',
       deviceBrand: 'string',
+      uuid: 'string',
+      vin: 'string',
+      serialNumber: 'string',
+      macAddress: 'string',
+      hardwareId: 'string',
+      softwareId: 'string',
+      region: 'string',
+      name: 'string',
+      projectId: 'string',
+      status: 'string',
     };
   }
 
@@ -15747,6 +16003,28 @@ export class ListDeviceTypesResponseBodyDeviceTypes extends $tea.Model {
     return {
       deviceType: 'string',
       name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListFunctionExecuteLogResponseBodyLogListLogs extends $tea.Model {
+  message?: string;
+  backEndRequestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      backEndRequestId: 'BackEndRequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      backEndRequestId: 'string',
     };
   }
 
@@ -15780,20 +16058,20 @@ export class ListFunctionExecuteLogResponseBodyLogListPagination extends $tea.Mo
   }
 }
 
-export class ListFunctionExecuteLogResponseBodyLogListLogs extends $tea.Model {
-  message?: string;
-  backEndRequestId?: string;
+export class ListFunctionExecuteLogResponseBodyLogList extends $tea.Model {
+  logs?: ListFunctionExecuteLogResponseBodyLogListLogs[];
+  pagination?: ListFunctionExecuteLogResponseBodyLogListPagination;
   static names(): { [key: string]: string } {
     return {
-      message: 'Message',
-      backEndRequestId: 'BackEndRequestId',
+      logs: 'Logs',
+      pagination: 'Pagination',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      message: 'string',
-      backEndRequestId: 'string',
+      logs: { 'type': 'array', 'itemType': ListFunctionExecuteLogResponseBodyLogListLogs },
+      pagination: ListFunctionExecuteLogResponseBodyLogListPagination,
     };
   }
 
@@ -15802,20 +16080,47 @@ export class ListFunctionExecuteLogResponseBodyLogListLogs extends $tea.Model {
   }
 }
 
-export class ListFunctionExecuteLogResponseBodyLogList extends $tea.Model {
-  pagination?: ListFunctionExecuteLogResponseBodyLogListPagination;
-  logs?: ListFunctionExecuteLogResponseBodyLogListLogs[];
+export class ListFunctionFilesResponseBodyFileListFiles extends $tea.Model {
+  id?: number;
+  name?: string;
+  contentId?: number;
+  status?: number;
+  gmtCreate?: number;
+  gmtModified?: number;
+  description?: string;
+  sandboxDeployTime?: number;
+  productionDeployTime?: number;
+  sandboxDeployStatus?: number;
+  productionDeployStatus?: number;
   static names(): { [key: string]: string } {
     return {
-      pagination: 'Pagination',
-      logs: 'Logs',
+      id: 'Id',
+      name: 'Name',
+      contentId: 'ContentId',
+      status: 'Status',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      description: 'Description',
+      sandboxDeployTime: 'SandboxDeployTime',
+      productionDeployTime: 'ProductionDeployTime',
+      sandboxDeployStatus: 'SandboxDeployStatus',
+      productionDeployStatus: 'ProductionDeployStatus',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      pagination: ListFunctionExecuteLogResponseBodyLogListPagination,
-      logs: { 'type': 'array', 'itemType': ListFunctionExecuteLogResponseBodyLogListLogs },
+      id: 'number',
+      name: 'string',
+      contentId: 'number',
+      status: 'number',
+      gmtCreate: 'number',
+      gmtModified: 'number',
+      description: 'string',
+      sandboxDeployTime: 'number',
+      productionDeployTime: 'number',
+      sandboxDeployStatus: 'number',
+      productionDeployStatus: 'number',
     };
   }
 
@@ -15826,73 +16131,24 @@ export class ListFunctionExecuteLogResponseBodyLogList extends $tea.Model {
 
 export class ListFunctionFilesResponseBodyFileListPagination extends $tea.Model {
   pageIndex?: number;
-  totalPageCount?: number;
   pageSize?: number;
   totalCount?: number;
+  totalPageCount?: number;
   static names(): { [key: string]: string } {
     return {
       pageIndex: 'PageIndex',
-      totalPageCount: 'TotalPageCount',
       pageSize: 'PageSize',
       totalCount: 'TotalCount',
+      totalPageCount: 'TotalPageCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       pageIndex: 'number',
-      totalPageCount: 'number',
       pageSize: 'number',
       totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListFunctionFilesResponseBodyFileListFiles extends $tea.Model {
-  status?: number;
-  productionDeployTime?: number;
-  productionDeployStatus?: number;
-  description?: string;
-  sandboxDeployTime?: number;
-  gmtCreate?: number;
-  sandboxDeployStatus?: number;
-  gmtModified?: number;
-  name?: string;
-  contentId?: number;
-  id?: number;
-  static names(): { [key: string]: string } {
-    return {
-      status: 'Status',
-      productionDeployTime: 'ProductionDeployTime',
-      productionDeployStatus: 'ProductionDeployStatus',
-      description: 'Description',
-      sandboxDeployTime: 'SandboxDeployTime',
-      gmtCreate: 'GmtCreate',
-      sandboxDeployStatus: 'SandboxDeployStatus',
-      gmtModified: 'GmtModified',
-      name: 'Name',
-      contentId: 'ContentId',
-      id: 'Id',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      status: 'number',
-      productionDeployTime: 'number',
-      productionDeployStatus: 'number',
-      description: 'string',
-      sandboxDeployTime: 'number',
-      gmtCreate: 'number',
-      sandboxDeployStatus: 'number',
-      gmtModified: 'number',
-      name: 'string',
-      contentId: 'number',
-      id: 'number',
+      totalPageCount: 'number',
     };
   }
 
@@ -15902,19 +16158,19 @@ export class ListFunctionFilesResponseBodyFileListFiles extends $tea.Model {
 }
 
 export class ListFunctionFilesResponseBodyFileList extends $tea.Model {
-  pagination?: ListFunctionFilesResponseBodyFileListPagination;
   files?: ListFunctionFilesResponseBodyFileListFiles[];
+  pagination?: ListFunctionFilesResponseBodyFileListPagination;
   static names(): { [key: string]: string } {
     return {
-      pagination: 'Pagination',
       files: 'Files',
+      pagination: 'Pagination',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      pagination: ListFunctionFilesResponseBodyFileListPagination,
       files: { 'type': 'array', 'itemType': ListFunctionFilesResponseBodyFileListFiles },
+      pagination: ListFunctionFilesResponseBodyFileListPagination,
     };
   }
 
@@ -15924,62 +16180,34 @@ export class ListFunctionFilesResponseBodyFileList extends $tea.Model {
 }
 
 export class ListFunctionFilesByProjectIdResponseBodyFiles extends $tea.Model {
+  id?: number;
+  name?: string;
   type?: number;
+  contentId?: number;
   status?: number;
   gmtCreate?: number;
   gmtModified?: number;
-  name?: string;
-  id?: number;
-  contentId?: number;
   static names(): { [key: string]: string } {
     return {
+      id: 'Id',
+      name: 'Name',
       type: 'Type',
+      contentId: 'ContentId',
       status: 'Status',
       gmtCreate: 'GmtCreate',
       gmtModified: 'GmtModified',
-      name: 'Name',
-      id: 'Id',
-      contentId: 'ContentId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      id: 'number',
+      name: 'string',
       type: 'number',
+      contentId: 'number',
       status: 'number',
       gmtCreate: 'number',
       gmtModified: 'number',
-      name: 'string',
-      id: 'number',
-      contentId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMessageAcksResponseBodyMessageAcksPagination extends $tea.Model {
-  pageIndex?: number;
-  totalPageCount?: number;
-  pageSize?: number;
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      pageIndex: 'PageIndex',
-      totalPageCount: 'TotalPageCount',
-      pageSize: 'PageSize',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageIndex: 'number',
-      totalPageCount: 'number',
-      pageSize: 'number',
-      totalCount: 'number',
     };
   }
 
@@ -15989,22 +16217,50 @@ export class ListMessageAcksResponseBodyMessageAcksPagination extends $tea.Model
 }
 
 export class ListMessageAcksResponseBodyMessageAcksList extends $tea.Model {
+  mid?: number;
   deviceId?: string;
   ackTime?: number;
-  mid?: number;
   static names(): { [key: string]: string } {
     return {
+      mid: 'Mid',
       deviceId: 'DeviceId',
       ackTime: 'AckTime',
-      mid: 'Mid',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      mid: 'number',
       deviceId: 'string',
       ackTime: 'number',
-      mid: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMessageAcksResponseBodyMessageAcksPagination extends $tea.Model {
+  totalCount?: number;
+  totalPageCount?: number;
+  pageIndex?: number;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      totalCount: 'TotalCount',
+      totalPageCount: 'TotalPageCount',
+      pageIndex: 'PageIndex',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      totalCount: 'number',
+      totalPageCount: 'number',
+      pageIndex: 'number',
+      pageSize: 'number',
     };
   }
 
@@ -16014,47 +16270,19 @@ export class ListMessageAcksResponseBodyMessageAcksList extends $tea.Model {
 }
 
 export class ListMessageAcksResponseBodyMessageAcks extends $tea.Model {
-  pagination?: ListMessageAcksResponseBodyMessageAcksPagination;
   list?: ListMessageAcksResponseBodyMessageAcksList[];
+  pagination?: ListMessageAcksResponseBodyMessageAcksPagination;
   static names(): { [key: string]: string } {
     return {
-      pagination: 'Pagination',
       list: 'List',
+      pagination: 'Pagination',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      pagination: ListMessageAcksResponseBodyMessageAcksPagination,
       list: { 'type': 'array', 'itemType': ListMessageAcksResponseBodyMessageAcksList },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMessageReceiversResponseBodyMessageReceiversPagination extends $tea.Model {
-  pageIndex?: number;
-  totalPageCount?: number;
-  pageSize?: number;
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      pageIndex: 'PageIndex',
-      totalPageCount: 'TotalPageCount',
-      pageSize: 'PageSize',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageIndex: 'number',
-      totalPageCount: 'number',
-      pageSize: 'number',
-      totalCount: 'number',
+      pagination: ListMessageAcksResponseBodyMessageAcksPagination,
     };
   }
 
@@ -16064,22 +16292,50 @@ export class ListMessageReceiversResponseBodyMessageReceiversPagination extends 
 }
 
 export class ListMessageReceiversResponseBodyMessageReceiversList extends $tea.Model {
+  mid?: number;
   type?: string;
   value?: string;
-  mid?: number;
   static names(): { [key: string]: string } {
     return {
+      mid: 'Mid',
       type: 'Type',
       value: 'Value',
-      mid: 'Mid',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      mid: 'number',
       type: 'string',
       value: 'string',
-      mid: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMessageReceiversResponseBodyMessageReceiversPagination extends $tea.Model {
+  totalCount?: number;
+  totalPageCount?: number;
+  pageIndex?: number;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      totalCount: 'TotalCount',
+      totalPageCount: 'TotalPageCount',
+      pageIndex: 'PageIndex',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      totalCount: 'number',
+      totalPageCount: 'number',
+      pageIndex: 'number',
+      pageSize: 'number',
     };
   }
 
@@ -16089,47 +16345,19 @@ export class ListMessageReceiversResponseBodyMessageReceiversList extends $tea.M
 }
 
 export class ListMessageReceiversResponseBodyMessageReceivers extends $tea.Model {
-  pagination?: ListMessageReceiversResponseBodyMessageReceiversPagination;
   list?: ListMessageReceiversResponseBodyMessageReceiversList[];
+  pagination?: ListMessageReceiversResponseBodyMessageReceiversPagination;
   static names(): { [key: string]: string } {
     return {
-      pagination: 'Pagination',
       list: 'List',
+      pagination: 'Pagination',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      pagination: ListMessageReceiversResponseBodyMessageReceiversPagination,
       list: { 'type': 'array', 'itemType': ListMessageReceiversResponseBodyMessageReceiversList },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMqttClientSubscriptionsResponseBodyClientSubscriptionsPagination extends $tea.Model {
-  pageIndex?: number;
-  totalPageCount?: number;
-  pageSize?: number;
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      pageIndex: 'PageIndex',
-      totalPageCount: 'TotalPageCount',
-      pageSize: 'PageSize',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageIndex: 'number',
-      totalPageCount: 'number',
-      pageSize: 'number',
-      totalCount: 'number',
+      pagination: ListMessageReceiversResponseBodyMessageReceiversPagination,
     };
   }
 
@@ -16160,20 +16388,26 @@ export class ListMqttClientSubscriptionsResponseBodyClientSubscriptionsList exte
   }
 }
 
-export class ListMqttClientSubscriptionsResponseBodyClientSubscriptions extends $tea.Model {
-  pagination?: ListMqttClientSubscriptionsResponseBodyClientSubscriptionsPagination;
-  list?: ListMqttClientSubscriptionsResponseBodyClientSubscriptionsList[];
+export class ListMqttClientSubscriptionsResponseBodyClientSubscriptionsPagination extends $tea.Model {
+  totalCount?: number;
+  totalPageCount?: number;
+  pageIndex?: number;
+  pageSize?: number;
   static names(): { [key: string]: string } {
     return {
-      pagination: 'Pagination',
-      list: 'List',
+      totalCount: 'TotalCount',
+      totalPageCount: 'TotalPageCount',
+      pageIndex: 'PageIndex',
+      pageSize: 'PageSize',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      pagination: ListMqttClientSubscriptionsResponseBodyClientSubscriptionsPagination,
-      list: { 'type': 'array', 'itemType': ListMqttClientSubscriptionsResponseBodyClientSubscriptionsList },
+      totalCount: 'number',
+      totalPageCount: 'number',
+      pageIndex: 'number',
+      pageSize: 'number',
     };
   }
 
@@ -16182,26 +16416,20 @@ export class ListMqttClientSubscriptionsResponseBodyClientSubscriptions extends 
   }
 }
 
-export class ListMqttMessageLogsResponseBodyTracesPagination extends $tea.Model {
-  pageIndex?: number;
-  totalPageCount?: number;
-  pageSize?: number;
-  totalCount?: number;
+export class ListMqttClientSubscriptionsResponseBodyClientSubscriptions extends $tea.Model {
+  list?: ListMqttClientSubscriptionsResponseBodyClientSubscriptionsList[];
+  pagination?: ListMqttClientSubscriptionsResponseBodyClientSubscriptionsPagination;
   static names(): { [key: string]: string } {
     return {
-      pageIndex: 'PageIndex',
-      totalPageCount: 'TotalPageCount',
-      pageSize: 'PageSize',
-      totalCount: 'TotalCount',
+      list: 'List',
+      pagination: 'Pagination',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      pageIndex: 'number',
-      totalPageCount: 'number',
-      pageSize: 'number',
-      totalCount: 'number',
+      list: { 'type': 'array', 'itemType': ListMqttClientSubscriptionsResponseBodyClientSubscriptionsList },
+      pagination: ListMqttClientSubscriptionsResponseBodyClientSubscriptionsPagination,
     };
   }
 
@@ -16211,34 +16439,62 @@ export class ListMqttMessageLogsResponseBodyTracesPagination extends $tea.Model 
 }
 
 export class ListMqttMessageLogsResponseBodyTracesList extends $tea.Model {
-  type?: string;
   time?: number;
-  action?: string;
   topic?: string;
+  type?: string;
+  action?: string;
   mid?: string;
-  clientMid?: string;
   clientId?: string;
+  clientMid?: string;
   static names(): { [key: string]: string } {
     return {
-      type: 'Type',
       time: 'Time',
-      action: 'Action',
       topic: 'Topic',
+      type: 'Type',
+      action: 'Action',
       mid: 'Mid',
-      clientMid: 'ClientMid',
       clientId: 'ClientId',
+      clientMid: 'ClientMid',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      type: 'string',
       time: 'number',
-      action: 'string',
       topic: 'string',
+      type: 'string',
+      action: 'string',
       mid: 'string',
-      clientMid: 'string',
       clientId: 'string',
+      clientMid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMqttMessageLogsResponseBodyTracesPagination extends $tea.Model {
+  totalCount?: number;
+  totalPageCount?: number;
+  pageIndex?: number;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      totalCount: 'TotalCount',
+      totalPageCount: 'TotalPageCount',
+      pageIndex: 'PageIndex',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      totalCount: 'number',
+      totalPageCount: 'number',
+      pageIndex: 'number',
+      pageSize: 'number',
     };
   }
 
@@ -16248,47 +16504,19 @@ export class ListMqttMessageLogsResponseBodyTracesList extends $tea.Model {
 }
 
 export class ListMqttMessageLogsResponseBodyTraces extends $tea.Model {
-  pagination?: ListMqttMessageLogsResponseBodyTracesPagination;
   list?: ListMqttMessageLogsResponseBodyTracesList[];
+  pagination?: ListMqttMessageLogsResponseBodyTracesPagination;
   static names(): { [key: string]: string } {
     return {
-      pagination: 'Pagination',
       list: 'List',
+      pagination: 'Pagination',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      pagination: ListMqttMessageLogsResponseBodyTracesPagination,
       list: { 'type': 'array', 'itemType': ListMqttMessageLogsResponseBodyTracesList },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMqttRootTopicsResponseBodyRootTopicsPagination extends $tea.Model {
-  pageIndex?: number;
-  totalPageCount?: number;
-  pageSize?: number;
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      pageIndex: 'PageIndex',
-      totalPageCount: 'TotalPageCount',
-      pageSize: 'PageSize',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageIndex: 'number',
-      totalPageCount: 'number',
-      pageSize: 'number',
-      totalCount: 'number',
+      pagination: ListMqttMessageLogsResponseBodyTracesPagination,
     };
   }
 
@@ -16298,28 +16526,56 @@ export class ListMqttRootTopicsResponseBodyRootTopicsPagination extends $tea.Mod
 }
 
 export class ListMqttRootTopicsResponseBodyRootTopicsList extends $tea.Model {
-  type?: string;
-  appKey?: string;
-  queueName?: string;
   createTime?: number;
   rootTopic?: string;
+  type?: string;
+  queueName?: string;
+  appKey?: string;
   static names(): { [key: string]: string } {
     return {
-      type: 'Type',
-      appKey: 'AppKey',
-      queueName: 'QueueName',
       createTime: 'CreateTime',
       rootTopic: 'RootTopic',
+      type: 'Type',
+      queueName: 'QueueName',
+      appKey: 'AppKey',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      type: 'string',
-      appKey: 'string',
-      queueName: 'string',
       createTime: 'number',
       rootTopic: 'string',
+      type: 'string',
+      queueName: 'string',
+      appKey: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMqttRootTopicsResponseBodyRootTopicsPagination extends $tea.Model {
+  totalCount?: number;
+  totalPageCount?: number;
+  pageIndex?: number;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      totalCount: 'TotalCount',
+      totalPageCount: 'TotalPageCount',
+      pageIndex: 'PageIndex',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      totalCount: 'number',
+      totalPageCount: 'number',
+      pageIndex: 'number',
+      pageSize: 'number',
     };
   }
 
@@ -16329,19 +16585,19 @@ export class ListMqttRootTopicsResponseBodyRootTopicsList extends $tea.Model {
 }
 
 export class ListMqttRootTopicsResponseBodyRootTopics extends $tea.Model {
-  pagination?: ListMqttRootTopicsResponseBodyRootTopicsPagination;
   list?: ListMqttRootTopicsResponseBodyRootTopicsList[];
+  pagination?: ListMqttRootTopicsResponseBodyRootTopicsPagination;
   static names(): { [key: string]: string } {
     return {
-      pagination: 'Pagination',
       list: 'List',
+      pagination: 'Pagination',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      pagination: ListMqttRootTopicsResponseBodyRootTopicsPagination,
       list: { 'type': 'array', 'itemType': ListMqttRootTopicsResponseBodyRootTopicsList },
+      pagination: ListMqttRootTopicsResponseBodyRootTopicsPagination,
     };
   }
 
@@ -16351,65 +16607,37 @@ export class ListMqttRootTopicsResponseBodyRootTopics extends $tea.Model {
 }
 
 export class ListNamespacesResponseBodyNamespaces extends $tea.Model {
-  authType?: number;
-  description?: string;
+  namespace?: string;
+  name?: string;
   userId?: string;
   projectId?: string;
+  description?: string;
   gmtCreate?: number;
-  namespace?: string;
   gmtModified?: number;
-  name?: string;
+  authType?: number;
   static names(): { [key: string]: string } {
     return {
-      authType: 'AuthType',
-      description: 'Description',
+      namespace: 'Namespace',
+      name: 'Name',
       userId: 'UserId',
       projectId: 'ProjectId',
+      description: 'Description',
       gmtCreate: 'GmtCreate',
-      namespace: 'Namespace',
       gmtModified: 'GmtModified',
-      name: 'Name',
+      authType: 'AuthType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      authType: 'number',
-      description: 'string',
+      namespace: 'string',
+      name: 'string',
       userId: 'string',
       projectId: 'string',
+      description: 'string',
       gmtCreate: 'number',
-      namespace: 'string',
       gmtModified: 'number',
-      name: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListOfflineMessagesResponseBodyOfflineMessagesPagination extends $tea.Model {
-  pageIndex?: number;
-  totalPageCount?: number;
-  pageSize?: number;
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      pageIndex: 'PageIndex',
-      totalPageCount: 'TotalPageCount',
-      pageSize: 'PageSize',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageIndex: 'number',
-      totalPageCount: 'number',
-      pageSize: 'number',
-      totalCount: 'number',
+      authType: 'number',
     };
   }
 
@@ -16419,22 +16647,50 @@ export class ListOfflineMessagesResponseBodyOfflineMessagesPagination extends $t
 }
 
 export class ListOfflineMessagesResponseBodyOfflineMessagesList extends $tea.Model {
-  expiredTime?: number;
   mid?: number;
   gmtCreate?: number;
+  expiredTime?: number;
   static names(): { [key: string]: string } {
     return {
-      expiredTime: 'ExpiredTime',
       mid: 'Mid',
       gmtCreate: 'GmtCreate',
+      expiredTime: 'ExpiredTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      expiredTime: 'number',
       mid: 'number',
       gmtCreate: 'number',
+      expiredTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListOfflineMessagesResponseBodyOfflineMessagesPagination extends $tea.Model {
+  totalCount?: number;
+  totalPageCount?: number;
+  pageIndex?: number;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      totalCount: 'TotalCount',
+      totalPageCount: 'TotalPageCount',
+      pageIndex: 'PageIndex',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      totalCount: 'number',
+      totalPageCount: 'number',
+      pageIndex: 'number',
+      pageSize: 'number',
     };
   }
 
@@ -16444,19 +16700,19 @@ export class ListOfflineMessagesResponseBodyOfflineMessagesList extends $tea.Mod
 }
 
 export class ListOfflineMessagesResponseBodyOfflineMessages extends $tea.Model {
-  pagination?: ListOfflineMessagesResponseBodyOfflineMessagesPagination;
   list?: ListOfflineMessagesResponseBodyOfflineMessagesList[];
+  pagination?: ListOfflineMessagesResponseBodyOfflineMessagesPagination;
   static names(): { [key: string]: string } {
     return {
-      pagination: 'Pagination',
       list: 'List',
+      pagination: 'Pagination',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      pagination: ListOfflineMessagesResponseBodyOfflineMessagesPagination,
       list: { 'type': 'array', 'itemType': ListOfflineMessagesResponseBodyOfflineMessagesList },
+      pagination: ListOfflineMessagesResponseBodyOfflineMessagesPagination,
     };
   }
 
@@ -16466,46 +16722,46 @@ export class ListOfflineMessagesResponseBodyOfflineMessages extends $tea.Model {
 }
 
 export class ListOpenAccountLinksResponseBodyOpenAccounts extends $tea.Model {
-  status?: number;
-  type?: number;
-  displayName?: string;
-  createAccessKey?: string;
-  openId?: string;
-  mobile?: string;
-  region?: string;
   identityId?: string;
+  aliyunId?: string;
+  displayName?: string;
   loginId?: string;
   idp?: string;
-  aliyunId?: string;
+  openId?: string;
+  mobile?: string;
+  type?: number;
+  status?: number;
+  region?: string;
+  createAccessKey?: string;
   static names(): { [key: string]: string } {
     return {
-      status: 'Status',
-      type: 'Type',
-      displayName: 'DisplayName',
-      createAccessKey: 'CreateAccessKey',
-      openId: 'OpenId',
-      mobile: 'Mobile',
-      region: 'Region',
       identityId: 'IdentityId',
+      aliyunId: 'AliyunId',
+      displayName: 'DisplayName',
       loginId: 'LoginId',
       idp: 'Idp',
-      aliyunId: 'AliyunId',
+      openId: 'OpenId',
+      mobile: 'Mobile',
+      type: 'Type',
+      status: 'Status',
+      region: 'Region',
+      createAccessKey: 'CreateAccessKey',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      status: 'number',
-      type: 'number',
-      displayName: 'string',
-      createAccessKey: 'string',
-      openId: 'string',
-      mobile: 'string',
-      region: 'string',
       identityId: 'string',
+      aliyunId: 'string',
+      displayName: 'string',
       loginId: 'string',
       idp: 'string',
-      aliyunId: 'string',
+      openId: 'string',
+      mobile: 'string',
+      type: 'number',
+      status: 'number',
+      region: 'string',
+      createAccessKey: 'string',
     };
   }
 
@@ -16515,46 +16771,46 @@ export class ListOpenAccountLinksResponseBodyOpenAccounts extends $tea.Model {
 }
 
 export class ListOpenAccountsResponseBodyOpenAccounts extends $tea.Model {
-  status?: number;
-  type?: number;
-  displayName?: string;
-  createAccessKey?: string;
-  openId?: string;
-  mobile?: string;
-  region?: string;
   identityId?: string;
+  aliyunId?: string;
+  displayName?: string;
   loginId?: string;
   idp?: string;
-  aliyunId?: string;
+  openId?: string;
+  mobile?: string;
+  type?: number;
+  status?: number;
+  region?: string;
+  createAccessKey?: string;
   static names(): { [key: string]: string } {
     return {
-      status: 'Status',
-      type: 'Type',
-      displayName: 'DisplayName',
-      createAccessKey: 'CreateAccessKey',
-      openId: 'OpenId',
-      mobile: 'Mobile',
-      region: 'Region',
       identityId: 'IdentityId',
+      aliyunId: 'AliyunId',
+      displayName: 'DisplayName',
       loginId: 'LoginId',
       idp: 'Idp',
-      aliyunId: 'AliyunId',
+      openId: 'OpenId',
+      mobile: 'Mobile',
+      type: 'Type',
+      status: 'Status',
+      region: 'Region',
+      createAccessKey: 'CreateAccessKey',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      status: 'number',
-      type: 'number',
-      displayName: 'string',
-      createAccessKey: 'string',
-      openId: 'string',
-      mobile: 'string',
-      region: 'string',
       identityId: 'string',
+      aliyunId: 'string',
+      displayName: 'string',
       loginId: 'string',
       idp: 'string',
-      aliyunId: 'string',
+      openId: 'string',
+      mobile: 'string',
+      type: 'number',
+      status: 'number',
+      region: 'string',
+      createAccessKey: 'string',
     };
   }
 
@@ -16592,49 +16848,49 @@ export class ListPreChecksResponseBodyPreChecks extends $tea.Model {
 }
 
 export class ListProjectAppsResponseBodyResultProjectApps extends $tea.Model {
-  status?: number;
-  projectId?: string;
+  id?: number;
+  appId?: string;
   userId?: string;
+  projectId?: string;
+  appName?: string;
+  appKey?: string;
+  appSecret?: string;
+  status?: number;
+  gmtCreate?: number;
   gmtModified?: number;
   appPkgName?: string;
-  appName?: string;
-  appSecret?: string;
-  appKey?: string;
-  appId?: string;
   osType?: number;
-  gmtCreate?: number;
-  id?: number;
   static names(): { [key: string]: string } {
     return {
-      status: 'Status',
-      projectId: 'ProjectId',
+      id: 'Id',
+      appId: 'AppId',
       userId: 'UserId',
+      projectId: 'ProjectId',
+      appName: 'AppName',
+      appKey: 'AppKey',
+      appSecret: 'AppSecret',
+      status: 'Status',
+      gmtCreate: 'GmtCreate',
       gmtModified: 'GmtModified',
       appPkgName: 'AppPkgName',
-      appName: 'AppName',
-      appSecret: 'AppSecret',
-      appKey: 'AppKey',
-      appId: 'AppId',
       osType: 'OsType',
-      gmtCreate: 'GmtCreate',
-      id: 'Id',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      status: 'number',
-      projectId: 'string',
+      id: 'number',
+      appId: 'string',
       userId: 'string',
+      projectId: 'string',
+      appName: 'string',
+      appKey: 'string',
+      appSecret: 'string',
+      status: 'number',
+      gmtCreate: 'number',
       gmtModified: 'number',
       appPkgName: 'string',
-      appName: 'string',
-      appSecret: 'string',
-      appKey: 'string',
-      appId: 'string',
       osType: 'number',
-      gmtCreate: 'number',
-      id: 'number',
     };
   }
 
@@ -16644,22 +16900,22 @@ export class ListProjectAppsResponseBodyResultProjectApps extends $tea.Model {
 }
 
 export class ListProjectAppsResponseBodyResult extends $tea.Model {
-  projectApps?: ListProjectAppsResponseBodyResultProjectApps[];
-  totalPage?: number;
   totalCount?: number;
+  totalPage?: number;
+  projectApps?: ListProjectAppsResponseBodyResultProjectApps[];
   static names(): { [key: string]: string } {
     return {
-      projectApps: 'ProjectApps',
-      totalPage: 'TotalPage',
       totalCount: 'TotalCount',
+      totalPage: 'TotalPage',
+      projectApps: 'ProjectApps',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      projectApps: { 'type': 'array', 'itemType': ListProjectAppsResponseBodyResultProjectApps },
-      totalPage: 'number',
       totalCount: 'number',
+      totalPage: 'number',
+      projectApps: { 'type': 'array', 'itemType': ListProjectAppsResponseBodyResultProjectApps },
     };
   }
 
@@ -16669,39 +16925,39 @@ export class ListProjectAppsResponseBodyResult extends $tea.Model {
 }
 
 export class ListProjectsResponseBodyProjects extends $tea.Model {
+  id?: number;
+  projectId?: string;
+  userId?: string;
+  name?: string;
   status?: number;
   description?: string;
-  userId?: string;
-  projectId?: string;
   gmtCreate?: number;
   gmtModified?: number;
-  name?: string;
-  id?: number;
   creator?: string;
   static names(): { [key: string]: string } {
     return {
+      id: 'Id',
+      projectId: 'ProjectId',
+      userId: 'UserId',
+      name: 'Name',
       status: 'Status',
       description: 'Description',
-      userId: 'UserId',
-      projectId: 'ProjectId',
       gmtCreate: 'GmtCreate',
       gmtModified: 'GmtModified',
-      name: 'Name',
-      id: 'Id',
       creator: 'Creator',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      id: 'number',
+      projectId: 'string',
+      userId: 'string',
+      name: 'string',
       status: 'number',
       description: 'string',
-      userId: 'string',
-      projectId: 'string',
       gmtCreate: 'number',
       gmtModified: 'number',
-      name: 'string',
-      id: 'number',
       creator: 'string',
     };
   }
@@ -16711,26 +16967,47 @@ export class ListProjectsResponseBodyProjects extends $tea.Model {
   }
 }
 
-export class ListRpcServicesResponseBodyRpcServicesPagination extends $tea.Model {
-  pageIndex?: number;
-  totalPageCount?: number;
-  pageSize?: number;
-  totalCount?: number;
+export class ListRpcServicesResponseBodyRpcServicesList extends $tea.Model {
+  id?: number;
+  appKey?: string;
+  interfaceName?: string;
+  groupName?: string;
+  type?: string;
+  params?: string;
+  isDelete?: string;
+  gmtCreate?: number;
+  gmtModified?: number;
+  methodName?: string;
+  versionCode?: string;
   static names(): { [key: string]: string } {
     return {
-      pageIndex: 'PageIndex',
-      totalPageCount: 'TotalPageCount',
-      pageSize: 'PageSize',
-      totalCount: 'TotalCount',
+      id: 'Id',
+      appKey: 'AppKey',
+      interfaceName: 'InterfaceName',
+      groupName: 'GroupName',
+      type: 'Type',
+      params: 'Params',
+      isDelete: 'IsDelete',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      methodName: 'MethodName',
+      versionCode: 'VersionCode',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      pageIndex: 'number',
-      totalPageCount: 'number',
-      pageSize: 'number',
-      totalCount: 'number',
+      id: 'number',
+      appKey: 'string',
+      interfaceName: 'string',
+      groupName: 'string',
+      type: 'string',
+      params: 'string',
+      isDelete: 'string',
+      gmtCreate: 'number',
+      gmtModified: 'number',
+      methodName: 'string',
+      versionCode: 'string',
     };
   }
 
@@ -16739,47 +17016,26 @@ export class ListRpcServicesResponseBodyRpcServicesPagination extends $tea.Model
   }
 }
 
-export class ListRpcServicesResponseBodyRpcServicesList extends $tea.Model {
-  methodName?: string;
-  type?: string;
-  interfaceName?: string;
-  params?: string;
-  appKey?: string;
-  groupName?: string;
-  gmtCreate?: number;
-  isDelete?: string;
-  versionCode?: string;
-  gmtModified?: number;
-  id?: number;
+export class ListRpcServicesResponseBodyRpcServicesPagination extends $tea.Model {
+  totalCount?: number;
+  totalPageCount?: number;
+  pageIndex?: number;
+  pageSize?: number;
   static names(): { [key: string]: string } {
     return {
-      methodName: 'MethodName',
-      type: 'Type',
-      interfaceName: 'InterfaceName',
-      params: 'Params',
-      appKey: 'AppKey',
-      groupName: 'GroupName',
-      gmtCreate: 'GmtCreate',
-      isDelete: 'IsDelete',
-      versionCode: 'VersionCode',
-      gmtModified: 'GmtModified',
-      id: 'Id',
+      totalCount: 'TotalCount',
+      totalPageCount: 'TotalPageCount',
+      pageIndex: 'PageIndex',
+      pageSize: 'PageSize',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      methodName: 'string',
-      type: 'string',
-      interfaceName: 'string',
-      params: 'string',
-      appKey: 'string',
-      groupName: 'string',
-      gmtCreate: 'number',
-      isDelete: 'string',
-      versionCode: 'string',
-      gmtModified: 'number',
-      id: 'number',
+      totalCount: 'number',
+      totalPageCount: 'number',
+      pageIndex: 'number',
+      pageSize: 'number',
     };
   }
 
@@ -16789,19 +17045,62 @@ export class ListRpcServicesResponseBodyRpcServicesList extends $tea.Model {
 }
 
 export class ListRpcServicesResponseBodyRpcServices extends $tea.Model {
-  pagination?: ListRpcServicesResponseBodyRpcServicesPagination;
   list?: ListRpcServicesResponseBodyRpcServicesList[];
+  pagination?: ListRpcServicesResponseBodyRpcServicesPagination;
   static names(): { [key: string]: string } {
     return {
-      pagination: 'Pagination',
       list: 'List',
+      pagination: 'Pagination',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      pagination: ListRpcServicesResponseBodyRpcServicesPagination,
       list: { 'type': 'array', 'itemType': ListRpcServicesResponseBodyRpcServicesList },
+      pagination: ListRpcServicesResponseBodyRpcServicesPagination,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSchemaSubscribesResponseBodyPageListList extends $tea.Model {
+  id?: number;
+  version?: string;
+  validitySchema?: string;
+  namespace?: string;
+  projectId?: string;
+  deviceModelId?: number;
+  deviceModel?: string;
+  gmtCreate?: number;
+  gmtModified?: number;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      version: 'Version',
+      validitySchema: 'ValiditySchema',
+      namespace: 'Namespace',
+      projectId: 'ProjectId',
+      deviceModelId: 'DeviceModelId',
+      deviceModel: 'DeviceModel',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+      version: 'string',
+      validitySchema: 'string',
+      namespace: 'string',
+      projectId: 'string',
+      deviceModelId: 'number',
+      deviceModel: 'string',
+      gmtCreate: 'number',
+      gmtModified: 'number',
     };
   }
 
@@ -16811,18 +17110,18 @@ export class ListRpcServicesResponseBodyRpcServices extends $tea.Model {
 }
 
 export class ListSchemaSubscribesResponseBodyPageListPagination extends $tea.Model {
-  pageIndex?: number;
-  totalPageCount?: number;
-  pageSize?: number;
   totalCount?: number;
+  totalPageCount?: number;
+  pageIndex?: number;
+  pageSize?: number;
   simpleSign?: boolean;
   hasNextPage?: boolean;
   static names(): { [key: string]: string } {
     return {
-      pageIndex: 'PageIndex',
-      totalPageCount: 'TotalPageCount',
-      pageSize: 'PageSize',
       totalCount: 'TotalCount',
+      totalPageCount: 'TotalPageCount',
+      pageIndex: 'PageIndex',
+      pageSize: 'PageSize',
       simpleSign: 'SimpleSign',
       hasNextPage: 'HasNextPage',
     };
@@ -16830,10 +17129,10 @@ export class ListSchemaSubscribesResponseBodyPageListPagination extends $tea.Mod
 
   static types(): { [key: string]: any } {
     return {
-      pageIndex: 'number',
-      totalPageCount: 'number',
-      pageSize: 'number',
       totalCount: 'number',
+      totalPageCount: 'number',
+      pageIndex: 'number',
+      pageSize: 'number',
       simpleSign: 'boolean',
       hasNextPage: 'boolean',
     };
@@ -16844,63 +17143,20 @@ export class ListSchemaSubscribesResponseBodyPageListPagination extends $tea.Mod
   }
 }
 
-export class ListSchemaSubscribesResponseBodyPageListList extends $tea.Model {
-  deviceModelId?: number;
-  version?: string;
-  projectId?: string;
-  gmtCreate?: number;
-  namespace?: string;
-  validitySchema?: string;
-  deviceModel?: string;
-  gmtModified?: number;
-  id?: number;
-  static names(): { [key: string]: string } {
-    return {
-      deviceModelId: 'DeviceModelId',
-      version: 'Version',
-      projectId: 'ProjectId',
-      gmtCreate: 'GmtCreate',
-      namespace: 'Namespace',
-      validitySchema: 'ValiditySchema',
-      deviceModel: 'DeviceModel',
-      gmtModified: 'GmtModified',
-      id: 'Id',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      deviceModelId: 'number',
-      version: 'string',
-      projectId: 'string',
-      gmtCreate: 'number',
-      namespace: 'string',
-      validitySchema: 'string',
-      deviceModel: 'string',
-      gmtModified: 'number',
-      id: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ListSchemaSubscribesResponseBodyPageList extends $tea.Model {
-  pagination?: ListSchemaSubscribesResponseBodyPageListPagination;
   list?: ListSchemaSubscribesResponseBodyPageListList[];
+  pagination?: ListSchemaSubscribesResponseBodyPageListPagination;
   static names(): { [key: string]: string } {
     return {
-      pagination: 'Pagination',
       list: 'List',
+      pagination: 'Pagination',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      pagination: ListSchemaSubscribesResponseBodyPageListPagination,
       list: { 'type': 'array', 'itemType': ListSchemaSubscribesResponseBodyPageListList },
+      pagination: ListSchemaSubscribesResponseBodyPageListPagination,
     };
   }
 
@@ -16911,82 +17167,48 @@ export class ListSchemaSubscribesResponseBodyPageList extends $tea.Model {
 
 export class ListShadowSchemaDeviceModelsResponseBodyModelList extends $tea.Model {
   deviceModelId?: number;
-  hardwareType?: string;
   deviceType?: string;
-  canCreateDeviceId?: number;
-  projectId?: string;
-  osPlatform?: string;
+  hardwareType?: string;
   deviceModel?: string;
-  securityChip?: number;
-  description?: string;
-  initUsageTypeDesc?: string;
-  initUsageType?: number;
   deviceBrand?: string;
+  canCreateDeviceId?: number;
+  initUsageType?: number;
+  initUsageTypeDesc?: string;
+  description?: string;
+  projectId?: string;
+  securityChip?: number;
+  osPlatform?: string;
   static names(): { [key: string]: string } {
     return {
       deviceModelId: 'DeviceModelId',
-      hardwareType: 'HardwareType',
       deviceType: 'DeviceType',
-      canCreateDeviceId: 'CanCreateDeviceId',
-      projectId: 'ProjectId',
-      osPlatform: 'OsPlatform',
+      hardwareType: 'HardwareType',
       deviceModel: 'DeviceModel',
-      securityChip: 'SecurityChip',
-      description: 'Description',
-      initUsageTypeDesc: 'InitUsageTypeDesc',
-      initUsageType: 'InitUsageType',
       deviceBrand: 'DeviceBrand',
+      canCreateDeviceId: 'CanCreateDeviceId',
+      initUsageType: 'InitUsageType',
+      initUsageTypeDesc: 'InitUsageTypeDesc',
+      description: 'Description',
+      projectId: 'ProjectId',
+      securityChip: 'SecurityChip',
+      osPlatform: 'OsPlatform',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       deviceModelId: 'number',
-      hardwareType: 'string',
       deviceType: 'string',
-      canCreateDeviceId: 'number',
-      projectId: 'string',
-      osPlatform: 'string',
+      hardwareType: 'string',
       deviceModel: 'string',
-      securityChip: 'number',
-      description: 'string',
-      initUsageTypeDesc: 'string',
-      initUsageType: 'number',
       deviceBrand: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListShadowSchemasResponseBodyPageListPagination extends $tea.Model {
-  pageIndex?: number;
-  totalPageCount?: number;
-  pageSize?: number;
-  totalCount?: number;
-  simpleSign?: boolean;
-  hasNextPage?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      pageIndex: 'PageIndex',
-      totalPageCount: 'TotalPageCount',
-      pageSize: 'PageSize',
-      totalCount: 'TotalCount',
-      simpleSign: 'SimpleSign',
-      hasNextPage: 'HasNextPage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageIndex: 'number',
-      totalPageCount: 'number',
-      pageSize: 'number',
-      totalCount: 'number',
-      simpleSign: 'boolean',
-      hasNextPage: 'boolean',
+      canCreateDeviceId: 'number',
+      initUsageType: 'number',
+      initUsageTypeDesc: 'string',
+      description: 'string',
+      projectId: 'string',
+      securityChip: 'number',
+      osPlatform: 'string',
     };
   }
 
@@ -16997,42 +17219,76 @@ export class ListShadowSchemasResponseBodyPageListPagination extends $tea.Model 
 
 export class ListShadowSchemasResponseBodyPageListList extends $tea.Model {
   authTypeDesc?: string;
-  deviceModelId?: number;
-  authType?: number;
-  projectId?: string;
-  gmtCreate?: number;
-  namespace?: string;
-  deviceModel?: string;
-  gmtModified?: number;
-  moduleSchema?: string;
   id?: number;
+  projectId?: string;
+  deviceModelId?: number;
+  deviceModel?: string;
+  moduleSchema?: string;
+  namespace?: string;
+  authType?: number;
+  gmtCreate?: number;
+  gmtModified?: number;
   static names(): { [key: string]: string } {
     return {
       authTypeDesc: 'AuthTypeDesc',
-      deviceModelId: 'DeviceModelId',
-      authType: 'AuthType',
-      projectId: 'ProjectId',
-      gmtCreate: 'GmtCreate',
-      namespace: 'Namespace',
-      deviceModel: 'DeviceModel',
-      gmtModified: 'GmtModified',
-      moduleSchema: 'ModuleSchema',
       id: 'Id',
+      projectId: 'ProjectId',
+      deviceModelId: 'DeviceModelId',
+      deviceModel: 'DeviceModel',
+      moduleSchema: 'ModuleSchema',
+      namespace: 'Namespace',
+      authType: 'AuthType',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       authTypeDesc: 'string',
-      deviceModelId: 'number',
-      authType: 'number',
-      projectId: 'string',
-      gmtCreate: 'number',
-      namespace: 'string',
-      deviceModel: 'string',
-      gmtModified: 'number',
-      moduleSchema: 'string',
       id: 'number',
+      projectId: 'string',
+      deviceModelId: 'number',
+      deviceModel: 'string',
+      moduleSchema: 'string',
+      namespace: 'string',
+      authType: 'number',
+      gmtCreate: 'number',
+      gmtModified: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListShadowSchemasResponseBodyPageListPagination extends $tea.Model {
+  totalCount?: number;
+  totalPageCount?: number;
+  pageIndex?: number;
+  pageSize?: number;
+  simpleSign?: boolean;
+  hasNextPage?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      totalCount: 'TotalCount',
+      totalPageCount: 'TotalPageCount',
+      pageIndex: 'PageIndex',
+      pageSize: 'PageSize',
+      simpleSign: 'SimpleSign',
+      hasNextPage: 'HasNextPage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      totalCount: 'number',
+      totalPageCount: 'number',
+      pageIndex: 'number',
+      pageSize: 'number',
+      simpleSign: 'boolean',
+      hasNextPage: 'boolean',
     };
   }
 
@@ -17042,19 +17298,19 @@ export class ListShadowSchemasResponseBodyPageListList extends $tea.Model {
 }
 
 export class ListShadowSchemasResponseBodyPageList extends $tea.Model {
-  pagination?: ListShadowSchemasResponseBodyPageListPagination;
   list?: ListShadowSchemasResponseBodyPageListList[];
+  pagination?: ListShadowSchemasResponseBodyPageListPagination;
   static names(): { [key: string]: string } {
     return {
-      pagination: 'Pagination',
       list: 'List',
+      pagination: 'Pagination',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      pagination: ListShadowSchemasResponseBodyPageListPagination,
       list: { 'type': 'array', 'itemType': ListShadowSchemasResponseBodyPageListList },
+      pagination: ListShadowSchemasResponseBodyPageListPagination,
     };
   }
 
@@ -17082,60 +17338,32 @@ export class ListSupportFeaturesResponseBodySupportFeatures extends $tea.Model {
   }
 }
 
-export class ListTriggersResponseBodyTriggerListPagination extends $tea.Model {
-  pageIndex?: number;
-  totalPageCount?: number;
-  pageSize?: number;
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      pageIndex: 'PageIndex',
-      totalPageCount: 'TotalPageCount',
-      pageSize: 'PageSize',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageIndex: 'number',
-      totalPageCount: 'number',
-      pageSize: 'number',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ListTriggersResponseBodyTriggerListTriggersFunctions extends $tea.Model {
-  gmtCreate?: number;
-  fileName?: string;
-  name?: string;
-  gmtModified?: number;
   id?: number;
+  name?: string;
   fileId?: number;
+  fileName?: string;
+  gmtCreate?: number;
+  gmtModified?: number;
   static names(): { [key: string]: string } {
     return {
-      gmtCreate: 'GmtCreate',
-      fileName: 'FileName',
-      name: 'Name',
-      gmtModified: 'GmtModified',
       id: 'Id',
+      name: 'Name',
       fileId: 'FileId',
+      fileName: 'FileName',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      gmtCreate: 'number',
-      fileName: 'string',
-      name: 'string',
-      gmtModified: 'number',
       id: 'number',
+      name: 'string',
       fileId: 'number',
+      fileName: 'string',
+      gmtCreate: 'number',
+      gmtModified: 'number',
     };
   }
 
@@ -17145,49 +17373,77 @@ export class ListTriggersResponseBodyTriggerListTriggersFunctions extends $tea.M
 }
 
 export class ListTriggersResponseBodyTriggerListTriggers extends $tea.Model {
-  status?: number;
+  id?: number;
+  namespace?: string;
+  source?: string;
+  gmtCreate?: number;
+  gmtModified?: number;
+  chainedFunctionIds?: string;
   type?: number;
+  status?: number;
+  invocationMode?: number;
+  sandbox?: number;
   production?: number;
   functions?: ListTriggersResponseBodyTriggerListTriggersFunctions[];
-  sandbox?: number;
-  namespace?: string;
-  gmtModified?: number;
-  source?: string;
-  chainedFunctionIds?: string;
-  gmtCreate?: number;
-  invocationMode?: number;
-  id?: number;
   static names(): { [key: string]: string } {
     return {
-      status: 'Status',
+      id: 'Id',
+      namespace: 'Namespace',
+      source: 'Source',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      chainedFunctionIds: 'ChainedFunctionIds',
       type: 'Type',
+      status: 'Status',
+      invocationMode: 'InvocationMode',
+      sandbox: 'Sandbox',
       production: 'Production',
       functions: 'Functions',
-      sandbox: 'Sandbox',
-      namespace: 'Namespace',
-      gmtModified: 'GmtModified',
-      source: 'Source',
-      chainedFunctionIds: 'ChainedFunctionIds',
-      gmtCreate: 'GmtCreate',
-      invocationMode: 'InvocationMode',
-      id: 'Id',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      status: 'number',
+      id: 'number',
+      namespace: 'string',
+      source: 'string',
+      gmtCreate: 'number',
+      gmtModified: 'number',
+      chainedFunctionIds: 'string',
       type: 'number',
+      status: 'number',
+      invocationMode: 'number',
+      sandbox: 'number',
       production: 'number',
       functions: { 'type': 'array', 'itemType': ListTriggersResponseBodyTriggerListTriggersFunctions },
-      sandbox: 'number',
-      namespace: 'string',
-      gmtModified: 'number',
-      source: 'string',
-      chainedFunctionIds: 'string',
-      gmtCreate: 'number',
-      invocationMode: 'number',
-      id: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTriggersResponseBodyTriggerListPagination extends $tea.Model {
+  pageIndex?: number;
+  pageSize?: number;
+  totalCount?: number;
+  totalPageCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageIndex: 'PageIndex',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+      totalPageCount: 'TotalPageCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageIndex: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
+      totalPageCount: 'number',
     };
   }
 
@@ -17197,47 +17453,19 @@ export class ListTriggersResponseBodyTriggerListTriggers extends $tea.Model {
 }
 
 export class ListTriggersResponseBodyTriggerList extends $tea.Model {
-  pagination?: ListTriggersResponseBodyTriggerListPagination;
   triggers?: ListTriggersResponseBodyTriggerListTriggers[];
+  pagination?: ListTriggersResponseBodyTriggerListPagination;
   static names(): { [key: string]: string } {
     return {
-      pagination: 'Pagination',
       triggers: 'Triggers',
+      pagination: 'Pagination',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      pagination: ListTriggersResponseBodyTriggerListPagination,
       triggers: { 'type': 'array', 'itemType': ListTriggersResponseBodyTriggerListTriggers },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListUpstreamAppKeyRelationsResponseBodyRelationListPagination extends $tea.Model {
-  pageIndex?: number;
-  totalPageCount?: number;
-  pageSize?: number;
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      pageIndex: 'PageIndex',
-      totalPageCount: 'TotalPageCount',
-      pageSize: 'PageSize',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageIndex: 'number',
-      totalPageCount: 'number',
-      pageSize: 'number',
-      totalCount: 'number',
+      pagination: ListTriggersResponseBodyTriggerListPagination,
     };
   }
 
@@ -17247,34 +17475,62 @@ export class ListUpstreamAppKeyRelationsResponseBodyRelationListPagination exten
 }
 
 export class ListUpstreamAppKeyRelationsResponseBodyRelationListList extends $tea.Model {
-  appName?: string;
+  id?: number;
   appKey?: string;
-  appPackage?: string;
+  PAppKey?: string;
   projectId?: string;
   gmtCreate?: number;
-  PAppKey?: string;
-  id?: number;
+  appName?: string;
+  appPackage?: string;
   static names(): { [key: string]: string } {
     return {
-      appName: 'AppName',
+      id: 'Id',
       appKey: 'AppKey',
-      appPackage: 'AppPackage',
+      PAppKey: 'PAppKey',
       projectId: 'ProjectId',
       gmtCreate: 'GmtCreate',
-      PAppKey: 'PAppKey',
-      id: 'Id',
+      appName: 'AppName',
+      appPackage: 'AppPackage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      appName: 'string',
+      id: 'number',
       appKey: 'string',
-      appPackage: 'string',
+      PAppKey: 'string',
       projectId: 'string',
       gmtCreate: 'number',
-      PAppKey: 'string',
-      id: 'number',
+      appName: 'string',
+      appPackage: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUpstreamAppKeyRelationsResponseBodyRelationListPagination extends $tea.Model {
+  totalCount?: number;
+  totalPageCount?: number;
+  pageIndex?: number;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      totalCount: 'TotalCount',
+      totalPageCount: 'TotalPageCount',
+      pageIndex: 'PageIndex',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      totalCount: 'number',
+      totalPageCount: 'number',
+      pageIndex: 'number',
+      pageSize: 'number',
     };
   }
 
@@ -17284,47 +17540,19 @@ export class ListUpstreamAppKeyRelationsResponseBodyRelationListList extends $te
 }
 
 export class ListUpstreamAppKeyRelationsResponseBodyRelationList extends $tea.Model {
-  pagination?: ListUpstreamAppKeyRelationsResponseBodyRelationListPagination;
   list?: ListUpstreamAppKeyRelationsResponseBodyRelationListList[];
+  pagination?: ListUpstreamAppKeyRelationsResponseBodyRelationListPagination;
   static names(): { [key: string]: string } {
     return {
-      pagination: 'Pagination',
       list: 'List',
+      pagination: 'Pagination',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      pagination: ListUpstreamAppKeyRelationsResponseBodyRelationListPagination,
       list: { 'type': 'array', 'itemType': ListUpstreamAppKeyRelationsResponseBodyRelationListList },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListUpstreamAppServersResponseBodyAppServersPagination extends $tea.Model {
-  pageIndex?: number;
-  totalPageCount?: number;
-  pageSize?: number;
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      pageIndex: 'PageIndex',
-      totalPageCount: 'TotalPageCount',
-      pageSize: 'PageSize',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageIndex: 'number',
-      totalPageCount: 'number',
-      pageSize: 'number',
-      totalCount: 'number',
+      pagination: ListUpstreamAppKeyRelationsResponseBodyRelationListPagination,
     };
   }
 
@@ -17334,37 +17562,65 @@ export class ListUpstreamAppServersResponseBodyAppServersPagination extends $tea
 }
 
 export class ListUpstreamAppServersResponseBodyAppServersList extends $tea.Model {
-  projectId?: string;
-  gmtCreate?: number;
-  tags?: string;
-  queueNameList?: string;
-  PAppKey?: string;
-  gmtModified?: number;
-  name?: string;
   id?: number;
+  PAppKey?: string;
+  projectId?: string;
+  name?: string;
+  tags?: string;
+  gmtCreate?: number;
+  gmtModified?: number;
+  queueNameList?: string;
   static names(): { [key: string]: string } {
     return {
-      projectId: 'ProjectId',
-      gmtCreate: 'GmtCreate',
-      tags: 'Tags',
-      queueNameList: 'QueueNameList',
-      PAppKey: 'PAppKey',
-      gmtModified: 'GmtModified',
-      name: 'Name',
       id: 'Id',
+      PAppKey: 'PAppKey',
+      projectId: 'ProjectId',
+      name: 'Name',
+      tags: 'Tags',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      queueNameList: 'QueueNameList',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      projectId: 'string',
-      gmtCreate: 'number',
-      tags: 'string',
-      queueNameList: 'string',
-      PAppKey: 'string',
-      gmtModified: 'number',
-      name: 'string',
       id: 'number',
+      PAppKey: 'string',
+      projectId: 'string',
+      name: 'string',
+      tags: 'string',
+      gmtCreate: 'number',
+      gmtModified: 'number',
+      queueNameList: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUpstreamAppServersResponseBodyAppServersPagination extends $tea.Model {
+  totalCount?: number;
+  totalPageCount?: number;
+  pageIndex?: number;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      totalCount: 'TotalCount',
+      totalPageCount: 'TotalPageCount',
+      pageIndex: 'PageIndex',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      totalCount: 'number',
+      totalPageCount: 'number',
+      pageIndex: 'number',
+      pageSize: 'number',
     };
   }
 
@@ -17374,19 +17630,19 @@ export class ListUpstreamAppServersResponseBodyAppServersList extends $tea.Model
 }
 
 export class ListUpstreamAppServersResponseBodyAppServers extends $tea.Model {
-  pagination?: ListUpstreamAppServersResponseBodyAppServersPagination;
   list?: ListUpstreamAppServersResponseBodyAppServersList[];
+  pagination?: ListUpstreamAppServersResponseBodyAppServersPagination;
   static names(): { [key: string]: string } {
     return {
-      pagination: 'Pagination',
       list: 'List',
+      pagination: 'Pagination',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      pagination: ListUpstreamAppServersResponseBodyAppServersPagination,
       list: { 'type': 'array', 'itemType': ListUpstreamAppServersResponseBodyAppServersList },
+      pagination: ListUpstreamAppServersResponseBodyAppServersPagination,
     };
   }
 
@@ -17396,28 +17652,28 @@ export class ListUpstreamAppServersResponseBodyAppServers extends $tea.Model {
 }
 
 export class ListVersionDeviceGroupsResponseBodyDeviceGroupList extends $tea.Model {
-  gmtModify?: string;
+  id?: string;
+  name?: string;
   description?: string;
   gmtCreate?: string;
-  name?: string;
-  id?: string;
+  gmtModify?: string;
   static names(): { [key: string]: string } {
     return {
-      gmtModify: 'GmtModify',
+      id: 'Id',
+      name: 'Name',
       description: 'Description',
       gmtCreate: 'GmtCreate',
-      name: 'Name',
-      id: 'Id',
+      gmtModify: 'GmtModify',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      gmtModify: 'string',
+      id: 'string',
+      name: 'string',
       description: 'string',
       gmtCreate: 'string',
-      name: 'string',
-      id: 'string',
+      gmtModify: 'string',
     };
   }
 
@@ -17525,6 +17781,19 @@ export default class Client extends OpenApi {
   async connectAssistDevice(request: ConnectAssistDeviceRequest): Promise<ConnectAssistDeviceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.connectAssistDeviceWithOptions(request, runtime);
+  }
+
+  async countActivatedOrNewRegistrationDeviceWithOptions(request: CountActivatedOrNewRegistrationDeviceRequest, runtime: $Util.RuntimeOptions): Promise<CountActivatedOrNewRegistrationDeviceResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<CountActivatedOrNewRegistrationDeviceResponse>(await this.doRPCRequest("CountActivatedOrNewRegistrationDevice", "2018-05-01", "HTTPS", "POST", "AK", "json", req, runtime), new CountActivatedOrNewRegistrationDeviceResponse({}));
+  }
+
+  async countActivatedOrNewRegistrationDevice(request: CountActivatedOrNewRegistrationDeviceRequest): Promise<CountActivatedOrNewRegistrationDeviceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.countActivatedOrNewRegistrationDeviceWithOptions(request, runtime);
   }
 
   async countDeviceBrandsWithOptions(request: CountDeviceBrandsRequest, runtime: $Util.RuntimeOptions): Promise<CountDeviceBrandsResponse> {
@@ -18870,6 +19139,19 @@ export default class Client extends OpenApi {
   async getNamespaceData(request: GetNamespaceDataRequest): Promise<GetNamespaceDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getNamespaceDataWithOptions(request, runtime);
+  }
+
+  async getNamespaceStatisticsDataWithOptions(request: GetNamespaceStatisticsDataRequest, runtime: $Util.RuntimeOptions): Promise<GetNamespaceStatisticsDataResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<GetNamespaceStatisticsDataResponse>(await this.doRPCRequest("GetNamespaceStatisticsData", "2018-05-01", "HTTPS", "POST", "AK", "json", req, runtime), new GetNamespaceStatisticsDataResponse({}));
+  }
+
+  async getNamespaceStatisticsData(request: GetNamespaceStatisticsDataRequest): Promise<GetNamespaceStatisticsDataResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getNamespaceStatisticsDataWithOptions(request, runtime);
   }
 
   async getOssUploadMetaWithOptions(request: GetOssUploadMetaRequest, runtime: $Util.RuntimeOptions): Promise<GetOssUploadMetaResponse> {
