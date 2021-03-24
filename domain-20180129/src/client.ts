@@ -874,6 +874,69 @@ export class ConfirmTransferInEmailResponse extends $tea.Model {
   }
 }
 
+export class DeleteContactTemplatesRequest extends $tea.Model {
+  userClientIp?: string;
+  registrantProfileIds?: string;
+  static names(): { [key: string]: string } {
+    return {
+      userClientIp: 'UserClientIp',
+      registrantProfileIds: 'RegistrantProfileIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      userClientIp: 'string',
+      registrantProfileIds: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteContactTemplatesResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteContactTemplatesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DeleteContactTemplatesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DeleteContactTemplatesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteDomainGroupRequest extends $tea.Model {
   userClientIp?: string;
   lang?: string;
@@ -5554,6 +5617,72 @@ export class SaveBatchTaskForModifyingDomainDnsResponse extends $tea.Model {
   }
 }
 
+export class SaveBatchTaskForReserveDropListDomainRequest extends $tea.Model {
+  contactTemplateId?: string;
+  domains?: SaveBatchTaskForReserveDropListDomainRequestDomains[];
+  static names(): { [key: string]: string } {
+    return {
+      contactTemplateId: 'ContactTemplateId',
+      domains: 'Domains',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      contactTemplateId: 'string',
+      domains: { 'type': 'array', 'itemType': SaveBatchTaskForReserveDropListDomainRequestDomains },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SaveBatchTaskForReserveDropListDomainResponseBody extends $tea.Model {
+  requestId?: string;
+  taskNo?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      taskNo: 'TaskNo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      taskNo: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SaveBatchTaskForReserveDropListDomainResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: SaveBatchTaskForReserveDropListDomainResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: SaveBatchTaskForReserveDropListDomainResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SaveBatchTaskForTransferProhibitionLockRequest extends $tea.Model {
   userClientIp?: string;
   lang?: string;
@@ -6110,6 +6239,138 @@ export class SaveRegistrantProfileResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: SaveRegistrantProfileResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SaveRegistrantProfileRealNameVerificationRequest extends $tea.Model {
+  country?: string;
+  userClientIp?: string;
+  lang?: string;
+  registrantProfileId?: number;
+  city?: string;
+  registrantOrganization?: string;
+  registrantName?: string;
+  province?: string;
+  address?: string;
+  email?: string;
+  postalCode?: string;
+  telArea?: string;
+  telephone?: string;
+  telExt?: string;
+  zhRegistrantOrganization?: string;
+  zhRegistrantName?: string;
+  zhProvince?: string;
+  zhAddress?: string;
+  zhCity?: string;
+  registrantType?: string;
+  registrantProfileType?: string;
+  identityCredential?: string;
+  identityCredentialNo?: string;
+  identityCredentialType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      country: 'Country',
+      userClientIp: 'UserClientIp',
+      lang: 'Lang',
+      registrantProfileId: 'RegistrantProfileId',
+      city: 'City',
+      registrantOrganization: 'RegistrantOrganization',
+      registrantName: 'RegistrantName',
+      province: 'Province',
+      address: 'Address',
+      email: 'Email',
+      postalCode: 'PostalCode',
+      telArea: 'TelArea',
+      telephone: 'Telephone',
+      telExt: 'TelExt',
+      zhRegistrantOrganization: 'ZhRegistrantOrganization',
+      zhRegistrantName: 'ZhRegistrantName',
+      zhProvince: 'ZhProvince',
+      zhAddress: 'ZhAddress',
+      zhCity: 'ZhCity',
+      registrantType: 'RegistrantType',
+      registrantProfileType: 'RegistrantProfileType',
+      identityCredential: 'IdentityCredential',
+      identityCredentialNo: 'IdentityCredentialNo',
+      identityCredentialType: 'IdentityCredentialType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      country: 'string',
+      userClientIp: 'string',
+      lang: 'string',
+      registrantProfileId: 'number',
+      city: 'string',
+      registrantOrganization: 'string',
+      registrantName: 'string',
+      province: 'string',
+      address: 'string',
+      email: 'string',
+      postalCode: 'string',
+      telArea: 'string',
+      telephone: 'string',
+      telExt: 'string',
+      zhRegistrantOrganization: 'string',
+      zhRegistrantName: 'string',
+      zhProvince: 'string',
+      zhAddress: 'string',
+      zhCity: 'string',
+      registrantType: 'string',
+      registrantProfileType: 'string',
+      identityCredential: 'string',
+      identityCredentialNo: 'string',
+      identityCredentialType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SaveRegistrantProfileRealNameVerificationResponseBody extends $tea.Model {
+  requestId?: string;
+  registrantProfileId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      registrantProfileId: 'RegistrantProfileId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      registrantProfileId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SaveRegistrantProfileRealNameVerificationResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: SaveRegistrantProfileRealNameVerificationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: SaveRegistrantProfileRealNameVerificationResponseBody,
     };
   }
 
@@ -8495,6 +8756,69 @@ export class ScrollDomainListResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: ScrollDomainListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetDefaultRegistrantProfileRequest extends $tea.Model {
+  userClientIp?: string;
+  registrantProfileId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      userClientIp: 'UserClientIp',
+      registrantProfileId: 'RegistrantProfileId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      userClientIp: 'string',
+      registrantProfileId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetDefaultRegistrantProfileResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetDefaultRegistrantProfileResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: SetDefaultRegistrantProfileResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: SetDefaultRegistrantProfileResponseBody,
     };
   }
 
@@ -11549,6 +11873,25 @@ export class SaveBatchTaskForCreatingOrderTransferRequestOrderTransferParam exte
   }
 }
 
+export class SaveBatchTaskForReserveDropListDomainRequestDomains extends $tea.Model {
+  domainName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domainName: 'DomainName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ScrollDomainListResponseBodyDataDomainDnsList extends $tea.Model {
   dns?: string[];
   static names(): { [key: string]: string } {
@@ -11956,6 +12299,19 @@ export default class Client extends OpenApi {
   async confirmTransferInEmail(request: ConfirmTransferInEmailRequest): Promise<ConfirmTransferInEmailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.confirmTransferInEmailWithOptions(request, runtime);
+  }
+
+  async deleteContactTemplatesWithOptions(request: DeleteContactTemplatesRequest, runtime: $Util.RuntimeOptions): Promise<DeleteContactTemplatesResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DeleteContactTemplatesResponse>(await this.doRPCRequest("DeleteContactTemplates", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteContactTemplatesResponse({}));
+  }
+
+  async deleteContactTemplates(request: DeleteContactTemplatesRequest): Promise<DeleteContactTemplatesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteContactTemplatesWithOptions(request, runtime);
   }
 
   async deleteDomainGroupWithOptions(request: DeleteDomainGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDomainGroupResponse> {
@@ -12647,6 +13003,19 @@ export default class Client extends OpenApi {
     return await this.saveBatchTaskForModifyingDomainDnsWithOptions(request, runtime);
   }
 
+  async saveBatchTaskForReserveDropListDomainWithOptions(request: SaveBatchTaskForReserveDropListDomainRequest, runtime: $Util.RuntimeOptions): Promise<SaveBatchTaskForReserveDropListDomainResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<SaveBatchTaskForReserveDropListDomainResponse>(await this.doRPCRequest("SaveBatchTaskForReserveDropListDomain", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new SaveBatchTaskForReserveDropListDomainResponse({}));
+  }
+
+  async saveBatchTaskForReserveDropListDomain(request: SaveBatchTaskForReserveDropListDomainRequest): Promise<SaveBatchTaskForReserveDropListDomainResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.saveBatchTaskForReserveDropListDomainWithOptions(request, runtime);
+  }
+
   async saveBatchTaskForTransferProhibitionLockWithOptions(request: SaveBatchTaskForTransferProhibitionLockRequest, runtime: $Util.RuntimeOptions): Promise<SaveBatchTaskForTransferProhibitionLockResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -12723,6 +13092,19 @@ export default class Client extends OpenApi {
   async saveRegistrantProfile(request: SaveRegistrantProfileRequest): Promise<SaveRegistrantProfileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.saveRegistrantProfileWithOptions(request, runtime);
+  }
+
+  async saveRegistrantProfileRealNameVerificationWithOptions(request: SaveRegistrantProfileRealNameVerificationRequest, runtime: $Util.RuntimeOptions): Promise<SaveRegistrantProfileRealNameVerificationResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<SaveRegistrantProfileRealNameVerificationResponse>(await this.doRPCRequest("SaveRegistrantProfileRealNameVerification", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new SaveRegistrantProfileRealNameVerificationResponse({}));
+  }
+
+  async saveRegistrantProfileRealNameVerification(request: SaveRegistrantProfileRealNameVerificationRequest): Promise<SaveRegistrantProfileRealNameVerificationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.saveRegistrantProfileRealNameVerificationWithOptions(request, runtime);
   }
 
   async saveSingleTaskForAddingDSRecordWithOptions(request: SaveSingleTaskForAddingDSRecordRequest, runtime: $Util.RuntimeOptions): Promise<SaveSingleTaskForAddingDSRecordResponse> {
@@ -13100,6 +13482,19 @@ export default class Client extends OpenApi {
   async scrollDomainList(request: ScrollDomainListRequest): Promise<ScrollDomainListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.scrollDomainListWithOptions(request, runtime);
+  }
+
+  async setDefaultRegistrantProfileWithOptions(request: SetDefaultRegistrantProfileRequest, runtime: $Util.RuntimeOptions): Promise<SetDefaultRegistrantProfileResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<SetDefaultRegistrantProfileResponse>(await this.doRPCRequest("SetDefaultRegistrantProfile", "2018-01-29", "HTTPS", "POST", "AK", "json", req, runtime), new SetDefaultRegistrantProfileResponse({}));
+  }
+
+  async setDefaultRegistrantProfile(request: SetDefaultRegistrantProfileRequest): Promise<SetDefaultRegistrantProfileResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.setDefaultRegistrantProfileWithOptions(request, runtime);
   }
 
   async submitEmailVerificationWithOptions(request: SubmitEmailVerificationRequest, runtime: $Util.RuntimeOptions): Promise<SubmitEmailVerificationResponse> {
