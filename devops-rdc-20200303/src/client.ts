@@ -4,6 +4,7 @@
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
+import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
@@ -1918,6 +1919,81 @@ export class GetDevopsProjectTaskInfoResponse extends $tea.Model {
   }
 }
 
+export class GetLastWorkspaceRequest extends $tea.Model {
+  orgId?: string;
+  realPk?: string;
+  static names(): { [key: string]: string } {
+    return {
+      orgId: 'OrgId',
+      realPk: 'RealPk',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      orgId: 'string',
+      realPk: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLastWorkspaceResponseBody extends $tea.Model {
+  requestId?: string;
+  object?: string;
+  errorCode?: string;
+  errorMessage?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      object: 'Object',
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      object: 'string',
+      errorCode: 'string',
+      errorMessage: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLastWorkspaceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetLastWorkspaceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetLastWorkspaceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetPipelineInstanceBuildNumberStatusRequest extends $tea.Model {
   orgId?: string;
   pipelineId?: number;
@@ -2280,28 +2356,28 @@ export class GetPipelineInstHistoryRequest extends $tea.Model {
 }
 
 export class GetPipelineInstHistoryResponseBody extends $tea.Model {
-  requestId?: string;
-  data?: GetPipelineInstHistoryResponseBodyData;
+  success?: boolean;
   errorCode?: string;
   errorMessage?: string;
-  success?: boolean;
+  requestId?: string;
+  data?: GetPipelineInstHistoryResponseBodyData;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
-      data: 'Data',
+      success: 'Success',
       errorCode: 'ErrorCode',
       errorMessage: 'ErrorMessage',
-      success: 'Success',
+      requestId: 'RequestId',
+      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
-      data: GetPipelineInstHistoryResponseBodyData,
+      success: 'boolean',
       errorCode: 'string',
       errorMessage: 'string',
-      success: 'boolean',
+      requestId: 'string',
+      data: GetPipelineInstHistoryResponseBodyData,
     };
   }
 
@@ -4303,7 +4379,7 @@ export class ListUserOrganizationRequest extends $tea.Model {
 
 export class ListUserOrganizationResponseBody extends $tea.Model {
   requestId?: string;
-  object?: string;
+  object?: ListUserOrganizationResponseBodyObject[];
   errorCode?: string;
   errorMessage?: string;
   success?: boolean;
@@ -4320,7 +4396,7 @@ export class ListUserOrganizationResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      object: 'string',
+      object: { 'type': 'array', 'itemType': ListUserOrganizationResponseBodyObject },
       errorCode: 'string',
       errorMessage: 'string',
       success: 'boolean',
@@ -5793,44 +5869,53 @@ export class GetPipelineInstanceInfoResponseBodyObject extends $tea.Model {
   }
 }
 
-export class GetPipelineInstHistoryResponseBodyDataDataListFlowInstanceResult extends $tea.Model {
-  enginePipelineNumber?: number;
-  mixFlowInstId?: string;
-  enginePipelineName?: string;
-  enginePipelineId?: number;
-  enginePipelineInstId?: number;
-  timeStamp?: string;
-  triggerMode?: string;
-  sources?: string;
-  caches?: string;
-  dateTime?: string;
+export class GetPipelineInstHistoryResponseBodyDataDataListFlowInstanceGroups extends $tea.Model {
+  creator?: string;
+  modifyTime?: number;
+  modifier?: string;
+  createTime?: number;
+  flowInstId?: number;
+  resultStatus?: string;
+  deleteStatus?: string;
+  name?: string;
+  startTime?: number;
+  endTime?: number;
+  id?: number;
+  idExtent?: number;
+  status?: string;
   static names(): { [key: string]: string } {
     return {
-      enginePipelineNumber: 'EnginePipelineNumber',
-      mixFlowInstId: 'MixFlowInstId',
-      enginePipelineName: 'EnginePipelineName',
-      enginePipelineId: 'EnginePipelineId',
-      enginePipelineInstId: 'EnginePipelineInstId',
-      timeStamp: 'TimeStamp',
-      triggerMode: 'TriggerMode',
-      sources: 'Sources',
-      caches: 'Caches',
-      dateTime: 'DateTime',
+      creator: 'Creator',
+      modifyTime: 'ModifyTime',
+      modifier: 'Modifier',
+      createTime: 'CreateTime',
+      flowInstId: 'FlowInstId',
+      resultStatus: 'ResultStatus',
+      deleteStatus: 'DeleteStatus',
+      name: 'Name',
+      startTime: 'StartTime',
+      endTime: 'EndTime',
+      id: 'Id',
+      idExtent: 'IdExtent',
+      status: 'Status',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      enginePipelineNumber: 'number',
-      mixFlowInstId: 'string',
-      enginePipelineName: 'string',
-      enginePipelineId: 'number',
-      enginePipelineInstId: 'number',
-      timeStamp: 'string',
-      triggerMode: 'string',
-      sources: 'string',
-      caches: 'string',
-      dateTime: 'string',
+      creator: 'string',
+      modifyTime: 'number',
+      modifier: 'string',
+      createTime: 'number',
+      flowInstId: 'number',
+      resultStatus: 'string',
+      deleteStatus: 'string',
+      name: 'string',
+      startTime: 'number',
+      endTime: 'number',
+      id: 'number',
+      idExtent: 'number',
+      status: 'string',
     };
   }
 
@@ -5839,53 +5924,44 @@ export class GetPipelineInstHistoryResponseBodyDataDataListFlowInstanceResult ex
   }
 }
 
-export class GetPipelineInstHistoryResponseBodyDataDataListFlowInstanceGroups extends $tea.Model {
-  status?: string;
-  createTime?: number;
-  deleteStatus?: string;
-  idExtent?: number;
-  creator?: string;
-  endTime?: number;
-  startTime?: number;
-  modifier?: string;
-  resultStatus?: string;
-  flowInstId?: number;
-  name?: string;
-  id?: number;
-  modifyTime?: number;
+export class GetPipelineInstHistoryResponseBodyDataDataListFlowInstanceResult extends $tea.Model {
+  sources?: string;
+  caches?: string;
+  enginePipelineId?: number;
+  mixFlowInstId?: string;
+  enginePipelineName?: string;
+  enginePipelineNumber?: number;
+  dateTime?: string;
+  timeStamp?: string;
+  triggerMode?: string;
+  enginePipelineInstId?: number;
   static names(): { [key: string]: string } {
     return {
-      status: 'Status',
-      createTime: 'CreateTime',
-      deleteStatus: 'DeleteStatus',
-      idExtent: 'IdExtent',
-      creator: 'Creator',
-      endTime: 'EndTime',
-      startTime: 'StartTime',
-      modifier: 'Modifier',
-      resultStatus: 'ResultStatus',
-      flowInstId: 'FlowInstId',
-      name: 'Name',
-      id: 'Id',
-      modifyTime: 'ModifyTime',
+      sources: 'Sources',
+      caches: 'Caches',
+      enginePipelineId: 'EnginePipelineId',
+      mixFlowInstId: 'MixFlowInstId',
+      enginePipelineName: 'EnginePipelineName',
+      enginePipelineNumber: 'EnginePipelineNumber',
+      dateTime: 'DateTime',
+      timeStamp: 'TimeStamp',
+      triggerMode: 'TriggerMode',
+      enginePipelineInstId: 'EnginePipelineInstId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      status: 'string',
-      createTime: 'number',
-      deleteStatus: 'string',
-      idExtent: 'number',
-      creator: 'string',
-      endTime: 'number',
-      startTime: 'number',
-      modifier: 'string',
-      resultStatus: 'string',
-      flowInstId: 'number',
-      name: 'string',
-      id: 'number',
-      modifyTime: 'number',
+      sources: 'string',
+      caches: 'string',
+      enginePipelineId: 'number',
+      mixFlowInstId: 'string',
+      enginePipelineName: 'string',
+      enginePipelineNumber: 'number',
+      dateTime: 'string',
+      timeStamp: 'string',
+      triggerMode: 'string',
+      enginePipelineInstId: 'number',
     };
   }
 
@@ -5895,61 +5971,61 @@ export class GetPipelineInstHistoryResponseBodyDataDataListFlowInstanceGroups ex
 }
 
 export class GetPipelineInstHistoryResponseBodyDataDataListFlowInstance extends $tea.Model {
-  status?: string;
-  stages?: { [key: string]: any };
-  result?: GetPipelineInstHistoryResponseBodyDataDataListFlowInstanceResult;
-  createTime?: number;
-  statusName?: string;
-  runningStatus?: string;
-  stageTopo?: string;
   creator?: string;
-  modifier?: string;
-  groups?: GetPipelineInstHistoryResponseBodyDataDataListFlowInstanceGroups[];
-  autoDrivenStatus?: boolean;
-  resultStatus?: string;
-  id?: number;
-  systemCode?: string;
   modifyTime?: number;
   systemId?: string;
+  stageTopo?: string;
+  modifier?: string;
+  autoDrivenStatus?: boolean;
+  createTime?: number;
+  resultStatus?: string;
+  runningStatus?: string;
+  systemCode?: string;
+  stages?: { [key: string]: string };
+  statusName?: string;
+  id?: number;
+  status?: string;
+  groups?: GetPipelineInstHistoryResponseBodyDataDataListFlowInstanceGroups[];
+  result?: GetPipelineInstHistoryResponseBodyDataDataListFlowInstanceResult;
   static names(): { [key: string]: string } {
     return {
-      status: 'Status',
-      stages: 'Stages',
-      result: 'Result',
-      createTime: 'CreateTime',
-      statusName: 'StatusName',
-      runningStatus: 'RunningStatus',
-      stageTopo: 'StageTopo',
       creator: 'Creator',
-      modifier: 'Modifier',
-      groups: 'Groups',
-      autoDrivenStatus: 'AutoDrivenStatus',
-      resultStatus: 'ResultStatus',
-      id: 'Id',
-      systemCode: 'SystemCode',
       modifyTime: 'ModifyTime',
       systemId: 'SystemId',
+      stageTopo: 'StageTopo',
+      modifier: 'Modifier',
+      autoDrivenStatus: 'AutoDrivenStatus',
+      createTime: 'CreateTime',
+      resultStatus: 'ResultStatus',
+      runningStatus: 'RunningStatus',
+      systemCode: 'SystemCode',
+      stages: 'Stages',
+      statusName: 'StatusName',
+      id: 'Id',
+      status: 'Status',
+      groups: 'Groups',
+      result: 'Result',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      status: 'string',
-      stages: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      result: GetPipelineInstHistoryResponseBodyDataDataListFlowInstanceResult,
-      createTime: 'number',
-      statusName: 'string',
-      runningStatus: 'string',
-      stageTopo: 'string',
       creator: 'string',
-      modifier: 'string',
-      groups: { 'type': 'array', 'itemType': GetPipelineInstHistoryResponseBodyDataDataListFlowInstanceGroups },
-      autoDrivenStatus: 'boolean',
-      resultStatus: 'string',
-      id: 'number',
-      systemCode: 'string',
       modifyTime: 'number',
       systemId: 'string',
+      stageTopo: 'string',
+      modifier: 'string',
+      autoDrivenStatus: 'boolean',
+      createTime: 'number',
+      resultStatus: 'string',
+      runningStatus: 'string',
+      systemCode: 'string',
+      stages: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusName: 'string',
+      id: 'number',
+      status: 'string',
+      groups: { 'type': 'array', 'itemType': GetPipelineInstHistoryResponseBodyDataDataListFlowInstanceGroups },
+      result: GetPipelineInstHistoryResponseBodyDataDataListFlowInstanceResult,
     };
   }
 
@@ -5959,58 +6035,58 @@ export class GetPipelineInstHistoryResponseBodyDataDataListFlowInstance extends 
 }
 
 export class GetPipelineInstHistoryResponseBodyDataDataList extends $tea.Model {
-  status?: string;
-  createTime?: number;
-  statusName?: string;
-  deletion?: string;
-  pipelineConfigId?: number;
-  triggerMode?: number;
   creator?: string;
-  instNumber?: number;
-  modifier?: string;
-  flowInstance?: GetPipelineInstHistoryResponseBodyDataDataListFlowInstance;
-  packages?: string;
-  flowInstId?: number;
-  pipelineId?: number;
-  id?: number;
   modifyTime?: number;
+  pipelineConfigId?: number;
+  modifier?: string;
+  createTime?: number;
+  packages?: string;
+  pipelineId?: number;
+  flowInstId?: number;
+  instNumber?: number;
+  deletion?: string;
+  statusName?: string;
+  id?: number;
+  triggerMode?: number;
+  status?: string;
+  flowInstance?: GetPipelineInstHistoryResponseBodyDataDataListFlowInstance;
   static names(): { [key: string]: string } {
     return {
-      status: 'Status',
-      createTime: 'CreateTime',
-      statusName: 'StatusName',
-      deletion: 'Deletion',
-      pipelineConfigId: 'PipelineConfigId',
-      triggerMode: 'TriggerMode',
       creator: 'Creator',
-      instNumber: 'InstNumber',
-      modifier: 'Modifier',
-      flowInstance: 'FlowInstance',
-      packages: 'Packages',
-      flowInstId: 'FlowInstId',
-      pipelineId: 'PipelineId',
-      id: 'Id',
       modifyTime: 'ModifyTime',
+      pipelineConfigId: 'PipelineConfigId',
+      modifier: 'Modifier',
+      createTime: 'CreateTime',
+      packages: 'Packages',
+      pipelineId: 'PipelineId',
+      flowInstId: 'FlowInstId',
+      instNumber: 'InstNumber',
+      deletion: 'Deletion',
+      statusName: 'StatusName',
+      id: 'Id',
+      triggerMode: 'TriggerMode',
+      status: 'Status',
+      flowInstance: 'FlowInstance',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      status: 'string',
-      createTime: 'number',
-      statusName: 'string',
-      deletion: 'string',
-      pipelineConfigId: 'number',
-      triggerMode: 'number',
       creator: 'string',
-      instNumber: 'number',
-      modifier: 'string',
-      flowInstance: GetPipelineInstHistoryResponseBodyDataDataListFlowInstance,
-      packages: 'string',
-      flowInstId: 'number',
-      pipelineId: 'number',
-      id: 'number',
       modifyTime: 'number',
+      pipelineConfigId: 'number',
+      modifier: 'string',
+      createTime: 'number',
+      packages: 'string',
+      pipelineId: 'number',
+      flowInstId: 'number',
+      instNumber: 'number',
+      deletion: 'string',
+      statusName: 'string',
+      id: 'number',
+      triggerMode: 'number',
+      status: 'string',
+      flowInstance: GetPipelineInstHistoryResponseBodyDataDataListFlowInstance,
     };
   }
 
@@ -6020,19 +6096,19 @@ export class GetPipelineInstHistoryResponseBodyDataDataList extends $tea.Model {
 }
 
 export class GetPipelineInstHistoryResponseBodyData extends $tea.Model {
-  dataList?: GetPipelineInstHistoryResponseBodyDataDataList[];
   total?: number;
+  dataList?: GetPipelineInstHistoryResponseBodyDataDataList[];
   static names(): { [key: string]: string } {
     return {
-      dataList: 'DataList',
       total: 'Total',
+      dataList: 'DataList',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      dataList: { 'type': 'array', 'itemType': GetPipelineInstHistoryResponseBodyDataDataList },
       total: 'number',
+      dataList: { 'type': 'array', 'itemType': GetPipelineInstHistoryResponseBodyDataDataList },
     };
   }
 
@@ -7692,6 +7768,28 @@ export class ListSmartGroupResponseBodyObject extends $tea.Model {
   }
 }
 
+export class ListUserOrganizationResponseBodyObject extends $tea.Model {
+  name?: string;
+  id?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      id: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateCommonGroupResponseBodyObject extends $tea.Model {
   id?: string;
   static names(): { [key: string]: string } {
@@ -7739,7 +7837,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<BatchInsertMembersResponse>(await this.doRPCRequest("BatchInsertMembers", "2020-03-03", "HTTPS", "POST", "AK", "json", req, runtime), new BatchInsertMembersResponse({}));
+    let params = new $OpenApi.Params({
+      action: "BatchInsertMembers",
+      version: "2020-03-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<BatchInsertMembersResponse>(await this.callApi(params, req, runtime), new BatchInsertMembersResponse({}));
   }
 
   async batchInsertMembers(request: BatchInsertMembersRequest): Promise<BatchInsertMembersResponse> {
@@ -7752,7 +7861,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<CancelPipelineResponse>(await this.doRPCRequest("CancelPipeline", "2020-03-03", "HTTPS", "POST", "AK", "json", req, runtime), new CancelPipelineResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CancelPipeline",
+      version: "2020-03-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CancelPipelineResponse>(await this.callApi(params, req, runtime), new CancelPipelineResponse({}));
   }
 
   async cancelPipeline(request: CancelPipelineRequest): Promise<CancelPipelineResponse> {
@@ -7765,7 +7885,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<CheckAliyunAccountExistsResponse>(await this.doRPCRequest("CheckAliyunAccountExists", "2020-03-03", "HTTPS", "POST", "AK", "json", req, runtime), new CheckAliyunAccountExistsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CheckAliyunAccountExists",
+      version: "2020-03-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CheckAliyunAccountExistsResponse>(await this.callApi(params, req, runtime), new CheckAliyunAccountExistsResponse({}));
   }
 
   async checkAliyunAccountExists(request: CheckAliyunAccountExistsRequest): Promise<CheckAliyunAccountExistsResponse> {
@@ -7778,7 +7909,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<CreateCommonGroupResponse>(await this.doRPCRequest("CreateCommonGroup", "2020-03-03", "HTTPS", "POST", "AK", "json", req, runtime), new CreateCommonGroupResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateCommonGroup",
+      version: "2020-03-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateCommonGroupResponse>(await this.callApi(params, req, runtime), new CreateCommonGroupResponse({}));
   }
 
   async createCommonGroup(request: CreateCommonGroupRequest): Promise<CreateCommonGroupResponse> {
@@ -7791,7 +7933,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<CreateCredentialResponse>(await this.doRPCRequest("CreateCredential", "2020-03-03", "HTTPS", "POST", "AK", "json", req, runtime), new CreateCredentialResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateCredential",
+      version: "2020-03-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateCredentialResponse>(await this.callApi(params, req, runtime), new CreateCredentialResponse({}));
   }
 
   async createCredential(request: CreateCredentialRequest): Promise<CreateCredentialResponse> {
@@ -7804,7 +7957,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<CreateDevopsOrganizationResponse>(await this.doRPCRequest("CreateDevopsOrganization", "2020-03-03", "HTTPS", "POST", "AK", "json", req, runtime), new CreateDevopsOrganizationResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateDevopsOrganization",
+      version: "2020-03-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateDevopsOrganizationResponse>(await this.callApi(params, req, runtime), new CreateDevopsOrganizationResponse({}));
   }
 
   async createDevopsOrganization(request: CreateDevopsOrganizationRequest): Promise<CreateDevopsOrganizationResponse> {
@@ -7817,7 +7981,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<CreateDevopsProjectResponse>(await this.doRPCRequest("CreateDevopsProject", "2020-03-03", "HTTPS", "POST", "AK", "json", req, runtime), new CreateDevopsProjectResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateDevopsProject",
+      version: "2020-03-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateDevopsProjectResponse>(await this.callApi(params, req, runtime), new CreateDevopsProjectResponse({}));
   }
 
   async createDevopsProject(request: CreateDevopsProjectRequest): Promise<CreateDevopsProjectResponse> {
@@ -7830,7 +8005,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<CreateDevopsProjectSprintResponse>(await this.doRPCRequest("CreateDevopsProjectSprint", "2020-03-03", "HTTPS", "POST", "AK", "json", req, runtime), new CreateDevopsProjectSprintResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateDevopsProjectSprint",
+      version: "2020-03-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateDevopsProjectSprintResponse>(await this.callApi(params, req, runtime), new CreateDevopsProjectSprintResponse({}));
   }
 
   async createDevopsProjectSprint(request: CreateDevopsProjectSprintRequest): Promise<CreateDevopsProjectSprintResponse> {
@@ -7843,7 +8029,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<CreateDevopsProjectTaskResponse>(await this.doRPCRequest("CreateDevopsProjectTask", "2020-03-03", "HTTPS", "POST", "AK", "json", req, runtime), new CreateDevopsProjectTaskResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateDevopsProjectTask",
+      version: "2020-03-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateDevopsProjectTaskResponse>(await this.callApi(params, req, runtime), new CreateDevopsProjectTaskResponse({}));
   }
 
   async createDevopsProjectTask(request: CreateDevopsProjectTaskRequest): Promise<CreateDevopsProjectTaskResponse> {
@@ -7856,7 +8053,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<CreatePipelineResponse>(await this.doRPCRequest("CreatePipeline", "2020-03-03", "HTTPS", "POST", "AK", "json", req, runtime), new CreatePipelineResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreatePipeline",
+      version: "2020-03-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreatePipelineResponse>(await this.callApi(params, req, runtime), new CreatePipelineResponse({}));
   }
 
   async createPipeline(request: CreatePipelineRequest): Promise<CreatePipelineResponse> {
@@ -7869,7 +8077,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<CreateServiceConnectionResponse>(await this.doRPCRequest("CreateServiceConnection", "2020-03-03", "HTTPS", "POST", "AK", "json", req, runtime), new CreateServiceConnectionResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateServiceConnection",
+      version: "2020-03-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateServiceConnectionResponse>(await this.callApi(params, req, runtime), new CreateServiceConnectionResponse({}));
   }
 
   async createServiceConnection(request: CreateServiceConnectionRequest): Promise<CreateServiceConnectionResponse> {
@@ -7882,7 +8101,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<DeleteCommonGroupResponse>(await this.doRPCRequest("DeleteCommonGroup", "2020-03-03", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteCommonGroupResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteCommonGroup",
+      version: "2020-03-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteCommonGroupResponse>(await this.callApi(params, req, runtime), new DeleteCommonGroupResponse({}));
   }
 
   async deleteCommonGroup(request: DeleteCommonGroupRequest): Promise<DeleteCommonGroupResponse> {
@@ -7895,7 +8125,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<DeleteDevopsOrganizationMembersResponse>(await this.doRPCRequest("DeleteDevopsOrganizationMembers", "2020-03-03", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteDevopsOrganizationMembersResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteDevopsOrganizationMembers",
+      version: "2020-03-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteDevopsOrganizationMembersResponse>(await this.callApi(params, req, runtime), new DeleteDevopsOrganizationMembersResponse({}));
   }
 
   async deleteDevopsOrganizationMembers(request: DeleteDevopsOrganizationMembersRequest): Promise<DeleteDevopsOrganizationMembersResponse> {
@@ -7908,7 +8149,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<DeleteDevopsProjectResponse>(await this.doRPCRequest("DeleteDevopsProject", "2020-03-03", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteDevopsProjectResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteDevopsProject",
+      version: "2020-03-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteDevopsProjectResponse>(await this.callApi(params, req, runtime), new DeleteDevopsProjectResponse({}));
   }
 
   async deleteDevopsProject(request: DeleteDevopsProjectRequest): Promise<DeleteDevopsProjectResponse> {
@@ -7921,7 +8173,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<DeleteDevopsProjectMembersResponse>(await this.doRPCRequest("DeleteDevopsProjectMembers", "2020-03-03", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteDevopsProjectMembersResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteDevopsProjectMembers",
+      version: "2020-03-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteDevopsProjectMembersResponse>(await this.callApi(params, req, runtime), new DeleteDevopsProjectMembersResponse({}));
   }
 
   async deleteDevopsProjectMembers(request: DeleteDevopsProjectMembersRequest): Promise<DeleteDevopsProjectMembersResponse> {
@@ -7934,7 +8197,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<DeleteDevopsProjectSprintResponse>(await this.doRPCRequest("DeleteDevopsProjectSprint", "2020-03-03", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteDevopsProjectSprintResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteDevopsProjectSprint",
+      version: "2020-03-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteDevopsProjectSprintResponse>(await this.callApi(params, req, runtime), new DeleteDevopsProjectSprintResponse({}));
   }
 
   async deleteDevopsProjectSprint(request: DeleteDevopsProjectSprintRequest): Promise<DeleteDevopsProjectSprintResponse> {
@@ -7947,7 +8221,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<DeleteDevopsProjectTaskResponse>(await this.doRPCRequest("DeleteDevopsProjectTask", "2020-03-03", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteDevopsProjectTaskResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteDevopsProjectTask",
+      version: "2020-03-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteDevopsProjectTaskResponse>(await this.callApi(params, req, runtime), new DeleteDevopsProjectTaskResponse({}));
   }
 
   async deleteDevopsProjectTask(request: DeleteDevopsProjectTaskRequest): Promise<DeleteDevopsProjectTaskResponse> {
@@ -7957,10 +8242,25 @@ export default class Client extends OpenApi {
 
   async deletePipelineMemberWithOptions(request: DeletePipelineMemberRequest, runtime: $Util.RuntimeOptions): Promise<DeletePipelineMemberResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OrgId"] = request.orgId;
+    query["PipelineId"] = request.pipelineId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DeletePipelineMemberResponse>(await this.doRPCRequest("DeletePipelineMember", "2020-03-03", "HTTPS", "POST", "AK", "json", req, runtime), new DeletePipelineMemberResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeletePipelineMember",
+      version: "2020-03-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeletePipelineMemberResponse>(await this.callApi(params, req, runtime), new DeletePipelineMemberResponse({}));
   }
 
   async deletePipelineMember(request: DeletePipelineMemberRequest): Promise<DeletePipelineMemberResponse> {
@@ -7973,7 +8273,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<ExecutePipelineResponse>(await this.doRPCRequest("ExecutePipeline", "2020-03-03", "HTTPS", "POST", "AK", "json", req, runtime), new ExecutePipelineResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ExecutePipeline",
+      version: "2020-03-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ExecutePipelineResponse>(await this.callApi(params, req, runtime), new ExecutePipelineResponse({}));
   }
 
   async executePipeline(request: ExecutePipelineRequest): Promise<ExecutePipelineResponse> {
@@ -7986,7 +8297,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<GetDevopsOrganizationMembersResponse>(await this.doRPCRequest("GetDevopsOrganizationMembers", "2020-03-03", "HTTPS", "POST", "AK", "json", req, runtime), new GetDevopsOrganizationMembersResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetDevopsOrganizationMembers",
+      version: "2020-03-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetDevopsOrganizationMembersResponse>(await this.callApi(params, req, runtime), new GetDevopsOrganizationMembersResponse({}));
   }
 
   async getDevopsOrganizationMembers(request: GetDevopsOrganizationMembersRequest): Promise<GetDevopsOrganizationMembersResponse> {
@@ -7999,7 +8321,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<GetDevopsProjectInfoResponse>(await this.doRPCRequest("GetDevopsProjectInfo", "2020-03-03", "HTTPS", "POST", "AK", "json", req, runtime), new GetDevopsProjectInfoResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetDevopsProjectInfo",
+      version: "2020-03-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetDevopsProjectInfoResponse>(await this.callApi(params, req, runtime), new GetDevopsProjectInfoResponse({}));
   }
 
   async getDevopsProjectInfo(request: GetDevopsProjectInfoRequest): Promise<GetDevopsProjectInfoResponse> {
@@ -8012,7 +8345,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<GetDevopsProjectMembersResponse>(await this.doRPCRequest("GetDevopsProjectMembers", "2020-03-03", "HTTPS", "POST", "AK", "json", req, runtime), new GetDevopsProjectMembersResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetDevopsProjectMembers",
+      version: "2020-03-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetDevopsProjectMembersResponse>(await this.callApi(params, req, runtime), new GetDevopsProjectMembersResponse({}));
   }
 
   async getDevopsProjectMembers(request: GetDevopsProjectMembersRequest): Promise<GetDevopsProjectMembersResponse> {
@@ -8025,7 +8369,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<GetDevopsProjectSprintInfoResponse>(await this.doRPCRequest("GetDevopsProjectSprintInfo", "2020-03-03", "HTTPS", "POST", "AK", "json", req, runtime), new GetDevopsProjectSprintInfoResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetDevopsProjectSprintInfo",
+      version: "2020-03-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetDevopsProjectSprintInfoResponse>(await this.callApi(params, req, runtime), new GetDevopsProjectSprintInfoResponse({}));
   }
 
   async getDevopsProjectSprintInfo(request: GetDevopsProjectSprintInfoRequest): Promise<GetDevopsProjectSprintInfoResponse> {
@@ -8038,7 +8393,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<GetDevopsProjectTaskInfoResponse>(await this.doRPCRequest("GetDevopsProjectTaskInfo", "2020-03-03", "HTTPS", "POST", "AK", "json", req, runtime), new GetDevopsProjectTaskInfoResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetDevopsProjectTaskInfo",
+      version: "2020-03-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetDevopsProjectTaskInfoResponse>(await this.callApi(params, req, runtime), new GetDevopsProjectTaskInfoResponse({}));
   }
 
   async getDevopsProjectTaskInfo(request: GetDevopsProjectTaskInfoRequest): Promise<GetDevopsProjectTaskInfoResponse> {
@@ -8046,12 +8412,51 @@ export default class Client extends OpenApi {
     return await this.getDevopsProjectTaskInfoWithOptions(request, runtime);
   }
 
-  async getPipelineInstanceBuildNumberStatusWithOptions(request: GetPipelineInstanceBuildNumberStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetPipelineInstanceBuildNumberStatusResponse> {
+  async getLastWorkspaceWithOptions(request: GetLastWorkspaceRequest, runtime: $Util.RuntimeOptions): Promise<GetLastWorkspaceResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<GetPipelineInstanceBuildNumberStatusResponse>(await this.doRPCRequest("GetPipelineInstanceBuildNumberStatus", "2020-03-03", "HTTPS", "POST", "AK", "json", req, runtime), new GetPipelineInstanceBuildNumberStatusResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetLastWorkspace",
+      version: "2020-03-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetLastWorkspaceResponse>(await this.callApi(params, req, runtime), new GetLastWorkspaceResponse({}));
+  }
+
+  async getLastWorkspace(request: GetLastWorkspaceRequest): Promise<GetLastWorkspaceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getLastWorkspaceWithOptions(request, runtime);
+  }
+
+  async getPipelineInstanceBuildNumberStatusWithOptions(request: GetPipelineInstanceBuildNumberStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetPipelineInstanceBuildNumberStatusResponse> {
+    Util.validateModel(request);
+    let query = { };
+    query["OrgId"] = request.orgId;
+    query["PipelineId"] = request.pipelineId;
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: Util.toMap(request),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetPipelineInstanceBuildNumberStatus",
+      version: "2020-03-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetPipelineInstanceBuildNumberStatusResponse>(await this.callApi(params, req, runtime), new GetPipelineInstanceBuildNumberStatusResponse({}));
   }
 
   async getPipelineInstanceBuildNumberStatus(request: GetPipelineInstanceBuildNumberStatusRequest): Promise<GetPipelineInstanceBuildNumberStatusResponse> {
@@ -8061,10 +8466,25 @@ export default class Client extends OpenApi {
 
   async getPipelineInstanceGroupStatusWithOptions(request: GetPipelineInstanceGroupStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetPipelineInstanceGroupStatusResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OrgId"] = request.orgId;
+    query["PipelineId"] = request.pipelineId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<GetPipelineInstanceGroupStatusResponse>(await this.doRPCRequest("GetPipelineInstanceGroupStatus", "2020-03-03", "HTTPS", "POST", "AK", "json", req, runtime), new GetPipelineInstanceGroupStatusResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetPipelineInstanceGroupStatus",
+      version: "2020-03-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetPipelineInstanceGroupStatusResponse>(await this.callApi(params, req, runtime), new GetPipelineInstanceGroupStatusResponse({}));
   }
 
   async getPipelineInstanceGroupStatus(request: GetPipelineInstanceGroupStatusRequest): Promise<GetPipelineInstanceGroupStatusResponse> {
@@ -8077,7 +8497,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<GetPipelineInstanceInfoResponse>(await this.doRPCRequest("GetPipelineInstanceInfo", "2020-03-03", "HTTPS", "POST", "AK", "json", req, runtime), new GetPipelineInstanceInfoResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetPipelineInstanceInfo",
+      version: "2020-03-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetPipelineInstanceInfoResponse>(await this.callApi(params, req, runtime), new GetPipelineInstanceInfoResponse({}));
   }
 
   async getPipelineInstanceInfo(request: GetPipelineInstanceInfoRequest): Promise<GetPipelineInstanceInfoResponse> {
@@ -8087,10 +8518,26 @@ export default class Client extends OpenApi {
 
   async getPipelineInstanceStatusWithOptions(request: GetPipelineInstanceStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetPipelineInstanceStatusResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OrgId"] = request.orgId;
+    query["PipelineId"] = request.pipelineId;
+    query["FlowInstanceId"] = request.flowInstanceId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<GetPipelineInstanceStatusResponse>(await this.doRPCRequest("GetPipelineInstanceStatus", "2020-03-03", "HTTPS", "POST", "AK", "json", req, runtime), new GetPipelineInstanceStatusResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetPipelineInstanceStatus",
+      version: "2020-03-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetPipelineInstanceStatusResponse>(await this.callApi(params, req, runtime), new GetPipelineInstanceStatusResponse({}));
   }
 
   async getPipelineInstanceStatus(request: GetPipelineInstanceStatusRequest): Promise<GetPipelineInstanceStatusResponse> {
@@ -8103,7 +8550,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<GetPipelineInstHistoryResponse>(await this.doRPCRequest("GetPipelineInstHistory", "2020-03-03", "HTTPS", "POST", "AK", "json", req, runtime), new GetPipelineInstHistoryResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetPipelineInstHistory",
+      version: "2020-03-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetPipelineInstHistoryResponse>(await this.callApi(params, req, runtime), new GetPipelineInstHistoryResponse({}));
   }
 
   async getPipelineInstHistory(request: GetPipelineInstHistoryRequest): Promise<GetPipelineInstHistoryResponse> {
@@ -8116,7 +8574,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<GetPipelineLogResponse>(await this.doRPCRequest("GetPipelineLog", "2020-03-03", "HTTPS", "POST", "AK", "json", req, runtime), new GetPipelineLogResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetPipelineLog",
+      version: "2020-03-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetPipelineLogResponse>(await this.callApi(params, req, runtime), new GetPipelineLogResponse({}));
   }
 
   async getPipelineLog(request: GetPipelineLogRequest): Promise<GetPipelineLogResponse> {
@@ -8129,7 +8598,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<GetPipelineStepLogResponse>(await this.doRPCRequest("GetPipelineStepLog", "2020-03-03", "HTTPS", "POST", "AK", "json", req, runtime), new GetPipelineStepLogResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetPipelineStepLog",
+      version: "2020-03-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetPipelineStepLogResponse>(await this.callApi(params, req, runtime), new GetPipelineStepLogResponse({}));
   }
 
   async getPipelineStepLog(request: GetPipelineStepLogRequest): Promise<GetPipelineStepLogResponse> {
@@ -8139,10 +8619,25 @@ export default class Client extends OpenApi {
 
   async getPipleineLatestInstanceStatusWithOptions(request: GetPipleineLatestInstanceStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetPipleineLatestInstanceStatusResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OrgId"] = request.orgId;
+    query["PipelineId"] = request.pipelineId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<GetPipleineLatestInstanceStatusResponse>(await this.doRPCRequest("GetPipleineLatestInstanceStatus", "2020-03-03", "HTTPS", "POST", "AK", "json", req, runtime), new GetPipleineLatestInstanceStatusResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetPipleineLatestInstanceStatus",
+      version: "2020-03-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetPipleineLatestInstanceStatusResponse>(await this.callApi(params, req, runtime), new GetPipleineLatestInstanceStatusResponse({}));
   }
 
   async getPipleineLatestInstanceStatus(request: GetPipleineLatestInstanceStatusRequest): Promise<GetPipleineLatestInstanceStatusResponse> {
@@ -8155,7 +8650,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<GetProjectOptionResponse>(await this.doRPCRequest("GetProjectOption", "2020-03-03", "HTTPS", "POST", "AK", "json", req, runtime), new GetProjectOptionResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetProjectOption",
+      version: "2020-03-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetProjectOptionResponse>(await this.callApi(params, req, runtime), new GetProjectOptionResponse({}));
   }
 
   async getProjectOption(request: GetProjectOptionRequest): Promise<GetProjectOptionResponse> {
@@ -8168,7 +8674,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<GetTaskDetailActivityResponse>(await this.doRPCRequest("GetTaskDetailActivity", "2020-03-03", "HTTPS", "POST", "AK", "json", req, runtime), new GetTaskDetailActivityResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetTaskDetailActivity",
+      version: "2020-03-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetTaskDetailActivityResponse>(await this.callApi(params, req, runtime), new GetTaskDetailActivityResponse({}));
   }
 
   async getTaskDetailActivity(request: GetTaskDetailActivityRequest): Promise<GetTaskDetailActivityResponse> {
@@ -8181,7 +8698,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<GetTaskDetailBaseResponse>(await this.doRPCRequest("GetTaskDetailBase", "2020-03-03", "HTTPS", "POST", "AK", "json", req, runtime), new GetTaskDetailBaseResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetTaskDetailBase",
+      version: "2020-03-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetTaskDetailBaseResponse>(await this.callApi(params, req, runtime), new GetTaskDetailBaseResponse({}));
   }
 
   async getTaskDetailBase(request: GetTaskDetailBaseRequest): Promise<GetTaskDetailBaseResponse> {
@@ -8194,7 +8722,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<GetTaskListFilterResponse>(await this.doRPCRequest("GetTaskListFilter", "2020-03-03", "HTTPS", "POST", "AK", "json", req, runtime), new GetTaskListFilterResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetTaskListFilter",
+      version: "2020-03-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetTaskListFilterResponse>(await this.callApi(params, req, runtime), new GetTaskListFilterResponse({}));
   }
 
   async getTaskListFilter(request: GetTaskListFilterRequest): Promise<GetTaskListFilterResponse> {
@@ -8207,7 +8746,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<GetUserByAliyunUidResponse>(await this.doRPCRequest("GetUserByAliyunUid", "2020-03-03", "HTTPS", "POST", "AK", "json", req, runtime), new GetUserByAliyunUidResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetUserByAliyunUid",
+      version: "2020-03-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetUserByAliyunUidResponse>(await this.callApi(params, req, runtime), new GetUserByAliyunUidResponse({}));
   }
 
   async getUserByAliyunUid(request: GetUserByAliyunUidRequest): Promise<GetUserByAliyunUidResponse> {
@@ -8220,7 +8770,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<GetUserNameResponse>(await this.doRPCRequest("GetUserName", "2020-03-03", "HTTPS", "POST", "AK", "json", req, runtime), new GetUserNameResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetUserName",
+      version: "2020-03-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetUserNameResponse>(await this.callApi(params, req, runtime), new GetUserNameResponse({}));
   }
 
   async getUserName(request: GetUserNameRequest): Promise<GetUserNameResponse> {
@@ -8233,7 +8794,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<InsertDevopsUserResponse>(await this.doRPCRequest("InsertDevopsUser", "2020-03-03", "HTTPS", "POST", "AK", "json", req, runtime), new InsertDevopsUserResponse({}));
+    let params = new $OpenApi.Params({
+      action: "InsertDevopsUser",
+      version: "2020-03-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<InsertDevopsUserResponse>(await this.callApi(params, req, runtime), new InsertDevopsUserResponse({}));
   }
 
   async insertDevopsUser(request: InsertDevopsUserRequest): Promise<InsertDevopsUserResponse> {
@@ -8243,10 +8815,25 @@ export default class Client extends OpenApi {
 
   async insertPipelineMemberWithOptions(request: InsertPipelineMemberRequest, runtime: $Util.RuntimeOptions): Promise<InsertPipelineMemberResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OrgId"] = request.orgId;
+    query["PipelineId"] = request.pipelineId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<InsertPipelineMemberResponse>(await this.doRPCRequest("InsertPipelineMember", "2020-03-03", "HTTPS", "POST", "AK", "json", req, runtime), new InsertPipelineMemberResponse({}));
+    let params = new $OpenApi.Params({
+      action: "InsertPipelineMember",
+      version: "2020-03-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<InsertPipelineMemberResponse>(await this.callApi(params, req, runtime), new InsertPipelineMemberResponse({}));
   }
 
   async insertPipelineMember(request: InsertPipelineMemberRequest): Promise<InsertPipelineMemberResponse> {
@@ -8259,7 +8846,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<InsertProjectMembersResponse>(await this.doRPCRequest("InsertProjectMembers", "2020-03-03", "HTTPS", "POST", "AK", "json", req, runtime), new InsertProjectMembersResponse({}));
+    let params = new $OpenApi.Params({
+      action: "InsertProjectMembers",
+      version: "2020-03-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<InsertProjectMembersResponse>(await this.callApi(params, req, runtime), new InsertProjectMembersResponse({}));
   }
 
   async insertProjectMembers(request: InsertProjectMembersRequest): Promise<InsertProjectMembersResponse> {
@@ -8272,7 +8870,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<ListCommonGroupResponse>(await this.doRPCRequest("ListCommonGroup", "2020-03-03", "HTTPS", "POST", "AK", "json", req, runtime), new ListCommonGroupResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListCommonGroup",
+      version: "2020-03-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListCommonGroupResponse>(await this.callApi(params, req, runtime), new ListCommonGroupResponse({}));
   }
 
   async listCommonGroup(request: ListCommonGroupRequest): Promise<ListCommonGroupResponse> {
@@ -8285,7 +8894,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<ListCredentialsResponse>(await this.doRPCRequest("ListCredentials", "2020-03-03", "HTTPS", "POST", "AK", "json", req, runtime), new ListCredentialsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListCredentials",
+      version: "2020-03-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListCredentialsResponse>(await this.callApi(params, req, runtime), new ListCredentialsResponse({}));
   }
 
   async listCredentials(request: ListCredentialsRequest): Promise<ListCredentialsResponse> {
@@ -8298,7 +8918,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<ListDevopsProjectSprintsResponse>(await this.doRPCRequest("ListDevopsProjectSprints", "2020-03-03", "HTTPS", "POST", "AK", "json", req, runtime), new ListDevopsProjectSprintsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListDevopsProjectSprints",
+      version: "2020-03-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListDevopsProjectSprintsResponse>(await this.callApi(params, req, runtime), new ListDevopsProjectSprintsResponse({}));
   }
 
   async listDevopsProjectSprints(request: ListDevopsProjectSprintsRequest): Promise<ListDevopsProjectSprintsResponse> {
@@ -8311,7 +8942,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<ListDevopsProjectTaskFlowResponse>(await this.doRPCRequest("ListDevopsProjectTaskFlow", "2020-03-03", "HTTPS", "POST", "AK", "json", req, runtime), new ListDevopsProjectTaskFlowResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListDevopsProjectTaskFlow",
+      version: "2020-03-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListDevopsProjectTaskFlowResponse>(await this.callApi(params, req, runtime), new ListDevopsProjectTaskFlowResponse({}));
   }
 
   async listDevopsProjectTaskFlow(request: ListDevopsProjectTaskFlowRequest): Promise<ListDevopsProjectTaskFlowResponse> {
@@ -8324,7 +8966,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<ListDevopsProjectTaskFlowStatusResponse>(await this.doRPCRequest("ListDevopsProjectTaskFlowStatus", "2020-03-03", "HTTPS", "POST", "AK", "json", req, runtime), new ListDevopsProjectTaskFlowStatusResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListDevopsProjectTaskFlowStatus",
+      version: "2020-03-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListDevopsProjectTaskFlowStatusResponse>(await this.callApi(params, req, runtime), new ListDevopsProjectTaskFlowStatusResponse({}));
   }
 
   async listDevopsProjectTaskFlowStatus(request: ListDevopsProjectTaskFlowStatusRequest): Promise<ListDevopsProjectTaskFlowStatusResponse> {
@@ -8337,7 +8990,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<ListDevopsProjectTaskListResponse>(await this.doRPCRequest("ListDevopsProjectTaskList", "2020-03-03", "HTTPS", "POST", "AK", "json", req, runtime), new ListDevopsProjectTaskListResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListDevopsProjectTaskList",
+      version: "2020-03-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListDevopsProjectTaskListResponse>(await this.callApi(params, req, runtime), new ListDevopsProjectTaskListResponse({}));
   }
 
   async listDevopsProjectTaskList(request: ListDevopsProjectTaskListRequest): Promise<ListDevopsProjectTaskListResponse> {
@@ -8350,7 +9014,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<ListDevopsProjectTasksResponse>(await this.doRPCRequest("ListDevopsProjectTasks", "2020-03-03", "HTTPS", "POST", "AK", "json", req, runtime), new ListDevopsProjectTasksResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListDevopsProjectTasks",
+      version: "2020-03-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListDevopsProjectTasksResponse>(await this.callApi(params, req, runtime), new ListDevopsProjectTasksResponse({}));
   }
 
   async listDevopsProjectTasks(request: ListDevopsProjectTasksRequest): Promise<ListDevopsProjectTasksResponse> {
@@ -8363,7 +9038,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<ListDevopsScenarioFieldConfigResponse>(await this.doRPCRequest("ListDevopsScenarioFieldConfig", "2020-03-03", "HTTPS", "POST", "AK", "json", req, runtime), new ListDevopsScenarioFieldConfigResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListDevopsScenarioFieldConfig",
+      version: "2020-03-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListDevopsScenarioFieldConfigResponse>(await this.callApi(params, req, runtime), new ListDevopsScenarioFieldConfigResponse({}));
   }
 
   async listDevopsScenarioFieldConfig(request: ListDevopsScenarioFieldConfigRequest): Promise<ListDevopsScenarioFieldConfigResponse> {
@@ -8373,10 +9059,24 @@ export default class Client extends OpenApi {
 
   async listPipelinesWithOptions(request: ListPipelinesRequest, runtime: $Util.RuntimeOptions): Promise<ListPipelinesResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OrgId"] = request.orgId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ListPipelinesResponse>(await this.doRPCRequest("ListPipelines", "2020-03-03", "HTTPS", "POST", "AK", "json", req, runtime), new ListPipelinesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListPipelines",
+      version: "2020-03-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListPipelinesResponse>(await this.callApi(params, req, runtime), new ListPipelinesResponse({}));
   }
 
   async listPipelines(request: ListPipelinesRequest): Promise<ListPipelinesResponse> {
@@ -8389,7 +9089,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<ListProjectCustomFieldsResponse>(await this.doRPCRequest("ListProjectCustomFields", "2020-03-03", "HTTPS", "POST", "AK", "json", req, runtime), new ListProjectCustomFieldsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListProjectCustomFields",
+      version: "2020-03-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListProjectCustomFieldsResponse>(await this.callApi(params, req, runtime), new ListProjectCustomFieldsResponse({}));
   }
 
   async listProjectCustomFields(request: ListProjectCustomFieldsRequest): Promise<ListProjectCustomFieldsResponse> {
@@ -8402,7 +9113,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<ListServiceConnectionsResponse>(await this.doRPCRequest("ListServiceConnections", "2020-03-03", "HTTPS", "POST", "AK", "json", req, runtime), new ListServiceConnectionsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListServiceConnections",
+      version: "2020-03-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListServiceConnectionsResponse>(await this.callApi(params, req, runtime), new ListServiceConnectionsResponse({}));
   }
 
   async listServiceConnections(request: ListServiceConnectionsRequest): Promise<ListServiceConnectionsResponse> {
@@ -8415,7 +9137,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<ListSmartGroupResponse>(await this.doRPCRequest("ListSmartGroup", "2020-03-03", "HTTPS", "POST", "AK", "json", req, runtime), new ListSmartGroupResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListSmartGroup",
+      version: "2020-03-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListSmartGroupResponse>(await this.callApi(params, req, runtime), new ListSmartGroupResponse({}));
   }
 
   async listSmartGroup(request: ListSmartGroupRequest): Promise<ListSmartGroupResponse> {
@@ -8428,7 +9161,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<ListUserOrganizationResponse>(await this.doRPCRequest("ListUserOrganization", "2020-03-03", "HTTPS", "POST", "AK", "json", req, runtime), new ListUserOrganizationResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListUserOrganization",
+      version: "2020-03-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListUserOrganizationResponse>(await this.callApi(params, req, runtime), new ListUserOrganizationResponse({}));
   }
 
   async listUserOrganization(request: ListUserOrganizationRequest): Promise<ListUserOrganizationResponse> {
@@ -8438,10 +9182,25 @@ export default class Client extends OpenApi {
 
   async transferPipelineOwnerWithOptions(request: TransferPipelineOwnerRequest, runtime: $Util.RuntimeOptions): Promise<TransferPipelineOwnerResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OrgId"] = request.orgId;
+    query["PipelineId"] = request.pipelineId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<TransferPipelineOwnerResponse>(await this.doRPCRequest("TransferPipelineOwner", "2020-03-03", "HTTPS", "POST", "AK", "json", req, runtime), new TransferPipelineOwnerResponse({}));
+    let params = new $OpenApi.Params({
+      action: "TransferPipelineOwner",
+      version: "2020-03-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<TransferPipelineOwnerResponse>(await this.callApi(params, req, runtime), new TransferPipelineOwnerResponse({}));
   }
 
   async transferPipelineOwner(request: TransferPipelineOwnerRequest): Promise<TransferPipelineOwnerResponse> {
@@ -8454,7 +9213,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<UpdateCommonGroupResponse>(await this.doRPCRequest("UpdateCommonGroup", "2020-03-03", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateCommonGroupResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateCommonGroup",
+      version: "2020-03-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateCommonGroupResponse>(await this.callApi(params, req, runtime), new UpdateCommonGroupResponse({}));
   }
 
   async updateCommonGroup(request: UpdateCommonGroupRequest): Promise<UpdateCommonGroupResponse> {
@@ -8467,7 +9237,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<UpdateDevopsProjectResponse>(await this.doRPCRequest("UpdateDevopsProject", "2020-03-03", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateDevopsProjectResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateDevopsProject",
+      version: "2020-03-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateDevopsProjectResponse>(await this.callApi(params, req, runtime), new UpdateDevopsProjectResponse({}));
   }
 
   async updateDevopsProject(request: UpdateDevopsProjectRequest): Promise<UpdateDevopsProjectResponse> {
@@ -8480,7 +9261,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<UpdateDevopsProjectSprintResponse>(await this.doRPCRequest("UpdateDevopsProjectSprint", "2020-03-03", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateDevopsProjectSprintResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateDevopsProjectSprint",
+      version: "2020-03-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateDevopsProjectSprintResponse>(await this.callApi(params, req, runtime), new UpdateDevopsProjectSprintResponse({}));
   }
 
   async updateDevopsProjectSprint(request: UpdateDevopsProjectSprintRequest): Promise<UpdateDevopsProjectSprintResponse> {
@@ -8493,7 +9285,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<UpdateDevopsProjectTaskResponse>(await this.doRPCRequest("UpdateDevopsProjectTask", "2020-03-03", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateDevopsProjectTaskResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateDevopsProjectTask",
+      version: "2020-03-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateDevopsProjectTaskResponse>(await this.callApi(params, req, runtime), new UpdateDevopsProjectTaskResponse({}));
   }
 
   async updateDevopsProjectTask(request: UpdateDevopsProjectTaskRequest): Promise<UpdateDevopsProjectTaskResponse> {
@@ -8503,10 +9306,25 @@ export default class Client extends OpenApi {
 
   async updatePipelineMemberWithOptions(request: UpdatePipelineMemberRequest, runtime: $Util.RuntimeOptions): Promise<UpdatePipelineMemberResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OrgId"] = request.orgId;
+    query["PipelineId"] = request.pipelineId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<UpdatePipelineMemberResponse>(await this.doRPCRequest("UpdatePipelineMember", "2020-03-03", "HTTPS", "POST", "AK", "json", req, runtime), new UpdatePipelineMemberResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdatePipelineMember",
+      version: "2020-03-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdatePipelineMemberResponse>(await this.callApi(params, req, runtime), new UpdatePipelineMemberResponse({}));
   }
 
   async updatePipelineMember(request: UpdatePipelineMemberRequest): Promise<UpdatePipelineMemberResponse> {
@@ -8519,7 +9337,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<UpdateTaskDetailResponse>(await this.doRPCRequest("UpdateTaskDetail", "2020-03-03", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateTaskDetailResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateTaskDetail",
+      version: "2020-03-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateTaskDetailResponse>(await this.callApi(params, req, runtime), new UpdateTaskDetailResponse({}));
   }
 
   async updateTaskDetail(request: UpdateTaskDetailRequest): Promise<UpdateTaskDetailResponse> {
