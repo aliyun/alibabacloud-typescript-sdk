@@ -4,6 +4,7 @@
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
+import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
@@ -16,23 +17,15 @@ export class CreateHiTSDBInstanceRequest extends $tea.Model {
   regionId?: string;
   appKey?: string;
   zoneId?: string;
-  instanceName?: string;
   instanceAlias?: string;
   instanceClass?: string;
   instanceStorage?: string;
   payType?: string;
   VPCId?: string;
   vSwitchId?: string;
-  maxTimelineLimit?: string;
-  instanceTps?: string;
-  engineType?: string;
-  maxSeriesPerDatabase?: string;
-  maxDatabaseLimit?: string;
   pricingCycle?: string;
   duration?: string;
-  TSDBVersion?: string;
   diskCategory?: string;
-  clientToken?: string;
   static names(): { [key: string]: string } {
     return {
       securityToken: 'SecurityToken',
@@ -43,23 +36,15 @@ export class CreateHiTSDBInstanceRequest extends $tea.Model {
       regionId: 'RegionId',
       appKey: 'AppKey',
       zoneId: 'ZoneId',
-      instanceName: 'InstanceName',
       instanceAlias: 'InstanceAlias',
       instanceClass: 'InstanceClass',
       instanceStorage: 'InstanceStorage',
       payType: 'PayType',
       VPCId: 'VPCId',
       vSwitchId: 'VSwitchId',
-      maxTimelineLimit: 'MaxTimelineLimit',
-      instanceTps: 'InstanceTps',
-      engineType: 'EngineType',
-      maxSeriesPerDatabase: 'MaxSeriesPerDatabase',
-      maxDatabaseLimit: 'MaxDatabaseLimit',
       pricingCycle: 'PricingCycle',
       duration: 'Duration',
-      TSDBVersion: 'TSDBVersion',
       diskCategory: 'DiskCategory',
-      clientToken: 'ClientToken',
     };
   }
 
@@ -73,23 +58,15 @@ export class CreateHiTSDBInstanceRequest extends $tea.Model {
       regionId: 'string',
       appKey: 'string',
       zoneId: 'string',
-      instanceName: 'string',
       instanceAlias: 'string',
       instanceClass: 'string',
       instanceStorage: 'string',
       payType: 'string',
       VPCId: 'string',
       vSwitchId: 'string',
-      maxTimelineLimit: 'string',
-      instanceTps: 'string',
-      engineType: 'string',
-      maxSeriesPerDatabase: 'string',
-      maxDatabaseLimit: 'string',
       pricingCycle: 'string',
       duration: 'string',
-      TSDBVersion: 'string',
       diskCategory: 'string',
-      clientToken: 'string',
     };
   }
 
@@ -1495,10 +1472,40 @@ export default class Client extends OpenApi {
 
   async createHiTSDBInstanceWithOptions(request: CreateHiTSDBInstanceRequest, runtime: $Util.RuntimeOptions): Promise<CreateHiTSDBInstanceResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["SecurityToken"] = request.securityToken;
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["OwnerAccount"] = request.ownerAccount;
+    query["RegionId"] = request.regionId;
+    query["AppKey"] = request.appKey;
+    query["ZoneId"] = request.zoneId;
+    query["InstanceAlias"] = request.instanceAlias;
+    query["InstanceClass"] = request.instanceClass;
+    query["InstanceStorage"] = request.instanceStorage;
+    query["PayType"] = request.payType;
+    query["VPCId"] = request.VPCId;
+    query["VSwitchId"] = request.vSwitchId;
+    query["PricingCycle"] = request.pricingCycle;
+    query["Duration"] = request.duration;
+    query["DiskCategory"] = request.diskCategory;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<CreateHiTSDBInstanceResponse>(await this.doRPCRequest("CreateHiTSDBInstance", "2017-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new CreateHiTSDBInstanceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateHiTSDBInstance",
+      version: "2017-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateHiTSDBInstanceResponse>(await this.callApi(params, req, runtime), new CreateHiTSDBInstanceResponse({}));
   }
 
   async createHiTSDBInstance(request: CreateHiTSDBInstanceRequest): Promise<CreateHiTSDBInstanceResponse> {
@@ -1508,10 +1515,30 @@ export default class Client extends OpenApi {
 
   async deleteHiTSDBInstanceWithOptions(request: DeleteHiTSDBInstanceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteHiTSDBInstanceResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["SecurityToken"] = request.securityToken;
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["OwnerAccount"] = request.ownerAccount;
+    query["AppKey"] = request.appKey;
+    query["InstanceId"] = request.instanceId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DeleteHiTSDBInstanceResponse>(await this.doRPCRequest("DeleteHiTSDBInstance", "2017-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteHiTSDBInstanceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteHiTSDBInstance",
+      version: "2017-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteHiTSDBInstanceResponse>(await this.callApi(params, req, runtime), new DeleteHiTSDBInstanceResponse({}));
   }
 
   async deleteHiTSDBInstance(request: DeleteHiTSDBInstanceRequest): Promise<DeleteHiTSDBInstanceResponse> {
@@ -1521,10 +1548,30 @@ export default class Client extends OpenApi {
 
   async describeHiTSDBInstanceWithOptions(request: DescribeHiTSDBInstanceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeHiTSDBInstanceResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["SecurityToken"] = request.securityToken;
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["OwnerAccount"] = request.ownerAccount;
+    query["AppKey"] = request.appKey;
+    query["InstanceId"] = request.instanceId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeHiTSDBInstanceResponse>(await this.doRPCRequest("DescribeHiTSDBInstance", "2017-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeHiTSDBInstanceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeHiTSDBInstance",
+      version: "2017-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeHiTSDBInstanceResponse>(await this.callApi(params, req, runtime), new DescribeHiTSDBInstanceResponse({}));
   }
 
   async describeHiTSDBInstance(request: DescribeHiTSDBInstanceRequest): Promise<DescribeHiTSDBInstanceResponse> {
@@ -1534,10 +1581,34 @@ export default class Client extends OpenApi {
 
   async describeHiTSDBInstanceListWithOptions(request: DescribeHiTSDBInstanceListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeHiTSDBInstanceListResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["SecurityToken"] = request.securityToken;
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["OwnerAccount"] = request.ownerAccount;
+    query["AppKey"] = request.appKey;
+    query["QueryStr"] = request.queryStr;
+    query["StatusList"] = request.statusList;
+    query["PageNumber"] = request.pageNumber;
+    query["PageSize"] = request.pageSize;
+    query["EngineType"] = request.engineType;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeHiTSDBInstanceListResponse>(await this.doRPCRequest("DescribeHiTSDBInstanceList", "2017-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeHiTSDBInstanceListResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeHiTSDBInstanceList",
+      version: "2017-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeHiTSDBInstanceListResponse>(await this.callApi(params, req, runtime), new DescribeHiTSDBInstanceListResponse({}));
   }
 
   async describeHiTSDBInstanceList(request: DescribeHiTSDBInstanceListRequest): Promise<DescribeHiTSDBInstanceListResponse> {
@@ -1547,10 +1618,30 @@ export default class Client extends OpenApi {
 
   async describeHiTSDBInstanceSecurityIpListWithOptions(request: DescribeHiTSDBInstanceSecurityIpListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeHiTSDBInstanceSecurityIpListResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["SecurityToken"] = request.securityToken;
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["OwnerAccount"] = request.ownerAccount;
+    query["InstanceId"] = request.instanceId;
+    query["GroupName"] = request.groupName;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeHiTSDBInstanceSecurityIpListResponse>(await this.doRPCRequest("DescribeHiTSDBInstanceSecurityIpList", "2017-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeHiTSDBInstanceSecurityIpListResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeHiTSDBInstanceSecurityIpList",
+      version: "2017-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeHiTSDBInstanceSecurityIpListResponse>(await this.callApi(params, req, runtime), new DescribeHiTSDBInstanceSecurityIpListResponse({}));
   }
 
   async describeHiTSDBInstanceSecurityIpList(request: DescribeHiTSDBInstanceSecurityIpListRequest): Promise<DescribeHiTSDBInstanceSecurityIpListResponse> {
@@ -1560,10 +1651,29 @@ export default class Client extends OpenApi {
 
   async describeRegionsWithOptions(request: DescribeRegionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRegionsResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["SecurityToken"] = request.securityToken;
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["OwnerAccount"] = request.ownerAccount;
+    query["AcceptLanguage"] = request.acceptLanguage;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeRegionsResponse>(await this.doRPCRequest("DescribeRegions", "2017-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeRegionsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeRegions",
+      version: "2017-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeRegionsResponse>(await this.callApi(params, req, runtime), new DescribeRegionsResponse({}));
   }
 
   async describeRegions(request: DescribeRegionsRequest): Promise<DescribeRegionsResponse> {
@@ -1573,10 +1683,29 @@ export default class Client extends OpenApi {
 
   async describeZonesWithOptions(request: DescribeZonesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeZonesResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["SecurityToken"] = request.securityToken;
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["OwnerAccount"] = request.ownerAccount;
+    query["Language"] = request.language;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeZonesResponse>(await this.doRPCRequest("DescribeZones", "2017-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeZonesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeZones",
+      version: "2017-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeZonesResponse>(await this.callApi(params, req, runtime), new DescribeZonesResponse({}));
   }
 
   async describeZones(request: DescribeZonesRequest): Promise<DescribeZonesResponse> {
@@ -1586,10 +1715,32 @@ export default class Client extends OpenApi {
 
   async modifyHiTSDBInstanceClassWithOptions(request: ModifyHiTSDBInstanceClassRequest, runtime: $Util.RuntimeOptions): Promise<ModifyHiTSDBInstanceClassResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["SecurityToken"] = request.securityToken;
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["OwnerAccount"] = request.ownerAccount;
+    query["AppKey"] = request.appKey;
+    query["InstanceId"] = request.instanceId;
+    query["InstanceClass"] = request.instanceClass;
+    query["InstanceStorage"] = request.instanceStorage;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ModifyHiTSDBInstanceClassResponse>(await this.doRPCRequest("ModifyHiTSDBInstanceClass", "2017-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyHiTSDBInstanceClassResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifyHiTSDBInstanceClass",
+      version: "2017-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyHiTSDBInstanceClassResponse>(await this.callApi(params, req, runtime), new ModifyHiTSDBInstanceClassResponse({}));
   }
 
   async modifyHiTSDBInstanceClass(request: ModifyHiTSDBInstanceClassRequest): Promise<ModifyHiTSDBInstanceClassResponse> {
@@ -1599,10 +1750,31 @@ export default class Client extends OpenApi {
 
   async modifyHiTSDBInstanceSecurityIpListWithOptions(request: ModifyHiTSDBInstanceSecurityIpListRequest, runtime: $Util.RuntimeOptions): Promise<ModifyHiTSDBInstanceSecurityIpListResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["SecurityToken"] = request.securityToken;
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["OwnerAccount"] = request.ownerAccount;
+    query["InstanceId"] = request.instanceId;
+    query["SecurityIpList"] = request.securityIpList;
+    query["GroupName"] = request.groupName;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ModifyHiTSDBInstanceSecurityIpListResponse>(await this.doRPCRequest("ModifyHiTSDBInstanceSecurityIpList", "2017-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyHiTSDBInstanceSecurityIpListResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifyHiTSDBInstanceSecurityIpList",
+      version: "2017-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyHiTSDBInstanceSecurityIpListResponse>(await this.callApi(params, req, runtime), new ModifyHiTSDBInstanceSecurityIpListResponse({}));
   }
 
   async modifyHiTSDBInstanceSecurityIpList(request: ModifyHiTSDBInstanceSecurityIpListRequest): Promise<ModifyHiTSDBInstanceSecurityIpListResponse> {
@@ -1612,10 +1784,31 @@ export default class Client extends OpenApi {
 
   async renameHiTSDBInstanceAliasWithOptions(request: RenameHiTSDBInstanceAliasRequest, runtime: $Util.RuntimeOptions): Promise<RenameHiTSDBInstanceAliasResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["SecurityToken"] = request.securityToken;
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["OwnerAccount"] = request.ownerAccount;
+    query["AppKey"] = request.appKey;
+    query["InstanceId"] = request.instanceId;
+    query["InstanceAlias"] = request.instanceAlias;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<RenameHiTSDBInstanceAliasResponse>(await this.doRPCRequest("RenameHiTSDBInstanceAlias", "2017-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new RenameHiTSDBInstanceAliasResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RenameHiTSDBInstanceAlias",
+      version: "2017-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<RenameHiTSDBInstanceAliasResponse>(await this.callApi(params, req, runtime), new RenameHiTSDBInstanceAliasResponse({}));
   }
 
   async renameHiTSDBInstanceAlias(request: RenameHiTSDBInstanceAliasRequest): Promise<RenameHiTSDBInstanceAliasResponse> {
@@ -1625,10 +1818,32 @@ export default class Client extends OpenApi {
 
   async renewTSDBInstanceWithOptions(request: RenewTSDBInstanceRequest, runtime: $Util.RuntimeOptions): Promise<RenewTSDBInstanceResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["SecurityToken"] = request.securityToken;
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["OwnerAccount"] = request.ownerAccount;
+    query["RegionId"] = request.regionId;
+    query["InstanceId"] = request.instanceId;
+    query["PricingCycle"] = request.pricingCycle;
+    query["Duration"] = request.duration;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<RenewTSDBInstanceResponse>(await this.doRPCRequest("RenewTSDBInstance", "2017-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new RenewTSDBInstanceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RenewTSDBInstance",
+      version: "2017-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<RenewTSDBInstanceResponse>(await this.callApi(params, req, runtime), new RenewTSDBInstanceResponse({}));
   }
 
   async renewTSDBInstance(request: RenewTSDBInstanceRequest): Promise<RenewTSDBInstanceResponse> {
@@ -1638,10 +1853,29 @@ export default class Client extends OpenApi {
 
   async restartHiTSDBInstanceWithOptions(request: RestartHiTSDBInstanceRequest, runtime: $Util.RuntimeOptions): Promise<RestartHiTSDBInstanceResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["SecurityToken"] = request.securityToken;
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["OwnerAccount"] = request.ownerAccount;
+    query["InstanceId"] = request.instanceId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<RestartHiTSDBInstanceResponse>(await this.doRPCRequest("RestartHiTSDBInstance", "2017-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new RestartHiTSDBInstanceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RestartHiTSDBInstance",
+      version: "2017-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<RestartHiTSDBInstanceResponse>(await this.callApi(params, req, runtime), new RestartHiTSDBInstanceResponse({}));
   }
 
   async restartHiTSDBInstance(request: RestartHiTSDBInstanceRequest): Promise<RestartHiTSDBInstanceResponse> {
@@ -1651,10 +1885,30 @@ export default class Client extends OpenApi {
 
   async switchHiTSDBInstancePublicNetWithOptions(request: SwitchHiTSDBInstancePublicNetRequest, runtime: $Util.RuntimeOptions): Promise<SwitchHiTSDBInstancePublicNetResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["SecurityToken"] = request.securityToken;
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["OwnerAccount"] = request.ownerAccount;
+    query["InstanceId"] = request.instanceId;
+    query["SwitchAction"] = request.switchAction;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<SwitchHiTSDBInstancePublicNetResponse>(await this.doRPCRequest("SwitchHiTSDBInstancePublicNet", "2017-06-01", "HTTPS", "POST", "AK", "json", req, runtime), new SwitchHiTSDBInstancePublicNetResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SwitchHiTSDBInstancePublicNet",
+      version: "2017-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<SwitchHiTSDBInstancePublicNetResponse>(await this.callApi(params, req, runtime), new SwitchHiTSDBInstancePublicNetResponse({}));
   }
 
   async switchHiTSDBInstancePublicNet(request: SwitchHiTSDBInstancePublicNetRequest): Promise<SwitchHiTSDBInstancePublicNetResponse> {
