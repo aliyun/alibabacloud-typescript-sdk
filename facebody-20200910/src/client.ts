@@ -111,14 +111,10 @@ export class ExecuteServerSideVerificationRequest extends $tea.Model {
 export class ExecuteServerSideVerificationResponseBody extends $tea.Model {
   requestId?: string;
   data?: ExecuteServerSideVerificationResponseBodyData;
-  code?: string;
-  message?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
       data: 'Data',
-      code: 'Code',
-      message: 'Message',
     };
   }
 
@@ -126,8 +122,6 @@ export class ExecuteServerSideVerificationResponseBody extends $tea.Model {
     return {
       requestId: 'string',
       data: ExecuteServerSideVerificationResponseBodyData,
-      code: 'string',
-      message: 'string',
     };
   }
 
@@ -294,7 +288,18 @@ export default class Client extends OpenApi {
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<DetectIPCPedestrianOptimizedResponse>(await this.doROARequestWithForm("DetectIPCPedestrianOptimized", "2020-09-10", "HTTPS", "POST", "AK", `/viapi/k8s/facebody/detect-ipc-pedestrian-optimized`, "json", req, runtime), new DetectIPCPedestrianOptimizedResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DetectIPCPedestrianOptimized",
+      version: "2020-09-10",
+      protocol: "HTTPS",
+      pathname: `/viapi/k8s/facebody/detect-ipc-pedestrian-optimized`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DetectIPCPedestrianOptimizedResponse>(await this.callApi(params, req, runtime), new DetectIPCPedestrianOptimizedResponse({}));
   }
 
   async executeServerSideVerification(request: ExecuteServerSideVerificationRequest): Promise<ExecuteServerSideVerificationResponse> {
@@ -330,7 +335,18 @@ export default class Client extends OpenApi {
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<ExecuteServerSideVerificationResponse>(await this.doROARequestWithForm("ExecuteServerSideVerification", "2020-09-10", "HTTPS", "POST", "AK", `/viapi/thirdparty/realperson/execServerSideVerification`, "json", req, runtime), new ExecuteServerSideVerificationResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ExecuteServerSideVerification",
+      version: "2020-09-10",
+      protocol: "HTTPS",
+      pathname: `/viapi/thirdparty/realperson/execServerSideVerification`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ExecuteServerSideVerificationResponse>(await this.callApi(params, req, runtime), new ExecuteServerSideVerificationResponse({}));
   }
 
 }
