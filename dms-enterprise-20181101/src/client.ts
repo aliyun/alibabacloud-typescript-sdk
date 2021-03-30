@@ -601,12 +601,10 @@ export class GetMetaTableDetailInfoResponse extends $tea.Model {
 
 export class GetDataCorrectSQLFileRequest extends $tea.Model {
   orderId?: number;
-  orderActionName?: string;
   tid?: number;
   static names(): { [key: string]: string } {
     return {
       orderId: 'OrderId',
-      orderActionName: 'OrderActionName',
       tid: 'Tid',
     };
   }
@@ -614,7 +612,6 @@ export class GetDataCorrectSQLFileRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       orderId: 'number',
-      orderActionName: 'string',
       tid: 'number',
     };
   }
@@ -1420,6 +1417,81 @@ export class GetUserUploadFileJobResponse extends $tea.Model {
   }
 }
 
+export class ListDDLPublishRecordsRequest extends $tea.Model {
+  orderId?: number;
+  tid?: number;
+  static names(): { [key: string]: string } {
+    return {
+      orderId: 'OrderId',
+      tid: 'Tid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      orderId: 'number',
+      tid: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDDLPublishRecordsResponseBody extends $tea.Model {
+  requestId?: string;
+  success?: boolean;
+  errorMessage?: string;
+  errorCode?: string;
+  DDLPublishRecordList?: ListDDLPublishRecordsResponseBodyDDLPublishRecordList[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+      errorMessage: 'ErrorMessage',
+      errorCode: 'ErrorCode',
+      DDLPublishRecordList: 'DDLPublishRecordList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+      errorMessage: 'string',
+      errorCode: 'string',
+      DDLPublishRecordList: { 'type': 'array', 'itemType': ListDDLPublishRecordsResponseBodyDDLPublishRecordList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDDLPublishRecordsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListDDLPublishRecordsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListDDLPublishRecordsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetStructSyncJobDetailRequest extends $tea.Model {
   orderId?: number;
   tid?: number;
@@ -1498,14 +1570,12 @@ export class GetStructSyncJobDetailResponse extends $tea.Model {
 export class CreateUploadOSSFileJobRequest extends $tea.Model {
   fileSource?: string;
   fileName?: string;
-  uploadType?: string;
   uploadTarget?: CreateUploadOSSFileJobRequestUploadTarget;
   tid?: number;
   static names(): { [key: string]: string } {
     return {
       fileSource: 'FileSource',
       fileName: 'FileName',
-      uploadType: 'UploadType',
       uploadTarget: 'UploadTarget',
       tid: 'Tid',
     };
@@ -1515,7 +1585,6 @@ export class CreateUploadOSSFileJobRequest extends $tea.Model {
     return {
       fileSource: 'string',
       fileName: 'string',
-      uploadType: 'string',
       uploadTarget: CreateUploadOSSFileJobRequestUploadTarget,
       tid: 'number',
     };
@@ -1529,14 +1598,12 @@ export class CreateUploadOSSFileJobRequest extends $tea.Model {
 export class CreateUploadOSSFileJobShrinkRequest extends $tea.Model {
   fileSource?: string;
   fileName?: string;
-  uploadType?: string;
   uploadTargetShrink?: string;
   tid?: number;
   static names(): { [key: string]: string } {
     return {
       fileSource: 'FileSource',
       fileName: 'FileName',
-      uploadType: 'UploadType',
       uploadTargetShrink: 'UploadTarget',
       tid: 'Tid',
     };
@@ -1546,7 +1613,6 @@ export class CreateUploadOSSFileJobShrinkRequest extends $tea.Model {
     return {
       fileSource: 'string',
       fileName: 'string',
-      uploadType: 'string',
       uploadTargetShrink: 'string',
       tid: 'number',
     };
@@ -3323,12 +3389,10 @@ export class GetTableTopologyResponse extends $tea.Model {
 export class GetDataExportDownloadURLRequest extends $tea.Model {
   tid?: number;
   orderId?: number;
-  actionName?: string;
   static names(): { [key: string]: string } {
     return {
       tid: 'Tid',
       orderId: 'OrderId',
-      actionName: 'ActionName',
     };
   }
 
@@ -3336,7 +3400,6 @@ export class GetDataExportDownloadURLRequest extends $tea.Model {
     return {
       tid: 'number',
       orderId: 'number',
-      actionName: 'string',
     };
   }
 
@@ -4428,14 +4491,12 @@ export class GetDataCorrectTaskDetailResponse extends $tea.Model {
 export class CreateUploadFileJobRequest extends $tea.Model {
   fileSource?: string;
   fileName?: string;
-  uploadType?: string;
   uploadURL?: string;
   tid?: number;
   static names(): { [key: string]: string } {
     return {
       fileSource: 'FileSource',
       fileName: 'FileName',
-      uploadType: 'UploadType',
       uploadURL: 'UploadURL',
       tid: 'Tid',
     };
@@ -4445,7 +4506,6 @@ export class CreateUploadFileJobRequest extends $tea.Model {
     return {
       fileSource: 'string',
       fileName: 'string',
-      uploadType: 'string',
       uploadURL: 'string',
       tid: 'number',
     };
@@ -5375,13 +5435,11 @@ export class GetLogicDatabaseResponse extends $tea.Model {
 export class GetDataCorrectBackupFilesRequest extends $tea.Model {
   tid?: number;
   orderId?: number;
-  actionName?: string;
   actionDetail?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
       tid: 'Tid',
       orderId: 'OrderId',
-      actionName: 'ActionName',
       actionDetail: 'ActionDetail',
     };
   }
@@ -5390,7 +5448,6 @@ export class GetDataCorrectBackupFilesRequest extends $tea.Model {
     return {
       tid: 'number',
       orderId: 'number',
-      actionName: 'string',
       actionDetail: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
     };
   }
@@ -5403,13 +5460,11 @@ export class GetDataCorrectBackupFilesRequest extends $tea.Model {
 export class GetDataCorrectBackupFilesShrinkRequest extends $tea.Model {
   tid?: number;
   orderId?: number;
-  actionName?: string;
   actionDetailShrink?: string;
   static names(): { [key: string]: string } {
     return {
       tid: 'Tid',
       orderId: 'OrderId',
-      actionName: 'ActionName',
       actionDetailShrink: 'ActionDetail',
     };
   }
@@ -5418,7 +5473,6 @@ export class GetDataCorrectBackupFilesShrinkRequest extends $tea.Model {
     return {
       tid: 'number',
       orderId: 'number',
-      actionName: 'string',
       actionDetailShrink: 'string',
     };
   }
@@ -5731,13 +5785,11 @@ export class CreateStructSyncOrderResponse extends $tea.Model {
 export class ExecuteDataExportRequest extends $tea.Model {
   tid?: number;
   orderId?: number;
-  actionName?: string;
   actionDetail?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
       tid: 'Tid',
       orderId: 'OrderId',
-      actionName: 'ActionName',
       actionDetail: 'ActionDetail',
     };
   }
@@ -5746,7 +5798,6 @@ export class ExecuteDataExportRequest extends $tea.Model {
     return {
       tid: 'number',
       orderId: 'number',
-      actionName: 'string',
       actionDetail: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
     };
   }
@@ -5759,13 +5810,11 @@ export class ExecuteDataExportRequest extends $tea.Model {
 export class ExecuteDataExportShrinkRequest extends $tea.Model {
   tid?: number;
   orderId?: number;
-  actionName?: string;
   actionDetailShrink?: string;
   static names(): { [key: string]: string } {
     return {
       tid: 'Tid',
       orderId: 'OrderId',
-      actionName: 'ActionName',
       actionDetailShrink: 'ActionDetail',
     };
   }
@@ -5774,7 +5823,6 @@ export class ExecuteDataExportShrinkRequest extends $tea.Model {
     return {
       tid: 'number',
       orderId: 'number',
-      actionName: 'string',
       actionDetailShrink: 'string',
     };
   }
@@ -5837,13 +5885,11 @@ export class ExecuteDataExportResponse extends $tea.Model {
 export class ExecuteDataCorrectRequest extends $tea.Model {
   tid?: string;
   orderId?: number;
-  actionName?: string;
   actionDetail?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
       tid: 'Tid',
       orderId: 'OrderId',
-      actionName: 'ActionName',
       actionDetail: 'ActionDetail',
     };
   }
@@ -5852,7 +5898,6 @@ export class ExecuteDataCorrectRequest extends $tea.Model {
     return {
       tid: 'string',
       orderId: 'number',
-      actionName: 'string',
       actionDetail: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
     };
   }
@@ -5865,13 +5910,11 @@ export class ExecuteDataCorrectRequest extends $tea.Model {
 export class ExecuteDataCorrectShrinkRequest extends $tea.Model {
   tid?: string;
   orderId?: number;
-  actionName?: string;
   actionDetailShrink?: string;
   static names(): { [key: string]: string } {
     return {
       tid: 'Tid',
       orderId: 'OrderId',
-      actionName: 'ActionName',
       actionDetailShrink: 'ActionDetail',
     };
   }
@@ -5880,7 +5923,6 @@ export class ExecuteDataCorrectShrinkRequest extends $tea.Model {
     return {
       tid: 'string',
       orderId: 'number',
-      actionName: 'string',
       actionDetailShrink: 'string',
     };
   }
@@ -7724,6 +7766,123 @@ export class GetUserUploadFileJobResponseBodyUploadFileJobDetail extends $tea.Mo
       jobStatus: 'string',
       jobStatusDesc: 'string',
       attachmentKey: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDDLPublishRecordsResponseBodyDDLPublishRecordListPublishTaskInfoListPublishJobList extends $tea.Model {
+  executeCount?: number;
+  scripts?: string;
+  tableName?: string;
+  statusDesc?: string;
+  taskJobStatus?: string;
+  DBTaskGroupId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      executeCount: 'ExecuteCount',
+      scripts: 'Scripts',
+      tableName: 'TableName',
+      statusDesc: 'StatusDesc',
+      taskJobStatus: 'TaskJobStatus',
+      DBTaskGroupId: 'DBTaskGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      executeCount: 'number',
+      scripts: 'string',
+      tableName: 'string',
+      statusDesc: 'string',
+      taskJobStatus: 'string',
+      DBTaskGroupId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDDLPublishRecordsResponseBodyDDLPublishRecordListPublishTaskInfoList extends $tea.Model {
+  dbId?: number;
+  logic?: boolean;
+  planTime?: string;
+  publishStrategy?: string;
+  statusDesc?: string;
+  taskJobStatus?: string;
+  publishJobList?: ListDDLPublishRecordsResponseBodyDDLPublishRecordListPublishTaskInfoListPublishJobList[];
+  static names(): { [key: string]: string } {
+    return {
+      dbId: 'DbId',
+      logic: 'Logic',
+      planTime: 'PlanTime',
+      publishStrategy: 'PublishStrategy',
+      statusDesc: 'StatusDesc',
+      taskJobStatus: 'TaskJobStatus',
+      publishJobList: 'PublishJobList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dbId: 'number',
+      logic: 'boolean',
+      planTime: 'string',
+      publishStrategy: 'string',
+      statusDesc: 'string',
+      taskJobStatus: 'string',
+      publishJobList: { 'type': 'array', 'itemType': ListDDLPublishRecordsResponseBodyDDLPublishRecordListPublishTaskInfoListPublishJobList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDDLPublishRecordsResponseBodyDDLPublishRecordList extends $tea.Model {
+  auditStatus?: string;
+  auditExpireTime?: string;
+  creatorId?: number;
+  finality?: boolean;
+  finalityReason?: string;
+  publishStatus?: string;
+  riskLevel?: string;
+  statusDesc?: string;
+  workflowInstanceId?: number;
+  publishTaskInfoList?: ListDDLPublishRecordsResponseBodyDDLPublishRecordListPublishTaskInfoList[];
+  static names(): { [key: string]: string } {
+    return {
+      auditStatus: 'AuditStatus',
+      auditExpireTime: 'AuditExpireTime',
+      creatorId: 'CreatorId',
+      finality: 'Finality',
+      finalityReason: 'FinalityReason',
+      publishStatus: 'PublishStatus',
+      riskLevel: 'RiskLevel',
+      statusDesc: 'StatusDesc',
+      workflowInstanceId: 'WorkflowInstanceId',
+      publishTaskInfoList: 'PublishTaskInfoList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      auditStatus: 'string',
+      auditExpireTime: 'string',
+      creatorId: 'number',
+      finality: 'boolean',
+      finalityReason: 'string',
+      publishStatus: 'string',
+      riskLevel: 'string',
+      statusDesc: 'string',
+      workflowInstanceId: 'number',
+      publishTaskInfoList: { 'type': 'array', 'itemType': ListDDLPublishRecordsResponseBodyDDLPublishRecordListPublishTaskInfoList },
     };
   }
 
@@ -11198,6 +11357,19 @@ export default class Client extends OpenApi {
   async getUserUploadFileJob(request: GetUserUploadFileJobRequest): Promise<GetUserUploadFileJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getUserUploadFileJobWithOptions(request, runtime);
+  }
+
+  async listDDLPublishRecordsWithOptions(request: ListDDLPublishRecordsRequest, runtime: $Util.RuntimeOptions): Promise<ListDDLPublishRecordsResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<ListDDLPublishRecordsResponse>(await this.doRPCRequest("ListDDLPublishRecords", "2018-11-01", "HTTPS", "POST", "AK", "json", req, runtime), new ListDDLPublishRecordsResponse({}));
+  }
+
+  async listDDLPublishRecords(request: ListDDLPublishRecordsRequest): Promise<ListDDLPublishRecordsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listDDLPublishRecordsWithOptions(request, runtime);
   }
 
   async getStructSyncJobDetailWithOptions(request: GetStructSyncJobDetailRequest, runtime: $Util.RuntimeOptions): Promise<GetStructSyncJobDetailResponse> {
