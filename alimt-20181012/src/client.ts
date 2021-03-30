@@ -210,6 +210,90 @@ export class CreateImageTranslateTaskResponse extends $tea.Model {
   }
 }
 
+export class GetBatchTranslateRequest extends $tea.Model {
+  formatType?: string;
+  targetLanguage?: string;
+  sourceLanguage?: string;
+  scene?: string;
+  apiType?: string;
+  sourceText?: string;
+  static names(): { [key: string]: string } {
+    return {
+      formatType: 'FormatType',
+      targetLanguage: 'TargetLanguage',
+      sourceLanguage: 'SourceLanguage',
+      scene: 'Scene',
+      apiType: 'ApiType',
+      sourceText: 'SourceText',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      formatType: 'string',
+      targetLanguage: 'string',
+      sourceLanguage: 'string',
+      scene: 'string',
+      apiType: 'string',
+      sourceText: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBatchTranslateResponseBody extends $tea.Model {
+  message?: string;
+  requestId?: string;
+  translatedList?: { [key: string]: any }[];
+  code?: number;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      requestId: 'RequestId',
+      translatedList: 'TranslatedList',
+      code: 'Code',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      requestId: 'string',
+      translatedList: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
+      code: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBatchTranslateResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetBatchTranslateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetBatchTranslateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetDetectLanguageRequest extends $tea.Model {
   sourceText?: string;
   static names(): { [key: string]: string } {
@@ -1597,7 +1681,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<CreateDocTranslateTaskResponse>(await this.doRPCRequest("CreateDocTranslateTask", "2018-10-12", "HTTPS", "POST", "AK", "json", req, runtime), new CreateDocTranslateTaskResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateDocTranslateTask",
+      version: "2018-10-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateDocTranslateTaskResponse>(await this.callApi(params, req, runtime), new CreateDocTranslateTaskResponse({}));
   }
 
   async createDocTranslateTask(request: CreateDocTranslateTaskRequest): Promise<CreateDocTranslateTaskResponse> {
@@ -1669,7 +1764,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<CreateImageTranslateTaskResponse>(await this.doRPCRequest("CreateImageTranslateTask", "2018-10-12", "HTTPS", "POST", "AK", "json", req, runtime), new CreateImageTranslateTaskResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateImageTranslateTask",
+      version: "2018-10-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateImageTranslateTaskResponse>(await this.callApi(params, req, runtime), new CreateImageTranslateTaskResponse({}));
   }
 
   async createImageTranslateTask(request: CreateImageTranslateTaskRequest): Promise<CreateImageTranslateTaskResponse> {
@@ -1677,12 +1783,47 @@ export default class Client extends OpenApi {
     return await this.createImageTranslateTaskWithOptions(request, runtime);
   }
 
+  async getBatchTranslateWithOptions(request: GetBatchTranslateRequest, runtime: $Util.RuntimeOptions): Promise<GetBatchTranslateResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetBatchTranslate",
+      version: "2018-10-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetBatchTranslateResponse>(await this.callApi(params, req, runtime), new GetBatchTranslateResponse({}));
+  }
+
+  async getBatchTranslate(request: GetBatchTranslateRequest): Promise<GetBatchTranslateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getBatchTranslateWithOptions(request, runtime);
+  }
+
   async getDetectLanguageWithOptions(request: GetDetectLanguageRequest, runtime: $Util.RuntimeOptions): Promise<GetDetectLanguageResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<GetDetectLanguageResponse>(await this.doRPCRequest("GetDetectLanguage", "2018-10-12", "HTTPS", "POST", "AK", "json", req, runtime), new GetDetectLanguageResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetDetectLanguage",
+      version: "2018-10-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetDetectLanguageResponse>(await this.callApi(params, req, runtime), new GetDetectLanguageResponse({}));
   }
 
   async getDetectLanguage(request: GetDetectLanguageRequest): Promise<GetDetectLanguageResponse> {
@@ -1694,9 +1835,20 @@ export default class Client extends OpenApi {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
     let req = new $OpenApi.OpenApiRequest({
-      query: query,
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetDocTranslateTaskResponse>(await this.doRPCRequest("GetDocTranslateTask", "2018-10-12", "HTTPS", "GET", "AK", "json", req, runtime), new GetDocTranslateTaskResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetDocTranslateTask",
+      version: "2018-10-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetDocTranslateTaskResponse>(await this.callApi(params, req, runtime), new GetDocTranslateTaskResponse({}));
   }
 
   async getDocTranslateTask(request: GetDocTranslateTaskRequest): Promise<GetDocTranslateTaskResponse> {
@@ -1709,7 +1861,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<GetImageDiagnoseResponse>(await this.doRPCRequest("GetImageDiagnose", "2018-10-12", "HTTPS", "POST", "AK", "json", req, runtime), new GetImageDiagnoseResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetImageDiagnose",
+      version: "2018-10-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetImageDiagnoseResponse>(await this.callApi(params, req, runtime), new GetImageDiagnoseResponse({}));
   }
 
   async getImageDiagnose(request: GetImageDiagnoseRequest): Promise<GetImageDiagnoseResponse> {
@@ -1722,7 +1885,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<GetImageTranslateResponse>(await this.doRPCRequest("GetImageTranslate", "2018-10-12", "HTTPS", "POST", "AK", "json", req, runtime), new GetImageTranslateResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetImageTranslate",
+      version: "2018-10-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetImageTranslateResponse>(await this.callApi(params, req, runtime), new GetImageTranslateResponse({}));
   }
 
   async getImageTranslate(request: GetImageTranslateRequest): Promise<GetImageTranslateResponse> {
@@ -1735,7 +1909,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<GetImageTranslateTaskResponse>(await this.doRPCRequest("GetImageTranslateTask", "2018-10-12", "HTTPS", "POST", "AK", "json", req, runtime), new GetImageTranslateTaskResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetImageTranslateTask",
+      version: "2018-10-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetImageTranslateTaskResponse>(await this.callApi(params, req, runtime), new GetImageTranslateTaskResponse({}));
   }
 
   async getImageTranslateTask(request: GetImageTranslateTaskRequest): Promise<GetImageTranslateTaskResponse> {
@@ -1748,7 +1933,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<GetTitleDiagnoseResponse>(await this.doRPCRequest("GetTitleDiagnose", "2018-10-12", "HTTPS", "POST", "AK", "json", req, runtime), new GetTitleDiagnoseResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetTitleDiagnose",
+      version: "2018-10-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetTitleDiagnoseResponse>(await this.callApi(params, req, runtime), new GetTitleDiagnoseResponse({}));
   }
 
   async getTitleDiagnose(request: GetTitleDiagnoseRequest): Promise<GetTitleDiagnoseResponse> {
@@ -1761,7 +1957,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<GetTitleGenerateResponse>(await this.doRPCRequest("GetTitleGenerate", "2018-10-12", "HTTPS", "POST", "AK", "json", req, runtime), new GetTitleGenerateResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetTitleGenerate",
+      version: "2018-10-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetTitleGenerateResponse>(await this.callApi(params, req, runtime), new GetTitleGenerateResponse({}));
   }
 
   async getTitleGenerate(request: GetTitleGenerateRequest): Promise<GetTitleGenerateResponse> {
@@ -1774,7 +1981,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<GetTitleIntelligenceResponse>(await this.doRPCRequest("GetTitleIntelligence", "2018-10-12", "HTTPS", "POST", "AK", "json", req, runtime), new GetTitleIntelligenceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetTitleIntelligence",
+      version: "2018-10-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetTitleIntelligenceResponse>(await this.callApi(params, req, runtime), new GetTitleIntelligenceResponse({}));
   }
 
   async getTitleIntelligence(request: GetTitleIntelligenceRequest): Promise<GetTitleIntelligenceResponse> {
@@ -1784,10 +2002,25 @@ export default class Client extends OpenApi {
 
   async openAlimtServiceWithOptions(request: OpenAlimtServiceRequest, runtime: $Util.RuntimeOptions): Promise<OpenAlimtServiceResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["Type"] = request.type;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<OpenAlimtServiceResponse>(await this.doRPCRequest("OpenAlimtService", "2018-10-12", "HTTPS", "POST", "AK", "json", req, runtime), new OpenAlimtServiceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "OpenAlimtService",
+      version: "2018-10-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<OpenAlimtServiceResponse>(await this.callApi(params, req, runtime), new OpenAlimtServiceResponse({}));
   }
 
   async openAlimtService(request: OpenAlimtServiceRequest): Promise<OpenAlimtServiceResponse> {
@@ -1800,7 +2033,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<TranslateResponse>(await this.doRPCRequest("Translate", "2018-10-12", "HTTPS", "POST", "AK", "json", req, runtime), new TranslateResponse({}));
+    let params = new $OpenApi.Params({
+      action: "Translate",
+      version: "2018-10-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<TranslateResponse>(await this.callApi(params, req, runtime), new TranslateResponse({}));
   }
 
   async translate(request: TranslateRequest): Promise<TranslateResponse> {
@@ -1813,7 +2057,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<TranslateCertificateResponse>(await this.doRPCRequest("TranslateCertificate", "2018-10-12", "HTTPS", "POST", "AK", "json", req, runtime), new TranslateCertificateResponse({}));
+    let params = new $OpenApi.Params({
+      action: "TranslateCertificate",
+      version: "2018-10-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<TranslateCertificateResponse>(await this.callApi(params, req, runtime), new TranslateCertificateResponse({}));
   }
 
   async translateCertificate(request: TranslateCertificateRequest): Promise<TranslateCertificateResponse> {
@@ -1885,7 +2140,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<TranslateECommerceResponse>(await this.doRPCRequest("TranslateECommerce", "2018-10-12", "HTTPS", "POST", "AK", "json", req, runtime), new TranslateECommerceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "TranslateECommerce",
+      version: "2018-10-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<TranslateECommerceResponse>(await this.callApi(params, req, runtime), new TranslateECommerceResponse({}));
   }
 
   async translateECommerce(request: TranslateECommerceRequest): Promise<TranslateECommerceResponse> {
@@ -1898,7 +2164,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<TranslateGeneralResponse>(await this.doRPCRequest("TranslateGeneral", "2018-10-12", "HTTPS", "POST", "AK", "json", req, runtime), new TranslateGeneralResponse({}));
+    let params = new $OpenApi.Params({
+      action: "TranslateGeneral",
+      version: "2018-10-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<TranslateGeneralResponse>(await this.callApi(params, req, runtime), new TranslateGeneralResponse({}));
   }
 
   async translateGeneral(request: TranslateGeneralRequest): Promise<TranslateGeneralResponse> {
