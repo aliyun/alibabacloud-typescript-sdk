@@ -499,12 +499,10 @@ export class CreateInstanceAccountResponse extends $tea.Model {
 export class CreateInstanceInternetAddressRequest extends $tea.Model {
   drdsInstanceId?: string;
   regionId?: string;
-  drdsPassword?: string;
   static names(): { [key: string]: string } {
     return {
       drdsInstanceId: 'DrdsInstanceId',
       regionId: 'RegionId',
-      drdsPassword: 'DrdsPassword',
     };
   }
 
@@ -512,7 +510,6 @@ export class CreateInstanceInternetAddressRequest extends $tea.Model {
     return {
       drdsInstanceId: 'string',
       regionId: 'string',
-      drdsPassword: 'string',
     };
   }
 
@@ -1820,11 +1817,13 @@ export class DescribeDrdsDBsRequest extends $tea.Model {
   drdsInstanceId?: string;
   pageNumber?: number;
   pageSize?: number;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       drdsInstanceId: 'DrdsInstanceId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      regionId: 'RegionId',
     };
   }
 
@@ -1833,6 +1832,7 @@ export class DescribeDrdsDBsRequest extends $tea.Model {
       drdsInstanceId: 'string',
       pageNumber: 'number',
       pageSize: 'number',
+      regionId: 'string',
     };
   }
 
@@ -3946,6 +3946,99 @@ export class DescribeShardTaskInfoResponse extends $tea.Model {
   }
 }
 
+export class DescribeShardTaskListRequest extends $tea.Model {
+  regionId?: string;
+  drdsInstanceId?: string;
+  dbName?: string;
+  query?: string;
+  pageSize?: number;
+  currentPage?: number;
+  taskType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+      drdsInstanceId: 'DrdsInstanceId',
+      dbName: 'DbName',
+      query: 'Query',
+      pageSize: 'PageSize',
+      currentPage: 'CurrentPage',
+      taskType: 'TaskType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+      drdsInstanceId: 'string',
+      dbName: 'string',
+      query: 'string',
+      pageSize: 'number',
+      currentPage: 'number',
+      taskType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeShardTaskListResponseBody extends $tea.Model {
+  requestId?: string;
+  success?: boolean;
+  pageNumber?: number;
+  pageSize?: number;
+  total?: number;
+  list?: DescribeShardTaskListResponseBodyList[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      total: 'Total',
+      list: 'List',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+      pageNumber: 'number',
+      pageSize: 'number',
+      total: 'number',
+      list: { 'type': 'array', 'itemType': DescribeShardTaskListResponseBodyList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeShardTaskListResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeShardTaskListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeShardTaskListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeSqlFlashbakTaskRequest extends $tea.Model {
   drdsInstanceId?: string;
   static names(): { [key: string]: string } {
@@ -4489,7 +4582,6 @@ export class EnableSqlFlashbackMatchSwitchResponse extends $tea.Model {
 export class ListTagResourcesRequest extends $tea.Model {
   regionId?: string;
   resourceType?: string;
-  noRole?: boolean;
   nextToken?: string;
   tag?: ListTagResourcesRequestTag[];
   resourceId?: string[];
@@ -4497,7 +4589,6 @@ export class ListTagResourcesRequest extends $tea.Model {
     return {
       regionId: 'RegionId',
       resourceType: 'ResourceType',
-      noRole: 'NoRole',
       nextToken: 'NextToken',
       tag: 'Tag',
       resourceId: 'ResourceId',
@@ -4508,7 +4599,6 @@ export class ListTagResourcesRequest extends $tea.Model {
     return {
       regionId: 'string',
       resourceType: 'string',
-      noRole: 'boolean',
       nextToken: 'string',
       tag: { 'type': 'array', 'itemType': ListTagResourcesRequestTag },
       resourceId: { 'type': 'array', 'itemType': 'string' },
@@ -4942,12 +5032,10 @@ export class PutStartBackupResponse extends $tea.Model {
 export class ReleaseInstanceInternetAddressRequest extends $tea.Model {
   drdsInstanceId?: string;
   regionId?: string;
-  drdsPassword?: string;
   static names(): { [key: string]: string } {
     return {
       drdsInstanceId: 'DrdsInstanceId',
       regionId: 'RegionId',
-      drdsPassword: 'DrdsPassword',
     };
   }
 
@@ -4955,7 +5043,6 @@ export class ReleaseInstanceInternetAddressRequest extends $tea.Model {
     return {
       drdsInstanceId: 'string',
       regionId: 'string',
-      drdsPassword: 'string',
     };
   }
 
@@ -6523,14 +6610,12 @@ export class SwitchGlobalBroadcastTypeResponse extends $tea.Model {
 export class TagResourcesRequest extends $tea.Model {
   regionId?: string;
   resourceType?: string;
-  noRole?: boolean;
   tag?: TagResourcesRequestTag[];
   resourceId?: string[];
   static names(): { [key: string]: string } {
     return {
       regionId: 'RegionId',
       resourceType: 'ResourceType',
-      noRole: 'NoRole',
       tag: 'Tag',
       resourceId: 'ResourceId',
     };
@@ -6540,7 +6625,6 @@ export class TagResourcesRequest extends $tea.Model {
     return {
       regionId: 'string',
       resourceType: 'string',
-      noRole: 'boolean',
       tag: { 'type': 'array', 'itemType': TagResourcesRequestTag },
       resourceId: { 'type': 'array', 'itemType': 'string' },
     };
@@ -6599,7 +6683,6 @@ export class UntagResourcesRequest extends $tea.Model {
   regionId?: string;
   resourceType?: string;
   all?: boolean;
-  noRole?: boolean;
   resourceId?: string[];
   tagKey?: string[];
   static names(): { [key: string]: string } {
@@ -6607,7 +6690,6 @@ export class UntagResourcesRequest extends $tea.Model {
       regionId: 'RegionId',
       resourceType: 'ResourceType',
       all: 'All',
-      noRole: 'NoRole',
       resourceId: 'ResourceId',
       tagKey: 'TagKey',
     };
@@ -6618,7 +6700,6 @@ export class UntagResourcesRequest extends $tea.Model {
       regionId: 'string',
       resourceType: 'string',
       all: 'boolean',
-      noRole: 'boolean',
       resourceId: { 'type': 'array', 'itemType': 'string' },
       tagKey: { 'type': 'array', 'itemType': 'string' },
     };
@@ -6745,16 +6826,80 @@ export class UpdateInstanceNetworkResponse extends $tea.Model {
   }
 }
 
+export class UpdateResourceGroupAttributeRequest extends $tea.Model {
+  regionId?: string;
+  drdsInstanceId?: string;
+  newResourceGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+      drdsInstanceId: 'DrdsInstanceId',
+      newResourceGroupId: 'NewResourceGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+      drdsInstanceId: 'string',
+      newResourceGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateResourceGroupAttributeResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateResourceGroupAttributeResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: UpdateResourceGroupAttributeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: UpdateResourceGroupAttributeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpgradeHiStoreInstanceRequest extends $tea.Model {
   drdsInstanceId?: string;
   regionId?: string;
-  drdsPassword?: string;
   historeInstanceId?: string;
   static names(): { [key: string]: string } {
     return {
       drdsInstanceId: 'DrdsInstanceId',
       regionId: 'RegionId',
-      drdsPassword: 'DrdsPassword',
       historeInstanceId: 'HistoreInstanceId',
     };
   }
@@ -6763,7 +6908,6 @@ export class UpgradeHiStoreInstanceRequest extends $tea.Model {
     return {
       drdsInstanceId: 'string',
       regionId: 'string',
-      drdsPassword: 'string',
       historeInstanceId: 'string',
     };
   }
@@ -6820,13 +6964,11 @@ export class UpgradeHiStoreInstanceResponse extends $tea.Model {
 export class UpgradeInstanceVersionRequest extends $tea.Model {
   drdsInstanceId?: string;
   regionId?: string;
-  drdsPassword?: string;
   rpm?: string;
   static names(): { [key: string]: string } {
     return {
       drdsInstanceId: 'DrdsInstanceId',
       regionId: 'RegionId',
-      drdsPassword: 'DrdsPassword',
       rpm: 'Rpm',
     };
   }
@@ -6835,7 +6977,6 @@ export class UpgradeInstanceVersionRequest extends $tea.Model {
     return {
       drdsInstanceId: 'string',
       regionId: 'string',
-      drdsPassword: 'string',
       rpm: 'string',
     };
   }
@@ -10047,6 +10188,40 @@ export class DescribeShardTaskInfoResponseBodyData extends $tea.Model {
   }
 }
 
+export class DescribeShardTaskListResponseBodyList extends $tea.Model {
+  sourceTableName?: string;
+  targetTableName?: string;
+  expired?: number;
+  stage?: number;
+  progress?: number;
+  delay?: number;
+  static names(): { [key: string]: string } {
+    return {
+      sourceTableName: 'SourceTableName',
+      targetTableName: 'TargetTableName',
+      expired: 'Expired',
+      stage: 'Stage',
+      progress: 'Progress',
+      delay: 'Delay',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sourceTableName: 'string',
+      targetTableName: 'string',
+      expired: 'number',
+      stage: 'number',
+      progress: 'number',
+      delay: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeSqlFlashbakTaskResponseBodySqlFlashbackTasksSqlFlashbackTask extends $tea.Model {
   tableName?: string;
   searchEndTime?: number;
@@ -11309,6 +11484,19 @@ export default class Client extends OpenApi {
     return await this.describeShardTaskInfoWithOptions(request, runtime);
   }
 
+  async describeShardTaskListWithOptions(request: DescribeShardTaskListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeShardTaskListResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DescribeShardTaskListResponse>(await this.doRPCRequest("DescribeShardTaskList", "2019-01-23", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeShardTaskListResponse({}));
+  }
+
+  async describeShardTaskList(request: DescribeShardTaskListRequest): Promise<DescribeShardTaskListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeShardTaskListWithOptions(request, runtime);
+  }
+
   async describeSqlFlashbakTaskWithOptions(request: DescribeSqlFlashbakTaskRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSqlFlashbakTaskResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -11788,6 +11976,19 @@ export default class Client extends OpenApi {
   async updateInstanceNetwork(request: UpdateInstanceNetworkRequest): Promise<UpdateInstanceNetworkResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateInstanceNetworkWithOptions(request, runtime);
+  }
+
+  async updateResourceGroupAttributeWithOptions(request: UpdateResourceGroupAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateResourceGroupAttributeResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<UpdateResourceGroupAttributeResponse>(await this.doRPCRequest("UpdateResourceGroupAttribute", "2019-01-23", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateResourceGroupAttributeResponse({}));
+  }
+
+  async updateResourceGroupAttribute(request: UpdateResourceGroupAttributeRequest): Promise<UpdateResourceGroupAttributeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateResourceGroupAttributeWithOptions(request, runtime);
   }
 
   async upgradeHiStoreInstanceWithOptions(request: UpgradeHiStoreInstanceRequest, runtime: $Util.RuntimeOptions): Promise<UpgradeHiStoreInstanceResponse> {
