@@ -18,7 +18,6 @@ export class CreateAsyncPredictRequest extends $tea.Model {
   fileUrl?: string;
   fileContent?: string;
   fetchContent?: string;
-  product?: string;
   static names(): { [key: string]: string } {
     return {
       modelId: 'ModelId',
@@ -30,7 +29,6 @@ export class CreateAsyncPredictRequest extends $tea.Model {
       fileUrl: 'FileUrl',
       fileContent: 'FileContent',
       fetchContent: 'FetchContent',
-      product: 'Product',
     };
   }
 
@@ -45,7 +43,6 @@ export class CreateAsyncPredictRequest extends $tea.Model {
       fileUrl: 'string',
       fileContent: 'string',
       fetchContent: 'string',
-      product: 'string',
     };
   }
 
@@ -101,12 +98,10 @@ export class CreateAsyncPredictResponse extends $tea.Model {
 export class CreateDatasetRequest extends $tea.Model {
   projectId?: number;
   datasetName?: string;
-  product?: string;
   static names(): { [key: string]: string } {
     return {
       projectId: 'ProjectId',
       datasetName: 'DatasetName',
-      product: 'Product',
     };
   }
 
@@ -114,7 +109,6 @@ export class CreateDatasetRequest extends $tea.Model {
     return {
       projectId: 'number',
       datasetName: 'string',
-      product: 'string',
     };
   }
 
@@ -262,7 +256,6 @@ export class CreateModelRequest extends $tea.Model {
   datasetIdList?: { [key: string]: any };
   testDatasetIdList?: { [key: string]: any };
   isIncrementalTrain?: string;
-  product?: string;
   static names(): { [key: string]: string } {
     return {
       modelId: 'ModelId',
@@ -272,7 +265,6 @@ export class CreateModelRequest extends $tea.Model {
       datasetIdList: 'DatasetIdList',
       testDatasetIdList: 'TestDatasetIdList',
       isIncrementalTrain: 'IsIncrementalTrain',
-      product: 'Product',
     };
   }
 
@@ -285,7 +277,6 @@ export class CreateModelRequest extends $tea.Model {
       datasetIdList: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       testDatasetIdList: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       isIncrementalTrain: 'string',
-      product: 'string',
     };
   }
 
@@ -302,7 +293,6 @@ export class CreateModelShrinkRequest extends $tea.Model {
   datasetIdListShrink?: string;
   testDatasetIdListShrink?: string;
   isIncrementalTrain?: string;
-  product?: string;
   static names(): { [key: string]: string } {
     return {
       modelId: 'ModelId',
@@ -312,7 +302,6 @@ export class CreateModelShrinkRequest extends $tea.Model {
       datasetIdListShrink: 'DatasetIdList',
       testDatasetIdListShrink: 'TestDatasetIdList',
       isIncrementalTrain: 'IsIncrementalTrain',
-      product: 'Product',
     };
   }
 
@@ -325,7 +314,6 @@ export class CreateModelShrinkRequest extends $tea.Model {
       datasetIdListShrink: 'string',
       testDatasetIdListShrink: 'string',
       isIncrementalTrain: 'string',
-      product: 'string',
     };
   }
 
@@ -391,13 +379,11 @@ export class CreateProjectRequest extends $tea.Model {
   projectType?: string;
   projectName?: string;
   projectDescription?: string;
-  product?: string;
   static names(): { [key: string]: string } {
     return {
       projectType: 'ProjectType',
       projectName: 'ProjectName',
       projectDescription: 'ProjectDescription',
-      product: 'Product',
     };
   }
 
@@ -406,7 +392,6 @@ export class CreateProjectRequest extends $tea.Model {
       projectType: 'string',
       projectName: 'string',
       projectDescription: 'string',
-      product: 'string',
     };
   }
 
@@ -471,12 +456,10 @@ export class CreateProjectResponse extends $tea.Model {
 export class DeleteModelRequest extends $tea.Model {
   modelId?: number;
   projectId?: number;
-  product?: string;
   static names(): { [key: string]: string } {
     return {
       modelId: 'ModelId',
       projectId: 'ProjectId',
-      product: 'Product',
     };
   }
 
@@ -484,7 +467,6 @@ export class DeleteModelRequest extends $tea.Model {
     return {
       modelId: 'number',
       projectId: 'number',
-      product: 'string',
     };
   }
 
@@ -551,14 +533,12 @@ export class DeployModelRequest extends $tea.Model {
   optType?: string;
   projectId?: number;
   modelVersion?: string;
-  product?: string;
   static names(): { [key: string]: string } {
     return {
       modelId: 'ModelId',
       optType: 'OptType',
       projectId: 'ProjectId',
       modelVersion: 'ModelVersion',
-      product: 'Product',
     };
   }
 
@@ -568,7 +548,6 @@ export class DeployModelRequest extends $tea.Model {
       optType: 'string',
       projectId: 'number',
       modelVersion: 'string',
-      product: 'string',
     };
   }
 
@@ -632,18 +611,15 @@ export class DeployModelResponse extends $tea.Model {
 
 export class GetAsyncPredictRequest extends $tea.Model {
   asyncPredictId?: number;
-  product?: string;
   static names(): { [key: string]: string } {
     return {
       asyncPredictId: 'AsyncPredictId',
-      product: 'Product',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       asyncPredictId: 'number',
-      product: 'string',
     };
   }
 
@@ -706,13 +682,11 @@ export class GetModelRequest extends $tea.Model {
   modelId?: number;
   projectId?: number;
   modelVersion?: string;
-  product?: string;
   static names(): { [key: string]: string } {
     return {
       modelId: 'ModelId',
       projectId: 'ProjectId',
       modelVersion: 'ModelVersion',
-      product: 'Product',
     };
   }
 
@@ -721,7 +695,6 @@ export class GetModelRequest extends $tea.Model {
       modelId: 'number',
       projectId: 'number',
       modelVersion: 'string',
-      product: 'string',
     };
   }
 
@@ -783,13 +756,65 @@ export class GetModelResponse extends $tea.Model {
   }
 }
 
+export class GetModelFeaturesInfoResponseBody extends $tea.Model {
+  message?: string;
+  requestId?: string;
+  data?: { [key: string]: any };
+  code?: number;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      requestId: 'RequestId',
+      data: 'Data',
+      code: 'Code',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      requestId: 'string',
+      data: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      code: 'number',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetModelFeaturesInfoResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetModelFeaturesInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetModelFeaturesInfoResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetPredictResultRequest extends $tea.Model {
   modelId?: number;
   content?: string;
   modelVersion?: string;
   detailTag?: string;
   topK?: number;
-  product?: string;
   static names(): { [key: string]: string } {
     return {
       modelId: 'ModelId',
@@ -797,7 +822,6 @@ export class GetPredictResultRequest extends $tea.Model {
       modelVersion: 'ModelVersion',
       detailTag: 'DetailTag',
       topK: 'TopK',
-      product: 'Product',
     };
   }
 
@@ -808,7 +832,6 @@ export class GetPredictResultRequest extends $tea.Model {
       modelVersion: 'string',
       detailTag: 'string',
       topK: 'number',
-      product: 'string',
     };
   }
 
@@ -865,13 +888,11 @@ export class ListDatasetRequest extends $tea.Model {
   projectId?: number;
   pageSize?: number;
   pageNumber?: number;
-  product?: string;
   static names(): { [key: string]: string } {
     return {
       projectId: 'ProjectId',
       pageSize: 'PageSize',
       pageNumber: 'PageNumber',
-      product: 'Product',
     };
   }
 
@@ -880,7 +901,6 @@ export class ListDatasetRequest extends $tea.Model {
       projectId: 'number',
       pageSize: 'number',
       pageNumber: 'number',
-      product: 'string',
     };
   }
 
@@ -946,13 +966,11 @@ export class ListModelsRequest extends $tea.Model {
   projectId?: number;
   pageSize?: number;
   pageNumber?: number;
-  product?: string;
   static names(): { [key: string]: string } {
     return {
       projectId: 'ProjectId',
       pageSize: 'PageSize',
       pageNumber: 'PageNumber',
-      product: 'Product',
     };
   }
 
@@ -961,7 +979,6 @@ export class ListModelsRequest extends $tea.Model {
       projectId: 'number',
       pageSize: 'number',
       pageNumber: 'number',
-      product: 'string',
     };
   }
 
@@ -1026,12 +1043,10 @@ export class ListModelsResponse extends $tea.Model {
 export class RunContactReviewRequest extends $tea.Model {
   contactScene?: string;
   contactPath?: string;
-  product?: string;
   static names(): { [key: string]: string } {
     return {
       contactScene: 'ContactScene',
       contactPath: 'ContactPath',
-      product: 'Product',
     };
   }
 
@@ -1039,7 +1054,6 @@ export class RunContactReviewRequest extends $tea.Model {
     return {
       contactScene: 'string',
       contactPath: 'string',
-      product: 'string',
     };
   }
 
@@ -1099,13 +1113,11 @@ export class RunPreTrainServiceRequest extends $tea.Model {
   serviceName?: string;
   serviceVersion?: string;
   predictContent?: string;
-  product?: string;
   static names(): { [key: string]: string } {
     return {
       serviceName: 'ServiceName',
       serviceVersion: 'ServiceVersion',
       predictContent: 'PredictContent',
-      product: 'Product',
     };
   }
 
@@ -1114,7 +1126,6 @@ export class RunPreTrainServiceRequest extends $tea.Model {
       serviceName: 'string',
       serviceVersion: 'string',
       predictContent: 'string',
-      product: 'string',
     };
   }
 
@@ -1172,14 +1183,12 @@ export class RunSmartCallServiceRequest extends $tea.Model {
   paramContent?: string;
   robotId?: number;
   sessionId?: string;
-  product?: string;
   static names(): { [key: string]: string } {
     return {
       serviceName: 'ServiceName',
       paramContent: 'ParamContent',
       robotId: 'RobotId',
       sessionId: 'SessionId',
-      product: 'Product',
     };
   }
 
@@ -1189,7 +1198,6 @@ export class RunSmartCallServiceRequest extends $tea.Model {
       paramContent: 'string',
       robotId: 'number',
       sessionId: 'string',
-      product: 'string',
     };
   }
 
@@ -1366,7 +1374,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<CreateAsyncPredictResponse>(await this.doRPCRequest("CreateAsyncPredict", "2019-11-11", "HTTPS", "POST", "AK", "json", req, runtime), new CreateAsyncPredictResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateAsyncPredict",
+      version: "2019-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateAsyncPredictResponse>(await this.callApi(params, req, runtime), new CreateAsyncPredictResponse({}));
   }
 
   async createAsyncPredict(request: CreateAsyncPredictRequest): Promise<CreateAsyncPredictResponse> {
@@ -1379,7 +1398,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<CreateDatasetResponse>(await this.doRPCRequest("CreateDataset", "2019-11-11", "HTTPS", "POST", "AK", "json", req, runtime), new CreateDatasetResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateDataset",
+      version: "2019-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateDatasetResponse>(await this.callApi(params, req, runtime), new CreateDatasetResponse({}));
   }
 
   async createDataset(request: CreateDatasetRequest): Promise<CreateDatasetResponse> {
@@ -1392,7 +1422,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<CreateDatasetRecordResponse>(await this.doRPCRequest("CreateDatasetRecord", "2019-11-11", "HTTPS", "POST", "AK", "json", req, runtime), new CreateDatasetRecordResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateDatasetRecord",
+      version: "2019-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateDatasetRecordResponse>(await this.callApi(params, req, runtime), new CreateDatasetRecordResponse({}));
   }
 
   async createDatasetRecord(request: CreateDatasetRecordRequest): Promise<CreateDatasetRecordResponse> {
@@ -1415,7 +1456,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<CreateModelResponse>(await this.doRPCRequest("CreateModel", "2019-11-11", "HTTPS", "POST", "AK", "json", req, runtime), new CreateModelResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateModel",
+      version: "2019-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateModelResponse>(await this.callApi(params, req, runtime), new CreateModelResponse({}));
   }
 
   async createModel(request: CreateModelRequest): Promise<CreateModelResponse> {
@@ -1428,7 +1480,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<CreateProjectResponse>(await this.doRPCRequest("CreateProject", "2019-11-11", "HTTPS", "POST", "AK", "json", req, runtime), new CreateProjectResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateProject",
+      version: "2019-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateProjectResponse>(await this.callApi(params, req, runtime), new CreateProjectResponse({}));
   }
 
   async createProject(request: CreateProjectRequest): Promise<CreateProjectResponse> {
@@ -1441,7 +1504,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<DeleteModelResponse>(await this.doRPCRequest("DeleteModel", "2019-11-11", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteModelResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteModel",
+      version: "2019-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteModelResponse>(await this.callApi(params, req, runtime), new DeleteModelResponse({}));
   }
 
   async deleteModel(request: DeleteModelRequest): Promise<DeleteModelResponse> {
@@ -1454,7 +1528,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<DeployModelResponse>(await this.doRPCRequest("DeployModel", "2019-11-11", "HTTPS", "POST", "AK", "json", req, runtime), new DeployModelResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeployModel",
+      version: "2019-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeployModelResponse>(await this.callApi(params, req, runtime), new DeployModelResponse({}));
   }
 
   async deployModel(request: DeployModelRequest): Promise<DeployModelResponse> {
@@ -1466,9 +1551,20 @@ export default class Client extends OpenApi {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
     let req = new $OpenApi.OpenApiRequest({
-      query: query,
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetAsyncPredictResponse>(await this.doRPCRequest("GetAsyncPredict", "2019-11-11", "HTTPS", "GET", "AK", "json", req, runtime), new GetAsyncPredictResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetAsyncPredict",
+      version: "2019-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetAsyncPredictResponse>(await this.callApi(params, req, runtime), new GetAsyncPredictResponse({}));
   }
 
   async getAsyncPredict(request: GetAsyncPredictRequest): Promise<GetAsyncPredictResponse> {
@@ -1481,7 +1577,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<GetModelResponse>(await this.doRPCRequest("GetModel", "2019-11-11", "HTTPS", "POST", "AK", "json", req, runtime), new GetModelResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetModel",
+      version: "2019-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetModelResponse>(await this.callApi(params, req, runtime), new GetModelResponse({}));
   }
 
   async getModel(request: GetModelRequest): Promise<GetModelResponse> {
@@ -1489,12 +1596,44 @@ export default class Client extends OpenApi {
     return await this.getModelWithOptions(request, runtime);
   }
 
+  async getModelFeaturesInfoWithOptions(runtime: $Util.RuntimeOptions): Promise<GetModelFeaturesInfoResponse> {
+    let req = new $OpenApi.OpenApiRequest({ });
+    let params = new $OpenApi.Params({
+      action: "GetModelFeaturesInfo",
+      version: "2019-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetModelFeaturesInfoResponse>(await this.callApi(params, req, runtime), new GetModelFeaturesInfoResponse({}));
+  }
+
+  async getModelFeaturesInfo(): Promise<GetModelFeaturesInfoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getModelFeaturesInfoWithOptions(runtime);
+  }
+
   async getPredictResultWithOptions(request: GetPredictResultRequest, runtime: $Util.RuntimeOptions): Promise<GetPredictResultResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<GetPredictResultResponse>(await this.doRPCRequest("GetPredictResult", "2019-11-11", "HTTPS", "POST", "AK", "json", req, runtime), new GetPredictResultResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetPredictResult",
+      version: "2019-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetPredictResultResponse>(await this.callApi(params, req, runtime), new GetPredictResultResponse({}));
   }
 
   async getPredictResult(request: GetPredictResultRequest): Promise<GetPredictResultResponse> {
@@ -1507,7 +1646,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<ListDatasetResponse>(await this.doRPCRequest("ListDataset", "2019-11-11", "HTTPS", "POST", "AK", "json", req, runtime), new ListDatasetResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListDataset",
+      version: "2019-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListDatasetResponse>(await this.callApi(params, req, runtime), new ListDatasetResponse({}));
   }
 
   async listDataset(request: ListDatasetRequest): Promise<ListDatasetResponse> {
@@ -1520,7 +1670,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<ListModelsResponse>(await this.doRPCRequest("ListModels", "2019-11-11", "HTTPS", "POST", "AK", "json", req, runtime), new ListModelsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListModels",
+      version: "2019-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListModelsResponse>(await this.callApi(params, req, runtime), new ListModelsResponse({}));
   }
 
   async listModels(request: ListModelsRequest): Promise<ListModelsResponse> {
@@ -1533,7 +1694,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<RunContactReviewResponse>(await this.doRPCRequest("RunContactReview", "2019-11-11", "HTTPS", "POST", "AK", "json", req, runtime), new RunContactReviewResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RunContactReview",
+      version: "2019-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RunContactReviewResponse>(await this.callApi(params, req, runtime), new RunContactReviewResponse({}));
   }
 
   async runContactReview(request: RunContactReviewRequest): Promise<RunContactReviewResponse> {
@@ -1546,7 +1718,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<RunPreTrainServiceResponse>(await this.doRPCRequest("RunPreTrainService", "2019-11-11", "HTTPS", "POST", "AK", "json", req, runtime), new RunPreTrainServiceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RunPreTrainService",
+      version: "2019-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RunPreTrainServiceResponse>(await this.callApi(params, req, runtime), new RunPreTrainServiceResponse({}));
   }
 
   async runPreTrainService(request: RunPreTrainServiceRequest): Promise<RunPreTrainServiceResponse> {
@@ -1559,7 +1742,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<RunSmartCallServiceResponse>(await this.doRPCRequest("RunSmartCallService", "2019-11-11", "HTTPS", "POST", "AK", "json", req, runtime), new RunSmartCallServiceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RunSmartCallService",
+      version: "2019-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RunSmartCallServiceResponse>(await this.callApi(params, req, runtime), new RunSmartCallServiceResponse({}));
   }
 
   async runSmartCallService(request: RunSmartCallServiceRequest): Promise<RunSmartCallServiceResponse> {
