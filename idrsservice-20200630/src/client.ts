@@ -4,6 +4,7 @@
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
+import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
@@ -469,6 +470,124 @@ export class CreateLiveDetectionResponse extends $tea.Model {
   }
 }
 
+export class CreateLiveRecordTemplateRequest extends $tea.Model {
+  rtcCode?: string;
+  name?: string;
+  backgroundColor?: number;
+  backgrounds?: CreateLiveRecordTemplateRequestBackgrounds[];
+  watermarks?: CreateLiveRecordTemplateRequestWatermarks[];
+  clockWidgets?: CreateLiveRecordTemplateRequestClockWidgets[];
+  static names(): { [key: string]: string } {
+    return {
+      rtcCode: 'RtcCode',
+      name: 'Name',
+      backgroundColor: 'BackgroundColor',
+      backgrounds: 'Backgrounds',
+      watermarks: 'Watermarks',
+      clockWidgets: 'ClockWidgets',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      rtcCode: 'string',
+      name: 'string',
+      backgroundColor: 'number',
+      backgrounds: { 'type': 'array', 'itemType': CreateLiveRecordTemplateRequestBackgrounds },
+      watermarks: { 'type': 'array', 'itemType': CreateLiveRecordTemplateRequestWatermarks },
+      clockWidgets: { 'type': 'array', 'itemType': CreateLiveRecordTemplateRequestClockWidgets },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateLiveRecordTemplateShrinkRequest extends $tea.Model {
+  rtcCode?: string;
+  name?: string;
+  backgroundColor?: number;
+  backgroundsShrink?: string;
+  watermarksShrink?: string;
+  clockWidgetsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      rtcCode: 'RtcCode',
+      name: 'Name',
+      backgroundColor: 'BackgroundColor',
+      backgroundsShrink: 'Backgrounds',
+      watermarksShrink: 'Watermarks',
+      clockWidgetsShrink: 'ClockWidgets',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      rtcCode: 'string',
+      name: 'string',
+      backgroundColor: 'number',
+      backgroundsShrink: 'string',
+      watermarksShrink: 'string',
+      clockWidgetsShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateLiveRecordTemplateResponseBody extends $tea.Model {
+  message?: string;
+  requestId?: string;
+  data?: CreateLiveRecordTemplateResponseBodyData;
+  code?: string;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      requestId: 'RequestId',
+      data: 'Data',
+      code: 'Code',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      requestId: 'string',
+      data: CreateLiveRecordTemplateResponseBodyData,
+      code: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateLiveRecordTemplateResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CreateLiveRecordTemplateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CreateLiveRecordTemplateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateRuleRequest extends $tea.Model {
   name?: string;
   content?: string;
@@ -799,10 +918,12 @@ export class CreateTaskGroupResponse extends $tea.Model {
 export class CreateUserDepartmentsRequest extends $tea.Model {
   userId?: string[];
   departmentId?: string[];
+  clientToken?: string;
   static names(): { [key: string]: string } {
     return {
       userId: 'UserId',
       departmentId: 'DepartmentId',
+      clientToken: 'ClientToken',
     };
   }
 
@@ -810,6 +931,7 @@ export class CreateUserDepartmentsRequest extends $tea.Model {
     return {
       userId: { 'type': 'array', 'itemType': 'string' },
       departmentId: { 'type': 'array', 'itemType': 'string' },
+      clientToken: 'string',
     };
   }
 
@@ -1067,6 +1189,75 @@ export class DeleteDetectProcessResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: DeleteDetectProcessResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteLiveRecordTemplateRequest extends $tea.Model {
+  id?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteLiveRecordTemplateResponseBody extends $tea.Model {
+  message?: string;
+  requestId?: string;
+  data?: { [key: string]: any };
+  code?: string;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      requestId: 'RequestId',
+      data: 'Data',
+      code: 'Code',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      requestId: 'string',
+      data: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      code: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteLiveRecordTemplateResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DeleteLiveRecordTemplateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DeleteLiveRecordTemplateResponseBody,
     };
   }
 
@@ -1966,6 +2157,75 @@ export class GetGlobalConfigResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: GetGlobalConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLiveRecordTemplateRequest extends $tea.Model {
+  id?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLiveRecordTemplateResponseBody extends $tea.Model {
+  message?: string;
+  requestId?: string;
+  data?: GetLiveRecordTemplateResponseBodyData;
+  code?: string;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      requestId: 'RequestId',
+      data: 'Data',
+      code: 'Code',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      requestId: 'string',
+      data: GetLiveRecordTemplateResponseBodyData,
+      code: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLiveRecordTemplateResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetLiveRecordTemplateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetLiveRecordTemplateResponseBody,
     };
   }
 
@@ -3204,6 +3464,150 @@ export class ListFilesResponse extends $tea.Model {
   }
 }
 
+export class ListLiveAppsRequest extends $tea.Model {
+  pageIndex?: number;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageIndex: 'PageIndex',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageIndex: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListLiveAppsResponseBody extends $tea.Model {
+  message?: string;
+  requestId?: string;
+  data?: ListLiveAppsResponseBodyData;
+  code?: string;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      requestId: 'RequestId',
+      data: 'Data',
+      code: 'Code',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      requestId: 'string',
+      data: ListLiveAppsResponseBodyData,
+      code: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListLiveAppsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListLiveAppsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListLiveAppsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListLiveRecordTemplatesRequest extends $tea.Model {
+  pageIndex?: number;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageIndex: 'PageIndex',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageIndex: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListLiveRecordTemplatesResponseBody extends $tea.Model {
+  message?: string;
+  requestId?: string;
+  data?: ListLiveRecordTemplatesResponseBodyData;
+  code?: string;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      requestId: 'RequestId',
+      data: 'Data',
+      code: 'Code',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      requestId: 'string',
+      data: ListLiveRecordTemplatesResponseBodyData,
+      code: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListLiveRecordTemplatesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListLiveRecordTemplatesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListLiveRecordTemplatesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListLivesRequest extends $tea.Model {
   pageIndex?: number;
   pageSize?: number;
@@ -3839,6 +4243,208 @@ export class RenameDetectProcessResponse extends $tea.Model {
   }
 }
 
+export class StartLiveRecordTaskRequest extends $tea.Model {
+  liveId?: string;
+  userId?: string;
+  rtcCode?: string;
+  name?: string;
+  templateId?: string;
+  backgroundColor?: number;
+  clockWidgets?: StartLiveRecordTaskRequestClockWidgets[];
+  userPanes?: StartLiveRecordTaskRequestUserPanes[];
+  static names(): { [key: string]: string } {
+    return {
+      liveId: 'LiveId',
+      userId: 'UserId',
+      rtcCode: 'RtcCode',
+      name: 'Name',
+      templateId: 'TemplateId',
+      backgroundColor: 'BackgroundColor',
+      clockWidgets: 'ClockWidgets',
+      userPanes: 'UserPanes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      liveId: 'string',
+      userId: 'string',
+      rtcCode: 'string',
+      name: 'string',
+      templateId: 'string',
+      backgroundColor: 'number',
+      clockWidgets: { 'type': 'array', 'itemType': StartLiveRecordTaskRequestClockWidgets },
+      userPanes: { 'type': 'array', 'itemType': StartLiveRecordTaskRequestUserPanes },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartLiveRecordTaskShrinkRequest extends $tea.Model {
+  liveId?: string;
+  userId?: string;
+  rtcCode?: string;
+  name?: string;
+  templateId?: string;
+  backgroundColor?: number;
+  clockWidgetsShrink?: string;
+  userPanesShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      liveId: 'LiveId',
+      userId: 'UserId',
+      rtcCode: 'RtcCode',
+      name: 'Name',
+      templateId: 'TemplateId',
+      backgroundColor: 'BackgroundColor',
+      clockWidgetsShrink: 'ClockWidgets',
+      userPanesShrink: 'UserPanes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      liveId: 'string',
+      userId: 'string',
+      rtcCode: 'string',
+      name: 'string',
+      templateId: 'string',
+      backgroundColor: 'number',
+      clockWidgetsShrink: 'string',
+      userPanesShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartLiveRecordTaskResponseBody extends $tea.Model {
+  message?: string;
+  requestId?: string;
+  data?: StartLiveRecordTaskResponseBodyData;
+  code?: string;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      requestId: 'RequestId',
+      data: 'Data',
+      code: 'Code',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      requestId: 'string',
+      data: StartLiveRecordTaskResponseBodyData,
+      code: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartLiveRecordTaskResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: StartLiveRecordTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: StartLiveRecordTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopLiveRecordTaskRequest extends $tea.Model {
+  liveId?: string;
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      liveId: 'LiveId',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      liveId: 'string',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopLiveRecordTaskResponseBody extends $tea.Model {
+  message?: string;
+  requestId?: string;
+  data?: StopLiveRecordTaskResponseBodyData;
+  code?: string;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      requestId: 'RequestId',
+      data: 'Data',
+      code: 'Code',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      requestId: 'string',
+      data: StopLiveRecordTaskResponseBodyData,
+      code: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopLiveRecordTaskResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: StopLiveRecordTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: StopLiveRecordTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateAppRequest extends $tea.Model {
   id?: string;
   name?: string;
@@ -4151,6 +4757,260 @@ export class UpdateLiveResponse extends $tea.Model {
   }
 }
 
+export class UpdateLiveRecordTaskRequest extends $tea.Model {
+  liveId?: string;
+  userId?: string;
+  rtcCode?: string;
+  name?: string;
+  templateId?: string;
+  backgroundColor?: number;
+  clockWidgets?: UpdateLiveRecordTaskRequestClockWidgets[];
+  userPanes?: UpdateLiveRecordTaskRequestUserPanes[];
+  static names(): { [key: string]: string } {
+    return {
+      liveId: 'LiveId',
+      userId: 'UserId',
+      rtcCode: 'RtcCode',
+      name: 'Name',
+      templateId: 'TemplateId',
+      backgroundColor: 'BackgroundColor',
+      clockWidgets: 'ClockWidgets',
+      userPanes: 'UserPanes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      liveId: 'string',
+      userId: 'string',
+      rtcCode: 'string',
+      name: 'string',
+      templateId: 'string',
+      backgroundColor: 'number',
+      clockWidgets: { 'type': 'array', 'itemType': UpdateLiveRecordTaskRequestClockWidgets },
+      userPanes: { 'type': 'array', 'itemType': UpdateLiveRecordTaskRequestUserPanes },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateLiveRecordTaskShrinkRequest extends $tea.Model {
+  liveId?: string;
+  userId?: string;
+  rtcCode?: string;
+  name?: string;
+  templateId?: string;
+  backgroundColor?: number;
+  clockWidgetsShrink?: string;
+  userPanesShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      liveId: 'LiveId',
+      userId: 'UserId',
+      rtcCode: 'RtcCode',
+      name: 'Name',
+      templateId: 'TemplateId',
+      backgroundColor: 'BackgroundColor',
+      clockWidgetsShrink: 'ClockWidgets',
+      userPanesShrink: 'UserPanes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      liveId: 'string',
+      userId: 'string',
+      rtcCode: 'string',
+      name: 'string',
+      templateId: 'string',
+      backgroundColor: 'number',
+      clockWidgetsShrink: 'string',
+      userPanesShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateLiveRecordTaskResponseBody extends $tea.Model {
+  message?: string;
+  requestId?: string;
+  data?: UpdateLiveRecordTaskResponseBodyData;
+  code?: string;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      requestId: 'RequestId',
+      data: 'Data',
+      code: 'Code',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      requestId: 'string',
+      data: UpdateLiveRecordTaskResponseBodyData,
+      code: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateLiveRecordTaskResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: UpdateLiveRecordTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: UpdateLiveRecordTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateLiveRecordTemplateRequest extends $tea.Model {
+  rtcCode?: string;
+  name?: string;
+  id?: string;
+  backgroundColor?: number;
+  backgrounds?: UpdateLiveRecordTemplateRequestBackgrounds[];
+  watermarks?: UpdateLiveRecordTemplateRequestWatermarks[];
+  clockWidgets?: UpdateLiveRecordTemplateRequestClockWidgets[];
+  static names(): { [key: string]: string } {
+    return {
+      rtcCode: 'RtcCode',
+      name: 'Name',
+      id: 'Id',
+      backgroundColor: 'BackgroundColor',
+      backgrounds: 'Backgrounds',
+      watermarks: 'Watermarks',
+      clockWidgets: 'ClockWidgets',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      rtcCode: 'string',
+      name: 'string',
+      id: 'string',
+      backgroundColor: 'number',
+      backgrounds: { 'type': 'array', 'itemType': UpdateLiveRecordTemplateRequestBackgrounds },
+      watermarks: { 'type': 'array', 'itemType': UpdateLiveRecordTemplateRequestWatermarks },
+      clockWidgets: { 'type': 'array', 'itemType': UpdateLiveRecordTemplateRequestClockWidgets },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateLiveRecordTemplateShrinkRequest extends $tea.Model {
+  rtcCode?: string;
+  name?: string;
+  id?: string;
+  backgroundColor?: number;
+  backgroundsShrink?: string;
+  watermarksShrink?: string;
+  clockWidgetsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      rtcCode: 'RtcCode',
+      name: 'Name',
+      id: 'Id',
+      backgroundColor: 'BackgroundColor',
+      backgroundsShrink: 'Backgrounds',
+      watermarksShrink: 'Watermarks',
+      clockWidgetsShrink: 'ClockWidgets',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      rtcCode: 'string',
+      name: 'string',
+      id: 'string',
+      backgroundColor: 'number',
+      backgroundsShrink: 'string',
+      watermarksShrink: 'string',
+      clockWidgetsShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateLiveRecordTemplateResponseBody extends $tea.Model {
+  message?: string;
+  requestId?: string;
+  data?: UpdateLiveRecordTemplateResponseBodyData;
+  code?: string;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      requestId: 'RequestId',
+      data: 'Data',
+      code: 'Code',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      requestId: 'string',
+      data: UpdateLiveRecordTemplateResponseBodyData,
+      code: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateLiveRecordTemplateResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: UpdateLiveRecordTemplateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: UpdateLiveRecordTemplateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateRuleRequest extends $tea.Model {
   id?: string;
   name?: string;
@@ -4319,6 +5179,8 @@ export class UpdateSlrConfigurationRequest extends $tea.Model {
   mqInstanceId?: string;
   mqTopic?: string;
   mqGroupId?: string;
+  mqTopicTest?: string;
+  mqGroupIdTest?: string;
   mqEvent?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -4327,6 +5189,8 @@ export class UpdateSlrConfigurationRequest extends $tea.Model {
       mqInstanceId: 'MqInstanceId',
       mqTopic: 'MqTopic',
       mqGroupId: 'MqGroupId',
+      mqTopicTest: 'MqTopicTest',
+      mqGroupIdTest: 'MqGroupIdTest',
       mqEvent: 'MqEvent',
     };
   }
@@ -4338,6 +5202,8 @@ export class UpdateSlrConfigurationRequest extends $tea.Model {
       mqInstanceId: 'string',
       mqTopic: 'string',
       mqGroupId: 'string',
+      mqTopicTest: 'string',
+      mqGroupIdTest: 'string',
       mqEvent: { 'type': 'array', 'itemType': 'string' },
     };
   }
@@ -4628,6 +5494,139 @@ export class CreateLiveDetectionResponseBodyData extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      id: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateLiveRecordTemplateRequestBackgrounds extends $tea.Model {
+  display?: number;
+  url?: string;
+  width?: number;
+  height?: number;
+  x?: number;
+  y?: number;
+  ZOrder?: number;
+  static names(): { [key: string]: string } {
+    return {
+      display: 'Display',
+      url: 'Url',
+      width: 'Width',
+      height: 'Height',
+      x: 'X',
+      y: 'Y',
+      ZOrder: 'ZOrder',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      display: 'number',
+      url: 'string',
+      width: 'number',
+      height: 'number',
+      x: 'number',
+      y: 'number',
+      ZOrder: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateLiveRecordTemplateRequestWatermarks extends $tea.Model {
+  alpha?: number;
+  display?: number;
+  url?: string;
+  width?: number;
+  height?: number;
+  x?: number;
+  y?: number;
+  ZOrder?: number;
+  static names(): { [key: string]: string } {
+    return {
+      alpha: 'Alpha',
+      display: 'Display',
+      url: 'Url',
+      width: 'Width',
+      height: 'Height',
+      x: 'X',
+      y: 'Y',
+      ZOrder: 'ZOrder',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alpha: 'number',
+      display: 'number',
+      url: 'string',
+      width: 'number',
+      height: 'number',
+      x: 'number',
+      y: 'number',
+      ZOrder: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateLiveRecordTemplateRequestClockWidgets extends $tea.Model {
+  fontColor?: number;
+  fontSize?: number;
+  fontType?: number;
+  x?: number;
+  y?: number;
+  ZOrder?: number;
+  static names(): { [key: string]: string } {
+    return {
+      fontColor: 'FontColor',
+      fontSize: 'FontSize',
+      fontType: 'FontType',
+      x: 'X',
+      y: 'Y',
+      ZOrder: 'ZOrder',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fontColor: 'number',
+      fontSize: 'number',
+      fontType: 'number',
+      x: 'number',
+      y: 'number',
+      ZOrder: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateLiveRecordTemplateResponseBodyData extends $tea.Model {
+  createdAt?: string;
+  id?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createdAt: 'CreatedAt',
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createdAt: 'string',
       id: 'string',
     };
   }
@@ -4994,6 +5993,157 @@ export class GetDetectProcessResponseBodyData extends $tea.Model {
   }
 }
 
+export class GetLiveRecordTemplateResponseBodyDataBackgrounds extends $tea.Model {
+  display?: number;
+  x?: number;
+  y?: number;
+  width?: number;
+  height?: number;
+  ZOrder?: number;
+  static names(): { [key: string]: string } {
+    return {
+      display: 'Display',
+      x: 'X',
+      y: 'Y',
+      width: 'Width',
+      height: 'Height',
+      ZOrder: 'ZOrder',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      display: 'number',
+      x: 'number',
+      y: 'number',
+      width: 'number',
+      height: 'number',
+      ZOrder: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLiveRecordTemplateResponseBodyDataWatermarks extends $tea.Model {
+  url?: string;
+  alpha?: number;
+  display?: number;
+  x?: number;
+  y?: number;
+  width?: number;
+  height?: number;
+  ZOrder?: number;
+  static names(): { [key: string]: string } {
+    return {
+      url: 'Url',
+      alpha: 'Alpha',
+      display: 'Display',
+      x: 'X',
+      y: 'Y',
+      width: 'Width',
+      height: 'Height',
+      ZOrder: 'ZOrder',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      url: 'string',
+      alpha: 'number',
+      display: 'number',
+      x: 'number',
+      y: 'number',
+      width: 'number',
+      height: 'number',
+      ZOrder: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLiveRecordTemplateResponseBodyDataClockWidgets extends $tea.Model {
+  fontType?: number;
+  fontSize?: number;
+  fontColor?: number;
+  x?: number;
+  y?: number;
+  ZOrder?: number;
+  static names(): { [key: string]: string } {
+    return {
+      fontType: 'FontType',
+      fontSize: 'FontSize',
+      fontColor: 'FontColor',
+      x: 'X',
+      y: 'Y',
+      ZOrder: 'ZOrder',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fontType: 'number',
+      fontSize: 'number',
+      fontColor: 'number',
+      x: 'number',
+      y: 'number',
+      ZOrder: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLiveRecordTemplateResponseBodyData extends $tea.Model {
+  createdAt?: number;
+  disabled?: string;
+  name?: string;
+  id?: string;
+  rtcCode?: string;
+  description?: string;
+  backgrounds?: GetLiveRecordTemplateResponseBodyDataBackgrounds[];
+  watermarks?: GetLiveRecordTemplateResponseBodyDataWatermarks[];
+  clockWidgets?: GetLiveRecordTemplateResponseBodyDataClockWidgets[];
+  static names(): { [key: string]: string } {
+    return {
+      createdAt: 'CreatedAt',
+      disabled: 'Disabled',
+      name: 'Name',
+      id: 'Id',
+      rtcCode: 'RtcCode',
+      description: 'Description',
+      backgrounds: 'Backgrounds',
+      watermarks: 'Watermarks',
+      clockWidgets: 'ClockWidgets',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createdAt: 'number',
+      disabled: 'string',
+      name: 'string',
+      id: 'string',
+      rtcCode: 'string',
+      description: 'string',
+      backgrounds: { 'type': 'array', 'itemType': GetLiveRecordTemplateResponseBodyDataBackgrounds },
+      watermarks: { 'type': 'array', 'itemType': GetLiveRecordTemplateResponseBodyDataWatermarks },
+      clockWidgets: { 'type': 'array', 'itemType': GetLiveRecordTemplateResponseBodyDataClockWidgets },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetModelSignedUrlResponseBodyData extends $tea.Model {
   publicUrl?: string;
   md5?: string;
@@ -5092,6 +6242,8 @@ export class GetSlrConfigurationResponseBodyData extends $tea.Model {
   mqTopic?: string;
   mqInstanceId?: string;
   mqEventList?: string[];
+  mqTopicTest?: string;
+  mqGroupIdTest?: string;
   mqEndpoint?: string;
   mqSubscribe?: boolean;
   static names(): { [key: string]: string } {
@@ -5100,6 +6252,8 @@ export class GetSlrConfigurationResponseBodyData extends $tea.Model {
       mqTopic: 'MqTopic',
       mqInstanceId: 'MqInstanceId',
       mqEventList: 'MqEventList',
+      mqTopicTest: 'MqTopicTest',
+      mqGroupIdTest: 'MqGroupIdTest',
       mqEndpoint: 'MqEndpoint',
       mqSubscribe: 'MqSubscribe',
     };
@@ -5111,6 +6265,8 @@ export class GetSlrConfigurationResponseBodyData extends $tea.Model {
       mqTopic: 'string',
       mqInstanceId: 'string',
       mqEventList: { 'type': 'array', 'itemType': 'string' },
+      mqTopicTest: 'string',
+      mqGroupIdTest: 'string',
       mqEndpoint: 'string',
       mqSubscribe: 'boolean',
     };
@@ -5788,6 +6944,115 @@ export class ListDetectProcessesResponseBodyData extends $tea.Model {
   }
 }
 
+export class ListLiveAppsResponseBodyDataItems extends $tea.Model {
+  createdAt?: string;
+  rtcCode?: string;
+  name?: string;
+  id?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createdAt: 'CreatedAt',
+      rtcCode: 'RtcCode',
+      name: 'Name',
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createdAt: 'string',
+      rtcCode: 'string',
+      name: 'string',
+      id: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListLiveAppsResponseBodyData extends $tea.Model {
+  items?: ListLiveAppsResponseBodyDataItems[];
+  totalPages?: number;
+  totalElements?: number;
+  static names(): { [key: string]: string } {
+    return {
+      items: 'Items',
+      totalPages: 'TotalPages',
+      totalElements: 'TotalElements',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      items: { 'type': 'array', 'itemType': ListLiveAppsResponseBodyDataItems },
+      totalPages: 'number',
+      totalElements: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListLiveRecordTemplatesResponseBodyDataItems extends $tea.Model {
+  createdAt?: string;
+  updatedAt?: string;
+  name?: string;
+  id?: string;
+  rtcCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createdAt: 'CreatedAt',
+      updatedAt: 'UpdatedAt',
+      name: 'Name',
+      id: 'Id',
+      rtcCode: 'RtcCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createdAt: 'string',
+      updatedAt: 'string',
+      name: 'string',
+      id: 'string',
+      rtcCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListLiveRecordTemplatesResponseBodyData extends $tea.Model {
+  items?: ListLiveRecordTemplatesResponseBodyDataItems[];
+  totalPages?: number;
+  totalElements?: number;
+  static names(): { [key: string]: string } {
+    return {
+      items: 'Items',
+      totalPages: 'TotalPages',
+      totalElements: 'TotalElements',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      items: { 'type': 'array', 'itemType': ListLiveRecordTemplatesResponseBodyDataItems },
+      totalPages: 'number',
+      totalElements: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListLivesResponseBodyDataItems extends $tea.Model {
   status?: string;
   userId?: string;
@@ -6253,6 +7518,186 @@ export class RenameDetectProcessResponseBodyData extends $tea.Model {
   }
 }
 
+export class StartLiveRecordTaskRequestClockWidgets extends $tea.Model {
+  fontColor?: number;
+  fontSize?: number;
+  fontType?: number;
+  x?: number;
+  y?: number;
+  ZOrder?: number;
+  static names(): { [key: string]: string } {
+    return {
+      fontColor: 'FontColor',
+      fontSize: 'FontSize',
+      fontType: 'FontType',
+      x: 'X',
+      y: 'Y',
+      ZOrder: 'ZOrder',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fontColor: 'number',
+      fontSize: 'number',
+      fontType: 'number',
+      x: 'number',
+      y: 'number',
+      ZOrder: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartLiveRecordTaskRequestUserPanesImages extends $tea.Model {
+  display?: number;
+  height?: number;
+  url?: string;
+  width?: number;
+  x?: number;
+  ZOrder?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      display: 'Display',
+      height: 'Height',
+      url: 'Url',
+      width: 'Width',
+      x: 'X',
+      ZOrder: 'ZOrder',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      display: 'number',
+      height: 'number',
+      url: 'string',
+      width: 'number',
+      x: 'number',
+      ZOrder: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartLiveRecordTaskRequestUserPanesTexts extends $tea.Model {
+  fontColor?: number;
+  fontSize?: number;
+  fontType?: number;
+  text?: string;
+  x?: number;
+  ZOrder?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      fontColor: 'FontColor',
+      fontSize: 'FontSize',
+      fontType: 'FontType',
+      text: 'Text',
+      x: 'X',
+      ZOrder: 'ZOrder',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fontColor: 'number',
+      fontSize: 'number',
+      fontType: 'number',
+      text: 'string',
+      x: 'number',
+      ZOrder: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartLiveRecordTaskRequestUserPanes extends $tea.Model {
+  images?: StartLiveRecordTaskRequestUserPanesImages[];
+  paneId?: number;
+  sourceType?: string;
+  texts?: StartLiveRecordTaskRequestUserPanesTexts[];
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      images: 'Images',
+      paneId: 'PaneId',
+      sourceType: 'SourceType',
+      texts: 'Texts',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      images: { 'type': 'array', 'itemType': StartLiveRecordTaskRequestUserPanesImages },
+      paneId: 'number',
+      sourceType: 'string',
+      texts: { 'type': 'array', 'itemType': StartLiveRecordTaskRequestUserPanesTexts },
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartLiveRecordTaskResponseBodyData extends $tea.Model {
+  createdAt?: string;
+  id?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createdAt: 'CreatedAt',
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createdAt: 'string',
+      id: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopLiveRecordTaskResponseBodyData extends $tea.Model {
+  id?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateDetectProcessResponseBodyData extends $tea.Model {
   draft?: string;
   createdAt?: string;
@@ -6288,6 +7733,300 @@ export class UpdateDetectProcessResponseBodyData extends $tea.Model {
 }
 
 export class UpdateLiveResponseBodyData extends $tea.Model {
+  createdAt?: string;
+  id?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createdAt: 'CreatedAt',
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createdAt: 'string',
+      id: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateLiveRecordTaskRequestClockWidgets extends $tea.Model {
+  fontColor?: number;
+  fontSize?: number;
+  fontType?: number;
+  x?: number;
+  y?: number;
+  ZOrder?: number;
+  static names(): { [key: string]: string } {
+    return {
+      fontColor: 'FontColor',
+      fontSize: 'FontSize',
+      fontType: 'FontType',
+      x: 'X',
+      y: 'Y',
+      ZOrder: 'ZOrder',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fontColor: 'number',
+      fontSize: 'number',
+      fontType: 'number',
+      x: 'number',
+      y: 'number',
+      ZOrder: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateLiveRecordTaskRequestUserPanesImages extends $tea.Model {
+  display?: number;
+  height?: number;
+  url?: string;
+  width?: number;
+  x?: number;
+  ZOrder?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      display: 'Display',
+      height: 'Height',
+      url: 'Url',
+      width: 'Width',
+      x: 'X',
+      ZOrder: 'ZOrder',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      display: 'number',
+      height: 'number',
+      url: 'string',
+      width: 'number',
+      x: 'number',
+      ZOrder: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateLiveRecordTaskRequestUserPanesTexts extends $tea.Model {
+  fontColor?: number;
+  fontSize?: number;
+  fontType?: number;
+  text?: string;
+  x?: number;
+  ZOrder?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      fontColor: 'FontColor',
+      fontSize: 'FontSize',
+      fontType: 'FontType',
+      text: 'Text',
+      x: 'X',
+      ZOrder: 'ZOrder',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fontColor: 'number',
+      fontSize: 'number',
+      fontType: 'number',
+      text: 'string',
+      x: 'number',
+      ZOrder: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateLiveRecordTaskRequestUserPanes extends $tea.Model {
+  images?: UpdateLiveRecordTaskRequestUserPanesImages[];
+  paneId?: number;
+  sourceType?: string;
+  texts?: UpdateLiveRecordTaskRequestUserPanesTexts[];
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      images: 'Images',
+      paneId: 'PaneId',
+      sourceType: 'SourceType',
+      texts: 'Texts',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      images: { 'type': 'array', 'itemType': UpdateLiveRecordTaskRequestUserPanesImages },
+      paneId: 'number',
+      sourceType: 'string',
+      texts: { 'type': 'array', 'itemType': UpdateLiveRecordTaskRequestUserPanesTexts },
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateLiveRecordTaskResponseBodyData extends $tea.Model {
+  createdAt?: string;
+  id?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createdAt: 'CreatedAt',
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createdAt: 'string',
+      id: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateLiveRecordTemplateRequestBackgrounds extends $tea.Model {
+  display?: number;
+  url?: string;
+  width?: number;
+  height?: number;
+  x?: number;
+  y?: number;
+  ZOrder?: number;
+  static names(): { [key: string]: string } {
+    return {
+      display: 'Display',
+      url: 'Url',
+      width: 'Width',
+      height: 'Height',
+      x: 'X',
+      y: 'Y',
+      ZOrder: 'ZOrder',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      display: 'number',
+      url: 'string',
+      width: 'number',
+      height: 'number',
+      x: 'number',
+      y: 'number',
+      ZOrder: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateLiveRecordTemplateRequestWatermarks extends $tea.Model {
+  alpha?: number;
+  display?: number;
+  url?: string;
+  width?: number;
+  height?: number;
+  x?: number;
+  y?: number;
+  ZOrder?: number;
+  static names(): { [key: string]: string } {
+    return {
+      alpha: 'Alpha',
+      display: 'Display',
+      url: 'Url',
+      width: 'Width',
+      height: 'Height',
+      x: 'X',
+      y: 'Y',
+      ZOrder: 'ZOrder',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alpha: 'number',
+      display: 'number',
+      url: 'string',
+      width: 'number',
+      height: 'number',
+      x: 'number',
+      y: 'number',
+      ZOrder: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateLiveRecordTemplateRequestClockWidgets extends $tea.Model {
+  fontColor?: number;
+  fontSize?: number;
+  fontType?: number;
+  x?: number;
+  y?: number;
+  ZOrder?: number;
+  static names(): { [key: string]: string } {
+    return {
+      fontColor: 'FontColor',
+      fontSize: 'FontSize',
+      fontType: 'FontType',
+      x: 'X',
+      y: 'Y',
+      ZOrder: 'ZOrder',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fontColor: 'number',
+      fontSize: 'number',
+      fontType: 'number',
+      x: 'number',
+      y: 'number',
+      ZOrder: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateLiveRecordTemplateResponseBodyData extends $tea.Model {
   createdAt?: string;
   id?: string;
   static names(): { [key: string]: string } {
@@ -6494,6 +8233,33 @@ export default class Client extends OpenApi {
     return await this.createLiveDetectionWithOptions(request, runtime);
   }
 
+  async createLiveRecordTemplateWithOptions(tmpReq: CreateLiveRecordTemplateRequest, runtime: $Util.RuntimeOptions): Promise<CreateLiveRecordTemplateResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateLiveRecordTemplateShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.backgrounds)) {
+      request.backgroundsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.backgrounds, "Backgrounds", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.watermarks)) {
+      request.watermarksShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.watermarks, "Watermarks", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.clockWidgets)) {
+      request.clockWidgetsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.clockWidgets, "ClockWidgets", "json");
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<CreateLiveRecordTemplateResponse>(await this.doRPCRequest("CreateLiveRecordTemplate", "2020-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new CreateLiveRecordTemplateResponse({}));
+  }
+
+  async createLiveRecordTemplate(request: CreateLiveRecordTemplateRequest): Promise<CreateLiveRecordTemplateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createLiveRecordTemplateWithOptions(request, runtime);
+  }
+
   async createRuleWithOptions(request: CreateRuleRequest, runtime: $Util.RuntimeOptions): Promise<CreateRuleResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -6596,6 +8362,19 @@ export default class Client extends OpenApi {
   async deleteDetectProcess(request: DeleteDetectProcessRequest): Promise<DeleteDetectProcessResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDetectProcessWithOptions(request, runtime);
+  }
+
+  async deleteLiveRecordTemplateWithOptions(request: DeleteLiveRecordTemplateRequest, runtime: $Util.RuntimeOptions): Promise<DeleteLiveRecordTemplateResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DeleteLiveRecordTemplateResponse>(await this.doRPCRequest("DeleteLiveRecordTemplate", "2020-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteLiveRecordTemplateResponse({}));
+  }
+
+  async deleteLiveRecordTemplate(request: DeleteLiveRecordTemplateRequest): Promise<DeleteLiveRecordTemplateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteLiveRecordTemplateWithOptions(request, runtime);
   }
 
   async deleteRuleWithOptions(request: DeleteRuleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteRuleResponse> {
@@ -6762,6 +8541,19 @@ export default class Client extends OpenApi {
   async getGlobalConfig(request: GetGlobalConfigRequest): Promise<GetGlobalConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getGlobalConfigWithOptions(request, runtime);
+  }
+
+  async getLiveRecordTemplateWithOptions(request: GetLiveRecordTemplateRequest, runtime: $Util.RuntimeOptions): Promise<GetLiveRecordTemplateResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<GetLiveRecordTemplateResponse>(await this.doRPCRequest("GetLiveRecordTemplate", "2020-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new GetLiveRecordTemplateResponse({}));
+  }
+
+  async getLiveRecordTemplate(request: GetLiveRecordTemplateRequest): Promise<GetLiveRecordTemplateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getLiveRecordTemplateWithOptions(request, runtime);
   }
 
   async getModelSignedUrlWithOptions(request: GetModelSignedUrlRequest, runtime: $Util.RuntimeOptions): Promise<GetModelSignedUrlResponse> {
@@ -6985,6 +8777,32 @@ export default class Client extends OpenApi {
     return await this.listFilesWithOptions(request, runtime);
   }
 
+  async listLiveAppsWithOptions(request: ListLiveAppsRequest, runtime: $Util.RuntimeOptions): Promise<ListLiveAppsResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<ListLiveAppsResponse>(await this.doRPCRequest("ListLiveApps", "2020-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new ListLiveAppsResponse({}));
+  }
+
+  async listLiveApps(request: ListLiveAppsRequest): Promise<ListLiveAppsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listLiveAppsWithOptions(request, runtime);
+  }
+
+  async listLiveRecordTemplatesWithOptions(request: ListLiveRecordTemplatesRequest, runtime: $Util.RuntimeOptions): Promise<ListLiveRecordTemplatesResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<ListLiveRecordTemplatesResponse>(await this.doRPCRequest("ListLiveRecordTemplates", "2020-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new ListLiveRecordTemplatesResponse({}));
+  }
+
+  async listLiveRecordTemplates(request: ListLiveRecordTemplatesRequest): Promise<ListLiveRecordTemplatesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listLiveRecordTemplatesWithOptions(request, runtime);
+  }
+
   async listLivesWithOptions(request: ListLivesRequest, runtime: $Util.RuntimeOptions): Promise<ListLivesResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -7099,6 +8917,42 @@ export default class Client extends OpenApi {
     return await this.renameDetectProcessWithOptions(request, runtime);
   }
 
+  async startLiveRecordTaskWithOptions(tmpReq: StartLiveRecordTaskRequest, runtime: $Util.RuntimeOptions): Promise<StartLiveRecordTaskResponse> {
+    Util.validateModel(tmpReq);
+    let request = new StartLiveRecordTaskShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.clockWidgets)) {
+      request.clockWidgetsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.clockWidgets, "ClockWidgets", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.userPanes)) {
+      request.userPanesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.userPanes, "UserPanes", "json");
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<StartLiveRecordTaskResponse>(await this.doRPCRequest("StartLiveRecordTask", "2020-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new StartLiveRecordTaskResponse({}));
+  }
+
+  async startLiveRecordTask(request: StartLiveRecordTaskRequest): Promise<StartLiveRecordTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.startLiveRecordTaskWithOptions(request, runtime);
+  }
+
+  async stopLiveRecordTaskWithOptions(request: StopLiveRecordTaskRequest, runtime: $Util.RuntimeOptions): Promise<StopLiveRecordTaskResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<StopLiveRecordTaskResponse>(await this.doRPCRequest("StopLiveRecordTask", "2020-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new StopLiveRecordTaskResponse({}));
+  }
+
+  async stopLiveRecordTask(request: StopLiveRecordTaskRequest): Promise<StopLiveRecordTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.stopLiveRecordTaskWithOptions(request, runtime);
+  }
+
   async updateAppWithOptions(request: UpdateAppRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAppResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -7149,6 +9003,56 @@ export default class Client extends OpenApi {
   async updateLive(request: UpdateLiveRequest): Promise<UpdateLiveResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateLiveWithOptions(request, runtime);
+  }
+
+  async updateLiveRecordTaskWithOptions(tmpReq: UpdateLiveRecordTaskRequest, runtime: $Util.RuntimeOptions): Promise<UpdateLiveRecordTaskResponse> {
+    Util.validateModel(tmpReq);
+    let request = new UpdateLiveRecordTaskShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.clockWidgets)) {
+      request.clockWidgetsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.clockWidgets, "ClockWidgets", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.userPanes)) {
+      request.userPanesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.userPanes, "UserPanes", "json");
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<UpdateLiveRecordTaskResponse>(await this.doRPCRequest("UpdateLiveRecordTask", "2020-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateLiveRecordTaskResponse({}));
+  }
+
+  async updateLiveRecordTask(request: UpdateLiveRecordTaskRequest): Promise<UpdateLiveRecordTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateLiveRecordTaskWithOptions(request, runtime);
+  }
+
+  async updateLiveRecordTemplateWithOptions(tmpReq: UpdateLiveRecordTemplateRequest, runtime: $Util.RuntimeOptions): Promise<UpdateLiveRecordTemplateResponse> {
+    Util.validateModel(tmpReq);
+    let request = new UpdateLiveRecordTemplateShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.backgrounds)) {
+      request.backgroundsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.backgrounds, "Backgrounds", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.watermarks)) {
+      request.watermarksShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.watermarks, "Watermarks", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.clockWidgets)) {
+      request.clockWidgetsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.clockWidgets, "ClockWidgets", "json");
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<UpdateLiveRecordTemplateResponse>(await this.doRPCRequest("UpdateLiveRecordTemplate", "2020-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateLiveRecordTemplateResponse({}));
+  }
+
+  async updateLiveRecordTemplate(request: UpdateLiveRecordTemplateRequest): Promise<UpdateLiveRecordTemplateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateLiveRecordTemplateWithOptions(request, runtime);
   }
 
   async updateRuleWithOptions(request: UpdateRuleRequest, runtime: $Util.RuntimeOptions): Promise<UpdateRuleResponse> {
