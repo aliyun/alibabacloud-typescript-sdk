@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/facebody20191230",
-  "version": "2.0.9",
+  "version": "2.0.10",
   "description": "",
   "main": "dist/client.js",
   "scripts": {
@@ -29,7 +29,7 @@
     "@alicloud/tea-fileform": "^1.0.0",
     "@alicloud/endpoint-util": "^0.0.1",
     "@alicloud/openapi-client": "^0.3.0",
-    "@alicloud/openapi-util": "^0.2.1"
+    "@alicloud/openapi-util": "^0.2.2"
   },
   "files": [
     "dist",
