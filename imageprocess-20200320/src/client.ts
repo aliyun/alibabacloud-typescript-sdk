@@ -121,7 +121,6 @@ export class ClassifyFNFResponse extends $tea.Model {
 }
 
 export class DetectLungNoduleRequest extends $tea.Model {
-  async?: boolean;
   dataFormat?: string;
   orgName?: string;
   orgId?: string;
@@ -129,7 +128,6 @@ export class DetectLungNoduleRequest extends $tea.Model {
   threshold?: number;
   static names(): { [key: string]: string } {
     return {
-      async: 'Async',
       dataFormat: 'DataFormat',
       orgName: 'OrgName',
       orgId: 'OrgId',
@@ -140,7 +138,6 @@ export class DetectLungNoduleRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      async: 'boolean',
       dataFormat: 'string',
       orgName: 'string',
       orgId: 'string',
@@ -199,7 +196,6 @@ export class DetectLungNoduleResponse extends $tea.Model {
 }
 
 export class RunCTRegistrationRequest extends $tea.Model {
-  async?: boolean;
   dataFormat?: string;
   orgName?: string;
   orgId?: string;
@@ -208,7 +204,6 @@ export class RunCTRegistrationRequest extends $tea.Model {
   floatingList?: RunCTRegistrationRequestFloatingList[];
   static names(): { [key: string]: string } {
     return {
-      async: 'Async',
       dataFormat: 'DataFormat',
       orgName: 'OrgName',
       orgId: 'OrgId',
@@ -220,7 +215,6 @@ export class RunCTRegistrationRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      async: 'boolean',
       dataFormat: 'string',
       orgName: 'string',
       orgId: 'string',
@@ -421,7 +415,6 @@ export class DetectSpineMRIResponse extends $tea.Model {
 }
 
 export class CalcCACSRequest extends $tea.Model {
-  async?: boolean;
   dataFormat?: string;
   orgName?: string;
   orgId?: string;
@@ -429,7 +422,6 @@ export class CalcCACSRequest extends $tea.Model {
   URLList?: CalcCACSRequestURLList[];
   static names(): { [key: string]: string } {
     return {
-      async: 'Async',
       dataFormat: 'DataFormat',
       orgName: 'OrgName',
       orgId: 'OrgId',
@@ -440,7 +432,6 @@ export class CalcCACSRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      async: 'boolean',
       dataFormat: 'string',
       orgName: 'string',
       orgId: 'string',
@@ -880,18 +871,15 @@ export class DetectKneeXRayResponse extends $tea.Model {
 }
 
 export class GetAsyncJobResultRequest extends $tea.Model {
-  async?: boolean;
   jobId?: string;
   static names(): { [key: string]: string } {
     return {
-      async: 'Async',
       jobId: 'JobId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      async: 'boolean',
       jobId: 'string',
     };
   }
@@ -946,7 +934,6 @@ export class GetAsyncJobResultResponse extends $tea.Model {
 }
 
 export class DetectRibFractureRequest extends $tea.Model {
-  async?: boolean;
   dataFormat?: string;
   orgName?: string;
   orgId?: string;
@@ -954,7 +941,6 @@ export class DetectRibFractureRequest extends $tea.Model {
   URLList?: DetectRibFractureRequestURLList[];
   static names(): { [key: string]: string } {
     return {
-      async: 'Async',
       dataFormat: 'DataFormat',
       orgName: 'OrgName',
       orgId: 'OrgId',
@@ -965,7 +951,6 @@ export class DetectRibFractureRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      async: 'boolean',
       dataFormat: 'string',
       orgName: 'string',
       orgId: 'string',
@@ -1024,14 +1009,12 @@ export class DetectRibFractureResponse extends $tea.Model {
 }
 
 export class DetectCovid19CadRequest extends $tea.Model {
-  async?: boolean;
   dataFormat?: string;
   orgName?: string;
   orgId?: string;
   URLList?: DetectCovid19CadRequestURLList[];
   static names(): { [key: string]: string } {
     return {
-      async: 'Async',
       dataFormat: 'DataFormat',
       orgName: 'OrgName',
       orgId: 'OrgId',
@@ -1041,7 +1024,6 @@ export class DetectCovid19CadRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      async: 'boolean',
       dataFormat: 'string',
       orgName: 'string',
       orgId: 'string',
@@ -1099,14 +1081,12 @@ export class DetectCovid19CadResponse extends $tea.Model {
 }
 
 export class ScreenChestCTRequest extends $tea.Model {
-  async?: boolean;
   dataFormat?: string;
   orgName?: string;
   orgId?: string;
   URLList?: ScreenChestCTRequestURLList[];
   static names(): { [key: string]: string } {
     return {
-      async: 'Async',
       dataFormat: 'DataFormat',
       orgName: 'OrgName',
       orgId: 'OrgId',
@@ -1116,7 +1096,6 @@ export class ScreenChestCTRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      async: 'boolean',
       dataFormat: 'string',
       orgName: 'string',
       orgId: 'string',
@@ -1946,6 +1925,8 @@ export class DetectRibFractureResponseBodyDataDetections extends $tea.Model {
   coordinateImage?: number[];
   fractureConfidence?: number;
   fractureCategory?: string;
+  fractureLocation?: string;
+  fractureSegment?: number;
   static names(): { [key: string]: string } {
     return {
       coordinates: 'Coordinates',
@@ -1953,6 +1934,8 @@ export class DetectRibFractureResponseBodyDataDetections extends $tea.Model {
       coordinateImage: 'CoordinateImage',
       fractureConfidence: 'FractureConfidence',
       fractureCategory: 'FractureCategory',
+      fractureLocation: 'FractureLocation',
+      fractureSegment: 'FractureSegment',
     };
   }
 
@@ -1963,6 +1946,8 @@ export class DetectRibFractureResponseBodyDataDetections extends $tea.Model {
       coordinateImage: { 'type': 'array', 'itemType': 'number' },
       fractureConfidence: 'number',
       fractureCategory: 'string',
+      fractureLocation: 'string',
+      fractureSegment: 'number',
     };
   }
 
@@ -2235,6 +2220,8 @@ export class ScreenChestCTResponseBodyDataDetectRibFractureDetections extends $t
   fractureCategory?: number;
   coordinates?: number[];
   coordinateImage?: number[];
+  fractureLocation?: string;
+  fractureSegment?: number;
   static names(): { [key: string]: string } {
     return {
       fractureId: 'FractureId',
@@ -2242,6 +2229,8 @@ export class ScreenChestCTResponseBodyDataDetectRibFractureDetections extends $t
       fractureCategory: 'FractureCategory',
       coordinates: 'Coordinates',
       coordinateImage: 'CoordinateImage',
+      fractureLocation: 'FractureLocation',
+      fractureSegment: 'FractureSegment',
     };
   }
 
@@ -2252,6 +2241,8 @@ export class ScreenChestCTResponseBodyDataDetectRibFractureDetections extends $t
       fractureCategory: 'number',
       coordinates: { 'type': 'array', 'itemType': 'number' },
       coordinateImage: { 'type': 'array', 'itemType': 'number' },
+      fractureLocation: 'string',
+      fractureSegment: 'number',
     };
   }
 
