@@ -10,6 +10,120 @@ import FileForm, * as $FileForm from '@alicloud/tea-fileform';
 import { Readable } from 'stream';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class VerifyBankElementRequest extends $tea.Model {
+  sceneId?: number;
+  outerOrderNo?: string;
+  mode?: string;
+  bankCardNo?: string;
+  idNo?: string;
+  bankCardUrl?: string;
+  bankCardFile?: string;
+  idName?: string;
+  mobile?: string;
+  static names(): { [key: string]: string } {
+    return {
+      sceneId: 'SceneId',
+      outerOrderNo: 'OuterOrderNo',
+      mode: 'Mode',
+      bankCardNo: 'BankCardNo',
+      idNo: 'IdNo',
+      bankCardUrl: 'BankCardUrl',
+      bankCardFile: 'BankCardFile',
+      idName: 'IdName',
+      mobile: 'Mobile',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sceneId: 'number',
+      outerOrderNo: 'string',
+      mode: 'string',
+      bankCardNo: 'string',
+      idNo: 'string',
+      bankCardUrl: 'string',
+      bankCardFile: 'string',
+      idName: 'string',
+      mobile: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VerifyBankElementResponse extends $tea.Model {
+  requestId: string;
+  message: string;
+  code: string;
+  resultObject: VerifyBankElementResponseResultObject;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      message: 'Message',
+      code: 'Code',
+      resultObject: 'ResultObject',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      message: 'string',
+      code: 'string',
+      resultObject: VerifyBankElementResponseResultObject,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VerifyBankElementAdvanceRequest extends $tea.Model {
+  bankCardFileObject: Readable;
+  sceneId?: number;
+  outerOrderNo?: string;
+  mode?: string;
+  bankCardNo?: string;
+  idNo?: string;
+  bankCardUrl?: string;
+  idName?: string;
+  mobile?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bankCardFileObject: 'BankCardFileObject',
+      sceneId: 'SceneId',
+      outerOrderNo: 'OuterOrderNo',
+      mode: 'Mode',
+      bankCardNo: 'BankCardNo',
+      idNo: 'IdNo',
+      bankCardUrl: 'BankCardUrl',
+      idName: 'IdName',
+      mobile: 'Mobile',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bankCardFileObject: 'Readable',
+      sceneId: 'number',
+      outerOrderNo: 'string',
+      mode: 'string',
+      bankCardNo: 'string',
+      idNo: 'string',
+      bankCardUrl: 'string',
+      idName: 'string',
+      mobile: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ContrastSmartVerifyRequest extends $tea.Model {
   sceneId?: number;
   outerOrderNo?: string;
@@ -275,6 +389,8 @@ export class InitSmartVerifyRequest extends $tea.Model {
   certifyId?: string;
   ossBucketName?: string;
   ossObjectName?: string;
+  idNo?: string;
+  idName?: string;
   static names(): { [key: string]: string } {
     return {
       sceneId: 'SceneId',
@@ -295,6 +411,8 @@ export class InitSmartVerifyRequest extends $tea.Model {
       certifyId: 'CertifyId',
       ossBucketName: 'OssBucketName',
       ossObjectName: 'OssObjectName',
+      idNo: 'IdNo',
+      idName: 'IdName',
     };
   }
 
@@ -318,6 +436,8 @@ export class InitSmartVerifyRequest extends $tea.Model {
       certifyId: 'string',
       ossBucketName: 'string',
       ossObjectName: 'string',
+      idNo: 'string',
+      idName: 'string',
     };
   }
 
@@ -399,6 +519,34 @@ export class DescribeSmartVerifyResponse extends $tea.Model {
       message: 'string',
       code: 'string',
       resultObject: DescribeSmartVerifyResponseResultObject,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VerifyBankElementResponseResultObject extends $tea.Model {
+  passed: string;
+  subCode: string;
+  materialInfo: string;
+  certifyId: string;
+  static names(): { [key: string]: string } {
+    return {
+      passed: 'Passed',
+      subCode: 'SubCode',
+      materialInfo: 'MaterialInfo',
+      certifyId: 'CertifyId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      passed: 'string',
+      subCode: 'string',
+      materialInfo: 'string',
+      certifyId: 'string',
     };
   }
 
@@ -524,6 +672,80 @@ export default class Client extends RPC {
   }
 
 
+  async verifyBankElement(request: VerifyBankElementRequest, runtime: $Util.RuntimeOptions): Promise<VerifyBankElementResponse> {
+    Util.validateModel(request);
+    return $tea.cast<VerifyBankElementResponse>(await this.doRequest("VerifyBankElement", "HTTPS", "POST", "2020-06-18", "AK", null, $tea.toMap(request), runtime), new VerifyBankElementResponse({}));
+  }
+
+  async verifyBankElementSimply(request: VerifyBankElementRequest): Promise<VerifyBankElementResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.verifyBankElement(request, runtime);
+  }
+
+  async verifyBankElementAdvance(request: VerifyBankElementAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<VerifyBankElementResponse> {
+    // Step 0: init client
+    let accessKeyId = await this._credential.getAccessKeyId();
+    let accessKeySecret = await this._credential.getAccessKeySecret();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if (Util.isUnset(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    let authConfig = new $RPC.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      endpoint: openPlatformEndpoint,
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenPlatform(authConfig);
+    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
+      product: "Cloudauth",
+      regionId: this._regionId,
+    });
+    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
+    let ossConfig = new $OSS.Config({
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let ossClient : OSS = null;
+    let fileObj = new $FileForm.FileField({ });
+    let ossHeader = new $OSS.PostObjectRequestHeader({ });
+    let uploadRequest = new $OSS.PostObjectRequest({ });
+    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
+    RPCUtil.convert(runtime, ossRuntime);
+    let verifyBankElementReq = new VerifyBankElementRequest({ });
+    RPCUtil.convert(request, verifyBankElementReq);
+    authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+    ossConfig.accessKeyId = authResponse.accessKeyId;
+    ossConfig.endpoint = RPCUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+    ossClient = new OSS(ossConfig);
+    fileObj = new $FileForm.FileField({
+      filename: authResponse.objectKey,
+      content: request.bankCardFileObject,
+      contentType: "",
+    });
+    ossHeader = new $OSS.PostObjectRequestHeader({
+      accessKeyId: authResponse.accessKeyId,
+      policy: authResponse.encodedPolicy,
+      signature: authResponse.signature,
+      key: authResponse.objectKey,
+      file: fileObj,
+      successActionStatus: "201",
+    });
+    uploadRequest = new $OSS.PostObjectRequest({
+      bucketName: authResponse.bucket,
+      header: ossHeader,
+    });
+    await ossClient.postObject(uploadRequest, ossRuntime);
+    verifyBankElementReq.bankCardFile = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    let verifyBankElementResp = await this.verifyBankElement(verifyBankElementReq, runtime);
+    return verifyBankElementResp;
+  }
+
   async contrastSmartVerify(request: ContrastSmartVerifyRequest, runtime: $Util.RuntimeOptions): Promise<ContrastSmartVerifyResponse> {
     Util.validateModel(request);
     return $tea.cast<ContrastSmartVerifyResponse>(await this.doRequest("ContrastSmartVerify", "HTTPS", "POST", "2020-06-18", "AK", null, $tea.toMap(request), runtime), new ContrastSmartVerifyResponse({}));
@@ -538,11 +760,16 @@ export default class Client extends RPC {
     // Step 0: init client
     let accessKeyId = await this._credential.getAccessKeyId();
     let accessKeySecret = await this._credential.getAccessKeySecret();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if (Util.isUnset(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
     let authConfig = new $RPC.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
       type: "access_key",
-      endpoint: "openplatform.aliyuncs.com",
+      endpoint: openPlatformEndpoint,
       protocol: this._protocol,
       regionId: this._regionId,
     });
@@ -607,11 +834,16 @@ export default class Client extends RPC {
     // Step 0: init client
     let accessKeyId = await this._credential.getAccessKeyId();
     let accessKeySecret = await this._credential.getAccessKeySecret();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if (Util.isUnset(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
     let authConfig = new $RPC.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
       type: "access_key",
-      endpoint: "openplatform.aliyuncs.com",
+      endpoint: openPlatformEndpoint,
       protocol: this._protocol,
       regionId: this._regionId,
     });
