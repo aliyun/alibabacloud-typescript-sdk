@@ -96,6 +96,157 @@ export class ReconstructBodyBySingleImageResponse extends $tea.Model {
   }
 }
 
+export class ReconstructThreeDMultiViewRequest extends $tea.Model {
+  zipFileUrl?: string;
+  mode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      zipFileUrl: 'ZipFileUrl',
+      mode: 'Mode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      zipFileUrl: 'string',
+      mode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReconstructThreeDMultiViewAdvanceRequest extends $tea.Model {
+  zipFileUrlObject: Readable;
+  mode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      zipFileUrlObject: 'ZipFileUrlObject',
+      mode: 'Mode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      zipFileUrlObject: 'Readable',
+      mode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReconstructThreeDMultiViewResponseBody extends $tea.Model {
+  requestId?: string;
+  data?: ReconstructThreeDMultiViewResponseBodyData;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      data: ReconstructThreeDMultiViewResponseBodyData,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReconstructThreeDMultiViewResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ReconstructThreeDMultiViewResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ReconstructThreeDMultiViewResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAsyncJobResultRequest extends $tea.Model {
+  jobId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jobId: 'JobId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAsyncJobResultResponseBody extends $tea.Model {
+  requestId?: string;
+  data?: GetAsyncJobResultResponseBodyData;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      data: GetAsyncJobResultResponseBodyData,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAsyncJobResultResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetAsyncJobResultResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetAsyncJobResultResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class EstimateMonocularImageDepthRequest extends $tea.Model {
   imageURL?: string;
   static names(): { [key: string]: string } {
@@ -266,6 +417,56 @@ export class ReconstructBodyBySingleImageResponseBodyData extends $tea.Model {
   }
 }
 
+export class ReconstructThreeDMultiViewResponseBodyData extends $tea.Model {
+  pointCloudURL?: string;
+  static names(): { [key: string]: string } {
+    return {
+      pointCloudURL: 'PointCloudURL',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pointCloudURL: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAsyncJobResultResponseBodyData extends $tea.Model {
+  status?: string;
+  errorMessage?: string;
+  result?: string;
+  errorCode?: string;
+  jobId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      status: 'Status',
+      errorMessage: 'ErrorMessage',
+      result: 'Result',
+      errorCode: 'ErrorCode',
+      jobId: 'JobId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      status: 'string',
+      errorMessage: 'string',
+      result: 'string',
+      errorCode: 'string',
+      jobId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class EstimateMonocularImageDepthResponseBodyData extends $tea.Model {
   depthMapUrl?: string;
   depthToColorUrl?: string;
@@ -403,6 +604,91 @@ export default class Client extends OpenApi {
     reconstructBodyBySingleImageReq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
     let reconstructBodyBySingleImageResp = await this.reconstructBodyBySingleImageWithOptions(reconstructBodyBySingleImageReq, runtime);
     return reconstructBodyBySingleImageResp;
+  }
+
+  async reconstructThreeDMultiViewWithOptions(request: ReconstructThreeDMultiViewRequest, runtime: $Util.RuntimeOptions): Promise<ReconstructThreeDMultiViewResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<ReconstructThreeDMultiViewResponse>(await this.doRPCRequest("ReconstructThreeDMultiView", "2021-01-31", "HTTPS", "POST", "AK", "json", req, runtime), new ReconstructThreeDMultiViewResponse({}));
+  }
+
+  async reconstructThreeDMultiView(request: ReconstructThreeDMultiViewRequest): Promise<ReconstructThreeDMultiViewResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.reconstructThreeDMultiViewWithOptions(request, runtime);
+  }
+
+  async reconstructThreeDMultiViewAdvance(request: ReconstructThreeDMultiViewAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<ReconstructThreeDMultiViewResponse> {
+    // Step 0: init client
+    let accessKeyId = await this._credential.getAccessKeyId();
+    let accessKeySecret = await this._credential.getAccessKeySecret();
+    let authConfig = new $RPC.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      endpoint: "openplatform.aliyuncs.com",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenPlatform(authConfig);
+    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
+      product: "threedvision",
+      regionId: this._regionId,
+    });
+    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
+    let ossConfig = new $OSS.Config({
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let ossClient : OSS = null;
+    let fileObj = new $FileForm.FileField({ });
+    let ossHeader = new $OSS.PostObjectRequestHeader({ });
+    let uploadRequest = new $OSS.PostObjectRequest({ });
+    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
+    OpenApiUtil.convert(runtime, ossRuntime);
+    let reconstructThreeDMultiViewReq = new ReconstructThreeDMultiViewRequest({ });
+    OpenApiUtil.convert(request, reconstructThreeDMultiViewReq);
+    authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+    ossConfig.accessKeyId = authResponse.accessKeyId;
+    ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+    ossClient = new OSS(ossConfig);
+    fileObj = new $FileForm.FileField({
+      filename: authResponse.objectKey,
+      content: request.zipFileUrlObject,
+      contentType: "",
+    });
+    ossHeader = new $OSS.PostObjectRequestHeader({
+      accessKeyId: authResponse.accessKeyId,
+      policy: authResponse.encodedPolicy,
+      signature: authResponse.signature,
+      key: authResponse.objectKey,
+      file: fileObj,
+      successActionStatus: "201",
+    });
+    uploadRequest = new $OSS.PostObjectRequest({
+      bucketName: authResponse.bucket,
+      header: ossHeader,
+    });
+    await ossClient.postObject(uploadRequest, ossRuntime);
+    reconstructThreeDMultiViewReq.zipFileUrl = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    let reconstructThreeDMultiViewResp = await this.reconstructThreeDMultiViewWithOptions(reconstructThreeDMultiViewReq, runtime);
+    return reconstructThreeDMultiViewResp;
+  }
+
+  async getAsyncJobResultWithOptions(request: GetAsyncJobResultRequest, runtime: $Util.RuntimeOptions): Promise<GetAsyncJobResultResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<GetAsyncJobResultResponse>(await this.doRPCRequest("GetAsyncJobResult", "2021-01-31", "HTTPS", "POST", "AK", "json", req, runtime), new GetAsyncJobResultResponse({}));
+  }
+
+  async getAsyncJobResult(request: GetAsyncJobResultRequest): Promise<GetAsyncJobResultResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getAsyncJobResultWithOptions(request, runtime);
   }
 
   async estimateMonocularImageDepthWithOptions(request: EstimateMonocularImageDepthRequest, runtime: $Util.RuntimeOptions): Promise<EstimateMonocularImageDepthResponse> {
