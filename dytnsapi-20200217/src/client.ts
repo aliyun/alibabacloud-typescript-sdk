@@ -166,6 +166,25 @@ export class DescribePhoneNumberStatusResponse extends $tea.Model {
   }
 }
 
+export class PvrCallbackFCUResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryPhoneNumberAttributeRequest extends $tea.Model {
   ownerId?: number;
   resourceOwnerAccount?: string;
@@ -330,7 +349,7 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApi.Config) {
     super(config);
-    this._endpointRule = "";
+    this._endpointRule = "central";
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("dytnsapi", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
@@ -372,6 +391,16 @@ export default class Client extends OpenApi {
   async describePhoneNumberStatus(request: DescribePhoneNumberStatusRequest): Promise<DescribePhoneNumberStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describePhoneNumberStatusWithOptions(request, runtime);
+  }
+
+  async pvrCallbackFCUWithOptions(runtime: $Util.RuntimeOptions): Promise<PvrCallbackFCUResponse> {
+    let req = new $OpenApi.OpenApiRequest({ });
+    return $tea.cast<PvrCallbackFCUResponse>(await this.doRPCRequest("PvrCallbackFCU", "2020-02-17", "HTTPS", "POST", "AK", "none", req, runtime), new PvrCallbackFCUResponse({}));
+  }
+
+  async pvrCallbackFCU(): Promise<PvrCallbackFCUResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.pvrCallbackFCUWithOptions(runtime);
   }
 
   async queryPhoneNumberAttributeWithOptions(request: QueryPhoneNumberAttributeRequest, runtime: $Util.RuntimeOptions): Promise<QueryPhoneNumberAttributeResponse> {
