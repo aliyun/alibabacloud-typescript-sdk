@@ -7,20 +7,26 @@ import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
-export class CheckWhiteBoardHostRequest extends $tea.Model {
-  docKey?: string;
-  originHost?: string;
+export class DescribeAppsRequest extends $tea.Model {
+  appID?: string;
+  appStatus?: number;
+  pageNum?: number;
+  pageSize?: number;
   static names(): { [key: string]: string } {
     return {
-      docKey: 'DocKey',
-      originHost: 'OriginHost',
+      appID: 'AppID',
+      appStatus: 'AppStatus',
+      pageNum: 'PageNum',
+      pageSize: 'PageSize',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      docKey: 'string',
-      originHost: 'string',
+      appID: 'string',
+      appStatus: 'number',
+      pageNum: 'number',
+      pageSize: 'number',
     };
   }
 
@@ -29,7 +35,85 @@ export class CheckWhiteBoardHostRequest extends $tea.Model {
   }
 }
 
-export class CheckWhiteBoardHostResponseBody extends $tea.Model {
+export class DescribeAppsResponseBody extends $tea.Model {
+  requestId?: string;
+  responseSuccess?: boolean;
+  errorCode?: string;
+  errorMsg?: string;
+  result?: DescribeAppsResponseBodyResult;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      responseSuccess: 'ResponseSuccess',
+      errorCode: 'ErrorCode',
+      errorMsg: 'ErrorMsg',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      responseSuccess: 'boolean',
+      errorCode: 'string',
+      errorMsg: 'string',
+      result: DescribeAppsResponseBodyResult,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAppsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeAppsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeAppsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetAppCallbackUrlRequest extends $tea.Model {
+  appID?: string;
+  appCallbackUrl?: string;
+  appCallbackAuthKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appID: 'AppID',
+      appCallbackUrl: 'AppCallbackUrl',
+      appCallbackAuthKey: 'AppCallbackAuthKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appID: 'string',
+      appCallbackUrl: 'string',
+      appCallbackAuthKey: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetAppCallbackUrlResponseBody extends $tea.Model {
   requestId?: string;
   responseSuccess?: boolean;
   errorCode?: string;
@@ -60,9 +144,9 @@ export class CheckWhiteBoardHostResponseBody extends $tea.Model {
   }
 }
 
-export class CheckWhiteBoardHostResponse extends $tea.Model {
+export class SetAppCallbackUrlResponse extends $tea.Model {
   headers: { [key: string]: string };
-  body: CheckWhiteBoardHostResponseBody;
+  body: SetAppCallbackUrlResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -73,7 +157,394 @@ export class CheckWhiteBoardHostResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: CheckWhiteBoardHostResponseBody,
+      body: SetAppCallbackUrlResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetAppNameRequest extends $tea.Model {
+  appID?: string;
+  appName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appID: 'AppID',
+      appName: 'AppName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appID: 'string',
+      appName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetAppNameResponseBody extends $tea.Model {
+  requestId?: string;
+  responseSuccess?: boolean;
+  errorCode?: string;
+  errorMsg?: string;
+  result?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      responseSuccess: 'ResponseSuccess',
+      errorCode: 'ErrorCode',
+      errorMsg: 'ErrorMsg',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      responseSuccess: 'boolean',
+      errorCode: 'string',
+      errorMsg: 'string',
+      result: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetAppNameResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: SetAppNameResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: SetAppNameResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeWhiteBoardsRequest extends $tea.Model {
+  appID?: string;
+  docStatus?: number;
+  pageNum?: number;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      appID: 'AppID',
+      docStatus: 'DocStatus',
+      pageNum: 'PageNum',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appID: 'string',
+      docStatus: 'number',
+      pageNum: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeWhiteBoardsResponseBody extends $tea.Model {
+  requestId?: string;
+  responseSuccess?: boolean;
+  errorCode?: string;
+  errorMsg?: string;
+  result?: DescribeWhiteBoardsResponseBodyResult;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      responseSuccess: 'ResponseSuccess',
+      errorCode: 'ErrorCode',
+      errorMsg: 'ErrorMsg',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      responseSuccess: 'boolean',
+      errorCode: 'string',
+      errorMsg: 'string',
+      result: DescribeWhiteBoardsResponseBodyResult,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeWhiteBoardsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeWhiteBoardsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeWhiteBoardsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetAppDomainNamesRequest extends $tea.Model {
+  appID?: string;
+  appDomainNames?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appID: 'AppID',
+      appDomainNames: 'AppDomainNames',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appID: 'string',
+      appDomainNames: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetAppDomainNamesResponseBody extends $tea.Model {
+  requestId?: string;
+  responseSuccess?: boolean;
+  errorCode?: string;
+  errorMsg?: string;
+  result?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      responseSuccess: 'ResponseSuccess',
+      errorCode: 'ErrorCode',
+      errorMsg: 'ErrorMsg',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      responseSuccess: 'boolean',
+      errorCode: 'string',
+      errorMsg: 'string',
+      result: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetAppDomainNamesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: SetAppDomainNamesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: SetAppDomainNamesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OpenWhiteBoardRequest extends $tea.Model {
+  appID?: string;
+  userId?: string;
+  docKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appID: 'AppID',
+      userId: 'UserId',
+      docKey: 'DocKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appID: 'string',
+      userId: 'string',
+      docKey: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OpenWhiteBoardResponseBody extends $tea.Model {
+  requestId?: string;
+  responseSuccess?: boolean;
+  errorCode?: string;
+  errorMsg?: string;
+  result?: OpenWhiteBoardResponseBodyResult;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      responseSuccess: 'ResponseSuccess',
+      errorCode: 'ErrorCode',
+      errorMsg: 'ErrorMsg',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      responseSuccess: 'boolean',
+      errorCode: 'string',
+      errorMsg: 'string',
+      result: OpenWhiteBoardResponseBodyResult,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OpenWhiteBoardResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: OpenWhiteBoardResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: OpenWhiteBoardResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RefreshUsersPermissionsRequest extends $tea.Model {
+  userIds?: string;
+  docKey?: string;
+  appID?: string;
+  static names(): { [key: string]: string } {
+    return {
+      userIds: 'UserIds',
+      docKey: 'DocKey',
+      appID: 'AppID',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      userIds: 'string',
+      docKey: 'string',
+      appID: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RefreshUsersPermissionsResponseBody extends $tea.Model {
+  requestId?: string;
+  responseSuccess?: boolean;
+  errorCode?: string;
+  errorMsg?: string;
+  result?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      responseSuccess: 'ResponseSuccess',
+      errorCode: 'ErrorCode',
+      errorMsg: 'ErrorMsg',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      responseSuccess: 'boolean',
+      errorCode: 'string',
+      errorMsg: 'string',
+      result: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RefreshUsersPermissionsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: RefreshUsersPermissionsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: RefreshUsersPermissionsResponseBody,
     };
   }
 
@@ -229,615 +700,6 @@ export class CreateWhiteBoardResponse extends $tea.Model {
   }
 }
 
-export class GetUserPermissionCallbackRequest extends $tea.Model {
-  userId?: string;
-  docKey?: string;
-  permissionType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      userId: 'UserId',
-      docKey: 'DocKey',
-      permissionType: 'PermissionType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      userId: 'string',
-      docKey: 'string',
-      permissionType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetUserPermissionCallbackResponseBody extends $tea.Model {
-  requestId?: string;
-  responseSuccess?: boolean;
-  errorCode?: string;
-  errorMsg?: string;
-  result?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      responseSuccess: 'ResponseSuccess',
-      errorCode: 'ErrorCode',
-      errorMsg: 'ErrorMsg',
-      result: 'Result',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      responseSuccess: 'boolean',
-      errorCode: 'string',
-      errorMsg: 'string',
-      result: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetUserPermissionCallbackResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: GetUserPermissionCallbackResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: GetUserPermissionCallbackResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetUserProfileCallbackRequest extends $tea.Model {
-  userIds?: string;
-  docKey?: string;
-  static names(): { [key: string]: string } {
-    return {
-      userIds: 'UserIds',
-      docKey: 'DocKey',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      userIds: 'string',
-      docKey: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetUserProfileCallbackResponseBody extends $tea.Model {
-  requestId?: string;
-  responseSuccess?: boolean;
-  errorCode?: string;
-  errorMsg?: string;
-  result?: GetUserProfileCallbackResponseBodyResult;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      responseSuccess: 'ResponseSuccess',
-      errorCode: 'ErrorCode',
-      errorMsg: 'ErrorMsg',
-      result: 'Result',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      responseSuccess: 'boolean',
-      errorCode: 'string',
-      errorMsg: 'string',
-      result: GetUserProfileCallbackResponseBodyResult,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetUserProfileCallbackResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: GetUserProfileCallbackResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: GetUserProfileCallbackResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetWhiteBoardProfileCallbackRequest extends $tea.Model {
-  docKey?: string;
-  static names(): { [key: string]: string } {
-    return {
-      docKey: 'DocKey',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      docKey: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetWhiteBoardProfileCallbackResponseBody extends $tea.Model {
-  requestId?: string;
-  responseSuccess?: boolean;
-  errorCode?: string;
-  errorMsg?: string;
-  result?: GetWhiteBoardProfileCallbackResponseBodyResult;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      responseSuccess: 'ResponseSuccess',
-      errorCode: 'ErrorCode',
-      errorMsg: 'ErrorMsg',
-      result: 'Result',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      responseSuccess: 'boolean',
-      errorCode: 'string',
-      errorMsg: 'string',
-      result: GetWhiteBoardProfileCallbackResponseBodyResult,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetWhiteBoardProfileCallbackResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: GetWhiteBoardProfileCallbackResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: GetWhiteBoardProfileCallbackResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OpenWhiteBoardRequest extends $tea.Model {
-  appID?: string;
-  userId?: string;
-  docKey?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appID: 'AppID',
-      userId: 'UserId',
-      docKey: 'DocKey',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appID: 'string',
-      userId: 'string',
-      docKey: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OpenWhiteBoardResponseBody extends $tea.Model {
-  requestId?: string;
-  responseSuccess?: boolean;
-  errorCode?: string;
-  errorMsg?: string;
-  result?: OpenWhiteBoardResponseBodyResult;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      responseSuccess: 'ResponseSuccess',
-      errorCode: 'ErrorCode',
-      errorMsg: 'ErrorMsg',
-      result: 'Result',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      responseSuccess: 'boolean',
-      errorCode: 'string',
-      errorMsg: 'string',
-      result: OpenWhiteBoardResponseBodyResult,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OpenWhiteBoardResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: OpenWhiteBoardResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: OpenWhiteBoardResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RefreshUsersPermissionsRequest extends $tea.Model {
-  userIds?: string;
-  docKey?: string;
-  appID?: string;
-  static names(): { [key: string]: string } {
-    return {
-      userIds: 'UserIds',
-      docKey: 'DocKey',
-      appID: 'AppID',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      userIds: 'string',
-      docKey: 'string',
-      appID: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RefreshUsersPermissionsResponseBody extends $tea.Model {
-  requestId?: string;
-  responseSuccess?: boolean;
-  errorCode?: string;
-  errorMsg?: string;
-  result?: RefreshUsersPermissionsResponseBodyResult;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      responseSuccess: 'ResponseSuccess',
-      errorCode: 'ErrorCode',
-      errorMsg: 'ErrorMsg',
-      result: 'Result',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      responseSuccess: 'boolean',
-      errorCode: 'string',
-      errorMsg: 'string',
-      result: RefreshUsersPermissionsResponseBodyResult,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RefreshUsersPermissionsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: RefreshUsersPermissionsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: RefreshUsersPermissionsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SetAppCallbackUrlRequest extends $tea.Model {
-  appID?: string;
-  appCallbackUrl?: string;
-  appCallbackAuthKey?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appID: 'AppID',
-      appCallbackUrl: 'AppCallbackUrl',
-      appCallbackAuthKey: 'AppCallbackAuthKey',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appID: 'string',
-      appCallbackUrl: 'string',
-      appCallbackAuthKey: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SetAppCallbackUrlResponseBody extends $tea.Model {
-  requestId?: string;
-  responseSuccess?: boolean;
-  errorCode?: string;
-  errorMsg?: string;
-  result?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      responseSuccess: 'ResponseSuccess',
-      errorCode: 'ErrorCode',
-      errorMsg: 'ErrorMsg',
-      result: 'Result',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      responseSuccess: 'boolean',
-      errorCode: 'string',
-      errorMsg: 'string',
-      result: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SetAppCallbackUrlResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: SetAppCallbackUrlResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: SetAppCallbackUrlResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SetAppDomainNamesRequest extends $tea.Model {
-  appID?: string;
-  appDomainNames?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appID: 'AppID',
-      appDomainNames: 'AppDomainNames',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appID: 'string',
-      appDomainNames: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SetAppDomainNamesResponseBody extends $tea.Model {
-  requestId?: string;
-  responseSuccess?: boolean;
-  errorCode?: string;
-  errorMsg?: string;
-  result?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      responseSuccess: 'ResponseSuccess',
-      errorCode: 'ErrorCode',
-      errorMsg: 'ErrorMsg',
-      result: 'Result',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      responseSuccess: 'boolean',
-      errorCode: 'string',
-      errorMsg: 'string',
-      result: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SetAppDomainNamesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: SetAppDomainNamesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: SetAppDomainNamesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SetAppNameRequest extends $tea.Model {
-  appID?: string;
-  appName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appID: 'AppID',
-      appName: 'AppName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appID: 'string',
-      appName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SetAppNameResponseBody extends $tea.Model {
-  requestId?: string;
-  responseSuccess?: boolean;
-  errorCode?: string;
-  errorMsg?: string;
-  result?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      responseSuccess: 'ResponseSuccess',
-      errorCode: 'ErrorCode',
-      errorMsg: 'ErrorMsg',
-      result: 'Result',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      responseSuccess: 'boolean',
-      errorCode: 'string',
-      errorMsg: 'string',
-      result: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SetAppNameResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: SetAppNameResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: SetAppNameResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class SetAppStatusRequest extends $tea.Model {
   appID?: string;
   appStatus?: number;
@@ -913,17 +775,32 @@ export class SetAppStatusResponse extends $tea.Model {
   }
 }
 
-export class CreateAppResponseBodyResult extends $tea.Model {
+export class DescribeAppsResponseBodyResultAppList extends $tea.Model {
   appID?: string;
+  appName?: string;
+  status?: number;
+  callbackUrl?: string;
+  domainNames?: string;
+  createTime?: string;
   static names(): { [key: string]: string } {
     return {
       appID: 'AppID',
+      appName: 'AppName',
+      status: 'Status',
+      callbackUrl: 'CallbackUrl',
+      domainNames: 'DomainNames',
+      createTime: 'CreateTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       appID: 'string',
+      appName: 'string',
+      status: 'number',
+      callbackUrl: 'string',
+      domainNames: 'string',
+      createTime: 'string',
     };
   }
 
@@ -932,17 +809,54 @@ export class CreateAppResponseBodyResult extends $tea.Model {
   }
 }
 
-export class CreateWhiteBoardResponseBodyResult extends $tea.Model {
+export class DescribeAppsResponseBodyResult extends $tea.Model {
+  totalNum?: number;
+  totalPage?: number;
+  appList?: DescribeAppsResponseBodyResultAppList[];
+  static names(): { [key: string]: string } {
+    return {
+      totalNum: 'TotalNum',
+      totalPage: 'TotalPage',
+      appList: 'AppList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      totalNum: 'number',
+      totalPage: 'number',
+      appList: { 'type': 'array', 'itemType': DescribeAppsResponseBodyResultAppList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeWhiteBoardsResponseBodyResultDocList extends $tea.Model {
+  appID?: string;
   docKey?: string;
+  status?: number;
+  createUserId?: string;
+  createTime?: string;
   static names(): { [key: string]: string } {
     return {
+      appID: 'AppID',
       docKey: 'DocKey',
+      status: 'Status',
+      createUserId: 'CreateUserId',
+      createTime: 'CreateTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      appID: 'string',
       docKey: 'string',
+      status: 'number',
+      createUserId: 'string',
+      createTime: 'string',
     };
   }
 
@@ -951,64 +865,23 @@ export class CreateWhiteBoardResponseBodyResult extends $tea.Model {
   }
 }
 
-export class GetUserProfileCallbackResponseBodyResultUserProfileList extends $tea.Model {
-  userId?: string;
-  avatarUrl?: string;
-  nick?: string;
-  nickPinyin?: string;
+export class DescribeWhiteBoardsResponseBodyResult extends $tea.Model {
+  totalNum?: number;
+  totalPage?: number;
+  docList?: DescribeWhiteBoardsResponseBodyResultDocList[];
   static names(): { [key: string]: string } {
     return {
-      userId: 'UserId',
-      avatarUrl: 'AvatarUrl',
-      nick: 'Nick',
-      nickPinyin: 'NickPinyin',
+      totalNum: 'TotalNum',
+      totalPage: 'TotalPage',
+      docList: 'DocList',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      userId: 'string',
-      avatarUrl: 'string',
-      nick: 'string',
-      nickPinyin: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetUserProfileCallbackResponseBodyResult extends $tea.Model {
-  userProfileList?: GetUserProfileCallbackResponseBodyResultUserProfileList[];
-  static names(): { [key: string]: string } {
-    return {
-      userProfileList: 'UserProfileList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      userProfileList: { 'type': 'array', 'itemType': GetUserProfileCallbackResponseBodyResultUserProfileList },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetWhiteBoardProfileCallbackResponseBodyResult extends $tea.Model {
-  name?: string;
-  static names(): { [key: string]: string } {
-    return {
-      name: 'Name',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
+      totalNum: 'number',
+      totalPage: 'number',
+      docList: { 'type': 'array', 'itemType': DescribeWhiteBoardsResponseBodyResultDocList },
     };
   }
 
@@ -1050,12 +923,14 @@ export class OpenWhiteBoardResponseBodyResultDocumentAccessInfo extends $tea.Mod
   collabHost?: string;
   permission?: number;
   userInfo?: OpenWhiteBoardResponseBodyResultDocumentAccessInfoUserInfo;
+  wsDomain?: string;
   static names(): { [key: string]: string } {
     return {
       accessToken: 'AccessToken',
       collabHost: 'CollabHost',
       permission: 'Permission',
       userInfo: 'UserInfo',
+      wsDomain: 'WsDomain',
     };
   }
 
@@ -1065,6 +940,7 @@ export class OpenWhiteBoardResponseBodyResultDocumentAccessInfo extends $tea.Mod
       collabHost: 'string',
       permission: 'number',
       userInfo: OpenWhiteBoardResponseBodyResultDocumentAccessInfoUserInfo,
+      wsDomain: 'string',
     };
   }
 
@@ -1092,20 +968,36 @@ export class OpenWhiteBoardResponseBodyResult extends $tea.Model {
   }
 }
 
-export class RefreshUsersPermissionsResponseBodyResult extends $tea.Model {
-  code?: string;
-  message?: string;
+export class CreateAppResponseBodyResult extends $tea.Model {
+  appID?: string;
   static names(): { [key: string]: string } {
     return {
-      code: 'Code',
-      message: 'Message',
+      appID: 'AppID',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      code: 'string',
-      message: 'string',
+      appID: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateWhiteBoardResponseBodyResult extends $tea.Model {
+  docKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      docKey: 'DocKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      docKey: 'string',
     };
   }
 
@@ -1137,82 +1029,69 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
-  async checkWhiteBoardHostWithOptions(request: CheckWhiteBoardHostRequest, runtime: $Util.RuntimeOptions): Promise<CheckWhiteBoardHostResponse> {
+  async describeAppsWithOptions(request: DescribeAppsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAppsResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<CheckWhiteBoardHostResponse>(await this.doRPCRequest("CheckWhiteBoardHost", "2020-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new CheckWhiteBoardHostResponse({}));
+    return $tea.cast<DescribeAppsResponse>(await this.doRPCRequest("DescribeApps", "2020-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeAppsResponse({}));
   }
 
-  async checkWhiteBoardHost(request: CheckWhiteBoardHostRequest): Promise<CheckWhiteBoardHostResponse> {
+  async describeApps(request: DescribeAppsRequest): Promise<DescribeAppsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.checkWhiteBoardHostWithOptions(request, runtime);
+    return await this.describeAppsWithOptions(request, runtime);
   }
 
-  async createAppWithOptions(request: CreateAppRequest, runtime: $Util.RuntimeOptions): Promise<CreateAppResponse> {
+  async setAppCallbackUrlWithOptions(request: SetAppCallbackUrlRequest, runtime: $Util.RuntimeOptions): Promise<SetAppCallbackUrlResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<CreateAppResponse>(await this.doRPCRequest("CreateApp", "2020-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new CreateAppResponse({}));
+    return $tea.cast<SetAppCallbackUrlResponse>(await this.doRPCRequest("SetAppCallbackUrl", "2020-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new SetAppCallbackUrlResponse({}));
   }
 
-  async createApp(request: CreateAppRequest): Promise<CreateAppResponse> {
+  async setAppCallbackUrl(request: SetAppCallbackUrlRequest): Promise<SetAppCallbackUrlResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.createAppWithOptions(request, runtime);
+    return await this.setAppCallbackUrlWithOptions(request, runtime);
   }
 
-  async createWhiteBoardWithOptions(request: CreateWhiteBoardRequest, runtime: $Util.RuntimeOptions): Promise<CreateWhiteBoardResponse> {
+  async setAppNameWithOptions(request: SetAppNameRequest, runtime: $Util.RuntimeOptions): Promise<SetAppNameResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<CreateWhiteBoardResponse>(await this.doRPCRequest("CreateWhiteBoard", "2020-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new CreateWhiteBoardResponse({}));
+    return $tea.cast<SetAppNameResponse>(await this.doRPCRequest("SetAppName", "2020-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new SetAppNameResponse({}));
   }
 
-  async createWhiteBoard(request: CreateWhiteBoardRequest): Promise<CreateWhiteBoardResponse> {
+  async setAppName(request: SetAppNameRequest): Promise<SetAppNameResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.createWhiteBoardWithOptions(request, runtime);
+    return await this.setAppNameWithOptions(request, runtime);
   }
 
-  async getUserPermissionCallbackWithOptions(request: GetUserPermissionCallbackRequest, runtime: $Util.RuntimeOptions): Promise<GetUserPermissionCallbackResponse> {
+  async describeWhiteBoardsWithOptions(request: DescribeWhiteBoardsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeWhiteBoardsResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<GetUserPermissionCallbackResponse>(await this.doRPCRequest("GetUserPermissionCallback", "2020-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new GetUserPermissionCallbackResponse({}));
+    return $tea.cast<DescribeWhiteBoardsResponse>(await this.doRPCRequest("DescribeWhiteBoards", "2020-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeWhiteBoardsResponse({}));
   }
 
-  async getUserPermissionCallback(request: GetUserPermissionCallbackRequest): Promise<GetUserPermissionCallbackResponse> {
+  async describeWhiteBoards(request: DescribeWhiteBoardsRequest): Promise<DescribeWhiteBoardsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.getUserPermissionCallbackWithOptions(request, runtime);
+    return await this.describeWhiteBoardsWithOptions(request, runtime);
   }
 
-  async getUserProfileCallbackWithOptions(request: GetUserProfileCallbackRequest, runtime: $Util.RuntimeOptions): Promise<GetUserProfileCallbackResponse> {
+  async setAppDomainNamesWithOptions(request: SetAppDomainNamesRequest, runtime: $Util.RuntimeOptions): Promise<SetAppDomainNamesResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<GetUserProfileCallbackResponse>(await this.doRPCRequest("GetUserProfileCallback", "2020-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new GetUserProfileCallbackResponse({}));
+    return $tea.cast<SetAppDomainNamesResponse>(await this.doRPCRequest("SetAppDomainNames", "2020-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new SetAppDomainNamesResponse({}));
   }
 
-  async getUserProfileCallback(request: GetUserProfileCallbackRequest): Promise<GetUserProfileCallbackResponse> {
+  async setAppDomainNames(request: SetAppDomainNamesRequest): Promise<SetAppDomainNamesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.getUserProfileCallbackWithOptions(request, runtime);
-  }
-
-  async getWhiteBoardProfileCallbackWithOptions(request: GetWhiteBoardProfileCallbackRequest, runtime: $Util.RuntimeOptions): Promise<GetWhiteBoardProfileCallbackResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<GetWhiteBoardProfileCallbackResponse>(await this.doRPCRequest("GetWhiteBoardProfileCallback", "2020-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new GetWhiteBoardProfileCallbackResponse({}));
-  }
-
-  async getWhiteBoardProfileCallback(request: GetWhiteBoardProfileCallbackRequest): Promise<GetWhiteBoardProfileCallbackResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getWhiteBoardProfileCallbackWithOptions(request, runtime);
+    return await this.setAppDomainNamesWithOptions(request, runtime);
   }
 
   async openWhiteBoardWithOptions(request: OpenWhiteBoardRequest, runtime: $Util.RuntimeOptions): Promise<OpenWhiteBoardResponse> {
@@ -1241,43 +1120,30 @@ export default class Client extends OpenApi {
     return await this.refreshUsersPermissionsWithOptions(request, runtime);
   }
 
-  async setAppCallbackUrlWithOptions(request: SetAppCallbackUrlRequest, runtime: $Util.RuntimeOptions): Promise<SetAppCallbackUrlResponse> {
+  async createAppWithOptions(request: CreateAppRequest, runtime: $Util.RuntimeOptions): Promise<CreateAppResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<SetAppCallbackUrlResponse>(await this.doRPCRequest("SetAppCallbackUrl", "2020-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new SetAppCallbackUrlResponse({}));
+    return $tea.cast<CreateAppResponse>(await this.doRPCRequest("CreateApp", "2020-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new CreateAppResponse({}));
   }
 
-  async setAppCallbackUrl(request: SetAppCallbackUrlRequest): Promise<SetAppCallbackUrlResponse> {
+  async createApp(request: CreateAppRequest): Promise<CreateAppResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.setAppCallbackUrlWithOptions(request, runtime);
+    return await this.createAppWithOptions(request, runtime);
   }
 
-  async setAppDomainNamesWithOptions(request: SetAppDomainNamesRequest, runtime: $Util.RuntimeOptions): Promise<SetAppDomainNamesResponse> {
+  async createWhiteBoardWithOptions(request: CreateWhiteBoardRequest, runtime: $Util.RuntimeOptions): Promise<CreateWhiteBoardResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<SetAppDomainNamesResponse>(await this.doRPCRequest("SetAppDomainNames", "2020-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new SetAppDomainNamesResponse({}));
+    return $tea.cast<CreateWhiteBoardResponse>(await this.doRPCRequest("CreateWhiteBoard", "2020-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new CreateWhiteBoardResponse({}));
   }
 
-  async setAppDomainNames(request: SetAppDomainNamesRequest): Promise<SetAppDomainNamesResponse> {
+  async createWhiteBoard(request: CreateWhiteBoardRequest): Promise<CreateWhiteBoardResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.setAppDomainNamesWithOptions(request, runtime);
-  }
-
-  async setAppNameWithOptions(request: SetAppNameRequest, runtime: $Util.RuntimeOptions): Promise<SetAppNameResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<SetAppNameResponse>(await this.doRPCRequest("SetAppName", "2020-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new SetAppNameResponse({}));
-  }
-
-  async setAppName(request: SetAppNameRequest): Promise<SetAppNameResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.setAppNameWithOptions(request, runtime);
+    return await this.createWhiteBoardWithOptions(request, runtime);
   }
 
   async setAppStatusWithOptions(request: SetAppStatusRequest, runtime: $Util.RuntimeOptions): Promise<SetAppStatusResponse> {
