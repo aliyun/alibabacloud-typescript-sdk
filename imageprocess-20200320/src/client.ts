@@ -702,22 +702,37 @@ export class DetectKneeKeypointXRayResponse extends $tea.Model {
 }
 
 export class RunMedQARequest extends $tea.Model {
-  question?: string;
   orgId?: string;
   orgName?: string;
+  sessionId?: string;
+  department?: string;
+  questionType?: string;
+  answerImageURLList?: RunMedQARequestAnswerImageURLList[];
+  answerImageDataList?: RunMedQARequestAnswerImageDataList[];
+  answerTextList?: RunMedQARequestAnswerTextList[];
   static names(): { [key: string]: string } {
     return {
-      question: 'Question',
       orgId: 'OrgId',
       orgName: 'OrgName',
+      sessionId: 'SessionId',
+      department: 'Department',
+      questionType: 'QuestionType',
+      answerImageURLList: 'AnswerImageURLList',
+      answerImageDataList: 'AnswerImageDataList',
+      answerTextList: 'AnswerTextList',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      question: 'string',
       orgId: 'string',
       orgName: 'string',
+      sessionId: 'string',
+      department: 'string',
+      questionType: 'string',
+      answerImageURLList: { 'type': 'array', 'itemType': RunMedQARequestAnswerImageURLList },
+      answerImageDataList: { 'type': 'array', 'itemType': RunMedQARequestAnswerImageDataList },
+      answerTextList: { 'type': 'array', 'itemType': RunMedQARequestAnswerTextList },
     };
   }
 
@@ -1809,20 +1824,89 @@ export class DetectKneeKeypointXRayResponseBodyData extends $tea.Model {
   }
 }
 
-export class RunMedQAResponseBodyData extends $tea.Model {
-  answer?: string;
-  similarQuestion?: string[];
+export class RunMedQARequestAnswerImageURLList extends $tea.Model {
+  answerImageURL?: string;
   static names(): { [key: string]: string } {
     return {
-      answer: 'Answer',
-      similarQuestion: 'SimilarQuestion',
+      answerImageURL: 'AnswerImageURL',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      answer: 'string',
-      similarQuestion: { 'type': 'array', 'itemType': 'string' },
+      answerImageURL: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunMedQARequestAnswerImageDataList extends $tea.Model {
+  answerImageData?: Buffer;
+  static names(): { [key: string]: string } {
+    return {
+      answerImageData: 'AnswerImageData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      answerImageData: 'Buffer',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunMedQARequestAnswerTextList extends $tea.Model {
+  answerText?: string;
+  static names(): { [key: string]: string } {
+    return {
+      answerText: 'AnswerText',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      answerText: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunMedQAResponseBodyData extends $tea.Model {
+  sessionId?: string;
+  questionType?: string;
+  question?: string;
+  answerType?: string;
+  options?: string[];
+  reports?: { [key: string]: string };
+  static names(): { [key: string]: string } {
+    return {
+      sessionId: 'SessionId',
+      questionType: 'QuestionType',
+      question: 'Question',
+      answerType: 'AnswerType',
+      options: 'Options',
+      reports: 'Reports',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sessionId: 'string',
+      questionType: 'string',
+      question: 'string',
+      answerType: 'string',
+      options: { 'type': 'array', 'itemType': 'string' },
+      reports: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
     };
   }
 
@@ -2366,11 +2450,16 @@ export default class Client extends OpenApi {
     // Step 0: init client
     let accessKeyId = await this._credential.getAccessKeyId();
     let accessKeySecret = await this._credential.getAccessKeySecret();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if (Util.isUnset(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
     let authConfig = new $RPC.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
       type: "access_key",
-      endpoint: "openplatform.aliyuncs.com",
+      endpoint: openPlatformEndpoint,
       protocol: this._protocol,
       regionId: this._regionId,
     });
@@ -2503,11 +2592,16 @@ export default class Client extends OpenApi {
     // Step 0: init client
     let accessKeyId = await this._credential.getAccessKeyId();
     let accessKeySecret = await this._credential.getAccessKeySecret();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if (Util.isUnset(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
     let authConfig = new $RPC.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
       type: "access_key",
-      endpoint: "openplatform.aliyuncs.com",
+      endpoint: openPlatformEndpoint,
       protocol: this._protocol,
       regionId: this._regionId,
     });
@@ -2575,11 +2669,16 @@ export default class Client extends OpenApi {
     // Step 0: init client
     let accessKeyId = await this._credential.getAccessKeyId();
     let accessKeySecret = await this._credential.getAccessKeySecret();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if (Util.isUnset(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
     let authConfig = new $RPC.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
       type: "access_key",
-      endpoint: "openplatform.aliyuncs.com",
+      endpoint: openPlatformEndpoint,
       protocol: this._protocol,
       regionId: this._regionId,
     });
@@ -2660,11 +2759,16 @@ export default class Client extends OpenApi {
     // Step 0: init client
     let accessKeyId = await this._credential.getAccessKeyId();
     let accessKeySecret = await this._credential.getAccessKeySecret();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if (Util.isUnset(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
     let authConfig = new $RPC.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
       type: "access_key",
-      endpoint: "openplatform.aliyuncs.com",
+      endpoint: openPlatformEndpoint,
       protocol: this._protocol,
       regionId: this._regionId,
     });
@@ -2784,11 +2888,16 @@ export default class Client extends OpenApi {
     // Step 0: init client
     let accessKeyId = await this._credential.getAccessKeyId();
     let accessKeySecret = await this._credential.getAccessKeySecret();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if (Util.isUnset(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
     let authConfig = new $RPC.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
       type: "access_key",
-      endpoint: "openplatform.aliyuncs.com",
+      endpoint: openPlatformEndpoint,
       protocol: this._protocol,
       regionId: this._regionId,
     });
