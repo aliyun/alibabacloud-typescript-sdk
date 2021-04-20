@@ -1463,14 +1463,12 @@ export class CompareFacesRequest extends $tea.Model {
   sourceImageType?: string;
   sourceImageValue?: string;
   targetImageValue?: string;
-  bizType?: string;
   static names(): { [key: string]: string } {
     return {
       targetImageType: 'TargetImageType',
       sourceImageType: 'SourceImageType',
       sourceImageValue: 'SourceImageValue',
       targetImageValue: 'TargetImageValue',
-      bizType: 'BizType',
     };
   }
 
@@ -1480,7 +1478,6 @@ export class CompareFacesRequest extends $tea.Model {
       sourceImageType: 'string',
       sourceImageValue: 'string',
       targetImageValue: 'string',
-      bizType: 'string',
     };
   }
 
@@ -2388,11 +2385,13 @@ export class LivenessFaceVerifyResponseResultObject extends $tea.Model {
   passed: string;
   materialInfo: string;
   subCode: string;
+  certifyId: string;
   static names(): { [key: string]: string } {
     return {
       passed: 'Passed',
       materialInfo: 'MaterialInfo',
       subCode: 'SubCode',
+      certifyId: 'CertifyId',
     };
   }
 
@@ -2401,6 +2400,7 @@ export class LivenessFaceVerifyResponseResultObject extends $tea.Model {
       passed: 'string',
       materialInfo: 'string',
       subCode: 'string',
+      certifyId: 'string',
     };
   }
 
@@ -2412,10 +2412,12 @@ export class LivenessFaceVerifyResponseResultObject extends $tea.Model {
 export class CompareFaceVerifyResponseResultObject extends $tea.Model {
   passed: string;
   verifyScore: number;
+  certifyId: string;
   static names(): { [key: string]: string } {
     return {
       passed: 'Passed',
       verifyScore: 'VerifyScore',
+      certifyId: 'CertifyId',
     };
   }
 
@@ -2423,6 +2425,7 @@ export class CompareFaceVerifyResponseResultObject extends $tea.Model {
     return {
       passed: 'string',
       verifyScore: 'number',
+      certifyId: 'string',
     };
   }
 
@@ -2598,12 +2601,14 @@ export class ContrastFaceVerifyResponseResultObject extends $tea.Model {
   identityInfo: string;
   materialInfo: string;
   subCode: string;
+  certifyId: string;
   static names(): { [key: string]: string } {
     return {
       passed: 'Passed',
       identityInfo: 'IdentityInfo',
       materialInfo: 'MaterialInfo',
       subCode: 'SubCode',
+      certifyId: 'CertifyId',
     };
   }
 
@@ -2613,6 +2618,7 @@ export class ContrastFaceVerifyResponseResultObject extends $tea.Model {
       identityInfo: 'string',
       materialInfo: 'string',
       subCode: 'string',
+      certifyId: 'string',
     };
   }
 
