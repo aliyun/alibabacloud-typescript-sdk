@@ -625,6 +625,87 @@ export class CreateAppResponse extends $tea.Model {
   }
 }
 
+export class SetUsersPermissionsRequest extends $tea.Model {
+  userIds?: string;
+  docKey?: string;
+  appID?: string;
+  permissionType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      userIds: 'UserIds',
+      docKey: 'DocKey',
+      appID: 'AppID',
+      permissionType: 'PermissionType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      userIds: 'string',
+      docKey: 'string',
+      appID: 'string',
+      permissionType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetUsersPermissionsResponseBody extends $tea.Model {
+  requestId?: string;
+  responseSuccess?: boolean;
+  errorCode?: string;
+  errorMsg?: string;
+  result?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      responseSuccess: 'ResponseSuccess',
+      errorCode: 'ErrorCode',
+      errorMsg: 'ErrorMsg',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      responseSuccess: 'boolean',
+      errorCode: 'string',
+      errorMsg: 'string',
+      result: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetUsersPermissionsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: SetUsersPermissionsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: SetUsersPermissionsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateWhiteBoardRequest extends $tea.Model {
   userId?: string;
   appID?: string;
@@ -1131,6 +1212,19 @@ export default class Client extends OpenApi {
   async createApp(request: CreateAppRequest): Promise<CreateAppResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createAppWithOptions(request, runtime);
+  }
+
+  async setUsersPermissionsWithOptions(request: SetUsersPermissionsRequest, runtime: $Util.RuntimeOptions): Promise<SetUsersPermissionsResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<SetUsersPermissionsResponse>(await this.doRPCRequest("SetUsersPermissions", "2020-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new SetUsersPermissionsResponse({}));
+  }
+
+  async setUsersPermissions(request: SetUsersPermissionsRequest): Promise<SetUsersPermissionsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.setUsersPermissionsWithOptions(request, runtime);
   }
 
   async createWhiteBoardWithOptions(request: CreateWhiteBoardRequest, runtime: $Util.RuntimeOptions): Promise<CreateWhiteBoardResponse> {
