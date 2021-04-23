@@ -395,6 +395,94 @@ export class EstimateStereoImageDepthResponse extends $tea.Model {
   }
 }
 
+export class EstimateStereoVideoDepthRequest extends $tea.Model {
+  videoURL?: string;
+  sampleRate?: string;
+  static names(): { [key: string]: string } {
+    return {
+      videoURL: 'VideoURL',
+      sampleRate: 'SampleRate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      videoURL: 'string',
+      sampleRate: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EstimateStereoVideoDepthAdvanceRequest extends $tea.Model {
+  videoURLObject: Readable;
+  sampleRate?: string;
+  static names(): { [key: string]: string } {
+    return {
+      videoURLObject: 'VideoURLObject',
+      sampleRate: 'SampleRate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      videoURLObject: 'Readable',
+      sampleRate: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EstimateStereoVideoDepthResponseBody extends $tea.Model {
+  requestId?: string;
+  data?: EstimateStereoVideoDepthResponseBodyData;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      data: EstimateStereoVideoDepthResponseBodyData,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EstimateStereoVideoDepthResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: EstimateStereoVideoDepthResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: EstimateStereoVideoDepthResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ReconstructBodyBySingleImageResponseBodyData extends $tea.Model {
   depthURL?: string;
   meshURL?: string;
@@ -511,6 +599,28 @@ export class EstimateStereoImageDepthResponseBodyData extends $tea.Model {
   }
 }
 
+export class EstimateStereoVideoDepthResponseBodyData extends $tea.Model {
+  depthUrl?: string;
+  depthVisUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      depthUrl: 'DepthUrl',
+      depthVisUrl: 'DepthVisUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      depthUrl: 'string',
+      depthVisUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 
 export default class Client extends OpenApi {
 
@@ -551,11 +661,16 @@ export default class Client extends OpenApi {
     // Step 0: init client
     let accessKeyId = await this._credential.getAccessKeyId();
     let accessKeySecret = await this._credential.getAccessKeySecret();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if (Util.isUnset(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
     let authConfig = new $RPC.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
       type: "access_key",
-      endpoint: "openplatform.aliyuncs.com",
+      endpoint: openPlatformEndpoint,
       protocol: this._protocol,
       regionId: this._regionId,
     });
@@ -623,11 +738,16 @@ export default class Client extends OpenApi {
     // Step 0: init client
     let accessKeyId = await this._credential.getAccessKeyId();
     let accessKeySecret = await this._credential.getAccessKeySecret();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if (Util.isUnset(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
     let authConfig = new $RPC.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
       type: "access_key",
-      endpoint: "openplatform.aliyuncs.com",
+      endpoint: openPlatformEndpoint,
       protocol: this._protocol,
       regionId: this._regionId,
     });
@@ -708,11 +828,16 @@ export default class Client extends OpenApi {
     // Step 0: init client
     let accessKeyId = await this._credential.getAccessKeyId();
     let accessKeySecret = await this._credential.getAccessKeySecret();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if (Util.isUnset(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
     let authConfig = new $RPC.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
       type: "access_key",
-      endpoint: "openplatform.aliyuncs.com",
+      endpoint: openPlatformEndpoint,
       protocol: this._protocol,
       regionId: this._regionId,
     });
@@ -774,6 +899,83 @@ export default class Client extends OpenApi {
   async estimateStereoImageDepth(request: EstimateStereoImageDepthRequest): Promise<EstimateStereoImageDepthResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.estimateStereoImageDepthWithOptions(request, runtime);
+  }
+
+  async estimateStereoVideoDepthWithOptions(request: EstimateStereoVideoDepthRequest, runtime: $Util.RuntimeOptions): Promise<EstimateStereoVideoDepthResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<EstimateStereoVideoDepthResponse>(await this.doRPCRequest("EstimateStereoVideoDepth", "2021-01-31", "HTTPS", "POST", "AK", "json", req, runtime), new EstimateStereoVideoDepthResponse({}));
+  }
+
+  async estimateStereoVideoDepth(request: EstimateStereoVideoDepthRequest): Promise<EstimateStereoVideoDepthResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.estimateStereoVideoDepthWithOptions(request, runtime);
+  }
+
+  async estimateStereoVideoDepthAdvance(request: EstimateStereoVideoDepthAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<EstimateStereoVideoDepthResponse> {
+    // Step 0: init client
+    let accessKeyId = await this._credential.getAccessKeyId();
+    let accessKeySecret = await this._credential.getAccessKeySecret();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if (Util.isUnset(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    let authConfig = new $RPC.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      endpoint: openPlatformEndpoint,
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenPlatform(authConfig);
+    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
+      product: "threedvision",
+      regionId: this._regionId,
+    });
+    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
+    let ossConfig = new $OSS.Config({
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let ossClient : OSS = null;
+    let fileObj = new $FileForm.FileField({ });
+    let ossHeader = new $OSS.PostObjectRequestHeader({ });
+    let uploadRequest = new $OSS.PostObjectRequest({ });
+    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
+    OpenApiUtil.convert(runtime, ossRuntime);
+    let estimateStereoVideoDepthReq = new EstimateStereoVideoDepthRequest({ });
+    OpenApiUtil.convert(request, estimateStereoVideoDepthReq);
+    authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+    ossConfig.accessKeyId = authResponse.accessKeyId;
+    ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+    ossClient = new OSS(ossConfig);
+    fileObj = new $FileForm.FileField({
+      filename: authResponse.objectKey,
+      content: request.videoURLObject,
+      contentType: "",
+    });
+    ossHeader = new $OSS.PostObjectRequestHeader({
+      accessKeyId: authResponse.accessKeyId,
+      policy: authResponse.encodedPolicy,
+      signature: authResponse.signature,
+      key: authResponse.objectKey,
+      file: fileObj,
+      successActionStatus: "201",
+    });
+    uploadRequest = new $OSS.PostObjectRequest({
+      bucketName: authResponse.bucket,
+      header: ossHeader,
+    });
+    await ossClient.postObject(uploadRequest, ossRuntime);
+    estimateStereoVideoDepthReq.videoURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    let estimateStereoVideoDepthResp = await this.estimateStereoVideoDepthWithOptions(estimateStereoVideoDepthReq, runtime);
+    return estimateStereoVideoDepthResp;
   }
 
 }
