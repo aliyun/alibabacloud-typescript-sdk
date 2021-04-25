@@ -8,8 +8,6 @@ import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
 export class CreateCertificateRequest extends $tea.Model {
-  sourceIp?: string;
-  lang?: string;
   domain?: string;
   certificate?: string;
   privateKey?: string;
@@ -17,8 +15,6 @@ export class CreateCertificateRequest extends $tea.Model {
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
-      lang: 'Lang',
       domain: 'Domain',
       certificate: 'Certificate',
       privateKey: 'PrivateKey',
@@ -29,8 +25,6 @@ export class CreateCertificateRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
-      lang: 'string',
       domain: 'string',
       certificate: 'string',
       privateKey: 'string',
@@ -89,15 +83,11 @@ export class CreateCertificateResponse extends $tea.Model {
 }
 
 export class CreateCertificateByCertificateIdRequest extends $tea.Model {
-  sourceIp?: string;
-  lang?: string;
   domain?: string;
   certificateId?: number;
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
-      lang: 'Lang',
       domain: 'Domain',
       certificateId: 'CertificateId',
       instanceId: 'InstanceId',
@@ -106,8 +96,6 @@ export class CreateCertificateByCertificateIdRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
-      lang: 'string',
       domain: 'string',
       certificateId: 'number',
       instanceId: 'string',
@@ -164,12 +152,12 @@ export class CreateCertificateByCertificateIdResponse extends $tea.Model {
 }
 
 export class CreateDomainRequest extends $tea.Model {
-  sourceIp?: string;
-  lang?: string;
   instanceId?: string;
   domain?: string;
   sourceIps?: string;
   isAccessProduct?: number;
+  accessHeaderMode?: number;
+  accessHeaders?: string;
   loadBalancing?: number;
   logHeaders?: string;
   httpPort?: string;
@@ -187,12 +175,12 @@ export class CreateDomainRequest extends $tea.Model {
   ipFollowStatus?: number;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
-      lang: 'Lang',
       instanceId: 'InstanceId',
       domain: 'Domain',
       sourceIps: 'SourceIps',
       isAccessProduct: 'IsAccessProduct',
+      accessHeaderMode: 'AccessHeaderMode',
+      accessHeaders: 'AccessHeaders',
       loadBalancing: 'LoadBalancing',
       logHeaders: 'LogHeaders',
       httpPort: 'HttpPort',
@@ -213,12 +201,12 @@ export class CreateDomainRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
-      lang: 'string',
       instanceId: 'string',
       domain: 'string',
       sourceIps: 'string',
       isAccessProduct: 'number',
+      accessHeaderMode: 'number',
+      accessHeaders: 'string',
       loadBalancing: 'number',
       logHeaders: 'string',
       httpPort: 'string',
@@ -287,16 +275,12 @@ export class CreateDomainResponse extends $tea.Model {
 }
 
 export class CreateProtectionModuleRuleRequest extends $tea.Model {
-  sourceIp?: string;
-  lang?: string;
   domain?: string;
   defenseType?: string;
   rule?: string;
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
-      lang: 'Lang',
       domain: 'Domain',
       defenseType: 'DefenseType',
       rule: 'Rule',
@@ -306,8 +290,6 @@ export class CreateProtectionModuleRuleRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
-      lang: 'string',
       domain: 'string',
       defenseType: 'string',
       rule: 'string',
@@ -362,14 +344,10 @@ export class CreateProtectionModuleRuleResponse extends $tea.Model {
 }
 
 export class DeleteDomainRequest extends $tea.Model {
-  sourceIp?: string;
-  lang?: string;
   instanceId?: string;
   domain?: string;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
-      lang: 'Lang',
       instanceId: 'InstanceId',
       domain: 'Domain',
     };
@@ -377,8 +355,6 @@ export class DeleteDomainRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
-      lang: 'string',
       instanceId: 'string',
       domain: 'string',
     };
@@ -431,14 +407,10 @@ export class DeleteDomainResponse extends $tea.Model {
 }
 
 export class DeleteInstanceRequest extends $tea.Model {
-  sourceIp?: string;
-  lang?: string;
   instanceId?: string;
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
-      lang: 'Lang',
       instanceId: 'InstanceId',
       resourceGroupId: 'ResourceGroupId',
     };
@@ -446,8 +418,6 @@ export class DeleteInstanceRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
-      lang: 'string',
       instanceId: 'string',
       resourceGroupId: 'string',
     };
@@ -500,16 +470,12 @@ export class DeleteInstanceResponse extends $tea.Model {
 }
 
 export class DeleteProtectionModuleRuleRequest extends $tea.Model {
-  sourceIp?: string;
-  lang?: string;
   domain?: string;
   defenseType?: string;
   ruleId?: number;
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
-      lang: 'Lang',
       domain: 'Domain',
       defenseType: 'DefenseType',
       ruleId: 'RuleId',
@@ -519,8 +485,6 @@ export class DeleteProtectionModuleRuleRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
-      lang: 'string',
       domain: 'string',
       defenseType: 'string',
       ruleId: 'number',
@@ -575,14 +539,10 @@ export class DeleteProtectionModuleRuleResponse extends $tea.Model {
 }
 
 export class DescribeCertificatesRequest extends $tea.Model {
-  sourceIp?: string;
-  lang?: string;
   instanceId?: string;
   domain?: string;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
-      lang: 'Lang',
       instanceId: 'InstanceId',
       domain: 'Domain',
     };
@@ -590,8 +550,6 @@ export class DescribeCertificatesRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
-      lang: 'string',
       instanceId: 'string',
       domain: 'string',
     };
@@ -647,16 +605,12 @@ export class DescribeCertificatesResponse extends $tea.Model {
 }
 
 export class DescribeCertMatchStatusRequest extends $tea.Model {
-  sourceIp?: string;
-  lang?: string;
   domain?: string;
   certificate?: string;
   privateKey?: string;
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
-      lang: 'Lang',
       domain: 'Domain',
       certificate: 'Certificate',
       privateKey: 'PrivateKey',
@@ -666,8 +620,6 @@ export class DescribeCertMatchStatusRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
-      lang: 'string',
       domain: 'string',
       certificate: 'string',
       privateKey: 'string',
@@ -725,14 +677,10 @@ export class DescribeCertMatchStatusResponse extends $tea.Model {
 }
 
 export class DescribeDomainRequest extends $tea.Model {
-  sourceIp?: string;
-  lang?: string;
   instanceId?: string;
   domain?: string;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
-      lang: 'Lang',
       instanceId: 'InstanceId',
       domain: 'Domain',
     };
@@ -740,8 +688,6 @@ export class DescribeDomainRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
-      lang: 'string',
       instanceId: 'string',
       domain: 'string',
     };
@@ -797,15 +743,11 @@ export class DescribeDomainResponse extends $tea.Model {
 }
 
 export class DescribeDomainAdvanceConfigsRequest extends $tea.Model {
-  sourceIp?: string;
-  lang?: string;
   instanceId?: string;
   domainList?: string;
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
-      lang: 'Lang',
       instanceId: 'InstanceId',
       domainList: 'DomainList',
       resourceGroupId: 'ResourceGroupId',
@@ -814,8 +756,6 @@ export class DescribeDomainAdvanceConfigsRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
-      lang: 'string',
       instanceId: 'string',
       domainList: 'string',
       resourceGroupId: 'string',
@@ -872,8 +812,6 @@ export class DescribeDomainAdvanceConfigsResponse extends $tea.Model {
 }
 
 export class DescribeDomainBasicConfigsRequest extends $tea.Model {
-  sourceIp?: string;
-  lang?: string;
   instanceId?: string;
   domainKey?: string;
   accessType?: string;
@@ -883,8 +821,6 @@ export class DescribeDomainBasicConfigsRequest extends $tea.Model {
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
-      lang: 'Lang',
       instanceId: 'InstanceId',
       domainKey: 'DomainKey',
       accessType: 'AccessType',
@@ -897,8 +833,6 @@ export class DescribeDomainBasicConfigsRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
-      lang: 'string',
       instanceId: 'string',
       domainKey: 'string',
       accessType: 'string',
@@ -962,7 +896,6 @@ export class DescribeDomainBasicConfigsResponse extends $tea.Model {
 }
 
 export class DescribeDomainListRequest extends $tea.Model {
-  sourceIp?: string;
   resourceGroupId?: string;
   instanceId?: string;
   domainName?: string;
@@ -972,7 +905,6 @@ export class DescribeDomainListRequest extends $tea.Model {
   domainNames?: string[];
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
       resourceGroupId: 'ResourceGroupId',
       instanceId: 'InstanceId',
       domainName: 'DomainName',
@@ -985,7 +917,6 @@ export class DescribeDomainListRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
       resourceGroupId: 'string',
       instanceId: 'string',
       domainName: 'string',
@@ -1049,28 +980,19 @@ export class DescribeDomainListResponse extends $tea.Model {
 }
 
 export class DescribeDomainNamesRequest extends $tea.Model {
-  sourceIp?: string;
-  lang?: string;
   instanceId?: string;
   resourceGroupId?: string;
-  callSource?: string;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
-      lang: 'Lang',
       instanceId: 'InstanceId',
       resourceGroupId: 'ResourceGroupId',
-      callSource: 'CallSource',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
-      lang: 'string',
       instanceId: 'string',
       resourceGroupId: 'string',
-      callSource: 'string',
     };
   }
 
@@ -1124,14 +1046,10 @@ export class DescribeDomainNamesResponse extends $tea.Model {
 }
 
 export class DescribeDomainRuleGroupRequest extends $tea.Model {
-  sourceIp?: string;
-  lang?: string;
   domain?: string;
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
-      lang: 'Lang',
       domain: 'Domain',
       instanceId: 'InstanceId',
     };
@@ -1139,8 +1057,6 @@ export class DescribeDomainRuleGroupRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
-      lang: 'string',
       domain: 'string',
       instanceId: 'string',
     };
@@ -1196,16 +1112,10 @@ export class DescribeDomainRuleGroupResponse extends $tea.Model {
 }
 
 export class DescribeInstanceInfoRequest extends $tea.Model {
-  sourceIp?: string;
-  lang?: string;
-  instanceSource?: string;
   instanceId?: string;
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
-      lang: 'Lang',
-      instanceSource: 'InstanceSource',
       instanceId: 'InstanceId',
       resourceGroupId: 'ResourceGroupId',
     };
@@ -1213,9 +1123,6 @@ export class DescribeInstanceInfoRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
-      lang: 'string',
-      instanceSource: 'string',
       instanceId: 'string',
       resourceGroupId: 'string',
     };
@@ -1271,15 +1178,11 @@ export class DescribeInstanceInfoResponse extends $tea.Model {
 }
 
 export class DescribeInstanceInfosRequest extends $tea.Model {
-  sourceIp?: string;
-  lang?: string;
   instanceSource?: string;
   instanceId?: string;
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
-      lang: 'Lang',
       instanceSource: 'InstanceSource',
       instanceId: 'InstanceId',
       resourceGroupId: 'ResourceGroupId',
@@ -1288,8 +1191,6 @@ export class DescribeInstanceInfosRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
-      lang: 'string',
       instanceSource: 'string',
       instanceId: 'string',
       resourceGroupId: 'string',
@@ -1346,14 +1247,10 @@ export class DescribeInstanceInfosResponse extends $tea.Model {
 }
 
 export class DescribeInstanceSpecInfoRequest extends $tea.Model {
-  sourceIp?: string;
-  lang?: string;
   instanceId?: string;
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
-      lang: 'Lang',
       instanceId: 'InstanceId',
       resourceGroupId: 'ResourceGroupId',
     };
@@ -1361,8 +1258,6 @@ export class DescribeInstanceSpecInfoRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
-      lang: 'string',
       instanceId: 'string',
       resourceGroupId: 'string',
     };
@@ -1427,7 +1322,6 @@ export class DescribeInstanceSpecInfoResponse extends $tea.Model {
 }
 
 export class DescribeLogServiceStatusRequest extends $tea.Model {
-  sourceIp?: string;
   instanceId?: string;
   region?: string;
   resourceGroupId?: string;
@@ -1436,7 +1330,6 @@ export class DescribeLogServiceStatusRequest extends $tea.Model {
   domainNames?: string[];
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
       instanceId: 'InstanceId',
       region: 'Region',
       resourceGroupId: 'ResourceGroupId',
@@ -1448,7 +1341,6 @@ export class DescribeLogServiceStatusRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
       instanceId: 'string',
       region: 'string',
       resourceGroupId: 'string',
@@ -1589,16 +1481,12 @@ export class DescribeProtectionModuleCodeConfigResponse extends $tea.Model {
 }
 
 export class DescribeProtectionModuleModeRequest extends $tea.Model {
-  sourceIp?: string;
-  lang?: string;
   domain?: string;
   defenseType?: string;
   instanceId?: string;
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
-      lang: 'Lang',
       domain: 'Domain',
       defenseType: 'DefenseType',
       instanceId: 'InstanceId',
@@ -1608,8 +1496,6 @@ export class DescribeProtectionModuleModeRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
-      lang: 'string',
       domain: 'string',
       defenseType: 'string',
       instanceId: 'string',
@@ -1670,7 +1556,6 @@ export class DescribeProtectionModuleModeResponse extends $tea.Model {
 }
 
 export class DescribeProtectionModuleRulesRequest extends $tea.Model {
-  sourceIp?: string;
   pageSize?: number;
   pageNumber?: number;
   domain?: string;
@@ -1681,7 +1566,6 @@ export class DescribeProtectionModuleRulesRequest extends $tea.Model {
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
       pageSize: 'PageSize',
       pageNumber: 'PageNumber',
       domain: 'Domain',
@@ -1695,7 +1579,6 @@ export class DescribeProtectionModuleRulesRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
       pageSize: 'number',
       pageNumber: 'number',
       domain: 'string',
@@ -1760,15 +1643,11 @@ export class DescribeProtectionModuleRulesResponse extends $tea.Model {
 }
 
 export class DescribeProtectionModuleStatusRequest extends $tea.Model {
-  sourceIp?: string;
-  lang?: string;
   domain?: string;
   defenseType?: string;
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
-      lang: 'Lang',
       domain: 'Domain',
       defenseType: 'DefenseType',
       instanceId: 'InstanceId',
@@ -1777,8 +1656,6 @@ export class DescribeProtectionModuleStatusRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
-      lang: 'string',
       domain: 'string',
       defenseType: 'string',
       instanceId: 'string',
@@ -1835,14 +1712,10 @@ export class DescribeProtectionModuleStatusResponse extends $tea.Model {
 }
 
 export class DescribeWafSourceIpSegmentRequest extends $tea.Model {
-  sourceIp?: string;
-  lang?: string;
   instanceId?: string;
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
-      lang: 'Lang',
       instanceId: 'InstanceId',
       resourceGroupId: 'ResourceGroupId',
     };
@@ -1850,8 +1723,6 @@ export class DescribeWafSourceIpSegmentRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
-      lang: 'string',
       instanceId: 'string',
       resourceGroupId: 'string',
     };
@@ -1910,8 +1781,6 @@ export class DescribeWafSourceIpSegmentResponse extends $tea.Model {
 }
 
 export class ModifyDomainRequest extends $tea.Model {
-  sourceIp?: string;
-  lang?: string;
   instanceId?: string;
   domain?: string;
   sourceIps?: string;
@@ -1922,10 +1791,7 @@ export class ModifyDomainRequest extends $tea.Model {
   httpsRedirect?: number;
   httpToUserIp?: number;
   isAccessProduct?: number;
-  xffHeaderMode?: number;
-  xffHeaders?: string;
   logHeaders?: string;
-  bindingIpv6?: number;
   clusterType?: number;
   connectionTime?: number;
   readTime?: number;
@@ -1935,8 +1801,6 @@ export class ModifyDomainRequest extends $tea.Model {
   ipFollowStatus?: number;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
-      lang: 'Lang',
       instanceId: 'InstanceId',
       domain: 'Domain',
       sourceIps: 'SourceIps',
@@ -1947,10 +1811,7 @@ export class ModifyDomainRequest extends $tea.Model {
       httpsRedirect: 'HttpsRedirect',
       httpToUserIp: 'HttpToUserIp',
       isAccessProduct: 'IsAccessProduct',
-      xffHeaderMode: 'XffHeaderMode',
-      xffHeaders: 'XffHeaders',
       logHeaders: 'LogHeaders',
-      bindingIpv6: 'BindingIpv6',
       clusterType: 'ClusterType',
       connectionTime: 'ConnectionTime',
       readTime: 'ReadTime',
@@ -1963,8 +1824,6 @@ export class ModifyDomainRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
-      lang: 'string',
       instanceId: 'string',
       domain: 'string',
       sourceIps: 'string',
@@ -1975,10 +1834,7 @@ export class ModifyDomainRequest extends $tea.Model {
       httpsRedirect: 'number',
       httpToUserIp: 'number',
       isAccessProduct: 'number',
-      xffHeaderMode: 'number',
-      xffHeaders: 'string',
       logHeaders: 'string',
-      bindingIpv6: 'number',
       clusterType: 'number',
       connectionTime: 'number',
       readTime: 'number',
@@ -2036,31 +1892,22 @@ export class ModifyDomainResponse extends $tea.Model {
 }
 
 export class ModifyDomainIpv6StatusRequest extends $tea.Model {
-  sourceIp?: string;
-  lang?: string;
   instanceId?: string;
   domain?: string;
   enabled?: string;
-  wafVersion?: string;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
-      lang: 'Lang',
       instanceId: 'InstanceId',
       domain: 'Domain',
       enabled: 'Enabled',
-      wafVersion: 'WafVersion',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
-      lang: 'string',
       instanceId: 'string',
       domain: 'string',
       enabled: 'string',
-      wafVersion: 'string',
     };
   }
 
@@ -2111,15 +1958,11 @@ export class ModifyDomainIpv6StatusResponse extends $tea.Model {
 }
 
 export class ModifyLogRetrievalStatusRequest extends $tea.Model {
-  sourceIp?: string;
-  lang?: string;
   instanceId?: string;
   domain?: string;
   enabled?: number;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
-      lang: 'Lang',
       instanceId: 'InstanceId',
       domain: 'Domain',
       enabled: 'Enabled',
@@ -2128,8 +1971,6 @@ export class ModifyLogRetrievalStatusRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
-      lang: 'string',
       instanceId: 'string',
       domain: 'string',
       enabled: 'number',
@@ -2183,15 +2024,11 @@ export class ModifyLogRetrievalStatusResponse extends $tea.Model {
 }
 
 export class ModifyLogServiceStatusRequest extends $tea.Model {
-  sourceIp?: string;
-  lang?: string;
   instanceId?: string;
   domain?: string;
   enabled?: number;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
-      lang: 'Lang',
       instanceId: 'InstanceId',
       domain: 'Domain',
       enabled: 'Enabled',
@@ -2200,8 +2037,6 @@ export class ModifyLogServiceStatusRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
-      lang: 'string',
       instanceId: 'string',
       domain: 'string',
       enabled: 'number',
@@ -2255,16 +2090,12 @@ export class ModifyLogServiceStatusResponse extends $tea.Model {
 }
 
 export class ModifyProtectionModuleModeRequest extends $tea.Model {
-  sourceIp?: string;
-  lang?: string;
   domain?: string;
   defenseType?: string;
   mode?: number;
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
-      lang: 'Lang',
       domain: 'Domain',
       defenseType: 'DefenseType',
       mode: 'Mode',
@@ -2274,8 +2105,6 @@ export class ModifyProtectionModuleModeRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
-      lang: 'string',
       domain: 'string',
       defenseType: 'string',
       mode: 'number',
@@ -2330,8 +2159,6 @@ export class ModifyProtectionModuleModeResponse extends $tea.Model {
 }
 
 export class ModifyProtectionModuleRuleRequest extends $tea.Model {
-  sourceIp?: string;
-  lang?: string;
   domain?: string;
   defenseType?: string;
   rule?: string;
@@ -2340,8 +2167,6 @@ export class ModifyProtectionModuleRuleRequest extends $tea.Model {
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
-      lang: 'Lang',
       domain: 'Domain',
       defenseType: 'DefenseType',
       rule: 'Rule',
@@ -2353,8 +2178,6 @@ export class ModifyProtectionModuleRuleRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
-      lang: 'string',
       domain: 'string',
       defenseType: 'string',
       rule: 'string',
@@ -2411,16 +2234,12 @@ export class ModifyProtectionModuleRuleResponse extends $tea.Model {
 }
 
 export class ModifyProtectionModuleStatusRequest extends $tea.Model {
-  sourceIp?: string;
-  lang?: string;
   domain?: string;
   defenseType?: string;
   moduleStatus?: number;
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
-      lang: 'Lang',
       domain: 'Domain',
       defenseType: 'DefenseType',
       moduleStatus: 'ModuleStatus',
@@ -2430,8 +2249,6 @@ export class ModifyProtectionModuleStatusRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
-      lang: 'string',
       domain: 'string',
       defenseType: 'string',
       moduleStatus: 'number',
@@ -2486,16 +2303,12 @@ export class ModifyProtectionModuleStatusResponse extends $tea.Model {
 }
 
 export class ModifyProtectionRuleCacheStatusRequest extends $tea.Model {
-  sourceIp?: string;
-  lang?: string;
   domain?: string;
   ruleId?: number;
   defenseType?: string;
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
-      lang: 'Lang',
       domain: 'Domain',
       ruleId: 'RuleId',
       defenseType: 'DefenseType',
@@ -2505,8 +2318,6 @@ export class ModifyProtectionRuleCacheStatusRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
-      lang: 'string',
       domain: 'string',
       ruleId: 'number',
       defenseType: 'string',
@@ -2561,8 +2372,6 @@ export class ModifyProtectionRuleCacheStatusResponse extends $tea.Model {
 }
 
 export class ModifyProtectionRuleStatusRequest extends $tea.Model {
-  sourceIp?: string;
-  lang?: string;
   domain?: string;
   defenseType?: string;
   ruleId?: number;
@@ -2571,8 +2380,6 @@ export class ModifyProtectionRuleStatusRequest extends $tea.Model {
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
-      lang: 'Lang',
       domain: 'Domain',
       defenseType: 'DefenseType',
       ruleId: 'RuleId',
@@ -2584,8 +2391,6 @@ export class ModifyProtectionRuleStatusRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
-      lang: 'string',
       domain: 'string',
       defenseType: 'string',
       ruleId: 'number',
@@ -2642,8 +2447,6 @@ export class ModifyProtectionRuleStatusResponse extends $tea.Model {
 }
 
 export class SetDomainRuleGroupRequest extends $tea.Model {
-  sourceIp?: string;
-  lang?: string;
   domains?: string;
   ruleGroupId?: number;
   wafVersion?: number;
@@ -2651,8 +2454,6 @@ export class SetDomainRuleGroupRequest extends $tea.Model {
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
-      lang: 'Lang',
       domains: 'Domains',
       ruleGroupId: 'RuleGroupId',
       wafVersion: 'WafVersion',
@@ -2663,8 +2464,6 @@ export class SetDomainRuleGroupRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
-      lang: 'string',
       domains: 'string',
       ruleGroupId: 'number',
       wafVersion: 'number',
@@ -2832,14 +2631,16 @@ export class DescribeDomainResponseBodyDomain extends $tea.Model {
   httpPort?: string[];
   logHeaders?: DescribeDomainResponseBodyDomainLogHeaders[];
   isAccessProduct?: number;
+  accessHeaders?: string[];
+  accessHeaderMode?: number;
   httpsRedirect?: number;
   loadBalancing?: number;
   ipFollowStatus?: number;
   accessType?: string;
   version?: number;
   clusterType?: number;
-  writeTime?: number;
   readTime?: number;
+  writeTime?: number;
   resourceGroupId?: string;
   cname?: string;
   sourceIps?: string[];
@@ -2853,14 +2654,16 @@ export class DescribeDomainResponseBodyDomain extends $tea.Model {
       httpPort: 'HttpPort',
       logHeaders: 'LogHeaders',
       isAccessProduct: 'IsAccessProduct',
+      accessHeaders: 'AccessHeaders',
+      accessHeaderMode: 'AccessHeaderMode',
       httpsRedirect: 'HttpsRedirect',
       loadBalancing: 'LoadBalancing',
       ipFollowStatus: 'IpFollowStatus',
       accessType: 'AccessType',
       version: 'Version',
       clusterType: 'ClusterType',
-      writeTime: 'WriteTime',
       readTime: 'ReadTime',
+      writeTime: 'WriteTime',
       resourceGroupId: 'ResourceGroupId',
       cname: 'Cname',
       sourceIps: 'SourceIps',
@@ -2877,14 +2680,16 @@ export class DescribeDomainResponseBodyDomain extends $tea.Model {
       httpPort: { 'type': 'array', 'itemType': 'string' },
       logHeaders: { 'type': 'array', 'itemType': DescribeDomainResponseBodyDomainLogHeaders },
       isAccessProduct: 'number',
+      accessHeaders: { 'type': 'array', 'itemType': 'string' },
+      accessHeaderMode: 'number',
       httpsRedirect: 'number',
       loadBalancing: 'number',
       ipFollowStatus: 'number',
       accessType: 'string',
       version: 'number',
       clusterType: 'number',
-      writeTime: 'number',
       readTime: 'number',
+      writeTime: 'number',
       resourceGroupId: 'string',
       cname: 'string',
       sourceIps: { 'type': 'array', 'itemType': 'string' },

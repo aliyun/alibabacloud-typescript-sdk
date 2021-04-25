@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/waf-openapi20190910",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "",
   "main": "dist/client.js",
   "scripts": {
