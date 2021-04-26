@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/plaso_online_class2021420",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "dist/client.js",
   "scripts": {
