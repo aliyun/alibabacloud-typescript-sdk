@@ -9,34 +9,22 @@ import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
 export class BatchAddDeviceGroupRelationsRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   groupId?: string;
   device?: BatchAddDeviceGroupRelationsRequestDevice[];
-  realTenantId?: string;
-  realTripartiteKey?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       groupId: 'GroupId',
       device: 'Device',
-      realTenantId: 'RealTenantId',
-      realTripartiteKey: 'RealTripartiteKey',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       groupId: 'string',
       device: { 'type': 'array', 'itemType': BatchAddDeviceGroupRelationsRequestDevice },
-      realTenantId: 'string',
-      realTripartiteKey: 'string',
     };
   }
 
@@ -108,33 +96,24 @@ export class BatchAddDeviceGroupRelationsResponse extends $tea.Model {
 }
 
 export class BatchAddThingTopoRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   topoAddItem?: BatchAddThingTopoRequestTopoAddItem[];
   gwProductKey?: string;
-  ext?: string;
   gwDeviceName?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       topoAddItem: 'TopoAddItem',
       gwProductKey: 'GwProductKey',
-      ext: 'Ext',
       gwDeviceName: 'GwDeviceName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       topoAddItem: { 'type': 'array', 'itemType': BatchAddThingTopoRequestTopoAddItem },
       gwProductKey: 'string',
-      ext: 'string',
       gwDeviceName: 'string',
     };
   }
@@ -195,15 +174,11 @@ export class BatchAddThingTopoResponse extends $tea.Model {
 }
 
 export class BatchBindDevicesIntoProjectRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   devices?: BatchBindDevicesIntoProjectRequestDevices[];
   projectId?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       devices: 'Devices',
       projectId: 'ProjectId',
@@ -212,8 +187,6 @@ export class BatchBindDevicesIntoProjectRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       devices: { 'type': 'array', 'itemType': BatchBindDevicesIntoProjectRequestDevices },
       projectId: 'string',
@@ -279,16 +252,12 @@ export class BatchBindDevicesIntoProjectResponse extends $tea.Model {
 }
 
 export class BatchBindDeviceToEdgeInstanceWithDriverRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   instanceId?: string;
   driverId?: string;
   iotIds?: string[];
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       instanceId: 'InstanceId',
       driverId: 'DriverId',
@@ -298,8 +267,6 @@ export class BatchBindDeviceToEdgeInstanceWithDriverRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       instanceId: 'string',
       driverId: 'string',
@@ -363,15 +330,11 @@ export class BatchBindDeviceToEdgeInstanceWithDriverResponse extends $tea.Model 
 }
 
 export class BatchBindProductsIntoProjectRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   productKeys?: string[];
   projectId?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       productKeys: 'ProductKeys',
       projectId: 'ProjectId',
@@ -380,8 +343,6 @@ export class BatchBindProductsIntoProjectRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       productKeys: { 'type': 'array', 'itemType': 'string' },
       projectId: 'string',
@@ -447,37 +408,25 @@ export class BatchBindProductsIntoProjectResponse extends $tea.Model {
 }
 
 export class BatchCheckDeviceNamesRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   productKey?: string;
   deviceName?: string[];
   deviceNameList?: BatchCheckDeviceNamesRequestDeviceNameList[];
-  realTenantId?: string;
-  realTripartiteKey?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       productKey: 'ProductKey',
       deviceName: 'DeviceName',
       deviceNameList: 'DeviceNameList',
-      realTenantId: 'RealTenantId',
-      realTripartiteKey: 'RealTripartiteKey',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       productKey: 'string',
       deviceName: { 'type': 'array', 'itemType': 'string' },
       deviceNameList: { 'type': 'array', 'itemType': BatchCheckDeviceNamesRequestDeviceNameList },
-      realTenantId: 'string',
-      realTripartiteKey: 'string',
     };
   }
 
@@ -540,15 +489,11 @@ export class BatchCheckDeviceNamesResponse extends $tea.Model {
 }
 
 export class BatchClearEdgeInstanceDeviceConfigRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   instanceId?: string;
   iotIds?: string[];
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       instanceId: 'InstanceId',
       iotIds: 'IotIds',
@@ -557,8 +502,6 @@ export class BatchClearEdgeInstanceDeviceConfigRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       instanceId: 'string',
       iotIds: { 'type': 'array', 'itemType': 'string' },
@@ -621,34 +564,22 @@ export class BatchClearEdgeInstanceDeviceConfigResponse extends $tea.Model {
 }
 
 export class BatchDeleteDeviceGroupRelationsRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   groupId?: string;
   device?: BatchDeleteDeviceGroupRelationsRequestDevice[];
-  realTenantId?: string;
-  realTripartiteKey?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       groupId: 'GroupId',
       device: 'Device',
-      realTenantId: 'RealTenantId',
-      realTripartiteKey: 'RealTripartiteKey',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       groupId: 'string',
       device: { 'type': 'array', 'itemType': BatchDeleteDeviceGroupRelationsRequestDevice },
-      realTenantId: 'string',
-      realTripartiteKey: 'string',
     };
   }
 
@@ -717,16 +648,12 @@ export class BatchDeleteDeviceGroupRelationsResponse extends $tea.Model {
 }
 
 export class BatchDeleteEdgeInstanceChannelRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   instanceId?: string;
   driverId?: string;
   channelIds?: string[];
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       instanceId: 'InstanceId',
       driverId: 'DriverId',
@@ -736,8 +663,6 @@ export class BatchDeleteEdgeInstanceChannelRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       instanceId: 'string',
       driverId: 'string',
@@ -801,14 +726,10 @@ export class BatchDeleteEdgeInstanceChannelResponse extends $tea.Model {
 }
 
 export class BatchGetDeviceBindStatusRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   iotIds?: string[];
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       iotIds: 'IotIds',
     };
@@ -816,8 +737,6 @@ export class BatchGetDeviceBindStatusRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       iotIds: { 'type': 'array', 'itemType': 'string' },
     };
@@ -882,16 +801,12 @@ export class BatchGetDeviceBindStatusResponse extends $tea.Model {
 }
 
 export class BatchGetDeviceStateRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   deviceName?: string[];
   iotInstanceId?: string;
   productKey?: string;
   iotId?: string[];
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       deviceName: 'DeviceName',
       iotInstanceId: 'IotInstanceId',
       productKey: 'ProductKey',
@@ -901,8 +816,6 @@ export class BatchGetDeviceStateRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       deviceName: { 'type': 'array', 'itemType': 'string' },
       iotInstanceId: 'string',
       productKey: 'string',
@@ -969,14 +882,10 @@ export class BatchGetDeviceStateResponse extends $tea.Model {
 }
 
 export class BatchGetEdgeDriverRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   driverIds?: string[];
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       driverIds: 'DriverIds',
     };
@@ -984,8 +893,6 @@ export class BatchGetEdgeDriverRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       driverIds: { 'type': 'array', 'itemType': 'string' },
     };
@@ -1050,16 +957,12 @@ export class BatchGetEdgeDriverResponse extends $tea.Model {
 }
 
 export class BatchGetEdgeInstanceChannelRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   instanceId?: string;
   driverId?: string;
   channelIds?: string[];
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       instanceId: 'InstanceId',
       driverId: 'DriverId',
@@ -1069,8 +972,6 @@ export class BatchGetEdgeInstanceChannelRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       instanceId: 'string',
       driverId: 'string',
@@ -1137,16 +1038,12 @@ export class BatchGetEdgeInstanceChannelResponse extends $tea.Model {
 }
 
 export class BatchGetEdgeInstanceDeviceChannelRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   instanceId?: string;
   driverId?: string;
   iotIds?: string[];
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       instanceId: 'InstanceId',
       driverId: 'DriverId',
@@ -1156,8 +1053,6 @@ export class BatchGetEdgeInstanceDeviceChannelRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       instanceId: 'string',
       driverId: 'string',
@@ -1224,15 +1119,11 @@ export class BatchGetEdgeInstanceDeviceChannelResponse extends $tea.Model {
 }
 
 export class BatchGetEdgeInstanceDeviceConfigRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   instanceId?: string;
   iotIds?: string[];
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       instanceId: 'InstanceId',
       iotIds: 'IotIds',
@@ -1241,8 +1132,6 @@ export class BatchGetEdgeInstanceDeviceConfigRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       instanceId: 'string',
       iotIds: { 'type': 'array', 'itemType': 'string' },
@@ -1308,15 +1197,11 @@ export class BatchGetEdgeInstanceDeviceConfigResponse extends $tea.Model {
 }
 
 export class BatchGetEdgeInstanceDeviceDriverRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   instanceId?: string;
   iotIds?: string[];
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       instanceId: 'InstanceId',
       iotIds: 'IotIds',
@@ -1325,8 +1210,6 @@ export class BatchGetEdgeInstanceDeviceDriverRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       instanceId: 'string',
       iotIds: { 'type': 'array', 'itemType': 'string' },
@@ -1392,15 +1275,11 @@ export class BatchGetEdgeInstanceDeviceDriverResponse extends $tea.Model {
 }
 
 export class BatchGetEdgeInstanceDriverConfigsRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   instanceId?: string;
   driverIds?: string[];
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       instanceId: 'InstanceId',
       driverIds: 'DriverIds',
@@ -1409,8 +1288,6 @@ export class BatchGetEdgeInstanceDriverConfigsRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       instanceId: 'string',
       driverIds: { 'type': 'array', 'itemType': 'string' },
@@ -1476,8 +1353,6 @@ export class BatchGetEdgeInstanceDriverConfigsResponse extends $tea.Model {
 }
 
 export class BatchPubRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   deviceName?: string[];
   productKey?: string;
@@ -1486,8 +1361,6 @@ export class BatchPubRequest extends $tea.Model {
   messageContent?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       deviceName: 'DeviceName',
       productKey: 'ProductKey',
@@ -1499,8 +1372,6 @@ export class BatchPubRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       deviceName: { 'type': 'array', 'itemType': 'string' },
       productKey: 'string',
@@ -1566,34 +1437,22 @@ export class BatchPubResponse extends $tea.Model {
 }
 
 export class BatchQueryDeviceDetailRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   deviceName?: string[];
   productKey?: string;
   iotInstanceId?: string;
-  realTenantId?: string;
-  realTripartiteKey?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       deviceName: 'DeviceName',
       productKey: 'ProductKey',
       iotInstanceId: 'IotInstanceId',
-      realTenantId: 'RealTenantId',
-      realTripartiteKey: 'RealTripartiteKey',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       deviceName: { 'type': 'array', 'itemType': 'string' },
       productKey: 'string',
       iotInstanceId: 'string',
-      realTenantId: 'string',
-      realTripartiteKey: 'string',
     };
   }
 
@@ -1656,34 +1515,22 @@ export class BatchQueryDeviceDetailResponse extends $tea.Model {
 }
 
 export class BatchRegisterDeviceRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   productKey?: string;
   count?: number;
-  realTenantId?: string;
-  realTripartiteKey?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       productKey: 'ProductKey',
       count: 'Count',
-      realTenantId: 'RealTenantId',
-      realTripartiteKey: 'RealTripartiteKey',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       productKey: 'string',
       count: 'number',
-      realTenantId: 'string',
-      realTripartiteKey: 'string',
     };
   }
 
@@ -1746,34 +1593,22 @@ export class BatchRegisterDeviceResponse extends $tea.Model {
 }
 
 export class BatchRegisterDeviceWithApplyIdRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   productKey?: string;
   applyId?: number;
-  realTenantId?: string;
-  realTripartiteKey?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       productKey: 'ProductKey',
       applyId: 'ApplyId',
-      realTenantId: 'RealTenantId',
-      realTripartiteKey: 'RealTripartiteKey',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       productKey: 'string',
       applyId: 'number',
-      realTenantId: 'string',
-      realTripartiteKey: 'string',
     };
   }
 
@@ -1836,8 +1671,6 @@ export class BatchRegisterDeviceWithApplyIdResponse extends $tea.Model {
 }
 
 export class BatchSetEdgeInstanceDeviceChannelRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   instanceId?: string;
   driverId?: string;
@@ -1845,8 +1678,6 @@ export class BatchSetEdgeInstanceDeviceChannelRequest extends $tea.Model {
   iotIds?: string[];
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       instanceId: 'InstanceId',
       driverId: 'DriverId',
@@ -1857,8 +1688,6 @@ export class BatchSetEdgeInstanceDeviceChannelRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       instanceId: 'string',
       driverId: 'string',
@@ -1923,15 +1752,11 @@ export class BatchSetEdgeInstanceDeviceChannelResponse extends $tea.Model {
 }
 
 export class BatchSetEdgeInstanceDeviceConfigRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   instanceId?: string;
   deviceConfigs?: BatchSetEdgeInstanceDeviceConfigRequestDeviceConfigs[];
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       instanceId: 'InstanceId',
       deviceConfigs: 'DeviceConfigs',
@@ -1940,8 +1765,6 @@ export class BatchSetEdgeInstanceDeviceConfigRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       instanceId: 'string',
       deviceConfigs: { 'type': 'array', 'itemType': BatchSetEdgeInstanceDeviceConfigRequestDeviceConfigs },
@@ -2004,15 +1827,11 @@ export class BatchSetEdgeInstanceDeviceConfigResponse extends $tea.Model {
 }
 
 export class BatchUnbindDeviceFromEdgeInstanceRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   instanceId?: string;
   iotIds?: string[];
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       instanceId: 'InstanceId',
       iotIds: 'IotIds',
@@ -2021,8 +1840,6 @@ export class BatchUnbindDeviceFromEdgeInstanceRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       instanceId: 'string',
       iotIds: { 'type': 'array', 'itemType': 'string' },
@@ -2085,15 +1902,11 @@ export class BatchUnbindDeviceFromEdgeInstanceResponse extends $tea.Model {
 }
 
 export class BatchUnbindProjectDevicesRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   devices?: BatchUnbindProjectDevicesRequestDevices[];
   iotInstanceId?: string;
   projectId?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       devices: 'Devices',
       iotInstanceId: 'IotInstanceId',
       projectId: 'ProjectId',
@@ -2102,8 +1915,6 @@ export class BatchUnbindProjectDevicesRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       devices: { 'type': 'array', 'itemType': BatchUnbindProjectDevicesRequestDevices },
       iotInstanceId: 'string',
       projectId: 'string',
@@ -2169,15 +1980,11 @@ export class BatchUnbindProjectDevicesResponse extends $tea.Model {
 }
 
 export class BatchUnbindProjectProductsRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   productKeys?: string[];
   projectId?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       productKeys: 'ProductKeys',
       projectId: 'ProjectId',
@@ -2186,8 +1993,6 @@ export class BatchUnbindProjectProductsRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       productKeys: { 'type': 'array', 'itemType': 'string' },
       projectId: 'string',
@@ -2253,31 +2058,19 @@ export class BatchUnbindProjectProductsResponse extends $tea.Model {
 }
 
 export class BatchUpdateDeviceNicknameRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   deviceNicknameInfo?: BatchUpdateDeviceNicknameRequestDeviceNicknameInfo[];
-  realTenantId?: string;
-  realTripartiteKey?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       deviceNicknameInfo: 'DeviceNicknameInfo',
-      realTenantId: 'RealTenantId',
-      realTripartiteKey: 'RealTripartiteKey',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       deviceNicknameInfo: { 'type': 'array', 'itemType': BatchUpdateDeviceNicknameRequestDeviceNicknameInfo },
-      realTenantId: 'string',
-      realTripartiteKey: 'string',
     };
   }
 
@@ -2337,16 +2130,12 @@ export class BatchUpdateDeviceNicknameResponse extends $tea.Model {
 }
 
 export class BindApplicationToEdgeInstanceRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   instanceId?: string;
   applicationId?: string;
   applicationVersion?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       instanceId: 'InstanceId',
       applicationId: 'ApplicationId',
@@ -2356,8 +2145,6 @@ export class BindApplicationToEdgeInstanceRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       instanceId: 'string',
       applicationId: 'string',
@@ -2421,8 +2208,6 @@ export class BindApplicationToEdgeInstanceResponse extends $tea.Model {
 }
 
 export class BindDriverToEdgeInstanceRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   instanceId?: string;
   driverId?: string;
@@ -2430,8 +2215,6 @@ export class BindDriverToEdgeInstanceRequest extends $tea.Model {
   orderId?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       instanceId: 'InstanceId',
       driverId: 'DriverId',
@@ -2442,8 +2225,6 @@ export class BindDriverToEdgeInstanceRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       instanceId: 'string',
       driverId: 'string',
@@ -2508,8 +2289,6 @@ export class BindDriverToEdgeInstanceResponse extends $tea.Model {
 }
 
 export class BindGatewayToEdgeInstanceRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   instanceId?: string;
   productKey?: string;
@@ -2517,8 +2296,6 @@ export class BindGatewayToEdgeInstanceRequest extends $tea.Model {
   iotId?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       instanceId: 'InstanceId',
       productKey: 'ProductKey',
@@ -2529,8 +2306,6 @@ export class BindGatewayToEdgeInstanceRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       instanceId: 'string',
       productKey: 'string',
@@ -2595,16 +2370,12 @@ export class BindGatewayToEdgeInstanceResponse extends $tea.Model {
 }
 
 export class BindRoleToEdgeInstanceRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   instanceId?: string;
   roleArn?: string;
   roleName?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       instanceId: 'InstanceId',
       roleArn: 'RoleArn',
@@ -2614,8 +2385,6 @@ export class BindRoleToEdgeInstanceRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       instanceId: 'string',
       roleArn: 'string',
@@ -2679,15 +2448,11 @@ export class BindRoleToEdgeInstanceResponse extends $tea.Model {
 }
 
 export class BindSceneRuleToEdgeInstanceRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   instanceId?: string;
   ruleId?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       instanceId: 'InstanceId',
       ruleId: 'RuleId',
@@ -2696,8 +2461,6 @@ export class BindSceneRuleToEdgeInstanceRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       instanceId: 'string',
       ruleId: 'string',
@@ -2760,14 +2523,10 @@ export class BindSceneRuleToEdgeInstanceResponse extends $tea.Model {
 }
 
 export class CancelJobRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   jobId?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       jobId: 'JobId',
     };
@@ -2775,8 +2534,6 @@ export class CancelJobRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       jobId: 'string',
     };
@@ -2838,14 +2595,10 @@ export class CancelJobResponse extends $tea.Model {
 }
 
 export class CancelOTAStrategyByJobRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   jobId?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       jobId: 'JobId',
     };
@@ -2853,8 +2606,6 @@ export class CancelOTAStrategyByJobRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       jobId: 'string',
     };
@@ -2916,8 +2667,6 @@ export class CancelOTAStrategyByJobResponse extends $tea.Model {
 }
 
 export class CancelOTATaskByDeviceRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   firmwareId?: string;
   productKey?: string;
@@ -2925,8 +2674,6 @@ export class CancelOTATaskByDeviceRequest extends $tea.Model {
   jobId?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       firmwareId: 'FirmwareId',
       productKey: 'ProductKey',
@@ -2937,8 +2684,6 @@ export class CancelOTATaskByDeviceRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       firmwareId: 'string',
       productKey: 'string',
@@ -3003,8 +2748,6 @@ export class CancelOTATaskByDeviceResponse extends $tea.Model {
 }
 
 export class CancelOTATaskByJobRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   jobId?: string;
   cancelScheduledTask?: boolean;
@@ -3013,8 +2756,6 @@ export class CancelOTATaskByJobRequest extends $tea.Model {
   cancelNotifiedTask?: boolean;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       jobId: 'JobId',
       cancelScheduledTask: 'CancelScheduledTask',
@@ -3026,8 +2767,6 @@ export class CancelOTATaskByJobRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       jobId: 'string',
       cancelScheduledTask: 'boolean',
@@ -3093,15 +2832,11 @@ export class CancelOTATaskByJobResponse extends $tea.Model {
 }
 
 export class ClearEdgeInstanceDriverConfigsRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   instanceId?: string;
   driverId?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       instanceId: 'InstanceId',
       driverId: 'DriverId',
@@ -3110,8 +2845,6 @@ export class ClearEdgeInstanceDriverConfigsRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       instanceId: 'string',
       driverId: 'string',
@@ -3174,14 +2907,10 @@ export class ClearEdgeInstanceDriverConfigsResponse extends $tea.Model {
 }
 
 export class CloseEdgeInstanceDeploymentRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       instanceId: 'InstanceId',
     };
@@ -3189,8 +2918,6 @@ export class CloseEdgeInstanceDeploymentRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       instanceId: 'string',
     };
@@ -3252,40 +2979,28 @@ export class CloseEdgeInstanceDeploymentResponse extends $tea.Model {
 }
 
 export class CopyThingModelRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   resourceGroupId?: string;
   sourceProductKey?: string;
   targetProductKey?: string;
   sourceModelVersion?: string;
-  realTenantId?: string;
-  realTripartiteKey?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       resourceGroupId: 'ResourceGroupId',
       sourceProductKey: 'SourceProductKey',
       targetProductKey: 'TargetProductKey',
       sourceModelVersion: 'SourceModelVersion',
-      realTenantId: 'RealTenantId',
-      realTripartiteKey: 'RealTripartiteKey',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       resourceGroupId: 'string',
       sourceProductKey: 'string',
       targetProductKey: 'string',
       sourceModelVersion: 'string',
-      realTenantId: 'string',
-      realTripartiteKey: 'string',
     };
   }
 
@@ -3345,31 +3060,19 @@ export class CopyThingModelResponse extends $tea.Model {
 }
 
 export class CreateConsumerGroupRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   groupName?: string;
-  realTenantId?: string;
-  realTripartiteKey?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       groupName: 'GroupName',
-      realTenantId: 'RealTenantId',
-      realTripartiteKey: 'RealTripartiteKey',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       groupName: 'string',
-      realTenantId: 'string',
-      realTripartiteKey: 'string',
     };
   }
 
@@ -3432,15 +3135,11 @@ export class CreateConsumerGroupResponse extends $tea.Model {
 }
 
 export class CreateConsumerGroupSubscribeRelationRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   consumerGroupId?: string;
   iotInstanceId?: string;
   productKey?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       consumerGroupId: 'ConsumerGroupId',
       iotInstanceId: 'IotInstanceId',
       productKey: 'ProductKey',
@@ -3449,8 +3148,6 @@ export class CreateConsumerGroupSubscribeRelationRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       consumerGroupId: 'string',
       iotInstanceId: 'string',
       productKey: 'string',
@@ -3513,8 +3210,6 @@ export class CreateConsumerGroupSubscribeRelationResponse extends $tea.Model {
 }
 
 export class CreateDataAPIServiceRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   displayName?: string;
   originSql?: string;
   requestParam?: CreateDataAPIServiceRequestRequestParam[];
@@ -3525,8 +3220,6 @@ export class CreateDataAPIServiceRequest extends $tea.Model {
   iotInstanceId?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       displayName: 'DisplayName',
       originSql: 'OriginSql',
       requestParam: 'RequestParam',
@@ -3540,8 +3233,6 @@ export class CreateDataAPIServiceRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       displayName: 'string',
       originSql: 'string',
       requestParam: { 'type': 'array', 'itemType': CreateDataAPIServiceRequestRequestParam },
@@ -3612,26 +3303,20 @@ export class CreateDataAPIServiceResponse extends $tea.Model {
 }
 
 export class CreateDeviceDistributeJobRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   deviceName?: string[];
   sourceInstanceId?: string;
   productKey?: string;
   targetUid?: string;
   targetAliyunId?: string;
-  captcha?: string;
   targetInstanceConfig?: CreateDeviceDistributeJobRequestTargetInstanceConfig[];
   strategy?: number;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       deviceName: 'DeviceName',
       sourceInstanceId: 'SourceInstanceId',
       productKey: 'ProductKey',
       targetUid: 'TargetUid',
       targetAliyunId: 'TargetAliyunId',
-      captcha: 'Captcha',
       targetInstanceConfig: 'TargetInstanceConfig',
       strategy: 'Strategy',
     };
@@ -3639,14 +3324,11 @@ export class CreateDeviceDistributeJobRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       deviceName: { 'type': 'array', 'itemType': 'string' },
       sourceInstanceId: 'string',
       productKey: 'string',
       targetUid: 'string',
       targetAliyunId: 'string',
-      captcha: 'string',
       targetInstanceConfig: { 'type': 'array', 'itemType': CreateDeviceDistributeJobRequestTargetInstanceConfig },
       strategy: 'number',
     };
@@ -3711,37 +3393,25 @@ export class CreateDeviceDistributeJobResponse extends $tea.Model {
 }
 
 export class CreateDeviceGroupRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   superGroupId?: string;
   groupDesc?: string;
   groupName?: string;
-  realTenantId?: string;
-  realTripartiteKey?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       superGroupId: 'SuperGroupId',
       groupDesc: 'GroupDesc',
       groupName: 'GroupName',
-      realTenantId: 'RealTenantId',
-      realTripartiteKey: 'RealTripartiteKey',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       superGroupId: 'string',
       groupDesc: 'string',
       groupName: 'string',
-      realTenantId: 'string',
-      realTripartiteKey: 'string',
     };
   }
 
@@ -3804,8 +3474,6 @@ export class CreateDeviceGroupResponse extends $tea.Model {
 }
 
 export class CreateEdgeDriverRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   driverName?: string;
   driverProtocol?: string;
@@ -3814,8 +3482,6 @@ export class CreateEdgeDriverRequest extends $tea.Model {
   isBuiltIn?: boolean;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       driverName: 'DriverName',
       driverProtocol: 'DriverProtocol',
@@ -3827,8 +3493,6 @@ export class CreateEdgeDriverRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       driverName: 'string',
       driverProtocol: 'string',
@@ -3897,8 +3561,6 @@ export class CreateEdgeDriverResponse extends $tea.Model {
 }
 
 export class CreateEdgeDriverVersionRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   driverId?: string;
   driverVersion?: string;
@@ -3911,8 +3573,6 @@ export class CreateEdgeDriverVersionRequest extends $tea.Model {
   argument?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       driverId: 'DriverId',
       driverVersion: 'DriverVersion',
@@ -3928,8 +3588,6 @@ export class CreateEdgeDriverVersionRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       driverId: 'string',
       driverVersion: 'string',
@@ -3999,16 +3657,12 @@ export class CreateEdgeDriverVersionResponse extends $tea.Model {
 }
 
 export class CreateEdgeInstanceRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   name?: string;
   tags?: string;
   spec?: number;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       name: 'Name',
       tags: 'Tags',
@@ -4018,8 +3672,6 @@ export class CreateEdgeInstanceRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       name: 'string',
       tags: 'string',
@@ -4086,8 +3738,6 @@ export class CreateEdgeInstanceResponse extends $tea.Model {
 }
 
 export class CreateEdgeInstanceChannelRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   instanceId?: string;
   driverId?: string;
@@ -4095,8 +3745,6 @@ export class CreateEdgeInstanceChannelRequest extends $tea.Model {
   configs?: CreateEdgeInstanceChannelRequestConfigs[];
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       instanceId: 'InstanceId',
       driverId: 'DriverId',
@@ -4107,8 +3755,6 @@ export class CreateEdgeInstanceChannelRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       instanceId: 'string',
       driverId: 'string',
@@ -4176,15 +3822,11 @@ export class CreateEdgeInstanceChannelResponse extends $tea.Model {
 }
 
 export class CreateEdgeInstanceDeploymentRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   instanceId?: string;
   type?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       instanceId: 'InstanceId',
       type: 'Type',
@@ -4193,8 +3835,6 @@ export class CreateEdgeInstanceDeploymentRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       instanceId: 'string',
       type: 'string',
@@ -4259,9 +3899,103 @@ export class CreateEdgeInstanceDeploymentResponse extends $tea.Model {
   }
 }
 
+export class CreateEdgeInstanceMessageRoutingRequest extends $tea.Model {
+  iotInstanceId?: string;
+  instanceId?: string;
+  name?: string;
+  topicFilter?: string;
+  sourceType?: string;
+  sourceData?: string;
+  targetType?: string;
+  targetData?: string;
+  targetIotHubQos?: number;
+  static names(): { [key: string]: string } {
+    return {
+      iotInstanceId: 'IotInstanceId',
+      instanceId: 'InstanceId',
+      name: 'Name',
+      topicFilter: 'TopicFilter',
+      sourceType: 'SourceType',
+      sourceData: 'SourceData',
+      targetType: 'TargetType',
+      targetData: 'TargetData',
+      targetIotHubQos: 'TargetIotHubQos',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      iotInstanceId: 'string',
+      instanceId: 'string',
+      name: 'string',
+      topicFilter: 'string',
+      sourceType: 'string',
+      sourceData: 'string',
+      targetType: 'string',
+      targetData: 'string',
+      targetIotHubQos: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEdgeInstanceMessageRoutingResponseBody extends $tea.Model {
+  requestId?: string;
+  success?: boolean;
+  code?: string;
+  errorMessage?: string;
+  routeId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
+      routeId: 'RouteId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+      code: 'string',
+      errorMessage: 'string',
+      routeId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEdgeInstanceMessageRoutingResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CreateEdgeInstanceMessageRoutingResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CreateEdgeInstanceMessageRoutingResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateEdgeOssPreSignedAddressRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   resourceId?: string;
   fileName?: string;
   iotInstanceId?: string;
@@ -4270,8 +4004,6 @@ export class CreateEdgeOssPreSignedAddressRequest extends $tea.Model {
   resourceVersion?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       resourceId: 'ResourceId',
       fileName: 'FileName',
       iotInstanceId: 'IotInstanceId',
@@ -4283,8 +4015,6 @@ export class CreateEdgeOssPreSignedAddressRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       resourceId: 'string',
       fileName: 'string',
       iotInstanceId: 'string',
@@ -4353,8 +4083,6 @@ export class CreateEdgeOssPreSignedAddressResponse extends $tea.Model {
 }
 
 export class CreateJobRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   description?: string;
   jobDocument?: string;
@@ -4366,8 +4094,6 @@ export class CreateJobRequest extends $tea.Model {
   targetConfig?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       description: 'Description',
       jobDocument: 'JobDocument',
@@ -4382,8 +4108,6 @@ export class CreateJobRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       description: 'string',
       jobDocument: 'string',
@@ -4455,15 +4179,11 @@ export class CreateJobResponse extends $tea.Model {
 }
 
 export class CreateLoRaNodesTaskRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   productKey?: string;
   deviceInfo?: CreateLoRaNodesTaskRequestDeviceInfo[];
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       productKey: 'ProductKey',
       deviceInfo: 'DeviceInfo',
@@ -4472,8 +4192,6 @@ export class CreateLoRaNodesTaskRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       productKey: 'string',
       deviceInfo: { 'type': 'array', 'itemType': CreateLoRaNodesTaskRequestDeviceInfo },
@@ -4539,8 +4257,6 @@ export class CreateLoRaNodesTaskResponse extends $tea.Model {
 }
 
 export class CreateOTADynamicUpgradeJobRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   firmwareId?: string;
   productKey?: string;
@@ -4554,8 +4270,6 @@ export class CreateOTADynamicUpgradeJobRequest extends $tea.Model {
   tag?: CreateOTADynamicUpgradeJobRequestTag[];
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       firmwareId: 'FirmwareId',
       productKey: 'ProductKey',
@@ -4572,8 +4286,6 @@ export class CreateOTADynamicUpgradeJobRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       firmwareId: 'string',
       productKey: 'string',
@@ -4647,8 +4359,6 @@ export class CreateOTADynamicUpgradeJobResponse extends $tea.Model {
 }
 
 export class CreateOTAFirmwareRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   firmwareName?: string;
   destVersion?: string;
@@ -4664,8 +4374,6 @@ export class CreateOTAFirmwareRequest extends $tea.Model {
   needToVerify?: boolean;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       firmwareName: 'FirmwareName',
       destVersion: 'DestVersion',
@@ -4684,8 +4392,6 @@ export class CreateOTAFirmwareRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       firmwareName: 'string',
       destVersion: 'string',
@@ -4761,8 +4467,6 @@ export class CreateOTAFirmwareResponse extends $tea.Model {
 }
 
 export class CreateOTAModuleRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   aliasName?: string;
   iotInstanceId?: string;
   moduleName?: string;
@@ -4770,8 +4474,6 @@ export class CreateOTAModuleRequest extends $tea.Model {
   productKey?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       aliasName: 'AliasName',
       iotInstanceId: 'IotInstanceId',
       moduleName: 'ModuleName',
@@ -4782,8 +4484,6 @@ export class CreateOTAModuleRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       aliasName: 'string',
       iotInstanceId: 'string',
       moduleName: 'string',
@@ -4848,8 +4548,6 @@ export class CreateOTAModuleResponse extends $tea.Model {
 }
 
 export class CreateOTAStaticUpgradeJobRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   firmwareId?: string;
   productKey?: string;
@@ -4868,8 +4566,6 @@ export class CreateOTAStaticUpgradeJobRequest extends $tea.Model {
   dnListFileUrl?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       firmwareId: 'FirmwareId',
       productKey: 'ProductKey',
@@ -4891,8 +4587,6 @@ export class CreateOTAStaticUpgradeJobRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       firmwareId: 'string',
       productKey: 'string',
@@ -4971,8 +4665,6 @@ export class CreateOTAStaticUpgradeJobResponse extends $tea.Model {
 }
 
 export class CreateOTAVerifyJobRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   firmwareId?: string;
   timeoutInMinutes?: number;
@@ -4980,8 +4672,6 @@ export class CreateOTAVerifyJobRequest extends $tea.Model {
   targetDeviceName?: string[];
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       firmwareId: 'FirmwareId',
       timeoutInMinutes: 'TimeoutInMinutes',
@@ -4992,8 +4682,6 @@ export class CreateOTAVerifyJobRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       firmwareId: 'string',
       timeoutInMinutes: 'number',
@@ -5061,8 +4749,6 @@ export class CreateOTAVerifyJobResponse extends $tea.Model {
 }
 
 export class CreateProductRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   productName?: string;
   nodeType?: number;
@@ -5070,7 +4756,6 @@ export class CreateProductRequest extends $tea.Model {
   description?: string;
   aliyunCommodityCode?: string;
   id2?: boolean;
-  categoryId?: number;
   protocolType?: string;
   netType?: string;
   joinPermissionId?: string;
@@ -5079,12 +4764,8 @@ export class CreateProductRequest extends $tea.Model {
   categoryKey?: string;
   publishAuto?: boolean;
   validateType?: number;
-  realTenantId?: string;
-  realTripartiteKey?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       productName: 'ProductName',
       nodeType: 'NodeType',
@@ -5092,7 +4773,6 @@ export class CreateProductRequest extends $tea.Model {
       description: 'Description',
       aliyunCommodityCode: 'AliyunCommodityCode',
       id2: 'Id2',
-      categoryId: 'CategoryId',
       protocolType: 'ProtocolType',
       netType: 'NetType',
       joinPermissionId: 'JoinPermissionId',
@@ -5101,15 +4781,11 @@ export class CreateProductRequest extends $tea.Model {
       categoryKey: 'CategoryKey',
       publishAuto: 'PublishAuto',
       validateType: 'ValidateType',
-      realTenantId: 'RealTenantId',
-      realTripartiteKey: 'RealTripartiteKey',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       productName: 'string',
       nodeType: 'number',
@@ -5117,7 +4793,6 @@ export class CreateProductRequest extends $tea.Model {
       description: 'string',
       aliyunCommodityCode: 'string',
       id2: 'boolean',
-      categoryId: 'number',
       protocolType: 'string',
       netType: 'string',
       joinPermissionId: 'string',
@@ -5126,8 +4801,6 @@ export class CreateProductRequest extends $tea.Model {
       categoryKey: 'string',
       publishAuto: 'boolean',
       validateType: 'number',
-      realTenantId: 'string',
-      realTripartiteKey: 'string',
     };
   }
 
@@ -5193,36 +4866,27 @@ export class CreateProductResponse extends $tea.Model {
 }
 
 export class CreateProductDistributeJobRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   sourceInstanceId?: string;
   productKey?: string;
   targetInstanceId?: string;
   targetUid?: string;
-  captcha?: string;
   targetAliyunId?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       sourceInstanceId: 'SourceInstanceId',
       productKey: 'ProductKey',
       targetInstanceId: 'TargetInstanceId',
       targetUid: 'TargetUid',
-      captcha: 'Captcha',
       targetAliyunId: 'TargetAliyunId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       sourceInstanceId: 'string',
       productKey: 'string',
       targetInstanceId: 'string',
       targetUid: 'string',
-      captcha: 'string',
       targetAliyunId: 'string',
     };
   }
@@ -5286,34 +4950,22 @@ export class CreateProductDistributeJobResponse extends $tea.Model {
 }
 
 export class CreateProductTagsRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   productKey?: string;
   productTag?: CreateProductTagsRequestProductTag[];
-  realTenantId?: string;
-  realTripartiteKey?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       productKey: 'ProductKey',
       productTag: 'ProductTag',
-      realTenantId: 'RealTenantId',
-      realTripartiteKey: 'RealTripartiteKey',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       productKey: 'string',
       productTag: { 'type': 'array', 'itemType': CreateProductTagsRequestProductTag },
-      realTenantId: 'string',
-      realTripartiteKey: 'string',
     };
   }
 
@@ -5376,40 +5028,28 @@ export class CreateProductTagsResponse extends $tea.Model {
 }
 
 export class CreateProductTopicRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   productKey?: string;
   topicShortName?: string;
   operation?: string;
   desc?: string;
-  realTenantId?: string;
-  realTripartiteKey?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       productKey: 'ProductKey',
       topicShortName: 'TopicShortName',
       operation: 'Operation',
       desc: 'Desc',
-      realTenantId: 'RealTenantId',
-      realTripartiteKey: 'RealTripartiteKey',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       productKey: 'string',
       topicShortName: 'string',
       operation: 'string',
       desc: 'string',
-      realTenantId: 'string',
-      realTripartiteKey: 'string',
     };
   }
 
@@ -5472,8 +5112,6 @@ export class CreateProductTopicResponse extends $tea.Model {
 }
 
 export class CreateRuleRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   select?: string;
   shortTopic?: string;
@@ -5487,8 +5125,6 @@ export class CreateRuleRequest extends $tea.Model {
   topic?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       select: 'Select',
       shortTopic: 'ShortTopic',
@@ -5505,8 +5141,6 @@ export class CreateRuleRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       select: 'string',
       shortTopic: 'string',
@@ -5580,8 +5214,6 @@ export class CreateRuleResponse extends $tea.Model {
 }
 
 export class CreateRuleActionRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   ruleId?: number;
   type?: string;
@@ -5589,8 +5221,6 @@ export class CreateRuleActionRequest extends $tea.Model {
   errorActionFlag?: boolean;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       ruleId: 'RuleId',
       type: 'Type',
@@ -5601,8 +5231,6 @@ export class CreateRuleActionRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       ruleId: 'number',
       type: 'string',
@@ -5670,15 +5298,11 @@ export class CreateRuleActionResponse extends $tea.Model {
 }
 
 export class CreateRulengDistributeJobRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   productKey?: string;
   sourceInstanceId?: string;
   targetInstanceId?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       productKey: 'ProductKey',
       sourceInstanceId: 'SourceInstanceId',
       targetInstanceId: 'TargetInstanceId',
@@ -5687,8 +5311,6 @@ export class CreateRulengDistributeJobRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       productKey: 'string',
       sourceInstanceId: 'string',
       targetInstanceId: 'string',
@@ -5751,16 +5373,12 @@ export class CreateRulengDistributeJobResponse extends $tea.Model {
 }
 
 export class CreateSceneRuleRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   ruleName?: string;
   ruleContent?: string;
   ruleDescription?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       ruleName: 'RuleName',
       ruleContent: 'RuleContent',
@@ -5770,8 +5388,6 @@ export class CreateSceneRuleRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       ruleName: 'string',
       ruleContent: 'string',
@@ -5838,8 +5454,6 @@ export class CreateSceneRuleResponse extends $tea.Model {
 }
 
 export class CreateSubscribeRelationRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   productKey?: string;
   deviceDataFlag?: boolean;
@@ -5855,12 +5469,8 @@ export class CreateSubscribeRelationRequest extends $tea.Model {
   deviceTagFlag?: boolean;
   otaVersionFlag?: boolean;
   otaJobFlag?: boolean;
-  realTenantId?: string;
-  realTripartiteKey?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       productKey: 'ProductKey',
       deviceDataFlag: 'DeviceDataFlag',
@@ -5876,15 +5486,11 @@ export class CreateSubscribeRelationRequest extends $tea.Model {
       deviceTagFlag: 'DeviceTagFlag',
       otaVersionFlag: 'OtaVersionFlag',
       otaJobFlag: 'OtaJobFlag',
-      realTenantId: 'RealTenantId',
-      realTripartiteKey: 'RealTripartiteKey',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       productKey: 'string',
       deviceDataFlag: 'boolean',
@@ -5900,8 +5506,6 @@ export class CreateSubscribeRelationRequest extends $tea.Model {
       deviceTagFlag: 'boolean',
       otaVersionFlag: 'boolean',
       otaJobFlag: 'boolean',
-      realTenantId: 'string',
-      realTripartiteKey: 'string',
     };
   }
 
@@ -5961,40 +5565,28 @@ export class CreateSubscribeRelationResponse extends $tea.Model {
 }
 
 export class CreateThingModelRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   productKey?: string;
   thingModelJson?: string;
   functionBlockId?: string;
   functionBlockName?: string;
-  realTenantId?: string;
-  realTripartiteKey?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       productKey: 'ProductKey',
       thingModelJson: 'ThingModelJson',
       functionBlockId: 'FunctionBlockId',
       functionBlockName: 'FunctionBlockName',
-      realTenantId: 'RealTenantId',
-      realTripartiteKey: 'RealTripartiteKey',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       productKey: 'string',
       thingModelJson: 'string',
       functionBlockId: 'string',
       functionBlockName: 'string',
-      realTenantId: 'string',
-      realTripartiteKey: 'string',
     };
   }
 
@@ -6054,16 +5646,12 @@ export class CreateThingModelResponse extends $tea.Model {
 }
 
 export class CreateThingScriptRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   scriptContent?: string;
   iotInstanceId?: string;
   productKey?: string;
   scriptType?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       scriptContent: 'ScriptContent',
       iotInstanceId: 'IotInstanceId',
       productKey: 'ProductKey',
@@ -6073,8 +5661,6 @@ export class CreateThingScriptRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       scriptContent: 'string',
       iotInstanceId: 'string',
       productKey: 'string',
@@ -6138,34 +5724,22 @@ export class CreateThingScriptResponse extends $tea.Model {
 }
 
 export class CreateTopicRouteTableRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   dstTopic?: string[];
   srcTopic?: string;
-  realTenantId?: string;
-  realTripartiteKey?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       dstTopic: 'DstTopic',
       srcTopic: 'SrcTopic',
-      realTenantId: 'RealTenantId',
-      realTripartiteKey: 'RealTripartiteKey',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       dstTopic: { 'type': 'array', 'itemType': 'string' },
       srcTopic: 'string',
-      realTenantId: 'string',
-      realTripartiteKey: 'string',
     };
   }
 
@@ -6231,14 +5805,10 @@ export class CreateTopicRouteTableResponse extends $tea.Model {
 }
 
 export class DeleteConsumerGroupRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   groupId?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       groupId: 'GroupId',
     };
@@ -6246,8 +5816,6 @@ export class DeleteConsumerGroupRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       groupId: 'string',
     };
@@ -6309,15 +5877,11 @@ export class DeleteConsumerGroupResponse extends $tea.Model {
 }
 
 export class DeleteConsumerGroupSubscribeRelationRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   consumerGroupId?: string;
   iotInstanceId?: string;
   productKey?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       consumerGroupId: 'ConsumerGroupId',
       iotInstanceId: 'IotInstanceId',
       productKey: 'ProductKey',
@@ -6326,8 +5890,6 @@ export class DeleteConsumerGroupSubscribeRelationRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       consumerGroupId: 'string',
       iotInstanceId: 'string',
       productKey: 'string',
@@ -6390,37 +5952,25 @@ export class DeleteConsumerGroupSubscribeRelationResponse extends $tea.Model {
 }
 
 export class DeleteDeviceRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   productKey?: string;
   deviceName?: string;
   iotId?: string;
-  realTenantId?: string;
-  realTripartiteKey?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       productKey: 'ProductKey',
       deviceName: 'DeviceName',
       iotId: 'IotId',
-      realTenantId: 'RealTenantId',
-      realTripartiteKey: 'RealTripartiteKey',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       productKey: 'string',
       deviceName: 'string',
       iotId: 'string',
-      realTenantId: 'string',
-      realTripartiteKey: 'string',
     };
   }
 
@@ -6480,21 +6030,15 @@ export class DeleteDeviceResponse extends $tea.Model {
 }
 
 export class DeleteDeviceDistributeJobRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   jobId?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       jobId: 'JobId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       jobId: 'string',
     };
   }
@@ -6555,8 +6099,6 @@ export class DeleteDeviceDistributeJobResponse extends $tea.Model {
 }
 
 export class DeleteDeviceFileRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   productKey?: string;
   deviceName?: string;
@@ -6564,8 +6106,6 @@ export class DeleteDeviceFileRequest extends $tea.Model {
   fileId?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       productKey: 'ProductKey',
       deviceName: 'DeviceName',
@@ -6576,8 +6116,6 @@ export class DeleteDeviceFileRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       productKey: 'string',
       deviceName: 'string',
@@ -6642,31 +6180,19 @@ export class DeleteDeviceFileResponse extends $tea.Model {
 }
 
 export class DeleteDeviceGroupRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   groupId?: string;
-  realTenantId?: string;
-  realTripartiteKey?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       groupId: 'GroupId',
-      realTenantId: 'RealTenantId',
-      realTripartiteKey: 'RealTripartiteKey',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       groupId: 'string',
-      realTenantId: 'string',
-      realTripartiteKey: 'string',
     };
   }
 
@@ -6726,8 +6252,6 @@ export class DeleteDeviceGroupResponse extends $tea.Model {
 }
 
 export class DeleteDevicePropRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   productKey?: string;
   deviceName?: string;
@@ -6735,8 +6259,6 @@ export class DeleteDevicePropRequest extends $tea.Model {
   iotId?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       productKey: 'ProductKey',
       deviceName: 'DeviceName',
@@ -6747,8 +6269,6 @@ export class DeleteDevicePropRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       productKey: 'string',
       deviceName: 'string',
@@ -6813,14 +6333,10 @@ export class DeleteDevicePropResponse extends $tea.Model {
 }
 
 export class DeleteEdgeDriverRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   driverId?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       driverId: 'DriverId',
     };
@@ -6828,8 +6344,6 @@ export class DeleteEdgeDriverRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       driverId: 'string',
     };
@@ -6891,15 +6405,11 @@ export class DeleteEdgeDriverResponse extends $tea.Model {
 }
 
 export class DeleteEdgeDriverVersionRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   driverId?: string;
   driverVersion?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       driverId: 'DriverId',
       driverVersion: 'DriverVersion',
@@ -6908,8 +6418,6 @@ export class DeleteEdgeDriverVersionRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       driverId: 'string',
       driverVersion: 'string',
@@ -6972,14 +6480,10 @@ export class DeleteEdgeDriverVersionResponse extends $tea.Model {
 }
 
 export class DeleteEdgeInstanceRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       instanceId: 'InstanceId',
     };
@@ -6987,8 +6491,6 @@ export class DeleteEdgeInstanceRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       instanceId: 'string',
     };
@@ -7049,15 +6551,86 @@ export class DeleteEdgeInstanceResponse extends $tea.Model {
   }
 }
 
+export class DeleteEdgeInstanceMessageRoutingRequest extends $tea.Model {
+  iotInstanceId?: string;
+  instanceId?: string;
+  routeId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      iotInstanceId: 'IotInstanceId',
+      instanceId: 'InstanceId',
+      routeId: 'RouteId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      iotInstanceId: 'string',
+      instanceId: 'string',
+      routeId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteEdgeInstanceMessageRoutingResponseBody extends $tea.Model {
+  requestId?: string;
+  success?: boolean;
+  code?: string;
+  errorMessage?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+      code: 'string',
+      errorMessage: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteEdgeInstanceMessageRoutingResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DeleteEdgeInstanceMessageRoutingResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DeleteEdgeInstanceMessageRoutingResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteJobRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   jobId?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       jobId: 'JobId',
     };
@@ -7065,8 +6638,6 @@ export class DeleteJobRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       jobId: 'string',
     };
@@ -7128,14 +6699,10 @@ export class DeleteJobResponse extends $tea.Model {
 }
 
 export class DeleteOTAFirmwareRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   firmwareId?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       firmwareId: 'FirmwareId',
     };
@@ -7143,8 +6710,6 @@ export class DeleteOTAFirmwareRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       firmwareId: 'string',
     };
@@ -7206,31 +6771,22 @@ export class DeleteOTAFirmwareResponse extends $tea.Model {
 }
 
 export class DeleteOTAModuleRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   productKey?: string;
   moduleName?: string;
-  authConfig?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       productKey: 'ProductKey',
       moduleName: 'ModuleName',
-      authConfig: 'AuthConfig',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       productKey: 'string',
       moduleName: 'string',
-      authConfig: 'string',
     };
   }
 
@@ -7290,31 +6846,19 @@ export class DeleteOTAModuleResponse extends $tea.Model {
 }
 
 export class DeleteProductRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   productKey?: string;
-  realTenantId?: string;
-  realTripartiteKey?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       productKey: 'ProductKey',
-      realTenantId: 'RealTenantId',
-      realTripartiteKey: 'RealTripartiteKey',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       productKey: 'string',
-      realTenantId: 'string',
-      realTripartiteKey: 'string',
     };
   }
 
@@ -7374,34 +6918,22 @@ export class DeleteProductResponse extends $tea.Model {
 }
 
 export class DeleteProductTagsRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   productTagKey?: string[];
   productKey?: string;
-  realTenantId?: string;
-  realTripartiteKey?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       productTagKey: 'ProductTagKey',
       productKey: 'ProductKey',
-      realTenantId: 'RealTenantId',
-      realTripartiteKey: 'RealTripartiteKey',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       productTagKey: { 'type': 'array', 'itemType': 'string' },
       productKey: 'string',
-      realTenantId: 'string',
-      realTripartiteKey: 'string',
     };
   }
 
@@ -7461,14 +6993,10 @@ export class DeleteProductTagsResponse extends $tea.Model {
 }
 
 export class DeleteProductTopicRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   topicId?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       topicId: 'TopicId',
     };
@@ -7476,8 +7004,6 @@ export class DeleteProductTopicRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       topicId: 'string',
     };
@@ -7539,14 +7065,10 @@ export class DeleteProductTopicResponse extends $tea.Model {
 }
 
 export class DeleteRuleRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   ruleId?: number;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       ruleId: 'RuleId',
     };
@@ -7554,8 +7076,6 @@ export class DeleteRuleRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       ruleId: 'number',
     };
@@ -7617,14 +7137,10 @@ export class DeleteRuleResponse extends $tea.Model {
 }
 
 export class DeleteRuleActionRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   actionId?: number;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       actionId: 'ActionId',
     };
@@ -7632,8 +7148,6 @@ export class DeleteRuleActionRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       actionId: 'number',
     };
@@ -7695,14 +7209,10 @@ export class DeleteRuleActionResponse extends $tea.Model {
 }
 
 export class DeleteSceneRuleRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   ruleId?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       ruleId: 'RuleId',
     };
@@ -7710,8 +7220,6 @@ export class DeleteSceneRuleRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       ruleId: 'string',
     };
@@ -7773,15 +7281,11 @@ export class DeleteSceneRuleResponse extends $tea.Model {
 }
 
 export class DeleteSubscribeRelationRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   productKey?: string;
   type?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       productKey: 'ProductKey',
       type: 'Type',
@@ -7790,8 +7294,6 @@ export class DeleteSubscribeRelationRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       productKey: 'string',
       type: 'string',
@@ -7854,8 +7356,6 @@ export class DeleteSubscribeRelationResponse extends $tea.Model {
 }
 
 export class DeleteThingModelRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   resourceGroupId?: string;
   productKey?: string;
@@ -7863,13 +7363,8 @@ export class DeleteThingModelRequest extends $tea.Model {
   serviceIdentifier?: string[];
   eventIdentifier?: string[];
   functionBlockId?: string;
-  isClearAllFunction?: boolean;
-  realTenantId?: string;
-  realTripartiteKey?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       resourceGroupId: 'ResourceGroupId',
       productKey: 'ProductKey',
@@ -7877,16 +7372,11 @@ export class DeleteThingModelRequest extends $tea.Model {
       serviceIdentifier: 'ServiceIdentifier',
       eventIdentifier: 'EventIdentifier',
       functionBlockId: 'FunctionBlockId',
-      isClearAllFunction: 'IsClearAllFunction',
-      realTenantId: 'RealTenantId',
-      realTripartiteKey: 'RealTripartiteKey',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       resourceGroupId: 'string',
       productKey: 'string',
@@ -7894,9 +7384,6 @@ export class DeleteThingModelRequest extends $tea.Model {
       serviceIdentifier: { 'type': 'array', 'itemType': 'string' },
       eventIdentifier: { 'type': 'array', 'itemType': 'string' },
       functionBlockId: 'string',
-      isClearAllFunction: 'boolean',
-      realTenantId: 'string',
-      realTripartiteKey: 'string',
     };
   }
 
@@ -7956,15 +7443,11 @@ export class DeleteThingModelResponse extends $tea.Model {
 }
 
 export class DeleteTopicRouteTableRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   dstTopic?: string[];
   srcTopic?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       dstTopic: 'DstTopic',
       srcTopic: 'SrcTopic',
@@ -7973,8 +7456,6 @@ export class DeleteTopicRouteTableRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       dstTopic: { 'type': 'array', 'itemType': 'string' },
       srcTopic: 'string',
@@ -8042,15 +7523,161 @@ export class DeleteTopicRouteTableResponse extends $tea.Model {
   }
 }
 
+export class DisableDeviceTunnelRequest extends $tea.Model {
+  iotInstanceId?: string;
+  productKey?: string;
+  deviceName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      iotInstanceId: 'IotInstanceId',
+      productKey: 'ProductKey',
+      deviceName: 'DeviceName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      iotInstanceId: 'string',
+      productKey: 'string',
+      deviceName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DisableDeviceTunnelResponseBody extends $tea.Model {
+  requestId?: string;
+  success?: boolean;
+  code?: string;
+  errorMessage?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+      code: 'string',
+      errorMessage: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DisableDeviceTunnelResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DisableDeviceTunnelResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DisableDeviceTunnelResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DisableDeviceTunnelShareRequest extends $tea.Model {
+  iotInstanceId?: string;
+  productKey?: string;
+  deviceName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      iotInstanceId: 'IotInstanceId',
+      productKey: 'ProductKey',
+      deviceName: 'DeviceName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      iotInstanceId: 'string',
+      productKey: 'string',
+      deviceName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DisableDeviceTunnelShareResponseBody extends $tea.Model {
+  requestId?: string;
+  success?: boolean;
+  errorMessage?: string;
+  code?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+      errorMessage: 'ErrorMessage',
+      code: 'Code',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+      errorMessage: 'string',
+      code: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DisableDeviceTunnelShareResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DisableDeviceTunnelShareResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DisableDeviceTunnelShareResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DisableSceneRuleRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   ruleId?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       ruleId: 'RuleId',
     };
@@ -8058,8 +7685,6 @@ export class DisableSceneRuleRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       ruleId: 'string',
     };
@@ -8121,37 +7746,25 @@ export class DisableSceneRuleResponse extends $tea.Model {
 }
 
 export class DisableThingRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   productKey?: string;
   deviceName?: string;
   iotId?: string;
-  realTenantId?: string;
-  realTripartiteKey?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       productKey: 'ProductKey',
       deviceName: 'DeviceName',
       iotId: 'IotId',
-      realTenantId: 'RealTenantId',
-      realTripartiteKey: 'RealTripartiteKey',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       productKey: 'string',
       deviceName: 'string',
       iotId: 'string',
-      realTenantId: 'string',
-      realTripartiteKey: 'string',
     };
   }
 
@@ -8210,15 +7823,161 @@ export class DisableThingResponse extends $tea.Model {
   }
 }
 
+export class EnableDeviceTunnelRequest extends $tea.Model {
+  iotInstanceId?: string;
+  productKey?: string;
+  deviceName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      iotInstanceId: 'IotInstanceId',
+      productKey: 'ProductKey',
+      deviceName: 'DeviceName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      iotInstanceId: 'string',
+      productKey: 'string',
+      deviceName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnableDeviceTunnelResponseBody extends $tea.Model {
+  requestId?: string;
+  success?: boolean;
+  code?: string;
+  errorMessage?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+      code: 'string',
+      errorMessage: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnableDeviceTunnelResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: EnableDeviceTunnelResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: EnableDeviceTunnelResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnableDeviceTunnelShareRequest extends $tea.Model {
+  iotInstanceId?: string;
+  productKey?: string;
+  deviceName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      iotInstanceId: 'IotInstanceId',
+      productKey: 'ProductKey',
+      deviceName: 'DeviceName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      iotInstanceId: 'string',
+      productKey: 'string',
+      deviceName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnableDeviceTunnelShareResponseBody extends $tea.Model {
+  requestId?: string;
+  success?: boolean;
+  errorMessage?: string;
+  code?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+      errorMessage: 'ErrorMessage',
+      code: 'Code',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+      errorMessage: 'string',
+      code: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnableDeviceTunnelShareResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: EnableDeviceTunnelShareResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: EnableDeviceTunnelShareResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class EnableSceneRuleRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   ruleId?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       ruleId: 'RuleId',
     };
@@ -8226,8 +7985,6 @@ export class EnableSceneRuleRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       ruleId: 'string',
     };
@@ -8289,37 +8046,25 @@ export class EnableSceneRuleResponse extends $tea.Model {
 }
 
 export class EnableThingRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   productKey?: string;
   deviceName?: string;
   iotId?: string;
-  realTenantId?: string;
-  realTripartiteKey?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       productKey: 'ProductKey',
       deviceName: 'DeviceName',
       iotId: 'IotId',
-      realTenantId: 'RealTenantId',
-      realTripartiteKey: 'RealTripartiteKey',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       productKey: 'string',
       deviceName: 'string',
       iotId: 'string',
-      realTenantId: 'string',
-      realTripartiteKey: 'string',
     };
   }
 
@@ -8379,21 +8124,15 @@ export class EnableThingResponse extends $tea.Model {
 }
 
 export class GenerateDeviceNameListURLRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
     };
   }
@@ -8457,28 +8196,25 @@ export class GenerateDeviceNameListURLResponse extends $tea.Model {
 }
 
 export class GenerateFileUploadURLRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   fileSuffix?: string;
   bizCode?: string;
+  fileName?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       fileSuffix: 'FileSuffix',
       bizCode: 'BizCode',
+      fileName: 'FileName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       fileSuffix: 'string',
       bizCode: 'string',
+      fileName: 'string',
     };
   }
 
@@ -8541,14 +8277,10 @@ export class GenerateFileUploadURLResponse extends $tea.Model {
 }
 
 export class GenerateOTAUploadURLRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   fileSuffix?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       fileSuffix: 'FileSuffix',
     };
@@ -8556,8 +8288,6 @@ export class GenerateOTAUploadURLRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       fileSuffix: 'string',
     };
@@ -8622,14 +8352,10 @@ export class GenerateOTAUploadURLResponse extends $tea.Model {
 }
 
 export class GetDataAPIServiceDetailRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   apiSrn?: string;
   iotInstanceId?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       apiSrn: 'ApiSrn',
       iotInstanceId: 'IotInstanceId',
     };
@@ -8637,8 +8363,6 @@ export class GetDataAPIServiceDetailRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       apiSrn: 'string',
       iotInstanceId: 'string',
     };
@@ -8703,15 +8427,11 @@ export class GetDataAPIServiceDetailResponse extends $tea.Model {
 }
 
 export class GetDeviceShadowRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   productKey?: string;
   deviceName?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       productKey: 'ProductKey',
       deviceName: 'DeviceName',
@@ -8720,8 +8440,6 @@ export class GetDeviceShadowRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       productKey: 'string',
       deviceName: 'string',
@@ -8787,16 +8505,12 @@ export class GetDeviceShadowResponse extends $tea.Model {
 }
 
 export class GetDeviceStatusRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   productKey?: string;
   deviceName?: string;
   iotId?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       productKey: 'ProductKey',
       deviceName: 'DeviceName',
@@ -8806,8 +8520,6 @@ export class GetDeviceStatusRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       productKey: 'string',
       deviceName: 'string',
@@ -8873,16 +8585,168 @@ export class GetDeviceStatusResponse extends $tea.Model {
   }
 }
 
+export class GetDeviceTunnelShareStatusRequest extends $tea.Model {
+  iotInstanceId?: string;
+  productKey?: string;
+  deviceName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      iotInstanceId: 'IotInstanceId',
+      productKey: 'ProductKey',
+      deviceName: 'DeviceName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      iotInstanceId: 'string',
+      productKey: 'string',
+      deviceName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDeviceTunnelShareStatusResponseBody extends $tea.Model {
+  requestId?: string;
+  success?: boolean;
+  errorMessage?: string;
+  code?: string;
+  data?: GetDeviceTunnelShareStatusResponseBodyData;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+      errorMessage: 'ErrorMessage',
+      code: 'Code',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+      errorMessage: 'string',
+      code: 'string',
+      data: GetDeviceTunnelShareStatusResponseBodyData,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDeviceTunnelShareStatusResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetDeviceTunnelShareStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetDeviceTunnelShareStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDeviceTunnelStatusRequest extends $tea.Model {
+  iotInstanceId?: string;
+  productKey?: string;
+  deviceName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      iotInstanceId: 'IotInstanceId',
+      productKey: 'ProductKey',
+      deviceName: 'DeviceName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      iotInstanceId: 'string',
+      productKey: 'string',
+      deviceName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDeviceTunnelStatusResponseBody extends $tea.Model {
+  requestId?: string;
+  success?: boolean;
+  errorMessage?: string;
+  code?: string;
+  data?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+      errorMessage: 'ErrorMessage',
+      code: 'Code',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+      errorMessage: 'string',
+      code: 'string',
+      data: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDeviceTunnelStatusResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetDeviceTunnelStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetDeviceTunnelStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetEdgeDriverVersionRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   driverId?: string;
   driverVersion?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       driverId: 'DriverId',
       driverVersion: 'DriverVersion',
@@ -8891,8 +8755,6 @@ export class GetEdgeDriverVersionRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       driverId: 'string',
       driverVersion: 'string',
@@ -8958,14 +8820,10 @@ export class GetEdgeDriverVersionResponse extends $tea.Model {
 }
 
 export class GetEdgeInstanceRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       instanceId: 'InstanceId',
     };
@@ -8973,8 +8831,6 @@ export class GetEdgeInstanceRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       instanceId: 'string',
     };
@@ -9039,15 +8895,11 @@ export class GetEdgeInstanceResponse extends $tea.Model {
 }
 
 export class GetEdgeInstanceDeploymentRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   instanceId?: string;
   deploymentId?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       instanceId: 'InstanceId',
       deploymentId: 'DeploymentId',
@@ -9056,8 +8908,6 @@ export class GetEdgeInstanceDeploymentRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       instanceId: 'string',
       deploymentId: 'string',
@@ -9122,17 +8972,91 @@ export class GetEdgeInstanceDeploymentResponse extends $tea.Model {
   }
 }
 
+export class GetEdgeInstanceMessageRoutingRequest extends $tea.Model {
+  iotInstanceId?: string;
+  instanceId?: string;
+  routeId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      iotInstanceId: 'IotInstanceId',
+      instanceId: 'InstanceId',
+      routeId: 'RouteId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      iotInstanceId: 'string',
+      instanceId: 'string',
+      routeId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEdgeInstanceMessageRoutingResponseBody extends $tea.Model {
+  requestId?: string;
+  success?: boolean;
+  code?: string;
+  errorMessage?: string;
+  data?: GetEdgeInstanceMessageRoutingResponseBodyData;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+      code: 'string',
+      errorMessage: 'string',
+      data: GetEdgeInstanceMessageRoutingResponseBodyData,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEdgeInstanceMessageRoutingResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetEdgeInstanceMessageRoutingResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetEdgeInstanceMessageRoutingResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetGatewayBySubDeviceRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   productKey?: string;
   deviceName?: string;
   iotId?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       productKey: 'ProductKey',
       deviceName: 'DeviceName',
@@ -9142,8 +9066,6 @@ export class GetGatewayBySubDeviceRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       productKey: 'string',
       deviceName: 'string',
@@ -9210,14 +9132,10 @@ export class GetGatewayBySubDeviceResponse extends $tea.Model {
 }
 
 export class GetLoraNodesTaskRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       taskId: 'TaskId',
     };
@@ -9225,8 +9143,6 @@ export class GetLoraNodesTaskRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       taskId: 'string',
     };
@@ -9303,14 +9219,10 @@ export class GetLoraNodesTaskResponse extends $tea.Model {
 }
 
 export class GetNodesAddingTaskRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       taskId: 'TaskId',
     };
@@ -9318,8 +9230,6 @@ export class GetNodesAddingTaskRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       taskId: 'string',
     };
@@ -9396,14 +9306,10 @@ export class GetNodesAddingTaskResponse extends $tea.Model {
 }
 
 export class GetRuleRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   ruleId?: number;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       ruleId: 'RuleId',
     };
@@ -9411,8 +9317,6 @@ export class GetRuleRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       ruleId: 'number',
     };
@@ -9477,14 +9381,10 @@ export class GetRuleResponse extends $tea.Model {
 }
 
 export class GetRuleActionRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   actionId?: number;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       actionId: 'ActionId',
     };
@@ -9492,8 +9392,6 @@ export class GetRuleActionRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       actionId: 'number',
     };
@@ -9558,14 +9456,10 @@ export class GetRuleActionResponse extends $tea.Model {
 }
 
 export class GetSceneRuleRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   ruleId?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       ruleId: 'RuleId',
     };
@@ -9573,8 +9467,6 @@ export class GetSceneRuleRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       ruleId: 'string',
     };
@@ -9639,43 +9531,28 @@ export class GetSceneRuleResponse extends $tea.Model {
 }
 
 export class GetThingModelTslRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
-  resourceGroupId?: string;
   productKey?: string;
   modelVersion?: string;
   simple?: boolean;
   functionBlockId?: string;
-  realTenantId?: string;
-  realTripartiteKey?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
-      resourceGroupId: 'ResourceGroupId',
       productKey: 'ProductKey',
       modelVersion: 'ModelVersion',
       simple: 'Simple',
       functionBlockId: 'FunctionBlockId',
-      realTenantId: 'RealTenantId',
-      realTripartiteKey: 'RealTripartiteKey',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
-      resourceGroupId: 'string',
       productKey: 'string',
       modelVersion: 'string',
       simple: 'boolean',
       functionBlockId: 'string',
-      realTenantId: 'string',
-      realTripartiteKey: 'string',
     };
   }
 
@@ -9738,43 +9615,31 @@ export class GetThingModelTslResponse extends $tea.Model {
 }
 
 export class GetThingModelTslPublishedRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   productKey?: string;
   resourceGroupId?: string;
   simple?: boolean;
   modelVersion?: string;
   functionBlockId?: string;
-  realTenantId?: string;
-  realTripartiteKey?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       productKey: 'ProductKey',
       resourceGroupId: 'ResourceGroupId',
       simple: 'Simple',
       modelVersion: 'ModelVersion',
       functionBlockId: 'FunctionBlockId',
-      realTenantId: 'RealTenantId',
-      realTripartiteKey: 'RealTripartiteKey',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       productKey: 'string',
       resourceGroupId: 'string',
       simple: 'boolean',
       modelVersion: 'string',
       functionBlockId: 'string',
-      realTenantId: 'string',
-      realTripartiteKey: 'string',
     };
   }
 
@@ -9837,14 +9702,10 @@ export class GetThingModelTslPublishedResponse extends $tea.Model {
 }
 
 export class GetThingScriptRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   productKey?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       productKey: 'ProductKey',
     };
@@ -9852,8 +9713,6 @@ export class GetThingScriptRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       productKey: 'string',
     };
@@ -9918,15 +9777,11 @@ export class GetThingScriptResponse extends $tea.Model {
 }
 
 export class GetThingTemplateRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   resourceGroupId?: string;
   categoryKey?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       resourceGroupId: 'ResourceGroupId',
       categoryKey: 'CategoryKey',
@@ -9935,8 +9790,6 @@ export class GetThingTemplateRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       resourceGroupId: 'string',
       categoryKey: 'string',
@@ -10002,8 +9855,6 @@ export class GetThingTemplateResponse extends $tea.Model {
 }
 
 export class GetThingTopoRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   pageSize?: number;
   productKey?: string;
@@ -10012,8 +9863,6 @@ export class GetThingTopoRequest extends $tea.Model {
   iotId?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       pageSize: 'PageSize',
       productKey: 'ProductKey',
@@ -10025,8 +9874,6 @@ export class GetThingTopoRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       pageSize: 'number',
       productKey: 'string',
@@ -10095,8 +9942,6 @@ export class GetThingTopoResponse extends $tea.Model {
 }
 
 export class ImportThingModelTslRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   resourceGroupId?: string;
   productKey?: string;
@@ -10104,12 +9949,8 @@ export class ImportThingModelTslRequest extends $tea.Model {
   tslUrl?: string;
   functionBlockId?: string;
   functionBlockName?: string;
-  realTenantId?: string;
-  realTripartiteKey?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       resourceGroupId: 'ResourceGroupId',
       productKey: 'ProductKey',
@@ -10117,15 +9958,11 @@ export class ImportThingModelTslRequest extends $tea.Model {
       tslUrl: 'TslUrl',
       functionBlockId: 'FunctionBlockId',
       functionBlockName: 'FunctionBlockName',
-      realTenantId: 'RealTenantId',
-      realTripartiteKey: 'RealTripartiteKey',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       resourceGroupId: 'string',
       productKey: 'string',
@@ -10133,8 +9970,6 @@ export class ImportThingModelTslRequest extends $tea.Model {
       tslUrl: 'string',
       functionBlockId: 'string',
       functionBlockName: 'string',
-      realTenantId: 'string',
-      realTripartiteKey: 'string',
     };
   }
 
@@ -10194,15 +10029,11 @@ export class ImportThingModelTslResponse extends $tea.Model {
 }
 
 export class InvokeDataAPIServiceRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   apiSrn?: string;
   param?: InvokeDataAPIServiceRequestParam[];
   iotInstanceId?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       apiSrn: 'ApiSrn',
       param: 'Param',
       iotInstanceId: 'IotInstanceId',
@@ -10211,8 +10042,6 @@ export class InvokeDataAPIServiceRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       apiSrn: 'string',
       param: { 'type': 'array', 'itemType': InvokeDataAPIServiceRequestParam },
       iotInstanceId: 'string',
@@ -10278,43 +10107,31 @@ export class InvokeDataAPIServiceResponse extends $tea.Model {
 }
 
 export class InvokeThingServiceRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   productKey?: string;
   deviceName?: string;
   identifier?: string;
   args?: string;
   iotId?: string;
-  realTenantId?: string;
-  realTripartiteKey?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       productKey: 'ProductKey',
       deviceName: 'DeviceName',
       identifier: 'Identifier',
       args: 'Args',
       iotId: 'IotId',
-      realTenantId: 'RealTenantId',
-      realTripartiteKey: 'RealTripartiteKey',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       productKey: 'string',
       deviceName: 'string',
       identifier: 'string',
       args: 'string',
       iotId: 'string',
-      realTenantId: 'string',
-      realTripartiteKey: 'string',
     };
   }
 
@@ -10377,8 +10194,6 @@ export class InvokeThingServiceResponse extends $tea.Model {
 }
 
 export class InvokeThingsServiceRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   deviceName?: string[];
   iotInstanceId?: string;
   productKey?: string;
@@ -10386,8 +10201,6 @@ export class InvokeThingsServiceRequest extends $tea.Model {
   args?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       deviceName: 'DeviceName',
       iotInstanceId: 'IotInstanceId',
       productKey: 'ProductKey',
@@ -10398,8 +10211,6 @@ export class InvokeThingsServiceRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       deviceName: { 'type': 'array', 'itemType': 'string' },
       iotInstanceId: 'string',
       productKey: 'string',
@@ -10464,8 +10275,6 @@ export class InvokeThingsServiceResponse extends $tea.Model {
 }
 
 export class ListAnalyticsDataRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   isoId?: string;
   apiPath?: string;
@@ -10474,8 +10283,6 @@ export class ListAnalyticsDataRequest extends $tea.Model {
   pageNum?: number;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       isoId: 'IsoId',
       apiPath: 'ApiPath',
@@ -10487,8 +10294,6 @@ export class ListAnalyticsDataRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       isoId: 'string',
       apiPath: 'string',
@@ -10557,16 +10362,12 @@ export class ListAnalyticsDataResponse extends $tea.Model {
 }
 
 export class ListDeviceDistributeJobRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   targetUid?: string;
   currentPage?: number;
   pageSize?: number;
   status?: number;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       targetUid: 'TargetUid',
       currentPage: 'CurrentPage',
       pageSize: 'PageSize',
@@ -10576,8 +10377,6 @@ export class ListDeviceDistributeJobRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       targetUid: 'string',
       currentPage: 'number',
       pageSize: 'number',
@@ -10644,40 +10443,31 @@ export class ListDeviceDistributeJobResponse extends $tea.Model {
 }
 
 export class ListDistributedDeviceRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   pageSize?: number;
   productKey?: string;
   deviceName?: string;
   currentPage?: number;
   targetUid?: string;
   sourceInstanceId?: string;
-  targetInstanceId?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       pageSize: 'PageSize',
       productKey: 'ProductKey',
       deviceName: 'DeviceName',
       currentPage: 'CurrentPage',
       targetUid: 'TargetUid',
       sourceInstanceId: 'SourceInstanceId',
-      targetInstanceId: 'TargetInstanceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       pageSize: 'number',
       productKey: 'string',
       deviceName: 'string',
       currentPage: 'number',
       targetUid: 'string',
       sourceInstanceId: 'string',
-      targetInstanceId: 'string',
     };
   }
 
@@ -10740,8 +10530,6 @@ export class ListDistributedDeviceResponse extends $tea.Model {
 }
 
 export class ListDistributedProductRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   pageSize?: number;
   sourceInstanceId?: string;
   productKey?: string;
@@ -10750,8 +10538,6 @@ export class ListDistributedProductRequest extends $tea.Model {
   currentPage?: number;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       pageSize: 'PageSize',
       sourceInstanceId: 'SourceInstanceId',
       productKey: 'ProductKey',
@@ -10763,8 +10549,6 @@ export class ListDistributedProductRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       pageSize: 'number',
       sourceInstanceId: 'string',
       productKey: 'string',
@@ -10833,16 +10617,12 @@ export class ListDistributedProductResponse extends $tea.Model {
 }
 
 export class ListJobRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   status?: string;
   pageSize?: number;
   currentPage?: number;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       status: 'Status',
       pageSize: 'PageSize',
@@ -10852,8 +10632,6 @@ export class ListJobRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       status: 'string',
       pageSize: 'number',
@@ -10929,8 +10707,6 @@ export class ListJobResponse extends $tea.Model {
 }
 
 export class ListOTAFirmwareRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   productKey?: string;
   pageSize?: number;
@@ -10938,8 +10714,6 @@ export class ListOTAFirmwareRequest extends $tea.Model {
   destVersion?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       productKey: 'ProductKey',
       pageSize: 'PageSize',
@@ -10950,8 +10724,6 @@ export class ListOTAFirmwareRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       productKey: 'string',
       pageSize: 'number',
@@ -11031,8 +10803,6 @@ export class ListOTAFirmwareResponse extends $tea.Model {
 }
 
 export class ListOTAJobByDeviceRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   firmwareId?: string;
   pageSize?: number;
@@ -11041,8 +10811,6 @@ export class ListOTAJobByDeviceRequest extends $tea.Model {
   currentPage?: number;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       firmwareId: 'FirmwareId',
       pageSize: 'PageSize',
@@ -11054,8 +10822,6 @@ export class ListOTAJobByDeviceRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       firmwareId: 'string',
       pageSize: 'number',
@@ -11136,16 +10902,12 @@ export class ListOTAJobByDeviceResponse extends $tea.Model {
 }
 
 export class ListOTAJobByFirmwareRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   firmwareId?: string;
   pageSize?: number;
   currentPage?: number;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       firmwareId: 'FirmwareId',
       pageSize: 'PageSize',
@@ -11155,8 +10917,6 @@ export class ListOTAJobByFirmwareRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       firmwareId: 'string',
       pageSize: 'number',
@@ -11235,28 +10995,19 @@ export class ListOTAJobByFirmwareResponse extends $tea.Model {
 }
 
 export class ListOTAModuleByProductRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   productKey?: string;
-  authConfig?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       productKey: 'ProductKey',
-      authConfig: 'AuthConfig',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       productKey: 'string',
-      authConfig: 'string',
     };
   }
 
@@ -11319,8 +11070,6 @@ export class ListOTAModuleByProductResponse extends $tea.Model {
 }
 
 export class ListOTAModuleVersionsByDeviceRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   pageSize?: number;
   productKey?: string;
@@ -11329,8 +11078,6 @@ export class ListOTAModuleVersionsByDeviceRequest extends $tea.Model {
   currentPage?: number;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       pageSize: 'PageSize',
       productKey: 'ProductKey',
@@ -11342,8 +11089,6 @@ export class ListOTAModuleVersionsByDeviceRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       pageSize: 'number',
       productKey: 'string',
@@ -11424,8 +11169,6 @@ export class ListOTAModuleVersionsByDeviceResponse extends $tea.Model {
 }
 
 export class ListOTATaskByJobRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   pageSize?: number;
   taskStatus?: string;
@@ -11434,8 +11177,6 @@ export class ListOTATaskByJobRequest extends $tea.Model {
   deviceNames?: string[];
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       pageSize: 'PageSize',
       taskStatus: 'TaskStatus',
@@ -11447,8 +11188,6 @@ export class ListOTATaskByJobRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       pageSize: 'number',
       taskStatus: 'string',
@@ -11529,16 +11268,12 @@ export class ListOTATaskByJobResponse extends $tea.Model {
 }
 
 export class ListProductByTagsRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   currentPage?: number;
   pageSize?: number;
   productTag?: ListProductByTagsRequestProductTag[];
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       currentPage: 'CurrentPage',
       pageSize: 'PageSize',
@@ -11548,8 +11283,6 @@ export class ListProductByTagsRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       currentPage: 'number',
       pageSize: 'number',
@@ -11616,31 +11349,19 @@ export class ListProductByTagsResponse extends $tea.Model {
 }
 
 export class ListProductTagsRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   productKey?: string;
-  realTenantId?: string;
-  realTripartiteKey?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       productKey: 'ProductKey',
-      realTenantId: 'RealTenantId',
-      realTripartiteKey: 'RealTripartiteKey',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       productKey: 'string',
-      realTenantId: 'string',
-      realTripartiteKey: 'string',
     };
   }
 
@@ -11703,33 +11424,24 @@ export class ListProductTagsResponse extends $tea.Model {
 }
 
 export class ListRuleRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   currentPage?: number;
   pageSize?: number;
-  searchName?: string;
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       currentPage: 'CurrentPage',
       pageSize: 'PageSize',
-      searchName: 'SearchName',
       resourceGroupId: 'ResourceGroupId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       currentPage: 'number',
       pageSize: 'number',
-      searchName: 'string',
       resourceGroupId: 'string',
     };
   }
@@ -11802,14 +11514,10 @@ export class ListRuleResponse extends $tea.Model {
 }
 
 export class ListRuleActionsRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   ruleId?: number;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       ruleId: 'RuleId',
     };
@@ -11817,8 +11525,6 @@ export class ListRuleActionsRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       ruleId: 'number',
     };
@@ -11883,8 +11589,6 @@ export class ListRuleActionsResponse extends $tea.Model {
 }
 
 export class ListTaskRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   limit?: number;
   jobId?: string;
@@ -11893,8 +11597,6 @@ export class ListTaskRequest extends $tea.Model {
   status?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       limit: 'Limit',
       jobId: 'JobId',
@@ -11906,8 +11608,6 @@ export class ListTaskRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       limit: 'number',
       jobId: 'string',
@@ -11979,8 +11679,6 @@ export class ListTaskResponse extends $tea.Model {
 }
 
 export class ListTaskByPageRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   pageSize?: string;
   pageNo?: string;
@@ -11991,8 +11689,6 @@ export class ListTaskByPageRequest extends $tea.Model {
   jobName?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       pageSize: 'PageSize',
       pageNo: 'PageNo',
@@ -12006,8 +11702,6 @@ export class ListTaskByPageRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       pageSize: 'string',
       pageNo: 'string',
@@ -12090,27 +11784,18 @@ export class ListTaskByPageResponse extends $tea.Model {
 }
 
 export class ListThingModelVersionRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
-  resourceGroupId?: string;
   productKey?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
-      resourceGroupId: 'ResourceGroupId',
       productKey: 'ProductKey',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
-      resourceGroupId: 'string',
       productKey: 'string',
     };
   }
@@ -12174,25 +11859,16 @@ export class ListThingModelVersionResponse extends $tea.Model {
 }
 
 export class ListThingTemplatesRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
-  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
-      resourceGroupId: 'ResourceGroupId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
-      resourceGroupId: 'string',
     };
   }
 
@@ -12255,8 +11931,6 @@ export class ListThingTemplatesResponse extends $tea.Model {
 }
 
 export class NotifyAddThingTopoRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   deviceListStr?: string;
   gwIotId?: string;
@@ -12264,8 +11938,6 @@ export class NotifyAddThingTopoRequest extends $tea.Model {
   gwDeviceName?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       deviceListStr: 'DeviceListStr',
       gwIotId: 'GwIotId',
@@ -12276,8 +11948,6 @@ export class NotifyAddThingTopoRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       deviceListStr: 'string',
       gwIotId: 'string',
@@ -12407,9 +12077,97 @@ export class OpenIotServiceResponse extends $tea.Model {
   }
 }
 
+export class PrintByTemplateRequest extends $tea.Model {
+  paramsJsonString?: string;
+  iotId?: string;
+  projectCode?: string;
+  iotInstanceId?: string;
+  templateBizCode?: string;
+  productKey?: string;
+  deviceName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      paramsJsonString: 'ParamsJsonString',
+      iotId: 'IotId',
+      projectCode: 'ProjectCode',
+      iotInstanceId: 'IotInstanceId',
+      templateBizCode: 'TemplateBizCode',
+      productKey: 'ProductKey',
+      deviceName: 'DeviceName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      paramsJsonString: 'string',
+      iotId: 'string',
+      projectCode: 'string',
+      iotInstanceId: 'string',
+      templateBizCode: 'string',
+      productKey: 'string',
+      deviceName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PrintByTemplateResponseBody extends $tea.Model {
+  requestId?: string;
+  success?: boolean;
+  code?: string;
+  errorMessage?: string;
+  data?: PrintByTemplateResponseBodyData;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+      code: 'string',
+      errorMessage: 'string',
+      data: PrintByTemplateResponseBodyData,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PrintByTemplateResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: PrintByTemplateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: PrintByTemplateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class PubRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   productKey?: string;
   qos?: number;
@@ -12420,8 +12178,6 @@ export class PubRequest extends $tea.Model {
   userProp?: PubRequestUserProp[];
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       productKey: 'ProductKey',
       qos: 'Qos',
@@ -12435,8 +12191,6 @@ export class PubRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       productKey: 'string',
       qos: 'number',
@@ -12507,16 +12261,12 @@ export class PubResponse extends $tea.Model {
 }
 
 export class PubBroadcastRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   productKey?: string;
   topicFullName?: string;
   messageContent?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       productKey: 'ProductKey',
       topicFullName: 'TopicFullName',
@@ -12526,8 +12276,6 @@ export class PubBroadcastRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       productKey: 'string',
       topicFullName: 'string',
@@ -12594,40 +12342,28 @@ export class PubBroadcastResponse extends $tea.Model {
 }
 
 export class PublishThingModelRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   resourceGroupId?: string;
   productKey?: string;
   modelVersion?: string;
   description?: string;
-  realTenantId?: string;
-  realTripartiteKey?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       resourceGroupId: 'ResourceGroupId',
       productKey: 'ProductKey',
       modelVersion: 'ModelVersion',
       description: 'Description',
-      realTenantId: 'RealTenantId',
-      realTripartiteKey: 'RealTripartiteKey',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       resourceGroupId: 'string',
       productKey: 'string',
       modelVersion: 'string',
       description: 'string',
-      realTenantId: 'string',
-      realTripartiteKey: 'string',
     };
   }
 
@@ -12687,8 +12423,6 @@ export class PublishThingModelResponse extends $tea.Model {
 }
 
 export class QueryAppDeviceListRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   pageSize?: number;
   productKeyList?: string[];
@@ -12698,8 +12432,6 @@ export class QueryAppDeviceListRequest extends $tea.Model {
   currentPage?: number;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       pageSize: 'PageSize',
       productKeyList: 'ProductKeyList',
@@ -12712,8 +12444,6 @@ export class QueryAppDeviceListRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       pageSize: 'number',
       productKeyList: { 'type': 'array', 'itemType': 'string' },
@@ -12795,34 +12525,22 @@ export class QueryAppDeviceListResponse extends $tea.Model {
 }
 
 export class QueryBatchRegisterDeviceStatusRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   productKey?: string;
   applyId?: number;
-  realTenantId?: string;
-  realTripartiteKey?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       productKey: 'ProductKey',
       applyId: 'ApplyId',
-      realTenantId: 'RealTenantId',
-      realTripartiteKey: 'RealTripartiteKey',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       productKey: 'string',
       applyId: 'number',
-      realTenantId: 'string',
-      realTripartiteKey: 'string',
     };
   }
 
@@ -12885,14 +12603,10 @@ export class QueryBatchRegisterDeviceStatusResponse extends $tea.Model {
 }
 
 export class QueryCertUrlByApplyIdRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   applyId?: number;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       applyId: 'ApplyId',
     };
@@ -12900,8 +12614,6 @@ export class QueryCertUrlByApplyIdRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       applyId: 'number',
     };
@@ -12966,14 +12678,10 @@ export class QueryCertUrlByApplyIdResponse extends $tea.Model {
 }
 
 export class QueryConsumerGroupByGroupIdRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   groupId?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       groupId: 'GroupId',
     };
@@ -12981,8 +12689,6 @@ export class QueryConsumerGroupByGroupIdRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       groupId: 'string',
     };
@@ -13047,40 +12753,28 @@ export class QueryConsumerGroupByGroupIdResponse extends $tea.Model {
 }
 
 export class QueryConsumerGroupListRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   pageSize?: number;
   currentPage?: number;
   fuzzy?: boolean;
   groupName?: string;
-  realTenantId?: string;
-  realTripartiteKey?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       pageSize: 'PageSize',
       currentPage: 'CurrentPage',
       fuzzy: 'Fuzzy',
       groupName: 'GroupName',
-      realTenantId: 'RealTenantId',
-      realTripartiteKey: 'RealTripartiteKey',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       pageSize: 'number',
       currentPage: 'number',
       fuzzy: 'boolean',
       groupName: 'string',
-      realTenantId: 'string',
-      realTripartiteKey: 'string',
     };
   }
 
@@ -13155,31 +12849,19 @@ export class QueryConsumerGroupListResponse extends $tea.Model {
 }
 
 export class QueryConsumerGroupStatusRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   groupId?: string;
-  realTenantId?: string;
-  realTripartiteKey?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       groupId: 'GroupId',
-      realTenantId: 'RealTenantId',
-      realTripartiteKey: 'RealTripartiteKey',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       groupId: 'string',
-      realTenantId: 'string',
-      realTripartiteKey: 'string',
     };
   }
 
@@ -13196,6 +12878,8 @@ export class QueryConsumerGroupStatusResponseBody extends $tea.Model {
   consumerSpeed?: number;
   lastConsumerTime?: string;
   code?: string;
+  accumulatedConsumeCountPerMinute?: number;
+  realTimeConsumeCountPerMinute?: number;
   clientConnectionStatusList?: QueryConsumerGroupStatusResponseBodyClientConnectionStatusList;
   static names(): { [key: string]: string } {
     return {
@@ -13206,6 +12890,8 @@ export class QueryConsumerGroupStatusResponseBody extends $tea.Model {
       consumerSpeed: 'ConsumerSpeed',
       lastConsumerTime: 'LastConsumerTime',
       code: 'Code',
+      accumulatedConsumeCountPerMinute: 'AccumulatedConsumeCountPerMinute',
+      realTimeConsumeCountPerMinute: 'RealTimeConsumeCountPerMinute',
       clientConnectionStatusList: 'ClientConnectionStatusList',
     };
   }
@@ -13219,6 +12905,8 @@ export class QueryConsumerGroupStatusResponseBody extends $tea.Model {
       consumerSpeed: 'number',
       lastConsumerTime: 'string',
       code: 'string',
+      accumulatedConsumeCountPerMinute: 'number',
+      realTimeConsumeCountPerMinute: 'number',
       clientConnectionStatusList: QueryConsumerGroupStatusResponseBodyClientConnectionStatusList,
     };
   }
@@ -13251,8 +12939,6 @@ export class QueryConsumerGroupStatusResponse extends $tea.Model {
 }
 
 export class QueryDetailSceneRuleLogRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   ruleId?: string;
   startTime?: number;
@@ -13262,8 +12948,6 @@ export class QueryDetailSceneRuleLogRequest extends $tea.Model {
   currentPage?: number;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       ruleId: 'RuleId',
       startTime: 'StartTime',
@@ -13276,8 +12960,6 @@ export class QueryDetailSceneRuleLogRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       ruleId: 'string',
       startTime: 'number',
@@ -13347,37 +13029,25 @@ export class QueryDetailSceneRuleLogResponse extends $tea.Model {
 }
 
 export class QueryDeviceRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   pageSize?: number;
   productKey?: string;
   currentPage?: number;
-  realTenantId?: string;
-  realTripartiteKey?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       pageSize: 'PageSize',
       productKey: 'ProductKey',
       currentPage: 'CurrentPage',
-      realTenantId: 'RealTenantId',
-      realTripartiteKey: 'RealTripartiteKey',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       pageSize: 'number',
       productKey: 'string',
       currentPage: 'number',
-      realTenantId: 'string',
-      realTripartiteKey: 'string',
     };
   }
 
@@ -13452,14 +13122,10 @@ export class QueryDeviceResponse extends $tea.Model {
 }
 
 export class QueryDeviceBySQLRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   SQL?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       SQL: 'SQL',
     };
@@ -13467,8 +13133,6 @@ export class QueryDeviceBySQLRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       SQL: 'string',
     };
@@ -13536,46 +13200,31 @@ export class QueryDeviceBySQLResponse extends $tea.Model {
 }
 
 export class QueryDeviceByStatusRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   productKey?: string;
   status?: number;
   currentPage?: number;
   pageSize?: number;
-  bizTenantId?: string;
   resourceGroupId?: string;
-  realTenantId?: string;
-  realTripartiteKey?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       productKey: 'ProductKey',
       status: 'Status',
       currentPage: 'CurrentPage',
       pageSize: 'PageSize',
-      bizTenantId: 'BizTenantId',
       resourceGroupId: 'ResourceGroupId',
-      realTenantId: 'RealTenantId',
-      realTripartiteKey: 'RealTripartiteKey',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       productKey: 'string',
       status: 'number',
       currentPage: 'number',
       pageSize: 'number',
-      bizTenantId: 'string',
       resourceGroupId: 'string',
-      realTenantId: 'string',
-      realTripartiteKey: 'string',
     };
   }
 
@@ -13650,16 +13299,12 @@ export class QueryDeviceByStatusResponse extends $tea.Model {
 }
 
 export class QueryDeviceByTagsRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   tag?: QueryDeviceByTagsRequestTag[];
   currentPage?: number;
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       tag: 'Tag',
       currentPage: 'CurrentPage',
@@ -13669,8 +13314,6 @@ export class QueryDeviceByTagsRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       tag: { 'type': 'array', 'itemType': QueryDeviceByTagsRequestTag },
       currentPage: 'number',
@@ -13749,15 +13392,11 @@ export class QueryDeviceByTagsResponse extends $tea.Model {
 }
 
 export class QueryDeviceCertRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   productKey?: string;
   deviceName?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       productKey: 'ProductKey',
       deviceName: 'DeviceName',
@@ -13766,8 +13405,6 @@ export class QueryDeviceCertRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       productKey: 'string',
       deviceName: 'string',
@@ -13833,43 +13470,31 @@ export class QueryDeviceCertResponse extends $tea.Model {
 }
 
 export class QueryDeviceDesiredPropertyRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   productKey?: string;
   deviceName?: string;
   identifier?: string[];
   iotId?: string;
   functionBlockId?: string;
-  realTenantId?: string;
-  realTripartiteKey?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       productKey: 'ProductKey',
       deviceName: 'DeviceName',
       identifier: 'Identifier',
       iotId: 'IotId',
       functionBlockId: 'FunctionBlockId',
-      realTenantId: 'RealTenantId',
-      realTripartiteKey: 'RealTripartiteKey',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       productKey: 'string',
       deviceName: 'string',
       identifier: { 'type': 'array', 'itemType': 'string' },
       iotId: 'string',
       functionBlockId: 'string',
-      realTenantId: 'string',
-      realTripartiteKey: 'string',
     };
   }
 
@@ -13932,37 +13557,25 @@ export class QueryDeviceDesiredPropertyResponse extends $tea.Model {
 }
 
 export class QueryDeviceDetailRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   productKey?: string;
   deviceName?: string;
   iotId?: string;
-  realTenantId?: string;
-  realTripartiteKey?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       productKey: 'ProductKey',
       deviceName: 'DeviceName',
       iotId: 'IotId',
-      realTenantId: 'RealTenantId',
-      realTripartiteKey: 'RealTripartiteKey',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       productKey: 'string',
       deviceName: 'string',
       iotId: 'string',
-      realTenantId: 'string',
-      realTripartiteKey: 'string',
     };
   }
 
@@ -14025,21 +13638,15 @@ export class QueryDeviceDetailResponse extends $tea.Model {
 }
 
 export class QueryDeviceDistributeDetailRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   jobId?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       jobId: 'JobId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       jobId: 'string',
     };
   }
@@ -14103,21 +13710,15 @@ export class QueryDeviceDistributeDetailResponse extends $tea.Model {
 }
 
 export class QueryDeviceDistributeJobRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   jobId?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       jobId: 'JobId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       jobId: 'string',
     };
   }
@@ -14181,8 +13782,6 @@ export class QueryDeviceDistributeJobResponse extends $tea.Model {
 }
 
 export class QueryDeviceEventDataRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   pageSize?: number;
   productKey?: string;
@@ -14193,12 +13792,8 @@ export class QueryDeviceEventDataRequest extends $tea.Model {
   asc?: number;
   iotId?: string;
   endTime?: number;
-  realTenantId?: string;
-  realTripartiteKey?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       pageSize: 'PageSize',
       productKey: 'ProductKey',
@@ -14209,15 +13804,11 @@ export class QueryDeviceEventDataRequest extends $tea.Model {
       asc: 'Asc',
       iotId: 'IotId',
       endTime: 'EndTime',
-      realTenantId: 'RealTenantId',
-      realTripartiteKey: 'RealTripartiteKey',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       pageSize: 'number',
       productKey: 'string',
@@ -14228,8 +13819,6 @@ export class QueryDeviceEventDataRequest extends $tea.Model {
       asc: 'number',
       iotId: 'string',
       endTime: 'number',
-      realTenantId: 'string',
-      realTripartiteKey: 'string',
     };
   }
 
@@ -14292,8 +13881,6 @@ export class QueryDeviceEventDataResponse extends $tea.Model {
 }
 
 export class QueryDeviceFileRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   productKey?: string;
   deviceName?: string;
@@ -14301,8 +13888,6 @@ export class QueryDeviceFileRequest extends $tea.Model {
   fileId?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       productKey: 'ProductKey',
       deviceName: 'DeviceName',
@@ -14313,8 +13898,6 @@ export class QueryDeviceFileRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       productKey: 'string',
       deviceName: 'string',
@@ -14382,8 +13965,6 @@ export class QueryDeviceFileResponse extends $tea.Model {
 }
 
 export class QueryDeviceFileListRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   pageSize?: number;
   productKey?: string;
@@ -14392,8 +13973,6 @@ export class QueryDeviceFileListRequest extends $tea.Model {
   currentPage?: number;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       pageSize: 'PageSize',
       productKey: 'ProductKey',
@@ -14405,8 +13984,6 @@ export class QueryDeviceFileListRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       pageSize: 'number',
       productKey: 'string',
@@ -14487,34 +14064,22 @@ export class QueryDeviceFileListResponse extends $tea.Model {
 }
 
 export class QueryDeviceGroupByDeviceRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   productKey?: string;
   deviceName?: string;
-  realTenantId?: string;
-  realTripartiteKey?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       productKey: 'ProductKey',
       deviceName: 'DeviceName',
-      realTenantId: 'RealTenantId',
-      realTripartiteKey: 'RealTripartiteKey',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       productKey: 'string',
       deviceName: 'string',
-      realTenantId: 'string',
-      realTripartiteKey: 'string',
     };
   }
 
@@ -14577,16 +14142,12 @@ export class QueryDeviceGroupByDeviceResponse extends $tea.Model {
 }
 
 export class QueryDeviceGroupByTagsRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   tag?: QueryDeviceGroupByTagsRequestTag[];
   currentPage?: number;
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       tag: 'Tag',
       currentPage: 'CurrentPage',
@@ -14596,8 +14157,6 @@ export class QueryDeviceGroupByTagsRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       tag: { 'type': 'array', 'itemType': QueryDeviceGroupByTagsRequestTag },
       currentPage: 'number',
@@ -14676,31 +14235,19 @@ export class QueryDeviceGroupByTagsResponse extends $tea.Model {
 }
 
 export class QueryDeviceGroupInfoRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   groupId?: string;
-  realTenantId?: string;
-  realTripartiteKey?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       groupId: 'GroupId',
-      realTenantId: 'RealTenantId',
-      realTripartiteKey: 'RealTripartiteKey',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       groupId: 'string',
-      realTenantId: 'string',
-      realTripartiteKey: 'string',
     };
   }
 
@@ -14763,8 +14310,6 @@ export class QueryDeviceGroupInfoResponse extends $tea.Model {
 }
 
 export class QueryDeviceGroupListRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   pageSize?: number;
   superGroupId?: string;
@@ -14772,8 +14317,6 @@ export class QueryDeviceGroupListRequest extends $tea.Model {
   currentPage?: number;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       pageSize: 'PageSize',
       superGroupId: 'SuperGroupId',
@@ -14784,8 +14327,6 @@ export class QueryDeviceGroupListRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       pageSize: 'number',
       superGroupId: 'string',
@@ -14865,14 +14406,10 @@ export class QueryDeviceGroupListResponse extends $tea.Model {
 }
 
 export class QueryDeviceGroupTagListRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   groupId?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       groupId: 'GroupId',
     };
@@ -14880,8 +14417,6 @@ export class QueryDeviceGroupTagListRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       groupId: 'string',
     };
@@ -14946,16 +14481,12 @@ export class QueryDeviceGroupTagListResponse extends $tea.Model {
 }
 
 export class QueryDeviceListByDeviceGroupRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   groupId?: string;
   pageSize?: number;
   currentPage?: number;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       groupId: 'GroupId',
       pageSize: 'PageSize',
@@ -14965,8 +14496,6 @@ export class QueryDeviceListByDeviceGroupRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       groupId: 'string',
       pageSize: 'number',
@@ -15045,8 +14574,6 @@ export class QueryDeviceListByDeviceGroupResponse extends $tea.Model {
 }
 
 export class QueryDeviceOriginalEventDataRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   pageSize?: number;
   productKey?: string;
@@ -15059,8 +14586,6 @@ export class QueryDeviceOriginalEventDataRequest extends $tea.Model {
   endTime?: number;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       pageSize: 'PageSize',
       productKey: 'ProductKey',
@@ -15076,8 +14601,6 @@ export class QueryDeviceOriginalEventDataRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       pageSize: 'number',
       productKey: 'string',
@@ -15150,8 +14673,6 @@ export class QueryDeviceOriginalEventDataResponse extends $tea.Model {
 }
 
 export class QueryDeviceOriginalPropertyDataRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   pageSize?: number;
   productKey?: string;
@@ -15164,8 +14685,6 @@ export class QueryDeviceOriginalPropertyDataRequest extends $tea.Model {
   endTime?: number;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       pageSize: 'PageSize',
       productKey: 'ProductKey',
@@ -15181,8 +14700,6 @@ export class QueryDeviceOriginalPropertyDataRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       pageSize: 'number',
       productKey: 'string',
@@ -15255,8 +14772,6 @@ export class QueryDeviceOriginalPropertyDataResponse extends $tea.Model {
 }
 
 export class QueryDeviceOriginalPropertyStatusRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   pageSize?: number;
   productKey?: string;
@@ -15266,8 +14781,6 @@ export class QueryDeviceOriginalPropertyStatusRequest extends $tea.Model {
   asc?: number;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       pageSize: 'PageSize',
       productKey: 'ProductKey',
@@ -15280,8 +14793,6 @@ export class QueryDeviceOriginalPropertyStatusRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       pageSize: 'number',
       productKey: 'string',
@@ -15351,8 +14862,6 @@ export class QueryDeviceOriginalPropertyStatusResponse extends $tea.Model {
 }
 
 export class QueryDeviceOriginalServiceDataRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   pageSize?: number;
   productKey?: string;
@@ -15365,8 +14874,6 @@ export class QueryDeviceOriginalServiceDataRequest extends $tea.Model {
   endTime?: number;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       pageSize: 'PageSize',
       productKey: 'ProductKey',
@@ -15382,8 +14889,6 @@ export class QueryDeviceOriginalServiceDataRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       pageSize: 'number',
       productKey: 'string',
@@ -15456,37 +14961,25 @@ export class QueryDeviceOriginalServiceDataResponse extends $tea.Model {
 }
 
 export class QueryDevicePropRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   productKey?: string;
   deviceName?: string;
   iotId?: string;
-  realTenantId?: string;
-  realTripartiteKey?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       productKey: 'ProductKey',
       deviceName: 'DeviceName',
       iotId: 'IotId',
-      realTenantId: 'RealTenantId',
-      realTripartiteKey: 'RealTripartiteKey',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       productKey: 'string',
       deviceName: 'string',
       iotId: 'string',
-      realTenantId: 'string',
-      realTripartiteKey: 'string',
     };
   }
 
@@ -15549,8 +15042,6 @@ export class QueryDevicePropResponse extends $tea.Model {
 }
 
 export class QueryDevicePropertiesDataRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   pageSize?: number;
   productKey?: string;
@@ -15560,12 +15051,8 @@ export class QueryDevicePropertiesDataRequest extends $tea.Model {
   asc?: number;
   iotId?: string;
   endTime?: number;
-  realTenantId?: string;
-  realTripartiteKey?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       pageSize: 'PageSize',
       productKey: 'ProductKey',
@@ -15575,15 +15062,11 @@ export class QueryDevicePropertiesDataRequest extends $tea.Model {
       asc: 'Asc',
       iotId: 'IotId',
       endTime: 'EndTime',
-      realTenantId: 'RealTenantId',
-      realTripartiteKey: 'RealTripartiteKey',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       pageSize: 'number',
       productKey: 'string',
@@ -15593,8 +15076,6 @@ export class QueryDevicePropertiesDataRequest extends $tea.Model {
       asc: 'number',
       iotId: 'string',
       endTime: 'number',
-      realTenantId: 'string',
-      realTripartiteKey: 'string',
     };
   }
 
@@ -15663,8 +15144,6 @@ export class QueryDevicePropertiesDataResponse extends $tea.Model {
 }
 
 export class QueryDevicePropertyDataRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   pageSize?: number;
   productKey?: string;
@@ -15674,12 +15153,8 @@ export class QueryDevicePropertyDataRequest extends $tea.Model {
   asc?: number;
   iotId?: string;
   endTime?: number;
-  realTenantId?: string;
-  realTripartiteKey?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       pageSize: 'PageSize',
       productKey: 'ProductKey',
@@ -15689,15 +15164,11 @@ export class QueryDevicePropertyDataRequest extends $tea.Model {
       asc: 'Asc',
       iotId: 'IotId',
       endTime: 'EndTime',
-      realTenantId: 'RealTenantId',
-      realTripartiteKey: 'RealTripartiteKey',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       pageSize: 'number',
       productKey: 'string',
@@ -15707,8 +15178,6 @@ export class QueryDevicePropertyDataRequest extends $tea.Model {
       asc: 'number',
       iotId: 'string',
       endTime: 'number',
-      realTenantId: 'string',
-      realTripartiteKey: 'string',
     };
   }
 
@@ -15771,40 +15240,28 @@ export class QueryDevicePropertyDataResponse extends $tea.Model {
 }
 
 export class QueryDevicePropertyStatusRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   productKey?: string;
   deviceName?: string;
   iotId?: string;
   functionBlockId?: string;
-  realTenantId?: string;
-  realTripartiteKey?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       productKey: 'ProductKey',
       deviceName: 'DeviceName',
       iotId: 'IotId',
       functionBlockId: 'FunctionBlockId',
-      realTenantId: 'RealTenantId',
-      realTripartiteKey: 'RealTripartiteKey',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       productKey: 'string',
       deviceName: 'string',
       iotId: 'string',
       functionBlockId: 'string',
-      realTenantId: 'string',
-      realTripartiteKey: 'string',
     };
   }
 
@@ -15867,8 +15324,6 @@ export class QueryDevicePropertyStatusResponse extends $tea.Model {
 }
 
 export class QueryDeviceServiceDataRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   pageSize?: number;
   productKey?: string;
@@ -15878,12 +15333,8 @@ export class QueryDeviceServiceDataRequest extends $tea.Model {
   asc?: number;
   iotId?: string;
   endTime?: number;
-  realTenantId?: string;
-  realTripartiteKey?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       pageSize: 'PageSize',
       productKey: 'ProductKey',
@@ -15893,15 +15344,11 @@ export class QueryDeviceServiceDataRequest extends $tea.Model {
       asc: 'Asc',
       iotId: 'IotId',
       endTime: 'EndTime',
-      realTenantId: 'RealTenantId',
-      realTripartiteKey: 'RealTripartiteKey',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       pageSize: 'number',
       productKey: 'string',
@@ -15911,8 +15358,6 @@ export class QueryDeviceServiceDataRequest extends $tea.Model {
       asc: 'number',
       iotId: 'string',
       endTime: 'number',
-      realTenantId: 'string',
-      realTripartiteKey: 'string',
     };
   }
 
@@ -15975,34 +15420,22 @@ export class QueryDeviceServiceDataResponse extends $tea.Model {
 }
 
 export class QueryDeviceStatisticsRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   productKey?: string;
   groupId?: string;
-  realTenantId?: string;
-  realTripartiteKey?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       productKey: 'ProductKey',
       groupId: 'GroupId',
-      realTenantId: 'RealTenantId',
-      realTripartiteKey: 'RealTripartiteKey',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       productKey: 'string',
       groupId: 'string',
-      realTenantId: 'string',
-      realTripartiteKey: 'string',
     };
   }
 
@@ -16065,8 +15498,6 @@ export class QueryDeviceStatisticsResponse extends $tea.Model {
 }
 
 export class QueryEdgeDriverRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   pageSize?: number;
   currentPage?: number;
@@ -16074,8 +15505,6 @@ export class QueryEdgeDriverRequest extends $tea.Model {
   driverName?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       pageSize: 'PageSize',
       currentPage: 'CurrentPage',
@@ -16086,8 +15515,6 @@ export class QueryEdgeDriverRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       pageSize: 'number',
       currentPage: 'number',
@@ -16155,8 +15582,6 @@ export class QueryEdgeDriverResponse extends $tea.Model {
 }
 
 export class QueryEdgeDriverVersionRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   pageSize?: number;
   currentPage?: number;
@@ -16165,8 +15590,6 @@ export class QueryEdgeDriverVersionRequest extends $tea.Model {
   versionState?: number;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       pageSize: 'PageSize',
       currentPage: 'CurrentPage',
@@ -16178,8 +15601,6 @@ export class QueryEdgeDriverVersionRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       pageSize: 'number',
       currentPage: 'number',
@@ -16248,16 +15669,12 @@ export class QueryEdgeDriverVersionResponse extends $tea.Model {
 }
 
 export class QueryEdgeInstanceRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   pageSize?: number;
   currentPage?: number;
   name?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       pageSize: 'PageSize',
       currentPage: 'CurrentPage',
@@ -16267,8 +15684,6 @@ export class QueryEdgeInstanceRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       pageSize: 'number',
       currentPage: 'number',
@@ -16335,8 +15750,6 @@ export class QueryEdgeInstanceResponse extends $tea.Model {
 }
 
 export class QueryEdgeInstanceChannelRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   instanceId?: string;
   driverId?: string;
@@ -16345,8 +15758,6 @@ export class QueryEdgeInstanceChannelRequest extends $tea.Model {
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       instanceId: 'InstanceId',
       driverId: 'DriverId',
@@ -16358,8 +15769,6 @@ export class QueryEdgeInstanceChannelRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       instanceId: 'string',
       driverId: 'string',
@@ -16428,16 +15837,12 @@ export class QueryEdgeInstanceChannelResponse extends $tea.Model {
 }
 
 export class QueryEdgeInstanceDeviceRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   instanceId?: string;
   currentPage?: number;
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       instanceId: 'InstanceId',
       currentPage: 'CurrentPage',
@@ -16447,8 +15852,6 @@ export class QueryEdgeInstanceDeviceRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       instanceId: 'string',
       currentPage: 'number',
@@ -16515,8 +15918,6 @@ export class QueryEdgeInstanceDeviceResponse extends $tea.Model {
 }
 
 export class QueryEdgeInstanceDeviceByDriverRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   pageSize?: number;
   instanceId?: string;
@@ -16525,8 +15926,6 @@ export class QueryEdgeInstanceDeviceByDriverRequest extends $tea.Model {
   currentPage?: number;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       pageSize: 'PageSize',
       instanceId: 'InstanceId',
@@ -16538,8 +15937,6 @@ export class QueryEdgeInstanceDeviceByDriverRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       pageSize: 'number',
       instanceId: 'string',
@@ -16608,16 +16005,12 @@ export class QueryEdgeInstanceDeviceByDriverResponse extends $tea.Model {
 }
 
 export class QueryEdgeInstanceDriverRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   instanceId?: string;
   currentPage?: number;
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       instanceId: 'InstanceId',
       currentPage: 'CurrentPage',
@@ -16627,8 +16020,6 @@ export class QueryEdgeInstanceDriverRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       instanceId: 'string',
       currentPage: 'number',
@@ -16695,14 +16086,10 @@ export class QueryEdgeInstanceDriverResponse extends $tea.Model {
 }
 
 export class QueryEdgeInstanceGatewayRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       instanceId: 'InstanceId',
     };
@@ -16710,8 +16097,6 @@ export class QueryEdgeInstanceGatewayRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       instanceId: 'string',
     };
@@ -16776,8 +16161,6 @@ export class QueryEdgeInstanceGatewayResponse extends $tea.Model {
 }
 
 export class QueryEdgeInstanceHistoricDeploymentRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   instanceId?: string;
   currentPage?: number;
@@ -16786,8 +16169,6 @@ export class QueryEdgeInstanceHistoricDeploymentRequest extends $tea.Model {
   endTime?: number;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       instanceId: 'InstanceId',
       currentPage: 'CurrentPage',
@@ -16799,8 +16180,6 @@ export class QueryEdgeInstanceHistoricDeploymentRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       instanceId: 'string',
       currentPage: 'number',
@@ -16868,17 +16247,13 @@ export class QueryEdgeInstanceHistoricDeploymentResponse extends $tea.Model {
   }
 }
 
-export class QueryEdgeInstanceSceneRuleRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
+export class QueryEdgeInstanceMessageRoutingRequest extends $tea.Model {
   iotInstanceId?: string;
   instanceId?: string;
   currentPage?: number;
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       instanceId: 'InstanceId',
       currentPage: 'CurrentPage',
@@ -16888,8 +16263,87 @@ export class QueryEdgeInstanceSceneRuleRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
+      iotInstanceId: 'string',
+      instanceId: 'string',
+      currentPage: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryEdgeInstanceMessageRoutingResponseBody extends $tea.Model {
+  requestId?: string;
+  success?: boolean;
+  code?: string;
+  errorMessage?: string;
+  data?: QueryEdgeInstanceMessageRoutingResponseBodyData;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+      code: 'string',
+      errorMessage: 'string',
+      data: QueryEdgeInstanceMessageRoutingResponseBodyData,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryEdgeInstanceMessageRoutingResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: QueryEdgeInstanceMessageRoutingResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: QueryEdgeInstanceMessageRoutingResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryEdgeInstanceSceneRuleRequest extends $tea.Model {
+  iotInstanceId?: string;
+  instanceId?: string;
+  currentPage?: number;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      iotInstanceId: 'IotInstanceId',
+      instanceId: 'InstanceId',
+      currentPage: 'CurrentPage',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
       iotInstanceId: 'string',
       instanceId: 'string',
       currentPage: 'number',
@@ -16956,14 +16410,10 @@ export class QueryEdgeInstanceSceneRuleResponse extends $tea.Model {
 }
 
 export class QueryJobRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   jobId?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       jobId: 'JobId',
     };
@@ -16971,8 +16421,6 @@ export class QueryJobRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       jobId: 'string',
     };
@@ -17037,14 +16485,10 @@ export class QueryJobResponse extends $tea.Model {
 }
 
 export class QueryJobStatisticsRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   jobId?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       jobId: 'JobId',
     };
@@ -17052,8 +16496,6 @@ export class QueryJobStatisticsRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       jobId: 'string',
     };
@@ -17118,21 +16560,15 @@ export class QueryJobStatisticsResponse extends $tea.Model {
 }
 
 export class QueryLoRaJoinPermissionsRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
     };
   }
@@ -17199,14 +16635,10 @@ export class QueryLoRaJoinPermissionsResponse extends $tea.Model {
 }
 
 export class QueryOTAFirmwareRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   firmwareId?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       firmwareId: 'FirmwareId',
     };
@@ -17214,8 +16646,6 @@ export class QueryOTAFirmwareRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       firmwareId: 'string',
     };
@@ -17280,14 +16710,10 @@ export class QueryOTAFirmwareResponse extends $tea.Model {
 }
 
 export class QueryOTAJobRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   jobId?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       jobId: 'JobId',
     };
@@ -17295,8 +16721,6 @@ export class QueryOTAJobRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       jobId: 'string',
     };
@@ -17361,37 +16785,25 @@ export class QueryOTAJobResponse extends $tea.Model {
 }
 
 export class QueryPageByApplyIdRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   pageSize?: number;
   applyId?: number;
   currentPage?: number;
-  realTenantId?: string;
-  realTripartiteKey?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       pageSize: 'PageSize',
       applyId: 'ApplyId',
       currentPage: 'CurrentPage',
-      realTenantId: 'RealTenantId',
-      realTripartiteKey: 'RealTripartiteKey',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       pageSize: 'number',
       applyId: 'number',
       currentPage: 'number',
-      realTenantId: 'string',
-      realTripartiteKey: 'string',
     };
   }
 
@@ -17466,31 +16878,19 @@ export class QueryPageByApplyIdResponse extends $tea.Model {
 }
 
 export class QueryProductRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   productKey?: string;
-  realTenantId?: string;
-  realTripartiteKey?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       productKey: 'ProductKey',
-      realTenantId: 'RealTenantId',
-      realTripartiteKey: 'RealTripartiteKey',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       productKey: 'string',
-      realTenantId: 'string',
-      realTripartiteKey: 'string',
     };
   }
 
@@ -17553,14 +16953,10 @@ export class QueryProductResponse extends $tea.Model {
 }
 
 export class QueryProductCertInfoRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   productKey?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       productKey: 'ProductKey',
     };
@@ -17568,8 +16964,6 @@ export class QueryProductCertInfoRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       productKey: 'string',
     };
@@ -17634,40 +17028,28 @@ export class QueryProductCertInfoResponse extends $tea.Model {
 }
 
 export class QueryProductListRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   pageSize?: number;
   resourceGroupId?: string;
   aliyunCommodityCode?: string;
   currentPage?: number;
-  realTenantId?: string;
-  realTripartiteKey?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       pageSize: 'PageSize',
       resourceGroupId: 'ResourceGroupId',
       aliyunCommodityCode: 'AliyunCommodityCode',
       currentPage: 'CurrentPage',
-      realTenantId: 'RealTenantId',
-      realTripartiteKey: 'RealTripartiteKey',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       pageSize: 'number',
       resourceGroupId: 'string',
       aliyunCommodityCode: 'string',
       currentPage: 'number',
-      realTenantId: 'string',
-      realTripartiteKey: 'string',
     };
   }
 
@@ -17730,31 +17112,19 @@ export class QueryProductListResponse extends $tea.Model {
 }
 
 export class QueryProductTopicRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   productKey?: string;
-  realTenantId?: string;
-  realTripartiteKey?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       productKey: 'ProductKey',
-      realTenantId: 'RealTenantId',
-      realTripartiteKey: 'RealTripartiteKey',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       productKey: 'string',
-      realTenantId: 'string',
-      realTripartiteKey: 'string',
     };
   }
 
@@ -17817,16 +17187,12 @@ export class QueryProductTopicResponse extends $tea.Model {
 }
 
 export class QuerySceneRuleRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   ruleName?: string;
   pageSize?: number;
   currentPage?: number;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       ruleName: 'RuleName',
       pageSize: 'PageSize',
@@ -17836,8 +17202,6 @@ export class QuerySceneRuleRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       ruleName: 'string',
       pageSize: 'number',
@@ -17904,34 +17268,22 @@ export class QuerySceneRuleResponse extends $tea.Model {
 }
 
 export class QuerySubscribeRelationRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   productKey?: string;
   type?: string;
-  realTenantId?: string;
-  realTripartiteKey?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       productKey: 'ProductKey',
       type: 'Type',
-      realTenantId: 'RealTenantId',
-      realTripartiteKey: 'RealTripartiteKey',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       productKey: 'string',
       type: 'string',
-      realTenantId: 'string',
-      realTripartiteKey: 'string',
     };
   }
 
@@ -18033,8 +17385,6 @@ export class QuerySubscribeRelationResponse extends $tea.Model {
 }
 
 export class QuerySummarySceneRuleLogRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   ruleId?: string;
   startTime?: number;
@@ -18044,8 +17394,6 @@ export class QuerySummarySceneRuleLogRequest extends $tea.Model {
   currentPage?: number;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       ruleId: 'RuleId',
       startTime: 'StartTime',
@@ -18058,8 +17406,6 @@ export class QuerySummarySceneRuleLogRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       ruleId: 'string',
       startTime: 'number',
@@ -18129,14 +17475,10 @@ export class QuerySummarySceneRuleLogResponse extends $tea.Model {
 }
 
 export class QuerySuperDeviceGroupRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   groupId?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       groupId: 'GroupId',
     };
@@ -18144,8 +17486,6 @@ export class QuerySuperDeviceGroupRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       groupId: 'string',
     };
@@ -18210,14 +17550,10 @@ export class QuerySuperDeviceGroupResponse extends $tea.Model {
 }
 
 export class QueryTaskRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       taskId: 'TaskId',
     };
@@ -18225,8 +17561,6 @@ export class QueryTaskRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       taskId: 'string',
     };
@@ -18291,40 +17625,28 @@ export class QueryTaskResponse extends $tea.Model {
 }
 
 export class QueryThingModelRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   resourceGroupId?: string;
   productKey?: string;
   modelVersion?: string;
   functionBlockId?: string;
-  realTenantId?: string;
-  realTripartiteKey?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       resourceGroupId: 'ResourceGroupId',
       productKey: 'ProductKey',
       modelVersion: 'ModelVersion',
       functionBlockId: 'FunctionBlockId',
-      realTenantId: 'RealTenantId',
-      realTripartiteKey: 'RealTripartiteKey',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       resourceGroupId: 'string',
       productKey: 'string',
       modelVersion: 'string',
       functionBlockId: 'string',
-      realTenantId: 'string',
-      realTripartiteKey: 'string',
     };
   }
 
@@ -18390,40 +17712,28 @@ export class QueryThingModelResponse extends $tea.Model {
 }
 
 export class QueryThingModelExtendConfigRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   productKey?: string;
   resourceGroupId?: string;
   modelVersion?: string;
   functionBlockId?: string;
-  realTenantId?: string;
-  realTripartiteKey?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       productKey: 'ProductKey',
       resourceGroupId: 'ResourceGroupId',
       modelVersion: 'ModelVersion',
       functionBlockId: 'FunctionBlockId',
-      realTenantId: 'RealTenantId',
-      realTripartiteKey: 'RealTripartiteKey',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       productKey: 'string',
       resourceGroupId: 'string',
       modelVersion: 'string',
       functionBlockId: 'string',
-      realTenantId: 'string',
-      realTripartiteKey: 'string',
     };
   }
 
@@ -18486,37 +17796,25 @@ export class QueryThingModelExtendConfigResponse extends $tea.Model {
 }
 
 export class QueryThingModelExtendConfigPublishedRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   productKey?: string;
   modelVersion?: string;
   functionBlockId?: string;
-  realTenantId?: string;
-  realTripartiteKey?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       productKey: 'ProductKey',
       modelVersion: 'ModelVersion',
       functionBlockId: 'FunctionBlockId',
-      realTenantId: 'RealTenantId',
-      realTripartiteKey: 'RealTripartiteKey',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       productKey: 'string',
       modelVersion: 'string',
       functionBlockId: 'string',
-      realTenantId: 'string',
-      realTripartiteKey: 'string',
     };
   }
 
@@ -18579,40 +17877,28 @@ export class QueryThingModelExtendConfigPublishedResponse extends $tea.Model {
 }
 
 export class QueryThingModelPublishedRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   productKey?: string;
   resourceGroupId?: string;
   modelVersion?: string;
   functionBlockId?: string;
-  realTenantId?: string;
-  realTripartiteKey?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       productKey: 'ProductKey',
       resourceGroupId: 'ResourceGroupId',
       modelVersion: 'ModelVersion',
       functionBlockId: 'FunctionBlockId',
-      realTenantId: 'RealTenantId',
-      realTripartiteKey: 'RealTripartiteKey',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       productKey: 'string',
       resourceGroupId: 'string',
       modelVersion: 'string',
       functionBlockId: 'string',
-      realTenantId: 'string',
-      realTripartiteKey: 'string',
     };
   }
 
@@ -18678,15 +17964,11 @@ export class QueryThingModelPublishedResponse extends $tea.Model {
 }
 
 export class QueryTopicReverseRouteTableRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   regionId?: string;
   topic?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       regionId: 'RegionId',
       topic: 'Topic',
@@ -18695,8 +17977,6 @@ export class QueryTopicReverseRouteTableRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       regionId: 'string',
       topic: 'string',
@@ -18762,14 +18042,10 @@ export class QueryTopicReverseRouteTableResponse extends $tea.Model {
 }
 
 export class QueryTopicRouteTableRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   topic?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       topic: 'Topic',
     };
@@ -18777,8 +18053,6 @@ export class QueryTopicRouteTableRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       topic: 'string',
     };
@@ -18842,9 +18116,85 @@ export class QueryTopicRouteTableResponse extends $tea.Model {
   }
 }
 
+export class RefreshDeviceTunnelSharePasswordRequest extends $tea.Model {
+  iotInstanceId?: string;
+  productKey?: string;
+  deviceName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      iotInstanceId: 'IotInstanceId',
+      productKey: 'ProductKey',
+      deviceName: 'DeviceName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      iotInstanceId: 'string',
+      productKey: 'string',
+      deviceName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RefreshDeviceTunnelSharePasswordResponseBody extends $tea.Model {
+  requestId?: string;
+  success?: boolean;
+  errorMessage?: string;
+  code?: string;
+  password?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+      errorMessage: 'ErrorMessage',
+      code: 'Code',
+      password: 'Password',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+      errorMessage: 'string',
+      code: 'string',
+      password: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RefreshDeviceTunnelSharePasswordResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: RefreshDeviceTunnelSharePasswordResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: RefreshDeviceTunnelSharePasswordResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RegisterDeviceRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   productKey?: string;
   deviceName?: string;
@@ -18854,12 +18204,8 @@ export class RegisterDeviceRequest extends $tea.Model {
   joinEui?: string;
   appKey?: string;
   loraNodeType?: string;
-  realTenantId?: string;
-  realTripartiteKey?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       productKey: 'ProductKey',
       deviceName: 'DeviceName',
@@ -18869,15 +18215,11 @@ export class RegisterDeviceRequest extends $tea.Model {
       joinEui: 'JoinEui',
       appKey: 'AppKey',
       loraNodeType: 'LoraNodeType',
-      realTenantId: 'RealTenantId',
-      realTripartiteKey: 'RealTripartiteKey',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       productKey: 'string',
       deviceName: 'string',
@@ -18887,8 +18229,6 @@ export class RegisterDeviceRequest extends $tea.Model {
       joinEui: 'string',
       appKey: 'string',
       loraNodeType: 'string',
-      realTenantId: 'string',
-      realTripartiteKey: 'string',
     };
   }
 
@@ -18951,15 +18291,11 @@ export class RegisterDeviceResponse extends $tea.Model {
 }
 
 export class ReleaseEdgeDriverVersionRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   driverId?: string;
   driverVersion?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       driverId: 'DriverId',
       driverVersion: 'DriverVersion',
@@ -18968,8 +18304,6 @@ export class ReleaseEdgeDriverVersionRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       driverId: 'string',
       driverVersion: 'string',
@@ -19032,16 +18366,12 @@ export class ReleaseEdgeDriverVersionResponse extends $tea.Model {
 }
 
 export class RemoveThingTopoRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   productKey?: string;
   deviceName?: string;
   iotId?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       productKey: 'ProductKey',
       deviceName: 'DeviceName',
@@ -19051,8 +18381,6 @@ export class RemoveThingTopoRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       productKey: 'string',
       deviceName: 'string',
@@ -19119,16 +18447,12 @@ export class RemoveThingTopoResponse extends $tea.Model {
 }
 
 export class ReplaceEdgeInstanceGatewayRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   instanceId?: string;
   currentGatewayId?: string;
   newGatewayId?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       instanceId: 'InstanceId',
       currentGatewayId: 'CurrentGatewayId',
@@ -19138,8 +18462,6 @@ export class ReplaceEdgeInstanceGatewayRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       instanceId: 'string',
       currentGatewayId: 'string',
@@ -19203,14 +18525,10 @@ export class ReplaceEdgeInstanceGatewayResponse extends $tea.Model {
 }
 
 export class ResetConsumerGroupPositionRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   groupId?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       groupId: 'GroupId',
     };
@@ -19218,8 +18536,6 @@ export class ResetConsumerGroupPositionRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       groupId: 'string',
     };
@@ -19281,16 +18597,12 @@ export class ResetConsumerGroupPositionResponse extends $tea.Model {
 }
 
 export class ResetThingRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   productKey?: string;
   deviceName?: string;
   iotId?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       productKey: 'ProductKey',
       deviceName: 'DeviceName',
@@ -19300,8 +18612,6 @@ export class ResetThingRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       productKey: 'string',
       deviceName: 'string',
@@ -19365,8 +18675,6 @@ export class ResetThingResponse extends $tea.Model {
 }
 
 export class RRpcRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   productKey?: string;
   deviceName?: string;
@@ -19375,8 +18683,6 @@ export class RRpcRequest extends $tea.Model {
   topic?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       productKey: 'ProductKey',
       deviceName: 'DeviceName',
@@ -19388,8 +18694,6 @@ export class RRpcRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       productKey: 'string',
       deviceName: 'string',
@@ -19464,8 +18768,6 @@ export class RRpcResponse extends $tea.Model {
 }
 
 export class SaveDevicePropRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   productKey?: string;
   deviceName?: string;
@@ -19473,8 +18775,6 @@ export class SaveDevicePropRequest extends $tea.Model {
   iotId?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       productKey: 'ProductKey',
       deviceName: 'DeviceName',
@@ -19485,8 +18785,6 @@ export class SaveDevicePropRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       productKey: 'string',
       deviceName: 'string',
@@ -19551,8 +18849,6 @@ export class SaveDevicePropResponse extends $tea.Model {
 }
 
 export class SetDeviceDesiredPropertyRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   iotId?: string;
   deviceName?: string;
@@ -19561,8 +18857,6 @@ export class SetDeviceDesiredPropertyRequest extends $tea.Model {
   versions?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       iotId: 'IotId',
       deviceName: 'DeviceName',
@@ -19574,8 +18868,6 @@ export class SetDeviceDesiredPropertyRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       iotId: 'string',
       deviceName: 'string',
@@ -19644,15 +18936,11 @@ export class SetDeviceDesiredPropertyResponse extends $tea.Model {
 }
 
 export class SetDeviceGroupTagsRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   groupId?: string;
   tagString?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       groupId: 'GroupId',
       tagString: 'TagString',
@@ -19661,8 +18949,6 @@ export class SetDeviceGroupTagsRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       groupId: 'string',
       tagString: 'string',
@@ -19725,40 +19011,28 @@ export class SetDeviceGroupTagsResponse extends $tea.Model {
 }
 
 export class SetDevicePropertyRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   productKey?: string;
   deviceName?: string;
   iotId?: string;
   items?: string;
-  realTenantId?: string;
-  realTripartiteKey?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       productKey: 'ProductKey',
       deviceName: 'DeviceName',
       iotId: 'IotId',
       items: 'Items',
-      realTenantId: 'RealTenantId',
-      realTripartiteKey: 'RealTripartiteKey',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       productKey: 'string',
       deviceName: 'string',
       iotId: 'string',
       items: 'string',
-      realTenantId: 'string',
-      realTripartiteKey: 'string',
     };
   }
 
@@ -19821,16 +19095,12 @@ export class SetDevicePropertyResponse extends $tea.Model {
 }
 
 export class SetDevicesPropertyRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   deviceName?: string[];
   iotInstanceId?: string;
   productKey?: string;
   items?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       deviceName: 'DeviceName',
       iotInstanceId: 'IotInstanceId',
       productKey: 'ProductKey',
@@ -19840,8 +19110,6 @@ export class SetDevicesPropertyRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       deviceName: { 'type': 'array', 'itemType': 'string' },
       iotInstanceId: 'string',
       productKey: 'string',
@@ -19905,16 +19173,12 @@ export class SetDevicesPropertyResponse extends $tea.Model {
 }
 
 export class SetEdgeInstanceDriverConfigsRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   instanceId?: string;
   driverId?: string;
   configs?: SetEdgeInstanceDriverConfigsRequestConfigs[];
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       instanceId: 'InstanceId',
       driverId: 'DriverId',
@@ -19924,8 +19188,6 @@ export class SetEdgeInstanceDriverConfigsRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       instanceId: 'string',
       driverId: 'string',
@@ -19989,15 +19251,11 @@ export class SetEdgeInstanceDriverConfigsResponse extends $tea.Model {
 }
 
 export class SetProductCertInfoRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   productKey?: string;
   issueModel?: number;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       productKey: 'ProductKey',
       issueModel: 'IssueModel',
@@ -20006,8 +19264,6 @@ export class SetProductCertInfoRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       productKey: 'string',
       issueModel: 'number',
@@ -20070,8 +19326,6 @@ export class SetProductCertInfoResponse extends $tea.Model {
 }
 
 export class SpeechByCombinationRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   combinationList?: string[];
   iotId?: string;
   productKey?: string;
@@ -20079,8 +19333,6 @@ export class SpeechByCombinationRequest extends $tea.Model {
   iotInstanceId?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       combinationList: 'CombinationList',
       iotId: 'IotId',
       productKey: 'ProductKey',
@@ -20091,8 +19343,6 @@ export class SpeechByCombinationRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       combinationList: { 'type': 'array', 'itemType': 'string' },
       iotId: 'string',
       productKey: 'string',
@@ -20157,15 +19407,11 @@ export class SpeechByCombinationResponse extends $tea.Model {
 }
 
 export class StartCpuRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   targetValue?: string;
   iotId?: string;
   iotInstanceId?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       targetValue: 'TargetValue',
       iotId: 'IotId',
       iotInstanceId: 'IotInstanceId',
@@ -20174,8 +19420,6 @@ export class StartCpuRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       targetValue: 'string',
       iotId: 'string',
       iotInstanceId: 'string',
@@ -20241,14 +19485,10 @@ export class StartCpuResponse extends $tea.Model {
 }
 
 export class StartRuleRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   ruleId?: number;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       ruleId: 'RuleId',
     };
@@ -20256,8 +19496,6 @@ export class StartRuleRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       ruleId: 'number',
     };
@@ -20319,14 +19557,10 @@ export class StartRuleResponse extends $tea.Model {
 }
 
 export class StopRuleRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   ruleId?: number;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       ruleId: 'RuleId',
     };
@@ -20334,8 +19568,6 @@ export class StopRuleRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       ruleId: 'number',
     };
@@ -20397,8 +19629,6 @@ export class StopRuleResponse extends $tea.Model {
 }
 
 export class SyncSpeechByCombinationRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   combinationList?: string[];
   iotId?: string;
   productKey?: string;
@@ -20406,8 +19636,6 @@ export class SyncSpeechByCombinationRequest extends $tea.Model {
   iotInstanceId?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       combinationList: 'CombinationList',
       iotId: 'IotId',
       productKey: 'ProductKey',
@@ -20418,8 +19646,6 @@ export class SyncSpeechByCombinationRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       combinationList: { 'type': 'array', 'itemType': 'string' },
       iotId: 'string',
       productKey: 'string',
@@ -20487,15 +19713,11 @@ export class SyncSpeechByCombinationResponse extends $tea.Model {
 }
 
 export class TriggerSceneRuleRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   ruleId?: string;
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       ruleId: 'RuleId',
       instanceId: 'InstanceId',
@@ -20504,8 +19726,6 @@ export class TriggerSceneRuleRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       ruleId: 'string',
       instanceId: 'string',
@@ -20568,15 +19788,11 @@ export class TriggerSceneRuleResponse extends $tea.Model {
 }
 
 export class UnbindApplicationFromEdgeInstanceRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   instanceId?: string;
   applicationId?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       instanceId: 'InstanceId',
       applicationId: 'ApplicationId',
@@ -20585,8 +19801,6 @@ export class UnbindApplicationFromEdgeInstanceRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       instanceId: 'string',
       applicationId: 'string',
@@ -20649,15 +19863,11 @@ export class UnbindApplicationFromEdgeInstanceResponse extends $tea.Model {
 }
 
 export class UnbindDriverFromEdgeInstanceRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   instanceId?: string;
   driverId?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       instanceId: 'InstanceId',
       driverId: 'DriverId',
@@ -20666,8 +19876,6 @@ export class UnbindDriverFromEdgeInstanceRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       instanceId: 'string',
       driverId: 'string',
@@ -20730,14 +19938,10 @@ export class UnbindDriverFromEdgeInstanceResponse extends $tea.Model {
 }
 
 export class UnbindRoleFromEdgeInstanceRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       instanceId: 'InstanceId',
     };
@@ -20745,8 +19949,6 @@ export class UnbindRoleFromEdgeInstanceRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       instanceId: 'string',
     };
@@ -20808,15 +20010,11 @@ export class UnbindRoleFromEdgeInstanceResponse extends $tea.Model {
 }
 
 export class UnbindSceneRuleFromEdgeInstanceRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   instanceId?: string;
   ruleId?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       instanceId: 'InstanceId',
       ruleId: 'RuleId',
@@ -20825,8 +20023,6 @@ export class UnbindSceneRuleFromEdgeInstanceRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       instanceId: 'string',
       ruleId: 'string',
@@ -20889,15 +20085,11 @@ export class UnbindSceneRuleFromEdgeInstanceResponse extends $tea.Model {
 }
 
 export class UpdateConsumerGroupRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   newGroupName?: string;
   groupId?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       newGroupName: 'NewGroupName',
       groupId: 'GroupId',
@@ -20906,8 +20098,6 @@ export class UpdateConsumerGroupRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       newGroupName: 'string',
       groupId: 'string',
@@ -20970,15 +20160,11 @@ export class UpdateConsumerGroupResponse extends $tea.Model {
 }
 
 export class UpdateDeviceGroupRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   groupId?: string;
   groupDesc?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       groupId: 'GroupId',
       groupDesc: 'GroupDesc',
@@ -20987,8 +20173,6 @@ export class UpdateDeviceGroupRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       groupId: 'string',
       groupDesc: 'string',
@@ -21051,8 +20235,6 @@ export class UpdateDeviceGroupResponse extends $tea.Model {
 }
 
 export class UpdateDeviceShadowRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   productKey?: string;
   deviceName?: string;
@@ -21060,8 +20242,6 @@ export class UpdateDeviceShadowRequest extends $tea.Model {
   deltaUpdate?: boolean;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       productKey: 'ProductKey',
       deviceName: 'DeviceName',
@@ -21072,8 +20252,6 @@ export class UpdateDeviceShadowRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       productKey: 'string',
       deviceName: 'string',
@@ -21138,8 +20316,6 @@ export class UpdateDeviceShadowResponse extends $tea.Model {
 }
 
 export class UpdateEdgeDriverVersionRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   driverId?: string;
   driverVersion?: string;
@@ -21152,8 +20328,6 @@ export class UpdateEdgeDriverVersionRequest extends $tea.Model {
   argument?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       driverId: 'DriverId',
       driverVersion: 'DriverVersion',
@@ -21169,8 +20343,6 @@ export class UpdateEdgeDriverVersionRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       driverId: 'string',
       driverVersion: 'string',
@@ -21240,8 +20412,6 @@ export class UpdateEdgeDriverVersionResponse extends $tea.Model {
 }
 
 export class UpdateEdgeInstanceRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   instanceId?: string;
   name?: string;
@@ -21250,8 +20420,6 @@ export class UpdateEdgeInstanceRequest extends $tea.Model {
   bizEnable?: boolean;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       instanceId: 'InstanceId',
       name: 'Name',
@@ -21263,8 +20431,6 @@ export class UpdateEdgeInstanceRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       instanceId: 'string',
       name: 'string',
@@ -21330,8 +20496,6 @@ export class UpdateEdgeInstanceResponse extends $tea.Model {
 }
 
 export class UpdateEdgeInstanceChannelRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   instanceId?: string;
   driverId?: string;
@@ -21340,8 +20504,6 @@ export class UpdateEdgeInstanceChannelRequest extends $tea.Model {
   configs?: UpdateEdgeInstanceChannelRequestConfigs[];
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       instanceId: 'InstanceId',
       driverId: 'DriverId',
@@ -21353,8 +20515,6 @@ export class UpdateEdgeInstanceChannelRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       instanceId: 'string',
       driverId: 'string',
@@ -21419,9 +20579,103 @@ export class UpdateEdgeInstanceChannelResponse extends $tea.Model {
   }
 }
 
+export class UpdateEdgeInstanceMessageRoutingRequest extends $tea.Model {
+  iotInstanceId?: string;
+  instanceId?: string;
+  routeId?: number;
+  name?: string;
+  topicFilter?: string;
+  sourceType?: string;
+  sourceData?: string;
+  targetType?: string;
+  targetData?: string;
+  targetIotHubQos?: number;
+  static names(): { [key: string]: string } {
+    return {
+      iotInstanceId: 'IotInstanceId',
+      instanceId: 'InstanceId',
+      routeId: 'RouteId',
+      name: 'Name',
+      topicFilter: 'TopicFilter',
+      sourceType: 'SourceType',
+      sourceData: 'SourceData',
+      targetType: 'TargetType',
+      targetData: 'TargetData',
+      targetIotHubQos: 'TargetIotHubQos',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      iotInstanceId: 'string',
+      instanceId: 'string',
+      routeId: 'number',
+      name: 'string',
+      topicFilter: 'string',
+      sourceType: 'string',
+      sourceData: 'string',
+      targetType: 'string',
+      targetData: 'string',
+      targetIotHubQos: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEdgeInstanceMessageRoutingResponseBody extends $tea.Model {
+  requestId?: string;
+  success?: boolean;
+  code?: string;
+  errorMessage?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+      code: 'string',
+      errorMessage: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEdgeInstanceMessageRoutingResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: UpdateEdgeInstanceMessageRoutingResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: UpdateEdgeInstanceMessageRoutingResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateJobRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   description?: string;
   timeoutConfig?: string;
@@ -21429,8 +20683,6 @@ export class UpdateJobRequest extends $tea.Model {
   jobId?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       description: 'Description',
       timeoutConfig: 'TimeoutConfig',
@@ -21441,8 +20693,6 @@ export class UpdateJobRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       description: 'string',
       timeoutConfig: 'string',
@@ -21507,8 +20757,6 @@ export class UpdateJobResponse extends $tea.Model {
 }
 
 export class UpdateOTAModuleRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   aliasName?: string;
   iotInstanceId?: string;
   moduleName?: string;
@@ -21516,8 +20764,6 @@ export class UpdateOTAModuleRequest extends $tea.Model {
   productKey?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       aliasName: 'AliasName',
       iotInstanceId: 'IotInstanceId',
       moduleName: 'ModuleName',
@@ -21528,8 +20774,6 @@ export class UpdateOTAModuleRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       aliasName: 'string',
       iotInstanceId: 'string',
       moduleName: 'string',
@@ -21594,37 +20838,25 @@ export class UpdateOTAModuleResponse extends $tea.Model {
 }
 
 export class UpdateProductRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   description?: string;
   productKey?: string;
   productName?: string;
-  realTenantId?: string;
-  realTripartiteKey?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       description: 'Description',
       productKey: 'ProductKey',
       productName: 'ProductName',
-      realTenantId: 'RealTenantId',
-      realTripartiteKey: 'RealTripartiteKey',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       description: 'string',
       productKey: 'string',
       productName: 'string',
-      realTenantId: 'string',
-      realTripartiteKey: 'string',
     };
   }
 
@@ -21684,16 +20916,12 @@ export class UpdateProductResponse extends $tea.Model {
 }
 
 export class UpdateProductFilterConfigRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   productKey?: string;
   propertyTimestampFilter?: boolean;
   propertyValueFilter?: boolean;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       productKey: 'ProductKey',
       propertyTimestampFilter: 'PropertyTimestampFilter',
@@ -21703,8 +20931,6 @@ export class UpdateProductFilterConfigRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       productKey: 'string',
       propertyTimestampFilter: 'boolean',
@@ -21768,15 +20994,11 @@ export class UpdateProductFilterConfigResponse extends $tea.Model {
 }
 
 export class UpdateProductTagsRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   productKey?: string;
   productTag?: UpdateProductTagsRequestProductTag[];
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       productKey: 'ProductKey',
       productTag: 'ProductTag',
@@ -21785,8 +21007,6 @@ export class UpdateProductTagsRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       productKey: 'string',
       productTag: { 'type': 'array', 'itemType': UpdateProductTagsRequestProductTag },
@@ -21852,8 +21072,6 @@ export class UpdateProductTagsResponse extends $tea.Model {
 }
 
 export class UpdateProductTopicRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   desc?: string;
   operation?: string;
@@ -21861,8 +21079,6 @@ export class UpdateProductTopicRequest extends $tea.Model {
   topicId?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       desc: 'Desc',
       operation: 'Operation',
@@ -21873,8 +21089,6 @@ export class UpdateProductTopicRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       desc: 'string',
       operation: 'string',
@@ -21939,8 +21153,6 @@ export class UpdateProductTopicResponse extends $tea.Model {
 }
 
 export class UpdateRuleRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   ruleId?: number;
   select?: string;
@@ -21953,8 +21165,6 @@ export class UpdateRuleRequest extends $tea.Model {
   topic?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       ruleId: 'RuleId',
       select: 'Select',
@@ -21970,8 +21180,6 @@ export class UpdateRuleRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       ruleId: 'number',
       select: 'string',
@@ -22041,16 +21249,12 @@ export class UpdateRuleResponse extends $tea.Model {
 }
 
 export class UpdateRuleActionRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   actionId?: number;
   type?: string;
   configuration?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       actionId: 'ActionId',
       type: 'Type',
@@ -22060,8 +21264,6 @@ export class UpdateRuleActionRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       actionId: 'number',
       type: 'string',
@@ -22125,8 +21327,6 @@ export class UpdateRuleActionResponse extends $tea.Model {
 }
 
 export class UpdateSceneRuleRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   ruleId?: string;
   ruleName?: string;
@@ -22134,8 +21334,6 @@ export class UpdateSceneRuleRequest extends $tea.Model {
   ruleDescription?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       ruleId: 'RuleId',
       ruleName: 'RuleName',
@@ -22146,8 +21344,6 @@ export class UpdateSceneRuleRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       ruleId: 'string',
       ruleName: 'string',
@@ -22212,8 +21408,6 @@ export class UpdateSceneRuleResponse extends $tea.Model {
 }
 
 export class UpdateSubscribeRelationRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   deviceStatusChangeFlag?: boolean;
   iotInstanceId?: string;
   thingHistoryFlag?: boolean;
@@ -22231,8 +21425,6 @@ export class UpdateSubscribeRelationRequest extends $tea.Model {
   otaJobFlag?: boolean;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       deviceStatusChangeFlag: 'DeviceStatusChangeFlag',
       iotInstanceId: 'IotInstanceId',
       thingHistoryFlag: 'ThingHistoryFlag',
@@ -22253,8 +21445,6 @@ export class UpdateSubscribeRelationRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       deviceStatusChangeFlag: 'boolean',
       iotInstanceId: 'string',
       thingHistoryFlag: 'boolean',
@@ -22329,43 +21519,31 @@ export class UpdateSubscribeRelationResponse extends $tea.Model {
 }
 
 export class UpdateThingModelRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   iotInstanceId?: string;
   productKey?: string;
   identifier?: string;
   thingModelJson?: string;
   functionBlockId?: string;
   functionBlockName?: string;
-  realTenantId?: string;
-  realTripartiteKey?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       iotInstanceId: 'IotInstanceId',
       productKey: 'ProductKey',
       identifier: 'Identifier',
       thingModelJson: 'ThingModelJson',
       functionBlockId: 'FunctionBlockId',
       functionBlockName: 'FunctionBlockName',
-      realTenantId: 'RealTenantId',
-      realTripartiteKey: 'RealTripartiteKey',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       iotInstanceId: 'string',
       productKey: 'string',
       identifier: 'string',
       thingModelJson: 'string',
       functionBlockId: 'string',
       functionBlockName: 'string',
-      realTenantId: 'string',
-      realTripartiteKey: 'string',
     };
   }
 
@@ -22425,15 +21603,11 @@ export class UpdateThingModelResponse extends $tea.Model {
 }
 
 export class UpdateThingModelValidationConfigRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   validateType?: number;
   iotInstanceId?: string;
   productKey?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       validateType: 'ValidateType',
       iotInstanceId: 'IotInstanceId',
       productKey: 'ProductKey',
@@ -22442,8 +21616,6 @@ export class UpdateThingModelValidationConfigRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       validateType: 'number',
       iotInstanceId: 'string',
       productKey: 'string',
@@ -22506,16 +21678,12 @@ export class UpdateThingModelValidationConfigResponse extends $tea.Model {
 }
 
 export class UpdateThingScriptRequest extends $tea.Model {
-  apiProduct?: string;
-  apiRevision?: string;
   scriptContent?: string;
   iotInstanceId?: string;
   productKey?: string;
   scriptType?: string;
   static names(): { [key: string]: string } {
     return {
-      apiProduct: 'ApiProduct',
-      apiRevision: 'ApiRevision',
       scriptContent: 'ScriptContent',
       iotInstanceId: 'IotInstanceId',
       productKey: 'ProductKey',
@@ -22525,8 +21693,6 @@ export class UpdateThingScriptRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiProduct: 'string',
-      apiRevision: 'string',
       scriptContent: 'string',
       iotInstanceId: 'string',
       productKey: 'string',
@@ -24103,6 +23269,34 @@ export class GetDeviceStatusResponseBodyData extends $tea.Model {
   }
 }
 
+export class GetDeviceTunnelShareStatusResponseBodyData extends $tea.Model {
+  shareId?: string;
+  password?: string;
+  isOpen?: boolean;
+  gmtOpened?: number;
+  static names(): { [key: string]: string } {
+    return {
+      shareId: 'ShareId',
+      password: 'Password',
+      isOpen: 'IsOpen',
+      gmtOpened: 'GmtOpened',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      shareId: 'string',
+      password: 'string',
+      isOpen: 'boolean',
+      gmtOpened: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetEdgeDriverVersionResponseBodyData extends $tea.Model {
   driverId?: string;
   driverVersion?: string;
@@ -24367,6 +23561,92 @@ export class GetEdgeInstanceDeploymentResponseBodyData extends $tea.Model {
       gmtModifiedTimestamp: 'number',
       gmtCompletedTimestamp: 'number',
       taskList: { 'type': 'array', 'itemType': GetEdgeInstanceDeploymentResponseBodyDataTaskList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEdgeInstanceMessageRoutingResponseBodyDataRouteContext extends $tea.Model {
+  sourceFcServiceName?: string;
+  sourceFcFunctionName?: string;
+  sourceApplicationName?: string;
+  targetFcServiceName?: string;
+  targetFcFunctionName?: string;
+  targetApplicationName?: string;
+  qos?: string;
+  static names(): { [key: string]: string } {
+    return {
+      sourceFcServiceName: 'SourceFcServiceName',
+      sourceFcFunctionName: 'SourceFcFunctionName',
+      sourceApplicationName: 'SourceApplicationName',
+      targetFcServiceName: 'TargetFcServiceName',
+      targetFcFunctionName: 'TargetFcFunctionName',
+      targetApplicationName: 'TargetApplicationName',
+      qos: 'Qos',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sourceFcServiceName: 'string',
+      sourceFcFunctionName: 'string',
+      sourceApplicationName: 'string',
+      targetFcServiceName: 'string',
+      targetFcFunctionName: 'string',
+      targetApplicationName: 'string',
+      qos: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEdgeInstanceMessageRoutingResponseBodyData extends $tea.Model {
+  topicFilter?: string;
+  sourceType?: string;
+  name?: string;
+  sourceData?: string;
+  targetType?: string;
+  targetData?: string;
+  gmtCreate?: string;
+  gmtModified?: string;
+  gmtCreateTimestamp?: number;
+  gmtModifiedTimestamp?: number;
+  routeContext?: GetEdgeInstanceMessageRoutingResponseBodyDataRouteContext;
+  static names(): { [key: string]: string } {
+    return {
+      topicFilter: 'TopicFilter',
+      sourceType: 'SourceType',
+      name: 'Name',
+      sourceData: 'SourceData',
+      targetType: 'TargetType',
+      targetData: 'TargetData',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      gmtCreateTimestamp: 'GmtCreateTimestamp',
+      gmtModifiedTimestamp: 'GmtModifiedTimestamp',
+      routeContext: 'RouteContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      topicFilter: 'string',
+      sourceType: 'string',
+      name: 'string',
+      sourceData: 'string',
+      targetType: 'string',
+      targetData: 'string',
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      gmtCreateTimestamp: 'number',
+      gmtModifiedTimestamp: 'number',
+      routeContext: GetEdgeInstanceMessageRoutingResponseBodyDataRouteContext,
     };
   }
 
@@ -26230,6 +25510,37 @@ export class NotifyAddThingTopoResponseBodyData extends $tea.Model {
   }
 }
 
+export class PrintByTemplateResponseBodyData extends $tea.Model {
+  success?: boolean;
+  deviceErrorCode?: string;
+  deviceErrorMessage?: string;
+  id?: string;
+  retryCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      success: 'Success',
+      deviceErrorCode: 'DeviceErrorCode',
+      deviceErrorMessage: 'DeviceErrorMessage',
+      id: 'Id',
+      retryCount: 'RetryCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      success: 'boolean',
+      deviceErrorCode: 'string',
+      deviceErrorMessage: 'string',
+      id: 'string',
+      retryCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class PubRequestUserProp extends $tea.Model {
   key?: string;
   value?: string;
@@ -26481,11 +25792,15 @@ export class QueryConsumerGroupStatusResponseBodyClientConnectionStatusListConsu
   clientId?: string;
   clientIpPort?: string;
   onlineTime?: number;
+  realTimeConsumeCountPerMinute?: number;
+  accumulatedConsumeCountPerMinute?: number;
   static names(): { [key: string]: string } {
     return {
       clientId: 'ClientId',
       clientIpPort: 'ClientIpPort',
       onlineTime: 'OnlineTime',
+      realTimeConsumeCountPerMinute: 'RealTimeConsumeCountPerMinute',
+      accumulatedConsumeCountPerMinute: 'AccumulatedConsumeCountPerMinute',
     };
   }
 
@@ -26494,6 +25809,8 @@ export class QueryConsumerGroupStatusResponseBodyClientConnectionStatusListConsu
       clientId: 'string',
       clientIpPort: 'string',
       onlineTime: 'number',
+      realTimeConsumeCountPerMinute: 'number',
+      accumulatedConsumeCountPerMinute: 'number',
     };
   }
 
@@ -28826,6 +28143,142 @@ export class QueryEdgeInstanceHistoricDeploymentResponseBodyData extends $tea.Mo
   }
 }
 
+export class QueryEdgeInstanceMessageRoutingResponseBodyDataMessageRouteListMessageRouteRouteContext extends $tea.Model {
+  sourceFcServiceName?: string;
+  sourceFcFunctionName?: string;
+  sourceApplicationName?: string;
+  targetFcServiceName?: string;
+  targetFcFunctionName?: string;
+  targetApplicationName?: string;
+  qos?: string;
+  static names(): { [key: string]: string } {
+    return {
+      sourceFcServiceName: 'SourceFcServiceName',
+      sourceFcFunctionName: 'SourceFcFunctionName',
+      sourceApplicationName: 'SourceApplicationName',
+      targetFcServiceName: 'TargetFcServiceName',
+      targetFcFunctionName: 'TargetFcFunctionName',
+      targetApplicationName: 'TargetApplicationName',
+      qos: 'Qos',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sourceFcServiceName: 'string',
+      sourceFcFunctionName: 'string',
+      sourceApplicationName: 'string',
+      targetFcServiceName: 'string',
+      targetFcFunctionName: 'string',
+      targetApplicationName: 'string',
+      qos: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryEdgeInstanceMessageRoutingResponseBodyDataMessageRouteListMessageRoute extends $tea.Model {
+  routeId?: number;
+  name?: string;
+  topicFilter?: string;
+  sourceType?: string;
+  sourceData?: string;
+  targetType?: string;
+  targetData?: string;
+  gmtCreate?: string;
+  gmtModified?: string;
+  gmtCreateTimestamp?: number;
+  gmtModifiedTimestamp?: number;
+  routeContext?: QueryEdgeInstanceMessageRoutingResponseBodyDataMessageRouteListMessageRouteRouteContext;
+  static names(): { [key: string]: string } {
+    return {
+      routeId: 'RouteId',
+      name: 'Name',
+      topicFilter: 'TopicFilter',
+      sourceType: 'SourceType',
+      sourceData: 'SourceData',
+      targetType: 'TargetType',
+      targetData: 'TargetData',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      gmtCreateTimestamp: 'GmtCreateTimestamp',
+      gmtModifiedTimestamp: 'GmtModifiedTimestamp',
+      routeContext: 'RouteContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      routeId: 'number',
+      name: 'string',
+      topicFilter: 'string',
+      sourceType: 'string',
+      sourceData: 'string',
+      targetType: 'string',
+      targetData: 'string',
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      gmtCreateTimestamp: 'number',
+      gmtModifiedTimestamp: 'number',
+      routeContext: QueryEdgeInstanceMessageRoutingResponseBodyDataMessageRouteListMessageRouteRouteContext,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryEdgeInstanceMessageRoutingResponseBodyDataMessageRouteList extends $tea.Model {
+  messageRoute?: QueryEdgeInstanceMessageRoutingResponseBodyDataMessageRouteListMessageRoute[];
+  static names(): { [key: string]: string } {
+    return {
+      messageRoute: 'MessageRoute',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      messageRoute: { 'type': 'array', 'itemType': QueryEdgeInstanceMessageRoutingResponseBodyDataMessageRouteListMessageRoute },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryEdgeInstanceMessageRoutingResponseBodyData extends $tea.Model {
+  total?: number;
+  pageSize?: number;
+  currentPage?: number;
+  messageRouteList?: QueryEdgeInstanceMessageRoutingResponseBodyDataMessageRouteList;
+  static names(): { [key: string]: string } {
+    return {
+      total: 'Total',
+      pageSize: 'PageSize',
+      currentPage: 'CurrentPage',
+      messageRouteList: 'MessageRouteList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      total: 'number',
+      pageSize: 'number',
+      currentPage: 'number',
+      messageRouteList: QueryEdgeInstanceMessageRoutingResponseBodyDataMessageRouteList,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryEdgeInstanceSceneRuleResponseBodyDataRuleList extends $tea.Model {
   ruleId?: string;
   ruleName?: string;
@@ -30251,12 +29704,11 @@ export default class Client extends OpenApi {
     super(config);
     this._endpointRule = "regional";
     this._endpointMap = {
-      'ap-northeast-2-pop': "iot.ap-northeast-1.aliyuncs.com",
-      'ap-south-1': "iot.ap-northeast-1.aliyuncs.com",
-      'ap-southeast-2': "iot.ap-northeast-1.aliyuncs.com",
-      'ap-southeast-3': "iot.ap-northeast-1.aliyuncs.com",
-      'ap-southeast-5': "iot.ap-northeast-1.aliyuncs.com",
-      'cn-beijing': "iot.aliyuncs.com",
+      'ap-northeast-2-pop': "iot.aliyuncs.com",
+      'ap-south-1': "iot.aliyuncs.com",
+      'ap-southeast-2': "iot.aliyuncs.com",
+      'ap-southeast-3': "iot.aliyuncs.com",
+      'ap-southeast-5': "iot.aliyuncs.com",
       'cn-beijing-finance-1': "iot.aliyuncs.com",
       'cn-beijing-finance-pop': "iot.aliyuncs.com",
       'cn-beijing-gov-1': "iot.aliyuncs.com",
@@ -30275,7 +29727,7 @@ export default class Client extends OpenApi {
       'cn-hongkong': "iot.aliyuncs.com",
       'cn-hongkong-finance-pop': "iot.aliyuncs.com",
       'cn-huhehaote': "iot.aliyuncs.com",
-      'cn-north-2-gov-1': "iot.aliyuncs.com",
+      'cn-huhehaote-nebula-1': "iot.aliyuncs.com",
       'cn-qingdao': "iot.aliyuncs.com",
       'cn-qingdao-nebula': "iot.aliyuncs.com",
       'cn-shanghai-et15-b01': "iot.aliyuncs.com",
@@ -30283,21 +29735,22 @@ export default class Client extends OpenApi {
       'cn-shanghai-finance-1': "iot.aliyuncs.com",
       'cn-shanghai-inner': "iot.aliyuncs.com",
       'cn-shanghai-internal-test-1': "iot.aliyuncs.com",
-      'cn-shenzhen': "iot.aliyuncs.com",
       'cn-shenzhen-finance-1': "iot.aliyuncs.com",
       'cn-shenzhen-inner': "iot.aliyuncs.com",
       'cn-shenzhen-st4-d01': "iot.aliyuncs.com",
       'cn-shenzhen-su18-b01': "iot.aliyuncs.com",
       'cn-wuhan': "iot.aliyuncs.com",
+      'cn-wulanchabu': "iot.aliyuncs.com",
       'cn-yushanfang': "iot.aliyuncs.com",
+      'cn-zhangbei': "iot.aliyuncs.com",
       'cn-zhangbei-na61-b01': "iot.aliyuncs.com",
       'cn-zhangjiakou': "iot.aliyuncs.com",
       'cn-zhangjiakou-na62-a01': "iot.aliyuncs.com",
       'cn-zhengzhou-nebula-1': "iot.aliyuncs.com",
-      'eu-west-1': "iot.ap-northeast-1.aliyuncs.com",
-      'eu-west-1-oxs': "iot.ap-northeast-1.aliyuncs.com",
-      'me-east-1': "iot.ap-northeast-1.aliyuncs.com",
-      'rus-west-1-pop': "iot.ap-northeast-1.aliyuncs.com",
+      'eu-west-1': "iot.aliyuncs.com",
+      'eu-west-1-oxs': "iot.aliyuncs.com",
+      'me-east-1': "iot.aliyuncs.com",
+      'rus-west-1-pop': "iot.aliyuncs.com",
     };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("iot", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -30953,6 +30406,19 @@ export default class Client extends OpenApi {
     return await this.createEdgeInstanceDeploymentWithOptions(request, runtime);
   }
 
+  async createEdgeInstanceMessageRoutingWithOptions(request: CreateEdgeInstanceMessageRoutingRequest, runtime: $Util.RuntimeOptions): Promise<CreateEdgeInstanceMessageRoutingResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<CreateEdgeInstanceMessageRoutingResponse>(await this.doRPCRequest("CreateEdgeInstanceMessageRouting", "2018-01-20", "HTTPS", "POST", "AK", "json", req, runtime), new CreateEdgeInstanceMessageRoutingResponse({}));
+  }
+
+  async createEdgeInstanceMessageRouting(request: CreateEdgeInstanceMessageRoutingRequest): Promise<CreateEdgeInstanceMessageRoutingResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createEdgeInstanceMessageRoutingWithOptions(request, runtime);
+  }
+
   async createEdgeOssPreSignedAddressWithOptions(request: CreateEdgeOssPreSignedAddressRequest, runtime: $Util.RuntimeOptions): Promise<CreateEdgeOssPreSignedAddressResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -31343,6 +30809,19 @@ export default class Client extends OpenApi {
     return await this.deleteEdgeInstanceWithOptions(request, runtime);
   }
 
+  async deleteEdgeInstanceMessageRoutingWithOptions(request: DeleteEdgeInstanceMessageRoutingRequest, runtime: $Util.RuntimeOptions): Promise<DeleteEdgeInstanceMessageRoutingResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DeleteEdgeInstanceMessageRoutingResponse>(await this.doRPCRequest("DeleteEdgeInstanceMessageRouting", "2018-01-20", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteEdgeInstanceMessageRoutingResponse({}));
+  }
+
+  async deleteEdgeInstanceMessageRouting(request: DeleteEdgeInstanceMessageRoutingRequest): Promise<DeleteEdgeInstanceMessageRoutingResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteEdgeInstanceMessageRoutingWithOptions(request, runtime);
+  }
+
   async deleteJobWithOptions(request: DeleteJobRequest, runtime: $Util.RuntimeOptions): Promise<DeleteJobResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -31499,6 +30978,32 @@ export default class Client extends OpenApi {
     return await this.deleteTopicRouteTableWithOptions(request, runtime);
   }
 
+  async disableDeviceTunnelWithOptions(request: DisableDeviceTunnelRequest, runtime: $Util.RuntimeOptions): Promise<DisableDeviceTunnelResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DisableDeviceTunnelResponse>(await this.doRPCRequest("DisableDeviceTunnel", "2018-01-20", "HTTPS", "POST", "AK", "json", req, runtime), new DisableDeviceTunnelResponse({}));
+  }
+
+  async disableDeviceTunnel(request: DisableDeviceTunnelRequest): Promise<DisableDeviceTunnelResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.disableDeviceTunnelWithOptions(request, runtime);
+  }
+
+  async disableDeviceTunnelShareWithOptions(request: DisableDeviceTunnelShareRequest, runtime: $Util.RuntimeOptions): Promise<DisableDeviceTunnelShareResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DisableDeviceTunnelShareResponse>(await this.doRPCRequest("DisableDeviceTunnelShare", "2018-01-20", "HTTPS", "POST", "AK", "json", req, runtime), new DisableDeviceTunnelShareResponse({}));
+  }
+
+  async disableDeviceTunnelShare(request: DisableDeviceTunnelShareRequest): Promise<DisableDeviceTunnelShareResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.disableDeviceTunnelShareWithOptions(request, runtime);
+  }
+
   async disableSceneRuleWithOptions(request: DisableSceneRuleRequest, runtime: $Util.RuntimeOptions): Promise<DisableSceneRuleResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -31523,6 +31028,32 @@ export default class Client extends OpenApi {
   async disableThing(request: DisableThingRequest): Promise<DisableThingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.disableThingWithOptions(request, runtime);
+  }
+
+  async enableDeviceTunnelWithOptions(request: EnableDeviceTunnelRequest, runtime: $Util.RuntimeOptions): Promise<EnableDeviceTunnelResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<EnableDeviceTunnelResponse>(await this.doRPCRequest("EnableDeviceTunnel", "2018-01-20", "HTTPS", "POST", "AK", "json", req, runtime), new EnableDeviceTunnelResponse({}));
+  }
+
+  async enableDeviceTunnel(request: EnableDeviceTunnelRequest): Promise<EnableDeviceTunnelResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.enableDeviceTunnelWithOptions(request, runtime);
+  }
+
+  async enableDeviceTunnelShareWithOptions(request: EnableDeviceTunnelShareRequest, runtime: $Util.RuntimeOptions): Promise<EnableDeviceTunnelShareResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<EnableDeviceTunnelShareResponse>(await this.doRPCRequest("EnableDeviceTunnelShare", "2018-01-20", "HTTPS", "POST", "AK", "json", req, runtime), new EnableDeviceTunnelShareResponse({}));
+  }
+
+  async enableDeviceTunnelShare(request: EnableDeviceTunnelShareRequest): Promise<EnableDeviceTunnelShareResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.enableDeviceTunnelShareWithOptions(request, runtime);
   }
 
   async enableSceneRuleWithOptions(request: EnableSceneRuleRequest, runtime: $Util.RuntimeOptions): Promise<EnableSceneRuleResponse> {
@@ -31629,6 +31160,32 @@ export default class Client extends OpenApi {
     return await this.getDeviceStatusWithOptions(request, runtime);
   }
 
+  async getDeviceTunnelShareStatusWithOptions(request: GetDeviceTunnelShareStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetDeviceTunnelShareStatusResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<GetDeviceTunnelShareStatusResponse>(await this.doRPCRequest("GetDeviceTunnelShareStatus", "2018-01-20", "HTTPS", "POST", "AK", "json", req, runtime), new GetDeviceTunnelShareStatusResponse({}));
+  }
+
+  async getDeviceTunnelShareStatus(request: GetDeviceTunnelShareStatusRequest): Promise<GetDeviceTunnelShareStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getDeviceTunnelShareStatusWithOptions(request, runtime);
+  }
+
+  async getDeviceTunnelStatusWithOptions(request: GetDeviceTunnelStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetDeviceTunnelStatusResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<GetDeviceTunnelStatusResponse>(await this.doRPCRequest("GetDeviceTunnelStatus", "2018-01-20", "HTTPS", "POST", "AK", "json", req, runtime), new GetDeviceTunnelStatusResponse({}));
+  }
+
+  async getDeviceTunnelStatus(request: GetDeviceTunnelStatusRequest): Promise<GetDeviceTunnelStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getDeviceTunnelStatusWithOptions(request, runtime);
+  }
+
   async getEdgeDriverVersionWithOptions(request: GetEdgeDriverVersionRequest, runtime: $Util.RuntimeOptions): Promise<GetEdgeDriverVersionResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -31666,6 +31223,19 @@ export default class Client extends OpenApi {
   async getEdgeInstanceDeployment(request: GetEdgeInstanceDeploymentRequest): Promise<GetEdgeInstanceDeploymentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getEdgeInstanceDeploymentWithOptions(request, runtime);
+  }
+
+  async getEdgeInstanceMessageRoutingWithOptions(request: GetEdgeInstanceMessageRoutingRequest, runtime: $Util.RuntimeOptions): Promise<GetEdgeInstanceMessageRoutingResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<GetEdgeInstanceMessageRoutingResponse>(await this.doRPCRequest("GetEdgeInstanceMessageRouting", "2018-01-20", "HTTPS", "POST", "AK", "json", req, runtime), new GetEdgeInstanceMessageRoutingResponse({}));
+  }
+
+  async getEdgeInstanceMessageRouting(request: GetEdgeInstanceMessageRoutingRequest): Promise<GetEdgeInstanceMessageRoutingResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getEdgeInstanceMessageRoutingWithOptions(request, runtime);
   }
 
   async getGatewayBySubDeviceWithOptions(request: GetGatewayBySubDeviceRequest, runtime: $Util.RuntimeOptions): Promise<GetGatewayBySubDeviceResponse> {
@@ -32135,6 +31705,19 @@ export default class Client extends OpenApi {
   async openIotService(request: OpenIotServiceRequest): Promise<OpenIotServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.openIotServiceWithOptions(request, runtime);
+  }
+
+  async printByTemplateWithOptions(request: PrintByTemplateRequest, runtime: $Util.RuntimeOptions): Promise<PrintByTemplateResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<PrintByTemplateResponse>(await this.doRPCRequest("PrintByTemplate", "2018-01-20", "HTTPS", "POST", "AK", "json", req, runtime), new PrintByTemplateResponse({}));
+  }
+
+  async printByTemplate(request: PrintByTemplateRequest): Promise<PrintByTemplateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.printByTemplateWithOptions(request, runtime);
   }
 
   async pubWithOptions(request: PubRequest, runtime: $Util.RuntimeOptions): Promise<PubResponse> {
@@ -32748,6 +32331,19 @@ export default class Client extends OpenApi {
     return await this.queryEdgeInstanceHistoricDeploymentWithOptions(request, runtime);
   }
 
+  async queryEdgeInstanceMessageRoutingWithOptions(request: QueryEdgeInstanceMessageRoutingRequest, runtime: $Util.RuntimeOptions): Promise<QueryEdgeInstanceMessageRoutingResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<QueryEdgeInstanceMessageRoutingResponse>(await this.doRPCRequest("QueryEdgeInstanceMessageRouting", "2018-01-20", "HTTPS", "POST", "AK", "json", req, runtime), new QueryEdgeInstanceMessageRoutingResponse({}));
+  }
+
+  async queryEdgeInstanceMessageRouting(request: QueryEdgeInstanceMessageRoutingRequest): Promise<QueryEdgeInstanceMessageRoutingResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryEdgeInstanceMessageRoutingWithOptions(request, runtime);
+  }
+
   async queryEdgeInstanceSceneRuleWithOptions(request: QueryEdgeInstanceSceneRuleRequest, runtime: $Util.RuntimeOptions): Promise<QueryEdgeInstanceSceneRuleResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -33033,6 +32629,19 @@ export default class Client extends OpenApi {
   async queryTopicRouteTable(request: QueryTopicRouteTableRequest): Promise<QueryTopicRouteTableResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryTopicRouteTableWithOptions(request, runtime);
+  }
+
+  async refreshDeviceTunnelSharePasswordWithOptions(request: RefreshDeviceTunnelSharePasswordRequest, runtime: $Util.RuntimeOptions): Promise<RefreshDeviceTunnelSharePasswordResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<RefreshDeviceTunnelSharePasswordResponse>(await this.doRPCRequest("RefreshDeviceTunnelSharePassword", "2018-01-20", "HTTPS", "POST", "AK", "json", req, runtime), new RefreshDeviceTunnelSharePasswordResponse({}));
+  }
+
+  async refreshDeviceTunnelSharePassword(request: RefreshDeviceTunnelSharePasswordRequest): Promise<RefreshDeviceTunnelSharePasswordResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.refreshDeviceTunnelSharePasswordWithOptions(request, runtime);
   }
 
   async registerDeviceWithOptions(request: RegisterDeviceRequest, runtime: $Util.RuntimeOptions): Promise<RegisterDeviceResponse> {
@@ -33423,6 +33032,19 @@ export default class Client extends OpenApi {
   async updateEdgeInstanceChannel(request: UpdateEdgeInstanceChannelRequest): Promise<UpdateEdgeInstanceChannelResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateEdgeInstanceChannelWithOptions(request, runtime);
+  }
+
+  async updateEdgeInstanceMessageRoutingWithOptions(request: UpdateEdgeInstanceMessageRoutingRequest, runtime: $Util.RuntimeOptions): Promise<UpdateEdgeInstanceMessageRoutingResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<UpdateEdgeInstanceMessageRoutingResponse>(await this.doRPCRequest("UpdateEdgeInstanceMessageRouting", "2018-01-20", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateEdgeInstanceMessageRoutingResponse({}));
+  }
+
+  async updateEdgeInstanceMessageRouting(request: UpdateEdgeInstanceMessageRoutingRequest): Promise<UpdateEdgeInstanceMessageRoutingResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateEdgeInstanceMessageRoutingWithOptions(request, runtime);
   }
 
   async updateJobWithOptions(request: UpdateJobRequest, runtime: $Util.RuntimeOptions): Promise<UpdateJobResponse> {
