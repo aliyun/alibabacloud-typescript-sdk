@@ -4401,6 +4401,7 @@ export class QuerySavingsPlansInstanceRequest extends $tea.Model {
   instanceId?: string;
   startTime?: string;
   endTime?: string;
+  tag?: QuerySavingsPlansInstanceRequestTag[];
   static names(): { [key: string]: string } {
     return {
       pageSize: 'PageSize',
@@ -4409,6 +4410,7 @@ export class QuerySavingsPlansInstanceRequest extends $tea.Model {
       instanceId: 'InstanceId',
       startTime: 'StartTime',
       endTime: 'EndTime',
+      tag: 'Tag',
     };
   }
 
@@ -4420,6 +4422,7 @@ export class QuerySavingsPlansInstanceRequest extends $tea.Model {
       instanceId: 'string',
       startTime: 'string',
       endTime: 'string',
+      tag: { 'type': 'array', 'itemType': QuerySavingsPlansInstanceRequestTag },
     };
   }
 
@@ -10435,10 +10438,54 @@ export class QuerySavingsPlansDeductLogResponseBodyData extends $tea.Model {
   }
 }
 
+export class QuerySavingsPlansInstanceRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySavingsPlansInstanceResponseBodyDataItemsTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QuerySavingsPlansInstanceResponseBodyDataItems extends $tea.Model {
   status?: string;
-  share?: boolean;
   savingsType?: string;
+  tags?: QuerySavingsPlansInstanceResponseBodyDataItemsTags[];
   prepayFee?: string;
   utilization?: string;
   instanceId?: string;
@@ -10446,6 +10493,7 @@ export class QuerySavingsPlansInstanceResponseBodyDataItems extends $tea.Model {
   endTime?: string;
   startTime?: string;
   instanceFamily?: string;
+  allocationStatus?: string;
   region?: string;
   totalSave?: string;
   poolValue?: string;
@@ -10453,8 +10501,8 @@ export class QuerySavingsPlansInstanceResponseBodyDataItems extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       status: 'Status',
-      share: 'Share',
       savingsType: 'SavingsType',
+      tags: 'Tags',
       prepayFee: 'PrepayFee',
       utilization: 'Utilization',
       instanceId: 'InstanceId',
@@ -10462,6 +10510,7 @@ export class QuerySavingsPlansInstanceResponseBodyDataItems extends $tea.Model {
       endTime: 'EndTime',
       startTime: 'StartTime',
       instanceFamily: 'InstanceFamily',
+      allocationStatus: 'AllocationStatus',
       region: 'Region',
       totalSave: 'TotalSave',
       poolValue: 'PoolValue',
@@ -10472,8 +10521,8 @@ export class QuerySavingsPlansInstanceResponseBodyDataItems extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       status: 'string',
-      share: 'boolean',
       savingsType: 'string',
+      tags: { 'type': 'array', 'itemType': QuerySavingsPlansInstanceResponseBodyDataItemsTags },
       prepayFee: 'string',
       utilization: 'string',
       instanceId: 'string',
@@ -10481,6 +10530,7 @@ export class QuerySavingsPlansInstanceResponseBodyDataItems extends $tea.Model {
       endTime: 'string',
       startTime: 'string',
       instanceFamily: 'string',
+      allocationStatus: 'string',
       region: 'string',
       totalSave: 'string',
       poolValue: 'string',
