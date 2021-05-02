@@ -2831,6 +2831,78 @@ export class CancelOTATaskByJobResponse extends $tea.Model {
   }
 }
 
+export class CancelReleaseProductRequest extends $tea.Model {
+  iotInstanceId?: string;
+  productKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      iotInstanceId: 'IotInstanceId',
+      productKey: 'ProductKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      iotInstanceId: 'string',
+      productKey: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CancelReleaseProductResponseBody extends $tea.Model {
+  requestId?: string;
+  success?: boolean;
+  errorMessage?: string;
+  code?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+      errorMessage: 'ErrorMessage',
+      code: 'Code',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+      errorMessage: 'string',
+      code: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CancelReleaseProductResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CancelReleaseProductResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CancelReleaseProductResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ClearEdgeInstanceDriverConfigsRequest extends $tea.Model {
   iotInstanceId?: string;
   instanceId?: string;
@@ -4092,6 +4164,7 @@ export class CreateJobRequest extends $tea.Model {
   timeoutConfig?: string;
   rolloutConfig?: string;
   targetConfig?: string;
+  scheduledTime?: number;
   static names(): { [key: string]: string } {
     return {
       iotInstanceId: 'IotInstanceId',
@@ -4103,6 +4176,7 @@ export class CreateJobRequest extends $tea.Model {
       timeoutConfig: 'TimeoutConfig',
       rolloutConfig: 'RolloutConfig',
       targetConfig: 'TargetConfig',
+      scheduledTime: 'ScheduledTime',
     };
   }
 
@@ -4117,6 +4191,7 @@ export class CreateJobRequest extends $tea.Model {
       timeoutConfig: 'string',
       rolloutConfig: 'string',
       targetConfig: 'string',
+      scheduledTime: 'number',
     };
   }
 
@@ -7280,6 +7355,78 @@ export class DeleteSceneRuleResponse extends $tea.Model {
   }
 }
 
+export class DeleteSpeechRequest extends $tea.Model {
+  iotInstanceId?: string;
+  speechCodeList?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      iotInstanceId: 'IotInstanceId',
+      speechCodeList: 'SpeechCodeList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      iotInstanceId: 'string',
+      speechCodeList: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteSpeechResponseBody extends $tea.Model {
+  requestId?: string;
+  success?: boolean;
+  code?: string;
+  errorMessage?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+      code: 'string',
+      errorMessage: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteSpeechResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DeleteSpeechResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DeleteSpeechResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteSubscribeRelationRequest extends $tea.Model {
   iotInstanceId?: string;
   productKey?: string;
@@ -10366,12 +10513,14 @@ export class ListDeviceDistributeJobRequest extends $tea.Model {
   currentPage?: number;
   pageSize?: number;
   status?: number;
+  jobId?: string;
   static names(): { [key: string]: string } {
     return {
       targetUid: 'TargetUid',
       currentPage: 'CurrentPage',
       pageSize: 'PageSize',
       status: 'Status',
+      jobId: 'JobId',
     };
   }
 
@@ -10381,6 +10530,7 @@ export class ListDeviceDistributeJobRequest extends $tea.Model {
       currentPage: 'number',
       pageSize: 'number',
       status: 'number',
+      jobId: 'string',
     };
   }
 
@@ -18365,6 +18515,78 @@ export class ReleaseEdgeDriverVersionResponse extends $tea.Model {
   }
 }
 
+export class ReleaseProductRequest extends $tea.Model {
+  iotInstanceId?: string;
+  productKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      iotInstanceId: 'IotInstanceId',
+      productKey: 'ProductKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      iotInstanceId: 'string',
+      productKey: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReleaseProductResponseBody extends $tea.Model {
+  requestId?: string;
+  success?: boolean;
+  errorMessage?: string;
+  code?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+      errorMessage: 'ErrorMessage',
+      code: 'Code',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+      errorMessage: 'string',
+      code: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReleaseProductResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ReleaseProductResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ReleaseProductResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RemoveThingTopoRequest extends $tea.Model {
   iotInstanceId?: string;
   productKey?: string;
@@ -23252,15 +23474,18 @@ export class GetDataAPIServiceDetailResponseBodyData extends $tea.Model {
 
 export class GetDeviceStatusResponseBodyData extends $tea.Model {
   status?: string;
+  timestamp?: number;
   static names(): { [key: string]: string } {
     return {
       status: 'Status',
+      timestamp: 'Timestamp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       status: 'string',
+      timestamp: 'number',
     };
   }
 
@@ -24213,15 +24438,21 @@ export class ListAnalyticsDataResponseBodyData extends $tea.Model {
 
 export class ListDeviceDistributeJobResponseBodyDataJobInfoItemsTargetInstanceConfigsTargetInstanceConfigs extends $tea.Model {
   targetInstanceId?: string;
+  targetRegion?: string;
+  targetInstanceName?: string;
   static names(): { [key: string]: string } {
     return {
       targetInstanceId: 'TargetInstanceId',
+      targetRegion: 'TargetRegion',
+      targetInstanceName: 'TargetInstanceName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       targetInstanceId: 'string',
+      targetRegion: 'string',
+      targetInstanceName: 'string',
     };
   }
 
@@ -24259,6 +24490,8 @@ export class ListDeviceDistributeJobResponseBodyDataJobInfoItems extends $tea.Mo
   total?: number;
   status?: number;
   strategy?: number;
+  sourceRegion?: string;
+  sourceInstanceName?: string;
   targetInstanceConfigs?: ListDeviceDistributeJobResponseBodyDataJobInfoItemsTargetInstanceConfigs;
   static names(): { [key: string]: string } {
     return {
@@ -24271,6 +24504,8 @@ export class ListDeviceDistributeJobResponseBodyDataJobInfoItems extends $tea.Mo
       total: 'Total',
       status: 'Status',
       strategy: 'Strategy',
+      sourceRegion: 'SourceRegion',
+      sourceInstanceName: 'SourceInstanceName',
       targetInstanceConfigs: 'TargetInstanceConfigs',
     };
   }
@@ -24286,6 +24521,8 @@ export class ListDeviceDistributeJobResponseBodyDataJobInfoItems extends $tea.Mo
       total: 'number',
       status: 'number',
       strategy: 'number',
+      sourceRegion: 'string',
+      sourceInstanceName: 'string',
       targetInstanceConfigs: ListDeviceDistributeJobResponseBodyDataJobInfoItemsTargetInstanceConfigs,
     };
   }
@@ -24530,6 +24767,7 @@ export class ListJobResponseBodyDataData extends $tea.Model {
   status?: string;
   description?: string;
   type?: string;
+  scheduledTime?: number;
   static names(): { [key: string]: string } {
     return {
       jobId: 'JobId',
@@ -24539,6 +24777,7 @@ export class ListJobResponseBodyDataData extends $tea.Model {
       status: 'Status',
       description: 'Description',
       type: 'Type',
+      scheduledTime: 'ScheduledTime',
     };
   }
 
@@ -24551,6 +24790,7 @@ export class ListJobResponseBodyDataData extends $tea.Model {
       status: 'string',
       description: 'string',
       type: 'string',
+      scheduledTime: 'number',
     };
   }
 
@@ -24589,7 +24829,6 @@ export class ListOTAFirmwareResponseBodyFirmwareInfoSimpleFirmwareInfo extends $
   firmwareDesc?: string;
   firmwareSign?: string;
   firmwareSize?: number;
-  firmwareUrl?: string;
   productKey?: string;
   signMethod?: string;
   productName?: string;
@@ -24607,7 +24846,6 @@ export class ListOTAFirmwareResponseBodyFirmwareInfoSimpleFirmwareInfo extends $
       firmwareDesc: 'FirmwareDesc',
       firmwareSign: 'FirmwareSign',
       firmwareSize: 'FirmwareSize',
-      firmwareUrl: 'FirmwareUrl',
       productKey: 'ProductKey',
       signMethod: 'SignMethod',
       productName: 'ProductName',
@@ -24628,7 +24866,6 @@ export class ListOTAFirmwareResponseBodyFirmwareInfoSimpleFirmwareInfo extends $
       firmwareDesc: 'string',
       firmwareSign: 'string',
       firmwareSize: 'number',
-      firmwareUrl: 'string',
       productKey: 'string',
       signMethod: 'string',
       productName: 'string',
@@ -24984,6 +25221,7 @@ export class ListOTATaskByJobResponseBodyDataSimpleOTATaskInfo extends $tea.Mode
   progress?: string;
   iotId?: string;
   utcCreate?: string;
+  timeout?: string;
   static names(): { [key: string]: string } {
     return {
       taskId: 'TaskId',
@@ -25000,6 +25238,7 @@ export class ListOTATaskByJobResponseBodyDataSimpleOTATaskInfo extends $tea.Mode
       progress: 'Progress',
       iotId: 'IotId',
       utcCreate: 'UtcCreate',
+      timeout: 'Timeout',
     };
   }
 
@@ -25019,6 +25258,7 @@ export class ListOTATaskByJobResponseBodyDataSimpleOTATaskInfo extends $tea.Mode
       progress: 'string',
       iotId: 'string',
       utcCreate: 'string',
+      timeout: 'string',
     };
   }
 
@@ -25516,6 +25756,7 @@ export class PrintByTemplateResponseBodyData extends $tea.Model {
   deviceErrorMessage?: string;
   id?: string;
   retryCount?: number;
+  maxRetryCount?: number;
   static names(): { [key: string]: string } {
     return {
       success: 'Success',
@@ -25523,6 +25764,7 @@ export class PrintByTemplateResponseBodyData extends $tea.Model {
       deviceErrorMessage: 'DeviceErrorMessage',
       id: 'Id',
       retryCount: 'RetryCount',
+      maxRetryCount: 'MaxRetryCount',
     };
   }
 
@@ -25533,6 +25775,7 @@ export class PrintByTemplateResponseBodyData extends $tea.Model {
       deviceErrorMessage: 'string',
       id: 'string',
       retryCount: 'number',
+      maxRetryCount: 'number',
     };
   }
 
@@ -28479,6 +28722,7 @@ export class QueryJobResponseBodyData extends $tea.Model {
   type?: string;
   jobDocument?: string;
   utcModified?: string;
+  scheduledTime?: number;
   rolloutConfig?: QueryJobResponseBodyDataRolloutConfig;
   timeoutConfig?: QueryJobResponseBodyDataTimeoutConfig;
   jobFile?: QueryJobResponseBodyDataJobFile;
@@ -28493,6 +28737,7 @@ export class QueryJobResponseBodyData extends $tea.Model {
       type: 'Type',
       jobDocument: 'JobDocument',
       utcModified: 'UtcModified',
+      scheduledTime: 'ScheduledTime',
       rolloutConfig: 'RolloutConfig',
       timeoutConfig: 'TimeoutConfig',
       jobFile: 'JobFile',
@@ -28510,6 +28755,7 @@ export class QueryJobResponseBodyData extends $tea.Model {
       type: 'string',
       jobDocument: 'string',
       utcModified: 'string',
+      scheduledTime: 'number',
       rolloutConfig: QueryJobResponseBodyDataRolloutConfig,
       timeoutConfig: QueryJobResponseBodyDataTimeoutConfig,
       jobFile: QueryJobResponseBodyDataJobFile,
@@ -29590,10 +29836,18 @@ export class StartCpuResponseBodyData extends $tea.Model {
 export class SyncSpeechByCombinationResponseBodyData extends $tea.Model {
   id?: string;
   retryCount?: number;
+  success?: boolean;
+  maxRetryCount?: number;
+  deviceErrorCode?: string;
+  deviceErrorMessage?: string;
   static names(): { [key: string]: string } {
     return {
       id: 'Id',
       retryCount: 'RetryCount',
+      success: 'Success',
+      maxRetryCount: 'MaxRetryCount',
+      deviceErrorCode: 'DeviceErrorCode',
+      deviceErrorMessage: 'DeviceErrorMessage',
     };
   }
 
@@ -29601,6 +29855,10 @@ export class SyncSpeechByCombinationResponseBodyData extends $tea.Model {
     return {
       id: 'string',
       retryCount: 'number',
+      success: 'boolean',
+      maxRetryCount: 'number',
+      deviceErrorCode: 'string',
+      deviceErrorMessage: 'string',
     };
   }
 
@@ -30235,6 +30493,19 @@ export default class Client extends OpenApi {
   async cancelOTATaskByJob(request: CancelOTATaskByJobRequest): Promise<CancelOTATaskByJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.cancelOTATaskByJobWithOptions(request, runtime);
+  }
+
+  async cancelReleaseProductWithOptions(request: CancelReleaseProductRequest, runtime: $Util.RuntimeOptions): Promise<CancelReleaseProductResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<CancelReleaseProductResponse>(await this.doRPCRequest("CancelReleaseProduct", "2018-01-20", "HTTPS", "POST", "AK", "json", req, runtime), new CancelReleaseProductResponse({}));
+  }
+
+  async cancelReleaseProduct(request: CancelReleaseProductRequest): Promise<CancelReleaseProductResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.cancelReleaseProductWithOptions(request, runtime);
   }
 
   async clearEdgeInstanceDriverConfigsWithOptions(request: ClearEdgeInstanceDriverConfigsRequest, runtime: $Util.RuntimeOptions): Promise<ClearEdgeInstanceDriverConfigsResponse> {
@@ -30937,6 +31208,19 @@ export default class Client extends OpenApi {
   async deleteSceneRule(request: DeleteSceneRuleRequest): Promise<DeleteSceneRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteSceneRuleWithOptions(request, runtime);
+  }
+
+  async deleteSpeechWithOptions(request: DeleteSpeechRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSpeechResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DeleteSpeechResponse>(await this.doRPCRequest("DeleteSpeech", "2018-01-20", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteSpeechResponse({}));
+  }
+
+  async deleteSpeech(request: DeleteSpeechRequest): Promise<DeleteSpeechResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteSpeechWithOptions(request, runtime);
   }
 
   async deleteSubscribeRelationWithOptions(request: DeleteSubscribeRelationRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSubscribeRelationResponse> {
@@ -32668,6 +32952,19 @@ export default class Client extends OpenApi {
   async releaseEdgeDriverVersion(request: ReleaseEdgeDriverVersionRequest): Promise<ReleaseEdgeDriverVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.releaseEdgeDriverVersionWithOptions(request, runtime);
+  }
+
+  async releaseProductWithOptions(request: ReleaseProductRequest, runtime: $Util.RuntimeOptions): Promise<ReleaseProductResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<ReleaseProductResponse>(await this.doRPCRequest("ReleaseProduct", "2018-01-20", "HTTPS", "POST", "AK", "json", req, runtime), new ReleaseProductResponse({}));
+  }
+
+  async releaseProduct(request: ReleaseProductRequest): Promise<ReleaseProductResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.releaseProductWithOptions(request, runtime);
   }
 
   async removeThingTopoWithOptions(request: RemoveThingTopoRequest, runtime: $Util.RuntimeOptions): Promise<RemoveThingTopoResponse> {
