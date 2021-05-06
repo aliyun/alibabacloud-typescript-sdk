@@ -111,6 +111,7 @@ export class AddControlPolicyRequest extends $tea.Model {
   destPortType?: string;
   destPortGroup?: string;
   release?: string;
+  ipVersion?: string;
   static names(): { [key: string]: string } {
     return {
       sourceIp: 'SourceIp',
@@ -129,6 +130,7 @@ export class AddControlPolicyRequest extends $tea.Model {
       destPortType: 'DestPortType',
       destPortGroup: 'DestPortGroup',
       release: 'Release',
+      ipVersion: 'IpVersion',
     };
   }
 
@@ -150,6 +152,7 @@ export class AddControlPolicyRequest extends $tea.Model {
       destPortType: 'string',
       destPortGroup: 'string',
       release: 'string',
+      ipVersion: 'string',
     };
   }
 
@@ -159,19 +162,19 @@ export class AddControlPolicyRequest extends $tea.Model {
 }
 
 export class AddControlPolicyResponseBody extends $tea.Model {
-  requestId?: string;
   aclUuid?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       aclUuid: 'AclUuid',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       aclUuid: 'string',
+      requestId: 'string',
     };
   }
 
@@ -202,8 +205,73 @@ export class AddControlPolicyResponse extends $tea.Model {
   }
 }
 
-export class CreateVpcFirewallControlPolicyRequest extends $tea.Model {
+export class AddInstanceMembersRequest extends $tea.Model {
   sourceIp?: string;
+  lang?: string;
+  members?: AddInstanceMembersRequestMembers[];
+  static names(): { [key: string]: string } {
+    return {
+      sourceIp: 'SourceIp',
+      lang: 'Lang',
+      members: 'Members',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sourceIp: 'string',
+      lang: 'string',
+      members: { 'type': 'array', 'itemType': AddInstanceMembersRequestMembers },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddInstanceMembersResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddInstanceMembersResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: AddInstanceMembersResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: AddInstanceMembersResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateVpcFirewallControlPolicyRequest extends $tea.Model {
   lang?: string;
   aclAction?: string;
   applicationName?: string;
@@ -220,7 +288,6 @@ export class CreateVpcFirewallControlPolicyRequest extends $tea.Model {
   destPortGroup?: string;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
       lang: 'Lang',
       aclAction: 'AclAction',
       applicationName: 'ApplicationName',
@@ -240,7 +307,6 @@ export class CreateVpcFirewallControlPolicyRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
       lang: 'string',
       aclAction: 'string',
       applicationName: 'string',
@@ -264,19 +330,19 @@ export class CreateVpcFirewallControlPolicyRequest extends $tea.Model {
 }
 
 export class CreateVpcFirewallControlPolicyResponseBody extends $tea.Model {
-  requestId?: string;
   aclUuid?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       aclUuid: 'AclUuid',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       aclUuid: 'string',
+      requestId: 'string',
     };
   }
 
@@ -442,14 +508,78 @@ export class DeleteControlPolicyResponse extends $tea.Model {
   }
 }
 
-export class DeleteVpcFirewallControlPolicyRequest extends $tea.Model {
+export class DeleteInstanceMembersRequest extends $tea.Model {
   sourceIp?: string;
+  lang?: string;
+  memberUids?: number[];
+  static names(): { [key: string]: string } {
+    return {
+      sourceIp: 'SourceIp',
+      lang: 'Lang',
+      memberUids: 'MemberUids',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sourceIp: 'string',
+      lang: 'string',
+      memberUids: { 'type': 'array', 'itemType': 'number' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteInstanceMembersResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteInstanceMembersResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DeleteInstanceMembersResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DeleteInstanceMembersResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteVpcFirewallControlPolicyRequest extends $tea.Model {
   lang?: string;
   aclUuid?: string;
   vpcFirewallId?: string;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
       lang: 'Lang',
       aclUuid: 'AclUuid',
       vpcFirewallId: 'VpcFirewallId',
@@ -458,7 +588,6 @@ export class DeleteVpcFirewallControlPolicyRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
       lang: 'string',
       aclUuid: 'string',
       vpcFirewallId: 'string',
@@ -511,15 +640,224 @@ export class DeleteVpcFirewallControlPolicyResponse extends $tea.Model {
   }
 }
 
-export class DescribePolicyPriorUsedRequest extends $tea.Model {
+export class DescribeAddressBookRequest extends $tea.Model {
+  sourceIp?: string;
+  lang?: string;
+  currentPage?: string;
+  pageSize?: string;
+  query?: string;
+  groupType?: string;
+  containPort?: string;
+  static names(): { [key: string]: string } {
+    return {
+      sourceIp: 'SourceIp',
+      lang: 'Lang',
+      currentPage: 'CurrentPage',
+      pageSize: 'PageSize',
+      query: 'Query',
+      groupType: 'GroupType',
+      containPort: 'ContainPort',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sourceIp: 'string',
+      lang: 'string',
+      currentPage: 'string',
+      pageSize: 'string',
+      query: 'string',
+      groupType: 'string',
+      containPort: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAddressBookResponseBody extends $tea.Model {
+  pageNo?: string;
+  pageSize?: string;
+  requestId?: string;
+  totalCount?: string;
+  acls?: DescribeAddressBookResponseBodyAcls[];
+  static names(): { [key: string]: string } {
+    return {
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+      acls: 'Acls',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNo: 'string',
+      pageSize: 'string',
+      requestId: 'string',
+      totalCount: 'string',
+      acls: { 'type': 'array', 'itemType': DescribeAddressBookResponseBodyAcls },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAddressBookResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeAddressBookResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeAddressBookResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAssetListRequest extends $tea.Model {
+  sourceIp?: string;
+  lang?: string;
+  currentPage?: string;
+  pageSize?: string;
+  regionNo?: string;
+  status?: string;
+  searchItem?: string;
+  type?: string;
+  resourceType?: string;
+  sgStatus?: string;
+  ipVersion?: string;
+  memberUid?: number;
+  static names(): { [key: string]: string } {
+    return {
+      sourceIp: 'SourceIp',
+      lang: 'Lang',
+      currentPage: 'CurrentPage',
+      pageSize: 'PageSize',
+      regionNo: 'RegionNo',
+      status: 'Status',
+      searchItem: 'SearchItem',
+      type: 'Type',
+      resourceType: 'ResourceType',
+      sgStatus: 'SgStatus',
+      ipVersion: 'IpVersion',
+      memberUid: 'MemberUid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sourceIp: 'string',
+      lang: 'string',
+      currentPage: 'string',
+      pageSize: 'string',
+      regionNo: 'string',
+      status: 'string',
+      searchItem: 'string',
+      type: 'string',
+      resourceType: 'string',
+      sgStatus: 'string',
+      ipVersion: 'string',
+      memberUid: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAssetListResponseBody extends $tea.Model {
+  totalCount?: number;
+  requestId?: string;
+  assets?: DescribeAssetListResponseBodyAssets[];
+  static names(): { [key: string]: string } {
+    return {
+      totalCount: 'TotalCount',
+      requestId: 'RequestId',
+      assets: 'Assets',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      totalCount: 'number',
+      requestId: 'string',
+      assets: { 'type': 'array', 'itemType': DescribeAssetListResponseBodyAssets },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAssetListResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeAssetListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeAssetListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeControlPolicyRequest extends $tea.Model {
   sourceIp?: string;
   lang?: string;
   direction?: string;
+  currentPage?: string;
+  pageSize?: string;
+  source?: string;
+  destination?: string;
+  description?: string;
+  proto?: string;
+  aclAction?: string;
+  release?: string;
+  aclUuid?: string;
+  ipVersion?: string;
   static names(): { [key: string]: string } {
     return {
       sourceIp: 'SourceIp',
       lang: 'Lang',
       direction: 'Direction',
+      currentPage: 'CurrentPage',
+      pageSize: 'PageSize',
+      source: 'Source',
+      destination: 'Destination',
+      description: 'Description',
+      proto: 'Proto',
+      aclAction: 'AclAction',
+      release: 'Release',
+      aclUuid: 'AclUuid',
+      ipVersion: 'IpVersion',
     };
   }
 
@@ -528,6 +866,400 @@ export class DescribePolicyPriorUsedRequest extends $tea.Model {
       sourceIp: 'string',
       lang: 'string',
       direction: 'string',
+      currentPage: 'string',
+      pageSize: 'string',
+      source: 'string',
+      destination: 'string',
+      description: 'string',
+      proto: 'string',
+      aclAction: 'string',
+      release: 'string',
+      aclUuid: 'string',
+      ipVersion: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeControlPolicyResponseBody extends $tea.Model {
+  pageNo?: string;
+  pageSize?: string;
+  requestId?: string;
+  totalCount?: string;
+  policys?: DescribeControlPolicyResponseBodyPolicys[];
+  static names(): { [key: string]: string } {
+    return {
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+      policys: 'Policys',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNo: 'string',
+      pageSize: 'string',
+      requestId: 'string',
+      totalCount: 'string',
+      policys: { 'type': 'array', 'itemType': DescribeControlPolicyResponseBodyPolicys },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeControlPolicyResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeControlPolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeControlPolicyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDomainResolveRequest extends $tea.Model {
+  sourceIp?: string;
+  lang?: string;
+  domain?: string;
+  ipVersion?: string;
+  static names(): { [key: string]: string } {
+    return {
+      sourceIp: 'SourceIp',
+      lang: 'Lang',
+      domain: 'Domain',
+      ipVersion: 'IpVersion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sourceIp: 'string',
+      lang: 'string',
+      domain: 'string',
+      ipVersion: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDomainResolveResponseBody extends $tea.Model {
+  requestId?: string;
+  resolveResult?: DescribeDomainResolveResponseBodyResolveResult;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      resolveResult: 'ResolveResult',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      resolveResult: DescribeDomainResolveResponseBodyResolveResult,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDomainResolveResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeDomainResolveResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeDomainResolveResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceMembersRequest extends $tea.Model {
+  sourceIp?: string;
+  lang?: string;
+  currentPage?: string;
+  pageSize?: string;
+  memberUid?: string;
+  memberDisplayName?: string;
+  memberDesc?: string;
+  static names(): { [key: string]: string } {
+    return {
+      sourceIp: 'SourceIp',
+      lang: 'Lang',
+      currentPage: 'CurrentPage',
+      pageSize: 'PageSize',
+      memberUid: 'MemberUid',
+      memberDisplayName: 'MemberDisplayName',
+      memberDesc: 'MemberDesc',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sourceIp: 'string',
+      lang: 'string',
+      currentPage: 'string',
+      pageSize: 'string',
+      memberUid: 'string',
+      memberDisplayName: 'string',
+      memberDesc: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceMembersResponseBody extends $tea.Model {
+  requestId?: string;
+  pageInfo?: DescribeInstanceMembersResponseBodyPageInfo;
+  members?: DescribeInstanceMembersResponseBodyMembers[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      pageInfo: 'PageInfo',
+      members: 'Members',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      pageInfo: DescribeInstanceMembersResponseBodyPageInfo,
+      members: { 'type': 'array', 'itemType': DescribeInstanceMembersResponseBodyMembers },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceMembersResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeInstanceMembersResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeInstanceMembersResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceRdAccountsRequest extends $tea.Model {
+  sourceIp?: string;
+  lang?: string;
+  currentPage?: string;
+  pageSize?: string;
+  memberUid?: string;
+  memberDisplayName?: string;
+  memberDesc?: string;
+  static names(): { [key: string]: string } {
+    return {
+      sourceIp: 'SourceIp',
+      lang: 'Lang',
+      currentPage: 'CurrentPage',
+      pageSize: 'PageSize',
+      memberUid: 'MemberUid',
+      memberDisplayName: 'MemberDisplayName',
+      memberDesc: 'MemberDesc',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sourceIp: 'string',
+      lang: 'string',
+      currentPage: 'string',
+      pageSize: 'string',
+      memberUid: 'string',
+      memberDisplayName: 'string',
+      memberDesc: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceRdAccountsResponseBody extends $tea.Model {
+  requestId?: string;
+  accounts?: DescribeInstanceRdAccountsResponseBodyAccounts[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      accounts: 'Accounts',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      accounts: { 'type': 'array', 'itemType': DescribeInstanceRdAccountsResponseBodyAccounts },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceRdAccountsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeInstanceRdAccountsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeInstanceRdAccountsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePolicyAdvancedConfigRequest extends $tea.Model {
+  sourceIp?: string;
+  lang?: string;
+  static names(): { [key: string]: string } {
+    return {
+      sourceIp: 'SourceIp',
+      lang: 'Lang',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sourceIp: 'string',
+      lang: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePolicyAdvancedConfigResponseBody extends $tea.Model {
+  internetSwitch?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      internetSwitch: 'InternetSwitch',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      internetSwitch: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePolicyAdvancedConfigResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribePolicyAdvancedConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribePolicyAdvancedConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePolicyPriorUsedRequest extends $tea.Model {
+  sourceIp?: string;
+  lang?: string;
+  direction?: string;
+  ipVersion?: string;
+  static names(): { [key: string]: string } {
+    return {
+      sourceIp: 'SourceIp',
+      lang: 'Lang',
+      direction: 'Direction',
+      ipVersion: 'IpVersion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sourceIp: 'string',
+      lang: 'string',
+      direction: 'string',
+      ipVersion: 'string',
     };
   }
 
@@ -537,22 +1269,22 @@ export class DescribePolicyPriorUsedRequest extends $tea.Model {
 }
 
 export class DescribePolicyPriorUsedResponseBody extends $tea.Model {
-  requestId?: string;
-  start?: number;
   end?: number;
+  start?: number;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
-      start: 'Start',
       end: 'End',
+      start: 'Start',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
-      start: 'number',
       end: 'number',
+      start: 'number',
+      requestId: 'string',
     };
   }
 
@@ -583,8 +1315,82 @@ export class DescribePolicyPriorUsedResponse extends $tea.Model {
   }
 }
 
+export class DescribeVpcFirewallAclGroupListRequest extends $tea.Model {
+  lang?: string;
+  firewallConfigureStatus?: string;
+  currentPage?: string;
+  pageSize?: string;
+  static names(): { [key: string]: string } {
+    return {
+      lang: 'Lang',
+      firewallConfigureStatus: 'FirewallConfigureStatus',
+      currentPage: 'CurrentPage',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      lang: 'string',
+      firewallConfigureStatus: 'string',
+      currentPage: 'string',
+      pageSize: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVpcFirewallAclGroupListResponseBody extends $tea.Model {
+  totalCount?: number;
+  requestId?: string;
+  aclGroupList?: DescribeVpcFirewallAclGroupListResponseBodyAclGroupList[];
+  static names(): { [key: string]: string } {
+    return {
+      totalCount: 'TotalCount',
+      requestId: 'RequestId',
+      aclGroupList: 'AclGroupList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      totalCount: 'number',
+      requestId: 'string',
+      aclGroupList: { 'type': 'array', 'itemType': DescribeVpcFirewallAclGroupListResponseBodyAclGroupList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVpcFirewallAclGroupListResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeVpcFirewallAclGroupListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeVpcFirewallAclGroupListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeVpcFirewallControlPolicyRequest extends $tea.Model {
-  sourceIp?: string;
   lang?: string;
   vpcFirewallId?: string;
   currentPage?: string;
@@ -596,7 +1402,6 @@ export class DescribeVpcFirewallControlPolicyRequest extends $tea.Model {
   aclAction?: string;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
       lang: 'Lang',
       vpcFirewallId: 'VpcFirewallId',
       currentPage: 'CurrentPage',
@@ -611,7 +1416,6 @@ export class DescribeVpcFirewallControlPolicyRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
       lang: 'string',
       vpcFirewallId: 'string',
       currentPage: 'string',
@@ -677,12 +1481,10 @@ export class DescribeVpcFirewallControlPolicyResponse extends $tea.Model {
 }
 
 export class DescribeVpcFirewallPolicyPriorUsedRequest extends $tea.Model {
-  sourceIp?: string;
   lang?: string;
   vpcFirewallId?: string;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
       lang: 'Lang',
       vpcFirewallId: 'VpcFirewallId',
     };
@@ -690,7 +1492,6 @@ export class DescribeVpcFirewallPolicyPriorUsedRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
       lang: 'string',
       vpcFirewallId: 'string',
     };
@@ -702,22 +1503,22 @@ export class DescribeVpcFirewallPolicyPriorUsedRequest extends $tea.Model {
 }
 
 export class DescribeVpcFirewallPolicyPriorUsedResponseBody extends $tea.Model {
-  requestId?: string;
-  start?: number;
   end?: number;
+  start?: number;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
-      start: 'Start',
       end: 'End',
+      start: 'Start',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
-      start: 'number',
       end: 'number',
+      start: 'number',
+      requestId: 'string',
     };
   }
 
@@ -1009,6 +1810,141 @@ export class ModifyControlPolicyPositionResponse extends $tea.Model {
   }
 }
 
+export class ModifyControlPolicyPriorityRequest extends $tea.Model {
+  sourceIp?: string;
+  lang?: string;
+  aclUuid?: string;
+  order?: string;
+  static names(): { [key: string]: string } {
+    return {
+      sourceIp: 'SourceIp',
+      lang: 'Lang',
+      aclUuid: 'AclUuid',
+      order: 'Order',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sourceIp: 'string',
+      lang: 'string',
+      aclUuid: 'string',
+      order: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyControlPolicyPriorityResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyControlPolicyPriorityResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ModifyControlPolicyPriorityResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ModifyControlPolicyPriorityResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyInstanceMemberAttributesRequest extends $tea.Model {
+  sourceIp?: string;
+  lang?: string;
+  members?: ModifyInstanceMemberAttributesRequestMembers[];
+  static names(): { [key: string]: string } {
+    return {
+      sourceIp: 'SourceIp',
+      lang: 'Lang',
+      members: 'Members',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sourceIp: 'string',
+      lang: 'string',
+      members: { 'type': 'array', 'itemType': ModifyInstanceMemberAttributesRequestMembers },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyInstanceMemberAttributesResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyInstanceMemberAttributesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ModifyInstanceMemberAttributesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ModifyInstanceMemberAttributesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyPolicyAdvancedConfigRequest extends $tea.Model {
   sourceIp?: string;
   lang?: string;
@@ -1076,7 +2012,6 @@ export class ModifyPolicyAdvancedConfigResponse extends $tea.Model {
 }
 
 export class ModifyVpcFirewallControlPolicyRequest extends $tea.Model {
-  sourceIp?: string;
   lang?: string;
   aclAction?: string;
   applicationName?: string;
@@ -1093,7 +2028,6 @@ export class ModifyVpcFirewallControlPolicyRequest extends $tea.Model {
   destPortGroup?: string;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
       lang: 'Lang',
       aclAction: 'AclAction',
       applicationName: 'ApplicationName',
@@ -1113,7 +2047,6 @@ export class ModifyVpcFirewallControlPolicyRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
       lang: 'string',
       aclAction: 'string',
       applicationName: 'string',
@@ -1178,14 +2111,12 @@ export class ModifyVpcFirewallControlPolicyResponse extends $tea.Model {
 }
 
 export class ModifyVpcFirewallControlPolicyPositionRequest extends $tea.Model {
-  sourceIp?: string;
   lang?: string;
   vpcFirewallId?: string;
   newOrder?: string;
   oldOrder?: string;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
       lang: 'Lang',
       vpcFirewallId: 'VpcFirewallId',
       newOrder: 'NewOrder',
@@ -1195,7 +2126,6 @@ export class ModifyVpcFirewallControlPolicyPositionRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
       lang: 'string',
       vpcFirewallId: 'string',
       newOrder: 'string',
@@ -1526,12 +2456,10 @@ export class PutEnableFwSwitchResponse extends $tea.Model {
 }
 
 export class ResetVpcFirewallRuleHitCountRequest extends $tea.Model {
-  sourceIp?: string;
   lang?: string;
   aclUuid?: string;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
       lang: 'Lang',
       aclUuid: 'AclUuid',
     };
@@ -1539,7 +2467,6 @@ export class ResetVpcFirewallRuleHitCountRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
       lang: 'string',
       aclUuid: 'string',
     };
@@ -1613,47 +2540,429 @@ export class AddAddressBookRequestTagList extends $tea.Model {
   }
 }
 
-export class DescribeVpcFirewallControlPolicyResponseBodyPolicys extends $tea.Model {
+export class AddInstanceMembersRequestMembers extends $tea.Model {
+  memberDesc?: string;
+  memberUid?: number;
+  static names(): { [key: string]: string } {
+    return {
+      memberDesc: 'MemberDesc',
+      memberUid: 'MemberUid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      memberDesc: 'string',
+      memberUid: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAddressBookResponseBodyAclsTagList extends $tea.Model {
+  tagValue?: string;
+  tagKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagValue: 'TagValue',
+      tagKey: 'TagKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagValue: 'string',
+      tagKey: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAddressBookResponseBodyAcls extends $tea.Model {
+  addressListCount?: number;
+  groupUuid?: string;
+  autoAddTagEcs?: number;
+  description?: string;
+  groupName?: string;
+  referenceCount?: number;
+  groupType?: string;
+  tagRelation?: string;
+  global?: number;
+  tagList?: DescribeAddressBookResponseBodyAclsTagList[];
+  addressList?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      addressListCount: 'AddressListCount',
+      groupUuid: 'GroupUuid',
+      autoAddTagEcs: 'AutoAddTagEcs',
+      description: 'Description',
+      groupName: 'GroupName',
+      referenceCount: 'ReferenceCount',
+      groupType: 'GroupType',
+      tagRelation: 'TagRelation',
+      global: 'Global',
+      tagList: 'TagList',
+      addressList: 'AddressList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addressListCount: 'number',
+      groupUuid: 'string',
+      autoAddTagEcs: 'number',
+      description: 'string',
+      groupName: 'string',
+      referenceCount: 'number',
+      groupType: 'string',
+      tagRelation: 'string',
+      global: 'number',
+      tagList: { 'type': 'array', 'itemType': DescribeAddressBookResponseBodyAclsTagList },
+      addressList: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAssetListResponseBodyAssets extends $tea.Model {
+  bindInstanceName?: string;
+  type?: string;
+  sgStatusTime?: number;
+  resourceInstanceId?: string;
+  memberUid?: number;
+  intranetAddress?: string;
+  syncStatus?: string;
+  aliUid?: number;
+  protectStatus?: string;
+  internetAddress?: string;
+  bindInstanceId?: string;
+  regionID?: string;
+  regionStatus?: string;
+  resourceType?: string;
+  ipVersion?: number;
+  sgStatus?: string;
+  note?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bindInstanceName: 'BindInstanceName',
+      type: 'Type',
+      sgStatusTime: 'SgStatusTime',
+      resourceInstanceId: 'ResourceInstanceId',
+      memberUid: 'MemberUid',
+      intranetAddress: 'IntranetAddress',
+      syncStatus: 'SyncStatus',
+      aliUid: 'AliUid',
+      protectStatus: 'ProtectStatus',
+      internetAddress: 'InternetAddress',
+      bindInstanceId: 'BindInstanceId',
+      regionID: 'RegionID',
+      regionStatus: 'RegionStatus',
+      resourceType: 'ResourceType',
+      ipVersion: 'IpVersion',
+      sgStatus: 'SgStatus',
+      note: 'Note',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bindInstanceName: 'string',
+      type: 'string',
+      sgStatusTime: 'number',
+      resourceInstanceId: 'string',
+      memberUid: 'number',
+      intranetAddress: 'string',
+      syncStatus: 'string',
+      aliUid: 'number',
+      protectStatus: 'string',
+      internetAddress: 'string',
+      bindInstanceId: 'string',
+      regionID: 'string',
+      regionStatus: 'string',
+      resourceType: 'string',
+      ipVersion: 'number',
+      sgStatus: 'string',
+      note: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeControlPolicyResponseBodyPolicys extends $tea.Model {
   direction?: string;
+  destinationGroupType?: string;
+  hitLastTime?: number;
   destination?: string;
   order?: number;
+  destPortGroup?: string;
   applicationName?: string;
   sourceType?: string;
-  destPortGroup?: string;
   aclUuid?: string;
-  destPortGroupPorts?: string[];
   destPortType?: string;
   source?: string;
   destinationType?: string;
   hitTimes?: number;
-  sourceGroupCidrs?: string[];
   destPort?: string;
+  ipVersion?: number;
+  sourceGroupType?: string;
+  description?: string;
+  dnsResultTime?: number;
+  aclAction?: string;
+  release?: string;
+  dnsResult?: string;
+  applicationId?: string;
+  proto?: string;
   destinationGroupCidrs?: string[];
+  destPortGroupPorts?: string[];
+  sourceGroupCidrs?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      direction: 'Direction',
+      destinationGroupType: 'DestinationGroupType',
+      hitLastTime: 'HitLastTime',
+      destination: 'Destination',
+      order: 'Order',
+      destPortGroup: 'DestPortGroup',
+      applicationName: 'ApplicationName',
+      sourceType: 'SourceType',
+      aclUuid: 'AclUuid',
+      destPortType: 'DestPortType',
+      source: 'Source',
+      destinationType: 'DestinationType',
+      hitTimes: 'HitTimes',
+      destPort: 'DestPort',
+      ipVersion: 'IpVersion',
+      sourceGroupType: 'SourceGroupType',
+      description: 'Description',
+      dnsResultTime: 'DnsResultTime',
+      aclAction: 'AclAction',
+      release: 'Release',
+      dnsResult: 'DnsResult',
+      applicationId: 'ApplicationId',
+      proto: 'Proto',
+      destinationGroupCidrs: 'DestinationGroupCidrs',
+      destPortGroupPorts: 'DestPortGroupPorts',
+      sourceGroupCidrs: 'SourceGroupCidrs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      direction: 'string',
+      destinationGroupType: 'string',
+      hitLastTime: 'number',
+      destination: 'string',
+      order: 'number',
+      destPortGroup: 'string',
+      applicationName: 'string',
+      sourceType: 'string',
+      aclUuid: 'string',
+      destPortType: 'string',
+      source: 'string',
+      destinationType: 'string',
+      hitTimes: 'number',
+      destPort: 'string',
+      ipVersion: 'number',
+      sourceGroupType: 'string',
+      description: 'string',
+      dnsResultTime: 'number',
+      aclAction: 'string',
+      release: 'string',
+      dnsResult: 'string',
+      applicationId: 'string',
+      proto: 'string',
+      destinationGroupCidrs: { 'type': 'array', 'itemType': 'string' },
+      destPortGroupPorts: { 'type': 'array', 'itemType': 'string' },
+      sourceGroupCidrs: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDomainResolveResponseBodyResolveResult extends $tea.Model {
+  ipAddrs?: string;
+  updateTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      ipAddrs: 'IpAddrs',
+      updateTime: 'UpdateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipAddrs: 'string',
+      updateTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceMembersResponseBodyPageInfo extends $tea.Model {
+  currentPage?: number;
+  pageSize?: number;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceMembersResponseBodyMembers extends $tea.Model {
+  memberDesc?: string;
+  memberDisplayName?: string;
+  createTime?: number;
+  memberUid?: number;
+  memberStatus?: string;
+  modifyTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      memberDesc: 'MemberDesc',
+      memberDisplayName: 'MemberDisplayName',
+      createTime: 'CreateTime',
+      memberUid: 'MemberUid',
+      memberStatus: 'MemberStatus',
+      modifyTime: 'ModifyTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      memberDesc: 'string',
+      memberDisplayName: 'string',
+      createTime: 'number',
+      memberUid: 'number',
+      memberStatus: 'string',
+      modifyTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceRdAccountsResponseBodyAccounts extends $tea.Model {
+  displayName?: string;
+  accountId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      displayName: 'DisplayName',
+      accountId: 'AccountId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      displayName: 'string',
+      accountId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVpcFirewallAclGroupListResponseBodyAclGroupList extends $tea.Model {
+  aclGroupId?: string;
+  aclGroupName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aclGroupId: 'AclGroupId',
+      aclGroupName: 'AclGroupName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aclGroupId: 'string',
+      aclGroupName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVpcFirewallControlPolicyResponseBodyPolicys extends $tea.Model {
+  direction?: string;
+  destination?: string;
+  order?: number;
+  destPortGroup?: string;
+  sourceType?: string;
+  applicationName?: string;
+  aclUuid?: string;
+  destPortType?: string;
+  source?: string;
+  destinationType?: string;
+  hitTimes?: number;
+  destPort?: string;
   description?: string;
   aclAction?: string;
   applicationId?: string;
   proto?: string;
+  destinationGroupCidrs?: string[];
+  destPortGroupPorts?: string[];
+  sourceGroupCidrs?: string[];
   static names(): { [key: string]: string } {
     return {
       direction: 'Direction',
       destination: 'Destination',
       order: 'Order',
-      applicationName: 'ApplicationName',
-      sourceType: 'SourceType',
       destPortGroup: 'DestPortGroup',
+      sourceType: 'SourceType',
+      applicationName: 'ApplicationName',
       aclUuid: 'AclUuid',
-      destPortGroupPorts: 'DestPortGroupPorts',
       destPortType: 'DestPortType',
       source: 'Source',
       destinationType: 'DestinationType',
       hitTimes: 'HitTimes',
-      sourceGroupCidrs: 'SourceGroupCidrs',
       destPort: 'DestPort',
-      destinationGroupCidrs: 'DestinationGroupCidrs',
       description: 'Description',
       aclAction: 'AclAction',
       applicationId: 'ApplicationId',
       proto: 'Proto',
+      destinationGroupCidrs: 'DestinationGroupCidrs',
+      destPortGroupPorts: 'DestPortGroupPorts',
+      sourceGroupCidrs: 'SourceGroupCidrs',
     };
   }
 
@@ -1662,22 +2971,22 @@ export class DescribeVpcFirewallControlPolicyResponseBodyPolicys extends $tea.Mo
       direction: 'string',
       destination: 'string',
       order: 'number',
-      applicationName: 'string',
-      sourceType: 'string',
       destPortGroup: 'string',
+      sourceType: 'string',
+      applicationName: 'string',
       aclUuid: 'string',
-      destPortGroupPorts: { 'type': 'array', 'itemType': 'string' },
       destPortType: 'string',
       source: 'string',
       destinationType: 'string',
       hitTimes: 'number',
-      sourceGroupCidrs: { 'type': 'array', 'itemType': 'string' },
       destPort: 'string',
-      destinationGroupCidrs: { 'type': 'array', 'itemType': 'string' },
       description: 'string',
       aclAction: 'string',
       applicationId: 'string',
       proto: 'string',
+      destinationGroupCidrs: { 'type': 'array', 'itemType': 'string' },
+      destPortGroupPorts: { 'type': 'array', 'itemType': 'string' },
+      sourceGroupCidrs: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -1700,6 +3009,28 @@ export class ModifyAddressBookRequestTagList extends $tea.Model {
     return {
       tagValue: 'string',
       tagKey: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyInstanceMemberAttributesRequestMembers extends $tea.Model {
+  memberDesc?: string;
+  memberUid?: number;
+  static names(): { [key: string]: string } {
+    return {
+      memberDesc: 'MemberDesc',
+      memberUid: 'MemberUid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      memberDesc: 'string',
+      memberUid: 'number',
     };
   }
 
@@ -1761,6 +3092,19 @@ export default class Client extends OpenApi {
     return await this.addControlPolicyWithOptions(request, runtime);
   }
 
+  async addInstanceMembersWithOptions(request: AddInstanceMembersRequest, runtime: $Util.RuntimeOptions): Promise<AddInstanceMembersResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<AddInstanceMembersResponse>(await this.doRPCRequest("AddInstanceMembers", "2017-12-07", "HTTPS", "POST", "AK", "json", req, runtime), new AddInstanceMembersResponse({}));
+  }
+
+  async addInstanceMembers(request: AddInstanceMembersRequest): Promise<AddInstanceMembersResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.addInstanceMembersWithOptions(request, runtime);
+  }
+
   async createVpcFirewallControlPolicyWithOptions(request: CreateVpcFirewallControlPolicyRequest, runtime: $Util.RuntimeOptions): Promise<CreateVpcFirewallControlPolicyResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -1800,6 +3144,19 @@ export default class Client extends OpenApi {
     return await this.deleteControlPolicyWithOptions(request, runtime);
   }
 
+  async deleteInstanceMembersWithOptions(request: DeleteInstanceMembersRequest, runtime: $Util.RuntimeOptions): Promise<DeleteInstanceMembersResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DeleteInstanceMembersResponse>(await this.doRPCRequest("DeleteInstanceMembers", "2017-12-07", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteInstanceMembersResponse({}));
+  }
+
+  async deleteInstanceMembers(request: DeleteInstanceMembersRequest): Promise<DeleteInstanceMembersResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteInstanceMembersWithOptions(request, runtime);
+  }
+
   async deleteVpcFirewallControlPolicyWithOptions(request: DeleteVpcFirewallControlPolicyRequest, runtime: $Util.RuntimeOptions): Promise<DeleteVpcFirewallControlPolicyResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -1813,6 +3170,97 @@ export default class Client extends OpenApi {
     return await this.deleteVpcFirewallControlPolicyWithOptions(request, runtime);
   }
 
+  async describeAddressBookWithOptions(request: DescribeAddressBookRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAddressBookResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DescribeAddressBookResponse>(await this.doRPCRequest("DescribeAddressBook", "2017-12-07", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeAddressBookResponse({}));
+  }
+
+  async describeAddressBook(request: DescribeAddressBookRequest): Promise<DescribeAddressBookResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeAddressBookWithOptions(request, runtime);
+  }
+
+  async describeAssetListWithOptions(request: DescribeAssetListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAssetListResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DescribeAssetListResponse>(await this.doRPCRequest("DescribeAssetList", "2017-12-07", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeAssetListResponse({}));
+  }
+
+  async describeAssetList(request: DescribeAssetListRequest): Promise<DescribeAssetListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeAssetListWithOptions(request, runtime);
+  }
+
+  async describeControlPolicyWithOptions(request: DescribeControlPolicyRequest, runtime: $Util.RuntimeOptions): Promise<DescribeControlPolicyResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DescribeControlPolicyResponse>(await this.doRPCRequest("DescribeControlPolicy", "2017-12-07", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeControlPolicyResponse({}));
+  }
+
+  async describeControlPolicy(request: DescribeControlPolicyRequest): Promise<DescribeControlPolicyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeControlPolicyWithOptions(request, runtime);
+  }
+
+  async describeDomainResolveWithOptions(request: DescribeDomainResolveRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainResolveResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DescribeDomainResolveResponse>(await this.doRPCRequest("DescribeDomainResolve", "2017-12-07", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeDomainResolveResponse({}));
+  }
+
+  async describeDomainResolve(request: DescribeDomainResolveRequest): Promise<DescribeDomainResolveResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDomainResolveWithOptions(request, runtime);
+  }
+
+  async describeInstanceMembersWithOptions(request: DescribeInstanceMembersRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceMembersResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DescribeInstanceMembersResponse>(await this.doRPCRequest("DescribeInstanceMembers", "2017-12-07", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeInstanceMembersResponse({}));
+  }
+
+  async describeInstanceMembers(request: DescribeInstanceMembersRequest): Promise<DescribeInstanceMembersResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeInstanceMembersWithOptions(request, runtime);
+  }
+
+  async describeInstanceRdAccountsWithOptions(request: DescribeInstanceRdAccountsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceRdAccountsResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DescribeInstanceRdAccountsResponse>(await this.doRPCRequest("DescribeInstanceRdAccounts", "2017-12-07", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeInstanceRdAccountsResponse({}));
+  }
+
+  async describeInstanceRdAccounts(request: DescribeInstanceRdAccountsRequest): Promise<DescribeInstanceRdAccountsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeInstanceRdAccountsWithOptions(request, runtime);
+  }
+
+  async describePolicyAdvancedConfigWithOptions(request: DescribePolicyAdvancedConfigRequest, runtime: $Util.RuntimeOptions): Promise<DescribePolicyAdvancedConfigResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DescribePolicyAdvancedConfigResponse>(await this.doRPCRequest("DescribePolicyAdvancedConfig", "2017-12-07", "HTTPS", "POST", "AK", "json", req, runtime), new DescribePolicyAdvancedConfigResponse({}));
+  }
+
+  async describePolicyAdvancedConfig(request: DescribePolicyAdvancedConfigRequest): Promise<DescribePolicyAdvancedConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describePolicyAdvancedConfigWithOptions(request, runtime);
+  }
+
   async describePolicyPriorUsedWithOptions(request: DescribePolicyPriorUsedRequest, runtime: $Util.RuntimeOptions): Promise<DescribePolicyPriorUsedResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -1824,6 +3272,19 @@ export default class Client extends OpenApi {
   async describePolicyPriorUsed(request: DescribePolicyPriorUsedRequest): Promise<DescribePolicyPriorUsedResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describePolicyPriorUsedWithOptions(request, runtime);
+  }
+
+  async describeVpcFirewallAclGroupListWithOptions(request: DescribeVpcFirewallAclGroupListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVpcFirewallAclGroupListResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DescribeVpcFirewallAclGroupListResponse>(await this.doRPCRequest("DescribeVpcFirewallAclGroupList", "2017-12-07", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeVpcFirewallAclGroupListResponse({}));
+  }
+
+  async describeVpcFirewallAclGroupList(request: DescribeVpcFirewallAclGroupListRequest): Promise<DescribeVpcFirewallAclGroupListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeVpcFirewallAclGroupListWithOptions(request, runtime);
   }
 
   async describeVpcFirewallControlPolicyWithOptions(request: DescribeVpcFirewallControlPolicyRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVpcFirewallControlPolicyResponse> {
@@ -1889,6 +3350,32 @@ export default class Client extends OpenApi {
   async modifyControlPolicyPosition(request: ModifyControlPolicyPositionRequest): Promise<ModifyControlPolicyPositionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyControlPolicyPositionWithOptions(request, runtime);
+  }
+
+  async modifyControlPolicyPriorityWithOptions(request: ModifyControlPolicyPriorityRequest, runtime: $Util.RuntimeOptions): Promise<ModifyControlPolicyPriorityResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<ModifyControlPolicyPriorityResponse>(await this.doRPCRequest("ModifyControlPolicyPriority", "2017-12-07", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyControlPolicyPriorityResponse({}));
+  }
+
+  async modifyControlPolicyPriority(request: ModifyControlPolicyPriorityRequest): Promise<ModifyControlPolicyPriorityResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyControlPolicyPriorityWithOptions(request, runtime);
+  }
+
+  async modifyInstanceMemberAttributesWithOptions(request: ModifyInstanceMemberAttributesRequest, runtime: $Util.RuntimeOptions): Promise<ModifyInstanceMemberAttributesResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<ModifyInstanceMemberAttributesResponse>(await this.doRPCRequest("ModifyInstanceMemberAttributes", "2017-12-07", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyInstanceMemberAttributesResponse({}));
+  }
+
+  async modifyInstanceMemberAttributes(request: ModifyInstanceMemberAttributesRequest): Promise<ModifyInstanceMemberAttributesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyInstanceMemberAttributesWithOptions(request, runtime);
   }
 
   async modifyPolicyAdvancedConfigWithOptions(request: ModifyPolicyAdvancedConfigRequest, runtime: $Util.RuntimeOptions): Promise<ModifyPolicyAdvancedConfigResponse> {
