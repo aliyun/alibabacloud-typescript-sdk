@@ -48,19 +48,19 @@ export class ActiveFlowLogRequest extends $tea.Model {
 }
 
 export class ActiveFlowLogResponseBody extends $tea.Model {
-  requestId?: string;
   success?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       success: 'Success',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       success: 'string',
+      requestId: 'string',
     };
   }
 
@@ -259,7 +259,6 @@ export class CreateCenRequest extends $tea.Model {
   name?: string;
   description?: string;
   protectionLevel?: string;
-  ipv6Level?: string;
   static names(): { [key: string]: string } {
     return {
       ownerAccount: 'OwnerAccount',
@@ -270,7 +269,6 @@ export class CreateCenRequest extends $tea.Model {
       name: 'Name',
       description: 'Description',
       protectionLevel: 'ProtectionLevel',
-      ipv6Level: 'Ipv6Level',
     };
   }
 
@@ -284,7 +282,6 @@ export class CreateCenRequest extends $tea.Model {
       name: 'string',
       description: 'string',
       protectionLevel: 'string',
-      ipv6Level: 'string',
     };
   }
 
@@ -294,19 +291,19 @@ export class CreateCenRequest extends $tea.Model {
 }
 
 export class CreateCenResponseBody extends $tea.Model {
-  requestId?: string;
   cenId?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       cenId: 'CenId',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       cenId: 'string',
+      requestId: 'string',
     };
   }
 
@@ -402,22 +399,22 @@ export class CreateCenBandwidthPackageRequest extends $tea.Model {
 }
 
 export class CreateCenBandwidthPackageResponseBody extends $tea.Model {
-  requestId?: string;
   cenBandwidthPackageId?: string;
   cenBandwidthPackageOrderId?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       cenBandwidthPackageId: 'CenBandwidthPackageId',
       cenBandwidthPackageOrderId: 'CenBandwidthPackageOrderId',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       cenBandwidthPackageId: 'string',
       cenBandwidthPackageOrderId: 'string',
+      requestId: 'string',
     };
   }
 
@@ -557,9 +554,6 @@ export class CreateCenRouteMapRequest extends $tea.Model {
   preference?: number;
   sourceInstanceIdsReverseMatch?: boolean;
   destinationInstanceIdsReverseMatch?: boolean;
-  gatewayZoneId?: string;
-  systemPolicy?: boolean;
-  matchAddressType?: string;
   sourceInstanceIds?: string[];
   destinationInstanceIds?: string[];
   sourceRouteTableIds?: string[];
@@ -573,9 +567,6 @@ export class CreateCenRouteMapRequest extends $tea.Model {
   matchCommunitySet?: string[];
   operateCommunitySet?: string[];
   prependAsPath?: number[];
-  destinationRegionIds?: string[];
-  sourceZoneIds?: string[];
-  originalRouteTableIds?: string[];
   static names(): { [key: string]: string } {
     return {
       ownerAccount: 'OwnerAccount',
@@ -596,9 +587,6 @@ export class CreateCenRouteMapRequest extends $tea.Model {
       preference: 'Preference',
       sourceInstanceIdsReverseMatch: 'SourceInstanceIdsReverseMatch',
       destinationInstanceIdsReverseMatch: 'DestinationInstanceIdsReverseMatch',
-      gatewayZoneId: 'GatewayZoneId',
-      systemPolicy: 'SystemPolicy',
-      matchAddressType: 'MatchAddressType',
       sourceInstanceIds: 'SourceInstanceIds',
       destinationInstanceIds: 'DestinationInstanceIds',
       sourceRouteTableIds: 'SourceRouteTableIds',
@@ -612,9 +600,6 @@ export class CreateCenRouteMapRequest extends $tea.Model {
       matchCommunitySet: 'MatchCommunitySet',
       operateCommunitySet: 'OperateCommunitySet',
       prependAsPath: 'PrependAsPath',
-      destinationRegionIds: 'DestinationRegionIds',
-      sourceZoneIds: 'SourceZoneIds',
-      originalRouteTableIds: 'OriginalRouteTableIds',
     };
   }
 
@@ -638,9 +623,6 @@ export class CreateCenRouteMapRequest extends $tea.Model {
       preference: 'number',
       sourceInstanceIdsReverseMatch: 'boolean',
       destinationInstanceIdsReverseMatch: 'boolean',
-      gatewayZoneId: 'string',
-      systemPolicy: 'boolean',
-      matchAddressType: 'string',
       sourceInstanceIds: { 'type': 'array', 'itemType': 'string' },
       destinationInstanceIds: { 'type': 'array', 'itemType': 'string' },
       sourceRouteTableIds: { 'type': 'array', 'itemType': 'string' },
@@ -654,9 +636,6 @@ export class CreateCenRouteMapRequest extends $tea.Model {
       matchCommunitySet: { 'type': 'array', 'itemType': 'string' },
       operateCommunitySet: { 'type': 'array', 'itemType': 'string' },
       prependAsPath: { 'type': 'array', 'itemType': 'number' },
-      destinationRegionIds: { 'type': 'array', 'itemType': 'string' },
-      sourceZoneIds: { 'type': 'array', 'itemType': 'string' },
-      originalRouteTableIds: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -666,19 +645,19 @@ export class CreateCenRouteMapRequest extends $tea.Model {
 }
 
 export class CreateCenRouteMapResponseBody extends $tea.Model {
-  requestId?: string;
   routeMapId?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       routeMapId: 'RouteMapId',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       routeMapId: 'string',
+      requestId: 'string',
     };
   }
 
@@ -760,21 +739,21 @@ export class CreateFlowlogRequest extends $tea.Model {
 
 export class CreateFlowlogResponseBody extends $tea.Model {
   requestId?: string;
-  flowLogId?: string;
   success?: string;
+  flowLogId?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      flowLogId: 'FlowLogId',
       success: 'Success',
+      flowLogId: 'FlowLogId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      flowLogId: 'string',
       success: 'string',
+      flowLogId: 'string',
     };
   }
 
@@ -846,19 +825,19 @@ export class DeactiveFlowLogRequest extends $tea.Model {
 }
 
 export class DeactiveFlowLogResponseBody extends $tea.Model {
-  requestId?: string;
   success?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       success: 'Success',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       success: 'string',
+      requestId: 'string',
     };
   }
 
@@ -1242,19 +1221,19 @@ export class DeleteFlowlogRequest extends $tea.Model {
 }
 
 export class DeleteFlowlogResponseBody extends $tea.Model {
-  requestId?: string;
   success?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       success: 'Success',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       success: 'string',
+      requestId: 'string',
     };
   }
 
@@ -1378,7 +1357,6 @@ export class DescribeCenAttachedChildInstanceAttributeRequest extends $tea.Model
   childInstanceId?: string;
   childInstanceType?: string;
   childInstanceRegionId?: string;
-  includeRouteTable?: boolean;
   static names(): { [key: string]: string } {
     return {
       ownerAccount: 'OwnerAccount',
@@ -1389,7 +1367,6 @@ export class DescribeCenAttachedChildInstanceAttributeRequest extends $tea.Model
       childInstanceId: 'ChildInstanceId',
       childInstanceType: 'ChildInstanceType',
       childInstanceRegionId: 'ChildInstanceRegionId',
-      includeRouteTable: 'IncludeRouteTable',
     };
   }
 
@@ -1403,7 +1380,6 @@ export class DescribeCenAttachedChildInstanceAttributeRequest extends $tea.Model
       childInstanceId: 'string',
       childInstanceType: 'string',
       childInstanceRegionId: 'string',
-      includeRouteTable: 'boolean',
     };
   }
 
@@ -1415,24 +1391,24 @@ export class DescribeCenAttachedChildInstanceAttributeRequest extends $tea.Model
 export class DescribeCenAttachedChildInstanceAttributeResponseBody extends $tea.Model {
   status?: string;
   childInstanceType?: string;
-  requestId?: string;
-  cenId?: string;
-  childInstanceAttachTime?: string;
-  childInstanceOwnerId?: number;
-  childInstanceName?: string;
-  childInstanceId?: string;
   childInstanceRegionId?: string;
+  requestId?: string;
+  childInstanceOwnerId?: number;
+  childInstanceId?: string;
+  cenId?: string;
+  childInstanceName?: string;
+  childInstanceAttachTime?: string;
   static names(): { [key: string]: string } {
     return {
       status: 'Status',
       childInstanceType: 'ChildInstanceType',
-      requestId: 'RequestId',
-      cenId: 'CenId',
-      childInstanceAttachTime: 'ChildInstanceAttachTime',
-      childInstanceOwnerId: 'ChildInstanceOwnerId',
-      childInstanceName: 'ChildInstanceName',
-      childInstanceId: 'ChildInstanceId',
       childInstanceRegionId: 'ChildInstanceRegionId',
+      requestId: 'RequestId',
+      childInstanceOwnerId: 'ChildInstanceOwnerId',
+      childInstanceId: 'ChildInstanceId',
+      cenId: 'CenId',
+      childInstanceName: 'ChildInstanceName',
+      childInstanceAttachTime: 'ChildInstanceAttachTime',
     };
   }
 
@@ -1440,13 +1416,13 @@ export class DescribeCenAttachedChildInstanceAttributeResponseBody extends $tea.
     return {
       status: 'string',
       childInstanceType: 'string',
-      requestId: 'string',
-      cenId: 'string',
-      childInstanceAttachTime: 'string',
-      childInstanceOwnerId: 'number',
-      childInstanceName: 'string',
-      childInstanceId: 'string',
       childInstanceRegionId: 'string',
+      requestId: 'string',
+      childInstanceOwnerId: 'number',
+      childInstanceId: 'string',
+      cenId: 'string',
+      childInstanceName: 'string',
+      childInstanceAttachTime: 'string',
     };
   }
 
@@ -1521,28 +1497,28 @@ export class DescribeCenAttachedChildInstancesRequest extends $tea.Model {
 }
 
 export class DescribeCenAttachedChildInstancesResponseBody extends $tea.Model {
-  totalCount?: number;
   pageSize?: number;
   requestId?: string;
   pageNumber?: number;
-  childInstances?: DescribeCenAttachedChildInstancesResponseBodyChildInstances[];
+  totalCount?: number;
+  childInstances?: DescribeCenAttachedChildInstancesResponseBodyChildInstances;
   static names(): { [key: string]: string } {
     return {
-      totalCount: 'TotalCount',
       pageSize: 'PageSize',
       requestId: 'RequestId',
       pageNumber: 'PageNumber',
+      totalCount: 'TotalCount',
       childInstances: 'ChildInstances',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      totalCount: 'number',
       pageSize: 'number',
       requestId: 'string',
       pageNumber: 'number',
-      childInstances: { 'type': 'array', 'itemType': DescribeCenAttachedChildInstancesResponseBodyChildInstances },
+      totalCount: 'number',
+      childInstances: DescribeCenAttachedChildInstancesResponseBodyChildInstances,
     };
   }
 
@@ -1617,28 +1593,28 @@ export class DescribeCenBandwidthPackagesRequest extends $tea.Model {
 }
 
 export class DescribeCenBandwidthPackagesResponseBody extends $tea.Model {
-  totalCount?: number;
   pageSize?: number;
   requestId?: string;
   pageNumber?: number;
-  cenBandwidthPackages?: DescribeCenBandwidthPackagesResponseBodyCenBandwidthPackages[];
+  totalCount?: number;
+  cenBandwidthPackages?: DescribeCenBandwidthPackagesResponseBodyCenBandwidthPackages;
   static names(): { [key: string]: string } {
     return {
-      totalCount: 'TotalCount',
       pageSize: 'PageSize',
       requestId: 'RequestId',
       pageNumber: 'PageNumber',
+      totalCount: 'TotalCount',
       cenBandwidthPackages: 'CenBandwidthPackages',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      totalCount: 'number',
       pageSize: 'number',
       requestId: 'string',
       pageNumber: 'number',
-      cenBandwidthPackages: { 'type': 'array', 'itemType': DescribeCenBandwidthPackagesResponseBodyCenBandwidthPackages },
+      totalCount: 'number',
+      cenBandwidthPackages: DescribeCenBandwidthPackagesResponseBodyCenBandwidthPackages,
     };
   }
 
@@ -1681,8 +1657,6 @@ export class DescribeCenChildInstanceRouteEntriesRequest extends $tea.Model {
   pageNumber?: number;
   pageSize?: number;
   childInstanceRegionId?: string;
-  childInstanceRouteTableId?: string;
-  destinationCidrBlock?: string;
   static names(): { [key: string]: string } {
     return {
       ownerAccount: 'OwnerAccount',
@@ -1696,8 +1670,6 @@ export class DescribeCenChildInstanceRouteEntriesRequest extends $tea.Model {
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       childInstanceRegionId: 'ChildInstanceRegionId',
-      childInstanceRouteTableId: 'ChildInstanceRouteTableId',
-      destinationCidrBlock: 'DestinationCidrBlock',
     };
   }
 
@@ -1714,8 +1686,6 @@ export class DescribeCenChildInstanceRouteEntriesRequest extends $tea.Model {
       pageNumber: 'number',
       pageSize: 'number',
       childInstanceRegionId: 'string',
-      childInstanceRouteTableId: 'string',
-      destinationCidrBlock: 'string',
     };
   }
 
@@ -1725,28 +1695,28 @@ export class DescribeCenChildInstanceRouteEntriesRequest extends $tea.Model {
 }
 
 export class DescribeCenChildInstanceRouteEntriesResponseBody extends $tea.Model {
-  totalCount?: number;
   pageSize?: number;
   requestId?: string;
   pageNumber?: number;
-  cenRouteEntries?: DescribeCenChildInstanceRouteEntriesResponseBodyCenRouteEntries[];
+  totalCount?: number;
+  cenRouteEntries?: DescribeCenChildInstanceRouteEntriesResponseBodyCenRouteEntries;
   static names(): { [key: string]: string } {
     return {
-      totalCount: 'TotalCount',
       pageSize: 'PageSize',
       requestId: 'RequestId',
       pageNumber: 'PageNumber',
+      totalCount: 'TotalCount',
       cenRouteEntries: 'CenRouteEntries',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      totalCount: 'number',
       pageSize: 'number',
       requestId: 'string',
       pageNumber: 'number',
-      cenRouteEntries: { 'type': 'array', 'itemType': DescribeCenChildInstanceRouteEntriesResponseBodyCenRouteEntries },
+      totalCount: 'number',
+      cenRouteEntries: DescribeCenChildInstanceRouteEntriesResponseBodyCenRouteEntries,
     };
   }
 
@@ -1821,19 +1791,19 @@ export class DescribeCenGeographicSpanRemainingBandwidthRequest extends $tea.Mod
 }
 
 export class DescribeCenGeographicSpanRemainingBandwidthResponseBody extends $tea.Model {
-  requestId?: string;
   remainingBandwidth?: number;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       remainingBandwidth: 'RemainingBandwidth',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       remainingBandwidth: 'number',
+      requestId: 'string',
     };
   }
 
@@ -1902,28 +1872,28 @@ export class DescribeCenGeographicSpansRequest extends $tea.Model {
 }
 
 export class DescribeCenGeographicSpansResponseBody extends $tea.Model {
-  totalCount?: number;
   pageSize?: number;
   requestId?: string;
   pageNumber?: number;
-  geographicSpanModels?: DescribeCenGeographicSpansResponseBodyGeographicSpanModels[];
+  totalCount?: number;
+  geographicSpanModels?: DescribeCenGeographicSpansResponseBodyGeographicSpanModels;
   static names(): { [key: string]: string } {
     return {
-      totalCount: 'TotalCount',
       pageSize: 'PageSize',
       requestId: 'RequestId',
       pageNumber: 'PageNumber',
+      totalCount: 'TotalCount',
       geographicSpanModels: 'GeographicSpanModels',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      totalCount: 'number',
       pageSize: 'number',
       requestId: 'string',
       pageNumber: 'number',
-      geographicSpanModels: { 'type': 'array', 'itemType': DescribeCenGeographicSpansResponseBodyGeographicSpanModels },
+      totalCount: 'number',
+      geographicSpanModels: DescribeCenGeographicSpansResponseBodyGeographicSpanModels,
     };
   }
 
@@ -1992,28 +1962,28 @@ export class DescribeCenInterRegionBandwidthLimitsRequest extends $tea.Model {
 }
 
 export class DescribeCenInterRegionBandwidthLimitsResponseBody extends $tea.Model {
-  cenInterRegionBandwidthLimits?: DescribeCenInterRegionBandwidthLimitsResponseBodyCenInterRegionBandwidthLimits[];
-  totalCount?: number;
   pageSize?: number;
   requestId?: string;
   pageNumber?: number;
+  totalCount?: number;
+  cenInterRegionBandwidthLimits?: DescribeCenInterRegionBandwidthLimitsResponseBodyCenInterRegionBandwidthLimits;
   static names(): { [key: string]: string } {
     return {
-      cenInterRegionBandwidthLimits: 'CenInterRegionBandwidthLimits',
-      totalCount: 'TotalCount',
       pageSize: 'PageSize',
       requestId: 'RequestId',
       pageNumber: 'PageNumber',
+      totalCount: 'TotalCount',
+      cenInterRegionBandwidthLimits: 'CenInterRegionBandwidthLimits',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      cenInterRegionBandwidthLimits: { 'type': 'array', 'itemType': DescribeCenInterRegionBandwidthLimitsResponseBodyCenInterRegionBandwidthLimits },
-      totalCount: 'number',
       pageSize: 'number',
       requestId: 'string',
       pageNumber: 'number',
+      totalCount: 'number',
+      cenInterRegionBandwidthLimits: DescribeCenInterRegionBandwidthLimitsResponseBodyCenInterRegionBandwidthLimits,
     };
   }
 
@@ -2082,34 +2052,34 @@ export class DescribeCenPrivateZoneRoutesRequest extends $tea.Model {
 }
 
 export class DescribeCenPrivateZoneRoutesResponseBody extends $tea.Model {
-  totalCount?: number;
   requestId?: string;
-  pageSize?: number;
-  privateZoneInfos?: DescribeCenPrivateZoneRoutesResponseBodyPrivateZoneInfos[];
-  pageNumber?: number;
-  cenId?: string;
   privateZoneDnsServers?: string;
+  cenId?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  totalCount?: number;
+  privateZoneInfos?: DescribeCenPrivateZoneRoutesResponseBodyPrivateZoneInfos;
   static names(): { [key: string]: string } {
     return {
-      totalCount: 'TotalCount',
       requestId: 'RequestId',
-      pageSize: 'PageSize',
-      privateZoneInfos: 'PrivateZoneInfos',
-      pageNumber: 'PageNumber',
-      cenId: 'CenId',
       privateZoneDnsServers: 'PrivateZoneDnsServers',
+      cenId: 'CenId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+      privateZoneInfos: 'PrivateZoneInfos',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      totalCount: 'number',
       requestId: 'string',
-      pageSize: 'number',
-      privateZoneInfos: { 'type': 'array', 'itemType': DescribeCenPrivateZoneRoutesResponseBodyPrivateZoneInfos },
-      pageNumber: 'number',
-      cenId: 'string',
       privateZoneDnsServers: 'string',
+      cenId: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
+      privateZoneInfos: DescribeCenPrivateZoneRoutesResponseBodyPrivateZoneInfos,
     };
   }
 
@@ -2150,7 +2120,6 @@ export class DescribeCenRegionDomainRouteEntriesRequest extends $tea.Model {
   pageNumber?: number;
   pageSize?: number;
   status?: string;
-  destinationCidrBlock?: string;
   static names(): { [key: string]: string } {
     return {
       ownerAccount: 'OwnerAccount',
@@ -2162,7 +2131,6 @@ export class DescribeCenRegionDomainRouteEntriesRequest extends $tea.Model {
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       status: 'Status',
-      destinationCidrBlock: 'DestinationCidrBlock',
     };
   }
 
@@ -2177,7 +2145,6 @@ export class DescribeCenRegionDomainRouteEntriesRequest extends $tea.Model {
       pageNumber: 'number',
       pageSize: 'number',
       status: 'string',
-      destinationCidrBlock: 'string',
     };
   }
 
@@ -2187,28 +2154,28 @@ export class DescribeCenRegionDomainRouteEntriesRequest extends $tea.Model {
 }
 
 export class DescribeCenRegionDomainRouteEntriesResponseBody extends $tea.Model {
-  totalCount?: number;
   pageSize?: number;
   requestId?: string;
   pageNumber?: number;
-  cenRouteEntries?: DescribeCenRegionDomainRouteEntriesResponseBodyCenRouteEntries[];
+  totalCount?: number;
+  cenRouteEntries?: DescribeCenRegionDomainRouteEntriesResponseBodyCenRouteEntries;
   static names(): { [key: string]: string } {
     return {
-      totalCount: 'TotalCount',
       pageSize: 'PageSize',
       requestId: 'RequestId',
       pageNumber: 'PageNumber',
+      totalCount: 'TotalCount',
       cenRouteEntries: 'CenRouteEntries',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      totalCount: 'number',
       pageSize: 'number',
       requestId: 'string',
       pageNumber: 'number',
-      cenRouteEntries: { 'type': 'array', 'itemType': DescribeCenRegionDomainRouteEntriesResponseBodyCenRouteEntries },
+      totalCount: 'number',
+      cenRouteEntries: DescribeCenRegionDomainRouteEntriesResponseBodyCenRouteEntries,
     };
   }
 
@@ -2250,7 +2217,6 @@ export class DescribeCenRouteMapsRequest extends $tea.Model {
   routeMapId?: string;
   cenRegionId?: string;
   transmitDirection?: string;
-  filter?: DescribeCenRouteMapsRequestFilter[];
   static names(): { [key: string]: string } {
     return {
       ownerAccount: 'OwnerAccount',
@@ -2263,7 +2229,6 @@ export class DescribeCenRouteMapsRequest extends $tea.Model {
       routeMapId: 'RouteMapId',
       cenRegionId: 'CenRegionId',
       transmitDirection: 'TransmitDirection',
-      filter: 'Filter',
     };
   }
 
@@ -2279,7 +2244,6 @@ export class DescribeCenRouteMapsRequest extends $tea.Model {
       routeMapId: 'string',
       cenRegionId: 'string',
       transmitDirection: 'string',
-      filter: { 'type': 'array', 'itemType': DescribeCenRouteMapsRequestFilter },
     };
   }
 
@@ -2289,28 +2253,28 @@ export class DescribeCenRouteMapsRequest extends $tea.Model {
 }
 
 export class DescribeCenRouteMapsResponseBody extends $tea.Model {
-  totalCount?: number;
   pageSize?: number;
   requestId?: string;
   pageNumber?: number;
-  routeMaps?: DescribeCenRouteMapsResponseBodyRouteMaps[];
+  totalCount?: number;
+  routeMaps?: DescribeCenRouteMapsResponseBodyRouteMaps;
   static names(): { [key: string]: string } {
     return {
-      totalCount: 'TotalCount',
       pageSize: 'PageSize',
       requestId: 'RequestId',
       pageNumber: 'PageNumber',
+      totalCount: 'TotalCount',
       routeMaps: 'RouteMaps',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      totalCount: 'number',
       pageSize: 'number',
       requestId: 'string',
       pageNumber: 'number',
-      routeMaps: { 'type': 'array', 'itemType': DescribeCenRouteMapsResponseBodyRouteMaps },
+      totalCount: 'number',
+      routeMaps: DescribeCenRouteMapsResponseBodyRouteMaps,
     };
   }
 
@@ -2382,28 +2346,28 @@ export class DescribeCensRequest extends $tea.Model {
 }
 
 export class DescribeCensResponseBody extends $tea.Model {
-  totalCount?: number;
   pageSize?: number;
   requestId?: string;
   pageNumber?: number;
-  cens?: DescribeCensResponseBodyCens[];
+  totalCount?: number;
+  cens?: DescribeCensResponseBodyCens;
   static names(): { [key: string]: string } {
     return {
-      totalCount: 'TotalCount',
       pageSize: 'PageSize',
       requestId: 'RequestId',
       pageNumber: 'PageNumber',
+      totalCount: 'TotalCount',
       cens: 'Cens',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      totalCount: 'number',
       pageSize: 'number',
       requestId: 'string',
       pageNumber: 'number',
-      cens: { 'type': 'array', 'itemType': DescribeCensResponseBodyCens },
+      totalCount: 'number',
+      cens: DescribeCensResponseBodyCens,
     };
   }
 
@@ -2481,28 +2445,28 @@ export class DescribeCenVbrHealthCheckRequest extends $tea.Model {
 }
 
 export class DescribeCenVbrHealthCheckResponseBody extends $tea.Model {
-  totalCount?: number;
   pageSize?: number;
   requestId?: string;
   pageNumber?: number;
-  vbrHealthChecks?: DescribeCenVbrHealthCheckResponseBodyVbrHealthChecks[];
+  totalCount?: number;
+  vbrHealthChecks?: DescribeCenVbrHealthCheckResponseBodyVbrHealthChecks;
   static names(): { [key: string]: string } {
     return {
-      totalCount: 'TotalCount',
       pageSize: 'PageSize',
       requestId: 'RequestId',
       pageNumber: 'PageNumber',
+      totalCount: 'TotalCount',
       vbrHealthChecks: 'VbrHealthChecks',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      totalCount: 'number',
       pageSize: 'number',
       requestId: 'string',
       pageNumber: 'number',
-      vbrHealthChecks: { 'type': 'array', 'itemType': DescribeCenVbrHealthCheckResponseBodyVbrHealthChecks },
+      totalCount: 'number',
+      vbrHealthChecks: DescribeCenVbrHealthCheckResponseBodyVbrHealthChecks,
     };
   }
 
@@ -2539,7 +2503,6 @@ export class DescribeChildInstanceRegionsRequest extends $tea.Model {
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   productType?: string;
-  childInstanceOwnerId?: number;
   static names(): { [key: string]: string } {
     return {
       ownerAccount: 'OwnerAccount',
@@ -2547,7 +2510,6 @@ export class DescribeChildInstanceRegionsRequest extends $tea.Model {
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       productType: 'ProductType',
-      childInstanceOwnerId: 'ChildInstanceOwnerId',
     };
   }
 
@@ -2558,7 +2520,6 @@ export class DescribeChildInstanceRegionsRequest extends $tea.Model {
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       productType: 'string',
-      childInstanceOwnerId: 'number',
     };
   }
 
@@ -2569,7 +2530,7 @@ export class DescribeChildInstanceRegionsRequest extends $tea.Model {
 
 export class DescribeChildInstanceRegionsResponseBody extends $tea.Model {
   requestId?: string;
-  regions?: DescribeChildInstanceRegionsResponseBodyRegions[];
+  regions?: DescribeChildInstanceRegionsResponseBodyRegions;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
@@ -2580,7 +2541,7 @@ export class DescribeChildInstanceRegionsResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      regions: { 'type': 'array', 'itemType': DescribeChildInstanceRegionsResponseBodyRegions },
+      regions: DescribeChildInstanceRegionsResponseBodyRegions,
     };
   }
 
@@ -2673,31 +2634,31 @@ export class DescribeFlowlogsRequest extends $tea.Model {
 }
 
 export class DescribeFlowlogsResponseBody extends $tea.Model {
-  totalCount?: string;
-  flowLogs?: DescribeFlowlogsResponseBodyFlowLogs[];
   pageSize?: string;
-  requestId?: string;
   pageNumber?: string;
+  requestId?: string;
+  totalCount?: string;
   success?: string;
+  flowLogs?: DescribeFlowlogsResponseBodyFlowLogs;
   static names(): { [key: string]: string } {
     return {
-      totalCount: 'TotalCount',
-      flowLogs: 'FlowLogs',
       pageSize: 'PageSize',
-      requestId: 'RequestId',
       pageNumber: 'PageNumber',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
       success: 'Success',
+      flowLogs: 'FlowLogs',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      totalCount: 'string',
-      flowLogs: { 'type': 'array', 'itemType': DescribeFlowlogsResponseBodyFlowLogs },
       pageSize: 'string',
-      requestId: 'string',
       pageNumber: 'string',
+      requestId: 'string',
+      totalCount: 'string',
       success: 'string',
+      flowLogs: DescribeFlowlogsResponseBodyFlowLogs,
     };
   }
 
@@ -2766,28 +2727,28 @@ export class DescribeGeographicRegionMembershipRequest extends $tea.Model {
 }
 
 export class DescribeGeographicRegionMembershipResponseBody extends $tea.Model {
-  totalCount?: number;
   pageSize?: number;
   requestId?: string;
-  regionIds?: DescribeGeographicRegionMembershipResponseBodyRegionIds[];
   pageNumber?: number;
+  totalCount?: number;
+  regionIds?: DescribeGeographicRegionMembershipResponseBodyRegionIds;
   static names(): { [key: string]: string } {
     return {
-      totalCount: 'TotalCount',
       pageSize: 'PageSize',
       requestId: 'RequestId',
-      regionIds: 'RegionIds',
       pageNumber: 'PageNumber',
+      totalCount: 'TotalCount',
+      regionIds: 'RegionIds',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      totalCount: 'number',
       pageSize: 'number',
       requestId: 'string',
-      regionIds: { 'type': 'array', 'itemType': DescribeGeographicRegionMembershipResponseBodyRegionIds },
       pageNumber: 'number',
+      totalCount: 'number',
+      regionIds: DescribeGeographicRegionMembershipResponseBodyRegionIds,
     };
   }
 
@@ -2857,7 +2818,7 @@ export class DescribeGrantRulesToCenRequest extends $tea.Model {
 
 export class DescribeGrantRulesToCenResponseBody extends $tea.Model {
   requestId?: string;
-  grantRules?: DescribeGrantRulesToCenResponseBodyGrantRules[];
+  grantRules?: DescribeGrantRulesToCenResponseBodyGrantRules;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
@@ -2868,7 +2829,7 @@ export class DescribeGrantRulesToCenResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      grantRules: { 'type': 'array', 'itemType': DescribeGrantRulesToCenResponseBodyGrantRules },
+      grantRules: DescribeGrantRulesToCenResponseBodyGrantRules,
     };
   }
 
@@ -2946,28 +2907,28 @@ export class DescribePublishedRouteEntriesRequest extends $tea.Model {
 }
 
 export class DescribePublishedRouteEntriesResponseBody extends $tea.Model {
-  totalCount?: number;
   pageSize?: number;
   requestId?: string;
   pageNumber?: number;
-  publishedRouteEntries?: DescribePublishedRouteEntriesResponseBodyPublishedRouteEntries[];
+  totalCount?: number;
+  publishedRouteEntries?: DescribePublishedRouteEntriesResponseBodyPublishedRouteEntries;
   static names(): { [key: string]: string } {
     return {
-      totalCount: 'TotalCount',
       pageSize: 'PageSize',
       requestId: 'RequestId',
       pageNumber: 'PageNumber',
+      totalCount: 'TotalCount',
       publishedRouteEntries: 'PublishedRouteEntries',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      totalCount: 'number',
       pageSize: 'number',
       requestId: 'string',
       pageNumber: 'number',
-      publishedRouteEntries: { 'type': 'array', 'itemType': DescribePublishedRouteEntriesResponseBodyPublishedRouteEntries },
+      totalCount: 'number',
+      publishedRouteEntries: DescribePublishedRouteEntriesResponseBodyPublishedRouteEntries,
     };
   }
 
@@ -3048,28 +3009,28 @@ export class DescribeRouteConflictRequest extends $tea.Model {
 }
 
 export class DescribeRouteConflictResponseBody extends $tea.Model {
-  totalCount?: number;
   pageSize?: number;
   requestId?: string;
   pageNumber?: number;
-  routeConflicts?: DescribeRouteConflictResponseBodyRouteConflicts[];
+  totalCount?: number;
+  routeConflicts?: DescribeRouteConflictResponseBodyRouteConflicts;
   static names(): { [key: string]: string } {
     return {
-      totalCount: 'TotalCount',
       pageSize: 'PageSize',
       requestId: 'RequestId',
       pageNumber: 'PageNumber',
+      totalCount: 'TotalCount',
       routeConflicts: 'RouteConflicts',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      totalCount: 'number',
       pageSize: 'number',
       requestId: 'string',
       pageNumber: 'number',
-      routeConflicts: { 'type': 'array', 'itemType': DescribeRouteConflictResponseBodyRouteConflicts },
+      totalCount: 'number',
+      routeConflicts: DescribeRouteConflictResponseBodyRouteConflicts,
     };
   }
 
@@ -3150,28 +3111,28 @@ export class DescribeRouteServicesInCenRequest extends $tea.Model {
 }
 
 export class DescribeRouteServicesInCenResponseBody extends $tea.Model {
-  totalCount?: number;
   pageSize?: number;
   requestId?: string;
   pageNumber?: number;
-  routeServiceEntries?: DescribeRouteServicesInCenResponseBodyRouteServiceEntries[];
+  totalCount?: number;
+  routeServiceEntries?: DescribeRouteServicesInCenResponseBodyRouteServiceEntries;
   static names(): { [key: string]: string } {
     return {
-      totalCount: 'TotalCount',
       pageSize: 'PageSize',
       requestId: 'RequestId',
       pageNumber: 'PageNumber',
+      totalCount: 'TotalCount',
       routeServiceEntries: 'RouteServiceEntries',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      totalCount: 'number',
       pageSize: 'number',
       requestId: 'string',
       pageNumber: 'number',
-      routeServiceEntries: { 'type': 'array', 'itemType': DescribeRouteServicesInCenResponseBodyRouteServiceEntries },
+      totalCount: 'number',
+      routeServiceEntries: DescribeRouteServicesInCenResponseBodyRouteServiceEntries,
     };
   }
 
@@ -3509,7 +3470,7 @@ export class ListTagResourcesRequest extends $tea.Model {
 export class ListTagResourcesResponseBody extends $tea.Model {
   nextToken?: string;
   requestId?: string;
-  tagResources?: ListTagResourcesResponseBodyTagResources[];
+  tagResources?: ListTagResourcesResponseBodyTagResources;
   static names(): { [key: string]: string } {
     return {
       nextToken: 'NextToken',
@@ -3522,7 +3483,7 @@ export class ListTagResourcesResponseBody extends $tea.Model {
     return {
       nextToken: 'string',
       requestId: 'string',
-      tagResources: { 'type': 'array', 'itemType': ListTagResourcesResponseBodyTagResources },
+      tagResources: ListTagResourcesResponseBodyTagResources,
     };
   }
 
@@ -3562,7 +3523,6 @@ export class ModifyCenAttributeRequest extends $tea.Model {
   name?: string;
   description?: string;
   protectionLevel?: string;
-  ipv6Level?: string;
   static names(): { [key: string]: string } {
     return {
       ownerAccount: 'OwnerAccount',
@@ -3573,7 +3533,6 @@ export class ModifyCenAttributeRequest extends $tea.Model {
       name: 'Name',
       description: 'Description',
       protectionLevel: 'ProtectionLevel',
-      ipv6Level: 'Ipv6Level',
     };
   }
 
@@ -3587,7 +3546,6 @@ export class ModifyCenAttributeRequest extends $tea.Model {
       name: 'string',
       description: 'string',
       protectionLevel: 'string',
-      ipv6Level: 'string',
     };
   }
 
@@ -3809,8 +3767,6 @@ export class ModifyCenRouteMapRequest extends $tea.Model {
   priority?: number;
   sourceInstanceIdsReverseMatch?: boolean;
   destinationInstanceIdsReverseMatch?: boolean;
-  gatewayZoneId?: string;
-  matchAddressType?: string;
   sourceInstanceIds?: string[];
   destinationInstanceIds?: string[];
   sourceRouteTableIds?: string[];
@@ -3824,9 +3780,6 @@ export class ModifyCenRouteMapRequest extends $tea.Model {
   matchCommunitySet?: string[];
   operateCommunitySet?: string[];
   prependAsPath?: number[];
-  destinationRegionIds?: string[];
-  sourceZoneIds?: string[];
-  originalRouteTableIds?: string[];
   static names(): { [key: string]: string } {
     return {
       ownerAccount: 'OwnerAccount',
@@ -3847,8 +3800,6 @@ export class ModifyCenRouteMapRequest extends $tea.Model {
       priority: 'Priority',
       sourceInstanceIdsReverseMatch: 'SourceInstanceIdsReverseMatch',
       destinationInstanceIdsReverseMatch: 'DestinationInstanceIdsReverseMatch',
-      gatewayZoneId: 'GatewayZoneId',
-      matchAddressType: 'MatchAddressType',
       sourceInstanceIds: 'SourceInstanceIds',
       destinationInstanceIds: 'DestinationInstanceIds',
       sourceRouteTableIds: 'SourceRouteTableIds',
@@ -3862,9 +3813,6 @@ export class ModifyCenRouteMapRequest extends $tea.Model {
       matchCommunitySet: 'MatchCommunitySet',
       operateCommunitySet: 'OperateCommunitySet',
       prependAsPath: 'PrependAsPath',
-      destinationRegionIds: 'DestinationRegionIds',
-      sourceZoneIds: 'SourceZoneIds',
-      originalRouteTableIds: 'OriginalRouteTableIds',
     };
   }
 
@@ -3888,8 +3836,6 @@ export class ModifyCenRouteMapRequest extends $tea.Model {
       priority: 'number',
       sourceInstanceIdsReverseMatch: 'boolean',
       destinationInstanceIdsReverseMatch: 'boolean',
-      gatewayZoneId: 'string',
-      matchAddressType: 'string',
       sourceInstanceIds: { 'type': 'array', 'itemType': 'string' },
       destinationInstanceIds: { 'type': 'array', 'itemType': 'string' },
       sourceRouteTableIds: { 'type': 'array', 'itemType': 'string' },
@@ -3903,9 +3849,6 @@ export class ModifyCenRouteMapRequest extends $tea.Model {
       matchCommunitySet: { 'type': 'array', 'itemType': 'string' },
       operateCommunitySet: { 'type': 'array', 'itemType': 'string' },
       prependAsPath: { 'type': 'array', 'itemType': 'number' },
-      destinationRegionIds: { 'type': 'array', 'itemType': 'string' },
-      sourceZoneIds: { 'type': 'array', 'itemType': 'string' },
-      originalRouteTableIds: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -4002,19 +3945,19 @@ export class ModifyFlowLogAttributeRequest extends $tea.Model {
 }
 
 export class ModifyFlowLogAttributeResponseBody extends $tea.Model {
-  requestId?: string;
   success?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       success: 'Success',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       success: 'string',
+      requestId: 'string',
     };
   }
 
@@ -4135,7 +4078,6 @@ export class ResolveAndRouteServiceInCenRequest extends $tea.Model {
   cenId?: string;
   host?: string;
   hostRegionId?: string;
-  updateInterval?: number;
   hostVpcId?: string;
   description?: string;
   accessRegionIds?: string[];
@@ -4149,7 +4091,6 @@ export class ResolveAndRouteServiceInCenRequest extends $tea.Model {
       cenId: 'CenId',
       host: 'Host',
       hostRegionId: 'HostRegionId',
-      updateInterval: 'UpdateInterval',
       hostVpcId: 'HostVpcId',
       description: 'Description',
       accessRegionIds: 'AccessRegionIds',
@@ -4166,7 +4107,6 @@ export class ResolveAndRouteServiceInCenRequest extends $tea.Model {
       cenId: 'string',
       host: 'string',
       hostRegionId: 'string',
-      updateInterval: 'number',
       hostVpcId: 'string',
       description: 'string',
       accessRegionIds: { 'type': 'array', 'itemType': 'string' },
@@ -4309,7 +4249,6 @@ export class SetCenInterRegionBandwidthLimitRequest extends $tea.Model {
   localRegionId?: string;
   oppositeRegionId?: string;
   bandwidthLimit?: number;
-  bandwidthPackageId?: string;
   static names(): { [key: string]: string } {
     return {
       ownerAccount: 'OwnerAccount',
@@ -4320,7 +4259,6 @@ export class SetCenInterRegionBandwidthLimitRequest extends $tea.Model {
       localRegionId: 'LocalRegionId',
       oppositeRegionId: 'OppositeRegionId',
       bandwidthLimit: 'BandwidthLimit',
-      bandwidthPackageId: 'BandwidthPackageId',
     };
   }
 
@@ -4334,7 +4272,6 @@ export class SetCenInterRegionBandwidthLimitRequest extends $tea.Model {
       localRegionId: 'string',
       oppositeRegionId: 'string',
       bandwidthLimit: 'number',
-      bandwidthPackageId: 'string',
     };
   }
 
@@ -4852,7 +4789,7 @@ export class WithdrawPublishedRouteEntriesResponse extends $tea.Model {
   }
 }
 
-export class DescribeCenAttachedChildInstancesResponseBodyChildInstances extends $tea.Model {
+export class DescribeCenAttachedChildInstancesResponseBodyChildInstancesChildInstance extends $tea.Model {
   childInstanceType?: string;
   status?: string;
   childInstanceRegionId?: string;
@@ -4889,6 +4826,25 @@ export class DescribeCenAttachedChildInstancesResponseBodyChildInstances extends
   }
 }
 
+export class DescribeCenAttachedChildInstancesResponseBodyChildInstances extends $tea.Model {
+  childInstance?: DescribeCenAttachedChildInstancesResponseBodyChildInstancesChildInstance[];
+  static names(): { [key: string]: string } {
+    return {
+      childInstance: 'ChildInstance',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      childInstance: { 'type': 'array', 'itemType': DescribeCenAttachedChildInstancesResponseBodyChildInstancesChildInstance },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeCenBandwidthPackagesRequestFilter extends $tea.Model {
   key?: string;
   value?: string[];
@@ -4911,26 +4867,26 @@ export class DescribeCenBandwidthPackagesRequestFilter extends $tea.Model {
   }
 }
 
-export class DescribeCenBandwidthPackagesResponseBodyCenBandwidthPackagesOrginInterRegionBandwidthLimits extends $tea.Model {
+export class DescribeCenBandwidthPackagesResponseBodyCenBandwidthPackagesCenBandwidthPackageOrginInterRegionBandwidthLimitsOrginInterRegionBandwidthLimit extends $tea.Model {
+  bandwidthLimit?: string;
   oppositeRegionId?: string;
   geographicSpanId?: string;
   localRegionId?: string;
-  bandwidthLimit?: string;
   static names(): { [key: string]: string } {
     return {
+      bandwidthLimit: 'BandwidthLimit',
       oppositeRegionId: 'OppositeRegionId',
       geographicSpanId: 'GeographicSpanId',
       localRegionId: 'LocalRegionId',
-      bandwidthLimit: 'BandwidthLimit',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      bandwidthLimit: 'string',
       oppositeRegionId: 'string',
       geographicSpanId: 'string',
       localRegionId: 'string',
-      bandwidthLimit: 'string',
     };
   }
 
@@ -4939,18 +4895,54 @@ export class DescribeCenBandwidthPackagesResponseBodyCenBandwidthPackagesOrginIn
   }
 }
 
-export class DescribeCenBandwidthPackagesResponseBodyCenBandwidthPackages extends $tea.Model {
-  creationTime?: string;
-  status?: string;
+export class DescribeCenBandwidthPackagesResponseBodyCenBandwidthPackagesCenBandwidthPackageOrginInterRegionBandwidthLimits extends $tea.Model {
+  orginInterRegionBandwidthLimit?: DescribeCenBandwidthPackagesResponseBodyCenBandwidthPackagesCenBandwidthPackageOrginInterRegionBandwidthLimitsOrginInterRegionBandwidthLimit[];
+  static names(): { [key: string]: string } {
+    return {
+      orginInterRegionBandwidthLimit: 'OrginInterRegionBandwidthLimit',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      orginInterRegionBandwidthLimit: { 'type': 'array', 'itemType': DescribeCenBandwidthPackagesResponseBodyCenBandwidthPackagesCenBandwidthPackageOrginInterRegionBandwidthLimitsOrginInterRegionBandwidthLimit },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCenBandwidthPackagesResponseBodyCenBandwidthPackagesCenBandwidthPackageCenIds extends $tea.Model {
+  cenId?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      cenId: 'CenId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cenId: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCenBandwidthPackagesResponseBodyCenBandwidthPackagesCenBandwidthPackage extends $tea.Model {
   reservationActiveTime?: string;
+  status?: string;
+  creationTime?: string;
   reservationOrderType?: string;
   bandwidthPackageChargeType?: string;
   cenBandwidthPackageId?: string;
-  orginInterRegionBandwidthLimits?: DescribeCenBandwidthPackagesResponseBodyCenBandwidthPackagesOrginInterRegionBandwidthLimits[];
-  cenIds?: string[];
-  geographicRegionAId?: string;
-  ratio?: string;
   reservationInternetChargeType?: string;
+  ratio?: string;
+  geographicRegionAId?: string;
   typeFor95?: string;
   bandwidth?: number;
   description?: string;
@@ -4962,19 +4954,19 @@ export class DescribeCenBandwidthPackagesResponseBodyCenBandwidthPackages extend
   businessStatus?: string;
   name?: string;
   hasReservationData?: string;
+  orginInterRegionBandwidthLimits?: DescribeCenBandwidthPackagesResponseBodyCenBandwidthPackagesCenBandwidthPackageOrginInterRegionBandwidthLimits;
+  cenIds?: DescribeCenBandwidthPackagesResponseBodyCenBandwidthPackagesCenBandwidthPackageCenIds;
   static names(): { [key: string]: string } {
     return {
-      creationTime: 'CreationTime',
-      status: 'Status',
       reservationActiveTime: 'ReservationActiveTime',
+      status: 'Status',
+      creationTime: 'CreationTime',
       reservationOrderType: 'ReservationOrderType',
       bandwidthPackageChargeType: 'BandwidthPackageChargeType',
       cenBandwidthPackageId: 'CenBandwidthPackageId',
-      orginInterRegionBandwidthLimits: 'OrginInterRegionBandwidthLimits',
-      cenIds: 'CenIds',
-      geographicRegionAId: 'GeographicRegionAId',
-      ratio: 'Ratio',
       reservationInternetChargeType: 'ReservationInternetChargeType',
+      ratio: 'Ratio',
+      geographicRegionAId: 'GeographicRegionAId',
       typeFor95: 'TypeFor95',
       bandwidth: 'Bandwidth',
       description: 'Description',
@@ -4986,22 +4978,22 @@ export class DescribeCenBandwidthPackagesResponseBodyCenBandwidthPackages extend
       businessStatus: 'BusinessStatus',
       name: 'Name',
       hasReservationData: 'HasReservationData',
+      orginInterRegionBandwidthLimits: 'OrginInterRegionBandwidthLimits',
+      cenIds: 'CenIds',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      creationTime: 'string',
-      status: 'string',
       reservationActiveTime: 'string',
+      status: 'string',
+      creationTime: 'string',
       reservationOrderType: 'string',
       bandwidthPackageChargeType: 'string',
       cenBandwidthPackageId: 'string',
-      orginInterRegionBandwidthLimits: { 'type': 'array', 'itemType': DescribeCenBandwidthPackagesResponseBodyCenBandwidthPackagesOrginInterRegionBandwidthLimits },
-      cenIds: { 'type': 'array', 'itemType': 'string' },
-      geographicRegionAId: 'string',
-      ratio: 'string',
       reservationInternetChargeType: 'string',
+      ratio: 'string',
+      geographicRegionAId: 'string',
       typeFor95: 'string',
       bandwidth: 'number',
       description: 'string',
@@ -5013,6 +5005,8 @@ export class DescribeCenBandwidthPackagesResponseBodyCenBandwidthPackages extend
       businessStatus: 'string',
       name: 'string',
       hasReservationData: 'string',
+      orginInterRegionBandwidthLimits: DescribeCenBandwidthPackagesResponseBodyCenBandwidthPackagesCenBandwidthPackageOrginInterRegionBandwidthLimits,
+      cenIds: DescribeCenBandwidthPackagesResponseBodyCenBandwidthPackagesCenBandwidthPackageCenIds,
     };
   }
 
@@ -5021,7 +5015,67 @@ export class DescribeCenBandwidthPackagesResponseBodyCenBandwidthPackages extend
   }
 }
 
-export class DescribeCenChildInstanceRouteEntriesResponseBodyCenRouteEntriesConflicts extends $tea.Model {
+export class DescribeCenBandwidthPackagesResponseBodyCenBandwidthPackages extends $tea.Model {
+  cenBandwidthPackage?: DescribeCenBandwidthPackagesResponseBodyCenBandwidthPackagesCenBandwidthPackage[];
+  static names(): { [key: string]: string } {
+    return {
+      cenBandwidthPackage: 'CenBandwidthPackage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cenBandwidthPackage: { 'type': 'array', 'itemType': DescribeCenBandwidthPackagesResponseBodyCenBandwidthPackagesCenBandwidthPackage },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCenChildInstanceRouteEntriesResponseBodyCenRouteEntriesCenRouteEntryCenRouteMapRecordsCenRouteMapRecord extends $tea.Model {
+  routeMapId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      routeMapId: 'RouteMapId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      routeMapId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCenChildInstanceRouteEntriesResponseBodyCenRouteEntriesCenRouteEntryCenRouteMapRecords extends $tea.Model {
+  cenRouteMapRecord?: DescribeCenChildInstanceRouteEntriesResponseBodyCenRouteEntriesCenRouteEntryCenRouteMapRecordsCenRouteMapRecord[];
+  static names(): { [key: string]: string } {
+    return {
+      cenRouteMapRecord: 'CenRouteMapRecord',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cenRouteMapRecord: { 'type': 'array', 'itemType': DescribeCenChildInstanceRouteEntriesResponseBodyCenRouteEntriesCenRouteEntryCenRouteMapRecordsCenRouteMapRecord },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCenChildInstanceRouteEntriesResponseBodyCenRouteEntriesCenRouteEntryConflictsConflict extends $tea.Model {
   status?: string;
   destinationCidrBlock?: string;
   instanceId?: string;
@@ -5052,20 +5106,17 @@ export class DescribeCenChildInstanceRouteEntriesResponseBodyCenRouteEntriesConf
   }
 }
 
-export class DescribeCenChildInstanceRouteEntriesResponseBodyCenRouteEntriesCenRouteMapRecords extends $tea.Model {
-  routeMapId?: string;
-  regionId?: string;
+export class DescribeCenChildInstanceRouteEntriesResponseBodyCenRouteEntriesCenRouteEntryConflicts extends $tea.Model {
+  conflict?: DescribeCenChildInstanceRouteEntriesResponseBodyCenRouteEntriesCenRouteEntryConflictsConflict[];
   static names(): { [key: string]: string } {
     return {
-      routeMapId: 'RouteMapId',
-      regionId: 'RegionId',
+      conflict: 'Conflict',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      routeMapId: 'string',
-      regionId: 'string',
+      conflict: { 'type': 'array', 'itemType': DescribeCenChildInstanceRouteEntriesResponseBodyCenRouteEntriesCenRouteEntryConflictsConflict },
     };
   }
 
@@ -5074,7 +5125,45 @@ export class DescribeCenChildInstanceRouteEntriesResponseBodyCenRouteEntriesCenR
   }
 }
 
-export class DescribeCenChildInstanceRouteEntriesResponseBodyCenRouteEntries extends $tea.Model {
+export class DescribeCenChildInstanceRouteEntriesResponseBodyCenRouteEntriesCenRouteEntryCommunities extends $tea.Model {
+  community?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      community: 'Community',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      community: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCenChildInstanceRouteEntriesResponseBodyCenRouteEntriesCenRouteEntryAsPaths extends $tea.Model {
+  asPath?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      asPath: 'AsPath',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      asPath: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCenChildInstanceRouteEntriesResponseBodyCenRouteEntriesCenRouteEntry extends $tea.Model {
   status?: string;
   type?: string;
   publishStatus?: string;
@@ -5082,12 +5171,12 @@ export class DescribeCenChildInstanceRouteEntriesResponseBodyCenRouteEntries ext
   operationalMode?: boolean;
   nextHopRegionId?: string;
   nextHopInstanceId?: string;
-  routeTableId?: string;
-  asPaths?: string[];
-  conflicts?: DescribeCenChildInstanceRouteEntriesResponseBodyCenRouteEntriesConflicts[];
-  communities?: string[];
   destinationCidrBlock?: string;
-  cenRouteMapRecords?: DescribeCenChildInstanceRouteEntriesResponseBodyCenRouteEntriesCenRouteMapRecords[];
+  routeTableId?: string;
+  cenRouteMapRecords?: DescribeCenChildInstanceRouteEntriesResponseBodyCenRouteEntriesCenRouteEntryCenRouteMapRecords;
+  conflicts?: DescribeCenChildInstanceRouteEntriesResponseBodyCenRouteEntriesCenRouteEntryConflicts;
+  communities?: DescribeCenChildInstanceRouteEntriesResponseBodyCenRouteEntriesCenRouteEntryCommunities;
+  asPaths?: DescribeCenChildInstanceRouteEntriesResponseBodyCenRouteEntriesCenRouteEntryAsPaths;
   static names(): { [key: string]: string } {
     return {
       status: 'Status',
@@ -5097,12 +5186,12 @@ export class DescribeCenChildInstanceRouteEntriesResponseBodyCenRouteEntries ext
       operationalMode: 'OperationalMode',
       nextHopRegionId: 'NextHopRegionId',
       nextHopInstanceId: 'NextHopInstanceId',
+      destinationCidrBlock: 'DestinationCidrBlock',
       routeTableId: 'RouteTableId',
-      asPaths: 'AsPaths',
+      cenRouteMapRecords: 'CenRouteMapRecords',
       conflicts: 'Conflicts',
       communities: 'Communities',
-      destinationCidrBlock: 'DestinationCidrBlock',
-      cenRouteMapRecords: 'CenRouteMapRecords',
+      asPaths: 'AsPaths',
     };
   }
 
@@ -5115,12 +5204,56 @@ export class DescribeCenChildInstanceRouteEntriesResponseBodyCenRouteEntries ext
       operationalMode: 'boolean',
       nextHopRegionId: 'string',
       nextHopInstanceId: 'string',
-      routeTableId: 'string',
-      asPaths: { 'type': 'array', 'itemType': 'string' },
-      conflicts: { 'type': 'array', 'itemType': DescribeCenChildInstanceRouteEntriesResponseBodyCenRouteEntriesConflicts },
-      communities: { 'type': 'array', 'itemType': 'string' },
       destinationCidrBlock: 'string',
-      cenRouteMapRecords: { 'type': 'array', 'itemType': DescribeCenChildInstanceRouteEntriesResponseBodyCenRouteEntriesCenRouteMapRecords },
+      routeTableId: 'string',
+      cenRouteMapRecords: DescribeCenChildInstanceRouteEntriesResponseBodyCenRouteEntriesCenRouteEntryCenRouteMapRecords,
+      conflicts: DescribeCenChildInstanceRouteEntriesResponseBodyCenRouteEntriesCenRouteEntryConflicts,
+      communities: DescribeCenChildInstanceRouteEntriesResponseBodyCenRouteEntriesCenRouteEntryCommunities,
+      asPaths: DescribeCenChildInstanceRouteEntriesResponseBodyCenRouteEntriesCenRouteEntryAsPaths,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCenChildInstanceRouteEntriesResponseBodyCenRouteEntries extends $tea.Model {
+  cenRouteEntry?: DescribeCenChildInstanceRouteEntriesResponseBodyCenRouteEntriesCenRouteEntry[];
+  static names(): { [key: string]: string } {
+    return {
+      cenRouteEntry: 'CenRouteEntry',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cenRouteEntry: { 'type': 'array', 'itemType': DescribeCenChildInstanceRouteEntriesResponseBodyCenRouteEntriesCenRouteEntry },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCenGeographicSpansResponseBodyGeographicSpanModelsGeographicSpanModel extends $tea.Model {
+  localGeoRegionId?: string;
+  geographicSpanId?: string;
+  oppositeGeoRegionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      localGeoRegionId: 'LocalGeoRegionId',
+      geographicSpanId: 'GeographicSpanId',
+      oppositeGeoRegionId: 'OppositeGeoRegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      localGeoRegionId: 'string',
+      geographicSpanId: 'string',
+      oppositeGeoRegionId: 'string',
     };
   }
 
@@ -5130,22 +5263,16 @@ export class DescribeCenChildInstanceRouteEntriesResponseBodyCenRouteEntries ext
 }
 
 export class DescribeCenGeographicSpansResponseBodyGeographicSpanModels extends $tea.Model {
-  geographicSpanId?: string;
-  oppositeGeoRegionId?: string;
-  localGeoRegionId?: string;
+  geographicSpanModel?: DescribeCenGeographicSpansResponseBodyGeographicSpanModelsGeographicSpanModel[];
   static names(): { [key: string]: string } {
     return {
-      geographicSpanId: 'GeographicSpanId',
-      oppositeGeoRegionId: 'OppositeGeoRegionId',
-      localGeoRegionId: 'LocalGeoRegionId',
+      geographicSpanModel: 'GeographicSpanModel',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      geographicSpanId: 'string',
-      oppositeGeoRegionId: 'string',
-      localGeoRegionId: 'string',
+      geographicSpanModel: { 'type': 'array', 'itemType': DescribeCenGeographicSpansResponseBodyGeographicSpanModelsGeographicSpanModel },
     };
   }
 
@@ -5154,7 +5281,7 @@ export class DescribeCenGeographicSpansResponseBodyGeographicSpanModels extends 
   }
 }
 
-export class DescribeCenInterRegionBandwidthLimitsResponseBodyCenInterRegionBandwidthLimits extends $tea.Model {
+export class DescribeCenInterRegionBandwidthLimitsResponseBodyCenInterRegionBandwidthLimitsCenInterRegionBandwidthLimit extends $tea.Model {
   status?: string;
   bandwidthPackageId?: string;
   oppositeRegionId?: string;
@@ -5191,26 +5318,45 @@ export class DescribeCenInterRegionBandwidthLimitsResponseBodyCenInterRegionBand
   }
 }
 
-export class DescribeCenPrivateZoneRoutesResponseBodyPrivateZoneInfos extends $tea.Model {
+export class DescribeCenInterRegionBandwidthLimitsResponseBodyCenInterRegionBandwidthLimits extends $tea.Model {
+  cenInterRegionBandwidthLimit?: DescribeCenInterRegionBandwidthLimitsResponseBodyCenInterRegionBandwidthLimitsCenInterRegionBandwidthLimit[];
+  static names(): { [key: string]: string } {
+    return {
+      cenInterRegionBandwidthLimit: 'CenInterRegionBandwidthLimit',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cenInterRegionBandwidthLimit: { 'type': 'array', 'itemType': DescribeCenInterRegionBandwidthLimitsResponseBodyCenInterRegionBandwidthLimitsCenInterRegionBandwidthLimit },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCenPrivateZoneRoutesResponseBodyPrivateZoneInfosPrivateZoneInfo extends $tea.Model {
   status?: string;
-  hostVpcId?: string;
   accessRegionId?: string;
   hostRegionId?: string;
+  hostVpcId?: string;
   static names(): { [key: string]: string } {
     return {
       status: 'Status',
-      hostVpcId: 'HostVpcId',
       accessRegionId: 'AccessRegionId',
       hostRegionId: 'HostRegionId',
+      hostVpcId: 'HostVpcId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       status: 'string',
-      hostVpcId: 'string',
       accessRegionId: 'string',
       hostRegionId: 'string',
+      hostVpcId: 'string',
     };
   }
 
@@ -5219,7 +5365,26 @@ export class DescribeCenPrivateZoneRoutesResponseBodyPrivateZoneInfos extends $t
   }
 }
 
-export class DescribeCenRegionDomainRouteEntriesResponseBodyCenRouteEntriesCenOutRouteMapRecords extends $tea.Model {
+export class DescribeCenPrivateZoneRoutesResponseBodyPrivateZoneInfos extends $tea.Model {
+  privateZoneInfo?: DescribeCenPrivateZoneRoutesResponseBodyPrivateZoneInfosPrivateZoneInfo[];
+  static names(): { [key: string]: string } {
+    return {
+      privateZoneInfo: 'PrivateZoneInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      privateZoneInfo: { 'type': 'array', 'itemType': DescribeCenPrivateZoneRoutesResponseBodyPrivateZoneInfosPrivateZoneInfo },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCenRegionDomainRouteEntriesResponseBodyCenRouteEntriesCenRouteEntryCenRouteMapRecordsCenRouteMapRecord extends $tea.Model {
   routeMapId?: string;
   regionId?: string;
   static names(): { [key: string]: string } {
@@ -5241,7 +5406,26 @@ export class DescribeCenRegionDomainRouteEntriesResponseBodyCenRouteEntriesCenOu
   }
 }
 
-export class DescribeCenRegionDomainRouteEntriesResponseBodyCenRouteEntriesCenRouteMapRecords extends $tea.Model {
+export class DescribeCenRegionDomainRouteEntriesResponseBodyCenRouteEntriesCenRouteEntryCenRouteMapRecords extends $tea.Model {
+  cenRouteMapRecord?: DescribeCenRegionDomainRouteEntriesResponseBodyCenRouteEntriesCenRouteEntryCenRouteMapRecordsCenRouteMapRecord[];
+  static names(): { [key: string]: string } {
+    return {
+      cenRouteMapRecord: 'CenRouteMapRecord',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cenRouteMapRecord: { 'type': 'array', 'itemType': DescribeCenRegionDomainRouteEntriesResponseBodyCenRouteEntriesCenRouteEntryCenRouteMapRecordsCenRouteMapRecord },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCenRegionDomainRouteEntriesResponseBodyCenRouteEntriesCenRouteEntryCenOutRouteMapRecordsCenOutRouteMapRecord extends $tea.Model {
   routeMapId?: string;
   regionId?: string;
   static names(): { [key: string]: string } {
@@ -5255,6 +5439,115 @@ export class DescribeCenRegionDomainRouteEntriesResponseBodyCenRouteEntriesCenRo
     return {
       routeMapId: 'string',
       regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCenRegionDomainRouteEntriesResponseBodyCenRouteEntriesCenRouteEntryCenOutRouteMapRecords extends $tea.Model {
+  cenOutRouteMapRecord?: DescribeCenRegionDomainRouteEntriesResponseBodyCenRouteEntriesCenRouteEntryCenOutRouteMapRecordsCenOutRouteMapRecord[];
+  static names(): { [key: string]: string } {
+    return {
+      cenOutRouteMapRecord: 'CenOutRouteMapRecord',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cenOutRouteMapRecord: { 'type': 'array', 'itemType': DescribeCenRegionDomainRouteEntriesResponseBodyCenRouteEntriesCenRouteEntryCenOutRouteMapRecordsCenOutRouteMapRecord },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCenRegionDomainRouteEntriesResponseBodyCenRouteEntriesCenRouteEntryCommunities extends $tea.Model {
+  community?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      community: 'Community',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      community: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCenRegionDomainRouteEntriesResponseBodyCenRouteEntriesCenRouteEntryAsPaths extends $tea.Model {
+  asPath?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      asPath: 'AsPath',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      asPath: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCenRegionDomainRouteEntriesResponseBodyCenRouteEntriesCenRouteEntry extends $tea.Model {
+  toOtherRegionStatus?: string;
+  type?: string;
+  status?: string;
+  nextHopType?: string;
+  nextHopInstanceId?: string;
+  nextHopRegionId?: string;
+  destinationCidrBlock?: string;
+  preference?: number;
+  cenRouteMapRecords?: DescribeCenRegionDomainRouteEntriesResponseBodyCenRouteEntriesCenRouteEntryCenRouteMapRecords;
+  cenOutRouteMapRecords?: DescribeCenRegionDomainRouteEntriesResponseBodyCenRouteEntriesCenRouteEntryCenOutRouteMapRecords;
+  communities?: DescribeCenRegionDomainRouteEntriesResponseBodyCenRouteEntriesCenRouteEntryCommunities;
+  asPaths?: DescribeCenRegionDomainRouteEntriesResponseBodyCenRouteEntriesCenRouteEntryAsPaths;
+  static names(): { [key: string]: string } {
+    return {
+      toOtherRegionStatus: 'ToOtherRegionStatus',
+      type: 'Type',
+      status: 'Status',
+      nextHopType: 'NextHopType',
+      nextHopInstanceId: 'NextHopInstanceId',
+      nextHopRegionId: 'NextHopRegionId',
+      destinationCidrBlock: 'DestinationCidrBlock',
+      preference: 'Preference',
+      cenRouteMapRecords: 'CenRouteMapRecords',
+      cenOutRouteMapRecords: 'CenOutRouteMapRecords',
+      communities: 'Communities',
+      asPaths: 'AsPaths',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      toOtherRegionStatus: 'string',
+      type: 'string',
+      status: 'string',
+      nextHopType: 'string',
+      nextHopInstanceId: 'string',
+      nextHopRegionId: 'string',
+      destinationCidrBlock: 'string',
+      preference: 'number',
+      cenRouteMapRecords: DescribeCenRegionDomainRouteEntriesResponseBodyCenRouteEntriesCenRouteEntryCenRouteMapRecords,
+      cenOutRouteMapRecords: DescribeCenRegionDomainRouteEntriesResponseBodyCenRouteEntriesCenRouteEntryCenOutRouteMapRecords,
+      communities: DescribeCenRegionDomainRouteEntriesResponseBodyCenRouteEntriesCenRouteEntryCommunities,
+      asPaths: DescribeCenRegionDomainRouteEntriesResponseBodyCenRouteEntriesCenRouteEntryAsPaths,
     };
   }
 
@@ -5264,49 +5557,16 @@ export class DescribeCenRegionDomainRouteEntriesResponseBodyCenRouteEntriesCenRo
 }
 
 export class DescribeCenRegionDomainRouteEntriesResponseBodyCenRouteEntries extends $tea.Model {
-  type?: string;
-  status?: string;
-  cenOutRouteMapRecords?: DescribeCenRegionDomainRouteEntriesResponseBodyCenRouteEntriesCenOutRouteMapRecords[];
-  nextHopType?: string;
-  nextHopInstanceId?: string;
-  nextHopRegionId?: string;
-  asPaths?: string[];
-  toOtherRegionStatus?: string;
-  communities?: string[];
-  destinationCidrBlock?: string;
-  preference?: number;
-  cenRouteMapRecords?: DescribeCenRegionDomainRouteEntriesResponseBodyCenRouteEntriesCenRouteMapRecords[];
+  cenRouteEntry?: DescribeCenRegionDomainRouteEntriesResponseBodyCenRouteEntriesCenRouteEntry[];
   static names(): { [key: string]: string } {
     return {
-      type: 'Type',
-      status: 'Status',
-      cenOutRouteMapRecords: 'CenOutRouteMapRecords',
-      nextHopType: 'NextHopType',
-      nextHopInstanceId: 'NextHopInstanceId',
-      nextHopRegionId: 'NextHopRegionId',
-      asPaths: 'AsPaths',
-      toOtherRegionStatus: 'ToOtherRegionStatus',
-      communities: 'Communities',
-      destinationCidrBlock: 'DestinationCidrBlock',
-      preference: 'Preference',
-      cenRouteMapRecords: 'CenRouteMapRecords',
+      cenRouteEntry: 'CenRouteEntry',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      type: 'string',
-      status: 'string',
-      cenOutRouteMapRecords: { 'type': 'array', 'itemType': DescribeCenRegionDomainRouteEntriesResponseBodyCenRouteEntriesCenOutRouteMapRecords },
-      nextHopType: 'string',
-      nextHopInstanceId: 'string',
-      nextHopRegionId: 'string',
-      asPaths: { 'type': 'array', 'itemType': 'string' },
-      toOtherRegionStatus: 'string',
-      communities: { 'type': 'array', 'itemType': 'string' },
-      destinationCidrBlock: 'string',
-      preference: 'number',
-      cenRouteMapRecords: { 'type': 'array', 'itemType': DescribeCenRegionDomainRouteEntriesResponseBodyCenRouteEntriesCenRouteMapRecords },
+      cenRouteEntry: { 'type': 'array', 'itemType': DescribeCenRegionDomainRouteEntriesResponseBodyCenRouteEntriesCenRouteEntry },
     };
   }
 
@@ -5315,14 +5575,348 @@ export class DescribeCenRegionDomainRouteEntriesResponseBodyCenRouteEntries exte
   }
 }
 
-export class DescribeCenRouteMapsRequestFilter extends $tea.Model {
+export class DescribeCenRouteMapsResponseBodyRouteMapsRouteMapSourceRegionIds extends $tea.Model {
+  sourceRegionId?: string[];
   static names(): { [key: string]: string } {
     return {
+      sourceRegionId: 'SourceRegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      sourceRegionId: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCenRouteMapsResponseBodyRouteMapsRouteMapSourceChildInstanceTypes extends $tea.Model {
+  sourceChildInstanceType?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      sourceChildInstanceType: 'SourceChildInstanceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sourceChildInstanceType: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCenRouteMapsResponseBodyRouteMapsRouteMapDestinationRouteTableIds extends $tea.Model {
+  destinationRouteTableId?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      destinationRouteTableId: 'DestinationRouteTableId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      destinationRouteTableId: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCenRouteMapsResponseBodyRouteMapsRouteMapSourceInstanceIds extends $tea.Model {
+  sourceInstanceId?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      sourceInstanceId: 'SourceInstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sourceInstanceId: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCenRouteMapsResponseBodyRouteMapsRouteMapDestinationCidrBlocks extends $tea.Model {
+  destinationCidrBlock?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      destinationCidrBlock: 'DestinationCidrBlock',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      destinationCidrBlock: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCenRouteMapsResponseBodyRouteMapsRouteMapSourceRouteTableIds extends $tea.Model {
+  sourceRouteTableId?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      sourceRouteTableId: 'SourceRouteTableId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sourceRouteTableId: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCenRouteMapsResponseBodyRouteMapsRouteMapMatchCommunitySet extends $tea.Model {
+  matchCommunity?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      matchCommunity: 'MatchCommunity',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      matchCommunity: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCenRouteMapsResponseBodyRouteMapsRouteMapPrependAsPath extends $tea.Model {
+  asPath?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      asPath: 'AsPath',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      asPath: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCenRouteMapsResponseBodyRouteMapsRouteMapRouteTypes extends $tea.Model {
+  routeType?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      routeType: 'RouteType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      routeType: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCenRouteMapsResponseBodyRouteMapsRouteMapDestinationChildInstanceTypes extends $tea.Model {
+  destinationChildInstanceType?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      destinationChildInstanceType: 'DestinationChildInstanceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      destinationChildInstanceType: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCenRouteMapsResponseBodyRouteMapsRouteMapDestinationInstanceIds extends $tea.Model {
+  destinationInstanceId?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      destinationInstanceId: 'DestinationInstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      destinationInstanceId: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCenRouteMapsResponseBodyRouteMapsRouteMapMatchAsns extends $tea.Model {
+  matchAsn?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      matchAsn: 'MatchAsn',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      matchAsn: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCenRouteMapsResponseBodyRouteMapsRouteMapOperateCommunitySet extends $tea.Model {
+  operateCommunity?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      operateCommunity: 'OperateCommunity',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      operateCommunity: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCenRouteMapsResponseBodyRouteMapsRouteMap extends $tea.Model {
+  routeMapId?: string;
+  status?: string;
+  transmitDirection?: string;
+  sourceInstanceIdsReverseMatch?: boolean;
+  cenRegionId?: string;
+  cenId?: string;
+  priority?: number;
+  communityOperateMode?: string;
+  mapResult?: string;
+  communityMatchMode?: string;
+  description?: string;
+  asPathMatchMode?: string;
+  preference?: number;
+  destinationInstanceIdsReverseMatch?: boolean;
+  cidrMatchMode?: string;
+  nextPriority?: number;
+  sourceRegionIds?: DescribeCenRouteMapsResponseBodyRouteMapsRouteMapSourceRegionIds;
+  sourceChildInstanceTypes?: DescribeCenRouteMapsResponseBodyRouteMapsRouteMapSourceChildInstanceTypes;
+  destinationRouteTableIds?: DescribeCenRouteMapsResponseBodyRouteMapsRouteMapDestinationRouteTableIds;
+  sourceInstanceIds?: DescribeCenRouteMapsResponseBodyRouteMapsRouteMapSourceInstanceIds;
+  destinationCidrBlocks?: DescribeCenRouteMapsResponseBodyRouteMapsRouteMapDestinationCidrBlocks;
+  sourceRouteTableIds?: DescribeCenRouteMapsResponseBodyRouteMapsRouteMapSourceRouteTableIds;
+  matchCommunitySet?: DescribeCenRouteMapsResponseBodyRouteMapsRouteMapMatchCommunitySet;
+  prependAsPath?: DescribeCenRouteMapsResponseBodyRouteMapsRouteMapPrependAsPath;
+  routeTypes?: DescribeCenRouteMapsResponseBodyRouteMapsRouteMapRouteTypes;
+  destinationChildInstanceTypes?: DescribeCenRouteMapsResponseBodyRouteMapsRouteMapDestinationChildInstanceTypes;
+  destinationInstanceIds?: DescribeCenRouteMapsResponseBodyRouteMapsRouteMapDestinationInstanceIds;
+  matchAsns?: DescribeCenRouteMapsResponseBodyRouteMapsRouteMapMatchAsns;
+  operateCommunitySet?: DescribeCenRouteMapsResponseBodyRouteMapsRouteMapOperateCommunitySet;
+  static names(): { [key: string]: string } {
+    return {
+      routeMapId: 'RouteMapId',
+      status: 'Status',
+      transmitDirection: 'TransmitDirection',
+      sourceInstanceIdsReverseMatch: 'SourceInstanceIdsReverseMatch',
+      cenRegionId: 'CenRegionId',
+      cenId: 'CenId',
+      priority: 'Priority',
+      communityOperateMode: 'CommunityOperateMode',
+      mapResult: 'MapResult',
+      communityMatchMode: 'CommunityMatchMode',
+      description: 'Description',
+      asPathMatchMode: 'AsPathMatchMode',
+      preference: 'Preference',
+      destinationInstanceIdsReverseMatch: 'DestinationInstanceIdsReverseMatch',
+      cidrMatchMode: 'CidrMatchMode',
+      nextPriority: 'NextPriority',
+      sourceRegionIds: 'SourceRegionIds',
+      sourceChildInstanceTypes: 'SourceChildInstanceTypes',
+      destinationRouteTableIds: 'DestinationRouteTableIds',
+      sourceInstanceIds: 'SourceInstanceIds',
+      destinationCidrBlocks: 'DestinationCidrBlocks',
+      sourceRouteTableIds: 'SourceRouteTableIds',
+      matchCommunitySet: 'MatchCommunitySet',
+      prependAsPath: 'PrependAsPath',
+      routeTypes: 'RouteTypes',
+      destinationChildInstanceTypes: 'DestinationChildInstanceTypes',
+      destinationInstanceIds: 'DestinationInstanceIds',
+      matchAsns: 'MatchAsns',
+      operateCommunitySet: 'OperateCommunitySet',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      routeMapId: 'string',
+      status: 'string',
+      transmitDirection: 'string',
+      sourceInstanceIdsReverseMatch: 'boolean',
+      cenRegionId: 'string',
+      cenId: 'string',
+      priority: 'number',
+      communityOperateMode: 'string',
+      mapResult: 'string',
+      communityMatchMode: 'string',
+      description: 'string',
+      asPathMatchMode: 'string',
+      preference: 'number',
+      destinationInstanceIdsReverseMatch: 'boolean',
+      cidrMatchMode: 'string',
+      nextPriority: 'number',
+      sourceRegionIds: DescribeCenRouteMapsResponseBodyRouteMapsRouteMapSourceRegionIds,
+      sourceChildInstanceTypes: DescribeCenRouteMapsResponseBodyRouteMapsRouteMapSourceChildInstanceTypes,
+      destinationRouteTableIds: DescribeCenRouteMapsResponseBodyRouteMapsRouteMapDestinationRouteTableIds,
+      sourceInstanceIds: DescribeCenRouteMapsResponseBodyRouteMapsRouteMapSourceInstanceIds,
+      destinationCidrBlocks: DescribeCenRouteMapsResponseBodyRouteMapsRouteMapDestinationCidrBlocks,
+      sourceRouteTableIds: DescribeCenRouteMapsResponseBodyRouteMapsRouteMapSourceRouteTableIds,
+      matchCommunitySet: DescribeCenRouteMapsResponseBodyRouteMapsRouteMapMatchCommunitySet,
+      prependAsPath: DescribeCenRouteMapsResponseBodyRouteMapsRouteMapPrependAsPath,
+      routeTypes: DescribeCenRouteMapsResponseBodyRouteMapsRouteMapRouteTypes,
+      destinationChildInstanceTypes: DescribeCenRouteMapsResponseBodyRouteMapsRouteMapDestinationChildInstanceTypes,
+      destinationInstanceIds: DescribeCenRouteMapsResponseBodyRouteMapsRouteMapDestinationInstanceIds,
+      matchAsns: DescribeCenRouteMapsResponseBodyRouteMapsRouteMapMatchAsns,
+      operateCommunitySet: DescribeCenRouteMapsResponseBodyRouteMapsRouteMapOperateCommunitySet,
     };
   }
 
@@ -5332,100 +5926,16 @@ export class DescribeCenRouteMapsRequestFilter extends $tea.Model {
 }
 
 export class DescribeCenRouteMapsResponseBodyRouteMaps extends $tea.Model {
-  status?: string;
-  sourceInstanceIdsReverseMatch?: boolean;
-  sourceRegionIds?: string[];
-  matchCommunitySet?: string[];
-  priority?: number;
-  communityOperateMode?: string;
-  prependAsPath?: string[];
-  routeTypes?: string[];
-  description?: string;
-  destinationInstanceIds?: string[];
-  matchAsns?: string[];
-  destinationInstanceIdsReverseMatch?: boolean;
-  operateCommunitySet?: string[];
-  nextPriority?: number;
-  routeMapId?: string;
-  transmitDirection?: string;
-  sourceChildInstanceTypes?: string[];
-  destinationRouteTableIds?: string[];
-  sourceInstanceIds?: string[];
-  cenRegionId?: string;
-  destinationCidrBlocks?: string[];
-  cenId?: string;
-  sourceRouteTableIds?: string[];
-  mapResult?: string;
-  communityMatchMode?: string;
-  destinationChildInstanceTypes?: string[];
-  asPathMatchMode?: string;
-  preference?: number;
-  cidrMatchMode?: string;
+  routeMap?: DescribeCenRouteMapsResponseBodyRouteMapsRouteMap[];
   static names(): { [key: string]: string } {
     return {
-      status: 'Status',
-      sourceInstanceIdsReverseMatch: 'SourceInstanceIdsReverseMatch',
-      sourceRegionIds: 'SourceRegionIds',
-      matchCommunitySet: 'MatchCommunitySet',
-      priority: 'Priority',
-      communityOperateMode: 'CommunityOperateMode',
-      prependAsPath: 'PrependAsPath',
-      routeTypes: 'RouteTypes',
-      description: 'Description',
-      destinationInstanceIds: 'DestinationInstanceIds',
-      matchAsns: 'MatchAsns',
-      destinationInstanceIdsReverseMatch: 'DestinationInstanceIdsReverseMatch',
-      operateCommunitySet: 'OperateCommunitySet',
-      nextPriority: 'NextPriority',
-      routeMapId: 'RouteMapId',
-      transmitDirection: 'TransmitDirection',
-      sourceChildInstanceTypes: 'SourceChildInstanceTypes',
-      destinationRouteTableIds: 'DestinationRouteTableIds',
-      sourceInstanceIds: 'SourceInstanceIds',
-      cenRegionId: 'CenRegionId',
-      destinationCidrBlocks: 'DestinationCidrBlocks',
-      cenId: 'CenId',
-      sourceRouteTableIds: 'SourceRouteTableIds',
-      mapResult: 'MapResult',
-      communityMatchMode: 'CommunityMatchMode',
-      destinationChildInstanceTypes: 'DestinationChildInstanceTypes',
-      asPathMatchMode: 'AsPathMatchMode',
-      preference: 'Preference',
-      cidrMatchMode: 'CidrMatchMode',
+      routeMap: 'RouteMap',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      status: 'string',
-      sourceInstanceIdsReverseMatch: 'boolean',
-      sourceRegionIds: { 'type': 'array', 'itemType': 'string' },
-      matchCommunitySet: { 'type': 'array', 'itemType': 'string' },
-      priority: 'number',
-      communityOperateMode: 'string',
-      prependAsPath: { 'type': 'array', 'itemType': 'string' },
-      routeTypes: { 'type': 'array', 'itemType': 'string' },
-      description: 'string',
-      destinationInstanceIds: { 'type': 'array', 'itemType': 'string' },
-      matchAsns: { 'type': 'array', 'itemType': 'string' },
-      destinationInstanceIdsReverseMatch: 'boolean',
-      operateCommunitySet: { 'type': 'array', 'itemType': 'string' },
-      nextPriority: 'number',
-      routeMapId: 'string',
-      transmitDirection: 'string',
-      sourceChildInstanceTypes: { 'type': 'array', 'itemType': 'string' },
-      destinationRouteTableIds: { 'type': 'array', 'itemType': 'string' },
-      sourceInstanceIds: { 'type': 'array', 'itemType': 'string' },
-      cenRegionId: 'string',
-      destinationCidrBlocks: { 'type': 'array', 'itemType': 'string' },
-      cenId: 'string',
-      sourceRouteTableIds: { 'type': 'array', 'itemType': 'string' },
-      mapResult: 'string',
-      communityMatchMode: 'string',
-      destinationChildInstanceTypes: { 'type': 'array', 'itemType': 'string' },
-      asPathMatchMode: 'string',
-      preference: 'number',
-      cidrMatchMode: 'string',
+      routeMap: { 'type': 'array', 'itemType': DescribeCenRouteMapsResponseBodyRouteMapsRouteMap },
     };
   }
 
@@ -5478,7 +5988,7 @@ export class DescribeCensRequestTag extends $tea.Model {
   }
 }
 
-export class DescribeCensResponseBodyCensTags extends $tea.Model {
+export class DescribeCensResponseBodyCensCenTagsTag extends $tea.Model {
   key?: string;
   value?: string;
   static names(): { [key: string]: string } {
@@ -5500,38 +6010,17 @@ export class DescribeCensResponseBodyCensTags extends $tea.Model {
   }
 }
 
-export class DescribeCensResponseBodyCens extends $tea.Model {
-  status?: string;
-  creationTime?: string;
-  cenBandwidthPackageIds?: string[];
-  description?: string;
-  cenId?: string;
-  protectionLevel?: string;
-  tags?: DescribeCensResponseBodyCensTags[];
-  name?: string;
+export class DescribeCensResponseBodyCensCenTags extends $tea.Model {
+  tag?: DescribeCensResponseBodyCensCenTagsTag[];
   static names(): { [key: string]: string } {
     return {
-      status: 'Status',
-      creationTime: 'CreationTime',
-      cenBandwidthPackageIds: 'CenBandwidthPackageIds',
-      description: 'Description',
-      cenId: 'CenId',
-      protectionLevel: 'ProtectionLevel',
-      tags: 'Tags',
-      name: 'Name',
+      tag: 'Tag',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      status: 'string',
-      creationTime: 'string',
-      cenBandwidthPackageIds: { 'type': 'array', 'itemType': 'string' },
-      description: 'string',
-      cenId: 'string',
-      protectionLevel: 'string',
-      tags: { 'type': 'array', 'itemType': DescribeCensResponseBodyCensTags },
-      name: 'string',
+      tag: { 'type': 'array', 'itemType': DescribeCensResponseBodyCensCenTagsTag },
     };
   }
 
@@ -5540,7 +6029,85 @@ export class DescribeCensResponseBodyCens extends $tea.Model {
   }
 }
 
-export class DescribeCenVbrHealthCheckResponseBodyVbrHealthChecks extends $tea.Model {
+export class DescribeCensResponseBodyCensCenCenBandwidthPackageIds extends $tea.Model {
+  cenBandwidthPackageId?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      cenBandwidthPackageId: 'CenBandwidthPackageId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cenBandwidthPackageId: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCensResponseBodyCensCen extends $tea.Model {
+  status?: string;
+  creationTime?: string;
+  description?: string;
+  cenId?: string;
+  protectionLevel?: string;
+  name?: string;
+  tags?: DescribeCensResponseBodyCensCenTags;
+  cenBandwidthPackageIds?: DescribeCensResponseBodyCensCenCenBandwidthPackageIds;
+  static names(): { [key: string]: string } {
+    return {
+      status: 'Status',
+      creationTime: 'CreationTime',
+      description: 'Description',
+      cenId: 'CenId',
+      protectionLevel: 'ProtectionLevel',
+      name: 'Name',
+      tags: 'Tags',
+      cenBandwidthPackageIds: 'CenBandwidthPackageIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      status: 'string',
+      creationTime: 'string',
+      description: 'string',
+      cenId: 'string',
+      protectionLevel: 'string',
+      name: 'string',
+      tags: DescribeCensResponseBodyCensCenTags,
+      cenBandwidthPackageIds: DescribeCensResponseBodyCensCenCenBandwidthPackageIds,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCensResponseBodyCens extends $tea.Model {
+  cen?: DescribeCensResponseBodyCensCen[];
+  static names(): { [key: string]: string } {
+    return {
+      cen: 'Cen',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cen: { 'type': 'array', 'itemType': DescribeCensResponseBodyCensCen },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCenVbrHealthCheckResponseBodyVbrHealthChecksVbrHealthCheck extends $tea.Model {
   healthCheckTargetIp?: string;
   vbrInstanceId?: string;
   vbrInstanceRegionId?: string;
@@ -5577,7 +6144,26 @@ export class DescribeCenVbrHealthCheckResponseBodyVbrHealthChecks extends $tea.M
   }
 }
 
-export class DescribeChildInstanceRegionsResponseBodyRegions extends $tea.Model {
+export class DescribeCenVbrHealthCheckResponseBodyVbrHealthChecks extends $tea.Model {
+  vbrHealthCheck?: DescribeCenVbrHealthCheckResponseBodyVbrHealthChecksVbrHealthCheck[];
+  static names(): { [key: string]: string } {
+    return {
+      vbrHealthCheck: 'VbrHealthCheck',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      vbrHealthCheck: { 'type': 'array', 'itemType': DescribeCenVbrHealthCheckResponseBodyVbrHealthChecksVbrHealthCheck },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeChildInstanceRegionsResponseBodyRegionsRegion extends $tea.Model {
   localName?: string;
   regionId?: string;
   static names(): { [key: string]: string } {
@@ -5599,7 +6185,26 @@ export class DescribeChildInstanceRegionsResponseBodyRegions extends $tea.Model 
   }
 }
 
-export class DescribeFlowlogsResponseBodyFlowLogs extends $tea.Model {
+export class DescribeChildInstanceRegionsResponseBodyRegions extends $tea.Model {
+  region?: DescribeChildInstanceRegionsResponseBodyRegionsRegion[];
+  static names(): { [key: string]: string } {
+    return {
+      region: 'Region',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      region: { 'type': 'array', 'itemType': DescribeChildInstanceRegionsResponseBodyRegionsRegion },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeFlowlogsResponseBodyFlowLogsFlowLog extends $tea.Model {
   status?: string;
   creationTime?: string;
   flowLogName?: string;
@@ -5642,7 +6247,26 @@ export class DescribeFlowlogsResponseBodyFlowLogs extends $tea.Model {
   }
 }
 
-export class DescribeGeographicRegionMembershipResponseBodyRegionIds extends $tea.Model {
+export class DescribeFlowlogsResponseBodyFlowLogs extends $tea.Model {
+  flowLog?: DescribeFlowlogsResponseBodyFlowLogsFlowLog[];
+  static names(): { [key: string]: string } {
+    return {
+      flowLog: 'FlowLog',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      flowLog: { 'type': 'array', 'itemType': DescribeFlowlogsResponseBodyFlowLogsFlowLog },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeGeographicRegionMembershipResponseBodyRegionIdsRegionId extends $tea.Model {
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5661,7 +6285,26 @@ export class DescribeGeographicRegionMembershipResponseBodyRegionIds extends $te
   }
 }
 
-export class DescribeGrantRulesToCenResponseBodyGrantRules extends $tea.Model {
+export class DescribeGeographicRegionMembershipResponseBodyRegionIds extends $tea.Model {
+  regionId?: DescribeGeographicRegionMembershipResponseBodyRegionIdsRegionId[];
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: { 'type': 'array', 'itemType': DescribeGeographicRegionMembershipResponseBodyRegionIdsRegionId },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeGrantRulesToCenResponseBodyGrantRulesGrantRule extends $tea.Model {
   childInstanceType?: string;
   childInstanceRegionId?: string;
   childInstanceOwnerId?: number;
@@ -5692,7 +6335,26 @@ export class DescribeGrantRulesToCenResponseBodyGrantRules extends $tea.Model {
   }
 }
 
-export class DescribePublishedRouteEntriesResponseBodyPublishedRouteEntriesConflicts extends $tea.Model {
+export class DescribeGrantRulesToCenResponseBodyGrantRules extends $tea.Model {
+  grantRule?: DescribeGrantRulesToCenResponseBodyGrantRulesGrantRule[];
+  static names(): { [key: string]: string } {
+    return {
+      grantRule: 'GrantRule',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      grantRule: { 'type': 'array', 'itemType': DescribeGrantRulesToCenResponseBodyGrantRulesGrantRule },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePublishedRouteEntriesResponseBodyPublishedRouteEntriesPublishedRouteEntryConflictsConflict extends $tea.Model {
   status?: string;
   destinationCidrBlock?: string;
   instanceId?: string;
@@ -5715,6 +6377,65 @@ export class DescribePublishedRouteEntriesResponseBodyPublishedRouteEntriesConfl
       instanceId: 'string',
       instanceType: 'string',
       regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePublishedRouteEntriesResponseBodyPublishedRouteEntriesPublishedRouteEntryConflicts extends $tea.Model {
+  conflict?: DescribePublishedRouteEntriesResponseBodyPublishedRouteEntriesPublishedRouteEntryConflictsConflict[];
+  static names(): { [key: string]: string } {
+    return {
+      conflict: 'Conflict',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      conflict: { 'type': 'array', 'itemType': DescribePublishedRouteEntriesResponseBodyPublishedRouteEntriesPublishedRouteEntryConflictsConflict },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePublishedRouteEntriesResponseBodyPublishedRouteEntriesPublishedRouteEntry extends $tea.Model {
+  nextHopId?: string;
+  publishStatus?: string;
+  childInstanceRouteTableId?: string;
+  nextHopType?: string;
+  operationalMode?: boolean;
+  destinationCidrBlock?: string;
+  routeType?: string;
+  conflicts?: DescribePublishedRouteEntriesResponseBodyPublishedRouteEntriesPublishedRouteEntryConflicts;
+  static names(): { [key: string]: string } {
+    return {
+      nextHopId: 'NextHopId',
+      publishStatus: 'PublishStatus',
+      childInstanceRouteTableId: 'ChildInstanceRouteTableId',
+      nextHopType: 'NextHopType',
+      operationalMode: 'OperationalMode',
+      destinationCidrBlock: 'DestinationCidrBlock',
+      routeType: 'RouteType',
+      conflicts: 'Conflicts',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nextHopId: 'string',
+      publishStatus: 'string',
+      childInstanceRouteTableId: 'string',
+      nextHopType: 'string',
+      operationalMode: 'boolean',
+      destinationCidrBlock: 'string',
+      routeType: 'string',
+      conflicts: DescribePublishedRouteEntriesResponseBodyPublishedRouteEntriesPublishedRouteEntryConflicts,
     };
   }
 
@@ -5724,37 +6445,16 @@ export class DescribePublishedRouteEntriesResponseBodyPublishedRouteEntriesConfl
 }
 
 export class DescribePublishedRouteEntriesResponseBodyPublishedRouteEntries extends $tea.Model {
-  nextHopId?: string;
-  conflicts?: DescribePublishedRouteEntriesResponseBodyPublishedRouteEntriesConflicts[];
-  publishStatus?: string;
-  childInstanceRouteTableId?: string;
-  nextHopType?: string;
-  operationalMode?: boolean;
-  destinationCidrBlock?: string;
-  routeType?: string;
+  publishedRouteEntry?: DescribePublishedRouteEntriesResponseBodyPublishedRouteEntriesPublishedRouteEntry[];
   static names(): { [key: string]: string } {
     return {
-      nextHopId: 'NextHopId',
-      conflicts: 'Conflicts',
-      publishStatus: 'PublishStatus',
-      childInstanceRouteTableId: 'ChildInstanceRouteTableId',
-      nextHopType: 'NextHopType',
-      operationalMode: 'OperationalMode',
-      destinationCidrBlock: 'DestinationCidrBlock',
-      routeType: 'RouteType',
+      publishedRouteEntry: 'PublishedRouteEntry',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      nextHopId: 'string',
-      conflicts: { 'type': 'array', 'itemType': DescribePublishedRouteEntriesResponseBodyPublishedRouteEntriesConflicts },
-      publishStatus: 'string',
-      childInstanceRouteTableId: 'string',
-      nextHopType: 'string',
-      operationalMode: 'boolean',
-      destinationCidrBlock: 'string',
-      routeType: 'string',
+      publishedRouteEntry: { 'type': 'array', 'itemType': DescribePublishedRouteEntriesResponseBodyPublishedRouteEntriesPublishedRouteEntry },
     };
   }
 
@@ -5763,7 +6463,7 @@ export class DescribePublishedRouteEntriesResponseBodyPublishedRouteEntries exte
   }
 }
 
-export class DescribeRouteConflictResponseBodyRouteConflicts extends $tea.Model {
+export class DescribeRouteConflictResponseBodyRouteConflictsRouteConflict extends $tea.Model {
   status?: string;
   destinationCidrBlock?: string;
   instanceId?: string;
@@ -5794,27 +6494,65 @@ export class DescribeRouteConflictResponseBodyRouteConflicts extends $tea.Model 
   }
 }
 
-export class DescribeRouteServicesInCenResponseBodyRouteServiceEntries extends $tea.Model {
+export class DescribeRouteConflictResponseBodyRouteConflicts extends $tea.Model {
+  routeConflict?: DescribeRouteConflictResponseBodyRouteConflictsRouteConflict[];
+  static names(): { [key: string]: string } {
+    return {
+      routeConflict: 'RouteConflict',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      routeConflict: { 'type': 'array', 'itemType': DescribeRouteConflictResponseBodyRouteConflictsRouteConflict },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRouteServicesInCenResponseBodyRouteServiceEntriesRouteServiceEntryCidrs extends $tea.Model {
+  cidr?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      cidr: 'Cidr',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cidr: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRouteServicesInCenResponseBodyRouteServiceEntriesRouteServiceEntry extends $tea.Model {
   status?: string;
   host?: string;
   description?: string;
   hostVpcId?: string;
-  cidrs?: string[];
   cenId?: string;
   accessRegionId?: string;
   hostRegionId?: string;
   updateInterval?: string;
+  cidrs?: DescribeRouteServicesInCenResponseBodyRouteServiceEntriesRouteServiceEntryCidrs;
   static names(): { [key: string]: string } {
     return {
       status: 'Status',
       host: 'Host',
       description: 'Description',
       hostVpcId: 'HostVpcId',
-      cidrs: 'Cidrs',
       cenId: 'CenId',
       accessRegionId: 'AccessRegionId',
       hostRegionId: 'HostRegionId',
       updateInterval: 'UpdateInterval',
+      cidrs: 'Cidrs',
     };
   }
 
@@ -5824,11 +6562,30 @@ export class DescribeRouteServicesInCenResponseBodyRouteServiceEntries extends $
       host: 'string',
       description: 'string',
       hostVpcId: 'string',
-      cidrs: { 'type': 'array', 'itemType': 'string' },
       cenId: 'string',
       accessRegionId: 'string',
       hostRegionId: 'string',
       updateInterval: 'string',
+      cidrs: DescribeRouteServicesInCenResponseBodyRouteServiceEntriesRouteServiceEntryCidrs,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRouteServicesInCenResponseBodyRouteServiceEntries extends $tea.Model {
+  routeServiceEntry?: DescribeRouteServicesInCenResponseBodyRouteServiceEntriesRouteServiceEntry[];
+  static names(): { [key: string]: string } {
+    return {
+      routeServiceEntry: 'RouteServiceEntry',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      routeServiceEntry: { 'type': 'array', 'itemType': DescribeRouteServicesInCenResponseBodyRouteServiceEntriesRouteServiceEntry },
     };
   }
 
@@ -5859,7 +6616,7 @@ export class ListTagResourcesRequestTag extends $tea.Model {
   }
 }
 
-export class ListTagResourcesResponseBodyTagResources extends $tea.Model {
+export class ListTagResourcesResponseBodyTagResourcesTagResource extends $tea.Model {
   resourceType?: string;
   tagValue?: string;
   resourceId?: string;
@@ -5879,6 +6636,25 @@ export class ListTagResourcesResponseBodyTagResources extends $tea.Model {
       tagValue: 'string',
       resourceId: 'string',
       tagKey: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesResponseBodyTagResources extends $tea.Model {
+  tagResource?: ListTagResourcesResponseBodyTagResourcesTagResource[];
+  static names(): { [key: string]: string } {
+    return {
+      tagResource: 'TagResource',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagResource: { 'type': 'array', 'itemType': ListTagResourcesResponseBodyTagResourcesTagResource },
     };
   }
 
@@ -5914,67 +6690,7 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApi.Config) {
     super(config);
-    this._endpointRule = "regional";
-    this._endpointMap = {
-      'cn-qingdao': "cbn.aliyuncs.com",
-      'cn-beijing': "cbn.aliyuncs.com",
-      'cn-chengdu': "cbn.aliyuncs.com",
-      'cn-zhangjiakou': "cbn.aliyuncs.com",
-      'cn-huhehaote': "cbn.aliyuncs.com",
-      'cn-hangzhou': "cbn.aliyuncs.com",
-      'cn-shanghai': "cbn.aliyuncs.com",
-      'cn-shenzhen': "cbn.aliyuncs.com",
-      'cn-heyuan': "cbn.aliyuncs.com",
-      'cn-wulanchabu': "cbn.aliyuncs.com",
-      'cn-hongkong': "cbn.aliyuncs.com",
-      'ap-southeast-1': "cbn.aliyuncs.com",
-      'ap-southeast-2': "cbn.aliyuncs.com",
-      'ap-southeast-3': "cbn.aliyuncs.com",
-      'ap-southeast-5': "cbn.aliyuncs.com",
-      'ap-northeast-1': "cbn.aliyuncs.com",
-      'eu-west-1': "cbn.aliyuncs.com",
-      'us-west-1': "cbn.aliyuncs.com",
-      'us-east-1': "cbn.aliyuncs.com",
-      'eu-central-1': "cbn.aliyuncs.com",
-      'me-east-1': "cbn.aliyuncs.com",
-      'ap-south-1': "cbn.aliyuncs.com",
-      'cn-shanghai-finance-1': "cbn.aliyuncs.com",
-      'cn-shenzhen-finance-1': "cbn.aliyuncs.com",
-      'cn-north-2-gov-1': "cbn.aliyuncs.com",
-      'ap-northeast-2-pop': "cbn.aliyuncs.com",
-      'cn-beijing-finance-1': "cbn.aliyuncs.com",
-      'cn-beijing-finance-pop': "cbn.aliyuncs.com",
-      'cn-beijing-gov-1': "cbn.aliyuncs.com",
-      'cn-beijing-nu16-b01': "cbn.aliyuncs.com",
-      'cn-edge-1': "cbn.aliyuncs.com",
-      'cn-fujian': "cbn.aliyuncs.com",
-      'cn-haidian-cm12-c01': "cbn.aliyuncs.com",
-      'cn-hangzhou-bj-b01': "cbn.aliyuncs.com",
-      'cn-hangzhou-finance': "cbn.aliyuncs.com",
-      'cn-hangzhou-internal-prod-1': "cbn.aliyuncs.com",
-      'cn-hangzhou-internal-test-1': "cbn.aliyuncs.com",
-      'cn-hangzhou-internal-test-2': "cbn.aliyuncs.com",
-      'cn-hangzhou-internal-test-3': "cbn.aliyuncs.com",
-      'cn-hangzhou-test-306': "cbn.aliyuncs.com",
-      'cn-hongkong-finance-pop': "cbn.aliyuncs.com",
-      'cn-huhehaote-nebula-1': "cbn.aliyuncs.com",
-      'cn-qingdao-nebula': "cbn.aliyuncs.com",
-      'cn-shanghai-et15-b01': "cbn.aliyuncs.com",
-      'cn-shanghai-et2-b01': "cbn.aliyuncs.com",
-      'cn-shanghai-inner': "cbn.aliyuncs.com",
-      'cn-shanghai-internal-test-1': "cbn.aliyuncs.com",
-      'cn-shenzhen-inner': "cbn.aliyuncs.com",
-      'cn-shenzhen-st4-d01': "cbn.aliyuncs.com",
-      'cn-shenzhen-su18-b01': "cbn.aliyuncs.com",
-      'cn-wuhan': "cbn.aliyuncs.com",
-      'cn-yushanfang': "cbn.aliyuncs.com",
-      'cn-zhangbei': "cbn.aliyuncs.com",
-      'cn-zhangbei-na61-b01': "cbn.aliyuncs.com",
-      'cn-zhangjiakou-na62-a01': "cbn.aliyuncs.com",
-      'cn-zhengzhou-nebula-1': "cbn.aliyuncs.com",
-      'eu-west-1-oxs': "cbn.aliyuncs.com",
-      'rus-west-1-pop': "cbn-share.aliyuncs.com",
-    };
+    this._endpointRule = "central";
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("cbn", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
