@@ -553,6 +553,81 @@ export class RefreshUsersPermissionsResponse extends $tea.Model {
   }
 }
 
+export class SetAppCallbackTypeRequest extends $tea.Model {
+  appID?: string;
+  appCallbackType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appID: 'AppID',
+      appCallbackType: 'AppCallbackType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appID: 'string',
+      appCallbackType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetAppCallbackTypeResponseBody extends $tea.Model {
+  requestId?: string;
+  responseSuccess?: boolean;
+  errorCode?: string;
+  errorMsg?: string;
+  result?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      responseSuccess: 'ResponseSuccess',
+      errorCode: 'ErrorCode',
+      errorMsg: 'ErrorMsg',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      responseSuccess: 'boolean',
+      errorCode: 'string',
+      errorMsg: 'string',
+      result: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetAppCallbackTypeResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: SetAppCallbackTypeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: SetAppCallbackTypeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateAppRequest extends $tea.Model {
   appName?: string;
   static names(): { [key: string]: string } {
@@ -863,6 +938,7 @@ export class DescribeAppsResponseBodyResultAppList extends $tea.Model {
   callbackUrl?: string;
   domainNames?: string;
   createTime?: string;
+  callbackType?: string;
   static names(): { [key: string]: string } {
     return {
       appID: 'AppID',
@@ -871,6 +947,7 @@ export class DescribeAppsResponseBodyResultAppList extends $tea.Model {
       callbackUrl: 'CallbackUrl',
       domainNames: 'DomainNames',
       createTime: 'CreateTime',
+      callbackType: 'CallbackType',
     };
   }
 
@@ -882,6 +959,7 @@ export class DescribeAppsResponseBodyResultAppList extends $tea.Model {
       callbackUrl: 'string',
       domainNames: 'string',
       createTime: 'string',
+      callbackType: 'string',
     };
   }
 
@@ -1199,6 +1277,19 @@ export default class Client extends OpenApi {
   async refreshUsersPermissions(request: RefreshUsersPermissionsRequest): Promise<RefreshUsersPermissionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.refreshUsersPermissionsWithOptions(request, runtime);
+  }
+
+  async setAppCallbackTypeWithOptions(request: SetAppCallbackTypeRequest, runtime: $Util.RuntimeOptions): Promise<SetAppCallbackTypeResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<SetAppCallbackTypeResponse>(await this.doRPCRequest("SetAppCallbackType", "2020-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new SetAppCallbackTypeResponse({}));
+  }
+
+  async setAppCallbackType(request: SetAppCallbackTypeRequest): Promise<SetAppCallbackTypeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.setAppCallbackTypeWithOptions(request, runtime);
   }
 
   async createAppWithOptions(request: CreateAppRequest, runtime: $Util.RuntimeOptions): Promise<CreateAppResponse> {
