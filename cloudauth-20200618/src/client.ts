@@ -119,25 +119,25 @@ export class ContrastSmartVerifyAdvanceRequest extends $tea.Model {
 }
 
 export class ContrastSmartVerifyResponseBody extends $tea.Model {
-  resultObject?: ContrastSmartVerifyResponseBodyResultObject;
+  code?: string;
   message?: string;
   requestId?: string;
-  code?: string;
+  resultObject?: ContrastSmartVerifyResponseBodyResultObject;
   static names(): { [key: string]: string } {
     return {
-      resultObject: 'ResultObject',
+      code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
-      code: 'Code',
+      resultObject: 'ResultObject',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      resultObject: ContrastSmartVerifyResponseBodyResultObject,
+      code: 'string',
       message: 'string',
       requestId: 'string',
-      code: 'string',
+      resultObject: ContrastSmartVerifyResponseBodyResultObject,
     };
   }
 
@@ -194,25 +194,25 @@ export class DescribeSmartVerifyRequest extends $tea.Model {
 }
 
 export class DescribeSmartVerifyResponseBody extends $tea.Model {
-  resultObject?: DescribeSmartVerifyResponseBodyResultObject;
+  code?: string;
   message?: string;
   requestId?: string;
-  code?: string;
+  resultObject?: DescribeSmartVerifyResponseBodyResultObject;
   static names(): { [key: string]: string } {
     return {
-      resultObject: 'ResultObject',
+      code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
-      code: 'Code',
+      resultObject: 'ResultObject',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      resultObject: DescribeSmartVerifyResponseBodyResultObject,
+      code: 'string',
       message: 'string',
       requestId: 'string',
-      code: 'string',
+      resultObject: DescribeSmartVerifyResponseBodyResultObject,
     };
   }
 
@@ -235,6 +235,114 @@ export class DescribeSmartVerifyResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: DescribeSmartVerifyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSmsDetailRequest extends $tea.Model {
+  mobile?: string;
+  sendDate?: string;
+  errorCode?: string;
+  outerOrderNo?: string;
+  sendStatus?: string;
+  signName?: string;
+  templateCode?: string;
+  currentPage?: number;
+  pageSize?: number;
+  bizId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      mobile: 'Mobile',
+      sendDate: 'SendDate',
+      errorCode: 'ErrorCode',
+      outerOrderNo: 'OuterOrderNo',
+      sendStatus: 'SendStatus',
+      signName: 'SignName',
+      templateCode: 'TemplateCode',
+      currentPage: 'CurrentPage',
+      pageSize: 'PageSize',
+      bizId: 'BizId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mobile: 'string',
+      sendDate: 'string',
+      errorCode: 'string',
+      outerOrderNo: 'string',
+      sendStatus: 'string',
+      signName: 'string',
+      templateCode: 'string',
+      currentPage: 'number',
+      pageSize: 'number',
+      bizId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSmsDetailResponseBody extends $tea.Model {
+  totalItem?: number;
+  currentPage?: number;
+  requestId?: string;
+  code?: string;
+  message?: string;
+  totalPage?: number;
+  pageSize?: number;
+  items?: DescribeSmsDetailResponseBodyItems[];
+  static names(): { [key: string]: string } {
+    return {
+      totalItem: 'TotalItem',
+      currentPage: 'CurrentPage',
+      requestId: 'RequestId',
+      code: 'Code',
+      message: 'Message',
+      totalPage: 'TotalPage',
+      pageSize: 'PageSize',
+      items: 'Items',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      totalItem: 'number',
+      currentPage: 'number',
+      requestId: 'string',
+      code: 'string',
+      message: 'string',
+      totalPage: 'number',
+      pageSize: 'number',
+      items: { 'type': 'array', 'itemType': DescribeSmsDetailResponseBodyItems },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSmsDetailResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeSmsDetailResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeSmsDetailResponseBody,
     };
   }
 
@@ -330,25 +438,25 @@ export class ElementSmartVerifyAdvanceRequest extends $tea.Model {
 }
 
 export class ElementSmartVerifyResponseBody extends $tea.Model {
-  resultObject?: ElementSmartVerifyResponseBodyResultObject;
+  code?: string;
   message?: string;
   requestId?: string;
-  code?: string;
+  resultObject?: ElementSmartVerifyResponseBodyResultObject;
   static names(): { [key: string]: string } {
     return {
-      resultObject: 'ResultObject',
+      code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
-      code: 'Code',
+      resultObject: 'ResultObject',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      resultObject: ElementSmartVerifyResponseBodyResultObject,
+      code: 'string',
       message: 'string',
       requestId: 'string',
-      code: 'string',
+      resultObject: ElementSmartVerifyResponseBodyResultObject,
     };
   }
 
@@ -456,25 +564,25 @@ export class InitSmartVerifyRequest extends $tea.Model {
 }
 
 export class InitSmartVerifyResponseBody extends $tea.Model {
-  resultObject?: InitSmartVerifyResponseBodyResultObject;
+  code?: string;
   message?: string;
   requestId?: string;
-  code?: string;
+  resultObject?: InitSmartVerifyResponseBodyResultObject;
   static names(): { [key: string]: string } {
     return {
-      resultObject: 'ResultObject',
+      code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
-      code: 'Code',
+      resultObject: 'ResultObject',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      resultObject: InitSmartVerifyResponseBodyResultObject,
+      code: 'string',
       message: 'string',
       requestId: 'string',
-      code: 'string',
+      resultObject: InitSmartVerifyResponseBodyResultObject,
     };
   }
 
@@ -497,6 +605,87 @@ export class InitSmartVerifyResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: InitSmartVerifyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendSmsRequest extends $tea.Model {
+  mobile?: string;
+  signName?: string;
+  templateCode?: string;
+  templateParam?: string;
+  outerOrderNo?: string;
+  static names(): { [key: string]: string } {
+    return {
+      mobile: 'Mobile',
+      signName: 'SignName',
+      templateCode: 'TemplateCode',
+      templateParam: 'TemplateParam',
+      outerOrderNo: 'OuterOrderNo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mobile: 'string',
+      signName: 'string',
+      templateCode: 'string',
+      templateParam: 'string',
+      outerOrderNo: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendSmsResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  requestId?: string;
+  resultObject?: SendSmsResponseBodyResultObject;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      resultObject: 'ResultObject',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+      resultObject: SendSmsResponseBodyResultObject,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendSmsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: SendSmsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: SendSmsResponseBody,
     };
   }
 
@@ -592,25 +781,25 @@ export class VerifyBankElementAdvanceRequest extends $tea.Model {
 }
 
 export class VerifyBankElementResponseBody extends $tea.Model {
-  resultObject?: VerifyBankElementResponseBodyResultObject;
+  code?: string;
   message?: string;
   requestId?: string;
-  code?: string;
+  resultObject?: VerifyBankElementResponseBodyResultObject;
   static names(): { [key: string]: string } {
     return {
-      resultObject: 'ResultObject',
+      code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
-      code: 'Code',
+      resultObject: 'ResultObject',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      resultObject: VerifyBankElementResponseBodyResultObject,
+      code: 'string',
       message: 'string',
       requestId: 'string',
-      code: 'string',
+      resultObject: VerifyBankElementResponseBodyResultObject,
     };
   }
 
@@ -642,16 +831,16 @@ export class VerifyBankElementResponse extends $tea.Model {
 }
 
 export class ContrastSmartVerifyResponseBodyResultObject extends $tea.Model {
-  verifyInfo?: string;
   subCode?: string;
   certifyId?: string;
+  verifyInfo?: string;
   riskInfo?: string;
   passed?: string;
   static names(): { [key: string]: string } {
     return {
-      verifyInfo: 'VerifyInfo',
       subCode: 'SubCode',
       certifyId: 'CertifyId',
+      verifyInfo: 'VerifyInfo',
       riskInfo: 'RiskInfo',
       passed: 'Passed',
     };
@@ -659,9 +848,9 @@ export class ContrastSmartVerifyResponseBodyResultObject extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      verifyInfo: 'string',
       subCode: 'string',
       certifyId: 'string',
+      verifyInfo: 'string',
       riskInfo: 'string',
       passed: 'string',
     };
@@ -673,24 +862,24 @@ export class ContrastSmartVerifyResponseBodyResultObject extends $tea.Model {
 }
 
 export class DescribeSmartVerifyResponseBodyResultObject extends $tea.Model {
+  subCode?: string;
   passedScore?: number;
   materialInfo?: string;
-  subCode?: string;
   passed?: string;
   static names(): { [key: string]: string } {
     return {
+      subCode: 'SubCode',
       passedScore: 'PassedScore',
       materialInfo: 'MaterialInfo',
-      subCode: 'SubCode',
       passed: 'Passed',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      subCode: 'string',
       passedScore: 'number',
       materialInfo: 'string',
-      subCode: 'string',
       passed: 'string',
     };
   }
@@ -700,25 +889,80 @@ export class DescribeSmartVerifyResponseBodyResultObject extends $tea.Model {
   }
 }
 
+export class DescribeSmsDetailResponseBodyItems extends $tea.Model {
+  errorMessage?: string;
+  receiveDate?: string;
+  sendDate?: string;
+  bizId?: string;
+  taskDate?: string;
+  templateCode?: string;
+  outerOrderNo?: string;
+  errorCode?: string;
+  mobile?: string;
+  smsSize?: number;
+  content?: string;
+  signName?: string;
+  sendStatus?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errorMessage: 'ErrorMessage',
+      receiveDate: 'ReceiveDate',
+      sendDate: 'SendDate',
+      bizId: 'BizId',
+      taskDate: 'TaskDate',
+      templateCode: 'TemplateCode',
+      outerOrderNo: 'OuterOrderNo',
+      errorCode: 'ErrorCode',
+      mobile: 'Mobile',
+      smsSize: 'SmsSize',
+      content: 'Content',
+      signName: 'SignName',
+      sendStatus: 'SendStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorMessage: 'string',
+      receiveDate: 'string',
+      sendDate: 'string',
+      bizId: 'string',
+      taskDate: 'string',
+      templateCode: 'string',
+      outerOrderNo: 'string',
+      errorCode: 'string',
+      mobile: 'string',
+      smsSize: 'number',
+      content: 'string',
+      signName: 'string',
+      sendStatus: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ElementSmartVerifyResponseBodyResultObject extends $tea.Model {
-  materialInfo?: string;
   certifyId?: string;
   subCode?: string;
+  materialInfo?: string;
   passed?: string;
   static names(): { [key: string]: string } {
     return {
-      materialInfo: 'MaterialInfo',
       certifyId: 'CertifyId',
       subCode: 'SubCode',
+      materialInfo: 'MaterialInfo',
       passed: 'Passed',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      materialInfo: 'string',
       certifyId: 'string',
       subCode: 'string',
+      materialInfo: 'string',
       passed: 'string',
     };
   }
@@ -747,25 +991,44 @@ export class InitSmartVerifyResponseBodyResultObject extends $tea.Model {
   }
 }
 
+export class SendSmsResponseBodyResultObject extends $tea.Model {
+  bizId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bizId: 'BizId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class VerifyBankElementResponseBodyResultObject extends $tea.Model {
-  materialInfo?: string;
   certifyId?: string;
   subCode?: string;
+  materialInfo?: string;
   passed?: string;
   static names(): { [key: string]: string } {
     return {
-      materialInfo: 'MaterialInfo',
       certifyId: 'CertifyId',
       subCode: 'SubCode',
+      materialInfo: 'MaterialInfo',
       passed: 'Passed',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      materialInfo: 'string',
       certifyId: 'string',
       subCode: 'string',
+      materialInfo: 'string',
       passed: 'string',
     };
   }
@@ -848,29 +1111,32 @@ export default class Client extends OpenApi {
     OpenApiUtil.convert(runtime, ossRuntime);
     let contrastSmartVerifyReq = new ContrastSmartVerifyRequest({ });
     OpenApiUtil.convert(request, contrastSmartVerifyReq);
-    authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-    ossConfig.accessKeyId = authResponse.accessKeyId;
-    ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
-    ossClient = new OSS(ossConfig);
-    fileObj = new $FileForm.FileField({
-      filename: authResponse.objectKey,
-      content: request.facePicFileObject,
-      contentType: "",
-    });
-    ossHeader = new $OSS.PostObjectRequestHeader({
-      accessKeyId: authResponse.accessKeyId,
-      policy: authResponse.encodedPolicy,
-      signature: authResponse.signature,
-      key: authResponse.objectKey,
-      file: fileObj,
-      successActionStatus: "201",
-    });
-    uploadRequest = new $OSS.PostObjectRequest({
-      bucketName: authResponse.bucket,
-      header: ossHeader,
-    });
-    await ossClient.postObject(uploadRequest, ossRuntime);
-    contrastSmartVerifyReq.facePicFile = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    if (!Util.isUnset(request.facePicFileObject)) {
+      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+      ossConfig.accessKeyId = authResponse.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+      ossClient = new OSS(ossConfig);
+      fileObj = new $FileForm.FileField({
+        filename: authResponse.objectKey,
+        content: request.facePicFileObject,
+        contentType: "",
+      });
+      ossHeader = new $OSS.PostObjectRequestHeader({
+        accessKeyId: authResponse.accessKeyId,
+        policy: authResponse.encodedPolicy,
+        signature: authResponse.signature,
+        key: authResponse.objectKey,
+        file: fileObj,
+        successActionStatus: "201",
+      });
+      uploadRequest = new $OSS.PostObjectRequest({
+        bucketName: authResponse.bucket,
+        header: ossHeader,
+      });
+      await ossClient.postObject(uploadRequest, ossRuntime);
+      contrastSmartVerifyReq.facePicFile = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    }
+
     let contrastSmartVerifyResp = await this.contrastSmartVerifyWithOptions(contrastSmartVerifyReq, runtime);
     return contrastSmartVerifyResp;
   }
@@ -886,6 +1152,19 @@ export default class Client extends OpenApi {
   async describeSmartVerify(request: DescribeSmartVerifyRequest): Promise<DescribeSmartVerifyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSmartVerifyWithOptions(request, runtime);
+  }
+
+  async describeSmsDetailWithOptions(request: DescribeSmsDetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSmsDetailResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DescribeSmsDetailResponse>(await this.doRPCRequest("DescribeSmsDetail", "2020-06-18", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeSmsDetailResponse({}));
+  }
+
+  async describeSmsDetail(request: DescribeSmsDetailRequest): Promise<DescribeSmsDetailResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeSmsDetailWithOptions(request, runtime);
   }
 
   async elementSmartVerifyWithOptions(request: ElementSmartVerifyRequest, runtime: $Util.RuntimeOptions): Promise<ElementSmartVerifyResponse> {
@@ -938,29 +1217,32 @@ export default class Client extends OpenApi {
     OpenApiUtil.convert(runtime, ossRuntime);
     let elementSmartVerifyReq = new ElementSmartVerifyRequest({ });
     OpenApiUtil.convert(request, elementSmartVerifyReq);
-    authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-    ossConfig.accessKeyId = authResponse.accessKeyId;
-    ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
-    ossClient = new OSS(ossConfig);
-    fileObj = new $FileForm.FileField({
-      filename: authResponse.objectKey,
-      content: request.certFileObject,
-      contentType: "",
-    });
-    ossHeader = new $OSS.PostObjectRequestHeader({
-      accessKeyId: authResponse.accessKeyId,
-      policy: authResponse.encodedPolicy,
-      signature: authResponse.signature,
-      key: authResponse.objectKey,
-      file: fileObj,
-      successActionStatus: "201",
-    });
-    uploadRequest = new $OSS.PostObjectRequest({
-      bucketName: authResponse.bucket,
-      header: ossHeader,
-    });
-    await ossClient.postObject(uploadRequest, ossRuntime);
-    elementSmartVerifyReq.certFile = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    if (!Util.isUnset(request.certFileObject)) {
+      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+      ossConfig.accessKeyId = authResponse.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+      ossClient = new OSS(ossConfig);
+      fileObj = new $FileForm.FileField({
+        filename: authResponse.objectKey,
+        content: request.certFileObject,
+        contentType: "",
+      });
+      ossHeader = new $OSS.PostObjectRequestHeader({
+        accessKeyId: authResponse.accessKeyId,
+        policy: authResponse.encodedPolicy,
+        signature: authResponse.signature,
+        key: authResponse.objectKey,
+        file: fileObj,
+        successActionStatus: "201",
+      });
+      uploadRequest = new $OSS.PostObjectRequest({
+        bucketName: authResponse.bucket,
+        header: ossHeader,
+      });
+      await ossClient.postObject(uploadRequest, ossRuntime);
+      elementSmartVerifyReq.certFile = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    }
+
     let elementSmartVerifyResp = await this.elementSmartVerifyWithOptions(elementSmartVerifyReq, runtime);
     return elementSmartVerifyResp;
   }
@@ -976,6 +1258,19 @@ export default class Client extends OpenApi {
   async initSmartVerify(request: InitSmartVerifyRequest): Promise<InitSmartVerifyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.initSmartVerifyWithOptions(request, runtime);
+  }
+
+  async sendSmsWithOptions(request: SendSmsRequest, runtime: $Util.RuntimeOptions): Promise<SendSmsResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<SendSmsResponse>(await this.doRPCRequest("SendSms", "2020-06-18", "HTTPS", "POST", "AK", "json", req, runtime), new SendSmsResponse({}));
+  }
+
+  async sendSms(request: SendSmsRequest): Promise<SendSmsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.sendSmsWithOptions(request, runtime);
   }
 
   async verifyBankElementWithOptions(request: VerifyBankElementRequest, runtime: $Util.RuntimeOptions): Promise<VerifyBankElementResponse> {
@@ -1028,29 +1323,32 @@ export default class Client extends OpenApi {
     OpenApiUtil.convert(runtime, ossRuntime);
     let verifyBankElementReq = new VerifyBankElementRequest({ });
     OpenApiUtil.convert(request, verifyBankElementReq);
-    authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-    ossConfig.accessKeyId = authResponse.accessKeyId;
-    ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
-    ossClient = new OSS(ossConfig);
-    fileObj = new $FileForm.FileField({
-      filename: authResponse.objectKey,
-      content: request.bankCardFileObject,
-      contentType: "",
-    });
-    ossHeader = new $OSS.PostObjectRequestHeader({
-      accessKeyId: authResponse.accessKeyId,
-      policy: authResponse.encodedPolicy,
-      signature: authResponse.signature,
-      key: authResponse.objectKey,
-      file: fileObj,
-      successActionStatus: "201",
-    });
-    uploadRequest = new $OSS.PostObjectRequest({
-      bucketName: authResponse.bucket,
-      header: ossHeader,
-    });
-    await ossClient.postObject(uploadRequest, ossRuntime);
-    verifyBankElementReq.bankCardFile = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    if (!Util.isUnset(request.bankCardFileObject)) {
+      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+      ossConfig.accessKeyId = authResponse.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+      ossClient = new OSS(ossConfig);
+      fileObj = new $FileForm.FileField({
+        filename: authResponse.objectKey,
+        content: request.bankCardFileObject,
+        contentType: "",
+      });
+      ossHeader = new $OSS.PostObjectRequestHeader({
+        accessKeyId: authResponse.accessKeyId,
+        policy: authResponse.encodedPolicy,
+        signature: authResponse.signature,
+        key: authResponse.objectKey,
+        file: fileObj,
+        successActionStatus: "201",
+      });
+      uploadRequest = new $OSS.PostObjectRequest({
+        bucketName: authResponse.bucket,
+        header: ossHeader,
+      });
+      await ossClient.postObject(uploadRequest, ossRuntime);
+      verifyBankElementReq.bankCardFile = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    }
+
     let verifyBankElementResp = await this.verifyBankElementWithOptions(verifyBankElementReq, runtime);
     return verifyBankElementResp;
   }
