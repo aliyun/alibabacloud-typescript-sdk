@@ -436,6 +436,7 @@ export class CreateDBInstanceRequest extends $tea.Model {
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   ownerAccount?: string;
+  regionId?: string;
   clientToken?: string;
   zoneId?: string;
   engine?: string;
@@ -469,6 +470,7 @@ export class CreateDBInstanceRequest extends $tea.Model {
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       ownerAccount: 'OwnerAccount',
+      regionId: 'RegionId',
       clientToken: 'ClientToken',
       zoneId: 'ZoneId',
       engine: 'Engine',
@@ -505,6 +507,7 @@ export class CreateDBInstanceRequest extends $tea.Model {
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       ownerAccount: 'string',
+      regionId: 'string',
       clientToken: 'string',
       zoneId: 'string',
       engine: 'string',
@@ -786,9 +789,7 @@ export class CreateServerlessDBInstanceRequest extends $tea.Model {
   DBInstanceDescription?: string;
   securityIPList?: string;
   accountPassword?: string;
-  chargeType?: string;
   period?: number;
-  networkType?: string;
   vpcId?: string;
   vSwitchId?: string;
   clientToken?: string;
@@ -811,9 +812,7 @@ export class CreateServerlessDBInstanceRequest extends $tea.Model {
       DBInstanceDescription: 'DBInstanceDescription',
       securityIPList: 'SecurityIPList',
       accountPassword: 'AccountPassword',
-      chargeType: 'ChargeType',
       period: 'Period',
-      networkType: 'NetworkType',
       vpcId: 'VpcId',
       vSwitchId: 'VSwitchId',
       clientToken: 'ClientToken',
@@ -839,9 +838,7 @@ export class CreateServerlessDBInstanceRequest extends $tea.Model {
       DBInstanceDescription: 'string',
       securityIPList: 'string',
       accountPassword: 'string',
-      chargeType: 'string',
       period: 'number',
-      networkType: 'string',
       vpcId: 'string',
       vSwitchId: 'string',
       clientToken: 'string',
@@ -905,6 +902,7 @@ export class CreateServerlessDBInstanceResponse extends $tea.Model {
 }
 
 export class CreateShardingDBInstanceRequest extends $tea.Model {
+  regionId?: string;
   securityToken?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
@@ -932,6 +930,7 @@ export class CreateShardingDBInstanceRequest extends $tea.Model {
   configServer?: CreateShardingDBInstanceRequestConfigServer[];
   static names(): { [key: string]: string } {
     return {
+      regionId: 'RegionId',
       securityToken: 'SecurityToken',
       ownerId: 'OwnerId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
@@ -962,6 +961,7 @@ export class CreateShardingDBInstanceRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      regionId: 'string',
       securityToken: 'string',
       ownerId: 'number',
       resourceOwnerAccount: 'string',
@@ -1817,90 +1817,6 @@ export class DescribeAuditRecordsResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: DescribeAuditRecordsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeAvailableResourceRequest extends $tea.Model {
-  securityToken?: string;
-  ownerId?: number;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  ownerAccount?: string;
-  regionId?: string;
-  zoneId?: string;
-  instanceChargeType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      securityToken: 'SecurityToken',
-      ownerId: 'OwnerId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-      ownerAccount: 'OwnerAccount',
-      regionId: 'RegionId',
-      zoneId: 'ZoneId',
-      instanceChargeType: 'InstanceChargeType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      securityToken: 'string',
-      ownerId: 'number',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-      ownerAccount: 'string',
-      regionId: 'string',
-      zoneId: 'string',
-      instanceChargeType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeAvailableResourceResponseBody extends $tea.Model {
-  requestId?: string;
-  supportedDBTypes?: DescribeAvailableResourceResponseBodySupportedDBTypes;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      supportedDBTypes: 'SupportedDBTypes',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      supportedDBTypes: DescribeAvailableResourceResponseBodySupportedDBTypes,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeAvailableResourceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DescribeAvailableResourceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DescribeAvailableResourceResponseBody,
     };
   }
 
@@ -2960,7 +2876,6 @@ export class DescribeDedicatedClusterInstanceListRequest extends $tea.Model {
   resourceOwnerId?: number;
   ownerAccount?: string;
   regionId?: string;
-  region?: string;
   zoneId?: string;
   instanceId?: string;
   instanceStatus?: string;
@@ -2979,7 +2894,6 @@ export class DescribeDedicatedClusterInstanceListRequest extends $tea.Model {
       resourceOwnerId: 'ResourceOwnerId',
       ownerAccount: 'OwnerAccount',
       regionId: 'RegionId',
-      region: 'Region',
       zoneId: 'ZoneId',
       instanceId: 'InstanceId',
       instanceStatus: 'InstanceStatus',
@@ -3001,7 +2915,6 @@ export class DescribeDedicatedClusterInstanceListRequest extends $tea.Model {
       resourceOwnerId: 'number',
       ownerAccount: 'string',
       regionId: 'string',
-      region: 'string',
       zoneId: 'string',
       instanceId: 'string',
       instanceStatus: 'string',
@@ -3839,7 +3752,6 @@ export class DescribeRegionsRequest extends $tea.Model {
   resourceOwnerId?: number;
   ownerAccount?: string;
   regionId?: string;
-  zoneId?: string;
   static names(): { [key: string]: string } {
     return {
       securityToken: 'SecurityToken',
@@ -3848,7 +3760,6 @@ export class DescribeRegionsRequest extends $tea.Model {
       resourceOwnerId: 'ResourceOwnerId',
       ownerAccount: 'OwnerAccount',
       regionId: 'RegionId',
-      zoneId: 'ZoneId',
     };
   }
 
@@ -3860,7 +3771,6 @@ export class DescribeRegionsRequest extends $tea.Model {
       resourceOwnerId: 'number',
       ownerAccount: 'string',
       regionId: 'string',
-      zoneId: 'string',
     };
   }
 
@@ -5817,7 +5727,6 @@ export class ModifyDBInstanceSpecRequest extends $tea.Model {
   DBInstanceStorage?: string;
   orderType?: string;
   autoPay?: boolean;
-  fromApp?: string;
   businessInfo?: string;
   replicationFactor?: string;
   readonlyReplicas?: string;
@@ -5835,7 +5744,6 @@ export class ModifyDBInstanceSpecRequest extends $tea.Model {
       DBInstanceStorage: 'DBInstanceStorage',
       orderType: 'OrderType',
       autoPay: 'AutoPay',
-      fromApp: 'FromApp',
       businessInfo: 'BusinessInfo',
       replicationFactor: 'ReplicationFactor',
       readonlyReplicas: 'ReadonlyReplicas',
@@ -5856,7 +5764,6 @@ export class ModifyDBInstanceSpecRequest extends $tea.Model {
       DBInstanceStorage: 'string',
       orderType: 'string',
       autoPay: 'boolean',
-      fromApp: 'string',
       businessInfo: 'string',
       replicationFactor: 'string',
       readonlyReplicas: 'string',
@@ -6258,8 +6165,11 @@ export class ModifyNodeSpecRequest extends $tea.Model {
   fromApp?: string;
   autoPay?: boolean;
   effectiveTime?: string;
+  switchTime?: string;
   orderType?: string;
   readonlyReplicas?: number;
+  businessInfo?: string;
+  couponNo?: string;
   static names(): { [key: string]: string } {
     return {
       securityToken: 'SecurityToken',
@@ -6275,8 +6185,11 @@ export class ModifyNodeSpecRequest extends $tea.Model {
       fromApp: 'FromApp',
       autoPay: 'AutoPay',
       effectiveTime: 'EffectiveTime',
+      switchTime: 'SwitchTime',
       orderType: 'OrderType',
       readonlyReplicas: 'ReadonlyReplicas',
+      businessInfo: 'BusinessInfo',
+      couponNo: 'CouponNo',
     };
   }
 
@@ -6295,8 +6208,11 @@ export class ModifyNodeSpecRequest extends $tea.Model {
       fromApp: 'string',
       autoPay: 'boolean',
       effectiveTime: 'string',
+      switchTime: 'string',
       orderType: 'string',
       readonlyReplicas: 'number',
+      businessInfo: 'string',
+      couponNo: 'string',
     };
   }
 
@@ -7836,258 +7752,6 @@ export class DescribeAuditRecordsResponseBodyItems extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       SQLRecord: { 'type': 'array', 'itemType': DescribeAuditRecordsResponseBodyItemsSQLRecord },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeAvailableResourceResponseBodySupportedDBTypesSupportedDBTypeAvailableZonesAvailableZoneSupportedEngineVersionsSupportedEngineVersionSupportedEnginesSupportedEngineSupportedNodeTypesSupportedNodeTypeAvailableResourcesAvailableResource extends $tea.Model {
-  instanceClassRemark?: string;
-  instanceClass?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceClassRemark: 'InstanceClassRemark',
-      instanceClass: 'InstanceClass',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceClassRemark: 'string',
-      instanceClass: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeAvailableResourceResponseBodySupportedDBTypesSupportedDBTypeAvailableZonesAvailableZoneSupportedEngineVersionsSupportedEngineVersionSupportedEnginesSupportedEngineSupportedNodeTypesSupportedNodeTypeAvailableResources extends $tea.Model {
-  availableResource?: DescribeAvailableResourceResponseBodySupportedDBTypesSupportedDBTypeAvailableZonesAvailableZoneSupportedEngineVersionsSupportedEngineVersionSupportedEnginesSupportedEngineSupportedNodeTypesSupportedNodeTypeAvailableResourcesAvailableResource[];
-  static names(): { [key: string]: string } {
-    return {
-      availableResource: 'AvailableResource',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      availableResource: { 'type': 'array', 'itemType': DescribeAvailableResourceResponseBodySupportedDBTypesSupportedDBTypeAvailableZonesAvailableZoneSupportedEngineVersionsSupportedEngineVersionSupportedEnginesSupportedEngineSupportedNodeTypesSupportedNodeTypeAvailableResourcesAvailableResource },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeAvailableResourceResponseBodySupportedDBTypesSupportedDBTypeAvailableZonesAvailableZoneSupportedEngineVersionsSupportedEngineVersionSupportedEnginesSupportedEngineSupportedNodeTypesSupportedNodeType extends $tea.Model {
-  nodeType?: string;
-  networkTypes?: string;
-  availableResources?: DescribeAvailableResourceResponseBodySupportedDBTypesSupportedDBTypeAvailableZonesAvailableZoneSupportedEngineVersionsSupportedEngineVersionSupportedEnginesSupportedEngineSupportedNodeTypesSupportedNodeTypeAvailableResources;
-  static names(): { [key: string]: string } {
-    return {
-      nodeType: 'NodeType',
-      networkTypes: 'NetworkTypes',
-      availableResources: 'AvailableResources',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      nodeType: 'string',
-      networkTypes: 'string',
-      availableResources: DescribeAvailableResourceResponseBodySupportedDBTypesSupportedDBTypeAvailableZonesAvailableZoneSupportedEngineVersionsSupportedEngineVersionSupportedEnginesSupportedEngineSupportedNodeTypesSupportedNodeTypeAvailableResources,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeAvailableResourceResponseBodySupportedDBTypesSupportedDBTypeAvailableZonesAvailableZoneSupportedEngineVersionsSupportedEngineVersionSupportedEnginesSupportedEngineSupportedNodeTypes extends $tea.Model {
-  supportedNodeType?: DescribeAvailableResourceResponseBodySupportedDBTypesSupportedDBTypeAvailableZonesAvailableZoneSupportedEngineVersionsSupportedEngineVersionSupportedEnginesSupportedEngineSupportedNodeTypesSupportedNodeType[];
-  static names(): { [key: string]: string } {
-    return {
-      supportedNodeType: 'SupportedNodeType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      supportedNodeType: { 'type': 'array', 'itemType': DescribeAvailableResourceResponseBodySupportedDBTypesSupportedDBTypeAvailableZonesAvailableZoneSupportedEngineVersionsSupportedEngineVersionSupportedEnginesSupportedEngineSupportedNodeTypesSupportedNodeType },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeAvailableResourceResponseBodySupportedDBTypesSupportedDBTypeAvailableZonesAvailableZoneSupportedEngineVersionsSupportedEngineVersionSupportedEnginesSupportedEngine extends $tea.Model {
-  supportedNodeTypes?: DescribeAvailableResourceResponseBodySupportedDBTypesSupportedDBTypeAvailableZonesAvailableZoneSupportedEngineVersionsSupportedEngineVersionSupportedEnginesSupportedEngineSupportedNodeTypes;
-  engine?: string;
-  static names(): { [key: string]: string } {
-    return {
-      supportedNodeTypes: 'SupportedNodeTypes',
-      engine: 'Engine',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      supportedNodeTypes: DescribeAvailableResourceResponseBodySupportedDBTypesSupportedDBTypeAvailableZonesAvailableZoneSupportedEngineVersionsSupportedEngineVersionSupportedEnginesSupportedEngineSupportedNodeTypes,
-      engine: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeAvailableResourceResponseBodySupportedDBTypesSupportedDBTypeAvailableZonesAvailableZoneSupportedEngineVersionsSupportedEngineVersionSupportedEngines extends $tea.Model {
-  supportedEngine?: DescribeAvailableResourceResponseBodySupportedDBTypesSupportedDBTypeAvailableZonesAvailableZoneSupportedEngineVersionsSupportedEngineVersionSupportedEnginesSupportedEngine[];
-  static names(): { [key: string]: string } {
-    return {
-      supportedEngine: 'SupportedEngine',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      supportedEngine: { 'type': 'array', 'itemType': DescribeAvailableResourceResponseBodySupportedDBTypesSupportedDBTypeAvailableZonesAvailableZoneSupportedEngineVersionsSupportedEngineVersionSupportedEnginesSupportedEngine },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeAvailableResourceResponseBodySupportedDBTypesSupportedDBTypeAvailableZonesAvailableZoneSupportedEngineVersionsSupportedEngineVersion extends $tea.Model {
-  supportedEngines?: DescribeAvailableResourceResponseBodySupportedDBTypesSupportedDBTypeAvailableZonesAvailableZoneSupportedEngineVersionsSupportedEngineVersionSupportedEngines;
-  version?: string;
-  static names(): { [key: string]: string } {
-    return {
-      supportedEngines: 'SupportedEngines',
-      version: 'Version',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      supportedEngines: DescribeAvailableResourceResponseBodySupportedDBTypesSupportedDBTypeAvailableZonesAvailableZoneSupportedEngineVersionsSupportedEngineVersionSupportedEngines,
-      version: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeAvailableResourceResponseBodySupportedDBTypesSupportedDBTypeAvailableZonesAvailableZoneSupportedEngineVersions extends $tea.Model {
-  supportedEngineVersion?: DescribeAvailableResourceResponseBodySupportedDBTypesSupportedDBTypeAvailableZonesAvailableZoneSupportedEngineVersionsSupportedEngineVersion[];
-  static names(): { [key: string]: string } {
-    return {
-      supportedEngineVersion: 'SupportedEngineVersion',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      supportedEngineVersion: { 'type': 'array', 'itemType': DescribeAvailableResourceResponseBodySupportedDBTypesSupportedDBTypeAvailableZonesAvailableZoneSupportedEngineVersionsSupportedEngineVersion },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeAvailableResourceResponseBodySupportedDBTypesSupportedDBTypeAvailableZonesAvailableZone extends $tea.Model {
-  supportedEngineVersions?: DescribeAvailableResourceResponseBodySupportedDBTypesSupportedDBTypeAvailableZonesAvailableZoneSupportedEngineVersions;
-  zoneId?: string;
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      supportedEngineVersions: 'SupportedEngineVersions',
-      zoneId: 'ZoneId',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      supportedEngineVersions: DescribeAvailableResourceResponseBodySupportedDBTypesSupportedDBTypeAvailableZonesAvailableZoneSupportedEngineVersions,
-      zoneId: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeAvailableResourceResponseBodySupportedDBTypesSupportedDBTypeAvailableZones extends $tea.Model {
-  availableZone?: DescribeAvailableResourceResponseBodySupportedDBTypesSupportedDBTypeAvailableZonesAvailableZone[];
-  static names(): { [key: string]: string } {
-    return {
-      availableZone: 'AvailableZone',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      availableZone: { 'type': 'array', 'itemType': DescribeAvailableResourceResponseBodySupportedDBTypesSupportedDBTypeAvailableZonesAvailableZone },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeAvailableResourceResponseBodySupportedDBTypesSupportedDBType extends $tea.Model {
-  availableZones?: DescribeAvailableResourceResponseBodySupportedDBTypesSupportedDBTypeAvailableZones;
-  dbType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      availableZones: 'AvailableZones',
-      dbType: 'DbType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      availableZones: DescribeAvailableResourceResponseBodySupportedDBTypesSupportedDBTypeAvailableZones,
-      dbType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeAvailableResourceResponseBodySupportedDBTypes extends $tea.Model {
-  supportedDBType?: DescribeAvailableResourceResponseBodySupportedDBTypesSupportedDBType[];
-  static names(): { [key: string]: string } {
-    return {
-      supportedDBType: 'SupportedDBType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      supportedDBType: { 'type': 'array', 'itemType': DescribeAvailableResourceResponseBodySupportedDBTypesSupportedDBType },
     };
   }
 
@@ -10680,19 +10344,6 @@ export default class Client extends OpenApi {
   async describeAuditRecords(request: DescribeAuditRecordsRequest): Promise<DescribeAuditRecordsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAuditRecordsWithOptions(request, runtime);
-  }
-
-  async describeAvailableResourceWithOptions(request: DescribeAvailableResourceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAvailableResourceResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<DescribeAvailableResourceResponse>(await this.doRPCRequest("DescribeAvailableResource", "2015-12-01", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeAvailableResourceResponse({}));
-  }
-
-  async describeAvailableResource(request: DescribeAvailableResourceRequest): Promise<DescribeAvailableResourceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeAvailableResourceWithOptions(request, runtime);
   }
 
   async describeAvailableTimeRangeWithOptions(request: DescribeAvailableTimeRangeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAvailableTimeRangeResponse> {
