@@ -2569,6 +2569,7 @@ export class DescribeDBInstancesRequest extends $tea.Model {
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   ownerAccount?: string;
+  regionId?: string;
   pageNumber?: number;
   pageSize?: number;
   DBInstanceId?: string;
@@ -2596,6 +2597,7 @@ export class DescribeDBInstancesRequest extends $tea.Model {
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       ownerAccount: 'OwnerAccount',
+      regionId: 'RegionId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       DBInstanceId: 'DBInstanceId',
@@ -2626,6 +2628,7 @@ export class DescribeDBInstancesRequest extends $tea.Model {
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       ownerAccount: 'string',
+      regionId: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       DBInstanceId: 'string',
@@ -3550,6 +3553,7 @@ export class DescribeParameterTemplatesRequest extends $tea.Model {
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   ownerAccount?: string;
+  regionId?: string;
   engine?: string;
   engineVersion?: string;
   static names(): { [key: string]: string } {
@@ -3559,6 +3563,7 @@ export class DescribeParameterTemplatesRequest extends $tea.Model {
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       ownerAccount: 'OwnerAccount',
+      regionId: 'RegionId',
       engine: 'Engine',
       engineVersion: 'EngineVersion',
     };
@@ -3571,6 +3576,7 @@ export class DescribeParameterTemplatesRequest extends $tea.Model {
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       ownerAccount: 'string',
+      regionId: 'string',
       engine: 'string',
       engineVersion: 'string',
     };
@@ -3640,6 +3646,7 @@ export class DescribePriceRequest extends $tea.Model {
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   ownerAccount?: string;
+  regionId?: string;
   orderType?: string;
   DBInstances?: string;
   commodityCode?: string;
@@ -3655,6 +3662,7 @@ export class DescribePriceRequest extends $tea.Model {
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       ownerAccount: 'OwnerAccount',
+      regionId: 'RegionId',
       orderType: 'OrderType',
       DBInstances: 'DBInstances',
       commodityCode: 'CommodityCode',
@@ -3673,6 +3681,7 @@ export class DescribePriceRequest extends $tea.Model {
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       ownerAccount: 'string',
+      regionId: 'string',
       orderType: 'string',
       DBInstances: 'string',
       commodityCode: 'string',
