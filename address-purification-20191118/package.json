@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/address-purification20191118",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "dist/client.js",
   "scripts": {
@@ -23,7 +23,9 @@
     "@alicloud/tea-util": "^1.4.0",
     "@alicloud/rpc-util": "^0.1.0",
     "@alicloud/rpc-client": "^1.3.1",
-    "@alicloud/endpoint-util": "^0.0.1"
+    "@alicloud/endpoint-util": "^0.0.1",
+    "@alicloud/openapi-client": "^0.3.0",
+    "@alicloud/openapi-util": "^0.2.2"
   },
   "files": [
     "dist",
