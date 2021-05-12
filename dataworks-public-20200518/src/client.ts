@@ -1,8 +1,2478 @@
 // This file is auto-generated, don't edit it
 import Util, * as $Util from '@alicloud/tea-util';
+import RPCUtil from '@alicloud/rpc-util';
 import RPC, * as $RPC from '@alicloud/rpc-client';
 import EndpointUtil from '@alicloud/endpoint-util';
+import OSS, * as $OSS from '@alicloud/oss-client';
+import OpenPlatform, * as $OpenPlatform from '@alicloud/openplatform20191219';
+import OSSUtil, * as $OSSUtil from '@alicloud/oss-util';
+import FileForm, * as $FileForm from '@alicloud/tea-fileform';
+import { Readable } from 'stream';
 import * as $tea from '@alicloud/tea-typescript';
+
+export class QueryPublicModelEngineRequest extends $tea.Model {
+  text: string;
+  tenantId: string;
+  projectId: string;
+  static names(): { [key: string]: string } {
+    return {
+      text: 'Text',
+      tenantId: 'TenantId',
+      projectId: 'ProjectId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      text: 'string',
+      tenantId: 'string',
+      projectId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryPublicModelEngineResponse extends $tea.Model {
+  requestId: string;
+  returnValue: { [key: string]: any }[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      returnValue: 'ReturnValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      returnValue: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteViewRequest extends $tea.Model {
+  viewName: string;
+  appGuid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      viewName: 'ViewName',
+      appGuid: 'AppGuid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      viewName: 'string',
+      appGuid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteViewResponse extends $tea.Model {
+  requestId: string;
+  taskInfo: DeleteViewResponseTaskInfo;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      taskInfo: 'TaskInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      taskInfo: DeleteViewResponseTaskInfo,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateViewRequest extends $tea.Model {
+  viewName: string;
+  selectColumn?: string;
+  selectTableName?: string;
+  selectWhere?: string;
+  selectSQL?: string;
+  appGuid: string;
+  comment?: string;
+  viewColumn: CreateViewRequestViewColumn[];
+  clientToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      viewName: 'ViewName',
+      selectColumn: 'SelectColumn',
+      selectTableName: 'SelectTableName',
+      selectWhere: 'SelectWhere',
+      selectSQL: 'SelectSQL',
+      appGuid: 'AppGuid',
+      comment: 'Comment',
+      viewColumn: 'ViewColumn',
+      clientToken: 'ClientToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      viewName: 'string',
+      selectColumn: 'string',
+      selectTableName: 'string',
+      selectWhere: 'string',
+      selectSQL: 'string',
+      appGuid: 'string',
+      comment: 'string',
+      viewColumn: { 'type': 'array', 'itemType': CreateViewRequestViewColumn },
+      clientToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateViewResponse extends $tea.Model {
+  requestId: string;
+  taskInfo: CreateViewResponseTaskInfo;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      taskInfo: 'TaskInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      taskInfo: CreateViewResponseTaskInfo,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CheckFileDeploymentRequest extends $tea.Model {
+  checkerInstanceId: string;
+  status: string;
+  checkDetailUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      checkerInstanceId: 'CheckerInstanceId',
+      status: 'Status',
+      checkDetailUrl: 'CheckDetailUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      checkerInstanceId: 'string',
+      status: 'string',
+      checkDetailUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CheckFileDeploymentResponse extends $tea.Model {
+  requestId: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImportDISyncTasksRequest extends $tea.Model {
+  projectId: number;
+  taskType: string;
+  taskContent: string;
+  taskParam?: string;
+  static names(): { [key: string]: string } {
+    return {
+      projectId: 'ProjectId',
+      taskType: 'TaskType',
+      taskContent: 'TaskContent',
+      taskParam: 'TaskParam',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectId: 'number',
+      taskType: 'string',
+      taskContent: 'string',
+      taskParam: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImportDISyncTasksResponse extends $tea.Model {
+  requestId: string;
+  success: boolean;
+  taskInfo: ImportDISyncTasksResponseTaskInfo;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+      taskInfo: 'TaskInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+      taskInfo: ImportDISyncTasksResponseTaskInfo,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExportDISyncTasksRequest extends $tea.Model {
+  projectId: number;
+  taskType: string;
+  taskParam: string;
+  static names(): { [key: string]: string } {
+    return {
+      projectId: 'ProjectId',
+      taskType: 'TaskType',
+      taskParam: 'TaskParam',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectId: 'number',
+      taskType: 'string',
+      taskParam: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExportDISyncTasksResponse extends $tea.Model {
+  requestId: string;
+  success: boolean;
+  taskDetail: ExportDISyncTasksResponseTaskDetail;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+      taskDetail: 'TaskDetail',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+      taskDetail: ExportDISyncTasksResponseTaskDetail,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDISyncTasksRequest extends $tea.Model {
+  projectId: number;
+  taskType: string;
+  pageNumber?: number;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      projectId: 'ProjectId',
+      taskType: 'TaskType',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectId: 'number',
+      taskType: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDISyncTasksResponse extends $tea.Model {
+  requestId: string;
+  success: boolean;
+  taskList: ListDISyncTasksResponseTaskList;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+      taskList: 'TaskList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+      taskList: ListDISyncTasksResponseTaskList,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RevokeColumnPermissionRequest extends $tea.Model {
+  workspaceId: number;
+  maxComputeProjectName: string;
+  tableName: string;
+  columns: string;
+  revokeUserName?: string;
+  revokeUserId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      workspaceId: 'WorkspaceId',
+      maxComputeProjectName: 'MaxComputeProjectName',
+      tableName: 'TableName',
+      columns: 'Columns',
+      revokeUserName: 'RevokeUserName',
+      revokeUserId: 'RevokeUserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      workspaceId: 'number',
+      maxComputeProjectName: 'string',
+      tableName: 'string',
+      columns: 'string',
+      revokeUserName: 'string',
+      revokeUserId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RevokeColumnPermissionResponse extends $tea.Model {
+  requestId: string;
+  revokeSuccess: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      revokeSuccess: 'RevokeSuccess',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      revokeSuccess: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RevokeTablePermissionRequest extends $tea.Model {
+  workspaceId: number;
+  maxComputeProjectName: string;
+  tableName: string;
+  actions: string;
+  revokeUserName?: string;
+  revokeUserId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      workspaceId: 'WorkspaceId',
+      maxComputeProjectName: 'MaxComputeProjectName',
+      tableName: 'TableName',
+      actions: 'Actions',
+      revokeUserName: 'RevokeUserName',
+      revokeUserId: 'RevokeUserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      workspaceId: 'number',
+      maxComputeProjectName: 'string',
+      tableName: 'string',
+      actions: 'string',
+      revokeUserName: 'string',
+      revokeUserId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RevokeTablePermissionResponse extends $tea.Model {
+  requestId: string;
+  revokeSuccess: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      revokeSuccess: 'RevokeSuccess',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      revokeSuccess: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMetaTableThemeLevelRequest extends $tea.Model {
+  tableGuid: string;
+  dataSourceType: string;
+  static names(): { [key: string]: string } {
+    return {
+      tableGuid: 'TableGuid',
+      dataSourceType: 'DataSourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tableGuid: 'string',
+      dataSourceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMetaTableThemeLevelResponse extends $tea.Model {
+  requestId: string;
+  errorCode: string;
+  errorMessage: string;
+  httpStatusCode: number;
+  success: boolean;
+  entity: GetMetaTableThemeLevelResponseEntity;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      httpStatusCode: 'HttpStatusCode',
+      success: 'Success',
+      entity: 'Entity',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpStatusCode: 'number',
+      success: 'boolean',
+      entity: GetMetaTableThemeLevelResponseEntity,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPermissionApplyOrderDetailRequest extends $tea.Model {
+  flowId: string;
+  static names(): { [key: string]: string } {
+    return {
+      flowId: 'FlowId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      flowId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPermissionApplyOrderDetailResponse extends $tea.Model {
+  requestId: string;
+  applyOrderDetail: GetPermissionApplyOrderDetailResponseApplyOrderDetail;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      applyOrderDetail: 'ApplyOrderDetail',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      applyOrderDetail: GetPermissionApplyOrderDetailResponseApplyOrderDetail,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPermissionApplyOrdersRequest extends $tea.Model {
+  flowStatus?: number;
+  workspaceId?: number;
+  orderType: number;
+  maxComputeProjectName?: string;
+  tableName?: string;
+  startTime?: number;
+  endTime?: number;
+  engineType: string;
+  pageNum?: number;
+  pageSize?: number;
+  queryType: number;
+  static names(): { [key: string]: string } {
+    return {
+      flowStatus: 'FlowStatus',
+      workspaceId: 'WorkspaceId',
+      orderType: 'OrderType',
+      maxComputeProjectName: 'MaxComputeProjectName',
+      tableName: 'TableName',
+      startTime: 'StartTime',
+      endTime: 'EndTime',
+      engineType: 'EngineType',
+      pageNum: 'PageNum',
+      pageSize: 'PageSize',
+      queryType: 'QueryType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      flowStatus: 'number',
+      workspaceId: 'number',
+      orderType: 'number',
+      maxComputeProjectName: 'string',
+      tableName: 'string',
+      startTime: 'number',
+      endTime: 'number',
+      engineType: 'string',
+      pageNum: 'number',
+      pageSize: 'number',
+      queryType: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPermissionApplyOrdersResponse extends $tea.Model {
+  requestId: string;
+  applyOrders: ListPermissionApplyOrdersResponseApplyOrders;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      applyOrders: 'ApplyOrders',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      applyOrders: ListPermissionApplyOrdersResponseApplyOrders,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePermissionApplyOrderRequest extends $tea.Model {
+  applyUserIds: string;
+  deadline?: number;
+  applyReason: string;
+  maxComputeProjectName: string;
+  workspaceId: number;
+  orderType?: number;
+  engineType?: string;
+  applyObject: CreatePermissionApplyOrderRequestApplyObject[];
+  static names(): { [key: string]: string } {
+    return {
+      applyUserIds: 'ApplyUserIds',
+      deadline: 'Deadline',
+      applyReason: 'ApplyReason',
+      maxComputeProjectName: 'MaxComputeProjectName',
+      workspaceId: 'WorkspaceId',
+      orderType: 'OrderType',
+      engineType: 'EngineType',
+      applyObject: 'ApplyObject',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applyUserIds: 'string',
+      deadline: 'number',
+      applyReason: 'string',
+      maxComputeProjectName: 'string',
+      workspaceId: 'number',
+      orderType: 'number',
+      engineType: 'string',
+      applyObject: { 'type': 'array', 'itemType': CreatePermissionApplyOrderRequestApplyObject },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePermissionApplyOrderResponse extends $tea.Model {
+  requestId: string;
+  flowId: string[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      flowId: 'FlowId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      flowId: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ApprovePermissionApplyOrderRequest extends $tea.Model {
+  flowId: string;
+  approveComment: string;
+  approveAction: number;
+  static names(): { [key: string]: string } {
+    return {
+      flowId: 'FlowId',
+      approveComment: 'ApproveComment',
+      approveAction: 'ApproveAction',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      flowId: 'string',
+      approveComment: 'string',
+      approveAction: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ApprovePermissionApplyOrderResponse extends $tea.Model {
+  requestId: string;
+  approveSuccess: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      approveSuccess: 'ApproveSuccess',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      approveSuccess: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSuccessInstanceAmountRequest extends $tea.Model {
+  projectId: number;
+  static names(): { [key: string]: string } {
+    return {
+      projectId: 'ProjectId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSuccessInstanceAmountResponse extends $tea.Model {
+  requestId: string;
+  instanceStatusTrend: ListSuccessInstanceAmountResponseInstanceStatusTrend;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      instanceStatusTrend: 'InstanceStatusTrend',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      instanceStatusTrend: ListSuccessInstanceAmountResponseInstanceStatusTrend,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListFileTypeRequest extends $tea.Model {
+  projectId?: number;
+  projectIdentifier?: string;
+  pageNumber: number;
+  pageSize: number;
+  keyword?: string;
+  locale?: string;
+  static names(): { [key: string]: string } {
+    return {
+      projectId: 'ProjectId',
+      projectIdentifier: 'ProjectIdentifier',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      keyword: 'Keyword',
+      locale: 'Locale',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectId: 'number',
+      projectIdentifier: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      keyword: 'string',
+      locale: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListFileTypeResponse extends $tea.Model {
+  requestId: string;
+  nodeTypeInfoList: ListFileTypeResponseNodeTypeInfoList;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      nodeTypeInfoList: 'NodeTypeInfoList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      nodeTypeInfoList: ListFileTypeResponseNodeTypeInfoList,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstanceAmountRequest extends $tea.Model {
+  projectId: number;
+  beginDate: string;
+  endDate: string;
+  static names(): { [key: string]: string } {
+    return {
+      projectId: 'ProjectId',
+      beginDate: 'BeginDate',
+      endDate: 'EndDate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectId: 'number',
+      beginDate: 'string',
+      endDate: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstanceAmountResponse extends $tea.Model {
+  requestId: string;
+  instanceCounts: ListInstanceAmountResponseInstanceCounts[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      instanceCounts: 'InstanceCounts',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      instanceCounts: { 'type': 'array', 'itemType': ListInstanceAmountResponseInstanceCounts },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataSourcesRequest extends $tea.Model {
+  projectId: number;
+  name?: string;
+  dataSourceType?: string;
+  subType?: string;
+  status?: string;
+  envType?: number;
+  pageSize?: number;
+  pageNumber?: number;
+  static names(): { [key: string]: string } {
+    return {
+      projectId: 'ProjectId',
+      name: 'Name',
+      dataSourceType: 'DataSourceType',
+      subType: 'SubType',
+      status: 'Status',
+      envType: 'EnvType',
+      pageSize: 'PageSize',
+      pageNumber: 'PageNumber',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectId: 'number',
+      name: 'string',
+      dataSourceType: 'string',
+      subType: 'string',
+      status: 'string',
+      envType: 'number',
+      pageSize: 'number',
+      pageNumber: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataSourcesResponse extends $tea.Model {
+  httpStatusCode: number;
+  success: boolean;
+  requestId: string;
+  data: ListDataSourcesResponseData;
+  static names(): { [key: string]: string } {
+    return {
+      httpStatusCode: 'HttpStatusCode',
+      success: 'Success',
+      requestId: 'RequestId',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      httpStatusCode: 'number',
+      success: 'boolean',
+      requestId: 'string',
+      data: ListDataSourcesResponseData,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListNodesByBaselineRequest extends $tea.Model {
+  baselineId: number;
+  static names(): { [key: string]: string } {
+    return {
+      baselineId: 'BaselineId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      baselineId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListNodesByBaselineResponse extends $tea.Model {
+  success: string;
+  errorCode: string;
+  errorMessage: string;
+  httpStatusCode: number;
+  requestId: string;
+  data: ListNodesByBaselineResponseData[];
+  static names(): { [key: string]: string } {
+    return {
+      success: 'Success',
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      httpStatusCode: 'HttpStatusCode',
+      requestId: 'RequestId',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      success: 'string',
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpStatusCode: 'number',
+      requestId: 'string',
+      data: { 'type': 'array', 'itemType': ListNodesByBaselineResponseData },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListManualDagInstancesRequest extends $tea.Model {
+  projectEnv: string;
+  projectName: string;
+  dagId: string;
+  static names(): { [key: string]: string } {
+    return {
+      projectEnv: 'ProjectEnv',
+      projectName: 'ProjectName',
+      dagId: 'DagId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectEnv: 'string',
+      projectName: 'string',
+      dagId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListManualDagInstancesResponse extends $tea.Model {
+  requestId: string;
+  instances: ListManualDagInstancesResponseInstances[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      instances: 'Instances',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      instances: { 'type': 'array', 'itemType': ListManualDagInstancesResponseInstances },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstanceStatusStatisticRequest extends $tea.Model {
+  projectId: number;
+  projectEnv: string;
+  bizDate: string;
+  static names(): { [key: string]: string } {
+    return {
+      projectId: 'ProjectId',
+      projectEnv: 'ProjectEnv',
+      bizDate: 'BizDate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectId: 'number',
+      projectEnv: 'string',
+      bizDate: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstanceStatusStatisticResponse extends $tea.Model {
+  requestId: string;
+  statusCount: GetInstanceStatusStatisticResponseStatusCount;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      statusCount: 'StatusCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      statusCount: GetInstanceStatusStatisticResponseStatusCount,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDataSourceRequest extends $tea.Model {
+  dataSourceId: number;
+  static names(): { [key: string]: string } {
+    return {
+      dataSourceId: 'DataSourceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataSourceId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDataSourceResponse extends $tea.Model {
+  success: boolean;
+  httpStatusCode: string;
+  data: boolean;
+  requestId: string;
+  static names(): { [key: string]: string } {
+    return {
+      success: 'Success',
+      httpStatusCode: 'HttpStatusCode',
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      success: 'boolean',
+      httpStatusCode: 'string',
+      data: 'boolean',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataSourceRequest extends $tea.Model {
+  projectId: number;
+  name: string;
+  description?: string;
+  dataSourceType: string;
+  subType?: string;
+  envType: number;
+  content: string;
+  static names(): { [key: string]: string } {
+    return {
+      projectId: 'ProjectId',
+      name: 'Name',
+      description: 'Description',
+      dataSourceType: 'DataSourceType',
+      subType: 'SubType',
+      envType: 'EnvType',
+      content: 'Content',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectId: 'number',
+      name: 'string',
+      description: 'string',
+      dataSourceType: 'string',
+      subType: 'string',
+      envType: 'number',
+      content: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataSourceResponse extends $tea.Model {
+  success: boolean;
+  httpStatusCode: string;
+  data: number;
+  requestId: string;
+  static names(): { [key: string]: string } {
+    return {
+      success: 'Success',
+      httpStatusCode: 'HttpStatusCode',
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      success: 'boolean',
+      httpStatusCode: 'string',
+      data: 'number',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TopTenErrorTimesInstanceRequest extends $tea.Model {
+  projectId: number;
+  static names(): { [key: string]: string } {
+    return {
+      projectId: 'ProjectId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TopTenErrorTimesInstanceResponse extends $tea.Model {
+  requestId: string;
+  instanceErrorRank: TopTenErrorTimesInstanceResponseInstanceErrorRank;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      instanceErrorRank: 'InstanceErrorRank',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      instanceErrorRank: TopTenErrorTimesInstanceResponseInstanceErrorRank,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TopTenElapsedTimeInstanceRequest extends $tea.Model {
+  projectId: number;
+  businessDate: string;
+  static names(): { [key: string]: string } {
+    return {
+      projectId: 'ProjectId',
+      businessDate: 'BusinessDate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectId: 'number',
+      businessDate: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TopTenElapsedTimeInstanceResponse extends $tea.Model {
+  requestId: string;
+  instanceConsumeTimeRank: TopTenElapsedTimeInstanceResponseInstanceConsumeTimeRank;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      instanceConsumeTimeRank: 'InstanceConsumeTimeRank',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      instanceConsumeTimeRank: TopTenElapsedTimeInstanceResponseInstanceConsumeTimeRank,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetProjectRequest extends $tea.Model {
+  projectId: number;
+  static names(): { [key: string]: string } {
+    return {
+      projectId: 'ProjectId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetProjectResponse extends $tea.Model {
+  httpStatusCode: number;
+  success: boolean;
+  requestId: string;
+  data: GetProjectResponseData;
+  static names(): { [key: string]: string } {
+    return {
+      httpStatusCode: 'HttpStatusCode',
+      success: 'Success',
+      requestId: 'RequestId',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      httpStatusCode: 'number',
+      success: 'boolean',
+      requestId: 'string',
+      data: GetProjectResponseData,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListNodesByOutputRequest extends $tea.Model {
+  projectEnv: string;
+  outputs: string;
+  static names(): { [key: string]: string } {
+    return {
+      projectEnv: 'ProjectEnv',
+      outputs: 'Outputs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectEnv: 'string',
+      outputs: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListNodesByOutputResponse extends $tea.Model {
+  success: boolean;
+  httpStatusCode: number;
+  errorCode: string;
+  errorMessage: string;
+  requestId: string;
+  data: ListNodesByOutputResponseData[];
+  static names(): { [key: string]: string } {
+    return {
+      success: 'Success',
+      httpStatusCode: 'HttpStatusCode',
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      success: 'boolean',
+      httpStatusCode: 'number',
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      data: { 'type': 'array', 'itemType': ListNodesByOutputResponseData },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFileTypeStatisticRequest extends $tea.Model {
+  projectId: number;
+  projectEnv: string;
+  static names(): { [key: string]: string } {
+    return {
+      projectId: 'ProjectId',
+      projectEnv: 'ProjectEnv',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectId: 'number',
+      projectEnv: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFileTypeStatisticResponse extends $tea.Model {
+  requestId: string;
+  programTypeAndCounts: GetFileTypeStatisticResponseProgramTypeAndCounts[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      programTypeAndCounts: 'ProgramTypeAndCounts',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      programTypeAndCounts: { 'type': 'array', 'itemType': GetFileTypeStatisticResponseProgramTypeAndCounts },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSmokeTestRequest extends $tea.Model {
+  projectEnv: string;
+  bizdate: string;
+  name: string;
+  nodeId: number;
+  nodeParams?: string;
+  static names(): { [key: string]: string } {
+    return {
+      projectEnv: 'ProjectEnv',
+      bizdate: 'Bizdate',
+      name: 'Name',
+      nodeId: 'NodeId',
+      nodeParams: 'NodeParams',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectEnv: 'string',
+      bizdate: 'string',
+      name: 'string',
+      nodeId: 'number',
+      nodeParams: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSmokeTestResponse extends $tea.Model {
+  errorCode: string;
+  errorMessage: string;
+  httpStatusCode: number;
+  requestId: string;
+  success: boolean;
+  data: number;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      httpStatusCode: 'HttpStatusCode',
+      requestId: 'RequestId',
+      success: 'Success',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpStatusCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+      data: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListNodeInputOrOutputRequest extends $tea.Model {
+  nodeId: number;
+  projectEnv: string;
+  ioType: string;
+  static names(): { [key: string]: string } {
+    return {
+      nodeId: 'NodeId',
+      projectEnv: 'ProjectEnv',
+      ioType: 'IoType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nodeId: 'number',
+      projectEnv: 'string',
+      ioType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListNodeInputOrOutputResponse extends $tea.Model {
+  success: boolean;
+  errorCode: string;
+  errorMessage: string;
+  httpStatusCode: number;
+  requestId: string;
+  data: ListNodeInputOrOutputResponseData[];
+  static names(): { [key: string]: string } {
+    return {
+      success: 'Success',
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      httpStatusCode: 'HttpStatusCode',
+      requestId: 'RequestId',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      success: 'boolean',
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpStatusCode: 'number',
+      requestId: 'string',
+      data: { 'type': 'array', 'itemType': ListNodeInputOrOutputResponseData },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunCycleDagNodesRequest extends $tea.Model {
+  projectEnv: string;
+  startBizDate: string;
+  name: string;
+  rootNodeId: number;
+  includeNodeIds: string;
+  excludeNodeIds?: string;
+  bizBeginTime?: string;
+  bizEndTime?: string;
+  parallelism: boolean;
+  endBizDate: string;
+  nodeParams?: string;
+  static names(): { [key: string]: string } {
+    return {
+      projectEnv: 'ProjectEnv',
+      startBizDate: 'StartBizDate',
+      name: 'Name',
+      rootNodeId: 'RootNodeId',
+      includeNodeIds: 'IncludeNodeIds',
+      excludeNodeIds: 'ExcludeNodeIds',
+      bizBeginTime: 'BizBeginTime',
+      bizEndTime: 'BizEndTime',
+      parallelism: 'Parallelism',
+      endBizDate: 'EndBizDate',
+      nodeParams: 'NodeParams',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectEnv: 'string',
+      startBizDate: 'string',
+      name: 'string',
+      rootNodeId: 'number',
+      includeNodeIds: 'string',
+      excludeNodeIds: 'string',
+      bizBeginTime: 'string',
+      bizEndTime: 'string',
+      parallelism: 'boolean',
+      endBizDate: 'string',
+      nodeParams: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunCycleDagNodesResponse extends $tea.Model {
+  errorCode: string;
+  errorMessage: string;
+  httpStatusCode: number;
+  requestId: string;
+  success: boolean;
+  data: number[];
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      httpStatusCode: 'HttpStatusCode',
+      requestId: 'RequestId',
+      success: 'Success',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpStatusCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+      data: { 'type': 'array', 'itemType': 'number' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunManualDagNodesRequest extends $tea.Model {
+  projectEnv: string;
+  projectName: string;
+  flowName: string;
+  bizDate: string;
+  nodeParameters?: string;
+  dagParameters?: string;
+  static names(): { [key: string]: string } {
+    return {
+      projectEnv: 'ProjectEnv',
+      projectName: 'ProjectName',
+      flowName: 'FlowName',
+      bizDate: 'BizDate',
+      nodeParameters: 'NodeParameters',
+      dagParameters: 'DagParameters',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectEnv: 'string',
+      projectName: 'string',
+      flowName: 'string',
+      bizDate: 'string',
+      nodeParameters: 'string',
+      dagParameters: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunManualDagNodesResponse extends $tea.Model {
+  requestId: string;
+  dagId: number;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      dagId: 'DagId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      dagId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDataSourceRequest extends $tea.Model {
+  description?: string;
+  envType?: number;
+  content?: string;
+  status?: string;
+  dataSourceId: number;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      envType: 'EnvType',
+      content: 'Content',
+      status: 'Status',
+      dataSourceId: 'DataSourceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      envType: 'number',
+      content: 'string',
+      status: 'string',
+      dataSourceId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDataSourceResponse extends $tea.Model {
+  success: boolean;
+  httpStatusCode: string;
+  data: boolean;
+  requestId: string;
+  static names(): { [key: string]: string } {
+    return {
+      success: 'Success',
+      httpStatusCode: 'HttpStatusCode',
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      success: 'boolean',
+      httpStatusCode: 'string',
+      data: 'boolean',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateTableAddColumnRequest extends $tea.Model {
+  column: UpdateTableAddColumnRequestColumn[];
+  tableGuid: string;
+  static names(): { [key: string]: string } {
+    return {
+      column: 'Column',
+      tableGuid: 'TableGuid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      column: { 'type': 'array', 'itemType': UpdateTableAddColumnRequestColumn },
+      tableGuid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateTableAddColumnResponse extends $tea.Model {
+  requestId: string;
+  taskInfo: UpdateTableAddColumnResponseTaskInfo;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      taskInfo: 'TaskInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      taskInfo: UpdateTableAddColumnResponseTaskInfo,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMigrationProcessRequest extends $tea.Model {
+  projectId: number;
+  migrationId: number;
+  static names(): { [key: string]: string } {
+    return {
+      projectId: 'ProjectId',
+      migrationId: 'MigrationId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectId: 'number',
+      migrationId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMigrationProcessResponse extends $tea.Model {
+  errorCode: string;
+  errorMessage: string;
+  httpStatusCode: number;
+  requestId: string;
+  success: boolean;
+  data: GetMigrationProcessResponseData[];
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      httpStatusCode: 'HttpStatusCode',
+      requestId: 'RequestId',
+      success: 'Success',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpStatusCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+      data: { 'type': 'array', 'itemType': GetMigrationProcessResponseData },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateImportMigrationRequest extends $tea.Model {
+  projectId: number;
+  name: string;
+  packageType: string;
+  packageFile: string;
+  resourceGroupMap?: string;
+  workspaceMap?: string;
+  calculateEngineMap?: string;
+  commitRule?: string;
+  description?: string;
+  static names(): { [key: string]: string } {
+    return {
+      projectId: 'ProjectId',
+      name: 'Name',
+      packageType: 'PackageType',
+      packageFile: 'PackageFile',
+      resourceGroupMap: 'ResourceGroupMap',
+      workspaceMap: 'WorkspaceMap',
+      calculateEngineMap: 'CalculateEngineMap',
+      commitRule: 'CommitRule',
+      description: 'Description',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectId: 'number',
+      name: 'string',
+      packageType: 'string',
+      packageFile: 'string',
+      resourceGroupMap: 'string',
+      workspaceMap: 'string',
+      calculateEngineMap: 'string',
+      commitRule: 'string',
+      description: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateImportMigrationResponse extends $tea.Model {
+  errorCode: string;
+  errorMessage: string;
+  httpStatusCode: number;
+  requestId: string;
+  success: boolean;
+  data: number;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      httpStatusCode: 'HttpStatusCode',
+      requestId: 'RequestId',
+      success: 'Success',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpStatusCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+      data: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateImportMigrationAdvanceRequest extends $tea.Model {
+  packageFileObject: Readable;
+  projectId: number;
+  name: string;
+  packageType: string;
+  resourceGroupMap?: string;
+  workspaceMap?: string;
+  calculateEngineMap?: string;
+  commitRule?: string;
+  description?: string;
+  static names(): { [key: string]: string } {
+    return {
+      packageFileObject: 'PackageFileObject',
+      projectId: 'ProjectId',
+      name: 'Name',
+      packageType: 'PackageType',
+      resourceGroupMap: 'ResourceGroupMap',
+      workspaceMap: 'WorkspaceMap',
+      calculateEngineMap: 'CalculateEngineMap',
+      commitRule: 'CommitRule',
+      description: 'Description',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      packageFileObject: 'Readable',
+      projectId: 'number',
+      name: 'string',
+      packageType: 'string',
+      resourceGroupMap: 'string',
+      workspaceMap: 'string',
+      calculateEngineMap: 'string',
+      commitRule: 'string',
+      description: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartMigrationRequest extends $tea.Model {
+  projectId: number;
+  migrationId: number;
+  static names(): { [key: string]: string } {
+    return {
+      projectId: 'ProjectId',
+      migrationId: 'MigrationId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectId: 'number',
+      migrationId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartMigrationResponse extends $tea.Model {
+  errorCode: string;
+  errorMessage: string;
+  httpStatusCode: number;
+  requestId: string;
+  success: boolean;
+  data: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      httpStatusCode: 'HttpStatusCode',
+      requestId: 'RequestId',
+      success: 'Success',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpStatusCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+      data: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetNodeParentsRequest extends $tea.Model {
+  projectEnv: string;
+  nodeId: number;
+  static names(): { [key: string]: string } {
+    return {
+      projectEnv: 'ProjectEnv',
+      nodeId: 'NodeId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectEnv: 'string',
+      nodeId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetNodeParentsResponse extends $tea.Model {
+  success: boolean;
+  httpStatusCode: number;
+  errorCode: string;
+  errorMessage: string;
+  requestId: string;
+  data: GetNodeParentsResponseData;
+  static names(): { [key: string]: string } {
+    return {
+      success: 'Success',
+      httpStatusCode: 'HttpStatusCode',
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      success: 'boolean',
+      httpStatusCode: 'number',
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      data: GetNodeParentsResponseData,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetNodeChildrenRequest extends $tea.Model {
+  projectEnv: string;
+  nodeId: number;
+  static names(): { [key: string]: string } {
+    return {
+      projectEnv: 'ProjectEnv',
+      nodeId: 'NodeId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectEnv: 'string',
+      nodeId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetNodeChildrenResponse extends $tea.Model {
+  success: boolean;
+  httpStatusCode: number;
+  errorCode: string;
+  errorMessage: string;
+  requestId: string;
+  data: GetNodeChildrenResponseData;
+  static names(): { [key: string]: string } {
+    return {
+      success: 'Success',
+      httpStatusCode: 'HttpStatusCode',
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      success: 'boolean',
+      httpStatusCode: 'number',
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      data: GetNodeChildrenResponseData,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSensitiveDataRequest extends $tea.Model {
+  pageSize: number;
+  pageNo: number;
+  name: string;
+  static names(): { [key: string]: string } {
+    return {
+      pageSize: 'PageSize',
+      pageNo: 'PageNo',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageSize: 'number',
+      pageNo: 'number',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSensitiveDataResponse extends $tea.Model {
+  requestId: string;
+  sensitiveData: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      sensitiveData: 'SensitiveData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      sensitiveData: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DesensitizeDataRequest extends $tea.Model {
+  data: string;
+  sceneCode: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      sceneCode: 'SceneCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'string',
+      sceneCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DesensitizeDataResponse extends $tea.Model {
+  requestId: string;
+  desensitizeData: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      desensitizeData: 'DesensitizeData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      desensitizeData: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOpRiskDataRequest extends $tea.Model {
+  pageSize: number;
+  pageNo: number;
+  name?: string;
+  date: string;
+  riskType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      pageSize: 'PageSize',
+      pageNo: 'PageNo',
+      name: 'Name',
+      date: 'Date',
+      riskType: 'RiskType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageSize: 'number',
+      pageNo: 'number',
+      name: 'string',
+      date: 'string',
+      riskType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOpRiskDataResponse extends $tea.Model {
+  requestId: string;
+  riskData: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      riskData: 'RiskData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      riskData: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScanSensitiveDataRequest extends $tea.Model {
+  data: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScanSensitiveDataResponse extends $tea.Model {
+  requestId: string;
+  sensitives: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      sensitives: 'Sensitives',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      sensitives: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOpSensitiveDataRequest extends $tea.Model {
+  name: string;
+  pageSize: number;
+  pageNo: number;
+  date: string;
+  opType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      pageSize: 'PageSize',
+      pageNo: 'PageNo',
+      date: 'Date',
+      opType: 'OpType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      pageSize: 'number',
+      pageNo: 'number',
+      date: 'string',
+      opType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOpSensitiveDataResponse extends $tea.Model {
+  opSensitiveData: string;
+  requestId: string;
+  static names(): { [key: string]: string } {
+    return {
+      opSensitiveData: 'OpSensitiveData',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      opSensitiveData: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateBusinessRequest extends $tea.Model {
+  projectId?: number;
+  projectIdentifier?: string;
+  businessName?: string;
+  description?: string;
+  owner?: string;
+  useType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      projectId: 'ProjectId',
+      projectIdentifier: 'ProjectIdentifier',
+      businessName: 'BusinessName',
+      description: 'Description',
+      owner: 'Owner',
+      useType: 'UseType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectId: 'number',
+      projectIdentifier: 'string',
+      businessName: 'string',
+      description: 'string',
+      owner: 'string',
+      useType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateBusinessResponse extends $tea.Model {
+  requestId: string;
+  success: boolean;
+  errorCode: string;
+  errorMessage: string;
+  httpStatusCode: number;
+  businessId: number;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      httpStatusCode: 'HttpStatusCode',
+      businessId: 'BusinessId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpStatusCode: 'number',
+      businessId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class RunTriggerNodeRequest extends $tea.Model {
   nodeId: number;
@@ -305,18 +2775,30 @@ export class ListQualityResultsByEntityRequest extends $tea.Model {
 
 export class ListQualityResultsByEntityResponse extends $tea.Model {
   requestId: string;
-  qualityResults: ListQualityResultsByEntityResponseQualityResults;
+  httpStatusCode: number;
+  errorMessage: string;
+  errorCode: string;
+  success: boolean;
+  data: ListQualityResultsByEntityResponseData;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      qualityResults: 'QualityResults',
+      httpStatusCode: 'HttpStatusCode',
+      errorMessage: 'ErrorMessage',
+      errorCode: 'ErrorCode',
+      success: 'Success',
+      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      qualityResults: ListQualityResultsByEntityResponseQualityResults,
+      httpStatusCode: 'number',
+      errorMessage: 'string',
+      errorCode: 'string',
+      success: 'boolean',
+      data: ListQualityResultsByEntityResponseData,
     };
   }
 
@@ -520,18 +3002,30 @@ export class ListQualityResultsByRuleRequest extends $tea.Model {
 
 export class ListQualityResultsByRuleResponse extends $tea.Model {
   requestId: string;
-  qualityResults: ListQualityResultsByRuleResponseQualityResults;
+  success: boolean;
+  errorCode: string;
+  errorMessage: string;
+  httpStatusCode: number;
+  data: ListQualityResultsByRuleResponseData;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      qualityResults: 'QualityResults',
+      success: 'Success',
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      httpStatusCode: 'HttpStatusCode',
+      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      qualityResults: ListQualityResultsByRuleResponseQualityResults,
+      success: 'boolean',
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpStatusCode: 'number',
+      data: ListQualityResultsByRuleResponseData,
     };
   }
 
@@ -543,10 +3037,14 @@ export class ListQualityResultsByRuleResponse extends $tea.Model {
 export class ListMetaDBRequest extends $tea.Model {
   projectId: number;
   dataSourceType: string;
+  pageNum?: number;
+  pageSize?: number;
   static names(): { [key: string]: string } {
     return {
       projectId: 'ProjectId',
       dataSourceType: 'DataSourceType',
+      pageNum: 'PageNum',
+      pageSize: 'PageSize',
     };
   }
 
@@ -554,6 +3052,8 @@ export class ListMetaDBRequest extends $tea.Model {
     return {
       projectId: 'number',
       dataSourceType: 'string',
+      pageNum: 'number',
+      pageSize: 'number',
     };
   }
 
@@ -585,7 +3085,6 @@ export class ListMetaDBResponse extends $tea.Model {
 }
 
 export class CreateTableRequest extends $tea.Model {
-  hasPart?: number;
   columns: CreateTableRequestColumns[];
   isView?: number;
   visibility?: number;
@@ -602,9 +3101,11 @@ export class CreateTableRequest extends $tea.Model {
   themes?: CreateTableRequestThemes[];
   appGuid?: string;
   comment?: string;
+  ownerId?: string;
+  hasPart?: number;
+  clientToken?: string;
   static names(): { [key: string]: string } {
     return {
-      hasPart: 'HasPart',
       columns: 'Columns',
       isView: 'IsView',
       visibility: 'Visibility',
@@ -621,12 +3122,14 @@ export class CreateTableRequest extends $tea.Model {
       themes: 'Themes',
       appGuid: 'AppGuid',
       comment: 'Comment',
+      ownerId: 'OwnerId',
+      hasPart: 'HasPart',
+      clientToken: 'ClientToken',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      hasPart: 'number',
       columns: { 'type': 'array', 'itemType': CreateTableRequestColumns },
       isView: 'number',
       visibility: 'number',
@@ -643,6 +3146,9 @@ export class CreateTableRequest extends $tea.Model {
       themes: { 'type': 'array', 'itemType': CreateTableRequestThemes },
       appGuid: 'string',
       comment: 'string',
+      ownerId: 'string',
+      hasPart: 'number',
+      clientToken: 'string',
     };
   }
 
@@ -1286,8 +3792,7 @@ export class GetSuccessInstanceTrendResponse extends $tea.Model {
 }
 
 export class UpdateTableRequest extends $tea.Model {
-  hasPart?: number;
-  columns: UpdateTableRequestColumns[];
+  columns?: UpdateTableRequestColumns[];
   isView?: number;
   visibility?: number;
   lifeCycle?: number;
@@ -1303,9 +3808,11 @@ export class UpdateTableRequest extends $tea.Model {
   themes?: UpdateTableRequestThemes[];
   appGuid?: string;
   createIfNotExists?: boolean;
+  ownerId?: string;
+  hasPart?: number;
+  comment?: string;
   static names(): { [key: string]: string } {
     return {
-      hasPart: 'HasPart',
       columns: 'Columns',
       isView: 'IsView',
       visibility: 'Visibility',
@@ -1322,12 +3829,14 @@ export class UpdateTableRequest extends $tea.Model {
       themes: 'Themes',
       appGuid: 'AppGuid',
       createIfNotExists: 'CreateIfNotExists',
+      ownerId: 'OwnerId',
+      hasPart: 'HasPart',
+      comment: 'Comment',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      hasPart: 'number',
       columns: { 'type': 'array', 'itemType': UpdateTableRequestColumns },
       isView: 'number',
       visibility: 'number',
@@ -1344,6 +3853,9 @@ export class UpdateTableRequest extends $tea.Model {
       themes: { 'type': 'array', 'itemType': UpdateTableRequestThemes },
       appGuid: 'string',
       createIfNotExists: 'boolean',
+      ownerId: 'string',
+      hasPart: 'number',
+      comment: 'string',
     };
   }
 
@@ -1424,10 +3936,14 @@ export class GetDataServiceFolderResponse extends $tea.Model {
 export class ListTableLevelRequest extends $tea.Model {
   projectId: number;
   levelType: number;
+  pageNum?: number;
+  pageSize?: number;
   static names(): { [key: string]: string } {
     return {
       projectId: 'ProjectId',
       levelType: 'LevelType',
+      pageNum: 'PageNum',
+      pageSize: 'PageSize',
     };
   }
 
@@ -1435,6 +3951,8 @@ export class ListTableLevelRequest extends $tea.Model {
     return {
       projectId: 'number',
       levelType: 'number',
+      pageNum: 'number',
+      pageSize: 'number',
     };
   }
 
@@ -2802,10 +5320,12 @@ export class GetProjectDetailResponse extends $tea.Model {
 export class ListResourceGroupsRequest extends $tea.Model {
   resourceGroupType: number;
   keyword?: string;
+  bizExtKey?: string;
   static names(): { [key: string]: string } {
     return {
       resourceGroupType: 'ResourceGroupType',
       keyword: 'Keyword',
+      bizExtKey: 'BizExtKey',
     };
   }
 
@@ -2813,6 +5333,7 @@ export class ListResourceGroupsRequest extends $tea.Model {
     return {
       resourceGroupType: 'number',
       keyword: 'string',
+      bizExtKey: 'string',
     };
   }
 
@@ -3508,6 +6029,7 @@ export class GetMetaTableBasicInfoRequest extends $tea.Model {
   databaseName?: string;
   tableName?: string;
   dataSourceType?: string;
+  extension?: boolean;
   static names(): { [key: string]: string } {
     return {
       tableGuid: 'TableGuid',
@@ -3515,6 +6037,7 @@ export class GetMetaTableBasicInfoRequest extends $tea.Model {
       databaseName: 'DatabaseName',
       tableName: 'TableName',
       dataSourceType: 'DataSourceType',
+      extension: 'Extension',
     };
   }
 
@@ -3525,6 +6048,7 @@ export class GetMetaTableBasicInfoRequest extends $tea.Model {
       databaseName: 'string',
       tableName: 'string',
       dataSourceType: 'string',
+      extension: 'boolean',
     };
   }
 
@@ -5670,6 +8194,9 @@ export class ListInstancesRequest extends $tea.Model {
   pageNumber?: number;
   pageSize?: number;
   dagId?: number;
+  bizdate?: string;
+  beginBizdate?: string;
+  endBizdate?: string;
   static names(): { [key: string]: string } {
     return {
       projectEnv: 'ProjectEnv',
@@ -5682,6 +8209,9 @@ export class ListInstancesRequest extends $tea.Model {
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       dagId: 'DagId',
+      bizdate: 'Bizdate',
+      beginBizdate: 'BeginBizdate',
+      endBizdate: 'EndBizdate',
     };
   }
 
@@ -5697,6 +8227,9 @@ export class ListInstancesRequest extends $tea.Model {
       pageNumber: 'number',
       pageSize: 'number',
       dagId: 'number',
+      bizdate: 'string',
+      beginBizdate: 'string',
+      endBizdate: 'string',
     };
   }
 
@@ -9306,6 +11839,1564 @@ export class DeleteQualityRelativeNodeResponse extends $tea.Model {
   }
 }
 
+export class DeleteViewResponseTaskInfo extends $tea.Model {
+  taskId: string;
+  content: string;
+  status: string;
+  nextTaskId: string;
+  static names(): { [key: string]: string } {
+    return {
+      taskId: 'TaskId',
+      content: 'Content',
+      status: 'Status',
+      nextTaskId: 'NextTaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskId: 'string',
+      content: 'string',
+      status: 'string',
+      nextTaskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateViewRequestViewColumn extends $tea.Model {
+  columnName?: string;
+  comment?: string;
+  static names(): { [key: string]: string } {
+    return {
+      columnName: 'ColumnName',
+      comment: 'Comment',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      columnName: 'string',
+      comment: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateViewResponseTaskInfo extends $tea.Model {
+  taskId: string;
+  content: string;
+  status: string;
+  nextTaskId: string;
+  static names(): { [key: string]: string } {
+    return {
+      taskId: 'TaskId',
+      content: 'Content',
+      status: 'Status',
+      nextTaskId: 'NextTaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskId: 'string',
+      content: 'string',
+      status: 'string',
+      nextTaskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImportDISyncTasksResponseTaskInfo extends $tea.Model {
+  taskId: number;
+  static names(): { [key: string]: string } {
+    return {
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExportDISyncTasksResponseTaskDetail extends $tea.Model {
+  realTimeSolution: string;
+  static names(): { [key: string]: string } {
+    return {
+      realTimeSolution: 'RealTimeSolution',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      realTimeSolution: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDISyncTasksResponseTaskListRealTimeSolutionList extends $tea.Model {
+  processId: number;
+  processName: string;
+  taskStatus: string;
+  taskType: string;
+  createTime: number;
+  static names(): { [key: string]: string } {
+    return {
+      processId: 'ProcessId',
+      processName: 'ProcessName',
+      taskStatus: 'TaskStatus',
+      taskType: 'TaskType',
+      createTime: 'CreateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      processId: 'number',
+      processName: 'string',
+      taskStatus: 'string',
+      taskType: 'string',
+      createTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDISyncTasksResponseTaskList extends $tea.Model {
+  pageNumber: number;
+  pageSize: number;
+  totalCount: number;
+  realTimeSolutionList: ListDISyncTasksResponseTaskListRealTimeSolutionList[];
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+      realTimeSolutionList: 'RealTimeSolutionList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
+      realTimeSolutionList: { 'type': 'array', 'itemType': ListDISyncTasksResponseTaskListRealTimeSolutionList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMetaTableThemeLevelResponseEntityTheme extends $tea.Model {
+  themeId: number;
+  name: string;
+  level: number;
+  parentId: number;
+  static names(): { [key: string]: string } {
+    return {
+      themeId: 'ThemeId',
+      name: 'Name',
+      level: 'Level',
+      parentId: 'ParentId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      themeId: 'number',
+      name: 'string',
+      level: 'number',
+      parentId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMetaTableThemeLevelResponseEntityLevel extends $tea.Model {
+  levelId: number;
+  name: string;
+  type: number;
+  description: string;
+  static names(): { [key: string]: string } {
+    return {
+      levelId: 'LevelId',
+      name: 'Name',
+      type: 'Type',
+      description: 'Description',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      levelId: 'number',
+      name: 'string',
+      type: 'number',
+      description: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMetaTableThemeLevelResponseEntity extends $tea.Model {
+  theme: GetMetaTableThemeLevelResponseEntityTheme[];
+  level: GetMetaTableThemeLevelResponseEntityLevel[];
+  static names(): { [key: string]: string } {
+    return {
+      theme: 'Theme',
+      level: 'Level',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      theme: { 'type': 'array', 'itemType': GetMetaTableThemeLevelResponseEntityTheme },
+      level: { 'type': 'array', 'itemType': GetMetaTableThemeLevelResponseEntityLevel },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPermissionApplyOrderDetailResponseApplyOrderDetailApproveAccountList extends $tea.Model {
+  baseId: string;
+  static names(): { [key: string]: string } {
+    return {
+      baseId: 'BaseId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      baseId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPermissionApplyOrderDetailResponseApplyOrderDetailGranteeObjectList extends $tea.Model {
+  granteeId: string;
+  granteeName: string;
+  granteeType: number;
+  granteeTypeSub: number;
+  static names(): { [key: string]: string } {
+    return {
+      granteeId: 'GranteeId',
+      granteeName: 'GranteeName',
+      granteeType: 'GranteeType',
+      granteeTypeSub: 'GranteeTypeSub',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      granteeId: 'string',
+      granteeName: 'string',
+      granteeType: 'number',
+      granteeTypeSub: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPermissionApplyOrderDetailResponseApplyOrderDetailApproveContentProjectMetaObjectMetaListColumnMetaList extends $tea.Model {
+  columnComment: string;
+  columnName: string;
+  static names(): { [key: string]: string } {
+    return {
+      columnComment: 'ColumnComment',
+      columnName: 'ColumnName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      columnComment: 'string',
+      columnName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPermissionApplyOrderDetailResponseApplyOrderDetailApproveContentProjectMetaObjectMetaList extends $tea.Model {
+  objectName: string;
+  columnMetaList: GetPermissionApplyOrderDetailResponseApplyOrderDetailApproveContentProjectMetaObjectMetaListColumnMetaList[];
+  static names(): { [key: string]: string } {
+    return {
+      objectName: 'ObjectName',
+      columnMetaList: 'ColumnMetaList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      objectName: 'string',
+      columnMetaList: { 'type': 'array', 'itemType': GetPermissionApplyOrderDetailResponseApplyOrderDetailApproveContentProjectMetaObjectMetaListColumnMetaList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPermissionApplyOrderDetailResponseApplyOrderDetailApproveContentProjectMeta extends $tea.Model {
+  workspaceId: number;
+  maxComputeProjectName: string;
+  objectMetaList: GetPermissionApplyOrderDetailResponseApplyOrderDetailApproveContentProjectMetaObjectMetaList[];
+  static names(): { [key: string]: string } {
+    return {
+      workspaceId: 'WorkspaceId',
+      maxComputeProjectName: 'MaxComputeProjectName',
+      objectMetaList: 'ObjectMetaList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      workspaceId: 'number',
+      maxComputeProjectName: 'string',
+      objectMetaList: { 'type': 'array', 'itemType': GetPermissionApplyOrderDetailResponseApplyOrderDetailApproveContentProjectMetaObjectMetaList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPermissionApplyOrderDetailResponseApplyOrderDetailApproveContent extends $tea.Model {
+  applyReason: string;
+  deadline: number;
+  orderType: number;
+  projectMeta: GetPermissionApplyOrderDetailResponseApplyOrderDetailApproveContentProjectMeta;
+  static names(): { [key: string]: string } {
+    return {
+      applyReason: 'ApplyReason',
+      deadline: 'Deadline',
+      orderType: 'OrderType',
+      projectMeta: 'ProjectMeta',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applyReason: 'string',
+      deadline: 'number',
+      orderType: 'number',
+      projectMeta: GetPermissionApplyOrderDetailResponseApplyOrderDetailApproveContentProjectMeta,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPermissionApplyOrderDetailResponseApplyOrderDetail extends $tea.Model {
+  applyBaseId: string;
+  applyTimestamp: number;
+  flowId: string;
+  flowStatus: number;
+  approveAccountList: GetPermissionApplyOrderDetailResponseApplyOrderDetailApproveAccountList[];
+  granteeObjectList: GetPermissionApplyOrderDetailResponseApplyOrderDetailGranteeObjectList[];
+  approveContent: GetPermissionApplyOrderDetailResponseApplyOrderDetailApproveContent;
+  static names(): { [key: string]: string } {
+    return {
+      applyBaseId: 'ApplyBaseId',
+      applyTimestamp: 'ApplyTimestamp',
+      flowId: 'FlowId',
+      flowStatus: 'FlowStatus',
+      approveAccountList: 'ApproveAccountList',
+      granteeObjectList: 'GranteeObjectList',
+      approveContent: 'ApproveContent',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applyBaseId: 'string',
+      applyTimestamp: 'number',
+      flowId: 'string',
+      flowStatus: 'number',
+      approveAccountList: { 'type': 'array', 'itemType': GetPermissionApplyOrderDetailResponseApplyOrderDetailApproveAccountList },
+      granteeObjectList: { 'type': 'array', 'itemType': GetPermissionApplyOrderDetailResponseApplyOrderDetailGranteeObjectList },
+      approveContent: GetPermissionApplyOrderDetailResponseApplyOrderDetailApproveContent,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPermissionApplyOrdersResponseApplyOrdersApplyOrderApproveContentProjectMetaObjectMetaList extends $tea.Model {
+  objectName: string;
+  actions: string[];
+  static names(): { [key: string]: string } {
+    return {
+      objectName: 'ObjectName',
+      actions: 'Actions',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      objectName: 'string',
+      actions: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPermissionApplyOrdersResponseApplyOrdersApplyOrderApproveContentProjectMeta extends $tea.Model {
+  workspaceName: string;
+  objectMetaList: ListPermissionApplyOrdersResponseApplyOrdersApplyOrderApproveContentProjectMetaObjectMetaList[];
+  static names(): { [key: string]: string } {
+    return {
+      workspaceName: 'WorkspaceName',
+      objectMetaList: 'ObjectMetaList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      workspaceName: 'string',
+      objectMetaList: { 'type': 'array', 'itemType': ListPermissionApplyOrdersResponseApplyOrdersApplyOrderApproveContentProjectMetaObjectMetaList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPermissionApplyOrdersResponseApplyOrdersApplyOrderApproveContent extends $tea.Model {
+  applyReason: string;
+  orderType: number;
+  projectMeta: ListPermissionApplyOrdersResponseApplyOrdersApplyOrderApproveContentProjectMeta;
+  static names(): { [key: string]: string } {
+    return {
+      applyReason: 'ApplyReason',
+      orderType: 'OrderType',
+      projectMeta: 'ProjectMeta',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applyReason: 'string',
+      orderType: 'number',
+      projectMeta: ListPermissionApplyOrdersResponseApplyOrdersApplyOrderApproveContentProjectMeta,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPermissionApplyOrdersResponseApplyOrdersApplyOrder extends $tea.Model {
+  flowId: string;
+  applyBaseId: string;
+  applyTimestamp: number;
+  flowStatus: number;
+  approveContent: ListPermissionApplyOrdersResponseApplyOrdersApplyOrderApproveContent;
+  static names(): { [key: string]: string } {
+    return {
+      flowId: 'FlowId',
+      applyBaseId: 'ApplyBaseId',
+      applyTimestamp: 'ApplyTimestamp',
+      flowStatus: 'FlowStatus',
+      approveContent: 'ApproveContent',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      flowId: 'string',
+      applyBaseId: 'string',
+      applyTimestamp: 'number',
+      flowStatus: 'number',
+      approveContent: ListPermissionApplyOrdersResponseApplyOrdersApplyOrderApproveContent,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPermissionApplyOrdersResponseApplyOrders extends $tea.Model {
+  pageSize: number;
+  pageNumber: number;
+  totalCount: number;
+  applyOrder: ListPermissionApplyOrdersResponseApplyOrdersApplyOrder[];
+  static names(): { [key: string]: string } {
+    return {
+      pageSize: 'PageSize',
+      pageNumber: 'PageNumber',
+      totalCount: 'TotalCount',
+      applyOrder: 'ApplyOrder',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageSize: 'number',
+      pageNumber: 'number',
+      totalCount: 'number',
+      applyOrder: { 'type': 'array', 'itemType': ListPermissionApplyOrdersResponseApplyOrdersApplyOrder },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePermissionApplyOrderRequestApplyObjectColumnMetaList extends $tea.Model {
+  name: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePermissionApplyOrderRequestApplyObject extends $tea.Model {
+  name: string;
+  columnMetaList: CreatePermissionApplyOrderRequestApplyObjectColumnMetaList[];
+  actions: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      columnMetaList: 'ColumnMetaList',
+      actions: 'Actions',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      columnMetaList: { 'type': 'array', 'itemType': CreatePermissionApplyOrderRequestApplyObjectColumnMetaList },
+      actions: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSuccessInstanceAmountResponseInstanceStatusTrendTodayTrend extends $tea.Model {
+  count: number;
+  timePoint: string;
+  static names(): { [key: string]: string } {
+    return {
+      count: 'Count',
+      timePoint: 'TimePoint',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      count: 'number',
+      timePoint: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSuccessInstanceAmountResponseInstanceStatusTrendYesterdayTrend extends $tea.Model {
+  count: number;
+  timePoint: string;
+  static names(): { [key: string]: string } {
+    return {
+      count: 'Count',
+      timePoint: 'TimePoint',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      count: 'number',
+      timePoint: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSuccessInstanceAmountResponseInstanceStatusTrendAvgTrend extends $tea.Model {
+  count: number;
+  timePoint: string;
+  static names(): { [key: string]: string } {
+    return {
+      count: 'Count',
+      timePoint: 'TimePoint',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      count: 'number',
+      timePoint: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSuccessInstanceAmountResponseInstanceStatusTrend extends $tea.Model {
+  todayTrend: ListSuccessInstanceAmountResponseInstanceStatusTrendTodayTrend[];
+  yesterdayTrend: ListSuccessInstanceAmountResponseInstanceStatusTrendYesterdayTrend[];
+  avgTrend: ListSuccessInstanceAmountResponseInstanceStatusTrendAvgTrend[];
+  static names(): { [key: string]: string } {
+    return {
+      todayTrend: 'TodayTrend',
+      yesterdayTrend: 'YesterdayTrend',
+      avgTrend: 'AvgTrend',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      todayTrend: { 'type': 'array', 'itemType': ListSuccessInstanceAmountResponseInstanceStatusTrendTodayTrend },
+      yesterdayTrend: { 'type': 'array', 'itemType': ListSuccessInstanceAmountResponseInstanceStatusTrendYesterdayTrend },
+      avgTrend: { 'type': 'array', 'itemType': ListSuccessInstanceAmountResponseInstanceStatusTrendAvgTrend },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListFileTypeResponseNodeTypeInfoListNodeTypeInfo extends $tea.Model {
+  nodeType: number;
+  nodeTypeName: string;
+  static names(): { [key: string]: string } {
+    return {
+      nodeType: 'NodeType',
+      nodeTypeName: 'NodeTypeName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nodeType: 'number',
+      nodeTypeName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListFileTypeResponseNodeTypeInfoList extends $tea.Model {
+  pageNumber: number;
+  pageSize: number;
+  totalCount: number;
+  nodeTypeInfo: ListFileTypeResponseNodeTypeInfoListNodeTypeInfo[];
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+      nodeTypeInfo: 'NodeTypeInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
+      nodeTypeInfo: { 'type': 'array', 'itemType': ListFileTypeResponseNodeTypeInfoListNodeTypeInfo },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstanceAmountResponseInstanceCounts extends $tea.Model {
+  date: number;
+  count: number;
+  static names(): { [key: string]: string } {
+    return {
+      date: 'Date',
+      count: 'Count',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      date: 'number',
+      count: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataSourcesResponseDataDataSources extends $tea.Model {
+  shared: boolean;
+  gmtModified: string;
+  connectStatus: number;
+  bindingCalcEngineId: number;
+  description: string;
+  dataSourceType: string;
+  gmtCreate: string;
+  defaultEngine: boolean;
+  operator: string;
+  sequence: number;
+  envType: number;
+  tenantId: number;
+  name: string;
+  subType: string;
+  id: number;
+  projectId: number;
+  status: number;
+  static names(): { [key: string]: string } {
+    return {
+      shared: 'Shared',
+      gmtModified: 'GmtModified',
+      connectStatus: 'ConnectStatus',
+      bindingCalcEngineId: 'BindingCalcEngineId',
+      description: 'Description',
+      dataSourceType: 'DataSourceType',
+      gmtCreate: 'GmtCreate',
+      defaultEngine: 'DefaultEngine',
+      operator: 'Operator',
+      sequence: 'Sequence',
+      envType: 'EnvType',
+      tenantId: 'TenantId',
+      name: 'Name',
+      subType: 'SubType',
+      id: 'Id',
+      projectId: 'ProjectId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      shared: 'boolean',
+      gmtModified: 'string',
+      connectStatus: 'number',
+      bindingCalcEngineId: 'number',
+      description: 'string',
+      dataSourceType: 'string',
+      gmtCreate: 'string',
+      defaultEngine: 'boolean',
+      operator: 'string',
+      sequence: 'number',
+      envType: 'number',
+      tenantId: 'number',
+      name: 'string',
+      subType: 'string',
+      id: 'number',
+      projectId: 'number',
+      status: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataSourcesResponseData extends $tea.Model {
+  pageNumber: number;
+  pageSize: number;
+  totalCount: number;
+  dataSources: ListDataSourcesResponseDataDataSources[];
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+      dataSources: 'DataSources',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
+      dataSources: { 'type': 'array', 'itemType': ListDataSourcesResponseDataDataSources },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListNodesByBaselineResponseData extends $tea.Model {
+  nodeId: number;
+  nodeName: string;
+  owner: string;
+  projectId: number;
+  static names(): { [key: string]: string } {
+    return {
+      nodeId: 'NodeId',
+      nodeName: 'NodeName',
+      owner: 'Owner',
+      projectId: 'ProjectId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nodeId: 'number',
+      nodeName: 'string',
+      owner: 'string',
+      projectId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListManualDagInstancesResponseInstances extends $tea.Model {
+  nodeId: number;
+  instanceId: number;
+  dagId: number;
+  dagType: string;
+  status: string;
+  bizDate: number;
+  cycTime: number;
+  createTime: number;
+  modifyTime: number;
+  nodeName: string;
+  beginWaitTimeTime: number;
+  beginWaitResTime: number;
+  beginRunningTime: number;
+  paramValues: string;
+  finishTime: number;
+  taskType: string;
+  static names(): { [key: string]: string } {
+    return {
+      nodeId: 'NodeId',
+      instanceId: 'InstanceId',
+      dagId: 'DagId',
+      dagType: 'DagType',
+      status: 'Status',
+      bizDate: 'BizDate',
+      cycTime: 'CycTime',
+      createTime: 'CreateTime',
+      modifyTime: 'ModifyTime',
+      nodeName: 'NodeName',
+      beginWaitTimeTime: 'BeginWaitTimeTime',
+      beginWaitResTime: 'BeginWaitResTime',
+      beginRunningTime: 'BeginRunningTime',
+      paramValues: 'ParamValues',
+      finishTime: 'FinishTime',
+      taskType: 'TaskType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nodeId: 'number',
+      instanceId: 'number',
+      dagId: 'number',
+      dagType: 'string',
+      status: 'string',
+      bizDate: 'number',
+      cycTime: 'number',
+      createTime: 'number',
+      modifyTime: 'number',
+      nodeName: 'string',
+      beginWaitTimeTime: 'number',
+      beginWaitResTime: 'number',
+      beginRunningTime: 'number',
+      paramValues: 'string',
+      finishTime: 'number',
+      taskType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstanceStatusStatisticResponseStatusCount extends $tea.Model {
+  totalCount: number;
+  notRunCount: number;
+  waitTimeCount: number;
+  waitResCount: number;
+  runningCount: number;
+  failureCount: number;
+  successCount: number;
+  static names(): { [key: string]: string } {
+    return {
+      totalCount: 'TotalCount',
+      notRunCount: 'NotRunCount',
+      waitTimeCount: 'WaitTimeCount',
+      waitResCount: 'WaitResCount',
+      runningCount: 'RunningCount',
+      failureCount: 'FailureCount',
+      successCount: 'SuccessCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      totalCount: 'number',
+      notRunCount: 'number',
+      waitTimeCount: 'number',
+      waitResCount: 'number',
+      runningCount: 'number',
+      failureCount: 'number',
+      successCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TopTenErrorTimesInstanceResponseInstanceErrorRankErrorRank extends $tea.Model {
+  nodeId: number;
+  nodeName: string;
+  owner: string;
+  count: number;
+  projectId: number;
+  programType: number;
+  static names(): { [key: string]: string } {
+    return {
+      nodeId: 'NodeId',
+      nodeName: 'NodeName',
+      owner: 'Owner',
+      count: 'Count',
+      projectId: 'ProjectId',
+      programType: 'ProgramType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nodeId: 'number',
+      nodeName: 'string',
+      owner: 'string',
+      count: 'number',
+      projectId: 'number',
+      programType: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TopTenErrorTimesInstanceResponseInstanceErrorRank extends $tea.Model {
+  updateTime: number;
+  errorRank: TopTenErrorTimesInstanceResponseInstanceErrorRankErrorRank[];
+  static names(): { [key: string]: string } {
+    return {
+      updateTime: 'UpdateTime',
+      errorRank: 'ErrorRank',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      updateTime: 'number',
+      errorRank: { 'type': 'array', 'itemType': TopTenErrorTimesInstanceResponseInstanceErrorRankErrorRank },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TopTenElapsedTimeInstanceResponseInstanceConsumeTimeRankConsumeTimeRank extends $tea.Model {
+  nodeName: string;
+  nodeId: number;
+  businessDate: number;
+  owner: string;
+  consumed: number;
+  instanceId: number;
+  programType: number;
+  static names(): { [key: string]: string } {
+    return {
+      nodeName: 'NodeName',
+      nodeId: 'NodeId',
+      businessDate: 'BusinessDate',
+      owner: 'Owner',
+      consumed: 'Consumed',
+      instanceId: 'InstanceId',
+      programType: 'ProgramType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nodeName: 'string',
+      nodeId: 'number',
+      businessDate: 'number',
+      owner: 'string',
+      consumed: 'number',
+      instanceId: 'number',
+      programType: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TopTenElapsedTimeInstanceResponseInstanceConsumeTimeRank extends $tea.Model {
+  updateTime: number;
+  consumeTimeRank: TopTenElapsedTimeInstanceResponseInstanceConsumeTimeRankConsumeTimeRank[];
+  static names(): { [key: string]: string } {
+    return {
+      updateTime: 'UpdateTime',
+      consumeTimeRank: 'ConsumeTimeRank',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      updateTime: 'number',
+      consumeTimeRank: { 'type': 'array', 'itemType': TopTenElapsedTimeInstanceResponseInstanceConsumeTimeRankConsumeTimeRank },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetProjectResponseData extends $tea.Model {
+  gmtModified: string;
+  maxFlowNode: number;
+  defaultDiResourceGroupIdentifier: string;
+  destination: number;
+  isAllowDownload: number;
+  prodStorageQuota: string;
+  schedulerRetryInterval: number;
+  residentArea: string;
+  tablePrivacyMode: number;
+  projectOwnerBaseId: string;
+  useProxyOdpsAccount: boolean;
+  disableDevelopment: boolean;
+  projectMode: number;
+  gmtCreate: string;
+  devStorageQuota: string;
+  isDefault: number;
+  protectedMode: number;
+  baseProject: boolean;
+  tenantId: number;
+  projectDescription: string;
+  appkey: string;
+  schedulerMaxRetryTimes: number;
+  projectName: string;
+  projectIdentifier: string;
+  projectId: number;
+  status: number;
+  developmentType: number;
+  envTypes: string[];
+  static names(): { [key: string]: string } {
+    return {
+      gmtModified: 'GmtModified',
+      maxFlowNode: 'MaxFlowNode',
+      defaultDiResourceGroupIdentifier: 'DefaultDiResourceGroupIdentifier',
+      destination: 'Destination',
+      isAllowDownload: 'IsAllowDownload',
+      prodStorageQuota: 'ProdStorageQuota',
+      schedulerRetryInterval: 'SchedulerRetryInterval',
+      residentArea: 'ResidentArea',
+      tablePrivacyMode: 'TablePrivacyMode',
+      projectOwnerBaseId: 'ProjectOwnerBaseId',
+      useProxyOdpsAccount: 'UseProxyOdpsAccount',
+      disableDevelopment: 'DisableDevelopment',
+      projectMode: 'ProjectMode',
+      gmtCreate: 'GmtCreate',
+      devStorageQuota: 'DevStorageQuota',
+      isDefault: 'IsDefault',
+      protectedMode: 'ProtectedMode',
+      baseProject: 'BaseProject',
+      tenantId: 'TenantId',
+      projectDescription: 'ProjectDescription',
+      appkey: 'Appkey',
+      schedulerMaxRetryTimes: 'SchedulerMaxRetryTimes',
+      projectName: 'ProjectName',
+      projectIdentifier: 'ProjectIdentifier',
+      projectId: 'ProjectId',
+      status: 'Status',
+      developmentType: 'DevelopmentType',
+      envTypes: 'EnvTypes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      gmtModified: 'string',
+      maxFlowNode: 'number',
+      defaultDiResourceGroupIdentifier: 'string',
+      destination: 'number',
+      isAllowDownload: 'number',
+      prodStorageQuota: 'string',
+      schedulerRetryInterval: 'number',
+      residentArea: 'string',
+      tablePrivacyMode: 'number',
+      projectOwnerBaseId: 'string',
+      useProxyOdpsAccount: 'boolean',
+      disableDevelopment: 'boolean',
+      projectMode: 'number',
+      gmtCreate: 'string',
+      devStorageQuota: 'string',
+      isDefault: 'number',
+      protectedMode: 'number',
+      baseProject: 'boolean',
+      tenantId: 'number',
+      projectDescription: 'string',
+      appkey: 'string',
+      schedulerMaxRetryTimes: 'number',
+      projectName: 'string',
+      projectIdentifier: 'string',
+      projectId: 'number',
+      status: 'number',
+      developmentType: 'number',
+      envTypes: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListNodesByOutputResponseDataNodeList extends $tea.Model {
+  nodeId: number;
+  nodeName: string;
+  ownerId: string;
+  description: string;
+  resGroupName: string;
+  cronExpress: string;
+  repeatability: boolean;
+  programType: string;
+  projectId: number;
+  schedulerType: string;
+  paramValues: string;
+  priority: number;
+  baselineId: number;
+  repeatInterval: number;
+  connection: string;
+  dqcType: number;
+  dqcDescription: string;
+  relatedFlowId: number;
+  fileType: string;
+  static names(): { [key: string]: string } {
+    return {
+      nodeId: 'NodeId',
+      nodeName: 'NodeName',
+      ownerId: 'OwnerId',
+      description: 'Description',
+      resGroupName: 'ResGroupName',
+      cronExpress: 'CronExpress',
+      repeatability: 'Repeatability',
+      programType: 'ProgramType',
+      projectId: 'ProjectId',
+      schedulerType: 'SchedulerType',
+      paramValues: 'ParamValues',
+      priority: 'Priority',
+      baselineId: 'BaselineId',
+      repeatInterval: 'RepeatInterval',
+      connection: 'Connection',
+      dqcType: 'DqcType',
+      dqcDescription: 'DqcDescription',
+      relatedFlowId: 'RelatedFlowId',
+      fileType: 'FileType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nodeId: 'number',
+      nodeName: 'string',
+      ownerId: 'string',
+      description: 'string',
+      resGroupName: 'string',
+      cronExpress: 'string',
+      repeatability: 'boolean',
+      programType: 'string',
+      projectId: 'number',
+      schedulerType: 'string',
+      paramValues: 'string',
+      priority: 'number',
+      baselineId: 'number',
+      repeatInterval: 'number',
+      connection: 'string',
+      dqcType: 'number',
+      dqcDescription: 'string',
+      relatedFlowId: 'number',
+      fileType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListNodesByOutputResponseData extends $tea.Model {
+  output: string;
+  nodeList: ListNodesByOutputResponseDataNodeList[];
+  static names(): { [key: string]: string } {
+    return {
+      output: 'Output',
+      nodeList: 'NodeList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      output: 'string',
+      nodeList: { 'type': 'array', 'itemType': ListNodesByOutputResponseDataNodeList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFileTypeStatisticResponseProgramTypeAndCounts extends $tea.Model {
+  programType: string;
+  count: number;
+  static names(): { [key: string]: string } {
+    return {
+      programType: 'ProgramType',
+      count: 'Count',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      programType: 'string',
+      count: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListNodeInputOrOutputResponseData extends $tea.Model {
+  tableName: string;
+  data: string;
+  nodeId: number;
+  static names(): { [key: string]: string } {
+    return {
+      tableName: 'TableName',
+      data: 'Data',
+      nodeId: 'NodeId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tableName: 'string',
+      data: 'string',
+      nodeId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateTableAddColumnRequestColumn extends $tea.Model {
+  columnName: string;
+  columnNameCn?: string;
+  columnType: string;
+  comment?: string;
+  static names(): { [key: string]: string } {
+    return {
+      columnName: 'ColumnName',
+      columnNameCn: 'ColumnNameCn',
+      columnType: 'ColumnType',
+      comment: 'Comment',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      columnName: 'string',
+      columnNameCn: 'string',
+      columnType: 'string',
+      comment: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateTableAddColumnResponseTaskInfo extends $tea.Model {
+  taskId: string;
+  content: string;
+  status: string;
+  nextTaskId: string;
+  static names(): { [key: string]: string } {
+    return {
+      taskId: 'TaskId',
+      content: 'Content',
+      status: 'Status',
+      nextTaskId: 'NextTaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskId: 'string',
+      content: 'string',
+      status: 'string',
+      nextTaskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMigrationProcessResponseData extends $tea.Model {
+  taskName: string;
+  taskStatus: string;
+  static names(): { [key: string]: string } {
+    return {
+      taskName: 'TaskName',
+      taskStatus: 'TaskStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskName: 'string',
+      taskStatus: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetNodeParentsResponseDataNodes extends $tea.Model {
+  nodeId: number;
+  nodeName: string;
+  cronExpress: string;
+  schedulerType: string;
+  programType: string;
+  ownerId: string;
+  projectId: number;
+  repeatability: boolean;
+  priority: number;
+  baselineId: number;
+  static names(): { [key: string]: string } {
+    return {
+      nodeId: 'NodeId',
+      nodeName: 'NodeName',
+      cronExpress: 'CronExpress',
+      schedulerType: 'SchedulerType',
+      programType: 'ProgramType',
+      ownerId: 'OwnerId',
+      projectId: 'ProjectId',
+      repeatability: 'Repeatability',
+      priority: 'Priority',
+      baselineId: 'BaselineId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nodeId: 'number',
+      nodeName: 'string',
+      cronExpress: 'string',
+      schedulerType: 'string',
+      programType: 'string',
+      ownerId: 'string',
+      projectId: 'number',
+      repeatability: 'boolean',
+      priority: 'number',
+      baselineId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetNodeParentsResponseData extends $tea.Model {
+  nodes: GetNodeParentsResponseDataNodes[];
+  static names(): { [key: string]: string } {
+    return {
+      nodes: 'Nodes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nodes: { 'type': 'array', 'itemType': GetNodeParentsResponseDataNodes },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetNodeChildrenResponseDataNodes extends $tea.Model {
+  nodeId: number;
+  nodeName: string;
+  cronExpress: string;
+  schedulerType: string;
+  programType: string;
+  ownerId: string;
+  projectId: number;
+  repeatability: boolean;
+  priority: number;
+  baselineId: number;
+  static names(): { [key: string]: string } {
+    return {
+      nodeId: 'NodeId',
+      nodeName: 'NodeName',
+      cronExpress: 'CronExpress',
+      schedulerType: 'SchedulerType',
+      programType: 'ProgramType',
+      ownerId: 'OwnerId',
+      projectId: 'ProjectId',
+      repeatability: 'Repeatability',
+      priority: 'Priority',
+      baselineId: 'BaselineId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nodeId: 'number',
+      nodeName: 'string',
+      cronExpress: 'string',
+      schedulerType: 'string',
+      programType: 'string',
+      ownerId: 'string',
+      projectId: 'number',
+      repeatability: 'boolean',
+      priority: 'number',
+      baselineId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetNodeChildrenResponseData extends $tea.Model {
+  nodes: GetNodeChildrenResponseDataNodes[];
+  static names(): { [key: string]: string } {
+    return {
+      nodes: 'Nodes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nodes: { 'type': 'array', 'itemType': GetNodeChildrenResponseDataNodes },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetDagResponseData extends $tea.Model {
   projectId: number;
   dagId: number;
@@ -9374,6 +13465,7 @@ export class GetManualDagInstancesResponseInstances extends $tea.Model {
   beginRunningTime: number;
   paramValues: string;
   finishTime: number;
+  taskType: string;
   static names(): { [key: string]: string } {
     return {
       nodeId: 'NodeId',
@@ -9391,6 +13483,7 @@ export class GetManualDagInstancesResponseInstances extends $tea.Model {
       beginRunningTime: 'BeginRunningTime',
       paramValues: 'ParamValues',
       finishTime: 'FinishTime',
+      taskType: 'TaskType',
     };
   }
 
@@ -9411,6 +13504,7 @@ export class GetManualDagInstancesResponseInstances extends $tea.Model {
       beginRunningTime: 'number',
       paramValues: 'string',
       finishTime: 'number',
+      taskType: 'string',
     };
   }
 
@@ -9419,8 +13513,8 @@ export class GetManualDagInstancesResponseInstances extends $tea.Model {
   }
 }
 
-export class ListQualityResultsByEntityResponseQualityResultsRuleChecksReferenceValue extends $tea.Model {
-  bizDate: number;
+export class ListQualityResultsByEntityResponseDataRuleChecksReferenceValue extends $tea.Model {
+  bizDate: string;
   discreteProperty: string;
   value: number;
   threshold: number;
@@ -9437,7 +13531,7 @@ export class ListQualityResultsByEntityResponseQualityResultsRuleChecksReference
 
   static types(): { [key: string]: any } {
     return {
-      bizDate: 'number',
+      bizDate: 'string',
       discreteProperty: 'string',
       value: 'number',
       threshold: 'number',
@@ -9450,8 +13544,8 @@ export class ListQualityResultsByEntityResponseQualityResultsRuleChecksReference
   }
 }
 
-export class ListQualityResultsByEntityResponseQualityResultsRuleChecksSampleValue extends $tea.Model {
-  bizDate: number;
+export class ListQualityResultsByEntityResponseDataRuleChecksSampleValue extends $tea.Model {
+  bizDate: string;
   discreteProperty: string;
   value: number;
   static names(): { [key: string]: string } {
@@ -9464,7 +13558,7 @@ export class ListQualityResultsByEntityResponseQualityResultsRuleChecksSampleVal
 
   static types(): { [key: string]: any } {
     return {
-      bizDate: 'number',
+      bizDate: 'string',
       discreteProperty: 'string',
       value: 'number',
     };
@@ -9475,7 +13569,7 @@ export class ListQualityResultsByEntityResponseQualityResultsRuleChecksSampleVal
   }
 }
 
-export class ListQualityResultsByEntityResponseQualityResultsRuleChecks extends $tea.Model {
+export class ListQualityResultsByEntityResponseDataRuleChecks extends $tea.Model {
   id: number;
   taskId: string;
   entityId: number;
@@ -9515,8 +13609,8 @@ export class ListQualityResultsByEntityResponseQualityResultsRuleChecks extends 
   upperValue: number;
   lowerValue: number;
   checkerName: string;
-  referenceValue: ListQualityResultsByEntityResponseQualityResultsRuleChecksReferenceValue[];
-  sampleValue: ListQualityResultsByEntityResponseQualityResultsRuleChecksSampleValue[];
+  referenceValue: ListQualityResultsByEntityResponseDataRuleChecksReferenceValue[];
+  sampleValue: ListQualityResultsByEntityResponseDataRuleChecksSampleValue[];
   static names(): { [key: string]: string } {
     return {
       id: 'Id',
@@ -9604,8 +13698,8 @@ export class ListQualityResultsByEntityResponseQualityResultsRuleChecks extends 
       upperValue: 'number',
       lowerValue: 'number',
       checkerName: 'string',
-      referenceValue: { 'type': 'array', 'itemType': ListQualityResultsByEntityResponseQualityResultsRuleChecksReferenceValue },
-      sampleValue: { 'type': 'array', 'itemType': ListQualityResultsByEntityResponseQualityResultsRuleChecksSampleValue },
+      referenceValue: { 'type': 'array', 'itemType': ListQualityResultsByEntityResponseDataRuleChecksReferenceValue },
+      sampleValue: { 'type': 'array', 'itemType': ListQualityResultsByEntityResponseDataRuleChecksSampleValue },
     };
   }
 
@@ -9614,11 +13708,11 @@ export class ListQualityResultsByEntityResponseQualityResultsRuleChecks extends 
   }
 }
 
-export class ListQualityResultsByEntityResponseQualityResults extends $tea.Model {
+export class ListQualityResultsByEntityResponseData extends $tea.Model {
   totalCount: number;
   pageNumber: number;
   pageSize: number;
-  ruleChecks: ListQualityResultsByEntityResponseQualityResultsRuleChecks[];
+  ruleChecks: ListQualityResultsByEntityResponseDataRuleChecks[];
   static names(): { [key: string]: string } {
     return {
       totalCount: 'TotalCount',
@@ -9633,7 +13727,7 @@ export class ListQualityResultsByEntityResponseQualityResults extends $tea.Model
       totalCount: 'number',
       pageNumber: 'number',
       pageSize: 'number',
-      ruleChecks: { 'type': 'array', 'itemType': ListQualityResultsByEntityResponseQualityResultsRuleChecks },
+      ruleChecks: { 'type': 'array', 'itemType': ListQualityResultsByEntityResponseDataRuleChecks },
     };
   }
 
@@ -9797,8 +13891,8 @@ export class ListDataServiceFoldersResponseFolderPagingResult extends $tea.Model
   }
 }
 
-export class ListQualityResultsByRuleResponseQualityResultsRuleChecksReferenceValue extends $tea.Model {
-  bizDate: number;
+export class ListQualityResultsByRuleResponseDataRuleChecksReferenceValue extends $tea.Model {
+  bizDate: string;
   discreteProperty: string;
   value: number;
   threshold: number;
@@ -9815,7 +13909,7 @@ export class ListQualityResultsByRuleResponseQualityResultsRuleChecksReferenceVa
 
   static types(): { [key: string]: any } {
     return {
-      bizDate: 'number',
+      bizDate: 'string',
       discreteProperty: 'string',
       value: 'number',
       threshold: 'number',
@@ -9828,8 +13922,8 @@ export class ListQualityResultsByRuleResponseQualityResultsRuleChecksReferenceVa
   }
 }
 
-export class ListQualityResultsByRuleResponseQualityResultsRuleChecksSampleValue extends $tea.Model {
-  bizDate: number;
+export class ListQualityResultsByRuleResponseDataRuleChecksSampleValue extends $tea.Model {
+  bizDate: string;
   discreteProperty: string;
   value: number;
   static names(): { [key: string]: string } {
@@ -9842,7 +13936,7 @@ export class ListQualityResultsByRuleResponseQualityResultsRuleChecksSampleValue
 
   static types(): { [key: string]: any } {
     return {
-      bizDate: 'number',
+      bizDate: 'string',
       discreteProperty: 'string',
       value: 'number',
     };
@@ -9853,7 +13947,7 @@ export class ListQualityResultsByRuleResponseQualityResultsRuleChecksSampleValue
   }
 }
 
-export class ListQualityResultsByRuleResponseQualityResultsRuleChecks extends $tea.Model {
+export class ListQualityResultsByRuleResponseDataRuleChecks extends $tea.Model {
   id: number;
   taskId: string;
   entityId: number;
@@ -9893,8 +13987,8 @@ export class ListQualityResultsByRuleResponseQualityResultsRuleChecks extends $t
   upperValue: number;
   lowerValue: number;
   checkerName: string;
-  referenceValue: ListQualityResultsByRuleResponseQualityResultsRuleChecksReferenceValue[];
-  sampleValue: ListQualityResultsByRuleResponseQualityResultsRuleChecksSampleValue[];
+  referenceValue: ListQualityResultsByRuleResponseDataRuleChecksReferenceValue[];
+  sampleValue: ListQualityResultsByRuleResponseDataRuleChecksSampleValue[];
   static names(): { [key: string]: string } {
     return {
       id: 'Id',
@@ -9982,8 +14076,8 @@ export class ListQualityResultsByRuleResponseQualityResultsRuleChecks extends $t
       upperValue: 'number',
       lowerValue: 'number',
       checkerName: 'string',
-      referenceValue: { 'type': 'array', 'itemType': ListQualityResultsByRuleResponseQualityResultsRuleChecksReferenceValue },
-      sampleValue: { 'type': 'array', 'itemType': ListQualityResultsByRuleResponseQualityResultsRuleChecksSampleValue },
+      referenceValue: { 'type': 'array', 'itemType': ListQualityResultsByRuleResponseDataRuleChecksReferenceValue },
+      sampleValue: { 'type': 'array', 'itemType': ListQualityResultsByRuleResponseDataRuleChecksSampleValue },
     };
   }
 
@@ -9992,11 +14086,11 @@ export class ListQualityResultsByRuleResponseQualityResultsRuleChecks extends $t
   }
 }
 
-export class ListQualityResultsByRuleResponseQualityResults extends $tea.Model {
+export class ListQualityResultsByRuleResponseData extends $tea.Model {
   totalCount: number;
   pageNumber: number;
   pageSize: number;
-  ruleChecks: ListQualityResultsByRuleResponseQualityResultsRuleChecks[];
+  ruleChecks: ListQualityResultsByRuleResponseDataRuleChecks[];
   static names(): { [key: string]: string } {
     return {
       totalCount: 'TotalCount',
@@ -10011,7 +14105,7 @@ export class ListQualityResultsByRuleResponseQualityResults extends $tea.Model {
       totalCount: 'number',
       pageNumber: 'number',
       pageSize: 'number',
-      ruleChecks: { 'type': 'array', 'itemType': ListQualityResultsByRuleResponseQualityResultsRuleChecks },
+      ruleChecks: { 'type': 'array', 'itemType': ListQualityResultsByRuleResponseDataRuleChecks },
     };
   }
 
@@ -10085,9 +14179,7 @@ export class CreateTableRequestColumns extends $tea.Model {
   columnType: string;
   seqNumber?: number;
   length?: number;
-  isPartitionCol?: number;
-  isPrimaryKey?: number;
-  isNullable?: number;
+  isPartitionCol?: boolean;
   comment?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10097,8 +14189,6 @@ export class CreateTableRequestColumns extends $tea.Model {
       seqNumber: 'SeqNumber',
       length: 'Length',
       isPartitionCol: 'IsPartitionCol',
-      isPrimaryKey: 'IsPrimaryKey',
-      isNullable: 'IsNullable',
       comment: 'Comment',
     };
   }
@@ -10110,9 +14200,7 @@ export class CreateTableRequestColumns extends $tea.Model {
       columnType: 'string',
       seqNumber: 'number',
       length: 'number',
-      isPartitionCol: 'number',
-      isPrimaryKey: 'number',
-      isNullable: 'number',
+      isPartitionCol: 'boolean',
       comment: 'string',
     };
   }
@@ -10521,9 +14609,7 @@ export class UpdateTableRequestColumns extends $tea.Model {
   columnType: string;
   seqNumber?: number;
   length?: number;
-  isPartitionCol?: number;
-  isPrimaryKey?: number;
-  isNullable?: number;
+  isPartitionCol?: boolean;
   comment?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10533,8 +14619,6 @@ export class UpdateTableRequestColumns extends $tea.Model {
       seqNumber: 'SeqNumber',
       length: 'Length',
       isPartitionCol: 'IsPartitionCol',
-      isPrimaryKey: 'IsPrimaryKey',
-      isNullable: 'IsNullable',
       comment: 'Comment',
     };
   }
@@ -10546,9 +14630,7 @@ export class UpdateTableRequestColumns extends $tea.Model {
       columnType: 'string',
       seqNumber: 'number',
       length: 'number',
-      isPartitionCol: 'number',
-      isPrimaryKey: 'number',
-      isNullable: 'number',
+      isPartitionCol: 'boolean',
       comment: 'string',
     };
   }
@@ -11746,6 +15828,7 @@ export class GetMetaTableFullInfoResponseDataColumnList extends $tea.Model {
   isPartitionColumn: boolean;
   isForeignKey: boolean;
   caption: string;
+  position: number;
   static names(): { [key: string]: string } {
     return {
       columnGuid: 'ColumnGuid',
@@ -11756,6 +15839,7 @@ export class GetMetaTableFullInfoResponseDataColumnList extends $tea.Model {
       isPartitionColumn: 'IsPartitionColumn',
       isForeignKey: 'IsForeignKey',
       caption: 'Caption',
+      position: 'Position',
     };
   }
 
@@ -11769,6 +15853,7 @@ export class GetMetaTableFullInfoResponseDataColumnList extends $tea.Model {
       isPartitionColumn: 'boolean',
       isForeignKey: 'boolean',
       caption: 'string',
+      position: 'number',
     };
   }
 
@@ -11932,6 +16017,11 @@ export class GetMetaTableBasicInfoResponseData extends $tea.Model {
   location: string;
   clusterId: string;
   caption: string;
+  isPartitionTable: boolean;
+  readCount: number;
+  viewCount: number;
+  favoriteCount: number;
+  isView: boolean;
   static names(): { [key: string]: string } {
     return {
       tableName: 'TableName',
@@ -11954,6 +16044,11 @@ export class GetMetaTableBasicInfoResponseData extends $tea.Model {
       location: 'Location',
       clusterId: 'ClusterId',
       caption: 'Caption',
+      isPartitionTable: 'IsPartitionTable',
+      readCount: 'ReadCount',
+      viewCount: 'ViewCount',
+      favoriteCount: 'FavoriteCount',
+      isView: 'IsView',
     };
   }
 
@@ -11979,6 +16074,11 @@ export class GetMetaTableBasicInfoResponseData extends $tea.Model {
       location: 'string',
       clusterId: 'string',
       caption: 'string',
+      isPartitionTable: 'boolean',
+      readCount: 'number',
+      viewCount: 'number',
+      favoriteCount: 'number',
+      isView: 'boolean',
     };
   }
 
@@ -11996,6 +16096,7 @@ export class GetMetaTableColumnResponseDataColumnList extends $tea.Model {
   isPartitionColumn: boolean;
   isForeignKey: boolean;
   caption: string;
+  position: number;
   static names(): { [key: string]: string } {
     return {
       columnName: 'ColumnName',
@@ -12006,6 +16107,7 @@ export class GetMetaTableColumnResponseDataColumnList extends $tea.Model {
       isPartitionColumn: 'IsPartitionColumn',
       isForeignKey: 'IsForeignKey',
       caption: 'Caption',
+      position: 'Position',
     };
   }
 
@@ -12019,6 +16121,7 @@ export class GetMetaTableColumnResponseDataColumnList extends $tea.Model {
       isPartitionColumn: 'boolean',
       isForeignKey: 'boolean',
       caption: 'string',
+      position: 'number',
     };
   }
 
@@ -13108,6 +17211,7 @@ export class ListFilesResponseDataFiles extends $tea.Model {
   lastEditTime: number;
   commitStatus: number;
   fileId: number;
+  businessId: number;
   static names(): { [key: string]: string } {
     return {
       connectionName: 'ConnectionName',
@@ -13129,6 +17233,7 @@ export class ListFilesResponseDataFiles extends $tea.Model {
       lastEditTime: 'LastEditTime',
       commitStatus: 'CommitStatus',
       fileId: 'FileId',
+      businessId: 'BusinessId',
     };
   }
 
@@ -13153,6 +17258,7 @@ export class ListFilesResponseDataFiles extends $tea.Model {
       lastEditTime: 'number',
       commitStatus: 'number',
       fileId: 'number',
+      businessId: 'number',
     };
   }
 
@@ -13347,6 +17453,8 @@ export class ListInstancesResponseDataInstances extends $tea.Model {
   dqcDescription: string;
   errorMessage: string;
   relatedFlowId: number;
+  taskType: string;
+  taskRerunTime: number;
   static names(): { [key: string]: string } {
     return {
       nodeId: 'NodeId',
@@ -13373,6 +17481,8 @@ export class ListInstancesResponseDataInstances extends $tea.Model {
       dqcDescription: 'DqcDescription',
       errorMessage: 'ErrorMessage',
       relatedFlowId: 'RelatedFlowId',
+      taskType: 'TaskType',
+      taskRerunTime: 'TaskRerunTime',
     };
   }
 
@@ -13402,6 +17512,8 @@ export class ListInstancesResponseDataInstances extends $tea.Model {
       dqcDescription: 'string',
       errorMessage: 'string',
       relatedFlowId: 'number',
+      taskType: 'string',
+      taskRerunTime: 'number',
     };
   }
 
@@ -14119,8 +18231,9 @@ export class GetInstanceResponseData extends $tea.Model {
   connection: string;
   dqcType: number;
   dqcDescription: string;
-  errorMessage: string;
   relatedFlowId: number;
+  taskType: string;
+  taskRerunTime: number;
   static names(): { [key: string]: string } {
     return {
       nodeId: 'NodeId',
@@ -14145,8 +18258,9 @@ export class GetInstanceResponseData extends $tea.Model {
       connection: 'Connection',
       dqcType: 'DqcType',
       dqcDescription: 'DqcDescription',
-      errorMessage: 'ErrorMessage',
       relatedFlowId: 'RelatedFlowId',
+      taskType: 'TaskType',
+      taskRerunTime: 'TaskRerunTime',
     };
   }
 
@@ -14174,8 +18288,9 @@ export class GetInstanceResponseData extends $tea.Model {
       connection: 'string',
       dqcType: 'number',
       dqcDescription: 'string',
-      errorMessage: 'string',
       relatedFlowId: 'number',
+      taskType: 'string',
+      taskRerunTime: 'number',
     };
   }
 
@@ -14203,6 +18318,8 @@ export class GetFileResponseDataFile extends $tea.Model {
   lastEditUser: string;
   lastEditTime: number;
   commitStatus: number;
+  deletedStatus: string;
+  businessId: number;
   static names(): { [key: string]: string } {
     return {
       connectionName: 'ConnectionName',
@@ -14223,6 +18340,8 @@ export class GetFileResponseDataFile extends $tea.Model {
       lastEditUser: 'LastEditUser',
       lastEditTime: 'LastEditTime',
       commitStatus: 'CommitStatus',
+      deletedStatus: 'DeletedStatus',
+      businessId: 'BusinessId',
     };
   }
 
@@ -14246,6 +18365,8 @@ export class GetFileResponseDataFile extends $tea.Model {
       lastEditUser: 'string',
       lastEditTime: 'number',
       commitStatus: 'number',
+      deletedStatus: 'string',
+      businessId: 'number',
     };
   }
 
@@ -14537,6 +18658,7 @@ export class ListQualityRulesResponseDataRules extends $tea.Model {
   matchExpression: string;
   comment: string;
   expectValue: string;
+  onDutyAccountName: string;
   static names(): { [key: string]: string } {
     return {
       projectName: 'ProjectName',
@@ -14563,6 +18685,7 @@ export class ListQualityRulesResponseDataRules extends $tea.Model {
       matchExpression: 'MatchExpression',
       comment: 'Comment',
       expectValue: 'ExpectValue',
+      onDutyAccountName: 'OnDutyAccountName',
     };
   }
 
@@ -14592,6 +18715,7 @@ export class ListQualityRulesResponseDataRules extends $tea.Model {
       matchExpression: 'string',
       comment: 'string',
       expectValue: 'string',
+      onDutyAccountName: 'string',
     };
   }
 
@@ -14651,6 +18775,7 @@ export class GetQualityRuleResponseData extends $tea.Model {
   checkerName: string;
   checker: number;
   fixCheck: boolean;
+  onDutyAccountName: string;
   static names(): { [key: string]: string } {
     return {
       id: 'Id',
@@ -14675,6 +18800,7 @@ export class GetQualityRuleResponseData extends $tea.Model {
       checkerName: 'CheckerName',
       checker: 'Checker',
       fixCheck: 'FixCheck',
+      onDutyAccountName: 'OnDutyAccountName',
     };
   }
 
@@ -14702,6 +18828,7 @@ export class GetQualityRuleResponseData extends $tea.Model {
       checkerName: 'string',
       checker: 'number',
       fixCheck: 'boolean',
+      onDutyAccountName: 'string',
     };
   }
 
@@ -16972,6 +21099,7 @@ export class GetQualityEntityResponseData extends $tea.Model {
   followers: string;
   hasRelativeNode: boolean;
   relativeNode: string;
+  onDutyAccountName: string;
   static names(): { [key: string]: string } {
     return {
       id: 'Id',
@@ -16989,6 +21117,7 @@ export class GetQualityEntityResponseData extends $tea.Model {
       followers: 'Followers',
       hasRelativeNode: 'HasRelativeNode',
       relativeNode: 'RelativeNode',
+      onDutyAccountName: 'OnDutyAccountName',
     };
   }
 
@@ -17009,6 +21138,7 @@ export class GetQualityEntityResponseData extends $tea.Model {
       followers: 'string',
       hasRelativeNode: 'boolean',
       relativeNode: 'string',
+      onDutyAccountName: 'string',
     };
   }
 
@@ -17024,6 +21154,7 @@ export class GetQualityFollowerResponseData extends $tea.Model {
   entityId: string;
   follower: string;
   alarmMode: number;
+  followerAccountName: string;
   static names(): { [key: string]: string } {
     return {
       projectName: 'ProjectName',
@@ -17032,6 +21163,7 @@ export class GetQualityFollowerResponseData extends $tea.Model {
       entityId: 'EntityId',
       follower: 'Follower',
       alarmMode: 'AlarmMode',
+      followerAccountName: 'FollowerAccountName',
     };
   }
 
@@ -17043,6 +21175,7 @@ export class GetQualityFollowerResponseData extends $tea.Model {
       entityId: 'string',
       follower: 'string',
       alarmMode: 'number',
+      followerAccountName: 'string',
     };
   }
 
@@ -17088,1514 +21221,2031 @@ export default class Client extends RPC {
   }
 
 
-  async runTriggerNodeWithOptions(request: RunTriggerNodeRequest, runtime: $Util.RuntimeOptions): Promise<RunTriggerNodeResponse> {
+  async queryPublicModelEngine(request: QueryPublicModelEngineRequest, runtime: $Util.RuntimeOptions): Promise<QueryPublicModelEngineResponse> {
     Util.validateModel(request);
-    return $tea.cast<RunTriggerNodeResponse>(await this.doRequest("RunTriggerNode", "HTTPS", "PUT", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new RunTriggerNodeResponse({}));
+    return $tea.cast<QueryPublicModelEngineResponse>(await this.doRequest("QueryPublicModelEngine", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new QueryPublicModelEngineResponse({}));
   }
 
-  async runTriggerNode(request: RunTriggerNodeRequest): Promise<RunTriggerNodeResponse> {
+  async queryPublicModelEngineSimply(request: QueryPublicModelEngineRequest): Promise<QueryPublicModelEngineResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.runTriggerNodeWithOptions(request, runtime);
+    return await this.queryPublicModelEngine(request, runtime);
   }
 
-  async getDagWithOptions(request: GetDagRequest, runtime: $Util.RuntimeOptions): Promise<GetDagResponse> {
+  async deleteView(request: DeleteViewRequest, runtime: $Util.RuntimeOptions): Promise<DeleteViewResponse> {
+    Util.validateModel(request);
+    return $tea.cast<DeleteViewResponse>(await this.doRequest("DeleteView", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new DeleteViewResponse({}));
+  }
+
+  async deleteViewSimply(request: DeleteViewRequest): Promise<DeleteViewResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteView(request, runtime);
+  }
+
+  async createView(request: CreateViewRequest, runtime: $Util.RuntimeOptions): Promise<CreateViewResponse> {
+    Util.validateModel(request);
+    return $tea.cast<CreateViewResponse>(await this.doRequest("CreateView", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new CreateViewResponse({}));
+  }
+
+  async createViewSimply(request: CreateViewRequest): Promise<CreateViewResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createView(request, runtime);
+  }
+
+  async checkFileDeployment(request: CheckFileDeploymentRequest, runtime: $Util.RuntimeOptions): Promise<CheckFileDeploymentResponse> {
+    Util.validateModel(request);
+    return $tea.cast<CheckFileDeploymentResponse>(await this.doRequest("CheckFileDeployment", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new CheckFileDeploymentResponse({}));
+  }
+
+  async checkFileDeploymentSimply(request: CheckFileDeploymentRequest): Promise<CheckFileDeploymentResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.checkFileDeployment(request, runtime);
+  }
+
+  async importDISyncTasks(request: ImportDISyncTasksRequest, runtime: $Util.RuntimeOptions): Promise<ImportDISyncTasksResponse> {
+    Util.validateModel(request);
+    return $tea.cast<ImportDISyncTasksResponse>(await this.doRequest("ImportDISyncTasks", "HTTPS", "POST", "2020-05-18", "AK,APP,PrivateKey", null, $tea.toMap(request), runtime), new ImportDISyncTasksResponse({}));
+  }
+
+  async importDISyncTasksSimply(request: ImportDISyncTasksRequest): Promise<ImportDISyncTasksResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.importDISyncTasks(request, runtime);
+  }
+
+  async exportDISyncTasks(request: ExportDISyncTasksRequest, runtime: $Util.RuntimeOptions): Promise<ExportDISyncTasksResponse> {
+    Util.validateModel(request);
+    return $tea.cast<ExportDISyncTasksResponse>(await this.doRequest("ExportDISyncTasks", "HTTPS", "POST", "2020-05-18", "AK,APP,PrivateKey", null, $tea.toMap(request), runtime), new ExportDISyncTasksResponse({}));
+  }
+
+  async exportDISyncTasksSimply(request: ExportDISyncTasksRequest): Promise<ExportDISyncTasksResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.exportDISyncTasks(request, runtime);
+  }
+
+  async listDISyncTasks(request: ListDISyncTasksRequest, runtime: $Util.RuntimeOptions): Promise<ListDISyncTasksResponse> {
+    Util.validateModel(request);
+    return $tea.cast<ListDISyncTasksResponse>(await this.doRequest("ListDISyncTasks", "HTTPS", "POST", "2020-05-18", "AK,APP,PrivateKey", null, $tea.toMap(request), runtime), new ListDISyncTasksResponse({}));
+  }
+
+  async listDISyncTasksSimply(request: ListDISyncTasksRequest): Promise<ListDISyncTasksResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listDISyncTasks(request, runtime);
+  }
+
+  async revokeColumnPermission(request: RevokeColumnPermissionRequest, runtime: $Util.RuntimeOptions): Promise<RevokeColumnPermissionResponse> {
+    Util.validateModel(request);
+    return $tea.cast<RevokeColumnPermissionResponse>(await this.doRequest("RevokeColumnPermission", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new RevokeColumnPermissionResponse({}));
+  }
+
+  async revokeColumnPermissionSimply(request: RevokeColumnPermissionRequest): Promise<RevokeColumnPermissionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.revokeColumnPermission(request, runtime);
+  }
+
+  async revokeTablePermission(request: RevokeTablePermissionRequest, runtime: $Util.RuntimeOptions): Promise<RevokeTablePermissionResponse> {
+    Util.validateModel(request);
+    return $tea.cast<RevokeTablePermissionResponse>(await this.doRequest("RevokeTablePermission", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new RevokeTablePermissionResponse({}));
+  }
+
+  async revokeTablePermissionSimply(request: RevokeTablePermissionRequest): Promise<RevokeTablePermissionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.revokeTablePermission(request, runtime);
+  }
+
+  async getMetaTableThemeLevel(request: GetMetaTableThemeLevelRequest, runtime: $Util.RuntimeOptions): Promise<GetMetaTableThemeLevelResponse> {
+    Util.validateModel(request);
+    return $tea.cast<GetMetaTableThemeLevelResponse>(await this.doRequest("GetMetaTableThemeLevel", "HTTPS", "GET", "2020-05-18", "AK", $tea.toMap(request), null, runtime), new GetMetaTableThemeLevelResponse({}));
+  }
+
+  async getMetaTableThemeLevelSimply(request: GetMetaTableThemeLevelRequest): Promise<GetMetaTableThemeLevelResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getMetaTableThemeLevel(request, runtime);
+  }
+
+  async getPermissionApplyOrderDetail(request: GetPermissionApplyOrderDetailRequest, runtime: $Util.RuntimeOptions): Promise<GetPermissionApplyOrderDetailResponse> {
+    Util.validateModel(request);
+    return $tea.cast<GetPermissionApplyOrderDetailResponse>(await this.doRequest("GetPermissionApplyOrderDetail", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new GetPermissionApplyOrderDetailResponse({}));
+  }
+
+  async getPermissionApplyOrderDetailSimply(request: GetPermissionApplyOrderDetailRequest): Promise<GetPermissionApplyOrderDetailResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getPermissionApplyOrderDetail(request, runtime);
+  }
+
+  async listPermissionApplyOrders(request: ListPermissionApplyOrdersRequest, runtime: $Util.RuntimeOptions): Promise<ListPermissionApplyOrdersResponse> {
+    Util.validateModel(request);
+    return $tea.cast<ListPermissionApplyOrdersResponse>(await this.doRequest("ListPermissionApplyOrders", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new ListPermissionApplyOrdersResponse({}));
+  }
+
+  async listPermissionApplyOrdersSimply(request: ListPermissionApplyOrdersRequest): Promise<ListPermissionApplyOrdersResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listPermissionApplyOrders(request, runtime);
+  }
+
+  async createPermissionApplyOrder(request: CreatePermissionApplyOrderRequest, runtime: $Util.RuntimeOptions): Promise<CreatePermissionApplyOrderResponse> {
+    Util.validateModel(request);
+    return $tea.cast<CreatePermissionApplyOrderResponse>(await this.doRequest("CreatePermissionApplyOrder", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new CreatePermissionApplyOrderResponse({}));
+  }
+
+  async createPermissionApplyOrderSimply(request: CreatePermissionApplyOrderRequest): Promise<CreatePermissionApplyOrderResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createPermissionApplyOrder(request, runtime);
+  }
+
+  async approvePermissionApplyOrder(request: ApprovePermissionApplyOrderRequest, runtime: $Util.RuntimeOptions): Promise<ApprovePermissionApplyOrderResponse> {
+    Util.validateModel(request);
+    return $tea.cast<ApprovePermissionApplyOrderResponse>(await this.doRequest("ApprovePermissionApplyOrder", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new ApprovePermissionApplyOrderResponse({}));
+  }
+
+  async approvePermissionApplyOrderSimply(request: ApprovePermissionApplyOrderRequest): Promise<ApprovePermissionApplyOrderResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.approvePermissionApplyOrder(request, runtime);
+  }
+
+  async listSuccessInstanceAmount(request: ListSuccessInstanceAmountRequest, runtime: $Util.RuntimeOptions): Promise<ListSuccessInstanceAmountResponse> {
+    Util.validateModel(request);
+    return $tea.cast<ListSuccessInstanceAmountResponse>(await this.doRequest("ListSuccessInstanceAmount", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new ListSuccessInstanceAmountResponse({}));
+  }
+
+  async listSuccessInstanceAmountSimply(request: ListSuccessInstanceAmountRequest): Promise<ListSuccessInstanceAmountResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listSuccessInstanceAmount(request, runtime);
+  }
+
+  async listFileType(request: ListFileTypeRequest, runtime: $Util.RuntimeOptions): Promise<ListFileTypeResponse> {
+    Util.validateModel(request);
+    return $tea.cast<ListFileTypeResponse>(await this.doRequest("ListFileType", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new ListFileTypeResponse({}));
+  }
+
+  async listFileTypeSimply(request: ListFileTypeRequest): Promise<ListFileTypeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listFileType(request, runtime);
+  }
+
+  async listInstanceAmount(request: ListInstanceAmountRequest, runtime: $Util.RuntimeOptions): Promise<ListInstanceAmountResponse> {
+    Util.validateModel(request);
+    return $tea.cast<ListInstanceAmountResponse>(await this.doRequest("ListInstanceAmount", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new ListInstanceAmountResponse({}));
+  }
+
+  async listInstanceAmountSimply(request: ListInstanceAmountRequest): Promise<ListInstanceAmountResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listInstanceAmount(request, runtime);
+  }
+
+  async listDataSources(request: ListDataSourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListDataSourcesResponse> {
+    Util.validateModel(request);
+    return $tea.cast<ListDataSourcesResponse>(await this.doRequest("ListDataSources", "HTTPS", "GET", "2020-05-18", "AK", $tea.toMap(request), null, runtime), new ListDataSourcesResponse({}));
+  }
+
+  async listDataSourcesSimply(request: ListDataSourcesRequest): Promise<ListDataSourcesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listDataSources(request, runtime);
+  }
+
+  async listNodesByBaseline(request: ListNodesByBaselineRequest, runtime: $Util.RuntimeOptions): Promise<ListNodesByBaselineResponse> {
+    Util.validateModel(request);
+    return $tea.cast<ListNodesByBaselineResponse>(await this.doRequest("ListNodesByBaseline", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new ListNodesByBaselineResponse({}));
+  }
+
+  async listNodesByBaselineSimply(request: ListNodesByBaselineRequest): Promise<ListNodesByBaselineResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listNodesByBaseline(request, runtime);
+  }
+
+  async listManualDagInstances(request: ListManualDagInstancesRequest, runtime: $Util.RuntimeOptions): Promise<ListManualDagInstancesResponse> {
+    Util.validateModel(request);
+    return $tea.cast<ListManualDagInstancesResponse>(await this.doRequest("ListManualDagInstances", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new ListManualDagInstancesResponse({}));
+  }
+
+  async listManualDagInstancesSimply(request: ListManualDagInstancesRequest): Promise<ListManualDagInstancesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listManualDagInstances(request, runtime);
+  }
+
+  async getInstanceStatusStatistic(request: GetInstanceStatusStatisticRequest, runtime: $Util.RuntimeOptions): Promise<GetInstanceStatusStatisticResponse> {
+    Util.validateModel(request);
+    return $tea.cast<GetInstanceStatusStatisticResponse>(await this.doRequest("GetInstanceStatusStatistic", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new GetInstanceStatusStatisticResponse({}));
+  }
+
+  async getInstanceStatusStatisticSimply(request: GetInstanceStatusStatisticRequest): Promise<GetInstanceStatusStatisticResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getInstanceStatusStatistic(request, runtime);
+  }
+
+  async deleteDataSource(request: DeleteDataSourceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDataSourceResponse> {
+    Util.validateModel(request);
+    return $tea.cast<DeleteDataSourceResponse>(await this.doRequest("DeleteDataSource", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new DeleteDataSourceResponse({}));
+  }
+
+  async deleteDataSourceSimply(request: DeleteDataSourceRequest): Promise<DeleteDataSourceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteDataSource(request, runtime);
+  }
+
+  async createDataSource(request: CreateDataSourceRequest, runtime: $Util.RuntimeOptions): Promise<CreateDataSourceResponse> {
+    Util.validateModel(request);
+    return $tea.cast<CreateDataSourceResponse>(await this.doRequest("CreateDataSource", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new CreateDataSourceResponse({}));
+  }
+
+  async createDataSourceSimply(request: CreateDataSourceRequest): Promise<CreateDataSourceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createDataSource(request, runtime);
+  }
+
+  async topTenErrorTimesInstance(request: TopTenErrorTimesInstanceRequest, runtime: $Util.RuntimeOptions): Promise<TopTenErrorTimesInstanceResponse> {
+    Util.validateModel(request);
+    return $tea.cast<TopTenErrorTimesInstanceResponse>(await this.doRequest("TopTenErrorTimesInstance", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new TopTenErrorTimesInstanceResponse({}));
+  }
+
+  async topTenErrorTimesInstanceSimply(request: TopTenErrorTimesInstanceRequest): Promise<TopTenErrorTimesInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.topTenErrorTimesInstance(request, runtime);
+  }
+
+  async topTenElapsedTimeInstance(request: TopTenElapsedTimeInstanceRequest, runtime: $Util.RuntimeOptions): Promise<TopTenElapsedTimeInstanceResponse> {
+    Util.validateModel(request);
+    return $tea.cast<TopTenElapsedTimeInstanceResponse>(await this.doRequest("TopTenElapsedTimeInstance", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new TopTenElapsedTimeInstanceResponse({}));
+  }
+
+  async topTenElapsedTimeInstanceSimply(request: TopTenElapsedTimeInstanceRequest): Promise<TopTenElapsedTimeInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.topTenElapsedTimeInstance(request, runtime);
+  }
+
+  async getProject(request: GetProjectRequest, runtime: $Util.RuntimeOptions): Promise<GetProjectResponse> {
+    Util.validateModel(request);
+    return $tea.cast<GetProjectResponse>(await this.doRequest("GetProject", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new GetProjectResponse({}));
+  }
+
+  async getProjectSimply(request: GetProjectRequest): Promise<GetProjectResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getProject(request, runtime);
+  }
+
+  async listNodesByOutput(request: ListNodesByOutputRequest, runtime: $Util.RuntimeOptions): Promise<ListNodesByOutputResponse> {
+    Util.validateModel(request);
+    return $tea.cast<ListNodesByOutputResponse>(await this.doRequest("ListNodesByOutput", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new ListNodesByOutputResponse({}));
+  }
+
+  async listNodesByOutputSimply(request: ListNodesByOutputRequest): Promise<ListNodesByOutputResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listNodesByOutput(request, runtime);
+  }
+
+  async getFileTypeStatistic(request: GetFileTypeStatisticRequest, runtime: $Util.RuntimeOptions): Promise<GetFileTypeStatisticResponse> {
+    Util.validateModel(request);
+    return $tea.cast<GetFileTypeStatisticResponse>(await this.doRequest("GetFileTypeStatistic", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new GetFileTypeStatisticResponse({}));
+  }
+
+  async getFileTypeStatisticSimply(request: GetFileTypeStatisticRequest): Promise<GetFileTypeStatisticResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getFileTypeStatistic(request, runtime);
+  }
+
+  async runSmokeTest(request: RunSmokeTestRequest, runtime: $Util.RuntimeOptions): Promise<RunSmokeTestResponse> {
+    Util.validateModel(request);
+    return $tea.cast<RunSmokeTestResponse>(await this.doRequest("RunSmokeTest", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new RunSmokeTestResponse({}));
+  }
+
+  async runSmokeTestSimply(request: RunSmokeTestRequest): Promise<RunSmokeTestResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.runSmokeTest(request, runtime);
+  }
+
+  async listNodeInputOrOutput(request: ListNodeInputOrOutputRequest, runtime: $Util.RuntimeOptions): Promise<ListNodeInputOrOutputResponse> {
+    Util.validateModel(request);
+    return $tea.cast<ListNodeInputOrOutputResponse>(await this.doRequest("ListNodeInputOrOutput", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new ListNodeInputOrOutputResponse({}));
+  }
+
+  async listNodeInputOrOutputSimply(request: ListNodeInputOrOutputRequest): Promise<ListNodeInputOrOutputResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listNodeInputOrOutput(request, runtime);
+  }
+
+  async runCycleDagNodes(request: RunCycleDagNodesRequest, runtime: $Util.RuntimeOptions): Promise<RunCycleDagNodesResponse> {
+    Util.validateModel(request);
+    return $tea.cast<RunCycleDagNodesResponse>(await this.doRequest("RunCycleDagNodes", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new RunCycleDagNodesResponse({}));
+  }
+
+  async runCycleDagNodesSimply(request: RunCycleDagNodesRequest): Promise<RunCycleDagNodesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.runCycleDagNodes(request, runtime);
+  }
+
+  async runManualDagNodes(request: RunManualDagNodesRequest, runtime: $Util.RuntimeOptions): Promise<RunManualDagNodesResponse> {
+    Util.validateModel(request);
+    return $tea.cast<RunManualDagNodesResponse>(await this.doRequest("RunManualDagNodes", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new RunManualDagNodesResponse({}));
+  }
+
+  async runManualDagNodesSimply(request: RunManualDagNodesRequest): Promise<RunManualDagNodesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.runManualDagNodes(request, runtime);
+  }
+
+  async updateDataSource(request: UpdateDataSourceRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDataSourceResponse> {
+    Util.validateModel(request);
+    return $tea.cast<UpdateDataSourceResponse>(await this.doRequest("UpdateDataSource", "HTTPS", "PUT", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new UpdateDataSourceResponse({}));
+  }
+
+  async updateDataSourceSimply(request: UpdateDataSourceRequest): Promise<UpdateDataSourceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateDataSource(request, runtime);
+  }
+
+  async updateTableAddColumn(request: UpdateTableAddColumnRequest, runtime: $Util.RuntimeOptions): Promise<UpdateTableAddColumnResponse> {
+    Util.validateModel(request);
+    return $tea.cast<UpdateTableAddColumnResponse>(await this.doRequest("UpdateTableAddColumn", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new UpdateTableAddColumnResponse({}));
+  }
+
+  async updateTableAddColumnSimply(request: UpdateTableAddColumnRequest): Promise<UpdateTableAddColumnResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateTableAddColumn(request, runtime);
+  }
+
+  async getMigrationProcess(request: GetMigrationProcessRequest, runtime: $Util.RuntimeOptions): Promise<GetMigrationProcessResponse> {
+    Util.validateModel(request);
+    return $tea.cast<GetMigrationProcessResponse>(await this.doRequest("GetMigrationProcess", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new GetMigrationProcessResponse({}));
+  }
+
+  async getMigrationProcessSimply(request: GetMigrationProcessRequest): Promise<GetMigrationProcessResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getMigrationProcess(request, runtime);
+  }
+
+  async createImportMigration(request: CreateImportMigrationRequest, runtime: $Util.RuntimeOptions): Promise<CreateImportMigrationResponse> {
+    Util.validateModel(request);
+    return $tea.cast<CreateImportMigrationResponse>(await this.doRequest("CreateImportMigration", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new CreateImportMigrationResponse({}));
+  }
+
+  async createImportMigrationSimply(request: CreateImportMigrationRequest): Promise<CreateImportMigrationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createImportMigration(request, runtime);
+  }
+
+  async createImportMigrationAdvance(request: CreateImportMigrationAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<CreateImportMigrationResponse> {
+    // Step 0: init client
+    let accessKeyId = await this._credential.getAccessKeyId();
+    let accessKeySecret = await this._credential.getAccessKeySecret();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if (Util.isUnset(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    let authConfig = new $RPC.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      endpoint: openPlatformEndpoint,
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenPlatform(authConfig);
+    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
+      product: "dataworks-public",
+      regionId: this._regionId,
+    });
+    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
+    let ossConfig = new $OSS.Config({
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let ossClient : OSS = null;
+    let fileObj = new $FileForm.FileField({ });
+    let ossHeader = new $OSS.PostObjectRequestHeader({ });
+    let uploadRequest = new $OSS.PostObjectRequest({ });
+    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
+    RPCUtil.convert(runtime, ossRuntime);
+    let createImportMigrationReq = new CreateImportMigrationRequest({ });
+    RPCUtil.convert(request, createImportMigrationReq);
+    if (!Util.isUnset(request.packageFileObject)) {
+      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+      ossConfig.accessKeyId = authResponse.accessKeyId;
+      ossConfig.endpoint = RPCUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+      ossClient = new OSS(ossConfig);
+      fileObj = new $FileForm.FileField({
+        filename: authResponse.objectKey,
+        content: request.packageFileObject,
+        contentType: "",
+      });
+      ossHeader = new $OSS.PostObjectRequestHeader({
+        accessKeyId: authResponse.accessKeyId,
+        policy: authResponse.encodedPolicy,
+        signature: authResponse.signature,
+        key: authResponse.objectKey,
+        file: fileObj,
+        successActionStatus: "201",
+      });
+      uploadRequest = new $OSS.PostObjectRequest({
+        bucketName: authResponse.bucket,
+        header: ossHeader,
+      });
+      await ossClient.postObject(uploadRequest, ossRuntime);
+      createImportMigrationReq.packageFile = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    }
+
+    let createImportMigrationResp = await this.createImportMigration(createImportMigrationReq, runtime);
+    return createImportMigrationResp;
+  }
+
+  async startMigration(request: StartMigrationRequest, runtime: $Util.RuntimeOptions): Promise<StartMigrationResponse> {
+    Util.validateModel(request);
+    return $tea.cast<StartMigrationResponse>(await this.doRequest("StartMigration", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new StartMigrationResponse({}));
+  }
+
+  async startMigrationSimply(request: StartMigrationRequest): Promise<StartMigrationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.startMigration(request, runtime);
+  }
+
+  async getNodeParents(request: GetNodeParentsRequest, runtime: $Util.RuntimeOptions): Promise<GetNodeParentsResponse> {
+    Util.validateModel(request);
+    return $tea.cast<GetNodeParentsResponse>(await this.doRequest("GetNodeParents", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new GetNodeParentsResponse({}));
+  }
+
+  async getNodeParentsSimply(request: GetNodeParentsRequest): Promise<GetNodeParentsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getNodeParents(request, runtime);
+  }
+
+  async getNodeChildren(request: GetNodeChildrenRequest, runtime: $Util.RuntimeOptions): Promise<GetNodeChildrenResponse> {
+    Util.validateModel(request);
+    return $tea.cast<GetNodeChildrenResponse>(await this.doRequest("GetNodeChildren", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new GetNodeChildrenResponse({}));
+  }
+
+  async getNodeChildrenSimply(request: GetNodeChildrenRequest): Promise<GetNodeChildrenResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getNodeChildren(request, runtime);
+  }
+
+  async getSensitiveData(request: GetSensitiveDataRequest, runtime: $Util.RuntimeOptions): Promise<GetSensitiveDataResponse> {
+    Util.validateModel(request);
+    return $tea.cast<GetSensitiveDataResponse>(await this.doRequest("GetSensitiveData", "HTTPS", "GET", "2020-05-18", "AK", $tea.toMap(request), null, runtime), new GetSensitiveDataResponse({}));
+  }
+
+  async getSensitiveDataSimply(request: GetSensitiveDataRequest): Promise<GetSensitiveDataResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getSensitiveData(request, runtime);
+  }
+
+  async desensitizeData(request: DesensitizeDataRequest, runtime: $Util.RuntimeOptions): Promise<DesensitizeDataResponse> {
+    Util.validateModel(request);
+    return $tea.cast<DesensitizeDataResponse>(await this.doRequest("DesensitizeData", "HTTPS", "GET", "2020-05-18", "AK", $tea.toMap(request), null, runtime), new DesensitizeDataResponse({}));
+  }
+
+  async desensitizeDataSimply(request: DesensitizeDataRequest): Promise<DesensitizeDataResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.desensitizeData(request, runtime);
+  }
+
+  async getOpRiskData(request: GetOpRiskDataRequest, runtime: $Util.RuntimeOptions): Promise<GetOpRiskDataResponse> {
+    Util.validateModel(request);
+    return $tea.cast<GetOpRiskDataResponse>(await this.doRequest("GetOpRiskData", "HTTPS", "GET", "2020-05-18", "AK", $tea.toMap(request), null, runtime), new GetOpRiskDataResponse({}));
+  }
+
+  async getOpRiskDataSimply(request: GetOpRiskDataRequest): Promise<GetOpRiskDataResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getOpRiskData(request, runtime);
+  }
+
+  async scanSensitiveData(request: ScanSensitiveDataRequest, runtime: $Util.RuntimeOptions): Promise<ScanSensitiveDataResponse> {
+    Util.validateModel(request);
+    return $tea.cast<ScanSensitiveDataResponse>(await this.doRequest("ScanSensitiveData", "HTTPS", "GET", "2020-05-18", "AK", $tea.toMap(request), null, runtime), new ScanSensitiveDataResponse({}));
+  }
+
+  async scanSensitiveDataSimply(request: ScanSensitiveDataRequest): Promise<ScanSensitiveDataResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.scanSensitiveData(request, runtime);
+  }
+
+  async getOpSensitiveData(request: GetOpSensitiveDataRequest, runtime: $Util.RuntimeOptions): Promise<GetOpSensitiveDataResponse> {
+    Util.validateModel(request);
+    return $tea.cast<GetOpSensitiveDataResponse>(await this.doRequest("GetOpSensitiveData", "HTTPS", "GET", "2020-05-18", "AK", $tea.toMap(request), null, runtime), new GetOpSensitiveDataResponse({}));
+  }
+
+  async getOpSensitiveDataSimply(request: GetOpSensitiveDataRequest): Promise<GetOpSensitiveDataResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getOpSensitiveData(request, runtime);
+  }
+
+  async createBusiness(request: CreateBusinessRequest, runtime: $Util.RuntimeOptions): Promise<CreateBusinessResponse> {
+    Util.validateModel(request);
+    return $tea.cast<CreateBusinessResponse>(await this.doRequest("CreateBusiness", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new CreateBusinessResponse({}));
+  }
+
+  async createBusinessSimply(request: CreateBusinessRequest): Promise<CreateBusinessResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createBusiness(request, runtime);
+  }
+
+  async runTriggerNode(request: RunTriggerNodeRequest, runtime: $Util.RuntimeOptions): Promise<RunTriggerNodeResponse> {
+    Util.validateModel(request);
+    return $tea.cast<RunTriggerNodeResponse>(await this.doRequest("RunTriggerNode", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new RunTriggerNodeResponse({}));
+  }
+
+  async runTriggerNodeSimply(request: RunTriggerNodeRequest): Promise<RunTriggerNodeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.runTriggerNode(request, runtime);
+  }
+
+  async getDag(request: GetDagRequest, runtime: $Util.RuntimeOptions): Promise<GetDagResponse> {
     Util.validateModel(request);
     return $tea.cast<GetDagResponse>(await this.doRequest("GetDag", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new GetDagResponse({}));
   }
 
-  async getDag(request: GetDagRequest): Promise<GetDagResponse> {
+  async getDagSimply(request: GetDagRequest): Promise<GetDagResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.getDagWithOptions(request, runtime);
+    return await this.getDag(request, runtime);
   }
 
-  async searchNodesByOutputWithOptions(request: SearchNodesByOutputRequest, runtime: $Util.RuntimeOptions): Promise<SearchNodesByOutputResponse> {
+  async searchNodesByOutput(request: SearchNodesByOutputRequest, runtime: $Util.RuntimeOptions): Promise<SearchNodesByOutputResponse> {
     Util.validateModel(request);
     return $tea.cast<SearchNodesByOutputResponse>(await this.doRequest("SearchNodesByOutput", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new SearchNodesByOutputResponse({}));
   }
 
-  async searchNodesByOutput(request: SearchNodesByOutputRequest): Promise<SearchNodesByOutputResponse> {
+  async searchNodesByOutputSimply(request: SearchNodesByOutputRequest): Promise<SearchNodesByOutputResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.searchNodesByOutputWithOptions(request, runtime);
+    return await this.searchNodesByOutput(request, runtime);
   }
 
-  async getManualDagInstancesWithOptions(request: GetManualDagInstancesRequest, runtime: $Util.RuntimeOptions): Promise<GetManualDagInstancesResponse> {
+  async getManualDagInstances(request: GetManualDagInstancesRequest, runtime: $Util.RuntimeOptions): Promise<GetManualDagInstancesResponse> {
     Util.validateModel(request);
     return $tea.cast<GetManualDagInstancesResponse>(await this.doRequest("GetManualDagInstances", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new GetManualDagInstancesResponse({}));
   }
 
-  async getManualDagInstances(request: GetManualDagInstancesRequest): Promise<GetManualDagInstancesResponse> {
+  async getManualDagInstancesSimply(request: GetManualDagInstancesRequest): Promise<GetManualDagInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.getManualDagInstancesWithOptions(request, runtime);
+    return await this.getManualDagInstances(request, runtime);
   }
 
-  async createManualDagWithOptions(request: CreateManualDagRequest, runtime: $Util.RuntimeOptions): Promise<CreateManualDagResponse> {
+  async createManualDag(request: CreateManualDagRequest, runtime: $Util.RuntimeOptions): Promise<CreateManualDagResponse> {
     Util.validateModel(request);
     return $tea.cast<CreateManualDagResponse>(await this.doRequest("CreateManualDag", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new CreateManualDagResponse({}));
   }
 
-  async createManualDag(request: CreateManualDagRequest): Promise<CreateManualDagResponse> {
+  async createManualDagSimply(request: CreateManualDagRequest): Promise<CreateManualDagResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.createManualDagWithOptions(request, runtime);
+    return await this.createManualDag(request, runtime);
   }
 
-  async listQualityResultsByEntityWithOptions(request: ListQualityResultsByEntityRequest, runtime: $Util.RuntimeOptions): Promise<ListQualityResultsByEntityResponse> {
+  async listQualityResultsByEntity(request: ListQualityResultsByEntityRequest, runtime: $Util.RuntimeOptions): Promise<ListQualityResultsByEntityResponse> {
     Util.validateModel(request);
     return $tea.cast<ListQualityResultsByEntityResponse>(await this.doRequest("ListQualityResultsByEntity", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new ListQualityResultsByEntityResponse({}));
   }
 
-  async listQualityResultsByEntity(request: ListQualityResultsByEntityRequest): Promise<ListQualityResultsByEntityResponse> {
+  async listQualityResultsByEntitySimply(request: ListQualityResultsByEntityRequest): Promise<ListQualityResultsByEntityResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.listQualityResultsByEntityWithOptions(request, runtime);
+    return await this.listQualityResultsByEntity(request, runtime);
   }
 
-  async getNodeTypeListInfoWithOptions(request: GetNodeTypeListInfoRequest, runtime: $Util.RuntimeOptions): Promise<GetNodeTypeListInfoResponse> {
+  async getNodeTypeListInfo(request: GetNodeTypeListInfoRequest, runtime: $Util.RuntimeOptions): Promise<GetNodeTypeListInfoResponse> {
     Util.validateModel(request);
     return $tea.cast<GetNodeTypeListInfoResponse>(await this.doRequest("GetNodeTypeListInfo", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new GetNodeTypeListInfoResponse({}));
   }
 
-  async getNodeTypeListInfo(request: GetNodeTypeListInfoRequest): Promise<GetNodeTypeListInfoResponse> {
+  async getNodeTypeListInfoSimply(request: GetNodeTypeListInfoRequest): Promise<GetNodeTypeListInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.getNodeTypeListInfoWithOptions(request, runtime);
+    return await this.getNodeTypeListInfo(request, runtime);
   }
 
-  async getInstanceStatusCountWithOptions(request: GetInstanceStatusCountRequest, runtime: $Util.RuntimeOptions): Promise<GetInstanceStatusCountResponse> {
+  async getInstanceStatusCount(request: GetInstanceStatusCountRequest, runtime: $Util.RuntimeOptions): Promise<GetInstanceStatusCountResponse> {
     Util.validateModel(request);
     return $tea.cast<GetInstanceStatusCountResponse>(await this.doRequest("GetInstanceStatusCount", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new GetInstanceStatusCountResponse({}));
   }
 
-  async getInstanceStatusCount(request: GetInstanceStatusCountRequest): Promise<GetInstanceStatusCountResponse> {
+  async getInstanceStatusCountSimply(request: GetInstanceStatusCountRequest): Promise<GetInstanceStatusCountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.getInstanceStatusCountWithOptions(request, runtime);
+    return await this.getInstanceStatusCount(request, runtime);
   }
 
-  async listDataServiceFoldersWithOptions(request: ListDataServiceFoldersRequest, runtime: $Util.RuntimeOptions): Promise<ListDataServiceFoldersResponse> {
+  async listDataServiceFolders(request: ListDataServiceFoldersRequest, runtime: $Util.RuntimeOptions): Promise<ListDataServiceFoldersResponse> {
     Util.validateModel(request);
     return $tea.cast<ListDataServiceFoldersResponse>(await this.doRequest("ListDataServiceFolders", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new ListDataServiceFoldersResponse({}));
   }
 
-  async listDataServiceFolders(request: ListDataServiceFoldersRequest): Promise<ListDataServiceFoldersResponse> {
+  async listDataServiceFoldersSimply(request: ListDataServiceFoldersRequest): Promise<ListDataServiceFoldersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.listDataServiceFoldersWithOptions(request, runtime);
+    return await this.listDataServiceFolders(request, runtime);
   }
 
-  async listQualityResultsByRuleWithOptions(request: ListQualityResultsByRuleRequest, runtime: $Util.RuntimeOptions): Promise<ListQualityResultsByRuleResponse> {
+  async listQualityResultsByRule(request: ListQualityResultsByRuleRequest, runtime: $Util.RuntimeOptions): Promise<ListQualityResultsByRuleResponse> {
     Util.validateModel(request);
     return $tea.cast<ListQualityResultsByRuleResponse>(await this.doRequest("ListQualityResultsByRule", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new ListQualityResultsByRuleResponse({}));
   }
 
-  async listQualityResultsByRule(request: ListQualityResultsByRuleRequest): Promise<ListQualityResultsByRuleResponse> {
+  async listQualityResultsByRuleSimply(request: ListQualityResultsByRuleRequest): Promise<ListQualityResultsByRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.listQualityResultsByRuleWithOptions(request, runtime);
+    return await this.listQualityResultsByRule(request, runtime);
   }
 
-  async listMetaDBWithOptions(request: ListMetaDBRequest, runtime: $Util.RuntimeOptions): Promise<ListMetaDBResponse> {
+  async listMetaDB(request: ListMetaDBRequest, runtime: $Util.RuntimeOptions): Promise<ListMetaDBResponse> {
     Util.validateModel(request);
     return $tea.cast<ListMetaDBResponse>(await this.doRequest("ListMetaDB", "HTTPS", "GET", "2020-05-18", "AK", $tea.toMap(request), null, runtime), new ListMetaDBResponse({}));
   }
 
-  async listMetaDB(request: ListMetaDBRequest): Promise<ListMetaDBResponse> {
+  async listMetaDBSimply(request: ListMetaDBRequest): Promise<ListMetaDBResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.listMetaDBWithOptions(request, runtime);
+    return await this.listMetaDB(request, runtime);
   }
 
-  async createTableWithOptions(request: CreateTableRequest, runtime: $Util.RuntimeOptions): Promise<CreateTableResponse> {
+  async createTable(request: CreateTableRequest, runtime: $Util.RuntimeOptions): Promise<CreateTableResponse> {
     Util.validateModel(request);
     return $tea.cast<CreateTableResponse>(await this.doRequest("CreateTable", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new CreateTableResponse({}));
   }
 
-  async createTable(request: CreateTableRequest): Promise<CreateTableResponse> {
+  async createTableSimply(request: CreateTableRequest): Promise<CreateTableResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.createTableWithOptions(request, runtime);
+    return await this.createTable(request, runtime);
   }
 
-  async createTableThemeWithOptions(request: CreateTableThemeRequest, runtime: $Util.RuntimeOptions): Promise<CreateTableThemeResponse> {
+  async createTableTheme(request: CreateTableThemeRequest, runtime: $Util.RuntimeOptions): Promise<CreateTableThemeResponse> {
     Util.validateModel(request);
     return $tea.cast<CreateTableThemeResponse>(await this.doRequest("CreateTableTheme", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new CreateTableThemeResponse({}));
   }
 
-  async createTableTheme(request: CreateTableThemeRequest): Promise<CreateTableThemeResponse> {
+  async createTableThemeSimply(request: CreateTableThemeRequest): Promise<CreateTableThemeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.createTableThemeWithOptions(request, runtime);
+    return await this.createTableTheme(request, runtime);
   }
 
-  async getInstanceErrorRankWithOptions(request: GetInstanceErrorRankRequest, runtime: $Util.RuntimeOptions): Promise<GetInstanceErrorRankResponse> {
+  async getInstanceErrorRank(request: GetInstanceErrorRankRequest, runtime: $Util.RuntimeOptions): Promise<GetInstanceErrorRankResponse> {
     Util.validateModel(request);
     return $tea.cast<GetInstanceErrorRankResponse>(await this.doRequest("GetInstanceErrorRank", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new GetInstanceErrorRankResponse({}));
   }
 
-  async getInstanceErrorRank(request: GetInstanceErrorRankRequest): Promise<GetInstanceErrorRankResponse> {
+  async getInstanceErrorRankSimply(request: GetInstanceErrorRankRequest): Promise<GetInstanceErrorRankResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.getInstanceErrorRankWithOptions(request, runtime);
+    return await this.getInstanceErrorRank(request, runtime);
   }
 
-  async getDDLJobStatusWithOptions(request: GetDDLJobStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetDDLJobStatusResponse> {
+  async getDDLJobStatus(request: GetDDLJobStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetDDLJobStatusResponse> {
     Util.validateModel(request);
     return $tea.cast<GetDDLJobStatusResponse>(await this.doRequest("GetDDLJobStatus", "HTTPS", "GET", "2020-05-18", "AK", $tea.toMap(request), null, runtime), new GetDDLJobStatusResponse({}));
   }
 
-  async getDDLJobStatus(request: GetDDLJobStatusRequest): Promise<GetDDLJobStatusResponse> {
+  async getDDLJobStatusSimply(request: GetDDLJobStatusRequest): Promise<GetDDLJobStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.getDDLJobStatusWithOptions(request, runtime);
+    return await this.getDDLJobStatus(request, runtime);
   }
 
-  async getInstanceConsumeTimeRankWithOptions(request: GetInstanceConsumeTimeRankRequest, runtime: $Util.RuntimeOptions): Promise<GetInstanceConsumeTimeRankResponse> {
+  async getInstanceConsumeTimeRank(request: GetInstanceConsumeTimeRankRequest, runtime: $Util.RuntimeOptions): Promise<GetInstanceConsumeTimeRankResponse> {
     Util.validateModel(request);
     return $tea.cast<GetInstanceConsumeTimeRankResponse>(await this.doRequest("GetInstanceConsumeTimeRank", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new GetInstanceConsumeTimeRankResponse({}));
   }
 
-  async getInstanceConsumeTimeRank(request: GetInstanceConsumeTimeRankRequest): Promise<GetInstanceConsumeTimeRankResponse> {
+  async getInstanceConsumeTimeRankSimply(request: GetInstanceConsumeTimeRankRequest): Promise<GetInstanceConsumeTimeRankResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.getInstanceConsumeTimeRankWithOptions(request, runtime);
+    return await this.getInstanceConsumeTimeRank(request, runtime);
   }
 
-  async createDataServiceApiAuthorityWithOptions(request: CreateDataServiceApiAuthorityRequest, runtime: $Util.RuntimeOptions): Promise<CreateDataServiceApiAuthorityResponse> {
+  async createDataServiceApiAuthority(request: CreateDataServiceApiAuthorityRequest, runtime: $Util.RuntimeOptions): Promise<CreateDataServiceApiAuthorityResponse> {
     Util.validateModel(request);
     return $tea.cast<CreateDataServiceApiAuthorityResponse>(await this.doRequest("CreateDataServiceApiAuthority", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new CreateDataServiceApiAuthorityResponse({}));
   }
 
-  async createDataServiceApiAuthority(request: CreateDataServiceApiAuthorityRequest): Promise<CreateDataServiceApiAuthorityResponse> {
+  async createDataServiceApiAuthoritySimply(request: CreateDataServiceApiAuthorityRequest): Promise<CreateDataServiceApiAuthorityResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.createDataServiceApiAuthorityWithOptions(request, runtime);
+    return await this.createDataServiceApiAuthority(request, runtime);
   }
 
-  async deleteDataServiceApiAuthorityWithOptions(request: DeleteDataServiceApiAuthorityRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDataServiceApiAuthorityResponse> {
+  async deleteDataServiceApiAuthority(request: DeleteDataServiceApiAuthorityRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDataServiceApiAuthorityResponse> {
     Util.validateModel(request);
     return $tea.cast<DeleteDataServiceApiAuthorityResponse>(await this.doRequest("DeleteDataServiceApiAuthority", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new DeleteDataServiceApiAuthorityResponse({}));
   }
 
-  async deleteDataServiceApiAuthority(request: DeleteDataServiceApiAuthorityRequest): Promise<DeleteDataServiceApiAuthorityResponse> {
+  async deleteDataServiceApiAuthoritySimply(request: DeleteDataServiceApiAuthorityRequest): Promise<DeleteDataServiceApiAuthorityResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.deleteDataServiceApiAuthorityWithOptions(request, runtime);
+    return await this.deleteDataServiceApiAuthority(request, runtime);
   }
 
-  async createDataServiceGroupWithOptions(request: CreateDataServiceGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateDataServiceGroupResponse> {
+  async createDataServiceGroup(request: CreateDataServiceGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateDataServiceGroupResponse> {
     Util.validateModel(request);
     return $tea.cast<CreateDataServiceGroupResponse>(await this.doRequest("CreateDataServiceGroup", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new CreateDataServiceGroupResponse({}));
   }
 
-  async createDataServiceGroup(request: CreateDataServiceGroupRequest): Promise<CreateDataServiceGroupResponse> {
+  async createDataServiceGroupSimply(request: CreateDataServiceGroupRequest): Promise<CreateDataServiceGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.createDataServiceGroupWithOptions(request, runtime);
+    return await this.createDataServiceGroup(request, runtime);
   }
 
-  async updateMetaTableWithOptions(request: UpdateMetaTableRequest, runtime: $Util.RuntimeOptions): Promise<UpdateMetaTableResponse> {
+  async updateMetaTable(request: UpdateMetaTableRequest, runtime: $Util.RuntimeOptions): Promise<UpdateMetaTableResponse> {
     Util.validateModel(request);
     return $tea.cast<UpdateMetaTableResponse>(await this.doRequest("UpdateMetaTable", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new UpdateMetaTableResponse({}));
   }
 
-  async updateMetaTable(request: UpdateMetaTableRequest): Promise<UpdateMetaTableResponse> {
+  async updateMetaTableSimply(request: UpdateMetaTableRequest): Promise<UpdateMetaTableResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.updateMetaTableWithOptions(request, runtime);
+    return await this.updateMetaTable(request, runtime);
   }
 
-  async getInstanceCountTrendWithOptions(request: GetInstanceCountTrendRequest, runtime: $Util.RuntimeOptions): Promise<GetInstanceCountTrendResponse> {
+  async getInstanceCountTrend(request: GetInstanceCountTrendRequest, runtime: $Util.RuntimeOptions): Promise<GetInstanceCountTrendResponse> {
     Util.validateModel(request);
     return $tea.cast<GetInstanceCountTrendResponse>(await this.doRequest("GetInstanceCountTrend", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new GetInstanceCountTrendResponse({}));
   }
 
-  async getInstanceCountTrend(request: GetInstanceCountTrendRequest): Promise<GetInstanceCountTrendResponse> {
+  async getInstanceCountTrendSimply(request: GetInstanceCountTrendRequest): Promise<GetInstanceCountTrendResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.getInstanceCountTrendWithOptions(request, runtime);
+    return await this.getInstanceCountTrend(request, runtime);
   }
 
-  async deleteTableWithOptions(request: DeleteTableRequest, runtime: $Util.RuntimeOptions): Promise<DeleteTableResponse> {
+  async deleteTable(request: DeleteTableRequest, runtime: $Util.RuntimeOptions): Promise<DeleteTableResponse> {
     Util.validateModel(request);
     return $tea.cast<DeleteTableResponse>(await this.doRequest("DeleteTable", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new DeleteTableResponse({}));
   }
 
-  async deleteTable(request: DeleteTableRequest): Promise<DeleteTableResponse> {
+  async deleteTableSimply(request: DeleteTableRequest): Promise<DeleteTableResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.deleteTableWithOptions(request, runtime);
+    return await this.deleteTable(request, runtime);
   }
 
-  async listTableThemeWithOptions(request: ListTableThemeRequest, runtime: $Util.RuntimeOptions): Promise<ListTableThemeResponse> {
+  async listTableTheme(request: ListTableThemeRequest, runtime: $Util.RuntimeOptions): Promise<ListTableThemeResponse> {
     Util.validateModel(request);
     return $tea.cast<ListTableThemeResponse>(await this.doRequest("ListTableTheme", "HTTPS", "GET", "2020-05-18", "AK", $tea.toMap(request), null, runtime), new ListTableThemeResponse({}));
   }
 
-  async listTableTheme(request: ListTableThemeRequest): Promise<ListTableThemeResponse> {
+  async listTableThemeSimply(request: ListTableThemeRequest): Promise<ListTableThemeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.listTableThemeWithOptions(request, runtime);
+    return await this.listTableTheme(request, runtime);
   }
 
-  async getSuccessInstanceTrendWithOptions(request: GetSuccessInstanceTrendRequest, runtime: $Util.RuntimeOptions): Promise<GetSuccessInstanceTrendResponse> {
+  async getSuccessInstanceTrend(request: GetSuccessInstanceTrendRequest, runtime: $Util.RuntimeOptions): Promise<GetSuccessInstanceTrendResponse> {
     Util.validateModel(request);
     return $tea.cast<GetSuccessInstanceTrendResponse>(await this.doRequest("GetSuccessInstanceTrend", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new GetSuccessInstanceTrendResponse({}));
   }
 
-  async getSuccessInstanceTrend(request: GetSuccessInstanceTrendRequest): Promise<GetSuccessInstanceTrendResponse> {
+  async getSuccessInstanceTrendSimply(request: GetSuccessInstanceTrendRequest): Promise<GetSuccessInstanceTrendResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.getSuccessInstanceTrendWithOptions(request, runtime);
+    return await this.getSuccessInstanceTrend(request, runtime);
   }
 
-  async updateTableWithOptions(request: UpdateTableRequest, runtime: $Util.RuntimeOptions): Promise<UpdateTableResponse> {
+  async updateTable(request: UpdateTableRequest, runtime: $Util.RuntimeOptions): Promise<UpdateTableResponse> {
     Util.validateModel(request);
     return $tea.cast<UpdateTableResponse>(await this.doRequest("UpdateTable", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new UpdateTableResponse({}));
   }
 
-  async updateTable(request: UpdateTableRequest): Promise<UpdateTableResponse> {
+  async updateTableSimply(request: UpdateTableRequest): Promise<UpdateTableResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.updateTableWithOptions(request, runtime);
+    return await this.updateTable(request, runtime);
   }
 
-  async getDataServiceFolderWithOptions(request: GetDataServiceFolderRequest, runtime: $Util.RuntimeOptions): Promise<GetDataServiceFolderResponse> {
+  async getDataServiceFolder(request: GetDataServiceFolderRequest, runtime: $Util.RuntimeOptions): Promise<GetDataServiceFolderResponse> {
     Util.validateModel(request);
     return $tea.cast<GetDataServiceFolderResponse>(await this.doRequest("GetDataServiceFolder", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new GetDataServiceFolderResponse({}));
   }
 
-  async getDataServiceFolder(request: GetDataServiceFolderRequest): Promise<GetDataServiceFolderResponse> {
+  async getDataServiceFolderSimply(request: GetDataServiceFolderRequest): Promise<GetDataServiceFolderResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.getDataServiceFolderWithOptions(request, runtime);
+    return await this.getDataServiceFolder(request, runtime);
   }
 
-  async listTableLevelWithOptions(request: ListTableLevelRequest, runtime: $Util.RuntimeOptions): Promise<ListTableLevelResponse> {
+  async listTableLevel(request: ListTableLevelRequest, runtime: $Util.RuntimeOptions): Promise<ListTableLevelResponse> {
     Util.validateModel(request);
     return $tea.cast<ListTableLevelResponse>(await this.doRequest("ListTableLevel", "HTTPS", "GET", "2020-05-18", "AK", $tea.toMap(request), null, runtime), new ListTableLevelResponse({}));
   }
 
-  async listTableLevel(request: ListTableLevelRequest): Promise<ListTableLevelResponse> {
+  async listTableLevelSimply(request: ListTableLevelRequest): Promise<ListTableLevelResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.listTableLevelWithOptions(request, runtime);
+    return await this.listTableLevel(request, runtime);
   }
 
-  async listDataServiceGroupsWithOptions(request: ListDataServiceGroupsRequest, runtime: $Util.RuntimeOptions): Promise<ListDataServiceGroupsResponse> {
+  async listDataServiceGroups(request: ListDataServiceGroupsRequest, runtime: $Util.RuntimeOptions): Promise<ListDataServiceGroupsResponse> {
     Util.validateModel(request);
     return $tea.cast<ListDataServiceGroupsResponse>(await this.doRequest("ListDataServiceGroups", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new ListDataServiceGroupsResponse({}));
   }
 
-  async listDataServiceGroups(request: ListDataServiceGroupsRequest): Promise<ListDataServiceGroupsResponse> {
+  async listDataServiceGroupsSimply(request: ListDataServiceGroupsRequest): Promise<ListDataServiceGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.listDataServiceGroupsWithOptions(request, runtime);
+    return await this.listDataServiceGroups(request, runtime);
   }
 
-  async updateTableThemeWithOptions(request: UpdateTableThemeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateTableThemeResponse> {
+  async updateTableTheme(request: UpdateTableThemeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateTableThemeResponse> {
     Util.validateModel(request);
     return $tea.cast<UpdateTableThemeResponse>(await this.doRequest("UpdateTableTheme", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new UpdateTableThemeResponse({}));
   }
 
-  async updateTableTheme(request: UpdateTableThemeRequest): Promise<UpdateTableThemeResponse> {
+  async updateTableThemeSimply(request: UpdateTableThemeRequest): Promise<UpdateTableThemeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.updateTableThemeWithOptions(request, runtime);
+    return await this.updateTableTheme(request, runtime);
   }
 
-  async createDataServiceFolderWithOptions(request: CreateDataServiceFolderRequest, runtime: $Util.RuntimeOptions): Promise<CreateDataServiceFolderResponse> {
+  async createDataServiceFolder(request: CreateDataServiceFolderRequest, runtime: $Util.RuntimeOptions): Promise<CreateDataServiceFolderResponse> {
     Util.validateModel(request);
     return $tea.cast<CreateDataServiceFolderResponse>(await this.doRequest("CreateDataServiceFolder", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new CreateDataServiceFolderResponse({}));
   }
 
-  async createDataServiceFolder(request: CreateDataServiceFolderRequest): Promise<CreateDataServiceFolderResponse> {
+  async createDataServiceFolderSimply(request: CreateDataServiceFolderRequest): Promise<CreateDataServiceFolderResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.createDataServiceFolderWithOptions(request, runtime);
+    return await this.createDataServiceFolder(request, runtime);
   }
 
-  async getDataServiceGroupWithOptions(request: GetDataServiceGroupRequest, runtime: $Util.RuntimeOptions): Promise<GetDataServiceGroupResponse> {
+  async getDataServiceGroup(request: GetDataServiceGroupRequest, runtime: $Util.RuntimeOptions): Promise<GetDataServiceGroupResponse> {
     Util.validateModel(request);
     return $tea.cast<GetDataServiceGroupResponse>(await this.doRequest("GetDataServiceGroup", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new GetDataServiceGroupResponse({}));
   }
 
-  async getDataServiceGroup(request: GetDataServiceGroupRequest): Promise<GetDataServiceGroupResponse> {
+  async getDataServiceGroupSimply(request: GetDataServiceGroupRequest): Promise<GetDataServiceGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.getDataServiceGroupWithOptions(request, runtime);
+    return await this.getDataServiceGroup(request, runtime);
   }
 
-  async createTableLevelWithOptions(request: CreateTableLevelRequest, runtime: $Util.RuntimeOptions): Promise<CreateTableLevelResponse> {
+  async createTableLevel(request: CreateTableLevelRequest, runtime: $Util.RuntimeOptions): Promise<CreateTableLevelResponse> {
     Util.validateModel(request);
     return $tea.cast<CreateTableLevelResponse>(await this.doRequest("CreateTableLevel", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new CreateTableLevelResponse({}));
   }
 
-  async createTableLevel(request: CreateTableLevelRequest): Promise<CreateTableLevelResponse> {
+  async createTableLevelSimply(request: CreateTableLevelRequest): Promise<CreateTableLevelResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.createTableLevelWithOptions(request, runtime);
+    return await this.createTableLevel(request, runtime);
   }
 
-  async updateMetaTableIntroWikiWithOptions(request: UpdateMetaTableIntroWikiRequest, runtime: $Util.RuntimeOptions): Promise<UpdateMetaTableIntroWikiResponse> {
+  async updateMetaTableIntroWiki(request: UpdateMetaTableIntroWikiRequest, runtime: $Util.RuntimeOptions): Promise<UpdateMetaTableIntroWikiResponse> {
     Util.validateModel(request);
     return $tea.cast<UpdateMetaTableIntroWikiResponse>(await this.doRequest("UpdateMetaTableIntroWiki", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new UpdateMetaTableIntroWikiResponse({}));
   }
 
-  async updateMetaTableIntroWiki(request: UpdateMetaTableIntroWikiRequest): Promise<UpdateMetaTableIntroWikiResponse> {
+  async updateMetaTableIntroWikiSimply(request: UpdateMetaTableIntroWikiRequest): Promise<UpdateMetaTableIntroWikiResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.updateMetaTableIntroWikiWithOptions(request, runtime);
+    return await this.updateMetaTableIntroWiki(request, runtime);
   }
 
-  async deleteTableLevelWithOptions(request: DeleteTableLevelRequest, runtime: $Util.RuntimeOptions): Promise<DeleteTableLevelResponse> {
+  async deleteTableLevel(request: DeleteTableLevelRequest, runtime: $Util.RuntimeOptions): Promise<DeleteTableLevelResponse> {
     Util.validateModel(request);
     return $tea.cast<DeleteTableLevelResponse>(await this.doRequest("DeleteTableLevel", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new DeleteTableLevelResponse({}));
   }
 
-  async deleteTableLevel(request: DeleteTableLevelRequest): Promise<DeleteTableLevelResponse> {
+  async deleteTableLevelSimply(request: DeleteTableLevelRequest): Promise<DeleteTableLevelResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.deleteTableLevelWithOptions(request, runtime);
+    return await this.deleteTableLevel(request, runtime);
   }
 
-  async updateTableLevelWithOptions(request: UpdateTableLevelRequest, runtime: $Util.RuntimeOptions): Promise<UpdateTableLevelResponse> {
+  async updateTableLevel(request: UpdateTableLevelRequest, runtime: $Util.RuntimeOptions): Promise<UpdateTableLevelResponse> {
     Util.validateModel(request);
     return $tea.cast<UpdateTableLevelResponse>(await this.doRequest("UpdateTableLevel", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new UpdateTableLevelResponse({}));
   }
 
-  async updateTableLevel(request: UpdateTableLevelRequest): Promise<UpdateTableLevelResponse> {
+  async updateTableLevelSimply(request: UpdateTableLevelRequest): Promise<UpdateTableLevelResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.updateTableLevelWithOptions(request, runtime);
+    return await this.updateTableLevel(request, runtime);
   }
 
-  async deleteTableThemeWithOptions(request: DeleteTableThemeRequest, runtime: $Util.RuntimeOptions): Promise<DeleteTableThemeResponse> {
+  async deleteTableTheme(request: DeleteTableThemeRequest, runtime: $Util.RuntimeOptions): Promise<DeleteTableThemeResponse> {
     Util.validateModel(request);
     return $tea.cast<DeleteTableThemeResponse>(await this.doRequest("DeleteTableTheme", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new DeleteTableThemeResponse({}));
   }
 
-  async deleteTableTheme(request: DeleteTableThemeRequest): Promise<DeleteTableThemeResponse> {
+  async deleteTableThemeSimply(request: DeleteTableThemeRequest): Promise<DeleteTableThemeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.deleteTableThemeWithOptions(request, runtime);
+    return await this.deleteTableTheme(request, runtime);
   }
 
-  async listProgramTypeCountWithOptions(request: ListProgramTypeCountRequest, runtime: $Util.RuntimeOptions): Promise<ListProgramTypeCountResponse> {
+  async listProgramTypeCount(request: ListProgramTypeCountRequest, runtime: $Util.RuntimeOptions): Promise<ListProgramTypeCountResponse> {
     Util.validateModel(request);
     return $tea.cast<ListProgramTypeCountResponse>(await this.doRequest("ListProgramTypeCount", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new ListProgramTypeCountResponse({}));
   }
 
-  async listProgramTypeCount(request: ListProgramTypeCountRequest): Promise<ListProgramTypeCountResponse> {
+  async listProgramTypeCountSimply(request: ListProgramTypeCountRequest): Promise<ListProgramTypeCountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.listProgramTypeCountWithOptions(request, runtime);
+    return await this.listProgramTypeCount(request, runtime);
   }
 
-  async updateTableModelInfoWithOptions(request: UpdateTableModelInfoRequest, runtime: $Util.RuntimeOptions): Promise<UpdateTableModelInfoResponse> {
+  async updateTableModelInfo(request: UpdateTableModelInfoRequest, runtime: $Util.RuntimeOptions): Promise<UpdateTableModelInfoResponse> {
     Util.validateModel(request);
     return $tea.cast<UpdateTableModelInfoResponse>(await this.doRequest("UpdateTableModelInfo", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new UpdateTableModelInfoResponse({}));
   }
 
-  async updateTableModelInfo(request: UpdateTableModelInfoRequest): Promise<UpdateTableModelInfoResponse> {
+  async updateTableModelInfoSimply(request: UpdateTableModelInfoRequest): Promise<UpdateTableModelInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.updateTableModelInfoWithOptions(request, runtime);
+    return await this.updateTableModelInfo(request, runtime);
   }
 
-  async listProjectsWithOptions(request: ListProjectsRequest, runtime: $Util.RuntimeOptions): Promise<ListProjectsResponse> {
+  async listProjects(request: ListProjectsRequest, runtime: $Util.RuntimeOptions): Promise<ListProjectsResponse> {
     Util.validateModel(request);
     return $tea.cast<ListProjectsResponse>(await this.doRequest("ListProjects", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new ListProjectsResponse({}));
   }
 
-  async listProjects(request: ListProjectsRequest): Promise<ListProjectsResponse> {
+  async listProjectsSimply(request: ListProjectsRequest): Promise<ListProjectsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.listProjectsWithOptions(request, runtime);
+    return await this.listProjects(request, runtime);
   }
 
-  async listProjectMembersWithOptions(request: ListProjectMembersRequest, runtime: $Util.RuntimeOptions): Promise<ListProjectMembersResponse> {
+  async listProjectMembers(request: ListProjectMembersRequest, runtime: $Util.RuntimeOptions): Promise<ListProjectMembersResponse> {
     Util.validateModel(request);
     return $tea.cast<ListProjectMembersResponse>(await this.doRequest("ListProjectMembers", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new ListProjectMembersResponse({}));
   }
 
-  async listProjectMembers(request: ListProjectMembersRequest): Promise<ListProjectMembersResponse> {
+  async listProjectMembersSimply(request: ListProjectMembersRequest): Promise<ListProjectMembersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.listProjectMembersWithOptions(request, runtime);
+    return await this.listProjectMembers(request, runtime);
   }
 
-  async createProjectMemberWithOptions(request: CreateProjectMemberRequest, runtime: $Util.RuntimeOptions): Promise<CreateProjectMemberResponse> {
+  async createProjectMember(request: CreateProjectMemberRequest, runtime: $Util.RuntimeOptions): Promise<CreateProjectMemberResponse> {
     Util.validateModel(request);
     return $tea.cast<CreateProjectMemberResponse>(await this.doRequest("CreateProjectMember", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new CreateProjectMemberResponse({}));
   }
 
-  async createProjectMember(request: CreateProjectMemberRequest): Promise<CreateProjectMemberResponse> {
+  async createProjectMemberSimply(request: CreateProjectMemberRequest): Promise<CreateProjectMemberResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.createProjectMemberWithOptions(request, runtime);
+    return await this.createProjectMember(request, runtime);
   }
 
-  async listProjectRolesWithOptions(request: ListProjectRolesRequest, runtime: $Util.RuntimeOptions): Promise<ListProjectRolesResponse> {
+  async listProjectRoles(request: ListProjectRolesRequest, runtime: $Util.RuntimeOptions): Promise<ListProjectRolesResponse> {
     Util.validateModel(request);
     return $tea.cast<ListProjectRolesResponse>(await this.doRequest("ListProjectRoles", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new ListProjectRolesResponse({}));
   }
 
-  async listProjectRoles(request: ListProjectRolesRequest): Promise<ListProjectRolesResponse> {
+  async listProjectRolesSimply(request: ListProjectRolesRequest): Promise<ListProjectRolesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.listProjectRolesWithOptions(request, runtime);
+    return await this.listProjectRoles(request, runtime);
   }
 
-  async addProjectMemberToRoleWithOptions(request: AddProjectMemberToRoleRequest, runtime: $Util.RuntimeOptions): Promise<AddProjectMemberToRoleResponse> {
+  async addProjectMemberToRole(request: AddProjectMemberToRoleRequest, runtime: $Util.RuntimeOptions): Promise<AddProjectMemberToRoleResponse> {
     Util.validateModel(request);
     return $tea.cast<AddProjectMemberToRoleResponse>(await this.doRequest("AddProjectMemberToRole", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new AddProjectMemberToRoleResponse({}));
   }
 
-  async addProjectMemberToRole(request: AddProjectMemberToRoleRequest): Promise<AddProjectMemberToRoleResponse> {
+  async addProjectMemberToRoleSimply(request: AddProjectMemberToRoleRequest): Promise<AddProjectMemberToRoleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.addProjectMemberToRoleWithOptions(request, runtime);
+    return await this.addProjectMemberToRole(request, runtime);
   }
 
-  async removeProjectMemberFromRoleWithOptions(request: RemoveProjectMemberFromRoleRequest, runtime: $Util.RuntimeOptions): Promise<RemoveProjectMemberFromRoleResponse> {
+  async removeProjectMemberFromRole(request: RemoveProjectMemberFromRoleRequest, runtime: $Util.RuntimeOptions): Promise<RemoveProjectMemberFromRoleResponse> {
     Util.validateModel(request);
     return $tea.cast<RemoveProjectMemberFromRoleResponse>(await this.doRequest("RemoveProjectMemberFromRole", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new RemoveProjectMemberFromRoleResponse({}));
   }
 
-  async removeProjectMemberFromRole(request: RemoveProjectMemberFromRoleRequest): Promise<RemoveProjectMemberFromRoleResponse> {
+  async removeProjectMemberFromRoleSimply(request: RemoveProjectMemberFromRoleRequest): Promise<RemoveProjectMemberFromRoleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.removeProjectMemberFromRoleWithOptions(request, runtime);
+    return await this.removeProjectMemberFromRole(request, runtime);
   }
 
-  async deleteProjectMemberWithOptions(request: DeleteProjectMemberRequest, runtime: $Util.RuntimeOptions): Promise<DeleteProjectMemberResponse> {
+  async deleteProjectMember(request: DeleteProjectMemberRequest, runtime: $Util.RuntimeOptions): Promise<DeleteProjectMemberResponse> {
     Util.validateModel(request);
     return $tea.cast<DeleteProjectMemberResponse>(await this.doRequest("DeleteProjectMember", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new DeleteProjectMemberResponse({}));
   }
 
-  async deleteProjectMember(request: DeleteProjectMemberRequest): Promise<DeleteProjectMemberResponse> {
+  async deleteProjectMemberSimply(request: DeleteProjectMemberRequest): Promise<DeleteProjectMemberResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.deleteProjectMemberWithOptions(request, runtime);
+    return await this.deleteProjectMember(request, runtime);
   }
 
-  async createDagComplementWithOptions(request: CreateDagComplementRequest, runtime: $Util.RuntimeOptions): Promise<CreateDagComplementResponse> {
+  async createDagComplement(request: CreateDagComplementRequest, runtime: $Util.RuntimeOptions): Promise<CreateDagComplementResponse> {
     Util.validateModel(request);
     return $tea.cast<CreateDagComplementResponse>(await this.doRequest("CreateDagComplement", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new CreateDagComplementResponse({}));
   }
 
-  async createDagComplement(request: CreateDagComplementRequest): Promise<CreateDagComplementResponse> {
+  async createDagComplementSimply(request: CreateDagComplementRequest): Promise<CreateDagComplementResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.createDagComplementWithOptions(request, runtime);
+    return await this.createDagComplement(request, runtime);
   }
 
-  async createDagTestWithOptions(request: CreateDagTestRequest, runtime: $Util.RuntimeOptions): Promise<CreateDagTestResponse> {
+  async createDagTest(request: CreateDagTestRequest, runtime: $Util.RuntimeOptions): Promise<CreateDagTestResponse> {
     Util.validateModel(request);
     return $tea.cast<CreateDagTestResponse>(await this.doRequest("CreateDagTest", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new CreateDagTestResponse({}));
   }
 
-  async createDagTest(request: CreateDagTestRequest): Promise<CreateDagTestResponse> {
+  async createDagTestSimply(request: CreateDagTestRequest): Promise<CreateDagTestResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.createDagTestWithOptions(request, runtime);
+    return await this.createDagTest(request, runtime);
   }
 
-  async listCalcEnginesWithOptions(request: ListCalcEnginesRequest, runtime: $Util.RuntimeOptions): Promise<ListCalcEnginesResponse> {
+  async listCalcEngines(request: ListCalcEnginesRequest, runtime: $Util.RuntimeOptions): Promise<ListCalcEnginesResponse> {
     Util.validateModel(request);
     return $tea.cast<ListCalcEnginesResponse>(await this.doRequest("ListCalcEngines", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new ListCalcEnginesResponse({}));
   }
 
-  async listCalcEngines(request: ListCalcEnginesRequest): Promise<ListCalcEnginesResponse> {
+  async listCalcEnginesSimply(request: ListCalcEnginesRequest): Promise<ListCalcEnginesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.listCalcEnginesWithOptions(request, runtime);
+    return await this.listCalcEngines(request, runtime);
   }
 
-  async listConnectionsWithOptions(request: ListConnectionsRequest, runtime: $Util.RuntimeOptions): Promise<ListConnectionsResponse> {
+  async listConnections(request: ListConnectionsRequest, runtime: $Util.RuntimeOptions): Promise<ListConnectionsResponse> {
     Util.validateModel(request);
     return $tea.cast<ListConnectionsResponse>(await this.doRequest("ListConnections", "HTTPS", "GET", "2020-05-18", "AK", $tea.toMap(request), null, runtime), new ListConnectionsResponse({}));
   }
 
-  async listConnections(request: ListConnectionsRequest): Promise<ListConnectionsResponse> {
+  async listConnectionsSimply(request: ListConnectionsRequest): Promise<ListConnectionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.listConnectionsWithOptions(request, runtime);
+    return await this.listConnections(request, runtime);
   }
 
-  async updateConnectionWithOptions(request: UpdateConnectionRequest, runtime: $Util.RuntimeOptions): Promise<UpdateConnectionResponse> {
+  async updateConnection(request: UpdateConnectionRequest, runtime: $Util.RuntimeOptions): Promise<UpdateConnectionResponse> {
     Util.validateModel(request);
     return $tea.cast<UpdateConnectionResponse>(await this.doRequest("UpdateConnection", "HTTPS", "PUT", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new UpdateConnectionResponse({}));
   }
 
-  async updateConnection(request: UpdateConnectionRequest): Promise<UpdateConnectionResponse> {
+  async updateConnectionSimply(request: UpdateConnectionRequest): Promise<UpdateConnectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.updateConnectionWithOptions(request, runtime);
+    return await this.updateConnection(request, runtime);
   }
 
-  async deleteConnectionWithOptions(request: DeleteConnectionRequest, runtime: $Util.RuntimeOptions): Promise<DeleteConnectionResponse> {
+  async deleteConnection(request: DeleteConnectionRequest, runtime: $Util.RuntimeOptions): Promise<DeleteConnectionResponse> {
     Util.validateModel(request);
     return $tea.cast<DeleteConnectionResponse>(await this.doRequest("DeleteConnection", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new DeleteConnectionResponse({}));
   }
 
-  async deleteConnection(request: DeleteConnectionRequest): Promise<DeleteConnectionResponse> {
+  async deleteConnectionSimply(request: DeleteConnectionRequest): Promise<DeleteConnectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.deleteConnectionWithOptions(request, runtime);
+    return await this.deleteConnection(request, runtime);
   }
 
-  async getProjectDetailWithOptions(request: GetProjectDetailRequest, runtime: $Util.RuntimeOptions): Promise<GetProjectDetailResponse> {
+  async getProjectDetail(request: GetProjectDetailRequest, runtime: $Util.RuntimeOptions): Promise<GetProjectDetailResponse> {
     Util.validateModel(request);
     return $tea.cast<GetProjectDetailResponse>(await this.doRequest("GetProjectDetail", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new GetProjectDetailResponse({}));
   }
 
-  async getProjectDetail(request: GetProjectDetailRequest): Promise<GetProjectDetailResponse> {
+  async getProjectDetailSimply(request: GetProjectDetailRequest): Promise<GetProjectDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.getProjectDetailWithOptions(request, runtime);
+    return await this.getProjectDetail(request, runtime);
   }
 
-  async listResourceGroupsWithOptions(request: ListResourceGroupsRequest, runtime: $Util.RuntimeOptions): Promise<ListResourceGroupsResponse> {
+  async listResourceGroups(request: ListResourceGroupsRequest, runtime: $Util.RuntimeOptions): Promise<ListResourceGroupsResponse> {
     Util.validateModel(request);
     return $tea.cast<ListResourceGroupsResponse>(await this.doRequest("ListResourceGroups", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new ListResourceGroupsResponse({}));
   }
 
-  async listResourceGroups(request: ListResourceGroupsRequest): Promise<ListResourceGroupsResponse> {
+  async listResourceGroupsSimply(request: ListResourceGroupsRequest): Promise<ListResourceGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.listResourceGroupsWithOptions(request, runtime);
+    return await this.listResourceGroups(request, runtime);
   }
 
-  async createConnectionWithOptions(request: CreateConnectionRequest, runtime: $Util.RuntimeOptions): Promise<CreateConnectionResponse> {
+  async createConnection(request: CreateConnectionRequest, runtime: $Util.RuntimeOptions): Promise<CreateConnectionResponse> {
     Util.validateModel(request);
     return $tea.cast<CreateConnectionResponse>(await this.doRequest("CreateConnection", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new CreateConnectionResponse({}));
   }
 
-  async createConnection(request: CreateConnectionRequest): Promise<CreateConnectionResponse> {
+  async createConnectionSimply(request: CreateConnectionRequest): Promise<CreateConnectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.createConnectionWithOptions(request, runtime);
+    return await this.createConnection(request, runtime);
   }
 
-  async getDataServiceApplicationWithOptions(request: GetDataServiceApplicationRequest, runtime: $Util.RuntimeOptions): Promise<GetDataServiceApplicationResponse> {
+  async getDataServiceApplication(request: GetDataServiceApplicationRequest, runtime: $Util.RuntimeOptions): Promise<GetDataServiceApplicationResponse> {
     Util.validateModel(request);
     return $tea.cast<GetDataServiceApplicationResponse>(await this.doRequest("GetDataServiceApplication", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new GetDataServiceApplicationResponse({}));
   }
 
-  async getDataServiceApplication(request: GetDataServiceApplicationRequest): Promise<GetDataServiceApplicationResponse> {
+  async getDataServiceApplicationSimply(request: GetDataServiceApplicationRequest): Promise<GetDataServiceApplicationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.getDataServiceApplicationWithOptions(request, runtime);
+    return await this.getDataServiceApplication(request, runtime);
   }
 
-  async listDataServiceApplicationsWithOptions(request: ListDataServiceApplicationsRequest, runtime: $Util.RuntimeOptions): Promise<ListDataServiceApplicationsResponse> {
+  async listDataServiceApplications(request: ListDataServiceApplicationsRequest, runtime: $Util.RuntimeOptions): Promise<ListDataServiceApplicationsResponse> {
     Util.validateModel(request);
     return $tea.cast<ListDataServiceApplicationsResponse>(await this.doRequest("ListDataServiceApplications", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new ListDataServiceApplicationsResponse({}));
   }
 
-  async listDataServiceApplications(request: ListDataServiceApplicationsRequest): Promise<ListDataServiceApplicationsResponse> {
+  async listDataServiceApplicationsSimply(request: ListDataServiceApplicationsRequest): Promise<ListDataServiceApplicationsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.listDataServiceApplicationsWithOptions(request, runtime);
+    return await this.listDataServiceApplications(request, runtime);
   }
 
-  async getNodeOnBaselineWithOptions(request: GetNodeOnBaselineRequest, runtime: $Util.RuntimeOptions): Promise<GetNodeOnBaselineResponse> {
+  async getNodeOnBaseline(request: GetNodeOnBaselineRequest, runtime: $Util.RuntimeOptions): Promise<GetNodeOnBaselineResponse> {
     Util.validateModel(request);
     return $tea.cast<GetNodeOnBaselineResponse>(await this.doRequest("GetNodeOnBaseline", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new GetNodeOnBaselineResponse({}));
   }
 
-  async getNodeOnBaseline(request: GetNodeOnBaselineRequest): Promise<GetNodeOnBaselineResponse> {
+  async getNodeOnBaselineSimply(request: GetNodeOnBaselineRequest): Promise<GetNodeOnBaselineResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.getNodeOnBaselineWithOptions(request, runtime);
+    return await this.getNodeOnBaseline(request, runtime);
   }
 
-  async listBaselineConfigsWithOptions(request: ListBaselineConfigsRequest, runtime: $Util.RuntimeOptions): Promise<ListBaselineConfigsResponse> {
+  async listBaselineConfigs(request: ListBaselineConfigsRequest, runtime: $Util.RuntimeOptions): Promise<ListBaselineConfigsResponse> {
     Util.validateModel(request);
     return $tea.cast<ListBaselineConfigsResponse>(await this.doRequest("ListBaselineConfigs", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new ListBaselineConfigsResponse({}));
   }
 
-  async listBaselineConfigs(request: ListBaselineConfigsRequest): Promise<ListBaselineConfigsResponse> {
+  async listBaselineConfigsSimply(request: ListBaselineConfigsRequest): Promise<ListBaselineConfigsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.listBaselineConfigsWithOptions(request, runtime);
+    return await this.listBaselineConfigs(request, runtime);
   }
 
-  async getMetaTableChangeLogWithOptions(request: GetMetaTableChangeLogRequest, runtime: $Util.RuntimeOptions): Promise<GetMetaTableChangeLogResponse> {
+  async getMetaTableChangeLog(request: GetMetaTableChangeLogRequest, runtime: $Util.RuntimeOptions): Promise<GetMetaTableChangeLogResponse> {
     Util.validateModel(request);
     return $tea.cast<GetMetaTableChangeLogResponse>(await this.doRequest("GetMetaTableChangeLog", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new GetMetaTableChangeLogResponse({}));
   }
 
-  async getMetaTableChangeLog(request: GetMetaTableChangeLogRequest): Promise<GetMetaTableChangeLogResponse> {
+  async getMetaTableChangeLogSimply(request: GetMetaTableChangeLogRequest): Promise<GetMetaTableChangeLogResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.getMetaTableChangeLogWithOptions(request, runtime);
+    return await this.getMetaTableChangeLog(request, runtime);
   }
 
-  async getMetaTableOutputWithOptions(request: GetMetaTableOutputRequest, runtime: $Util.RuntimeOptions): Promise<GetMetaTableOutputResponse> {
+  async getMetaTableOutput(request: GetMetaTableOutputRequest, runtime: $Util.RuntimeOptions): Promise<GetMetaTableOutputResponse> {
     Util.validateModel(request);
     return $tea.cast<GetMetaTableOutputResponse>(await this.doRequest("GetMetaTableOutput", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new GetMetaTableOutputResponse({}));
   }
 
-  async getMetaTableOutput(request: GetMetaTableOutputRequest): Promise<GetMetaTableOutputResponse> {
+  async getMetaTableOutputSimply(request: GetMetaTableOutputRequest): Promise<GetMetaTableOutputResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.getMetaTableOutputWithOptions(request, runtime);
+    return await this.getMetaTableOutput(request, runtime);
   }
 
-  async getMetaTablePartitionWithOptions(request: GetMetaTablePartitionRequest, runtime: $Util.RuntimeOptions): Promise<GetMetaTablePartitionResponse> {
+  async getMetaTablePartition(request: GetMetaTablePartitionRequest, runtime: $Util.RuntimeOptions): Promise<GetMetaTablePartitionResponse> {
     Util.validateModel(request);
     return $tea.cast<GetMetaTablePartitionResponse>(await this.doRequest("GetMetaTablePartition", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new GetMetaTablePartitionResponse({}));
   }
 
-  async getMetaTablePartition(request: GetMetaTablePartitionRequest): Promise<GetMetaTablePartitionResponse> {
+  async getMetaTablePartitionSimply(request: GetMetaTablePartitionRequest): Promise<GetMetaTablePartitionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.getMetaTablePartitionWithOptions(request, runtime);
+    return await this.getMetaTablePartition(request, runtime);
   }
 
-  async getMetaTableFullInfoWithOptions(request: GetMetaTableFullInfoRequest, runtime: $Util.RuntimeOptions): Promise<GetMetaTableFullInfoResponse> {
+  async getMetaTableFullInfo(request: GetMetaTableFullInfoRequest, runtime: $Util.RuntimeOptions): Promise<GetMetaTableFullInfoResponse> {
     Util.validateModel(request);
     return $tea.cast<GetMetaTableFullInfoResponse>(await this.doRequest("GetMetaTableFullInfo", "HTTPS", "GET", "2020-05-18", "AK", $tea.toMap(request), null, runtime), new GetMetaTableFullInfoResponse({}));
   }
 
-  async getMetaTableFullInfo(request: GetMetaTableFullInfoRequest): Promise<GetMetaTableFullInfoResponse> {
+  async getMetaTableFullInfoSimply(request: GetMetaTableFullInfoRequest): Promise<GetMetaTableFullInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.getMetaTableFullInfoWithOptions(request, runtime);
+    return await this.getMetaTableFullInfo(request, runtime);
   }
 
-  async getFileVersionWithOptions(request: GetFileVersionRequest, runtime: $Util.RuntimeOptions): Promise<GetFileVersionResponse> {
+  async getFileVersion(request: GetFileVersionRequest, runtime: $Util.RuntimeOptions): Promise<GetFileVersionResponse> {
     Util.validateModel(request);
     return $tea.cast<GetFileVersionResponse>(await this.doRequest("GetFileVersion", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new GetFileVersionResponse({}));
   }
 
-  async getFileVersion(request: GetFileVersionRequest): Promise<GetFileVersionResponse> {
+  async getFileVersionSimply(request: GetFileVersionRequest): Promise<GetFileVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.getFileVersionWithOptions(request, runtime);
+    return await this.getFileVersion(request, runtime);
   }
 
-  async getMetaTableBasicInfoWithOptions(request: GetMetaTableBasicInfoRequest, runtime: $Util.RuntimeOptions): Promise<GetMetaTableBasicInfoResponse> {
+  async getMetaTableBasicInfo(request: GetMetaTableBasicInfoRequest, runtime: $Util.RuntimeOptions): Promise<GetMetaTableBasicInfoResponse> {
     Util.validateModel(request);
     return $tea.cast<GetMetaTableBasicInfoResponse>(await this.doRequest("GetMetaTableBasicInfo", "HTTPS", "GET", "2020-05-18", "AK", $tea.toMap(request), null, runtime), new GetMetaTableBasicInfoResponse({}));
   }
 
-  async getMetaTableBasicInfo(request: GetMetaTableBasicInfoRequest): Promise<GetMetaTableBasicInfoResponse> {
+  async getMetaTableBasicInfoSimply(request: GetMetaTableBasicInfoRequest): Promise<GetMetaTableBasicInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.getMetaTableBasicInfoWithOptions(request, runtime);
+    return await this.getMetaTableBasicInfo(request, runtime);
   }
 
-  async getMetaTableColumnWithOptions(request: GetMetaTableColumnRequest, runtime: $Util.RuntimeOptions): Promise<GetMetaTableColumnResponse> {
+  async getMetaTableColumn(request: GetMetaTableColumnRequest, runtime: $Util.RuntimeOptions): Promise<GetMetaTableColumnResponse> {
     Util.validateModel(request);
     return $tea.cast<GetMetaTableColumnResponse>(await this.doRequest("GetMetaTableColumn", "HTTPS", "GET", "2020-05-18", "AK", $tea.toMap(request), null, runtime), new GetMetaTableColumnResponse({}));
   }
 
-  async getMetaTableColumn(request: GetMetaTableColumnRequest): Promise<GetMetaTableColumnResponse> {
+  async getMetaTableColumnSimply(request: GetMetaTableColumnRequest): Promise<GetMetaTableColumnResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.getMetaTableColumnWithOptions(request, runtime);
+    return await this.getMetaTableColumn(request, runtime);
   }
 
-  async getMetaDBInfoWithOptions(request: GetMetaDBInfoRequest, runtime: $Util.RuntimeOptions): Promise<GetMetaDBInfoResponse> {
+  async getMetaDBInfo(request: GetMetaDBInfoRequest, runtime: $Util.RuntimeOptions): Promise<GetMetaDBInfoResponse> {
     Util.validateModel(request);
     return $tea.cast<GetMetaDBInfoResponse>(await this.doRequest("GetMetaDBInfo", "HTTPS", "GET", "2020-05-18", "AK", $tea.toMap(request), null, runtime), new GetMetaDBInfoResponse({}));
   }
 
-  async getMetaDBInfo(request: GetMetaDBInfoRequest): Promise<GetMetaDBInfoResponse> {
+  async getMetaDBInfoSimply(request: GetMetaDBInfoRequest): Promise<GetMetaDBInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.getMetaDBInfoWithOptions(request, runtime);
+    return await this.getMetaDBInfo(request, runtime);
   }
 
-  async getMetaCategoryWithOptions(request: GetMetaCategoryRequest, runtime: $Util.RuntimeOptions): Promise<GetMetaCategoryResponse> {
+  async getMetaCategory(request: GetMetaCategoryRequest, runtime: $Util.RuntimeOptions): Promise<GetMetaCategoryResponse> {
     Util.validateModel(request);
     return $tea.cast<GetMetaCategoryResponse>(await this.doRequest("GetMetaCategory", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new GetMetaCategoryResponse({}));
   }
 
-  async getMetaCategory(request: GetMetaCategoryRequest): Promise<GetMetaCategoryResponse> {
+  async getMetaCategorySimply(request: GetMetaCategoryRequest): Promise<GetMetaCategoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.getMetaCategoryWithOptions(request, runtime);
+    return await this.getMetaCategory(request, runtime);
   }
 
-  async listAlertMessagesWithOptions(request: ListAlertMessagesRequest, runtime: $Util.RuntimeOptions): Promise<ListAlertMessagesResponse> {
+  async listAlertMessages(request: ListAlertMessagesRequest, runtime: $Util.RuntimeOptions): Promise<ListAlertMessagesResponse> {
     Util.validateModel(request);
     return $tea.cast<ListAlertMessagesResponse>(await this.doRequest("ListAlertMessages", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new ListAlertMessagesResponse({}));
   }
 
-  async listAlertMessages(request: ListAlertMessagesRequest): Promise<ListAlertMessagesResponse> {
+  async listAlertMessagesSimply(request: ListAlertMessagesRequest): Promise<ListAlertMessagesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.listAlertMessagesWithOptions(request, runtime);
+    return await this.listAlertMessages(request, runtime);
   }
 
-  async getBaselineConfigWithOptions(request: GetBaselineConfigRequest, runtime: $Util.RuntimeOptions): Promise<GetBaselineConfigResponse> {
+  async getBaselineConfig(request: GetBaselineConfigRequest, runtime: $Util.RuntimeOptions): Promise<GetBaselineConfigResponse> {
     Util.validateModel(request);
     return $tea.cast<GetBaselineConfigResponse>(await this.doRequest("GetBaselineConfig", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new GetBaselineConfigResponse({}));
   }
 
-  async getBaselineConfig(request: GetBaselineConfigRequest): Promise<GetBaselineConfigResponse> {
+  async getBaselineConfigSimply(request: GetBaselineConfigRequest): Promise<GetBaselineConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.getBaselineConfigWithOptions(request, runtime);
+    return await this.getBaselineConfig(request, runtime);
   }
 
-  async searchMetaTablesWithOptions(request: SearchMetaTablesRequest, runtime: $Util.RuntimeOptions): Promise<SearchMetaTablesResponse> {
+  async searchMetaTables(request: SearchMetaTablesRequest, runtime: $Util.RuntimeOptions): Promise<SearchMetaTablesResponse> {
     Util.validateModel(request);
     return $tea.cast<SearchMetaTablesResponse>(await this.doRequest("SearchMetaTables", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new SearchMetaTablesResponse({}));
   }
 
-  async searchMetaTables(request: SearchMetaTablesRequest): Promise<SearchMetaTablesResponse> {
+  async searchMetaTablesSimply(request: SearchMetaTablesRequest): Promise<SearchMetaTablesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.searchMetaTablesWithOptions(request, runtime);
+    return await this.searchMetaTables(request, runtime);
   }
 
-  async getMetaTableListByCategoryWithOptions(request: GetMetaTableListByCategoryRequest, runtime: $Util.RuntimeOptions): Promise<GetMetaTableListByCategoryResponse> {
+  async getMetaTableListByCategory(request: GetMetaTableListByCategoryRequest, runtime: $Util.RuntimeOptions): Promise<GetMetaTableListByCategoryResponse> {
     Util.validateModel(request);
     return $tea.cast<GetMetaTableListByCategoryResponse>(await this.doRequest("GetMetaTableListByCategory", "HTTPS", "GET", "2020-05-18", "AK", $tea.toMap(request), null, runtime), new GetMetaTableListByCategoryResponse({}));
   }
 
-  async getMetaTableListByCategory(request: GetMetaTableListByCategoryRequest): Promise<GetMetaTableListByCategoryResponse> {
+  async getMetaTableListByCategorySimply(request: GetMetaTableListByCategoryRequest): Promise<GetMetaTableListByCategoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.getMetaTableListByCategoryWithOptions(request, runtime);
+    return await this.getMetaTableListByCategory(request, runtime);
   }
 
-  async deleteMetaCategoryWithOptions(request: DeleteMetaCategoryRequest, runtime: $Util.RuntimeOptions): Promise<DeleteMetaCategoryResponse> {
+  async deleteMetaCategory(request: DeleteMetaCategoryRequest, runtime: $Util.RuntimeOptions): Promise<DeleteMetaCategoryResponse> {
     Util.validateModel(request);
     return $tea.cast<DeleteMetaCategoryResponse>(await this.doRequest("DeleteMetaCategory", "HTTPS", "GET", "2020-05-18", "AK", $tea.toMap(request), null, runtime), new DeleteMetaCategoryResponse({}));
   }
 
-  async deleteMetaCategory(request: DeleteMetaCategoryRequest): Promise<DeleteMetaCategoryResponse> {
+  async deleteMetaCategorySimply(request: DeleteMetaCategoryRequest): Promise<DeleteMetaCategoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.deleteMetaCategoryWithOptions(request, runtime);
+    return await this.deleteMetaCategory(request, runtime);
   }
 
-  async updateMetaCategoryWithOptions(request: UpdateMetaCategoryRequest, runtime: $Util.RuntimeOptions): Promise<UpdateMetaCategoryResponse> {
+  async updateMetaCategory(request: UpdateMetaCategoryRequest, runtime: $Util.RuntimeOptions): Promise<UpdateMetaCategoryResponse> {
     Util.validateModel(request);
     return $tea.cast<UpdateMetaCategoryResponse>(await this.doRequest("UpdateMetaCategory", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new UpdateMetaCategoryResponse({}));
   }
 
-  async updateMetaCategory(request: UpdateMetaCategoryRequest): Promise<UpdateMetaCategoryResponse> {
+  async updateMetaCategorySimply(request: UpdateMetaCategoryRequest): Promise<UpdateMetaCategoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.updateMetaCategoryWithOptions(request, runtime);
+    return await this.updateMetaCategory(request, runtime);
   }
 
-  async listTopicsWithOptions(request: ListTopicsRequest, runtime: $Util.RuntimeOptions): Promise<ListTopicsResponse> {
+  async listTopics(request: ListTopicsRequest, runtime: $Util.RuntimeOptions): Promise<ListTopicsResponse> {
     Util.validateModel(request);
     return $tea.cast<ListTopicsResponse>(await this.doRequest("ListTopics", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new ListTopicsResponse({}));
   }
 
-  async listTopics(request: ListTopicsRequest): Promise<ListTopicsResponse> {
+  async listTopicsSimply(request: ListTopicsRequest): Promise<ListTopicsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.listTopicsWithOptions(request, runtime);
+    return await this.listTopics(request, runtime);
   }
 
-  async listFileVersionsWithOptions(request: ListFileVersionsRequest, runtime: $Util.RuntimeOptions): Promise<ListFileVersionsResponse> {
+  async listFileVersions(request: ListFileVersionsRequest, runtime: $Util.RuntimeOptions): Promise<ListFileVersionsResponse> {
     Util.validateModel(request);
     return $tea.cast<ListFileVersionsResponse>(await this.doRequest("ListFileVersions", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new ListFileVersionsResponse({}));
   }
 
-  async listFileVersions(request: ListFileVersionsRequest): Promise<ListFileVersionsResponse> {
+  async listFileVersionsSimply(request: ListFileVersionsRequest): Promise<ListFileVersionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.listFileVersionsWithOptions(request, runtime);
+    return await this.listFileVersions(request, runtime);
   }
 
-  async createMetaCategoryWithOptions(request: CreateMetaCategoryRequest, runtime: $Util.RuntimeOptions): Promise<CreateMetaCategoryResponse> {
+  async createMetaCategory(request: CreateMetaCategoryRequest, runtime: $Util.RuntimeOptions): Promise<CreateMetaCategoryResponse> {
     Util.validateModel(request);
     return $tea.cast<CreateMetaCategoryResponse>(await this.doRequest("CreateMetaCategory", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new CreateMetaCategoryResponse({}));
   }
 
-  async createMetaCategory(request: CreateMetaCategoryRequest): Promise<CreateMetaCategoryResponse> {
+  async createMetaCategorySimply(request: CreateMetaCategoryRequest): Promise<CreateMetaCategoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.createMetaCategoryWithOptions(request, runtime);
+    return await this.createMetaCategory(request, runtime);
   }
 
-  async listNodeIOWithOptions(request: ListNodeIORequest, runtime: $Util.RuntimeOptions): Promise<ListNodeIOResponse> {
+  async listNodeIO(request: ListNodeIORequest, runtime: $Util.RuntimeOptions): Promise<ListNodeIOResponse> {
     Util.validateModel(request);
     return $tea.cast<ListNodeIOResponse>(await this.doRequest("ListNodeIO", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new ListNodeIOResponse({}));
   }
 
-  async listNodeIO(request: ListNodeIORequest): Promise<ListNodeIOResponse> {
+  async listNodeIOSimply(request: ListNodeIORequest): Promise<ListNodeIOResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.listNodeIOWithOptions(request, runtime);
+    return await this.listNodeIO(request, runtime);
   }
 
-  async getTopicInfluenceWithOptions(request: GetTopicInfluenceRequest, runtime: $Util.RuntimeOptions): Promise<GetTopicInfluenceResponse> {
+  async getTopicInfluence(request: GetTopicInfluenceRequest, runtime: $Util.RuntimeOptions): Promise<GetTopicInfluenceResponse> {
     Util.validateModel(request);
     return $tea.cast<GetTopicInfluenceResponse>(await this.doRequest("GetTopicInfluence", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new GetTopicInfluenceResponse({}));
   }
 
-  async getTopicInfluence(request: GetTopicInfluenceRequest): Promise<GetTopicInfluenceResponse> {
+  async getTopicInfluenceSimply(request: GetTopicInfluenceRequest): Promise<GetTopicInfluenceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.getTopicInfluenceWithOptions(request, runtime);
+    return await this.getTopicInfluence(request, runtime);
   }
 
-  async getTopicWithOptions(request: GetTopicRequest, runtime: $Util.RuntimeOptions): Promise<GetTopicResponse> {
+  async getTopic(request: GetTopicRequest, runtime: $Util.RuntimeOptions): Promise<GetTopicResponse> {
     Util.validateModel(request);
     return $tea.cast<GetTopicResponse>(await this.doRequest("GetTopic", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new GetTopicResponse({}));
   }
 
-  async getTopic(request: GetTopicRequest): Promise<GetTopicResponse> {
+  async getTopicSimply(request: GetTopicRequest): Promise<GetTopicResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.getTopicWithOptions(request, runtime);
+    return await this.getTopic(request, runtime);
   }
 
-  async deleteFromMetaCategoryWithOptions(request: DeleteFromMetaCategoryRequest, runtime: $Util.RuntimeOptions): Promise<DeleteFromMetaCategoryResponse> {
+  async deleteFromMetaCategory(request: DeleteFromMetaCategoryRequest, runtime: $Util.RuntimeOptions): Promise<DeleteFromMetaCategoryResponse> {
     Util.validateModel(request);
     return $tea.cast<DeleteFromMetaCategoryResponse>(await this.doRequest("DeleteFromMetaCategory", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new DeleteFromMetaCategoryResponse({}));
   }
 
-  async deleteFromMetaCategory(request: DeleteFromMetaCategoryRequest): Promise<DeleteFromMetaCategoryResponse> {
+  async deleteFromMetaCategorySimply(request: DeleteFromMetaCategoryRequest): Promise<DeleteFromMetaCategoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.deleteFromMetaCategoryWithOptions(request, runtime);
+    return await this.deleteFromMetaCategory(request, runtime);
   }
 
-  async getNodeWithOptions(request: GetNodeRequest, runtime: $Util.RuntimeOptions): Promise<GetNodeResponse> {
+  async getNode(request: GetNodeRequest, runtime: $Util.RuntimeOptions): Promise<GetNodeResponse> {
     Util.validateModel(request);
     return $tea.cast<GetNodeResponse>(await this.doRequest("GetNode", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new GetNodeResponse({}));
   }
 
-  async getNode(request: GetNodeRequest): Promise<GetNodeResponse> {
+  async getNodeSimply(request: GetNodeRequest): Promise<GetNodeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.getNodeWithOptions(request, runtime);
+    return await this.getNode(request, runtime);
   }
 
-  async listNodesWithOptions(request: ListNodesRequest, runtime: $Util.RuntimeOptions): Promise<ListNodesResponse> {
+  async listNodes(request: ListNodesRequest, runtime: $Util.RuntimeOptions): Promise<ListNodesResponse> {
     Util.validateModel(request);
     return $tea.cast<ListNodesResponse>(await this.doRequest("ListNodes", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new ListNodesResponse({}));
   }
 
-  async listNodes(request: ListNodesRequest): Promise<ListNodesResponse> {
+  async listNodesSimply(request: ListNodesRequest): Promise<ListNodesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.listNodesWithOptions(request, runtime);
+    return await this.listNodes(request, runtime);
   }
 
-  async getNodeCodeWithOptions(request: GetNodeCodeRequest, runtime: $Util.RuntimeOptions): Promise<GetNodeCodeResponse> {
+  async getNodeCode(request: GetNodeCodeRequest, runtime: $Util.RuntimeOptions): Promise<GetNodeCodeResponse> {
     Util.validateModel(request);
     return $tea.cast<GetNodeCodeResponse>(await this.doRequest("GetNodeCode", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new GetNodeCodeResponse({}));
   }
 
-  async getNodeCode(request: GetNodeCodeRequest): Promise<GetNodeCodeResponse> {
+  async getNodeCodeSimply(request: GetNodeCodeRequest): Promise<GetNodeCodeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.getNodeCodeWithOptions(request, runtime);
+    return await this.getNodeCode(request, runtime);
   }
 
-  async establishRelationTableToBusinessWithOptions(request: EstablishRelationTableToBusinessRequest, runtime: $Util.RuntimeOptions): Promise<EstablishRelationTableToBusinessResponse> {
+  async establishRelationTableToBusiness(request: EstablishRelationTableToBusinessRequest, runtime: $Util.RuntimeOptions): Promise<EstablishRelationTableToBusinessResponse> {
     Util.validateModel(request);
     return $tea.cast<EstablishRelationTableToBusinessResponse>(await this.doRequest("EstablishRelationTableToBusiness", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new EstablishRelationTableToBusinessResponse({}));
   }
 
-  async establishRelationTableToBusiness(request: EstablishRelationTableToBusinessRequest): Promise<EstablishRelationTableToBusinessResponse> {
+  async establishRelationTableToBusinessSimply(request: EstablishRelationTableToBusinessRequest): Promise<EstablishRelationTableToBusinessResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.establishRelationTableToBusinessWithOptions(request, runtime);
+    return await this.establishRelationTableToBusiness(request, runtime);
   }
 
-  async updateDataServiceApiWithOptions(request: UpdateDataServiceApiRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDataServiceApiResponse> {
+  async updateDataServiceApi(request: UpdateDataServiceApiRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDataServiceApiResponse> {
     Util.validateModel(request);
     return $tea.cast<UpdateDataServiceApiResponse>(await this.doRequest("UpdateDataServiceApi", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new UpdateDataServiceApiResponse({}));
   }
 
-  async updateDataServiceApi(request: UpdateDataServiceApiRequest): Promise<UpdateDataServiceApiResponse> {
+  async updateDataServiceApiSimply(request: UpdateDataServiceApiRequest): Promise<UpdateDataServiceApiResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.updateDataServiceApiWithOptions(request, runtime);
+    return await this.updateDataServiceApi(request, runtime);
   }
 
-  async updateUdfFileWithOptions(request: UpdateUdfFileRequest, runtime: $Util.RuntimeOptions): Promise<UpdateUdfFileResponse> {
+  async updateUdfFile(request: UpdateUdfFileRequest, runtime: $Util.RuntimeOptions): Promise<UpdateUdfFileResponse> {
     Util.validateModel(request);
     return $tea.cast<UpdateUdfFileResponse>(await this.doRequest("UpdateUdfFile", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new UpdateUdfFileResponse({}));
   }
 
-  async updateUdfFile(request: UpdateUdfFileRequest): Promise<UpdateUdfFileResponse> {
+  async updateUdfFileSimply(request: UpdateUdfFileRequest): Promise<UpdateUdfFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.updateUdfFileWithOptions(request, runtime);
+    return await this.updateUdfFile(request, runtime);
   }
 
-  async createUdfFileWithOptions(request: CreateUdfFileRequest, runtime: $Util.RuntimeOptions): Promise<CreateUdfFileResponse> {
+  async createUdfFile(request: CreateUdfFileRequest, runtime: $Util.RuntimeOptions): Promise<CreateUdfFileResponse> {
     Util.validateModel(request);
     return $tea.cast<CreateUdfFileResponse>(await this.doRequest("CreateUdfFile", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new CreateUdfFileResponse({}));
   }
 
-  async createUdfFile(request: CreateUdfFileRequest): Promise<CreateUdfFileResponse> {
+  async createUdfFileSimply(request: CreateUdfFileRequest): Promise<CreateUdfFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.createUdfFileWithOptions(request, runtime);
+    return await this.createUdfFile(request, runtime);
   }
 
-  async listFilesWithOptions(request: ListFilesRequest, runtime: $Util.RuntimeOptions): Promise<ListFilesResponse> {
+  async listFiles(request: ListFilesRequest, runtime: $Util.RuntimeOptions): Promise<ListFilesResponse> {
     Util.validateModel(request);
     return $tea.cast<ListFilesResponse>(await this.doRequest("ListFiles", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new ListFilesResponse({}));
   }
 
-  async listFiles(request: ListFilesRequest): Promise<ListFilesResponse> {
+  async listFilesSimply(request: ListFilesRequest): Promise<ListFilesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.listFilesWithOptions(request, runtime);
+    return await this.listFiles(request, runtime);
   }
 
-  async listDataServiceAuthorizedApisWithOptions(request: ListDataServiceAuthorizedApisRequest, runtime: $Util.RuntimeOptions): Promise<ListDataServiceAuthorizedApisResponse> {
+  async listDataServiceAuthorizedApis(request: ListDataServiceAuthorizedApisRequest, runtime: $Util.RuntimeOptions): Promise<ListDataServiceAuthorizedApisResponse> {
     Util.validateModel(request);
     return $tea.cast<ListDataServiceAuthorizedApisResponse>(await this.doRequest("ListDataServiceAuthorizedApis", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new ListDataServiceAuthorizedApisResponse({}));
   }
 
-  async listDataServiceAuthorizedApis(request: ListDataServiceAuthorizedApisRequest): Promise<ListDataServiceAuthorizedApisResponse> {
+  async listDataServiceAuthorizedApisSimply(request: ListDataServiceAuthorizedApisRequest): Promise<ListDataServiceAuthorizedApisResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.listDataServiceAuthorizedApisWithOptions(request, runtime);
+    return await this.listDataServiceAuthorizedApis(request, runtime);
   }
 
-  async updateFileWithOptions(request: UpdateFileRequest, runtime: $Util.RuntimeOptions): Promise<UpdateFileResponse> {
+  async updateFile(request: UpdateFileRequest, runtime: $Util.RuntimeOptions): Promise<UpdateFileResponse> {
     Util.validateModel(request);
     return $tea.cast<UpdateFileResponse>(await this.doRequest("UpdateFile", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new UpdateFileResponse({}));
   }
 
-  async updateFile(request: UpdateFileRequest): Promise<UpdateFileResponse> {
+  async updateFileSimply(request: UpdateFileRequest): Promise<UpdateFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.updateFileWithOptions(request, runtime);
+    return await this.updateFile(request, runtime);
   }
 
-  async deleteFolderWithOptions(request: DeleteFolderRequest, runtime: $Util.RuntimeOptions): Promise<DeleteFolderResponse> {
+  async deleteFolder(request: DeleteFolderRequest, runtime: $Util.RuntimeOptions): Promise<DeleteFolderResponse> {
     Util.validateModel(request);
     return $tea.cast<DeleteFolderResponse>(await this.doRequest("DeleteFolder", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new DeleteFolderResponse({}));
   }
 
-  async deleteFolder(request: DeleteFolderRequest): Promise<DeleteFolderResponse> {
+  async deleteFolderSimply(request: DeleteFolderRequest): Promise<DeleteFolderResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.deleteFolderWithOptions(request, runtime);
+    return await this.deleteFolder(request, runtime);
   }
 
-  async listFoldersWithOptions(request: ListFoldersRequest, runtime: $Util.RuntimeOptions): Promise<ListFoldersResponse> {
+  async listFolders(request: ListFoldersRequest, runtime: $Util.RuntimeOptions): Promise<ListFoldersResponse> {
     Util.validateModel(request);
     return $tea.cast<ListFoldersResponse>(await this.doRequest("ListFolders", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new ListFoldersResponse({}));
   }
 
-  async listFolders(request: ListFoldersRequest): Promise<ListFoldersResponse> {
+  async listFoldersSimply(request: ListFoldersRequest): Promise<ListFoldersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.listFoldersWithOptions(request, runtime);
+    return await this.listFolders(request, runtime);
   }
 
-  async checkMetaPartitionWithOptions(request: CheckMetaPartitionRequest, runtime: $Util.RuntimeOptions): Promise<CheckMetaPartitionResponse> {
+  async checkMetaPartition(request: CheckMetaPartitionRequest, runtime: $Util.RuntimeOptions): Promise<CheckMetaPartitionResponse> {
     Util.validateModel(request);
     return $tea.cast<CheckMetaPartitionResponse>(await this.doRequest("CheckMetaPartition", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new CheckMetaPartitionResponse({}));
   }
 
-  async checkMetaPartition(request: CheckMetaPartitionRequest): Promise<CheckMetaPartitionResponse> {
+  async checkMetaPartitionSimply(request: CheckMetaPartitionRequest): Promise<CheckMetaPartitionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.checkMetaPartitionWithOptions(request, runtime);
+    return await this.checkMetaPartition(request, runtime);
   }
 
-  async updateFolderWithOptions(request: UpdateFolderRequest, runtime: $Util.RuntimeOptions): Promise<UpdateFolderResponse> {
+  async updateFolder(request: UpdateFolderRequest, runtime: $Util.RuntimeOptions): Promise<UpdateFolderResponse> {
     Util.validateModel(request);
     return $tea.cast<UpdateFolderResponse>(await this.doRequest("UpdateFolder", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new UpdateFolderResponse({}));
   }
 
-  async updateFolder(request: UpdateFolderRequest): Promise<UpdateFolderResponse> {
+  async updateFolderSimply(request: UpdateFolderRequest): Promise<UpdateFolderResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.updateFolderWithOptions(request, runtime);
+    return await this.updateFolder(request, runtime);
   }
 
-  async deleteRemindWithOptions(request: DeleteRemindRequest, runtime: $Util.RuntimeOptions): Promise<DeleteRemindResponse> {
+  async deleteRemind(request: DeleteRemindRequest, runtime: $Util.RuntimeOptions): Promise<DeleteRemindResponse> {
     Util.validateModel(request);
     return $tea.cast<DeleteRemindResponse>(await this.doRequest("DeleteRemind", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new DeleteRemindResponse({}));
   }
 
-  async deleteRemind(request: DeleteRemindRequest): Promise<DeleteRemindResponse> {
+  async deleteRemindSimply(request: DeleteRemindRequest): Promise<DeleteRemindResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.deleteRemindWithOptions(request, runtime);
+    return await this.deleteRemind(request, runtime);
   }
 
-  async addToMetaCategoryWithOptions(request: AddToMetaCategoryRequest, runtime: $Util.RuntimeOptions): Promise<AddToMetaCategoryResponse> {
+  async addToMetaCategory(request: AddToMetaCategoryRequest, runtime: $Util.RuntimeOptions): Promise<AddToMetaCategoryResponse> {
     Util.validateModel(request);
     return $tea.cast<AddToMetaCategoryResponse>(await this.doRequest("AddToMetaCategory", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new AddToMetaCategoryResponse({}));
   }
 
-  async addToMetaCategory(request: AddToMetaCategoryRequest): Promise<AddToMetaCategoryResponse> {
+  async addToMetaCategorySimply(request: AddToMetaCategoryRequest): Promise<AddToMetaCategoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.addToMetaCategoryWithOptions(request, runtime);
+    return await this.addToMetaCategory(request, runtime);
   }
 
-  async listInstancesWithOptions(request: ListInstancesRequest, runtime: $Util.RuntimeOptions): Promise<ListInstancesResponse> {
+  async listInstances(request: ListInstancesRequest, runtime: $Util.RuntimeOptions): Promise<ListInstancesResponse> {
     Util.validateModel(request);
     return $tea.cast<ListInstancesResponse>(await this.doRequest("ListInstances", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new ListInstancesResponse({}));
   }
 
-  async listInstances(request: ListInstancesRequest): Promise<ListInstancesResponse> {
+  async listInstancesSimply(request: ListInstancesRequest): Promise<ListInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.listInstancesWithOptions(request, runtime);
+    return await this.listInstances(request, runtime);
   }
 
-  async setSuccessInstanceWithOptions(request: SetSuccessInstanceRequest, runtime: $Util.RuntimeOptions): Promise<SetSuccessInstanceResponse> {
+  async setSuccessInstance(request: SetSuccessInstanceRequest, runtime: $Util.RuntimeOptions): Promise<SetSuccessInstanceResponse> {
     Util.validateModel(request);
     return $tea.cast<SetSuccessInstanceResponse>(await this.doRequest("SetSuccessInstance", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new SetSuccessInstanceResponse({}));
   }
 
-  async setSuccessInstance(request: SetSuccessInstanceRequest): Promise<SetSuccessInstanceResponse> {
+  async setSuccessInstanceSimply(request: SetSuccessInstanceRequest): Promise<SetSuccessInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.setSuccessInstanceWithOptions(request, runtime);
+    return await this.setSuccessInstance(request, runtime);
   }
 
-  async createFileWithOptions(request: CreateFileRequest, runtime: $Util.RuntimeOptions): Promise<CreateFileResponse> {
+  async createFile(request: CreateFileRequest, runtime: $Util.RuntimeOptions): Promise<CreateFileResponse> {
     Util.validateModel(request);
     return $tea.cast<CreateFileResponse>(await this.doRequest("CreateFile", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new CreateFileResponse({}));
   }
 
-  async createFile(request: CreateFileRequest): Promise<CreateFileResponse> {
+  async createFileSimply(request: CreateFileRequest): Promise<CreateFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.createFileWithOptions(request, runtime);
+    return await this.createFile(request, runtime);
   }
 
-  async stopInstanceWithOptions(request: StopInstanceRequest, runtime: $Util.RuntimeOptions): Promise<StopInstanceResponse> {
+  async stopInstance(request: StopInstanceRequest, runtime: $Util.RuntimeOptions): Promise<StopInstanceResponse> {
     Util.validateModel(request);
     return $tea.cast<StopInstanceResponse>(await this.doRequest("StopInstance", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new StopInstanceResponse({}));
   }
 
-  async stopInstance(request: StopInstanceRequest): Promise<StopInstanceResponse> {
+  async stopInstanceSimply(request: StopInstanceRequest): Promise<StopInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.stopInstanceWithOptions(request, runtime);
+    return await this.stopInstance(request, runtime);
   }
 
-  async resumeInstanceWithOptions(request: ResumeInstanceRequest, runtime: $Util.RuntimeOptions): Promise<ResumeInstanceResponse> {
+  async resumeInstance(request: ResumeInstanceRequest, runtime: $Util.RuntimeOptions): Promise<ResumeInstanceResponse> {
     Util.validateModel(request);
     return $tea.cast<ResumeInstanceResponse>(await this.doRequest("ResumeInstance", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new ResumeInstanceResponse({}));
   }
 
-  async resumeInstance(request: ResumeInstanceRequest): Promise<ResumeInstanceResponse> {
+  async resumeInstanceSimply(request: ResumeInstanceRequest): Promise<ResumeInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.resumeInstanceWithOptions(request, runtime);
+    return await this.resumeInstance(request, runtime);
   }
 
-  async suspendInstanceWithOptions(request: SuspendInstanceRequest, runtime: $Util.RuntimeOptions): Promise<SuspendInstanceResponse> {
+  async suspendInstance(request: SuspendInstanceRequest, runtime: $Util.RuntimeOptions): Promise<SuspendInstanceResponse> {
     Util.validateModel(request);
     return $tea.cast<SuspendInstanceResponse>(await this.doRequest("SuspendInstance", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new SuspendInstanceResponse({}));
   }
 
-  async suspendInstance(request: SuspendInstanceRequest): Promise<SuspendInstanceResponse> {
+  async suspendInstanceSimply(request: SuspendInstanceRequest): Promise<SuspendInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.suspendInstanceWithOptions(request, runtime);
+    return await this.suspendInstance(request, runtime);
   }
 
-  async restartInstanceWithOptions(request: RestartInstanceRequest, runtime: $Util.RuntimeOptions): Promise<RestartInstanceResponse> {
+  async restartInstance(request: RestartInstanceRequest, runtime: $Util.RuntimeOptions): Promise<RestartInstanceResponse> {
     Util.validateModel(request);
     return $tea.cast<RestartInstanceResponse>(await this.doRequest("RestartInstance", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new RestartInstanceResponse({}));
   }
 
-  async restartInstance(request: RestartInstanceRequest): Promise<RestartInstanceResponse> {
+  async restartInstanceSimply(request: RestartInstanceRequest): Promise<RestartInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.restartInstanceWithOptions(request, runtime);
+    return await this.restartInstance(request, runtime);
   }
 
-  async listDataServiceApiAuthoritiesWithOptions(request: ListDataServiceApiAuthoritiesRequest, runtime: $Util.RuntimeOptions): Promise<ListDataServiceApiAuthoritiesResponse> {
+  async listDataServiceApiAuthorities(request: ListDataServiceApiAuthoritiesRequest, runtime: $Util.RuntimeOptions): Promise<ListDataServiceApiAuthoritiesResponse> {
     Util.validateModel(request);
     return $tea.cast<ListDataServiceApiAuthoritiesResponse>(await this.doRequest("ListDataServiceApiAuthorities", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new ListDataServiceApiAuthoritiesResponse({}));
   }
 
-  async listDataServiceApiAuthorities(request: ListDataServiceApiAuthoritiesRequest): Promise<ListDataServiceApiAuthoritiesResponse> {
+  async listDataServiceApiAuthoritiesSimply(request: ListDataServiceApiAuthoritiesRequest): Promise<ListDataServiceApiAuthoritiesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.listDataServiceApiAuthoritiesWithOptions(request, runtime);
+    return await this.listDataServiceApiAuthorities(request, runtime);
   }
 
-  async listDataServicePublishedApisWithOptions(request: ListDataServicePublishedApisRequest, runtime: $Util.RuntimeOptions): Promise<ListDataServicePublishedApisResponse> {
+  async listDataServicePublishedApis(request: ListDataServicePublishedApisRequest, runtime: $Util.RuntimeOptions): Promise<ListDataServicePublishedApisResponse> {
     Util.validateModel(request);
     return $tea.cast<ListDataServicePublishedApisResponse>(await this.doRequest("ListDataServicePublishedApis", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new ListDataServicePublishedApisResponse({}));
   }
 
-  async listDataServicePublishedApis(request: ListDataServicePublishedApisRequest): Promise<ListDataServicePublishedApisResponse> {
+  async listDataServicePublishedApisSimply(request: ListDataServicePublishedApisRequest): Promise<ListDataServicePublishedApisResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.listDataServicePublishedApisWithOptions(request, runtime);
+    return await this.listDataServicePublishedApis(request, runtime);
   }
 
-  async getInstanceLogWithOptions(request: GetInstanceLogRequest, runtime: $Util.RuntimeOptions): Promise<GetInstanceLogResponse> {
+  async getInstanceLog(request: GetInstanceLogRequest, runtime: $Util.RuntimeOptions): Promise<GetInstanceLogResponse> {
     Util.validateModel(request);
     return $tea.cast<GetInstanceLogResponse>(await this.doRequest("GetInstanceLog", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new GetInstanceLogResponse({}));
   }
 
-  async getInstanceLog(request: GetInstanceLogRequest): Promise<GetInstanceLogResponse> {
+  async getInstanceLogSimply(request: GetInstanceLogRequest): Promise<GetInstanceLogResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.getInstanceLogWithOptions(request, runtime);
+    return await this.getInstanceLog(request, runtime);
   }
 
-  async createFolderWithOptions(request: CreateFolderRequest, runtime: $Util.RuntimeOptions): Promise<CreateFolderResponse> {
+  async createFolder(request: CreateFolderRequest, runtime: $Util.RuntimeOptions): Promise<CreateFolderResponse> {
     Util.validateModel(request);
     return $tea.cast<CreateFolderResponse>(await this.doRequest("CreateFolder", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new CreateFolderResponse({}));
   }
 
-  async createFolder(request: CreateFolderRequest): Promise<CreateFolderResponse> {
+  async createFolderSimply(request: CreateFolderRequest): Promise<CreateFolderResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.createFolderWithOptions(request, runtime);
+    return await this.createFolder(request, runtime);
   }
 
-  async getBusinessWithOptions(request: GetBusinessRequest, runtime: $Util.RuntimeOptions): Promise<GetBusinessResponse> {
+  async getBusiness(request: GetBusinessRequest, runtime: $Util.RuntimeOptions): Promise<GetBusinessResponse> {
     Util.validateModel(request);
     return $tea.cast<GetBusinessResponse>(await this.doRequest("GetBusiness", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new GetBusinessResponse({}));
   }
 
-  async getBusiness(request: GetBusinessRequest): Promise<GetBusinessResponse> {
+  async getBusinessSimply(request: GetBusinessRequest): Promise<GetBusinessResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.getBusinessWithOptions(request, runtime);
+    return await this.getBusiness(request, runtime);
   }
 
-  async getInstanceWithOptions(request: GetInstanceRequest, runtime: $Util.RuntimeOptions): Promise<GetInstanceResponse> {
+  async getInstance(request: GetInstanceRequest, runtime: $Util.RuntimeOptions): Promise<GetInstanceResponse> {
     Util.validateModel(request);
     return $tea.cast<GetInstanceResponse>(await this.doRequest("GetInstance", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new GetInstanceResponse({}));
   }
 
-  async getInstance(request: GetInstanceRequest): Promise<GetInstanceResponse> {
+  async getInstanceSimply(request: GetInstanceRequest): Promise<GetInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.getInstanceWithOptions(request, runtime);
+    return await this.getInstance(request, runtime);
   }
 
-  async getFileWithOptions(request: GetFileRequest, runtime: $Util.RuntimeOptions): Promise<GetFileResponse> {
+  async getFile(request: GetFileRequest, runtime: $Util.RuntimeOptions): Promise<GetFileResponse> {
     Util.validateModel(request);
     return $tea.cast<GetFileResponse>(await this.doRequest("GetFile", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new GetFileResponse({}));
   }
 
-  async getFile(request: GetFileRequest): Promise<GetFileResponse> {
+  async getFileSimply(request: GetFileRequest): Promise<GetFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.getFileWithOptions(request, runtime);
+    return await this.getFile(request, runtime);
   }
 
-  async listBusinessWithOptions(request: ListBusinessRequest, runtime: $Util.RuntimeOptions): Promise<ListBusinessResponse> {
+  async listBusiness(request: ListBusinessRequest, runtime: $Util.RuntimeOptions): Promise<ListBusinessResponse> {
     Util.validateModel(request);
     return $tea.cast<ListBusinessResponse>(await this.doRequest("ListBusiness", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new ListBusinessResponse({}));
   }
 
-  async listBusiness(request: ListBusinessRequest): Promise<ListBusinessResponse> {
+  async listBusinessSimply(request: ListBusinessRequest): Promise<ListBusinessResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.listBusinessWithOptions(request, runtime);
+    return await this.listBusiness(request, runtime);
   }
 
-  async getMetaDBTableListWithOptions(request: GetMetaDBTableListRequest, runtime: $Util.RuntimeOptions): Promise<GetMetaDBTableListResponse> {
+  async getMetaDBTableList(request: GetMetaDBTableListRequest, runtime: $Util.RuntimeOptions): Promise<GetMetaDBTableListResponse> {
     Util.validateModel(request);
     return $tea.cast<GetMetaDBTableListResponse>(await this.doRequest("GetMetaDBTableList", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new GetMetaDBTableListResponse({}));
   }
 
-  async getMetaDBTableList(request: GetMetaDBTableListRequest): Promise<GetMetaDBTableListResponse> {
+  async getMetaDBTableListSimply(request: GetMetaDBTableListRequest): Promise<GetMetaDBTableListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.getMetaDBTableListWithOptions(request, runtime);
+    return await this.getMetaDBTableList(request, runtime);
   }
 
-  async checkMetaTableWithOptions(request: CheckMetaTableRequest, runtime: $Util.RuntimeOptions): Promise<CheckMetaTableResponse> {
+  async checkMetaTable(request: CheckMetaTableRequest, runtime: $Util.RuntimeOptions): Promise<CheckMetaTableResponse> {
     Util.validateModel(request);
     return $tea.cast<CheckMetaTableResponse>(await this.doRequest("CheckMetaTable", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new CheckMetaTableResponse({}));
   }
 
-  async checkMetaTable(request: CheckMetaTableRequest): Promise<CheckMetaTableResponse> {
+  async checkMetaTableSimply(request: CheckMetaTableRequest): Promise<CheckMetaTableResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.checkMetaTableWithOptions(request, runtime);
+    return await this.checkMetaTable(request, runtime);
   }
 
-  async getFolderWithOptions(request: GetFolderRequest, runtime: $Util.RuntimeOptions): Promise<GetFolderResponse> {
+  async getFolder(request: GetFolderRequest, runtime: $Util.RuntimeOptions): Promise<GetFolderResponse> {
     Util.validateModel(request);
     return $tea.cast<GetFolderResponse>(await this.doRequest("GetFolder", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new GetFolderResponse({}));
   }
 
-  async getFolder(request: GetFolderRequest): Promise<GetFolderResponse> {
+  async getFolderSimply(request: GetFolderRequest): Promise<GetFolderResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.getFolderWithOptions(request, runtime);
+    return await this.getFolder(request, runtime);
   }
 
-  async deployFileWithOptions(request: DeployFileRequest, runtime: $Util.RuntimeOptions): Promise<DeployFileResponse> {
+  async deployFile(request: DeployFileRequest, runtime: $Util.RuntimeOptions): Promise<DeployFileResponse> {
     Util.validateModel(request);
     return $tea.cast<DeployFileResponse>(await this.doRequest("DeployFile", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new DeployFileResponse({}));
   }
 
-  async deployFile(request: DeployFileRequest): Promise<DeployFileResponse> {
+  async deployFileSimply(request: DeployFileRequest): Promise<DeployFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.deployFileWithOptions(request, runtime);
+    return await this.deployFile(request, runtime);
   }
 
-  async deleteBusinessWithOptions(request: DeleteBusinessRequest, runtime: $Util.RuntimeOptions): Promise<DeleteBusinessResponse> {
+  async deleteBusiness(request: DeleteBusinessRequest, runtime: $Util.RuntimeOptions): Promise<DeleteBusinessResponse> {
     Util.validateModel(request);
     return $tea.cast<DeleteBusinessResponse>(await this.doRequest("DeleteBusiness", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new DeleteBusinessResponse({}));
   }
 
-  async deleteBusiness(request: DeleteBusinessRequest): Promise<DeleteBusinessResponse> {
+  async deleteBusinessSimply(request: DeleteBusinessRequest): Promise<DeleteBusinessResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.deleteBusinessWithOptions(request, runtime);
+    return await this.deleteBusiness(request, runtime);
   }
 
-  async deleteFileWithOptions(request: DeleteFileRequest, runtime: $Util.RuntimeOptions): Promise<DeleteFileResponse> {
+  async deleteFile(request: DeleteFileRequest, runtime: $Util.RuntimeOptions): Promise<DeleteFileResponse> {
     Util.validateModel(request);
     return $tea.cast<DeleteFileResponse>(await this.doRequest("DeleteFile", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new DeleteFileResponse({}));
   }
 
-  async deleteFile(request: DeleteFileRequest): Promise<DeleteFileResponse> {
+  async deleteFileSimply(request: DeleteFileRequest): Promise<DeleteFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.deleteFileWithOptions(request, runtime);
+    return await this.deleteFile(request, runtime);
   }
 
-  async listQualityRulesWithOptions(request: ListQualityRulesRequest, runtime: $Util.RuntimeOptions): Promise<ListQualityRulesResponse> {
+  async listQualityRules(request: ListQualityRulesRequest, runtime: $Util.RuntimeOptions): Promise<ListQualityRulesResponse> {
     Util.validateModel(request);
     return $tea.cast<ListQualityRulesResponse>(await this.doRequest("ListQualityRules", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new ListQualityRulesResponse({}));
   }
 
-  async listQualityRules(request: ListQualityRulesRequest): Promise<ListQualityRulesResponse> {
+  async listQualityRulesSimply(request: ListQualityRulesRequest): Promise<ListQualityRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.listQualityRulesWithOptions(request, runtime);
+    return await this.listQualityRules(request, runtime);
   }
 
-  async createRemindWithOptions(request: CreateRemindRequest, runtime: $Util.RuntimeOptions): Promise<CreateRemindResponse> {
+  async createRemind(request: CreateRemindRequest, runtime: $Util.RuntimeOptions): Promise<CreateRemindResponse> {
     Util.validateModel(request);
     return $tea.cast<CreateRemindResponse>(await this.doRequest("CreateRemind", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new CreateRemindResponse({}));
   }
 
-  async createRemind(request: CreateRemindRequest): Promise<CreateRemindResponse> {
+  async createRemindSimply(request: CreateRemindRequest): Promise<CreateRemindResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.createRemindWithOptions(request, runtime);
+    return await this.createRemind(request, runtime);
   }
 
-  async getQualityRuleWithOptions(request: GetQualityRuleRequest, runtime: $Util.RuntimeOptions): Promise<GetQualityRuleResponse> {
+  async getQualityRule(request: GetQualityRuleRequest, runtime: $Util.RuntimeOptions): Promise<GetQualityRuleResponse> {
     Util.validateModel(request);
     return $tea.cast<GetQualityRuleResponse>(await this.doRequest("GetQualityRule", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new GetQualityRuleResponse({}));
   }
 
-  async getQualityRule(request: GetQualityRuleRequest): Promise<GetQualityRuleResponse> {
+  async getQualityRuleSimply(request: GetQualityRuleRequest): Promise<GetQualityRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.getQualityRuleWithOptions(request, runtime);
+    return await this.getQualityRule(request, runtime);
   }
 
-  async getDeploymentWithOptions(request: GetDeploymentRequest, runtime: $Util.RuntimeOptions): Promise<GetDeploymentResponse> {
+  async getDeployment(request: GetDeploymentRequest, runtime: $Util.RuntimeOptions): Promise<GetDeploymentResponse> {
     Util.validateModel(request);
     return $tea.cast<GetDeploymentResponse>(await this.doRequest("GetDeployment", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new GetDeploymentResponse({}));
   }
 
-  async getDeployment(request: GetDeploymentRequest): Promise<GetDeploymentResponse> {
+  async getDeploymentSimply(request: GetDeploymentRequest): Promise<GetDeploymentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.getDeploymentWithOptions(request, runtime);
+    return await this.getDeployment(request, runtime);
   }
 
-  async updateRemindWithOptions(request: UpdateRemindRequest, runtime: $Util.RuntimeOptions): Promise<UpdateRemindResponse> {
+  async updateRemind(request: UpdateRemindRequest, runtime: $Util.RuntimeOptions): Promise<UpdateRemindResponse> {
     Util.validateModel(request);
     return $tea.cast<UpdateRemindResponse>(await this.doRequest("UpdateRemind", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new UpdateRemindResponse({}));
   }
 
-  async updateRemind(request: UpdateRemindRequest): Promise<UpdateRemindResponse> {
+  async updateRemindSimply(request: UpdateRemindRequest): Promise<UpdateRemindResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.updateRemindWithOptions(request, runtime);
+    return await this.updateRemind(request, runtime);
   }
 
-  async getMetaColumnLineageWithOptions(request: GetMetaColumnLineageRequest, runtime: $Util.RuntimeOptions): Promise<GetMetaColumnLineageResponse> {
+  async getMetaColumnLineage(request: GetMetaColumnLineageRequest, runtime: $Util.RuntimeOptions): Promise<GetMetaColumnLineageResponse> {
     Util.validateModel(request);
     return $tea.cast<GetMetaColumnLineageResponse>(await this.doRequest("GetMetaColumnLineage", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new GetMetaColumnLineageResponse({}));
   }
 
-  async getMetaColumnLineage(request: GetMetaColumnLineageRequest): Promise<GetMetaColumnLineageResponse> {
+  async getMetaColumnLineageSimply(request: GetMetaColumnLineageRequest): Promise<GetMetaColumnLineageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.getMetaColumnLineageWithOptions(request, runtime);
+    return await this.getMetaColumnLineage(request, runtime);
   }
 
-  async updateBusinessWithOptions(request: UpdateBusinessRequest, runtime: $Util.RuntimeOptions): Promise<UpdateBusinessResponse> {
+  async updateBusiness(request: UpdateBusinessRequest, runtime: $Util.RuntimeOptions): Promise<UpdateBusinessResponse> {
     Util.validateModel(request);
     return $tea.cast<UpdateBusinessResponse>(await this.doRequest("UpdateBusiness", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new UpdateBusinessResponse({}));
   }
 
-  async updateBusiness(request: UpdateBusinessRequest): Promise<UpdateBusinessResponse> {
+  async updateBusinessSimply(request: UpdateBusinessRequest): Promise<UpdateBusinessResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.updateBusinessWithOptions(request, runtime);
+    return await this.updateBusiness(request, runtime);
   }
 
-  async updateQualityRuleWithOptions(request: UpdateQualityRuleRequest, runtime: $Util.RuntimeOptions): Promise<UpdateQualityRuleResponse> {
+  async updateQualityRule(request: UpdateQualityRuleRequest, runtime: $Util.RuntimeOptions): Promise<UpdateQualityRuleResponse> {
     Util.validateModel(request);
     return $tea.cast<UpdateQualityRuleResponse>(await this.doRequest("UpdateQualityRule", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new UpdateQualityRuleResponse({}));
   }
 
-  async updateQualityRule(request: UpdateQualityRuleRequest): Promise<UpdateQualityRuleResponse> {
+  async updateQualityRuleSimply(request: UpdateQualityRuleRequest): Promise<UpdateQualityRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.updateQualityRuleWithOptions(request, runtime);
+    return await this.updateQualityRule(request, runtime);
   }
 
-  async deleteQualityRuleWithOptions(request: DeleteQualityRuleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteQualityRuleResponse> {
+  async deleteQualityRule(request: DeleteQualityRuleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteQualityRuleResponse> {
     Util.validateModel(request);
     return $tea.cast<DeleteQualityRuleResponse>(await this.doRequest("DeleteQualityRule", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new DeleteQualityRuleResponse({}));
   }
 
-  async deleteQualityRule(request: DeleteQualityRuleRequest): Promise<DeleteQualityRuleResponse> {
+  async deleteQualityRuleSimply(request: DeleteQualityRuleRequest): Promise<DeleteQualityRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.deleteQualityRuleWithOptions(request, runtime);
+    return await this.deleteQualityRule(request, runtime);
   }
 
-  async submitFileWithOptions(request: SubmitFileRequest, runtime: $Util.RuntimeOptions): Promise<SubmitFileResponse> {
+  async submitFile(request: SubmitFileRequest, runtime: $Util.RuntimeOptions): Promise<SubmitFileResponse> {
     Util.validateModel(request);
     return $tea.cast<SubmitFileResponse>(await this.doRequest("SubmitFile", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new SubmitFileResponse({}));
   }
 
-  async submitFile(request: SubmitFileRequest): Promise<SubmitFileResponse> {
+  async submitFileSimply(request: SubmitFileRequest): Promise<SubmitFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.submitFileWithOptions(request, runtime);
+    return await this.submitFile(request, runtime);
   }
 
-  async getDataServiceApiWithOptions(request: GetDataServiceApiRequest, runtime: $Util.RuntimeOptions): Promise<GetDataServiceApiResponse> {
+  async getDataServiceApi(request: GetDataServiceApiRequest, runtime: $Util.RuntimeOptions): Promise<GetDataServiceApiResponse> {
     Util.validateModel(request);
     return $tea.cast<GetDataServiceApiResponse>(await this.doRequest("GetDataServiceApi", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new GetDataServiceApiResponse({}));
   }
 
-  async getDataServiceApi(request: GetDataServiceApiRequest): Promise<GetDataServiceApiResponse> {
+  async getDataServiceApiSimply(request: GetDataServiceApiRequest): Promise<GetDataServiceApiResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.getDataServiceApiWithOptions(request, runtime);
+    return await this.getDataServiceApi(request, runtime);
   }
 
-  async listDataServiceApisWithOptions(request: ListDataServiceApisRequest, runtime: $Util.RuntimeOptions): Promise<ListDataServiceApisResponse> {
+  async listDataServiceApis(request: ListDataServiceApisRequest, runtime: $Util.RuntimeOptions): Promise<ListDataServiceApisResponse> {
     Util.validateModel(request);
     return $tea.cast<ListDataServiceApisResponse>(await this.doRequest("ListDataServiceApis", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new ListDataServiceApisResponse({}));
   }
 
-  async listDataServiceApis(request: ListDataServiceApisRequest): Promise<ListDataServiceApisResponse> {
+  async listDataServiceApisSimply(request: ListDataServiceApisRequest): Promise<ListDataServiceApisResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.listDataServiceApisWithOptions(request, runtime);
+    return await this.listDataServiceApis(request, runtime);
   }
 
-  async getDataServicePublishedApiWithOptions(request: GetDataServicePublishedApiRequest, runtime: $Util.RuntimeOptions): Promise<GetDataServicePublishedApiResponse> {
+  async getDataServicePublishedApi(request: GetDataServicePublishedApiRequest, runtime: $Util.RuntimeOptions): Promise<GetDataServicePublishedApiResponse> {
     Util.validateModel(request);
     return $tea.cast<GetDataServicePublishedApiResponse>(await this.doRequest("GetDataServicePublishedApi", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new GetDataServicePublishedApiResponse({}));
   }
 
-  async getDataServicePublishedApi(request: GetDataServicePublishedApiRequest): Promise<GetDataServicePublishedApiResponse> {
+  async getDataServicePublishedApiSimply(request: GetDataServicePublishedApiRequest): Promise<GetDataServicePublishedApiResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.getDataServicePublishedApiWithOptions(request, runtime);
+    return await this.getDataServicePublishedApi(request, runtime);
   }
 
-  async getBaselineKeyPathWithOptions(request: GetBaselineKeyPathRequest, runtime: $Util.RuntimeOptions): Promise<GetBaselineKeyPathResponse> {
+  async getBaselineKeyPath(request: GetBaselineKeyPathRequest, runtime: $Util.RuntimeOptions): Promise<GetBaselineKeyPathResponse> {
     Util.validateModel(request);
     return $tea.cast<GetBaselineKeyPathResponse>(await this.doRequest("GetBaselineKeyPath", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new GetBaselineKeyPathResponse({}));
   }
 
-  async getBaselineKeyPath(request: GetBaselineKeyPathRequest): Promise<GetBaselineKeyPathResponse> {
+  async getBaselineKeyPathSimply(request: GetBaselineKeyPathRequest): Promise<GetBaselineKeyPathResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.getBaselineKeyPathWithOptions(request, runtime);
+    return await this.getBaselineKeyPath(request, runtime);
   }
 
-  async getRemindWithOptions(request: GetRemindRequest, runtime: $Util.RuntimeOptions): Promise<GetRemindResponse> {
+  async getRemind(request: GetRemindRequest, runtime: $Util.RuntimeOptions): Promise<GetRemindResponse> {
     Util.validateModel(request);
     return $tea.cast<GetRemindResponse>(await this.doRequest("GetRemind", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new GetRemindResponse({}));
   }
 
-  async getRemind(request: GetRemindRequest): Promise<GetRemindResponse> {
+  async getRemindSimply(request: GetRemindRequest): Promise<GetRemindResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.getRemindWithOptions(request, runtime);
+    return await this.getRemind(request, runtime);
   }
 
-  async getMetaTableIntroWikiWithOptions(request: GetMetaTableIntroWikiRequest, runtime: $Util.RuntimeOptions): Promise<GetMetaTableIntroWikiResponse> {
+  async getMetaTableIntroWiki(request: GetMetaTableIntroWikiRequest, runtime: $Util.RuntimeOptions): Promise<GetMetaTableIntroWikiResponse> {
     Util.validateModel(request);
     return $tea.cast<GetMetaTableIntroWikiResponse>(await this.doRequest("GetMetaTableIntroWiki", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new GetMetaTableIntroWikiResponse({}));
   }
 
-  async getMetaTableIntroWiki(request: GetMetaTableIntroWikiRequest): Promise<GetMetaTableIntroWikiResponse> {
+  async getMetaTableIntroWikiSimply(request: GetMetaTableIntroWikiRequest): Promise<GetMetaTableIntroWikiResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.getMetaTableIntroWikiWithOptions(request, runtime);
+    return await this.getMetaTableIntroWiki(request, runtime);
   }
 
-  async getBaselineStatusWithOptions(request: GetBaselineStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetBaselineStatusResponse> {
+  async getBaselineStatus(request: GetBaselineStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetBaselineStatusResponse> {
     Util.validateModel(request);
     return $tea.cast<GetBaselineStatusResponse>(await this.doRequest("GetBaselineStatus", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new GetBaselineStatusResponse({}));
   }
 
-  async getBaselineStatus(request: GetBaselineStatusRequest): Promise<GetBaselineStatusResponse> {
+  async getBaselineStatusSimply(request: GetBaselineStatusRequest): Promise<GetBaselineStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.getBaselineStatusWithOptions(request, runtime);
+    return await this.getBaselineStatus(request, runtime);
   }
 
-  async deleteDataServiceApiWithOptions(request: DeleteDataServiceApiRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDataServiceApiResponse> {
+  async deleteDataServiceApi(request: DeleteDataServiceApiRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDataServiceApiResponse> {
     Util.validateModel(request);
     return $tea.cast<DeleteDataServiceApiResponse>(await this.doRequest("DeleteDataServiceApi", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new DeleteDataServiceApiResponse({}));
   }
 
-  async deleteDataServiceApi(request: DeleteDataServiceApiRequest): Promise<DeleteDataServiceApiResponse> {
+  async deleteDataServiceApiSimply(request: DeleteDataServiceApiRequest): Promise<DeleteDataServiceApiResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.deleteDataServiceApiWithOptions(request, runtime);
+    return await this.deleteDataServiceApi(request, runtime);
   }
 
-  async publishDataServiceApiWithOptions(request: PublishDataServiceApiRequest, runtime: $Util.RuntimeOptions): Promise<PublishDataServiceApiResponse> {
+  async publishDataServiceApi(request: PublishDataServiceApiRequest, runtime: $Util.RuntimeOptions): Promise<PublishDataServiceApiResponse> {
     Util.validateModel(request);
     return $tea.cast<PublishDataServiceApiResponse>(await this.doRequest("PublishDataServiceApi", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new PublishDataServiceApiResponse({}));
   }
 
-  async publishDataServiceApi(request: PublishDataServiceApiRequest): Promise<PublishDataServiceApiResponse> {
+  async publishDataServiceApiSimply(request: PublishDataServiceApiRequest): Promise<PublishDataServiceApiResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.publishDataServiceApiWithOptions(request, runtime);
+    return await this.publishDataServiceApi(request, runtime);
   }
 
-  async getMetaTableLineageWithOptions(request: GetMetaTableLineageRequest, runtime: $Util.RuntimeOptions): Promise<GetMetaTableLineageResponse> {
+  async getMetaTableLineage(request: GetMetaTableLineageRequest, runtime: $Util.RuntimeOptions): Promise<GetMetaTableLineageResponse> {
     Util.validateModel(request);
     return $tea.cast<GetMetaTableLineageResponse>(await this.doRequest("GetMetaTableLineage", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new GetMetaTableLineageResponse({}));
   }
 
-  async getMetaTableLineage(request: GetMetaTableLineageRequest): Promise<GetMetaTableLineageResponse> {
+  async getMetaTableLineageSimply(request: GetMetaTableLineageRequest): Promise<GetMetaTableLineageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.getMetaTableLineageWithOptions(request, runtime);
+    return await this.getMetaTableLineage(request, runtime);
   }
 
-  async listBaselineStatusesWithOptions(request: ListBaselineStatusesRequest, runtime: $Util.RuntimeOptions): Promise<ListBaselineStatusesResponse> {
+  async listBaselineStatuses(request: ListBaselineStatusesRequest, runtime: $Util.RuntimeOptions): Promise<ListBaselineStatusesResponse> {
     Util.validateModel(request);
     return $tea.cast<ListBaselineStatusesResponse>(await this.doRequest("ListBaselineStatuses", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new ListBaselineStatusesResponse({}));
   }
 
-  async listBaselineStatuses(request: ListBaselineStatusesRequest): Promise<ListBaselineStatusesResponse> {
+  async listBaselineStatusesSimply(request: ListBaselineStatusesRequest): Promise<ListBaselineStatusesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.listBaselineStatusesWithOptions(request, runtime);
+    return await this.listBaselineStatuses(request, runtime);
   }
 
-  async listRemindsWithOptions(request: ListRemindsRequest, runtime: $Util.RuntimeOptions): Promise<ListRemindsResponse> {
+  async listReminds(request: ListRemindsRequest, runtime: $Util.RuntimeOptions): Promise<ListRemindsResponse> {
     Util.validateModel(request);
     return $tea.cast<ListRemindsResponse>(await this.doRequest("ListReminds", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new ListRemindsResponse({}));
   }
 
-  async listReminds(request: ListRemindsRequest): Promise<ListRemindsResponse> {
+  async listRemindsSimply(request: ListRemindsRequest): Promise<ListRemindsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.listRemindsWithOptions(request, runtime);
+    return await this.listReminds(request, runtime);
   }
 
-  async deleteQualityEntityWithOptions(request: DeleteQualityEntityRequest, runtime: $Util.RuntimeOptions): Promise<DeleteQualityEntityResponse> {
+  async deleteQualityEntity(request: DeleteQualityEntityRequest, runtime: $Util.RuntimeOptions): Promise<DeleteQualityEntityResponse> {
     Util.validateModel(request);
     return $tea.cast<DeleteQualityEntityResponse>(await this.doRequest("DeleteQualityEntity", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new DeleteQualityEntityResponse({}));
   }
 
-  async deleteQualityEntity(request: DeleteQualityEntityRequest): Promise<DeleteQualityEntityResponse> {
+  async deleteQualityEntitySimply(request: DeleteQualityEntityRequest): Promise<DeleteQualityEntityResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.deleteQualityEntityWithOptions(request, runtime);
+    return await this.deleteQualityEntity(request, runtime);
   }
 
-  async createQualityFollowerWithOptions(request: CreateQualityFollowerRequest, runtime: $Util.RuntimeOptions): Promise<CreateQualityFollowerResponse> {
+  async createQualityFollower(request: CreateQualityFollowerRequest, runtime: $Util.RuntimeOptions): Promise<CreateQualityFollowerResponse> {
     Util.validateModel(request);
     return $tea.cast<CreateQualityFollowerResponse>(await this.doRequest("CreateQualityFollower", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new CreateQualityFollowerResponse({}));
   }
 
-  async createQualityFollower(request: CreateQualityFollowerRequest): Promise<CreateQualityFollowerResponse> {
+  async createQualityFollowerSimply(request: CreateQualityFollowerRequest): Promise<CreateQualityFollowerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.createQualityFollowerWithOptions(request, runtime);
+    return await this.createQualityFollower(request, runtime);
   }
 
-  async createDataServiceApiWithOptions(request: CreateDataServiceApiRequest, runtime: $Util.RuntimeOptions): Promise<CreateDataServiceApiResponse> {
+  async createDataServiceApi(request: CreateDataServiceApiRequest, runtime: $Util.RuntimeOptions): Promise<CreateDataServiceApiResponse> {
     Util.validateModel(request);
     return $tea.cast<CreateDataServiceApiResponse>(await this.doRequest("CreateDataServiceApi", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new CreateDataServiceApiResponse({}));
   }
 
-  async createDataServiceApi(request: CreateDataServiceApiRequest): Promise<CreateDataServiceApiResponse> {
+  async createDataServiceApiSimply(request: CreateDataServiceApiRequest): Promise<CreateDataServiceApiResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.createDataServiceApiWithOptions(request, runtime);
+    return await this.createDataServiceApi(request, runtime);
   }
 
-  async abolishDataServiceApiWithOptions(request: AbolishDataServiceApiRequest, runtime: $Util.RuntimeOptions): Promise<AbolishDataServiceApiResponse> {
+  async abolishDataServiceApi(request: AbolishDataServiceApiRequest, runtime: $Util.RuntimeOptions): Promise<AbolishDataServiceApiResponse> {
     Util.validateModel(request);
     return $tea.cast<AbolishDataServiceApiResponse>(await this.doRequest("AbolishDataServiceApi", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new AbolishDataServiceApiResponse({}));
   }
 
-  async abolishDataServiceApi(request: AbolishDataServiceApiRequest): Promise<AbolishDataServiceApiResponse> {
+  async abolishDataServiceApiSimply(request: AbolishDataServiceApiRequest): Promise<AbolishDataServiceApiResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.abolishDataServiceApiWithOptions(request, runtime);
+    return await this.abolishDataServiceApi(request, runtime);
   }
 
-  async getQualityEntityWithOptions(request: GetQualityEntityRequest, runtime: $Util.RuntimeOptions): Promise<GetQualityEntityResponse> {
+  async getQualityEntity(request: GetQualityEntityRequest, runtime: $Util.RuntimeOptions): Promise<GetQualityEntityResponse> {
     Util.validateModel(request);
     return $tea.cast<GetQualityEntityResponse>(await this.doRequest("GetQualityEntity", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new GetQualityEntityResponse({}));
   }
 
-  async getQualityEntity(request: GetQualityEntityRequest): Promise<GetQualityEntityResponse> {
+  async getQualityEntitySimply(request: GetQualityEntityRequest): Promise<GetQualityEntityResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.getQualityEntityWithOptions(request, runtime);
+    return await this.getQualityEntity(request, runtime);
   }
 
-  async getQualityFollowerWithOptions(request: GetQualityFollowerRequest, runtime: $Util.RuntimeOptions): Promise<GetQualityFollowerResponse> {
+  async getQualityFollower(request: GetQualityFollowerRequest, runtime: $Util.RuntimeOptions): Promise<GetQualityFollowerResponse> {
     Util.validateModel(request);
     return $tea.cast<GetQualityFollowerResponse>(await this.doRequest("GetQualityFollower", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new GetQualityFollowerResponse({}));
   }
 
-  async getQualityFollower(request: GetQualityFollowerRequest): Promise<GetQualityFollowerResponse> {
+  async getQualityFollowerSimply(request: GetQualityFollowerRequest): Promise<GetQualityFollowerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.getQualityFollowerWithOptions(request, runtime);
+    return await this.getQualityFollower(request, runtime);
   }
 
-  async deleteQualityFollowerWithOptions(request: DeleteQualityFollowerRequest, runtime: $Util.RuntimeOptions): Promise<DeleteQualityFollowerResponse> {
+  async deleteQualityFollower(request: DeleteQualityFollowerRequest, runtime: $Util.RuntimeOptions): Promise<DeleteQualityFollowerResponse> {
     Util.validateModel(request);
     return $tea.cast<DeleteQualityFollowerResponse>(await this.doRequest("DeleteQualityFollower", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new DeleteQualityFollowerResponse({}));
   }
 
-  async deleteQualityFollower(request: DeleteQualityFollowerRequest): Promise<DeleteQualityFollowerResponse> {
+  async deleteQualityFollowerSimply(request: DeleteQualityFollowerRequest): Promise<DeleteQualityFollowerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.deleteQualityFollowerWithOptions(request, runtime);
+    return await this.deleteQualityFollower(request, runtime);
   }
 
-  async createQualityEntityWithOptions(request: CreateQualityEntityRequest, runtime: $Util.RuntimeOptions): Promise<CreateQualityEntityResponse> {
+  async createQualityEntity(request: CreateQualityEntityRequest, runtime: $Util.RuntimeOptions): Promise<CreateQualityEntityResponse> {
     Util.validateModel(request);
     return $tea.cast<CreateQualityEntityResponse>(await this.doRequest("CreateQualityEntity", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new CreateQualityEntityResponse({}));
   }
 
-  async createQualityEntity(request: CreateQualityEntityRequest): Promise<CreateQualityEntityResponse> {
+  async createQualityEntitySimply(request: CreateQualityEntityRequest): Promise<CreateQualityEntityResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.createQualityEntityWithOptions(request, runtime);
+    return await this.createQualityEntity(request, runtime);
   }
 
-  async createQualityRuleWithOptions(request: CreateQualityRuleRequest, runtime: $Util.RuntimeOptions): Promise<CreateQualityRuleResponse> {
+  async createQualityRule(request: CreateQualityRuleRequest, runtime: $Util.RuntimeOptions): Promise<CreateQualityRuleResponse> {
     Util.validateModel(request);
     return $tea.cast<CreateQualityRuleResponse>(await this.doRequest("CreateQualityRule", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new CreateQualityRuleResponse({}));
   }
 
-  async createQualityRule(request: CreateQualityRuleRequest): Promise<CreateQualityRuleResponse> {
+  async createQualityRuleSimply(request: CreateQualityRuleRequest): Promise<CreateQualityRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.createQualityRuleWithOptions(request, runtime);
+    return await this.createQualityRule(request, runtime);
   }
 
-  async updateQualityFollowerWithOptions(request: UpdateQualityFollowerRequest, runtime: $Util.RuntimeOptions): Promise<UpdateQualityFollowerResponse> {
+  async updateQualityFollower(request: UpdateQualityFollowerRequest, runtime: $Util.RuntimeOptions): Promise<UpdateQualityFollowerResponse> {
     Util.validateModel(request);
     return $tea.cast<UpdateQualityFollowerResponse>(await this.doRequest("UpdateQualityFollower", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new UpdateQualityFollowerResponse({}));
   }
 
-  async updateQualityFollower(request: UpdateQualityFollowerRequest): Promise<UpdateQualityFollowerResponse> {
+  async updateQualityFollowerSimply(request: UpdateQualityFollowerRequest): Promise<UpdateQualityFollowerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.updateQualityFollowerWithOptions(request, runtime);
+    return await this.updateQualityFollower(request, runtime);
   }
 
-  async createQualityRelativeNodeWithOptions(request: CreateQualityRelativeNodeRequest, runtime: $Util.RuntimeOptions): Promise<CreateQualityRelativeNodeResponse> {
+  async createQualityRelativeNode(request: CreateQualityRelativeNodeRequest, runtime: $Util.RuntimeOptions): Promise<CreateQualityRelativeNodeResponse> {
     Util.validateModel(request);
     return $tea.cast<CreateQualityRelativeNodeResponse>(await this.doRequest("CreateQualityRelativeNode", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new CreateQualityRelativeNodeResponse({}));
   }
 
-  async createQualityRelativeNode(request: CreateQualityRelativeNodeRequest): Promise<CreateQualityRelativeNodeResponse> {
+  async createQualityRelativeNodeSimply(request: CreateQualityRelativeNodeRequest): Promise<CreateQualityRelativeNodeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.createQualityRelativeNodeWithOptions(request, runtime);
+    return await this.createQualityRelativeNode(request, runtime);
   }
 
-  async deleteQualityRelativeNodeWithOptions(request: DeleteQualityRelativeNodeRequest, runtime: $Util.RuntimeOptions): Promise<DeleteQualityRelativeNodeResponse> {
+  async deleteQualityRelativeNode(request: DeleteQualityRelativeNodeRequest, runtime: $Util.RuntimeOptions): Promise<DeleteQualityRelativeNodeResponse> {
     Util.validateModel(request);
     return $tea.cast<DeleteQualityRelativeNodeResponse>(await this.doRequest("DeleteQualityRelativeNode", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new DeleteQualityRelativeNodeResponse({}));
   }
 
-  async deleteQualityRelativeNode(request: DeleteQualityRelativeNodeRequest): Promise<DeleteQualityRelativeNodeResponse> {
+  async deleteQualityRelativeNodeSimply(request: DeleteQualityRelativeNodeRequest): Promise<DeleteQualityRelativeNodeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.deleteQualityRelativeNodeWithOptions(request, runtime);
+    return await this.deleteQualityRelativeNode(request, runtime);
   }
 
   getEndpoint(productId: string, regionId: string, endpointRule: string, network: string, suffix: string, endpointMap: {[key: string ]: string}, endpoint: string): string {

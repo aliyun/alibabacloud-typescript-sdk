@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/dataworks-public20200518",
-  "version": "3.1.1",
+  "version": "3.2.0",
   "description": "",
   "main": "dist/client.js",
   "scripts": {
@@ -22,7 +22,12 @@
     "@alicloud/tea-typescript": "latest",
     "@alicloud/tea-util": "^1.4.0",
     "@alicloud/rpc-client": "^1.3.1",
-    "@alicloud/endpoint-util": "^0.0.1"
+    "@alicloud/endpoint-util": "^0.0.1",
+    "@alicloud/rpc-util": "^0.1.0",
+    "@alicloud/oss-client": "^1.1.2",
+    "@alicloud/openplatform20191219": "1.1.3",
+    "@alicloud/oss-util": "0.0.1",
+    "@alicloud/tea-fileform": "^1.0.0"
   },
   "files": [
     "dist",
