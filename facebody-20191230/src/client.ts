@@ -2065,6 +2065,94 @@ export class MergeImageFaceResponse extends $tea.Model {
   }
 }
 
+export class ExtractFingerPrintRequest extends $tea.Model {
+  imageURL?: string;
+  imageData?: Buffer;
+  static names(): { [key: string]: string } {
+    return {
+      imageURL: 'ImageURL',
+      imageData: 'ImageData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageURL: 'string',
+      imageData: 'Buffer',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExtractFingerPrintAdvanceRequest extends $tea.Model {
+  imageURLObject: Readable;
+  imageData?: Buffer;
+  static names(): { [key: string]: string } {
+    return {
+      imageURLObject: 'ImageURLObject',
+      imageData: 'ImageData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageURLObject: 'Readable',
+      imageData: 'Buffer',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExtractFingerPrintResponseBody extends $tea.Model {
+  requestId?: string;
+  data?: ExtractFingerPrintResponseBodyData;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      data: ExtractFingerPrintResponseBodyData,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExtractFingerPrintResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ExtractFingerPrintResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ExtractFingerPrintResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteBodyPersonRequest extends $tea.Model {
   dbId?: number;
   personId?: number;
@@ -2801,15 +2889,18 @@ export class AddFaceResponse extends $tea.Model {
 
 export class GenerateHumanSketchStyleRequest extends $tea.Model {
   imageURL?: string;
+  returnType?: string;
   static names(): { [key: string]: string } {
     return {
       imageURL: 'ImageURL',
+      returnType: 'ReturnType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       imageURL: 'string',
+      returnType: 'string',
     };
   }
 
@@ -2820,15 +2911,18 @@ export class GenerateHumanSketchStyleRequest extends $tea.Model {
 
 export class GenerateHumanSketchStyleAdvanceRequest extends $tea.Model {
   imageURLObject: Readable;
+  returnType?: string;
   static names(): { [key: string]: string } {
     return {
       imageURLObject: 'ImageURLObject',
+      returnType: 'ReturnType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       imageURLObject: 'Readable',
+      returnType: 'string',
     };
   }
 
@@ -6042,12 +6136,12 @@ export class DetectCelebrityResponseBodyData extends $tea.Model {
 }
 
 export class GetRealPersonVerificationResultResponseBodyData extends $tea.Model {
-  pass?: boolean;
+  passed?: boolean;
   identityInfo?: string;
   materialMatch?: string;
   static names(): { [key: string]: string } {
     return {
-      pass: 'Pass',
+      passed: 'Passed',
       identityInfo: 'IdentityInfo',
       materialMatch: 'MaterialMatch',
     };
@@ -6055,7 +6149,7 @@ export class GetRealPersonVerificationResultResponseBodyData extends $tea.Model 
 
   static types(): { [key: string]: any } {
     return {
-      pass: 'boolean',
+      passed: 'boolean',
       identityInfo: 'string',
       materialMatch: 'string',
     };
@@ -6311,6 +6405,25 @@ export class MergeImageFaceResponseBodyData extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       imageURL: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExtractFingerPrintResponseBodyData extends $tea.Model {
+  fingerPrint?: Buffer;
+  static names(): { [key: string]: string } {
+    return {
+      fingerPrint: 'FingerPrint',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fingerPrint: 'Buffer',
     };
   }
 
@@ -9254,6 +9367,86 @@ export default class Client extends OpenApi {
 
     let mergeImageFaceResp = await this.mergeImageFaceWithOptions(mergeImageFaceReq, runtime);
     return mergeImageFaceResp;
+  }
+
+  async extractFingerPrintWithOptions(request: ExtractFingerPrintRequest, runtime: $Util.RuntimeOptions): Promise<ExtractFingerPrintResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<ExtractFingerPrintResponse>(await this.doRPCRequest("ExtractFingerPrint", "2019-12-30", "HTTPS", "POST", "AK", "json", req, runtime), new ExtractFingerPrintResponse({}));
+  }
+
+  async extractFingerPrint(request: ExtractFingerPrintRequest): Promise<ExtractFingerPrintResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.extractFingerPrintWithOptions(request, runtime);
+  }
+
+  async extractFingerPrintAdvance(request: ExtractFingerPrintAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<ExtractFingerPrintResponse> {
+    // Step 0: init client
+    let accessKeyId = await this._credential.getAccessKeyId();
+    let accessKeySecret = await this._credential.getAccessKeySecret();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if (Util.isUnset(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    let authConfig = new $RPC.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      endpoint: openPlatformEndpoint,
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenPlatform(authConfig);
+    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
+      product: "facebody",
+      regionId: this._regionId,
+    });
+    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
+    let ossConfig = new $OSS.Config({
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let ossClient : OSS = null;
+    let fileObj = new $FileForm.FileField({ });
+    let ossHeader = new $OSS.PostObjectRequestHeader({ });
+    let uploadRequest = new $OSS.PostObjectRequest({ });
+    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
+    OpenApiUtil.convert(runtime, ossRuntime);
+    let extractFingerPrintReq = new ExtractFingerPrintRequest({ });
+    OpenApiUtil.convert(request, extractFingerPrintReq);
+    if (!Util.isUnset(request.imageURLObject)) {
+      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+      ossConfig.accessKeyId = authResponse.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+      ossClient = new OSS(ossConfig);
+      fileObj = new $FileForm.FileField({
+        filename: authResponse.objectKey,
+        content: request.imageURLObject,
+        contentType: "",
+      });
+      ossHeader = new $OSS.PostObjectRequestHeader({
+        accessKeyId: authResponse.accessKeyId,
+        policy: authResponse.encodedPolicy,
+        signature: authResponse.signature,
+        key: authResponse.objectKey,
+        file: fileObj,
+        successActionStatus: "201",
+      });
+      uploadRequest = new $OSS.PostObjectRequest({
+        bucketName: authResponse.bucket,
+        header: ossHeader,
+      });
+      await ossClient.postObject(uploadRequest, ossRuntime);
+      extractFingerPrintReq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    }
+
+    let extractFingerPrintResp = await this.extractFingerPrintWithOptions(extractFingerPrintReq, runtime);
+    return extractFingerPrintResp;
   }
 
   async deleteBodyPersonWithOptions(request: DeleteBodyPersonRequest, runtime: $Util.RuntimeOptions): Promise<DeleteBodyPersonResponse> {
