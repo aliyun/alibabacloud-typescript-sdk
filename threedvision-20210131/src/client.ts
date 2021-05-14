@@ -247,6 +247,72 @@ export class GetAsyncJobResultResponse extends $tea.Model {
   }
 }
 
+export class EstimateStereoImageDepthRequest extends $tea.Model {
+  leftImageURL?: string;
+  rightImageURL?: string;
+  static names(): { [key: string]: string } {
+    return {
+      leftImageURL: 'LeftImageURL',
+      rightImageURL: 'RightImageURL',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      leftImageURL: 'string',
+      rightImageURL: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EstimateStereoImageDepthResponseBody extends $tea.Model {
+  requestId?: string;
+  data?: EstimateStereoImageDepthResponseBodyData;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      data: EstimateStereoImageDepthResponseBodyData,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EstimateStereoImageDepthResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: EstimateStereoImageDepthResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: EstimateStereoImageDepthResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class EstimateMonocularImageDepthRequest extends $tea.Model {
   imageURL?: string;
   static names(): { [key: string]: string } {
@@ -329,73 +395,7 @@ export class EstimateMonocularImageDepthResponse extends $tea.Model {
   }
 }
 
-export class EstimateStereoImageDepthRequest extends $tea.Model {
-  leftImageURL?: string;
-  rightImageURL?: string;
-  static names(): { [key: string]: string } {
-    return {
-      leftImageURL: 'LeftImageURL',
-      rightImageURL: 'RightImageURL',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      leftImageURL: 'string',
-      rightImageURL: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class EstimateStereoImageDepthResponseBody extends $tea.Model {
-  requestId?: string;
-  data?: EstimateStereoImageDepthResponseBodyData;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      data: 'Data',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      data: EstimateStereoImageDepthResponseBodyData,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class EstimateStereoImageDepthResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: EstimateStereoImageDepthResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: EstimateStereoImageDepthResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class EstimateStereoVideoDepthRequest extends $tea.Model {
+export class EstimateMonocularVideoDepthRequest extends $tea.Model {
   videoURL?: string;
   sampleRate?: string;
   static names(): { [key: string]: string } {
@@ -417,7 +417,7 @@ export class EstimateStereoVideoDepthRequest extends $tea.Model {
   }
 }
 
-export class EstimateStereoVideoDepthAdvanceRequest extends $tea.Model {
+export class EstimateMonocularVideoDepthAdvanceRequest extends $tea.Model {
   videoURLObject: Readable;
   sampleRate?: string;
   static names(): { [key: string]: string } {
@@ -439,9 +439,9 @@ export class EstimateStereoVideoDepthAdvanceRequest extends $tea.Model {
   }
 }
 
-export class EstimateStereoVideoDepthResponseBody extends $tea.Model {
+export class EstimateMonocularVideoDepthResponseBody extends $tea.Model {
   requestId?: string;
-  data?: EstimateStereoVideoDepthResponseBodyData;
+  data?: EstimateMonocularVideoDepthResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
@@ -452,7 +452,7 @@ export class EstimateStereoVideoDepthResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      data: EstimateStereoVideoDepthResponseBodyData,
+      data: EstimateMonocularVideoDepthResponseBodyData,
     };
   }
 
@@ -461,9 +461,9 @@ export class EstimateStereoVideoDepthResponseBody extends $tea.Model {
   }
 }
 
-export class EstimateStereoVideoDepthResponse extends $tea.Model {
+export class EstimateMonocularVideoDepthResponse extends $tea.Model {
   headers: { [key: string]: string };
-  body: EstimateStereoVideoDepthResponseBody;
+  body: EstimateMonocularVideoDepthResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -474,7 +474,7 @@ export class EstimateStereoVideoDepthResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: EstimateStereoVideoDepthResponseBody,
+      body: EstimateMonocularVideoDepthResponseBody,
     };
   }
 
@@ -555,28 +555,6 @@ export class GetAsyncJobResultResponseBodyData extends $tea.Model {
   }
 }
 
-export class EstimateMonocularImageDepthResponseBodyData extends $tea.Model {
-  depthMapUrl?: string;
-  depthToColorUrl?: string;
-  static names(): { [key: string]: string } {
-    return {
-      depthMapUrl: 'DepthMapUrl',
-      depthToColorUrl: 'DepthToColorUrl',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      depthMapUrl: 'string',
-      depthToColorUrl: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class EstimateStereoImageDepthResponseBodyData extends $tea.Model {
   disparityMapURL?: string;
   disparityVisURL?: string;
@@ -599,7 +577,29 @@ export class EstimateStereoImageDepthResponseBodyData extends $tea.Model {
   }
 }
 
-export class EstimateStereoVideoDepthResponseBodyData extends $tea.Model {
+export class EstimateMonocularImageDepthResponseBodyData extends $tea.Model {
+  depthMapUrl?: string;
+  depthToColorUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      depthMapUrl: 'DepthMapUrl',
+      depthToColorUrl: 'DepthToColorUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      depthMapUrl: 'string',
+      depthToColorUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EstimateMonocularVideoDepthResponseBodyData extends $tea.Model {
   depthUrl?: string;
   depthVisUrl?: string;
   static names(): { [key: string]: string } {
@@ -694,29 +694,32 @@ export default class Client extends OpenApi {
     OpenApiUtil.convert(runtime, ossRuntime);
     let reconstructBodyBySingleImageReq = new ReconstructBodyBySingleImageRequest({ });
     OpenApiUtil.convert(request, reconstructBodyBySingleImageReq);
-    authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-    ossConfig.accessKeyId = authResponse.accessKeyId;
-    ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
-    ossClient = new OSS(ossConfig);
-    fileObj = new $FileForm.FileField({
-      filename: authResponse.objectKey,
-      content: request.imageURLObject,
-      contentType: "",
-    });
-    ossHeader = new $OSS.PostObjectRequestHeader({
-      accessKeyId: authResponse.accessKeyId,
-      policy: authResponse.encodedPolicy,
-      signature: authResponse.signature,
-      key: authResponse.objectKey,
-      file: fileObj,
-      successActionStatus: "201",
-    });
-    uploadRequest = new $OSS.PostObjectRequest({
-      bucketName: authResponse.bucket,
-      header: ossHeader,
-    });
-    await ossClient.postObject(uploadRequest, ossRuntime);
-    reconstructBodyBySingleImageReq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    if (!Util.isUnset(request.imageURLObject)) {
+      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+      ossConfig.accessKeyId = authResponse.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+      ossClient = new OSS(ossConfig);
+      fileObj = new $FileForm.FileField({
+        filename: authResponse.objectKey,
+        content: request.imageURLObject,
+        contentType: "",
+      });
+      ossHeader = new $OSS.PostObjectRequestHeader({
+        accessKeyId: authResponse.accessKeyId,
+        policy: authResponse.encodedPolicy,
+        signature: authResponse.signature,
+        key: authResponse.objectKey,
+        file: fileObj,
+        successActionStatus: "201",
+      });
+      uploadRequest = new $OSS.PostObjectRequest({
+        bucketName: authResponse.bucket,
+        header: ossHeader,
+      });
+      await ossClient.postObject(uploadRequest, ossRuntime);
+      reconstructBodyBySingleImageReq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    }
+
     let reconstructBodyBySingleImageResp = await this.reconstructBodyBySingleImageWithOptions(reconstructBodyBySingleImageReq, runtime);
     return reconstructBodyBySingleImageResp;
   }
@@ -771,29 +774,32 @@ export default class Client extends OpenApi {
     OpenApiUtil.convert(runtime, ossRuntime);
     let reconstructThreeDMultiViewReq = new ReconstructThreeDMultiViewRequest({ });
     OpenApiUtil.convert(request, reconstructThreeDMultiViewReq);
-    authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-    ossConfig.accessKeyId = authResponse.accessKeyId;
-    ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
-    ossClient = new OSS(ossConfig);
-    fileObj = new $FileForm.FileField({
-      filename: authResponse.objectKey,
-      content: request.zipFileUrlObject,
-      contentType: "",
-    });
-    ossHeader = new $OSS.PostObjectRequestHeader({
-      accessKeyId: authResponse.accessKeyId,
-      policy: authResponse.encodedPolicy,
-      signature: authResponse.signature,
-      key: authResponse.objectKey,
-      file: fileObj,
-      successActionStatus: "201",
-    });
-    uploadRequest = new $OSS.PostObjectRequest({
-      bucketName: authResponse.bucket,
-      header: ossHeader,
-    });
-    await ossClient.postObject(uploadRequest, ossRuntime);
-    reconstructThreeDMultiViewReq.zipFileUrl = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    if (!Util.isUnset(request.zipFileUrlObject)) {
+      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+      ossConfig.accessKeyId = authResponse.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+      ossClient = new OSS(ossConfig);
+      fileObj = new $FileForm.FileField({
+        filename: authResponse.objectKey,
+        content: request.zipFileUrlObject,
+        contentType: "",
+      });
+      ossHeader = new $OSS.PostObjectRequestHeader({
+        accessKeyId: authResponse.accessKeyId,
+        policy: authResponse.encodedPolicy,
+        signature: authResponse.signature,
+        key: authResponse.objectKey,
+        file: fileObj,
+        successActionStatus: "201",
+      });
+      uploadRequest = new $OSS.PostObjectRequest({
+        bucketName: authResponse.bucket,
+        header: ossHeader,
+      });
+      await ossClient.postObject(uploadRequest, ossRuntime);
+      reconstructThreeDMultiViewReq.zipFileUrl = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    }
+
     let reconstructThreeDMultiViewResp = await this.reconstructThreeDMultiViewWithOptions(reconstructThreeDMultiViewReq, runtime);
     return reconstructThreeDMultiViewResp;
   }
@@ -809,6 +815,19 @@ export default class Client extends OpenApi {
   async getAsyncJobResult(request: GetAsyncJobResultRequest): Promise<GetAsyncJobResultResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getAsyncJobResultWithOptions(request, runtime);
+  }
+
+  async estimateStereoImageDepthWithOptions(request: EstimateStereoImageDepthRequest, runtime: $Util.RuntimeOptions): Promise<EstimateStereoImageDepthResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<EstimateStereoImageDepthResponse>(await this.doRPCRequest("EstimateStereoImageDepth", "2021-01-31", "HTTPS", "POST", "AK", "json", req, runtime), new EstimateStereoImageDepthResponse({}));
+  }
+
+  async estimateStereoImageDepth(request: EstimateStereoImageDepthRequest): Promise<EstimateStereoImageDepthResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.estimateStereoImageDepthWithOptions(request, runtime);
   }
 
   async estimateMonocularImageDepthWithOptions(request: EstimateMonocularImageDepthRequest, runtime: $Util.RuntimeOptions): Promise<EstimateMonocularImageDepthResponse> {
@@ -861,60 +880,50 @@ export default class Client extends OpenApi {
     OpenApiUtil.convert(runtime, ossRuntime);
     let estimateMonocularImageDepthReq = new EstimateMonocularImageDepthRequest({ });
     OpenApiUtil.convert(request, estimateMonocularImageDepthReq);
-    authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-    ossConfig.accessKeyId = authResponse.accessKeyId;
-    ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
-    ossClient = new OSS(ossConfig);
-    fileObj = new $FileForm.FileField({
-      filename: authResponse.objectKey,
-      content: request.imageURLObject,
-      contentType: "",
-    });
-    ossHeader = new $OSS.PostObjectRequestHeader({
-      accessKeyId: authResponse.accessKeyId,
-      policy: authResponse.encodedPolicy,
-      signature: authResponse.signature,
-      key: authResponse.objectKey,
-      file: fileObj,
-      successActionStatus: "201",
-    });
-    uploadRequest = new $OSS.PostObjectRequest({
-      bucketName: authResponse.bucket,
-      header: ossHeader,
-    });
-    await ossClient.postObject(uploadRequest, ossRuntime);
-    estimateMonocularImageDepthReq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    if (!Util.isUnset(request.imageURLObject)) {
+      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+      ossConfig.accessKeyId = authResponse.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+      ossClient = new OSS(ossConfig);
+      fileObj = new $FileForm.FileField({
+        filename: authResponse.objectKey,
+        content: request.imageURLObject,
+        contentType: "",
+      });
+      ossHeader = new $OSS.PostObjectRequestHeader({
+        accessKeyId: authResponse.accessKeyId,
+        policy: authResponse.encodedPolicy,
+        signature: authResponse.signature,
+        key: authResponse.objectKey,
+        file: fileObj,
+        successActionStatus: "201",
+      });
+      uploadRequest = new $OSS.PostObjectRequest({
+        bucketName: authResponse.bucket,
+        header: ossHeader,
+      });
+      await ossClient.postObject(uploadRequest, ossRuntime);
+      estimateMonocularImageDepthReq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    }
+
     let estimateMonocularImageDepthResp = await this.estimateMonocularImageDepthWithOptions(estimateMonocularImageDepthReq, runtime);
     return estimateMonocularImageDepthResp;
   }
 
-  async estimateStereoImageDepthWithOptions(request: EstimateStereoImageDepthRequest, runtime: $Util.RuntimeOptions): Promise<EstimateStereoImageDepthResponse> {
+  async estimateMonocularVideoDepthWithOptions(request: EstimateMonocularVideoDepthRequest, runtime: $Util.RuntimeOptions): Promise<EstimateMonocularVideoDepthResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<EstimateStereoImageDepthResponse>(await this.doRPCRequest("EstimateStereoImageDepth", "2021-01-31", "HTTPS", "POST", "AK", "json", req, runtime), new EstimateStereoImageDepthResponse({}));
+    return $tea.cast<EstimateMonocularVideoDepthResponse>(await this.doRPCRequest("EstimateMonocularVideoDepth", "2021-01-31", "HTTPS", "POST", "AK", "json", req, runtime), new EstimateMonocularVideoDepthResponse({}));
   }
 
-  async estimateStereoImageDepth(request: EstimateStereoImageDepthRequest): Promise<EstimateStereoImageDepthResponse> {
+  async estimateMonocularVideoDepth(request: EstimateMonocularVideoDepthRequest): Promise<EstimateMonocularVideoDepthResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.estimateStereoImageDepthWithOptions(request, runtime);
+    return await this.estimateMonocularVideoDepthWithOptions(request, runtime);
   }
 
-  async estimateStereoVideoDepthWithOptions(request: EstimateStereoVideoDepthRequest, runtime: $Util.RuntimeOptions): Promise<EstimateStereoVideoDepthResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<EstimateStereoVideoDepthResponse>(await this.doRPCRequest("EstimateStereoVideoDepth", "2021-01-31", "HTTPS", "POST", "AK", "json", req, runtime), new EstimateStereoVideoDepthResponse({}));
-  }
-
-  async estimateStereoVideoDepth(request: EstimateStereoVideoDepthRequest): Promise<EstimateStereoVideoDepthResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.estimateStereoVideoDepthWithOptions(request, runtime);
-  }
-
-  async estimateStereoVideoDepthAdvance(request: EstimateStereoVideoDepthAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<EstimateStereoVideoDepthResponse> {
+  async estimateMonocularVideoDepthAdvance(request: EstimateMonocularVideoDepthAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<EstimateMonocularVideoDepthResponse> {
     // Step 0: init client
     let accessKeyId = await this._credential.getAccessKeyId();
     let accessKeySecret = await this._credential.getAccessKeySecret();
@@ -949,33 +958,36 @@ export default class Client extends OpenApi {
     let uploadRequest = new $OSS.PostObjectRequest({ });
     let ossRuntime = new $OSSUtil.RuntimeOptions({ });
     OpenApiUtil.convert(runtime, ossRuntime);
-    let estimateStereoVideoDepthReq = new EstimateStereoVideoDepthRequest({ });
-    OpenApiUtil.convert(request, estimateStereoVideoDepthReq);
-    authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-    ossConfig.accessKeyId = authResponse.accessKeyId;
-    ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
-    ossClient = new OSS(ossConfig);
-    fileObj = new $FileForm.FileField({
-      filename: authResponse.objectKey,
-      content: request.videoURLObject,
-      contentType: "",
-    });
-    ossHeader = new $OSS.PostObjectRequestHeader({
-      accessKeyId: authResponse.accessKeyId,
-      policy: authResponse.encodedPolicy,
-      signature: authResponse.signature,
-      key: authResponse.objectKey,
-      file: fileObj,
-      successActionStatus: "201",
-    });
-    uploadRequest = new $OSS.PostObjectRequest({
-      bucketName: authResponse.bucket,
-      header: ossHeader,
-    });
-    await ossClient.postObject(uploadRequest, ossRuntime);
-    estimateStereoVideoDepthReq.videoURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
-    let estimateStereoVideoDepthResp = await this.estimateStereoVideoDepthWithOptions(estimateStereoVideoDepthReq, runtime);
-    return estimateStereoVideoDepthResp;
+    let estimateMonocularVideoDepthReq = new EstimateMonocularVideoDepthRequest({ });
+    OpenApiUtil.convert(request, estimateMonocularVideoDepthReq);
+    if (!Util.isUnset(request.videoURLObject)) {
+      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+      ossConfig.accessKeyId = authResponse.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+      ossClient = new OSS(ossConfig);
+      fileObj = new $FileForm.FileField({
+        filename: authResponse.objectKey,
+        content: request.videoURLObject,
+        contentType: "",
+      });
+      ossHeader = new $OSS.PostObjectRequestHeader({
+        accessKeyId: authResponse.accessKeyId,
+        policy: authResponse.encodedPolicy,
+        signature: authResponse.signature,
+        key: authResponse.objectKey,
+        file: fileObj,
+        successActionStatus: "201",
+      });
+      uploadRequest = new $OSS.PostObjectRequest({
+        bucketName: authResponse.bucket,
+        header: ossHeader,
+      });
+      await ossClient.postObject(uploadRequest, ossRuntime);
+      estimateMonocularVideoDepthReq.videoURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    }
+
+    let estimateMonocularVideoDepthResp = await this.estimateMonocularVideoDepthWithOptions(estimateMonocularVideoDepthReq, runtime);
+    return estimateMonocularVideoDepthResp;
   }
 
 }
