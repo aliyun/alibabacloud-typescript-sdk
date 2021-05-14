@@ -31,21 +31,21 @@ export class CheckDrdsDbNameRequest extends $tea.Model {
 
 export class CheckDrdsDbNameResponseBody extends $tea.Model {
   requestId?: string;
-  success?: boolean;
   result?: boolean;
+  success?: boolean;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      success: 'Success',
       result: 'Result',
+      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      success: 'boolean',
       result: 'boolean',
+      success: 'boolean',
     };
   }
 
@@ -99,22 +99,22 @@ export class CheckExpandStatusRequest extends $tea.Model {
 }
 
 export class CheckExpandStatusResponseBody extends $tea.Model {
+  success?: boolean;
   requestId?: string;
   data?: CheckExpandStatusResponseBodyData;
-  success?: boolean;
   static names(): { [key: string]: string } {
     return {
+      success: 'Success',
       requestId: 'RequestId',
       data: 'Data',
-      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      success: 'boolean',
       requestId: 'string',
       data: CheckExpandStatusResponseBodyData,
-      success: 'boolean',
     };
   }
 
@@ -264,19 +264,19 @@ export class CreateDrdsDBRequest extends $tea.Model {
 }
 
 export class CreateDrdsDBResponseBody extends $tea.Model {
-  requestId?: string;
   success?: boolean;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       success: 'Success',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       success: 'boolean',
+      requestId: 'string',
     };
   }
 
@@ -378,22 +378,22 @@ export class CreateDrdsInstanceRequest extends $tea.Model {
 }
 
 export class CreateDrdsInstanceResponseBody extends $tea.Model {
+  success?: boolean;
   requestId?: string;
   data?: CreateDrdsInstanceResponseBodyData;
-  success?: boolean;
   static names(): { [key: string]: string } {
     return {
+      success: 'Success',
       requestId: 'RequestId',
       data: 'Data',
-      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      success: 'boolean',
       requestId: 'string',
       data: CreateDrdsInstanceResponseBodyData,
-      success: 'boolean',
     };
   }
 
@@ -453,19 +453,19 @@ export class CreateInstanceAccountRequest extends $tea.Model {
 }
 
 export class CreateInstanceAccountResponseBody extends $tea.Model {
-  requestId?: string;
   success?: boolean;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       success: 'Success',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       success: 'boolean',
+      requestId: 'string',
     };
   }
 
@@ -519,24 +519,24 @@ export class CreateInstanceInternetAddressRequest extends $tea.Model {
 }
 
 export class CreateInstanceInternetAddressResponseBody extends $tea.Model {
-  requestId?: string;
-  data?: boolean;
   code?: number;
+  data?: boolean;
+  requestId?: string;
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
-      data: 'Data',
       code: 'Code',
+      data: 'Data',
+      requestId: 'RequestId',
       success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
-      data: 'boolean',
       code: 'number',
+      data: 'boolean',
+      requestId: 'string',
       success: 'boolean',
     };
   }
@@ -591,21 +591,21 @@ export class CreateOrderForRdsRequest extends $tea.Model {
 }
 
 export class CreateOrderForRdsResponseBody extends $tea.Model {
-  requestId?: string;
   data?: string;
+  requestId?: string;
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       data: 'Data',
+      requestId: 'RequestId',
       success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       data: 'string',
+      requestId: 'string',
       success: 'boolean',
     };
   }
@@ -672,21 +672,21 @@ export class CreateShardTaskRequest extends $tea.Model {
 }
 
 export class CreateShardTaskResponseBody extends $tea.Model {
-  requestId?: string;
   data?: boolean;
+  requestId?: string;
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       data: 'Data',
+      requestId: 'RequestId',
       success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       data: 'boolean',
+      requestId: 'string',
       success: 'boolean',
     };
   }
@@ -738,22 +738,22 @@ export class DescribeBackMenuRequest extends $tea.Model {
 }
 
 export class DescribeBackMenuResponseBody extends $tea.Model {
+  success?: boolean;
   requestId?: string;
   list?: DescribeBackMenuResponseBodyList;
-  success?: boolean;
   static names(): { [key: string]: string } {
     return {
+      success: 'Success',
       requestId: 'RequestId',
       list: 'List',
-      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      success: 'boolean',
       requestId: 'string',
       list: DescribeBackMenuResponseBodyList,
-      success: 'boolean',
     };
   }
 
@@ -810,22 +810,22 @@ export class DescribeBackupDbsRequest extends $tea.Model {
 }
 
 export class DescribeBackupDbsResponseBody extends $tea.Model {
-  dbNames?: DescribeBackupDbsResponseBodyDbNames;
-  requestId?: string;
   success?: boolean;
+  requestId?: string;
+  dbNames?: DescribeBackupDbsResponseBodyDbNames;
   static names(): { [key: string]: string } {
     return {
-      dbNames: 'DbNames',
-      requestId: 'RequestId',
       success: 'Success',
+      requestId: 'RequestId',
+      dbNames: 'DbNames',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      dbNames: DescribeBackupDbsResponseBodyDbNames,
-      requestId: 'string',
       success: 'boolean',
+      requestId: 'string',
+      dbNames: DescribeBackupDbsResponseBodyDbNames,
     };
   }
 
@@ -876,21 +876,21 @@ export class DescribeBackupLocalRequest extends $tea.Model {
 }
 
 export class DescribeBackupLocalResponseBody extends $tea.Model {
-  requestId?: string;
   success?: boolean;
+  requestId?: string;
   backupPolicyDO?: DescribeBackupLocalResponseBodyBackupPolicyDO;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       success: 'Success',
+      requestId: 'RequestId',
       backupPolicyDO: 'BackupPolicyDO',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       success: 'boolean',
+      requestId: 'string',
       backupPolicyDO: DescribeBackupLocalResponseBodyBackupPolicyDO,
     };
   }
@@ -942,21 +942,21 @@ export class DescribeBackupPolicyRequest extends $tea.Model {
 }
 
 export class DescribeBackupPolicyResponseBody extends $tea.Model {
-  requestId?: string;
   success?: boolean;
+  requestId?: string;
   backupPolicyDO?: DescribeBackupPolicyResponseBodyBackupPolicyDO;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       success: 'Success',
+      requestId: 'RequestId',
       backupPolicyDO: 'BackupPolicyDO',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       success: 'boolean',
+      requestId: 'string',
       backupPolicyDO: DescribeBackupPolicyResponseBodyBackupPolicyDO,
     };
   }
@@ -1014,22 +1014,22 @@ export class DescribeBackupSetsRequest extends $tea.Model {
 }
 
 export class DescribeBackupSetsResponseBody extends $tea.Model {
+  success?: boolean;
   requestId?: string;
   backupSets?: DescribeBackupSetsResponseBodyBackupSets;
-  success?: boolean;
   static names(): { [key: string]: string } {
     return {
+      success: 'Success',
       requestId: 'RequestId',
       backupSets: 'BackupSets',
-      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      success: 'boolean',
       requestId: 'string',
       backupSets: DescribeBackupSetsResponseBodyBackupSets,
-      success: 'boolean',
     };
   }
 
@@ -1080,21 +1080,21 @@ export class DescribeBackupTimesRequest extends $tea.Model {
 }
 
 export class DescribeBackupTimesResponseBody extends $tea.Model {
-  requestId?: string;
   success?: boolean;
+  requestId?: string;
   restoreTime?: DescribeBackupTimesResponseBodyRestoreTime;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       success: 'Success',
+      requestId: 'RequestId',
       restoreTime: 'RestoreTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       success: 'boolean',
+      requestId: 'string',
       restoreTime: DescribeBackupTimesResponseBodyRestoreTime,
     };
   }
@@ -1161,34 +1161,34 @@ export class DescribeBroadcastTablesRequest extends $tea.Model {
 }
 
 export class DescribeBroadcastTablesResponseBody extends $tea.Model {
-  isShard?: boolean;
   requestId?: string;
-  pageSize?: number;
+  success?: boolean;
+  isShard?: boolean;
   pageNumber?: number;
+  pageSize?: number;
   total?: number;
   list?: DescribeBroadcastTablesResponseBodyList[];
-  success?: boolean;
   static names(): { [key: string]: string } {
     return {
-      isShard: 'IsShard',
       requestId: 'RequestId',
-      pageSize: 'PageSize',
+      success: 'Success',
+      isShard: 'IsShard',
       pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
       total: 'Total',
       list: 'List',
-      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      isShard: 'boolean',
       requestId: 'string',
-      pageSize: 'number',
+      success: 'boolean',
+      isShard: 'boolean',
       pageNumber: 'number',
+      pageSize: 'number',
       total: 'number',
       list: { 'type': 'array', 'itemType': DescribeBroadcastTablesResponseBodyList },
-      success: 'boolean',
     };
   }
 
@@ -1251,25 +1251,25 @@ export class DescribeDbInstanceDbsRequest extends $tea.Model {
 }
 
 export class DescribeDbInstanceDbsResponseBody extends $tea.Model {
-  databases?: DescribeDbInstanceDbsResponseBodyDatabases;
   requestId?: string;
-  total?: string;
   success?: boolean;
+  total?: string;
+  databases?: DescribeDbInstanceDbsResponseBodyDatabases;
   static names(): { [key: string]: string } {
     return {
-      databases: 'Databases',
       requestId: 'RequestId',
-      total: 'Total',
       success: 'Success',
+      total: 'Total',
+      databases: 'Databases',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      databases: DescribeDbInstanceDbsResponseBodyDatabases,
       requestId: 'string',
-      total: 'string',
       success: 'boolean',
+      total: 'string',
+      databases: DescribeDbInstanceDbsResponseBodyDatabases,
     };
   }
 
@@ -1398,22 +1398,22 @@ export class DescribeDrdsDBRequest extends $tea.Model {
 }
 
 export class DescribeDrdsDBResponseBody extends $tea.Model {
+  success?: boolean;
   requestId?: string;
   data?: DescribeDrdsDBResponseBodyData;
-  success?: boolean;
   static names(): { [key: string]: string } {
     return {
+      success: 'Success',
       requestId: 'RequestId',
       data: 'Data',
-      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      success: 'boolean',
       requestId: 'string',
       data: DescribeDrdsDBResponseBodyData,
-      success: 'boolean',
     };
   }
 
@@ -1470,22 +1470,22 @@ export class DescribeDrdsDBClusterRequest extends $tea.Model {
 }
 
 export class DescribeDrdsDBClusterResponseBody extends $tea.Model {
+  success?: boolean;
   requestId?: string;
   dbInstance?: DescribeDrdsDBClusterResponseBodyDbInstance;
-  success?: boolean;
   static names(): { [key: string]: string } {
     return {
+      success: 'Success',
       requestId: 'RequestId',
       dbInstance: 'DbInstance',
-      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      success: 'boolean',
       requestId: 'string',
       dbInstance: DescribeDrdsDBClusterResponseBodyDbInstance,
-      success: 'boolean',
     };
   }
 
@@ -1542,22 +1542,22 @@ export class DescribeDrdsDbInstanceRequest extends $tea.Model {
 }
 
 export class DescribeDrdsDbInstanceResponseBody extends $tea.Model {
+  success?: boolean;
   requestId?: string;
   dbInstance?: DescribeDrdsDbInstanceResponseBodyDbInstance;
-  success?: boolean;
   static names(): { [key: string]: string } {
     return {
+      success: 'Success',
       requestId: 'RequestId',
       dbInstance: 'DbInstance',
-      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      success: 'boolean',
       requestId: 'string',
       dbInstance: DescribeDrdsDbInstanceResponseBodyDbInstance,
-      success: 'boolean',
     };
   }
 
@@ -1618,30 +1618,30 @@ export class DescribeDrdsDbInstancesRequest extends $tea.Model {
 
 export class DescribeDrdsDbInstancesResponseBody extends $tea.Model {
   pageSize?: string;
-  requestId?: string;
   pageNumber?: string;
+  requestId?: string;
   total?: string;
-  dbInstances?: DescribeDrdsDbInstancesResponseBodyDbInstances;
   success?: boolean;
+  dbInstances?: DescribeDrdsDbInstancesResponseBodyDbInstances;
   static names(): { [key: string]: string } {
     return {
       pageSize: 'PageSize',
-      requestId: 'RequestId',
       pageNumber: 'PageNumber',
+      requestId: 'RequestId',
       total: 'Total',
-      dbInstances: 'DbInstances',
       success: 'Success',
+      dbInstances: 'DbInstances',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       pageSize: 'string',
-      requestId: 'string',
       pageNumber: 'string',
+      requestId: 'string',
       total: 'string',
-      dbInstances: DescribeDrdsDbInstancesResponseBodyDbInstances,
       success: 'boolean',
+      dbInstances: DescribeDrdsDbInstancesResponseBodyDbInstances,
     };
   }
 
@@ -1698,22 +1698,22 @@ export class DescribeDrdsDBIpWhiteListRequest extends $tea.Model {
 }
 
 export class DescribeDrdsDBIpWhiteListResponseBody extends $tea.Model {
+  success?: boolean;
   requestId?: string;
   ipWhiteList?: DescribeDrdsDBIpWhiteListResponseBodyIpWhiteList;
-  success?: boolean;
   static names(): { [key: string]: string } {
     return {
+      success: 'Success',
       requestId: 'RequestId',
       ipWhiteList: 'IpWhiteList',
-      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      success: 'boolean',
       requestId: 'string',
       ipWhiteList: DescribeDrdsDBIpWhiteListResponseBodyIpWhiteList,
-      success: 'boolean',
     };
   }
 
@@ -1767,22 +1767,22 @@ export class DescribeDrdsDbRdsNameListRequest extends $tea.Model {
 }
 
 export class DescribeDrdsDbRdsNameListResponseBody extends $tea.Model {
+  success?: boolean;
   requestId?: string;
   instanceNameList?: DescribeDrdsDbRdsNameListResponseBodyInstanceNameList;
-  success?: boolean;
   static names(): { [key: string]: string } {
     return {
+      success: 'Success',
       requestId: 'RequestId',
       instanceNameList: 'InstanceNameList',
-      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      success: 'boolean',
       requestId: 'string',
       instanceNameList: DescribeDrdsDbRdsNameListResponseBodyInstanceNameList,
-      success: 'boolean',
     };
   }
 
@@ -1843,30 +1843,30 @@ export class DescribeDrdsDBsRequest extends $tea.Model {
 
 export class DescribeDrdsDBsResponseBody extends $tea.Model {
   pageSize?: string;
-  requestId?: string;
   pageNumber?: string;
+  requestId?: string;
   total?: string;
-  data?: DescribeDrdsDBsResponseBodyData;
   success?: boolean;
+  data?: DescribeDrdsDBsResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       pageSize: 'PageSize',
-      requestId: 'RequestId',
       pageNumber: 'PageNumber',
+      requestId: 'RequestId',
       total: 'Total',
-      data: 'Data',
       success: 'Success',
+      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       pageSize: 'string',
-      requestId: 'string',
       pageNumber: 'string',
+      requestId: 'string',
       total: 'string',
-      data: DescribeDrdsDBsResponseBodyData,
       success: 'boolean',
+      data: DescribeDrdsDBsResponseBodyData,
     };
   }
 
@@ -1923,22 +1923,22 @@ export class DescribeDrdsDbTasksRequest extends $tea.Model {
 }
 
 export class DescribeDrdsDbTasksResponseBody extends $tea.Model {
-  tasks?: DescribeDrdsDbTasksResponseBodyTasks;
-  requestId?: string;
   success?: boolean;
+  requestId?: string;
+  tasks?: DescribeDrdsDbTasksResponseBodyTasks;
   static names(): { [key: string]: string } {
     return {
-      tasks: 'Tasks',
-      requestId: 'RequestId',
       success: 'Success',
+      requestId: 'RequestId',
+      tasks: 'Tasks',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      tasks: DescribeDrdsDbTasksResponseBodyTasks,
-      requestId: 'string',
       success: 'boolean',
+      requestId: 'string',
+      tasks: DescribeDrdsDbTasksResponseBodyTasks,
     };
   }
 
@@ -1992,22 +1992,22 @@ export class DescribeDrdsInstanceRequest extends $tea.Model {
 }
 
 export class DescribeDrdsInstanceResponseBody extends $tea.Model {
+  success?: boolean;
   requestId?: string;
   data?: DescribeDrdsInstanceResponseBodyData;
-  success?: boolean;
   static names(): { [key: string]: string } {
     return {
+      success: 'Success',
       requestId: 'RequestId',
       data: 'Data',
-      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      success: 'boolean',
       requestId: 'string',
       data: DescribeDrdsInstanceResponseBodyData,
-      success: 'boolean',
     };
   }
 
@@ -2073,22 +2073,22 @@ export class DescribeDrdsInstanceDbMonitorRequest extends $tea.Model {
 }
 
 export class DescribeDrdsInstanceDbMonitorResponseBody extends $tea.Model {
+  success?: boolean;
   requestId?: string;
   data?: DescribeDrdsInstanceDbMonitorResponseBodyData[];
-  success?: boolean;
   static names(): { [key: string]: string } {
     return {
+      success: 'Success',
       requestId: 'RequestId',
       data: 'Data',
-      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      success: 'boolean',
       requestId: 'string',
       data: { 'type': 'array', 'itemType': DescribeDrdsInstanceDbMonitorResponseBodyData },
-      success: 'boolean',
     };
   }
 
@@ -2139,22 +2139,22 @@ export class DescribeDrdsInstanceLevelTasksRequest extends $tea.Model {
 }
 
 export class DescribeDrdsInstanceLevelTasksResponseBody extends $tea.Model {
-  tasks?: DescribeDrdsInstanceLevelTasksResponseBodyTasks;
-  requestId?: string;
   success?: boolean;
+  requestId?: string;
+  tasks?: DescribeDrdsInstanceLevelTasksResponseBodyTasks;
   static names(): { [key: string]: string } {
     return {
-      tasks: 'Tasks',
-      requestId: 'RequestId',
       success: 'Success',
+      requestId: 'RequestId',
+      tasks: 'Tasks',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      tasks: DescribeDrdsInstanceLevelTasksResponseBodyTasks,
-      requestId: 'string',
       success: 'boolean',
+      requestId: 'string',
+      tasks: DescribeDrdsInstanceLevelTasksResponseBodyTasks,
     };
   }
 
@@ -2310,28 +2310,28 @@ export class DescribeDrdsInstancesRequest extends $tea.Model {
 }
 
 export class DescribeDrdsInstancesResponseBody extends $tea.Model {
-  instances?: DescribeDrdsInstancesResponseBodyInstances;
   requestId?: string;
-  pageSize?: number;
   pageNumber?: number;
+  pageSize?: number;
   total?: number;
+  instances?: DescribeDrdsInstancesResponseBodyInstances;
   static names(): { [key: string]: string } {
     return {
-      instances: 'Instances',
       requestId: 'RequestId',
-      pageSize: 'PageSize',
       pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
       total: 'Total',
+      instances: 'Instances',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      instances: DescribeDrdsInstancesResponseBodyInstances,
       requestId: 'string',
-      pageSize: 'number',
       pageNumber: 'number',
+      pageSize: 'number',
       total: 'number',
+      instances: DescribeDrdsInstancesResponseBodyInstances,
     };
   }
 
@@ -2385,22 +2385,22 @@ export class DescribeDrdsInstanceVersionRequest extends $tea.Model {
 }
 
 export class DescribeDrdsInstanceVersionResponseBody extends $tea.Model {
+  success?: boolean;
   requestId?: string;
   data?: DescribeDrdsInstanceVersionResponseBodyData;
-  success?: boolean;
   static names(): { [key: string]: string } {
     return {
+      success: 'Success',
       requestId: 'RequestId',
       data: 'Data',
-      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      success: 'boolean',
       requestId: 'string',
       data: DescribeDrdsInstanceVersionResponseBodyData,
-      success: 'boolean',
     };
   }
 
@@ -2460,22 +2460,22 @@ export class DescribeDrdsParamsRequest extends $tea.Model {
 }
 
 export class DescribeDrdsParamsResponseBody extends $tea.Model {
+  success?: boolean;
   requestId?: string;
   list?: DescribeDrdsParamsResponseBodyList[];
-  success?: boolean;
   static names(): { [key: string]: string } {
     return {
+      success: 'Success',
       requestId: 'RequestId',
       list: 'List',
-      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      success: 'boolean',
       requestId: 'string',
       list: { 'type': 'array', 'itemType': DescribeDrdsParamsResponseBodyList },
-      success: 'boolean',
     };
   }
 
@@ -2498,6 +2498,72 @@ export class DescribeDrdsParamsResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: DescribeDrdsParamsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDrdsRdsInstancesRequest extends $tea.Model {
+  drdsInstanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      drdsInstanceId: 'DrdsInstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      drdsInstanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDrdsRdsInstancesResponseBody extends $tea.Model {
+  requestId?: string;
+  success?: boolean;
+  dbInstances?: DescribeDrdsRdsInstancesResponseBodyDbInstances;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+      dbInstances: 'DbInstances',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+      dbInstances: DescribeDrdsRdsInstancesResponseBodyDbInstances,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDrdsRdsInstancesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeDrdsRdsInstancesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeDrdsRdsInstancesResponseBody,
     };
   }
 
@@ -2532,22 +2598,22 @@ export class DescribeDrdsShardingDbsRequest extends $tea.Model {
 }
 
 export class DescribeDrdsShardingDbsResponseBody extends $tea.Model {
+  success?: boolean;
   requestId?: string;
   shardingDbs?: DescribeDrdsShardingDbsResponseBodyShardingDbs;
-  success?: boolean;
   static names(): { [key: string]: string } {
     return {
+      success: 'Success',
       requestId: 'RequestId',
       shardingDbs: 'ShardingDbs',
-      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      success: 'boolean',
       requestId: 'string',
       shardingDbs: DescribeDrdsShardingDbsResponseBodyShardingDbs,
-      success: 'boolean',
     };
   }
 
@@ -2617,30 +2683,30 @@ export class DescribeDrdsSlowSqlsRequest extends $tea.Model {
 
 export class DescribeDrdsSlowSqlsResponseBody extends $tea.Model {
   pageSize?: number;
-  requestId?: string;
   pageNumber?: number;
+  requestId?: string;
   total?: number;
-  items?: DescribeDrdsSlowSqlsResponseBodyItems;
   success?: boolean;
+  items?: DescribeDrdsSlowSqlsResponseBodyItems;
   static names(): { [key: string]: string } {
     return {
       pageSize: 'PageSize',
-      requestId: 'RequestId',
       pageNumber: 'PageNumber',
+      requestId: 'RequestId',
       total: 'Total',
-      items: 'Items',
       success: 'Success',
+      items: 'Items',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       pageSize: 'number',
-      requestId: 'string',
       pageNumber: 'number',
+      requestId: 'string',
       total: 'number',
-      items: DescribeDrdsSlowSqlsResponseBodyItems,
       success: 'boolean',
+      items: DescribeDrdsSlowSqlsResponseBodyItems,
     };
   }
 
@@ -2691,22 +2757,22 @@ export class DescribeDrdsSqlAuditStatusRequest extends $tea.Model {
 }
 
 export class DescribeDrdsSqlAuditStatusResponseBody extends $tea.Model {
+  success?: boolean;
   requestId?: string;
   data?: DescribeDrdsSqlAuditStatusResponseBodyData;
-  success?: boolean;
   static names(): { [key: string]: string } {
     return {
+      success: 'Success',
       requestId: 'RequestId',
       data: 'Data',
-      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      success: 'boolean',
       requestId: 'string',
       data: DescribeDrdsSqlAuditStatusResponseBodyData,
-      success: 'boolean',
     };
   }
 
@@ -2763,22 +2829,22 @@ export class DescribeDrdsTasksRequest extends $tea.Model {
 }
 
 export class DescribeDrdsTasksResponseBody extends $tea.Model {
-  tasks?: DescribeDrdsTasksResponseBodyTasks;
-  requestId?: string;
   success?: boolean;
+  requestId?: string;
+  tasks?: DescribeDrdsTasksResponseBodyTasks;
   static names(): { [key: string]: string } {
     return {
-      tasks: 'Tasks',
-      requestId: 'RequestId',
       success: 'Success',
+      requestId: 'RequestId',
+      tasks: 'Tasks',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      tasks: DescribeDrdsTasksResponseBodyTasks,
-      requestId: 'string',
       success: 'boolean',
+      requestId: 'string',
+      tasks: DescribeDrdsTasksResponseBodyTasks,
     };
   }
 
@@ -2832,22 +2898,22 @@ export class DescribeExpandLogicTableInfoListRequest extends $tea.Model {
 }
 
 export class DescribeExpandLogicTableInfoListResponseBody extends $tea.Model {
+  success?: boolean;
   requestId?: string;
   data?: DescribeExpandLogicTableInfoListResponseBodyData;
-  success?: boolean;
   static names(): { [key: string]: string } {
     return {
+      success: 'Success',
       requestId: 'RequestId',
       data: 'Data',
-      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      success: 'boolean',
       requestId: 'string',
       data: DescribeExpandLogicTableInfoListResponseBodyData,
-      success: 'boolean',
     };
   }
 
@@ -2901,22 +2967,22 @@ export class DescribeHiStoreInstanceInfoRequest extends $tea.Model {
 }
 
 export class DescribeHiStoreInstanceInfoResponseBody extends $tea.Model {
-  hiStoreInstanceInfo?: DescribeHiStoreInstanceInfoResponseBodyHiStoreInstanceInfo;
-  requestId?: string;
   success?: boolean;
+  requestId?: string;
+  hiStoreInstanceInfo?: DescribeHiStoreInstanceInfoResponseBodyHiStoreInstanceInfo;
   static names(): { [key: string]: string } {
     return {
-      hiStoreInstanceInfo: 'HiStoreInstanceInfo',
-      requestId: 'RequestId',
       success: 'Success',
+      requestId: 'RequestId',
+      hiStoreInstanceInfo: 'HiStoreInstanceInfo',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      hiStoreInstanceInfo: DescribeHiStoreInstanceInfoResponseBodyHiStoreInstanceInfo,
-      requestId: 'string',
       success: 'boolean',
+      requestId: 'string',
+      hiStoreInstanceInfo: DescribeHiStoreInstanceInfoResponseBodyHiStoreInstanceInfo,
     };
   }
 
@@ -2972,14 +3038,14 @@ export class DescribeHotDbListRequest extends $tea.Model {
 export class DescribeHotDbListResponseBody extends $tea.Model {
   msg?: string;
   requestId?: string;
-  data?: DescribeHotDbListResponseBodyData;
   success?: boolean;
+  data?: DescribeHotDbListResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       msg: 'Msg',
       requestId: 'RequestId',
-      data: 'Data',
       success: 'Success',
+      data: 'Data',
     };
   }
 
@@ -2987,8 +3053,8 @@ export class DescribeHotDbListResponseBody extends $tea.Model {
     return {
       msg: 'string',
       requestId: 'string',
-      data: DescribeHotDbListResponseBodyData,
       success: 'boolean',
+      data: DescribeHotDbListResponseBodyData,
     };
   }
 
@@ -3039,22 +3105,22 @@ export class DescribeInstanceAccountsRequest extends $tea.Model {
 }
 
 export class DescribeInstanceAccountsResponseBody extends $tea.Model {
+  success?: boolean;
   requestId?: string;
   instanceAccounts?: DescribeInstanceAccountsResponseBodyInstanceAccounts;
-  success?: boolean;
   static names(): { [key: string]: string } {
     return {
+      success: 'Success',
       requestId: 'RequestId',
       instanceAccounts: 'InstanceAccounts',
-      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      success: 'boolean',
       requestId: 'string',
       instanceAccounts: DescribeInstanceAccountsResponseBodyInstanceAccounts,
-      success: 'boolean',
     };
   }
 
@@ -3106,21 +3172,21 @@ export class DescribeInstanceMenuSwitchRequest extends $tea.Model {
 
 export class DescribeInstanceMenuSwitchResponseBody extends $tea.Model {
   requestId?: string;
-  config?: { [key: string]: any };
   success?: boolean;
+  config?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      config: 'Config',
       success: 'Success',
+      config: 'Config',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      config: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       success: 'boolean',
+      config: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
     };
   }
 
@@ -3171,21 +3237,21 @@ export class DescribeInstanceSwitchAzoneRequest extends $tea.Model {
 }
 
 export class DescribeInstanceSwitchAzoneResponseBody extends $tea.Model {
-  requestId?: string;
   success?: boolean;
+  requestId?: string;
   result?: DescribeInstanceSwitchAzoneResponseBodyResult;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       success: 'Success',
+      requestId: 'RequestId',
       result: 'Result',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       success: 'boolean',
+      requestId: 'string',
       result: DescribeInstanceSwitchAzoneResponseBodyResult,
     };
   }
@@ -3237,22 +3303,22 @@ export class DescribeInstanceSwitchNetworkRequest extends $tea.Model {
 }
 
 export class DescribeInstanceSwitchNetworkResponseBody extends $tea.Model {
+  success?: boolean;
   requestId?: string;
   vpcInfos?: DescribeInstanceSwitchNetworkResponseBodyVpcInfos;
-  success?: boolean;
   static names(): { [key: string]: string } {
     return {
+      success: 'Success',
       requestId: 'RequestId',
       vpcInfos: 'VpcInfos',
-      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      success: 'boolean',
       requestId: 'string',
       vpcInfos: DescribeInstanceSwitchNetworkResponseBodyVpcInfos,
-      success: 'boolean',
     };
   }
 
@@ -3306,22 +3372,22 @@ export class DescribeInstDbLogInfoRequest extends $tea.Model {
 }
 
 export class DescribeInstDbLogInfoResponseBody extends $tea.Model {
+  success?: boolean;
   requestId?: string;
   logTimeRange?: DescribeInstDbLogInfoResponseBodyLogTimeRange;
-  success?: boolean;
   static names(): { [key: string]: string } {
     return {
+      success: 'Success',
       requestId: 'RequestId',
       logTimeRange: 'LogTimeRange',
-      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      success: 'boolean',
       requestId: 'string',
       logTimeRange: DescribeInstDbLogInfoResponseBodyLogTimeRange,
-      success: 'boolean',
     };
   }
 
@@ -3375,22 +3441,22 @@ export class DescribeInstDbSlsInfoRequest extends $tea.Model {
 }
 
 export class DescribeInstDbSlsInfoResponseBody extends $tea.Model {
-  auditInfo?: DescribeInstDbSlsInfoResponseBodyAuditInfo;
-  requestId?: string;
   success?: boolean;
+  requestId?: string;
+  auditInfo?: DescribeInstDbSlsInfoResponseBodyAuditInfo;
   static names(): { [key: string]: string } {
     return {
-      auditInfo: 'AuditInfo',
-      requestId: 'RequestId',
       success: 'Success',
+      requestId: 'RequestId',
+      auditInfo: 'AuditInfo',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      auditInfo: DescribeInstDbSlsInfoResponseBodyAuditInfo,
-      requestId: 'string',
       success: 'boolean',
+      requestId: 'string',
+      auditInfo: DescribeInstDbSlsInfoResponseBodyAuditInfo,
     };
   }
 
@@ -3447,22 +3513,22 @@ export class DescribePreCheckResultRequest extends $tea.Model {
 }
 
 export class DescribePreCheckResultResponseBody extends $tea.Model {
-  preCheckResult?: DescribePreCheckResultResponseBodyPreCheckResult;
-  requestId?: string;
   success?: boolean;
+  requestId?: string;
+  preCheckResult?: DescribePreCheckResultResponseBodyPreCheckResult;
   static names(): { [key: string]: string } {
     return {
-      preCheckResult: 'PreCheckResult',
-      requestId: 'RequestId',
       success: 'Success',
+      requestId: 'RequestId',
+      preCheckResult: 'PreCheckResult',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      preCheckResult: DescribePreCheckResultResponseBodyPreCheckResult,
-      requestId: 'string',
       success: 'boolean',
+      requestId: 'string',
+      preCheckResult: DescribePreCheckResultResponseBodyPreCheckResult,
     };
   }
 
@@ -3519,21 +3585,21 @@ export class DescribeRdsCommodityRequest extends $tea.Model {
 }
 
 export class DescribeRdsCommodityResponseBody extends $tea.Model {
-  requestId?: string;
   data?: string;
+  requestId?: string;
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       data: 'Data',
+      requestId: 'RequestId',
       success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       data: 'string',
+      requestId: 'string',
       success: 'boolean',
     };
   }
@@ -3600,22 +3666,22 @@ export class DescribeRDSPerformanceRequest extends $tea.Model {
 }
 
 export class DescribeRDSPerformanceResponseBody extends $tea.Model {
+  success?: boolean;
   requestId?: string;
   data?: DescribeRDSPerformanceResponseBodyData[];
-  success?: boolean;
   static names(): { [key: string]: string } {
     return {
+      success: 'Success',
       requestId: 'RequestId',
       data: 'Data',
-      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      success: 'boolean',
       requestId: 'string',
       data: { 'type': 'array', 'itemType': DescribeRDSPerformanceResponseBodyData },
-      success: 'boolean',
     };
   }
 
@@ -3672,22 +3738,22 @@ export class DescribeRdsPerformanceSummaryRequest extends $tea.Model {
 }
 
 export class DescribeRdsPerformanceSummaryResponseBody extends $tea.Model {
+  success?: boolean;
   requestId?: string;
   rdsPerformanceInfos?: DescribeRdsPerformanceSummaryResponseBodyRdsPerformanceInfos[];
-  success?: boolean;
   static names(): { [key: string]: string } {
     return {
+      success: 'Success',
       requestId: 'RequestId',
       rdsPerformanceInfos: 'RdsPerformanceInfos',
-      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      success: 'boolean',
       requestId: 'string',
       rdsPerformanceInfos: { 'type': 'array', 'itemType': DescribeRdsPerformanceSummaryResponseBodyRdsPerformanceInfos },
-      success: 'boolean',
     };
   }
 
@@ -3822,22 +3888,22 @@ export class DescribeRestoreOrderRequest extends $tea.Model {
 }
 
 export class DescribeRestoreOrderResponseBody extends $tea.Model {
-  restoreOrderDO?: DescribeRestoreOrderResponseBodyRestoreOrderDO;
-  requestId?: string;
   success?: boolean;
+  requestId?: string;
+  restoreOrderDO?: DescribeRestoreOrderResponseBodyRestoreOrderDO;
   static names(): { [key: string]: string } {
     return {
-      restoreOrderDO: 'RestoreOrderDO',
-      requestId: 'RequestId',
       success: 'Success',
+      requestId: 'RequestId',
+      restoreOrderDO: 'RestoreOrderDO',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      restoreOrderDO: DescribeRestoreOrderResponseBodyRestoreOrderDO,
-      requestId: 'string',
       success: 'boolean',
+      requestId: 'string',
+      restoreOrderDO: DescribeRestoreOrderResponseBodyRestoreOrderDO,
     };
   }
 
@@ -3900,22 +3966,22 @@ export class DescribeShardTaskInfoRequest extends $tea.Model {
 }
 
 export class DescribeShardTaskInfoResponseBody extends $tea.Model {
+  success?: boolean;
   requestId?: string;
   data?: DescribeShardTaskInfoResponseBodyData;
-  success?: boolean;
   static names(): { [key: string]: string } {
     return {
+      success: 'Success',
       requestId: 'RequestId',
       data: 'Data',
-      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      success: 'boolean',
       requestId: 'string',
       data: DescribeShardTaskInfoResponseBodyData,
-      success: 'boolean',
     };
   }
 
@@ -4059,22 +4125,22 @@ export class DescribeSqlFlashbakTaskRequest extends $tea.Model {
 }
 
 export class DescribeSqlFlashbakTaskResponseBody extends $tea.Model {
-  sqlFlashbackTasks?: DescribeSqlFlashbakTaskResponseBodySqlFlashbackTasks;
-  requestId?: string;
   success?: boolean;
+  requestId?: string;
+  sqlFlashbackTasks?: DescribeSqlFlashbakTaskResponseBodySqlFlashbackTasks;
   static names(): { [key: string]: string } {
     return {
-      sqlFlashbackTasks: 'SqlFlashbackTasks',
-      requestId: 'RequestId',
       success: 'Success',
+      requestId: 'RequestId',
+      sqlFlashbackTasks: 'SqlFlashbackTasks',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      sqlFlashbackTasks: DescribeSqlFlashbakTaskResponseBodySqlFlashbackTasks,
-      requestId: 'string',
       success: 'boolean',
+      requestId: 'string',
+      sqlFlashbackTasks: DescribeSqlFlashbakTaskResponseBodySqlFlashbackTasks,
     };
   }
 
@@ -4134,22 +4200,22 @@ export class DescribeTableRequest extends $tea.Model {
 }
 
 export class DescribeTableResponseBody extends $tea.Model {
+  success?: boolean;
   requestId?: string;
   data?: DescribeTableResponseBodyData;
-  success?: boolean;
   static names(): { [key: string]: string } {
     return {
+      success: 'Success',
       requestId: 'RequestId',
       data: 'Data',
-      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      success: 'boolean',
       requestId: 'string',
       data: DescribeTableResponseBodyData,
-      success: 'boolean',
     };
   }
 
@@ -4219,30 +4285,30 @@ export class DescribeTableListByTypeRequest extends $tea.Model {
 
 export class DescribeTableListByTypeResponseBody extends $tea.Model {
   pageSize?: number;
-  requestId?: string;
   pageNumber?: number;
+  requestId?: string;
   total?: number;
-  list?: DescribeTableListByTypeResponseBodyList[];
   success?: boolean;
+  list?: DescribeTableListByTypeResponseBodyList[];
   static names(): { [key: string]: string } {
     return {
       pageSize: 'PageSize',
-      requestId: 'RequestId',
       pageNumber: 'PageNumber',
+      requestId: 'RequestId',
       total: 'Total',
-      list: 'List',
       success: 'Success',
+      list: 'List',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       pageSize: 'number',
-      requestId: 'string',
       pageNumber: 'number',
+      requestId: 'string',
       total: 'number',
-      list: { 'type': 'array', 'itemType': DescribeTableListByTypeResponseBodyList },
       success: 'boolean',
+      list: { 'type': 'array', 'itemType': DescribeTableListByTypeResponseBodyList },
     };
   }
 
@@ -4309,30 +4375,30 @@ export class DescribeTablesRequest extends $tea.Model {
 
 export class DescribeTablesResponseBody extends $tea.Model {
   pageSize?: number;
-  requestId?: string;
   pageNumber?: number;
+  requestId?: string;
   total?: number;
-  list?: DescribeTablesResponseBodyList[];
   success?: boolean;
+  list?: DescribeTablesResponseBodyList[];
   static names(): { [key: string]: string } {
     return {
       pageSize: 'PageSize',
-      requestId: 'RequestId',
       pageNumber: 'PageNumber',
+      requestId: 'RequestId',
       total: 'Total',
-      list: 'List',
       success: 'Success',
+      list: 'List',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       pageSize: 'number',
-      requestId: 'string',
       pageNumber: 'number',
+      requestId: 'string',
       total: 'number',
-      list: { 'type': 'array', 'itemType': DescribeTablesResponseBodyList },
       success: 'boolean',
+      list: { 'type': 'array', 'itemType': DescribeTablesResponseBodyList },
     };
   }
 
@@ -4387,21 +4453,21 @@ export class DisableSqlAuditRequest extends $tea.Model {
 
 export class DisableSqlAuditResponseBody extends $tea.Model {
   requestId?: string;
-  success?: boolean;
   result?: boolean;
+  success?: boolean;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      success: 'Success',
       result: 'Result',
+      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      success: 'boolean',
       result: 'boolean',
+      success: 'boolean',
     };
   }
 
@@ -4465,21 +4531,21 @@ export class EnableSqlAuditRequest extends $tea.Model {
 
 export class EnableSqlAuditResponseBody extends $tea.Model {
   requestId?: string;
-  success?: boolean;
   result?: boolean;
+  success?: boolean;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      success: 'Success',
       result: 'Result',
+      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      success: 'boolean',
       result: 'boolean',
+      success: 'boolean',
     };
   }
 
@@ -4534,21 +4600,21 @@ export class EnableSqlFlashbackMatchSwitchRequest extends $tea.Model {
 
 export class EnableSqlFlashbackMatchSwitchResponseBody extends $tea.Model {
   requestId?: string;
-  success?: boolean;
   result?: boolean;
+  success?: boolean;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      success: 'Success',
       result: 'Result',
+      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      success: 'boolean',
       result: 'boolean',
+      success: 'boolean',
     };
   }
 
@@ -4613,14 +4679,14 @@ export class ListTagResourcesRequest extends $tea.Model {
 export class ListTagResourcesResponseBody extends $tea.Model {
   nextToken?: string;
   requestId?: string;
-  tagResources?: ListTagResourcesResponseBodyTagResources;
   success?: boolean;
+  tagResources?: ListTagResourcesResponseBodyTagResources;
   static names(): { [key: string]: string } {
     return {
       nextToken: 'NextToken',
       requestId: 'RequestId',
-      tagResources: 'TagResources',
       success: 'Success',
+      tagResources: 'TagResources',
     };
   }
 
@@ -4628,8 +4694,8 @@ export class ListTagResourcesResponseBody extends $tea.Model {
     return {
       nextToken: 'string',
       requestId: 'string',
-      tagResources: ListTagResourcesResponseBodyTagResources,
       success: 'boolean',
+      tagResources: ListTagResourcesResponseBodyTagResources,
     };
   }
 
@@ -4692,21 +4758,21 @@ export class ManagePrivateRdsRequest extends $tea.Model {
 }
 
 export class ManagePrivateRdsResponseBody extends $tea.Model {
-  requestId?: string;
   data?: string;
+  requestId?: string;
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       data: 'Data',
+      requestId: 'RequestId',
       success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       data: 'string',
+      requestId: 'string',
       success: 'boolean',
     };
   }
@@ -4761,19 +4827,19 @@ export class ModifyDrdsInstanceDescriptionRequest extends $tea.Model {
 }
 
 export class ModifyDrdsInstanceDescriptionResponseBody extends $tea.Model {
-  requestId?: string;
   success?: boolean;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       success: 'Success',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       success: 'boolean',
+      requestId: 'string',
     };
   }
 
@@ -4839,19 +4905,19 @@ export class ModifyDrdsIpWhiteListRequest extends $tea.Model {
 }
 
 export class ModifyDrdsIpWhiteListResponseBody extends $tea.Model {
-  requestId?: string;
   success?: boolean;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       success: 'Success',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       success: 'boolean',
+      requestId: 'string',
     };
   }
 
@@ -4911,19 +4977,19 @@ export class ModifyRdsReadWeightRequest extends $tea.Model {
 }
 
 export class ModifyRdsReadWeightResponseBody extends $tea.Model {
-  requestId?: string;
   success?: boolean;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       success: 'Success',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       success: 'boolean',
+      requestId: 'string',
     };
   }
 
@@ -4984,21 +5050,21 @@ export class PutStartBackupRequest extends $tea.Model {
 
 export class PutStartBackupResponseBody extends $tea.Model {
   requestId?: string;
-  success?: boolean;
   result?: string;
+  success?: boolean;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      success: 'Success',
       result: 'Result',
+      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      success: 'boolean',
       result: 'string',
+      success: 'boolean',
     };
   }
 
@@ -5052,19 +5118,19 @@ export class ReleaseInstanceInternetAddressRequest extends $tea.Model {
 }
 
 export class ReleaseInstanceInternetAddressResponseBody extends $tea.Model {
-  requestId?: string;
   data?: boolean;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       data: 'Data',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       data: 'boolean',
+      requestId: 'string',
     };
   }
 
@@ -5119,21 +5185,21 @@ export class RemoveBackupsSetRequest extends $tea.Model {
 
 export class RemoveBackupsSetResponseBody extends $tea.Model {
   requestId?: string;
-  success?: boolean;
   result?: string;
+  success?: boolean;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      success: 'Success',
       result: 'Result',
+      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      success: 'boolean',
       result: 'string',
+      success: 'boolean',
     };
   }
 
@@ -5187,19 +5253,19 @@ export class RemoveDrdsDbRequest extends $tea.Model {
 }
 
 export class RemoveDrdsDbResponseBody extends $tea.Model {
-  requestId?: string;
   success?: boolean;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       success: 'Success',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       success: 'boolean',
+      requestId: 'string',
     };
   }
 
@@ -5254,21 +5320,21 @@ export class RemoveDrdsDbFailedRecordRequest extends $tea.Model {
 
 export class RemoveDrdsDbFailedRecordResponseBody extends $tea.Model {
   requestId?: string;
-  success?: boolean;
   result?: boolean;
+  success?: boolean;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      success: 'Success',
       result: 'Result',
+      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      success: 'boolean',
       result: 'boolean',
+      success: 'boolean',
     };
   }
 
@@ -5319,19 +5385,19 @@ export class RemoveDrdsInstanceRequest extends $tea.Model {
 }
 
 export class RemoveDrdsInstanceResponseBody extends $tea.Model {
-  requestId?: string;
   success?: boolean;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       success: 'Success',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       success: 'boolean',
+      requestId: 'string',
     };
   }
 
@@ -5385,19 +5451,19 @@ export class RemoveInstanceAccountRequest extends $tea.Model {
 }
 
 export class RemoveInstanceAccountResponseBody extends $tea.Model {
-  requestId?: string;
   success?: boolean;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       success: 'Success',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       success: 'boolean',
+      requestId: 'string',
     };
   }
 
@@ -5458,21 +5524,21 @@ export class SetBackupLocalRequest extends $tea.Model {
 
 export class SetBackupLocalResponseBody extends $tea.Model {
   requestId?: string;
-  success?: boolean;
   result?: string;
+  success?: boolean;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      success: 'Success',
       result: 'Result',
+      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      success: 'boolean',
       result: 'string',
+      success: 'boolean',
     };
   }
 
@@ -5551,21 +5617,21 @@ export class SetBackupPolicyRequest extends $tea.Model {
 
 export class SetBackupPolicyResponseBody extends $tea.Model {
   requestId?: string;
-  success?: boolean;
   result?: string;
+  success?: boolean;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      success: 'Success',
       result: 'Result',
+      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      success: 'boolean',
       result: 'string',
+      success: 'boolean',
     };
   }
 
@@ -5628,21 +5694,21 @@ export class SetupBroadcastTablesRequest extends $tea.Model {
 }
 
 export class SetupBroadcastTablesResponseBody extends $tea.Model {
-  requestId?: string;
   data?: boolean;
+  requestId?: string;
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       data: 'Data',
+      requestId: 'RequestId',
       success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       data: 'boolean',
+      requestId: 'string',
       success: 'boolean',
     };
   }
@@ -5703,21 +5769,21 @@ export class SetupDrdsParamsRequest extends $tea.Model {
 }
 
 export class SetupDrdsParamsResponseBody extends $tea.Model {
-  requestId?: string;
   data?: boolean;
+  requestId?: string;
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       data: 'Data',
+      requestId: 'RequestId',
       success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       data: 'boolean',
+      requestId: 'string',
       success: 'boolean',
     };
   }
@@ -5781,21 +5847,21 @@ export class SetupTableRequest extends $tea.Model {
 }
 
 export class SetupTableResponseBody extends $tea.Model {
-  requestId?: string;
   data?: boolean;
+  requestId?: string;
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       data: 'Data',
+      requestId: 'RequestId',
       success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       data: 'boolean',
+      requestId: 'string',
       success: 'boolean',
     };
   }
@@ -5863,21 +5929,21 @@ export class StartRestoreRequest extends $tea.Model {
 
 export class StartRestoreResponseBody extends $tea.Model {
   requestId?: string;
-  success?: boolean;
   result?: string;
+  success?: boolean;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      success: 'Success',
       result: 'Result',
+      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      success: 'boolean',
       result: 'string',
+      success: 'boolean',
     };
   }
 
@@ -5940,19 +6006,19 @@ export class SubmitCleanTaskRequest extends $tea.Model {
 }
 
 export class SubmitCleanTaskResponseBody extends $tea.Model {
-  requestId?: string;
   success?: boolean;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       success: 'Success',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       success: 'boolean',
+      requestId: 'string',
     };
   }
 
@@ -6013,14 +6079,14 @@ export class SubmitHotExpandPreCheckTaskRequest extends $tea.Model {
 
 export class SubmitHotExpandPreCheckTaskResponseBody extends $tea.Model {
   msg?: string;
-  taskId?: number;
   requestId?: string;
+  taskId?: number;
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
       msg: 'Msg',
-      taskId: 'TaskId',
       requestId: 'RequestId',
+      taskId: 'TaskId',
       success: 'Success',
     };
   }
@@ -6028,8 +6094,8 @@ export class SubmitHotExpandPreCheckTaskResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       msg: 'string',
-      taskId: 'number',
       requestId: 'string',
+      taskId: 'number',
       success: 'boolean',
     };
   }
@@ -6102,19 +6168,19 @@ export class SubmitHotExpandTaskRequest extends $tea.Model {
 }
 
 export class SubmitHotExpandTaskResponseBody extends $tea.Model {
-  requestId?: string;
   success?: boolean;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       success: 'Success',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       success: 'boolean',
+      requestId: 'string',
     };
   }
 
@@ -6172,14 +6238,14 @@ export class SubmitSmoothExpandPreCheckRequest extends $tea.Model {
 
 export class SubmitSmoothExpandPreCheckResponseBody extends $tea.Model {
   msg?: string;
-  taskId?: number;
   requestId?: string;
+  taskId?: number;
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
       msg: 'Msg',
-      taskId: 'TaskId',
       requestId: 'RequestId',
+      taskId: 'TaskId',
       success: 'Success',
     };
   }
@@ -6187,8 +6253,8 @@ export class SubmitSmoothExpandPreCheckResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       msg: 'string',
-      taskId: 'number',
       requestId: 'string',
+      taskId: 'number',
       success: 'boolean',
     };
   }
@@ -6244,14 +6310,14 @@ export class SubmitSmoothExpandPreCheckTaskRequest extends $tea.Model {
 
 export class SubmitSmoothExpandPreCheckTaskResponseBody extends $tea.Model {
   msg?: string;
-  taskId?: number;
   requestId?: string;
+  taskId?: number;
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
       msg: 'Msg',
-      taskId: 'TaskId',
       requestId: 'RequestId',
+      taskId: 'TaskId',
       success: 'Success',
     };
   }
@@ -6259,8 +6325,8 @@ export class SubmitSmoothExpandPreCheckTaskResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       msg: 'string',
-      taskId: 'number',
       requestId: 'string',
+      taskId: 'number',
       success: 'boolean',
     };
   }
@@ -6324,19 +6390,19 @@ export class SubmitSmoothExpandTaskRequest extends $tea.Model {
 }
 
 export class SubmitSmoothExpandTaskResponseBody extends $tea.Model {
-  requestId?: string;
   success?: boolean;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       success: 'Success',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       success: 'boolean',
+      requestId: 'string',
     };
   }
 
@@ -6414,22 +6480,22 @@ export class SubmitSqlFlashbackTaskRequest extends $tea.Model {
 }
 
 export class SubmitSqlFlashbackTaskResponseBody extends $tea.Model {
-  taskId?: number;
   requestId?: string;
   success?: boolean;
+  taskId?: number;
   static names(): { [key: string]: string } {
     return {
-      taskId: 'TaskId',
       requestId: 'RequestId',
       success: 'Success',
+      taskId: 'TaskId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      taskId: 'number',
       requestId: 'string',
       success: 'boolean',
+      taskId: 'number',
     };
   }
 
@@ -6492,19 +6558,19 @@ export class SubmitSwitchTaskRequest extends $tea.Model {
 }
 
 export class SubmitSwitchTaskResponseBody extends $tea.Model {
-  requestId?: string;
   success?: boolean;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       success: 'Success',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       success: 'boolean',
+      requestId: 'string',
     };
   }
 
@@ -6561,21 +6627,21 @@ export class SwitchGlobalBroadcastTypeRequest extends $tea.Model {
 }
 
 export class SwitchGlobalBroadcastTypeResponseBody extends $tea.Model {
-  requestId?: string;
   data?: boolean;
+  requestId?: string;
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       data: 'Data',
+      requestId: 'RequestId',
       success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       data: 'boolean',
+      requestId: 'string',
       success: 'boolean',
     };
   }
@@ -6636,19 +6702,19 @@ export class TagResourcesRequest extends $tea.Model {
 }
 
 export class TagResourcesResponseBody extends $tea.Model {
-  requestId?: string;
   success?: boolean;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       success: 'Success',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       success: 'boolean',
+      requestId: 'string',
     };
   }
 
@@ -6711,19 +6777,19 @@ export class UntagResourcesRequest extends $tea.Model {
 }
 
 export class UntagResourcesResponseBody extends $tea.Model {
-  requestId?: string;
   success?: boolean;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       success: 'Success',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       success: 'boolean',
+      requestId: 'string',
     };
   }
 
@@ -6783,19 +6849,19 @@ export class UpdateInstanceNetworkRequest extends $tea.Model {
 }
 
 export class UpdateInstanceNetworkResponseBody extends $tea.Model {
-  requestId?: string;
   success?: boolean;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       success: 'Success',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       success: 'boolean',
+      requestId: 'string',
     };
   }
 
@@ -6818,6 +6884,87 @@ export class UpdateInstanceNetworkResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: UpdateInstanceNetworkResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdatePrivateRdsClassRequest extends $tea.Model {
+  rdsClass?: string;
+  drdsInstanceId?: string;
+  DBInstanceId?: string;
+  storage?: string;
+  autoUseCoupon?: boolean;
+  prePayDuration?: number;
+  static names(): { [key: string]: string } {
+    return {
+      rdsClass: 'RdsClass',
+      drdsInstanceId: 'DrdsInstanceId',
+      DBInstanceId: 'DBInstanceId',
+      storage: 'Storage',
+      autoUseCoupon: 'AutoUseCoupon',
+      prePayDuration: 'PrePayDuration',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      rdsClass: 'string',
+      drdsInstanceId: 'string',
+      DBInstanceId: 'string',
+      storage: 'string',
+      autoUseCoupon: 'boolean',
+      prePayDuration: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdatePrivateRdsClassResponseBody extends $tea.Model {
+  data?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdatePrivateRdsClassResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: UpdatePrivateRdsClassResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: UpdatePrivateRdsClassResponseBody,
     };
   }
 
@@ -6918,19 +7065,19 @@ export class UpgradeHiStoreInstanceRequest extends $tea.Model {
 }
 
 export class UpgradeHiStoreInstanceResponseBody extends $tea.Model {
-  requestId?: string;
   data?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       data: 'Data',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       data: 'string',
+      requestId: 'string',
     };
   }
 
@@ -6987,19 +7134,19 @@ export class UpgradeInstanceVersionRequest extends $tea.Model {
 }
 
 export class UpgradeInstanceVersionResponseBody extends $tea.Model {
-  requestId?: string;
   data?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       data: 'Data',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       data: 'string',
+      requestId: 'string',
     };
   }
 
@@ -7065,22 +7212,22 @@ export class ValidateShardTaskRequest extends $tea.Model {
 }
 
 export class ValidateShardTaskResponseBody extends $tea.Model {
+  success?: boolean;
   requestId?: string;
   list?: ValidateShardTaskResponseBodyList[];
-  success?: boolean;
   static names(): { [key: string]: string } {
     return {
+      success: 'Success',
       requestId: 'RequestId',
       list: 'List',
-      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      success: 'boolean',
       requestId: 'string',
       list: { 'type': 'array', 'itemType': ValidateShardTaskResponseBodyList },
-      success: 'boolean',
     };
   }
 
@@ -7200,19 +7347,19 @@ export class CreateDrdsInstanceResponseBodyDataDrdsInstanceIdList extends $tea.M
 }
 
 export class CreateDrdsInstanceResponseBodyData extends $tea.Model {
-  drdsInstanceIdList?: CreateDrdsInstanceResponseBodyDataDrdsInstanceIdList;
   orderId?: number;
+  drdsInstanceIdList?: CreateDrdsInstanceResponseBodyDataDrdsInstanceIdList;
   static names(): { [key: string]: string } {
     return {
-      drdsInstanceIdList: 'DrdsInstanceIdList',
       orderId: 'OrderId',
+      drdsInstanceIdList: 'DrdsInstanceIdList',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      drdsInstanceIdList: CreateDrdsInstanceResponseBodyDataDrdsInstanceIdList,
       orderId: 'number',
+      drdsInstanceIdList: CreateDrdsInstanceResponseBodyDataDrdsInstanceIdList,
     };
   }
 
@@ -7244,19 +7391,19 @@ export class CreateInstanceAccountRequestDbPrivilege extends $tea.Model {
 }
 
 export class DescribeBackMenuResponseBodyListList extends $tea.Model {
-  menuName?: string;
   support?: boolean;
+  menuName?: string;
   static names(): { [key: string]: string } {
     return {
-      menuName: 'MenuName',
       support: 'Support',
+      menuName: 'MenuName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      menuName: 'string',
       support: 'boolean',
+      menuName: 'string',
     };
   }
 
@@ -7310,10 +7457,10 @@ export class DescribeBackupLocalResponseBodyBackupPolicyDO extends $tea.Model {
   backupType?: string;
   backupLevel?: string;
   localLogRetentionHours?: number;
-  gmtModified?: number;
   highSpaceUsageProtection?: number;
-  backupPolicyMode?: string;
+  gmtModified?: number;
   backupRetentionPeriod?: number;
+  backupPolicyMode?: string;
   preferredBackupPeriod?: string;
   localLogRetentionSpace?: number;
   backupAppName?: string;
@@ -7330,10 +7477,10 @@ export class DescribeBackupLocalResponseBodyBackupPolicyDO extends $tea.Model {
       backupType: 'BackupType',
       backupLevel: 'BackupLevel',
       localLogRetentionHours: 'LocalLogRetentionHours',
-      gmtModified: 'GmtModified',
       highSpaceUsageProtection: 'HighSpaceUsageProtection',
-      backupPolicyMode: 'BackupPolicyMode',
+      gmtModified: 'GmtModified',
       backupRetentionPeriod: 'BackupRetentionPeriod',
+      backupPolicyMode: 'BackupPolicyMode',
       preferredBackupPeriod: 'PreferredBackupPeriod',
       localLogRetentionSpace: 'LocalLogRetentionSpace',
       backupAppName: 'BackupAppName',
@@ -7353,10 +7500,10 @@ export class DescribeBackupLocalResponseBodyBackupPolicyDO extends $tea.Model {
       backupType: 'string',
       backupLevel: 'string',
       localLogRetentionHours: 'number',
-      gmtModified: 'number',
       highSpaceUsageProtection: 'number',
-      backupPolicyMode: 'string',
+      gmtModified: 'number',
       backupRetentionPeriod: 'number',
+      backupPolicyMode: 'string',
       preferredBackupPeriod: 'string',
       localLogRetentionSpace: 'number',
       backupAppName: 'string',
@@ -7380,10 +7527,10 @@ export class DescribeBackupPolicyResponseBodyBackupPolicyDO extends $tea.Model {
   backupType?: string;
   backupLevel?: string;
   localLogRetentionHours?: number;
-  gmtModified?: number;
   highSpaceUsageProtection?: number;
-  backupPolicyMode?: string;
+  gmtModified?: number;
   backupRetentionPeriod?: number;
+  backupPolicyMode?: string;
   preferredBackupPeriod?: string;
   localLogRetentionSpace?: number;
   backupAppName?: string;
@@ -7400,10 +7547,10 @@ export class DescribeBackupPolicyResponseBodyBackupPolicyDO extends $tea.Model {
       backupType: 'BackupType',
       backupLevel: 'BackupLevel',
       localLogRetentionHours: 'LocalLogRetentionHours',
-      gmtModified: 'GmtModified',
       highSpaceUsageProtection: 'HighSpaceUsageProtection',
-      backupPolicyMode: 'BackupPolicyMode',
+      gmtModified: 'GmtModified',
       backupRetentionPeriod: 'BackupRetentionPeriod',
+      backupPolicyMode: 'BackupPolicyMode',
       preferredBackupPeriod: 'PreferredBackupPeriod',
       localLogRetentionSpace: 'LocalLogRetentionSpace',
       backupAppName: 'BackupAppName',
@@ -7423,10 +7570,10 @@ export class DescribeBackupPolicyResponseBodyBackupPolicyDO extends $tea.Model {
       backupType: 'string',
       backupLevel: 'string',
       localLogRetentionHours: 'number',
-      gmtModified: 'number',
       highSpaceUsageProtection: 'number',
-      backupPolicyMode: 'string',
+      gmtModified: 'number',
       backupRetentionPeriod: 'number',
+      backupPolicyMode: 'string',
       preferredBackupPeriod: 'string',
       localLogRetentionSpace: 'number',
       backupAppName: 'string',
@@ -7650,7 +7797,6 @@ export class DescribeDbInstancesResponseBodyItemsDBInstanceReadOnlyDBInstanceId 
 }
 
 export class DescribeDbInstancesResponseBodyItemsDBInstance extends $tea.Model {
-  readOnlyDBInstanceId?: DescribeDbInstancesResponseBodyItemsDBInstanceReadOnlyDBInstanceId;
   instanceNetworkType?: string;
   DBInstanceType?: string;
   zoneId?: string;
@@ -7660,9 +7806,9 @@ export class DescribeDbInstancesResponseBodyItemsDBInstance extends $tea.Model {
   DBInstanceDescription?: string;
   engineVersion?: string;
   regionId?: string;
+  readOnlyDBInstanceId?: DescribeDbInstancesResponseBodyItemsDBInstanceReadOnlyDBInstanceId;
   static names(): { [key: string]: string } {
     return {
-      readOnlyDBInstanceId: 'ReadOnlyDBInstanceId',
       instanceNetworkType: 'InstanceNetworkType',
       DBInstanceType: 'DBInstanceType',
       zoneId: 'ZoneId',
@@ -7672,12 +7818,12 @@ export class DescribeDbInstancesResponseBodyItemsDBInstance extends $tea.Model {
       DBInstanceDescription: 'DBInstanceDescription',
       engineVersion: 'EngineVersion',
       regionId: 'RegionId',
+      readOnlyDBInstanceId: 'ReadOnlyDBInstanceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      readOnlyDBInstanceId: DescribeDbInstancesResponseBodyItemsDBInstanceReadOnlyDBInstanceId,
       instanceNetworkType: 'string',
       DBInstanceType: 'string',
       zoneId: 'string',
@@ -7687,6 +7833,7 @@ export class DescribeDbInstancesResponseBodyItemsDBInstance extends $tea.Model {
       DBInstanceDescription: 'string',
       engineVersion: 'string',
       regionId: 'string',
+      readOnlyDBInstanceId: DescribeDbInstancesResponseBodyItemsDBInstanceReadOnlyDBInstanceId,
     };
   }
 
@@ -7753,21 +7900,21 @@ export class DescribeDrdsDBResponseBodyData extends $tea.Model {
 
 export class DescribeDrdsDBClusterResponseBodyDbInstanceEndpointsEndpoint extends $tea.Model {
   readWeight?: number;
-  nodeIds?: string;
   endpointId?: string;
+  nodeIds?: string;
   static names(): { [key: string]: string } {
     return {
       readWeight: 'ReadWeight',
-      nodeIds: 'NodeIds',
       endpointId: 'EndpointId',
+      nodeIds: 'NodeIds',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       readWeight: 'number',
-      nodeIds: 'string',
       endpointId: 'string',
+      nodeIds: 'string',
     };
   }
 
@@ -7843,55 +7990,55 @@ export class DescribeDrdsDBClusterResponseBodyDbInstanceDBNodes extends $tea.Mod
 }
 
 export class DescribeDrdsDBClusterResponseBodyDbInstance extends $tea.Model {
-  endpoints?: DescribeDrdsDBClusterResponseBodyDbInstanceEndpoints;
   expireTime?: string;
   payType?: string;
   DBInstanceStatus?: string;
   networkType?: string;
   port?: number;
   engineVersion?: string;
-  DBNodes?: DescribeDrdsDBClusterResponseBodyDbInstanceDBNodes;
   rdsInstType?: string;
   remainDays?: string;
   DBInstanceId?: string;
   dbInstType?: string;
   engine?: string;
   readMode?: string;
+  endpoints?: DescribeDrdsDBClusterResponseBodyDbInstanceEndpoints;
+  DBNodes?: DescribeDrdsDBClusterResponseBodyDbInstanceDBNodes;
   static names(): { [key: string]: string } {
     return {
-      endpoints: 'Endpoints',
       expireTime: 'ExpireTime',
       payType: 'PayType',
       DBInstanceStatus: 'DBInstanceStatus',
       networkType: 'NetworkType',
       port: 'Port',
       engineVersion: 'EngineVersion',
-      DBNodes: 'DBNodes',
       rdsInstType: 'RdsInstType',
       remainDays: 'RemainDays',
       DBInstanceId: 'DBInstanceId',
       dbInstType: 'DbInstType',
       engine: 'Engine',
       readMode: 'ReadMode',
+      endpoints: 'Endpoints',
+      DBNodes: 'DBNodes',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      endpoints: DescribeDrdsDBClusterResponseBodyDbInstanceEndpoints,
       expireTime: 'string',
       payType: 'string',
       DBInstanceStatus: 'string',
       networkType: 'string',
       port: 'number',
       engineVersion: 'string',
-      DBNodes: DescribeDrdsDBClusterResponseBodyDbInstanceDBNodes,
       rdsInstType: 'string',
       remainDays: 'string',
       DBInstanceId: 'string',
       dbInstType: 'string',
       engine: 'string',
       readMode: 'string',
+      endpoints: DescribeDrdsDBClusterResponseBodyDbInstanceEndpoints,
+      DBNodes: DescribeDrdsDBClusterResponseBodyDbInstanceDBNodes,
     };
   }
 
@@ -8290,16 +8437,16 @@ export class DescribeDrdsDBsResponseBodyData extends $tea.Model {
 }
 
 export class DescribeDrdsDbTasksResponseBodyTasksTask extends $tea.Model {
-  taskPhase?: string;
   progress?: number;
+  taskPhase?: string;
   tbComputeLength?: number;
   taskName?: string;
   parentJobId?: string;
   label?: string;
   taskType?: number;
   dbComputeLength?: number;
-  allowCancel?: boolean;
   taskStatus?: number;
+  allowCancel?: boolean;
   showProgress?: boolean;
   taskDetail?: string;
   gmtCreate?: number;
@@ -8308,16 +8455,16 @@ export class DescribeDrdsDbTasksResponseBodyTasksTask extends $tea.Model {
   expandType?: string;
   static names(): { [key: string]: string } {
     return {
-      taskPhase: 'TaskPhase',
       progress: 'Progress',
+      taskPhase: 'TaskPhase',
       tbComputeLength: 'TbComputeLength',
       taskName: 'TaskName',
       parentJobId: 'ParentJobId',
       label: 'Label',
       taskType: 'TaskType',
       dbComputeLength: 'DbComputeLength',
-      allowCancel: 'AllowCancel',
       taskStatus: 'TaskStatus',
+      allowCancel: 'AllowCancel',
       showProgress: 'ShowProgress',
       taskDetail: 'TaskDetail',
       gmtCreate: 'GmtCreate',
@@ -8329,16 +8476,16 @@ export class DescribeDrdsDbTasksResponseBodyTasksTask extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      taskPhase: 'string',
       progress: 'number',
+      taskPhase: 'string',
       tbComputeLength: 'number',
       taskName: 'string',
       parentJobId: 'string',
       label: 'string',
       taskType: 'number',
       dbComputeLength: 'number',
-      allowCancel: 'boolean',
       taskStatus: 'number',
+      allowCancel: 'boolean',
       showProgress: 'boolean',
       taskDetail: 'string',
       gmtCreate: 'number',
@@ -8456,21 +8603,21 @@ export class DescribeDrdsInstanceResponseBodyData extends $tea.Model {
   instanceSpec?: string;
   vpcCloudInstanceId?: string;
   description?: string;
-  vips?: DescribeDrdsInstanceResponseBodyDataVips;
   version?: number;
-  masterInstanceId?: string;
   expireDate?: number;
+  masterInstanceId?: string;
   commodityCode?: string;
   machineType?: string;
   instanceSeries?: string;
-  readOnlyDBInstanceIds?: DescribeDrdsInstanceResponseBodyDataReadOnlyDBInstanceIds;
   productVersion?: string;
   regionId?: string;
   resourceGroupId?: string;
-  zoneId?: string;
   drdsInstanceId?: string;
+  zoneId?: string;
   instRole?: string;
   orderInstanceId?: string;
+  vips?: DescribeDrdsInstanceResponseBodyDataVips;
+  readOnlyDBInstanceIds?: DescribeDrdsInstanceResponseBodyDataReadOnlyDBInstanceIds;
   static names(): { [key: string]: string } {
     return {
       type: 'Type',
@@ -8484,21 +8631,21 @@ export class DescribeDrdsInstanceResponseBodyData extends $tea.Model {
       instanceSpec: 'InstanceSpec',
       vpcCloudInstanceId: 'VpcCloudInstanceId',
       description: 'Description',
-      vips: 'Vips',
       version: 'Version',
-      masterInstanceId: 'MasterInstanceId',
       expireDate: 'ExpireDate',
+      masterInstanceId: 'MasterInstanceId',
       commodityCode: 'CommodityCode',
       machineType: 'MachineType',
       instanceSeries: 'InstanceSeries',
-      readOnlyDBInstanceIds: 'ReadOnlyDBInstanceIds',
       productVersion: 'ProductVersion',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
-      zoneId: 'ZoneId',
       drdsInstanceId: 'DrdsInstanceId',
+      zoneId: 'ZoneId',
       instRole: 'InstRole',
       orderInstanceId: 'OrderInstanceId',
+      vips: 'Vips',
+      readOnlyDBInstanceIds: 'ReadOnlyDBInstanceIds',
     };
   }
 
@@ -8515,21 +8662,21 @@ export class DescribeDrdsInstanceResponseBodyData extends $tea.Model {
       instanceSpec: 'string',
       vpcCloudInstanceId: 'string',
       description: 'string',
-      vips: DescribeDrdsInstanceResponseBodyDataVips,
       version: 'number',
-      masterInstanceId: 'string',
       expireDate: 'number',
+      masterInstanceId: 'string',
       commodityCode: 'string',
       machineType: 'string',
       instanceSeries: 'string',
-      readOnlyDBInstanceIds: DescribeDrdsInstanceResponseBodyDataReadOnlyDBInstanceIds,
       productVersion: 'string',
       regionId: 'string',
       resourceGroupId: 'string',
-      zoneId: 'string',
       drdsInstanceId: 'string',
+      zoneId: 'string',
       instRole: 'string',
       orderInstanceId: 'string',
+      vips: DescribeDrdsInstanceResponseBodyDataVips,
+      readOnlyDBInstanceIds: DescribeDrdsInstanceResponseBodyDataReadOnlyDBInstanceIds,
     };
   }
 
@@ -8539,19 +8686,19 @@ export class DescribeDrdsInstanceResponseBodyData extends $tea.Model {
 }
 
 export class DescribeDrdsInstanceDbMonitorResponseBodyDataValues extends $tea.Model {
-  value?: string;
   date?: number;
+  value?: string;
   static names(): { [key: string]: string } {
     return {
-      value: 'Value',
       date: 'Date',
+      value: 'Value',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      value: 'string',
       date: 'number',
+      value: 'string',
     };
   }
 
@@ -8654,19 +8801,19 @@ export class DescribeDrdsInstanceLevelTasksResponseBodyTasks extends $tea.Model 
 }
 
 export class DescribeDrdsInstanceMonitorResponseBodyDataValues extends $tea.Model {
-  value?: string;
   date?: number;
+  value?: string;
   static names(): { [key: string]: string } {
     return {
-      value: 'Value',
       date: 'Date',
+      value: 'Value',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      value: 'string',
       date: 'number',
+      value: 'string',
     };
   }
 
@@ -8678,14 +8825,14 @@ export class DescribeDrdsInstanceMonitorResponseBodyDataValues extends $tea.Mode
 export class DescribeDrdsInstanceMonitorResponseBodyData extends $tea.Model {
   key?: string;
   unit?: string;
-  values?: DescribeDrdsInstanceMonitorResponseBodyDataValues[];
   nodeNum?: number;
+  values?: DescribeDrdsInstanceMonitorResponseBodyDataValues[];
   static names(): { [key: string]: string } {
     return {
       key: 'Key',
       unit: 'Unit',
-      values: 'Values',
       nodeNum: 'NodeNum',
+      values: 'Values',
     };
   }
 
@@ -8693,8 +8840,8 @@ export class DescribeDrdsInstanceMonitorResponseBodyData extends $tea.Model {
     return {
       key: 'string',
       unit: 'string',
-      values: { 'type': 'array', 'itemType': DescribeDrdsInstanceMonitorResponseBodyDataValues },
       nodeNum: 'number',
+      values: { 'type': 'array', 'itemType': DescribeDrdsInstanceMonitorResponseBodyDataValues },
     };
   }
 
@@ -8795,88 +8942,88 @@ export class DescribeDrdsInstancesResponseBodyInstancesInstanceReadOnlyDBInstanc
 }
 
 export class DescribeDrdsInstancesResponseBodyInstancesInstance extends $tea.Model {
-  type?: string;
-  status?: string;
   vpcId?: string;
-  createTime?: number;
-  versionAction?: string;
-  networkType?: string;
-  label?: string;
-  instanceSpec?: string;
-  vpcCloudInstanceId?: string;
-  description?: string;
-  vips?: DescribeDrdsInstancesResponseBodyInstancesInstanceVips;
-  version?: number;
-  expireDate?: number;
-  masterInstanceId?: string;
+  status?: string;
+  type?: string;
   commodityCode?: string;
   machineType?: string;
+  createTime?: number;
+  versionAction?: string;
   instanceSeries?: string;
-  readOnlyDBInstanceIds?: DescribeDrdsInstancesResponseBodyInstancesInstanceReadOnlyDBInstanceIds;
+  networkType?: string;
+  label?: string;
   productVersion?: string;
+  instanceSpec?: string;
   regionId?: string;
+  vpcCloudInstanceId?: string;
+  description?: string;
+  version?: number;
   resourceGroupId?: string;
   zoneId?: string;
   drdsInstanceId?: string;
-  instRole?: string;
+  expireDate?: number;
+  masterInstanceId?: string;
   orderInstanceId?: string;
+  instRole?: string;
+  vips?: DescribeDrdsInstancesResponseBodyInstancesInstanceVips;
+  readOnlyDBInstanceIds?: DescribeDrdsInstancesResponseBodyInstancesInstanceReadOnlyDBInstanceIds;
   static names(): { [key: string]: string } {
     return {
-      type: 'Type',
-      status: 'Status',
       vpcId: 'VpcId',
-      createTime: 'CreateTime',
-      versionAction: 'VersionAction',
-      networkType: 'NetworkType',
-      label: 'Label',
-      instanceSpec: 'InstanceSpec',
-      vpcCloudInstanceId: 'VpcCloudInstanceId',
-      description: 'Description',
-      vips: 'Vips',
-      version: 'Version',
-      expireDate: 'ExpireDate',
-      masterInstanceId: 'MasterInstanceId',
+      status: 'Status',
+      type: 'Type',
       commodityCode: 'CommodityCode',
       machineType: 'MachineType',
+      createTime: 'CreateTime',
+      versionAction: 'VersionAction',
       instanceSeries: 'InstanceSeries',
-      readOnlyDBInstanceIds: 'ReadOnlyDBInstanceIds',
+      networkType: 'NetworkType',
+      label: 'Label',
       productVersion: 'ProductVersion',
+      instanceSpec: 'InstanceSpec',
       regionId: 'RegionId',
+      vpcCloudInstanceId: 'VpcCloudInstanceId',
+      description: 'Description',
+      version: 'Version',
       resourceGroupId: 'ResourceGroupId',
       zoneId: 'ZoneId',
       drdsInstanceId: 'DrdsInstanceId',
-      instRole: 'InstRole',
+      expireDate: 'ExpireDate',
+      masterInstanceId: 'MasterInstanceId',
       orderInstanceId: 'OrderInstanceId',
+      instRole: 'InstRole',
+      vips: 'Vips',
+      readOnlyDBInstanceIds: 'ReadOnlyDBInstanceIds',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      type: 'string',
-      status: 'string',
       vpcId: 'string',
-      createTime: 'number',
-      versionAction: 'string',
-      networkType: 'string',
-      label: 'string',
-      instanceSpec: 'string',
-      vpcCloudInstanceId: 'string',
-      description: 'string',
-      vips: DescribeDrdsInstancesResponseBodyInstancesInstanceVips,
-      version: 'number',
-      expireDate: 'number',
-      masterInstanceId: 'string',
+      status: 'string',
+      type: 'string',
       commodityCode: 'string',
       machineType: 'string',
+      createTime: 'number',
+      versionAction: 'string',
       instanceSeries: 'string',
-      readOnlyDBInstanceIds: DescribeDrdsInstancesResponseBodyInstancesInstanceReadOnlyDBInstanceIds,
+      networkType: 'string',
+      label: 'string',
       productVersion: 'string',
+      instanceSpec: 'string',
       regionId: 'string',
+      vpcCloudInstanceId: 'string',
+      description: 'string',
+      version: 'number',
       resourceGroupId: 'string',
       zoneId: 'string',
       drdsInstanceId: 'string',
-      instRole: 'string',
+      expireDate: 'number',
+      masterInstanceId: 'string',
       orderInstanceId: 'string',
+      instRole: 'string',
+      vips: DescribeDrdsInstancesResponseBodyInstancesInstanceVips,
+      readOnlyDBInstanceIds: DescribeDrdsInstancesResponseBodyInstancesInstanceReadOnlyDBInstanceIds,
     };
   }
 
@@ -8905,19 +9052,19 @@ export class DescribeDrdsInstancesResponseBodyInstances extends $tea.Model {
 }
 
 export class DescribeDrdsInstanceVersionResponseBodyData extends $tea.Model {
-  instanceVersion?: string;
   newestVersion?: string;
+  instanceVersion?: string;
   static names(): { [key: string]: string } {
     return {
-      instanceVersion: 'InstanceVersion',
       newestVersion: 'NewestVersion',
+      instanceVersion: 'InstanceVersion',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      instanceVersion: 'string',
       newestVersion: 'string',
+      instanceVersion: 'string',
     };
   }
 
@@ -8975,17 +9122,100 @@ export class DescribeDrdsParamsResponseBodyList extends $tea.Model {
   }
 }
 
+export class DescribeDrdsRdsInstancesResponseBodyDbInstancesDbInstance extends $tea.Model {
+  DBInstanceCPU?: string;
+  DBInstanceMemory?: number;
+  payType?: string;
+  DBInstanceStatus?: string;
+  networkType?: string;
+  port?: number;
+  engineVersion?: string;
+  dmInstanceId?: string;
+  DBInstanceStorage?: number;
+  connectUrl?: string;
+  readWeight?: number;
+  rdsInstType?: string;
+  DBInstanceClassType?: string;
+  DBInstanceId?: string;
+  engine?: string;
+  dbInstType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceCPU: 'DBInstanceCPU',
+      DBInstanceMemory: 'DBInstanceMemory',
+      payType: 'PayType',
+      DBInstanceStatus: 'DBInstanceStatus',
+      networkType: 'NetworkType',
+      port: 'Port',
+      engineVersion: 'EngineVersion',
+      dmInstanceId: 'DmInstanceId',
+      DBInstanceStorage: 'DBInstanceStorage',
+      connectUrl: 'ConnectUrl',
+      readWeight: 'ReadWeight',
+      rdsInstType: 'RdsInstType',
+      DBInstanceClassType: 'DBInstanceClassType',
+      DBInstanceId: 'DBInstanceId',
+      engine: 'Engine',
+      dbInstType: 'DbInstType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceCPU: 'string',
+      DBInstanceMemory: 'number',
+      payType: 'string',
+      DBInstanceStatus: 'string',
+      networkType: 'string',
+      port: 'number',
+      engineVersion: 'string',
+      dmInstanceId: 'string',
+      DBInstanceStorage: 'number',
+      connectUrl: 'string',
+      readWeight: 'number',
+      rdsInstType: 'string',
+      DBInstanceClassType: 'string',
+      DBInstanceId: 'string',
+      engine: 'string',
+      dbInstType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDrdsRdsInstancesResponseBodyDbInstances extends $tea.Model {
+  dbInstance?: DescribeDrdsRdsInstancesResponseBodyDbInstancesDbInstance[];
+  static names(): { [key: string]: string } {
+    return {
+      dbInstance: 'DbInstance',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dbInstance: { 'type': 'array', 'itemType': DescribeDrdsRdsInstancesResponseBodyDbInstancesDbInstance },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDrdsShardingDbsResponseBodyShardingDbsShardingDb extends $tea.Model {
   minPoolSize?: number;
   maxPoolSize?: number;
   dbInstanceId?: string;
   connectUrl?: string;
   groupName?: string;
-  idleTimeOut?: number;
   dbType?: string;
+  idleTimeOut?: number;
   shardingDbName?: string;
-  preparedStatementCacheSize?: number;
   blockingTimeout?: number;
+  preparedStatementCacheSize?: number;
   connectionProperties?: string;
   userName?: string;
   dbStatus?: string;
@@ -8996,11 +9226,11 @@ export class DescribeDrdsShardingDbsResponseBodyShardingDbsShardingDb extends $t
       dbInstanceId: 'DbInstanceId',
       connectUrl: 'ConnectUrl',
       groupName: 'GroupName',
-      idleTimeOut: 'IdleTimeOut',
       dbType: 'DbType',
+      idleTimeOut: 'IdleTimeOut',
       shardingDbName: 'ShardingDbName',
-      preparedStatementCacheSize: 'PreparedStatementCacheSize',
       blockingTimeout: 'BlockingTimeout',
+      preparedStatementCacheSize: 'PreparedStatementCacheSize',
       connectionProperties: 'ConnectionProperties',
       userName: 'UserName',
       dbStatus: 'DbStatus',
@@ -9014,11 +9244,11 @@ export class DescribeDrdsShardingDbsResponseBodyShardingDbsShardingDb extends $t
       dbInstanceId: 'string',
       connectUrl: 'string',
       groupName: 'string',
-      idleTimeOut: 'number',
       dbType: 'string',
+      idleTimeOut: 'number',
       shardingDbName: 'string',
-      preparedStatementCacheSize: 'number',
       blockingTimeout: 'number',
+      preparedStatementCacheSize: 'number',
       connectionProperties: 'string',
       userName: 'string',
       dbStatus: 'string',
@@ -9050,28 +9280,28 @@ export class DescribeDrdsShardingDbsResponseBodyShardingDbs extends $tea.Model {
 }
 
 export class DescribeDrdsSlowSqlsResponseBodyItemsItem extends $tea.Model {
-  host?: string;
-  schema?: string;
   sendTime?: number;
+  host?: string;
   sql?: string;
   responseTime?: number;
+  schema?: string;
   static names(): { [key: string]: string } {
     return {
-      host: 'Host',
-      schema: 'Schema',
       sendTime: 'SendTime',
+      host: 'Host',
       sql: 'Sql',
       responseTime: 'ResponseTime',
+      schema: 'Schema',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      host: 'string',
-      schema: 'string',
       sendTime: 'number',
+      host: 'string',
       sql: 'string',
       responseTime: 'number',
+      schema: 'string',
     };
   }
 
@@ -9200,21 +9430,21 @@ export class DescribeDrdsTasksResponseBodyTasks extends $tea.Model {
 }
 
 export class DescribeExpandLogicTableInfoListResponseBodyDataData extends $tea.Model {
-  tableName?: string;
   shardTbKey?: string;
+  tableName?: string;
   shardDbKey?: string;
   static names(): { [key: string]: string } {
     return {
-      tableName: 'TableName',
       shardTbKey: 'ShardTbKey',
+      tableName: 'TableName',
       shardDbKey: 'ShardDbKey',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      tableName: 'string',
       shardTbKey: 'string',
+      tableName: 'string',
       shardDbKey: 'string',
     };
   }
@@ -9244,28 +9474,28 @@ export class DescribeExpandLogicTableInfoListResponseBodyData extends $tea.Model
 }
 
 export class DescribeHiStoreInstanceInfoResponseBodyHiStoreInstanceInfo extends $tea.Model {
+  gmtCreate?: number;
+  machineSpec?: string;
   diskSize?: number;
   rpmVersion?: string;
   historeInstanceId?: string;
-  gmtCreate?: number;
-  machineSpec?: string;
   static names(): { [key: string]: string } {
     return {
+      gmtCreate: 'GmtCreate',
+      machineSpec: 'MachineSpec',
       diskSize: 'DiskSize',
       rpmVersion: 'RpmVersion',
       historeInstanceId: 'HistoreInstanceId',
-      gmtCreate: 'GmtCreate',
-      machineSpec: 'MachineSpec',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      gmtCreate: 'number',
+      machineSpec: 'string',
       diskSize: 'number',
       rpmVersion: 'string',
       historeInstanceId: 'string',
-      gmtCreate: 'number',
-      machineSpec: 'string',
     };
   }
 
@@ -9398,28 +9628,28 @@ export class DescribeInstanceAccountsResponseBodyInstanceAccountsInstanceAccount
 }
 
 export class DescribeInstanceAccountsResponseBodyInstanceAccountsInstanceAccount extends $tea.Model {
-  dbPrivileges?: DescribeInstanceAccountsResponseBodyInstanceAccountsInstanceAccountDbPrivileges;
   host?: string;
   description?: string;
   accountType?: number;
   accountName?: string;
+  dbPrivileges?: DescribeInstanceAccountsResponseBodyInstanceAccountsInstanceAccountDbPrivileges;
   static names(): { [key: string]: string } {
     return {
-      dbPrivileges: 'DbPrivileges',
       host: 'Host',
       description: 'Description',
       accountType: 'AccountType',
       accountName: 'AccountName',
+      dbPrivileges: 'DbPrivileges',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      dbPrivileges: DescribeInstanceAccountsResponseBodyInstanceAccountsInstanceAccountDbPrivileges,
       host: 'string',
       description: 'string',
       accountType: 'number',
       accountName: 'string',
+      dbPrivileges: DescribeInstanceAccountsResponseBodyInstanceAccountsInstanceAccountDbPrivileges,
     };
   }
 
@@ -9467,25 +9697,25 @@ export class DescribeInstanceSwitchAzoneResponseBodyResultTargetAzones extends $
 }
 
 export class DescribeInstanceSwitchAzoneResponseBodyResult extends $tea.Model {
-  targetAzones?: DescribeInstanceSwitchAzoneResponseBodyResultTargetAzones;
-  switchAble?: boolean;
   originAzoneId?: string;
+  switchAble?: boolean;
   regionId?: string;
+  targetAzones?: DescribeInstanceSwitchAzoneResponseBodyResultTargetAzones;
   static names(): { [key: string]: string } {
     return {
-      targetAzones: 'TargetAzones',
-      switchAble: 'SwitchAble',
       originAzoneId: 'OriginAzoneId',
+      switchAble: 'SwitchAble',
       regionId: 'RegionId',
+      targetAzones: 'TargetAzones',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      targetAzones: DescribeInstanceSwitchAzoneResponseBodyResultTargetAzones,
-      switchAble: 'boolean',
       originAzoneId: 'string',
+      switchAble: 'boolean',
       regionId: 'string',
+      targetAzones: DescribeInstanceSwitchAzoneResponseBodyResultTargetAzones,
     };
   }
 
@@ -9498,15 +9728,15 @@ export class DescribeInstanceSwitchNetworkResponseBodyVpcInfosVpcInfoVswitchInfo
   vpcId?: string;
   drdsSupported?: boolean;
   vswitchId?: string;
-  vswitchName?: string;
   azoneId?: string;
+  vswitchName?: string;
   static names(): { [key: string]: string } {
     return {
       vpcId: 'VpcId',
       drdsSupported: 'DrdsSupported',
       vswitchId: 'VswitchId',
-      vswitchName: 'VswitchName',
       azoneId: 'AzoneId',
+      vswitchName: 'VswitchName',
     };
   }
 
@@ -9515,8 +9745,8 @@ export class DescribeInstanceSwitchNetworkResponseBodyVpcInfosVpcInfoVswitchInfo
       vpcId: 'string',
       drdsSupported: 'boolean',
       vswitchId: 'string',
-      vswitchName: 'string',
       azoneId: 'string',
+      vswitchName: 'string',
     };
   }
 
@@ -9547,14 +9777,14 @@ export class DescribeInstanceSwitchNetworkResponseBodyVpcInfosVpcInfoVswitchInfo
 export class DescribeInstanceSwitchNetworkResponseBodyVpcInfosVpcInfo extends $tea.Model {
   vpcId?: string;
   vpcName?: string;
-  vswitchInfos?: DescribeInstanceSwitchNetworkResponseBodyVpcInfosVpcInfoVswitchInfos;
   regionId?: string;
+  vswitchInfos?: DescribeInstanceSwitchNetworkResponseBodyVpcInfosVpcInfoVswitchInfos;
   static names(): { [key: string]: string } {
     return {
       vpcId: 'VpcId',
       vpcName: 'VpcName',
-      vswitchInfos: 'VswitchInfos',
       regionId: 'RegionId',
+      vswitchInfos: 'VswitchInfos',
     };
   }
 
@@ -9562,8 +9792,8 @@ export class DescribeInstanceSwitchNetworkResponseBodyVpcInfosVpcInfo extends $t
     return {
       vpcId: 'string',
       vpcName: 'string',
-      vswitchInfos: DescribeInstanceSwitchNetworkResponseBodyVpcInfosVpcInfoVswitchInfos,
       regionId: 'string',
+      vswitchInfos: DescribeInstanceSwitchNetworkResponseBodyVpcInfosVpcInfoVswitchInfos,
     };
   }
 
@@ -9592,19 +9822,19 @@ export class DescribeInstanceSwitchNetworkResponseBodyVpcInfos extends $tea.Mode
 }
 
 export class DescribeInstDbLogInfoResponseBodyLogTimeRange extends $tea.Model {
-  supportLatestTime?: number;
   supportOldestTime?: number;
+  supportLatestTime?: number;
   static names(): { [key: string]: string } {
     return {
-      supportLatestTime: 'SupportLatestTime',
       supportOldestTime: 'SupportOldestTime',
+      supportLatestTime: 'SupportLatestTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      supportLatestTime: 'number',
       supportOldestTime: 'number',
+      supportLatestTime: 'number',
     };
   }
 
@@ -9637,24 +9867,24 @@ export class DescribeInstDbSlsInfoResponseBodyAuditInfo extends $tea.Model {
 
 export class DescribePreCheckResultResponseBodyPreCheckResultSubCheckItems extends $tea.Model {
   errorMsgCode?: string;
+  preCheckItemName?: string;
   state?: string;
   errorMsgParams?: string[];
-  preCheckItemName?: string;
   static names(): { [key: string]: string } {
     return {
       errorMsgCode: 'ErrorMsgCode',
+      preCheckItemName: 'PreCheckItemName',
       state: 'State',
       errorMsgParams: 'ErrorMsgParams',
-      preCheckItemName: 'PreCheckItemName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       errorMsgCode: 'string',
+      preCheckItemName: 'string',
       state: 'string',
       errorMsgParams: { 'type': 'array', 'itemType': 'string' },
-      preCheckItemName: 'string',
     };
   }
 
@@ -9664,21 +9894,21 @@ export class DescribePreCheckResultResponseBodyPreCheckResultSubCheckItems exten
 }
 
 export class DescribePreCheckResultResponseBodyPreCheckResult extends $tea.Model {
-  state?: string;
   preCheckName?: string;
+  state?: string;
   subCheckItems?: DescribePreCheckResultResponseBodyPreCheckResultSubCheckItems[];
   static names(): { [key: string]: string } {
     return {
-      state: 'State',
       preCheckName: 'PreCheckName',
+      state: 'State',
       subCheckItems: 'SubCheckItems',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      state: 'string',
       preCheckName: 'string',
+      state: 'string',
       subCheckItems: { 'type': 'array', 'itemType': DescribePreCheckResultResponseBodyPreCheckResultSubCheckItems },
     };
   }
@@ -9689,19 +9919,19 @@ export class DescribePreCheckResultResponseBodyPreCheckResult extends $tea.Model
 }
 
 export class DescribeRDSPerformanceResponseBodyDataValues extends $tea.Model {
-  value?: string;
   date?: number;
+  value?: string;
   static names(): { [key: string]: string } {
     return {
-      value: 'Value',
       date: 'Date',
+      value: 'Value',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      value: 'string',
       date: 'number',
+      value: 'string',
     };
   }
 
@@ -9714,15 +9944,15 @@ export class DescribeRDSPerformanceResponseBodyData extends $tea.Model {
   key?: string;
   nodeName?: string;
   unit?: string;
-  values?: DescribeRDSPerformanceResponseBodyDataValues[];
   nodeNum?: number;
+  values?: DescribeRDSPerformanceResponseBodyDataValues[];
   static names(): { [key: string]: string } {
     return {
       key: 'Key',
       nodeName: 'NodeName',
       unit: 'Unit',
-      values: 'Values',
       nodeNum: 'NodeNum',
+      values: 'Values',
     };
   }
 
@@ -9731,8 +9961,8 @@ export class DescribeRDSPerformanceResponseBodyData extends $tea.Model {
       key: 'string',
       nodeName: 'string',
       unit: 'string',
-      values: { 'type': 'array', 'itemType': DescribeRDSPerformanceResponseBodyDataValues },
       nodeNum: 'number',
+      values: { 'type': 'array', 'itemType': DescribeRDSPerformanceResponseBodyDataValues },
     };
   }
 
@@ -9994,15 +10224,15 @@ export class DescribeShardTaskInfoResponseBodyDataFull extends $tea.Model {
   startTime?: string;
   progress?: number;
   tps?: number;
-  expired?: number;
   total?: number;
+  expired?: number;
   static names(): { [key: string]: string } {
     return {
       startTime: 'StartTime',
       progress: 'Progress',
       tps: 'Tps',
-      expired: 'Expired',
       total: 'Total',
+      expired: 'Expired',
     };
   }
 
@@ -10011,70 +10241,8 @@ export class DescribeShardTaskInfoResponseBodyDataFull extends $tea.Model {
       startTime: 'string',
       progress: 'number',
       tps: 'number',
-      expired: 'number',
       total: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeShardTaskInfoResponseBodyDataReview extends $tea.Model {
-  startTime?: string;
-  progress?: number;
-  tps?: number;
-  expired?: number;
-  total?: number;
-  static names(): { [key: string]: string } {
-    return {
-      startTime: 'StartTime',
-      progress: 'Progress',
-      tps: 'Tps',
-      expired: 'Expired',
-      total: 'Total',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      startTime: 'string',
-      progress: 'number',
-      tps: 'number',
       expired: 'number',
-      total: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeShardTaskInfoResponseBodyDataFullRevise extends $tea.Model {
-  startTime?: string;
-  progress?: number;
-  tps?: number;
-  expired?: number;
-  total?: number;
-  static names(): { [key: string]: string } {
-    return {
-      startTime: 'StartTime',
-      progress: 'Progress',
-      tps: 'Tps',
-      expired: 'Expired',
-      total: 'Total',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      startTime: 'string',
-      progress: 'number',
-      tps: 'number',
-      expired: 'number',
-      total: 'number',
     };
   }
 
@@ -10087,15 +10255,15 @@ export class DescribeShardTaskInfoResponseBodyDataFullCheck extends $tea.Model {
   startTime?: string;
   progress?: number;
   tps?: number;
-  expired?: number;
   total?: number;
+  expired?: number;
   static names(): { [key: string]: string } {
     return {
       startTime: 'StartTime',
       progress: 'Progress',
       tps: 'Tps',
-      expired: 'Expired',
       total: 'Total',
+      expired: 'Expired',
     };
   }
 
@@ -10104,8 +10272,70 @@ export class DescribeShardTaskInfoResponseBodyDataFullCheck extends $tea.Model {
       startTime: 'string',
       progress: 'number',
       tps: 'number',
-      expired: 'number',
       total: 'number',
+      expired: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeShardTaskInfoResponseBodyDataFullRevise extends $tea.Model {
+  startTime?: string;
+  progress?: number;
+  tps?: number;
+  total?: number;
+  expired?: number;
+  static names(): { [key: string]: string } {
+    return {
+      startTime: 'StartTime',
+      progress: 'Progress',
+      tps: 'Tps',
+      total: 'Total',
+      expired: 'Expired',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      startTime: 'string',
+      progress: 'number',
+      tps: 'number',
+      total: 'number',
+      expired: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeShardTaskInfoResponseBodyDataReview extends $tea.Model {
+  startTime?: string;
+  progress?: number;
+  tps?: number;
+  total?: number;
+  expired?: number;
+  static names(): { [key: string]: string } {
+    return {
+      startTime: 'StartTime',
+      progress: 'Progress',
+      tps: 'Tps',
+      total: 'Total',
+      expired: 'Expired',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      startTime: 'string',
+      progress: 'number',
+      tps: 'number',
+      total: 'number',
+      expired: 'number',
     };
   }
 
@@ -10141,28 +10371,28 @@ export class DescribeShardTaskInfoResponseBodyDataIncrement extends $tea.Model {
 
 export class DescribeShardTaskInfoResponseBodyData extends $tea.Model {
   status?: string;
-  full?: DescribeShardTaskInfoResponseBodyDataFull;
   stage?: string;
   progress?: string;
-  review?: DescribeShardTaskInfoResponseBodyDataReview;
   expired?: string;
   targetTableName?: string;
-  fullRevise?: DescribeShardTaskInfoResponseBodyDataFullRevise;
   sourceTableName?: string;
+  full?: DescribeShardTaskInfoResponseBodyDataFull;
   fullCheck?: DescribeShardTaskInfoResponseBodyDataFullCheck;
+  fullRevise?: DescribeShardTaskInfoResponseBodyDataFullRevise;
+  review?: DescribeShardTaskInfoResponseBodyDataReview;
   increment?: DescribeShardTaskInfoResponseBodyDataIncrement;
   static names(): { [key: string]: string } {
     return {
       status: 'Status',
-      full: 'Full',
       stage: 'Stage',
       progress: 'Progress',
-      review: 'Review',
       expired: 'Expired',
       targetTableName: 'TargetTableName',
-      fullRevise: 'FullRevise',
       sourceTableName: 'SourceTableName',
+      full: 'Full',
       fullCheck: 'FullCheck',
+      fullRevise: 'FullRevise',
+      review: 'Review',
       increment: 'Increment',
     };
   }
@@ -10170,15 +10400,15 @@ export class DescribeShardTaskInfoResponseBodyData extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       status: 'string',
-      full: DescribeShardTaskInfoResponseBodyDataFull,
       stage: 'string',
       progress: 'string',
-      review: DescribeShardTaskInfoResponseBodyDataReview,
       expired: 'string',
       targetTableName: 'string',
-      fullRevise: DescribeShardTaskInfoResponseBodyDataFullRevise,
       sourceTableName: 'string',
+      full: DescribeShardTaskInfoResponseBodyDataFull,
       fullCheck: DescribeShardTaskInfoResponseBodyDataFullCheck,
+      fullRevise: DescribeShardTaskInfoResponseBodyDataFullRevise,
+      review: DescribeShardTaskInfoResponseBodyDataReview,
       increment: DescribeShardTaskInfoResponseBodyDataIncrement,
     };
   }
@@ -10228,13 +10458,13 @@ export class DescribeSqlFlashbakTaskResponseBodySqlFlashbackTasksSqlFlashbackTas
   expireTime?: number;
   downloadUrl?: string;
   recallProgress?: number;
-  instId?: string;
   sqlPk?: string;
+  instId?: string;
   recallType?: number;
-  gmtModified?: number;
   searchStartTime?: number;
-  dbName?: string;
+  gmtModified?: number;
   sqlCounter?: number;
+  dbName?: string;
   recallRestoreType?: number;
   gmtCreate?: number;
   traceId?: string;
@@ -10248,13 +10478,13 @@ export class DescribeSqlFlashbakTaskResponseBodySqlFlashbackTasksSqlFlashbackTas
       expireTime: 'ExpireTime',
       downloadUrl: 'DownloadUrl',
       recallProgress: 'RecallProgress',
-      instId: 'InstId',
       sqlPk: 'SqlPk',
+      instId: 'InstId',
       recallType: 'RecallType',
-      gmtModified: 'GmtModified',
       searchStartTime: 'SearchStartTime',
-      dbName: 'DbName',
+      gmtModified: 'GmtModified',
       sqlCounter: 'SqlCounter',
+      dbName: 'DbName',
       recallRestoreType: 'RecallRestoreType',
       gmtCreate: 'GmtCreate',
       traceId: 'TraceId',
@@ -10271,13 +10501,13 @@ export class DescribeSqlFlashbakTaskResponseBodySqlFlashbackTasksSqlFlashbackTas
       expireTime: 'number',
       downloadUrl: 'string',
       recallProgress: 'number',
-      instId: 'string',
       sqlPk: 'string',
+      instId: 'string',
       recallType: 'number',
-      gmtModified: 'number',
       searchStartTime: 'number',
-      dbName: 'string',
+      gmtModified: 'number',
       sqlCounter: 'number',
+      dbName: 'string',
       recallRestoreType: 'number',
       gmtCreate: 'number',
       traceId: 'string',
@@ -11224,6 +11454,19 @@ export default class Client extends OpenApi {
     return await this.describeDrdsParamsWithOptions(request, runtime);
   }
 
+  async describeDrdsRdsInstancesWithOptions(request: DescribeDrdsRdsInstancesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDrdsRdsInstancesResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DescribeDrdsRdsInstancesResponse>(await this.doRPCRequest("DescribeDrdsRdsInstances", "2019-01-23", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeDrdsRdsInstancesResponse({}));
+  }
+
+  async describeDrdsRdsInstances(request: DescribeDrdsRdsInstancesRequest): Promise<DescribeDrdsRdsInstancesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDrdsRdsInstancesWithOptions(request, runtime);
+  }
+
   async describeDrdsShardingDbsWithOptions(request: DescribeDrdsShardingDbsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDrdsShardingDbsResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -11976,6 +12219,19 @@ export default class Client extends OpenApi {
   async updateInstanceNetwork(request: UpdateInstanceNetworkRequest): Promise<UpdateInstanceNetworkResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateInstanceNetworkWithOptions(request, runtime);
+  }
+
+  async updatePrivateRdsClassWithOptions(request: UpdatePrivateRdsClassRequest, runtime: $Util.RuntimeOptions): Promise<UpdatePrivateRdsClassResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<UpdatePrivateRdsClassResponse>(await this.doRPCRequest("UpdatePrivateRdsClass", "2019-01-23", "HTTPS", "POST", "AK", "json", req, runtime), new UpdatePrivateRdsClassResponse({}));
+  }
+
+  async updatePrivateRdsClass(request: UpdatePrivateRdsClassRequest): Promise<UpdatePrivateRdsClassResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updatePrivateRdsClassWithOptions(request, runtime);
   }
 
   async updateResourceGroupAttributeWithOptions(request: UpdateResourceGroupAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateResourceGroupAttributeResponse> {
