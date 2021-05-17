@@ -5422,7 +5422,7 @@ export class DescribeInstallCaptchaRequest extends $tea.Model {
 }
 
 export class DescribeInstallCaptchaResponseBody extends $tea.Model {
-  deadline?: number;
+  deadline?: string;
   requestId?: string;
   captchaCode?: string;
   static names(): { [key: string]: string } {
@@ -5435,7 +5435,7 @@ export class DescribeInstallCaptchaResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      deadline: 'number',
+      deadline: 'string',
       requestId: 'string',
       captchaCode: 'string',
     };
