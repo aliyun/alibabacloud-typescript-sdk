@@ -8,189 +8,6 @@ import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
-export class DApp extends $tea.Model {
-  id?: string;
-  code?: string;
-  baseAppCode?: string;
-  containerAppCode?: string;
-  name?: string;
-  gmtCreate?: number;
-  containerDeploy?: boolean;
-  remark?: string;
-  static names(): { [key: string]: string } {
-    return {
-      id: 'Id',
-      code: 'Code',
-      baseAppCode: 'BaseAppCode',
-      containerAppCode: 'ContainerAppCode',
-      name: 'Name',
-      gmtCreate: 'GmtCreate',
-      containerDeploy: 'ContainerDeploy',
-      remark: 'Remark',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      id: 'string',
-      code: 'string',
-      baseAppCode: 'string',
-      containerAppCode: 'string',
-      name: 'string',
-      gmtCreate: 'number',
-      containerDeploy: 'boolean',
-      remark: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DAppRes extends $tea.Model {
-  id?: string;
-  code?: string;
-  name?: string;
-  type?: DPair;
-  subType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      id: 'Id',
-      code: 'Code',
-      name: 'Name',
-      type: 'Type',
-      subType: 'SubType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      id: 'string',
-      code: 'string',
-      name: 'string',
-      type: DPair,
-      subType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DPair extends $tea.Model {
-  static names(): { [key: string]: string } {
-    return {
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DDeploymentArchive extends $tea.Model {
-  id?: string;
-  name?: string;
-  version?: string;
-  appCount?: number;
-  resCount?: number;
-  gmtCreate?: number;
-  status?: DPair;
-  static names(): { [key: string]: string } {
-    return {
-      id: 'Id',
-      name: 'Name',
-      version: 'Version',
-      appCount: 'AppCount',
-      resCount: 'ResCount',
-      gmtCreate: 'GmtCreate',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      id: 'string',
-      name: 'string',
-      version: 'string',
-      appCount: 'number',
-      resCount: 'number',
-      gmtCreate: 'number',
-      status: DPair,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DAppResCount extends $tea.Model {
-  total?: number;
-  items?: DAppResCountItems[];
-  static names(): { [key: string]: string } {
-    return {
-      total: 'Total',
-      items: 'Items',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      total: 'number',
-      items: { 'type': 'array', 'itemType': DAppResCountItems },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DAppArchive extends $tea.Model {
-  id?: string;
-  version?: string;
-  appVersion?: string;
-  resCount?: number;
-  gmtCreate?: number;
-  app?: DApp;
-  status?: DPair;
-  static names(): { [key: string]: string } {
-    return {
-      id: 'Id',
-      version: 'Version',
-      appVersion: 'AppVersion',
-      resCount: 'ResCount',
-      gmtCreate: 'GmtCreate',
-      app: 'App',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      id: 'string',
-      version: 'string',
-      appVersion: 'string',
-      resCount: 'number',
-      gmtCreate: 'number',
-      app: DApp,
-      status: DPair,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class GetUserTokenRequest extends $tea.Model {
   instanceId?: string;
   userId?: string;
@@ -720,81 +537,6 @@ export class GetTagListResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: GetTagListResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDeploymentArchiveRequest extends $tea.Model {
-  deploymentArchiveId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      deploymentArchiveId: 'deploymentArchiveId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      deploymentArchiveId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDeploymentArchiveResponseBody extends $tea.Model {
-  message?: string;
-  requestId?: string;
-  httpStatusCode?: number;
-  data?: DDeploymentArchive;
-  code?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      message: 'Message',
-      requestId: 'RequestId',
-      httpStatusCode: 'HttpStatusCode',
-      data: 'Data',
-      code: 'Code',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      message: 'string',
-      requestId: 'string',
-      httpStatusCode: 'number',
-      data: DDeploymentArchive,
-      code: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDeploymentArchiveResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: GetDeploymentArchiveResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: GetDeploymentArchiveResponseBody,
     };
   }
 
@@ -3104,171 +2846,6 @@ export class SuspendHotlineServiceResponse extends $tea.Model {
   }
 }
 
-export class QueryDeploymentArchiveRequest extends $tea.Model {
-  index?: number;
-  size?: number;
-  envType?: number;
-  deploymentCode?: string;
-  static names(): { [key: string]: string } {
-    return {
-      index: 'Index',
-      size: 'Size',
-      envType: 'EnvType',
-      deploymentCode: 'DeploymentCode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      index: 'number',
-      size: 'number',
-      envType: 'number',
-      deploymentCode: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDeploymentArchiveResponseBody extends $tea.Model {
-  totalCount?: number;
-  message?: string;
-  requestId?: string;
-  httpStatusCode?: number;
-  data?: DDeploymentArchive[];
-  code?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      totalCount: 'TotalCount',
-      message: 'Message',
-      requestId: 'RequestId',
-      httpStatusCode: 'HttpStatusCode',
-      data: 'Data',
-      code: 'Code',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      totalCount: 'number',
-      message: 'string',
-      requestId: 'string',
-      httpStatusCode: 'number',
-      data: { 'type': 'array', 'itemType': DDeploymentArchive },
-      code: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDeploymentArchiveResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: QueryDeploymentArchiveResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: QueryDeploymentArchiveResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetOrgAccountRequest extends $tea.Model {
-  instanceId?: string;
-  deptCode?: string;
-  deptName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceId: 'InstanceId',
-      deptCode: 'DeptCode',
-      deptName: 'DeptName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceId: 'string',
-      deptCode: 'string',
-      deptName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetOrgAccountResponseBody extends $tea.Model {
-  requestId?: string;
-  data?: GetOrgAccountResponseBodyData[];
-  code?: Buffer;
-  message?: Buffer;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      data: 'Data',
-      code: 'Code',
-      message: 'Message',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      data: { 'type': 'array', 'itemType': GetOrgAccountResponseBodyData },
-      code: 'Buffer',
-      message: 'Buffer',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetOrgAccountResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: GetOrgAccountResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: GetOrgAccountResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class GetCallsPerDayRequest extends $tea.Model {
   instanceId?: string;
   dataIdStart?: string;
@@ -3813,6 +3390,7 @@ export class GetHotlineWaitingNumberResponseBody extends $tea.Model {
   data?: number;
   code?: string;
   success?: boolean;
+  httpStatusCode?: number;
   static names(): { [key: string]: string } {
     return {
       message: 'Message',
@@ -3820,6 +3398,7 @@ export class GetHotlineWaitingNumberResponseBody extends $tea.Model {
       data: 'Data',
       code: 'Code',
       success: 'Success',
+      httpStatusCode: 'HttpStatusCode',
     };
   }
 
@@ -3830,6 +3409,7 @@ export class GetHotlineWaitingNumberResponseBody extends $tea.Model {
       data: 'number',
       code: 'string',
       success: 'boolean',
+      httpStatusCode: 'number',
     };
   }
 
@@ -4398,6 +3978,102 @@ export class SearchTicketByPhoneResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: SearchTicketByPhoneResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateThirdSsoAgentRequest extends $tea.Model {
+  clientToken?: string;
+  instanceId?: string;
+  clientId?: string;
+  accountId?: string;
+  accountName?: string;
+  displayName?: string;
+  skillGroupIds?: number[];
+  roleIds?: number[];
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      instanceId: 'InstanceId',
+      clientId: 'ClientId',
+      accountId: 'AccountId',
+      accountName: 'AccountName',
+      displayName: 'DisplayName',
+      skillGroupIds: 'SkillGroupIds',
+      roleIds: 'RoleIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      instanceId: 'string',
+      clientId: 'string',
+      accountId: 'string',
+      accountName: 'string',
+      displayName: 'string',
+      skillGroupIds: { 'type': 'array', 'itemType': 'number' },
+      roleIds: { 'type': 'array', 'itemType': 'number' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateThirdSsoAgentResponseBody extends $tea.Model {
+  message?: string;
+  requestId?: string;
+  httpStatusCode?: number;
+  data?: number;
+  code?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      requestId: 'RequestId',
+      httpStatusCode: 'HttpStatusCode',
+      data: 'Data',
+      code: 'Code',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      requestId: 'string',
+      httpStatusCode: 'number',
+      data: 'number',
+      code: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateThirdSsoAgentResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CreateThirdSsoAgentResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CreateThirdSsoAgentResponseBody,
     };
   }
 
@@ -5478,6 +5154,8 @@ export class TransferCallToPhoneRequest extends $tea.Model {
   holdConnectionId?: string;
   type?: number;
   isSingleTransfer?: boolean;
+  callerPhone?: string;
+  calleePhone?: string;
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
@@ -5491,6 +5169,8 @@ export class TransferCallToPhoneRequest extends $tea.Model {
       holdConnectionId: 'HoldConnectionId',
       type: 'Type',
       isSingleTransfer: 'IsSingleTransfer',
+      callerPhone: 'callerPhone',
+      calleePhone: 'calleePhone',
     };
   }
 
@@ -5507,6 +5187,8 @@ export class TransferCallToPhoneRequest extends $tea.Model {
       holdConnectionId: 'string',
       type: 'number',
       isSingleTransfer: 'boolean',
+      callerPhone: 'string',
+      calleePhone: 'string',
     };
   }
 
@@ -5520,12 +5202,14 @@ export class TransferCallToPhoneResponseBody extends $tea.Model {
   requestId?: string;
   code?: string;
   success?: boolean;
+  httpStatusCode?: number;
   static names(): { [key: string]: string } {
     return {
       message: 'Message',
       requestId: 'RequestId',
       code: 'Code',
       success: 'Success',
+      httpStatusCode: 'HttpStatusCode',
     };
   }
 
@@ -5535,6 +5219,7 @@ export class TransferCallToPhoneResponseBody extends $tea.Model {
       requestId: 'string',
       code: 'string',
       success: 'boolean',
+      httpStatusCode: 'number',
     };
   }
 
@@ -5557,108 +5242,6 @@ export class TransferCallToPhoneResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: TransferCallToPhoneResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryAppResValueRequest extends $tea.Model {
-  index?: number;
-  size?: number;
-  appTaskId?: string;
-  resCode?: string;
-  resName?: string;
-  resType?: string;
-  resSubType?: string;
-  keyword?: string;
-  valueKeyword?: string;
-  static names(): { [key: string]: string } {
-    return {
-      index: 'Index',
-      size: 'Size',
-      appTaskId: 'AppTaskId',
-      resCode: 'ResCode',
-      resName: 'ResName',
-      resType: 'ResType',
-      resSubType: 'ResSubType',
-      keyword: 'Keyword',
-      valueKeyword: 'ValueKeyword',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      index: 'number',
-      size: 'number',
-      appTaskId: 'string',
-      resCode: 'string',
-      resName: 'string',
-      resType: 'string',
-      resSubType: 'string',
-      keyword: 'string',
-      valueKeyword: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryAppResValueResponseBody extends $tea.Model {
-  totalCount?: number;
-  message?: string;
-  requestId?: string;
-  httpStatusCode?: number;
-  data?: QueryAppResValueResponseBodyData[];
-  code?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      totalCount: 'TotalCount',
-      message: 'Message',
-      requestId: 'RequestId',
-      httpStatusCode: 'HttpStatusCode',
-      data: 'Data',
-      code: 'Code',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      totalCount: 'number',
-      message: 'string',
-      requestId: 'string',
-      httpStatusCode: 'number',
-      data: { 'type': 'array', 'itemType': QueryAppResValueResponseBodyData },
-      code: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryAppResValueResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: QueryAppResValueResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: QueryAppResValueResponseBody,
     };
   }
 
@@ -6456,118 +6039,6 @@ export class GetOuterCallCenterDataListResponse extends $tea.Model {
   }
 }
 
-export class CreateDeploymentTaskRequest extends $tea.Model {
-  envType?: string;
-  deploymentCode?: string;
-  deploymentArchiveId?: string;
-  appArchiveIds?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      envType: 'EnvType',
-      deploymentCode: 'DeploymentCode',
-      deploymentArchiveId: 'DeploymentArchiveId',
-      appArchiveIds: 'AppArchiveIds',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      envType: 'string',
-      deploymentCode: 'string',
-      deploymentArchiveId: 'string',
-      appArchiveIds: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateDeploymentTaskShrinkRequest extends $tea.Model {
-  envType?: string;
-  deploymentCode?: string;
-  deploymentArchiveId?: string;
-  appArchiveIdsShrink?: string;
-  static names(): { [key: string]: string } {
-    return {
-      envType: 'EnvType',
-      deploymentCode: 'DeploymentCode',
-      deploymentArchiveId: 'DeploymentArchiveId',
-      appArchiveIdsShrink: 'AppArchiveIds',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      envType: 'string',
-      deploymentCode: 'string',
-      deploymentArchiveId: 'string',
-      appArchiveIdsShrink: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateDeploymentTaskResponseBody extends $tea.Model {
-  message?: string;
-  requestId?: string;
-  httpStatusCode?: number;
-  data?: CreateDeploymentTaskResponseBodyData;
-  code?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      message: 'Message',
-      requestId: 'RequestId',
-      httpStatusCode: 'HttpStatusCode',
-      data: 'Data',
-      code: 'Code',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      message: 'string',
-      requestId: 'string',
-      httpStatusCode: 'number',
-      data: CreateDeploymentTaskResponseBodyData,
-      code: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateDeploymentTaskResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: CreateDeploymentTaskResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: CreateDeploymentTaskResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class QueryTicketsRequest extends $tea.Model {
   instanceId?: string;
   caseId?: number;
@@ -7073,87 +6544,6 @@ export class JoinThirdCallResponse extends $tea.Model {
   }
 }
 
-export class CollectDeploymentArchiveRequest extends $tea.Model {
-  envType?: number;
-  deploymentCode?: string;
-  name?: string;
-  static names(): { [key: string]: string } {
-    return {
-      envType: 'EnvType',
-      deploymentCode: 'DeploymentCode',
-      name: 'Name',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      envType: 'number',
-      deploymentCode: 'string',
-      name: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CollectDeploymentArchiveResponseBody extends $tea.Model {
-  message?: string;
-  requestId?: string;
-  httpStatusCode?: number;
-  data?: string;
-  code?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      message: 'Message',
-      requestId: 'RequestId',
-      httpStatusCode: 'HttpStatusCode',
-      data: 'Data',
-      code: 'Code',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      message: 'string',
-      requestId: 'string',
-      httpStatusCode: 'number',
-      data: 'string',
-      code: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CollectDeploymentArchiveResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: CollectDeploymentArchiveResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: CollectDeploymentArchiveResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ExecuteActivityRequest extends $tea.Model {
   clientToken?: string;
   instanceId?: string;
@@ -7269,6 +6659,7 @@ export class GetGrantedRoleIdsResponseBody extends $tea.Model {
   data?: number[];
   code?: string;
   success?: boolean;
+  httpStatusCode?: number;
   static names(): { [key: string]: string } {
     return {
       message: 'Message',
@@ -7276,6 +6667,7 @@ export class GetGrantedRoleIdsResponseBody extends $tea.Model {
       data: 'Data',
       code: 'Code',
       success: 'Success',
+      httpStatusCode: 'HttpStatusCode',
     };
   }
 
@@ -7286,6 +6678,7 @@ export class GetGrantedRoleIdsResponseBody extends $tea.Model {
       data: { 'type': 'array', 'itemType': 'number' },
       code: 'string',
       success: 'boolean',
+      httpStatusCode: 'number',
     };
   }
 
@@ -7347,6 +6740,7 @@ export class ListHotlineRecordResponseBody extends $tea.Model {
   data?: ListHotlineRecordResponseBodyData[];
   code?: string;
   success?: boolean;
+  httpStatusCode?: number;
   static names(): { [key: string]: string } {
     return {
       message: 'Message',
@@ -7354,6 +6748,7 @@ export class ListHotlineRecordResponseBody extends $tea.Model {
       data: 'Data',
       code: 'Code',
       success: 'Success',
+      httpStatusCode: 'HttpStatusCode',
     };
   }
 
@@ -7364,6 +6759,7 @@ export class ListHotlineRecordResponseBody extends $tea.Model {
       data: { 'type': 'array', 'itemType': ListHotlineRecordResponseBodyData },
       code: 'string',
       success: 'boolean',
+      httpStatusCode: 'number',
     };
   }
 
@@ -7386,81 +6782,6 @@ export class ListHotlineRecordResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: ListHotlineRecordResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAppArchivesRequest extends $tea.Model {
-  deploymentArchiveId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      deploymentArchiveId: 'DeploymentArchiveId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      deploymentArchiveId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAppArchivesResponseBody extends $tea.Model {
-  message?: string;
-  requestId?: string;
-  httpStatusCode?: number;
-  data?: DAppArchive[];
-  code?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      message: 'Message',
-      requestId: 'RequestId',
-      httpStatusCode: 'HttpStatusCode',
-      data: 'Data',
-      code: 'Code',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      message: 'string',
-      requestId: 'string',
-      httpStatusCode: 'number',
-      data: { 'type': 'array', 'itemType': DAppArchive },
-      code: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAppArchivesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: GetAppArchivesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: GetAppArchivesResponseBody,
     };
   }
 
@@ -7542,108 +6863,6 @@ export class GetNumLocationResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: GetNumLocationResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryAppResDiffRequest extends $tea.Model {
-  index?: number;
-  size?: number;
-  appTaskId?: string;
-  resCode?: string;
-  resName?: string;
-  resType?: string;
-  resSubType?: string;
-  keyword?: string;
-  diffKeyword?: string;
-  static names(): { [key: string]: string } {
-    return {
-      index: 'Index',
-      size: 'Size',
-      appTaskId: 'AppTaskId',
-      resCode: 'ResCode',
-      resName: 'ResName',
-      resType: 'ResType',
-      resSubType: 'ResSubType',
-      keyword: 'Keyword',
-      diffKeyword: 'DiffKeyword',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      index: 'number',
-      size: 'number',
-      appTaskId: 'string',
-      resCode: 'string',
-      resName: 'string',
-      resType: 'string',
-      resSubType: 'string',
-      keyword: 'string',
-      diffKeyword: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryAppResDiffResponseBody extends $tea.Model {
-  totalCount?: number;
-  message?: string;
-  requestId?: string;
-  httpStatusCode?: number;
-  data?: QueryAppResDiffResponseBodyData;
-  code?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      totalCount: 'TotalCount',
-      message: 'Message',
-      requestId: 'RequestId',
-      httpStatusCode: 'HttpStatusCode',
-      data: 'Data',
-      code: 'Code',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      totalCount: 'number',
-      message: 'string',
-      requestId: 'string',
-      httpStatusCode: 'number',
-      data: QueryAppResDiffResponseBodyData,
-      code: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryAppResDiffResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: QueryAppResDiffResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: QueryAppResDiffResponseBody,
     };
   }
 
@@ -7842,103 +7061,6 @@ export class CreateCustomerResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: CreateCustomerResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAppTasksRequest extends $tea.Model {
-  deploymentTaskId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      deploymentTaskId: 'deploymentTaskId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      deploymentTaskId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAppTasksResponseBody extends $tea.Model {
-  message?: string;
-  requestId?: string;
-  httpStatusCode?: number;
-  data?: GetAppTasksResponseBodyData[];
-  code?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      message: 'Message',
-      requestId: 'RequestId',
-      httpStatusCode: 'HttpStatusCode',
-      data: 'Data',
-      code: 'Code',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      message: 'string',
-      requestId: 'string',
-      httpStatusCode: 'number',
-      data: { 'type': 'array', 'itemType': GetAppTasksResponseBodyData },
-      code: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAppTasksResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: GetAppTasksResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: GetAppTasksResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DAppResCountItems extends $tea.Model {
-  type?: DPair;
-  count?: number;
-  static names(): { [key: string]: string } {
-    return {
-      type: 'Type',
-      count: 'Count',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      type: DPair,
-      count: 'number',
     };
   }
 
@@ -8480,162 +7602,6 @@ export class GetHotlineAgentDetailResponseBodyData extends $tea.Model {
   }
 }
 
-export class GetOrgAccountResponseBodyDataCurrentDept extends $tea.Model {
-  name?: string;
-  code?: string;
-  parentCode?: string;
-  static names(): { [key: string]: string } {
-    return {
-      name: 'Name',
-      code: 'Code',
-      parentCode: 'ParentCode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
-      code: 'string',
-      parentCode: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetOrgAccountResponseBodyDataParentDept extends $tea.Model {
-  name?: string;
-  code?: string;
-  parentCode?: string;
-  static names(): { [key: string]: string } {
-    return {
-      name: 'Name',
-      code: 'Code',
-      parentCode: 'ParentCode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
-      code: 'string',
-      parentCode: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetOrgAccountResponseBodyDataSubDept extends $tea.Model {
-  name?: string;
-  code?: string;
-  parentCode?: string;
-  static names(): { [key: string]: string } {
-    return {
-      name: 'Name',
-      code: 'Code',
-      parentCode: 'ParentCode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
-      code: 'string',
-      parentCode: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetOrgAccountResponseBodyDataAccountRoles extends $tea.Model {
-  id?: string;
-  name?: string;
-  static names(): { [key: string]: string } {
-    return {
-      id: 'Id',
-      name: 'Name',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      id: 'string',
-      name: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetOrgAccountResponseBodyDataAccount extends $tea.Model {
-  nick?: string;
-  name?: string;
-  userId?: string;
-  deptCode?: string;
-  roles?: GetOrgAccountResponseBodyDataAccountRoles[];
-  static names(): { [key: string]: string } {
-    return {
-      nick: 'Nick',
-      name: 'Name',
-      userId: 'UserId',
-      deptCode: 'DeptCode',
-      roles: 'Roles',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      nick: 'string',
-      name: 'string',
-      userId: 'string',
-      deptCode: 'string',
-      roles: { 'type': 'array', 'itemType': GetOrgAccountResponseBodyDataAccountRoles },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetOrgAccountResponseBodyData extends $tea.Model {
-  currentDept?: GetOrgAccountResponseBodyDataCurrentDept;
-  parentDept?: GetOrgAccountResponseBodyDataParentDept[];
-  subDept?: GetOrgAccountResponseBodyDataSubDept[];
-  account?: GetOrgAccountResponseBodyDataAccount[];
-  static names(): { [key: string]: string } {
-    return {
-      currentDept: 'CurrentDept',
-      parentDept: 'ParentDept',
-      subDept: 'SubDept',
-      account: 'Account',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      currentDept: GetOrgAccountResponseBodyDataCurrentDept,
-      parentDept: { 'type': 'array', 'itemType': GetOrgAccountResponseBodyDataParentDept },
-      subDept: { 'type': 'array', 'itemType': GetOrgAccountResponseBodyDataSubDept },
-      account: { 'type': 'array', 'itemType': GetOrgAccountResponseBodyDataAccount },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class GetCallsPerDayResponseBodyDataCallsPerdayResponseList extends $tea.Model {
   dataId?: string;
   hourId?: string;
@@ -9139,31 +8105,6 @@ export class GetAuthInfoResponseBodyData extends $tea.Model {
   }
 }
 
-export class QueryAppResValueResponseBodyData extends $tea.Model {
-  id?: string;
-  res?: DAppRes;
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      id: 'Id',
-      res: 'Res',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      id: 'string',
-      res: DAppRes,
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class QuerySkillGroupsResponseBodyData extends $tea.Model {
   displayName?: string;
   description?: string;
@@ -9321,37 +8262,6 @@ export class GetOuterCallCenterDataListResponseBodyData extends $tea.Model {
   }
 }
 
-export class CreateDeploymentTaskResponseBodyData extends $tea.Model {
-  id?: string;
-  name?: string;
-  gmtCreate?: number;
-  deploymentArchive?: DDeploymentArchive;
-  status?: DPair;
-  static names(): { [key: string]: string } {
-    return {
-      id: 'Id',
-      name: 'Name',
-      gmtCreate: 'GmtCreate',
-      deploymentArchive: 'DeploymentArchive',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      id: 'string',
-      name: 'string',
-      gmtCreate: 'number',
-      deploymentArchive: DDeploymentArchive,
-      status: DPair,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ListHotlineRecordResponseBodyData extends $tea.Model {
   endTime?: boolean;
   startTime?: boolean;
@@ -9375,161 +8285,6 @@ export class ListHotlineRecordResponseBodyData extends $tea.Model {
       connectionId: 'string',
       callId: 'string',
       url: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryAppResDiffResponseBodyDataHead extends $tea.Model {
-  key?: string;
-  title?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      title: 'Title',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      title: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryAppResDiffResponseBodyDataDataRow extends $tea.Model {
-  key?: string;
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryAppResDiffResponseBodyDataData extends $tea.Model {
-  id?: string;
-  value?: string;
-  filteredValue?: string;
-  baseValue?: string;
-  baseFilteredValue?: string;
-  type?: DPair;
-  status?: DPair;
-  res?: DAppRes;
-  row?: QueryAppResDiffResponseBodyDataDataRow[];
-  static names(): { [key: string]: string } {
-    return {
-      id: 'Id',
-      value: 'Value',
-      filteredValue: 'FilteredValue',
-      baseValue: 'BaseValue',
-      baseFilteredValue: 'BaseFilteredValue',
-      type: 'Type',
-      status: 'status',
-      res: 'Res',
-      row: 'Row',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      id: 'string',
-      value: 'string',
-      filteredValue: 'string',
-      baseValue: 'string',
-      baseFilteredValue: 'string',
-      type: DPair,
-      status: DPair,
-      res: DAppRes,
-      row: { 'type': 'array', 'itemType': QueryAppResDiffResponseBodyDataDataRow },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryAppResDiffResponseBodyData extends $tea.Model {
-  resCount?: DAppResCount;
-  head?: QueryAppResDiffResponseBodyDataHead[];
-  data?: QueryAppResDiffResponseBodyDataData[];
-  static names(): { [key: string]: string } {
-    return {
-      resCount: 'ResCount',
-      head: 'Head',
-      data: 'Data',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      resCount: DAppResCount,
-      head: { 'type': 'array', 'itemType': QueryAppResDiffResponseBodyDataHead },
-      data: { 'type': 'array', 'itemType': QueryAppResDiffResponseBodyDataData },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAppTasksResponseBodyData extends $tea.Model {
-  id?: string;
-  name?: string;
-  gmtCreate?: number;
-  gmtModified?: number;
-  appArchive?: DAppArchive;
-  baseAppArchive?: DAppArchive;
-  status?: DPair;
-  resCount?: DAppResCount;
-  pendingResCount?: DAppResCount;
-  static names(): { [key: string]: string } {
-    return {
-      id: 'Id',
-      name: 'Name',
-      gmtCreate: 'GmtCreate',
-      gmtModified: 'GmtModified',
-      appArchive: 'AppArchive',
-      baseAppArchive: 'BaseAppArchive',
-      status: 'Status',
-      resCount: 'ResCount',
-      pendingResCount: 'PendingResCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      id: 'string',
-      name: 'string',
-      gmtCreate: 'number',
-      gmtModified: 'number',
-      appArchive: DAppArchive,
-      baseAppArchive: DAppArchive,
-      status: DPair,
-      resCount: DAppResCount,
-      pendingResCount: DAppResCount,
     };
   }
 
@@ -9641,20 +8396,6 @@ export default class Client extends OpenApi {
   async getTagList(request: GetTagListRequest): Promise<GetTagListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getTagListWithOptions(request, runtime);
-  }
-
-  async getDeploymentArchiveWithOptions(request: GetDeploymentArchiveRequest, runtime: $Util.RuntimeOptions): Promise<GetDeploymentArchiveResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
-      query: query,
-    });
-    return $tea.cast<GetDeploymentArchiveResponse>(await this.doRPCRequest("GetDeploymentArchive", "2020-07-02", "HTTPS", "GET", "AK", "json", req, runtime), new GetDeploymentArchiveResponse({}));
-  }
-
-  async getDeploymentArchive(request: GetDeploymentArchiveRequest): Promise<GetDeploymentArchiveResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getDeploymentArchiveWithOptions(request, runtime);
   }
 
   async updateTicketWithOptions(request: UpdateTicketRequest, runtime: $Util.RuntimeOptions): Promise<UpdateTicketResponse> {
@@ -10012,33 +8753,6 @@ export default class Client extends OpenApi {
     return await this.suspendHotlineServiceWithOptions(request, runtime);
   }
 
-  async queryDeploymentArchiveWithOptions(request: QueryDeploymentArchiveRequest, runtime: $Util.RuntimeOptions): Promise<QueryDeploymentArchiveResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
-      query: query,
-    });
-    return $tea.cast<QueryDeploymentArchiveResponse>(await this.doRPCRequest("QueryDeploymentArchive", "2020-07-02", "HTTPS", "GET", "AK", "json", req, runtime), new QueryDeploymentArchiveResponse({}));
-  }
-
-  async queryDeploymentArchive(request: QueryDeploymentArchiveRequest): Promise<QueryDeploymentArchiveResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.queryDeploymentArchiveWithOptions(request, runtime);
-  }
-
-  async getOrgAccountWithOptions(request: GetOrgAccountRequest, runtime: $Util.RuntimeOptions): Promise<GetOrgAccountResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<GetOrgAccountResponse>(await this.doRPCRequest("GetOrgAccount", "2020-07-02", "HTTPS", "POST", "AK", "json", req, runtime), new GetOrgAccountResponse({}));
-  }
-
-  async getOrgAccount(request: GetOrgAccountRequest): Promise<GetOrgAccountResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getOrgAccountWithOptions(request, runtime);
-  }
-
   async getCallsPerDayWithOptions(request: GetCallsPerDayRequest, runtime: $Util.RuntimeOptions): Promise<GetCallsPerDayResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -10209,6 +8923,19 @@ export default class Client extends OpenApi {
   async searchTicketByPhone(request: SearchTicketByPhoneRequest): Promise<SearchTicketByPhoneResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.searchTicketByPhoneWithOptions(request, runtime);
+  }
+
+  async createThirdSsoAgentWithOptions(request: CreateThirdSsoAgentRequest, runtime: $Util.RuntimeOptions): Promise<CreateThirdSsoAgentResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<CreateThirdSsoAgentResponse>(await this.doRPCRequest("CreateThirdSsoAgent", "2020-07-02", "HTTPS", "POST", "AK", "json", req, runtime), new CreateThirdSsoAgentResponse({}));
+  }
+
+  async createThirdSsoAgent(request: CreateThirdSsoAgentRequest): Promise<CreateThirdSsoAgentResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createThirdSsoAgentWithOptions(request, runtime);
   }
 
   async createEntityIvrRouteWithOptions(request: CreateEntityIvrRouteRequest, runtime: $Util.RuntimeOptions): Promise<CreateEntityIvrRouteResponse> {
@@ -10393,20 +9120,6 @@ export default class Client extends OpenApi {
     return await this.transferCallToPhoneWithOptions(request, runtime);
   }
 
-  async queryAppResValueWithOptions(request: QueryAppResValueRequest, runtime: $Util.RuntimeOptions): Promise<QueryAppResValueResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
-      query: query,
-    });
-    return $tea.cast<QueryAppResValueResponse>(await this.doRPCRequest("QueryAppResValue", "2020-07-02", "HTTPS", "GET", "AK", "json", req, runtime), new QueryAppResValueResponse({}));
-  }
-
-  async queryAppResValue(request: QueryAppResValueRequest): Promise<QueryAppResValueResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.queryAppResValueWithOptions(request, runtime);
-  }
-
   async querySkillGroupsWithOptions(request: QuerySkillGroupsRequest, runtime: $Util.RuntimeOptions): Promise<QuerySkillGroupsResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -10525,26 +9238,6 @@ export default class Client extends OpenApi {
     return await this.getOuterCallCenterDataListWithOptions(request, runtime);
   }
 
-  async createDeploymentTaskWithOptions(tmpReq: CreateDeploymentTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateDeploymentTaskResponse> {
-    Util.validateModel(tmpReq);
-    let request = new CreateDeploymentTaskShrinkRequest({ });
-    OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.appArchiveIds)) {
-      request.appArchiveIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.appArchiveIds, "AppArchiveIds", "simple");
-    }
-
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
-      query: query,
-    });
-    return $tea.cast<CreateDeploymentTaskResponse>(await this.doRPCRequest("CreateDeploymentTask", "2020-07-02", "HTTPS", "GET", "AK", "json", req, runtime), new CreateDeploymentTaskResponse({}));
-  }
-
-  async createDeploymentTask(request: CreateDeploymentTaskRequest): Promise<CreateDeploymentTaskResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.createDeploymentTaskWithOptions(request, runtime);
-  }
-
   async queryTicketsWithOptions(tmpReq: QueryTicketsRequest, runtime: $Util.RuntimeOptions): Promise<QueryTicketsResponse> {
     Util.validateModel(tmpReq);
     let request = new QueryTicketsShrinkRequest({ });
@@ -10616,20 +9309,6 @@ export default class Client extends OpenApi {
     return await this.joinThirdCallWithOptions(request, runtime);
   }
 
-  async collectDeploymentArchiveWithOptions(request: CollectDeploymentArchiveRequest, runtime: $Util.RuntimeOptions): Promise<CollectDeploymentArchiveResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
-      query: query,
-    });
-    return $tea.cast<CollectDeploymentArchiveResponse>(await this.doRPCRequest("CollectDeploymentArchive", "2020-07-02", "HTTPS", "GET", "AK", "json", req, runtime), new CollectDeploymentArchiveResponse({}));
-  }
-
-  async collectDeploymentArchive(request: CollectDeploymentArchiveRequest): Promise<CollectDeploymentArchiveResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.collectDeploymentArchiveWithOptions(request, runtime);
-  }
-
   async executeActivityWithOptions(request: ExecuteActivityRequest, runtime: $Util.RuntimeOptions): Promise<ExecuteActivityResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -10671,20 +9350,6 @@ export default class Client extends OpenApi {
     return await this.listHotlineRecordWithOptions(request, runtime);
   }
 
-  async getAppArchivesWithOptions(request: GetAppArchivesRequest, runtime: $Util.RuntimeOptions): Promise<GetAppArchivesResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
-      query: query,
-    });
-    return $tea.cast<GetAppArchivesResponse>(await this.doRPCRequest("GetAppArchives", "2020-07-02", "HTTPS", "GET", "AK", "json", req, runtime), new GetAppArchivesResponse({}));
-  }
-
-  async getAppArchives(request: GetAppArchivesRequest): Promise<GetAppArchivesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getAppArchivesWithOptions(request, runtime);
-  }
-
   async getNumLocationWithOptions(request: GetNumLocationRequest, runtime: $Util.RuntimeOptions): Promise<GetNumLocationResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -10697,20 +9362,6 @@ export default class Client extends OpenApi {
   async getNumLocation(request: GetNumLocationRequest): Promise<GetNumLocationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getNumLocationWithOptions(request, runtime);
-  }
-
-  async queryAppResDiffWithOptions(request: QueryAppResDiffRequest, runtime: $Util.RuntimeOptions): Promise<QueryAppResDiffResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
-      query: query,
-    });
-    return $tea.cast<QueryAppResDiffResponse>(await this.doRPCRequest("QueryAppResDiff", "2020-07-02", "HTTPS", "GET", "AK", "json", req, runtime), new QueryAppResDiffResponse({}));
-  }
-
-  async queryAppResDiff(request: QueryAppResDiffRequest): Promise<QueryAppResDiffResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.queryAppResDiffWithOptions(request, runtime);
   }
 
   async createSkillGroupWithOptions(request: CreateSkillGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateSkillGroupResponse> {
@@ -10737,20 +9388,6 @@ export default class Client extends OpenApi {
   async createCustomer(request: CreateCustomerRequest): Promise<CreateCustomerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createCustomerWithOptions(request, runtime);
-  }
-
-  async getAppTasksWithOptions(request: GetAppTasksRequest, runtime: $Util.RuntimeOptions): Promise<GetAppTasksResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
-      query: query,
-    });
-    return $tea.cast<GetAppTasksResponse>(await this.doRPCRequest("GetAppTasks", "2020-07-02", "HTTPS", "GET", "AK", "json", req, runtime), new GetAppTasksResponse({}));
-  }
-
-  async getAppTasks(request: GetAppTasksRequest): Promise<GetAppTasksResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getAppTasksWithOptions(request, runtime);
   }
 
 }
