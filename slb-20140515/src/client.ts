@@ -12,8 +12,6 @@ export class AddAccessControlListEntryRequest extends $tea.Model {
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   ownerAccount?: string;
-  accessKeyId?: string;
-  tags?: string;
   regionId?: string;
   aclId?: string;
   aclEntrys?: string;
@@ -23,8 +21,6 @@ export class AddAccessControlListEntryRequest extends $tea.Model {
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       ownerAccount: 'OwnerAccount',
-      accessKeyId: 'access_key_id',
-      tags: 'Tags',
       regionId: 'RegionId',
       aclId: 'AclId',
       aclEntrys: 'AclEntrys',
@@ -37,8 +33,6 @@ export class AddAccessControlListEntryRequest extends $tea.Model {
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       ownerAccount: 'string',
-      accessKeyId: 'string',
-      tags: 'string',
       regionId: 'string',
       aclId: 'string',
       aclEntrys: 'string',
@@ -99,8 +93,6 @@ export class AddBackendServersRequest extends $tea.Model {
   loadBalancerId?: string;
   backendServers?: string;
   ownerAccount?: string;
-  accessKeyId?: string;
-  tags?: string;
   static names(): { [key: string]: string } {
     return {
       regionId: 'RegionId',
@@ -110,8 +102,6 @@ export class AddBackendServersRequest extends $tea.Model {
       loadBalancerId: 'LoadBalancerId',
       backendServers: 'BackendServers',
       ownerAccount: 'OwnerAccount',
-      accessKeyId: 'access_key_id',
-      tags: 'Tags',
     };
   }
 
@@ -124,8 +114,6 @@ export class AddBackendServersRequest extends $tea.Model {
       loadBalancerId: 'string',
       backendServers: 'string',
       ownerAccount: 'string',
-      accessKeyId: 'string',
-      tags: 'string',
     };
   }
 
@@ -135,21 +123,21 @@ export class AddBackendServersRequest extends $tea.Model {
 }
 
 export class AddBackendServersResponseBody extends $tea.Model {
-  requestId?: string;
   loadBalancerId?: string;
+  requestId?: string;
   backendServers?: AddBackendServersResponseBodyBackendServers;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       loadBalancerId: 'LoadBalancerId',
+      requestId: 'RequestId',
       backendServers: 'BackendServers',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       loadBalancerId: 'string',
+      requestId: 'string',
       backendServers: AddBackendServersResponseBodyBackendServers,
     };
   }
@@ -190,9 +178,7 @@ export class AddListenerWhiteListItemRequest extends $tea.Model {
   listenerPort?: number;
   sourceItems?: string;
   ownerAccount?: string;
-  accessKeyId?: string;
   listenerProtocol?: string;
-  tags?: string;
   static names(): { [key: string]: string } {
     return {
       regionId: 'RegionId',
@@ -203,9 +189,7 @@ export class AddListenerWhiteListItemRequest extends $tea.Model {
       listenerPort: 'ListenerPort',
       sourceItems: 'SourceItems',
       ownerAccount: 'OwnerAccount',
-      accessKeyId: 'access_key_id',
       listenerProtocol: 'ListenerProtocol',
-      tags: 'Tags',
     };
   }
 
@@ -219,9 +203,7 @@ export class AddListenerWhiteListItemRequest extends $tea.Model {
       listenerPort: 'number',
       sourceItems: 'string',
       ownerAccount: 'string',
-      accessKeyId: 'string',
       listenerProtocol: 'string',
-      tags: 'string',
     };
   }
 
@@ -276,7 +258,6 @@ export class AddTagsRequest extends $tea.Model {
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   ownerAccount?: string;
-  accessKeyId?: string;
   regionId?: string;
   loadBalancerId?: string;
   tags?: string;
@@ -286,7 +267,6 @@ export class AddTagsRequest extends $tea.Model {
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       ownerAccount: 'OwnerAccount',
-      accessKeyId: 'access_key_id',
       regionId: 'RegionId',
       loadBalancerId: 'LoadBalancerId',
       tags: 'Tags',
@@ -299,7 +279,6 @@ export class AddTagsRequest extends $tea.Model {
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       ownerAccount: 'string',
-      accessKeyId: 'string',
       regionId: 'string',
       loadBalancerId: 'string',
       tags: 'string',
@@ -358,8 +337,6 @@ export class AddVServerGroupBackendServersRequest extends $tea.Model {
   resourceOwnerId?: number;
   regionId?: string;
   ownerAccount?: string;
-  accessKeyId?: string;
-  tags?: string;
   VServerGroupId?: string;
   backendServers?: string;
   static names(): { [key: string]: string } {
@@ -369,8 +346,6 @@ export class AddVServerGroupBackendServersRequest extends $tea.Model {
       resourceOwnerId: 'ResourceOwnerId',
       regionId: 'RegionId',
       ownerAccount: 'OwnerAccount',
-      accessKeyId: 'access_key_id',
-      tags: 'Tags',
       VServerGroupId: 'VServerGroupId',
       backendServers: 'BackendServers',
     };
@@ -383,8 +358,6 @@ export class AddVServerGroupBackendServersRequest extends $tea.Model {
       resourceOwnerId: 'number',
       regionId: 'string',
       ownerAccount: 'string',
-      accessKeyId: 'string',
-      tags: 'string',
       VServerGroupId: 'string',
       backendServers: 'string',
     };
@@ -447,8 +420,6 @@ export class CreateAccessControlListRequest extends $tea.Model {
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   ownerAccount?: string;
-  accessKeyId?: string;
-  tags?: string;
   regionId?: string;
   aclName?: string;
   addressIPVersion?: string;
@@ -459,8 +430,6 @@ export class CreateAccessControlListRequest extends $tea.Model {
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       ownerAccount: 'OwnerAccount',
-      accessKeyId: 'access_key_id',
-      tags: 'Tags',
       regionId: 'RegionId',
       aclName: 'AclName',
       addressIPVersion: 'AddressIPVersion',
@@ -474,8 +443,6 @@ export class CreateAccessControlListRequest extends $tea.Model {
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       ownerAccount: 'string',
-      accessKeyId: 'string',
-      tags: 'string',
       regionId: 'string',
       aclName: 'string',
       addressIPVersion: 'string',
@@ -489,19 +456,19 @@ export class CreateAccessControlListRequest extends $tea.Model {
 }
 
 export class CreateAccessControlListResponseBody extends $tea.Model {
-  requestId?: string;
   aclId?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       aclId: 'AclId',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       aclId: 'string',
+      requestId: 'string',
     };
   }
 
@@ -538,14 +505,10 @@ export class CreateDomainExtensionRequest extends $tea.Model {
   resourceOwnerId?: number;
   regionId?: string;
   ownerAccount?: string;
-  accessKeyId?: string;
-  tags?: string;
   loadBalancerId?: string;
   listenerPort?: number;
   domain?: string;
   serverCertificateId?: string;
-  certificateId?: string[];
-  serverCertificate?: CreateDomainExtensionRequestServerCertificate[];
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
@@ -553,14 +516,10 @@ export class CreateDomainExtensionRequest extends $tea.Model {
       resourceOwnerId: 'ResourceOwnerId',
       regionId: 'RegionId',
       ownerAccount: 'OwnerAccount',
-      accessKeyId: 'access_key_id',
-      tags: 'Tags',
       loadBalancerId: 'LoadBalancerId',
       listenerPort: 'ListenerPort',
       domain: 'Domain',
       serverCertificateId: 'ServerCertificateId',
-      certificateId: 'CertificateId',
-      serverCertificate: 'ServerCertificate',
     };
   }
 
@@ -571,14 +530,10 @@ export class CreateDomainExtensionRequest extends $tea.Model {
       resourceOwnerId: 'number',
       regionId: 'string',
       ownerAccount: 'string',
-      accessKeyId: 'string',
-      tags: 'string',
       loadBalancerId: 'string',
       listenerPort: 'number',
       domain: 'string',
       serverCertificateId: 'string',
-      certificateId: { 'type': 'array', 'itemType': 'string' },
-      serverCertificate: { 'type': 'array', 'itemType': CreateDomainExtensionRequestServerCertificate },
     };
   }
 
@@ -589,21 +544,21 @@ export class CreateDomainExtensionRequest extends $tea.Model {
 
 export class CreateDomainExtensionResponseBody extends $tea.Model {
   listenerPort?: number;
-  domainExtensionId?: string;
   requestId?: string;
+  domainExtensionId?: string;
   static names(): { [key: string]: string } {
     return {
       listenerPort: 'ListenerPort',
-      domainExtensionId: 'DomainExtensionId',
       requestId: 'RequestId',
+      domainExtensionId: 'DomainExtensionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       listenerPort: 'number',
-      domainExtensionId: 'string',
       requestId: 'string',
+      domainExtensionId: 'string',
     };
   }
 
@@ -649,9 +604,6 @@ export class CreateLoadBalancerRequest extends $tea.Model {
   ownerAccount?: string;
   masterZoneId?: string;
   slaveZoneId?: string;
-  accessKeyId?: string;
-  tags?: string;
-  enableVpcVipFlow?: string;
   loadBalancerSpec?: string;
   resourceGroupId?: string;
   payType?: string;
@@ -660,10 +612,7 @@ export class CreateLoadBalancerRequest extends $tea.Model {
   autoPay?: boolean;
   addressIPVersion?: string;
   address?: string;
-  ratio?: number;
   deleteProtection?: string;
-  cloudType?: string;
-  supportPrivateLink?: boolean;
   modificationProtectionStatus?: string;
   modificationProtectionReason?: string;
   static names(): { [key: string]: string } {
@@ -682,9 +631,6 @@ export class CreateLoadBalancerRequest extends $tea.Model {
       ownerAccount: 'OwnerAccount',
       masterZoneId: 'MasterZoneId',
       slaveZoneId: 'SlaveZoneId',
-      accessKeyId: 'access_key_id',
-      tags: 'Tags',
-      enableVpcVipFlow: 'EnableVpcVipFlow',
       loadBalancerSpec: 'LoadBalancerSpec',
       resourceGroupId: 'ResourceGroupId',
       payType: 'PayType',
@@ -693,10 +639,7 @@ export class CreateLoadBalancerRequest extends $tea.Model {
       autoPay: 'AutoPay',
       addressIPVersion: 'AddressIPVersion',
       address: 'Address',
-      ratio: 'Ratio',
       deleteProtection: 'DeleteProtection',
-      cloudType: 'CloudType',
-      supportPrivateLink: 'SupportPrivateLink',
       modificationProtectionStatus: 'ModificationProtectionStatus',
       modificationProtectionReason: 'ModificationProtectionReason',
     };
@@ -718,9 +661,6 @@ export class CreateLoadBalancerRequest extends $tea.Model {
       ownerAccount: 'string',
       masterZoneId: 'string',
       slaveZoneId: 'string',
-      accessKeyId: 'string',
-      tags: 'string',
-      enableVpcVipFlow: 'string',
       loadBalancerSpec: 'string',
       resourceGroupId: 'string',
       payType: 'string',
@@ -729,10 +669,7 @@ export class CreateLoadBalancerRequest extends $tea.Model {
       autoPay: 'boolean',
       addressIPVersion: 'string',
       address: 'string',
-      ratio: 'number',
       deleteProtection: 'string',
-      cloudType: 'string',
-      supportPrivateLink: 'boolean',
       modificationProtectionStatus: 'string',
       modificationProtectionReason: 'string',
     };
@@ -744,42 +681,42 @@ export class CreateLoadBalancerRequest extends $tea.Model {
 }
 
 export class CreateLoadBalancerResponseBody extends $tea.Model {
-  loadBalancerName?: string;
   vpcId?: string;
+  addressIPVersion?: string;
+  vSwitchId?: string;
   requestId?: string;
+  loadBalancerName?: string;
+  loadBalancerId?: string;
   resourceGroupId?: string;
   address?: string;
   networkType?: string;
-  addressIPVersion?: string;
-  vSwitchId?: string;
-  loadBalancerId?: string;
   orderId?: number;
   static names(): { [key: string]: string } {
     return {
-      loadBalancerName: 'LoadBalancerName',
       vpcId: 'VpcId',
+      addressIPVersion: 'AddressIPVersion',
+      vSwitchId: 'VSwitchId',
       requestId: 'RequestId',
+      loadBalancerName: 'LoadBalancerName',
+      loadBalancerId: 'LoadBalancerId',
       resourceGroupId: 'ResourceGroupId',
       address: 'Address',
       networkType: 'NetworkType',
-      addressIPVersion: 'AddressIPVersion',
-      vSwitchId: 'VSwitchId',
-      loadBalancerId: 'LoadBalancerId',
       orderId: 'OrderId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      loadBalancerName: 'string',
       vpcId: 'string',
+      addressIPVersion: 'string',
+      vSwitchId: 'string',
       requestId: 'string',
+      loadBalancerName: 'string',
+      loadBalancerId: 'string',
       resourceGroupId: 'string',
       address: 'string',
       networkType: 'string',
-      addressIPVersion: 'string',
-      vSwitchId: 'string',
-      loadBalancerId: 'string',
       orderId: 'number',
     };
   }
@@ -827,9 +764,6 @@ export class CreateLoadBalancerHTTPListenerRequest extends $tea.Model {
   cookieTimeout?: number;
   cookie?: string;
   healthCheck?: string;
-  healthCheckType?: string;
-  healthCheckMethod?: string;
-  healthCheckHttpVersion?: string;
   healthCheckDomain?: string;
   healthCheckURI?: string;
   healthyThreshold?: number;
@@ -838,11 +772,8 @@ export class CreateLoadBalancerHTTPListenerRequest extends $tea.Model {
   healthCheckConnectPort?: number;
   healthCheckInterval?: number;
   healthCheckHttpCode?: string;
-  maxConnection?: number;
   ownerAccount?: string;
-  accessKeyId?: string;
   VServerGroupId?: string;
-  tags?: string;
   XForwardedFor_SLBIP?: string;
   XForwardedFor_SLBID?: string;
   XForwardedFor_proto?: string;
@@ -850,15 +781,11 @@ export class CreateLoadBalancerHTTPListenerRequest extends $tea.Model {
   aclId?: string;
   aclType?: string;
   aclStatus?: string;
-  vpcIds?: string;
   description?: string;
   listenerForward?: string;
   forwardPort?: number;
   idleTimeout?: number;
   requestTimeout?: number;
-  XForwardedFor_SLBPORT?: string;
-  XForwardedFor_ClientSrcPort?: string;
-  forwardCode?: number;
   static names(): { [key: string]: string } {
     return {
       regionId: 'RegionId',
@@ -876,9 +803,6 @@ export class CreateLoadBalancerHTTPListenerRequest extends $tea.Model {
       cookieTimeout: 'CookieTimeout',
       cookie: 'Cookie',
       healthCheck: 'HealthCheck',
-      healthCheckType: 'HealthCheckType',
-      healthCheckMethod: 'HealthCheckMethod',
-      healthCheckHttpVersion: 'HealthCheckHttpVersion',
       healthCheckDomain: 'HealthCheckDomain',
       healthCheckURI: 'HealthCheckURI',
       healthyThreshold: 'HealthyThreshold',
@@ -887,11 +811,8 @@ export class CreateLoadBalancerHTTPListenerRequest extends $tea.Model {
       healthCheckConnectPort: 'HealthCheckConnectPort',
       healthCheckInterval: 'HealthCheckInterval',
       healthCheckHttpCode: 'HealthCheckHttpCode',
-      maxConnection: 'MaxConnection',
       ownerAccount: 'OwnerAccount',
-      accessKeyId: 'access_key_id',
       VServerGroupId: 'VServerGroupId',
-      tags: 'Tags',
       XForwardedFor_SLBIP: 'XForwardedFor_SLBIP',
       XForwardedFor_SLBID: 'XForwardedFor_SLBID',
       XForwardedFor_proto: 'XForwardedFor_proto',
@@ -899,15 +820,11 @@ export class CreateLoadBalancerHTTPListenerRequest extends $tea.Model {
       aclId: 'AclId',
       aclType: 'AclType',
       aclStatus: 'AclStatus',
-      vpcIds: 'VpcIds',
       description: 'Description',
       listenerForward: 'ListenerForward',
       forwardPort: 'ForwardPort',
       idleTimeout: 'IdleTimeout',
       requestTimeout: 'RequestTimeout',
-      XForwardedFor_SLBPORT: 'XForwardedFor_SLBPORT',
-      XForwardedFor_ClientSrcPort: 'XForwardedFor_ClientSrcPort',
-      forwardCode: 'ForwardCode',
     };
   }
 
@@ -928,9 +845,6 @@ export class CreateLoadBalancerHTTPListenerRequest extends $tea.Model {
       cookieTimeout: 'number',
       cookie: 'string',
       healthCheck: 'string',
-      healthCheckType: 'string',
-      healthCheckMethod: 'string',
-      healthCheckHttpVersion: 'string',
       healthCheckDomain: 'string',
       healthCheckURI: 'string',
       healthyThreshold: 'number',
@@ -939,11 +853,8 @@ export class CreateLoadBalancerHTTPListenerRequest extends $tea.Model {
       healthCheckConnectPort: 'number',
       healthCheckInterval: 'number',
       healthCheckHttpCode: 'string',
-      maxConnection: 'number',
       ownerAccount: 'string',
-      accessKeyId: 'string',
       VServerGroupId: 'string',
-      tags: 'string',
       XForwardedFor_SLBIP: 'string',
       XForwardedFor_SLBID: 'string',
       XForwardedFor_proto: 'string',
@@ -951,15 +862,11 @@ export class CreateLoadBalancerHTTPListenerRequest extends $tea.Model {
       aclId: 'string',
       aclType: 'string',
       aclStatus: 'string',
-      vpcIds: 'string',
       description: 'string',
       listenerForward: 'string',
       forwardPort: 'number',
       idleTimeout: 'number',
       requestTimeout: 'number',
-      XForwardedFor_SLBPORT: 'string',
-      XForwardedFor_ClientSrcPort: 'string',
-      forwardCode: 'number',
     };
   }
 
@@ -1018,7 +925,6 @@ export class CreateLoadBalancerHTTPSListenerRequest extends $tea.Model {
   bandwidth?: number;
   listenerPort?: number;
   backendServerPort?: number;
-  backendProtocol?: string;
   XForwardedFor?: string;
   scheduler?: string;
   stickySession?: string;
@@ -1026,9 +932,6 @@ export class CreateLoadBalancerHTTPSListenerRequest extends $tea.Model {
   cookieTimeout?: number;
   cookie?: string;
   healthCheck?: string;
-  healthCheckType?: string;
-  healthCheckMethod?: string;
-  healthCheckHttpVersion?: string;
   healthCheckDomain?: string;
   healthCheckURI?: string;
   healthyThreshold?: number;
@@ -1038,12 +941,9 @@ export class CreateLoadBalancerHTTPSListenerRequest extends $tea.Model {
   healthCheckInterval?: number;
   healthCheckHttpCode?: string;
   serverCertificateId?: string;
-  maxConnection?: number;
   ownerAccount?: string;
-  accessKeyId?: string;
   VServerGroupId?: string;
   CACertificateId?: string;
-  tags?: string;
   XForwardedFor_SLBIP?: string;
   XForwardedFor_SLBID?: string;
   XForwardedFor_proto?: string;
@@ -1051,23 +951,11 @@ export class CreateLoadBalancerHTTPSListenerRequest extends $tea.Model {
   aclId?: string;
   aclType?: string;
   aclStatus?: string;
-  vpcIds?: string;
   description?: string;
   idleTimeout?: number;
   requestTimeout?: number;
   enableHttp2?: string;
   TLSCipherPolicy?: string;
-  XForwardedFor_SLBPORT?: string;
-  XForwardedFor_ClientSrcPort?: string;
-  XForwardedFor_ClientCertSubjectDN?: string;
-  XForwardedFor_ClientCertIssuerDN?: string;
-  XForwardedFor_ClientCertFingerprint?: string;
-  XForwardedFor_ClientCertClientVerify?: string;
-  XForwardedFor_ClientCertIssuerDNAlias?: string;
-  XForwardedFor_ClientCertSubjectDNAlias?: string;
-  XForwardedFor_ClientCertFingerprintAlias?: string;
-  XForwardedFor_ClientCertClientVerifyAlias?: string;
-  serverCertificate?: CreateLoadBalancerHTTPSListenerRequestServerCertificate[];
   static names(): { [key: string]: string } {
     return {
       regionId: 'RegionId',
@@ -1078,7 +966,6 @@ export class CreateLoadBalancerHTTPSListenerRequest extends $tea.Model {
       bandwidth: 'Bandwidth',
       listenerPort: 'ListenerPort',
       backendServerPort: 'BackendServerPort',
-      backendProtocol: 'BackendProtocol',
       XForwardedFor: 'XForwardedFor',
       scheduler: 'Scheduler',
       stickySession: 'StickySession',
@@ -1086,9 +973,6 @@ export class CreateLoadBalancerHTTPSListenerRequest extends $tea.Model {
       cookieTimeout: 'CookieTimeout',
       cookie: 'Cookie',
       healthCheck: 'HealthCheck',
-      healthCheckType: 'HealthCheckType',
-      healthCheckMethod: 'HealthCheckMethod',
-      healthCheckHttpVersion: 'HealthCheckHttpVersion',
       healthCheckDomain: 'HealthCheckDomain',
       healthCheckURI: 'HealthCheckURI',
       healthyThreshold: 'HealthyThreshold',
@@ -1098,12 +982,9 @@ export class CreateLoadBalancerHTTPSListenerRequest extends $tea.Model {
       healthCheckInterval: 'HealthCheckInterval',
       healthCheckHttpCode: 'HealthCheckHttpCode',
       serverCertificateId: 'ServerCertificateId',
-      maxConnection: 'MaxConnection',
       ownerAccount: 'OwnerAccount',
-      accessKeyId: 'access_key_id',
       VServerGroupId: 'VServerGroupId',
       CACertificateId: 'CACertificateId',
-      tags: 'Tags',
       XForwardedFor_SLBIP: 'XForwardedFor_SLBIP',
       XForwardedFor_SLBID: 'XForwardedFor_SLBID',
       XForwardedFor_proto: 'XForwardedFor_proto',
@@ -1111,23 +992,11 @@ export class CreateLoadBalancerHTTPSListenerRequest extends $tea.Model {
       aclId: 'AclId',
       aclType: 'AclType',
       aclStatus: 'AclStatus',
-      vpcIds: 'VpcIds',
       description: 'Description',
       idleTimeout: 'IdleTimeout',
       requestTimeout: 'RequestTimeout',
       enableHttp2: 'EnableHttp2',
       TLSCipherPolicy: 'TLSCipherPolicy',
-      XForwardedFor_SLBPORT: 'XForwardedFor_SLBPORT',
-      XForwardedFor_ClientSrcPort: 'XForwardedFor_ClientSrcPort',
-      XForwardedFor_ClientCertSubjectDN: 'XForwardedFor_ClientCertSubjectDN',
-      XForwardedFor_ClientCertIssuerDN: 'XForwardedFor_ClientCertIssuerDN',
-      XForwardedFor_ClientCertFingerprint: 'XForwardedFor_ClientCertFingerprint',
-      XForwardedFor_ClientCertClientVerify: 'XForwardedFor_ClientCertClientVerify',
-      XForwardedFor_ClientCertIssuerDNAlias: 'XForwardedFor_ClientCertIssuerDNAlias',
-      XForwardedFor_ClientCertSubjectDNAlias: 'XForwardedFor_ClientCertSubjectDNAlias',
-      XForwardedFor_ClientCertFingerprintAlias: 'XForwardedFor_ClientCertFingerprintAlias',
-      XForwardedFor_ClientCertClientVerifyAlias: 'XForwardedFor_ClientCertClientVerifyAlias',
-      serverCertificate: 'ServerCertificate',
     };
   }
 
@@ -1141,7 +1010,6 @@ export class CreateLoadBalancerHTTPSListenerRequest extends $tea.Model {
       bandwidth: 'number',
       listenerPort: 'number',
       backendServerPort: 'number',
-      backendProtocol: 'string',
       XForwardedFor: 'string',
       scheduler: 'string',
       stickySession: 'string',
@@ -1149,9 +1017,6 @@ export class CreateLoadBalancerHTTPSListenerRequest extends $tea.Model {
       cookieTimeout: 'number',
       cookie: 'string',
       healthCheck: 'string',
-      healthCheckType: 'string',
-      healthCheckMethod: 'string',
-      healthCheckHttpVersion: 'string',
       healthCheckDomain: 'string',
       healthCheckURI: 'string',
       healthyThreshold: 'number',
@@ -1161,12 +1026,9 @@ export class CreateLoadBalancerHTTPSListenerRequest extends $tea.Model {
       healthCheckInterval: 'number',
       healthCheckHttpCode: 'string',
       serverCertificateId: 'string',
-      maxConnection: 'number',
       ownerAccount: 'string',
-      accessKeyId: 'string',
       VServerGroupId: 'string',
       CACertificateId: 'string',
-      tags: 'string',
       XForwardedFor_SLBIP: 'string',
       XForwardedFor_SLBID: 'string',
       XForwardedFor_proto: 'string',
@@ -1174,23 +1036,11 @@ export class CreateLoadBalancerHTTPSListenerRequest extends $tea.Model {
       aclId: 'string',
       aclType: 'string',
       aclStatus: 'string',
-      vpcIds: 'string',
       description: 'string',
       idleTimeout: 'number',
       requestTimeout: 'number',
       enableHttp2: 'string',
       TLSCipherPolicy: 'string',
-      XForwardedFor_SLBPORT: 'string',
-      XForwardedFor_ClientSrcPort: 'string',
-      XForwardedFor_ClientCertSubjectDN: 'string',
-      XForwardedFor_ClientCertIssuerDN: 'string',
-      XForwardedFor_ClientCertFingerprint: 'string',
-      XForwardedFor_ClientCertClientVerify: 'string',
-      XForwardedFor_ClientCertIssuerDNAlias: 'string',
-      XForwardedFor_ClientCertSubjectDNAlias: 'string',
-      XForwardedFor_ClientCertFingerprintAlias: 'string',
-      XForwardedFor_ClientCertClientVerifyAlias: 'string',
-      serverCertificate: { 'type': 'array', 'itemType': CreateLoadBalancerHTTPSListenerRequestServerCertificate },
     };
   }
 
@@ -1260,22 +1110,16 @@ export class CreateLoadBalancerTCPListenerRequest extends $tea.Model {
   healthCheckDomain?: string;
   healthCheckURI?: string;
   healthCheckHttpCode?: string;
-  healthCheckMethod?: string;
   healthCheckType?: string;
-  maxConnection?: number;
   ownerAccount?: string;
-  accessKeyId?: string;
   VServerGroupId?: string;
   masterSlaveServerGroupId?: string;
-  tags?: string;
   aclId?: string;
   aclType?: string;
   aclStatus?: string;
-  vpcIds?: string;
   description?: string;
   connectionDrain?: string;
   connectionDrainTimeout?: number;
-  portRange?: CreateLoadBalancerTCPListenerRequestPortRange[];
   static names(): { [key: string]: string } {
     return {
       regionId: 'RegionId',
@@ -1297,22 +1141,16 @@ export class CreateLoadBalancerTCPListenerRequest extends $tea.Model {
       healthCheckDomain: 'HealthCheckDomain',
       healthCheckURI: 'HealthCheckURI',
       healthCheckHttpCode: 'HealthCheckHttpCode',
-      healthCheckMethod: 'HealthCheckMethod',
       healthCheckType: 'HealthCheckType',
-      maxConnection: 'MaxConnection',
       ownerAccount: 'OwnerAccount',
-      accessKeyId: 'access_key_id',
       VServerGroupId: 'VServerGroupId',
       masterSlaveServerGroupId: 'MasterSlaveServerGroupId',
-      tags: 'Tags',
       aclId: 'AclId',
       aclType: 'AclType',
       aclStatus: 'AclStatus',
-      vpcIds: 'VpcIds',
       description: 'Description',
       connectionDrain: 'ConnectionDrain',
       connectionDrainTimeout: 'ConnectionDrainTimeout',
-      portRange: 'PortRange',
     };
   }
 
@@ -1337,22 +1175,16 @@ export class CreateLoadBalancerTCPListenerRequest extends $tea.Model {
       healthCheckDomain: 'string',
       healthCheckURI: 'string',
       healthCheckHttpCode: 'string',
-      healthCheckMethod: 'string',
       healthCheckType: 'string',
-      maxConnection: 'number',
       ownerAccount: 'string',
-      accessKeyId: 'string',
       VServerGroupId: 'string',
       masterSlaveServerGroupId: 'string',
-      tags: 'string',
       aclId: 'string',
       aclType: 'string',
       aclStatus: 'string',
-      vpcIds: 'string',
       description: 'string',
       connectionDrain: 'string',
       connectionDrainTimeout: 'number',
-      portRange: { 'type': 'array', 'itemType': CreateLoadBalancerTCPListenerRequestPortRange },
     };
   }
 
@@ -1412,7 +1244,6 @@ export class CreateLoadBalancerUDPListenerRequest extends $tea.Model {
   backendServerPort?: number;
   bandwidth?: number;
   scheduler?: string;
-  persistenceTimeout?: number;
   healthyThreshold?: number;
   unhealthyThreshold?: number;
   healthCheckConnectTimeout?: number;
@@ -1420,20 +1251,13 @@ export class CreateLoadBalancerUDPListenerRequest extends $tea.Model {
   healthCheckInterval?: number;
   healthCheckReq?: string;
   healthCheckExp?: string;
-  maxConnection?: number;
   ownerAccount?: string;
-  accessKeyId?: string;
   VServerGroupId?: string;
   masterSlaveServerGroupId?: string;
-  tags?: string;
   aclId?: string;
   aclType?: string;
   aclStatus?: string;
-  vpcIds?: string;
   description?: string;
-  connectionDrain?: string;
-  connectionDrainTimeout?: number;
-  portRange?: CreateLoadBalancerUDPListenerRequestPortRange[];
   static names(): { [key: string]: string } {
     return {
       regionId: 'RegionId',
@@ -1445,7 +1269,6 @@ export class CreateLoadBalancerUDPListenerRequest extends $tea.Model {
       backendServerPort: 'BackendServerPort',
       bandwidth: 'Bandwidth',
       scheduler: 'Scheduler',
-      persistenceTimeout: 'PersistenceTimeout',
       healthyThreshold: 'HealthyThreshold',
       unhealthyThreshold: 'UnhealthyThreshold',
       healthCheckConnectTimeout: 'HealthCheckConnectTimeout',
@@ -1453,20 +1276,13 @@ export class CreateLoadBalancerUDPListenerRequest extends $tea.Model {
       healthCheckInterval: 'healthCheckInterval',
       healthCheckReq: 'healthCheckReq',
       healthCheckExp: 'healthCheckExp',
-      maxConnection: 'MaxConnection',
       ownerAccount: 'OwnerAccount',
-      accessKeyId: 'access_key_id',
       VServerGroupId: 'VServerGroupId',
       masterSlaveServerGroupId: 'MasterSlaveServerGroupId',
-      tags: 'Tags',
       aclId: 'AclId',
       aclType: 'AclType',
       aclStatus: 'AclStatus',
-      vpcIds: 'VpcIds',
       description: 'Description',
-      connectionDrain: 'ConnectionDrain',
-      connectionDrainTimeout: 'ConnectionDrainTimeout',
-      portRange: 'PortRange',
     };
   }
 
@@ -1481,7 +1297,6 @@ export class CreateLoadBalancerUDPListenerRequest extends $tea.Model {
       backendServerPort: 'number',
       bandwidth: 'number',
       scheduler: 'string',
-      persistenceTimeout: 'number',
       healthyThreshold: 'number',
       unhealthyThreshold: 'number',
       healthCheckConnectTimeout: 'number',
@@ -1489,20 +1304,13 @@ export class CreateLoadBalancerUDPListenerRequest extends $tea.Model {
       healthCheckInterval: 'number',
       healthCheckReq: 'string',
       healthCheckExp: 'string',
-      maxConnection: 'number',
       ownerAccount: 'string',
-      accessKeyId: 'string',
       VServerGroupId: 'string',
       masterSlaveServerGroupId: 'string',
-      tags: 'string',
       aclId: 'string',
       aclType: 'string',
       aclStatus: 'string',
-      vpcIds: 'string',
       description: 'string',
-      connectionDrain: 'string',
-      connectionDrainTimeout: 'number',
-      portRange: { 'type': 'array', 'itemType': CreateLoadBalancerUDPListenerRequestPortRange },
     };
   }
 
@@ -1558,8 +1366,6 @@ export class CreateMasterSlaveServerGroupRequest extends $tea.Model {
   resourceOwnerId?: number;
   regionId?: string;
   ownerAccount?: string;
-  accessKeyId?: string;
-  tags?: string;
   loadBalancerId?: string;
   masterSlaveServerGroupName?: string;
   masterSlaveBackendServers?: string;
@@ -1570,8 +1376,6 @@ export class CreateMasterSlaveServerGroupRequest extends $tea.Model {
       resourceOwnerId: 'ResourceOwnerId',
       regionId: 'RegionId',
       ownerAccount: 'OwnerAccount',
-      accessKeyId: 'access_key_id',
-      tags: 'Tags',
       loadBalancerId: 'LoadBalancerId',
       masterSlaveServerGroupName: 'MasterSlaveServerGroupName',
       masterSlaveBackendServers: 'MasterSlaveBackendServers',
@@ -1585,8 +1389,6 @@ export class CreateMasterSlaveServerGroupRequest extends $tea.Model {
       resourceOwnerId: 'number',
       regionId: 'string',
       ownerAccount: 'string',
-      accessKeyId: 'string',
-      tags: 'string',
       loadBalancerId: 'string',
       masterSlaveServerGroupName: 'string',
       masterSlaveBackendServers: 'string',
@@ -1599,21 +1401,21 @@ export class CreateMasterSlaveServerGroupRequest extends $tea.Model {
 }
 
 export class CreateMasterSlaveServerGroupResponseBody extends $tea.Model {
-  requestId?: string;
   masterSlaveServerGroupId?: string;
+  requestId?: string;
   masterSlaveBackendServers?: CreateMasterSlaveServerGroupResponseBodyMasterSlaveBackendServers;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       masterSlaveServerGroupId: 'MasterSlaveServerGroupId',
+      requestId: 'RequestId',
       masterSlaveBackendServers: 'MasterSlaveBackendServers',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       masterSlaveServerGroupId: 'string',
+      requestId: 'string',
       masterSlaveBackendServers: CreateMasterSlaveServerGroupResponseBodyMasterSlaveBackendServers,
     };
   }
@@ -1651,8 +1453,6 @@ export class CreateRulesRequest extends $tea.Model {
   resourceOwnerId?: number;
   regionId?: string;
   ownerAccount?: string;
-  accessKeyId?: string;
-  tags?: string;
   loadBalancerId?: string;
   listenerPort?: number;
   listenerProtocol?: string;
@@ -1664,8 +1464,6 @@ export class CreateRulesRequest extends $tea.Model {
       resourceOwnerId: 'ResourceOwnerId',
       regionId: 'RegionId',
       ownerAccount: 'OwnerAccount',
-      accessKeyId: 'access_key_id',
-      tags: 'Tags',
       loadBalancerId: 'LoadBalancerId',
       listenerPort: 'ListenerPort',
       listenerProtocol: 'ListenerProtocol',
@@ -1680,8 +1478,6 @@ export class CreateRulesRequest extends $tea.Model {
       resourceOwnerId: 'number',
       regionId: 'string',
       ownerAccount: 'string',
-      accessKeyId: 'string',
-      tags: 'string',
       loadBalancerId: 'string',
       listenerPort: 'number',
       listenerProtocol: 'string',
@@ -1782,19 +1578,19 @@ export class CreateTLSCipherPolicyRequest extends $tea.Model {
 }
 
 export class CreateTLSCipherPolicyResponseBody extends $tea.Model {
-  requestId?: string;
   TLSCipherPolicyId?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       TLSCipherPolicyId: 'TLSCipherPolicyId',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       TLSCipherPolicyId: 'string',
+      requestId: 'string',
     };
   }
 
@@ -1831,8 +1627,6 @@ export class CreateVServerGroupRequest extends $tea.Model {
   resourceOwnerId?: number;
   regionId?: string;
   ownerAccount?: string;
-  accessKeyId?: string;
-  tags?: string;
   loadBalancerId?: string;
   VServerGroupName?: string;
   backendServers?: string;
@@ -1843,8 +1637,6 @@ export class CreateVServerGroupRequest extends $tea.Model {
       resourceOwnerId: 'ResourceOwnerId',
       regionId: 'RegionId',
       ownerAccount: 'OwnerAccount',
-      accessKeyId: 'access_key_id',
-      tags: 'Tags',
       loadBalancerId: 'LoadBalancerId',
       VServerGroupName: 'VServerGroupName',
       backendServers: 'BackendServers',
@@ -1858,8 +1650,6 @@ export class CreateVServerGroupRequest extends $tea.Model {
       resourceOwnerId: 'number',
       regionId: 'string',
       ownerAccount: 'string',
-      accessKeyId: 'string',
-      tags: 'string',
       loadBalancerId: 'string',
       VServerGroupName: 'string',
       backendServers: 'string',
@@ -1923,8 +1713,6 @@ export class DeleteAccessControlListRequest extends $tea.Model {
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   ownerAccount?: string;
-  accessKeyId?: string;
-  tags?: string;
   regionId?: string;
   aclId?: string;
   static names(): { [key: string]: string } {
@@ -1933,8 +1721,6 @@ export class DeleteAccessControlListRequest extends $tea.Model {
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       ownerAccount: 'OwnerAccount',
-      accessKeyId: 'access_key_id',
-      tags: 'Tags',
       regionId: 'RegionId',
       aclId: 'AclId',
     };
@@ -1946,8 +1732,6 @@ export class DeleteAccessControlListRequest extends $tea.Model {
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       ownerAccount: 'string',
-      accessKeyId: 'string',
-      tags: 'string',
       regionId: 'string',
       aclId: 'string',
     };
@@ -2004,7 +1788,6 @@ export class DeleteCACertificateRequest extends $tea.Model {
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   ownerAccount?: string;
-  accessKeyId?: string;
   regionId?: string;
   CACertificateId?: string;
   static names(): { [key: string]: string } {
@@ -2013,7 +1796,6 @@ export class DeleteCACertificateRequest extends $tea.Model {
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       ownerAccount: 'OwnerAccount',
-      accessKeyId: 'access_key_id',
       regionId: 'RegionId',
       CACertificateId: 'CACertificateId',
     };
@@ -2025,7 +1807,6 @@ export class DeleteCACertificateRequest extends $tea.Model {
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       ownerAccount: 'string',
-      accessKeyId: 'string',
       regionId: 'string',
       CACertificateId: 'string',
     };
@@ -2083,8 +1864,6 @@ export class DeleteDomainExtensionRequest extends $tea.Model {
   resourceOwnerId?: number;
   regionId?: string;
   ownerAccount?: string;
-  accessKeyId?: string;
-  tags?: string;
   domainExtensionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2093,8 +1872,6 @@ export class DeleteDomainExtensionRequest extends $tea.Model {
       resourceOwnerId: 'ResourceOwnerId',
       regionId: 'RegionId',
       ownerAccount: 'OwnerAccount',
-      accessKeyId: 'access_key_id',
-      tags: 'Tags',
       domainExtensionId: 'DomainExtensionId',
     };
   }
@@ -2106,8 +1883,6 @@ export class DeleteDomainExtensionRequest extends $tea.Model {
       resourceOwnerId: 'number',
       regionId: 'string',
       ownerAccount: 'string',
-      accessKeyId: 'string',
-      tags: 'string',
       domainExtensionId: 'string',
     };
   }
@@ -2165,8 +1940,6 @@ export class DeleteLoadBalancerRequest extends $tea.Model {
   resourceOwnerId?: number;
   loadBalancerId?: string;
   ownerAccount?: string;
-  accessKeyId?: string;
-  tags?: string;
   static names(): { [key: string]: string } {
     return {
       regionId: 'RegionId',
@@ -2175,8 +1948,6 @@ export class DeleteLoadBalancerRequest extends $tea.Model {
       resourceOwnerId: 'ResourceOwnerId',
       loadBalancerId: 'LoadBalancerId',
       ownerAccount: 'OwnerAccount',
-      accessKeyId: 'access_key_id',
-      tags: 'Tags',
     };
   }
 
@@ -2188,8 +1959,6 @@ export class DeleteLoadBalancerRequest extends $tea.Model {
       resourceOwnerId: 'number',
       loadBalancerId: 'string',
       ownerAccount: 'string',
-      accessKeyId: 'string',
-      tags: 'string',
     };
   }
 
@@ -2248,8 +2017,6 @@ export class DeleteLoadBalancerListenerRequest extends $tea.Model {
   listenerPort?: number;
   listenerProtocol?: string;
   ownerAccount?: string;
-  accessKeyId?: string;
-  tags?: string;
   static names(): { [key: string]: string } {
     return {
       regionId: 'RegionId',
@@ -2260,8 +2027,6 @@ export class DeleteLoadBalancerListenerRequest extends $tea.Model {
       listenerPort: 'ListenerPort',
       listenerProtocol: 'ListenerProtocol',
       ownerAccount: 'OwnerAccount',
-      accessKeyId: 'access_key_id',
-      tags: 'Tags',
     };
   }
 
@@ -2275,8 +2040,6 @@ export class DeleteLoadBalancerListenerRequest extends $tea.Model {
       listenerPort: 'number',
       listenerProtocol: 'string',
       ownerAccount: 'string',
-      accessKeyId: 'string',
-      tags: 'string',
     };
   }
 
@@ -2332,8 +2095,6 @@ export class DeleteMasterSlaveServerGroupRequest extends $tea.Model {
   resourceOwnerId?: number;
   regionId?: string;
   ownerAccount?: string;
-  accessKeyId?: string;
-  tags?: string;
   masterSlaveServerGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2342,8 +2103,6 @@ export class DeleteMasterSlaveServerGroupRequest extends $tea.Model {
       resourceOwnerId: 'ResourceOwnerId',
       regionId: 'RegionId',
       ownerAccount: 'OwnerAccount',
-      accessKeyId: 'access_key_id',
-      tags: 'Tags',
       masterSlaveServerGroupId: 'MasterSlaveServerGroupId',
     };
   }
@@ -2355,8 +2114,6 @@ export class DeleteMasterSlaveServerGroupRequest extends $tea.Model {
       resourceOwnerId: 'number',
       regionId: 'string',
       ownerAccount: 'string',
-      accessKeyId: 'string',
-      tags: 'string',
       masterSlaveServerGroupId: 'string',
     };
   }
@@ -2413,8 +2170,6 @@ export class DeleteRulesRequest extends $tea.Model {
   resourceOwnerId?: number;
   regionId?: string;
   ownerAccount?: string;
-  accessKeyId?: string;
-  tags?: string;
   ruleIds?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2423,8 +2178,6 @@ export class DeleteRulesRequest extends $tea.Model {
       resourceOwnerId: 'ResourceOwnerId',
       regionId: 'RegionId',
       ownerAccount: 'OwnerAccount',
-      accessKeyId: 'access_key_id',
-      tags: 'Tags',
       ruleIds: 'RuleIds',
     };
   }
@@ -2436,8 +2189,6 @@ export class DeleteRulesRequest extends $tea.Model {
       resourceOwnerId: 'number',
       regionId: 'string',
       ownerAccount: 'string',
-      accessKeyId: 'string',
-      tags: 'string',
       ruleIds: 'string',
     };
   }
@@ -2495,8 +2246,6 @@ export class DeleteServerCertificateRequest extends $tea.Model {
   regionId?: string;
   serverCertificateId?: string;
   ownerAccount?: string;
-  accessKeyId?: string;
-  tags?: string;
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
@@ -2505,8 +2254,6 @@ export class DeleteServerCertificateRequest extends $tea.Model {
       regionId: 'RegionId',
       serverCertificateId: 'ServerCertificateId',
       ownerAccount: 'OwnerAccount',
-      accessKeyId: 'access_key_id',
-      tags: 'Tags',
     };
   }
 
@@ -2518,8 +2265,6 @@ export class DeleteServerCertificateRequest extends $tea.Model {
       regionId: 'string',
       serverCertificateId: 'string',
       ownerAccount: 'string',
-      accessKeyId: 'string',
-      tags: 'string',
     };
   }
 
@@ -2653,8 +2398,6 @@ export class DeleteVServerGroupRequest extends $tea.Model {
   resourceOwnerId?: number;
   regionId?: string;
   ownerAccount?: string;
-  accessKeyId?: string;
-  tags?: string;
   VServerGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2663,8 +2406,6 @@ export class DeleteVServerGroupRequest extends $tea.Model {
       resourceOwnerId: 'ResourceOwnerId',
       regionId: 'RegionId',
       ownerAccount: 'OwnerAccount',
-      accessKeyId: 'access_key_id',
-      tags: 'Tags',
       VServerGroupId: 'VServerGroupId',
     };
   }
@@ -2676,8 +2417,6 @@ export class DeleteVServerGroupRequest extends $tea.Model {
       resourceOwnerId: 'number',
       regionId: 'string',
       ownerAccount: 'string',
-      accessKeyId: 'string',
-      tags: 'string',
       VServerGroupId: 'string',
     };
   }
@@ -2733,8 +2472,6 @@ export class DescribeAccessControlListAttributeRequest extends $tea.Model {
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   ownerAccount?: string;
-  accessKeyId?: string;
-  tags?: string;
   regionId?: string;
   aclId?: string;
   aclEntryComment?: string;
@@ -2744,8 +2481,6 @@ export class DescribeAccessControlListAttributeRequest extends $tea.Model {
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       ownerAccount: 'OwnerAccount',
-      accessKeyId: 'access_key_id',
-      tags: 'Tags',
       regionId: 'RegionId',
       aclId: 'AclId',
       aclEntryComment: 'AclEntryComment',
@@ -2758,8 +2493,6 @@ export class DescribeAccessControlListAttributeRequest extends $tea.Model {
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       ownerAccount: 'string',
-      accessKeyId: 'string',
-      tags: 'string',
       regionId: 'string',
       aclId: 'string',
       aclEntryComment: 'string',
@@ -2772,34 +2505,34 @@ export class DescribeAccessControlListAttributeRequest extends $tea.Model {
 }
 
 export class DescribeAccessControlListAttributeResponseBody extends $tea.Model {
-  aclEntrys?: DescribeAccessControlListAttributeResponseBodyAclEntrys;
-  requestId?: string;
-  resourceGroupId?: string;
   aclId?: string;
   addressIPVersion?: string;
-  relatedListeners?: DescribeAccessControlListAttributeResponseBodyRelatedListeners;
+  requestId?: string;
   aclName?: string;
+  resourceGroupId?: string;
+  aclEntrys?: DescribeAccessControlListAttributeResponseBodyAclEntrys;
+  relatedListeners?: DescribeAccessControlListAttributeResponseBodyRelatedListeners;
   static names(): { [key: string]: string } {
     return {
-      aclEntrys: 'AclEntrys',
-      requestId: 'RequestId',
-      resourceGroupId: 'ResourceGroupId',
       aclId: 'AclId',
       addressIPVersion: 'AddressIPVersion',
-      relatedListeners: 'RelatedListeners',
+      requestId: 'RequestId',
       aclName: 'AclName',
+      resourceGroupId: 'ResourceGroupId',
+      aclEntrys: 'AclEntrys',
+      relatedListeners: 'RelatedListeners',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      aclEntrys: DescribeAccessControlListAttributeResponseBodyAclEntrys,
-      requestId: 'string',
-      resourceGroupId: 'string',
       aclId: 'string',
       addressIPVersion: 'string',
-      relatedListeners: DescribeAccessControlListAttributeResponseBodyRelatedListeners,
+      requestId: 'string',
       aclName: 'string',
+      resourceGroupId: 'string',
+      aclEntrys: DescribeAccessControlListAttributeResponseBodyAclEntrys,
+      relatedListeners: DescribeAccessControlListAttributeResponseBodyRelatedListeners,
     };
   }
 
@@ -2835,30 +2568,24 @@ export class DescribeAccessControlListsRequest extends $tea.Model {
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   ownerAccount?: string;
-  accessKeyId?: string;
-  tags?: string;
   regionId?: string;
   aclName?: string;
   addressIPVersion?: string;
   pageSize?: number;
   pageNumber?: number;
   resourceGroupId?: string;
-  tag?: DescribeAccessControlListsRequestTag[];
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       ownerAccount: 'OwnerAccount',
-      accessKeyId: 'access_key_id',
-      tags: 'Tags',
       regionId: 'RegionId',
       aclName: 'AclName',
       addressIPVersion: 'AddressIPVersion',
       pageSize: 'PageSize',
       pageNumber: 'PageNumber',
       resourceGroupId: 'ResourceGroupId',
-      tag: 'Tag',
     };
   }
 
@@ -2868,15 +2595,12 @@ export class DescribeAccessControlListsRequest extends $tea.Model {
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       ownerAccount: 'string',
-      accessKeyId: 'string',
-      tags: 'string',
       regionId: 'string',
       aclName: 'string',
       addressIPVersion: 'string',
       pageSize: 'number',
       pageNumber: 'number',
       resourceGroupId: 'string',
-      tag: { 'type': 'array', 'itemType': DescribeAccessControlListsRequestTag },
     };
   }
 
@@ -2886,31 +2610,31 @@ export class DescribeAccessControlListsRequest extends $tea.Model {
 }
 
 export class DescribeAccessControlListsResponseBody extends $tea.Model {
-  totalCount?: number;
+  pageNumber?: number;
   pageSize?: number;
   requestId?: string;
-  pageNumber?: number;
-  acls?: DescribeAccessControlListsResponseBodyAcls;
+  totalCount?: number;
   count?: number;
+  acls?: DescribeAccessControlListsResponseBodyAcls;
   static names(): { [key: string]: string } {
     return {
-      totalCount: 'TotalCount',
+      pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       requestId: 'RequestId',
-      pageNumber: 'PageNumber',
-      acls: 'Acls',
+      totalCount: 'TotalCount',
       count: 'Count',
+      acls: 'Acls',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      totalCount: 'number',
+      pageNumber: 'number',
       pageSize: 'number',
       requestId: 'string',
-      pageNumber: 'number',
-      acls: DescribeAccessControlListsResponseBodyAcls,
+      totalCount: 'number',
       count: 'number',
+      acls: DescribeAccessControlListsResponseBodyAcls,
     };
   }
 
@@ -2946,7 +2670,6 @@ export class DescribeAvailableResourceRequest extends $tea.Model {
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   ownerAccount?: string;
-  accessKeyId?: string;
   regionId?: string;
   addressType?: string;
   addressIPVersion?: string;
@@ -2956,7 +2679,6 @@ export class DescribeAvailableResourceRequest extends $tea.Model {
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       ownerAccount: 'OwnerAccount',
-      accessKeyId: 'access_key_id',
       regionId: 'RegionId',
       addressType: 'AddressType',
       addressIPVersion: 'AddressIPVersion',
@@ -2969,7 +2691,6 @@ export class DescribeAvailableResourceRequest extends $tea.Model {
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       ownerAccount: 'string',
-      accessKeyId: 'string',
       regionId: 'string',
       addressType: 'string',
       addressIPVersion: 'string',
@@ -3030,22 +2751,18 @@ export class DescribeCACertificatesRequest extends $tea.Model {
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   ownerAccount?: string;
-  accessKeyId?: string;
   regionId?: string;
   CACertificateId?: string;
   resourceGroupId?: string;
-  tag?: DescribeCACertificatesRequestTag[];
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       ownerAccount: 'OwnerAccount',
-      accessKeyId: 'access_key_id',
       regionId: 'RegionId',
       CACertificateId: 'CACertificateId',
       resourceGroupId: 'ResourceGroupId',
-      tag: 'Tag',
     };
   }
 
@@ -3055,11 +2772,9 @@ export class DescribeCACertificatesRequest extends $tea.Model {
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       ownerAccount: 'string',
-      accessKeyId: 'string',
       regionId: 'string',
       CACertificateId: 'string',
       resourceGroupId: 'string',
-      tag: { 'type': 'array', 'itemType': DescribeCACertificatesRequestTag },
     };
   }
 
@@ -3118,8 +2833,6 @@ export class DescribeDomainExtensionAttributeRequest extends $tea.Model {
   resourceOwnerId?: number;
   regionId?: string;
   ownerAccount?: string;
-  accessKeyId?: string;
-  tags?: string;
   domainExtensionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3128,8 +2841,6 @@ export class DescribeDomainExtensionAttributeRequest extends $tea.Model {
       resourceOwnerId: 'ResourceOwnerId',
       regionId: 'RegionId',
       ownerAccount: 'OwnerAccount',
-      accessKeyId: 'access_key_id',
-      tags: 'Tags',
       domainExtensionId: 'DomainExtensionId',
     };
   }
@@ -3141,8 +2852,6 @@ export class DescribeDomainExtensionAttributeRequest extends $tea.Model {
       resourceOwnerId: 'number',
       regionId: 'string',
       ownerAccount: 'string',
-      accessKeyId: 'string',
-      tags: 'string',
       domainExtensionId: 'string',
     };
   }
@@ -3153,31 +2862,31 @@ export class DescribeDomainExtensionAttributeRequest extends $tea.Model {
 }
 
 export class DescribeDomainExtensionAttributeResponseBody extends $tea.Model {
-  listenerPort?: number;
-  domainExtensionId?: string;
-  requestId?: string;
-  serverCertificateId?: string;
-  loadBalancerId?: string;
   domain?: string;
+  requestId?: string;
+  loadBalancerId?: string;
+  listenerPort?: number;
+  serverCertificateId?: string;
+  domainExtensionId?: string;
   static names(): { [key: string]: string } {
     return {
-      listenerPort: 'ListenerPort',
-      domainExtensionId: 'DomainExtensionId',
-      requestId: 'RequestId',
-      serverCertificateId: 'ServerCertificateId',
-      loadBalancerId: 'LoadBalancerId',
       domain: 'Domain',
+      requestId: 'RequestId',
+      loadBalancerId: 'LoadBalancerId',
+      listenerPort: 'ListenerPort',
+      serverCertificateId: 'ServerCertificateId',
+      domainExtensionId: 'DomainExtensionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      listenerPort: 'number',
-      domainExtensionId: 'string',
-      requestId: 'string',
-      serverCertificateId: 'string',
-      loadBalancerId: 'string',
       domain: 'string',
+      requestId: 'string',
+      loadBalancerId: 'string',
+      listenerPort: 'number',
+      serverCertificateId: 'string',
+      domainExtensionId: 'string',
     };
   }
 
@@ -3214,8 +2923,6 @@ export class DescribeDomainExtensionsRequest extends $tea.Model {
   resourceOwnerId?: number;
   regionId?: string;
   ownerAccount?: string;
-  accessKeyId?: string;
-  tags?: string;
   loadBalancerId?: string;
   listenerPort?: number;
   domainExtensionId?: string;
@@ -3226,8 +2933,6 @@ export class DescribeDomainExtensionsRequest extends $tea.Model {
       resourceOwnerId: 'ResourceOwnerId',
       regionId: 'RegionId',
       ownerAccount: 'OwnerAccount',
-      accessKeyId: 'access_key_id',
-      tags: 'Tags',
       loadBalancerId: 'LoadBalancerId',
       listenerPort: 'ListenerPort',
       domainExtensionId: 'DomainExtensionId',
@@ -3241,8 +2946,6 @@ export class DescribeDomainExtensionsRequest extends $tea.Model {
       resourceOwnerId: 'number',
       regionId: 'string',
       ownerAccount: 'string',
-      accessKeyId: 'string',
-      tags: 'string',
       loadBalancerId: 'string',
       listenerPort: 'number',
       domainExtensionId: 'string',
@@ -3305,8 +3008,6 @@ export class DescribeHealthStatusRequest extends $tea.Model {
   loadBalancerId?: string;
   listenerPort?: number;
   ownerAccount?: string;
-  accessKeyId?: string;
-  tags?: string;
   listenerProtocol?: string;
   regionId?: string;
   static names(): { [key: string]: string } {
@@ -3317,8 +3018,6 @@ export class DescribeHealthStatusRequest extends $tea.Model {
       loadBalancerId: 'LoadBalancerId',
       listenerPort: 'ListenerPort',
       ownerAccount: 'OwnerAccount',
-      accessKeyId: 'access_key_id',
-      tags: 'Tags',
       listenerProtocol: 'ListenerProtocol',
       regionId: 'RegionId',
     };
@@ -3332,8 +3031,6 @@ export class DescribeHealthStatusRequest extends $tea.Model {
       loadBalancerId: 'string',
       listenerPort: 'number',
       ownerAccount: 'string',
-      accessKeyId: 'string',
-      tags: 'string',
       listenerProtocol: 'string',
       regionId: 'string',
     };
@@ -3397,8 +3094,6 @@ export class DescribeListenerAccessControlAttributeRequest extends $tea.Model {
   listenerPort?: number;
   listenerProtocol?: string;
   ownerAccount?: string;
-  accessKeyId?: string;
-  tags?: string;
   static names(): { [key: string]: string } {
     return {
       regionId: 'RegionId',
@@ -3409,8 +3104,6 @@ export class DescribeListenerAccessControlAttributeRequest extends $tea.Model {
       listenerPort: 'ListenerPort',
       listenerProtocol: 'ListenerProtocol',
       ownerAccount: 'OwnerAccount',
-      accessKeyId: 'access_key_id',
-      tags: 'Tags',
     };
   }
 
@@ -3424,8 +3117,6 @@ export class DescribeListenerAccessControlAttributeRequest extends $tea.Model {
       listenerPort: 'number',
       listenerProtocol: 'string',
       ownerAccount: 'string',
-      accessKeyId: 'string',
-      tags: 'string',
     };
   }
 
@@ -3435,22 +3126,22 @@ export class DescribeListenerAccessControlAttributeRequest extends $tea.Model {
 }
 
 export class DescribeListenerAccessControlAttributeResponseBody extends $tea.Model {
+  sourceItems?: string;
   accessControlStatus?: string;
   requestId?: string;
-  sourceItems?: string;
   static names(): { [key: string]: string } {
     return {
+      sourceItems: 'SourceItems',
       accessControlStatus: 'AccessControlStatus',
       requestId: 'RequestId',
-      sourceItems: 'SourceItems',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      sourceItems: 'string',
       accessControlStatus: 'string',
       requestId: 'string',
-      sourceItems: 'string',
     };
   }
 
@@ -3488,9 +3179,6 @@ export class DescribeLoadBalancerAttributeRequest extends $tea.Model {
   resourceOwnerId?: number;
   loadBalancerId?: string;
   ownerAccount?: string;
-  accessKeyId?: string;
-  tags?: string;
-  includeReservedData?: boolean;
   static names(): { [key: string]: string } {
     return {
       regionId: 'RegionId',
@@ -3499,9 +3187,6 @@ export class DescribeLoadBalancerAttributeRequest extends $tea.Model {
       resourceOwnerId: 'ResourceOwnerId',
       loadBalancerId: 'LoadBalancerId',
       ownerAccount: 'OwnerAccount',
-      accessKeyId: 'access_key_id',
-      tags: 'Tags',
-      includeReservedData: 'IncludeReservedData',
     };
   }
 
@@ -3513,9 +3198,6 @@ export class DescribeLoadBalancerAttributeRequest extends $tea.Model {
       resourceOwnerId: 'number',
       loadBalancerId: 'string',
       ownerAccount: 'string',
-      accessKeyId: 'string',
-      tags: 'string',
-      includeReservedData: 'boolean',
     };
   }
 
@@ -3525,115 +3207,115 @@ export class DescribeLoadBalancerAttributeRequest extends $tea.Model {
 }
 
 export class DescribeLoadBalancerAttributeResponseBody extends $tea.Model {
-  address?: string;
-  resourceGroupId?: string;
-  listenerPortsAndProtocal?: DescribeLoadBalancerAttributeResponseBodyListenerPortsAndProtocal;
-  backendServers?: DescribeLoadBalancerAttributeResponseBodyBackendServers;
-  loadBalancerSpec?: string;
-  modificationProtectionReason?: string;
-  listenerPorts?: DescribeLoadBalancerAttributeResponseBodyListenerPorts;
-  requestId?: string;
-  vSwitchId?: string;
-  renewalStatus?: string;
-  payType?: string;
-  internetChargeType?: string;
   vpcId?: string;
-  deleteProtection?: string;
-  endTimeStamp?: number;
-  loadBalancerStatus?: string;
-  autoReleaseTime?: number;
-  renewalDuration?: number;
-  endTime?: string;
-  addressIPVersion?: string;
-  loadBalancerId?: string;
-  listenerPortsAndProtocol?: DescribeLoadBalancerAttributeResponseBodyListenerPortsAndProtocol;
-  modificationProtectionStatus?: string;
-  networkType?: string;
-  bandwidth?: number;
-  masterZoneId?: string;
-  createTime?: string;
-  renewalCycUnit?: string;
-  slaveZoneId?: string;
-  regionIdAlias?: string;
-  loadBalancerName?: string;
-  regionId?: string;
-  addressType?: string;
   createTimeStamp?: number;
+  createTime?: string;
+  loadBalancerId?: string;
+  payType?: string;
+  addressType?: string;
+  networkType?: string;
+  addressIPVersion?: string;
+  renewalCycUnit?: string;
+  requestId?: string;
+  bandwidth?: number;
+  loadBalancerName?: string;
+  address?: string;
+  slaveZoneId?: string;
+  endTimeStamp?: number;
+  masterZoneId?: string;
+  loadBalancerSpec?: string;
+  autoReleaseTime?: number;
+  modificationProtectionReason?: string;
+  regionId?: string;
+  modificationProtectionStatus?: string;
+  endTime?: string;
+  vSwitchId?: string;
+  loadBalancerStatus?: string;
+  resourceGroupId?: string;
+  internetChargeType?: string;
+  deleteProtection?: string;
+  regionIdAlias?: string;
+  renewalStatus?: string;
+  renewalDuration?: number;
+  listenerPorts?: DescribeLoadBalancerAttributeResponseBodyListenerPorts;
+  listenerPortsAndProtocal?: DescribeLoadBalancerAttributeResponseBodyListenerPortsAndProtocal;
+  listenerPortsAndProtocol?: DescribeLoadBalancerAttributeResponseBodyListenerPortsAndProtocol;
+  backendServers?: DescribeLoadBalancerAttributeResponseBodyBackendServers;
   static names(): { [key: string]: string } {
     return {
-      address: 'Address',
-      resourceGroupId: 'ResourceGroupId',
-      listenerPortsAndProtocal: 'ListenerPortsAndProtocal',
-      backendServers: 'BackendServers',
-      loadBalancerSpec: 'LoadBalancerSpec',
-      modificationProtectionReason: 'ModificationProtectionReason',
-      listenerPorts: 'ListenerPorts',
-      requestId: 'RequestId',
-      vSwitchId: 'VSwitchId',
-      renewalStatus: 'RenewalStatus',
-      payType: 'PayType',
-      internetChargeType: 'InternetChargeType',
       vpcId: 'VpcId',
-      deleteProtection: 'DeleteProtection',
-      endTimeStamp: 'EndTimeStamp',
-      loadBalancerStatus: 'LoadBalancerStatus',
-      autoReleaseTime: 'AutoReleaseTime',
-      renewalDuration: 'RenewalDuration',
-      endTime: 'EndTime',
-      addressIPVersion: 'AddressIPVersion',
-      loadBalancerId: 'LoadBalancerId',
-      listenerPortsAndProtocol: 'ListenerPortsAndProtocol',
-      modificationProtectionStatus: 'ModificationProtectionStatus',
-      networkType: 'NetworkType',
-      bandwidth: 'Bandwidth',
-      masterZoneId: 'MasterZoneId',
-      createTime: 'CreateTime',
-      renewalCycUnit: 'RenewalCycUnit',
-      slaveZoneId: 'SlaveZoneId',
-      regionIdAlias: 'RegionIdAlias',
-      loadBalancerName: 'LoadBalancerName',
-      regionId: 'RegionId',
-      addressType: 'AddressType',
       createTimeStamp: 'CreateTimeStamp',
+      createTime: 'CreateTime',
+      loadBalancerId: 'LoadBalancerId',
+      payType: 'PayType',
+      addressType: 'AddressType',
+      networkType: 'NetworkType',
+      addressIPVersion: 'AddressIPVersion',
+      renewalCycUnit: 'RenewalCycUnit',
+      requestId: 'RequestId',
+      bandwidth: 'Bandwidth',
+      loadBalancerName: 'LoadBalancerName',
+      address: 'Address',
+      slaveZoneId: 'SlaveZoneId',
+      endTimeStamp: 'EndTimeStamp',
+      masterZoneId: 'MasterZoneId',
+      loadBalancerSpec: 'LoadBalancerSpec',
+      autoReleaseTime: 'AutoReleaseTime',
+      modificationProtectionReason: 'ModificationProtectionReason',
+      regionId: 'RegionId',
+      modificationProtectionStatus: 'ModificationProtectionStatus',
+      endTime: 'EndTime',
+      vSwitchId: 'VSwitchId',
+      loadBalancerStatus: 'LoadBalancerStatus',
+      resourceGroupId: 'ResourceGroupId',
+      internetChargeType: 'InternetChargeType',
+      deleteProtection: 'DeleteProtection',
+      regionIdAlias: 'RegionIdAlias',
+      renewalStatus: 'RenewalStatus',
+      renewalDuration: 'RenewalDuration',
+      listenerPorts: 'ListenerPorts',
+      listenerPortsAndProtocal: 'ListenerPortsAndProtocal',
+      listenerPortsAndProtocol: 'ListenerPortsAndProtocol',
+      backendServers: 'BackendServers',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      address: 'string',
-      resourceGroupId: 'string',
-      listenerPortsAndProtocal: DescribeLoadBalancerAttributeResponseBodyListenerPortsAndProtocal,
-      backendServers: DescribeLoadBalancerAttributeResponseBodyBackendServers,
-      loadBalancerSpec: 'string',
-      modificationProtectionReason: 'string',
-      listenerPorts: DescribeLoadBalancerAttributeResponseBodyListenerPorts,
-      requestId: 'string',
-      vSwitchId: 'string',
-      renewalStatus: 'string',
-      payType: 'string',
-      internetChargeType: 'string',
       vpcId: 'string',
-      deleteProtection: 'string',
-      endTimeStamp: 'number',
-      loadBalancerStatus: 'string',
-      autoReleaseTime: 'number',
-      renewalDuration: 'number',
-      endTime: 'string',
-      addressIPVersion: 'string',
-      loadBalancerId: 'string',
-      listenerPortsAndProtocol: DescribeLoadBalancerAttributeResponseBodyListenerPortsAndProtocol,
-      modificationProtectionStatus: 'string',
-      networkType: 'string',
-      bandwidth: 'number',
-      masterZoneId: 'string',
-      createTime: 'string',
-      renewalCycUnit: 'string',
-      slaveZoneId: 'string',
-      regionIdAlias: 'string',
-      loadBalancerName: 'string',
-      regionId: 'string',
-      addressType: 'string',
       createTimeStamp: 'number',
+      createTime: 'string',
+      loadBalancerId: 'string',
+      payType: 'string',
+      addressType: 'string',
+      networkType: 'string',
+      addressIPVersion: 'string',
+      renewalCycUnit: 'string',
+      requestId: 'string',
+      bandwidth: 'number',
+      loadBalancerName: 'string',
+      address: 'string',
+      slaveZoneId: 'string',
+      endTimeStamp: 'number',
+      masterZoneId: 'string',
+      loadBalancerSpec: 'string',
+      autoReleaseTime: 'number',
+      modificationProtectionReason: 'string',
+      regionId: 'string',
+      modificationProtectionStatus: 'string',
+      endTime: 'string',
+      vSwitchId: 'string',
+      loadBalancerStatus: 'string',
+      resourceGroupId: 'string',
+      internetChargeType: 'string',
+      deleteProtection: 'string',
+      regionIdAlias: 'string',
+      renewalStatus: 'string',
+      renewalDuration: 'number',
+      listenerPorts: DescribeLoadBalancerAttributeResponseBodyListenerPorts,
+      listenerPortsAndProtocal: DescribeLoadBalancerAttributeResponseBodyListenerPortsAndProtocal,
+      listenerPortsAndProtocol: DescribeLoadBalancerAttributeResponseBodyListenerPortsAndProtocol,
+      backendServers: DescribeLoadBalancerAttributeResponseBodyBackendServers,
     };
   }
 
@@ -3672,8 +3354,6 @@ export class DescribeLoadBalancerHTTPListenerAttributeRequest extends $tea.Model
   loadBalancerId?: string;
   listenerPort?: number;
   ownerAccount?: string;
-  accessKeyId?: string;
-  tags?: string;
   static names(): { [key: string]: string } {
     return {
       regionId: 'RegionId',
@@ -3683,8 +3363,6 @@ export class DescribeLoadBalancerHTTPListenerAttributeRequest extends $tea.Model
       loadBalancerId: 'LoadBalancerId',
       listenerPort: 'ListenerPort',
       ownerAccount: 'OwnerAccount',
-      accessKeyId: 'access_key_id',
-      tags: 'Tags',
     };
   }
 
@@ -3697,8 +3375,6 @@ export class DescribeLoadBalancerHTTPListenerAttributeRequest extends $tea.Model
       loadBalancerId: 'string',
       listenerPort: 'number',
       ownerAccount: 'string',
-      accessKeyId: 'string',
-      tags: 'string',
     };
   }
 
@@ -3708,118 +3384,118 @@ export class DescribeLoadBalancerHTTPListenerAttributeRequest extends $tea.Model
 }
 
 export class DescribeLoadBalancerHTTPListenerAttributeResponseBody extends $tea.Model {
-  cookieTimeout?: number;
+  aclType?: string;
   VServerGroupId?: string;
-  description?: string;
-  unhealthyThreshold?: number;
-  healthCheckURI?: string;
-  scheduler?: string;
-  healthCheck?: string;
-  idleTimeout?: number;
-  backendServerPort?: number;
-  XForwardedFor_SLBID?: string;
-  healthCheckConnectPort?: number;
-  bandwidth?: number;
-  securityStatus?: string;
-  gzip?: string;
-  stickySessionType?: string;
-  XForwardedFor_SLBIP?: string;
-  healthCheckHttpCode?: string;
   status?: string;
   cookie?: string;
+  gzip?: string;
+  healthCheckConnectPort?: number;
+  requestId?: string;
+  description?: string;
+  bandwidth?: number;
+  healthCheckTimeout?: number;
+  aclStatus?: string;
+  backendServerPort?: number;
+  cookieTimeout?: number;
+  healthCheckDomain?: string;
+  unhealthyThreshold?: number;
+  forwardPort?: number;
+  XForwardedFor_SLBID?: string;
+  securityStatus?: string;
+  healthCheckHttpCode?: string;
+  listenerForward?: string;
+  XForwardedFor?: string;
+  idleTimeout?: number;
   requestTimeout?: number;
   listenerPort?: number;
   healthCheckInterval?: number;
-  requestId?: string;
+  healthCheckURI?: string;
+  stickySessionType?: string;
   aclId?: string;
-  healthCheckTimeout?: number;
-  rules?: DescribeLoadBalancerHTTPListenerAttributeResponseBodyRules;
-  listenerForward?: string;
-  stickySession?: string;
-  aclStatus?: string;
-  forwardPort?: number;
+  scheduler?: string;
   healthyThreshold?: number;
-  XForwardedFor?: string;
-  healthCheckDomain?: string;
-  aclType?: string;
   XForwardedFor_proto?: string;
+  XForwardedFor_SLBIP?: string;
+  stickySession?: string;
+  healthCheck?: string;
+  rules?: DescribeLoadBalancerHTTPListenerAttributeResponseBodyRules;
   static names(): { [key: string]: string } {
     return {
-      cookieTimeout: 'CookieTimeout',
+      aclType: 'AclType',
       VServerGroupId: 'VServerGroupId',
-      description: 'Description',
-      unhealthyThreshold: 'UnhealthyThreshold',
-      healthCheckURI: 'HealthCheckURI',
-      scheduler: 'Scheduler',
-      healthCheck: 'HealthCheck',
-      idleTimeout: 'IdleTimeout',
-      backendServerPort: 'BackendServerPort',
-      XForwardedFor_SLBID: 'XForwardedFor_SLBID',
-      healthCheckConnectPort: 'HealthCheckConnectPort',
-      bandwidth: 'Bandwidth',
-      securityStatus: 'SecurityStatus',
-      gzip: 'Gzip',
-      stickySessionType: 'StickySessionType',
-      XForwardedFor_SLBIP: 'XForwardedFor_SLBIP',
-      healthCheckHttpCode: 'HealthCheckHttpCode',
       status: 'Status',
       cookie: 'Cookie',
+      gzip: 'Gzip',
+      healthCheckConnectPort: 'HealthCheckConnectPort',
+      requestId: 'RequestId',
+      description: 'Description',
+      bandwidth: 'Bandwidth',
+      healthCheckTimeout: 'HealthCheckTimeout',
+      aclStatus: 'AclStatus',
+      backendServerPort: 'BackendServerPort',
+      cookieTimeout: 'CookieTimeout',
+      healthCheckDomain: 'HealthCheckDomain',
+      unhealthyThreshold: 'UnhealthyThreshold',
+      forwardPort: 'ForwardPort',
+      XForwardedFor_SLBID: 'XForwardedFor_SLBID',
+      securityStatus: 'SecurityStatus',
+      healthCheckHttpCode: 'HealthCheckHttpCode',
+      listenerForward: 'ListenerForward',
+      XForwardedFor: 'XForwardedFor',
+      idleTimeout: 'IdleTimeout',
       requestTimeout: 'RequestTimeout',
       listenerPort: 'ListenerPort',
       healthCheckInterval: 'HealthCheckInterval',
-      requestId: 'RequestId',
+      healthCheckURI: 'HealthCheckURI',
+      stickySessionType: 'StickySessionType',
       aclId: 'AclId',
-      healthCheckTimeout: 'HealthCheckTimeout',
-      rules: 'Rules',
-      listenerForward: 'ListenerForward',
-      stickySession: 'StickySession',
-      aclStatus: 'AclStatus',
-      forwardPort: 'ForwardPort',
+      scheduler: 'Scheduler',
       healthyThreshold: 'HealthyThreshold',
-      XForwardedFor: 'XForwardedFor',
-      healthCheckDomain: 'HealthCheckDomain',
-      aclType: 'AclType',
       XForwardedFor_proto: 'XForwardedFor_proto',
+      XForwardedFor_SLBIP: 'XForwardedFor_SLBIP',
+      stickySession: 'StickySession',
+      healthCheck: 'HealthCheck',
+      rules: 'Rules',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      cookieTimeout: 'number',
+      aclType: 'string',
       VServerGroupId: 'string',
-      description: 'string',
-      unhealthyThreshold: 'number',
-      healthCheckURI: 'string',
-      scheduler: 'string',
-      healthCheck: 'string',
-      idleTimeout: 'number',
-      backendServerPort: 'number',
-      XForwardedFor_SLBID: 'string',
-      healthCheckConnectPort: 'number',
-      bandwidth: 'number',
-      securityStatus: 'string',
-      gzip: 'string',
-      stickySessionType: 'string',
-      XForwardedFor_SLBIP: 'string',
-      healthCheckHttpCode: 'string',
       status: 'string',
       cookie: 'string',
+      gzip: 'string',
+      healthCheckConnectPort: 'number',
+      requestId: 'string',
+      description: 'string',
+      bandwidth: 'number',
+      healthCheckTimeout: 'number',
+      aclStatus: 'string',
+      backendServerPort: 'number',
+      cookieTimeout: 'number',
+      healthCheckDomain: 'string',
+      unhealthyThreshold: 'number',
+      forwardPort: 'number',
+      XForwardedFor_SLBID: 'string',
+      securityStatus: 'string',
+      healthCheckHttpCode: 'string',
+      listenerForward: 'string',
+      XForwardedFor: 'string',
+      idleTimeout: 'number',
       requestTimeout: 'number',
       listenerPort: 'number',
       healthCheckInterval: 'number',
-      requestId: 'string',
+      healthCheckURI: 'string',
+      stickySessionType: 'string',
       aclId: 'string',
-      healthCheckTimeout: 'number',
-      rules: DescribeLoadBalancerHTTPListenerAttributeResponseBodyRules,
-      listenerForward: 'string',
-      stickySession: 'string',
-      aclStatus: 'string',
-      forwardPort: 'number',
+      scheduler: 'string',
       healthyThreshold: 'number',
-      XForwardedFor: 'string',
-      healthCheckDomain: 'string',
-      aclType: 'string',
       XForwardedFor_proto: 'string',
+      XForwardedFor_SLBIP: 'string',
+      stickySession: 'string',
+      healthCheck: 'string',
+      rules: DescribeLoadBalancerHTTPListenerAttributeResponseBodyRules,
     };
   }
 
@@ -3858,8 +3534,6 @@ export class DescribeLoadBalancerHTTPSListenerAttributeRequest extends $tea.Mode
   loadBalancerId?: string;
   listenerPort?: number;
   ownerAccount?: string;
-  accessKeyId?: string;
-  tags?: string;
   static names(): { [key: string]: string } {
     return {
       regionId: 'RegionId',
@@ -3869,8 +3543,6 @@ export class DescribeLoadBalancerHTTPSListenerAttributeRequest extends $tea.Mode
       loadBalancerId: 'LoadBalancerId',
       listenerPort: 'ListenerPort',
       ownerAccount: 'OwnerAccount',
-      accessKeyId: 'access_key_id',
-      tags: 'Tags',
     };
   }
 
@@ -3883,8 +3555,6 @@ export class DescribeLoadBalancerHTTPSListenerAttributeRequest extends $tea.Mode
       loadBalancerId: 'string',
       listenerPort: 'number',
       ownerAccount: 'string',
-      accessKeyId: 'string',
-      tags: 'string',
     };
   }
 
@@ -3894,145 +3564,145 @@ export class DescribeLoadBalancerHTTPSListenerAttributeRequest extends $tea.Mode
 }
 
 export class DescribeLoadBalancerHTTPSListenerAttributeResponseBody extends $tea.Model {
-  unhealthyThreshold?: number;
-  healthCheckURI?: string;
-  healthCheck?: string;
-  domainExtensions?: DescribeLoadBalancerHTTPSListenerAttributeResponseBodyDomainExtensions;
+  aclType?: string;
+  XForwardedFor_ClientCertClientVerify?: string;
+  CACertificateId?: string;
+  requestId?: string;
+  healthCheckConnectPort?: number;
   backendServerPort?: number;
+  cookieTimeout?: number;
+  healthCheckDomain?: string;
+  XForwardedFor?: string;
+  XForwardedFor_ClientCertFingerprint?: string;
+  idleTimeout?: number;
+  listenerPort?: number;
+  healthCheckURI?: string;
   XForwardedFor_SLBPORT?: string;
   stickySessionType?: string;
-  status?: string;
-  cookie?: string;
-  requestTimeout?: number;
+  scheduler?: string;
+  XForwardedFor_proto?: string;
   TLSCipherPolicy?: string;
-  healthCheckInterval?: number;
-  requestId?: string;
-  CACertificateId?: string;
+  status?: string;
+  VServerGroupId?: string;
+  XForwardedFor_ClientSrcPort?: string;
+  cookie?: string;
+  gzip?: string;
+  enableHttp2?: string;
+  bandwidth?: number;
+  description?: string;
   healthCheckTimeout?: number;
   aclStatus?: string;
-  healthyThreshold?: number;
-  healthCheckDomain?: string;
-  aclType?: string;
-  XForwardedFor_proto?: string;
-  enableHttp2?: string;
-  cookieTimeout?: number;
-  VServerGroupId?: string;
-  description?: string;
-  scheduler?: string;
-  idleTimeout?: number;
+  unhealthyThreshold?: number;
   XForwardedFor_SLBID?: string;
-  healthCheckConnectPort?: number;
-  bandwidth?: number;
-  securityStatus?: string;
-  gzip?: string;
-  serverCertificateId?: string;
-  XForwardedFor_SLBIP?: string;
-  healthCheckHttpCode?: string;
-  listenerPort?: number;
   XForwardedFor_ClientCertSubjectDN?: string;
+  securityStatus?: string;
+  healthCheckHttpCode?: string;
+  requestTimeout?: number;
+  healthCheckInterval?: number;
+  serverCertificateId?: string;
   aclId?: string;
-  rules?: DescribeLoadBalancerHTTPSListenerAttributeResponseBodyRules;
   XForwardedFor_ClientCertIssuerDN?: string;
+  healthyThreshold?: number;
+  XForwardedFor_SLBIP?: string;
   stickySession?: string;
-  XForwardedFor?: string;
-  XForwardedFor_ClientSrcPort?: string;
-  XForwardedFor_ClientCertClientVerify?: string;
-  XForwardedFor_ClientCertFingerprint?: string;
+  healthCheck?: string;
+  rules?: DescribeLoadBalancerHTTPSListenerAttributeResponseBodyRules;
+  domainExtensions?: DescribeLoadBalancerHTTPSListenerAttributeResponseBodyDomainExtensions;
   static names(): { [key: string]: string } {
     return {
-      unhealthyThreshold: 'UnhealthyThreshold',
-      healthCheckURI: 'HealthCheckURI',
-      healthCheck: 'HealthCheck',
-      domainExtensions: 'DomainExtensions',
+      aclType: 'AclType',
+      XForwardedFor_ClientCertClientVerify: 'XForwardedFor_ClientCertClientVerify',
+      CACertificateId: 'CACertificateId',
+      requestId: 'RequestId',
+      healthCheckConnectPort: 'HealthCheckConnectPort',
       backendServerPort: 'BackendServerPort',
+      cookieTimeout: 'CookieTimeout',
+      healthCheckDomain: 'HealthCheckDomain',
+      XForwardedFor: 'XForwardedFor',
+      XForwardedFor_ClientCertFingerprint: 'XForwardedFor_ClientCertFingerprint',
+      idleTimeout: 'IdleTimeout',
+      listenerPort: 'ListenerPort',
+      healthCheckURI: 'HealthCheckURI',
       XForwardedFor_SLBPORT: 'XForwardedFor_SLBPORT',
       stickySessionType: 'StickySessionType',
-      status: 'Status',
-      cookie: 'Cookie',
-      requestTimeout: 'RequestTimeout',
+      scheduler: 'Scheduler',
+      XForwardedFor_proto: 'XForwardedFor_proto',
       TLSCipherPolicy: 'TLSCipherPolicy',
-      healthCheckInterval: 'HealthCheckInterval',
-      requestId: 'RequestId',
-      CACertificateId: 'CACertificateId',
+      status: 'Status',
+      VServerGroupId: 'VServerGroupId',
+      XForwardedFor_ClientSrcPort: 'XForwardedFor_ClientSrcPort',
+      cookie: 'Cookie',
+      gzip: 'Gzip',
+      enableHttp2: 'EnableHttp2',
+      bandwidth: 'Bandwidth',
+      description: 'Description',
       healthCheckTimeout: 'HealthCheckTimeout',
       aclStatus: 'AclStatus',
-      healthyThreshold: 'HealthyThreshold',
-      healthCheckDomain: 'HealthCheckDomain',
-      aclType: 'AclType',
-      XForwardedFor_proto: 'XForwardedFor_proto',
-      enableHttp2: 'EnableHttp2',
-      cookieTimeout: 'CookieTimeout',
-      VServerGroupId: 'VServerGroupId',
-      description: 'Description',
-      scheduler: 'Scheduler',
-      idleTimeout: 'IdleTimeout',
+      unhealthyThreshold: 'UnhealthyThreshold',
       XForwardedFor_SLBID: 'XForwardedFor_SLBID',
-      healthCheckConnectPort: 'HealthCheckConnectPort',
-      bandwidth: 'Bandwidth',
-      securityStatus: 'SecurityStatus',
-      gzip: 'Gzip',
-      serverCertificateId: 'ServerCertificateId',
-      XForwardedFor_SLBIP: 'XForwardedFor_SLBIP',
-      healthCheckHttpCode: 'HealthCheckHttpCode',
-      listenerPort: 'ListenerPort',
       XForwardedFor_ClientCertSubjectDN: 'XForwardedFor_ClientCertSubjectDN',
+      securityStatus: 'SecurityStatus',
+      healthCheckHttpCode: 'HealthCheckHttpCode',
+      requestTimeout: 'RequestTimeout',
+      healthCheckInterval: 'HealthCheckInterval',
+      serverCertificateId: 'ServerCertificateId',
       aclId: 'AclId',
-      rules: 'Rules',
       XForwardedFor_ClientCertIssuerDN: 'XForwardedFor_ClientCertIssuerDN',
+      healthyThreshold: 'HealthyThreshold',
+      XForwardedFor_SLBIP: 'XForwardedFor_SLBIP',
       stickySession: 'StickySession',
-      XForwardedFor: 'XForwardedFor',
-      XForwardedFor_ClientSrcPort: 'XForwardedFor_ClientSrcPort',
-      XForwardedFor_ClientCertClientVerify: 'XForwardedFor_ClientCertClientVerify',
-      XForwardedFor_ClientCertFingerprint: 'XForwardedFor_ClientCertFingerprint',
+      healthCheck: 'HealthCheck',
+      rules: 'Rules',
+      domainExtensions: 'DomainExtensions',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      unhealthyThreshold: 'number',
-      healthCheckURI: 'string',
-      healthCheck: 'string',
-      domainExtensions: DescribeLoadBalancerHTTPSListenerAttributeResponseBodyDomainExtensions,
+      aclType: 'string',
+      XForwardedFor_ClientCertClientVerify: 'string',
+      CACertificateId: 'string',
+      requestId: 'string',
+      healthCheckConnectPort: 'number',
       backendServerPort: 'number',
+      cookieTimeout: 'number',
+      healthCheckDomain: 'string',
+      XForwardedFor: 'string',
+      XForwardedFor_ClientCertFingerprint: 'string',
+      idleTimeout: 'number',
+      listenerPort: 'number',
+      healthCheckURI: 'string',
       XForwardedFor_SLBPORT: 'string',
       stickySessionType: 'string',
-      status: 'string',
-      cookie: 'string',
-      requestTimeout: 'number',
+      scheduler: 'string',
+      XForwardedFor_proto: 'string',
       TLSCipherPolicy: 'string',
-      healthCheckInterval: 'number',
-      requestId: 'string',
-      CACertificateId: 'string',
+      status: 'string',
+      VServerGroupId: 'string',
+      XForwardedFor_ClientSrcPort: 'string',
+      cookie: 'string',
+      gzip: 'string',
+      enableHttp2: 'string',
+      bandwidth: 'number',
+      description: 'string',
       healthCheckTimeout: 'number',
       aclStatus: 'string',
-      healthyThreshold: 'number',
-      healthCheckDomain: 'string',
-      aclType: 'string',
-      XForwardedFor_proto: 'string',
-      enableHttp2: 'string',
-      cookieTimeout: 'number',
-      VServerGroupId: 'string',
-      description: 'string',
-      scheduler: 'string',
-      idleTimeout: 'number',
+      unhealthyThreshold: 'number',
       XForwardedFor_SLBID: 'string',
-      healthCheckConnectPort: 'number',
-      bandwidth: 'number',
-      securityStatus: 'string',
-      gzip: 'string',
-      serverCertificateId: 'string',
-      XForwardedFor_SLBIP: 'string',
-      healthCheckHttpCode: 'string',
-      listenerPort: 'number',
       XForwardedFor_ClientCertSubjectDN: 'string',
+      securityStatus: 'string',
+      healthCheckHttpCode: 'string',
+      requestTimeout: 'number',
+      healthCheckInterval: 'number',
+      serverCertificateId: 'string',
       aclId: 'string',
-      rules: DescribeLoadBalancerHTTPSListenerAttributeResponseBodyRules,
       XForwardedFor_ClientCertIssuerDN: 'string',
+      healthyThreshold: 'number',
+      XForwardedFor_SLBIP: 'string',
       stickySession: 'string',
-      XForwardedFor: 'string',
-      XForwardedFor_ClientSrcPort: 'string',
-      XForwardedFor_ClientCertClientVerify: 'string',
-      XForwardedFor_ClientCertFingerprint: 'string',
+      healthCheck: 'string',
+      rules: DescribeLoadBalancerHTTPSListenerAttributeResponseBodyRules,
+      domainExtensions: DescribeLoadBalancerHTTPSListenerAttributeResponseBodyDomainExtensions,
     };
   }
 
@@ -4063,6 +3733,102 @@ export class DescribeLoadBalancerHTTPSListenerAttributeResponse extends $tea.Mod
   }
 }
 
+export class DescribeLoadBalancerListenersRequest extends $tea.Model {
+  regionId?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  ownerAccount?: string;
+  nextToken?: string;
+  maxResults?: number;
+  listenerProtocol?: string;
+  loadBalancerId?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      ownerAccount: 'OwnerAccount',
+      nextToken: 'NextToken',
+      maxResults: 'MaxResults',
+      listenerProtocol: 'ListenerProtocol',
+      loadBalancerId: 'LoadBalancerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      ownerAccount: 'string',
+      nextToken: 'string',
+      maxResults: 'number',
+      listenerProtocol: 'string',
+      loadBalancerId: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLoadBalancerListenersResponseBody extends $tea.Model {
+  nextToken?: string;
+  requestId?: string;
+  totalCount?: number;
+  maxResults?: number;
+  listeners?: DescribeLoadBalancerListenersResponseBodyListeners[];
+  static names(): { [key: string]: string } {
+    return {
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+      maxResults: 'MaxResults',
+      listeners: 'Listeners',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nextToken: 'string',
+      requestId: 'string',
+      totalCount: 'number',
+      maxResults: 'number',
+      listeners: { 'type': 'array', 'itemType': DescribeLoadBalancerListenersResponseBodyListeners },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLoadBalancerListenersResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeLoadBalancerListenersResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeLoadBalancerListenersResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeLoadBalancersRequest extends $tea.Model {
   ownerId?: number;
   resourceOwnerAccount?: string;
@@ -4083,16 +3849,11 @@ export class DescribeLoadBalancersRequest extends $tea.Model {
   masterZoneId?: string;
   slaveZoneId?: string;
   ownerAccount?: string;
-  accessKeyId?: string;
   tags?: string;
   payType?: string;
   resourceGroupId?: string;
   pageNumber?: number;
   pageSize?: number;
-  supportPrivateLink?: boolean;
-  fuzzy?: string;
-  businessStatus?: string;
-  tag?: DescribeLoadBalancersRequestTag[];
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
@@ -4114,16 +3875,11 @@ export class DescribeLoadBalancersRequest extends $tea.Model {
       masterZoneId: 'MasterZoneId',
       slaveZoneId: 'SlaveZoneId',
       ownerAccount: 'OwnerAccount',
-      accessKeyId: 'access_key_id',
       tags: 'Tags',
       payType: 'PayType',
       resourceGroupId: 'ResourceGroupId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
-      supportPrivateLink: 'SupportPrivateLink',
-      fuzzy: 'Fuzzy',
-      businessStatus: 'BusinessStatus',
-      tag: 'Tag',
     };
   }
 
@@ -4148,16 +3904,11 @@ export class DescribeLoadBalancersRequest extends $tea.Model {
       masterZoneId: 'string',
       slaveZoneId: 'string',
       ownerAccount: 'string',
-      accessKeyId: 'string',
       tags: 'string',
       payType: 'string',
       resourceGroupId: 'string',
       pageNumber: 'number',
       pageSize: 'number',
-      supportPrivateLink: 'boolean',
-      fuzzy: 'string',
-      businessStatus: 'string',
-      tag: { 'type': 'array', 'itemType': DescribeLoadBalancersRequestTag },
     };
   }
 
@@ -4167,27 +3918,27 @@ export class DescribeLoadBalancersRequest extends $tea.Model {
 }
 
 export class DescribeLoadBalancersResponseBody extends $tea.Model {
-  totalCount?: number;
   requestId?: string;
-  pageSize?: number;
   pageNumber?: number;
+  pageSize?: number;
+  totalCount?: number;
   loadBalancers?: DescribeLoadBalancersResponseBodyLoadBalancers;
   static names(): { [key: string]: string } {
     return {
-      totalCount: 'TotalCount',
       requestId: 'RequestId',
-      pageSize: 'PageSize',
       pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
       loadBalancers: 'LoadBalancers',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      totalCount: 'number',
       requestId: 'string',
-      pageSize: 'number',
       pageNumber: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
       loadBalancers: DescribeLoadBalancersResponseBodyLoadBalancers,
     };
   }
@@ -4227,8 +3978,6 @@ export class DescribeLoadBalancerTCPListenerAttributeRequest extends $tea.Model 
   loadBalancerId?: string;
   listenerPort?: number;
   ownerAccount?: string;
-  accessKeyId?: string;
-  tags?: string;
   static names(): { [key: string]: string } {
     return {
       regionId: 'RegionId',
@@ -4238,8 +3987,6 @@ export class DescribeLoadBalancerTCPListenerAttributeRequest extends $tea.Model 
       loadBalancerId: 'LoadBalancerId',
       listenerPort: 'ListenerPort',
       ownerAccount: 'OwnerAccount',
-      accessKeyId: 'access_key_id',
-      tags: 'Tags',
     };
   }
 
@@ -4252,8 +3999,6 @@ export class DescribeLoadBalancerTCPListenerAttributeRequest extends $tea.Model 
       loadBalancerId: 'string',
       listenerPort: 'number',
       ownerAccount: 'string',
-      accessKeyId: 'string',
-      tags: 'string',
     };
   }
 
@@ -4264,90 +4009,96 @@ export class DescribeLoadBalancerTCPListenerAttributeRequest extends $tea.Model 
 
 export class DescribeLoadBalancerTCPListenerAttributeResponseBody extends $tea.Model {
   VServerGroupId?: string;
-  description?: string;
-  synProxy?: string;
-  unhealthyThreshold?: number;
-  healthCheckURI?: string;
-  scheduler?: string;
-  healthCheck?: string;
-  backendServerPort?: number;
-  persistenceTimeout?: number;
-  healthCheckConnectPort?: number;
-  healthCheckMethod?: string;
-  bandwidth?: number;
-  healthCheckHttpCode?: string;
-  establishedTimeout?: number;
   status?: string;
+  aclType?: string;
+  connectionDrainTimeout?: number;
+  requestId?: string;
+  healthCheckConnectPort?: number;
+  description?: string;
+  bandwidth?: number;
+  healthCheckType?: string;
+  masterSlaveServerGroupId?: string;
+  backendServerPort?: number;
+  aclStatus?: string;
+  healthCheckDomain?: string;
+  unhealthyThreshold?: number;
+  healthCheckHttpCode?: string;
+  persistenceTimeout?: number;
   listenerPort?: number;
   healthCheckInterval?: number;
-  requestId?: string;
+  healthCheckURI?: string;
   aclId?: string;
+  synProxy?: string;
+  scheduler?: string;
+  establishedTimeout?: number;
   healthCheckConnectTimeout?: number;
-  aclStatus?: string;
   healthyThreshold?: number;
-  masterSlaveServerGroupId?: string;
-  healthCheckDomain?: string;
-  aclType?: string;
-  healthCheckType?: string;
+  connectionDrain?: string;
+  healthCheckMethod?: string;
+  healthCheck?: string;
   static names(): { [key: string]: string } {
     return {
       VServerGroupId: 'VServerGroupId',
-      description: 'Description',
-      synProxy: 'SynProxy',
-      unhealthyThreshold: 'UnhealthyThreshold',
-      healthCheckURI: 'HealthCheckURI',
-      scheduler: 'Scheduler',
-      healthCheck: 'HealthCheck',
-      backendServerPort: 'BackendServerPort',
-      persistenceTimeout: 'PersistenceTimeout',
-      healthCheckConnectPort: 'HealthCheckConnectPort',
-      healthCheckMethod: 'HealthCheckMethod',
-      bandwidth: 'Bandwidth',
-      healthCheckHttpCode: 'HealthCheckHttpCode',
-      establishedTimeout: 'EstablishedTimeout',
       status: 'Status',
+      aclType: 'AclType',
+      connectionDrainTimeout: 'ConnectionDrainTimeout',
+      requestId: 'RequestId',
+      healthCheckConnectPort: 'HealthCheckConnectPort',
+      description: 'Description',
+      bandwidth: 'Bandwidth',
+      healthCheckType: 'HealthCheckType',
+      masterSlaveServerGroupId: 'MasterSlaveServerGroupId',
+      backendServerPort: 'BackendServerPort',
+      aclStatus: 'AclStatus',
+      healthCheckDomain: 'HealthCheckDomain',
+      unhealthyThreshold: 'UnhealthyThreshold',
+      healthCheckHttpCode: 'HealthCheckHttpCode',
+      persistenceTimeout: 'PersistenceTimeout',
       listenerPort: 'ListenerPort',
       healthCheckInterval: 'HealthCheckInterval',
-      requestId: 'RequestId',
+      healthCheckURI: 'HealthCheckURI',
       aclId: 'AclId',
+      synProxy: 'SynProxy',
+      scheduler: 'Scheduler',
+      establishedTimeout: 'EstablishedTimeout',
       healthCheckConnectTimeout: 'HealthCheckConnectTimeout',
-      aclStatus: 'AclStatus',
       healthyThreshold: 'HealthyThreshold',
-      masterSlaveServerGroupId: 'MasterSlaveServerGroupId',
-      healthCheckDomain: 'HealthCheckDomain',
-      aclType: 'AclType',
-      healthCheckType: 'HealthCheckType',
+      connectionDrain: 'ConnectionDrain',
+      healthCheckMethod: 'HealthCheckMethod',
+      healthCheck: 'HealthCheck',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       VServerGroupId: 'string',
-      description: 'string',
-      synProxy: 'string',
-      unhealthyThreshold: 'number',
-      healthCheckURI: 'string',
-      scheduler: 'string',
-      healthCheck: 'string',
-      backendServerPort: 'number',
-      persistenceTimeout: 'number',
-      healthCheckConnectPort: 'number',
-      healthCheckMethod: 'string',
-      bandwidth: 'number',
-      healthCheckHttpCode: 'string',
-      establishedTimeout: 'number',
       status: 'string',
+      aclType: 'string',
+      connectionDrainTimeout: 'number',
+      requestId: 'string',
+      healthCheckConnectPort: 'number',
+      description: 'string',
+      bandwidth: 'number',
+      healthCheckType: 'string',
+      masterSlaveServerGroupId: 'string',
+      backendServerPort: 'number',
+      aclStatus: 'string',
+      healthCheckDomain: 'string',
+      unhealthyThreshold: 'number',
+      healthCheckHttpCode: 'string',
+      persistenceTimeout: 'number',
       listenerPort: 'number',
       healthCheckInterval: 'number',
-      requestId: 'string',
+      healthCheckURI: 'string',
       aclId: 'string',
+      synProxy: 'string',
+      scheduler: 'string',
+      establishedTimeout: 'number',
       healthCheckConnectTimeout: 'number',
-      aclStatus: 'string',
       healthyThreshold: 'number',
-      masterSlaveServerGroupId: 'string',
-      healthCheckDomain: 'string',
-      aclType: 'string',
-      healthCheckType: 'string',
+      connectionDrain: 'string',
+      healthCheckMethod: 'string',
+      healthCheck: 'string',
     };
   }
 
@@ -4386,8 +4137,6 @@ export class DescribeLoadBalancerUDPListenerAttributeRequest extends $tea.Model 
   loadBalancerId?: string;
   listenerPort?: number;
   ownerAccount?: string;
-  accessKeyId?: string;
-  tags?: string;
   static names(): { [key: string]: string } {
     return {
       regionId: 'RegionId',
@@ -4397,8 +4146,6 @@ export class DescribeLoadBalancerUDPListenerAttributeRequest extends $tea.Model 
       loadBalancerId: 'LoadBalancerId',
       listenerPort: 'ListenerPort',
       ownerAccount: 'OwnerAccount',
-      accessKeyId: 'access_key_id',
-      tags: 'Tags',
     };
   }
 
@@ -4411,8 +4158,6 @@ export class DescribeLoadBalancerUDPListenerAttributeRequest extends $tea.Model 
       loadBalancerId: 'string',
       listenerPort: 'number',
       ownerAccount: 'string',
-      accessKeyId: 'string',
-      tags: 'string',
     };
   }
 
@@ -4423,72 +4168,72 @@ export class DescribeLoadBalancerUDPListenerAttributeRequest extends $tea.Model 
 
 export class DescribeLoadBalancerUDPListenerAttributeResponseBody extends $tea.Model {
   VServerGroupId?: string;
-  description?: string;
-  unhealthyThreshold?: number;
-  scheduler?: string;
-  healthCheck?: string;
-  backendServerPort?: number;
-  healthCheckConnectPort?: number;
-  bandwidth?: number;
   status?: string;
+  aclType?: string;
+  requestId?: string;
+  healthCheckConnectPort?: number;
+  description?: string;
+  bandwidth?: number;
+  masterSlaveServerGroupId?: string;
+  backendServerPort?: number;
+  aclStatus?: string;
+  unhealthyThreshold?: number;
   listenerPort?: number;
   healthCheckInterval?: number;
-  requestId?: string;
-  aclId?: string;
-  healthCheckConnectTimeout?: number;
-  aclStatus?: string;
-  healthCheckReq?: string;
   healthCheckExp?: string;
+  aclId?: string;
+  scheduler?: string;
+  healthCheckConnectTimeout?: number;
   healthyThreshold?: number;
-  masterSlaveServerGroupId?: string;
-  aclType?: string;
+  healthCheckReq?: string;
+  healthCheck?: string;
   static names(): { [key: string]: string } {
     return {
       VServerGroupId: 'VServerGroupId',
-      description: 'Description',
-      unhealthyThreshold: 'UnhealthyThreshold',
-      scheduler: 'Scheduler',
-      healthCheck: 'HealthCheck',
-      backendServerPort: 'BackendServerPort',
-      healthCheckConnectPort: 'HealthCheckConnectPort',
-      bandwidth: 'Bandwidth',
       status: 'Status',
+      aclType: 'AclType',
+      requestId: 'RequestId',
+      healthCheckConnectPort: 'HealthCheckConnectPort',
+      description: 'Description',
+      bandwidth: 'Bandwidth',
+      masterSlaveServerGroupId: 'MasterSlaveServerGroupId',
+      backendServerPort: 'BackendServerPort',
+      aclStatus: 'AclStatus',
+      unhealthyThreshold: 'UnhealthyThreshold',
       listenerPort: 'ListenerPort',
       healthCheckInterval: 'HealthCheckInterval',
-      requestId: 'RequestId',
-      aclId: 'AclId',
-      healthCheckConnectTimeout: 'HealthCheckConnectTimeout',
-      aclStatus: 'AclStatus',
-      healthCheckReq: 'HealthCheckReq',
       healthCheckExp: 'HealthCheckExp',
+      aclId: 'AclId',
+      scheduler: 'Scheduler',
+      healthCheckConnectTimeout: 'HealthCheckConnectTimeout',
       healthyThreshold: 'HealthyThreshold',
-      masterSlaveServerGroupId: 'MasterSlaveServerGroupId',
-      aclType: 'AclType',
+      healthCheckReq: 'HealthCheckReq',
+      healthCheck: 'HealthCheck',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       VServerGroupId: 'string',
-      description: 'string',
-      unhealthyThreshold: 'number',
-      scheduler: 'string',
-      healthCheck: 'string',
-      backendServerPort: 'number',
-      healthCheckConnectPort: 'number',
-      bandwidth: 'number',
       status: 'string',
+      aclType: 'string',
+      requestId: 'string',
+      healthCheckConnectPort: 'number',
+      description: 'string',
+      bandwidth: 'number',
+      masterSlaveServerGroupId: 'string',
+      backendServerPort: 'number',
+      aclStatus: 'string',
+      unhealthyThreshold: 'number',
       listenerPort: 'number',
       healthCheckInterval: 'number',
-      requestId: 'string',
-      aclId: 'string',
-      healthCheckConnectTimeout: 'number',
-      aclStatus: 'string',
-      healthCheckReq: 'string',
       healthCheckExp: 'string',
+      aclId: 'string',
+      scheduler: 'string',
+      healthCheckConnectTimeout: 'number',
       healthyThreshold: 'number',
-      masterSlaveServerGroupId: 'string',
-      aclType: 'string',
+      healthCheckReq: 'string',
+      healthCheck: 'string',
     };
   }
 
@@ -4525,8 +4270,6 @@ export class DescribeMasterSlaveServerGroupAttributeRequest extends $tea.Model {
   resourceOwnerId?: number;
   regionId?: string;
   ownerAccount?: string;
-  accessKeyId?: string;
-  tags?: string;
   masterSlaveServerGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4535,8 +4278,6 @@ export class DescribeMasterSlaveServerGroupAttributeRequest extends $tea.Model {
       resourceOwnerId: 'ResourceOwnerId',
       regionId: 'RegionId',
       ownerAccount: 'OwnerAccount',
-      accessKeyId: 'access_key_id',
-      tags: 'Tags',
       masterSlaveServerGroupId: 'MasterSlaveServerGroupId',
     };
   }
@@ -4548,8 +4289,6 @@ export class DescribeMasterSlaveServerGroupAttributeRequest extends $tea.Model {
       resourceOwnerId: 'number',
       regionId: 'string',
       ownerAccount: 'string',
-      accessKeyId: 'string',
-      tags: 'string',
       masterSlaveServerGroupId: 'string',
     };
   }
@@ -4561,16 +4300,16 @@ export class DescribeMasterSlaveServerGroupAttributeRequest extends $tea.Model {
 
 export class DescribeMasterSlaveServerGroupAttributeResponseBody extends $tea.Model {
   requestId?: string;
-  masterSlaveServerGroupId?: string;
   loadBalancerId?: string;
   masterSlaveServerGroupName?: string;
+  masterSlaveServerGroupId?: string;
   masterSlaveBackendServers?: DescribeMasterSlaveServerGroupAttributeResponseBodyMasterSlaveBackendServers;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      masterSlaveServerGroupId: 'MasterSlaveServerGroupId',
       loadBalancerId: 'LoadBalancerId',
       masterSlaveServerGroupName: 'MasterSlaveServerGroupName',
+      masterSlaveServerGroupId: 'MasterSlaveServerGroupId',
       masterSlaveBackendServers: 'MasterSlaveBackendServers',
     };
   }
@@ -4578,9 +4317,9 @@ export class DescribeMasterSlaveServerGroupAttributeResponseBody extends $tea.Mo
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      masterSlaveServerGroupId: 'string',
       loadBalancerId: 'string',
       masterSlaveServerGroupName: 'string',
+      masterSlaveServerGroupId: 'string',
       masterSlaveBackendServers: DescribeMasterSlaveServerGroupAttributeResponseBodyMasterSlaveBackendServers,
     };
   }
@@ -4618,8 +4357,6 @@ export class DescribeMasterSlaveServerGroupsRequest extends $tea.Model {
   resourceOwnerId?: number;
   regionId?: string;
   ownerAccount?: string;
-  accessKeyId?: string;
-  tags?: string;
   loadBalancerId?: string;
   includeListener?: boolean;
   static names(): { [key: string]: string } {
@@ -4629,8 +4366,6 @@ export class DescribeMasterSlaveServerGroupsRequest extends $tea.Model {
       resourceOwnerId: 'ResourceOwnerId',
       regionId: 'RegionId',
       ownerAccount: 'OwnerAccount',
-      accessKeyId: 'access_key_id',
-      tags: 'Tags',
       loadBalancerId: 'LoadBalancerId',
       includeListener: 'IncludeListener',
     };
@@ -4643,8 +4378,6 @@ export class DescribeMasterSlaveServerGroupsRequest extends $tea.Model {
       resourceOwnerId: 'number',
       regionId: 'string',
       ownerAccount: 'string',
-      accessKeyId: 'string',
-      tags: 'string',
       loadBalancerId: 'string',
       includeListener: 'boolean',
     };
@@ -4706,8 +4439,6 @@ export class DescribeRegionsRequest extends $tea.Model {
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   ownerAccount?: string;
-  accessKeyId?: string;
-  tags?: string;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
@@ -4716,8 +4447,6 @@ export class DescribeRegionsRequest extends $tea.Model {
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       ownerAccount: 'OwnerAccount',
-      accessKeyId: 'access_key_id',
-      tags: 'Tags',
     };
   }
 
@@ -4729,8 +4458,6 @@ export class DescribeRegionsRequest extends $tea.Model {
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       ownerAccount: 'string',
-      accessKeyId: 'string',
-      tags: 'string',
     };
   }
 
@@ -4789,8 +4516,6 @@ export class DescribeRuleAttributeRequest extends $tea.Model {
   resourceOwnerId?: number;
   regionId?: string;
   ownerAccount?: string;
-  accessKeyId?: string;
-  tags?: string;
   ruleId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4799,8 +4524,6 @@ export class DescribeRuleAttributeRequest extends $tea.Model {
       resourceOwnerId: 'ResourceOwnerId',
       regionId: 'RegionId',
       ownerAccount: 'OwnerAccount',
-      accessKeyId: 'access_key_id',
-      tags: 'Tags',
       ruleId: 'RuleId',
     };
   }
@@ -4812,8 +4535,6 @@ export class DescribeRuleAttributeRequest extends $tea.Model {
       resourceOwnerId: 'number',
       regionId: 'string',
       ownerAccount: 'string',
-      accessKeyId: 'string',
-      tags: 'string',
       ruleId: 'string',
     };
   }
@@ -4824,82 +4545,82 @@ export class DescribeRuleAttributeRequest extends $tea.Model {
 }
 
 export class DescribeRuleAttributeResponseBody extends $tea.Model {
-  cookie?: string;
-  cookieTimeout?: number;
+  healthCheckHttpCode?: string;
   VServerGroupId?: string;
+  domain?: string;
+  cookie?: string;
+  loadBalancerId?: string;
   listenerPort?: string;
   healthCheckInterval?: number;
-  requestId?: string;
-  unhealthyThreshold?: number;
-  healthCheckURI?: string;
-  scheduler?: string;
-  ruleId?: string;
-  healthCheck?: string;
-  loadBalancerId?: string;
-  healthCheckTimeout?: number;
   url?: string;
-  stickySession?: string;
-  healthCheckConnectPort?: number;
-  healthyThreshold?: number;
-  listenerSync?: string;
-  healthCheckDomain?: string;
+  healthCheckURI?: string;
   stickySessionType?: string;
-  domain?: string;
-  healthCheckHttpCode?: string;
   ruleName?: string;
+  ruleId?: string;
+  healthCheckConnectPort?: number;
+  scheduler?: string;
+  requestId?: string;
+  healthCheckTimeout?: number;
+  listenerSync?: string;
+  healthyThreshold?: number;
+  cookieTimeout?: number;
+  healthCheckDomain?: string;
+  unhealthyThreshold?: number;
+  stickySession?: string;
+  healthCheck?: string;
   static names(): { [key: string]: string } {
     return {
-      cookie: 'Cookie',
-      cookieTimeout: 'CookieTimeout',
+      healthCheckHttpCode: 'HealthCheckHttpCode',
       VServerGroupId: 'VServerGroupId',
+      domain: 'Domain',
+      cookie: 'Cookie',
+      loadBalancerId: 'LoadBalancerId',
       listenerPort: 'ListenerPort',
       healthCheckInterval: 'HealthCheckInterval',
-      requestId: 'RequestId',
-      unhealthyThreshold: 'UnhealthyThreshold',
-      healthCheckURI: 'HealthCheckURI',
-      scheduler: 'Scheduler',
-      ruleId: 'RuleId',
-      healthCheck: 'HealthCheck',
-      loadBalancerId: 'LoadBalancerId',
-      healthCheckTimeout: 'HealthCheckTimeout',
       url: 'Url',
-      stickySession: 'StickySession',
-      healthCheckConnectPort: 'HealthCheckConnectPort',
-      healthyThreshold: 'HealthyThreshold',
-      listenerSync: 'ListenerSync',
-      healthCheckDomain: 'HealthCheckDomain',
+      healthCheckURI: 'HealthCheckURI',
       stickySessionType: 'StickySessionType',
-      domain: 'Domain',
-      healthCheckHttpCode: 'HealthCheckHttpCode',
       ruleName: 'RuleName',
+      ruleId: 'RuleId',
+      healthCheckConnectPort: 'HealthCheckConnectPort',
+      scheduler: 'Scheduler',
+      requestId: 'RequestId',
+      healthCheckTimeout: 'HealthCheckTimeout',
+      listenerSync: 'ListenerSync',
+      healthyThreshold: 'HealthyThreshold',
+      cookieTimeout: 'CookieTimeout',
+      healthCheckDomain: 'HealthCheckDomain',
+      unhealthyThreshold: 'UnhealthyThreshold',
+      stickySession: 'StickySession',
+      healthCheck: 'HealthCheck',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      cookie: 'string',
-      cookieTimeout: 'number',
+      healthCheckHttpCode: 'string',
       VServerGroupId: 'string',
+      domain: 'string',
+      cookie: 'string',
+      loadBalancerId: 'string',
       listenerPort: 'string',
       healthCheckInterval: 'number',
-      requestId: 'string',
-      unhealthyThreshold: 'number',
-      healthCheckURI: 'string',
-      scheduler: 'string',
-      ruleId: 'string',
-      healthCheck: 'string',
-      loadBalancerId: 'string',
-      healthCheckTimeout: 'number',
       url: 'string',
-      stickySession: 'string',
-      healthCheckConnectPort: 'number',
-      healthyThreshold: 'number',
-      listenerSync: 'string',
-      healthCheckDomain: 'string',
+      healthCheckURI: 'string',
       stickySessionType: 'string',
-      domain: 'string',
-      healthCheckHttpCode: 'string',
       ruleName: 'string',
+      ruleId: 'string',
+      healthCheckConnectPort: 'number',
+      scheduler: 'string',
+      requestId: 'string',
+      healthCheckTimeout: 'number',
+      listenerSync: 'string',
+      healthyThreshold: 'number',
+      cookieTimeout: 'number',
+      healthCheckDomain: 'string',
+      unhealthyThreshold: 'number',
+      stickySession: 'string',
+      healthCheck: 'string',
     };
   }
 
@@ -4936,8 +4657,6 @@ export class DescribeRulesRequest extends $tea.Model {
   resourceOwnerId?: number;
   regionId?: string;
   ownerAccount?: string;
-  accessKeyId?: string;
-  tags?: string;
   loadBalancerId?: string;
   listenerProtocol?: string;
   listenerPort?: number;
@@ -4948,8 +4667,6 @@ export class DescribeRulesRequest extends $tea.Model {
       resourceOwnerId: 'ResourceOwnerId',
       regionId: 'RegionId',
       ownerAccount: 'OwnerAccount',
-      accessKeyId: 'access_key_id',
-      tags: 'Tags',
       loadBalancerId: 'LoadBalancerId',
       listenerProtocol: 'ListenerProtocol',
       listenerPort: 'ListenerPort',
@@ -4963,8 +4680,6 @@ export class DescribeRulesRequest extends $tea.Model {
       resourceOwnerId: 'number',
       regionId: 'string',
       ownerAccount: 'string',
-      accessKeyId: 'string',
-      tags: 'string',
       loadBalancerId: 'string',
       listenerProtocol: 'string',
       listenerPort: 'number',
@@ -5027,10 +4742,7 @@ export class DescribeServerCertificatesRequest extends $tea.Model {
   regionId?: string;
   serverCertificateId?: string;
   ownerAccount?: string;
-  accessKeyId?: string;
-  tags?: string;
   resourceGroupId?: string;
-  tag?: DescribeServerCertificatesRequestTag[];
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
@@ -5039,10 +4751,7 @@ export class DescribeServerCertificatesRequest extends $tea.Model {
       regionId: 'RegionId',
       serverCertificateId: 'ServerCertificateId',
       ownerAccount: 'OwnerAccount',
-      accessKeyId: 'access_key_id',
-      tags: 'Tags',
       resourceGroupId: 'ResourceGroupId',
-      tag: 'Tag',
     };
   }
 
@@ -5054,10 +4763,7 @@ export class DescribeServerCertificatesRequest extends $tea.Model {
       regionId: 'string',
       serverCertificateId: 'string',
       ownerAccount: 'string',
-      accessKeyId: 'string',
-      tags: 'string',
       resourceGroupId: 'string',
-      tag: { 'type': 'array', 'itemType': DescribeServerCertificatesRequestTag },
     };
   }
 
@@ -5115,7 +4821,6 @@ export class DescribeTagsRequest extends $tea.Model {
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   ownerAccount?: string;
-  accessKeyId?: string;
   regionId?: string;
   loadBalancerId?: string;
   tags?: string;
@@ -5128,7 +4833,6 @@ export class DescribeTagsRequest extends $tea.Model {
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       ownerAccount: 'OwnerAccount',
-      accessKeyId: 'access_key_id',
       regionId: 'RegionId',
       loadBalancerId: 'LoadBalancerId',
       tags: 'Tags',
@@ -5144,7 +4848,6 @@ export class DescribeTagsRequest extends $tea.Model {
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       ownerAccount: 'string',
-      accessKeyId: 'string',
       regionId: 'string',
       loadBalancerId: 'string',
       tags: 'string',
@@ -5160,27 +4863,27 @@ export class DescribeTagsRequest extends $tea.Model {
 }
 
 export class DescribeTagsResponseBody extends $tea.Model {
-  totalCount?: number;
   requestId?: string;
   pageSize?: number;
   pageNumber?: number;
+  totalCount?: number;
   tagSets?: DescribeTagsResponseBodyTagSets;
   static names(): { [key: string]: string } {
     return {
-      totalCount: 'TotalCount',
       requestId: 'RequestId',
       pageSize: 'PageSize',
       pageNumber: 'PageNumber',
+      totalCount: 'TotalCount',
       tagSets: 'TagSets',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      totalCount: 'number',
       requestId: 'string',
       pageSize: 'number',
       pageNumber: 'number',
+      totalCount: 'number',
       tagSets: DescribeTagsResponseBodyTagSets,
     };
   }
@@ -5218,8 +4921,6 @@ export class DescribeVServerGroupAttributeRequest extends $tea.Model {
   resourceOwnerId?: number;
   regionId?: string;
   ownerAccount?: string;
-  accessKeyId?: string;
-  tags?: string;
   VServerGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5228,8 +4929,6 @@ export class DescribeVServerGroupAttributeRequest extends $tea.Model {
       resourceOwnerId: 'ResourceOwnerId',
       regionId: 'RegionId',
       ownerAccount: 'OwnerAccount',
-      accessKeyId: 'access_key_id',
-      tags: 'Tags',
       VServerGroupId: 'VServerGroupId',
     };
   }
@@ -5241,8 +4940,6 @@ export class DescribeVServerGroupAttributeRequest extends $tea.Model {
       resourceOwnerId: 'number',
       regionId: 'string',
       ownerAccount: 'string',
-      accessKeyId: 'string',
-      tags: 'string',
       VServerGroupId: 'string',
     };
   }
@@ -5254,15 +4951,15 @@ export class DescribeVServerGroupAttributeRequest extends $tea.Model {
 
 export class DescribeVServerGroupAttributeResponseBody extends $tea.Model {
   VServerGroupId?: string;
-  requestId?: string;
   VServerGroupName?: string;
+  requestId?: string;
   loadBalancerId?: string;
   backendServers?: DescribeVServerGroupAttributeResponseBodyBackendServers;
   static names(): { [key: string]: string } {
     return {
       VServerGroupId: 'VServerGroupId',
-      requestId: 'RequestId',
       VServerGroupName: 'VServerGroupName',
+      requestId: 'RequestId',
       loadBalancerId: 'LoadBalancerId',
       backendServers: 'BackendServers',
     };
@@ -5271,8 +4968,8 @@ export class DescribeVServerGroupAttributeResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       VServerGroupId: 'string',
-      requestId: 'string',
       VServerGroupName: 'string',
+      requestId: 'string',
       loadBalancerId: 'string',
       backendServers: DescribeVServerGroupAttributeResponseBodyBackendServers,
     };
@@ -5311,8 +5008,6 @@ export class DescribeVServerGroupsRequest extends $tea.Model {
   resourceOwnerId?: number;
   regionId?: string;
   ownerAccount?: string;
-  accessKeyId?: string;
-  tags?: string;
   loadBalancerId?: string;
   includeRule?: boolean;
   includeListener?: boolean;
@@ -5323,8 +5018,6 @@ export class DescribeVServerGroupsRequest extends $tea.Model {
       resourceOwnerId: 'ResourceOwnerId',
       regionId: 'RegionId',
       ownerAccount: 'OwnerAccount',
-      accessKeyId: 'access_key_id',
-      tags: 'Tags',
       loadBalancerId: 'LoadBalancerId',
       includeRule: 'IncludeRule',
       includeListener: 'IncludeListener',
@@ -5338,8 +5031,6 @@ export class DescribeVServerGroupsRequest extends $tea.Model {
       resourceOwnerId: 'number',
       regionId: 'string',
       ownerAccount: 'string',
-      accessKeyId: 'string',
-      tags: 'string',
       loadBalancerId: 'string',
       includeRule: 'boolean',
       includeListener: 'boolean',
@@ -5400,8 +5091,6 @@ export class DescribeZonesRequest extends $tea.Model {
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   ownerAccount?: string;
-  accessKeyId?: string;
-  tags?: string;
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5409,8 +5098,6 @@ export class DescribeZonesRequest extends $tea.Model {
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       ownerAccount: 'OwnerAccount',
-      accessKeyId: 'access_key_id',
-      tags: 'Tags',
       regionId: 'RegionId',
     };
   }
@@ -5421,8 +5108,6 @@ export class DescribeZonesRequest extends $tea.Model {
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       ownerAccount: 'string',
-      accessKeyId: 'string',
-      tags: 'string',
       regionId: 'string',
     };
   }
@@ -5481,7 +5166,6 @@ export class ListTagResourcesRequest extends $tea.Model {
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   ownerAccount?: string;
-  accessKeyId?: string;
   regionId?: string;
   resourceType?: string;
   nextToken?: string;
@@ -5493,7 +5177,6 @@ export class ListTagResourcesRequest extends $tea.Model {
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       ownerAccount: 'OwnerAccount',
-      accessKeyId: 'access_key_id',
       regionId: 'RegionId',
       resourceType: 'ResourceType',
       nextToken: 'NextToken',
@@ -5508,7 +5191,6 @@ export class ListTagResourcesRequest extends $tea.Model {
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       ownerAccount: 'string',
-      accessKeyId: 'string',
       regionId: 'string',
       resourceType: 'string',
       nextToken: 'string',
@@ -5619,28 +5301,28 @@ export class ListTLSCipherPoliciesRequest extends $tea.Model {
 }
 
 export class ListTLSCipherPoliciesResponseBody extends $tea.Model {
-  totalCount?: number;
   nextToken?: string;
   requestId?: string;
-  TLSCipherPolicies?: ListTLSCipherPoliciesResponseBodyTLSCipherPolicies[];
+  totalCount?: number;
   isTruncated?: boolean;
+  TLSCipherPolicies?: ListTLSCipherPoliciesResponseBodyTLSCipherPolicies[];
   static names(): { [key: string]: string } {
     return {
-      totalCount: 'TotalCount',
       nextToken: 'NextToken',
       requestId: 'RequestId',
-      TLSCipherPolicies: 'TLSCipherPolicies',
+      totalCount: 'TotalCount',
       isTruncated: 'IsTruncated',
+      TLSCipherPolicies: 'TLSCipherPolicies',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      totalCount: 'number',
       nextToken: 'string',
       requestId: 'string',
-      TLSCipherPolicies: { 'type': 'array', 'itemType': ListTLSCipherPoliciesResponseBodyTLSCipherPolicies },
+      totalCount: 'number',
       isTruncated: 'boolean',
+      TLSCipherPolicies: { 'type': 'array', 'itemType': ListTLSCipherPoliciesResponseBodyTLSCipherPolicies },
     };
   }
 
@@ -5678,8 +5360,6 @@ export class ModifyLoadBalancerInstanceSpecRequest extends $tea.Model {
   resourceOwnerId?: number;
   loadBalancerId?: string;
   ownerAccount?: string;
-  accessKeyId?: string;
-  tags?: string;
   loadBalancerSpec?: string;
   autoPay?: boolean;
   static names(): { [key: string]: string } {
@@ -5690,8 +5370,6 @@ export class ModifyLoadBalancerInstanceSpecRequest extends $tea.Model {
       resourceOwnerId: 'ResourceOwnerId',
       loadBalancerId: 'LoadBalancerId',
       ownerAccount: 'OwnerAccount',
-      accessKeyId: 'access_key_id',
-      tags: 'Tags',
       loadBalancerSpec: 'LoadBalancerSpec',
       autoPay: 'AutoPay',
     };
@@ -5705,8 +5383,6 @@ export class ModifyLoadBalancerInstanceSpecRequest extends $tea.Model {
       resourceOwnerId: 'number',
       loadBalancerId: 'string',
       ownerAccount: 'string',
-      accessKeyId: 'string',
-      tags: 'string',
       loadBalancerSpec: 'string',
       autoPay: 'boolean',
     };
@@ -5718,19 +5394,19 @@ export class ModifyLoadBalancerInstanceSpecRequest extends $tea.Model {
 }
 
 export class ModifyLoadBalancerInstanceSpecResponseBody extends $tea.Model {
-  requestId?: string;
   orderId?: number;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       orderId: 'OrderId',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       orderId: 'number',
+      requestId: 'string',
     };
   }
 
@@ -5770,10 +5446,7 @@ export class ModifyLoadBalancerInternetSpecRequest extends $tea.Model {
   internetChargeType?: string;
   bandwidth?: number;
   ownerAccount?: string;
-  accessKeyId?: string;
-  tags?: string;
   autoPay?: boolean;
-  ratio?: number;
   static names(): { [key: string]: string } {
     return {
       regionId: 'RegionId',
@@ -5784,10 +5457,7 @@ export class ModifyLoadBalancerInternetSpecRequest extends $tea.Model {
       internetChargeType: 'InternetChargeType',
       bandwidth: 'Bandwidth',
       ownerAccount: 'OwnerAccount',
-      accessKeyId: 'access_key_id',
-      tags: 'Tags',
       autoPay: 'AutoPay',
-      ratio: 'Ratio',
     };
   }
 
@@ -5801,10 +5471,7 @@ export class ModifyLoadBalancerInternetSpecRequest extends $tea.Model {
       internetChargeType: 'string',
       bandwidth: 'number',
       ownerAccount: 'string',
-      accessKeyId: 'string',
-      tags: 'string',
       autoPay: 'boolean',
-      ratio: 'number',
     };
   }
 
@@ -5814,19 +5481,19 @@ export class ModifyLoadBalancerInternetSpecRequest extends $tea.Model {
 }
 
 export class ModifyLoadBalancerInternetSpecResponseBody extends $tea.Model {
-  requestId?: string;
   orderId?: number;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       orderId: 'OrderId',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       orderId: 'number',
+      requestId: 'string',
     };
   }
 
@@ -5863,8 +5530,6 @@ export class ModifyLoadBalancerPayTypeRequest extends $tea.Model {
   resourceOwnerId?: number;
   regionId?: string;
   ownerAccount?: string;
-  accessKeyId?: string;
-  tags?: string;
   loadBalancerId?: string;
   payType?: string;
   pricingCycle?: string;
@@ -5877,8 +5542,6 @@ export class ModifyLoadBalancerPayTypeRequest extends $tea.Model {
       resourceOwnerId: 'ResourceOwnerId',
       regionId: 'RegionId',
       ownerAccount: 'OwnerAccount',
-      accessKeyId: 'access_key_id',
-      tags: 'Tags',
       loadBalancerId: 'LoadBalancerId',
       payType: 'PayType',
       pricingCycle: 'PricingCycle',
@@ -5894,8 +5557,6 @@ export class ModifyLoadBalancerPayTypeRequest extends $tea.Model {
       resourceOwnerId: 'number',
       regionId: 'string',
       ownerAccount: 'string',
-      accessKeyId: 'string',
-      tags: 'string',
       loadBalancerId: 'string',
       payType: 'string',
       pricingCycle: 'string',
@@ -5910,19 +5571,19 @@ export class ModifyLoadBalancerPayTypeRequest extends $tea.Model {
 }
 
 export class ModifyLoadBalancerPayTypeResponseBody extends $tea.Model {
-  requestId?: string;
   orderId?: number;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       orderId: 'OrderId',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       orderId: 'number',
+      requestId: 'string',
     };
   }
 
@@ -5959,8 +5620,6 @@ export class ModifyVServerGroupBackendServersRequest extends $tea.Model {
   resourceOwnerId?: number;
   regionId?: string;
   ownerAccount?: string;
-  accessKeyId?: string;
-  tags?: string;
   VServerGroupId?: string;
   oldBackendServers?: string;
   newBackendServers?: string;
@@ -5971,8 +5630,6 @@ export class ModifyVServerGroupBackendServersRequest extends $tea.Model {
       resourceOwnerId: 'ResourceOwnerId',
       regionId: 'RegionId',
       ownerAccount: 'OwnerAccount',
-      accessKeyId: 'access_key_id',
-      tags: 'Tags',
       VServerGroupId: 'VServerGroupId',
       oldBackendServers: 'OldBackendServers',
       newBackendServers: 'NewBackendServers',
@@ -5986,8 +5643,6 @@ export class ModifyVServerGroupBackendServersRequest extends $tea.Model {
       resourceOwnerId: 'number',
       regionId: 'string',
       ownerAccount: 'string',
-      accessKeyId: 'string',
-      tags: 'string',
       VServerGroupId: 'string',
       oldBackendServers: 'string',
       newBackendServers: 'string',
@@ -6051,8 +5706,6 @@ export class RemoveAccessControlListEntryRequest extends $tea.Model {
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   ownerAccount?: string;
-  accessKeyId?: string;
-  tags?: string;
   regionId?: string;
   aclId?: string;
   aclEntrys?: string;
@@ -6062,8 +5715,6 @@ export class RemoveAccessControlListEntryRequest extends $tea.Model {
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       ownerAccount: 'OwnerAccount',
-      accessKeyId: 'access_key_id',
-      tags: 'Tags',
       regionId: 'RegionId',
       aclId: 'AclId',
       aclEntrys: 'AclEntrys',
@@ -6076,8 +5727,6 @@ export class RemoveAccessControlListEntryRequest extends $tea.Model {
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       ownerAccount: 'string',
-      accessKeyId: 'string',
-      tags: 'string',
       regionId: 'string',
       aclId: 'string',
       aclEntrys: 'string',
@@ -6138,8 +5787,6 @@ export class RemoveBackendServersRequest extends $tea.Model {
   loadBalancerId?: string;
   backendServers?: string;
   ownerAccount?: string;
-  accessKeyId?: string;
-  tags?: string;
   static names(): { [key: string]: string } {
     return {
       regionId: 'RegionId',
@@ -6149,8 +5796,6 @@ export class RemoveBackendServersRequest extends $tea.Model {
       loadBalancerId: 'LoadBalancerId',
       backendServers: 'BackendServers',
       ownerAccount: 'OwnerAccount',
-      accessKeyId: 'access_key_id',
-      tags: 'Tags',
     };
   }
 
@@ -6163,8 +5808,6 @@ export class RemoveBackendServersRequest extends $tea.Model {
       loadBalancerId: 'string',
       backendServers: 'string',
       ownerAccount: 'string',
-      accessKeyId: 'string',
-      tags: 'string',
     };
   }
 
@@ -6174,21 +5817,21 @@ export class RemoveBackendServersRequest extends $tea.Model {
 }
 
 export class RemoveBackendServersResponseBody extends $tea.Model {
-  requestId?: string;
   loadBalancerId?: string;
+  requestId?: string;
   backendServers?: RemoveBackendServersResponseBodyBackendServers;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       loadBalancerId: 'LoadBalancerId',
+      requestId: 'RequestId',
       backendServers: 'BackendServers',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       loadBalancerId: 'string',
+      requestId: 'string',
       backendServers: RemoveBackendServersResponseBodyBackendServers,
     };
   }
@@ -6229,9 +5872,7 @@ export class RemoveListenerWhiteListItemRequest extends $tea.Model {
   listenerPort?: number;
   sourceItems?: string;
   ownerAccount?: string;
-  accessKeyId?: string;
   listenerProtocol?: string;
-  tags?: string;
   static names(): { [key: string]: string } {
     return {
       regionId: 'RegionId',
@@ -6242,9 +5883,7 @@ export class RemoveListenerWhiteListItemRequest extends $tea.Model {
       listenerPort: 'ListenerPort',
       sourceItems: 'SourceItems',
       ownerAccount: 'OwnerAccount',
-      accessKeyId: 'access_key_id',
       listenerProtocol: 'ListenerProtocol',
-      tags: 'Tags',
     };
   }
 
@@ -6258,9 +5897,7 @@ export class RemoveListenerWhiteListItemRequest extends $tea.Model {
       listenerPort: 'number',
       sourceItems: 'string',
       ownerAccount: 'string',
-      accessKeyId: 'string',
       listenerProtocol: 'string',
-      tags: 'string',
     };
   }
 
@@ -6315,7 +5952,6 @@ export class RemoveTagsRequest extends $tea.Model {
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   ownerAccount?: string;
-  accessKeyId?: string;
   regionId?: string;
   loadBalancerId?: string;
   tags?: string;
@@ -6325,7 +5961,6 @@ export class RemoveTagsRequest extends $tea.Model {
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       ownerAccount: 'OwnerAccount',
-      accessKeyId: 'access_key_id',
       regionId: 'RegionId',
       loadBalancerId: 'LoadBalancerId',
       tags: 'Tags',
@@ -6338,7 +5973,6 @@ export class RemoveTagsRequest extends $tea.Model {
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       ownerAccount: 'string',
-      accessKeyId: 'string',
       regionId: 'string',
       loadBalancerId: 'string',
       tags: 'string',
@@ -6397,8 +6031,6 @@ export class RemoveVServerGroupBackendServersRequest extends $tea.Model {
   resourceOwnerId?: number;
   regionId?: string;
   ownerAccount?: string;
-  accessKeyId?: string;
-  tags?: string;
   VServerGroupId?: string;
   backendServers?: string;
   static names(): { [key: string]: string } {
@@ -6408,8 +6040,6 @@ export class RemoveVServerGroupBackendServersRequest extends $tea.Model {
       resourceOwnerId: 'ResourceOwnerId',
       regionId: 'RegionId',
       ownerAccount: 'OwnerAccount',
-      accessKeyId: 'access_key_id',
-      tags: 'Tags',
       VServerGroupId: 'VServerGroupId',
       backendServers: 'BackendServers',
     };
@@ -6422,8 +6052,6 @@ export class RemoveVServerGroupBackendServersRequest extends $tea.Model {
       resourceOwnerId: 'number',
       regionId: 'string',
       ownerAccount: 'string',
-      accessKeyId: 'string',
-      tags: 'string',
       VServerGroupId: 'string',
       backendServers: 'string',
     };
@@ -6486,8 +6114,6 @@ export class SetAccessControlListAttributeRequest extends $tea.Model {
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   ownerAccount?: string;
-  accessKeyId?: string;
-  tags?: string;
   regionId?: string;
   aclId?: string;
   aclName?: string;
@@ -6497,8 +6123,6 @@ export class SetAccessControlListAttributeRequest extends $tea.Model {
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       ownerAccount: 'OwnerAccount',
-      accessKeyId: 'access_key_id',
-      tags: 'Tags',
       regionId: 'RegionId',
       aclId: 'AclId',
       aclName: 'AclName',
@@ -6511,8 +6135,6 @@ export class SetAccessControlListAttributeRequest extends $tea.Model {
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       ownerAccount: 'string',
-      accessKeyId: 'string',
-      tags: 'string',
       regionId: 'string',
       aclId: 'string',
       aclName: 'string',
@@ -6525,19 +6147,19 @@ export class SetAccessControlListAttributeRequest extends $tea.Model {
 }
 
 export class SetAccessControlListAttributeResponseBody extends $tea.Model {
-  requestId?: string;
   aclId?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       aclId: 'AclId',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       aclId: 'string',
+      requestId: 'string',
     };
   }
 
@@ -6576,8 +6198,6 @@ export class SetBackendServersRequest extends $tea.Model {
   loadBalancerId?: string;
   backendServers?: string;
   ownerAccount?: string;
-  accessKeyId?: string;
-  tags?: string;
   static names(): { [key: string]: string } {
     return {
       regionId: 'RegionId',
@@ -6587,8 +6207,6 @@ export class SetBackendServersRequest extends $tea.Model {
       loadBalancerId: 'LoadBalancerId',
       backendServers: 'BackendServers',
       ownerAccount: 'OwnerAccount',
-      accessKeyId: 'access_key_id',
-      tags: 'Tags',
     };
   }
 
@@ -6601,8 +6219,6 @@ export class SetBackendServersRequest extends $tea.Model {
       loadBalancerId: 'string',
       backendServers: 'string',
       ownerAccount: 'string',
-      accessKeyId: 'string',
-      tags: 'string',
     };
   }
 
@@ -6612,21 +6228,21 @@ export class SetBackendServersRequest extends $tea.Model {
 }
 
 export class SetBackendServersResponseBody extends $tea.Model {
-  requestId?: string;
   loadBalancerId?: string;
+  requestId?: string;
   backendServers?: SetBackendServersResponseBodyBackendServers;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       loadBalancerId: 'LoadBalancerId',
+      requestId: 'RequestId',
       backendServers: 'BackendServers',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       loadBalancerId: 'string',
+      requestId: 'string',
       backendServers: SetBackendServersResponseBodyBackendServers,
     };
   }
@@ -6663,7 +6279,6 @@ export class SetCACertificateNameRequest extends $tea.Model {
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   ownerAccount?: string;
-  accessKeyId?: string;
   regionId?: string;
   CACertificateId?: string;
   CACertificateName?: string;
@@ -6673,7 +6288,6 @@ export class SetCACertificateNameRequest extends $tea.Model {
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       ownerAccount: 'OwnerAccount',
-      accessKeyId: 'access_key_id',
       regionId: 'RegionId',
       CACertificateId: 'CACertificateId',
       CACertificateName: 'CACertificateName',
@@ -6686,7 +6300,6 @@ export class SetCACertificateNameRequest extends $tea.Model {
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       ownerAccount: 'string',
-      accessKeyId: 'string',
       regionId: 'string',
       CACertificateId: 'string',
       CACertificateName: 'string',
@@ -6745,12 +6358,8 @@ export class SetDomainExtensionAttributeRequest extends $tea.Model {
   resourceOwnerId?: number;
   regionId?: string;
   ownerAccount?: string;
-  accessKeyId?: string;
-  tags?: string;
   domainExtensionId?: string;
   serverCertificateId?: string;
-  certificateId?: string[];
-  serverCertificate?: SetDomainExtensionAttributeRequestServerCertificate[];
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
@@ -6758,12 +6367,8 @@ export class SetDomainExtensionAttributeRequest extends $tea.Model {
       resourceOwnerId: 'ResourceOwnerId',
       regionId: 'RegionId',
       ownerAccount: 'OwnerAccount',
-      accessKeyId: 'access_key_id',
-      tags: 'Tags',
       domainExtensionId: 'DomainExtensionId',
       serverCertificateId: 'ServerCertificateId',
-      certificateId: 'CertificateId',
-      serverCertificate: 'ServerCertificate',
     };
   }
 
@@ -6774,12 +6379,8 @@ export class SetDomainExtensionAttributeRequest extends $tea.Model {
       resourceOwnerId: 'number',
       regionId: 'string',
       ownerAccount: 'string',
-      accessKeyId: 'string',
-      tags: 'string',
       domainExtensionId: 'string',
       serverCertificateId: 'string',
-      certificateId: { 'type': 'array', 'itemType': 'string' },
-      serverCertificate: { 'type': 'array', 'itemType': SetDomainExtensionAttributeRequestServerCertificate },
     };
   }
 
@@ -6838,9 +6439,7 @@ export class SetListenerAccessControlStatusRequest extends $tea.Model {
   listenerPort?: number;
   accessControlStatus?: string;
   ownerAccount?: string;
-  accessKeyId?: string;
   listenerProtocol?: string;
-  tags?: string;
   static names(): { [key: string]: string } {
     return {
       regionId: 'RegionId',
@@ -6851,9 +6450,7 @@ export class SetListenerAccessControlStatusRequest extends $tea.Model {
       listenerPort: 'ListenerPort',
       accessControlStatus: 'AccessControlStatus',
       ownerAccount: 'OwnerAccount',
-      accessKeyId: 'access_key_id',
       listenerProtocol: 'ListenerProtocol',
-      tags: 'Tags',
     };
   }
 
@@ -6867,9 +6464,7 @@ export class SetListenerAccessControlStatusRequest extends $tea.Model {
       listenerPort: 'number',
       accessControlStatus: 'string',
       ownerAccount: 'string',
-      accessKeyId: 'string',
       listenerProtocol: 'string',
-      tags: 'string',
     };
   }
 
@@ -6927,8 +6522,6 @@ export class SetLoadBalancerDeleteProtectionRequest extends $tea.Model {
   loadBalancerId?: string;
   deleteProtection?: string;
   ownerAccount?: string;
-  accessKeyId?: string;
-  tags?: string;
   static names(): { [key: string]: string } {
     return {
       regionId: 'RegionId',
@@ -6938,8 +6531,6 @@ export class SetLoadBalancerDeleteProtectionRequest extends $tea.Model {
       loadBalancerId: 'LoadBalancerId',
       deleteProtection: 'DeleteProtection',
       ownerAccount: 'OwnerAccount',
-      accessKeyId: 'access_key_id',
-      tags: 'Tags',
     };
   }
 
@@ -6952,8 +6543,6 @@ export class SetLoadBalancerDeleteProtectionRequest extends $tea.Model {
       loadBalancerId: 'string',
       deleteProtection: 'string',
       ownerAccount: 'string',
-      accessKeyId: 'string',
-      tags: 'string',
     };
   }
 
@@ -7018,8 +6607,6 @@ export class SetLoadBalancerHTTPListenerAttributeRequest extends $tea.Model {
   cookieTimeout?: number;
   cookie?: string;
   healthCheck?: string;
-  healthCheckType?: string;
-  healthCheckMethod?: string;
   healthCheckDomain?: string;
   healthCheckURI?: string;
   healthyThreshold?: number;
@@ -7028,12 +6615,9 @@ export class SetLoadBalancerHTTPListenerAttributeRequest extends $tea.Model {
   healthCheckInterval?: number;
   healthCheckConnectPort?: number;
   healthCheckHttpCode?: string;
-  maxConnection?: number;
   ownerAccount?: string;
-  accessKeyId?: string;
   VServerGroup?: string;
   VServerGroupId?: string;
-  tags?: string;
   XForwardedFor_SLBIP?: string;
   XForwardedFor_SLBID?: string;
   XForwardedFor_proto?: string;
@@ -7041,13 +6625,9 @@ export class SetLoadBalancerHTTPListenerAttributeRequest extends $tea.Model {
   aclId?: string;
   aclType?: string;
   aclStatus?: string;
-  vpcIds?: string;
   idleTimeout?: number;
   requestTimeout?: number;
   description?: string;
-  XForwardedFor_SLBPORT?: string;
-  XForwardedFor_ClientSrcPort?: string;
-  forwardCode?: number;
   static names(): { [key: string]: string } {
     return {
       regionId: 'RegionId',
@@ -7064,8 +6644,6 @@ export class SetLoadBalancerHTTPListenerAttributeRequest extends $tea.Model {
       cookieTimeout: 'CookieTimeout',
       cookie: 'Cookie',
       healthCheck: 'HealthCheck',
-      healthCheckType: 'HealthCheckType',
-      healthCheckMethod: 'HealthCheckMethod',
       healthCheckDomain: 'HealthCheckDomain',
       healthCheckURI: 'HealthCheckURI',
       healthyThreshold: 'HealthyThreshold',
@@ -7074,12 +6652,9 @@ export class SetLoadBalancerHTTPListenerAttributeRequest extends $tea.Model {
       healthCheckInterval: 'HealthCheckInterval',
       healthCheckConnectPort: 'HealthCheckConnectPort',
       healthCheckHttpCode: 'HealthCheckHttpCode',
-      maxConnection: 'MaxConnection',
       ownerAccount: 'OwnerAccount',
-      accessKeyId: 'access_key_id',
       VServerGroup: 'VServerGroup',
       VServerGroupId: 'VServerGroupId',
-      tags: 'Tags',
       XForwardedFor_SLBIP: 'XForwardedFor_SLBIP',
       XForwardedFor_SLBID: 'XForwardedFor_SLBID',
       XForwardedFor_proto: 'XForwardedFor_proto',
@@ -7087,13 +6662,9 @@ export class SetLoadBalancerHTTPListenerAttributeRequest extends $tea.Model {
       aclId: 'AclId',
       aclType: 'AclType',
       aclStatus: 'AclStatus',
-      vpcIds: 'VpcIds',
       idleTimeout: 'IdleTimeout',
       requestTimeout: 'RequestTimeout',
       description: 'Description',
-      XForwardedFor_SLBPORT: 'XForwardedFor_SLBPORT',
-      XForwardedFor_ClientSrcPort: 'XForwardedFor_ClientSrcPort',
-      forwardCode: 'ForwardCode',
     };
   }
 
@@ -7113,8 +6684,6 @@ export class SetLoadBalancerHTTPListenerAttributeRequest extends $tea.Model {
       cookieTimeout: 'number',
       cookie: 'string',
       healthCheck: 'string',
-      healthCheckType: 'string',
-      healthCheckMethod: 'string',
       healthCheckDomain: 'string',
       healthCheckURI: 'string',
       healthyThreshold: 'number',
@@ -7123,12 +6692,9 @@ export class SetLoadBalancerHTTPListenerAttributeRequest extends $tea.Model {
       healthCheckInterval: 'number',
       healthCheckConnectPort: 'number',
       healthCheckHttpCode: 'string',
-      maxConnection: 'number',
       ownerAccount: 'string',
-      accessKeyId: 'string',
       VServerGroup: 'string',
       VServerGroupId: 'string',
-      tags: 'string',
       XForwardedFor_SLBIP: 'string',
       XForwardedFor_SLBID: 'string',
       XForwardedFor_proto: 'string',
@@ -7136,13 +6702,9 @@ export class SetLoadBalancerHTTPListenerAttributeRequest extends $tea.Model {
       aclId: 'string',
       aclType: 'string',
       aclStatus: 'string',
-      vpcIds: 'string',
       idleTimeout: 'number',
       requestTimeout: 'number',
       description: 'string',
-      XForwardedFor_SLBPORT: 'string',
-      XForwardedFor_ClientSrcPort: 'string',
-      forwardCode: 'number',
     };
   }
 
@@ -7200,7 +6762,6 @@ export class SetLoadBalancerHTTPSListenerAttributeRequest extends $tea.Model {
   loadBalancerId?: string;
   listenerPort?: number;
   bandwidth?: number;
-  backendProtocol?: string;
   XForwardedFor?: string;
   scheduler?: string;
   stickySession?: string;
@@ -7208,8 +6769,6 @@ export class SetLoadBalancerHTTPSListenerAttributeRequest extends $tea.Model {
   cookieTimeout?: number;
   cookie?: string;
   healthCheck?: string;
-  healthCheckType?: string;
-  healthCheckMethod?: string;
   healthCheckDomain?: string;
   healthCheckURI?: string;
   healthyThreshold?: number;
@@ -7218,14 +6777,11 @@ export class SetLoadBalancerHTTPSListenerAttributeRequest extends $tea.Model {
   healthCheckInterval?: number;
   healthCheckConnectPort?: number;
   healthCheckHttpCode?: string;
-  maxConnection?: number;
   ownerAccount?: string;
-  accessKeyId?: string;
   serverCertificateId?: string;
   CACertificateId?: string;
   VServerGroup?: string;
   VServerGroupId?: string;
-  tags?: string;
   XForwardedFor_SLBIP?: string;
   XForwardedFor_SLBID?: string;
   XForwardedFor_proto?: string;
@@ -7233,23 +6789,11 @@ export class SetLoadBalancerHTTPSListenerAttributeRequest extends $tea.Model {
   aclId?: string;
   aclType?: string;
   aclStatus?: string;
-  vpcIds?: string;
   idleTimeout?: number;
   requestTimeout?: number;
   enableHttp2?: string;
   TLSCipherPolicy?: string;
   description?: string;
-  XForwardedFor_SLBPORT?: string;
-  XForwardedFor_ClientSrcPort?: string;
-  XForwardedFor_ClientCertSubjectDN?: string;
-  XForwardedFor_ClientCertIssuerDN?: string;
-  XForwardedFor_ClientCertFingerprint?: string;
-  XForwardedFor_ClientCertClientVerify?: string;
-  XForwardedFor_ClientCertSubjectDNAlias?: string;
-  XForwardedFor_ClientCertIssuerDNAlias?: string;
-  XForwardedFor_ClientCertFingerprintAlias?: string;
-  XForwardedFor_ClientCertClientVerifyAlias?: string;
-  serverCertificate?: SetLoadBalancerHTTPSListenerAttributeRequestServerCertificate[];
   static names(): { [key: string]: string } {
     return {
       regionId: 'RegionId',
@@ -7259,7 +6803,6 @@ export class SetLoadBalancerHTTPSListenerAttributeRequest extends $tea.Model {
       loadBalancerId: 'LoadBalancerId',
       listenerPort: 'ListenerPort',
       bandwidth: 'Bandwidth',
-      backendProtocol: 'BackendProtocol',
       XForwardedFor: 'XForwardedFor',
       scheduler: 'Scheduler',
       stickySession: 'StickySession',
@@ -7267,8 +6810,6 @@ export class SetLoadBalancerHTTPSListenerAttributeRequest extends $tea.Model {
       cookieTimeout: 'CookieTimeout',
       cookie: 'Cookie',
       healthCheck: 'HealthCheck',
-      healthCheckType: 'HealthCheckType',
-      healthCheckMethod: 'HealthCheckMethod',
       healthCheckDomain: 'HealthCheckDomain',
       healthCheckURI: 'HealthCheckURI',
       healthyThreshold: 'HealthyThreshold',
@@ -7277,14 +6818,11 @@ export class SetLoadBalancerHTTPSListenerAttributeRequest extends $tea.Model {
       healthCheckInterval: 'HealthCheckInterval',
       healthCheckConnectPort: 'HealthCheckConnectPort',
       healthCheckHttpCode: 'HealthCheckHttpCode',
-      maxConnection: 'MaxConnection',
       ownerAccount: 'OwnerAccount',
-      accessKeyId: 'access_key_id',
       serverCertificateId: 'ServerCertificateId',
       CACertificateId: 'CACertificateId',
       VServerGroup: 'VServerGroup',
       VServerGroupId: 'VServerGroupId',
-      tags: 'Tags',
       XForwardedFor_SLBIP: 'XForwardedFor_SLBIP',
       XForwardedFor_SLBID: 'XForwardedFor_SLBID',
       XForwardedFor_proto: 'XForwardedFor_proto',
@@ -7292,23 +6830,11 @@ export class SetLoadBalancerHTTPSListenerAttributeRequest extends $tea.Model {
       aclId: 'AclId',
       aclType: 'AclType',
       aclStatus: 'AclStatus',
-      vpcIds: 'VpcIds',
       idleTimeout: 'IdleTimeout',
       requestTimeout: 'RequestTimeout',
       enableHttp2: 'EnableHttp2',
       TLSCipherPolicy: 'TLSCipherPolicy',
       description: 'Description',
-      XForwardedFor_SLBPORT: 'XForwardedFor_SLBPORT',
-      XForwardedFor_ClientSrcPort: 'XForwardedFor_ClientSrcPort',
-      XForwardedFor_ClientCertSubjectDN: 'XForwardedFor_ClientCertSubjectDN',
-      XForwardedFor_ClientCertIssuerDN: 'XForwardedFor_ClientCertIssuerDN',
-      XForwardedFor_ClientCertFingerprint: 'XForwardedFor_ClientCertFingerprint',
-      XForwardedFor_ClientCertClientVerify: 'XForwardedFor_ClientCertClientVerify',
-      XForwardedFor_ClientCertSubjectDNAlias: 'XForwardedFor_ClientCertSubjectDNAlias',
-      XForwardedFor_ClientCertIssuerDNAlias: 'XForwardedFor_ClientCertIssuerDNAlias',
-      XForwardedFor_ClientCertFingerprintAlias: 'XForwardedFor_ClientCertFingerprintAlias',
-      XForwardedFor_ClientCertClientVerifyAlias: 'XForwardedFor_ClientCertClientVerifyAlias',
-      serverCertificate: 'ServerCertificate',
     };
   }
 
@@ -7321,7 +6847,6 @@ export class SetLoadBalancerHTTPSListenerAttributeRequest extends $tea.Model {
       loadBalancerId: 'string',
       listenerPort: 'number',
       bandwidth: 'number',
-      backendProtocol: 'string',
       XForwardedFor: 'string',
       scheduler: 'string',
       stickySession: 'string',
@@ -7329,8 +6854,6 @@ export class SetLoadBalancerHTTPSListenerAttributeRequest extends $tea.Model {
       cookieTimeout: 'number',
       cookie: 'string',
       healthCheck: 'string',
-      healthCheckType: 'string',
-      healthCheckMethod: 'string',
       healthCheckDomain: 'string',
       healthCheckURI: 'string',
       healthyThreshold: 'number',
@@ -7339,14 +6862,11 @@ export class SetLoadBalancerHTTPSListenerAttributeRequest extends $tea.Model {
       healthCheckInterval: 'number',
       healthCheckConnectPort: 'number',
       healthCheckHttpCode: 'string',
-      maxConnection: 'number',
       ownerAccount: 'string',
-      accessKeyId: 'string',
       serverCertificateId: 'string',
       CACertificateId: 'string',
       VServerGroup: 'string',
       VServerGroupId: 'string',
-      tags: 'string',
       XForwardedFor_SLBIP: 'string',
       XForwardedFor_SLBID: 'string',
       XForwardedFor_proto: 'string',
@@ -7354,23 +6874,11 @@ export class SetLoadBalancerHTTPSListenerAttributeRequest extends $tea.Model {
       aclId: 'string',
       aclType: 'string',
       aclStatus: 'string',
-      vpcIds: 'string',
       idleTimeout: 'number',
       requestTimeout: 'number',
       enableHttp2: 'string',
       TLSCipherPolicy: 'string',
       description: 'string',
-      XForwardedFor_SLBPORT: 'string',
-      XForwardedFor_ClientSrcPort: 'string',
-      XForwardedFor_ClientCertSubjectDN: 'string',
-      XForwardedFor_ClientCertIssuerDN: 'string',
-      XForwardedFor_ClientCertFingerprint: 'string',
-      XForwardedFor_ClientCertClientVerify: 'string',
-      XForwardedFor_ClientCertSubjectDNAlias: 'string',
-      XForwardedFor_ClientCertIssuerDNAlias: 'string',
-      XForwardedFor_ClientCertFingerprintAlias: 'string',
-      XForwardedFor_ClientCertClientVerifyAlias: 'string',
-      serverCertificate: { 'type': 'array', 'itemType': SetLoadBalancerHTTPSListenerAttributeRequestServerCertificate },
     };
   }
 
@@ -7509,8 +7017,6 @@ export class SetLoadBalancerNameRequest extends $tea.Model {
   loadBalancerId?: string;
   loadBalancerName?: string;
   ownerAccount?: string;
-  accessKeyId?: string;
-  tags?: string;
   static names(): { [key: string]: string } {
     return {
       regionId: 'RegionId',
@@ -7520,8 +7026,6 @@ export class SetLoadBalancerNameRequest extends $tea.Model {
       loadBalancerId: 'LoadBalancerId',
       loadBalancerName: 'LoadBalancerName',
       ownerAccount: 'OwnerAccount',
-      accessKeyId: 'access_key_id',
-      tags: 'Tags',
     };
   }
 
@@ -7534,8 +7038,6 @@ export class SetLoadBalancerNameRequest extends $tea.Model {
       loadBalancerId: 'string',
       loadBalancerName: 'string',
       ownerAccount: 'string',
-      accessKeyId: 'string',
-      tags: 'string',
     };
   }
 
@@ -7593,8 +7095,6 @@ export class SetLoadBalancerStatusRequest extends $tea.Model {
   loadBalancerId?: string;
   loadBalancerStatus?: string;
   ownerAccount?: string;
-  accessKeyId?: string;
-  tags?: string;
   static names(): { [key: string]: string } {
     return {
       regionId: 'RegionId',
@@ -7604,8 +7104,6 @@ export class SetLoadBalancerStatusRequest extends $tea.Model {
       loadBalancerId: 'LoadBalancerId',
       loadBalancerStatus: 'LoadBalancerStatus',
       ownerAccount: 'OwnerAccount',
-      accessKeyId: 'access_key_id',
-      tags: 'Tags',
     };
   }
 
@@ -7618,8 +7116,6 @@ export class SetLoadBalancerStatusRequest extends $tea.Model {
       loadBalancerId: 'string',
       loadBalancerStatus: 'string',
       ownerAccount: 'string',
-      accessKeyId: 'string',
-      tags: 'string',
     };
   }
 
@@ -7689,12 +7185,8 @@ export class SetLoadBalancerTCPListenerAttributeRequest extends $tea.Model {
   healthCheckURI?: string;
   healthCheckHttpCode?: string;
   healthCheckType?: string;
-  healthCheckMethod?: string;
   synProxy?: string;
-  maxConnection?: number;
   ownerAccount?: string;
-  accessKeyId?: string;
-  tags?: string;
   VServerGroup?: string;
   VServerGroupId?: string;
   masterSlaveServerGroupId?: string;
@@ -7702,11 +7194,9 @@ export class SetLoadBalancerTCPListenerAttributeRequest extends $tea.Model {
   aclId?: string;
   aclType?: string;
   aclStatus?: string;
-  vpcIds?: string;
   description?: string;
   connectionDrain?: string;
   connectionDrainTimeout?: number;
-  portRange?: SetLoadBalancerTCPListenerAttributeRequestPortRange[];
   static names(): { [key: string]: string } {
     return {
       regionId: 'RegionId',
@@ -7728,12 +7218,8 @@ export class SetLoadBalancerTCPListenerAttributeRequest extends $tea.Model {
       healthCheckURI: 'HealthCheckURI',
       healthCheckHttpCode: 'HealthCheckHttpCode',
       healthCheckType: 'HealthCheckType',
-      healthCheckMethod: 'HealthCheckMethod',
       synProxy: 'SynProxy',
-      maxConnection: 'MaxConnection',
       ownerAccount: 'OwnerAccount',
-      accessKeyId: 'access_key_id',
-      tags: 'Tags',
       VServerGroup: 'VServerGroup',
       VServerGroupId: 'VServerGroupId',
       masterSlaveServerGroupId: 'MasterSlaveServerGroupId',
@@ -7741,11 +7227,9 @@ export class SetLoadBalancerTCPListenerAttributeRequest extends $tea.Model {
       aclId: 'AclId',
       aclType: 'AclType',
       aclStatus: 'AclStatus',
-      vpcIds: 'VpcIds',
       description: 'Description',
       connectionDrain: 'ConnectionDrain',
       connectionDrainTimeout: 'ConnectionDrainTimeout',
-      portRange: 'PortRange',
     };
   }
 
@@ -7770,12 +7254,8 @@ export class SetLoadBalancerTCPListenerAttributeRequest extends $tea.Model {
       healthCheckURI: 'string',
       healthCheckHttpCode: 'string',
       healthCheckType: 'string',
-      healthCheckMethod: 'string',
       synProxy: 'string',
-      maxConnection: 'number',
       ownerAccount: 'string',
-      accessKeyId: 'string',
-      tags: 'string',
       VServerGroup: 'string',
       VServerGroupId: 'string',
       masterSlaveServerGroupId: 'string',
@@ -7783,11 +7263,9 @@ export class SetLoadBalancerTCPListenerAttributeRequest extends $tea.Model {
       aclId: 'string',
       aclType: 'string',
       aclStatus: 'string',
-      vpcIds: 'string',
       description: 'string',
       connectionDrain: 'string',
       connectionDrainTimeout: 'number',
-      portRange: { 'type': 'array', 'itemType': SetLoadBalancerTCPListenerAttributeRequestPortRange },
     };
   }
 
@@ -7846,7 +7324,6 @@ export class SetLoadBalancerUDPListenerAttributeRequest extends $tea.Model {
   listenerPort?: number;
   bandwidth?: number;
   scheduler?: string;
-  persistenceTimeout?: number;
   healthyThreshold?: number;
   unhealthyThreshold?: number;
   healthCheckConnectTimeout?: number;
@@ -7854,10 +7331,7 @@ export class SetLoadBalancerUDPListenerAttributeRequest extends $tea.Model {
   healthCheckInterval?: number;
   healthCheckReq?: string;
   healthCheckExp?: string;
-  maxConnection?: number;
   ownerAccount?: string;
-  accessKeyId?: string;
-  tags?: string;
   VServerGroup?: string;
   VServerGroupId?: string;
   masterSlaveServerGroupId?: string;
@@ -7865,11 +7339,7 @@ export class SetLoadBalancerUDPListenerAttributeRequest extends $tea.Model {
   aclId?: string;
   aclType?: string;
   aclStatus?: string;
-  vpcIds?: string;
   description?: string;
-  connectionDrain?: string;
-  connectionDrainTimeout?: number;
-  portRange?: SetLoadBalancerUDPListenerAttributeRequestPortRange[];
   static names(): { [key: string]: string } {
     return {
       regionId: 'RegionId',
@@ -7880,7 +7350,6 @@ export class SetLoadBalancerUDPListenerAttributeRequest extends $tea.Model {
       listenerPort: 'ListenerPort',
       bandwidth: 'Bandwidth',
       scheduler: 'Scheduler',
-      persistenceTimeout: 'PersistenceTimeout',
       healthyThreshold: 'HealthyThreshold',
       unhealthyThreshold: 'UnhealthyThreshold',
       healthCheckConnectTimeout: 'HealthCheckConnectTimeout',
@@ -7888,10 +7357,7 @@ export class SetLoadBalancerUDPListenerAttributeRequest extends $tea.Model {
       healthCheckInterval: 'HealthCheckInterval',
       healthCheckReq: 'healthCheckReq',
       healthCheckExp: 'healthCheckExp',
-      maxConnection: 'MaxConnection',
       ownerAccount: 'OwnerAccount',
-      accessKeyId: 'access_key_id',
-      tags: 'Tags',
       VServerGroup: 'VServerGroup',
       VServerGroupId: 'VServerGroupId',
       masterSlaveServerGroupId: 'MasterSlaveServerGroupId',
@@ -7899,11 +7365,7 @@ export class SetLoadBalancerUDPListenerAttributeRequest extends $tea.Model {
       aclId: 'AclId',
       aclType: 'AclType',
       aclStatus: 'AclStatus',
-      vpcIds: 'VpcIds',
       description: 'Description',
-      connectionDrain: 'ConnectionDrain',
-      connectionDrainTimeout: 'ConnectionDrainTimeout',
-      portRange: 'PortRange',
     };
   }
 
@@ -7917,7 +7379,6 @@ export class SetLoadBalancerUDPListenerAttributeRequest extends $tea.Model {
       listenerPort: 'number',
       bandwidth: 'number',
       scheduler: 'string',
-      persistenceTimeout: 'number',
       healthyThreshold: 'number',
       unhealthyThreshold: 'number',
       healthCheckConnectTimeout: 'number',
@@ -7925,10 +7386,7 @@ export class SetLoadBalancerUDPListenerAttributeRequest extends $tea.Model {
       healthCheckInterval: 'number',
       healthCheckReq: 'string',
       healthCheckExp: 'string',
-      maxConnection: 'number',
       ownerAccount: 'string',
-      accessKeyId: 'string',
-      tags: 'string',
       VServerGroup: 'string',
       VServerGroupId: 'string',
       masterSlaveServerGroupId: 'string',
@@ -7936,11 +7394,7 @@ export class SetLoadBalancerUDPListenerAttributeRequest extends $tea.Model {
       aclId: 'string',
       aclType: 'string',
       aclStatus: 'string',
-      vpcIds: 'string',
       description: 'string',
-      connectionDrain: 'string',
-      connectionDrainTimeout: 'number',
-      portRange: { 'type': 'array', 'itemType': SetLoadBalancerUDPListenerAttributeRequestPortRange },
     };
   }
 
@@ -7996,8 +7450,6 @@ export class SetRuleRequest extends $tea.Model {
   resourceOwnerId?: number;
   regionId?: string;
   ownerAccount?: string;
-  accessKeyId?: string;
-  tags?: string;
   ruleId?: string;
   VServerGroupId?: string;
   ruleName?: string;
@@ -8023,8 +7475,6 @@ export class SetRuleRequest extends $tea.Model {
       resourceOwnerId: 'ResourceOwnerId',
       regionId: 'RegionId',
       ownerAccount: 'OwnerAccount',
-      accessKeyId: 'access_key_id',
-      tags: 'Tags',
       ruleId: 'RuleId',
       VServerGroupId: 'VServerGroupId',
       ruleName: 'RuleName',
@@ -8053,8 +7503,6 @@ export class SetRuleRequest extends $tea.Model {
       resourceOwnerId: 'number',
       regionId: 'string',
       ownerAccount: 'string',
-      accessKeyId: 'string',
-      tags: 'string',
       ruleId: 'string',
       VServerGroupId: 'string',
       ruleName: 'string',
@@ -8130,8 +7578,6 @@ export class SetServerCertificateNameRequest extends $tea.Model {
   serverCertificateId?: string;
   serverCertificateName?: string;
   ownerAccount?: string;
-  accessKeyId?: string;
-  tags?: string;
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
@@ -8141,8 +7587,6 @@ export class SetServerCertificateNameRequest extends $tea.Model {
       serverCertificateId: 'ServerCertificateId',
       serverCertificateName: 'ServerCertificateName',
       ownerAccount: 'OwnerAccount',
-      accessKeyId: 'access_key_id',
-      tags: 'Tags',
     };
   }
 
@@ -8155,8 +7599,6 @@ export class SetServerCertificateNameRequest extends $tea.Model {
       serverCertificateId: 'string',
       serverCertificateName: 'string',
       ownerAccount: 'string',
-      accessKeyId: 'string',
-      tags: 'string',
     };
   }
 
@@ -8302,8 +7744,6 @@ export class SetVServerGroupAttributeRequest extends $tea.Model {
   resourceOwnerId?: number;
   regionId?: string;
   ownerAccount?: string;
-  accessKeyId?: string;
-  tags?: string;
   VServerGroupId?: string;
   VServerGroupName?: string;
   backendServers?: string;
@@ -8314,8 +7754,6 @@ export class SetVServerGroupAttributeRequest extends $tea.Model {
       resourceOwnerId: 'ResourceOwnerId',
       regionId: 'RegionId',
       ownerAccount: 'OwnerAccount',
-      accessKeyId: 'access_key_id',
-      tags: 'Tags',
       VServerGroupId: 'VServerGroupId',
       VServerGroupName: 'VServerGroupName',
       backendServers: 'BackendServers',
@@ -8329,8 +7767,6 @@ export class SetVServerGroupAttributeRequest extends $tea.Model {
       resourceOwnerId: 'number',
       regionId: 'string',
       ownerAccount: 'string',
-      accessKeyId: 'string',
-      tags: 'string',
       VServerGroupId: 'string',
       VServerGroupName: 'string',
       backendServers: 'string',
@@ -8344,14 +7780,14 @@ export class SetVServerGroupAttributeRequest extends $tea.Model {
 
 export class SetVServerGroupAttributeResponseBody extends $tea.Model {
   VServerGroupId?: string;
-  requestId?: string;
   VServerGroupName?: string;
+  requestId?: string;
   backendServers?: SetVServerGroupAttributeResponseBodyBackendServers;
   static names(): { [key: string]: string } {
     return {
       VServerGroupId: 'VServerGroupId',
-      requestId: 'RequestId',
       VServerGroupName: 'VServerGroupName',
+      requestId: 'RequestId',
       backendServers: 'BackendServers',
     };
   }
@@ -8359,8 +7795,8 @@ export class SetVServerGroupAttributeResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       VServerGroupId: 'string',
-      requestId: 'string',
       VServerGroupName: 'string',
+      requestId: 'string',
       backendServers: SetVServerGroupAttributeResponseBodyBackendServers,
     };
   }
@@ -8400,9 +7836,7 @@ export class StartLoadBalancerListenerRequest extends $tea.Model {
   loadBalancerId?: string;
   listenerPort?: number;
   ownerAccount?: string;
-  accessKeyId?: string;
   listenerProtocol?: string;
-  tags?: string;
   static names(): { [key: string]: string } {
     return {
       regionId: 'RegionId',
@@ -8412,9 +7846,7 @@ export class StartLoadBalancerListenerRequest extends $tea.Model {
       loadBalancerId: 'LoadBalancerId',
       listenerPort: 'ListenerPort',
       ownerAccount: 'OwnerAccount',
-      accessKeyId: 'access_key_id',
       listenerProtocol: 'ListenerProtocol',
-      tags: 'Tags',
     };
   }
 
@@ -8427,9 +7859,7 @@ export class StartLoadBalancerListenerRequest extends $tea.Model {
       loadBalancerId: 'string',
       listenerPort: 'number',
       ownerAccount: 'string',
-      accessKeyId: 'string',
       listenerProtocol: 'string',
-      tags: 'string',
     };
   }
 
@@ -8487,9 +7917,7 @@ export class StopLoadBalancerListenerRequest extends $tea.Model {
   loadBalancerId?: string;
   listenerPort?: number;
   ownerAccount?: string;
-  accessKeyId?: string;
   listenerProtocol?: string;
-  tags?: string;
   static names(): { [key: string]: string } {
     return {
       regionId: 'RegionId',
@@ -8499,9 +7927,7 @@ export class StopLoadBalancerListenerRequest extends $tea.Model {
       loadBalancerId: 'LoadBalancerId',
       listenerPort: 'ListenerPort',
       ownerAccount: 'OwnerAccount',
-      accessKeyId: 'access_key_id',
       listenerProtocol: 'ListenerProtocol',
-      tags: 'Tags',
     };
   }
 
@@ -8514,9 +7940,7 @@ export class StopLoadBalancerListenerRequest extends $tea.Model {
       loadBalancerId: 'string',
       listenerPort: 'number',
       ownerAccount: 'string',
-      accessKeyId: 'string',
       listenerProtocol: 'string',
-      tags: 'string',
     };
   }
 
@@ -8571,7 +7995,6 @@ export class TagResourcesRequest extends $tea.Model {
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   ownerAccount?: string;
-  accessKeyId?: string;
   regionId?: string;
   resourceType?: string;
   resourceId?: string[];
@@ -8582,7 +8005,6 @@ export class TagResourcesRequest extends $tea.Model {
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       ownerAccount: 'OwnerAccount',
-      accessKeyId: 'access_key_id',
       regionId: 'RegionId',
       resourceType: 'ResourceType',
       resourceId: 'ResourceId',
@@ -8596,7 +8018,6 @@ export class TagResourcesRequest extends $tea.Model {
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       ownerAccount: 'string',
-      accessKeyId: 'string',
       regionId: 'string',
       resourceType: 'string',
       resourceId: { 'type': 'array', 'itemType': 'string' },
@@ -8655,7 +8076,6 @@ export class UntagResourcesRequest extends $tea.Model {
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   ownerAccount?: string;
-  accessKeyId?: string;
   regionId?: string;
   resourceType?: string;
   all?: boolean;
@@ -8667,7 +8087,6 @@ export class UntagResourcesRequest extends $tea.Model {
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       ownerAccount: 'OwnerAccount',
-      accessKeyId: 'access_key_id',
       regionId: 'RegionId',
       resourceType: 'ResourceType',
       all: 'All',
@@ -8682,7 +8101,6 @@ export class UntagResourcesRequest extends $tea.Model {
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       ownerAccount: 'string',
-      accessKeyId: 'string',
       regionId: 'string',
       resourceType: 'string',
       all: 'boolean',
@@ -8742,24 +8160,20 @@ export class UploadCACertificateRequest extends $tea.Model {
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   ownerAccount?: string;
-  accessKeyId?: string;
   regionId?: string;
   CACertificate?: string;
   CACertificateName?: string;
   resourceGroupId?: string;
-  standardType?: string;
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       ownerAccount: 'OwnerAccount',
-      accessKeyId: 'access_key_id',
       regionId: 'RegionId',
       CACertificate: 'CACertificate',
       CACertificateName: 'CACertificateName',
       resourceGroupId: 'ResourceGroupId',
-      standardType: 'StandardType',
     };
   }
 
@@ -8769,12 +8183,10 @@ export class UploadCACertificateRequest extends $tea.Model {
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       ownerAccount: 'string',
-      accessKeyId: 'string',
       regionId: 'string',
       CACertificate: 'string',
       CACertificateName: 'string',
       resourceGroupId: 'string',
-      standardType: 'string',
     };
   }
 
@@ -8784,43 +8196,43 @@ export class UploadCACertificateRequest extends $tea.Model {
 }
 
 export class UploadCACertificateResponseBody extends $tea.Model {
-  fingerprint?: string;
+  createTimeStamp?: number;
   requestId?: string;
+  expireTime?: string;
+  fingerprint?: string;
+  createTime?: string;
+  commonName?: string;
   resourceGroupId?: string;
+  CACertificateName?: string;
   expireTimeStamp?: number;
   CACertificateId?: string;
-  createTime?: string;
-  CACertificateName?: string;
-  expireTime?: string;
-  createTimeStamp?: number;
-  commonName?: string;
   static names(): { [key: string]: string } {
     return {
-      fingerprint: 'Fingerprint',
+      createTimeStamp: 'CreateTimeStamp',
       requestId: 'RequestId',
+      expireTime: 'ExpireTime',
+      fingerprint: 'Fingerprint',
+      createTime: 'CreateTime',
+      commonName: 'CommonName',
       resourceGroupId: 'ResourceGroupId',
+      CACertificateName: 'CACertificateName',
       expireTimeStamp: 'ExpireTimeStamp',
       CACertificateId: 'CACertificateId',
-      createTime: 'CreateTime',
-      CACertificateName: 'CACertificateName',
-      expireTime: 'ExpireTime',
-      createTimeStamp: 'CreateTimeStamp',
-      commonName: 'CommonName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      fingerprint: 'string',
+      createTimeStamp: 'number',
       requestId: 'string',
+      expireTime: 'string',
+      fingerprint: 'string',
+      createTime: 'string',
+      commonName: 'string',
       resourceGroupId: 'string',
+      CACertificateName: 'string',
       expireTimeStamp: 'number',
       CACertificateId: 'string',
-      createTime: 'string',
-      CACertificateName: 'string',
-      expireTime: 'string',
-      createTimeStamp: 'number',
-      commonName: 'string',
     };
   }
 
@@ -8863,10 +8275,7 @@ export class UploadServerCertificateRequest extends $tea.Model {
   privateKey?: string;
   serverCertificateName?: string;
   ownerAccount?: string;
-  accessKeyId?: string;
-  tags?: string;
   resourceGroupId?: string;
-  standardType?: string;
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
@@ -8880,10 +8289,7 @@ export class UploadServerCertificateRequest extends $tea.Model {
       privateKey: 'PrivateKey',
       serverCertificateName: 'ServerCertificateName',
       ownerAccount: 'OwnerAccount',
-      accessKeyId: 'access_key_id',
-      tags: 'Tags',
       resourceGroupId: 'ResourceGroupId',
-      standardType: 'StandardType',
     };
   }
 
@@ -8900,10 +8306,7 @@ export class UploadServerCertificateRequest extends $tea.Model {
       privateKey: 'string',
       serverCertificateName: 'string',
       ownerAccount: 'string',
-      accessKeyId: 'string',
-      tags: 'string',
       resourceGroupId: 'string',
-      standardType: 'string',
     };
   }
 
@@ -8913,58 +8316,58 @@ export class UploadServerCertificateRequest extends $tea.Model {
 }
 
 export class UploadServerCertificateResponseBody extends $tea.Model {
-  fingerprint?: string;
-  expireTimeStamp?: number;
-  requestId?: string;
-  resourceGroupId?: string;
-  createTime?: string;
-  subjectAlternativeNames?: UploadServerCertificateResponseBodySubjectAlternativeNames;
-  aliCloudCertificateId?: string;
   aliCloudCertificateName?: string;
-  isAliCloudCertificate?: number;
-  serverCertificateId?: string;
-  serverCertificateName?: string;
-  regionId?: string;
-  expireTime?: string;
   createTimeStamp?: number;
+  expireTime?: string;
+  createTime?: string;
+  serverCertificateId?: string;
+  expireTimeStamp?: number;
+  regionId?: string;
+  requestId?: string;
+  fingerprint?: string;
+  serverCertificateName?: string;
   commonName?: string;
+  resourceGroupId?: string;
+  aliCloudCertificateId?: string;
+  isAliCloudCertificate?: number;
+  subjectAlternativeNames?: UploadServerCertificateResponseBodySubjectAlternativeNames;
   static names(): { [key: string]: string } {
     return {
-      fingerprint: 'Fingerprint',
-      expireTimeStamp: 'ExpireTimeStamp',
-      requestId: 'RequestId',
-      resourceGroupId: 'ResourceGroupId',
-      createTime: 'CreateTime',
-      subjectAlternativeNames: 'SubjectAlternativeNames',
-      aliCloudCertificateId: 'AliCloudCertificateId',
       aliCloudCertificateName: 'AliCloudCertificateName',
-      isAliCloudCertificate: 'IsAliCloudCertificate',
-      serverCertificateId: 'ServerCertificateId',
-      serverCertificateName: 'ServerCertificateName',
-      regionId: 'RegionId',
-      expireTime: 'ExpireTime',
       createTimeStamp: 'CreateTimeStamp',
+      expireTime: 'ExpireTime',
+      createTime: 'CreateTime',
+      serverCertificateId: 'ServerCertificateId',
+      expireTimeStamp: 'ExpireTimeStamp',
+      regionId: 'RegionId',
+      requestId: 'RequestId',
+      fingerprint: 'Fingerprint',
+      serverCertificateName: 'ServerCertificateName',
       commonName: 'CommonName',
+      resourceGroupId: 'ResourceGroupId',
+      aliCloudCertificateId: 'AliCloudCertificateId',
+      isAliCloudCertificate: 'IsAliCloudCertificate',
+      subjectAlternativeNames: 'SubjectAlternativeNames',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      fingerprint: 'string',
-      expireTimeStamp: 'number',
-      requestId: 'string',
-      resourceGroupId: 'string',
-      createTime: 'string',
-      subjectAlternativeNames: UploadServerCertificateResponseBodySubjectAlternativeNames,
-      aliCloudCertificateId: 'string',
       aliCloudCertificateName: 'string',
-      isAliCloudCertificate: 'number',
-      serverCertificateId: 'string',
-      serverCertificateName: 'string',
-      regionId: 'string',
-      expireTime: 'string',
       createTimeStamp: 'number',
+      expireTime: 'string',
+      createTime: 'string',
+      serverCertificateId: 'string',
+      expireTimeStamp: 'number',
+      regionId: 'string',
+      requestId: 'string',
+      fingerprint: 'string',
+      serverCertificateName: 'string',
       commonName: 'string',
+      resourceGroupId: 'string',
+      aliCloudCertificateId: 'string',
+      isAliCloudCertificate: 'number',
+      subjectAlternativeNames: UploadServerCertificateResponseBodySubjectAlternativeNames,
     };
   }
 
@@ -9084,70 +8487,6 @@ export class AddVServerGroupBackendServersResponseBodyBackendServers extends $te
   static types(): { [key: string]: any } {
     return {
       backendServer: { 'type': 'array', 'itemType': AddVServerGroupBackendServersResponseBodyBackendServersBackendServer },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateDomainExtensionRequestServerCertificate extends $tea.Model {
-  static names(): { [key: string]: string } {
-    return {
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateLoadBalancerHTTPSListenerRequestServerCertificate extends $tea.Model {
-  static names(): { [key: string]: string } {
-    return {
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateLoadBalancerTCPListenerRequestPortRange extends $tea.Model {
-  static names(): { [key: string]: string } {
-    return {
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateLoadBalancerUDPListenerRequestPortRange extends $tea.Model {
-  static names(): { [key: string]: string } {
-    return {
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
     };
   }
 
@@ -9342,25 +8681,25 @@ export class DescribeAccessControlListAttributeResponseBodyAclEntrys extends $te
 }
 
 export class DescribeAccessControlListAttributeResponseBodyRelatedListenersRelatedListener extends $tea.Model {
+  listenerPort?: number;
   aclType?: string;
   protocol?: string;
   loadBalancerId?: string;
-  listenerPort?: number;
   static names(): { [key: string]: string } {
     return {
+      listenerPort: 'ListenerPort',
       aclType: 'AclType',
       protocol: 'Protocol',
       loadBalancerId: 'LoadBalancerId',
-      listenerPort: 'ListenerPort',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      listenerPort: 'number',
       aclType: 'string',
       protocol: 'string',
       loadBalancerId: 'string',
-      listenerPort: 'number',
     };
   }
 
@@ -9388,33 +8727,17 @@ export class DescribeAccessControlListAttributeResponseBodyRelatedListeners exte
   }
 }
 
-export class DescribeAccessControlListsRequestTag extends $tea.Model {
-  static names(): { [key: string]: string } {
-    return {
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeAccessControlListsResponseBodyAclsAcl extends $tea.Model {
   aclId?: string;
   addressIPVersion?: string;
-  resourceGroupId?: string;
   aclName?: string;
+  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       aclId: 'AclId',
       addressIPVersion: 'AddressIPVersion',
-      resourceGroupId: 'ResourceGroupId',
       aclName: 'AclName',
+      resourceGroupId: 'ResourceGroupId',
     };
   }
 
@@ -9422,8 +8745,8 @@ export class DescribeAccessControlListsResponseBodyAclsAcl extends $tea.Model {
     return {
       aclId: 'string',
       addressIPVersion: 'string',
-      resourceGroupId: 'string',
       aclName: 'string',
+      resourceGroupId: 'string',
     };
   }
 
@@ -9452,19 +8775,19 @@ export class DescribeAccessControlListsResponseBodyAcls extends $tea.Model {
 }
 
 export class DescribeAvailableResourceResponseBodyAvailableResourcesAvailableResourceSupportResourcesSupportResource extends $tea.Model {
-  addressIPVersion?: string;
   addressType?: string;
+  addressIPVersion?: string;
   static names(): { [key: string]: string } {
     return {
-      addressIPVersion: 'AddressIPVersion',
       addressType: 'AddressType',
+      addressIPVersion: 'AddressIPVersion',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      addressIPVersion: 'string',
       addressType: 'string',
+      addressIPVersion: 'string',
     };
   }
 
@@ -9494,21 +8817,21 @@ export class DescribeAvailableResourceResponseBodyAvailableResourcesAvailableRes
 
 export class DescribeAvailableResourceResponseBodyAvailableResourcesAvailableResource extends $tea.Model {
   slaveZoneId?: string;
-  supportResources?: DescribeAvailableResourceResponseBodyAvailableResourcesAvailableResourceSupportResources;
   masterZoneId?: string;
+  supportResources?: DescribeAvailableResourceResponseBodyAvailableResourcesAvailableResourceSupportResources;
   static names(): { [key: string]: string } {
     return {
       slaveZoneId: 'SlaveZoneId',
-      supportResources: 'SupportResources',
       masterZoneId: 'MasterZoneId',
+      supportResources: 'SupportResources',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       slaveZoneId: 'string',
-      supportResources: DescribeAvailableResourceResponseBodyAvailableResourcesAvailableResourceSupportResources,
       masterZoneId: 'string',
+      supportResources: DescribeAvailableResourceResponseBodyAvailableResourcesAvailableResourceSupportResources,
     };
   }
 
@@ -9528,22 +8851,6 @@ export class DescribeAvailableResourceResponseBodyAvailableResources extends $te
   static types(): { [key: string]: any } {
     return {
       availableResource: { 'type': 'array', 'itemType': DescribeAvailableResourceResponseBodyAvailableResourcesAvailableResource },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeCACertificatesRequestTag extends $tea.Model {
-  static names(): { [key: string]: string } {
-    return {
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
     };
   }
 
@@ -9618,21 +8925,21 @@ export class DescribeCACertificatesResponseBodyCACertificates extends $tea.Model
 }
 
 export class DescribeDomainExtensionsResponseBodyDomainExtensionsDomainExtension extends $tea.Model {
-  domain?: string;
   serverCertificateId?: string;
+  domain?: string;
   domainExtensionId?: string;
   static names(): { [key: string]: string } {
     return {
-      domain: 'Domain',
       serverCertificateId: 'ServerCertificateId',
+      domain: 'Domain',
       domainExtensionId: 'DomainExtensionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      domain: 'string',
       serverCertificateId: 'string',
+      domain: 'string',
       domainExtensionId: 'string',
     };
   }
@@ -9662,8 +8969,6 @@ export class DescribeDomainExtensionsResponseBodyDomainExtensions extends $tea.M
 }
 
 export class DescribeHealthStatusResponseBodyBackendServersBackendServer extends $tea.Model {
-  type?: string;
-  eniHost?: string;
   protocol?: string;
   serverHealthStatus?: string;
   listenerPort?: number;
@@ -9672,8 +8977,6 @@ export class DescribeHealthStatusResponseBodyBackendServersBackendServer extends
   serverId?: string;
   static names(): { [key: string]: string } {
     return {
-      type: 'Type',
-      eniHost: 'EniHost',
       protocol: 'Protocol',
       serverHealthStatus: 'ServerHealthStatus',
       listenerPort: 'ListenerPort',
@@ -9685,8 +8988,6 @@ export class DescribeHealthStatusResponseBodyBackendServersBackendServer extends
 
   static types(): { [key: string]: any } {
     return {
-      type: 'string',
-      eniHost: 'string',
       protocol: 'string',
       serverHealthStatus: 'string',
       listenerPort: 'number',
@@ -9712,6 +9013,25 @@ export class DescribeHealthStatusResponseBodyBackendServers extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       backendServer: { 'type': 'array', 'itemType': DescribeHealthStatusResponseBodyBackendServersBackendServer },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLoadBalancerAttributeResponseBodyListenerPorts extends $tea.Model {
+  listenerPort?: number[];
+  static names(): { [key: string]: string } {
+    return {
+      listenerPort: 'ListenerPort',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      listenerPort: { 'type': 'array', 'itemType': 'number' },
     };
   }
 
@@ -9753,6 +9073,56 @@ export class DescribeLoadBalancerAttributeResponseBodyListenerPortsAndProtocal e
   static types(): { [key: string]: any } {
     return {
       listenerPortAndProtocal: { 'type': 'array', 'itemType': DescribeLoadBalancerAttributeResponseBodyListenerPortsAndProtocalListenerPortAndProtocal },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLoadBalancerAttributeResponseBodyListenerPortsAndProtocolListenerPortAndProtocol extends $tea.Model {
+  listenerPort?: number;
+  listenerProtocol?: string;
+  listenerForward?: string;
+  description?: string;
+  forwardPort?: number;
+  static names(): { [key: string]: string } {
+    return {
+      listenerPort: 'ListenerPort',
+      listenerProtocol: 'ListenerProtocol',
+      listenerForward: 'ListenerForward',
+      description: 'Description',
+      forwardPort: 'ForwardPort',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      listenerPort: 'number',
+      listenerProtocol: 'string',
+      listenerForward: 'string',
+      description: 'string',
+      forwardPort: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLoadBalancerAttributeResponseBodyListenerPortsAndProtocol extends $tea.Model {
+  listenerPortAndProtocol?: DescribeLoadBalancerAttributeResponseBodyListenerPortsAndProtocolListenerPortAndProtocol[];
+  static names(): { [key: string]: string } {
+    return {
+      listenerPortAndProtocol: 'ListenerPortAndProtocol',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      listenerPortAndProtocol: { 'type': 'array', 'itemType': DescribeLoadBalancerAttributeResponseBodyListenerPortsAndProtocolListenerPortAndProtocol },
     };
   }
 
@@ -9808,86 +9178,17 @@ export class DescribeLoadBalancerAttributeResponseBodyBackendServers extends $te
   }
 }
 
-export class DescribeLoadBalancerAttributeResponseBodyListenerPorts extends $tea.Model {
-  listenerPort?: number[];
-  static names(): { [key: string]: string } {
-    return {
-      listenerPort: 'ListenerPort',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      listenerPort: { 'type': 'array', 'itemType': 'number' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeLoadBalancerAttributeResponseBodyListenerPortsAndProtocolListenerPortAndProtocol extends $tea.Model {
-  listenerProtocol?: string;
-  listenerForward?: string;
-  description?: string;
-  listenerPort?: number;
-  forwardPort?: number;
-  static names(): { [key: string]: string } {
-    return {
-      listenerProtocol: 'ListenerProtocol',
-      listenerForward: 'ListenerForward',
-      description: 'Description',
-      listenerPort: 'ListenerPort',
-      forwardPort: 'ForwardPort',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      listenerProtocol: 'string',
-      listenerForward: 'string',
-      description: 'string',
-      listenerPort: 'number',
-      forwardPort: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeLoadBalancerAttributeResponseBodyListenerPortsAndProtocol extends $tea.Model {
-  listenerPortAndProtocol?: DescribeLoadBalancerAttributeResponseBodyListenerPortsAndProtocolListenerPortAndProtocol[];
-  static names(): { [key: string]: string } {
-    return {
-      listenerPortAndProtocol: 'ListenerPortAndProtocol',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      listenerPortAndProtocol: { 'type': 'array', 'itemType': DescribeLoadBalancerAttributeResponseBodyListenerPortsAndProtocolListenerPortAndProtocol },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeLoadBalancerHTTPListenerAttributeResponseBodyRulesRule extends $tea.Model {
   VServerGroupId?: string;
-  domain?: string;
   url?: string;
+  domain?: string;
   ruleName?: string;
   ruleId?: string;
   static names(): { [key: string]: string } {
     return {
       VServerGroupId: 'VServerGroupId',
-      domain: 'Domain',
       url: 'Url',
+      domain: 'Domain',
       ruleName: 'RuleName',
       ruleId: 'RuleId',
     };
@@ -9896,8 +9197,8 @@ export class DescribeLoadBalancerHTTPListenerAttributeResponseBodyRulesRule exte
   static types(): { [key: string]: any } {
     return {
       VServerGroupId: 'string',
-      domain: 'string',
       url: 'string',
+      domain: 'string',
       ruleName: 'string',
       ruleId: 'string',
     };
@@ -9927,61 +9228,17 @@ export class DescribeLoadBalancerHTTPListenerAttributeResponseBodyRules extends 
   }
 }
 
-export class DescribeLoadBalancerHTTPSListenerAttributeResponseBodyDomainExtensionsDomainExtension extends $tea.Model {
-  domain?: string;
-  serverCertificateId?: string;
-  domainExtensionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      domain: 'Domain',
-      serverCertificateId: 'ServerCertificateId',
-      domainExtensionId: 'DomainExtensionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      domain: 'string',
-      serverCertificateId: 'string',
-      domainExtensionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeLoadBalancerHTTPSListenerAttributeResponseBodyDomainExtensions extends $tea.Model {
-  domainExtension?: DescribeLoadBalancerHTTPSListenerAttributeResponseBodyDomainExtensionsDomainExtension[];
-  static names(): { [key: string]: string } {
-    return {
-      domainExtension: 'DomainExtension',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      domainExtension: { 'type': 'array', 'itemType': DescribeLoadBalancerHTTPSListenerAttributeResponseBodyDomainExtensionsDomainExtension },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeLoadBalancerHTTPSListenerAttributeResponseBodyRulesRule extends $tea.Model {
   VServerGroupId?: string;
-  domain?: string;
   url?: string;
+  domain?: string;
   ruleName?: string;
   ruleId?: string;
   static names(): { [key: string]: string } {
     return {
       VServerGroupId: 'VServerGroupId',
-      domain: 'Domain',
       url: 'Url',
+      domain: 'Domain',
       ruleName: 'RuleName',
       ruleId: 'RuleId',
     };
@@ -9990,8 +9247,8 @@ export class DescribeLoadBalancerHTTPSListenerAttributeResponseBodyRulesRule ext
   static types(): { [key: string]: any } {
     return {
       VServerGroupId: 'string',
-      domain: 'string',
       url: 'string',
+      domain: 'string',
       ruleName: 'string',
       ruleId: 'string',
     };
@@ -10021,14 +9278,431 @@ export class DescribeLoadBalancerHTTPSListenerAttributeResponseBodyRules extends
   }
 }
 
-export class DescribeLoadBalancersRequestTag extends $tea.Model {
+export class DescribeLoadBalancerHTTPSListenerAttributeResponseBodyDomainExtensionsDomainExtension extends $tea.Model {
+  serverCertificateId?: string;
+  domain?: string;
+  domainExtensionId?: string;
   static names(): { [key: string]: string } {
     return {
+      serverCertificateId: 'ServerCertificateId',
+      domain: 'Domain',
+      domainExtensionId: 'DomainExtensionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      serverCertificateId: 'string',
+      domain: 'string',
+      domainExtensionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLoadBalancerHTTPSListenerAttributeResponseBodyDomainExtensions extends $tea.Model {
+  domainExtension?: DescribeLoadBalancerHTTPSListenerAttributeResponseBodyDomainExtensionsDomainExtension[];
+  static names(): { [key: string]: string } {
+    return {
+      domainExtension: 'DomainExtension',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainExtension: { 'type': 'array', 'itemType': DescribeLoadBalancerHTTPSListenerAttributeResponseBodyDomainExtensionsDomainExtension },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLoadBalancerListenersResponseBodyListenersHTTPListenerConfig extends $tea.Model {
+  healthCheckHttpVersion?: string;
+  XForwardedFor_ClientSrcPort?: string;
+  cookie?: string;
+  gzip?: string;
+  healthCheckConnectPort?: number;
+  healthCheckTimeout?: number;
+  healthCheckType?: string;
+  cookieTimeout?: number;
+  healthCheckDomain?: string;
+  unhealthyThreshold?: number;
+  XForwardedFor_SLBID?: string;
+  forwardPort?: number;
+  healthCheckHttpCode?: string;
+  listenerForward?: string;
+  XForwardedFor?: string;
+  idleTimeout?: number;
+  requestTimeout?: number;
+  healthCheckInterval?: number;
+  XForwardedFor_SLBPORT?: string;
+  healthCheckURI?: string;
+  stickySessionType?: string;
+  healthyThreshold?: number;
+  XForwardedFor_proto?: string;
+  XForwardedFor_SLBIP?: string;
+  stickySession?: string;
+  healthCheckMethod?: string;
+  healthCheck?: string;
+  static names(): { [key: string]: string } {
+    return {
+      healthCheckHttpVersion: 'HealthCheckHttpVersion',
+      XForwardedFor_ClientSrcPort: 'XForwardedFor_ClientSrcPort',
+      cookie: 'Cookie',
+      gzip: 'Gzip',
+      healthCheckConnectPort: 'HealthCheckConnectPort',
+      healthCheckTimeout: 'HealthCheckTimeout',
+      healthCheckType: 'HealthCheckType',
+      cookieTimeout: 'CookieTimeout',
+      healthCheckDomain: 'HealthCheckDomain',
+      unhealthyThreshold: 'UnhealthyThreshold',
+      XForwardedFor_SLBID: 'XForwardedFor_SLBID',
+      forwardPort: 'ForwardPort',
+      healthCheckHttpCode: 'HealthCheckHttpCode',
+      listenerForward: 'ListenerForward',
+      XForwardedFor: 'XForwardedFor',
+      idleTimeout: 'IdleTimeout',
+      requestTimeout: 'RequestTimeout',
+      healthCheckInterval: 'HealthCheckInterval',
+      XForwardedFor_SLBPORT: 'XForwardedFor_SLBPORT',
+      healthCheckURI: 'HealthCheckURI',
+      stickySessionType: 'StickySessionType',
+      healthyThreshold: 'HealthyThreshold',
+      XForwardedFor_proto: 'XForwardedFor_proto',
+      XForwardedFor_SLBIP: 'XForwardedFor_SLBIP',
+      stickySession: 'StickySession',
+      healthCheckMethod: 'HealthCheckMethod',
+      healthCheck: 'HealthCheck',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      healthCheckHttpVersion: 'string',
+      XForwardedFor_ClientSrcPort: 'string',
+      cookie: 'string',
+      gzip: 'string',
+      healthCheckConnectPort: 'number',
+      healthCheckTimeout: 'number',
+      healthCheckType: 'string',
+      cookieTimeout: 'number',
+      healthCheckDomain: 'string',
+      unhealthyThreshold: 'number',
+      XForwardedFor_SLBID: 'string',
+      forwardPort: 'number',
+      healthCheckHttpCode: 'string',
+      listenerForward: 'string',
+      XForwardedFor: 'string',
+      idleTimeout: 'number',
+      requestTimeout: 'number',
+      healthCheckInterval: 'number',
+      XForwardedFor_SLBPORT: 'string',
+      healthCheckURI: 'string',
+      stickySessionType: 'string',
+      healthyThreshold: 'number',
+      XForwardedFor_proto: 'string',
+      XForwardedFor_SLBIP: 'string',
+      stickySession: 'string',
+      healthCheckMethod: 'string',
+      healthCheck: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLoadBalancerListenersResponseBodyListenersHTTPSListenerConfig extends $tea.Model {
+  XForwardedFor_ClientCertClientVerify?: string;
+  healthCheckHttpVersion?: string;
+  XForwardedFor_ClientSrcPort?: string;
+  cookie?: string;
+  gzip?: string;
+  enableHttp2?: string;
+  CACertificateId?: string;
+  healthCheckConnectPort?: number;
+  healthCheckTimeout?: number;
+  healthCheckType?: string;
+  cookieTimeout?: number;
+  healthCheckDomain?: string;
+  unhealthyThreshold?: number;
+  XForwardedFor_SLBID?: string;
+  XForwardedFor_ClientCertSubjectDN?: string;
+  healthCheckHttpCode?: string;
+  XForwardedFor_ClientCertFingerprint?: string;
+  XForwardedFor?: string;
+  requestTimeout?: number;
+  idleTimeout?: number;
+  serverCertificateId?: string;
+  healthCheckInterval?: number;
+  XForwardedFor_SLBPORT?: string;
+  healthCheckURI?: string;
+  stickySessionType?: string;
+  XForwardedFor_ClientCertIssuerDN?: string;
+  healthyThreshold?: number;
+  XForwardedFor_proto?: string;
+  XForwardedFor_SLBIP?: string;
+  stickySession?: string;
+  healthCheckMethod?: string;
+  TLSCipherPolicy?: string;
+  healthCheck?: string;
+  static names(): { [key: string]: string } {
+    return {
+      XForwardedFor_ClientCertClientVerify: 'XForwardedFor_ClientCertClientVerify',
+      healthCheckHttpVersion: 'HealthCheckHttpVersion',
+      XForwardedFor_ClientSrcPort: 'XForwardedFor_ClientSrcPort',
+      cookie: 'Cookie',
+      gzip: 'Gzip',
+      enableHttp2: 'EnableHttp2',
+      CACertificateId: 'CACertificateId',
+      healthCheckConnectPort: 'HealthCheckConnectPort',
+      healthCheckTimeout: 'HealthCheckTimeout',
+      healthCheckType: 'HealthCheckType',
+      cookieTimeout: 'CookieTimeout',
+      healthCheckDomain: 'HealthCheckDomain',
+      unhealthyThreshold: 'UnhealthyThreshold',
+      XForwardedFor_SLBID: 'XForwardedFor_SLBID',
+      XForwardedFor_ClientCertSubjectDN: 'XForwardedFor_ClientCertSubjectDN',
+      healthCheckHttpCode: 'HealthCheckHttpCode',
+      XForwardedFor_ClientCertFingerprint: 'XForwardedFor_ClientCertFingerprint',
+      XForwardedFor: 'XForwardedFor',
+      requestTimeout: 'RequestTimeout',
+      idleTimeout: 'IdleTimeout',
+      serverCertificateId: 'ServerCertificateId',
+      healthCheckInterval: 'HealthCheckInterval',
+      XForwardedFor_SLBPORT: 'XForwardedFor_SLBPORT',
+      healthCheckURI: 'HealthCheckURI',
+      stickySessionType: 'StickySessionType',
+      XForwardedFor_ClientCertIssuerDN: 'XForwardedFor_ClientCertIssuerDN',
+      healthyThreshold: 'HealthyThreshold',
+      XForwardedFor_proto: 'XForwardedFor_proto',
+      XForwardedFor_SLBIP: 'XForwardedFor_SLBIP',
+      stickySession: 'StickySession',
+      healthCheckMethod: 'HealthCheckMethod',
+      TLSCipherPolicy: 'TLSCipherPolicy',
+      healthCheck: 'HealthCheck',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      XForwardedFor_ClientCertClientVerify: 'string',
+      healthCheckHttpVersion: 'string',
+      XForwardedFor_ClientSrcPort: 'string',
+      cookie: 'string',
+      gzip: 'string',
+      enableHttp2: 'string',
+      CACertificateId: 'string',
+      healthCheckConnectPort: 'number',
+      healthCheckTimeout: 'number',
+      healthCheckType: 'string',
+      cookieTimeout: 'number',
+      healthCheckDomain: 'string',
+      unhealthyThreshold: 'number',
+      XForwardedFor_SLBID: 'string',
+      XForwardedFor_ClientCertSubjectDN: 'string',
+      healthCheckHttpCode: 'string',
+      XForwardedFor_ClientCertFingerprint: 'string',
+      XForwardedFor: 'string',
+      requestTimeout: 'number',
+      idleTimeout: 'number',
+      serverCertificateId: 'string',
+      healthCheckInterval: 'number',
+      XForwardedFor_SLBPORT: 'string',
+      healthCheckURI: 'string',
+      stickySessionType: 'string',
+      XForwardedFor_ClientCertIssuerDN: 'string',
+      healthyThreshold: 'number',
+      XForwardedFor_proto: 'string',
+      XForwardedFor_SLBIP: 'string',
+      stickySession: 'string',
+      healthCheckMethod: 'string',
+      TLSCipherPolicy: 'string',
+      healthCheck: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLoadBalancerListenersResponseBodyListenersTCPListenerConfig extends $tea.Model {
+  healthCheckHttpCode?: string;
+  connectionDrainTimeout?: number;
+  persistenceTimeout?: number;
+  healthCheckInterval?: number;
+  healthCheckURI?: string;
+  healthCheckConnectPort?: number;
+  establishedTimeout?: number;
+  healthCheckType?: string;
+  healthCheckConnectTimeout?: number;
+  masterSlaveServerGroupId?: string;
+  healthyThreshold?: number;
+  healthCheckDomain?: string;
+  unhealthyThreshold?: number;
+  connectionDrain?: string;
+  healthCheckMethod?: string;
+  healthCheck?: string;
+  static names(): { [key: string]: string } {
+    return {
+      healthCheckHttpCode: 'HealthCheckHttpCode',
+      connectionDrainTimeout: 'ConnectionDrainTimeout',
+      persistenceTimeout: 'PersistenceTimeout',
+      healthCheckInterval: 'HealthCheckInterval',
+      healthCheckURI: 'HealthCheckURI',
+      healthCheckConnectPort: 'HealthCheckConnectPort',
+      establishedTimeout: 'EstablishedTimeout',
+      healthCheckType: 'HealthCheckType',
+      healthCheckConnectTimeout: 'HealthCheckConnectTimeout',
+      masterSlaveServerGroupId: 'MasterSlaveServerGroupId',
+      healthyThreshold: 'HealthyThreshold',
+      healthCheckDomain: 'HealthCheckDomain',
+      unhealthyThreshold: 'UnhealthyThreshold',
+      connectionDrain: 'ConnectionDrain',
+      healthCheckMethod: 'HealthCheckMethod',
+      healthCheck: 'HealthCheck',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      healthCheckHttpCode: 'string',
+      connectionDrainTimeout: 'number',
+      persistenceTimeout: 'number',
+      healthCheckInterval: 'number',
+      healthCheckURI: 'string',
+      healthCheckConnectPort: 'number',
+      establishedTimeout: 'number',
+      healthCheckType: 'string',
+      healthCheckConnectTimeout: 'number',
+      masterSlaveServerGroupId: 'string',
+      healthyThreshold: 'number',
+      healthCheckDomain: 'string',
+      unhealthyThreshold: 'number',
+      connectionDrain: 'string',
+      healthCheckMethod: 'string',
+      healthCheck: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLoadBalancerListenersResponseBodyListenersUDPListenerConfig extends $tea.Model {
+  connectionDrainTimeout?: number;
+  healthCheckInterval?: number;
+  healthCheckExp?: string;
+  healthCheckConnectPort?: number;
+  healthCheckConnectTimeout?: number;
+  masterSlaveServerGroupId?: string;
+  healthyThreshold?: number;
+  unhealthyThreshold?: number;
+  connectionDrain?: string;
+  healthCheckReq?: string;
+  healthCheck?: string;
+  static names(): { [key: string]: string } {
+    return {
+      connectionDrainTimeout: 'ConnectionDrainTimeout',
+      healthCheckInterval: 'HealthCheckInterval',
+      healthCheckExp: 'HealthCheckExp',
+      healthCheckConnectPort: 'HealthCheckConnectPort',
+      healthCheckConnectTimeout: 'HealthCheckConnectTimeout',
+      masterSlaveServerGroupId: 'MasterSlaveServerGroupId',
+      healthyThreshold: 'HealthyThreshold',
+      unhealthyThreshold: 'UnhealthyThreshold',
+      connectionDrain: 'ConnectionDrain',
+      healthCheckReq: 'HealthCheckReq',
+      healthCheck: 'HealthCheck',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      connectionDrainTimeout: 'number',
+      healthCheckInterval: 'number',
+      healthCheckExp: 'string',
+      healthCheckConnectPort: 'number',
+      healthCheckConnectTimeout: 'number',
+      masterSlaveServerGroupId: 'string',
+      healthyThreshold: 'number',
+      unhealthyThreshold: 'number',
+      connectionDrain: 'string',
+      healthCheckReq: 'string',
+      healthCheck: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLoadBalancerListenersResponseBodyListeners extends $tea.Model {
+  aclType?: string;
+  status?: string;
+  VServerGroupId?: string;
+  listenerProtocol?: string;
+  loadBalancerId?: string;
+  listenerPort?: number;
+  aclId?: string;
+  scheduler?: string;
+  bandwidth?: number;
+  description?: string;
+  aclStatus?: string;
+  backendServerPort?: number;
+  HTTPListenerConfig?: DescribeLoadBalancerListenersResponseBodyListenersHTTPListenerConfig;
+  HTTPSListenerConfig?: DescribeLoadBalancerListenersResponseBodyListenersHTTPSListenerConfig;
+  TCPListenerConfig?: DescribeLoadBalancerListenersResponseBodyListenersTCPListenerConfig;
+  UDPListenerConfig?: DescribeLoadBalancerListenersResponseBodyListenersUDPListenerConfig;
+  static names(): { [key: string]: string } {
+    return {
+      aclType: 'AclType',
+      status: 'Status',
+      VServerGroupId: 'VServerGroupId',
+      listenerProtocol: 'ListenerProtocol',
+      loadBalancerId: 'LoadBalancerId',
+      listenerPort: 'ListenerPort',
+      aclId: 'AclId',
+      scheduler: 'Scheduler',
+      bandwidth: 'Bandwidth',
+      description: 'Description',
+      aclStatus: 'AclStatus',
+      backendServerPort: 'BackendServerPort',
+      HTTPListenerConfig: 'HTTPListenerConfig',
+      HTTPSListenerConfig: 'HTTPSListenerConfig',
+      TCPListenerConfig: 'TCPListenerConfig',
+      UDPListenerConfig: 'UDPListenerConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aclType: 'string',
+      status: 'string',
+      VServerGroupId: 'string',
+      listenerProtocol: 'string',
+      loadBalancerId: 'string',
+      listenerPort: 'number',
+      aclId: 'string',
+      scheduler: 'string',
+      bandwidth: 'number',
+      description: 'string',
+      aclStatus: 'string',
+      backendServerPort: 'number',
+      HTTPListenerConfig: DescribeLoadBalancerListenersResponseBodyListenersHTTPListenerConfig,
+      HTTPSListenerConfig: DescribeLoadBalancerListenersResponseBodyListenersHTTPSListenerConfig,
+      TCPListenerConfig: DescribeLoadBalancerListenersResponseBodyListenersTCPListenerConfig,
+      UDPListenerConfig: DescribeLoadBalancerListenersResponseBodyListenersUDPListenerConfig,
     };
   }
 
@@ -10045,19 +9719,23 @@ export class DescribeLoadBalancersResponseBodyLoadBalancersLoadBalancer extends 
   payType?: string;
   addressType?: string;
   networkType?: string;
+  addressIPVersion?: string;
+  loadBalancerName?: string;
+  bandwidth?: number;
+  address?: string;
+  slaveZoneId?: string;
+  masterZoneId?: string;
+  internetChargeTypeAlias?: string;
+  loadBalancerSpec?: string;
   regionId?: string;
   modificationProtectionReason?: string;
   modificationProtectionStatus?: string;
-  addressIPVersion?: string;
   vSwitchId?: string;
   loadBalancerStatus?: string;
-  loadBalancerName?: string;
   resourceGroupId?: string;
   internetChargeType?: string;
-  address?: string;
-  slaveZoneId?: string;
+  deleteProtection?: string;
   regionIdAlias?: string;
-  masterZoneId?: string;
   static names(): { [key: string]: string } {
     return {
       vpcId: 'VpcId',
@@ -10067,19 +9745,23 @@ export class DescribeLoadBalancersResponseBodyLoadBalancersLoadBalancer extends 
       payType: 'PayType',
       addressType: 'AddressType',
       networkType: 'NetworkType',
+      addressIPVersion: 'AddressIPVersion',
+      loadBalancerName: 'LoadBalancerName',
+      bandwidth: 'Bandwidth',
+      address: 'Address',
+      slaveZoneId: 'SlaveZoneId',
+      masterZoneId: 'MasterZoneId',
+      internetChargeTypeAlias: 'InternetChargeTypeAlias',
+      loadBalancerSpec: 'LoadBalancerSpec',
       regionId: 'RegionId',
       modificationProtectionReason: 'ModificationProtectionReason',
       modificationProtectionStatus: 'ModificationProtectionStatus',
-      addressIPVersion: 'AddressIPVersion',
       vSwitchId: 'VSwitchId',
       loadBalancerStatus: 'LoadBalancerStatus',
-      loadBalancerName: 'LoadBalancerName',
       resourceGroupId: 'ResourceGroupId',
       internetChargeType: 'InternetChargeType',
-      address: 'Address',
-      slaveZoneId: 'SlaveZoneId',
+      deleteProtection: 'DeleteProtection',
       regionIdAlias: 'RegionIdAlias',
-      masterZoneId: 'MasterZoneId',
     };
   }
 
@@ -10092,19 +9774,23 @@ export class DescribeLoadBalancersResponseBodyLoadBalancersLoadBalancer extends 
       payType: 'string',
       addressType: 'string',
       networkType: 'string',
+      addressIPVersion: 'string',
+      loadBalancerName: 'string',
+      bandwidth: 'number',
+      address: 'string',
+      slaveZoneId: 'string',
+      masterZoneId: 'string',
+      internetChargeTypeAlias: 'string',
+      loadBalancerSpec: 'string',
       regionId: 'string',
       modificationProtectionReason: 'string',
       modificationProtectionStatus: 'string',
-      addressIPVersion: 'string',
       vSwitchId: 'string',
       loadBalancerStatus: 'string',
-      loadBalancerName: 'string',
       resourceGroupId: 'string',
       internetChargeType: 'string',
-      address: 'string',
-      slaveZoneId: 'string',
+      deleteProtection: 'string',
       regionIdAlias: 'string',
-      masterZoneId: 'string',
     };
   }
 
@@ -10186,19 +9872,19 @@ export class DescribeMasterSlaveServerGroupAttributeResponseBodyMasterSlaveBacke
 }
 
 export class DescribeMasterSlaveServerGroupsResponseBodyMasterSlaveServerGroupsMasterSlaveServerGroupAssociatedObjectsListenersListener extends $tea.Model {
-  protocol?: string;
   port?: number;
+  protocol?: string;
   static names(): { [key: string]: string } {
     return {
-      protocol: 'Protocol',
       port: 'Port',
+      protocol: 'Protocol',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      protocol: 'string',
       port: 'number',
+      protocol: 'string',
     };
   }
 
@@ -10246,22 +9932,22 @@ export class DescribeMasterSlaveServerGroupsResponseBodyMasterSlaveServerGroupsM
 }
 
 export class DescribeMasterSlaveServerGroupsResponseBodyMasterSlaveServerGroupsMasterSlaveServerGroup extends $tea.Model {
+  masterSlaveServerGroupName?: string;
   masterSlaveServerGroupId?: string;
   associatedObjects?: DescribeMasterSlaveServerGroupsResponseBodyMasterSlaveServerGroupsMasterSlaveServerGroupAssociatedObjects;
-  masterSlaveServerGroupName?: string;
   static names(): { [key: string]: string } {
     return {
+      masterSlaveServerGroupName: 'MasterSlaveServerGroupName',
       masterSlaveServerGroupId: 'MasterSlaveServerGroupId',
       associatedObjects: 'AssociatedObjects',
-      masterSlaveServerGroupName: 'MasterSlaveServerGroupName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      masterSlaveServerGroupName: 'string',
       masterSlaveServerGroupId: 'string',
       associatedObjects: DescribeMasterSlaveServerGroupsResponseBodyMasterSlaveServerGroupsMasterSlaveServerGroupAssociatedObjects,
-      masterSlaveServerGroupName: 'string',
     };
   }
 
@@ -10290,21 +9976,21 @@ export class DescribeMasterSlaveServerGroupsResponseBodyMasterSlaveServerGroups 
 }
 
 export class DescribeRegionsResponseBodyRegionsRegion extends $tea.Model {
-  localName?: string;
   regionEndpoint?: string;
+  localName?: string;
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      localName: 'LocalName',
       regionEndpoint: 'RegionEndpoint',
+      localName: 'LocalName',
       regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      localName: 'string',
       regionEndpoint: 'string',
+      localName: 'string',
       regionId: 'string',
     };
   }
@@ -10334,18 +10020,18 @@ export class DescribeRegionsResponseBodyRegions extends $tea.Model {
 }
 
 export class DescribeRulesResponseBodyRulesRule extends $tea.Model {
-  VServerGroupId?: string;
   healthCheckHttpCode?: string;
+  VServerGroupId?: string;
   domain?: string;
   cookie?: string;
-  url?: string;
   healthCheckInterval?: number;
+  url?: string;
   healthCheckURI?: string;
-  ruleId?: string;
-  ruleName?: string;
   stickySessionType?: string;
-  scheduler?: string;
+  ruleName?: string;
+  ruleId?: string;
   healthCheckConnectPort?: number;
+  scheduler?: string;
   healthCheckTimeout?: number;
   listenerSync?: string;
   healthyThreshold?: number;
@@ -10356,18 +10042,18 @@ export class DescribeRulesResponseBodyRulesRule extends $tea.Model {
   healthCheck?: string;
   static names(): { [key: string]: string } {
     return {
-      VServerGroupId: 'VServerGroupId',
       healthCheckHttpCode: 'HealthCheckHttpCode',
+      VServerGroupId: 'VServerGroupId',
       domain: 'Domain',
       cookie: 'Cookie',
-      url: 'Url',
       healthCheckInterval: 'HealthCheckInterval',
+      url: 'Url',
       healthCheckURI: 'HealthCheckURI',
-      ruleId: 'RuleId',
-      ruleName: 'RuleName',
       stickySessionType: 'StickySessionType',
-      scheduler: 'Scheduler',
+      ruleName: 'RuleName',
+      ruleId: 'RuleId',
       healthCheckConnectPort: 'HealthCheckConnectPort',
+      scheduler: 'Scheduler',
       healthCheckTimeout: 'HealthCheckTimeout',
       listenerSync: 'ListenerSync',
       healthyThreshold: 'HealthyThreshold',
@@ -10381,18 +10067,18 @@ export class DescribeRulesResponseBodyRulesRule extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      VServerGroupId: 'string',
       healthCheckHttpCode: 'string',
+      VServerGroupId: 'string',
       domain: 'string',
       cookie: 'string',
-      url: 'string',
       healthCheckInterval: 'number',
+      url: 'string',
       healthCheckURI: 'string',
-      ruleId: 'string',
-      ruleName: 'string',
       stickySessionType: 'string',
-      scheduler: 'string',
+      ruleName: 'string',
+      ruleId: 'string',
       healthCheckConnectPort: 'number',
+      scheduler: 'string',
       healthCheckTimeout: 'number',
       listenerSync: 'string',
       healthyThreshold: 'number',
@@ -10428,22 +10114,6 @@ export class DescribeRulesResponseBodyRules extends $tea.Model {
   }
 }
 
-export class DescribeServerCertificatesRequestTag extends $tea.Model {
-  static names(): { [key: string]: string } {
-    return {
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeServerCertificatesResponseBodyServerCertificatesServerCertificateSubjectAlternativeNames extends $tea.Model {
   subjectAlternativeName?: string[];
   static names(): { [key: string]: string } {
@@ -10464,8 +10134,8 @@ export class DescribeServerCertificatesResponseBodyServerCertificatesServerCerti
 }
 
 export class DescribeServerCertificatesResponseBodyServerCertificatesServerCertificate extends $tea.Model {
-  aliCloudCertificateName?: string;
   createTimeStamp?: number;
+  aliCloudCertificateName?: string;
   expireTime?: string;
   createTime?: string;
   serverCertificateId?: string;
@@ -10473,15 +10143,15 @@ export class DescribeServerCertificatesResponseBodyServerCertificatesServerCerti
   regionId?: string;
   serverCertificateName?: string;
   fingerprint?: string;
-  subjectAlternativeNames?: DescribeServerCertificatesResponseBodyServerCertificatesServerCertificateSubjectAlternativeNames;
   commonName?: string;
   resourceGroupId?: string;
   isAliCloudCertificate?: number;
   aliCloudCertificateId?: string;
+  subjectAlternativeNames?: DescribeServerCertificatesResponseBodyServerCertificatesServerCertificateSubjectAlternativeNames;
   static names(): { [key: string]: string } {
     return {
-      aliCloudCertificateName: 'AliCloudCertificateName',
       createTimeStamp: 'CreateTimeStamp',
+      aliCloudCertificateName: 'AliCloudCertificateName',
       expireTime: 'ExpireTime',
       createTime: 'CreateTime',
       serverCertificateId: 'ServerCertificateId',
@@ -10489,18 +10159,18 @@ export class DescribeServerCertificatesResponseBodyServerCertificatesServerCerti
       regionId: 'RegionId',
       serverCertificateName: 'ServerCertificateName',
       fingerprint: 'Fingerprint',
-      subjectAlternativeNames: 'SubjectAlternativeNames',
       commonName: 'CommonName',
       resourceGroupId: 'ResourceGroupId',
       isAliCloudCertificate: 'IsAliCloudCertificate',
       aliCloudCertificateId: 'AliCloudCertificateId',
+      subjectAlternativeNames: 'SubjectAlternativeNames',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      aliCloudCertificateName: 'string',
       createTimeStamp: 'number',
+      aliCloudCertificateName: 'string',
       expireTime: 'string',
       createTime: 'string',
       serverCertificateId: 'string',
@@ -10508,11 +10178,11 @@ export class DescribeServerCertificatesResponseBodyServerCertificatesServerCerti
       regionId: 'string',
       serverCertificateName: 'string',
       fingerprint: 'string',
-      subjectAlternativeNames: DescribeServerCertificatesResponseBodyServerCertificatesServerCertificateSubjectAlternativeNames,
       commonName: 'string',
       resourceGroupId: 'string',
       isAliCloudCertificate: 'number',
       aliCloudCertificateId: 'string',
+      subjectAlternativeNames: DescribeServerCertificatesResponseBodyServerCertificatesServerCertificateSubjectAlternativeNames,
     };
   }
 
@@ -10541,21 +10211,21 @@ export class DescribeServerCertificatesResponseBodyServerCertificates extends $t
 }
 
 export class DescribeTagsResponseBodyTagSetsTagSet extends $tea.Model {
-  instanceCount?: number;
   tagValue?: string;
+  instanceCount?: number;
   tagKey?: string;
   static names(): { [key: string]: string } {
     return {
-      instanceCount: 'InstanceCount',
       tagValue: 'TagValue',
+      instanceCount: 'InstanceCount',
       tagKey: 'TagKey',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      instanceCount: 'number',
       tagValue: 'string',
+      instanceCount: 'number',
       tagKey: 'string',
     };
   }
@@ -10635,19 +10305,19 @@ export class DescribeVServerGroupAttributeResponseBodyBackendServers extends $te
 }
 
 export class DescribeVServerGroupsResponseBodyVServerGroupsVServerGroupAssociatedObjectsListenersListener extends $tea.Model {
-  protocol?: string;
   port?: number;
+  protocol?: string;
   static names(): { [key: string]: string } {
     return {
-      protocol: 'Protocol',
       port: 'Port',
+      protocol: 'Protocol',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      protocol: 'string',
       port: 'number',
+      protocol: 'string',
     };
   }
 
@@ -10676,14 +10346,14 @@ export class DescribeVServerGroupsResponseBodyVServerGroupsVServerGroupAssociate
 }
 
 export class DescribeVServerGroupsResponseBodyVServerGroupsVServerGroupAssociatedObjectsRulesRule extends $tea.Model {
-  domain?: string;
   url?: string;
+  domain?: string;
   ruleName?: string;
   ruleId?: string;
   static names(): { [key: string]: string } {
     return {
-      domain: 'Domain',
       url: 'Url',
+      domain: 'Domain',
       ruleName: 'RuleName',
       ruleId: 'RuleId',
     };
@@ -10691,8 +10361,8 @@ export class DescribeVServerGroupsResponseBodyVServerGroupsVServerGroupAssociate
 
   static types(): { [key: string]: any } {
     return {
-      domain: 'string',
       url: 'string',
+      domain: 'string',
       ruleName: 'string',
       ruleId: 'string',
     };
@@ -10789,19 +10459,19 @@ export class DescribeVServerGroupsResponseBodyVServerGroups extends $tea.Model {
 }
 
 export class DescribeZonesResponseBodyZonesZoneSlaveZonesSlaveZone extends $tea.Model {
-  localName?: string;
   zoneId?: string;
+  localName?: string;
   static names(): { [key: string]: string } {
     return {
-      localName: 'LocalName',
       zoneId: 'ZoneId',
+      localName: 'LocalName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      localName: 'string',
       zoneId: 'string',
+      localName: 'string',
     };
   }
 
@@ -10830,21 +10500,21 @@ export class DescribeZonesResponseBodyZonesZoneSlaveZones extends $tea.Model {
 }
 
 export class DescribeZonesResponseBodyZonesZone extends $tea.Model {
-  localName?: string;
   zoneId?: string;
+  localName?: string;
   slaveZones?: DescribeZonesResponseBodyZonesZoneSlaveZones;
   static names(): { [key: string]: string } {
     return {
-      localName: 'LocalName',
       zoneId: 'ZoneId',
+      localName: 'LocalName',
       slaveZones: 'SlaveZones',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      localName: 'string',
       zoneId: 'string',
+      localName: 'string',
       slaveZones: DescribeZonesResponseBodyZonesZoneSlaveZones,
     };
   }
@@ -10896,14 +10566,14 @@ export class ListTagResourcesRequestTag extends $tea.Model {
 }
 
 export class ListTagResourcesResponseBodyTagResourcesTagResource extends $tea.Model {
-  resourceType?: string;
   tagValue?: string;
+  resourceType?: string;
   resourceId?: string;
   tagKey?: string;
   static names(): { [key: string]: string } {
     return {
-      resourceType: 'ResourceType',
       tagValue: 'TagValue',
+      resourceType: 'ResourceType',
       resourceId: 'ResourceId',
       tagKey: 'TagKey',
     };
@@ -10911,8 +10581,8 @@ export class ListTagResourcesResponseBodyTagResourcesTagResource extends $tea.Mo
 
   static types(): { [key: string]: any } {
     return {
-      resourceType: 'string',
       tagValue: 'string',
+      resourceType: 'string',
       resourceId: 'string',
       tagKey: 'string',
     };
@@ -10943,22 +10613,22 @@ export class ListTagResourcesResponseBodyTagResources extends $tea.Model {
 }
 
 export class ListTLSCipherPoliciesResponseBodyTLSCipherPoliciesRelateListeners extends $tea.Model {
+  port?: number;
   protocol?: string;
   loadBalancerId?: string;
-  port?: number;
   static names(): { [key: string]: string } {
     return {
+      port: 'Port',
       protocol: 'Protocol',
       loadBalancerId: 'LoadBalancerId',
-      port: 'Port',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      port: 'number',
       protocol: 'string',
       loadBalancerId: 'string',
-      port: 'number',
     };
   }
 
@@ -10969,33 +10639,33 @@ export class ListTLSCipherPoliciesResponseBodyTLSCipherPoliciesRelateListeners e
 
 export class ListTLSCipherPoliciesResponseBodyTLSCipherPolicies extends $tea.Model {
   status?: string;
-  relateListeners?: ListTLSCipherPoliciesResponseBodyTLSCipherPoliciesRelateListeners[];
-  createTime?: number;
-  ciphers?: string[];
   instanceId?: string;
   name?: string;
+  createTime?: number;
+  relateListeners?: ListTLSCipherPoliciesResponseBodyTLSCipherPoliciesRelateListeners[];
   TLSVersions?: string[];
+  ciphers?: string[];
   static names(): { [key: string]: string } {
     return {
       status: 'Status',
-      relateListeners: 'RelateListeners',
-      createTime: 'CreateTime',
-      ciphers: 'Ciphers',
       instanceId: 'InstanceId',
       name: 'Name',
+      createTime: 'CreateTime',
+      relateListeners: 'RelateListeners',
       TLSVersions: 'TLSVersions',
+      ciphers: 'Ciphers',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       status: 'string',
-      relateListeners: { 'type': 'array', 'itemType': ListTLSCipherPoliciesResponseBodyTLSCipherPoliciesRelateListeners },
-      createTime: 'number',
-      ciphers: { 'type': 'array', 'itemType': 'string' },
       instanceId: 'string',
       name: 'string',
+      createTime: 'number',
+      relateListeners: { 'type': 'array', 'itemType': ListTLSCipherPoliciesResponseBodyTLSCipherPoliciesRelateListeners },
       TLSVersions: { 'type': 'array', 'itemType': 'string' },
+      ciphers: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -11104,14 +10774,12 @@ export class RemoveBackendServersResponseBodyBackendServers extends $tea.Model {
 export class RemoveVServerGroupBackendServersResponseBodyBackendServersBackendServer extends $tea.Model {
   type?: string;
   weight?: number;
-  description?: string;
   port?: number;
   serverId?: string;
   static names(): { [key: string]: string } {
     return {
       type: 'Type',
       weight: 'Weight',
-      description: 'Description',
       port: 'Port',
       serverId: 'ServerId',
     };
@@ -11121,7 +10789,6 @@ export class RemoveVServerGroupBackendServersResponseBodyBackendServersBackendSe
     return {
       type: 'string',
       weight: 'number',
-      description: 'string',
       port: 'number',
       serverId: 'string',
     };
@@ -11190,70 +10857,6 @@ export class SetBackendServersResponseBodyBackendServers extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       backendServer: { 'type': 'array', 'itemType': SetBackendServersResponseBodyBackendServersBackendServer },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SetDomainExtensionAttributeRequestServerCertificate extends $tea.Model {
-  static names(): { [key: string]: string } {
-    return {
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SetLoadBalancerHTTPSListenerAttributeRequestServerCertificate extends $tea.Model {
-  static names(): { [key: string]: string } {
-    return {
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SetLoadBalancerTCPListenerAttributeRequestPortRange extends $tea.Model {
-  static names(): { [key: string]: string } {
-    return {
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SetLoadBalancerUDPListenerAttributeRequestPortRange extends $tea.Model {
-  static names(): { [key: string]: string } {
-    return {
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
     };
   }
 
@@ -11900,6 +11503,19 @@ export default class Client extends OpenApi {
   async describeLoadBalancerHTTPSListenerAttribute(request: DescribeLoadBalancerHTTPSListenerAttributeRequest): Promise<DescribeLoadBalancerHTTPSListenerAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeLoadBalancerHTTPSListenerAttributeWithOptions(request, runtime);
+  }
+
+  async describeLoadBalancerListenersWithOptions(request: DescribeLoadBalancerListenersRequest, runtime: $Util.RuntimeOptions): Promise<DescribeLoadBalancerListenersResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DescribeLoadBalancerListenersResponse>(await this.doRPCRequest("DescribeLoadBalancerListeners", "2014-05-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeLoadBalancerListenersResponse({}));
+  }
+
+  async describeLoadBalancerListeners(request: DescribeLoadBalancerListenersRequest): Promise<DescribeLoadBalancerListenersResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeLoadBalancerListenersWithOptions(request, runtime);
   }
 
   async describeLoadBalancersWithOptions(request: DescribeLoadBalancersRequest, runtime: $Util.RuntimeOptions): Promise<DescribeLoadBalancersResponse> {
