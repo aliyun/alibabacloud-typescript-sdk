@@ -71,72 +71,6 @@ export class RunDiagnosisResponse extends $tea.Model {
   }
 }
 
-export class DescribeClusterGrafanaRequest extends $tea.Model {
-  serviceMeshId?: string;
-  k8sClusterId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      serviceMeshId: 'ServiceMeshId',
-      k8sClusterId: 'K8sClusterId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      serviceMeshId: 'string',
-      k8sClusterId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeClusterGrafanaResponseBody extends $tea.Model {
-  requestId?: string;
-  dashboards?: DescribeClusterGrafanaResponseBodyDashboards[];
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      dashboards: 'Dashboards',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      dashboards: { 'type': 'array', 'itemType': DescribeClusterGrafanaResponseBodyDashboards },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeClusterGrafanaResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DescribeClusterGrafanaResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DescribeClusterGrafanaResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeGuestClusterAccessLogDashboardsRequest extends $tea.Model {
   k8sClusterId?: string;
   static names(): { [key: string]: string } {
@@ -203,6 +137,72 @@ export class DescribeGuestClusterAccessLogDashboardsResponse extends $tea.Model 
   }
 }
 
+export class ListBuiltinEnvoyFilterRequest extends $tea.Model {
+  serviceMeshId?: string;
+  id?: string;
+  static names(): { [key: string]: string } {
+    return {
+      serviceMeshId: 'ServiceMeshId',
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      serviceMeshId: 'string',
+      id: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListBuiltinEnvoyFilterResponseBody extends $tea.Model {
+  requestId?: string;
+  data?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      data: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListBuiltinEnvoyFilterResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListBuiltinEnvoyFilterResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListBuiltinEnvoyFilterResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeServiceMeshesResponseBody extends $tea.Model {
   requestId?: string;
   serviceMeshes?: DescribeServiceMeshesResponseBodyServiceMeshes[];
@@ -247,17 +247,29 @@ export class DescribeServiceMeshesResponse extends $tea.Model {
   }
 }
 
-export class GetDiagnosisRequest extends $tea.Model {
+export class ModifyBuiltinEnvoyFilterRequest extends $tea.Model {
   serviceMeshId?: string;
+  id?: string;
+  name?: string;
+  parameters?: string;
+  istioVersion?: string;
   static names(): { [key: string]: string } {
     return {
       serviceMeshId: 'ServiceMeshId',
+      id: 'Id',
+      name: 'Name',
+      parameters: 'Parameters',
+      istioVersion: 'IstioVersion',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       serviceMeshId: 'string',
+      id: 'string',
+      name: 'string',
+      parameters: 'string',
+      istioVersion: 'string',
     };
   }
 
@@ -266,26 +278,17 @@ export class GetDiagnosisRequest extends $tea.Model {
   }
 }
 
-export class GetDiagnosisResponseBody extends $tea.Model {
-  status?: string;
+export class ModifyBuiltinEnvoyFilterResponseBody extends $tea.Model {
   requestId?: string;
-  runAt?: string;
-  result?: string;
   static names(): { [key: string]: string } {
     return {
-      status: 'Status',
       requestId: 'RequestId',
-      runAt: 'RunAt',
-      result: 'Result',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      status: 'string',
       requestId: 'string',
-      runAt: 'string',
-      result: 'string',
     };
   }
 
@@ -294,9 +297,9 @@ export class GetDiagnosisResponseBody extends $tea.Model {
   }
 }
 
-export class GetDiagnosisResponse extends $tea.Model {
+export class ModifyBuiltinEnvoyFilterResponse extends $tea.Model {
   headers: { [key: string]: string };
-  body: GetDiagnosisResponseBody;
+  body: ModifyBuiltinEnvoyFilterResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -307,7 +310,7 @@ export class GetDiagnosisResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: GetDiagnosisResponseBody,
+      body: ModifyBuiltinEnvoyFilterResponseBody,
     };
   }
 
@@ -316,20 +319,20 @@ export class GetDiagnosisResponse extends $tea.Model {
   }
 }
 
-export class GetRegisteredServicesRequest extends $tea.Model {
-  serviceMeshId?: string;
-  namespace?: string;
+export class DescribeAvailableNacosInstancesRequest extends $tea.Model {
+  regionId?: string;
+  vpcId?: string;
   static names(): { [key: string]: string } {
     return {
-      serviceMeshId: 'ServiceMeshId',
-      namespace: 'Namespace',
+      regionId: 'RegionId',
+      vpcId: 'VpcId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      serviceMeshId: 'string',
-      namespace: 'string',
+      regionId: 'string',
+      vpcId: 'string',
     };
   }
 
@@ -338,20 +341,20 @@ export class GetRegisteredServicesRequest extends $tea.Model {
   }
 }
 
-export class GetRegisteredServicesResponseBody extends $tea.Model {
-  services?: string[];
+export class DescribeAvailableNacosInstancesResponseBody extends $tea.Model {
   requestId?: string;
+  data?: string[];
   static names(): { [key: string]: string } {
     return {
-      services: 'Services',
       requestId: 'RequestId',
+      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      services: { 'type': 'array', 'itemType': 'string' },
       requestId: 'string',
+      data: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -360,9 +363,9 @@ export class GetRegisteredServicesResponseBody extends $tea.Model {
   }
 }
 
-export class GetRegisteredServicesResponse extends $tea.Model {
+export class DescribeAvailableNacosInstancesResponse extends $tea.Model {
   headers: { [key: string]: string };
-  body: GetRegisteredServicesResponseBody;
+  body: DescribeAvailableNacosInstancesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -373,7 +376,7 @@ export class GetRegisteredServicesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: GetRegisteredServicesResponseBody,
+      body: DescribeAvailableNacosInstancesResponseBody,
     };
   }
 
@@ -508,132 +511,6 @@ export class DescribeServiceMeshDetailResponse extends $tea.Model {
   }
 }
 
-export class DescribeCensRequest extends $tea.Model {
-  serviceMeshId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      serviceMeshId: 'ServiceMeshId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      serviceMeshId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeCensResponseBody extends $tea.Model {
-  requestId?: string;
-  clusters?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      clusters: 'Clusters',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      clusters: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeCensResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DescribeCensResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DescribeCensResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteServiceMeshRequest extends $tea.Model {
-  serviceMeshId?: string;
-  force?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      serviceMeshId: 'ServiceMeshId',
-      force: 'Force',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      serviceMeshId: 'string',
-      force: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteServiceMeshResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteServiceMeshResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DeleteServiceMeshResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DeleteServiceMeshResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class UpgradeMeshVersionRequest extends $tea.Model {
   serviceMeshId?: string;
   static names(): { [key: string]: string } {
@@ -760,7 +637,7 @@ export class DescribeServiceMeshKubeconfigResponse extends $tea.Model {
   }
 }
 
-export class GetVmAppMeshInfoRequest extends $tea.Model {
+export class GetCaCertRequest extends $tea.Model {
   serviceMeshId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -779,20 +656,20 @@ export class GetVmAppMeshInfoRequest extends $tea.Model {
   }
 }
 
-export class GetVmAppMeshInfoResponseBody extends $tea.Model {
+export class GetCaCertResponseBody extends $tea.Model {
   requestId?: string;
-  data?: string;
+  caCert?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      data: 'Data',
+      caCert: 'CaCert',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      data: 'string',
+      caCert: 'string',
     };
   }
 
@@ -801,9 +678,9 @@ export class GetVmAppMeshInfoResponseBody extends $tea.Model {
   }
 }
 
-export class GetVmAppMeshInfoResponse extends $tea.Model {
+export class GetCaCertResponse extends $tea.Model {
   headers: { [key: string]: string };
-  body: GetVmAppMeshInfoResponseBody;
+  body: GetCaCertResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -814,233 +691,7 @@ export class GetVmAppMeshInfoResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: GetVmAppMeshInfoResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RemoveClusterFromServiceMeshRequest extends $tea.Model {
-  serviceMeshId?: string;
-  clusterId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      serviceMeshId: 'ServiceMeshId',
-      clusterId: 'ClusterId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      serviceMeshId: 'string',
-      clusterId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RemoveClusterFromServiceMeshResponseBody extends $tea.Model {
-  message?: string;
-  requestId?: string;
-  code?: string;
-  static names(): { [key: string]: string } {
-    return {
-      message: 'Message',
-      requestId: 'RequestId',
-      code: 'Code',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      message: 'string',
-      requestId: 'string',
-      code: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RemoveClusterFromServiceMeshResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: RemoveClusterFromServiceMeshResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: RemoveClusterFromServiceMeshResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SetServiceRegistrySourceRequest extends $tea.Model {
-  serviceMeshId?: string;
-  config?: { [key: string]: any };
-  static names(): { [key: string]: string } {
-    return {
-      serviceMeshId: 'ServiceMeshId',
-      config: 'Config',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      serviceMeshId: 'string',
-      config: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SetServiceRegistrySourceShrinkRequest extends $tea.Model {
-  serviceMeshId?: string;
-  configShrink?: string;
-  static names(): { [key: string]: string } {
-    return {
-      serviceMeshId: 'ServiceMeshId',
-      configShrink: 'Config',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      serviceMeshId: 'string',
-      configShrink: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SetServiceRegistrySourceResponseBody extends $tea.Model {
-  requestId?: string;
-  result?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      result: 'Result',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      result: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SetServiceRegistrySourceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: SetServiceRegistrySourceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: SetServiceRegistrySourceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddClusterIntoServiceMeshRequest extends $tea.Model {
-  serviceMeshId?: string;
-  clusterId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      serviceMeshId: 'ServiceMeshId',
-      clusterId: 'ClusterId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      serviceMeshId: 'string',
-      clusterId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddClusterIntoServiceMeshResponseBody extends $tea.Model {
-  message?: string;
-  requestId?: string;
-  code?: string;
-  static names(): { [key: string]: string } {
-    return {
-      message: 'Message',
-      requestId: 'RequestId',
-      code: 'Code',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      message: 'string',
-      requestId: 'string',
-      code: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddClusterIntoServiceMeshResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: AddClusterIntoServiceMeshResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: AddClusterIntoServiceMeshResponseBody,
+      body: GetCaCertResponseBody,
     };
   }
 
@@ -1181,453 +832,6 @@ export class GetRegisteredServiceEndpointsResponse extends $tea.Model {
   }
 }
 
-export class UpdateMeshFeatureRequest extends $tea.Model {
-  serviceMeshId?: string;
-  tracing?: boolean;
-  traceSampling?: number;
-  localityLoadBalancing?: boolean;
-  telemetry?: boolean;
-  openAgentPolicy?: boolean;
-  OPALogLevel?: string;
-  OPARequestCPU?: string;
-  OPARequestMemory?: string;
-  OPALimitCPU?: string;
-  OPALimitMemory?: string;
-  enableAudit?: boolean;
-  auditProject?: string;
-  clusterDomain?: string;
-  customizedZipkin?: boolean;
-  outboundTrafficPolicy?: string;
-  proxyRequestCPU?: string;
-  proxyRequestMemory?: string;
-  proxyLimitCPU?: string;
-  proxyLimitMemory?: string;
-  includeIPRanges?: string;
-  enableNamespacesByDefault?: boolean;
-  autoInjectionPolicyEnabled?: boolean;
-  sidecarInjectorRequestCPU?: string;
-  sidecarInjectorRequestMemory?: string;
-  sidecarInjectorLimitCPU?: string;
-  sidecarInjectorLimitMemory?: string;
-  sidecarInjectorWebhookAsYaml?: string;
-  cniEnabled?: boolean;
-  cniExcludeNamespaces?: string;
-  opaEnabled?: boolean;
-  http10Enabled?: boolean;
-  kialiEnabled?: boolean;
-  customizedPrometheus?: boolean;
-  prometheusUrl?: string;
-  accessLogEnabled?: boolean;
-  MSEEnabled?: boolean;
-  redisFilterEnabled?: boolean;
-  mysqlFilterEnabled?: boolean;
-  thriftFilterEnabled?: boolean;
-  webAssemblyFilterEnabled?: boolean;
-  DNSProxyingEnabled?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      serviceMeshId: 'ServiceMeshId',
-      tracing: 'Tracing',
-      traceSampling: 'TraceSampling',
-      localityLoadBalancing: 'LocalityLoadBalancing',
-      telemetry: 'Telemetry',
-      openAgentPolicy: 'OpenAgentPolicy',
-      OPALogLevel: 'OPALogLevel',
-      OPARequestCPU: 'OPARequestCPU',
-      OPARequestMemory: 'OPARequestMemory',
-      OPALimitCPU: 'OPALimitCPU',
-      OPALimitMemory: 'OPALimitMemory',
-      enableAudit: 'EnableAudit',
-      auditProject: 'AuditProject',
-      clusterDomain: 'ClusterDomain',
-      customizedZipkin: 'CustomizedZipkin',
-      outboundTrafficPolicy: 'OutboundTrafficPolicy',
-      proxyRequestCPU: 'ProxyRequestCPU',
-      proxyRequestMemory: 'ProxyRequestMemory',
-      proxyLimitCPU: 'ProxyLimitCPU',
-      proxyLimitMemory: 'ProxyLimitMemory',
-      includeIPRanges: 'IncludeIPRanges',
-      enableNamespacesByDefault: 'EnableNamespacesByDefault',
-      autoInjectionPolicyEnabled: 'AutoInjectionPolicyEnabled',
-      sidecarInjectorRequestCPU: 'SidecarInjectorRequestCPU',
-      sidecarInjectorRequestMemory: 'SidecarInjectorRequestMemory',
-      sidecarInjectorLimitCPU: 'SidecarInjectorLimitCPU',
-      sidecarInjectorLimitMemory: 'SidecarInjectorLimitMemory',
-      sidecarInjectorWebhookAsYaml: 'SidecarInjectorWebhookAsYaml',
-      cniEnabled: 'CniEnabled',
-      cniExcludeNamespaces: 'CniExcludeNamespaces',
-      opaEnabled: 'OpaEnabled',
-      http10Enabled: 'Http10Enabled',
-      kialiEnabled: 'KialiEnabled',
-      customizedPrometheus: 'CustomizedPrometheus',
-      prometheusUrl: 'PrometheusUrl',
-      accessLogEnabled: 'AccessLogEnabled',
-      MSEEnabled: 'MSEEnabled',
-      redisFilterEnabled: 'RedisFilterEnabled',
-      mysqlFilterEnabled: 'MysqlFilterEnabled',
-      thriftFilterEnabled: 'ThriftFilterEnabled',
-      webAssemblyFilterEnabled: 'WebAssemblyFilterEnabled',
-      DNSProxyingEnabled: 'DNSProxyingEnabled',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      serviceMeshId: 'string',
-      tracing: 'boolean',
-      traceSampling: 'number',
-      localityLoadBalancing: 'boolean',
-      telemetry: 'boolean',
-      openAgentPolicy: 'boolean',
-      OPALogLevel: 'string',
-      OPARequestCPU: 'string',
-      OPARequestMemory: 'string',
-      OPALimitCPU: 'string',
-      OPALimitMemory: 'string',
-      enableAudit: 'boolean',
-      auditProject: 'string',
-      clusterDomain: 'string',
-      customizedZipkin: 'boolean',
-      outboundTrafficPolicy: 'string',
-      proxyRequestCPU: 'string',
-      proxyRequestMemory: 'string',
-      proxyLimitCPU: 'string',
-      proxyLimitMemory: 'string',
-      includeIPRanges: 'string',
-      enableNamespacesByDefault: 'boolean',
-      autoInjectionPolicyEnabled: 'boolean',
-      sidecarInjectorRequestCPU: 'string',
-      sidecarInjectorRequestMemory: 'string',
-      sidecarInjectorLimitCPU: 'string',
-      sidecarInjectorLimitMemory: 'string',
-      sidecarInjectorWebhookAsYaml: 'string',
-      cniEnabled: 'boolean',
-      cniExcludeNamespaces: 'string',
-      opaEnabled: 'boolean',
-      http10Enabled: 'boolean',
-      kialiEnabled: 'boolean',
-      customizedPrometheus: 'boolean',
-      prometheusUrl: 'string',
-      accessLogEnabled: 'boolean',
-      MSEEnabled: 'boolean',
-      redisFilterEnabled: 'boolean',
-      mysqlFilterEnabled: 'boolean',
-      thriftFilterEnabled: 'boolean',
-      webAssemblyFilterEnabled: 'boolean',
-      DNSProxyingEnabled: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateMeshFeatureResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateMeshFeatureResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: UpdateMeshFeatureResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: UpdateMeshFeatureResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddVmAppToMeshRequest extends $tea.Model {
-  serviceMeshId?: string;
-  namespace?: string;
-  serviceName?: string;
-  ips?: string;
-  ports?: string;
-  labels?: string;
-  annotations?: string;
-  serviceAccount?: string;
-  force?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      serviceMeshId: 'ServiceMeshId',
-      namespace: 'Namespace',
-      serviceName: 'ServiceName',
-      ips: 'Ips',
-      ports: 'Ports',
-      labels: 'Labels',
-      annotations: 'Annotations',
-      serviceAccount: 'ServiceAccount',
-      force: 'Force',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      serviceMeshId: 'string',
-      namespace: 'string',
-      serviceName: 'string',
-      ips: 'string',
-      ports: 'string',
-      labels: 'string',
-      annotations: 'string',
-      serviceAccount: 'string',
-      force: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddVmAppToMeshResponseBody extends $tea.Model {
-  requestId?: string;
-  data?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      data: 'Data',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      data: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddVmAppToMeshResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: AddVmAppToMeshResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: AddVmAppToMeshResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateServiceMeshRequest extends $tea.Model {
-  regionId?: string;
-  istioVersion?: string;
-  vpcId?: string;
-  apiServerPublicEip?: boolean;
-  pilotPublicEip?: boolean;
-  tracing?: boolean;
-  name?: string;
-  vSwitches?: string;
-  traceSampling?: number;
-  localityLoadBalancing?: boolean;
-  telemetry?: boolean;
-  openAgentPolicy?: boolean;
-  OPALogLevel?: string;
-  OPARequestCPU?: string;
-  OPARequestMemory?: string;
-  OPALimitCPU?: string;
-  OPALimitMemory?: string;
-  enableAudit?: boolean;
-  auditProject?: string;
-  proxyRequestCPU?: string;
-  proxyRequestMemory?: string;
-  proxyLimitCPU?: string;
-  proxyLimitMemory?: string;
-  includeIPRanges?: string;
-  excludeIPRanges?: string;
-  excludeOutboundPorts?: string;
-  excludeInboundPorts?: string;
-  opaEnabled?: boolean;
-  kialiEnabled?: boolean;
-  accessLogEnabled?: boolean;
-  customizedPrometheus?: boolean;
-  prometheusUrl?: string;
-  redisFilterEnabled?: boolean;
-  mysqlFilterEnabled?: boolean;
-  thriftFilterEnabled?: boolean;
-  webAssemblyFilterEnabled?: boolean;
-  MSEEnabled?: boolean;
-  DNSProxyingEnabled?: boolean;
-  edition?: string;
-  static names(): { [key: string]: string } {
-    return {
-      regionId: 'RegionId',
-      istioVersion: 'IstioVersion',
-      vpcId: 'VpcId',
-      apiServerPublicEip: 'ApiServerPublicEip',
-      pilotPublicEip: 'PilotPublicEip',
-      tracing: 'Tracing',
-      name: 'Name',
-      vSwitches: 'VSwitches',
-      traceSampling: 'TraceSampling',
-      localityLoadBalancing: 'LocalityLoadBalancing',
-      telemetry: 'Telemetry',
-      openAgentPolicy: 'OpenAgentPolicy',
-      OPALogLevel: 'OPALogLevel',
-      OPARequestCPU: 'OPARequestCPU',
-      OPARequestMemory: 'OPARequestMemory',
-      OPALimitCPU: 'OPALimitCPU',
-      OPALimitMemory: 'OPALimitMemory',
-      enableAudit: 'EnableAudit',
-      auditProject: 'AuditProject',
-      proxyRequestCPU: 'ProxyRequestCPU',
-      proxyRequestMemory: 'ProxyRequestMemory',
-      proxyLimitCPU: 'ProxyLimitCPU',
-      proxyLimitMemory: 'ProxyLimitMemory',
-      includeIPRanges: 'IncludeIPRanges',
-      excludeIPRanges: 'ExcludeIPRanges',
-      excludeOutboundPorts: 'ExcludeOutboundPorts',
-      excludeInboundPorts: 'ExcludeInboundPorts',
-      opaEnabled: 'OpaEnabled',
-      kialiEnabled: 'KialiEnabled',
-      accessLogEnabled: 'AccessLogEnabled',
-      customizedPrometheus: 'CustomizedPrometheus',
-      prometheusUrl: 'PrometheusUrl',
-      redisFilterEnabled: 'RedisFilterEnabled',
-      mysqlFilterEnabled: 'MysqlFilterEnabled',
-      thriftFilterEnabled: 'ThriftFilterEnabled',
-      webAssemblyFilterEnabled: 'WebAssemblyFilterEnabled',
-      MSEEnabled: 'MSEEnabled',
-      DNSProxyingEnabled: 'DNSProxyingEnabled',
-      edition: 'Edition',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      regionId: 'string',
-      istioVersion: 'string',
-      vpcId: 'string',
-      apiServerPublicEip: 'boolean',
-      pilotPublicEip: 'boolean',
-      tracing: 'boolean',
-      name: 'string',
-      vSwitches: 'string',
-      traceSampling: 'number',
-      localityLoadBalancing: 'boolean',
-      telemetry: 'boolean',
-      openAgentPolicy: 'boolean',
-      OPALogLevel: 'string',
-      OPARequestCPU: 'string',
-      OPARequestMemory: 'string',
-      OPALimitCPU: 'string',
-      OPALimitMemory: 'string',
-      enableAudit: 'boolean',
-      auditProject: 'string',
-      proxyRequestCPU: 'string',
-      proxyRequestMemory: 'string',
-      proxyLimitCPU: 'string',
-      proxyLimitMemory: 'string',
-      includeIPRanges: 'string',
-      excludeIPRanges: 'string',
-      excludeOutboundPorts: 'string',
-      excludeInboundPorts: 'string',
-      opaEnabled: 'boolean',
-      kialiEnabled: 'boolean',
-      accessLogEnabled: 'boolean',
-      customizedPrometheus: 'boolean',
-      prometheusUrl: 'string',
-      redisFilterEnabled: 'boolean',
-      mysqlFilterEnabled: 'boolean',
-      thriftFilterEnabled: 'boolean',
-      webAssemblyFilterEnabled: 'boolean',
-      MSEEnabled: 'boolean',
-      DNSProxyingEnabled: 'boolean',
-      edition: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateServiceMeshResponseBody extends $tea.Model {
-  requestId?: string;
-  serviceMeshId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      serviceMeshId: 'ServiceMeshId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      serviceMeshId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateServiceMeshResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: CreateServiceMeshResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: CreateServiceMeshResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class GetAutoInjectionLabelSyncStatusRequest extends $tea.Model {
   serviceMeshId?: string;
   static names(): { [key: string]: string } {
@@ -1683,72 +887,6 @@ export class GetAutoInjectionLabelSyncStatusResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: GetAutoInjectionLabelSyncStatusResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetServiceRegistrySourceRequest extends $tea.Model {
-  serviceMeshId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      serviceMeshId: 'ServiceMeshId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      serviceMeshId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetServiceRegistrySourceResponseBody extends $tea.Model {
-  status?: string;
-  requestId?: string;
-  result?: string;
-  static names(): { [key: string]: string } {
-    return {
-      status: 'Status',
-      requestId: 'RequestId',
-      result: 'Result',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      status: 'string',
-      requestId: 'string',
-      result: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetServiceRegistrySourceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: GetServiceRegistrySourceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: GetServiceRegistrySourceResponseBody,
     };
   }
 
@@ -1820,17 +958,20 @@ export class GetRegisteredServiceNamespacesResponse extends $tea.Model {
   }
 }
 
-export class InitializeASMRoleResponseBody extends $tea.Model {
-  requestId?: string;
+export class DescribeVSwitchesRequest extends $tea.Model {
+  regionId?: string;
+  vpcId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
+      regionId: 'RegionId',
+      vpcId: 'VpcId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
+      regionId: 'string',
+      vpcId: 'string',
     };
   }
 
@@ -1839,9 +980,40 @@ export class InitializeASMRoleResponseBody extends $tea.Model {
   }
 }
 
-export class InitializeASMRoleResponse extends $tea.Model {
+export class DescribeVSwitchesResponseBody extends $tea.Model {
+  totalCount?: number;
+  requestId?: string;
+  nextToken?: string;
+  maxResults?: number;
+  vSwitches?: DescribeVSwitchesResponseBodyVSwitches[];
+  static names(): { [key: string]: string } {
+    return {
+      totalCount: 'TotalCount',
+      requestId: 'RequestId',
+      nextToken: 'NextToken',
+      maxResults: 'MaxResults',
+      vSwitches: 'VSwitches',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      totalCount: 'number',
+      requestId: 'string',
+      nextToken: 'string',
+      maxResults: 'number',
+      vSwitches: { 'type': 'array', 'itemType': DescribeVSwitchesResponseBodyVSwitches },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVSwitchesResponse extends $tea.Model {
   headers: { [key: string]: string };
-  body: InitializeASMRoleResponseBody;
+  body: DescribeVSwitchesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1852,7 +1024,79 @@ export class InitializeASMRoleResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: InitializeASMRoleResponseBody,
+      body: DescribeVSwitchesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVpcsRequest extends $tea.Model {
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVpcsResponseBody extends $tea.Model {
+  totalCount?: number;
+  requestId?: string;
+  nextToken?: string;
+  maxResults?: number;
+  vpcs?: DescribeVpcsResponseBodyVpcs[];
+  static names(): { [key: string]: string } {
+    return {
+      totalCount: 'TotalCount',
+      requestId: 'RequestId',
+      nextToken: 'NextToken',
+      maxResults: 'MaxResults',
+      vpcs: 'Vpcs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      totalCount: 'number',
+      requestId: 'string',
+      nextToken: 'string',
+      maxResults: 'number',
+      vpcs: { 'type': 'array', 'itemType': DescribeVpcsResponseBodyVpcs },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVpcsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeVpcsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeVpcsResponseBody,
     };
   }
 
@@ -2263,20 +1507,1768 @@ export class DescribeClustersInServiceMeshResponse extends $tea.Model {
   }
 }
 
-export class DescribeClusterGrafanaResponseBodyDashboards extends $tea.Model {
-  url?: string;
-  title?: string;
+export class GetBuiltinEnvoyFilterCatalogRequest extends $tea.Model {
+  serviceMeshId?: string;
   static names(): { [key: string]: string } {
     return {
-      url: 'Url',
-      title: 'Title',
+      serviceMeshId: 'ServiceMeshId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      url: 'string',
-      title: 'string',
+      serviceMeshId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBuiltinEnvoyFilterCatalogResponseBody extends $tea.Model {
+  requestId?: string;
+  data?: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      data: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBuiltinEnvoyFilterCatalogResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetBuiltinEnvoyFilterCatalogResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetBuiltinEnvoyFilterCatalogResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeClusterGrafanaRequest extends $tea.Model {
+  serviceMeshId?: string;
+  k8sClusterId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      serviceMeshId: 'ServiceMeshId',
+      k8sClusterId: 'K8sClusterId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      serviceMeshId: 'string',
+      k8sClusterId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeClusterGrafanaResponseBody extends $tea.Model {
+  requestId?: string;
+  dashboards?: DescribeClusterGrafanaResponseBodyDashboards[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      dashboards: 'Dashboards',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      dashboards: { 'type': 'array', 'itemType': DescribeClusterGrafanaResponseBodyDashboards },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeClusterGrafanaResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeClusterGrafanaResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeClusterGrafanaResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDiagnosisRequest extends $tea.Model {
+  serviceMeshId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      serviceMeshId: 'ServiceMeshId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      serviceMeshId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDiagnosisResponseBody extends $tea.Model {
+  status?: string;
+  requestId?: string;
+  runAt?: string;
+  result?: string;
+  static names(): { [key: string]: string } {
+    return {
+      status: 'Status',
+      requestId: 'RequestId',
+      runAt: 'RunAt',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      status: 'string',
+      requestId: 'string',
+      runAt: 'string',
+      result: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDiagnosisResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetDiagnosisResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetDiagnosisResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRegisteredServicesRequest extends $tea.Model {
+  serviceMeshId?: string;
+  namespace?: string;
+  static names(): { [key: string]: string } {
+    return {
+      serviceMeshId: 'ServiceMeshId',
+      namespace: 'Namespace',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      serviceMeshId: 'string',
+      namespace: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRegisteredServicesResponseBody extends $tea.Model {
+  services?: string[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      services: 'Services',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      services: { 'type': 'array', 'itemType': 'string' },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRegisteredServicesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetRegisteredServicesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetRegisteredServicesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCensRequest extends $tea.Model {
+  serviceMeshId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      serviceMeshId: 'ServiceMeshId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      serviceMeshId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCensResponseBody extends $tea.Model {
+  requestId?: string;
+  clusters?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      clusters: 'Clusters',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      clusters: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCensResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeCensResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeCensResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteServiceMeshRequest extends $tea.Model {
+  serviceMeshId?: string;
+  force?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      serviceMeshId: 'ServiceMeshId',
+      force: 'Force',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      serviceMeshId: 'string',
+      force: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteServiceMeshResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteServiceMeshResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DeleteServiceMeshResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DeleteServiceMeshResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSaTokenRequest extends $tea.Model {
+  serviceMeshId?: string;
+  namespace?: string;
+  serviceAccountName?: string;
+  needRefresh?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      serviceMeshId: 'ServiceMeshId',
+      namespace: 'Namespace',
+      serviceAccountName: 'ServiceAccountName',
+      needRefresh: 'NeedRefresh',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      serviceMeshId: 'string',
+      namespace: 'string',
+      serviceAccountName: 'string',
+      needRefresh: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSaTokenResponseBody extends $tea.Model {
+  requestId?: string;
+  token?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      token: 'Token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      token: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSaTokenResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetSaTokenResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetSaTokenResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVmAppMeshInfoRequest extends $tea.Model {
+  serviceMeshId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      serviceMeshId: 'ServiceMeshId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      serviceMeshId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVmAppMeshInfoResponseBody extends $tea.Model {
+  requestId?: string;
+  data?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      data: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVmAppMeshInfoResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetVmAppMeshInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetVmAppMeshInfoResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemoveClusterFromServiceMeshRequest extends $tea.Model {
+  serviceMeshId?: string;
+  clusterId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      serviceMeshId: 'ServiceMeshId',
+      clusterId: 'ClusterId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      serviceMeshId: 'string',
+      clusterId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemoveClusterFromServiceMeshResponseBody extends $tea.Model {
+  message?: string;
+  requestId?: string;
+  code?: string;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      requestId: 'RequestId',
+      code: 'Code',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      requestId: 'string',
+      code: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemoveClusterFromServiceMeshResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: RemoveClusterFromServiceMeshResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: RemoveClusterFromServiceMeshResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRegionsRequest extends $tea.Model {
+  acceptLanguage?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRegionsResponseBody extends $tea.Model {
+  requestId?: string;
+  businessLocations?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      businessLocations: 'BusinessLocations',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      businessLocations: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRegionsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeRegionsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeRegionsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetServiceRegistrySourceRequest extends $tea.Model {
+  serviceMeshId?: string;
+  config?: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      serviceMeshId: 'ServiceMeshId',
+      config: 'Config',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      serviceMeshId: 'string',
+      config: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetServiceRegistrySourceShrinkRequest extends $tea.Model {
+  serviceMeshId?: string;
+  configShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      serviceMeshId: 'ServiceMeshId',
+      configShrink: 'Config',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      serviceMeshId: 'string',
+      configShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetServiceRegistrySourceResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetServiceRegistrySourceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: SetServiceRegistrySourceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: SetServiceRegistrySourceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddClusterIntoServiceMeshRequest extends $tea.Model {
+  serviceMeshId?: string;
+  clusterId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      serviceMeshId: 'ServiceMeshId',
+      clusterId: 'ClusterId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      serviceMeshId: 'string',
+      clusterId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddClusterIntoServiceMeshResponseBody extends $tea.Model {
+  message?: string;
+  requestId?: string;
+  code?: string;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      requestId: 'RequestId',
+      code: 'Code',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      requestId: 'string',
+      code: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddClusterIntoServiceMeshResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: AddClusterIntoServiceMeshResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: AddClusterIntoServiceMeshResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddBuiltinEnvoyFilterRequest extends $tea.Model {
+  serviceMeshId?: string;
+  id?: string;
+  name?: string;
+  parameters?: string;
+  istioVersion?: string;
+  static names(): { [key: string]: string } {
+    return {
+      serviceMeshId: 'ServiceMeshId',
+      id: 'Id',
+      name: 'Name',
+      parameters: 'Parameters',
+      istioVersion: 'IstioVersion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      serviceMeshId: 'string',
+      id: 'string',
+      name: 'string',
+      parameters: 'string',
+      istioVersion: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddBuiltinEnvoyFilterResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddBuiltinEnvoyFilterResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: AddBuiltinEnvoyFilterResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: AddBuiltinEnvoyFilterResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEcsListRequest extends $tea.Model {
+  serviceMeshId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      serviceMeshId: 'ServiceMeshId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      serviceMeshId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEcsListResponseBody extends $tea.Model {
+  ecsInstances?: GetEcsListResponseBodyEcsInstances[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ecsInstances: 'EcsInstances',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ecsInstances: { 'type': 'array', 'itemType': GetEcsListResponseBodyEcsInstances },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEcsListResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetEcsListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetEcsListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateMeshFeatureRequest extends $tea.Model {
+  serviceMeshId?: string;
+  tracing?: boolean;
+  traceSampling?: number;
+  localityLoadBalancing?: boolean;
+  telemetry?: boolean;
+  openAgentPolicy?: boolean;
+  OPALogLevel?: string;
+  OPARequestCPU?: string;
+  OPARequestMemory?: string;
+  OPALimitCPU?: string;
+  OPALimitMemory?: string;
+  enableAudit?: boolean;
+  auditProject?: string;
+  clusterDomain?: string;
+  customizedZipkin?: boolean;
+  outboundTrafficPolicy?: string;
+  proxyRequestCPU?: string;
+  proxyRequestMemory?: string;
+  proxyLimitCPU?: string;
+  proxyLimitMemory?: string;
+  includeIPRanges?: string;
+  excludeIPRanges?: string;
+  excludeOutboundPorts?: string;
+  excludeInboundPorts?: string;
+  enableNamespacesByDefault?: boolean;
+  autoInjectionPolicyEnabled?: boolean;
+  sidecarInjectorRequestCPU?: string;
+  sidecarInjectorRequestMemory?: string;
+  sidecarInjectorLimitCPU?: string;
+  sidecarInjectorLimitMemory?: string;
+  sidecarInjectorWebhookAsYaml?: string;
+  cniEnabled?: boolean;
+  cniExcludeNamespaces?: string;
+  opaEnabled?: boolean;
+  http10Enabled?: boolean;
+  kialiEnabled?: boolean;
+  customizedPrometheus?: boolean;
+  prometheusUrl?: string;
+  accessLogEnabled?: boolean;
+  MSEEnabled?: boolean;
+  redisFilterEnabled?: boolean;
+  mysqlFilterEnabled?: boolean;
+  thriftFilterEnabled?: boolean;
+  webAssemblyFilterEnabled?: boolean;
+  DNSProxyingEnabled?: boolean;
+  dubboFilterEnabled?: boolean;
+  filterGatewayClusterConfig?: boolean;
+  enableSDSServer?: boolean;
+  accessLogServiceEnabled?: boolean;
+  accessLogServiceHost?: string;
+  accessLogServicePort?: number;
+  gatewayAPIEnabled?: boolean;
+  configSourceEnabled?: boolean;
+  configSourceNacosID?: string;
+  static names(): { [key: string]: string } {
+    return {
+      serviceMeshId: 'ServiceMeshId',
+      tracing: 'Tracing',
+      traceSampling: 'TraceSampling',
+      localityLoadBalancing: 'LocalityLoadBalancing',
+      telemetry: 'Telemetry',
+      openAgentPolicy: 'OpenAgentPolicy',
+      OPALogLevel: 'OPALogLevel',
+      OPARequestCPU: 'OPARequestCPU',
+      OPARequestMemory: 'OPARequestMemory',
+      OPALimitCPU: 'OPALimitCPU',
+      OPALimitMemory: 'OPALimitMemory',
+      enableAudit: 'EnableAudit',
+      auditProject: 'AuditProject',
+      clusterDomain: 'ClusterDomain',
+      customizedZipkin: 'CustomizedZipkin',
+      outboundTrafficPolicy: 'OutboundTrafficPolicy',
+      proxyRequestCPU: 'ProxyRequestCPU',
+      proxyRequestMemory: 'ProxyRequestMemory',
+      proxyLimitCPU: 'ProxyLimitCPU',
+      proxyLimitMemory: 'ProxyLimitMemory',
+      includeIPRanges: 'IncludeIPRanges',
+      excludeIPRanges: 'ExcludeIPRanges',
+      excludeOutboundPorts: 'ExcludeOutboundPorts',
+      excludeInboundPorts: 'ExcludeInboundPorts',
+      enableNamespacesByDefault: 'EnableNamespacesByDefault',
+      autoInjectionPolicyEnabled: 'AutoInjectionPolicyEnabled',
+      sidecarInjectorRequestCPU: 'SidecarInjectorRequestCPU',
+      sidecarInjectorRequestMemory: 'SidecarInjectorRequestMemory',
+      sidecarInjectorLimitCPU: 'SidecarInjectorLimitCPU',
+      sidecarInjectorLimitMemory: 'SidecarInjectorLimitMemory',
+      sidecarInjectorWebhookAsYaml: 'SidecarInjectorWebhookAsYaml',
+      cniEnabled: 'CniEnabled',
+      cniExcludeNamespaces: 'CniExcludeNamespaces',
+      opaEnabled: 'OpaEnabled',
+      http10Enabled: 'Http10Enabled',
+      kialiEnabled: 'KialiEnabled',
+      customizedPrometheus: 'CustomizedPrometheus',
+      prometheusUrl: 'PrometheusUrl',
+      accessLogEnabled: 'AccessLogEnabled',
+      MSEEnabled: 'MSEEnabled',
+      redisFilterEnabled: 'RedisFilterEnabled',
+      mysqlFilterEnabled: 'MysqlFilterEnabled',
+      thriftFilterEnabled: 'ThriftFilterEnabled',
+      webAssemblyFilterEnabled: 'WebAssemblyFilterEnabled',
+      DNSProxyingEnabled: 'DNSProxyingEnabled',
+      dubboFilterEnabled: 'DubboFilterEnabled',
+      filterGatewayClusterConfig: 'FilterGatewayClusterConfig',
+      enableSDSServer: 'EnableSDSServer',
+      accessLogServiceEnabled: 'AccessLogServiceEnabled',
+      accessLogServiceHost: 'AccessLogServiceHost',
+      accessLogServicePort: 'AccessLogServicePort',
+      gatewayAPIEnabled: 'GatewayAPIEnabled',
+      configSourceEnabled: 'ConfigSourceEnabled',
+      configSourceNacosID: 'ConfigSourceNacosID',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      serviceMeshId: 'string',
+      tracing: 'boolean',
+      traceSampling: 'number',
+      localityLoadBalancing: 'boolean',
+      telemetry: 'boolean',
+      openAgentPolicy: 'boolean',
+      OPALogLevel: 'string',
+      OPARequestCPU: 'string',
+      OPARequestMemory: 'string',
+      OPALimitCPU: 'string',
+      OPALimitMemory: 'string',
+      enableAudit: 'boolean',
+      auditProject: 'string',
+      clusterDomain: 'string',
+      customizedZipkin: 'boolean',
+      outboundTrafficPolicy: 'string',
+      proxyRequestCPU: 'string',
+      proxyRequestMemory: 'string',
+      proxyLimitCPU: 'string',
+      proxyLimitMemory: 'string',
+      includeIPRanges: 'string',
+      excludeIPRanges: 'string',
+      excludeOutboundPorts: 'string',
+      excludeInboundPorts: 'string',
+      enableNamespacesByDefault: 'boolean',
+      autoInjectionPolicyEnabled: 'boolean',
+      sidecarInjectorRequestCPU: 'string',
+      sidecarInjectorRequestMemory: 'string',
+      sidecarInjectorLimitCPU: 'string',
+      sidecarInjectorLimitMemory: 'string',
+      sidecarInjectorWebhookAsYaml: 'string',
+      cniEnabled: 'boolean',
+      cniExcludeNamespaces: 'string',
+      opaEnabled: 'boolean',
+      http10Enabled: 'boolean',
+      kialiEnabled: 'boolean',
+      customizedPrometheus: 'boolean',
+      prometheusUrl: 'string',
+      accessLogEnabled: 'boolean',
+      MSEEnabled: 'boolean',
+      redisFilterEnabled: 'boolean',
+      mysqlFilterEnabled: 'boolean',
+      thriftFilterEnabled: 'boolean',
+      webAssemblyFilterEnabled: 'boolean',
+      DNSProxyingEnabled: 'boolean',
+      dubboFilterEnabled: 'boolean',
+      filterGatewayClusterConfig: 'boolean',
+      enableSDSServer: 'boolean',
+      accessLogServiceEnabled: 'boolean',
+      accessLogServiceHost: 'string',
+      accessLogServicePort: 'number',
+      gatewayAPIEnabled: 'boolean',
+      configSourceEnabled: 'boolean',
+      configSourceNacosID: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateMeshFeatureResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateMeshFeatureResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: UpdateMeshFeatureResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: UpdateMeshFeatureResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddVmAppToMeshRequest extends $tea.Model {
+  serviceMeshId?: string;
+  namespace?: string;
+  serviceName?: string;
+  ips?: string;
+  ports?: string;
+  labels?: string;
+  annotations?: string;
+  serviceAccount?: string;
+  force?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      serviceMeshId: 'ServiceMeshId',
+      namespace: 'Namespace',
+      serviceName: 'ServiceName',
+      ips: 'Ips',
+      ports: 'Ports',
+      labels: 'Labels',
+      annotations: 'Annotations',
+      serviceAccount: 'ServiceAccount',
+      force: 'Force',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      serviceMeshId: 'string',
+      namespace: 'string',
+      serviceName: 'string',
+      ips: 'string',
+      ports: 'string',
+      labels: 'string',
+      annotations: 'string',
+      serviceAccount: 'string',
+      force: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddVmAppToMeshResponseBody extends $tea.Model {
+  requestId?: string;
+  data?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      data: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddVmAppToMeshResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: AddVmAppToMeshResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: AddVmAppToMeshResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateServiceMeshRequest extends $tea.Model {
+  regionId?: string;
+  istioVersion?: string;
+  vpcId?: string;
+  apiServerPublicEip?: boolean;
+  pilotPublicEip?: boolean;
+  tracing?: boolean;
+  name?: string;
+  vSwitches?: string;
+  traceSampling?: number;
+  localityLoadBalancing?: boolean;
+  telemetry?: boolean;
+  openAgentPolicy?: boolean;
+  OPALogLevel?: string;
+  OPARequestCPU?: string;
+  OPARequestMemory?: string;
+  OPALimitCPU?: string;
+  OPALimitMemory?: string;
+  enableAudit?: boolean;
+  auditProject?: string;
+  proxyRequestCPU?: string;
+  proxyRequestMemory?: string;
+  proxyLimitCPU?: string;
+  proxyLimitMemory?: string;
+  includeIPRanges?: string;
+  excludeIPRanges?: string;
+  excludeOutboundPorts?: string;
+  excludeInboundPorts?: string;
+  opaEnabled?: boolean;
+  kialiEnabled?: boolean;
+  accessLogEnabled?: boolean;
+  customizedPrometheus?: boolean;
+  prometheusUrl?: string;
+  redisFilterEnabled?: boolean;
+  mysqlFilterEnabled?: boolean;
+  thriftFilterEnabled?: boolean;
+  webAssemblyFilterEnabled?: boolean;
+  MSEEnabled?: boolean;
+  DNSProxyingEnabled?: boolean;
+  edition?: string;
+  configSourceEnabled?: boolean;
+  configSourceNacosID?: string;
+  dubboFilterEnabled?: boolean;
+  filterGatewayClusterConfig?: boolean;
+  enableSDSServer?: boolean;
+  accessLogServiceEnabled?: boolean;
+  accessLogServiceHost?: string;
+  accessLogServicePort?: number;
+  gatewayAPIEnabled?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+      istioVersion: 'IstioVersion',
+      vpcId: 'VpcId',
+      apiServerPublicEip: 'ApiServerPublicEip',
+      pilotPublicEip: 'PilotPublicEip',
+      tracing: 'Tracing',
+      name: 'Name',
+      vSwitches: 'VSwitches',
+      traceSampling: 'TraceSampling',
+      localityLoadBalancing: 'LocalityLoadBalancing',
+      telemetry: 'Telemetry',
+      openAgentPolicy: 'OpenAgentPolicy',
+      OPALogLevel: 'OPALogLevel',
+      OPARequestCPU: 'OPARequestCPU',
+      OPARequestMemory: 'OPARequestMemory',
+      OPALimitCPU: 'OPALimitCPU',
+      OPALimitMemory: 'OPALimitMemory',
+      enableAudit: 'EnableAudit',
+      auditProject: 'AuditProject',
+      proxyRequestCPU: 'ProxyRequestCPU',
+      proxyRequestMemory: 'ProxyRequestMemory',
+      proxyLimitCPU: 'ProxyLimitCPU',
+      proxyLimitMemory: 'ProxyLimitMemory',
+      includeIPRanges: 'IncludeIPRanges',
+      excludeIPRanges: 'ExcludeIPRanges',
+      excludeOutboundPorts: 'ExcludeOutboundPorts',
+      excludeInboundPorts: 'ExcludeInboundPorts',
+      opaEnabled: 'OpaEnabled',
+      kialiEnabled: 'KialiEnabled',
+      accessLogEnabled: 'AccessLogEnabled',
+      customizedPrometheus: 'CustomizedPrometheus',
+      prometheusUrl: 'PrometheusUrl',
+      redisFilterEnabled: 'RedisFilterEnabled',
+      mysqlFilterEnabled: 'MysqlFilterEnabled',
+      thriftFilterEnabled: 'ThriftFilterEnabled',
+      webAssemblyFilterEnabled: 'WebAssemblyFilterEnabled',
+      MSEEnabled: 'MSEEnabled',
+      DNSProxyingEnabled: 'DNSProxyingEnabled',
+      edition: 'Edition',
+      configSourceEnabled: 'ConfigSourceEnabled',
+      configSourceNacosID: 'ConfigSourceNacosID',
+      dubboFilterEnabled: 'DubboFilterEnabled',
+      filterGatewayClusterConfig: 'FilterGatewayClusterConfig',
+      enableSDSServer: 'EnableSDSServer',
+      accessLogServiceEnabled: 'AccessLogServiceEnabled',
+      accessLogServiceHost: 'AccessLogServiceHost',
+      accessLogServicePort: 'AccessLogServicePort',
+      gatewayAPIEnabled: 'GatewayAPIEnabled',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+      istioVersion: 'string',
+      vpcId: 'string',
+      apiServerPublicEip: 'boolean',
+      pilotPublicEip: 'boolean',
+      tracing: 'boolean',
+      name: 'string',
+      vSwitches: 'string',
+      traceSampling: 'number',
+      localityLoadBalancing: 'boolean',
+      telemetry: 'boolean',
+      openAgentPolicy: 'boolean',
+      OPALogLevel: 'string',
+      OPARequestCPU: 'string',
+      OPARequestMemory: 'string',
+      OPALimitCPU: 'string',
+      OPALimitMemory: 'string',
+      enableAudit: 'boolean',
+      auditProject: 'string',
+      proxyRequestCPU: 'string',
+      proxyRequestMemory: 'string',
+      proxyLimitCPU: 'string',
+      proxyLimitMemory: 'string',
+      includeIPRanges: 'string',
+      excludeIPRanges: 'string',
+      excludeOutboundPorts: 'string',
+      excludeInboundPorts: 'string',
+      opaEnabled: 'boolean',
+      kialiEnabled: 'boolean',
+      accessLogEnabled: 'boolean',
+      customizedPrometheus: 'boolean',
+      prometheusUrl: 'string',
+      redisFilterEnabled: 'boolean',
+      mysqlFilterEnabled: 'boolean',
+      thriftFilterEnabled: 'boolean',
+      webAssemblyFilterEnabled: 'boolean',
+      MSEEnabled: 'boolean',
+      DNSProxyingEnabled: 'boolean',
+      edition: 'string',
+      configSourceEnabled: 'boolean',
+      configSourceNacosID: 'string',
+      dubboFilterEnabled: 'boolean',
+      filterGatewayClusterConfig: 'boolean',
+      enableSDSServer: 'boolean',
+      accessLogServiceEnabled: 'boolean',
+      accessLogServiceHost: 'string',
+      accessLogServicePort: 'number',
+      gatewayAPIEnabled: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateServiceMeshResponseBody extends $tea.Model {
+  requestId?: string;
+  serviceMeshId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      serviceMeshId: 'ServiceMeshId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      serviceMeshId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateServiceMeshResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CreateServiceMeshResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CreateServiceMeshResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceRegistrySourceRequest extends $tea.Model {
+  serviceMeshId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      serviceMeshId: 'ServiceMeshId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      serviceMeshId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceRegistrySourceResponseBody extends $tea.Model {
+  status?: string;
+  requestId?: string;
+  result?: string;
+  static names(): { [key: string]: string } {
+    return {
+      status: 'Status',
+      requestId: 'RequestId',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      status: 'string',
+      requestId: 'string',
+      result: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceRegistrySourceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetServiceRegistrySourceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetServiceRegistrySourceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemoveBuiltinEnvoyFilterRequest extends $tea.Model {
+  serviceMeshId?: string;
+  id?: string;
+  name?: string;
+  istioVersion?: string;
+  static names(): { [key: string]: string } {
+    return {
+      serviceMeshId: 'ServiceMeshId',
+      id: 'Id',
+      name: 'Name',
+      istioVersion: 'IstioVersion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      serviceMeshId: 'string',
+      id: 'string',
+      name: 'string',
+      istioVersion: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemoveBuiltinEnvoyFilterResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemoveBuiltinEnvoyFilterResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: RemoveBuiltinEnvoyFilterResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: RemoveBuiltinEnvoyFilterResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBuiltinEnvoyFilterRequest extends $tea.Model {
+  serviceMeshId?: string;
+  id?: string;
+  name?: string;
+  istioVersion?: string;
+  static names(): { [key: string]: string } {
+    return {
+      serviceMeshId: 'ServiceMeshId',
+      id: 'Id',
+      name: 'Name',
+      istioVersion: 'IstioVersion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      serviceMeshId: 'string',
+      id: 'string',
+      name: 'string',
+      istioVersion: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBuiltinEnvoyFilterResponseBody extends $tea.Model {
+  parameters?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      parameters: 'Parameters',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      parameters: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBuiltinEnvoyFilterResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetBuiltinEnvoyFilterResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetBuiltinEnvoyFilterResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InitializeASMRoleResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InitializeASMRoleResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: InitializeASMRoleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: InitializeASMRoleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddMeshTagToEcsRequest extends $tea.Model {
+  serviceMeshId?: string;
+  ecsId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      serviceMeshId: 'ServiceMeshId',
+      ecsId: 'EcsId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      serviceMeshId: 'string',
+      ecsId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddMeshTagToEcsResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddMeshTagToEcsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: AddMeshTagToEcsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: AddMeshTagToEcsResponseBody,
     };
   }
 
@@ -2792,13 +3784,37 @@ export class DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigAcces
   }
 }
 
+export class DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigPilotFeature extends $tea.Model {
+  filterGatewayClusterConfig?: boolean;
+  enableSDSServer?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      filterGatewayClusterConfig: 'FilterGatewayClusterConfig',
+      enableSDSServer: 'EnableSDSServer',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      filterGatewayClusterConfig: 'boolean',
+      enableSDSServer: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigPilot extends $tea.Model {
   http10Enabled?: boolean;
   traceSampling?: number;
+  feature?: DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigPilotFeature;
   static names(): { [key: string]: string } {
     return {
       http10Enabled: 'Http10Enabled',
       traceSampling: 'TraceSampling',
+      feature: 'Feature',
     };
   }
 
@@ -2806,6 +3822,7 @@ export class DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigPilot
     return {
       http10Enabled: 'boolean',
       traceSampling: 'number',
+      feature: DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigPilotFeature,
     };
   }
 
@@ -2899,11 +3916,13 @@ export class DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigProto
   mysqlFilterEnabled?: boolean;
   redisFilterEnabled?: boolean;
   thriftFilterEnabled?: boolean;
+  dubboFilterEnabled?: boolean;
   static names(): { [key: string]: string } {
     return {
       mysqlFilterEnabled: 'MysqlFilterEnabled',
       redisFilterEnabled: 'RedisFilterEnabled',
       thriftFilterEnabled: 'ThriftFilterEnabled',
+      dubboFilterEnabled: 'DubboFilterEnabled',
     };
   }
 
@@ -2912,6 +3931,7 @@ export class DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigProto
       mysqlFilterEnabled: 'boolean',
       redisFilterEnabled: 'boolean',
       thriftFilterEnabled: 'boolean',
+      dubboFilterEnabled: 'boolean',
     };
   }
 
@@ -2990,6 +4010,9 @@ export class DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigProxy
   requestCPU?: string;
   enableDNSProxying?: boolean;
   limitCPU?: string;
+  accessLogServiceEnabled?: boolean;
+  accessLogServiceHost?: string;
+  accessLogServicePort?: number;
   static names(): { [key: string]: string } {
     return {
       requestMemory: 'RequestMemory',
@@ -2998,6 +4021,9 @@ export class DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigProxy
       requestCPU: 'RequestCPU',
       enableDNSProxying: 'EnableDNSProxying',
       limitCPU: 'LimitCPU',
+      accessLogServiceEnabled: 'AccessLogServiceEnabled',
+      accessLogServiceHost: 'AccessLogServiceHost',
+      accessLogServicePort: 'AccessLogServicePort',
     };
   }
 
@@ -3009,6 +4035,28 @@ export class DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigProxy
       requestCPU: 'string',
       enableDNSProxying: 'boolean',
       limitCPU: 'string',
+      accessLogServiceEnabled: 'boolean',
+      accessLogServiceHost: 'string',
+      accessLogServicePort: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigK8sNewAPIsSupport extends $tea.Model {
+  gatewayAPIEnabled?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      gatewayAPIEnabled: 'GatewayAPIEnabled',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      gatewayAPIEnabled: 'boolean',
     };
   }
 
@@ -3026,6 +4074,9 @@ export class DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfig exte
   customizedZipkin?: boolean;
   sidecarInjector?: DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigSidecarInjector;
   includeIPRanges?: string;
+  excludeIPRanges?: string;
+  excludeOutboundPorts?: string;
+  excludeInboundPorts?: string;
   telemetry?: boolean;
   edition?: string;
   protocolSupport?: DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigProtocolSupport;
@@ -3036,6 +4087,7 @@ export class DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfig exte
   enableLocalityLB?: boolean;
   audit?: DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigAudit;
   proxy?: DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigProxy;
+  k8sNewAPIsSupport?: DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigK8sNewAPIsSupport;
   static names(): { [key: string]: string } {
     return {
       OPA: 'OPA',
@@ -3046,6 +4098,9 @@ export class DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfig exte
       customizedZipkin: 'CustomizedZipkin',
       sidecarInjector: 'SidecarInjector',
       includeIPRanges: 'IncludeIPRanges',
+      excludeIPRanges: 'ExcludeIPRanges',
+      excludeOutboundPorts: 'ExcludeOutboundPorts',
+      excludeInboundPorts: 'ExcludeInboundPorts',
       telemetry: 'Telemetry',
       edition: 'Edition',
       protocolSupport: 'ProtocolSupport',
@@ -3056,6 +4111,7 @@ export class DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfig exte
       enableLocalityLB: 'EnableLocalityLB',
       audit: 'Audit',
       proxy: 'Proxy',
+      k8sNewAPIsSupport: 'K8sNewAPIsSupport',
     };
   }
 
@@ -3069,6 +4125,9 @@ export class DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfig exte
       customizedZipkin: 'boolean',
       sidecarInjector: DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigSidecarInjector,
       includeIPRanges: 'string',
+      excludeIPRanges: 'string',
+      excludeOutboundPorts: 'string',
+      excludeInboundPorts: 'string',
       telemetry: 'boolean',
       edition: 'string',
       protocolSupport: DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigProtocolSupport,
@@ -3079,6 +4138,7 @@ export class DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfig exte
       enableLocalityLB: 'boolean',
       audit: DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigAudit,
       proxy: DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigProxy,
+      k8sNewAPIsSupport: DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigK8sNewAPIsSupport,
     };
   }
 
@@ -3187,49 +4247,81 @@ export class GetRegisteredServiceEndpointsResponseBodyServiceEndpoints extends $
   }
 }
 
+export class DescribeVSwitchesResponseBodyVSwitches extends $tea.Model {
+  vpcId?: string;
+  vSwitchId?: string;
+  status?: string;
+  isDefault?: boolean;
+  vSwitchName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      vpcId: 'VpcId',
+      vSwitchId: 'VSwitchId',
+      status: 'Status',
+      isDefault: 'IsDefault',
+      vSwitchName: 'VSwitchName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      vpcId: 'string',
+      vSwitchId: 'string',
+      status: 'string',
+      isDefault: 'boolean',
+      vSwitchName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVpcsResponseBodyVpcs extends $tea.Model {
+  vpcId?: string;
+  vpcName?: string;
+  status?: string;
+  isDefault?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      vpcId: 'VpcId',
+      vpcName: 'VpcName',
+      status: 'Status',
+      isDefault: 'IsDefault',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      vpcId: 'string',
+      vpcName: 'string',
+      status: 'string',
+      isDefault: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetVmMetaResponseBodyVmMetaInfo extends $tea.Model {
-  tokenPath?: string;
   hostsContent?: string;
-  envoyEnvPath?: string;
   tokenContent?: string;
-  certChainPath?: string;
-  rootCertContent?: string;
-  keyContent?: string;
-  rootCertPath?: string;
-  certChainContent?: string;
-  hostsPath?: string;
-  keyPath?: string;
   envoyEnvContent?: string;
   static names(): { [key: string]: string } {
     return {
-      tokenPath: 'TokenPath',
       hostsContent: 'HostsContent',
-      envoyEnvPath: 'EnvoyEnvPath',
       tokenContent: 'TokenContent',
-      certChainPath: 'CertChainPath',
-      rootCertContent: 'RootCertContent',
-      keyContent: 'KeyContent',
-      rootCertPath: 'RootCertPath',
-      certChainContent: 'CertChainContent',
-      hostsPath: 'HostsPath',
-      keyPath: 'KeyPath',
       envoyEnvContent: 'EnvoyEnvContent',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      tokenPath: 'string',
       hostsContent: 'string',
-      envoyEnvPath: 'string',
       tokenContent: 'string',
-      certChainPath: 'string',
-      rootCertContent: 'string',
-      keyContent: 'string',
-      rootCertPath: 'string',
-      certChainContent: 'string',
-      hostsPath: 'string',
-      keyPath: 'string',
       envoyEnvContent: 'string',
     };
   }
@@ -3341,6 +4433,62 @@ export class DescribeClustersInServiceMeshResponseBodyClusters extends $tea.Mode
   }
 }
 
+export class DescribeClusterGrafanaResponseBodyDashboards extends $tea.Model {
+  url?: string;
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      url: 'Url',
+      title: 'Title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      url: 'string',
+      title: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEcsListResponseBodyEcsInstances extends $tea.Model {
+  instanceId?: string;
+  hostName?: string;
+  ipAddress?: string;
+  status?: string;
+  hasTag?: boolean;
+  securityGroupIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      hostName: 'HostName',
+      ipAddress: 'IpAddress',
+      status: 'Status',
+      hasTag: 'HasTag',
+      securityGroupIds: 'SecurityGroupIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      hostName: 'string',
+      ipAddress: 'string',
+      status: 'string',
+      hasTag: 'boolean',
+      securityGroupIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 
 export default class Client extends OpenApi {
 
@@ -3377,19 +4525,6 @@ export default class Client extends OpenApi {
     return await this.runDiagnosisWithOptions(request, runtime);
   }
 
-  async describeClusterGrafanaWithOptions(request: DescribeClusterGrafanaRequest, runtime: $Util.RuntimeOptions): Promise<DescribeClusterGrafanaResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<DescribeClusterGrafanaResponse>(await this.doRPCRequest("DescribeClusterGrafana", "2020-01-11", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeClusterGrafanaResponse({}));
-  }
-
-  async describeClusterGrafana(request: DescribeClusterGrafanaRequest): Promise<DescribeClusterGrafanaResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeClusterGrafanaWithOptions(request, runtime);
-  }
-
   async describeGuestClusterAccessLogDashboardsWithOptions(request: DescribeGuestClusterAccessLogDashboardsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeGuestClusterAccessLogDashboardsResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -3403,6 +4538,19 @@ export default class Client extends OpenApi {
     return await this.describeGuestClusterAccessLogDashboardsWithOptions(request, runtime);
   }
 
+  async listBuiltinEnvoyFilterWithOptions(request: ListBuiltinEnvoyFilterRequest, runtime: $Util.RuntimeOptions): Promise<ListBuiltinEnvoyFilterResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<ListBuiltinEnvoyFilterResponse>(await this.doRPCRequest("ListBuiltinEnvoyFilter", "2020-01-11", "HTTPS", "POST", "AK", "json", req, runtime), new ListBuiltinEnvoyFilterResponse({}));
+  }
+
+  async listBuiltinEnvoyFilter(request: ListBuiltinEnvoyFilterRequest): Promise<ListBuiltinEnvoyFilterResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listBuiltinEnvoyFilterWithOptions(request, runtime);
+  }
+
   async describeServiceMeshesWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeServiceMeshesResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     return $tea.cast<DescribeServiceMeshesResponse>(await this.doRPCRequest("DescribeServiceMeshes", "2020-01-11", "HTTPS", "GET", "AK", "json", req, runtime), new DescribeServiceMeshesResponse({}));
@@ -3413,30 +4561,30 @@ export default class Client extends OpenApi {
     return await this.describeServiceMeshesWithOptions(runtime);
   }
 
-  async getDiagnosisWithOptions(request: GetDiagnosisRequest, runtime: $Util.RuntimeOptions): Promise<GetDiagnosisResponse> {
+  async modifyBuiltinEnvoyFilterWithOptions(request: ModifyBuiltinEnvoyFilterRequest, runtime: $Util.RuntimeOptions): Promise<ModifyBuiltinEnvoyFilterResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<GetDiagnosisResponse>(await this.doRPCRequest("GetDiagnosis", "2020-01-11", "HTTPS", "POST", "AK", "json", req, runtime), new GetDiagnosisResponse({}));
+    return $tea.cast<ModifyBuiltinEnvoyFilterResponse>(await this.doRPCRequest("ModifyBuiltinEnvoyFilter", "2020-01-11", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyBuiltinEnvoyFilterResponse({}));
   }
 
-  async getDiagnosis(request: GetDiagnosisRequest): Promise<GetDiagnosisResponse> {
+  async modifyBuiltinEnvoyFilter(request: ModifyBuiltinEnvoyFilterRequest): Promise<ModifyBuiltinEnvoyFilterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.getDiagnosisWithOptions(request, runtime);
+    return await this.modifyBuiltinEnvoyFilterWithOptions(request, runtime);
   }
 
-  async getRegisteredServicesWithOptions(request: GetRegisteredServicesRequest, runtime: $Util.RuntimeOptions): Promise<GetRegisteredServicesResponse> {
+  async describeAvailableNacosInstancesWithOptions(request: DescribeAvailableNacosInstancesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAvailableNacosInstancesResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<GetRegisteredServicesResponse>(await this.doRPCRequest("GetRegisteredServices", "2020-01-11", "HTTPS", "POST", "AK", "json", req, runtime), new GetRegisteredServicesResponse({}));
+    return $tea.cast<DescribeAvailableNacosInstancesResponse>(await this.doRPCRequest("DescribeAvailableNacosInstances", "2020-01-11", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeAvailableNacosInstancesResponse({}));
   }
 
-  async getRegisteredServices(request: GetRegisteredServicesRequest): Promise<GetRegisteredServicesResponse> {
+  async describeAvailableNacosInstances(request: DescribeAvailableNacosInstancesRequest): Promise<DescribeAvailableNacosInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.getRegisteredServicesWithOptions(request, runtime);
+    return await this.describeAvailableNacosInstancesWithOptions(request, runtime);
   }
 
   async describeIngressGatewaysWithOptions(request: DescribeIngressGatewaysRequest, runtime: $Util.RuntimeOptions): Promise<DescribeIngressGatewaysResponse> {
@@ -3466,32 +4614,6 @@ export default class Client extends OpenApi {
     return await this.describeServiceMeshDetailWithOptions(request, runtime);
   }
 
-  async describeCensWithOptions(request: DescribeCensRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCensResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<DescribeCensResponse>(await this.doRPCRequest("DescribeCens", "2020-01-11", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeCensResponse({}));
-  }
-
-  async describeCens(request: DescribeCensRequest): Promise<DescribeCensResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeCensWithOptions(request, runtime);
-  }
-
-  async deleteServiceMeshWithOptions(request: DeleteServiceMeshRequest, runtime: $Util.RuntimeOptions): Promise<DeleteServiceMeshResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<DeleteServiceMeshResponse>(await this.doRPCRequest("DeleteServiceMesh", "2020-01-11", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteServiceMeshResponse({}));
-  }
-
-  async deleteServiceMesh(request: DeleteServiceMeshRequest): Promise<DeleteServiceMeshResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.deleteServiceMeshWithOptions(request, runtime);
-  }
-
   async upgradeMeshVersionWithOptions(request: UpgradeMeshVersionRequest, runtime: $Util.RuntimeOptions): Promise<UpgradeMeshVersionResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -3518,63 +4640,17 @@ export default class Client extends OpenApi {
     return await this.describeServiceMeshKubeconfigWithOptions(request, runtime);
   }
 
-  async getVmAppMeshInfoWithOptions(request: GetVmAppMeshInfoRequest, runtime: $Util.RuntimeOptions): Promise<GetVmAppMeshInfoResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
-      query: query,
-    });
-    return $tea.cast<GetVmAppMeshInfoResponse>(await this.doRPCRequest("GetVmAppMeshInfo", "2020-01-11", "HTTPS", "GET", "AK", "json", req, runtime), new GetVmAppMeshInfoResponse({}));
-  }
-
-  async getVmAppMeshInfo(request: GetVmAppMeshInfoRequest): Promise<GetVmAppMeshInfoResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getVmAppMeshInfoWithOptions(request, runtime);
-  }
-
-  async removeClusterFromServiceMeshWithOptions(request: RemoveClusterFromServiceMeshRequest, runtime: $Util.RuntimeOptions): Promise<RemoveClusterFromServiceMeshResponse> {
+  async getCaCertWithOptions(request: GetCaCertRequest, runtime: $Util.RuntimeOptions): Promise<GetCaCertResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<RemoveClusterFromServiceMeshResponse>(await this.doRPCRequest("RemoveClusterFromServiceMesh", "2020-01-11", "HTTPS", "POST", "AK", "json", req, runtime), new RemoveClusterFromServiceMeshResponse({}));
+    return $tea.cast<GetCaCertResponse>(await this.doRPCRequest("GetCaCert", "2020-01-11", "HTTPS", "POST", "AK", "json", req, runtime), new GetCaCertResponse({}));
   }
 
-  async removeClusterFromServiceMesh(request: RemoveClusterFromServiceMeshRequest): Promise<RemoveClusterFromServiceMeshResponse> {
+  async getCaCert(request: GetCaCertRequest): Promise<GetCaCertResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.removeClusterFromServiceMeshWithOptions(request, runtime);
-  }
-
-  async setServiceRegistrySourceWithOptions(tmpReq: SetServiceRegistrySourceRequest, runtime: $Util.RuntimeOptions): Promise<SetServiceRegistrySourceResponse> {
-    Util.validateModel(tmpReq);
-    let request = new SetServiceRegistrySourceShrinkRequest({ });
-    OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.config)) {
-      request.configShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.config, "Config", "json");
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<SetServiceRegistrySourceResponse>(await this.doRPCRequest("SetServiceRegistrySource", "2020-01-11", "HTTPS", "POST", "AK", "json", req, runtime), new SetServiceRegistrySourceResponse({}));
-  }
-
-  async setServiceRegistrySource(request: SetServiceRegistrySourceRequest): Promise<SetServiceRegistrySourceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.setServiceRegistrySourceWithOptions(request, runtime);
-  }
-
-  async addClusterIntoServiceMeshWithOptions(request: AddClusterIntoServiceMeshRequest, runtime: $Util.RuntimeOptions): Promise<AddClusterIntoServiceMeshResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<AddClusterIntoServiceMeshResponse>(await this.doRPCRequest("AddClusterIntoServiceMesh", "2020-01-11", "HTTPS", "POST", "AK", "json", req, runtime), new AddClusterIntoServiceMeshResponse({}));
-  }
-
-  async addClusterIntoServiceMesh(request: AddClusterIntoServiceMeshRequest): Promise<AddClusterIntoServiceMeshResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.addClusterIntoServiceMeshWithOptions(request, runtime);
+    return await this.getCaCertWithOptions(request, runtime);
   }
 
   async getServiceMeshSlbWithOptions(request: GetServiceMeshSlbRequest, runtime: $Util.RuntimeOptions): Promise<GetServiceMeshSlbResponse> {
@@ -3603,45 +4679,6 @@ export default class Client extends OpenApi {
     return await this.getRegisteredServiceEndpointsWithOptions(request, runtime);
   }
 
-  async updateMeshFeatureWithOptions(request: UpdateMeshFeatureRequest, runtime: $Util.RuntimeOptions): Promise<UpdateMeshFeatureResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<UpdateMeshFeatureResponse>(await this.doRPCRequest("UpdateMeshFeature", "2020-01-11", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateMeshFeatureResponse({}));
-  }
-
-  async updateMeshFeature(request: UpdateMeshFeatureRequest): Promise<UpdateMeshFeatureResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.updateMeshFeatureWithOptions(request, runtime);
-  }
-
-  async addVmAppToMeshWithOptions(request: AddVmAppToMeshRequest, runtime: $Util.RuntimeOptions): Promise<AddVmAppToMeshResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<AddVmAppToMeshResponse>(await this.doRPCRequest("AddVmAppToMesh", "2020-01-11", "HTTPS", "POST", "AK", "json", req, runtime), new AddVmAppToMeshResponse({}));
-  }
-
-  async addVmAppToMesh(request: AddVmAppToMeshRequest): Promise<AddVmAppToMeshResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.addVmAppToMeshWithOptions(request, runtime);
-  }
-
-  async createServiceMeshWithOptions(request: CreateServiceMeshRequest, runtime: $Util.RuntimeOptions): Promise<CreateServiceMeshResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<CreateServiceMeshResponse>(await this.doRPCRequest("CreateServiceMesh", "2020-01-11", "HTTPS", "POST", "AK", "json", req, runtime), new CreateServiceMeshResponse({}));
-  }
-
-  async createServiceMesh(request: CreateServiceMeshRequest): Promise<CreateServiceMeshResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.createServiceMeshWithOptions(request, runtime);
-  }
-
   async getAutoInjectionLabelSyncStatusWithOptions(request: GetAutoInjectionLabelSyncStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetAutoInjectionLabelSyncStatusResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -3653,19 +4690,6 @@ export default class Client extends OpenApi {
   async getAutoInjectionLabelSyncStatus(request: GetAutoInjectionLabelSyncStatusRequest): Promise<GetAutoInjectionLabelSyncStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getAutoInjectionLabelSyncStatusWithOptions(request, runtime);
-  }
-
-  async getServiceRegistrySourceWithOptions(request: GetServiceRegistrySourceRequest, runtime: $Util.RuntimeOptions): Promise<GetServiceRegistrySourceResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<GetServiceRegistrySourceResponse>(await this.doRPCRequest("GetServiceRegistrySource", "2020-01-11", "HTTPS", "POST", "AK", "json", req, runtime), new GetServiceRegistrySourceResponse({}));
-  }
-
-  async getServiceRegistrySource(request: GetServiceRegistrySourceRequest): Promise<GetServiceRegistrySourceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getServiceRegistrySourceWithOptions(request, runtime);
   }
 
   async getRegisteredServiceNamespacesWithOptions(request: GetRegisteredServiceNamespacesRequest, runtime: $Util.RuntimeOptions): Promise<GetRegisteredServiceNamespacesResponse> {
@@ -3681,14 +4705,30 @@ export default class Client extends OpenApi {
     return await this.getRegisteredServiceNamespacesWithOptions(request, runtime);
   }
 
-  async initializeASMRoleWithOptions(runtime: $Util.RuntimeOptions): Promise<InitializeASMRoleResponse> {
-    let req = new $OpenApi.OpenApiRequest({ });
-    return $tea.cast<InitializeASMRoleResponse>(await this.doRPCRequest("InitializeASMRole", "2020-01-11", "HTTPS", "POST", "AK", "json", req, runtime), new InitializeASMRoleResponse({}));
+  async describeVSwitchesWithOptions(request: DescribeVSwitchesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVSwitchesResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DescribeVSwitchesResponse>(await this.doRPCRequest("DescribeVSwitches", "2020-01-11", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeVSwitchesResponse({}));
   }
 
-  async initializeASMRole(): Promise<InitializeASMRoleResponse> {
+  async describeVSwitches(request: DescribeVSwitchesRequest): Promise<DescribeVSwitchesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.initializeASMRoleWithOptions(runtime);
+    return await this.describeVSwitchesWithOptions(request, runtime);
+  }
+
+  async describeVpcsWithOptions(request: DescribeVpcsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVpcsResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DescribeVpcsResponse>(await this.doRPCRequest("DescribeVpcs", "2020-01-11", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeVpcsResponse({}));
+  }
+
+  async describeVpcs(request: DescribeVpcsRequest): Promise<DescribeVpcsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeVpcsWithOptions(request, runtime);
   }
 
   async removeVmAppFromMeshWithOptions(request: RemoveVmAppFromMeshRequest, runtime: $Util.RuntimeOptions): Promise<RemoveVmAppFromMeshResponse> {
@@ -3768,6 +4808,298 @@ export default class Client extends OpenApi {
   async describeClustersInServiceMesh(request: DescribeClustersInServiceMeshRequest): Promise<DescribeClustersInServiceMeshResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeClustersInServiceMeshWithOptions(request, runtime);
+  }
+
+  async getBuiltinEnvoyFilterCatalogWithOptions(request: GetBuiltinEnvoyFilterCatalogRequest, runtime: $Util.RuntimeOptions): Promise<GetBuiltinEnvoyFilterCatalogResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<GetBuiltinEnvoyFilterCatalogResponse>(await this.doRPCRequest("GetBuiltinEnvoyFilterCatalog", "2020-01-11", "HTTPS", "POST", "AK", "json", req, runtime), new GetBuiltinEnvoyFilterCatalogResponse({}));
+  }
+
+  async getBuiltinEnvoyFilterCatalog(request: GetBuiltinEnvoyFilterCatalogRequest): Promise<GetBuiltinEnvoyFilterCatalogResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getBuiltinEnvoyFilterCatalogWithOptions(request, runtime);
+  }
+
+  async describeClusterGrafanaWithOptions(request: DescribeClusterGrafanaRequest, runtime: $Util.RuntimeOptions): Promise<DescribeClusterGrafanaResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DescribeClusterGrafanaResponse>(await this.doRPCRequest("DescribeClusterGrafana", "2020-01-11", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeClusterGrafanaResponse({}));
+  }
+
+  async describeClusterGrafana(request: DescribeClusterGrafanaRequest): Promise<DescribeClusterGrafanaResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeClusterGrafanaWithOptions(request, runtime);
+  }
+
+  async getDiagnosisWithOptions(request: GetDiagnosisRequest, runtime: $Util.RuntimeOptions): Promise<GetDiagnosisResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<GetDiagnosisResponse>(await this.doRPCRequest("GetDiagnosis", "2020-01-11", "HTTPS", "POST", "AK", "json", req, runtime), new GetDiagnosisResponse({}));
+  }
+
+  async getDiagnosis(request: GetDiagnosisRequest): Promise<GetDiagnosisResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getDiagnosisWithOptions(request, runtime);
+  }
+
+  async getRegisteredServicesWithOptions(request: GetRegisteredServicesRequest, runtime: $Util.RuntimeOptions): Promise<GetRegisteredServicesResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<GetRegisteredServicesResponse>(await this.doRPCRequest("GetRegisteredServices", "2020-01-11", "HTTPS", "POST", "AK", "json", req, runtime), new GetRegisteredServicesResponse({}));
+  }
+
+  async getRegisteredServices(request: GetRegisteredServicesRequest): Promise<GetRegisteredServicesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getRegisteredServicesWithOptions(request, runtime);
+  }
+
+  async describeCensWithOptions(request: DescribeCensRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCensResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DescribeCensResponse>(await this.doRPCRequest("DescribeCens", "2020-01-11", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeCensResponse({}));
+  }
+
+  async describeCens(request: DescribeCensRequest): Promise<DescribeCensResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeCensWithOptions(request, runtime);
+  }
+
+  async deleteServiceMeshWithOptions(request: DeleteServiceMeshRequest, runtime: $Util.RuntimeOptions): Promise<DeleteServiceMeshResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DeleteServiceMeshResponse>(await this.doRPCRequest("DeleteServiceMesh", "2020-01-11", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteServiceMeshResponse({}));
+  }
+
+  async deleteServiceMesh(request: DeleteServiceMeshRequest): Promise<DeleteServiceMeshResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteServiceMeshWithOptions(request, runtime);
+  }
+
+  async getSaTokenWithOptions(request: GetSaTokenRequest, runtime: $Util.RuntimeOptions): Promise<GetSaTokenResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<GetSaTokenResponse>(await this.doRPCRequest("GetSaToken", "2020-01-11", "HTTPS", "POST", "AK", "json", req, runtime), new GetSaTokenResponse({}));
+  }
+
+  async getSaToken(request: GetSaTokenRequest): Promise<GetSaTokenResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getSaTokenWithOptions(request, runtime);
+  }
+
+  async getVmAppMeshInfoWithOptions(request: GetVmAppMeshInfoRequest, runtime: $Util.RuntimeOptions): Promise<GetVmAppMeshInfoResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: query,
+    });
+    return $tea.cast<GetVmAppMeshInfoResponse>(await this.doRPCRequest("GetVmAppMeshInfo", "2020-01-11", "HTTPS", "GET", "AK", "json", req, runtime), new GetVmAppMeshInfoResponse({}));
+  }
+
+  async getVmAppMeshInfo(request: GetVmAppMeshInfoRequest): Promise<GetVmAppMeshInfoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getVmAppMeshInfoWithOptions(request, runtime);
+  }
+
+  async removeClusterFromServiceMeshWithOptions(request: RemoveClusterFromServiceMeshRequest, runtime: $Util.RuntimeOptions): Promise<RemoveClusterFromServiceMeshResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<RemoveClusterFromServiceMeshResponse>(await this.doRPCRequest("RemoveClusterFromServiceMesh", "2020-01-11", "HTTPS", "POST", "AK", "json", req, runtime), new RemoveClusterFromServiceMeshResponse({}));
+  }
+
+  async removeClusterFromServiceMesh(request: RemoveClusterFromServiceMeshRequest): Promise<RemoveClusterFromServiceMeshResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.removeClusterFromServiceMeshWithOptions(request, runtime);
+  }
+
+  async describeRegionsWithOptions(request: DescribeRegionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRegionsResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: query,
+    });
+    return $tea.cast<DescribeRegionsResponse>(await this.doRPCRequest("DescribeRegions", "2020-01-11", "HTTPS", "GET", "AK", "json", req, runtime), new DescribeRegionsResponse({}));
+  }
+
+  async describeRegions(request: DescribeRegionsRequest): Promise<DescribeRegionsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeRegionsWithOptions(request, runtime);
+  }
+
+  async setServiceRegistrySourceWithOptions(tmpReq: SetServiceRegistrySourceRequest, runtime: $Util.RuntimeOptions): Promise<SetServiceRegistrySourceResponse> {
+    Util.validateModel(tmpReq);
+    let request = new SetServiceRegistrySourceShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.config)) {
+      request.configShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.config, "Config", "json");
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<SetServiceRegistrySourceResponse>(await this.doRPCRequest("SetServiceRegistrySource", "2020-01-11", "HTTPS", "POST", "AK", "json", req, runtime), new SetServiceRegistrySourceResponse({}));
+  }
+
+  async setServiceRegistrySource(request: SetServiceRegistrySourceRequest): Promise<SetServiceRegistrySourceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.setServiceRegistrySourceWithOptions(request, runtime);
+  }
+
+  async addClusterIntoServiceMeshWithOptions(request: AddClusterIntoServiceMeshRequest, runtime: $Util.RuntimeOptions): Promise<AddClusterIntoServiceMeshResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<AddClusterIntoServiceMeshResponse>(await this.doRPCRequest("AddClusterIntoServiceMesh", "2020-01-11", "HTTPS", "POST", "AK", "json", req, runtime), new AddClusterIntoServiceMeshResponse({}));
+  }
+
+  async addClusterIntoServiceMesh(request: AddClusterIntoServiceMeshRequest): Promise<AddClusterIntoServiceMeshResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.addClusterIntoServiceMeshWithOptions(request, runtime);
+  }
+
+  async addBuiltinEnvoyFilterWithOptions(request: AddBuiltinEnvoyFilterRequest, runtime: $Util.RuntimeOptions): Promise<AddBuiltinEnvoyFilterResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<AddBuiltinEnvoyFilterResponse>(await this.doRPCRequest("AddBuiltinEnvoyFilter", "2020-01-11", "HTTPS", "POST", "AK", "json", req, runtime), new AddBuiltinEnvoyFilterResponse({}));
+  }
+
+  async addBuiltinEnvoyFilter(request: AddBuiltinEnvoyFilterRequest): Promise<AddBuiltinEnvoyFilterResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.addBuiltinEnvoyFilterWithOptions(request, runtime);
+  }
+
+  async getEcsListWithOptions(request: GetEcsListRequest, runtime: $Util.RuntimeOptions): Promise<GetEcsListResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: query,
+    });
+    return $tea.cast<GetEcsListResponse>(await this.doRPCRequest("GetEcsList", "2020-01-11", "HTTPS", "GET", "AK", "json", req, runtime), new GetEcsListResponse({}));
+  }
+
+  async getEcsList(request: GetEcsListRequest): Promise<GetEcsListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getEcsListWithOptions(request, runtime);
+  }
+
+  async updateMeshFeatureWithOptions(request: UpdateMeshFeatureRequest, runtime: $Util.RuntimeOptions): Promise<UpdateMeshFeatureResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<UpdateMeshFeatureResponse>(await this.doRPCRequest("UpdateMeshFeature", "2020-01-11", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateMeshFeatureResponse({}));
+  }
+
+  async updateMeshFeature(request: UpdateMeshFeatureRequest): Promise<UpdateMeshFeatureResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateMeshFeatureWithOptions(request, runtime);
+  }
+
+  async addVmAppToMeshWithOptions(request: AddVmAppToMeshRequest, runtime: $Util.RuntimeOptions): Promise<AddVmAppToMeshResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<AddVmAppToMeshResponse>(await this.doRPCRequest("AddVmAppToMesh", "2020-01-11", "HTTPS", "POST", "AK", "json", req, runtime), new AddVmAppToMeshResponse({}));
+  }
+
+  async addVmAppToMesh(request: AddVmAppToMeshRequest): Promise<AddVmAppToMeshResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.addVmAppToMeshWithOptions(request, runtime);
+  }
+
+  async createServiceMeshWithOptions(request: CreateServiceMeshRequest, runtime: $Util.RuntimeOptions): Promise<CreateServiceMeshResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<CreateServiceMeshResponse>(await this.doRPCRequest("CreateServiceMesh", "2020-01-11", "HTTPS", "POST", "AK", "json", req, runtime), new CreateServiceMeshResponse({}));
+  }
+
+  async createServiceMesh(request: CreateServiceMeshRequest): Promise<CreateServiceMeshResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createServiceMeshWithOptions(request, runtime);
+  }
+
+  async getServiceRegistrySourceWithOptions(request: GetServiceRegistrySourceRequest, runtime: $Util.RuntimeOptions): Promise<GetServiceRegistrySourceResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<GetServiceRegistrySourceResponse>(await this.doRPCRequest("GetServiceRegistrySource", "2020-01-11", "HTTPS", "POST", "AK", "json", req, runtime), new GetServiceRegistrySourceResponse({}));
+  }
+
+  async getServiceRegistrySource(request: GetServiceRegistrySourceRequest): Promise<GetServiceRegistrySourceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getServiceRegistrySourceWithOptions(request, runtime);
+  }
+
+  async removeBuiltinEnvoyFilterWithOptions(request: RemoveBuiltinEnvoyFilterRequest, runtime: $Util.RuntimeOptions): Promise<RemoveBuiltinEnvoyFilterResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<RemoveBuiltinEnvoyFilterResponse>(await this.doRPCRequest("RemoveBuiltinEnvoyFilter", "2020-01-11", "HTTPS", "POST", "AK", "json", req, runtime), new RemoveBuiltinEnvoyFilterResponse({}));
+  }
+
+  async removeBuiltinEnvoyFilter(request: RemoveBuiltinEnvoyFilterRequest): Promise<RemoveBuiltinEnvoyFilterResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.removeBuiltinEnvoyFilterWithOptions(request, runtime);
+  }
+
+  async getBuiltinEnvoyFilterWithOptions(request: GetBuiltinEnvoyFilterRequest, runtime: $Util.RuntimeOptions): Promise<GetBuiltinEnvoyFilterResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<GetBuiltinEnvoyFilterResponse>(await this.doRPCRequest("GetBuiltinEnvoyFilter", "2020-01-11", "HTTPS", "POST", "AK", "json", req, runtime), new GetBuiltinEnvoyFilterResponse({}));
+  }
+
+  async getBuiltinEnvoyFilter(request: GetBuiltinEnvoyFilterRequest): Promise<GetBuiltinEnvoyFilterResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getBuiltinEnvoyFilterWithOptions(request, runtime);
+  }
+
+  async initializeASMRoleWithOptions(runtime: $Util.RuntimeOptions): Promise<InitializeASMRoleResponse> {
+    let req = new $OpenApi.OpenApiRequest({ });
+    return $tea.cast<InitializeASMRoleResponse>(await this.doRPCRequest("InitializeASMRole", "2020-01-11", "HTTPS", "POST", "AK", "json", req, runtime), new InitializeASMRoleResponse({}));
+  }
+
+  async initializeASMRole(): Promise<InitializeASMRoleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.initializeASMRoleWithOptions(runtime);
+  }
+
+  async addMeshTagToEcsWithOptions(request: AddMeshTagToEcsRequest, runtime: $Util.RuntimeOptions): Promise<AddMeshTagToEcsResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<AddMeshTagToEcsResponse>(await this.doRPCRequest("AddMeshTagToEcs", "2020-01-11", "HTTPS", "POST", "AK", "json", req, runtime), new AddMeshTagToEcsResponse({}));
+  }
+
+  async addMeshTagToEcs(request: AddMeshTagToEcsRequest): Promise<AddMeshTagToEcsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.addMeshTagToEcsWithOptions(request, runtime);
   }
 
 }
