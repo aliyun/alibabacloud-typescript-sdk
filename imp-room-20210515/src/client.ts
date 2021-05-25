@@ -174,6 +174,147 @@ export class CreateRoomResponse extends $tea.Model {
   }
 }
 
+export class DestroyRoomRequest extends $tea.Model {
+  request?: DestroyRoomRequestRequest;
+  static names(): { [key: string]: string } {
+    return {
+      request: 'Request',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      request: DestroyRoomRequestRequest,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DestroyRoomResponseBody extends $tea.Model {
+  requestId?: string;
+  responseSuccess?: boolean;
+  errorCode?: string;
+  errorMsg?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      responseSuccess: 'ResponseSuccess',
+      errorCode: 'ErrorCode',
+      errorMsg: 'ErrorMsg',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      responseSuccess: 'boolean',
+      errorCode: 'string',
+      errorMsg: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DestroyRoomResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DestroyRoomResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DestroyRoomResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateInstanceRequest extends $tea.Model {
+  request?: CreateInstanceRequestRequest;
+  static names(): { [key: string]: string } {
+    return {
+      request: 'Request',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      request: CreateInstanceRequestRequest,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateInstanceResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: CreateInstanceResponseBodyResult;
+  responseSuccess?: boolean;
+  errorCode?: string;
+  errorMsg?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+      responseSuccess: 'ResponseSuccess',
+      errorCode: 'ErrorCode',
+      errorMsg: 'ErrorMsg',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: CreateInstanceResponseBodyResult,
+      responseSuccess: 'boolean',
+      errorCode: 'string',
+      errorMsg: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateInstanceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CreateInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CreateInstanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetLoginTokenRequestRequestParams extends $tea.Model {
   appUid?: string;
   appKey?: string;
@@ -283,6 +424,78 @@ export class CreateRoomResponseBodyResult extends $tea.Model {
   }
 }
 
+export class DestroyRoomRequestRequest extends $tea.Model {
+  domain?: string;
+  roomId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domain: 'Domain',
+      roomId: 'RoomId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domain: 'string',
+      roomId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateInstanceRequestRequest extends $tea.Model {
+  domain?: string;
+  roomId?: string;
+  pluginId?: string;
+  extension?: { [key: string]: string };
+  static names(): { [key: string]: string } {
+    return {
+      domain: 'Domain',
+      roomId: 'RoomId',
+      pluginId: 'PluginId',
+      extension: 'Extension',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domain: 'string',
+      roomId: 'string',
+      pluginId: 'string',
+      extension: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateInstanceResponseBodyResult extends $tea.Model {
+  instanceId?: string;
+  extension?: { [key: string]: string };
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      extension: 'Extension',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      extension: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 
 export default class Client extends OpenApi {
 
@@ -336,6 +549,32 @@ export default class Client extends OpenApi {
   async createRoom(request: CreateRoomRequest): Promise<CreateRoomResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createRoomWithOptions(request, runtime);
+  }
+
+  async destroyRoomWithOptions(request: DestroyRoomRequest, runtime: $Util.RuntimeOptions): Promise<DestroyRoomResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DestroyRoomResponse>(await this.doRPCRequest("DestroyRoom", "2021-05-15", "HTTPS", "POST", "AK", "json", req, runtime), new DestroyRoomResponse({}));
+  }
+
+  async destroyRoom(request: DestroyRoomRequest): Promise<DestroyRoomResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.destroyRoomWithOptions(request, runtime);
+  }
+
+  async createInstanceWithOptions(request: CreateInstanceRequest, runtime: $Util.RuntimeOptions): Promise<CreateInstanceResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<CreateInstanceResponse>(await this.doRPCRequest("CreateInstance", "2021-05-15", "HTTPS", "POST", "AK", "json", req, runtime), new CreateInstanceResponse({}));
+  }
+
+  async createInstance(request: CreateInstanceRequest): Promise<CreateInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createInstanceWithOptions(request, runtime);
   }
 
 }
