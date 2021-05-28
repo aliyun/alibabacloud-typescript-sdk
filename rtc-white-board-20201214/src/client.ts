@@ -88,6 +88,87 @@ export class DescribeAppsResponse extends $tea.Model {
   }
 }
 
+export class PauseWhiteBoardRecordingRequest extends $tea.Model {
+  appID?: string;
+  userId?: string;
+  docKey?: string;
+  recordId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appID: 'AppID',
+      userId: 'UserId',
+      docKey: 'DocKey',
+      recordId: 'RecordId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appID: 'string',
+      userId: 'string',
+      docKey: 'string',
+      recordId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PauseWhiteBoardRecordingResponseBody extends $tea.Model {
+  requestId?: string;
+  responseSuccess?: boolean;
+  errorCode?: string;
+  errorMsg?: string;
+  result?: PauseWhiteBoardRecordingResponseBodyResult;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      responseSuccess: 'ResponseSuccess',
+      errorCode: 'ErrorCode',
+      errorMsg: 'ErrorMsg',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      responseSuccess: 'boolean',
+      errorCode: 'string',
+      errorMsg: 'string',
+      result: PauseWhiteBoardRecordingResponseBodyResult,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PauseWhiteBoardRecordingResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: PauseWhiteBoardRecordingResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: PauseWhiteBoardRecordingResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SetAppCallbackUrlRequest extends $tea.Model {
   appID?: string;
   appCallbackUrl?: string;
@@ -158,6 +239,84 @@ export class SetAppCallbackUrlResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: SetAppCallbackUrlResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartWhiteBoardRecordingRequest extends $tea.Model {
+  appID?: string;
+  userId?: string;
+  docKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appID: 'AppID',
+      userId: 'UserId',
+      docKey: 'DocKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appID: 'string',
+      userId: 'string',
+      docKey: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartWhiteBoardRecordingResponseBody extends $tea.Model {
+  requestId?: string;
+  responseSuccess?: boolean;
+  errorCode?: string;
+  errorMsg?: string;
+  result?: StartWhiteBoardRecordingResponseBodyResult;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      responseSuccess: 'ResponseSuccess',
+      errorCode: 'ErrorCode',
+      errorMsg: 'ErrorMsg',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      responseSuccess: 'boolean',
+      errorCode: 'string',
+      errorMsg: 'string',
+      result: StartWhiteBoardRecordingResponseBodyResult,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartWhiteBoardRecordingResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: StartWhiteBoardRecordingResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: StartWhiteBoardRecordingResponseBody,
     };
   }
 
@@ -314,6 +473,87 @@ export class DescribeWhiteBoardsResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: DescribeWhiteBoardsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ResumeWhiteBoardRecordingRequest extends $tea.Model {
+  appID?: string;
+  userId?: string;
+  docKey?: string;
+  recordId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appID: 'AppID',
+      userId: 'UserId',
+      docKey: 'DocKey',
+      recordId: 'RecordId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appID: 'string',
+      userId: 'string',
+      docKey: 'string',
+      recordId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ResumeWhiteBoardRecordingResponseBody extends $tea.Model {
+  requestId?: string;
+  responseSuccess?: boolean;
+  errorCode?: string;
+  errorMsg?: string;
+  result?: ResumeWhiteBoardRecordingResponseBodyResult;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      responseSuccess: 'ResponseSuccess',
+      errorCode: 'ErrorCode',
+      errorMsg: 'ErrorMsg',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      responseSuccess: 'boolean',
+      errorCode: 'string',
+      errorMsg: 'string',
+      result: ResumeWhiteBoardRecordingResponseBodyResult,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ResumeWhiteBoardRecordingResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ResumeWhiteBoardRecordingResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ResumeWhiteBoardRecordingResponseBody,
     };
   }
 
@@ -931,6 +1171,87 @@ export class SetAppStatusResponse extends $tea.Model {
   }
 }
 
+export class StopWhiteBoardRecordingRequest extends $tea.Model {
+  appID?: string;
+  userId?: string;
+  docKey?: string;
+  recordId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appID: 'AppID',
+      userId: 'UserId',
+      docKey: 'DocKey',
+      recordId: 'RecordId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appID: 'string',
+      userId: 'string',
+      docKey: 'string',
+      recordId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopWhiteBoardRecordingResponseBody extends $tea.Model {
+  requestId?: string;
+  responseSuccess?: boolean;
+  errorCode?: string;
+  errorMsg?: string;
+  result?: StopWhiteBoardRecordingResponseBodyResult;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      responseSuccess: 'ResponseSuccess',
+      errorCode: 'ErrorCode',
+      errorMsg: 'ErrorMsg',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      responseSuccess: 'boolean',
+      errorCode: 'string',
+      errorMsg: 'string',
+      result: StopWhiteBoardRecordingResponseBodyResult,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopWhiteBoardRecordingResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: StopWhiteBoardRecordingResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: StopWhiteBoardRecordingResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeAppsResponseBodyResultAppList extends $tea.Model {
   appID?: string;
   appName?: string;
@@ -993,6 +1314,47 @@ export class DescribeAppsResponseBodyResult extends $tea.Model {
   }
 }
 
+export class PauseWhiteBoardRecordingResponseBodyResult extends $tea.Model {
+  pauseTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pauseTime: 'PauseTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pauseTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartWhiteBoardRecordingResponseBodyResult extends $tea.Model {
+  recordId?: string;
+  startTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      recordId: 'RecordId',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      recordId: 'string',
+      startTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeWhiteBoardsResponseBodyResultDocList extends $tea.Model {
   appID?: string;
   docKey?: string;
@@ -1041,6 +1403,25 @@ export class DescribeWhiteBoardsResponseBodyResult extends $tea.Model {
       totalNum: 'number',
       totalPage: 'number',
       docList: { 'type': 'array', 'itemType': DescribeWhiteBoardsResponseBodyResultDocList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ResumeWhiteBoardRecordingResponseBodyResult extends $tea.Model {
+  resumeTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      resumeTime: 'ResumeTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resumeTime: 'number',
     };
   }
 
@@ -1165,6 +1546,25 @@ export class CreateWhiteBoardResponseBodyResult extends $tea.Model {
   }
 }
 
+export class StopWhiteBoardRecordingResponseBodyResult extends $tea.Model {
+  stopTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      stopTime: 'StopTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      stopTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 
 export default class Client extends OpenApi {
 
@@ -1201,6 +1601,19 @@ export default class Client extends OpenApi {
     return await this.describeAppsWithOptions(request, runtime);
   }
 
+  async pauseWhiteBoardRecordingWithOptions(request: PauseWhiteBoardRecordingRequest, runtime: $Util.RuntimeOptions): Promise<PauseWhiteBoardRecordingResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<PauseWhiteBoardRecordingResponse>(await this.doRPCRequest("PauseWhiteBoardRecording", "2020-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new PauseWhiteBoardRecordingResponse({}));
+  }
+
+  async pauseWhiteBoardRecording(request: PauseWhiteBoardRecordingRequest): Promise<PauseWhiteBoardRecordingResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.pauseWhiteBoardRecordingWithOptions(request, runtime);
+  }
+
   async setAppCallbackUrlWithOptions(request: SetAppCallbackUrlRequest, runtime: $Util.RuntimeOptions): Promise<SetAppCallbackUrlResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -1212,6 +1625,19 @@ export default class Client extends OpenApi {
   async setAppCallbackUrl(request: SetAppCallbackUrlRequest): Promise<SetAppCallbackUrlResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setAppCallbackUrlWithOptions(request, runtime);
+  }
+
+  async startWhiteBoardRecordingWithOptions(request: StartWhiteBoardRecordingRequest, runtime: $Util.RuntimeOptions): Promise<StartWhiteBoardRecordingResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<StartWhiteBoardRecordingResponse>(await this.doRPCRequest("StartWhiteBoardRecording", "2020-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new StartWhiteBoardRecordingResponse({}));
+  }
+
+  async startWhiteBoardRecording(request: StartWhiteBoardRecordingRequest): Promise<StartWhiteBoardRecordingResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.startWhiteBoardRecordingWithOptions(request, runtime);
   }
 
   async setAppNameWithOptions(request: SetAppNameRequest, runtime: $Util.RuntimeOptions): Promise<SetAppNameResponse> {
@@ -1238,6 +1664,19 @@ export default class Client extends OpenApi {
   async describeWhiteBoards(request: DescribeWhiteBoardsRequest): Promise<DescribeWhiteBoardsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeWhiteBoardsWithOptions(request, runtime);
+  }
+
+  async resumeWhiteBoardRecordingWithOptions(request: ResumeWhiteBoardRecordingRequest, runtime: $Util.RuntimeOptions): Promise<ResumeWhiteBoardRecordingResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<ResumeWhiteBoardRecordingResponse>(await this.doRPCRequest("ResumeWhiteBoardRecording", "2020-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new ResumeWhiteBoardRecordingResponse({}));
+  }
+
+  async resumeWhiteBoardRecording(request: ResumeWhiteBoardRecordingRequest): Promise<ResumeWhiteBoardRecordingResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.resumeWhiteBoardRecordingWithOptions(request, runtime);
   }
 
   async setAppDomainNamesWithOptions(request: SetAppDomainNamesRequest, runtime: $Util.RuntimeOptions): Promise<SetAppDomainNamesResponse> {
@@ -1342,6 +1781,19 @@ export default class Client extends OpenApi {
   async setAppStatus(request: SetAppStatusRequest): Promise<SetAppStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setAppStatusWithOptions(request, runtime);
+  }
+
+  async stopWhiteBoardRecordingWithOptions(request: StopWhiteBoardRecordingRequest, runtime: $Util.RuntimeOptions): Promise<StopWhiteBoardRecordingResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<StopWhiteBoardRecordingResponse>(await this.doRPCRequest("StopWhiteBoardRecording", "2020-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new StopWhiteBoardRecordingResponse({}));
+  }
+
+  async stopWhiteBoardRecording(request: StopWhiteBoardRecordingRequest): Promise<StopWhiteBoardRecordingResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.stopWhiteBoardRecordingWithOptions(request, runtime);
   }
 
 }
