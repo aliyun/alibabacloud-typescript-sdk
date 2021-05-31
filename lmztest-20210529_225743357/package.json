@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/lmztest20210529_225743357",
-  "version": "1.0.4",
+  "version": "1.0.1",
   "description": "",
   "main": "dist/client.js",
   "scripts": {
