@@ -36,19 +36,19 @@ export class ApplyTokenRequest extends $tea.Model {
 }
 
 export class ApplyTokenResponseBody extends $tea.Model {
-  requestId?: string;
   token?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       token: 'Token',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       token: 'string',
+      requestId: 'string',
     };
   }
 
@@ -400,6 +400,363 @@ export class ListGroupIdResponse extends $tea.Model {
   }
 }
 
+export class QueryMqttTraceDeviceRequest extends $tea.Model {
+  mqttRegionId?: string;
+  instanceId?: string;
+  reverse?: boolean;
+  clientId?: string;
+  beginTime?: number;
+  endTime?: number;
+  currentPage?: number;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      mqttRegionId: 'MqttRegionId',
+      instanceId: 'InstanceId',
+      reverse: 'Reverse',
+      clientId: 'ClientId',
+      beginTime: 'BeginTime',
+      endTime: 'EndTime',
+      currentPage: 'CurrentPage',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mqttRegionId: 'string',
+      instanceId: 'string',
+      reverse: 'boolean',
+      clientId: 'string',
+      beginTime: 'number',
+      endTime: 'number',
+      currentPage: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryMqttTraceDeviceResponseBody extends $tea.Model {
+  currentPage?: number;
+  requestId?: string;
+  pageSize?: number;
+  total?: number;
+  deviceInfoList?: QueryMqttTraceDeviceResponseBodyDeviceInfoList[];
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      requestId: 'RequestId',
+      pageSize: 'PageSize',
+      total: 'Total',
+      deviceInfoList: 'DeviceInfoList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      requestId: 'string',
+      pageSize: 'number',
+      total: 'number',
+      deviceInfoList: { 'type': 'array', 'itemType': QueryMqttTraceDeviceResponseBodyDeviceInfoList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryMqttTraceDeviceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: QueryMqttTraceDeviceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: QueryMqttTraceDeviceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryMqttTraceMessageOfClientRequest extends $tea.Model {
+  mqttRegionId?: string;
+  instanceId?: string;
+  clientId?: string;
+  beginTime?: number;
+  endTime?: number;
+  currentPage?: number;
+  pageSize?: number;
+  reverse?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      mqttRegionId: 'MqttRegionId',
+      instanceId: 'InstanceId',
+      clientId: 'ClientId',
+      beginTime: 'BeginTime',
+      endTime: 'EndTime',
+      currentPage: 'CurrentPage',
+      pageSize: 'PageSize',
+      reverse: 'Reverse',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mqttRegionId: 'string',
+      instanceId: 'string',
+      clientId: 'string',
+      beginTime: 'number',
+      endTime: 'number',
+      currentPage: 'number',
+      pageSize: 'number',
+      reverse: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryMqttTraceMessageOfClientResponseBody extends $tea.Model {
+  currentPage?: number;
+  requestId?: string;
+  pageSize?: number;
+  total?: number;
+  messageOfClientList?: QueryMqttTraceMessageOfClientResponseBodyMessageOfClientList[];
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      requestId: 'RequestId',
+      pageSize: 'PageSize',
+      total: 'Total',
+      messageOfClientList: 'MessageOfClientList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      requestId: 'string',
+      pageSize: 'number',
+      total: 'number',
+      messageOfClientList: { 'type': 'array', 'itemType': QueryMqttTraceMessageOfClientResponseBodyMessageOfClientList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryMqttTraceMessageOfClientResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: QueryMqttTraceMessageOfClientResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: QueryMqttTraceMessageOfClientResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryMqttTraceMessagePublishRequest extends $tea.Model {
+  mqttRegionId?: string;
+  instanceId?: string;
+  msgId?: string;
+  beginTime?: number;
+  endTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      mqttRegionId: 'MqttRegionId',
+      instanceId: 'InstanceId',
+      msgId: 'MsgId',
+      beginTime: 'BeginTime',
+      endTime: 'EndTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mqttRegionId: 'string',
+      instanceId: 'string',
+      msgId: 'string',
+      beginTime: 'number',
+      endTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryMqttTraceMessagePublishResponseBody extends $tea.Model {
+  requestId?: string;
+  messageTraceLists?: QueryMqttTraceMessagePublishResponseBodyMessageTraceLists[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      messageTraceLists: 'MessageTraceLists',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      messageTraceLists: { 'type': 'array', 'itemType': QueryMqttTraceMessagePublishResponseBodyMessageTraceLists },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryMqttTraceMessagePublishResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: QueryMqttTraceMessagePublishResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: QueryMqttTraceMessagePublishResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryMqttTraceMessageSubscribeRequest extends $tea.Model {
+  mqttRegionId?: string;
+  instanceId?: string;
+  reverse?: boolean;
+  clientId?: string;
+  beginTime?: number;
+  endTime?: number;
+  currentPage?: number;
+  pageSize?: number;
+  msgId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      mqttRegionId: 'MqttRegionId',
+      instanceId: 'InstanceId',
+      reverse: 'Reverse',
+      clientId: 'ClientId',
+      beginTime: 'BeginTime',
+      endTime: 'EndTime',
+      currentPage: 'CurrentPage',
+      pageSize: 'PageSize',
+      msgId: 'MsgId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mqttRegionId: 'string',
+      instanceId: 'string',
+      reverse: 'boolean',
+      clientId: 'string',
+      beginTime: 'number',
+      endTime: 'number',
+      currentPage: 'number',
+      pageSize: 'number',
+      msgId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryMqttTraceMessageSubscribeResponseBody extends $tea.Model {
+  currentPage?: number;
+  requestId?: string;
+  pageSize?: number;
+  total?: number;
+  messageTraceLists?: QueryMqttTraceMessageSubscribeResponseBodyMessageTraceLists[];
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      requestId: 'RequestId',
+      pageSize: 'PageSize',
+      total: 'Total',
+      messageTraceLists: 'MessageTraceLists',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      requestId: 'string',
+      pageSize: 'number',
+      total: 'number',
+      messageTraceLists: { 'type': 'array', 'itemType': QueryMqttTraceMessageSubscribeResponseBodyMessageTraceLists },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryMqttTraceMessageSubscribeResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: QueryMqttTraceMessageSubscribeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: QueryMqttTraceMessageSubscribeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QuerySessionByClientIdRequest extends $tea.Model {
   clientId?: string;
   instanceId?: string;
@@ -423,19 +780,19 @@ export class QuerySessionByClientIdRequest extends $tea.Model {
 }
 
 export class QuerySessionByClientIdResponseBody extends $tea.Model {
-  requestId?: string;
   onlineStatus?: boolean;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       onlineStatus: 'OnlineStatus',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       onlineStatus: 'boolean',
+      requestId: 'string',
     };
   }
 
@@ -489,19 +846,19 @@ export class QueryTokenRequest extends $tea.Model {
 }
 
 export class QueryTokenResponseBody extends $tea.Model {
-  requestId?: string;
   tokenStatus?: boolean;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       tokenStatus: 'TokenStatus',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       tokenStatus: 'boolean',
+      requestId: 'string',
     };
   }
 
@@ -753,19 +1110,19 @@ export class SendMessageRequest extends $tea.Model {
 }
 
 export class SendMessageResponseBody extends $tea.Model {
-  requestId?: string;
   msgId?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       msgId: 'MsgId',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       msgId: 'string',
+      requestId: 'string',
     };
   }
 
@@ -917,27 +1274,160 @@ export class GetDeviceCredentialResponseBodyDeviceCredential extends $tea.Model 
 
 export class ListGroupIdResponseBodyData extends $tea.Model {
   updateTime?: number;
+  instanceId?: string;
   independentNaming?: boolean;
   groupId?: string;
   createTime?: number;
-  instanceId?: string;
   static names(): { [key: string]: string } {
     return {
       updateTime: 'UpdateTime',
+      instanceId: 'InstanceId',
       independentNaming: 'IndependentNaming',
       groupId: 'GroupId',
       createTime: 'CreateTime',
-      instanceId: 'InstanceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       updateTime: 'number',
+      instanceId: 'string',
       independentNaming: 'boolean',
       groupId: 'string',
       createTime: 'number',
-      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryMqttTraceDeviceResponseBodyDeviceInfoList extends $tea.Model {
+  channelId?: string;
+  time?: string;
+  actionCode?: string;
+  action?: string;
+  actionInfo?: string;
+  static names(): { [key: string]: string } {
+    return {
+      channelId: 'ChannelId',
+      time: 'Time',
+      actionCode: 'ActionCode',
+      action: 'Action',
+      actionInfo: 'ActionInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      channelId: 'string',
+      time: 'string',
+      actionCode: 'string',
+      action: 'string',
+      actionInfo: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryMqttTraceMessageOfClientResponseBodyMessageOfClientList extends $tea.Model {
+  time?: string;
+  action?: string;
+  actionCode?: string;
+  actionInfo?: string;
+  msgId?: string;
+  clientId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      time: 'Time',
+      action: 'Action',
+      actionCode: 'ActionCode',
+      actionInfo: 'ActionInfo',
+      msgId: 'MsgId',
+      clientId: 'ClientId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      time: 'string',
+      action: 'string',
+      actionCode: 'string',
+      actionInfo: 'string',
+      msgId: 'string',
+      clientId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryMqttTraceMessagePublishResponseBodyMessageTraceLists extends $tea.Model {
+  time?: string;
+  action?: string;
+  actionCode?: string;
+  actionInfo?: string;
+  msgId?: string;
+  clientId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      time: 'Time',
+      action: 'Action',
+      actionCode: 'ActionCode',
+      actionInfo: 'ActionInfo',
+      msgId: 'MsgId',
+      clientId: 'ClientId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      time: 'string',
+      action: 'string',
+      actionCode: 'string',
+      actionInfo: 'string',
+      msgId: 'string',
+      clientId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryMqttTraceMessageSubscribeResponseBodyMessageTraceLists extends $tea.Model {
+  time?: string;
+  action?: string;
+  actionCode?: string;
+  actionInfo?: string;
+  msgId?: string;
+  clientId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      time: 'Time',
+      action: 'Action',
+      actionCode: 'ActionCode',
+      actionInfo: 'ActionInfo',
+      msgId: 'MsgId',
+      clientId: 'ClientId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      time: 'string',
+      action: 'string',
+      actionCode: 'string',
+      actionInfo: 'string',
+      msgId: 'string',
+      clientId: 'string',
     };
   }
 
@@ -1113,6 +1603,58 @@ export default class Client extends OpenApi {
   async listGroupId(request: ListGroupIdRequest): Promise<ListGroupIdResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listGroupIdWithOptions(request, runtime);
+  }
+
+  async queryMqttTraceDeviceWithOptions(request: QueryMqttTraceDeviceRequest, runtime: $Util.RuntimeOptions): Promise<QueryMqttTraceDeviceResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<QueryMqttTraceDeviceResponse>(await this.doRPCRequest("QueryMqttTraceDevice", "2020-04-20", "HTTPS", "POST", "AK", "json", req, runtime), new QueryMqttTraceDeviceResponse({}));
+  }
+
+  async queryMqttTraceDevice(request: QueryMqttTraceDeviceRequest): Promise<QueryMqttTraceDeviceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryMqttTraceDeviceWithOptions(request, runtime);
+  }
+
+  async queryMqttTraceMessageOfClientWithOptions(request: QueryMqttTraceMessageOfClientRequest, runtime: $Util.RuntimeOptions): Promise<QueryMqttTraceMessageOfClientResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<QueryMqttTraceMessageOfClientResponse>(await this.doRPCRequest("QueryMqttTraceMessageOfClient", "2020-04-20", "HTTPS", "POST", "AK", "json", req, runtime), new QueryMqttTraceMessageOfClientResponse({}));
+  }
+
+  async queryMqttTraceMessageOfClient(request: QueryMqttTraceMessageOfClientRequest): Promise<QueryMqttTraceMessageOfClientResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryMqttTraceMessageOfClientWithOptions(request, runtime);
+  }
+
+  async queryMqttTraceMessagePublishWithOptions(request: QueryMqttTraceMessagePublishRequest, runtime: $Util.RuntimeOptions): Promise<QueryMqttTraceMessagePublishResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<QueryMqttTraceMessagePublishResponse>(await this.doRPCRequest("QueryMqttTraceMessagePublish", "2020-04-20", "HTTPS", "POST", "AK", "json", req, runtime), new QueryMqttTraceMessagePublishResponse({}));
+  }
+
+  async queryMqttTraceMessagePublish(request: QueryMqttTraceMessagePublishRequest): Promise<QueryMqttTraceMessagePublishResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryMqttTraceMessagePublishWithOptions(request, runtime);
+  }
+
+  async queryMqttTraceMessageSubscribeWithOptions(request: QueryMqttTraceMessageSubscribeRequest, runtime: $Util.RuntimeOptions): Promise<QueryMqttTraceMessageSubscribeResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<QueryMqttTraceMessageSubscribeResponse>(await this.doRPCRequest("QueryMqttTraceMessageSubscribe", "2020-04-20", "HTTPS", "POST", "AK", "json", req, runtime), new QueryMqttTraceMessageSubscribeResponse({}));
+  }
+
+  async queryMqttTraceMessageSubscribe(request: QueryMqttTraceMessageSubscribeRequest): Promise<QueryMqttTraceMessageSubscribeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryMqttTraceMessageSubscribeWithOptions(request, runtime);
   }
 
   async querySessionByClientIdWithOptions(request: QuerySessionByClientIdRequest, runtime: $Util.RuntimeOptions): Promise<QuerySessionByClientIdResponse> {
