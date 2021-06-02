@@ -1,23 +1,23 @@
 // This file is auto-generated, don't edit it
+/**
+ *
+ */
 import Util, * as $Util from '@alicloud/tea-util';
-import RPC, * as $RPC from '@alicloud/rpc-client';
+import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
-export class SaveHotspotConfigRequest extends $tea.Model {
-  paramTag?: string;
-  previewToken?: string;
+export class GetSingleConnDataRequest extends $tea.Model {
+  subSceneId?: string;
   static names(): { [key: string]: string } {
     return {
-      paramTag: 'ParamTag',
-      previewToken: 'PreviewToken',
+      subSceneId: 'SubSceneId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      paramTag: 'string',
-      previewToken: 'string',
+      subSceneId: 'string',
     };
   }
 
@@ -26,23 +26,32 @@ export class SaveHotspotConfigRequest extends $tea.Model {
   }
 }
 
-export class SaveHotspotConfigResponse extends $tea.Model {
-  requestId: string;
-  success: boolean;
-  errMessage: string;
+export class GetSingleConnDataResponseBody extends $tea.Model {
+  requestId?: string;
+  code?: number;
+  success?: boolean;
+  message?: string;
+  version?: string;
+  list?: GetSingleConnDataResponseBodyList[];
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
+      code: 'Code',
       success: 'Success',
-      errMessage: 'ErrMessage',
+      message: 'Message',
+      version: 'Version',
+      list: 'List',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
+      code: 'number',
       success: 'boolean',
-      errMessage: 'string',
+      message: 'string',
+      version: 'string',
+      list: { 'type': 'array', 'itemType': GetSingleConnDataResponseBodyList },
     };
   }
 
@@ -51,17 +60,20 @@ export class SaveHotspotConfigResponse extends $tea.Model {
   }
 }
 
-export class GetHotspotConfigRequest extends $tea.Model {
-  previewToken?: string;
+export class GetSingleConnDataResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetSingleConnDataResponseBody;
   static names(): { [key: string]: string } {
     return {
-      previewToken: 'PreviewToken',
+      headers: 'headers',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      previewToken: 'string',
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetSingleConnDataResponseBody,
     };
   }
 
@@ -70,173 +82,129 @@ export class GetHotspotConfigRequest extends $tea.Model {
   }
 }
 
-export class GetHotspotConfigResponse extends $tea.Model {
-  requestId: string;
-  success: boolean;
-  errMessage: string;
-  data: string;
-  objectString: string;
+export class GetTaskStatusRequest extends $tea.Model {
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTaskStatusResponseBody extends $tea.Model {
+  requestId?: string;
+  code?: number;
+  success?: boolean;
+  message?: string;
+  status?: string;
+  type?: string;
+  errorCode?: string;
+  errorMsg?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
+      code: 'Code',
       success: 'Success',
-      errMessage: 'ErrMessage',
-      data: 'Data',
+      message: 'Message',
+      status: 'Status',
+      type: 'Type',
+      errorCode: 'ErrorCode',
+      errorMsg: 'ErrorMsg',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      code: 'number',
+      success: 'boolean',
+      message: 'string',
+      status: 'string',
+      type: 'string',
+      errorCode: 'string',
+      errorMsg: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTaskStatusResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetTaskStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetTaskStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSceneDataRequest extends $tea.Model {
+  token?: string;
+  static names(): { [key: string]: string } {
+    return {
+      token: 'Token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      token: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSceneDataResponseBody extends $tea.Model {
+  requestId?: string;
+  objectString?: string;
+  data?: { [key: string]: any };
+  errMessage?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
       objectString: 'ObjectString',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      success: 'boolean',
-      errMessage: 'string',
-      data: 'string',
-      objectString: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMainScenesRequest extends $tea.Model {
-  queryName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      queryName: 'QueryName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      queryName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMainScenesResponse extends $tea.Model {
-  requestId: string;
-  success: boolean;
-  errMessage: string;
-  data: string;
-  objectString: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      success: 'Success',
-      errMessage: 'ErrMessage',
       data: 'Data',
-      objectString: 'ObjectString',
+      errMessage: 'ErrMessage',
+      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      success: 'boolean',
-      errMessage: 'string',
-      data: 'string',
       objectString: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveHotspotTagRequest extends $tea.Model {
-  paramTag?: string;
-  subSceneUuid?: string;
-  static names(): { [key: string]: string } {
-    return {
-      paramTag: 'ParamTag',
-      subSceneUuid: 'SubSceneUuid',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      paramTag: 'string',
-      subSceneUuid: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveHotspotTagResponse extends $tea.Model {
-  requestId: string;
-  success: boolean;
-  errMessage: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      success: 'Success',
-      errMessage: 'ErrMessage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      success: 'boolean',
-      errMessage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetSceneListRequest extends $tea.Model {
-  accountId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accountId: 'AccountId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accountId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetSceneListResponse extends $tea.Model {
-  requestId: string;
-  success: boolean;
-  errMessage: string;
-  data: { [key: string]: any };
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      success: 'Success',
-      errMessage: 'ErrMessage',
-      data: 'Data',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      success: 'boolean',
-      errMessage: 'string',
       data: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      errMessage: 'string',
+      success: 'boolean',
     };
   }
 
@@ -245,20 +213,20 @@ export class GetSceneListResponse extends $tea.Model {
   }
 }
 
-export class SaveFileRequest extends $tea.Model {
-  paramFile?: string;
-  subSceneUuid?: string;
+export class GetSceneDataResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetSceneDataResponseBody;
   static names(): { [key: string]: string } {
     return {
-      paramFile: 'ParamFile',
-      subSceneUuid: 'SubSceneUuid',
+      headers: 'headers',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      paramFile: 'string',
-      subSceneUuid: 'string',
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetSceneDataResponseBody,
     };
   }
 
@@ -267,29 +235,760 @@ export class SaveFileRequest extends $tea.Model {
   }
 }
 
-export class SaveFileResponse extends $tea.Model {
-  requestId: string;
-  success: boolean;
-  errMessage: string;
-  data: string;
-  objectString: string;
+export class LinkImageRequest extends $tea.Model {
+  subSceneId?: string;
+  fileName?: string;
+  cameraHeight?: number;
+  static names(): { [key: string]: string } {
+    return {
+      subSceneId: 'SubSceneId',
+      fileName: 'FileName',
+      cameraHeight: 'CameraHeight',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      subSceneId: 'string',
+      fileName: 'string',
+      cameraHeight: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class LinkImageResponseBody extends $tea.Model {
+  requestId?: string;
+  code?: number;
+  success?: boolean;
+  message?: string;
+  resourceId?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
+      code: 'Code',
       success: 'Success',
-      errMessage: 'ErrMessage',
-      data: 'Data',
-      objectString: 'ObjectString',
+      message: 'Message',
+      resourceId: 'ResourceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
+      code: 'number',
       success: 'boolean',
+      message: 'string',
+      resourceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class LinkImageResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: LinkImageResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: LinkImageResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddSceneRequest extends $tea.Model {
+  type?: string;
+  name?: string;
+  projectId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      type: 'Type',
+      name: 'Name',
+      projectId: 'ProjectId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      type: 'string',
+      name: 'string',
+      projectId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddSceneResponseBody extends $tea.Model {
+  requestId?: string;
+  code?: number;
+  success?: boolean;
+  message?: string;
+  id?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      code: 'Code',
+      success: 'Success',
+      message: 'Message',
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      code: 'number',
+      success: 'boolean',
+      message: 'string',
+      id: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddSceneResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: AddSceneResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: AddSceneResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateConnDataRequest extends $tea.Model {
+  sceneId?: string;
+  connData?: string;
+  static names(): { [key: string]: string } {
+    return {
+      sceneId: 'SceneId',
+      connData: 'ConnData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sceneId: 'string',
+      connData: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateConnDataResponseBody extends $tea.Model {
+  requestId?: string;
+  code?: number;
+  success?: boolean;
+  message?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      code: 'Code',
+      success: 'Success',
+      message: 'Message',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      code: 'number',
+      success: 'boolean',
+      message: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateConnDataResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: UpdateConnDataResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: UpdateConnDataResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BucketIsExistRequest extends $tea.Model {
+  bucketName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bucketName: 'BucketName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bucketName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BucketIsExistResponseBody extends $tea.Model {
+  requestId?: string;
+  code?: number;
+  success?: boolean;
+  message?: string;
+  isExist?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      code: 'Code',
+      success: 'Success',
+      message: 'Message',
+      isExist: 'IsExist',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      code: 'number',
+      success: 'boolean',
+      message: 'string',
+      isExist: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BucketIsExistResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: BucketIsExistResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: BucketIsExistResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RectifyImageRequest extends $tea.Model {
+  url?: string;
+  cameraHeight?: number;
+  static names(): { [key: string]: string } {
+    return {
+      url: 'Url',
+      cameraHeight: 'CameraHeight',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      url: 'string',
+      cameraHeight: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RectifyImageResponseBody extends $tea.Model {
+  requestId?: string;
+  code?: number;
+  success?: boolean;
+  message?: string;
+  taskId?: string;
+  subSceneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      code: 'Code',
+      success: 'Success',
+      message: 'Message',
+      taskId: 'TaskId',
+      subSceneId: 'SubSceneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      code: 'number',
+      success: 'boolean',
+      message: 'string',
+      taskId: 'string',
+      subSceneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RectifyImageResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: RectifyImageResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: RectifyImageResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class LabelBuildRequest extends $tea.Model {
+  sceneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      sceneId: 'SceneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sceneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class LabelBuildResponseBody extends $tea.Model {
+  requestId?: string;
+  code?: number;
+  success?: boolean;
+  message?: string;
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      code: 'Code',
+      success: 'Success',
+      message: 'Message',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      code: 'number',
+      success: 'boolean',
+      message: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class LabelBuildResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: LabelBuildResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: LabelBuildResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DropSceneRequest extends $tea.Model {
+  id?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DropSceneResponseBody extends $tea.Model {
+  requestId?: string;
+  code?: number;
+  success?: boolean;
+  message?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      code: 'Code',
+      success: 'Success',
+      message: 'Message',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      code: 'number',
+      success: 'boolean',
+      message: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DropSceneResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DropSceneResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DropSceneResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OptimizeRightAngleRequest extends $tea.Model {
+  subSceneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      subSceneId: 'SubSceneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      subSceneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OptimizeRightAngleResponseBody extends $tea.Model {
+  requestId?: string;
+  code?: number;
+  success?: boolean;
+  message?: string;
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      code: 'Code',
+      success: 'Success',
+      message: 'Message',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      code: 'number',
+      success: 'boolean',
+      message: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OptimizeRightAngleResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: OptimizeRightAngleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: OptimizeRightAngleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetailSceneRequest extends $tea.Model {
+  id?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetailSceneResponseBody extends $tea.Model {
+  requestId?: string;
+  code?: number;
+  success?: boolean;
+  message?: string;
+  id?: string;
+  name?: string;
+  type?: string;
+  subSceneNum?: number;
+  sourceNum?: number;
+  published?: boolean;
+  gmtCreate?: number;
+  gmtModified?: number;
+  previewToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      code: 'Code',
+      success: 'Success',
+      message: 'Message',
+      id: 'Id',
+      name: 'Name',
+      type: 'Type',
+      subSceneNum: 'SubSceneNum',
+      sourceNum: 'SourceNum',
+      published: 'Published',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      previewToken: 'PreviewToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      code: 'number',
+      success: 'boolean',
+      message: 'string',
+      id: 'string',
+      name: 'string',
+      type: 'string',
+      subSceneNum: 'number',
+      sourceNum: 'number',
+      published: 'boolean',
+      gmtCreate: 'number',
+      gmtModified: 'number',
+      previewToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetailSceneResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DetailSceneResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DetailSceneResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSceneRequest extends $tea.Model {
+  name?: string;
+  projectId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      projectId: 'ProjectId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      projectId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSceneResponseBody extends $tea.Model {
+  sceneId?: number;
+  requestId?: string;
+  previewToken?: string;
+  errMessage?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      sceneId: 'SceneId',
+      requestId: 'RequestId',
+      previewToken: 'PreviewToken',
+      errMessage: 'ErrMessage',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sceneId: 'number',
+      requestId: 'string',
+      previewToken: 'string',
       errMessage: 'string',
-      data: 'string',
-      objectString: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSceneResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CreateSceneResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CreateSceneResponseBody,
     };
   }
 
@@ -320,326 +1019,45 @@ export class DeleteFileRequest extends $tea.Model {
   }
 }
 
+export class DeleteFileResponseBody extends $tea.Model {
+  requestId?: string;
+  errMessage?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      errMessage: 'ErrMessage',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      errMessage: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteFileResponse extends $tea.Model {
-  requestId: string;
-  success: boolean;
-  errMessage: string;
+  headers: { [key: string]: string };
+  body: DeleteFileResponseBody;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
-      success: 'Success',
-      errMessage: 'ErrMessage',
+      headers: 'headers',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
-      success: 'boolean',
-      errMessage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetHotspotTagRequest extends $tea.Model {
-  previewToken?: string;
-  subSceneUuid?: string;
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      previewToken: 'PreviewToken',
-      subSceneUuid: 'SubSceneUuid',
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      previewToken: 'string',
-      subSceneUuid: 'string',
-      type: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetHotspotTagResponse extends $tea.Model {
-  requestId: string;
-  success: boolean;
-  errMessage: string;
-  data: string;
-  objectString: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      success: 'Success',
-      errMessage: 'ErrMessage',
-      data: 'Data',
-      objectString: 'ObjectString',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      success: 'boolean',
-      errMessage: 'string',
-      data: 'string',
-      objectString: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetPolicyRequest extends $tea.Model {
-  subSceneUuid?: string;
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      subSceneUuid: 'SubSceneUuid',
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      subSceneUuid: 'string',
-      type: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetPolicyResponse extends $tea.Model {
-  requestId: string;
-  success: boolean;
-  errMessage: string;
-  data: { [key: string]: any };
-  objectString: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      success: 'Success',
-      errMessage: 'ErrMessage',
-      data: 'Data',
-      objectString: 'ObjectString',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      success: 'boolean',
-      errMessage: 'string',
-      data: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      objectString: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PublishHotspotRequest extends $tea.Model {
-  paramTag?: string;
-  subSceneUuid?: string;
-  static names(): { [key: string]: string } {
-    return {
-      paramTag: 'ParamTag',
-      subSceneUuid: 'SubSceneUuid',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      paramTag: 'string',
-      subSceneUuid: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PublishHotspotResponse extends $tea.Model {
-  requestId: string;
-  success: boolean;
-  errMessage: string;
-  data: { [key: string]: any };
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      success: 'Success',
-      errMessage: 'ErrMessage',
-      data: 'Data',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      success: 'boolean',
-      errMessage: 'string',
-      data: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetWindowConfigRequest extends $tea.Model {
-  previewToken?: string;
-  static names(): { [key: string]: string } {
-    return {
-      previewToken: 'PreviewToken',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      previewToken: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetWindowConfigResponse extends $tea.Model {
-  requestId: string;
-  success: boolean;
-  errMessage: string;
-  data: { [key: string]: any };
-  objectString: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      success: 'Success',
-      errMessage: 'ErrMessage',
-      data: 'Data',
-      objectString: 'ObjectString',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      success: 'boolean',
-      errMessage: 'string',
-      data: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      objectString: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetSceneDataRequest extends $tea.Model {
-  token?: string;
-  static names(): { [key: string]: string } {
-    return {
-      token: 'Token',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      token: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetSceneDataResponse extends $tea.Model {
-  requestId: string;
-  success: boolean;
-  errMessage: string;
-  data: { [key: string]: any };
-  objectString: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      success: 'Success',
-      errMessage: 'ErrMessage',
-      data: 'Data',
-      objectString: 'ObjectString',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      success: 'boolean',
-      errMessage: 'string',
-      data: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      objectString: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CheckPermissionRequest extends $tea.Model {
-  aliyunId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      aliyunId: 'AliyunId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      aliyunId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CheckPermissionResponse extends $tea.Model {
-  requestId: string;
-  success: boolean;
-  errMessage: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      success: 'Success',
-      errMessage: 'ErrMessage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      success: 'boolean',
-      errMessage: 'string',
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DeleteFileResponseBody,
     };
   }
 
@@ -649,15 +1067,15 @@ export class CheckPermissionResponse extends $tea.Model {
 }
 
 export class CheckResourceRequest extends $tea.Model {
-  country: string;
+  country?: string;
   interrupt?: boolean;
-  invoker: string;
-  pk: string;
-  bid: string;
-  hid: number;
-  taskIdentifier: string;
-  taskExtraData: string;
-  gmtWakeup: string;
+  invoker?: string;
+  pk?: string;
+  bid?: string;
+  hid?: number;
+  taskIdentifier?: string;
+  taskExtraData?: string;
+  gmtWakeup?: string;
   success?: boolean;
   message?: string;
   level?: number;
@@ -706,59 +1124,59 @@ export class CheckResourceRequest extends $tea.Model {
   }
 }
 
-export class CheckResourceResponse extends $tea.Model {
-  interrupt: boolean;
-  invoker: string;
-  pk: string;
-  bid: string;
-  hid: number;
-  country: string;
-  taskIdentifier: string;
-  taskExtraData: string;
-  gmtWakeup: string;
-  success: boolean;
-  message: string;
-  level: number;
-  url: string;
-  prompt: string;
-  requestId: string;
+export class CheckResourceResponseBody extends $tea.Model {
+  gmtWakeup?: string;
+  hid?: number;
+  message?: string;
+  taskIdentifier?: string;
+  requestId?: string;
+  success?: boolean;
+  url?: string;
+  interrupt?: boolean;
+  invoker?: string;
+  taskExtraData?: string;
+  country?: string;
+  prompt?: string;
+  level?: number;
+  pk?: string;
+  bid?: string;
   static names(): { [key: string]: string } {
     return {
+      gmtWakeup: 'GmtWakeup',
+      hid: 'Hid',
+      message: 'Message',
+      taskIdentifier: 'TaskIdentifier',
+      requestId: 'RequestId',
+      success: 'Success',
+      url: 'Url',
       interrupt: 'Interrupt',
       invoker: 'Invoker',
+      taskExtraData: 'TaskExtraData',
+      country: 'Country',
+      prompt: 'Prompt',
+      level: 'Level',
       pk: 'Pk',
       bid: 'Bid',
-      hid: 'Hid',
-      country: 'Country',
-      taskIdentifier: 'TaskIdentifier',
-      taskExtraData: 'TaskExtraData',
-      gmtWakeup: 'GmtWakeup',
-      success: 'Success',
-      message: 'Message',
-      level: 'Level',
-      url: 'Url',
-      prompt: 'Prompt',
-      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      gmtWakeup: 'string',
+      hid: 'number',
+      message: 'string',
+      taskIdentifier: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      url: 'string',
       interrupt: 'boolean',
       invoker: 'string',
+      taskExtraData: 'string',
+      country: 'string',
+      prompt: 'string',
+      level: 'number',
       pk: 'string',
       bid: 'string',
-      hid: 'number',
-      country: 'string',
-      taskIdentifier: 'string',
-      taskExtraData: 'string',
-      gmtWakeup: 'string',
-      success: 'boolean',
-      message: 'string',
-      level: 'number',
-      url: 'string',
-      prompt: 'string',
-      requestId: 'string',
     };
   }
 
@@ -767,19 +1185,482 @@ export class CheckResourceResponse extends $tea.Model {
   }
 }
 
-export class CreateSceneRequest extends $tea.Model {
+export class CheckResourceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CheckResourceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CheckResourceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSceneRequest extends $tea.Model {
   name?: string;
   projectId?: string;
+  pageNum?: number;
+  pageSize?: number;
   static names(): { [key: string]: string } {
     return {
       name: 'Name',
       projectId: 'ProjectId',
+      pageNum: 'PageNum',
+      pageSize: 'PageSize',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       name: 'string',
+      projectId: 'string',
+      pageNum: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSceneResponseBody extends $tea.Model {
+  requestId?: string;
+  code?: number;
+  success?: boolean;
+  message?: string;
+  hasNext?: boolean;
+  currentPage?: number;
+  totalPage?: number;
+  count?: number;
+  list?: ListSceneResponseBodyList[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      code: 'Code',
+      success: 'Success',
+      message: 'Message',
+      hasNext: 'HasNext',
+      currentPage: 'CurrentPage',
+      totalPage: 'TotalPage',
+      count: 'Count',
+      list: 'List',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      code: 'number',
+      success: 'boolean',
+      message: 'string',
+      hasNext: 'boolean',
+      currentPage: 'number',
+      totalPage: 'number',
+      count: 'number',
+      list: { 'type': 'array', 'itemType': ListSceneResponseBodyList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSceneResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListSceneResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListSceneResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PublishHotspotRequest extends $tea.Model {
+  paramTag?: string;
+  subSceneUuid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      paramTag: 'ParamTag',
+      subSceneUuid: 'SubSceneUuid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      paramTag: 'string',
+      subSceneUuid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PublishHotspotResponseBody extends $tea.Model {
+  requestId?: string;
+  data?: { [key: string]: any };
+  errMessage?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      data: 'Data',
+      errMessage: 'ErrMessage',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      data: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      errMessage: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PublishHotspotResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: PublishHotspotResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: PublishHotspotResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSceneRequest extends $tea.Model {
+  id?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSceneResponseBody extends $tea.Model {
+  requestId?: string;
+  code?: number;
+  success?: boolean;
+  message?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      code: 'Code',
+      success: 'Success',
+      message: 'Message',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      code: 'number',
+      success: 'boolean',
+      message: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSceneResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: UpdateSceneResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: UpdateSceneResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateLayoutDataRequest extends $tea.Model {
+  subSceneId?: string;
+  layoutData?: string;
+  static names(): { [key: string]: string } {
+    return {
+      subSceneId: 'SubSceneId',
+      layoutData: 'LayoutData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      subSceneId: 'string',
+      layoutData: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateLayoutDataResponseBody extends $tea.Model {
+  requestId?: string;
+  code?: number;
+  success?: boolean;
+  message?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      code: 'Code',
+      success: 'Success',
+      message: 'Message',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      code: 'number',
+      success: 'boolean',
+      message: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateLayoutDataResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: UpdateLayoutDataResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: UpdateLayoutDataResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SaveHotspotTagRequest extends $tea.Model {
+  paramTag?: string;
+  subSceneUuid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      paramTag: 'ParamTag',
+      subSceneUuid: 'SubSceneUuid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      paramTag: 'string',
+      subSceneUuid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SaveHotspotTagResponseBody extends $tea.Model {
+  requestId?: string;
+  errMessage?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      errMessage: 'ErrMessage',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      errMessage: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SaveHotspotTagResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: SaveHotspotTagResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: SaveHotspotTagResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CheckPermissionRequest extends $tea.Model {
+  aliyunId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aliyunId: 'AliyunId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliyunId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CheckPermissionResponseBody extends $tea.Model {
+  requestId?: string;
+  errMessage?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      errMessage: 'ErrMessage',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      errMessage: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CheckPermissionResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CheckPermissionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CheckPermissionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteProjectRequest extends $tea.Model {
+  projectId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      projectId: 'ProjectId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
       projectId: 'string',
     };
   }
@@ -789,29 +1670,846 @@ export class CreateSceneRequest extends $tea.Model {
   }
 }
 
-export class CreateSceneResponse extends $tea.Model {
-  requestId: string;
-  sceneId: number;
-  success: boolean;
-  errMessage: string;
-  previewToken: string;
+export class DeleteProjectResponseBody extends $tea.Model {
+  requestId?: string;
+  errMessage?: string;
+  success?: boolean;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      sceneId: 'SceneId',
-      success: 'Success',
       errMessage: 'ErrMessage',
-      previewToken: 'PreviewToken',
+      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      sceneId: 'number',
-      success: 'boolean',
       errMessage: 'string',
-      previewToken: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteProjectResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DeleteProjectResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DeleteProjectResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RectVerticalRequest extends $tea.Model {
+  subSceneId?: string;
+  verticalRect?: string;
+  detectDoor?: boolean;
+  countDetectDoor?: number;
+  static names(): { [key: string]: string } {
+    return {
+      subSceneId: 'SubSceneId',
+      verticalRect: 'VerticalRect',
+      detectDoor: 'DetectDoor',
+      countDetectDoor: 'CountDetectDoor',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      subSceneId: 'string',
+      verticalRect: 'string',
+      detectDoor: 'boolean',
+      countDetectDoor: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RectVerticalResponseBody extends $tea.Model {
+  requestId?: string;
+  code?: number;
+  success?: boolean;
+  message?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      code: 'Code',
+      success: 'Success',
+      message: 'Message',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      code: 'number',
+      success: 'boolean',
+      message: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RectVerticalResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: RectVerticalResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: RectVerticalResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PredImageRequest extends $tea.Model {
+  subSceneId?: string;
+  detectDoor?: boolean;
+  countDetectDoor?: number;
+  correctVertical?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      subSceneId: 'SubSceneId',
+      detectDoor: 'DetectDoor',
+      countDetectDoor: 'CountDetectDoor',
+      correctVertical: 'CorrectVertical',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      subSceneId: 'string',
+      detectDoor: 'boolean',
+      countDetectDoor: 'number',
+      correctVertical: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PredImageResponseBody extends $tea.Model {
+  requestId?: string;
+  code?: number;
+  success?: boolean;
+  message?: string;
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      code: 'Code',
+      success: 'Success',
+      message: 'Message',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      code: 'number',
+      success: 'boolean',
+      message: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PredImageResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: PredImageResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: PredImageResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOssPolicyRequest extends $tea.Model {
+  subSceneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      subSceneId: 'SubSceneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      subSceneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOssPolicyResponseBody extends $tea.Model {
+  requestId?: string;
+  code?: number;
+  success?: boolean;
+  message?: string;
+  accessId?: string;
+  policy?: string;
+  signature?: string;
+  dir?: string;
+  host?: string;
+  expire?: string;
+  callback?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      code: 'Code',
+      success: 'Success',
+      message: 'Message',
+      accessId: 'AccessId',
+      policy: 'Policy',
+      signature: 'Signature',
+      dir: 'Dir',
+      host: 'Host',
+      expire: 'Expire',
+      callback: 'Callback',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      code: 'number',
+      success: 'boolean',
+      message: 'string',
+      accessId: 'string',
+      policy: 'string',
+      signature: 'string',
+      dir: 'string',
+      host: 'string',
+      expire: 'string',
+      callback: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOssPolicyResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetOssPolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetOssPolicyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetConnDataRequest extends $tea.Model {
+  sceneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      sceneId: 'SceneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sceneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetConnDataResponseBody extends $tea.Model {
+  requestId?: string;
+  code?: number;
+  success?: boolean;
+  message?: string;
+  version?: string;
+  extend?: string;
+  list?: GetConnDataResponseBodyList[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      code: 'Code',
+      success: 'Success',
+      message: 'Message',
+      version: 'Version',
+      extend: 'Extend',
+      list: 'List',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      code: 'number',
+      success: 'boolean',
+      message: 'string',
+      version: 'string',
+      extend: 'string',
+      list: { 'type': 'array', 'itemType': GetConnDataResponseBodyList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetConnDataResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetConnDataResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetConnDataResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TempPreviewStatusRequest extends $tea.Model {
+  key?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TempPreviewStatusResponseBody extends $tea.Model {
+  requestId?: string;
+  code?: number;
+  success?: boolean;
+  message?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      code: 'Code',
+      success: 'Success',
+      message: 'Message',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      code: 'number',
+      success: 'boolean',
+      message: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TempPreviewStatusResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: TempPreviewStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: TempPreviewStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddProjectRequest extends $tea.Model {
+  businessId?: number;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      businessId: 'BusinessId',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      businessId: 'number',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddProjectResponseBody extends $tea.Model {
+  requestId?: string;
+  code?: number;
+  success?: boolean;
+  message?: string;
+  id?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      code: 'Code',
+      success: 'Success',
+      message: 'Message',
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      code: 'number',
+      success: 'boolean',
+      message: 'string',
+      id: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddProjectResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: AddProjectResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: AddProjectResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMainScenesRequest extends $tea.Model {
+  queryName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      queryName: 'QueryName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      queryName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMainScenesResponseBody extends $tea.Model {
+  requestId?: string;
+  objectString?: string;
+  data?: string;
+  errMessage?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      objectString: 'ObjectString',
+      data: 'Data',
+      errMessage: 'ErrMessage',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      objectString: 'string',
+      data: 'string',
+      errMessage: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMainScenesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListMainScenesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListMainScenesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetailSubSceneRequest extends $tea.Model {
+  id?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetailSubSceneResponseBody extends $tea.Model {
+  requestId?: string;
+  code?: number;
+  success?: boolean;
+  message?: string;
+  id?: string;
+  name?: string;
+  resourceId?: string;
+  url?: string;
+  coverUrl?: string;
+  status?: number;
+  gmtCreate?: number;
+  gmtModified?: number;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      code: 'Code',
+      success: 'Success',
+      message: 'Message',
+      id: 'Id',
+      name: 'Name',
+      resourceId: 'ResourceId',
+      url: 'Url',
+      coverUrl: 'CoverUrl',
+      status: 'Status',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      code: 'number',
+      success: 'boolean',
+      message: 'string',
+      id: 'string',
+      name: 'string',
+      resourceId: 'string',
+      url: 'string',
+      coverUrl: 'string',
+      status: 'number',
+      gmtCreate: 'number',
+      gmtModified: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetailSubSceneResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DetailSubSceneResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DetailSubSceneResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSubSceneRequest extends $tea.Model {
+  sceneId?: string;
+  pageNum?: number;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      sceneId: 'SceneId',
+      pageNum: 'PageNum',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sceneId: 'string',
+      pageNum: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSubSceneResponseBody extends $tea.Model {
+  requestId?: string;
+  code?: number;
+  success?: boolean;
+  message?: string;
+  hasNext?: boolean;
+  currentPage?: number;
+  totalPage?: number;
+  count?: number;
+  list?: ListSubSceneResponseBodyList[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      code: 'Code',
+      success: 'Success',
+      message: 'Message',
+      hasNext: 'HasNext',
+      currentPage: 'CurrentPage',
+      totalPage: 'TotalPage',
+      count: 'Count',
+      list: 'List',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      code: 'number',
+      success: 'boolean',
+      message: 'string',
+      hasNext: 'boolean',
+      currentPage: 'number',
+      totalPage: 'number',
+      count: 'number',
+      list: { 'type': 'array', 'itemType': ListSubSceneResponseBodyList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSubSceneResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListSubSceneResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListSubSceneResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSubSceneRequest extends $tea.Model {
+  id?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSubSceneResponseBody extends $tea.Model {
+  requestId?: string;
+  code?: number;
+  success?: boolean;
+  message?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      code: 'Code',
+      success: 'Success',
+      message: 'Message',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      code: 'number',
+      success: 'boolean',
+      message: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSubSceneResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: UpdateSubSceneResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: UpdateSubSceneResponseBody,
     };
   }
 
@@ -851,19 +2549,19 @@ export class CreateProjectRequest extends $tea.Model {
   }
 }
 
-export class CreateProjectResponse extends $tea.Model {
-  requestId: string;
-  id: number;
-  name: string;
-  success: boolean;
-  errMessage: string;
+export class CreateProjectResponseBody extends $tea.Model {
+  requestId?: string;
+  id?: number;
+  errMessage?: string;
+  success?: boolean;
+  name?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
       id: 'Id',
-      name: 'Name',
-      success: 'Success',
       errMessage: 'ErrMessage',
+      success: 'Success',
+      name: 'Name',
     };
   }
 
@@ -871,9 +2569,9 @@ export class CreateProjectResponse extends $tea.Model {
     return {
       requestId: 'string',
       id: 'number',
-      name: 'string',
-      success: 'boolean',
       errMessage: 'string',
+      success: 'boolean',
+      name: 'string',
     };
   }
 
@@ -882,17 +2580,20 @@ export class CreateProjectResponse extends $tea.Model {
   }
 }
 
-export class DeleteProjectRequest extends $tea.Model {
-  projectId?: string;
+export class CreateProjectResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CreateProjectResponseBody;
   static names(): { [key: string]: string } {
     return {
-      projectId: 'ProjectId',
+      headers: 'headers',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      projectId: 'string',
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CreateProjectResponseBody,
     };
   }
 
@@ -901,23 +2602,885 @@ export class DeleteProjectRequest extends $tea.Model {
   }
 }
 
-export class DeleteProjectResponse extends $tea.Model {
-  requestId: string;
-  success: boolean;
-  errMessage: string;
+export class DropBucketRequest extends $tea.Model {
+  id?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DropBucketResponseBody extends $tea.Model {
+  requestId?: string;
+  code?: number;
+  success?: boolean;
+  message?: string;
+  status?: boolean;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
+      code: 'Code',
       success: 'Success',
-      errMessage: 'ErrMessage',
+      message: 'Message',
+      status: 'Status',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
+      code: 'number',
       success: 'boolean',
+      message: 'string',
+      status: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DropBucketResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DropBucketResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DropBucketResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserBucketConfigResponseBody extends $tea.Model {
+  requestId?: string;
+  code?: number;
+  success?: boolean;
+  message?: string;
+  config?: GetUserBucketConfigResponseBodyConfig;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      code: 'Code',
+      success: 'Success',
+      message: 'Message',
+      config: 'Config',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      code: 'number',
+      success: 'boolean',
+      message: 'string',
+      config: GetUserBucketConfigResponseBodyConfig,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserBucketConfigResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetUserBucketConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetUserBucketConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddBucketRequest extends $tea.Model {
+  bucketName?: string;
+  type?: number;
+  static names(): { [key: string]: string } {
+    return {
+      bucketName: 'BucketName',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bucketName: 'string',
+      type: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddBucketResponseBody extends $tea.Model {
+  requestId?: string;
+  code?: number;
+  success?: boolean;
+  message?: string;
+  status?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      code: 'Code',
+      success: 'Success',
+      message: 'Message',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      code: 'number',
+      success: 'boolean',
+      message: 'string',
+      status: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddBucketResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: AddBucketResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: AddBucketResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SaveHotspotConfigRequest extends $tea.Model {
+  paramTag?: string;
+  previewToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      paramTag: 'ParamTag',
+      previewToken: 'PreviewToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      paramTag: 'string',
+      previewToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SaveHotspotConfigResponseBody extends $tea.Model {
+  requestId?: string;
+  errMessage?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      errMessage: 'ErrMessage',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
       errMessage: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SaveHotspotConfigResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: SaveHotspotConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: SaveHotspotConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWindowConfigRequest extends $tea.Model {
+  previewToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      previewToken: 'PreviewToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      previewToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWindowConfigResponseBody extends $tea.Model {
+  requestId?: string;
+  objectString?: string;
+  data?: { [key: string]: any };
+  errMessage?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      objectString: 'ObjectString',
+      data: 'Data',
+      errMessage: 'ErrMessage',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      objectString: 'string',
+      data: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      errMessage: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWindowConfigResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetWindowConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetWindowConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StatisQueryByTypeRequest extends $tea.Model {
+  startTime?: number;
+  endTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      startTime: 'StartTime',
+      endTime: 'EndTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      startTime: 'number',
+      endTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StatisQueryByTypeResponseBody extends $tea.Model {
+  requestId?: string;
+  code?: number;
+  success?: boolean;
+  message?: string;
+  list?: StatisQueryByTypeResponseBodyList[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      code: 'Code',
+      success: 'Success',
+      message: 'Message',
+      list: 'List',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      code: 'number',
+      success: 'boolean',
+      message: 'string',
+      list: { 'type': 'array', 'itemType': StatisQueryByTypeResponseBodyList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StatisQueryByTypeResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: StatisQueryByTypeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: StatisQueryByTypeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StatisExportSceneInfoRequest extends $tea.Model {
+  startTime?: number;
+  endTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      startTime: 'StartTime',
+      endTime: 'EndTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      startTime: 'number',
+      endTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StatisExportSceneInfoResponseBody extends $tea.Model {
+  requestId?: string;
+  code?: number;
+  success?: boolean;
+  message?: string;
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      code: 'Code',
+      success: 'Success',
+      message: 'Message',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      code: 'number',
+      success: 'boolean',
+      message: 'string',
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StatisExportSceneInfoResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: StatisExportSceneInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: StatisExportSceneInfoResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetHotspotConfigRequest extends $tea.Model {
+  previewToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      previewToken: 'PreviewToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      previewToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetHotspotConfigResponseBody extends $tea.Model {
+  requestId?: string;
+  objectString?: string;
+  data?: string;
+  errMessage?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      objectString: 'ObjectString',
+      data: 'Data',
+      errMessage: 'ErrMessage',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      objectString: 'string',
+      data: 'string',
+      errMessage: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetHotspotConfigResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetHotspotConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetHotspotConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSceneBuildTaskStatusRequest extends $tea.Model {
+  sceneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      sceneId: 'SceneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sceneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSceneBuildTaskStatusResponseBody extends $tea.Model {
+  requestId?: string;
+  code?: number;
+  success?: boolean;
+  message?: string;
+  id?: string;
+  sceneId?: string;
+  status?: string;
+  type?: string;
+  errorCode?: string;
+  errorMsg?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      code: 'Code',
+      success: 'Success',
+      message: 'Message',
+      id: 'Id',
+      sceneId: 'SceneId',
+      status: 'Status',
+      type: 'Type',
+      errorCode: 'ErrorCode',
+      errorMsg: 'ErrorMsg',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      code: 'number',
+      success: 'boolean',
+      message: 'string',
+      id: 'string',
+      sceneId: 'string',
+      status: 'string',
+      type: 'string',
+      errorCode: 'string',
+      errorMsg: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSceneBuildTaskStatusResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetSceneBuildTaskStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetSceneBuildTaskStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TempPreviewRequest extends $tea.Model {
+  id?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TempPreviewResponseBody extends $tea.Model {
+  requestId?: string;
+  code?: number;
+  success?: boolean;
+  message?: string;
+  previewUrl?: string;
+  key?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      code: 'Code',
+      success: 'Success',
+      message: 'Message',
+      previewUrl: 'PreviewUrl',
+      key: 'Key',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      code: 'number',
+      success: 'boolean',
+      message: 'string',
+      previewUrl: 'string',
+      key: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TempPreviewResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: TempPreviewResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: TempPreviewResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PublishSceneRequest extends $tea.Model {
+  sceneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      sceneId: 'SceneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sceneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PublishSceneResponseBody extends $tea.Model {
+  requestId?: string;
+  code?: number;
+  success?: boolean;
+  message?: string;
+  previewUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      code: 'Code',
+      success: 'Success',
+      message: 'Message',
+      previewUrl: 'PreviewUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      code: 'number',
+      success: 'boolean',
+      message: 'string',
+      previewUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PublishSceneResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: PublishSceneResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: PublishSceneResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetailProjectRequest extends $tea.Model {
+  id?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetailProjectResponseBody extends $tea.Model {
+  requestId?: string;
+  code?: number;
+  success?: boolean;
+  message?: string;
+  id?: string;
+  name?: string;
+  businessId?: number;
+  businessName?: string;
+  gmtCreate?: number;
+  gmtModified?: number;
+  token?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      code: 'Code',
+      success: 'Success',
+      message: 'Message',
+      id: 'Id',
+      name: 'Name',
+      businessId: 'BusinessId',
+      businessName: 'BusinessName',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      token: 'Token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      code: 'number',
+      success: 'boolean',
+      message: 'string',
+      id: 'string',
+      name: 'string',
+      businessId: 'number',
+      businessName: 'string',
+      gmtCreate: 'number',
+      gmtModified: 'number',
+      token: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetailProjectResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DetailProjectResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DetailProjectResponseBody,
     };
   }
 
@@ -948,26 +3511,26 @@ export class ListScenesRequest extends $tea.Model {
   }
 }
 
-export class ListScenesResponse extends $tea.Model {
-  requestId: string;
-  success: boolean;
-  errMessage: string;
-  data: ListScenesResponseData[];
+export class ListScenesResponseBody extends $tea.Model {
+  requestId?: string;
+  data?: ListScenesResponseBodyData[];
+  errMessage?: string;
+  success?: boolean;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      success: 'Success',
-      errMessage: 'ErrMessage',
       data: 'Data',
+      errMessage: 'ErrMessage',
+      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      success: 'boolean',
+      data: { 'type': 'array', 'itemType': ListScenesResponseBodyData },
       errMessage: 'string',
-      data: { 'type': 'array', 'itemType': ListScenesResponseData },
+      success: 'boolean',
     };
   }
 
@@ -976,8 +3539,626 @@ export class ListScenesResponse extends $tea.Model {
   }
 }
 
-export class ListScenesResponseData extends $tea.Model {
-  sceneId: string;
+export class ListScenesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListScenesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListScenesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DropSubSceneRequest extends $tea.Model {
+  id?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DropSubSceneResponseBody extends $tea.Model {
+  requestId?: string;
+  code?: number;
+  success?: boolean;
+  message?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      code: 'Code',
+      success: 'Success',
+      message: 'Message',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      code: 'number',
+      success: 'boolean',
+      message: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DropSubSceneResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DropSubSceneResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DropSubSceneResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class IsEnableOssRequest extends $tea.Model {
+  isEnable?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      isEnable: 'IsEnable',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      isEnable: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class IsEnableOssResponseBody extends $tea.Model {
+  requestId?: string;
+  code?: number;
+  success?: boolean;
+  message?: string;
+  status?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      code: 'Code',
+      success: 'Success',
+      message: 'Message',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      code: 'number',
+      success: 'boolean',
+      message: 'string',
+      status: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class IsEnableOssResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: IsEnableOssResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: IsEnableOssResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetHotspotTagRequest extends $tea.Model {
+  previewToken?: string;
+  subSceneUuid?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      previewToken: 'PreviewToken',
+      subSceneUuid: 'SubSceneUuid',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      previewToken: 'string',
+      subSceneUuid: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetHotspotTagResponseBody extends $tea.Model {
+  requestId?: string;
+  objectString?: string;
+  data?: string;
+  errMessage?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      objectString: 'ObjectString',
+      data: 'Data',
+      errMessage: 'ErrMessage',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      objectString: 'string',
+      data: 'string',
+      errMessage: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetHotspotTagResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetHotspotTagResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetHotspotTagResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DropProjectRequest extends $tea.Model {
+  projectId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      projectId: 'ProjectId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DropProjectResponseBody extends $tea.Model {
+  requestId?: string;
+  code?: number;
+  success?: boolean;
+  message?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      code: 'Code',
+      success: 'Success',
+      message: 'Message',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      code: 'number',
+      success: 'boolean',
+      message: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DropProjectResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DropProjectResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DropProjectResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserOssStatusResponseBody extends $tea.Model {
+  requestId?: string;
+  code?: number;
+  success?: boolean;
+  message?: string;
+  status?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      code: 'Code',
+      success: 'Success',
+      message: 'Message',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      code: 'number',
+      success: 'boolean',
+      message: 'string',
+      status: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserOssStatusResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetUserOssStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetUserOssStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProjectRequest extends $tea.Model {
+  pageNum?: number;
+  pageSize?: number;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      pageNum: 'PageNum',
+      pageSize: 'PageSize',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNum: 'number',
+      pageSize: 'number',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProjectResponseBody extends $tea.Model {
+  requestId?: string;
+  code?: number;
+  success?: boolean;
+  message?: string;
+  hasNext?: boolean;
+  currentPage?: number;
+  totalPage?: number;
+  count?: number;
+  list?: ListProjectResponseBodyList[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      code: 'Code',
+      success: 'Success',
+      message: 'Message',
+      hasNext: 'HasNext',
+      currentPage: 'CurrentPage',
+      totalPage: 'TotalPage',
+      count: 'Count',
+      list: 'List',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      code: 'number',
+      success: 'boolean',
+      message: 'string',
+      hasNext: 'boolean',
+      currentPage: 'number',
+      totalPage: 'number',
+      count: 'number',
+      list: { 'type': 'array', 'itemType': ListProjectResponseBodyList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProjectResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListProjectResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListProjectResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOriginLayoutDataRequest extends $tea.Model {
+  subSceneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      subSceneId: 'SubSceneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      subSceneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOriginLayoutDataResponseBody extends $tea.Model {
+  requestId?: string;
+  code?: number;
+  success?: boolean;
+  message?: string;
+  data?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      code: 'Code',
+      success: 'Success',
+      message: 'Message',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      code: 'number',
+      success: 'boolean',
+      message: 'string',
+      data: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOriginLayoutDataResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetOriginLayoutDataResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetOriginLayoutDataResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StatisListSceneInfoRequest extends $tea.Model {
+  startTime?: number;
+  endTime?: number;
+  pageNum?: number;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      startTime: 'StartTime',
+      endTime: 'EndTime',
+      pageNum: 'PageNum',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      startTime: 'number',
+      endTime: 'number',
+      pageNum: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StatisListSceneInfoResponseBody extends $tea.Model {
+  requestId?: string;
+  code?: number;
+  success?: boolean;
+  message?: string;
+  list?: StatisListSceneInfoResponseBodyList[];
+  pageNum?: number;
+  pageSize?: number;
+  totalCount?: number;
+  totalPages?: number;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      code: 'Code',
+      success: 'Success',
+      message: 'Message',
+      list: 'List',
+      pageNum: 'PageNum',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+      totalPages: 'TotalPages',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      code: 'number',
+      success: 'boolean',
+      message: 'string',
+      list: { 'type': 'array', 'itemType': StatisListSceneInfoResponseBodyList },
+      pageNum: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
+      totalPages: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StatisListSceneInfoResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: StatisListSceneInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: StatisListSceneInfoResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScenePublishRequest extends $tea.Model {
+  sceneId?: string;
   static names(): { [key: string]: string } {
     return {
       sceneId: 'SceneId',
@@ -995,10 +4176,1267 @@ export class ListScenesResponseData extends $tea.Model {
   }
 }
 
+export class ScenePublishResponseBody extends $tea.Model {
+  requestId?: string;
+  code?: number;
+  success?: boolean;
+  message?: string;
+  previewUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      code: 'Code',
+      success: 'Success',
+      message: 'Message',
+      previewUrl: 'PreviewUrl',
+    };
+  }
 
-export default class Client extends RPC {
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      code: 'number',
+      success: 'boolean',
+      message: 'string',
+      previewUrl: 'string',
+    };
+  }
 
-  constructor(config: $RPC.Config) {
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScenePublishResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ScenePublishResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ScenePublishResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SaveFileRequest extends $tea.Model {
+  paramFile?: string;
+  subSceneUuid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      paramFile: 'ParamFile',
+      subSceneUuid: 'SubSceneUuid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      paramFile: 'string',
+      subSceneUuid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SaveFileResponseBody extends $tea.Model {
+  requestId?: string;
+  objectString?: string;
+  data?: string;
+  errMessage?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      objectString: 'ObjectString',
+      data: 'Data',
+      errMessage: 'ErrMessage',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      objectString: 'string',
+      data: 'string',
+      errMessage: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SaveFileResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: SaveFileResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: SaveFileResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRectifyImageRequest extends $tea.Model {
+  subSceneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      subSceneId: 'SubSceneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      subSceneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRectifyImageResponseBody extends $tea.Model {
+  requestId?: string;
+  code?: number;
+  success?: boolean;
+  message?: string;
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      code: 'Code',
+      success: 'Success',
+      message: 'Message',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      code: 'number',
+      success: 'boolean',
+      message: 'string',
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRectifyImageResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetRectifyImageResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetRectifyImageResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateProjectRequest extends $tea.Model {
+  id?: string;
+  name?: string;
+  businessId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      name: 'Name',
+      businessId: 'BusinessId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      name: 'string',
+      businessId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateProjectResponseBody extends $tea.Model {
+  requestId?: string;
+  code?: number;
+  success?: boolean;
+  message?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      code: 'Code',
+      success: 'Success',
+      message: 'Message',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      code: 'number',
+      success: 'boolean',
+      message: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateProjectResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: UpdateProjectResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: UpdateProjectResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateBucketRequest extends $tea.Model {
+  id?: string;
+  newBucketName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      newBucketName: 'NewBucketName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      newBucketName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateBucketResponseBody extends $tea.Model {
+  requestId?: string;
+  code?: number;
+  success?: boolean;
+  message?: string;
+  status?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      code: 'Code',
+      success: 'Success',
+      message: 'Message',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      code: 'number',
+      success: 'boolean',
+      message: 'string',
+      status: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateBucketResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: UpdateBucketResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: UpdateBucketResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StatisQueryByDayRequest extends $tea.Model {
+  startTime?: number;
+  endTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      startTime: 'StartTime',
+      endTime: 'EndTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      startTime: 'number',
+      endTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StatisQueryByDayResponseBody extends $tea.Model {
+  requestId?: string;
+  code?: number;
+  success?: boolean;
+  message?: string;
+  list?: StatisQueryByDayResponseBodyList[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      code: 'Code',
+      success: 'Success',
+      message: 'Message',
+      list: 'List',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      code: 'number',
+      success: 'boolean',
+      message: 'string',
+      list: { 'type': 'array', 'itemType': StatisQueryByDayResponseBodyList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StatisQueryByDayResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: StatisQueryByDayResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: StatisQueryByDayResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSceneListRequest extends $tea.Model {
+  accountId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'AccountId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSceneListResponseBody extends $tea.Model {
+  requestId?: string;
+  data?: { [key: string]: any };
+  errMessage?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      data: 'Data',
+      errMessage: 'ErrMessage',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      data: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      errMessage: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSceneListResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetSceneListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetSceneListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSubSceneTaskStatusRequest extends $tea.Model {
+  subSceneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      subSceneId: 'SubSceneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      subSceneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSubSceneTaskStatusResponseBody extends $tea.Model {
+  requestId?: string;
+  code?: number;
+  success?: boolean;
+  message?: string;
+  list?: GetSubSceneTaskStatusResponseBodyList[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      code: 'Code',
+      success: 'Success',
+      message: 'Message',
+      list: 'List',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      code: 'number',
+      success: 'boolean',
+      message: 'string',
+      list: { 'type': 'array', 'itemType': GetSubSceneTaskStatusResponseBodyList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSubSceneTaskStatusResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetSubSceneTaskStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetSubSceneTaskStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PredictionWallLineRequest extends $tea.Model {
+  url?: string;
+  cameraHeight?: number;
+  static names(): { [key: string]: string } {
+    return {
+      url: 'Url',
+      cameraHeight: 'CameraHeight',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      url: 'string',
+      cameraHeight: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PredictionWallLineResponseBody extends $tea.Model {
+  requestId?: string;
+  code?: number;
+  success?: boolean;
+  message?: string;
+  taskId?: string;
+  subSceneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      code: 'Code',
+      success: 'Success',
+      message: 'Message',
+      taskId: 'TaskId',
+      subSceneId: 'SubSceneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      code: 'number',
+      success: 'boolean',
+      message: 'string',
+      taskId: 'string',
+      subSceneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PredictionWallLineResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: PredictionWallLineResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: PredictionWallLineResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPolicyRequest extends $tea.Model {
+  subSceneUuid?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      subSceneUuid: 'SubSceneUuid',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      subSceneUuid: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPolicyResponseBody extends $tea.Model {
+  requestId?: string;
+  objectString?: string;
+  data?: { [key: string]: any };
+  errMessage?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      objectString: 'ObjectString',
+      data: 'Data',
+      errMessage: 'ErrMessage',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      objectString: 'string',
+      data: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      errMessage: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPolicyResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetPolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetPolicyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddSubSceneRequest extends $tea.Model {
+  sceneId?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      sceneId: 'SceneId',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sceneId: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddSubSceneResponseBody extends $tea.Model {
+  requestId?: string;
+  code?: number;
+  success?: boolean;
+  message?: string;
+  id?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      code: 'Code',
+      success: 'Success',
+      message: 'Message',
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      code: 'number',
+      success: 'boolean',
+      message: 'string',
+      id: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddSubSceneResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: AddSubSceneResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: AddSubSceneResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLayoutDataRequest extends $tea.Model {
+  subSceneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      subSceneId: 'SubSceneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      subSceneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLayoutDataResponseBody extends $tea.Model {
+  requestId?: string;
+  code?: number;
+  success?: boolean;
+  message?: string;
+  data?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      code: 'Code',
+      success: 'Success',
+      message: 'Message',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      code: 'number',
+      success: 'boolean',
+      message: 'string',
+      data: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLayoutDataResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetLayoutDataResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetLayoutDataResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSingleConnDataResponseBodyList extends $tea.Model {
+  id?: string;
+  mapId?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      mapId: 'MapId',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      mapId: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSceneResponseBodyList extends $tea.Model {
+  id?: string;
+  name?: string;
+  type?: string;
+  subSceneNum?: number;
+  sourceNum?: number;
+  published?: boolean;
+  gmtCreate?: number;
+  gmtModified?: number;
+  previewToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      name: 'Name',
+      type: 'Type',
+      subSceneNum: 'SubSceneNum',
+      sourceNum: 'SourceNum',
+      published: 'Published',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      previewToken: 'PreviewToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      name: 'string',
+      type: 'string',
+      subSceneNum: 'number',
+      sourceNum: 'number',
+      published: 'boolean',
+      gmtCreate: 'number',
+      gmtModified: 'number',
+      previewToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetConnDataResponseBodyList extends $tea.Model {
+  id?: string;
+  mapId?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      mapId: 'MapId',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      mapId: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSubSceneResponseBodyList extends $tea.Model {
+  id?: string;
+  name?: string;
+  resourceId?: string;
+  url?: string;
+  coverUrl?: string;
+  status?: number;
+  gmtCreate?: number;
+  gmtModified?: number;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      name: 'Name',
+      resourceId: 'ResourceId',
+      url: 'Url',
+      coverUrl: 'CoverUrl',
+      status: 'Status',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      name: 'string',
+      resourceId: 'string',
+      url: 'string',
+      coverUrl: 'string',
+      status: 'number',
+      gmtCreate: 'number',
+      gmtModified: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserBucketConfigResponseBodyConfigInput extends $tea.Model {
+  id?: string;
+  bucketName?: string;
+  location?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      bucketName: 'BucketName',
+      location: 'Location',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      bucketName: 'string',
+      location: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserBucketConfigResponseBodyConfigOutput extends $tea.Model {
+  id?: string;
+  bucketName?: string;
+  location?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      bucketName: 'BucketName',
+      location: 'Location',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      bucketName: 'string',
+      location: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserBucketConfigResponseBodyConfig extends $tea.Model {
+  input?: GetUserBucketConfigResponseBodyConfigInput;
+  output?: GetUserBucketConfigResponseBodyConfigOutput;
+  static names(): { [key: string]: string } {
+    return {
+      input: 'Input',
+      output: 'Output',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      input: GetUserBucketConfigResponseBodyConfigInput,
+      output: GetUserBucketConfigResponseBodyConfigOutput,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StatisQueryByTypeResponseBodyList extends $tea.Model {
+  type?: number;
+  count?: number;
+  static names(): { [key: string]: string } {
+    return {
+      type: 'Type',
+      count: 'Count',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      type: 'number',
+      count: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListScenesResponseBodyData extends $tea.Model {
+  sceneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      sceneId: 'SceneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sceneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProjectResponseBodyList extends $tea.Model {
+  id?: string;
+  name?: string;
+  businessId?: number;
+  businessName?: string;
+  createTime?: number;
+  modifiedTime?: number;
+  token?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      name: 'Name',
+      businessId: 'BusinessId',
+      businessName: 'BusinessName',
+      createTime: 'CreateTime',
+      modifiedTime: 'ModifiedTime',
+      token: 'Token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      name: 'string',
+      businessId: 'number',
+      businessName: 'string',
+      createTime: 'number',
+      modifiedTime: 'number',
+      token: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StatisListSceneInfoResponseBodyList extends $tea.Model {
+  sceneType?: number;
+  publishTime?: string;
+  sceneName?: string;
+  resCount?: number;
+  projectName?: string;
+  measureCount?: number;
+  publishStatus?: number;
+  createTime?: string;
+  sceneId?: number;
+  projectId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      sceneType: 'SceneType',
+      publishTime: 'PublishTime',
+      sceneName: 'SceneName',
+      resCount: 'ResCount',
+      projectName: 'ProjectName',
+      measureCount: 'MeasureCount',
+      publishStatus: 'PublishStatus',
+      createTime: 'CreateTime',
+      sceneId: 'SceneId',
+      projectId: 'ProjectId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sceneType: 'number',
+      publishTime: 'string',
+      sceneName: 'string',
+      resCount: 'number',
+      projectName: 'string',
+      measureCount: 'number',
+      publishStatus: 'number',
+      createTime: 'string',
+      sceneId: 'number',
+      projectId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StatisQueryByDayResponseBodyList extends $tea.Model {
+  status?: number;
+  count?: number;
+  day?: string;
+  static names(): { [key: string]: string } {
+    return {
+      status: 'Status',
+      count: 'Count',
+      day: 'Day',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      status: 'number',
+      count: 'number',
+      day: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSubSceneTaskStatusResponseBodyList extends $tea.Model {
+  id?: string;
+  sceneId?: string;
+  subSceneId?: string;
+  status?: string;
+  type?: string;
+  errorCode?: string;
+  errorMsg?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      sceneId: 'SceneId',
+      subSceneId: 'SubSceneId',
+      status: 'Status',
+      type: 'Type',
+      errorCode: 'ErrorCode',
+      errorMsg: 'ErrorMsg',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      sceneId: 'string',
+      subSceneId: 'string',
+      status: 'string',
+      type: 'string',
+      errorCode: 'string',
+      errorMsg: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+
+export default class Client extends OpenApi {
+
+  constructor(config: $OpenApi.Config) {
     super(config);
     this._endpointRule = "regional";
     this._endpointMap = {
@@ -1008,186 +5446,6 @@ export default class Client extends RPC {
     this._endpoint = this.getEndpoint("tdsr", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
 
-
-  async saveHotspotConfigWithOptions(request: SaveHotspotConfigRequest, runtime: $Util.RuntimeOptions): Promise<SaveHotspotConfigResponse> {
-    Util.validateModel(request);
-    return $tea.cast<SaveHotspotConfigResponse>(await this.doRequest("SaveHotspotConfig", "HTTPS", "POST", "2020-01-01", "AK,APP,PrivateKey,BearerToken", null, $tea.toMap(request), runtime), new SaveHotspotConfigResponse({}));
-  }
-
-  async saveHotspotConfig(request: SaveHotspotConfigRequest): Promise<SaveHotspotConfigResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.saveHotspotConfigWithOptions(request, runtime);
-  }
-
-  async getHotspotConfigWithOptions(request: GetHotspotConfigRequest, runtime: $Util.RuntimeOptions): Promise<GetHotspotConfigResponse> {
-    Util.validateModel(request);
-    return $tea.cast<GetHotspotConfigResponse>(await this.doRequest("GetHotspotConfig", "HTTPS", "POST", "2020-01-01", "AK,APP,PrivateKey,BearerToken", null, $tea.toMap(request), runtime), new GetHotspotConfigResponse({}));
-  }
-
-  async getHotspotConfig(request: GetHotspotConfigRequest): Promise<GetHotspotConfigResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getHotspotConfigWithOptions(request, runtime);
-  }
-
-  async listMainScenesWithOptions(request: ListMainScenesRequest, runtime: $Util.RuntimeOptions): Promise<ListMainScenesResponse> {
-    Util.validateModel(request);
-    return $tea.cast<ListMainScenesResponse>(await this.doRequest("ListMainScenes", "HTTPS", "POST", "2020-01-01", "AK,APP,PrivateKey,BearerToken", null, $tea.toMap(request), runtime), new ListMainScenesResponse({}));
-  }
-
-  async listMainScenes(request: ListMainScenesRequest): Promise<ListMainScenesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.listMainScenesWithOptions(request, runtime);
-  }
-
-  async saveHotspotTagWithOptions(request: SaveHotspotTagRequest, runtime: $Util.RuntimeOptions): Promise<SaveHotspotTagResponse> {
-    Util.validateModel(request);
-    return $tea.cast<SaveHotspotTagResponse>(await this.doRequest("SaveHotspotTag", "HTTPS", "POST", "2020-01-01", "AK,APP,PrivateKey,BearerToken", null, $tea.toMap(request), runtime), new SaveHotspotTagResponse({}));
-  }
-
-  async saveHotspotTag(request: SaveHotspotTagRequest): Promise<SaveHotspotTagResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.saveHotspotTagWithOptions(request, runtime);
-  }
-
-  async getSceneListWithOptions(request: GetSceneListRequest, runtime: $Util.RuntimeOptions): Promise<GetSceneListResponse> {
-    Util.validateModel(request);
-    return $tea.cast<GetSceneListResponse>(await this.doRequest("GetSceneList", "HTTPS", "POST", "2020-01-01", "AK,APP,PrivateKey,BearerToken", null, $tea.toMap(request), runtime), new GetSceneListResponse({}));
-  }
-
-  async getSceneList(request: GetSceneListRequest): Promise<GetSceneListResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getSceneListWithOptions(request, runtime);
-  }
-
-  async saveFileWithOptions(request: SaveFileRequest, runtime: $Util.RuntimeOptions): Promise<SaveFileResponse> {
-    Util.validateModel(request);
-    return $tea.cast<SaveFileResponse>(await this.doRequest("SaveFile", "HTTPS", "POST", "2020-01-01", "AK,APP,PrivateKey,BearerToken", null, $tea.toMap(request), runtime), new SaveFileResponse({}));
-  }
-
-  async saveFile(request: SaveFileRequest): Promise<SaveFileResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.saveFileWithOptions(request, runtime);
-  }
-
-  async deleteFileWithOptions(request: DeleteFileRequest, runtime: $Util.RuntimeOptions): Promise<DeleteFileResponse> {
-    Util.validateModel(request);
-    return $tea.cast<DeleteFileResponse>(await this.doRequest("DeleteFile", "HTTPS", "POST", "2020-01-01", "AK,APP,PrivateKey,BearerToken", null, $tea.toMap(request), runtime), new DeleteFileResponse({}));
-  }
-
-  async deleteFile(request: DeleteFileRequest): Promise<DeleteFileResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.deleteFileWithOptions(request, runtime);
-  }
-
-  async getHotspotTagWithOptions(request: GetHotspotTagRequest, runtime: $Util.RuntimeOptions): Promise<GetHotspotTagResponse> {
-    Util.validateModel(request);
-    return $tea.cast<GetHotspotTagResponse>(await this.doRequest("GetHotspotTag", "HTTPS", "POST", "2020-01-01", "AK,APP,PrivateKey,BearerToken", null, $tea.toMap(request), runtime), new GetHotspotTagResponse({}));
-  }
-
-  async getHotspotTag(request: GetHotspotTagRequest): Promise<GetHotspotTagResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getHotspotTagWithOptions(request, runtime);
-  }
-
-  async getPolicyWithOptions(request: GetPolicyRequest, runtime: $Util.RuntimeOptions): Promise<GetPolicyResponse> {
-    Util.validateModel(request);
-    return $tea.cast<GetPolicyResponse>(await this.doRequest("GetPolicy", "HTTPS", "POST", "2020-01-01", "AK,APP,PrivateKey,BearerToken", null, $tea.toMap(request), runtime), new GetPolicyResponse({}));
-  }
-
-  async getPolicy(request: GetPolicyRequest): Promise<GetPolicyResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getPolicyWithOptions(request, runtime);
-  }
-
-  async publishHotspotWithOptions(request: PublishHotspotRequest, runtime: $Util.RuntimeOptions): Promise<PublishHotspotResponse> {
-    Util.validateModel(request);
-    return $tea.cast<PublishHotspotResponse>(await this.doRequest("PublishHotspot", "HTTPS", "POST", "2020-01-01", "AK,APP,PrivateKey,BearerToken", null, $tea.toMap(request), runtime), new PublishHotspotResponse({}));
-  }
-
-  async publishHotspot(request: PublishHotspotRequest): Promise<PublishHotspotResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.publishHotspotWithOptions(request, runtime);
-  }
-
-  async getWindowConfigWithOptions(request: GetWindowConfigRequest, runtime: $Util.RuntimeOptions): Promise<GetWindowConfigResponse> {
-    Util.validateModel(request);
-    return $tea.cast<GetWindowConfigResponse>(await this.doRequest("GetWindowConfig", "HTTPS", "POST", "2020-01-01", "AK,APP,PrivateKey,BearerToken", null, $tea.toMap(request), runtime), new GetWindowConfigResponse({}));
-  }
-
-  async getWindowConfig(request: GetWindowConfigRequest): Promise<GetWindowConfigResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getWindowConfigWithOptions(request, runtime);
-  }
-
-  async getSceneDataWithOptions(request: GetSceneDataRequest, runtime: $Util.RuntimeOptions): Promise<GetSceneDataResponse> {
-    Util.validateModel(request);
-    return $tea.cast<GetSceneDataResponse>(await this.doRequest("GetSceneData", "HTTPS", "POST", "2020-01-01", "AK,APP,PrivateKey,BearerToken", null, $tea.toMap(request), runtime), new GetSceneDataResponse({}));
-  }
-
-  async getSceneData(request: GetSceneDataRequest): Promise<GetSceneDataResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getSceneDataWithOptions(request, runtime);
-  }
-
-  async checkPermissionWithOptions(request: CheckPermissionRequest, runtime: $Util.RuntimeOptions): Promise<CheckPermissionResponse> {
-    Util.validateModel(request);
-    return $tea.cast<CheckPermissionResponse>(await this.doRequest("CheckPermission", "HTTPS", "POST", "2020-01-01", "AK", null, $tea.toMap(request), runtime), new CheckPermissionResponse({}));
-  }
-
-  async checkPermission(request: CheckPermissionRequest): Promise<CheckPermissionResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.checkPermissionWithOptions(request, runtime);
-  }
-
-  async checkResourceWithOptions(request: CheckResourceRequest, runtime: $Util.RuntimeOptions): Promise<CheckResourceResponse> {
-    Util.validateModel(request);
-    return $tea.cast<CheckResourceResponse>(await this.doRequest("CheckResource", "HTTPS", "POST", "2020-01-01", "AK", null, $tea.toMap(request), runtime), new CheckResourceResponse({}));
-  }
-
-  async checkResource(request: CheckResourceRequest): Promise<CheckResourceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.checkResourceWithOptions(request, runtime);
-  }
-
-  async createSceneWithOptions(request: CreateSceneRequest, runtime: $Util.RuntimeOptions): Promise<CreateSceneResponse> {
-    Util.validateModel(request);
-    return $tea.cast<CreateSceneResponse>(await this.doRequest("CreateScene", "HTTPS", "POST", "2020-01-01", "AK", null, $tea.toMap(request), runtime), new CreateSceneResponse({}));
-  }
-
-  async createScene(request: CreateSceneRequest): Promise<CreateSceneResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.createSceneWithOptions(request, runtime);
-  }
-
-  async createProjectWithOptions(request: CreateProjectRequest, runtime: $Util.RuntimeOptions): Promise<CreateProjectResponse> {
-    Util.validateModel(request);
-    return $tea.cast<CreateProjectResponse>(await this.doRequest("CreateProject", "HTTPS", "POST", "2020-01-01", "AK", null, $tea.toMap(request), runtime), new CreateProjectResponse({}));
-  }
-
-  async createProject(request: CreateProjectRequest): Promise<CreateProjectResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.createProjectWithOptions(request, runtime);
-  }
-
-  async deleteProjectWithOptions(request: DeleteProjectRequest, runtime: $Util.RuntimeOptions): Promise<DeleteProjectResponse> {
-    Util.validateModel(request);
-    return $tea.cast<DeleteProjectResponse>(await this.doRequest("DeleteProject", "HTTPS", "POST", "2020-01-01", "AK", null, $tea.toMap(request), runtime), new DeleteProjectResponse({}));
-  }
-
-  async deleteProject(request: DeleteProjectRequest): Promise<DeleteProjectResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.deleteProjectWithOptions(request, runtime);
-  }
-
-  async listScenesWithOptions(request: ListScenesRequest, runtime: $Util.RuntimeOptions): Promise<ListScenesResponse> {
-    Util.validateModel(request);
-    return $tea.cast<ListScenesResponse>(await this.doRequest("ListScenes", "HTTPS", "POST", "2020-01-01", "AK", null, $tea.toMap(request), runtime), new ListScenesResponse({}));
-  }
-
-  async listScenes(request: ListScenesRequest): Promise<ListScenesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.listScenesWithOptions(request, runtime);
-  }
 
   getEndpoint(productId: string, regionId: string, endpointRule: string, network: string, suffix: string, endpointMap: {[key: string ]: string}, endpoint: string): string {
     if (!Util.empty(endpoint)) {
@@ -1199,6 +5457,858 @@ export default class Client extends RPC {
     }
 
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+  }
+
+  async getSingleConnDataWithOptions(request: GetSingleConnDataRequest, runtime: $Util.RuntimeOptions): Promise<GetSingleConnDataResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<GetSingleConnDataResponse>(await this.doRPCRequest("GetSingleConnData", "2020-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new GetSingleConnDataResponse({}));
+  }
+
+  async getSingleConnData(request: GetSingleConnDataRequest): Promise<GetSingleConnDataResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getSingleConnDataWithOptions(request, runtime);
+  }
+
+  async getTaskStatusWithOptions(request: GetTaskStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetTaskStatusResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<GetTaskStatusResponse>(await this.doRPCRequest("GetTaskStatus", "2020-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new GetTaskStatusResponse({}));
+  }
+
+  async getTaskStatus(request: GetTaskStatusRequest): Promise<GetTaskStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getTaskStatusWithOptions(request, runtime);
+  }
+
+  async getSceneDataWithOptions(request: GetSceneDataRequest, runtime: $Util.RuntimeOptions): Promise<GetSceneDataResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<GetSceneDataResponse>(await this.doRPCRequest("GetSceneData", "2020-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new GetSceneDataResponse({}));
+  }
+
+  async getSceneData(request: GetSceneDataRequest): Promise<GetSceneDataResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getSceneDataWithOptions(request, runtime);
+  }
+
+  async linkImageWithOptions(request: LinkImageRequest, runtime: $Util.RuntimeOptions): Promise<LinkImageResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<LinkImageResponse>(await this.doRPCRequest("LinkImage", "2020-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new LinkImageResponse({}));
+  }
+
+  async linkImage(request: LinkImageRequest): Promise<LinkImageResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.linkImageWithOptions(request, runtime);
+  }
+
+  async addSceneWithOptions(request: AddSceneRequest, runtime: $Util.RuntimeOptions): Promise<AddSceneResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<AddSceneResponse>(await this.doRPCRequest("AddScene", "2020-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new AddSceneResponse({}));
+  }
+
+  async addScene(request: AddSceneRequest): Promise<AddSceneResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.addSceneWithOptions(request, runtime);
+  }
+
+  async updateConnDataWithOptions(request: UpdateConnDataRequest, runtime: $Util.RuntimeOptions): Promise<UpdateConnDataResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<UpdateConnDataResponse>(await this.doRPCRequest("UpdateConnData", "2020-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateConnDataResponse({}));
+  }
+
+  async updateConnData(request: UpdateConnDataRequest): Promise<UpdateConnDataResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateConnDataWithOptions(request, runtime);
+  }
+
+  async bucketIsExistWithOptions(request: BucketIsExistRequest, runtime: $Util.RuntimeOptions): Promise<BucketIsExistResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<BucketIsExistResponse>(await this.doRPCRequest("BucketIsExist", "2020-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new BucketIsExistResponse({}));
+  }
+
+  async bucketIsExist(request: BucketIsExistRequest): Promise<BucketIsExistResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.bucketIsExistWithOptions(request, runtime);
+  }
+
+  async rectifyImageWithOptions(request: RectifyImageRequest, runtime: $Util.RuntimeOptions): Promise<RectifyImageResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<RectifyImageResponse>(await this.doRPCRequest("RectifyImage", "2020-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new RectifyImageResponse({}));
+  }
+
+  async rectifyImage(request: RectifyImageRequest): Promise<RectifyImageResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.rectifyImageWithOptions(request, runtime);
+  }
+
+  async labelBuildWithOptions(request: LabelBuildRequest, runtime: $Util.RuntimeOptions): Promise<LabelBuildResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<LabelBuildResponse>(await this.doRPCRequest("LabelBuild", "2020-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new LabelBuildResponse({}));
+  }
+
+  async labelBuild(request: LabelBuildRequest): Promise<LabelBuildResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.labelBuildWithOptions(request, runtime);
+  }
+
+  async dropSceneWithOptions(request: DropSceneRequest, runtime: $Util.RuntimeOptions): Promise<DropSceneResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DropSceneResponse>(await this.doRPCRequest("DropScene", "2020-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new DropSceneResponse({}));
+  }
+
+  async dropScene(request: DropSceneRequest): Promise<DropSceneResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.dropSceneWithOptions(request, runtime);
+  }
+
+  async optimizeRightAngleWithOptions(request: OptimizeRightAngleRequest, runtime: $Util.RuntimeOptions): Promise<OptimizeRightAngleResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<OptimizeRightAngleResponse>(await this.doRPCRequest("OptimizeRightAngle", "2020-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new OptimizeRightAngleResponse({}));
+  }
+
+  async optimizeRightAngle(request: OptimizeRightAngleRequest): Promise<OptimizeRightAngleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.optimizeRightAngleWithOptions(request, runtime);
+  }
+
+  async detailSceneWithOptions(request: DetailSceneRequest, runtime: $Util.RuntimeOptions): Promise<DetailSceneResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DetailSceneResponse>(await this.doRPCRequest("DetailScene", "2020-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new DetailSceneResponse({}));
+  }
+
+  async detailScene(request: DetailSceneRequest): Promise<DetailSceneResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.detailSceneWithOptions(request, runtime);
+  }
+
+  async createSceneWithOptions(request: CreateSceneRequest, runtime: $Util.RuntimeOptions): Promise<CreateSceneResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<CreateSceneResponse>(await this.doRPCRequest("CreateScene", "2020-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new CreateSceneResponse({}));
+  }
+
+  async createScene(request: CreateSceneRequest): Promise<CreateSceneResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createSceneWithOptions(request, runtime);
+  }
+
+  async deleteFileWithOptions(request: DeleteFileRequest, runtime: $Util.RuntimeOptions): Promise<DeleteFileResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DeleteFileResponse>(await this.doRPCRequest("DeleteFile", "2020-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteFileResponse({}));
+  }
+
+  async deleteFile(request: DeleteFileRequest): Promise<DeleteFileResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteFileWithOptions(request, runtime);
+  }
+
+  async checkResourceWithOptions(request: CheckResourceRequest, runtime: $Util.RuntimeOptions): Promise<CheckResourceResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<CheckResourceResponse>(await this.doRPCRequest("CheckResource", "2020-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new CheckResourceResponse({}));
+  }
+
+  async checkResource(request: CheckResourceRequest): Promise<CheckResourceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.checkResourceWithOptions(request, runtime);
+  }
+
+  async listSceneWithOptions(request: ListSceneRequest, runtime: $Util.RuntimeOptions): Promise<ListSceneResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<ListSceneResponse>(await this.doRPCRequest("ListScene", "2020-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new ListSceneResponse({}));
+  }
+
+  async listScene(request: ListSceneRequest): Promise<ListSceneResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listSceneWithOptions(request, runtime);
+  }
+
+  async publishHotspotWithOptions(request: PublishHotspotRequest, runtime: $Util.RuntimeOptions): Promise<PublishHotspotResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<PublishHotspotResponse>(await this.doRPCRequest("PublishHotspot", "2020-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new PublishHotspotResponse({}));
+  }
+
+  async publishHotspot(request: PublishHotspotRequest): Promise<PublishHotspotResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.publishHotspotWithOptions(request, runtime);
+  }
+
+  async updateSceneWithOptions(request: UpdateSceneRequest, runtime: $Util.RuntimeOptions): Promise<UpdateSceneResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<UpdateSceneResponse>(await this.doRPCRequest("UpdateScene", "2020-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateSceneResponse({}));
+  }
+
+  async updateScene(request: UpdateSceneRequest): Promise<UpdateSceneResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateSceneWithOptions(request, runtime);
+  }
+
+  async updateLayoutDataWithOptions(request: UpdateLayoutDataRequest, runtime: $Util.RuntimeOptions): Promise<UpdateLayoutDataResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<UpdateLayoutDataResponse>(await this.doRPCRequest("UpdateLayoutData", "2020-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateLayoutDataResponse({}));
+  }
+
+  async updateLayoutData(request: UpdateLayoutDataRequest): Promise<UpdateLayoutDataResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateLayoutDataWithOptions(request, runtime);
+  }
+
+  async saveHotspotTagWithOptions(request: SaveHotspotTagRequest, runtime: $Util.RuntimeOptions): Promise<SaveHotspotTagResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<SaveHotspotTagResponse>(await this.doRPCRequest("SaveHotspotTag", "2020-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new SaveHotspotTagResponse({}));
+  }
+
+  async saveHotspotTag(request: SaveHotspotTagRequest): Promise<SaveHotspotTagResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.saveHotspotTagWithOptions(request, runtime);
+  }
+
+  async checkPermissionWithOptions(request: CheckPermissionRequest, runtime: $Util.RuntimeOptions): Promise<CheckPermissionResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<CheckPermissionResponse>(await this.doRPCRequest("CheckPermission", "2020-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new CheckPermissionResponse({}));
+  }
+
+  async checkPermission(request: CheckPermissionRequest): Promise<CheckPermissionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.checkPermissionWithOptions(request, runtime);
+  }
+
+  async deleteProjectWithOptions(request: DeleteProjectRequest, runtime: $Util.RuntimeOptions): Promise<DeleteProjectResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DeleteProjectResponse>(await this.doRPCRequest("DeleteProject", "2020-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteProjectResponse({}));
+  }
+
+  async deleteProject(request: DeleteProjectRequest): Promise<DeleteProjectResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteProjectWithOptions(request, runtime);
+  }
+
+  async rectVerticalWithOptions(request: RectVerticalRequest, runtime: $Util.RuntimeOptions): Promise<RectVerticalResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<RectVerticalResponse>(await this.doRPCRequest("RectVertical", "2020-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new RectVerticalResponse({}));
+  }
+
+  async rectVertical(request: RectVerticalRequest): Promise<RectVerticalResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.rectVerticalWithOptions(request, runtime);
+  }
+
+  async predImageWithOptions(request: PredImageRequest, runtime: $Util.RuntimeOptions): Promise<PredImageResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<PredImageResponse>(await this.doRPCRequest("PredImage", "2020-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new PredImageResponse({}));
+  }
+
+  async predImage(request: PredImageRequest): Promise<PredImageResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.predImageWithOptions(request, runtime);
+  }
+
+  async getOssPolicyWithOptions(request: GetOssPolicyRequest, runtime: $Util.RuntimeOptions): Promise<GetOssPolicyResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<GetOssPolicyResponse>(await this.doRPCRequest("GetOssPolicy", "2020-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new GetOssPolicyResponse({}));
+  }
+
+  async getOssPolicy(request: GetOssPolicyRequest): Promise<GetOssPolicyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getOssPolicyWithOptions(request, runtime);
+  }
+
+  async getConnDataWithOptions(request: GetConnDataRequest, runtime: $Util.RuntimeOptions): Promise<GetConnDataResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<GetConnDataResponse>(await this.doRPCRequest("GetConnData", "2020-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new GetConnDataResponse({}));
+  }
+
+  async getConnData(request: GetConnDataRequest): Promise<GetConnDataResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getConnDataWithOptions(request, runtime);
+  }
+
+  async tempPreviewStatusWithOptions(request: TempPreviewStatusRequest, runtime: $Util.RuntimeOptions): Promise<TempPreviewStatusResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<TempPreviewStatusResponse>(await this.doRPCRequest("TempPreviewStatus", "2020-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new TempPreviewStatusResponse({}));
+  }
+
+  async tempPreviewStatus(request: TempPreviewStatusRequest): Promise<TempPreviewStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.tempPreviewStatusWithOptions(request, runtime);
+  }
+
+  async addProjectWithOptions(request: AddProjectRequest, runtime: $Util.RuntimeOptions): Promise<AddProjectResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<AddProjectResponse>(await this.doRPCRequest("AddProject", "2020-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new AddProjectResponse({}));
+  }
+
+  async addProject(request: AddProjectRequest): Promise<AddProjectResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.addProjectWithOptions(request, runtime);
+  }
+
+  async listMainScenesWithOptions(request: ListMainScenesRequest, runtime: $Util.RuntimeOptions): Promise<ListMainScenesResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<ListMainScenesResponse>(await this.doRPCRequest("ListMainScenes", "2020-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new ListMainScenesResponse({}));
+  }
+
+  async listMainScenes(request: ListMainScenesRequest): Promise<ListMainScenesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listMainScenesWithOptions(request, runtime);
+  }
+
+  async detailSubSceneWithOptions(request: DetailSubSceneRequest, runtime: $Util.RuntimeOptions): Promise<DetailSubSceneResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DetailSubSceneResponse>(await this.doRPCRequest("DetailSubScene", "2020-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new DetailSubSceneResponse({}));
+  }
+
+  async detailSubScene(request: DetailSubSceneRequest): Promise<DetailSubSceneResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.detailSubSceneWithOptions(request, runtime);
+  }
+
+  async listSubSceneWithOptions(request: ListSubSceneRequest, runtime: $Util.RuntimeOptions): Promise<ListSubSceneResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<ListSubSceneResponse>(await this.doRPCRequest("ListSubScene", "2020-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new ListSubSceneResponse({}));
+  }
+
+  async listSubScene(request: ListSubSceneRequest): Promise<ListSubSceneResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listSubSceneWithOptions(request, runtime);
+  }
+
+  async updateSubSceneWithOptions(request: UpdateSubSceneRequest, runtime: $Util.RuntimeOptions): Promise<UpdateSubSceneResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<UpdateSubSceneResponse>(await this.doRPCRequest("UpdateSubScene", "2020-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateSubSceneResponse({}));
+  }
+
+  async updateSubScene(request: UpdateSubSceneRequest): Promise<UpdateSubSceneResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateSubSceneWithOptions(request, runtime);
+  }
+
+  async createProjectWithOptions(request: CreateProjectRequest, runtime: $Util.RuntimeOptions): Promise<CreateProjectResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<CreateProjectResponse>(await this.doRPCRequest("CreateProject", "2020-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new CreateProjectResponse({}));
+  }
+
+  async createProject(request: CreateProjectRequest): Promise<CreateProjectResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createProjectWithOptions(request, runtime);
+  }
+
+  async dropBucketWithOptions(request: DropBucketRequest, runtime: $Util.RuntimeOptions): Promise<DropBucketResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DropBucketResponse>(await this.doRPCRequest("DropBucket", "2020-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new DropBucketResponse({}));
+  }
+
+  async dropBucket(request: DropBucketRequest): Promise<DropBucketResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.dropBucketWithOptions(request, runtime);
+  }
+
+  async getUserBucketConfigWithOptions(runtime: $Util.RuntimeOptions): Promise<GetUserBucketConfigResponse> {
+    let req = new $OpenApi.OpenApiRequest({ });
+    return $tea.cast<GetUserBucketConfigResponse>(await this.doRPCRequest("GetUserBucketConfig", "2020-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new GetUserBucketConfigResponse({}));
+  }
+
+  async getUserBucketConfig(): Promise<GetUserBucketConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getUserBucketConfigWithOptions(runtime);
+  }
+
+  async addBucketWithOptions(request: AddBucketRequest, runtime: $Util.RuntimeOptions): Promise<AddBucketResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<AddBucketResponse>(await this.doRPCRequest("AddBucket", "2020-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new AddBucketResponse({}));
+  }
+
+  async addBucket(request: AddBucketRequest): Promise<AddBucketResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.addBucketWithOptions(request, runtime);
+  }
+
+  async saveHotspotConfigWithOptions(request: SaveHotspotConfigRequest, runtime: $Util.RuntimeOptions): Promise<SaveHotspotConfigResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<SaveHotspotConfigResponse>(await this.doRPCRequest("SaveHotspotConfig", "2020-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new SaveHotspotConfigResponse({}));
+  }
+
+  async saveHotspotConfig(request: SaveHotspotConfigRequest): Promise<SaveHotspotConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.saveHotspotConfigWithOptions(request, runtime);
+  }
+
+  async getWindowConfigWithOptions(request: GetWindowConfigRequest, runtime: $Util.RuntimeOptions): Promise<GetWindowConfigResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<GetWindowConfigResponse>(await this.doRPCRequest("GetWindowConfig", "2020-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new GetWindowConfigResponse({}));
+  }
+
+  async getWindowConfig(request: GetWindowConfigRequest): Promise<GetWindowConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getWindowConfigWithOptions(request, runtime);
+  }
+
+  async statisQueryByTypeWithOptions(request: StatisQueryByTypeRequest, runtime: $Util.RuntimeOptions): Promise<StatisQueryByTypeResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<StatisQueryByTypeResponse>(await this.doRPCRequest("StatisQueryByType", "2020-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new StatisQueryByTypeResponse({}));
+  }
+
+  async statisQueryByType(request: StatisQueryByTypeRequest): Promise<StatisQueryByTypeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.statisQueryByTypeWithOptions(request, runtime);
+  }
+
+  async statisExportSceneInfoWithOptions(request: StatisExportSceneInfoRequest, runtime: $Util.RuntimeOptions): Promise<StatisExportSceneInfoResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<StatisExportSceneInfoResponse>(await this.doRPCRequest("StatisExportSceneInfo", "2020-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new StatisExportSceneInfoResponse({}));
+  }
+
+  async statisExportSceneInfo(request: StatisExportSceneInfoRequest): Promise<StatisExportSceneInfoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.statisExportSceneInfoWithOptions(request, runtime);
+  }
+
+  async getHotspotConfigWithOptions(request: GetHotspotConfigRequest, runtime: $Util.RuntimeOptions): Promise<GetHotspotConfigResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<GetHotspotConfigResponse>(await this.doRPCRequest("GetHotspotConfig", "2020-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new GetHotspotConfigResponse({}));
+  }
+
+  async getHotspotConfig(request: GetHotspotConfigRequest): Promise<GetHotspotConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getHotspotConfigWithOptions(request, runtime);
+  }
+
+  async getSceneBuildTaskStatusWithOptions(request: GetSceneBuildTaskStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetSceneBuildTaskStatusResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<GetSceneBuildTaskStatusResponse>(await this.doRPCRequest("GetSceneBuildTaskStatus", "2020-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new GetSceneBuildTaskStatusResponse({}));
+  }
+
+  async getSceneBuildTaskStatus(request: GetSceneBuildTaskStatusRequest): Promise<GetSceneBuildTaskStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getSceneBuildTaskStatusWithOptions(request, runtime);
+  }
+
+  async tempPreviewWithOptions(request: TempPreviewRequest, runtime: $Util.RuntimeOptions): Promise<TempPreviewResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<TempPreviewResponse>(await this.doRPCRequest("TempPreview", "2020-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new TempPreviewResponse({}));
+  }
+
+  async tempPreview(request: TempPreviewRequest): Promise<TempPreviewResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.tempPreviewWithOptions(request, runtime);
+  }
+
+  async publishSceneWithOptions(request: PublishSceneRequest, runtime: $Util.RuntimeOptions): Promise<PublishSceneResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<PublishSceneResponse>(await this.doRPCRequest("PublishScene", "2020-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new PublishSceneResponse({}));
+  }
+
+  async publishScene(request: PublishSceneRequest): Promise<PublishSceneResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.publishSceneWithOptions(request, runtime);
+  }
+
+  async detailProjectWithOptions(request: DetailProjectRequest, runtime: $Util.RuntimeOptions): Promise<DetailProjectResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DetailProjectResponse>(await this.doRPCRequest("DetailProject", "2020-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new DetailProjectResponse({}));
+  }
+
+  async detailProject(request: DetailProjectRequest): Promise<DetailProjectResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.detailProjectWithOptions(request, runtime);
+  }
+
+  async listScenesWithOptions(request: ListScenesRequest, runtime: $Util.RuntimeOptions): Promise<ListScenesResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<ListScenesResponse>(await this.doRPCRequest("ListScenes", "2020-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new ListScenesResponse({}));
+  }
+
+  async listScenes(request: ListScenesRequest): Promise<ListScenesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listScenesWithOptions(request, runtime);
+  }
+
+  async dropSubSceneWithOptions(request: DropSubSceneRequest, runtime: $Util.RuntimeOptions): Promise<DropSubSceneResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DropSubSceneResponse>(await this.doRPCRequest("DropSubScene", "2020-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new DropSubSceneResponse({}));
+  }
+
+  async dropSubScene(request: DropSubSceneRequest): Promise<DropSubSceneResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.dropSubSceneWithOptions(request, runtime);
+  }
+
+  async isEnableOssWithOptions(request: IsEnableOssRequest, runtime: $Util.RuntimeOptions): Promise<IsEnableOssResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<IsEnableOssResponse>(await this.doRPCRequest("IsEnableOss", "2020-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new IsEnableOssResponse({}));
+  }
+
+  async isEnableOss(request: IsEnableOssRequest): Promise<IsEnableOssResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.isEnableOssWithOptions(request, runtime);
+  }
+
+  async getHotspotTagWithOptions(request: GetHotspotTagRequest, runtime: $Util.RuntimeOptions): Promise<GetHotspotTagResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<GetHotspotTagResponse>(await this.doRPCRequest("GetHotspotTag", "2020-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new GetHotspotTagResponse({}));
+  }
+
+  async getHotspotTag(request: GetHotspotTagRequest): Promise<GetHotspotTagResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getHotspotTagWithOptions(request, runtime);
+  }
+
+  async dropProjectWithOptions(request: DropProjectRequest, runtime: $Util.RuntimeOptions): Promise<DropProjectResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DropProjectResponse>(await this.doRPCRequest("DropProject", "2020-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new DropProjectResponse({}));
+  }
+
+  async dropProject(request: DropProjectRequest): Promise<DropProjectResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.dropProjectWithOptions(request, runtime);
+  }
+
+  async getUserOssStatusWithOptions(runtime: $Util.RuntimeOptions): Promise<GetUserOssStatusResponse> {
+    let req = new $OpenApi.OpenApiRequest({ });
+    return $tea.cast<GetUserOssStatusResponse>(await this.doRPCRequest("GetUserOssStatus", "2020-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new GetUserOssStatusResponse({}));
+  }
+
+  async getUserOssStatus(): Promise<GetUserOssStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getUserOssStatusWithOptions(runtime);
+  }
+
+  async listProjectWithOptions(request: ListProjectRequest, runtime: $Util.RuntimeOptions): Promise<ListProjectResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<ListProjectResponse>(await this.doRPCRequest("ListProject", "2020-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new ListProjectResponse({}));
+  }
+
+  async listProject(request: ListProjectRequest): Promise<ListProjectResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listProjectWithOptions(request, runtime);
+  }
+
+  async getOriginLayoutDataWithOptions(request: GetOriginLayoutDataRequest, runtime: $Util.RuntimeOptions): Promise<GetOriginLayoutDataResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<GetOriginLayoutDataResponse>(await this.doRPCRequest("GetOriginLayoutData", "2020-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new GetOriginLayoutDataResponse({}));
+  }
+
+  async getOriginLayoutData(request: GetOriginLayoutDataRequest): Promise<GetOriginLayoutDataResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getOriginLayoutDataWithOptions(request, runtime);
+  }
+
+  async statisListSceneInfoWithOptions(request: StatisListSceneInfoRequest, runtime: $Util.RuntimeOptions): Promise<StatisListSceneInfoResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<StatisListSceneInfoResponse>(await this.doRPCRequest("StatisListSceneInfo", "2020-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new StatisListSceneInfoResponse({}));
+  }
+
+  async statisListSceneInfo(request: StatisListSceneInfoRequest): Promise<StatisListSceneInfoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.statisListSceneInfoWithOptions(request, runtime);
+  }
+
+  async scenePublishWithOptions(request: ScenePublishRequest, runtime: $Util.RuntimeOptions): Promise<ScenePublishResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<ScenePublishResponse>(await this.doRPCRequest("ScenePublish", "2020-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new ScenePublishResponse({}));
+  }
+
+  async scenePublish(request: ScenePublishRequest): Promise<ScenePublishResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.scenePublishWithOptions(request, runtime);
+  }
+
+  async saveFileWithOptions(request: SaveFileRequest, runtime: $Util.RuntimeOptions): Promise<SaveFileResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<SaveFileResponse>(await this.doRPCRequest("SaveFile", "2020-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new SaveFileResponse({}));
+  }
+
+  async saveFile(request: SaveFileRequest): Promise<SaveFileResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.saveFileWithOptions(request, runtime);
+  }
+
+  async getRectifyImageWithOptions(request: GetRectifyImageRequest, runtime: $Util.RuntimeOptions): Promise<GetRectifyImageResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<GetRectifyImageResponse>(await this.doRPCRequest("GetRectifyImage", "2020-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new GetRectifyImageResponse({}));
+  }
+
+  async getRectifyImage(request: GetRectifyImageRequest): Promise<GetRectifyImageResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getRectifyImageWithOptions(request, runtime);
+  }
+
+  async updateProjectWithOptions(request: UpdateProjectRequest, runtime: $Util.RuntimeOptions): Promise<UpdateProjectResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<UpdateProjectResponse>(await this.doRPCRequest("UpdateProject", "2020-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateProjectResponse({}));
+  }
+
+  async updateProject(request: UpdateProjectRequest): Promise<UpdateProjectResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateProjectWithOptions(request, runtime);
+  }
+
+  async updateBucketWithOptions(request: UpdateBucketRequest, runtime: $Util.RuntimeOptions): Promise<UpdateBucketResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<UpdateBucketResponse>(await this.doRPCRequest("UpdateBucket", "2020-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateBucketResponse({}));
+  }
+
+  async updateBucket(request: UpdateBucketRequest): Promise<UpdateBucketResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateBucketWithOptions(request, runtime);
+  }
+
+  async statisQueryByDayWithOptions(request: StatisQueryByDayRequest, runtime: $Util.RuntimeOptions): Promise<StatisQueryByDayResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<StatisQueryByDayResponse>(await this.doRPCRequest("StatisQueryByDay", "2020-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new StatisQueryByDayResponse({}));
+  }
+
+  async statisQueryByDay(request: StatisQueryByDayRequest): Promise<StatisQueryByDayResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.statisQueryByDayWithOptions(request, runtime);
+  }
+
+  async getSceneListWithOptions(request: GetSceneListRequest, runtime: $Util.RuntimeOptions): Promise<GetSceneListResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<GetSceneListResponse>(await this.doRPCRequest("GetSceneList", "2020-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new GetSceneListResponse({}));
+  }
+
+  async getSceneList(request: GetSceneListRequest): Promise<GetSceneListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getSceneListWithOptions(request, runtime);
+  }
+
+  async getSubSceneTaskStatusWithOptions(request: GetSubSceneTaskStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetSubSceneTaskStatusResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<GetSubSceneTaskStatusResponse>(await this.doRPCRequest("GetSubSceneTaskStatus", "2020-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new GetSubSceneTaskStatusResponse({}));
+  }
+
+  async getSubSceneTaskStatus(request: GetSubSceneTaskStatusRequest): Promise<GetSubSceneTaskStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getSubSceneTaskStatusWithOptions(request, runtime);
+  }
+
+  async predictionWallLineWithOptions(request: PredictionWallLineRequest, runtime: $Util.RuntimeOptions): Promise<PredictionWallLineResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<PredictionWallLineResponse>(await this.doRPCRequest("PredictionWallLine", "2020-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new PredictionWallLineResponse({}));
+  }
+
+  async predictionWallLine(request: PredictionWallLineRequest): Promise<PredictionWallLineResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.predictionWallLineWithOptions(request, runtime);
+  }
+
+  async getPolicyWithOptions(request: GetPolicyRequest, runtime: $Util.RuntimeOptions): Promise<GetPolicyResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<GetPolicyResponse>(await this.doRPCRequest("GetPolicy", "2020-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new GetPolicyResponse({}));
+  }
+
+  async getPolicy(request: GetPolicyRequest): Promise<GetPolicyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getPolicyWithOptions(request, runtime);
+  }
+
+  async addSubSceneWithOptions(request: AddSubSceneRequest, runtime: $Util.RuntimeOptions): Promise<AddSubSceneResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<AddSubSceneResponse>(await this.doRPCRequest("AddSubScene", "2020-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new AddSubSceneResponse({}));
+  }
+
+  async addSubScene(request: AddSubSceneRequest): Promise<AddSubSceneResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.addSubSceneWithOptions(request, runtime);
+  }
+
+  async getLayoutDataWithOptions(request: GetLayoutDataRequest, runtime: $Util.RuntimeOptions): Promise<GetLayoutDataResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<GetLayoutDataResponse>(await this.doRPCRequest("GetLayoutData", "2020-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new GetLayoutDataResponse({}));
+  }
+
+  async getLayoutData(request: GetLayoutDataRequest): Promise<GetLayoutDataResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getLayoutDataWithOptions(request, runtime);
   }
 
 }
