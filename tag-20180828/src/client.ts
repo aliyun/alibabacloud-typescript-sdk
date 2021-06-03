@@ -7,6 +7,84 @@ import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class DescribeRegionsRequest extends $tea.Model {
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  ownerAccount?: string;
+  regionId?: string;
+  acceptLanguage?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      ownerAccount: 'OwnerAccount',
+      regionId: 'RegionId',
+      acceptLanguage: 'AcceptLanguage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      ownerAccount: 'string',
+      regionId: 'string',
+      acceptLanguage: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRegionsResponseBody extends $tea.Model {
+  requestId?: string;
+  regions?: DescribeRegionsResponseBodyRegions;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      regions: 'Regions',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      regions: DescribeRegionsResponseBodyRegions,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRegionsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeRegionsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeRegionsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListTagKeysRequest extends $tea.Model {
   ownerId?: number;
   resourceOwnerAccount?: string;
@@ -16,6 +94,7 @@ export class ListTagKeysRequest extends $tea.Model {
   pageSize?: number;
   category?: string;
   resourceType?: string;
+  tagProduct?: string;
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
@@ -26,6 +105,7 @@ export class ListTagKeysRequest extends $tea.Model {
       pageSize: 'PageSize',
       category: 'Category',
       resourceType: 'ResourceType',
+      tagProduct: 'TagProduct',
     };
   }
 
@@ -39,6 +119,7 @@ export class ListTagKeysRequest extends $tea.Model {
       pageSize: 'number',
       category: 'string',
       resourceType: 'string',
+      tagProduct: 'string',
     };
   }
 
@@ -193,6 +274,7 @@ export class ListTagValuesRequest extends $tea.Model {
   nextToken?: string;
   pageSize?: number;
   resourceType?: string;
+  tagProduct?: string;
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
@@ -203,6 +285,7 @@ export class ListTagValuesRequest extends $tea.Model {
       nextToken: 'NextToken',
       pageSize: 'PageSize',
       resourceType: 'ResourceType',
+      tagProduct: 'TagProduct',
     };
   }
 
@@ -216,6 +299,7 @@ export class ListTagValuesRequest extends $tea.Model {
       nextToken: 'string',
       pageSize: 'number',
       resourceType: 'string',
+      tagProduct: 'string',
     };
   }
 
@@ -419,6 +503,50 @@ export class UntagResourcesResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: UntagResourcesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRegionsResponseBodyRegionsRegion extends $tea.Model {
+  localName?: string;
+  regionEndpoint?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      localName: 'LocalName',
+      regionEndpoint: 'RegionEndpoint',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      localName: 'string',
+      regionEndpoint: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRegionsResponseBodyRegions extends $tea.Model {
+  region?: DescribeRegionsResponseBodyRegionsRegion[];
+  static names(): { [key: string]: string } {
+    return {
+      region: 'Region',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      region: { 'type': 'array', 'itemType': DescribeRegionsResponseBodyRegionsRegion },
     };
   }
 
@@ -725,6 +853,19 @@ export default class Client extends OpenApi {
     }
 
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+  }
+
+  async describeRegionsWithOptions(request: DescribeRegionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRegionsResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DescribeRegionsResponse>(await this.doRPCRequest("DescribeRegions", "2018-08-28", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeRegionsResponse({}));
+  }
+
+  async describeRegions(request: DescribeRegionsRequest): Promise<DescribeRegionsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeRegionsWithOptions(request, runtime);
   }
 
   async listTagKeysWithOptions(request: ListTagKeysRequest, runtime: $Util.RuntimeOptions): Promise<ListTagKeysResponse> {
