@@ -252,7 +252,6 @@ export class SearchByPicResponseBodyDataAuctionsResult extends $tea.Model {
   pic?: string;
   price?: string;
   promotionPrice?: string;
-  priceAfterCoupon?: string;
   userType?: number;
   provcity?: string;
   sellerNickName?: string;
@@ -260,19 +259,16 @@ export class SearchByPicResponseBodyDataAuctionsResult extends $tea.Model {
   monthSellCount?: number;
   levelOneCategoryName?: string;
   categoryName?: string;
-  couponActivityId?: string;
   couponTotalCount?: string;
-  couponSendCount?: string;
   couponRemainCount?: number;
   couponStartTime?: string;
   couponEndTime?: string;
   couponStartFee?: string;
   couponAmount?: number;
   couponSaleTextInfo?: string;
-  calTkRate?: string;
+  commissionRate?: string;
   couponShareUrl?: string;
   clickUrl?: string;
-  shortUrl?: string;
   static names(): { [key: string]: string } {
     return {
       itemId: 'ItemId',
@@ -280,7 +276,6 @@ export class SearchByPicResponseBodyDataAuctionsResult extends $tea.Model {
       pic: 'Pic',
       price: 'Price',
       promotionPrice: 'PromotionPrice',
-      priceAfterCoupon: 'PriceAfterCoupon',
       userType: 'UserType',
       provcity: 'Provcity',
       sellerNickName: 'SellerNickName',
@@ -288,19 +283,16 @@ export class SearchByPicResponseBodyDataAuctionsResult extends $tea.Model {
       monthSellCount: 'MonthSellCount',
       levelOneCategoryName: 'LevelOneCategoryName',
       categoryName: 'CategoryName',
-      couponActivityId: 'CouponActivityId',
       couponTotalCount: 'CouponTotalCount',
-      couponSendCount: 'CouponSendCount',
       couponRemainCount: 'CouponRemainCount',
       couponStartTime: 'CouponStartTime',
       couponEndTime: 'CouponEndTime',
       couponStartFee: 'CouponStartFee',
       couponAmount: 'CouponAmount',
       couponSaleTextInfo: 'CouponSaleTextInfo',
-      calTkRate: 'CalTkRate',
+      commissionRate: 'CommissionRate',
       couponShareUrl: 'CouponShareUrl',
       clickUrl: 'ClickUrl',
-      shortUrl: 'ShortUrl',
     };
   }
 
@@ -311,7 +303,6 @@ export class SearchByPicResponseBodyDataAuctionsResult extends $tea.Model {
       pic: 'string',
       price: 'string',
       promotionPrice: 'string',
-      priceAfterCoupon: 'string',
       userType: 'number',
       provcity: 'string',
       sellerNickName: 'string',
@@ -319,19 +310,16 @@ export class SearchByPicResponseBodyDataAuctionsResult extends $tea.Model {
       monthSellCount: 'number',
       levelOneCategoryName: 'string',
       categoryName: 'string',
-      couponActivityId: 'string',
       couponTotalCount: 'string',
-      couponSendCount: 'string',
       couponRemainCount: 'number',
       couponStartTime: 'string',
       couponEndTime: 'string',
       couponStartFee: 'string',
       couponAmount: 'number',
       couponSaleTextInfo: 'string',
-      calTkRate: 'string',
+      commissionRate: 'string',
       couponShareUrl: 'string',
       clickUrl: 'string',
-      shortUrl: 'string',
     };
   }
 
@@ -472,7 +460,6 @@ export class SearchByUrlResponseBodyDataAuctionsResult extends $tea.Model {
   pic?: string;
   price?: string;
   promotionPrice?: string;
-  priceAfterCoupon?: string;
   userType?: number;
   provcity?: string;
   sellerNickName?: string;
@@ -480,19 +467,16 @@ export class SearchByUrlResponseBodyDataAuctionsResult extends $tea.Model {
   monthSellCount?: number;
   levelOneCategoryName?: string;
   categoryName?: string;
-  couponActivityId?: string;
   couponTotalCount?: string;
-  couponSendCount?: string;
   couponRemainCount?: number;
   couponStartTime?: string;
   couponEndTime?: string;
   couponStartFee?: string;
   couponAmount?: number;
   couponSaleTextInfo?: string;
-  calTkRate?: string;
+  commissionRate?: string;
   couponShareUrl?: string;
   clickUrl?: string;
-  shortUrl?: string;
   static names(): { [key: string]: string } {
     return {
       itemId: 'ItemId',
@@ -500,7 +484,6 @@ export class SearchByUrlResponseBodyDataAuctionsResult extends $tea.Model {
       pic: 'Pic',
       price: 'Price',
       promotionPrice: 'PromotionPrice',
-      priceAfterCoupon: 'PriceAfterCoupon',
       userType: 'UserType',
       provcity: 'Provcity',
       sellerNickName: 'SellerNickName',
@@ -508,19 +491,16 @@ export class SearchByUrlResponseBodyDataAuctionsResult extends $tea.Model {
       monthSellCount: 'MonthSellCount',
       levelOneCategoryName: 'LevelOneCategoryName',
       categoryName: 'CategoryName',
-      couponActivityId: 'CouponActivityId',
       couponTotalCount: 'CouponTotalCount',
-      couponSendCount: 'CouponSendCount',
       couponRemainCount: 'CouponRemainCount',
       couponStartTime: 'CouponStartTime',
       couponEndTime: 'CouponEndTime',
       couponStartFee: 'CouponStartFee',
       couponAmount: 'CouponAmount',
       couponSaleTextInfo: 'CouponSaleTextInfo',
-      calTkRate: 'CalTkRate',
+      commissionRate: 'CommissionRate',
       couponShareUrl: 'CouponShareUrl',
       clickUrl: 'ClickUrl',
-      shortUrl: 'ShortUrl',
     };
   }
 
@@ -531,7 +511,6 @@ export class SearchByUrlResponseBodyDataAuctionsResult extends $tea.Model {
       pic: 'string',
       price: 'string',
       promotionPrice: 'string',
-      priceAfterCoupon: 'string',
       userType: 'number',
       provcity: 'string',
       sellerNickName: 'string',
@@ -539,19 +518,16 @@ export class SearchByUrlResponseBodyDataAuctionsResult extends $tea.Model {
       monthSellCount: 'number',
       levelOneCategoryName: 'string',
       categoryName: 'string',
-      couponActivityId: 'string',
       couponTotalCount: 'string',
-      couponSendCount: 'string',
       couponRemainCount: 'number',
       couponStartTime: 'string',
       couponEndTime: 'string',
       couponStartFee: 'string',
       couponAmount: 'number',
       couponSaleTextInfo: 'string',
-      calTkRate: 'string',
+      commissionRate: 'string',
       couponShareUrl: 'string',
       clickUrl: 'string',
-      shortUrl: 'string',
     };
   }
 
