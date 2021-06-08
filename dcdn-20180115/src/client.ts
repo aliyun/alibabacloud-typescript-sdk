@@ -695,6 +695,75 @@ export class BatchStopDcdnDomainResponse extends $tea.Model {
   }
 }
 
+export class CommitStagingRoutineCodeRequest extends $tea.Model {
+  ownerId?: number;
+  name?: string;
+  codeDescription?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      name: 'Name',
+      codeDescription: 'CodeDescription',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      name: 'string',
+      codeDescription: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CommitStagingRoutineCodeResponseBody extends $tea.Model {
+  content?: { [key: string]: any };
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CommitStagingRoutineCodeResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CommitStagingRoutineCodeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CommitStagingRoutineCodeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateDcdnCertificateSigningRequestRequest extends $tea.Model {
   ownerId?: number;
   commonName?: string;
@@ -739,24 +808,24 @@ export class CreateDcdnCertificateSigningRequestRequest extends $tea.Model {
 }
 
 export class CreateDcdnCertificateSigningRequestResponseBody extends $tea.Model {
+  requestId?: string;
   pubMd5?: string;
   csr?: string;
-  requestId?: string;
   commonName?: string;
   static names(): { [key: string]: string } {
     return {
+      requestId: 'RequestId',
       pubMd5: 'PubMd5',
       csr: 'Csr',
-      requestId: 'RequestId',
       commonName: 'CommonName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      requestId: 'string',
       pubMd5: 'string',
       csr: 'string',
-      requestId: 'string',
       commonName: 'string',
     };
   }
@@ -780,6 +849,121 @@ export class CreateDcdnCertificateSigningRequestResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: CreateDcdnCertificateSigningRequestResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDcdnDeliverTaskRequest extends $tea.Model {
+  ownerId?: number;
+  name?: string;
+  status?: string;
+  reports?: string;
+  domainName?: string;
+  deliver?: { [key: string]: any };
+  schedule?: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      name: 'Name',
+      status: 'Status',
+      reports: 'Reports',
+      domainName: 'DomainName',
+      deliver: 'Deliver',
+      schedule: 'Schedule',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      name: 'string',
+      status: 'string',
+      reports: 'string',
+      domainName: 'string',
+      deliver: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      schedule: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDcdnDeliverTaskShrinkRequest extends $tea.Model {
+  ownerId?: number;
+  name?: string;
+  status?: string;
+  reports?: string;
+  domainName?: string;
+  deliverShrink?: string;
+  scheduleShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      name: 'Name',
+      status: 'Status',
+      reports: 'Reports',
+      domainName: 'DomainName',
+      deliverShrink: 'Deliver',
+      scheduleShrink: 'Schedule',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      name: 'string',
+      status: 'string',
+      reports: 'string',
+      domainName: 'string',
+      deliverShrink: 'string',
+      scheduleShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDcdnDeliverTaskResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDcdnDeliverTaskResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CreateDcdnDeliverTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CreateDcdnDeliverTaskResponseBody,
     };
   }
 
@@ -849,6 +1033,244 @@ export class CreateDcdnDomainOfflineLogDeliveryResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: CreateDcdnDomainOfflineLogDeliveryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDcdnSubTaskRequest extends $tea.Model {
+  ownerId?: number;
+  status?: string;
+  reportIds?: string;
+  domainName?: string;
+  startTime?: string;
+  endTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      status: 'Status',
+      reportIds: 'ReportIds',
+      domainName: 'DomainName',
+      startTime: 'StartTime',
+      endTime: 'EndTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      status: 'string',
+      reportIds: 'string',
+      domainName: 'string',
+      startTime: 'string',
+      endTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDcdnSubTaskResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDcdnSubTaskResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CreateDcdnSubTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CreateDcdnSubTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRoutineRequest extends $tea.Model {
+  ownerId?: number;
+  name?: string;
+  description?: string;
+  envConf?: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      name: 'Name',
+      description: 'Description',
+      envConf: 'EnvConf',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      name: 'string',
+      description: 'string',
+      envConf: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRoutineShrinkRequest extends $tea.Model {
+  ownerId?: number;
+  name?: string;
+  description?: string;
+  envConfShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      name: 'Name',
+      description: 'Description',
+      envConfShrink: 'EnvConf',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      name: 'string',
+      description: 'string',
+      envConfShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRoutineResponseBody extends $tea.Model {
+  content?: { [key: string]: any };
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRoutineResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CreateRoutineResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CreateRoutineResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDcdnDeliverTaskRequest extends $tea.Model {
+  ownerId?: number;
+  deliverId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      deliverId: 'DeliverId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      deliverId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDcdnDeliverTaskResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDcdnDeliverTaskResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DeleteDcdnDeliverTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DeleteDcdnDeliverTaskResponseBody,
     };
   }
 
@@ -1202,6 +1624,295 @@ export class DeleteDcdnSpecificStagingConfigResponse extends $tea.Model {
   }
 }
 
+export class DeleteDcdnSubTaskRequest extends $tea.Model {
+  ownerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDcdnSubTaskResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDcdnSubTaskResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DeleteDcdnSubTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DeleteDcdnSubTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteRoutineRequest extends $tea.Model {
+  ownerId?: number;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteRoutineResponseBody extends $tea.Model {
+  content?: { [key: string]: any };
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteRoutineResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DeleteRoutineResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DeleteRoutineResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteRoutineCodeRevisionRequest extends $tea.Model {
+  ownerId?: number;
+  name?: string;
+  selectCodeRevision?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      name: 'Name',
+      selectCodeRevision: 'SelectCodeRevision',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      name: 'string',
+      selectCodeRevision: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteRoutineCodeRevisionResponseBody extends $tea.Model {
+  content?: { [key: string]: any };
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteRoutineCodeRevisionResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DeleteRoutineCodeRevisionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DeleteRoutineCodeRevisionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteRoutineConfEnvsRequest extends $tea.Model {
+  ownerId?: number;
+  name?: string;
+  envs?: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      name: 'Name',
+      envs: 'Envs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      name: 'string',
+      envs: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteRoutineConfEnvsShrinkRequest extends $tea.Model {
+  ownerId?: number;
+  name?: string;
+  envsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      name: 'Name',
+      envsShrink: 'Envs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      name: 'string',
+      envsShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteRoutineConfEnvsResponseBody extends $tea.Model {
+  content?: { [key: string]: any };
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteRoutineConfEnvsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DeleteRoutineConfEnvsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DeleteRoutineConfEnvsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDcdnBgpBpsDataRequest extends $tea.Model {
   ownerId?: number;
   isp?: string;
@@ -1235,14 +1946,14 @@ export class DescribeDcdnBgpBpsDataRequest extends $tea.Model {
 
 export class DescribeDcdnBgpBpsDataResponseBody extends $tea.Model {
   endTime?: string;
-  requestId?: string;
   startTime?: string;
+  requestId?: string;
   bgpDataInterval?: DescribeDcdnBgpBpsDataResponseBodyBgpDataInterval[];
   static names(): { [key: string]: string } {
     return {
       endTime: 'EndTime',
-      requestId: 'RequestId',
       startTime: 'StartTime',
+      requestId: 'RequestId',
       bgpDataInterval: 'BgpDataInterval',
     };
   }
@@ -1250,8 +1961,8 @@ export class DescribeDcdnBgpBpsDataResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       endTime: 'string',
-      requestId: 'string',
       startTime: 'string',
+      requestId: 'string',
       bgpDataInterval: { 'type': 'array', 'itemType': DescribeDcdnBgpBpsDataResponseBodyBgpDataInterval },
     };
   }
@@ -1316,14 +2027,14 @@ export class DescribeDcdnBgpTrafficDataRequest extends $tea.Model {
 
 export class DescribeDcdnBgpTrafficDataResponseBody extends $tea.Model {
   endTime?: string;
-  requestId?: string;
   startTime?: string;
+  requestId?: string;
   bgpDataInterval?: DescribeDcdnBgpTrafficDataResponseBodyBgpDataInterval[];
   static names(): { [key: string]: string } {
     return {
       endTime: 'EndTime',
-      requestId: 'RequestId',
       startTime: 'StartTime',
+      requestId: 'RequestId',
       bgpDataInterval: 'BgpDataInterval',
     };
   }
@@ -1331,8 +2042,8 @@ export class DescribeDcdnBgpTrafficDataResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       endTime: 'string',
-      requestId: 'string',
       startTime: 'string',
+      requestId: 'string',
       bgpDataInterval: { 'type': 'array', 'itemType': DescribeDcdnBgpTrafficDataResponseBodyBgpDataInterval },
     };
   }
@@ -1356,6 +2067,72 @@ export class DescribeDcdnBgpTrafficDataResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: DescribeDcdnBgpTrafficDataResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnBlockedRegionsRequest extends $tea.Model {
+  ownerId?: number;
+  language?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      language: 'Language',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      language: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnBlockedRegionsResponseBody extends $tea.Model {
+  requestId?: string;
+  infoList?: DescribeDcdnBlockedRegionsResponseBodyInfoList;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      infoList: 'InfoList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      infoList: DescribeDcdnBlockedRegionsResponseBodyInfoList,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnBlockedRegionsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeDcdnBlockedRegionsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeDcdnBlockedRegionsResponseBody,
     };
   }
 
@@ -1390,28 +2167,28 @@ export class DescribeDcdnCertificateDetailRequest extends $tea.Model {
 }
 
 export class DescribeDcdnCertificateDetailResponseBody extends $tea.Model {
-  requestId?: string;
-  certId?: number;
   certName?: string;
-  cert?: string;
   key?: string;
+  cert?: string;
+  certId?: number;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
-      certId: 'CertId',
       certName: 'CertName',
-      cert: 'Cert',
       key: 'Key',
+      cert: 'Cert',
+      certId: 'CertId',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
-      certId: 'number',
       certName: 'string',
-      cert: 'string',
       key: 'string',
+      cert: 'string',
+      certId: 'number',
+      requestId: 'string',
     };
   }
 
@@ -1589,6 +2366,75 @@ export class DescribeDcdnConfigOfVersionResponse extends $tea.Model {
   }
 }
 
+export class DescribeDcdnDeliverListRequest extends $tea.Model {
+  ownerId?: number;
+  deliverId?: number;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      deliverId: 'DeliverId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      deliverId: 'number',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnDeliverListResponseBody extends $tea.Model {
+  content?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnDeliverListResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeDcdnDeliverListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeDcdnDeliverListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDcdnDomainBpsDataRequest extends $tea.Model {
   ownerId?: number;
   domainName?: string;
@@ -1628,17 +2474,17 @@ export class DescribeDcdnDomainBpsDataRequest extends $tea.Model {
 
 export class DescribeDcdnDomainBpsDataResponseBody extends $tea.Model {
   endTime?: string;
+  startTime?: string;
   requestId?: string;
   domainName?: string;
-  startTime?: string;
   dataInterval?: string;
   bpsDataPerInterval?: DescribeDcdnDomainBpsDataResponseBodyBpsDataPerInterval;
   static names(): { [key: string]: string } {
     return {
       endTime: 'EndTime',
+      startTime: 'StartTime',
       requestId: 'RequestId',
       domainName: 'DomainName',
-      startTime: 'StartTime',
       dataInterval: 'DataInterval',
       bpsDataPerInterval: 'BpsDataPerInterval',
     };
@@ -1647,9 +2493,9 @@ export class DescribeDcdnDomainBpsDataResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       endTime: 'string',
+      startTime: 'string',
       requestId: 'string',
       domainName: 'string',
-      startTime: 'string',
       dataInterval: 'string',
       bpsDataPerInterval: DescribeDcdnDomainBpsDataResponseBodyBpsDataPerInterval,
     };
@@ -1705,19 +2551,19 @@ export class DescribeDcdnDomainByCertificateRequest extends $tea.Model {
 }
 
 export class DescribeDcdnDomainByCertificateResponseBody extends $tea.Model {
-  certInfos?: DescribeDcdnDomainByCertificateResponseBodyCertInfos;
   requestId?: string;
+  certInfos?: DescribeDcdnDomainByCertificateResponseBodyCertInfos;
   static names(): { [key: string]: string } {
     return {
-      certInfos: 'CertInfos',
       requestId: 'RequestId',
+      certInfos: 'CertInfos',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      certInfos: DescribeDcdnDomainByCertificateResponseBodyCertInfos,
       requestId: 'string',
+      certInfos: DescribeDcdnDomainByCertificateResponseBodyCertInfos,
     };
   }
 
@@ -1771,19 +2617,19 @@ export class DescribeDcdnDomainCertificateInfoRequest extends $tea.Model {
 }
 
 export class DescribeDcdnDomainCertificateInfoResponseBody extends $tea.Model {
-  certInfos?: DescribeDcdnDomainCertificateInfoResponseBodyCertInfos;
   requestId?: string;
+  certInfos?: DescribeDcdnDomainCertificateInfoResponseBodyCertInfos;
   static names(): { [key: string]: string } {
     return {
-      certInfos: 'CertInfos',
       requestId: 'RequestId',
+      certInfos: 'CertInfos',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      certInfos: DescribeDcdnDomainCertificateInfoResponseBodyCertInfos,
       requestId: 'string',
+      certInfos: DescribeDcdnDomainCertificateInfoResponseBodyCertInfos,
     };
   }
 
@@ -1978,19 +2824,19 @@ export class DescribeDcdnDomainDetailRequest extends $tea.Model {
 }
 
 export class DescribeDcdnDomainDetailResponseBody extends $tea.Model {
-  domainDetail?: DescribeDcdnDomainDetailResponseBodyDomainDetail;
   requestId?: string;
+  domainDetail?: DescribeDcdnDomainDetailResponseBodyDomainDetail;
   static names(): { [key: string]: string } {
     return {
-      domainDetail: 'DomainDetail',
       requestId: 'RequestId',
+      domainDetail: 'DomainDetail',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      domainDetail: DescribeDcdnDomainDetailResponseBodyDomainDetail,
       requestId: 'string',
+      domainDetail: DescribeDcdnDomainDetailResponseBodyDomainDetail,
     };
   }
 
@@ -2054,30 +2900,30 @@ export class DescribeDcdnDomainHitRateDataRequest extends $tea.Model {
 
 export class DescribeDcdnDomainHitRateDataResponseBody extends $tea.Model {
   endTime?: string;
+  startTime?: string;
   requestId?: string;
   domainName?: string;
-  hitRatePerInterval?: DescribeDcdnDomainHitRateDataResponseBodyHitRatePerInterval;
-  startTime?: string;
   dataInterval?: string;
+  hitRatePerInterval?: DescribeDcdnDomainHitRateDataResponseBodyHitRatePerInterval;
   static names(): { [key: string]: string } {
     return {
       endTime: 'EndTime',
+      startTime: 'StartTime',
       requestId: 'RequestId',
       domainName: 'DomainName',
-      hitRatePerInterval: 'HitRatePerInterval',
-      startTime: 'StartTime',
       dataInterval: 'DataInterval',
+      hitRatePerInterval: 'HitRatePerInterval',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       endTime: 'string',
+      startTime: 'string',
       requestId: 'string',
       domainName: 'string',
-      hitRatePerInterval: DescribeDcdnDomainHitRateDataResponseBodyHitRatePerInterval,
-      startTime: 'string',
       dataInterval: 'string',
+      hitRatePerInterval: DescribeDcdnDomainHitRateDataResponseBodyHitRatePerInterval,
     };
   }
 
@@ -2147,17 +2993,17 @@ export class DescribeDcdnDomainHttpCodeDataRequest extends $tea.Model {
 
 export class DescribeDcdnDomainHttpCodeDataResponseBody extends $tea.Model {
   endTime?: string;
+  startTime?: string;
   requestId?: string;
   domainName?: string;
-  startTime?: string;
   dataInterval?: string;
   dataPerInterval?: DescribeDcdnDomainHttpCodeDataResponseBodyDataPerInterval;
   static names(): { [key: string]: string } {
     return {
       endTime: 'EndTime',
+      startTime: 'StartTime',
       requestId: 'RequestId',
       domainName: 'DomainName',
-      startTime: 'StartTime',
       dataInterval: 'DataInterval',
       dataPerInterval: 'DataPerInterval',
     };
@@ -2166,9 +3012,9 @@ export class DescribeDcdnDomainHttpCodeDataResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       endTime: 'string',
+      startTime: 'string',
       requestId: 'string',
       domainName: 'string',
-      startTime: 'string',
       dataInterval: 'string',
       dataPerInterval: DescribeDcdnDomainHttpCodeDataResponseBodyDataPerInterval,
     };
@@ -2246,17 +3092,17 @@ export class DescribeDcdnDomainIpaBpsDataRequest extends $tea.Model {
 
 export class DescribeDcdnDomainIpaBpsDataResponseBody extends $tea.Model {
   endTime?: string;
+  startTime?: string;
   requestId?: string;
   domainName?: string;
-  startTime?: string;
   dataInterval?: string;
   bpsDataPerInterval?: DescribeDcdnDomainIpaBpsDataResponseBodyBpsDataPerInterval;
   static names(): { [key: string]: string } {
     return {
       endTime: 'EndTime',
+      startTime: 'StartTime',
       requestId: 'RequestId',
       domainName: 'DomainName',
-      startTime: 'StartTime',
       dataInterval: 'DataInterval',
       bpsDataPerInterval: 'BpsDataPerInterval',
     };
@@ -2265,9 +3111,9 @@ export class DescribeDcdnDomainIpaBpsDataResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       endTime: 'string',
+      startTime: 'string',
       requestId: 'string',
       domainName: 'string',
-      startTime: 'string',
       dataInterval: 'string',
       bpsDataPerInterval: DescribeDcdnDomainIpaBpsDataResponseBodyBpsDataPerInterval,
     };
@@ -2345,30 +3191,30 @@ export class DescribeDcdnDomainIpaTrafficDataRequest extends $tea.Model {
 
 export class DescribeDcdnDomainIpaTrafficDataResponseBody extends $tea.Model {
   endTime?: string;
+  startTime?: string;
   requestId?: string;
   domainName?: string;
-  trafficDataPerInterval?: DescribeDcdnDomainIpaTrafficDataResponseBodyTrafficDataPerInterval;
-  startTime?: string;
   dataInterval?: string;
+  trafficDataPerInterval?: DescribeDcdnDomainIpaTrafficDataResponseBodyTrafficDataPerInterval;
   static names(): { [key: string]: string } {
     return {
       endTime: 'EndTime',
+      startTime: 'StartTime',
       requestId: 'RequestId',
       domainName: 'DomainName',
-      trafficDataPerInterval: 'TrafficDataPerInterval',
-      startTime: 'StartTime',
       dataInterval: 'DataInterval',
+      trafficDataPerInterval: 'TrafficDataPerInterval',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       endTime: 'string',
+      startTime: 'string',
       requestId: 'string',
       domainName: 'string',
-      trafficDataPerInterval: DescribeDcdnDomainIpaTrafficDataResponseBodyTrafficDataPerInterval,
-      startTime: 'string',
       dataInterval: 'string',
+      trafficDataPerInterval: DescribeDcdnDomainIpaTrafficDataResponseBodyTrafficDataPerInterval,
     };
   }
 
@@ -2429,17 +3275,17 @@ export class DescribeDcdnDomainIspDataRequest extends $tea.Model {
 
 export class DescribeDcdnDomainIspDataResponseBody extends $tea.Model {
   endTime?: string;
+  startTime?: string;
   requestId?: string;
   domainName?: string;
-  startTime?: string;
   dataInterval?: string;
   value?: DescribeDcdnDomainIspDataResponseBodyValue;
   static names(): { [key: string]: string } {
     return {
       endTime: 'EndTime',
+      startTime: 'StartTime',
       requestId: 'RequestId',
       domainName: 'DomainName',
-      startTime: 'StartTime',
       dataInterval: 'DataInterval',
       value: 'Value',
     };
@@ -2448,9 +3294,9 @@ export class DescribeDcdnDomainIspDataResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       endTime: 'string',
+      startTime: 'string',
       requestId: 'string',
       domainName: 'string',
-      startTime: 'string',
       dataInterval: 'string',
       value: DescribeDcdnDomainIspDataResponseBodyValue,
     };
@@ -2518,21 +3364,21 @@ export class DescribeDcdnDomainLogRequest extends $tea.Model {
 }
 
 export class DescribeDcdnDomainLogResponseBody extends $tea.Model {
-  requestId?: string;
   domainName?: string;
+  requestId?: string;
   domainLogDetails?: DescribeDcdnDomainLogResponseBodyDomainLogDetails;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       domainName: 'DomainName',
+      requestId: 'RequestId',
       domainLogDetails: 'DomainLogDetails',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       domainName: 'string',
+      requestId: 'string',
       domainLogDetails: DescribeDcdnDomainLogResponseBodyDomainLogDetails,
     };
   }
@@ -2594,15 +3440,15 @@ export class DescribeDcdnDomainMultiUsageDataRequest extends $tea.Model {
 
 export class DescribeDcdnDomainMultiUsageDataResponseBody extends $tea.Model {
   endTime?: string;
-  requestId?: string;
   startTime?: string;
+  requestId?: string;
   requestPerInterval?: DescribeDcdnDomainMultiUsageDataResponseBodyRequestPerInterval;
   trafficPerInterval?: DescribeDcdnDomainMultiUsageDataResponseBodyTrafficPerInterval;
   static names(): { [key: string]: string } {
     return {
       endTime: 'EndTime',
-      requestId: 'RequestId',
       startTime: 'StartTime',
+      requestId: 'RequestId',
       requestPerInterval: 'RequestPerInterval',
       trafficPerInterval: 'TrafficPerInterval',
     };
@@ -2611,8 +3457,8 @@ export class DescribeDcdnDomainMultiUsageDataResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       endTime: 'string',
-      requestId: 'string',
       startTime: 'string',
+      requestId: 'string',
       requestPerInterval: DescribeDcdnDomainMultiUsageDataResponseBodyRequestPerInterval,
       trafficPerInterval: DescribeDcdnDomainMultiUsageDataResponseBodyTrafficPerInterval,
     };
@@ -2678,17 +3524,17 @@ export class DescribeDcdnDomainOriginBpsDataRequest extends $tea.Model {
 
 export class DescribeDcdnDomainOriginBpsDataResponseBody extends $tea.Model {
   endTime?: string;
+  startTime?: string;
   requestId?: string;
   domainName?: string;
-  startTime?: string;
   dataInterval?: string;
   originBpsDataPerInterval?: DescribeDcdnDomainOriginBpsDataResponseBodyOriginBpsDataPerInterval;
   static names(): { [key: string]: string } {
     return {
       endTime: 'EndTime',
+      startTime: 'StartTime',
       requestId: 'RequestId',
       domainName: 'DomainName',
-      startTime: 'StartTime',
       dataInterval: 'DataInterval',
       originBpsDataPerInterval: 'OriginBpsDataPerInterval',
     };
@@ -2697,9 +3543,9 @@ export class DescribeDcdnDomainOriginBpsDataResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       endTime: 'string',
+      startTime: 'string',
       requestId: 'string',
       domainName: 'string',
-      startTime: 'string',
       dataInterval: 'string',
       originBpsDataPerInterval: DescribeDcdnDomainOriginBpsDataResponseBodyOriginBpsDataPerInterval,
     };
@@ -2765,17 +3611,17 @@ export class DescribeDcdnDomainOriginTrafficDataRequest extends $tea.Model {
 
 export class DescribeDcdnDomainOriginTrafficDataResponseBody extends $tea.Model {
   endTime?: string;
+  startTime?: string;
   requestId?: string;
   domainName?: string;
-  startTime?: string;
   dataInterval?: string;
   originTrafficDataPerInterval?: DescribeDcdnDomainOriginTrafficDataResponseBodyOriginTrafficDataPerInterval;
   static names(): { [key: string]: string } {
     return {
       endTime: 'EndTime',
+      startTime: 'StartTime',
       requestId: 'RequestId',
       domainName: 'DomainName',
-      startTime: 'StartTime',
       dataInterval: 'DataInterval',
       originTrafficDataPerInterval: 'OriginTrafficDataPerInterval',
     };
@@ -2784,9 +3630,9 @@ export class DescribeDcdnDomainOriginTrafficDataResponseBody extends $tea.Model 
   static types(): { [key: string]: any } {
     return {
       endTime: 'string',
+      startTime: 'string',
       requestId: 'string',
       domainName: 'string',
-      startTime: 'string',
       dataInterval: 'string',
       originTrafficDataPerInterval: DescribeDcdnDomainOriginTrafficDataResponseBodyOriginTrafficDataPerInterval,
     };
@@ -2918,17 +3764,17 @@ export class DescribeDcdnDomainPvDataRequest extends $tea.Model {
 
 export class DescribeDcdnDomainPvDataResponseBody extends $tea.Model {
   endTime?: string;
+  startTime?: string;
   requestId?: string;
   domainName?: string;
-  startTime?: string;
   dataInterval?: string;
   pvDataInterval?: DescribeDcdnDomainPvDataResponseBodyPvDataInterval;
   static names(): { [key: string]: string } {
     return {
       endTime: 'EndTime',
+      startTime: 'StartTime',
       requestId: 'RequestId',
       domainName: 'DomainName',
-      startTime: 'StartTime',
       dataInterval: 'DataInterval',
       pvDataInterval: 'PvDataInterval',
     };
@@ -2937,9 +3783,9 @@ export class DescribeDcdnDomainPvDataResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       endTime: 'string',
+      startTime: 'string',
       requestId: 'string',
       domainName: 'string',
-      startTime: 'string',
       dataInterval: 'string',
       pvDataInterval: DescribeDcdnDomainPvDataResponseBodyPvDataInterval,
     };
@@ -3010,31 +3856,31 @@ export class DescribeDcdnDomainQpsDataRequest extends $tea.Model {
 }
 
 export class DescribeDcdnDomainQpsDataResponseBody extends $tea.Model {
-  qpsDataPerInterval?: DescribeDcdnDomainQpsDataResponseBodyQpsDataPerInterval;
   endTime?: string;
+  startTime?: string;
   requestId?: string;
   domainName?: string;
-  startTime?: string;
   dataInterval?: string;
+  qpsDataPerInterval?: DescribeDcdnDomainQpsDataResponseBodyQpsDataPerInterval;
   static names(): { [key: string]: string } {
     return {
-      qpsDataPerInterval: 'QpsDataPerInterval',
       endTime: 'EndTime',
+      startTime: 'StartTime',
       requestId: 'RequestId',
       domainName: 'DomainName',
-      startTime: 'StartTime',
       dataInterval: 'DataInterval',
+      qpsDataPerInterval: 'QpsDataPerInterval',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      qpsDataPerInterval: DescribeDcdnDomainQpsDataResponseBodyQpsDataPerInterval,
       endTime: 'string',
+      startTime: 'string',
       requestId: 'string',
       domainName: 'string',
-      startTime: 'string',
       dataInterval: 'string',
+      qpsDataPerInterval: DescribeDcdnDomainQpsDataResponseBodyQpsDataPerInterval,
     };
   }
 
@@ -3259,19 +4105,19 @@ export class DescribeDcdnDomainRealTimeDetailDataRequest extends $tea.Model {
 }
 
 export class DescribeDcdnDomainRealTimeDetailDataResponseBody extends $tea.Model {
-  requestId?: string;
   data?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       data: 'Data',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       data: 'string',
+      requestId: 'string',
     };
   }
 
@@ -3338,17 +4184,17 @@ export class DescribeDcdnDomainRealTimeHttpCodeDataRequest extends $tea.Model {
 
 export class DescribeDcdnDomainRealTimeHttpCodeDataResponseBody extends $tea.Model {
   endTime?: string;
+  startTime?: string;
   requestId?: string;
   domainName?: string;
-  startTime?: string;
   dataInterval?: string;
   realTimeHttpCodeData?: DescribeDcdnDomainRealTimeHttpCodeDataResponseBodyRealTimeHttpCodeData;
   static names(): { [key: string]: string } {
     return {
       endTime: 'EndTime',
+      startTime: 'StartTime',
       requestId: 'RequestId',
       domainName: 'DomainName',
-      startTime: 'StartTime',
       dataInterval: 'DataInterval',
       realTimeHttpCodeData: 'RealTimeHttpCodeData',
     };
@@ -3357,9 +4203,9 @@ export class DescribeDcdnDomainRealTimeHttpCodeDataResponseBody extends $tea.Mod
   static types(): { [key: string]: any } {
     return {
       endTime: 'string',
+      startTime: 'string',
       requestId: 'string',
       domainName: 'string',
-      startTime: 'string',
       dataInterval: 'string',
       realTimeHttpCodeData: DescribeDcdnDomainRealTimeHttpCodeDataResponseBodyRealTimeHttpCodeData,
     };
@@ -3572,30 +4418,30 @@ export class DescribeDcdnDomainRealTimeSrcBpsDataRequest extends $tea.Model {
 
 export class DescribeDcdnDomainRealTimeSrcBpsDataResponseBody extends $tea.Model {
   endTime?: string;
+  startTime?: string;
   requestId?: string;
   domainName?: string;
-  realTimeSrcBpsDataPerInterval?: DescribeDcdnDomainRealTimeSrcBpsDataResponseBodyRealTimeSrcBpsDataPerInterval;
-  startTime?: string;
   dataInterval?: string;
+  realTimeSrcBpsDataPerInterval?: DescribeDcdnDomainRealTimeSrcBpsDataResponseBodyRealTimeSrcBpsDataPerInterval;
   static names(): { [key: string]: string } {
     return {
       endTime: 'EndTime',
+      startTime: 'StartTime',
       requestId: 'RequestId',
       domainName: 'DomainName',
-      realTimeSrcBpsDataPerInterval: 'RealTimeSrcBpsDataPerInterval',
-      startTime: 'StartTime',
       dataInterval: 'DataInterval',
+      realTimeSrcBpsDataPerInterval: 'RealTimeSrcBpsDataPerInterval',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       endTime: 'string',
+      startTime: 'string',
       requestId: 'string',
       domainName: 'string',
-      realTimeSrcBpsDataPerInterval: DescribeDcdnDomainRealTimeSrcBpsDataResponseBodyRealTimeSrcBpsDataPerInterval,
-      startTime: 'string',
       dataInterval: 'string',
+      realTimeSrcBpsDataPerInterval: DescribeDcdnDomainRealTimeSrcBpsDataResponseBodyRealTimeSrcBpsDataPerInterval,
     };
   }
 
@@ -3662,17 +4508,17 @@ export class DescribeDcdnDomainRealTimeSrcHttpCodeDataRequest extends $tea.Model
 
 export class DescribeDcdnDomainRealTimeSrcHttpCodeDataResponseBody extends $tea.Model {
   endTime?: string;
+  startTime?: string;
   requestId?: string;
   domainName?: string;
-  startTime?: string;
   dataInterval?: string;
   realTimeSrcHttpCodeData?: DescribeDcdnDomainRealTimeSrcHttpCodeDataResponseBodyRealTimeSrcHttpCodeData;
   static names(): { [key: string]: string } {
     return {
       endTime: 'EndTime',
+      startTime: 'StartTime',
       requestId: 'RequestId',
       domainName: 'DomainName',
-      startTime: 'StartTime',
       dataInterval: 'DataInterval',
       realTimeSrcHttpCodeData: 'RealTimeSrcHttpCodeData',
     };
@@ -3681,9 +4527,9 @@ export class DescribeDcdnDomainRealTimeSrcHttpCodeDataResponseBody extends $tea.
   static types(): { [key: string]: any } {
     return {
       endTime: 'string',
+      startTime: 'string',
       requestId: 'string',
       domainName: 'string',
-      startTime: 'string',
       dataInterval: 'string',
       realTimeSrcHttpCodeData: DescribeDcdnDomainRealTimeSrcHttpCodeDataResponseBodyRealTimeSrcHttpCodeData,
     };
@@ -3746,17 +4592,17 @@ export class DescribeDcdnDomainRealTimeSrcTrafficDataRequest extends $tea.Model 
 
 export class DescribeDcdnDomainRealTimeSrcTrafficDataResponseBody extends $tea.Model {
   endTime?: string;
+  startTime?: string;
   requestId?: string;
   domainName?: string;
-  startTime?: string;
   dataInterval?: string;
   realTimeSrcTrafficDataPerInterval?: DescribeDcdnDomainRealTimeSrcTrafficDataResponseBodyRealTimeSrcTrafficDataPerInterval;
   static names(): { [key: string]: string } {
     return {
       endTime: 'EndTime',
+      startTime: 'StartTime',
       requestId: 'RequestId',
       domainName: 'DomainName',
-      startTime: 'StartTime',
       dataInterval: 'DataInterval',
       realTimeSrcTrafficDataPerInterval: 'RealTimeSrcTrafficDataPerInterval',
     };
@@ -3765,9 +4611,9 @@ export class DescribeDcdnDomainRealTimeSrcTrafficDataResponseBody extends $tea.M
   static types(): { [key: string]: any } {
     return {
       endTime: 'string',
+      startTime: 'string',
       requestId: 'string',
       domainName: 'string',
-      startTime: 'string',
       dataInterval: 'string',
       realTimeSrcTrafficDataPerInterval: DescribeDcdnDomainRealTimeSrcTrafficDataResponseBodyRealTimeSrcTrafficDataPerInterval,
     };
@@ -3830,30 +4676,30 @@ export class DescribeDcdnDomainRealTimeTrafficDataRequest extends $tea.Model {
 
 export class DescribeDcdnDomainRealTimeTrafficDataResponseBody extends $tea.Model {
   endTime?: string;
+  startTime?: string;
   requestId?: string;
   domainName?: string;
-  realTimeTrafficDataPerInterval?: DescribeDcdnDomainRealTimeTrafficDataResponseBodyRealTimeTrafficDataPerInterval;
-  startTime?: string;
   dataInterval?: string;
+  realTimeTrafficDataPerInterval?: DescribeDcdnDomainRealTimeTrafficDataResponseBodyRealTimeTrafficDataPerInterval;
   static names(): { [key: string]: string } {
     return {
       endTime: 'EndTime',
+      startTime: 'StartTime',
       requestId: 'RequestId',
       domainName: 'DomainName',
-      realTimeTrafficDataPerInterval: 'RealTimeTrafficDataPerInterval',
-      startTime: 'StartTime',
       dataInterval: 'DataInterval',
+      realTimeTrafficDataPerInterval: 'RealTimeTrafficDataPerInterval',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       endTime: 'string',
+      startTime: 'string',
       requestId: 'string',
       domainName: 'string',
-      realTimeTrafficDataPerInterval: DescribeDcdnDomainRealTimeTrafficDataResponseBodyRealTimeTrafficDataPerInterval,
-      startTime: 'string',
       dataInterval: 'string',
+      realTimeTrafficDataPerInterval: DescribeDcdnDomainRealTimeTrafficDataResponseBodyRealTimeTrafficDataPerInterval,
     };
   }
 
@@ -3914,17 +4760,17 @@ export class DescribeDcdnDomainRegionDataRequest extends $tea.Model {
 
 export class DescribeDcdnDomainRegionDataResponseBody extends $tea.Model {
   endTime?: string;
+  startTime?: string;
   requestId?: string;
   domainName?: string;
-  startTime?: string;
   dataInterval?: string;
   value?: DescribeDcdnDomainRegionDataResponseBodyValue;
   static names(): { [key: string]: string } {
     return {
       endTime: 'EndTime',
+      startTime: 'StartTime',
       requestId: 'RequestId',
       domainName: 'DomainName',
-      startTime: 'StartTime',
       dataInterval: 'DataInterval',
       value: 'Value',
     };
@@ -3933,9 +4779,9 @@ export class DescribeDcdnDomainRegionDataResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       endTime: 'string',
+      startTime: 'string',
       requestId: 'string',
       domainName: 'string',
-      startTime: 'string',
       dataInterval: 'string',
       value: DescribeDcdnDomainRegionDataResponseBodyValue,
     };
@@ -4066,24 +4912,24 @@ export class DescribeDcdnDomainTopReferVisitRequest extends $tea.Model {
 }
 
 export class DescribeDcdnDomainTopReferVisitResponseBody extends $tea.Model {
+  startTime?: string;
   requestId?: string;
   domainName?: string;
-  startTime?: string;
   topReferList?: DescribeDcdnDomainTopReferVisitResponseBodyTopReferList;
   static names(): { [key: string]: string } {
     return {
+      startTime: 'StartTime',
       requestId: 'RequestId',
       domainName: 'DomainName',
-      startTime: 'StartTime',
       topReferList: 'TopReferList',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      startTime: 'string',
       requestId: 'string',
       domainName: 'string',
-      startTime: 'string',
       topReferList: DescribeDcdnDomainTopReferVisitResponseBodyTopReferList,
     };
   }
@@ -4144,37 +4990,37 @@ export class DescribeDcdnDomainTopUrlVisitRequest extends $tea.Model {
 }
 
 export class DescribeDcdnDomainTopUrlVisitResponseBody extends $tea.Model {
-  url500List?: DescribeDcdnDomainTopUrlVisitResponseBodyUrl500List;
-  url200List?: DescribeDcdnDomainTopUrlVisitResponseBodyUrl200List;
-  url400List?: DescribeDcdnDomainTopUrlVisitResponseBodyUrl400List;
+  startTime?: string;
   requestId?: string;
   domainName?: string;
-  startTime?: string;
-  url300List?: DescribeDcdnDomainTopUrlVisitResponseBodyUrl300List;
   allUrlList?: DescribeDcdnDomainTopUrlVisitResponseBodyAllUrlList;
+  url200List?: DescribeDcdnDomainTopUrlVisitResponseBodyUrl200List;
+  url300List?: DescribeDcdnDomainTopUrlVisitResponseBodyUrl300List;
+  url400List?: DescribeDcdnDomainTopUrlVisitResponseBodyUrl400List;
+  url500List?: DescribeDcdnDomainTopUrlVisitResponseBodyUrl500List;
   static names(): { [key: string]: string } {
     return {
-      url500List: 'Url500List',
-      url200List: 'Url200List',
-      url400List: 'Url400List',
+      startTime: 'StartTime',
       requestId: 'RequestId',
       domainName: 'DomainName',
-      startTime: 'StartTime',
-      url300List: 'Url300List',
       allUrlList: 'AllUrlList',
+      url200List: 'Url200List',
+      url300List: 'Url300List',
+      url400List: 'Url400List',
+      url500List: 'Url500List',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      url500List: DescribeDcdnDomainTopUrlVisitResponseBodyUrl500List,
-      url200List: DescribeDcdnDomainTopUrlVisitResponseBodyUrl200List,
-      url400List: DescribeDcdnDomainTopUrlVisitResponseBodyUrl400List,
+      startTime: 'string',
       requestId: 'string',
       domainName: 'string',
-      startTime: 'string',
-      url300List: DescribeDcdnDomainTopUrlVisitResponseBodyUrl300List,
       allUrlList: DescribeDcdnDomainTopUrlVisitResponseBodyAllUrlList,
+      url200List: DescribeDcdnDomainTopUrlVisitResponseBodyUrl200List,
+      url300List: DescribeDcdnDomainTopUrlVisitResponseBodyUrl300List,
+      url400List: DescribeDcdnDomainTopUrlVisitResponseBodyUrl400List,
+      url500List: DescribeDcdnDomainTopUrlVisitResponseBodyUrl500List,
     };
   }
 
@@ -4244,30 +5090,30 @@ export class DescribeDcdnDomainTrafficDataRequest extends $tea.Model {
 
 export class DescribeDcdnDomainTrafficDataResponseBody extends $tea.Model {
   endTime?: string;
+  startTime?: string;
   requestId?: string;
   domainName?: string;
-  trafficDataPerInterval?: DescribeDcdnDomainTrafficDataResponseBodyTrafficDataPerInterval;
-  startTime?: string;
   dataInterval?: string;
+  trafficDataPerInterval?: DescribeDcdnDomainTrafficDataResponseBodyTrafficDataPerInterval;
   static names(): { [key: string]: string } {
     return {
       endTime: 'EndTime',
+      startTime: 'StartTime',
       requestId: 'RequestId',
       domainName: 'DomainName',
-      trafficDataPerInterval: 'TrafficDataPerInterval',
-      startTime: 'StartTime',
       dataInterval: 'DataInterval',
+      trafficDataPerInterval: 'TrafficDataPerInterval',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       endTime: 'string',
+      startTime: 'string',
       requestId: 'string',
       domainName: 'string',
-      trafficDataPerInterval: DescribeDcdnDomainTrafficDataResponseBodyTrafficDataPerInterval,
-      startTime: 'string',
       dataInterval: 'string',
+      trafficDataPerInterval: DescribeDcdnDomainTrafficDataResponseBodyTrafficDataPerInterval,
     };
   }
 
@@ -4327,31 +5173,31 @@ export class DescribeDcdnDomainUvDataRequest extends $tea.Model {
 }
 
 export class DescribeDcdnDomainUvDataResponseBody extends $tea.Model {
-  uvDataInterval?: DescribeDcdnDomainUvDataResponseBodyUvDataInterval;
   endTime?: string;
+  startTime?: string;
   requestId?: string;
   domainName?: string;
-  startTime?: string;
   dataInterval?: string;
+  uvDataInterval?: DescribeDcdnDomainUvDataResponseBodyUvDataInterval;
   static names(): { [key: string]: string } {
     return {
-      uvDataInterval: 'UvDataInterval',
       endTime: 'EndTime',
+      startTime: 'StartTime',
       requestId: 'RequestId',
       domainName: 'DomainName',
-      startTime: 'StartTime',
       dataInterval: 'DataInterval',
+      uvDataInterval: 'UvDataInterval',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      uvDataInterval: DescribeDcdnDomainUvDataResponseBodyUvDataInterval,
       endTime: 'string',
+      startTime: 'string',
       requestId: 'string',
       domainName: 'string',
-      startTime: 'string',
       dataInterval: 'string',
+      uvDataInterval: DescribeDcdnDomainUvDataResponseBodyUvDataInterval,
     };
   }
 
@@ -4421,17 +5267,17 @@ export class DescribeDcdnDomainWebsocketBpsDataRequest extends $tea.Model {
 
 export class DescribeDcdnDomainWebsocketBpsDataResponseBody extends $tea.Model {
   endTime?: string;
+  startTime?: string;
   requestId?: string;
   domainName?: string;
-  startTime?: string;
   dataInterval?: string;
   bpsDataPerInterval?: DescribeDcdnDomainWebsocketBpsDataResponseBodyBpsDataPerInterval;
   static names(): { [key: string]: string } {
     return {
       endTime: 'EndTime',
+      startTime: 'StartTime',
       requestId: 'RequestId',
       domainName: 'DomainName',
-      startTime: 'StartTime',
       dataInterval: 'DataInterval',
       bpsDataPerInterval: 'BpsDataPerInterval',
     };
@@ -4440,9 +5286,9 @@ export class DescribeDcdnDomainWebsocketBpsDataResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       endTime: 'string',
+      startTime: 'string',
       requestId: 'string',
       domainName: 'string',
-      startTime: 'string',
       dataInterval: 'string',
       bpsDataPerInterval: DescribeDcdnDomainWebsocketBpsDataResponseBodyBpsDataPerInterval,
     };
@@ -4514,17 +5360,17 @@ export class DescribeDcdnDomainWebsocketHttpCodeDataRequest extends $tea.Model {
 
 export class DescribeDcdnDomainWebsocketHttpCodeDataResponseBody extends $tea.Model {
   endTime?: string;
+  startTime?: string;
   requestId?: string;
   domainName?: string;
-  startTime?: string;
   dataInterval?: string;
   dataPerInterval?: DescribeDcdnDomainWebsocketHttpCodeDataResponseBodyDataPerInterval;
   static names(): { [key: string]: string } {
     return {
       endTime: 'EndTime',
+      startTime: 'StartTime',
       requestId: 'RequestId',
       domainName: 'DomainName',
-      startTime: 'StartTime',
       dataInterval: 'DataInterval',
       dataPerInterval: 'DataPerInterval',
     };
@@ -4533,9 +5379,9 @@ export class DescribeDcdnDomainWebsocketHttpCodeDataResponseBody extends $tea.Mo
   static types(): { [key: string]: any } {
     return {
       endTime: 'string',
+      startTime: 'string',
       requestId: 'string',
       domainName: 'string',
-      startTime: 'string',
       dataInterval: 'string',
       dataPerInterval: DescribeDcdnDomainWebsocketHttpCodeDataResponseBodyDataPerInterval,
     };
@@ -4607,30 +5453,30 @@ export class DescribeDcdnDomainWebsocketTrafficDataRequest extends $tea.Model {
 
 export class DescribeDcdnDomainWebsocketTrafficDataResponseBody extends $tea.Model {
   endTime?: string;
+  startTime?: string;
   requestId?: string;
   domainName?: string;
-  trafficDataPerInterval?: DescribeDcdnDomainWebsocketTrafficDataResponseBodyTrafficDataPerInterval;
-  startTime?: string;
   dataInterval?: string;
+  trafficDataPerInterval?: DescribeDcdnDomainWebsocketTrafficDataResponseBodyTrafficDataPerInterval;
   static names(): { [key: string]: string } {
     return {
       endTime: 'EndTime',
+      startTime: 'StartTime',
       requestId: 'RequestId',
       domainName: 'DomainName',
-      trafficDataPerInterval: 'TrafficDataPerInterval',
-      startTime: 'StartTime',
       dataInterval: 'DataInterval',
+      trafficDataPerInterval: 'TrafficDataPerInterval',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       endTime: 'string',
+      startTime: 'string',
       requestId: 'string',
       domainName: 'string',
-      trafficDataPerInterval: DescribeDcdnDomainWebsocketTrafficDataResponseBodyTrafficDataPerInterval,
-      startTime: 'string',
       dataInterval: 'string',
+      trafficDataPerInterval: DescribeDcdnDomainWebsocketTrafficDataResponseBodyTrafficDataPerInterval,
     };
   }
 
@@ -4690,22 +5536,22 @@ export class DescribeDcdnHttpsDomainListRequest extends $tea.Model {
 }
 
 export class DescribeDcdnHttpsDomainListResponseBody extends $tea.Model {
-  certInfos?: DescribeDcdnHttpsDomainListResponseBodyCertInfos;
   totalCount?: number;
   requestId?: string;
+  certInfos?: DescribeDcdnHttpsDomainListResponseBodyCertInfos;
   static names(): { [key: string]: string } {
     return {
-      certInfos: 'CertInfos',
       totalCount: 'TotalCount',
       requestId: 'RequestId',
+      certInfos: 'CertInfos',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      certInfos: DescribeDcdnHttpsDomainListResponseBodyCertInfos,
       totalCount: 'number',
       requestId: 'string',
+      certInfos: DescribeDcdnHttpsDomainListResponseBodyCertInfos,
     };
   }
 
@@ -4834,19 +5680,19 @@ export class DescribeDcdnIpaDomainDetailRequest extends $tea.Model {
 }
 
 export class DescribeDcdnIpaDomainDetailResponseBody extends $tea.Model {
-  domainDetail?: DescribeDcdnIpaDomainDetailResponseBodyDomainDetail;
   requestId?: string;
+  domainDetail?: DescribeDcdnIpaDomainDetailResponseBodyDomainDetail;
   static names(): { [key: string]: string } {
     return {
-      domainDetail: 'DomainDetail',
       requestId: 'RequestId',
+      domainDetail: 'DomainDetail',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      domainDetail: DescribeDcdnIpaDomainDetailResponseBodyDomainDetail,
       requestId: 'string',
+      domainDetail: DescribeDcdnIpaDomainDetailResponseBodyDomainDetail,
     };
   }
 
@@ -4900,34 +5746,34 @@ export class DescribeDcdnIpaServiceRequest extends $tea.Model {
 }
 
 export class DescribeDcdnIpaServiceResponseBody extends $tea.Model {
-  changingChargeType?: string;
-  requestId?: string;
-  instanceId?: string;
-  openingTime?: string;
   changingAffectTime?: string;
-  operationLocks?: DescribeDcdnIpaServiceResponseBodyOperationLocks;
+  requestId?: string;
+  changingChargeType?: string;
+  openingTime?: string;
   internetChargeType?: string;
+  instanceId?: string;
+  operationLocks?: DescribeDcdnIpaServiceResponseBodyOperationLocks;
   static names(): { [key: string]: string } {
     return {
-      changingChargeType: 'ChangingChargeType',
-      requestId: 'RequestId',
-      instanceId: 'InstanceId',
-      openingTime: 'OpeningTime',
       changingAffectTime: 'ChangingAffectTime',
-      operationLocks: 'OperationLocks',
+      requestId: 'RequestId',
+      changingChargeType: 'ChangingChargeType',
+      openingTime: 'OpeningTime',
       internetChargeType: 'InternetChargeType',
+      instanceId: 'InstanceId',
+      operationLocks: 'OperationLocks',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      changingChargeType: 'string',
-      requestId: 'string',
-      instanceId: 'string',
-      openingTime: 'string',
       changingAffectTime: 'string',
-      operationLocks: DescribeDcdnIpaServiceResponseBodyOperationLocks,
+      requestId: 'string',
+      changingChargeType: 'string',
+      openingTime: 'string',
       internetChargeType: 'string',
+      instanceId: 'string',
+      operationLocks: DescribeDcdnIpaServiceResponseBodyOperationLocks,
     };
   }
 
@@ -5008,28 +5854,28 @@ export class DescribeDcdnIpaUserDomainsRequest extends $tea.Model {
 }
 
 export class DescribeDcdnIpaUserDomainsResponseBody extends $tea.Model {
-  domains?: DescribeDcdnIpaUserDomainsResponseBodyDomains;
-  totalCount?: number;
   requestId?: string;
-  pageSize?: number;
   pageNumber?: number;
+  pageSize?: number;
+  totalCount?: number;
+  domains?: DescribeDcdnIpaUserDomainsResponseBodyDomains;
   static names(): { [key: string]: string } {
     return {
-      domains: 'Domains',
-      totalCount: 'TotalCount',
       requestId: 'RequestId',
-      pageSize: 'PageSize',
       pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+      domains: 'Domains',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      domains: DescribeDcdnIpaUserDomainsResponseBodyDomains,
-      totalCount: 'number',
       requestId: 'string',
-      pageSize: 'number',
       pageNumber: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
+      domains: DescribeDcdnIpaUserDomainsResponseBodyDomains,
     };
   }
 
@@ -5087,30 +5933,30 @@ export class DescribeDcdnIpInfoRequest extends $tea.Model {
 
 export class DescribeDcdnIpInfoResponseBody extends $tea.Model {
   requestId?: string;
-  ISP?: string;
+  regionEname?: string;
   region?: string;
   ispEname?: string;
-  regionEname?: string;
   dcdnIp?: string;
+  ISP?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      ISP: 'ISP',
+      regionEname: 'RegionEname',
       region: 'Region',
       ispEname: 'IspEname',
-      regionEname: 'RegionEname',
       dcdnIp: 'DcdnIp',
+      ISP: 'ISP',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      ISP: 'string',
+      regionEname: 'string',
       region: 'string',
       ispEname: 'string',
-      regionEname: 'string',
       dcdnIp: 'string',
+      ISP: 'string',
     };
   }
 
@@ -5161,24 +6007,24 @@ export class DescribeDcdnOfflineLogDeliveryRequest extends $tea.Model {
 }
 
 export class DescribeDcdnOfflineLogDeliveryResponseBody extends $tea.Model {
-  domains?: DescribeDcdnOfflineLogDeliveryResponseBodyDomains[];
-  fields?: string[];
   requestId?: string;
+  fields?: string[];
+  domains?: DescribeDcdnOfflineLogDeliveryResponseBodyDomains[];
   regions?: DescribeDcdnOfflineLogDeliveryResponseBodyRegions[];
   static names(): { [key: string]: string } {
     return {
-      domains: 'Domains',
-      fields: 'Fields',
       requestId: 'RequestId',
+      fields: 'Fields',
+      domains: 'Domains',
       regions: 'Regions',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      domains: { 'type': 'array', 'itemType': DescribeDcdnOfflineLogDeliveryResponseBodyDomains },
-      fields: { 'type': 'array', 'itemType': 'string' },
       requestId: 'string',
+      fields: { 'type': 'array', 'itemType': 'string' },
+      domains: { 'type': 'array', 'itemType': DescribeDcdnOfflineLogDeliveryResponseBodyDomains },
       regions: { 'type': 'array', 'itemType': DescribeDcdnOfflineLogDeliveryResponseBodyRegions },
     };
   }
@@ -5230,19 +6076,19 @@ export class DescribeDcdnOfflineLogDeliveryFieldRequest extends $tea.Model {
 }
 
 export class DescribeDcdnOfflineLogDeliveryFieldResponseBody extends $tea.Model {
-  fields?: DescribeDcdnOfflineLogDeliveryFieldResponseBodyFields[];
   requestId?: string;
+  fields?: DescribeDcdnOfflineLogDeliveryFieldResponseBodyFields[];
   static names(): { [key: string]: string } {
     return {
-      fields: 'Fields',
       requestId: 'RequestId',
+      fields: 'Fields',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      fields: { 'type': 'array', 'itemType': DescribeDcdnOfflineLogDeliveryFieldResponseBodyFields },
       requestId: 'string',
+      fields: { 'type': 'array', 'itemType': DescribeDcdnOfflineLogDeliveryFieldResponseBodyFields },
     };
   }
 
@@ -5356,19 +6202,19 @@ export class DescribeDcdnOfflineLogDeliveryStatusRequest extends $tea.Model {
 }
 
 export class DescribeDcdnOfflineLogDeliveryStatusResponseBody extends $tea.Model {
-  requestId?: string;
   openStatus?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       openStatus: 'OpenStatus',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       openStatus: 'string',
+      requestId: 'string',
     };
   }
 
@@ -5422,39 +6268,39 @@ export class DescribeDcdnRefreshQuotaRequest extends $tea.Model {
 }
 
 export class DescribeDcdnRefreshQuotaResponseBody extends $tea.Model {
-  requestId?: string;
-  urlRemain?: string;
-  preloadRemain?: string;
   blockQuota?: string;
-  dirRemain?: string;
-  urlQuota?: string;
-  dirQuota?: string;
+  preloadRemain?: string;
+  requestId?: string;
   blockRemain?: string;
+  dirRemain?: string;
+  urlRemain?: string;
+  dirQuota?: string;
+  urlQuota?: string;
   preloadQuota?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
-      urlRemain: 'UrlRemain',
-      preloadRemain: 'PreloadRemain',
       blockQuota: 'BlockQuota',
-      dirRemain: 'DirRemain',
-      urlQuota: 'UrlQuota',
-      dirQuota: 'DirQuota',
+      preloadRemain: 'PreloadRemain',
+      requestId: 'RequestId',
       blockRemain: 'blockRemain',
+      dirRemain: 'DirRemain',
+      urlRemain: 'UrlRemain',
+      dirQuota: 'DirQuota',
+      urlQuota: 'UrlQuota',
       preloadQuota: 'PreloadQuota',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
-      urlRemain: 'string',
-      preloadRemain: 'string',
       blockQuota: 'string',
-      dirRemain: 'string',
-      urlQuota: 'string',
-      dirQuota: 'string',
+      preloadRemain: 'string',
+      requestId: 'string',
       blockRemain: 'string',
+      dirRemain: 'string',
+      urlRemain: 'string',
+      dirQuota: 'string',
+      urlQuota: 'string',
       preloadQuota: 'string',
     };
   }
@@ -5478,6 +6324,75 @@ export class DescribeDcdnRefreshQuotaResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: DescribeDcdnRefreshQuotaResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnRefreshTaskByIdRequest extends $tea.Model {
+  ownerId?: number;
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnRefreshTaskByIdResponseBody extends $tea.Model {
+  totalCount?: number;
+  requestId?: string;
+  tasks?: DescribeDcdnRefreshTaskByIdResponseBodyTasks[];
+  static names(): { [key: string]: string } {
+    return {
+      totalCount: 'TotalCount',
+      requestId: 'RequestId',
+      tasks: 'Tasks',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      totalCount: 'number',
+      requestId: 'string',
+      tasks: { 'type': 'array', 'itemType': DescribeDcdnRefreshTaskByIdResponseBodyTasks },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnRefreshTaskByIdResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeDcdnRefreshTaskByIdResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeDcdnRefreshTaskByIdResponseBody,
     };
   }
 
@@ -5536,28 +6451,28 @@ export class DescribeDcdnRefreshTasksRequest extends $tea.Model {
 }
 
 export class DescribeDcdnRefreshTasksResponseBody extends $tea.Model {
+  requestId?: string;
+  pageNumber?: number;
+  pageSize?: number;
   totalCount?: number;
   tasks?: DescribeDcdnRefreshTasksResponseBodyTasks;
-  requestId?: string;
-  pageSize?: number;
-  pageNumber?: number;
   static names(): { [key: string]: string } {
     return {
+      requestId: 'RequestId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
       totalCount: 'TotalCount',
       tasks: 'Tasks',
-      requestId: 'RequestId',
-      pageSize: 'PageSize',
-      pageNumber: 'PageNumber',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      requestId: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
       totalCount: 'number',
       tasks: DescribeDcdnRefreshTasksResponseBodyTasks,
-      requestId: 'string',
-      pageSize: 'number',
-      pageNumber: 'number',
     };
   }
 
@@ -5657,6 +6572,240 @@ export class DescribeDcdnRegionAndIspResponse extends $tea.Model {
   }
 }
 
+export class DescribeDcdnReportRequest extends $tea.Model {
+  ownerId?: number;
+  domainName?: string;
+  reportId?: number;
+  area?: string;
+  isOverseas?: string;
+  httpCode?: string;
+  startTime?: string;
+  endTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      domainName: 'DomainName',
+      reportId: 'ReportId',
+      area: 'Area',
+      isOverseas: 'IsOverseas',
+      httpCode: 'HttpCode',
+      startTime: 'StartTime',
+      endTime: 'EndTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      domainName: 'string',
+      reportId: 'number',
+      area: 'string',
+      isOverseas: 'string',
+      httpCode: 'string',
+      startTime: 'string',
+      endTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnReportResponseBody extends $tea.Model {
+  content?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnReportResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeDcdnReportResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeDcdnReportResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnReportListRequest extends $tea.Model {
+  ownerId?: number;
+  reportId?: number;
+  status?: string;
+  permission?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      reportId: 'ReportId',
+      status: 'Status',
+      permission: 'Permission',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      reportId: 'number',
+      status: 'string',
+      permission: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnReportListResponseBody extends $tea.Model {
+  content?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnReportListResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeDcdnReportListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeDcdnReportListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnSecFuncInfoRequest extends $tea.Model {
+  ownerId?: number;
+  secFuncType?: string;
+  lang?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      secFuncType: 'SecFuncType',
+      lang: 'Lang',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      secFuncType: 'string',
+      lang: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnSecFuncInfoResponseBody extends $tea.Model {
+  requestId?: string;
+  description?: string;
+  retCode?: string;
+  httpStatus?: string;
+  content?: DescribeDcdnSecFuncInfoResponseBodyContent[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      description: 'Description',
+      retCode: 'RetCode',
+      httpStatus: 'HttpStatus',
+      content: 'Content',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      description: 'string',
+      retCode: 'string',
+      httpStatus: 'string',
+      content: { 'type': 'array', 'itemType': DescribeDcdnSecFuncInfoResponseBodyContent },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnSecFuncInfoResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeDcdnSecFuncInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeDcdnSecFuncInfoResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDcdnServiceRequest extends $tea.Model {
   ownerId?: number;
   securityToken?: string;
@@ -5680,43 +6829,43 @@ export class DescribeDcdnServiceRequest extends $tea.Model {
 }
 
 export class DescribeDcdnServiceResponseBody extends $tea.Model {
+  websocketChangingTime?: string;
   websocketChangingType?: string;
+  changingAffectTime?: string;
   changingChargeType?: string;
   requestId?: string;
-  instanceId?: string;
-  websocketType?: string;
   openingTime?: string;
-  changingAffectTime?: string;
-  operationLocks?: DescribeDcdnServiceResponseBodyOperationLocks;
-  websocketChangingTime?: string;
   internetChargeType?: string;
+  websocketType?: string;
+  instanceId?: string;
+  operationLocks?: DescribeDcdnServiceResponseBodyOperationLocks;
   static names(): { [key: string]: string } {
     return {
+      websocketChangingTime: 'WebsocketChangingTime',
       websocketChangingType: 'WebsocketChangingType',
+      changingAffectTime: 'ChangingAffectTime',
       changingChargeType: 'ChangingChargeType',
       requestId: 'RequestId',
-      instanceId: 'InstanceId',
-      websocketType: 'WebsocketType',
       openingTime: 'OpeningTime',
-      changingAffectTime: 'ChangingAffectTime',
-      operationLocks: 'OperationLocks',
-      websocketChangingTime: 'WebsocketChangingTime',
       internetChargeType: 'InternetChargeType',
+      websocketType: 'WebsocketType',
+      instanceId: 'InstanceId',
+      operationLocks: 'OperationLocks',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      websocketChangingTime: 'string',
       websocketChangingType: 'string',
+      changingAffectTime: 'string',
       changingChargeType: 'string',
       requestId: 'string',
-      instanceId: 'string',
-      websocketType: 'string',
       openingTime: 'string',
-      changingAffectTime: 'string',
-      operationLocks: DescribeDcdnServiceResponseBodyOperationLocks,
-      websocketChangingTime: 'string',
       internetChargeType: 'string',
+      websocketType: 'string',
+      instanceId: 'string',
+      operationLocks: DescribeDcdnServiceResponseBodyOperationLocks,
     };
   }
 
@@ -5810,17 +6959,81 @@ export class DescribeDcdnStagingIpResponse extends $tea.Model {
   }
 }
 
+export class DescribeDcdnSubListRequest extends $tea.Model {
+  ownerId?: number;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnSubListResponseBody extends $tea.Model {
+  content?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnSubListResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeDcdnSubListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeDcdnSubListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDcdnTagResourcesRequest extends $tea.Model {
   ownerId?: number;
   resourceType?: string;
-  scope?: string;
   resourceId?: string[];
   tag?: DescribeDcdnTagResourcesRequestTag[];
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
       resourceType: 'ResourceType',
-      scope: 'Scope',
       resourceId: 'ResourceId',
       tag: 'Tag',
     };
@@ -5830,7 +7043,6 @@ export class DescribeDcdnTagResourcesRequest extends $tea.Model {
     return {
       ownerId: 'number',
       resourceType: 'string',
-      scope: 'string',
       resourceId: { 'type': 'array', 'itemType': 'string' },
       tag: { 'type': 'array', 'itemType': DescribeDcdnTagResourcesRequestTag },
     };
@@ -5914,31 +7126,31 @@ export class DescribeDcdnTopDomainsByFlowRequest extends $tea.Model {
 }
 
 export class DescribeDcdnTopDomainsByFlowResponseBody extends $tea.Model {
-  topDomains?: DescribeDcdnTopDomainsByFlowResponseBodyTopDomains;
-  endTime?: string;
-  requestId?: string;
   domainOnlineCount?: number;
+  endTime?: string;
   startTime?: string;
+  requestId?: string;
   domainCount?: number;
+  topDomains?: DescribeDcdnTopDomainsByFlowResponseBodyTopDomains;
   static names(): { [key: string]: string } {
     return {
-      topDomains: 'TopDomains',
-      endTime: 'EndTime',
-      requestId: 'RequestId',
       domainOnlineCount: 'DomainOnlineCount',
+      endTime: 'EndTime',
       startTime: 'StartTime',
+      requestId: 'RequestId',
       domainCount: 'DomainCount',
+      topDomains: 'TopDomains',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      topDomains: DescribeDcdnTopDomainsByFlowResponseBodyTopDomains,
-      endTime: 'string',
-      requestId: 'string',
       domainOnlineCount: 'number',
+      endTime: 'string',
       startTime: 'string',
+      requestId: 'string',
       domainCount: 'number',
+      topDomains: DescribeDcdnTopDomainsByFlowResponseBodyTopDomains,
     };
   }
 
@@ -6117,8 +7329,6 @@ export class DescribeDcdnUserDomainsRequest extends $tea.Model {
   domainSearchType?: string;
   checkDomainShow?: boolean;
   resourceGroupId?: string;
-  funcId?: string;
-  funcFilter?: string;
   changeStartTime?: string;
   changeEndTime?: string;
   tag?: DescribeDcdnUserDomainsRequestTag[];
@@ -6133,8 +7343,6 @@ export class DescribeDcdnUserDomainsRequest extends $tea.Model {
       domainSearchType: 'DomainSearchType',
       checkDomainShow: 'CheckDomainShow',
       resourceGroupId: 'ResourceGroupId',
-      funcId: 'FuncId',
-      funcFilter: 'FuncFilter',
       changeStartTime: 'ChangeStartTime',
       changeEndTime: 'ChangeEndTime',
       tag: 'Tag',
@@ -6152,8 +7360,6 @@ export class DescribeDcdnUserDomainsRequest extends $tea.Model {
       domainSearchType: 'string',
       checkDomainShow: 'boolean',
       resourceGroupId: 'string',
-      funcId: 'string',
-      funcFilter: 'string',
       changeStartTime: 'string',
       changeEndTime: 'string',
       tag: { 'type': 'array', 'itemType': DescribeDcdnUserDomainsRequestTag },
@@ -6166,28 +7372,28 @@ export class DescribeDcdnUserDomainsRequest extends $tea.Model {
 }
 
 export class DescribeDcdnUserDomainsResponseBody extends $tea.Model {
-  domains?: DescribeDcdnUserDomainsResponseBodyDomains;
-  totalCount?: number;
   requestId?: string;
-  pageSize?: number;
   pageNumber?: number;
+  pageSize?: number;
+  totalCount?: number;
+  domains?: DescribeDcdnUserDomainsResponseBodyDomains;
   static names(): { [key: string]: string } {
     return {
-      domains: 'Domains',
-      totalCount: 'TotalCount',
       requestId: 'RequestId',
-      pageSize: 'PageSize',
       pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+      domains: 'Domains',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      domains: DescribeDcdnUserDomainsResponseBodyDomains,
-      totalCount: 'number',
       requestId: 'string',
-      pageSize: 'number',
       pageNumber: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
+      domains: DescribeDcdnUserDomainsResponseBodyDomains,
     };
   }
 
@@ -6250,28 +7456,28 @@ export class DescribeDcdnUserDomainsByFuncRequest extends $tea.Model {
 }
 
 export class DescribeDcdnUserDomainsByFuncResponseBody extends $tea.Model {
-  domains?: DescribeDcdnUserDomainsByFuncResponseBodyDomains;
-  totalCount?: number;
   requestId?: string;
-  pageSize?: number;
   pageNumber?: number;
+  pageSize?: number;
+  totalCount?: number;
+  domains?: DescribeDcdnUserDomainsByFuncResponseBodyDomains;
   static names(): { [key: string]: string } {
     return {
-      domains: 'Domains',
-      totalCount: 'TotalCount',
       requestId: 'RequestId',
-      pageSize: 'PageSize',
       pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+      domains: 'Domains',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      domains: DescribeDcdnUserDomainsByFuncResponseBodyDomains,
-      totalCount: 'number',
       requestId: 'string',
-      pageSize: 'number',
       pageNumber: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
+      domains: DescribeDcdnUserDomainsByFuncResponseBodyDomains,
     };
   }
 
@@ -6325,43 +7531,43 @@ export class DescribeDcdnUserQuotaRequest extends $tea.Model {
 }
 
 export class DescribeDcdnUserQuotaResponseBody extends $tea.Model {
-  requestId?: string;
-  refreshUrlQuota?: number;
+  blockQuota?: number;
+  refreshUrlRemain?: number;
+  domainQuota?: number;
   blockRemain?: number;
   preloadRemain?: number;
-  refreshDirRemain?: number;
-  blockQuota?: number;
-  refreshDirQuota?: number;
-  domainQuota?: number;
-  refreshUrlRemain?: number;
+  requestId?: string;
+  refreshUrlQuota?: number;
   preloadQuota?: number;
+  refreshDirQuota?: number;
+  refreshDirRemain?: number;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
-      refreshUrlQuota: 'RefreshUrlQuota',
+      blockQuota: 'BlockQuota',
+      refreshUrlRemain: 'RefreshUrlRemain',
+      domainQuota: 'DomainQuota',
       blockRemain: 'BlockRemain',
       preloadRemain: 'PreloadRemain',
-      refreshDirRemain: 'RefreshDirRemain',
-      blockQuota: 'BlockQuota',
-      refreshDirQuota: 'RefreshDirQuota',
-      domainQuota: 'DomainQuota',
-      refreshUrlRemain: 'RefreshUrlRemain',
+      requestId: 'RequestId',
+      refreshUrlQuota: 'RefreshUrlQuota',
       preloadQuota: 'PreloadQuota',
+      refreshDirQuota: 'RefreshDirQuota',
+      refreshDirRemain: 'RefreshDirRemain',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
-      refreshUrlQuota: 'number',
+      blockQuota: 'number',
+      refreshUrlRemain: 'number',
+      domainQuota: 'number',
       blockRemain: 'number',
       preloadRemain: 'number',
-      refreshDirRemain: 'number',
-      blockQuota: 'number',
-      refreshDirQuota: 'number',
-      domainQuota: 'number',
-      refreshUrlRemain: 'number',
+      requestId: 'string',
+      refreshUrlQuota: 'number',
       preloadQuota: 'number',
+      refreshDirQuota: 'number',
+      refreshDirRemain: 'number',
     };
   }
 
@@ -6536,6 +7742,111 @@ export class DescribeDcdnUserSecDropResponse extends $tea.Model {
   }
 }
 
+export class DescribeDcdnUserSecDropByMinuteRequest extends $tea.Model {
+  ownerId?: number;
+  secFunc?: string;
+  ruleName?: string;
+  object?: string;
+  domainName?: string;
+  startTime?: string;
+  endTime?: string;
+  pageSize?: number;
+  pageNumber?: number;
+  lang?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      secFunc: 'SecFunc',
+      ruleName: 'RuleName',
+      object: 'Object',
+      domainName: 'DomainName',
+      startTime: 'StartTime',
+      endTime: 'EndTime',
+      pageSize: 'PageSize',
+      pageNumber: 'PageNumber',
+      lang: 'Lang',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      secFunc: 'string',
+      ruleName: 'string',
+      object: 'string',
+      domainName: 'string',
+      startTime: 'string',
+      endTime: 'string',
+      pageSize: 'number',
+      pageNumber: 'number',
+      lang: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnUserSecDropByMinuteResponseBody extends $tea.Model {
+  requestId?: string;
+  description?: string;
+  len?: number;
+  pageNumber?: number;
+  pageSize?: number;
+  totalCount?: number;
+  rows?: DescribeDcdnUserSecDropByMinuteResponseBodyRows[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      description: 'Description',
+      len: 'Len',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+      rows: 'Rows',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      description: 'string',
+      len: 'number',
+      pageNumber: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
+      rows: { 'type': 'array', 'itemType': DescribeDcdnUserSecDropByMinuteResponseBodyRows },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnUserSecDropByMinuteResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeDcdnUserSecDropByMinuteResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeDcdnUserSecDropByMinuteResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDcdnUserTagsRequest extends $tea.Model {
   ownerId?: number;
   static names(): { [key: string]: string } {
@@ -6622,19 +7933,19 @@ export class DescribeDcdnVerifyContentRequest extends $tea.Model {
 }
 
 export class DescribeDcdnVerifyContentResponseBody extends $tea.Model {
-  requestId?: string;
   content?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       content: 'Content',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       content: 'string',
+      requestId: 'string',
     };
   }
 
@@ -6737,6 +8048,330 @@ export class DescribeDcdnWafDomainResponse extends $tea.Model {
   }
 }
 
+export class DescribeRoutineRequest extends $tea.Model {
+  ownerId?: number;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRoutineResponseBody extends $tea.Model {
+  content?: { [key: string]: any };
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRoutineResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeRoutineResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeRoutineResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRoutineCanaryEnvsRequest extends $tea.Model {
+  ownerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRoutineCanaryEnvsResponseBody extends $tea.Model {
+  content?: { [key: string]: any };
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRoutineCanaryEnvsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeRoutineCanaryEnvsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeRoutineCanaryEnvsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRoutineCodeRevisionRequest extends $tea.Model {
+  ownerId?: number;
+  name?: string;
+  selectCodeRevision?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      name: 'Name',
+      selectCodeRevision: 'SelectCodeRevision',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      name: 'string',
+      selectCodeRevision: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRoutineCodeRevisionResponseBody extends $tea.Model {
+  content?: { [key: string]: any };
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRoutineCodeRevisionResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeRoutineCodeRevisionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeRoutineCodeRevisionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRoutineSpecRequest extends $tea.Model {
+  ownerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRoutineSpecResponseBody extends $tea.Model {
+  content?: { [key: string]: any };
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRoutineSpecResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeRoutineSpecResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeRoutineSpecResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRoutineUserInfoRequest extends $tea.Model {
+  ownerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRoutineUserInfoResponseBody extends $tea.Model {
+  content?: { [key: string]: any };
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRoutineUserInfoResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeRoutineUserInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeRoutineUserInfoResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeUserDcdnIpaStatusRequest extends $tea.Model {
   ownerId?: number;
   securityToken?: string;
@@ -6760,28 +8395,28 @@ export class DescribeUserDcdnIpaStatusRequest extends $tea.Model {
 }
 
 export class DescribeUserDcdnIpaStatusResponseBody extends $tea.Model {
-  requestId?: string;
   inDebt?: boolean;
-  enabled?: boolean;
-  inDebtOverdue?: boolean;
   onService?: boolean;
+  requestId?: string;
+  inDebtOverdue?: boolean;
+  enabled?: boolean;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       inDebt: 'InDebt',
-      enabled: 'Enabled',
-      inDebtOverdue: 'InDebtOverdue',
       onService: 'OnService',
+      requestId: 'RequestId',
+      inDebtOverdue: 'InDebtOverdue',
+      enabled: 'Enabled',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       inDebt: 'boolean',
-      enabled: 'boolean',
-      inDebtOverdue: 'boolean',
       onService: 'boolean',
+      requestId: 'string',
+      inDebtOverdue: 'boolean',
+      enabled: 'boolean',
     };
   }
 
@@ -6835,28 +8470,28 @@ export class DescribeUserDcdnStatusRequest extends $tea.Model {
 }
 
 export class DescribeUserDcdnStatusResponseBody extends $tea.Model {
-  requestId?: string;
   inDebt?: boolean;
-  enabled?: boolean;
-  inDebtOverdue?: boolean;
   onService?: boolean;
+  requestId?: string;
+  inDebtOverdue?: boolean;
+  enabled?: boolean;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       inDebt: 'InDebt',
-      enabled: 'Enabled',
-      inDebtOverdue: 'InDebtOverdue',
       onService: 'OnService',
+      requestId: 'RequestId',
+      inDebtOverdue: 'InDebtOverdue',
+      enabled: 'Enabled',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       inDebt: 'boolean',
-      enabled: 'boolean',
-      inDebtOverdue: 'boolean',
       onService: 'boolean',
+      requestId: 'string',
+      inDebtOverdue: 'boolean',
+      enabled: 'boolean',
     };
   }
 
@@ -6879,6 +8514,156 @@ export class DescribeUserDcdnStatusResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: DescribeUserDcdnStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUserErStatusRequest extends $tea.Model {
+  ownerId?: number;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUserErStatusResponseBody extends $tea.Model {
+  inDebt?: boolean;
+  onService?: boolean;
+  requestId?: string;
+  inDebtOverdue?: boolean;
+  enabled?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      inDebt: 'InDebt',
+      onService: 'OnService',
+      requestId: 'RequestId',
+      inDebtOverdue: 'InDebtOverdue',
+      enabled: 'Enabled',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inDebt: 'boolean',
+      onService: 'boolean',
+      requestId: 'string',
+      inDebtOverdue: 'boolean',
+      enabled: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUserErStatusResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeUserErStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeUserErStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUserLogserviceStatusRequest extends $tea.Model {
+  ownerId?: number;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUserLogserviceStatusResponseBody extends $tea.Model {
+  inDebt?: boolean;
+  onService?: boolean;
+  requestId?: string;
+  inDebtOverdue?: boolean;
+  enabled?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      inDebt: 'InDebt',
+      onService: 'OnService',
+      requestId: 'RequestId',
+      inDebtOverdue: 'InDebtOverdue',
+      enabled: 'Enabled',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inDebt: 'boolean',
+      onService: 'boolean',
+      requestId: 'string',
+      inDebtOverdue: 'boolean',
+      enabled: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUserLogserviceStatusResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeUserLogserviceStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeUserLogserviceStatusResponseBody,
     };
   }
 
@@ -7002,6 +8787,106 @@ export class DisableDcdnOfflineLogDeliveryResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: DisableDcdnOfflineLogDeliveryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EditRoutineConfRequest extends $tea.Model {
+  ownerId?: number;
+  name?: string;
+  description?: string;
+  envConf?: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      name: 'Name',
+      description: 'Description',
+      envConf: 'EnvConf',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      name: 'string',
+      description: 'string',
+      envConf: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EditRoutineConfShrinkRequest extends $tea.Model {
+  ownerId?: number;
+  name?: string;
+  description?: string;
+  envConfShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      name: 'Name',
+      description: 'Description',
+      envConfShrink: 'EnvConf',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      name: 'string',
+      description: 'string',
+      envConfShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EditRoutineConfResponseBody extends $tea.Model {
+  content?: { [key: string]: any };
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EditRoutineConfResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: EditRoutineConfResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: EditRoutineConfResponseBody,
     };
   }
 
@@ -7237,19 +9122,19 @@ export class PreloadDcdnObjectCachesRequest extends $tea.Model {
 }
 
 export class PreloadDcdnObjectCachesResponseBody extends $tea.Model {
-  requestId?: string;
   preloadTaskId?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       preloadTaskId: 'PreloadTaskId',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       preloadTaskId: 'string',
+      requestId: 'string',
     };
   }
 
@@ -7346,6 +9231,106 @@ export class PublishDcdnStagingConfigToProductionResponse extends $tea.Model {
   }
 }
 
+export class PublishRoutineCodeRevisionRequest extends $tea.Model {
+  ownerId?: number;
+  name?: string;
+  selectCodeRevision?: string;
+  envs?: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      name: 'Name',
+      selectCodeRevision: 'SelectCodeRevision',
+      envs: 'Envs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      name: 'string',
+      selectCodeRevision: 'string',
+      envs: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PublishRoutineCodeRevisionShrinkRequest extends $tea.Model {
+  ownerId?: number;
+  name?: string;
+  selectCodeRevision?: string;
+  envsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      name: 'Name',
+      selectCodeRevision: 'SelectCodeRevision',
+      envsShrink: 'Envs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      name: 'string',
+      selectCodeRevision: 'string',
+      envsShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PublishRoutineCodeRevisionResponseBody extends $tea.Model {
+  content?: { [key: string]: any };
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PublishRoutineCodeRevisionResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: PublishRoutineCodeRevisionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: PublishRoutineCodeRevisionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RefreshDcdnObjectCachesRequest extends $tea.Model {
   ownerId?: number;
   securityToken?: string;
@@ -7375,19 +9360,19 @@ export class RefreshDcdnObjectCachesRequest extends $tea.Model {
 }
 
 export class RefreshDcdnObjectCachesResponseBody extends $tea.Model {
-  requestId?: string;
   refreshTaskId?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       refreshTaskId: 'RefreshTaskId',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       refreshTaskId: 'string',
+      requestId: 'string',
     };
   }
 
@@ -7421,12 +9406,10 @@ export class RefreshDcdnObjectCachesResponse extends $tea.Model {
 export class RollbackDcdnStagingConfigRequest extends $tea.Model {
   ownerId?: number;
   domainName?: string;
-  functionName?: string;
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
       domainName: 'DomainName',
-      functionName: 'FunctionName',
     };
   }
 
@@ -7434,7 +9417,6 @@ export class RollbackDcdnStagingConfigRequest extends $tea.Model {
     return {
       ownerId: 'number',
       domainName: 'string',
-      functionName: 'string',
     };
   }
 
@@ -7776,6 +9758,94 @@ export class SetDcdnDomainStagingConfigResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: SetDcdnDomainStagingConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetRoutineSubdomainRequest extends $tea.Model {
+  ownerId?: number;
+  subdomains?: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      subdomains: 'Subdomains',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      subdomains: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetRoutineSubdomainShrinkRequest extends $tea.Model {
+  ownerId?: number;
+  subdomainsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      subdomainsShrink: 'Subdomains',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      subdomainsShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetRoutineSubdomainResponseBody extends $tea.Model {
+  content?: { [key: string]: any };
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetRoutineSubdomainResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: SetRoutineSubdomainResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: SetRoutineSubdomainResponseBody,
     };
   }
 
@@ -8189,6 +10259,127 @@ export class UntagDcdnResourcesResponse extends $tea.Model {
   }
 }
 
+export class UpdateDcdnDeliverTaskRequest extends $tea.Model {
+  ownerId?: number;
+  deliverId?: number;
+  name?: string;
+  status?: string;
+  reports?: string;
+  domainName?: string;
+  deliver?: { [key: string]: any };
+  schedule?: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      deliverId: 'DeliverId',
+      name: 'Name',
+      status: 'Status',
+      reports: 'Reports',
+      domainName: 'DomainName',
+      deliver: 'Deliver',
+      schedule: 'Schedule',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      deliverId: 'number',
+      name: 'string',
+      status: 'string',
+      reports: 'string',
+      domainName: 'string',
+      deliver: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      schedule: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDcdnDeliverTaskShrinkRequest extends $tea.Model {
+  ownerId?: number;
+  deliverId?: number;
+  name?: string;
+  status?: string;
+  reports?: string;
+  domainName?: string;
+  deliverShrink?: string;
+  scheduleShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      deliverId: 'DeliverId',
+      name: 'Name',
+      status: 'Status',
+      reports: 'Reports',
+      domainName: 'DomainName',
+      deliverShrink: 'Deliver',
+      scheduleShrink: 'Schedule',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      deliverId: 'number',
+      name: 'string',
+      status: 'string',
+      reports: 'string',
+      domainName: 'string',
+      deliverShrink: 'string',
+      scheduleShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDcdnDeliverTaskResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDcdnDeliverTaskResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: UpdateDcdnDeliverTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: UpdateDcdnDeliverTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateDcdnDomainRequest extends $tea.Model {
   ownerId?: number;
   securityToken?: string;
@@ -8339,6 +10530,219 @@ export class UpdateDcdnIpaDomainResponse extends $tea.Model {
   }
 }
 
+export class UpdateDcdnSubTaskRequest extends $tea.Model {
+  ownerId?: number;
+  status?: string;
+  reportIds?: string;
+  domainName?: string;
+  startTime?: string;
+  endTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      status: 'Status',
+      reportIds: 'ReportIds',
+      domainName: 'DomainName',
+      startTime: 'StartTime',
+      endTime: 'EndTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      status: 'string',
+      reportIds: 'string',
+      domainName: 'string',
+      startTime: 'string',
+      endTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDcdnSubTaskResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDcdnSubTaskResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: UpdateDcdnSubTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: UpdateDcdnSubTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UploadRoutineCodeRequest extends $tea.Model {
+  ownerId?: number;
+  name?: string;
+  codeDescription?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      name: 'Name',
+      codeDescription: 'CodeDescription',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      name: 'string',
+      codeDescription: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UploadRoutineCodeResponseBody extends $tea.Model {
+  content?: { [key: string]: any };
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UploadRoutineCodeResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: UploadRoutineCodeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: UploadRoutineCodeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UploadStagingRoutineCodeRequest extends $tea.Model {
+  ownerId?: number;
+  name?: string;
+  codeDescription?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      name: 'Name',
+      codeDescription: 'CodeDescription',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      name: 'string',
+      codeDescription: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UploadStagingRoutineCodeResponseBody extends $tea.Model {
+  content?: { [key: string]: any };
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UploadStagingRoutineCodeResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: UploadStagingRoutineCodeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: UploadStagingRoutineCodeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class VerifyDcdnDomainOwnerRequest extends $tea.Model {
   ownerId?: number;
   domainName?: string;
@@ -8365,19 +10769,19 @@ export class VerifyDcdnDomainOwnerRequest extends $tea.Model {
 }
 
 export class VerifyDcdnDomainOwnerResponseBody extends $tea.Model {
-  requestId?: string;
   content?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       content: 'Content',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       content: 'string',
+      requestId: 'string',
     };
   }
 
@@ -8458,6 +10862,50 @@ export class DescribeDcdnBgpTrafficDataResponseBodyBgpDataInterval extends $tea.
   }
 }
 
+export class DescribeDcdnBlockedRegionsResponseBodyInfoListInfoItem extends $tea.Model {
+  countriesAndRegions?: string;
+  continent?: string;
+  countriesAndRegionsName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      countriesAndRegions: 'CountriesAndRegions',
+      continent: 'Continent',
+      countriesAndRegionsName: 'CountriesAndRegionsName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      countriesAndRegions: 'string',
+      continent: 'string',
+      countriesAndRegionsName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnBlockedRegionsResponseBodyInfoList extends $tea.Model {
+  infoItem?: DescribeDcdnBlockedRegionsResponseBodyInfoListInfoItem[];
+  static names(): { [key: string]: string } {
+    return {
+      infoItem: 'InfoItem',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      infoItem: { 'type': 'array', 'itemType': DescribeDcdnBlockedRegionsResponseBodyInfoListInfoItem },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDcdnCertificateListResponseBodyCertificateListModelCertListCert extends $tea.Model {
   lastTime?: number;
   fingerprint?: string;
@@ -8512,19 +10960,19 @@ export class DescribeDcdnCertificateListResponseBodyCertificateListModelCertList
 }
 
 export class DescribeDcdnCertificateListResponseBodyCertificateListModel extends $tea.Model {
-  certList?: DescribeDcdnCertificateListResponseBodyCertificateListModelCertList;
   count?: number;
+  certList?: DescribeDcdnCertificateListResponseBodyCertificateListModelCertList;
   static names(): { [key: string]: string } {
     return {
-      certList: 'CertList',
       count: 'Count',
+      certList: 'CertList',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      certList: DescribeDcdnCertificateListResponseBodyCertificateListModelCertList,
       count: 'number',
+      certList: DescribeDcdnCertificateListResponseBodyCertificateListModelCertList,
     };
   }
 
@@ -8987,11 +11435,8 @@ export class DescribeDcdnDomainDetailResponseBodyDomainDetailSources extends $te
 }
 
 export class DescribeDcdnDomainDetailResponseBodyDomainDetail extends $tea.Model {
-  SSLPub?: string;
-  sources?: DescribeDcdnDomainDetailResponseBodyDomainDetailSources;
-  gmtModified?: string;
-  domainName?: string;
   gmtCreated?: string;
+  SSLPub?: string;
   description?: string;
   SSLProtocol?: string;
   resourceGroupId?: string;
@@ -8999,13 +11444,13 @@ export class DescribeDcdnDomainDetailResponseBodyDomainDetail extends $tea.Model
   scope?: string;
   cname?: string;
   domainStatus?: string;
+  gmtModified?: string;
+  domainName?: string;
+  sources?: DescribeDcdnDomainDetailResponseBodyDomainDetailSources;
   static names(): { [key: string]: string } {
     return {
-      SSLPub: 'SSLPub',
-      sources: 'Sources',
-      gmtModified: 'GmtModified',
-      domainName: 'DomainName',
       gmtCreated: 'GmtCreated',
+      SSLPub: 'SSLPub',
       description: 'Description',
       SSLProtocol: 'SSLProtocol',
       resourceGroupId: 'ResourceGroupId',
@@ -9013,16 +11458,16 @@ export class DescribeDcdnDomainDetailResponseBodyDomainDetail extends $tea.Model
       scope: 'Scope',
       cname: 'Cname',
       domainStatus: 'DomainStatus',
+      gmtModified: 'GmtModified',
+      domainName: 'DomainName',
+      sources: 'Sources',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      SSLPub: 'string',
-      sources: DescribeDcdnDomainDetailResponseBodyDomainDetailSources,
-      gmtModified: 'string',
-      domainName: 'string',
       gmtCreated: 'string',
+      SSLPub: 'string',
       description: 'string',
       SSLProtocol: 'string',
       resourceGroupId: 'string',
@@ -9030,6 +11475,9 @@ export class DescribeDcdnDomainDetailResponseBodyDomainDetail extends $tea.Model
       scope: 'string',
       cname: 'string',
       domainStatus: 'string',
+      gmtModified: 'string',
+      domainName: 'string',
+      sources: DescribeDcdnDomainDetailResponseBodyDomainDetailSources,
     };
   }
 
@@ -9039,22 +11487,22 @@ export class DescribeDcdnDomainDetailResponseBodyDomainDetail extends $tea.Model
 }
 
 export class DescribeDcdnDomainHitRateDataResponseBodyHitRatePerIntervalDataModule extends $tea.Model {
+  timeStamp?: string;
   byteHitRate?: number;
   reqHitRate?: number;
-  timeStamp?: string;
   static names(): { [key: string]: string } {
     return {
+      timeStamp: 'TimeStamp',
       byteHitRate: 'ByteHitRate',
       reqHitRate: 'ReqHitRate',
-      timeStamp: 'TimeStamp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      timeStamp: 'string',
       byteHitRate: 'number',
       reqHitRate: 'number',
-      timeStamp: 'string',
     };
   }
 
@@ -9317,54 +11765,29 @@ export class DescribeDcdnDomainIspDataResponseBodyValue extends $tea.Model {
   }
 }
 
-export class DescribeDcdnDomainLogResponseBodyDomainLogDetailsDomainLogDetailPageInfos extends $tea.Model {
-  pageIndex?: number;
-  pageSize?: number;
-  total?: number;
-  static names(): { [key: string]: string } {
-    return {
-      pageIndex: 'PageIndex',
-      pageSize: 'PageSize',
-      total: 'Total',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageIndex: 'number',
-      pageSize: 'number',
-      total: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeDcdnDomainLogResponseBodyDomainLogDetailsDomainLogDetailLogInfosLogInfoDetail extends $tea.Model {
   endTime?: string;
-  startTime?: string;
-  logPath?: string;
   logSize?: number;
+  startTime?: string;
   logName?: string;
+  logPath?: string;
   static names(): { [key: string]: string } {
     return {
       endTime: 'EndTime',
-      startTime: 'StartTime',
-      logPath: 'LogPath',
       logSize: 'LogSize',
+      startTime: 'StartTime',
       logName: 'LogName',
+      logPath: 'LogPath',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       endTime: 'string',
-      startTime: 'string',
-      logPath: 'string',
       logSize: 'number',
+      startTime: 'string',
       logName: 'string',
+      logPath: 'string',
     };
   }
 
@@ -9392,23 +11815,48 @@ export class DescribeDcdnDomainLogResponseBodyDomainLogDetailsDomainLogDetailLog
   }
 }
 
-export class DescribeDcdnDomainLogResponseBodyDomainLogDetailsDomainLogDetail extends $tea.Model {
-  pageInfos?: DescribeDcdnDomainLogResponseBodyDomainLogDetailsDomainLogDetailPageInfos;
-  logCount?: number;
-  logInfos?: DescribeDcdnDomainLogResponseBodyDomainLogDetailsDomainLogDetailLogInfos;
+export class DescribeDcdnDomainLogResponseBodyDomainLogDetailsDomainLogDetailPageInfos extends $tea.Model {
+  pageIndex?: number;
+  pageSize?: number;
+  total?: number;
   static names(): { [key: string]: string } {
     return {
-      pageInfos: 'PageInfos',
-      logCount: 'LogCount',
-      logInfos: 'LogInfos',
+      pageIndex: 'PageIndex',
+      pageSize: 'PageSize',
+      total: 'Total',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      pageInfos: DescribeDcdnDomainLogResponseBodyDomainLogDetailsDomainLogDetailPageInfos,
+      pageIndex: 'number',
+      pageSize: 'number',
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnDomainLogResponseBodyDomainLogDetailsDomainLogDetail extends $tea.Model {
+  logCount?: number;
+  logInfos?: DescribeDcdnDomainLogResponseBodyDomainLogDetailsDomainLogDetailLogInfos;
+  pageInfos?: DescribeDcdnDomainLogResponseBodyDomainLogDetailsDomainLogDetailPageInfos;
+  static names(): { [key: string]: string } {
+    return {
+      logCount: 'LogCount',
+      logInfos: 'LogInfos',
+      pageInfos: 'PageInfos',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
       logCount: 'number',
       logInfos: DescribeDcdnDomainLogResponseBodyDomainLogDetailsDomainLogDetailLogInfos,
+      pageInfos: DescribeDcdnDomainLogResponseBodyDomainLogDetailsDomainLogDetailPageInfos,
     };
   }
 
@@ -9438,14 +11886,14 @@ export class DescribeDcdnDomainLogResponseBodyDomainLogDetails extends $tea.Mode
 
 export class DescribeDcdnDomainMultiUsageDataResponseBodyRequestPerIntervalRequestDataModule extends $tea.Model {
   type?: string;
-  domain?: string;
   timeStamp?: string;
+  domain?: string;
   request?: number;
   static names(): { [key: string]: string } {
     return {
       type: 'Type',
-      domain: 'Domain',
       timeStamp: 'TimeStamp',
+      domain: 'Domain',
       request: 'Request',
     };
   }
@@ -9453,8 +11901,8 @@ export class DescribeDcdnDomainMultiUsageDataResponseBodyRequestPerIntervalReque
   static types(): { [key: string]: any } {
     return {
       type: 'string',
-      domain: 'string',
       timeStamp: 'string',
+      domain: 'string',
       request: 'number',
     };
   }
@@ -9749,19 +12197,19 @@ export class DescribeDcdnDomainQpsDataResponseBodyQpsDataPerInterval extends $te
 }
 
 export class DescribeDcdnDomainRealTimeBpsDataResponseBodyDataBpsModel extends $tea.Model {
-  timeStamp?: string;
   bps?: number;
+  timeStamp?: string;
   static names(): { [key: string]: string } {
     return {
-      timeStamp: 'TimeStamp',
       bps: 'Bps',
+      timeStamp: 'TimeStamp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      timeStamp: 'string',
       bps: 'number',
+      timeStamp: 'string',
     };
   }
 
@@ -9875,19 +12323,19 @@ export class DescribeDcdnDomainRealTimeHttpCodeDataResponseBodyRealTimeHttpCodeD
 }
 
 export class DescribeDcdnDomainRealTimeHttpCodeDataResponseBodyRealTimeHttpCodeDataUsageData extends $tea.Model {
-  value?: DescribeDcdnDomainRealTimeHttpCodeDataResponseBodyRealTimeHttpCodeDataUsageDataValue;
   timeStamp?: string;
+  value?: DescribeDcdnDomainRealTimeHttpCodeDataResponseBodyRealTimeHttpCodeDataUsageDataValue;
   static names(): { [key: string]: string } {
     return {
-      value: 'Value',
       timeStamp: 'TimeStamp',
+      value: 'Value',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      value: DescribeDcdnDomainRealTimeHttpCodeDataResponseBodyRealTimeHttpCodeDataUsageDataValue,
       timeStamp: 'string',
+      value: DescribeDcdnDomainRealTimeHttpCodeDataResponseBodyRealTimeHttpCodeDataUsageDataValue,
     };
   }
 
@@ -10083,19 +12531,19 @@ export class DescribeDcdnDomainRealTimeSrcHttpCodeDataResponseBodyRealTimeSrcHtt
 }
 
 export class DescribeDcdnDomainRealTimeSrcHttpCodeDataResponseBodyRealTimeSrcHttpCodeDataUsageData extends $tea.Model {
-  value?: DescribeDcdnDomainRealTimeSrcHttpCodeDataResponseBodyRealTimeSrcHttpCodeDataUsageDataValue;
   timeStamp?: string;
+  value?: DescribeDcdnDomainRealTimeSrcHttpCodeDataResponseBodyRealTimeSrcHttpCodeDataUsageDataValue;
   static names(): { [key: string]: string } {
     return {
-      value: 'Value',
       timeStamp: 'TimeStamp',
+      value: 'Value',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      value: DescribeDcdnDomainRealTimeSrcHttpCodeDataResponseBodyRealTimeSrcHttpCodeDataUsageDataValue,
       timeStamp: 'string',
+      value: DescribeDcdnDomainRealTimeSrcHttpCodeDataResponseBodyRealTimeSrcHttpCodeDataUsageDataValue,
     };
   }
 
@@ -10324,28 +12772,28 @@ export class DescribeDcdnDomainStagingConfigResponseBodyDomainConfigs extends $t
 }
 
 export class DescribeDcdnDomainTopReferVisitResponseBodyTopReferListReferList extends $tea.Model {
+  flow?: string;
+  flowProportion?: number;
   visitData?: string;
   referDetail?: string;
   visitProportion?: number;
-  flow?: string;
-  flowProportion?: number;
   static names(): { [key: string]: string } {
     return {
+      flow: 'Flow',
+      flowProportion: 'FlowProportion',
       visitData: 'VisitData',
       referDetail: 'ReferDetail',
       visitProportion: 'VisitProportion',
-      flow: 'Flow',
-      flowProportion: 'FlowProportion',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      flow: 'string',
+      flowProportion: 'number',
       visitData: 'string',
       referDetail: 'string',
       visitProportion: 'number',
-      flow: 'string',
-      flowProportion: 'number',
     };
   }
 
@@ -10373,29 +12821,29 @@ export class DescribeDcdnDomainTopReferVisitResponseBodyTopReferList extends $te
   }
 }
 
-export class DescribeDcdnDomainTopUrlVisitResponseBodyUrl500ListUrlList extends $tea.Model {
+export class DescribeDcdnDomainTopUrlVisitResponseBodyAllUrlListUrlList extends $tea.Model {
+  flow?: string;
   urlDetail?: string;
+  flowProportion?: number;
   visitData?: string;
   visitProportion?: number;
-  flow?: string;
-  flowProportion?: number;
   static names(): { [key: string]: string } {
     return {
+      flow: 'Flow',
       urlDetail: 'UrlDetail',
+      flowProportion: 'FlowProportion',
       visitData: 'VisitData',
       visitProportion: 'VisitProportion',
-      flow: 'Flow',
-      flowProportion: 'FlowProportion',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      flow: 'string',
       urlDetail: 'string',
+      flowProportion: 'number',
       visitData: 'string',
       visitProportion: 'number',
-      flow: 'string',
-      flowProportion: 'number',
     };
   }
 
@@ -10404,8 +12852,8 @@ export class DescribeDcdnDomainTopUrlVisitResponseBodyUrl500ListUrlList extends 
   }
 }
 
-export class DescribeDcdnDomainTopUrlVisitResponseBodyUrl500List extends $tea.Model {
-  urlList?: DescribeDcdnDomainTopUrlVisitResponseBodyUrl500ListUrlList[];
+export class DescribeDcdnDomainTopUrlVisitResponseBodyAllUrlList extends $tea.Model {
+  urlList?: DescribeDcdnDomainTopUrlVisitResponseBodyAllUrlListUrlList[];
   static names(): { [key: string]: string } {
     return {
       urlList: 'UrlList',
@@ -10414,7 +12862,7 @@ export class DescribeDcdnDomainTopUrlVisitResponseBodyUrl500List extends $tea.Mo
 
   static types(): { [key: string]: any } {
     return {
-      urlList: { 'type': 'array', 'itemType': DescribeDcdnDomainTopUrlVisitResponseBodyUrl500ListUrlList },
+      urlList: { 'type': 'array', 'itemType': DescribeDcdnDomainTopUrlVisitResponseBodyAllUrlListUrlList },
     };
   }
 
@@ -10424,28 +12872,28 @@ export class DescribeDcdnDomainTopUrlVisitResponseBodyUrl500List extends $tea.Mo
 }
 
 export class DescribeDcdnDomainTopUrlVisitResponseBodyUrl200ListUrlList extends $tea.Model {
+  flow?: string;
   urlDetail?: string;
+  flowProportion?: number;
   visitData?: string;
   visitProportion?: number;
-  flow?: string;
-  flowProportion?: number;
   static names(): { [key: string]: string } {
     return {
+      flow: 'Flow',
       urlDetail: 'UrlDetail',
+      flowProportion: 'FlowProportion',
       visitData: 'VisitData',
       visitProportion: 'VisitProportion',
-      flow: 'Flow',
-      flowProportion: 'FlowProportion',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      flow: 'string',
       urlDetail: 'string',
+      flowProportion: 'number',
       visitData: 'string',
       visitProportion: 'number',
-      flow: 'string',
-      flowProportion: 'number',
     };
   }
 
@@ -10473,79 +12921,29 @@ export class DescribeDcdnDomainTopUrlVisitResponseBodyUrl200List extends $tea.Mo
   }
 }
 
-export class DescribeDcdnDomainTopUrlVisitResponseBodyUrl400ListUrlList extends $tea.Model {
-  urlDetail?: string;
-  visitData?: string;
-  visitProportion?: number;
-  flow?: string;
-  flowProportion?: number;
-  static names(): { [key: string]: string } {
-    return {
-      urlDetail: 'UrlDetail',
-      visitData: 'VisitData',
-      visitProportion: 'VisitProportion',
-      flow: 'Flow',
-      flowProportion: 'FlowProportion',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      urlDetail: 'string',
-      visitData: 'string',
-      visitProportion: 'number',
-      flow: 'string',
-      flowProportion: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDcdnDomainTopUrlVisitResponseBodyUrl400List extends $tea.Model {
-  urlList?: DescribeDcdnDomainTopUrlVisitResponseBodyUrl400ListUrlList[];
-  static names(): { [key: string]: string } {
-    return {
-      urlList: 'UrlList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      urlList: { 'type': 'array', 'itemType': DescribeDcdnDomainTopUrlVisitResponseBodyUrl400ListUrlList },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeDcdnDomainTopUrlVisitResponseBodyUrl300ListUrlList extends $tea.Model {
+  flow?: string;
   urlDetail?: string;
+  flowProportion?: number;
   visitData?: string;
   visitProportion?: number;
-  flow?: string;
-  flowProportion?: number;
   static names(): { [key: string]: string } {
     return {
+      flow: 'Flow',
       urlDetail: 'UrlDetail',
+      flowProportion: 'FlowProportion',
       visitData: 'VisitData',
       visitProportion: 'VisitProportion',
-      flow: 'Flow',
-      flowProportion: 'FlowProportion',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      flow: 'string',
       urlDetail: 'string',
+      flowProportion: 'number',
       visitData: 'string',
       visitProportion: 'number',
-      flow: 'string',
-      flowProportion: 'number',
     };
   }
 
@@ -10573,29 +12971,29 @@ export class DescribeDcdnDomainTopUrlVisitResponseBodyUrl300List extends $tea.Mo
   }
 }
 
-export class DescribeDcdnDomainTopUrlVisitResponseBodyAllUrlListUrlList extends $tea.Model {
+export class DescribeDcdnDomainTopUrlVisitResponseBodyUrl400ListUrlList extends $tea.Model {
+  flow?: string;
   urlDetail?: string;
+  flowProportion?: number;
   visitData?: string;
   visitProportion?: number;
-  flow?: string;
-  flowProportion?: number;
   static names(): { [key: string]: string } {
     return {
+      flow: 'Flow',
       urlDetail: 'UrlDetail',
+      flowProportion: 'FlowProportion',
       visitData: 'VisitData',
       visitProportion: 'VisitProportion',
-      flow: 'Flow',
-      flowProportion: 'FlowProportion',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      flow: 'string',
       urlDetail: 'string',
+      flowProportion: 'number',
       visitData: 'string',
       visitProportion: 'number',
-      flow: 'string',
-      flowProportion: 'number',
     };
   }
 
@@ -10604,8 +13002,8 @@ export class DescribeDcdnDomainTopUrlVisitResponseBodyAllUrlListUrlList extends 
   }
 }
 
-export class DescribeDcdnDomainTopUrlVisitResponseBodyAllUrlList extends $tea.Model {
-  urlList?: DescribeDcdnDomainTopUrlVisitResponseBodyAllUrlListUrlList[];
+export class DescribeDcdnDomainTopUrlVisitResponseBodyUrl400List extends $tea.Model {
+  urlList?: DescribeDcdnDomainTopUrlVisitResponseBodyUrl400ListUrlList[];
   static names(): { [key: string]: string } {
     return {
       urlList: 'UrlList',
@@ -10614,7 +13012,57 @@ export class DescribeDcdnDomainTopUrlVisitResponseBodyAllUrlList extends $tea.Mo
 
   static types(): { [key: string]: any } {
     return {
-      urlList: { 'type': 'array', 'itemType': DescribeDcdnDomainTopUrlVisitResponseBodyAllUrlListUrlList },
+      urlList: { 'type': 'array', 'itemType': DescribeDcdnDomainTopUrlVisitResponseBodyUrl400ListUrlList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnDomainTopUrlVisitResponseBodyUrl500ListUrlList extends $tea.Model {
+  flow?: string;
+  urlDetail?: string;
+  flowProportion?: number;
+  visitData?: string;
+  visitProportion?: number;
+  static names(): { [key: string]: string } {
+    return {
+      flow: 'Flow',
+      urlDetail: 'UrlDetail',
+      flowProportion: 'FlowProportion',
+      visitData: 'VisitData',
+      visitProportion: 'VisitProportion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      flow: 'string',
+      urlDetail: 'string',
+      flowProportion: 'number',
+      visitData: 'string',
+      visitProportion: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnDomainTopUrlVisitResponseBodyUrl500List extends $tea.Model {
+  urlList?: DescribeDcdnDomainTopUrlVisitResponseBodyUrl500ListUrlList[];
+  static names(): { [key: string]: string } {
+    return {
+      urlList: 'UrlList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      urlList: { 'type': 'array', 'itemType': DescribeDcdnDomainTopUrlVisitResponseBodyUrl500ListUrlList },
     };
   }
 
@@ -10718,19 +13166,19 @@ export class DescribeDcdnDomainUvDataResponseBodyUvDataInterval extends $tea.Mod
 }
 
 export class DescribeDcdnDomainWebsocketBpsDataResponseBodyBpsDataPerIntervalDataModule extends $tea.Model {
-  websocketBps?: number;
   timeStamp?: string;
+  websocketBps?: number;
   static names(): { [key: string]: string } {
     return {
-      websocketBps: 'WebsocketBps',
       timeStamp: 'TimeStamp',
+      websocketBps: 'WebsocketBps',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      websocketBps: 'number',
       timeStamp: 'string',
+      websocketBps: 'number',
     };
   }
 
@@ -10803,19 +13251,19 @@ export class DescribeDcdnDomainWebsocketHttpCodeDataResponseBodyDataPerIntervalD
 }
 
 export class DescribeDcdnDomainWebsocketHttpCodeDataResponseBodyDataPerIntervalDataModule extends $tea.Model {
-  websocketHttpCodeDataPerInterval?: DescribeDcdnDomainWebsocketHttpCodeDataResponseBodyDataPerIntervalDataModuleWebsocketHttpCodeDataPerInterval;
   timeStamp?: string;
+  websocketHttpCodeDataPerInterval?: DescribeDcdnDomainWebsocketHttpCodeDataResponseBodyDataPerIntervalDataModuleWebsocketHttpCodeDataPerInterval;
   static names(): { [key: string]: string } {
     return {
-      websocketHttpCodeDataPerInterval: 'WebsocketHttpCodeDataPerInterval',
       timeStamp: 'TimeStamp',
+      websocketHttpCodeDataPerInterval: 'WebsocketHttpCodeDataPerInterval',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      websocketHttpCodeDataPerInterval: DescribeDcdnDomainWebsocketHttpCodeDataResponseBodyDataPerIntervalDataModuleWebsocketHttpCodeDataPerInterval,
       timeStamp: 'string',
+      websocketHttpCodeDataPerInterval: DescribeDcdnDomainWebsocketHttpCodeDataResponseBodyDataPerIntervalDataModuleWebsocketHttpCodeDataPerInterval,
     };
   }
 
@@ -11085,11 +13533,8 @@ export class DescribeDcdnIpaDomainDetailResponseBodyDomainDetailSources extends 
 }
 
 export class DescribeDcdnIpaDomainDetailResponseBodyDomainDetail extends $tea.Model {
-  SSLPub?: string;
-  sources?: DescribeDcdnIpaDomainDetailResponseBodyDomainDetailSources;
-  gmtModified?: string;
-  domainName?: string;
   gmtCreated?: string;
+  SSLPub?: string;
   description?: string;
   SSLProtocol?: string;
   resourceGroupId?: string;
@@ -11097,13 +13542,13 @@ export class DescribeDcdnIpaDomainDetailResponseBodyDomainDetail extends $tea.Mo
   scope?: string;
   cname?: string;
   domainStatus?: string;
+  gmtModified?: string;
+  domainName?: string;
+  sources?: DescribeDcdnIpaDomainDetailResponseBodyDomainDetailSources;
   static names(): { [key: string]: string } {
     return {
-      SSLPub: 'SSLPub',
-      sources: 'Sources',
-      gmtModified: 'GmtModified',
-      domainName: 'DomainName',
       gmtCreated: 'GmtCreated',
+      SSLPub: 'SSLPub',
       description: 'Description',
       SSLProtocol: 'SSLProtocol',
       resourceGroupId: 'ResourceGroupId',
@@ -11111,16 +13556,16 @@ export class DescribeDcdnIpaDomainDetailResponseBodyDomainDetail extends $tea.Mo
       scope: 'Scope',
       cname: 'Cname',
       domainStatus: 'DomainStatus',
+      gmtModified: 'GmtModified',
+      domainName: 'DomainName',
+      sources: 'Sources',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      SSLPub: 'string',
-      sources: DescribeDcdnIpaDomainDetailResponseBodyDomainDetailSources,
-      gmtModified: 'string',
-      domainName: 'string',
       gmtCreated: 'string',
+      SSLPub: 'string',
       description: 'string',
       SSLProtocol: 'string',
       resourceGroupId: 'string',
@@ -11128,6 +13573,9 @@ export class DescribeDcdnIpaDomainDetailResponseBodyDomainDetail extends $tea.Mo
       scope: 'string',
       cname: 'string',
       domainStatus: 'string',
+      gmtModified: 'string',
+      domainName: 'string',
+      sources: DescribeDcdnIpaDomainDetailResponseBodyDomainDetailSources,
     };
   }
 
@@ -11232,9 +13680,9 @@ export class DescribeDcdnIpaUserDomainsResponseBodyDomainsPageData extends $tea.
   sandbox?: string;
   domainStatus?: string;
   cname?: string;
-  sources?: DescribeDcdnIpaUserDomainsResponseBodyDomainsPageDataSources;
   gmtModified?: string;
   domainName?: string;
+  sources?: DescribeDcdnIpaUserDomainsResponseBodyDomainsPageDataSources;
   static names(): { [key: string]: string } {
     return {
       gmtCreated: 'GmtCreated',
@@ -11244,9 +13692,9 @@ export class DescribeDcdnIpaUserDomainsResponseBodyDomainsPageData extends $tea.
       sandbox: 'Sandbox',
       domainStatus: 'DomainStatus',
       cname: 'Cname',
-      sources: 'Sources',
       gmtModified: 'GmtModified',
       domainName: 'DomainName',
+      sources: 'Sources',
     };
   }
 
@@ -11259,9 +13707,9 @@ export class DescribeDcdnIpaUserDomainsResponseBodyDomainsPageData extends $tea.
       sandbox: 'string',
       domainStatus: 'string',
       cname: 'string',
-      sources: DescribeDcdnIpaUserDomainsResponseBodyDomainsPageDataSources,
       gmtModified: 'string',
       domainName: 'string',
+      sources: DescribeDcdnIpaUserDomainsResponseBodyDomainsPageDataSources,
     };
   }
 
@@ -11312,29 +13760,29 @@ export class DescribeDcdnOfflineLogDeliveryResponseBodyRegions extends $tea.Mode
   ossId?: number;
   ossPathPrefix?: string;
   regionId?: string;
-  dlaTableName?: string;
   areaName?: string;
-  dlaDbName?: string;
+  dlaTableName?: string;
   dlaVcName?: string;
+  dlaDbName?: string;
   regionName?: string;
   areaId?: string;
   isOverseas?: string;
-  ossEndpoint?: string;
   ossBucketName?: string;
+  ossEndpoint?: string;
   static names(): { [key: string]: string } {
     return {
       ossId: 'OssId',
       ossPathPrefix: 'OssPathPrefix',
       regionId: 'RegionId',
-      dlaTableName: 'DlaTableName',
       areaName: 'AreaName',
-      dlaDbName: 'DlaDbName',
+      dlaTableName: 'DlaTableName',
       dlaVcName: 'DlaVcName',
+      dlaDbName: 'DlaDbName',
       regionName: 'RegionName',
       areaId: 'AreaId',
       isOverseas: 'IsOverseas',
-      ossEndpoint: 'OssEndpoint',
       ossBucketName: 'OssBucketName',
+      ossEndpoint: 'OssEndpoint',
     };
   }
 
@@ -11343,15 +13791,15 @@ export class DescribeDcdnOfflineLogDeliveryResponseBodyRegions extends $tea.Mode
       ossId: 'number',
       ossPathPrefix: 'string',
       regionId: 'string',
-      dlaTableName: 'string',
       areaName: 'string',
-      dlaDbName: 'string',
+      dlaTableName: 'string',
       dlaVcName: 'string',
+      dlaDbName: 'string',
       regionName: 'string',
       areaId: 'string',
       isOverseas: 'string',
-      ossEndpoint: 'string',
       ossBucketName: 'string',
+      ossEndpoint: 'string',
     };
   }
 
@@ -11386,14 +13834,14 @@ export class DescribeDcdnOfflineLogDeliveryFieldResponseBodyFields extends $tea.
 }
 
 export class DescribeDcdnOfflineLogDeliveryRegionsResponseBodyAreasRegionInfos extends $tea.Model {
-  regionName?: string;
   isOverseas?: string;
+  regionName?: string;
   ossEndpoint?: string;
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionName: 'RegionName',
       isOverseas: 'IsOverseas',
+      regionName: 'RegionName',
       ossEndpoint: 'OssEndpoint',
       regionId: 'RegionId',
     };
@@ -11401,8 +13849,8 @@ export class DescribeDcdnOfflineLogDeliveryRegionsResponseBodyAreasRegionInfos e
 
   static types(): { [key: string]: any } {
     return {
-      regionName: 'string',
       isOverseas: 'string',
+      regionName: 'string',
       ossEndpoint: 'string',
       regionId: 'string',
     };
@@ -11430,6 +13878,43 @@ export class DescribeDcdnOfflineLogDeliveryRegionsResponseBodyAreas extends $tea
       areaName: 'string',
       areaId: 'string',
       regionInfos: { 'type': 'array', 'itemType': DescribeDcdnOfflineLogDeliveryRegionsResponseBodyAreasRegionInfos },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnRefreshTaskByIdResponseBodyTasks extends $tea.Model {
+  status?: string;
+  creationTime?: string;
+  objectType?: string;
+  process?: string;
+  description?: string;
+  objectPath?: string;
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      status: 'Status',
+      creationTime: 'CreationTime',
+      objectType: 'ObjectType',
+      process: 'Process',
+      description: 'Description',
+      objectPath: 'ObjectPath',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      status: 'string',
+      creationTime: 'string',
+      objectType: 'string',
+      process: 'string',
+      description: 'string',
+      objectPath: 'string',
+      taskId: 'string',
     };
   }
 
@@ -11576,6 +14061,28 @@ export class DescribeDcdnRegionAndIspResponseBodyIsps extends $tea.Model {
   }
 }
 
+export class DescribeDcdnSecFuncInfoResponseBodyContent extends $tea.Model {
+  label?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      label: 'Label',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      label: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDcdnServiceResponseBodyOperationLocksLockReason extends $tea.Model {
   lockReason?: string;
   static names(): { [key: string]: string } {
@@ -11678,19 +14185,19 @@ export class DescribeDcdnTagResourcesResponseBodyTagResourcesTag extends $tea.Mo
 }
 
 export class DescribeDcdnTagResourcesResponseBodyTagResources extends $tea.Model {
-  tag?: DescribeDcdnTagResourcesResponseBodyTagResourcesTag[];
   resourceId?: string;
+  tag?: DescribeDcdnTagResourcesResponseBodyTagResourcesTag[];
   static names(): { [key: string]: string } {
     return {
-      tag: 'Tag',
       resourceId: 'ResourceId',
+      tag: 'Tag',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      tag: { 'type': 'array', 'itemType': DescribeDcdnTagResourcesResponseBodyTagResourcesTag },
       resourceId: 'string',
+      tag: { 'type': 'array', 'itemType': DescribeDcdnTagResourcesResponseBodyTagResourcesTag },
     };
   }
 
@@ -11756,28 +14263,28 @@ export class DescribeDcdnTopDomainsByFlowResponseBodyTopDomains extends $tea.Mod
 }
 
 export class DescribeDcdnUserBillHistoryResponseBodyBillHistoryDataBillHistoryDataItemBillingDataBillingDataItem extends $tea.Model {
-  bandwidth?: number;
-  chargeType?: string;
   flow?: number;
+  bandwidth?: number;
   count?: number;
   cdnRegion?: string;
+  chargeType?: string;
   static names(): { [key: string]: string } {
     return {
-      bandwidth: 'Bandwidth',
-      chargeType: 'ChargeType',
       flow: 'Flow',
+      bandwidth: 'Bandwidth',
       count: 'Count',
       cdnRegion: 'CdnRegion',
+      chargeType: 'ChargeType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      bandwidth: 'number',
-      chargeType: 'string',
       flow: 'number',
+      bandwidth: 'number',
       count: 'number',
       cdnRegion: 'string',
+      chargeType: 'string',
     };
   }
 
@@ -11806,25 +14313,25 @@ export class DescribeDcdnUserBillHistoryResponseBodyBillHistoryDataBillHistoryDa
 }
 
 export class DescribeDcdnUserBillHistoryResponseBodyBillHistoryDataBillHistoryDataItem extends $tea.Model {
-  billingData?: DescribeDcdnUserBillHistoryResponseBodyBillHistoryDataBillHistoryDataItemBillingData;
-  billType?: string;
   dimension?: string;
+  billType?: string;
   billTime?: string;
+  billingData?: DescribeDcdnUserBillHistoryResponseBodyBillHistoryDataBillHistoryDataItemBillingData;
   static names(): { [key: string]: string } {
     return {
-      billingData: 'BillingData',
-      billType: 'BillType',
       dimension: 'Dimension',
+      billType: 'BillType',
       billTime: 'BillTime',
+      billingData: 'BillingData',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      billingData: DescribeDcdnUserBillHistoryResponseBodyBillHistoryDataBillHistoryDataItemBillingData,
-      billType: 'string',
       dimension: 'string',
+      billType: 'string',
       billTime: 'string',
+      billingData: DescribeDcdnUserBillHistoryResponseBodyBillHistoryDataBillHistoryDataItemBillingData,
     };
   }
 
@@ -11985,9 +14492,9 @@ export class DescribeDcdnUserDomainsResponseBodyDomainsPageData extends $tea.Mod
   sandbox?: string;
   domainStatus?: string;
   cname?: string;
-  sources?: DescribeDcdnUserDomainsResponseBodyDomainsPageDataSources;
   gmtModified?: string;
   domainName?: string;
+  sources?: DescribeDcdnUserDomainsResponseBodyDomainsPageDataSources;
   static names(): { [key: string]: string } {
     return {
       gmtCreated: 'GmtCreated',
@@ -11997,9 +14504,9 @@ export class DescribeDcdnUserDomainsResponseBodyDomainsPageData extends $tea.Mod
       sandbox: 'Sandbox',
       domainStatus: 'DomainStatus',
       cname: 'Cname',
-      sources: 'Sources',
       gmtModified: 'GmtModified',
       domainName: 'DomainName',
+      sources: 'Sources',
     };
   }
 
@@ -12012,9 +14519,9 @@ export class DescribeDcdnUserDomainsResponseBodyDomainsPageData extends $tea.Mod
       sandbox: 'string',
       domainStatus: 'string',
       cname: 'string',
-      sources: DescribeDcdnUserDomainsResponseBodyDomainsPageDataSources,
       gmtModified: 'string',
       domainName: 'string',
+      sources: DescribeDcdnUserDomainsResponseBodyDomainsPageDataSources,
     };
   }
 
@@ -12100,10 +14607,10 @@ export class DescribeDcdnUserDomainsByFuncResponseBodyDomainsPageData extends $t
   sandbox?: string;
   domainStatus?: string;
   cname?: string;
-  sources?: DescribeDcdnUserDomainsByFuncResponseBodyDomainsPageDataSources;
   gmtModified?: string;
   cdnType?: string;
   domainName?: string;
+  sources?: DescribeDcdnUserDomainsByFuncResponseBodyDomainsPageDataSources;
   static names(): { [key: string]: string } {
     return {
       gmtCreated: 'GmtCreated',
@@ -12113,10 +14620,10 @@ export class DescribeDcdnUserDomainsByFuncResponseBodyDomainsPageData extends $t
       sandbox: 'Sandbox',
       domainStatus: 'DomainStatus',
       cname: 'Cname',
-      sources: 'Sources',
       gmtModified: 'GmtModified',
       cdnType: 'CdnType',
       domainName: 'DomainName',
+      sources: 'Sources',
     };
   }
 
@@ -12129,10 +14636,10 @@ export class DescribeDcdnUserDomainsByFuncResponseBodyDomainsPageData extends $t
       sandbox: 'string',
       domainStatus: 'string',
       cname: 'string',
-      sources: DescribeDcdnUserDomainsByFuncResponseBodyDomainsPageDataSources,
       gmtModified: 'string',
       cdnType: 'string',
       domainName: 'string',
+      sources: DescribeDcdnUserDomainsByFuncResponseBodyDomainsPageDataSources,
     };
   }
 
@@ -12222,6 +14729,40 @@ export class DescribeDcdnUserResourcePackageResponseBodyResourcePackageInfos ext
   }
 }
 
+export class DescribeDcdnUserSecDropByMinuteResponseBodyRows extends $tea.Model {
+  domain?: string;
+  tmStr?: string;
+  drops?: number;
+  object?: string;
+  secFunc?: string;
+  ruleName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domain: 'Domain',
+      tmStr: 'TmStr',
+      drops: 'Drops',
+      object: 'Object',
+      secFunc: 'SecFunc',
+      ruleName: 'RuleName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domain: 'string',
+      tmStr: 'string',
+      drops: 'number',
+      object: 'string',
+      secFunc: 'string',
+      ruleName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDcdnUserTagsResponseBodyTags extends $tea.Model {
   key?: string;
   value?: string[];
@@ -12245,27 +14786,27 @@ export class DescribeDcdnUserTagsResponseBodyTags extends $tea.Model {
 }
 
 export class DescribeDcdnWafDomainResponseBodyOutPutDomains extends $tea.Model {
+  aclStatus?: number;
   status?: number;
   domain?: string;
   ccStatus?: number;
-  aclStatus?: number;
   wafStatus?: number;
   static names(): { [key: string]: string } {
     return {
+      aclStatus: 'AclStatus',
       status: 'Status',
       domain: 'Domain',
       ccStatus: 'CcStatus',
-      aclStatus: 'AclStatus',
       wafStatus: 'WafStatus',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      aclStatus: 'number',
       status: 'number',
       domain: 'string',
       ccStatus: 'number',
-      aclStatus: 'number',
       wafStatus: 'number',
     };
   }
@@ -12493,6 +15034,19 @@ export default class Client extends OpenApi {
     return await this.batchStopDcdnDomainWithOptions(request, runtime);
   }
 
+  async commitStagingRoutineCodeWithOptions(request: CommitStagingRoutineCodeRequest, runtime: $Util.RuntimeOptions): Promise<CommitStagingRoutineCodeResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<CommitStagingRoutineCodeResponse>(await this.doRPCRequest("CommitStagingRoutineCode", "2018-01-15", "HTTPS", "POST", "AK", "json", req, runtime), new CommitStagingRoutineCodeResponse({}));
+  }
+
+  async commitStagingRoutineCode(request: CommitStagingRoutineCodeRequest): Promise<CommitStagingRoutineCodeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.commitStagingRoutineCodeWithOptions(request, runtime);
+  }
+
   async createDcdnCertificateSigningRequestWithOptions(request: CreateDcdnCertificateSigningRequestRequest, runtime: $Util.RuntimeOptions): Promise<CreateDcdnCertificateSigningRequestResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -12506,6 +15060,29 @@ export default class Client extends OpenApi {
     return await this.createDcdnCertificateSigningRequestWithOptions(request, runtime);
   }
 
+  async createDcdnDeliverTaskWithOptions(tmpReq: CreateDcdnDeliverTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateDcdnDeliverTaskResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateDcdnDeliverTaskShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.deliver)) {
+      request.deliverShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.deliver, "Deliver", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.schedule)) {
+      request.scheduleShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.schedule, "Schedule", "json");
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<CreateDcdnDeliverTaskResponse>(await this.doRPCRequest("CreateDcdnDeliverTask", "2018-01-15", "HTTPS", "POST", "AK", "json", req, runtime), new CreateDcdnDeliverTaskResponse({}));
+  }
+
+  async createDcdnDeliverTask(request: CreateDcdnDeliverTaskRequest): Promise<CreateDcdnDeliverTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createDcdnDeliverTaskWithOptions(request, runtime);
+  }
+
   async createDcdnDomainOfflineLogDeliveryWithOptions(request: CreateDcdnDomainOfflineLogDeliveryRequest, runtime: $Util.RuntimeOptions): Promise<CreateDcdnDomainOfflineLogDeliveryResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -12517,6 +15094,51 @@ export default class Client extends OpenApi {
   async createDcdnDomainOfflineLogDelivery(request: CreateDcdnDomainOfflineLogDeliveryRequest): Promise<CreateDcdnDomainOfflineLogDeliveryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createDcdnDomainOfflineLogDeliveryWithOptions(request, runtime);
+  }
+
+  async createDcdnSubTaskWithOptions(request: CreateDcdnSubTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateDcdnSubTaskResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<CreateDcdnSubTaskResponse>(await this.doRPCRequest("CreateDcdnSubTask", "2018-01-15", "HTTPS", "POST", "AK", "json", req, runtime), new CreateDcdnSubTaskResponse({}));
+  }
+
+  async createDcdnSubTask(request: CreateDcdnSubTaskRequest): Promise<CreateDcdnSubTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createDcdnSubTaskWithOptions(request, runtime);
+  }
+
+  async createRoutineWithOptions(tmpReq: CreateRoutineRequest, runtime: $Util.RuntimeOptions): Promise<CreateRoutineResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateRoutineShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.envConf)) {
+      request.envConfShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.envConf, "EnvConf", "json");
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<CreateRoutineResponse>(await this.doRPCRequest("CreateRoutine", "2018-01-15", "HTTPS", "POST", "AK", "json", req, runtime), new CreateRoutineResponse({}));
+  }
+
+  async createRoutine(request: CreateRoutineRequest): Promise<CreateRoutineResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createRoutineWithOptions(request, runtime);
+  }
+
+  async deleteDcdnDeliverTaskWithOptions(request: DeleteDcdnDeliverTaskRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDcdnDeliverTaskResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DeleteDcdnDeliverTaskResponse>(await this.doRPCRequest("DeleteDcdnDeliverTask", "2018-01-15", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteDcdnDeliverTaskResponse({}));
+  }
+
+  async deleteDcdnDeliverTask(request: DeleteDcdnDeliverTaskRequest): Promise<DeleteDcdnDeliverTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteDcdnDeliverTaskWithOptions(request, runtime);
   }
 
   async deleteDcdnDomainWithOptions(request: DeleteDcdnDomainRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDcdnDomainResponse> {
@@ -12584,6 +15206,64 @@ export default class Client extends OpenApi {
     return await this.deleteDcdnSpecificStagingConfigWithOptions(request, runtime);
   }
 
+  async deleteDcdnSubTaskWithOptions(request: DeleteDcdnSubTaskRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDcdnSubTaskResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DeleteDcdnSubTaskResponse>(await this.doRPCRequest("DeleteDcdnSubTask", "2018-01-15", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteDcdnSubTaskResponse({}));
+  }
+
+  async deleteDcdnSubTask(request: DeleteDcdnSubTaskRequest): Promise<DeleteDcdnSubTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteDcdnSubTaskWithOptions(request, runtime);
+  }
+
+  async deleteRoutineWithOptions(request: DeleteRoutineRequest, runtime: $Util.RuntimeOptions): Promise<DeleteRoutineResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DeleteRoutineResponse>(await this.doRPCRequest("DeleteRoutine", "2018-01-15", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteRoutineResponse({}));
+  }
+
+  async deleteRoutine(request: DeleteRoutineRequest): Promise<DeleteRoutineResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteRoutineWithOptions(request, runtime);
+  }
+
+  async deleteRoutineCodeRevisionWithOptions(request: DeleteRoutineCodeRevisionRequest, runtime: $Util.RuntimeOptions): Promise<DeleteRoutineCodeRevisionResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DeleteRoutineCodeRevisionResponse>(await this.doRPCRequest("DeleteRoutineCodeRevision", "2018-01-15", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteRoutineCodeRevisionResponse({}));
+  }
+
+  async deleteRoutineCodeRevision(request: DeleteRoutineCodeRevisionRequest): Promise<DeleteRoutineCodeRevisionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteRoutineCodeRevisionWithOptions(request, runtime);
+  }
+
+  async deleteRoutineConfEnvsWithOptions(tmpReq: DeleteRoutineConfEnvsRequest, runtime: $Util.RuntimeOptions): Promise<DeleteRoutineConfEnvsResponse> {
+    Util.validateModel(tmpReq);
+    let request = new DeleteRoutineConfEnvsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.envs)) {
+      request.envsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.envs, "Envs", "json");
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DeleteRoutineConfEnvsResponse>(await this.doRPCRequest("DeleteRoutineConfEnvs", "2018-01-15", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteRoutineConfEnvsResponse({}));
+  }
+
+  async deleteRoutineConfEnvs(request: DeleteRoutineConfEnvsRequest): Promise<DeleteRoutineConfEnvsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteRoutineConfEnvsWithOptions(request, runtime);
+  }
+
   async describeDcdnBgpBpsDataWithOptions(request: DescribeDcdnBgpBpsDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnBgpBpsDataResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -12608,6 +15288,20 @@ export default class Client extends OpenApi {
   async describeDcdnBgpTrafficData(request: DescribeDcdnBgpTrafficDataRequest): Promise<DescribeDcdnBgpTrafficDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnBgpTrafficDataWithOptions(request, runtime);
+  }
+
+  async describeDcdnBlockedRegionsWithOptions(request: DescribeDcdnBlockedRegionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnBlockedRegionsResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: query,
+    });
+    return $tea.cast<DescribeDcdnBlockedRegionsResponse>(await this.doRPCRequest("DescribeDcdnBlockedRegions", "2018-01-15", "HTTPS", "GET", "AK", "json", req, runtime), new DescribeDcdnBlockedRegionsResponse({}));
+  }
+
+  async describeDcdnBlockedRegions(request: DescribeDcdnBlockedRegionsRequest): Promise<DescribeDcdnBlockedRegionsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDcdnBlockedRegionsWithOptions(request, runtime);
   }
 
   async describeDcdnCertificateDetailWithOptions(request: DescribeDcdnCertificateDetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnCertificateDetailResponse> {
@@ -12647,6 +15341,19 @@ export default class Client extends OpenApi {
   async describeDcdnConfigOfVersion(request: DescribeDcdnConfigOfVersionRequest): Promise<DescribeDcdnConfigOfVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnConfigOfVersionWithOptions(request, runtime);
+  }
+
+  async describeDcdnDeliverListWithOptions(request: DescribeDcdnDeliverListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnDeliverListResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DescribeDcdnDeliverListResponse>(await this.doRPCRequest("DescribeDcdnDeliverList", "2018-01-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeDcdnDeliverListResponse({}));
+  }
+
+  async describeDcdnDeliverList(request: DescribeDcdnDeliverListRequest): Promise<DescribeDcdnDeliverListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDcdnDeliverListWithOptions(request, runtime);
   }
 
   async describeDcdnDomainBpsDataWithOptions(request: DescribeDcdnDomainBpsDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnDomainBpsDataResponse> {
@@ -13279,6 +15986,19 @@ export default class Client extends OpenApi {
     return await this.describeDcdnRefreshQuotaWithOptions(request, runtime);
   }
 
+  async describeDcdnRefreshTaskByIdWithOptions(request: DescribeDcdnRefreshTaskByIdRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnRefreshTaskByIdResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DescribeDcdnRefreshTaskByIdResponse>(await this.doRPCRequest("DescribeDcdnRefreshTaskById", "2018-01-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeDcdnRefreshTaskByIdResponse({}));
+  }
+
+  async describeDcdnRefreshTaskById(request: DescribeDcdnRefreshTaskByIdRequest): Promise<DescribeDcdnRefreshTaskByIdResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDcdnRefreshTaskByIdWithOptions(request, runtime);
+  }
+
   async describeDcdnRefreshTasksWithOptions(request: DescribeDcdnRefreshTasksRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnRefreshTasksResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -13305,6 +16025,45 @@ export default class Client extends OpenApi {
     return await this.describeDcdnRegionAndIspWithOptions(request, runtime);
   }
 
+  async describeDcdnReportWithOptions(request: DescribeDcdnReportRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnReportResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DescribeDcdnReportResponse>(await this.doRPCRequest("DescribeDcdnReport", "2018-01-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeDcdnReportResponse({}));
+  }
+
+  async describeDcdnReport(request: DescribeDcdnReportRequest): Promise<DescribeDcdnReportResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDcdnReportWithOptions(request, runtime);
+  }
+
+  async describeDcdnReportListWithOptions(request: DescribeDcdnReportListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnReportListResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DescribeDcdnReportListResponse>(await this.doRPCRequest("DescribeDcdnReportList", "2018-01-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeDcdnReportListResponse({}));
+  }
+
+  async describeDcdnReportList(request: DescribeDcdnReportListRequest): Promise<DescribeDcdnReportListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDcdnReportListWithOptions(request, runtime);
+  }
+
+  async describeDcdnSecFuncInfoWithOptions(request: DescribeDcdnSecFuncInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnSecFuncInfoResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DescribeDcdnSecFuncInfoResponse>(await this.doRPCRequest("DescribeDcdnSecFuncInfo", "2018-01-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeDcdnSecFuncInfoResponse({}));
+  }
+
+  async describeDcdnSecFuncInfo(request: DescribeDcdnSecFuncInfoRequest): Promise<DescribeDcdnSecFuncInfoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDcdnSecFuncInfoWithOptions(request, runtime);
+  }
+
   async describeDcdnServiceWithOptions(request: DescribeDcdnServiceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnServiceResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -13329,6 +16088,19 @@ export default class Client extends OpenApi {
   async describeDcdnStagingIp(request: DescribeDcdnStagingIpRequest): Promise<DescribeDcdnStagingIpResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnStagingIpWithOptions(request, runtime);
+  }
+
+  async describeDcdnSubListWithOptions(request: DescribeDcdnSubListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnSubListResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DescribeDcdnSubListResponse>(await this.doRPCRequest("DescribeDcdnSubList", "2018-01-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeDcdnSubListResponse({}));
+  }
+
+  async describeDcdnSubList(request: DescribeDcdnSubListRequest): Promise<DescribeDcdnSubListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDcdnSubListWithOptions(request, runtime);
   }
 
   async describeDcdnTagResourcesWithOptions(request: DescribeDcdnTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnTagResourcesResponse> {
@@ -13448,6 +16220,19 @@ export default class Client extends OpenApi {
     return await this.describeDcdnUserSecDropWithOptions(request, runtime);
   }
 
+  async describeDcdnUserSecDropByMinuteWithOptions(request: DescribeDcdnUserSecDropByMinuteRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnUserSecDropByMinuteResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DescribeDcdnUserSecDropByMinuteResponse>(await this.doRPCRequest("DescribeDcdnUserSecDropByMinute", "2018-01-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeDcdnUserSecDropByMinuteResponse({}));
+  }
+
+  async describeDcdnUserSecDropByMinute(request: DescribeDcdnUserSecDropByMinuteRequest): Promise<DescribeDcdnUserSecDropByMinuteResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDcdnUserSecDropByMinuteWithOptions(request, runtime);
+  }
+
   async describeDcdnUserTagsWithOptions(request: DescribeDcdnUserTagsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnUserTagsResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -13487,6 +16272,71 @@ export default class Client extends OpenApi {
     return await this.describeDcdnWafDomainWithOptions(request, runtime);
   }
 
+  async describeRoutineWithOptions(request: DescribeRoutineRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRoutineResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DescribeRoutineResponse>(await this.doRPCRequest("DescribeRoutine", "2018-01-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeRoutineResponse({}));
+  }
+
+  async describeRoutine(request: DescribeRoutineRequest): Promise<DescribeRoutineResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeRoutineWithOptions(request, runtime);
+  }
+
+  async describeRoutineCanaryEnvsWithOptions(request: DescribeRoutineCanaryEnvsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRoutineCanaryEnvsResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DescribeRoutineCanaryEnvsResponse>(await this.doRPCRequest("DescribeRoutineCanaryEnvs", "2018-01-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeRoutineCanaryEnvsResponse({}));
+  }
+
+  async describeRoutineCanaryEnvs(request: DescribeRoutineCanaryEnvsRequest): Promise<DescribeRoutineCanaryEnvsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeRoutineCanaryEnvsWithOptions(request, runtime);
+  }
+
+  async describeRoutineCodeRevisionWithOptions(request: DescribeRoutineCodeRevisionRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRoutineCodeRevisionResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DescribeRoutineCodeRevisionResponse>(await this.doRPCRequest("DescribeRoutineCodeRevision", "2018-01-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeRoutineCodeRevisionResponse({}));
+  }
+
+  async describeRoutineCodeRevision(request: DescribeRoutineCodeRevisionRequest): Promise<DescribeRoutineCodeRevisionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeRoutineCodeRevisionWithOptions(request, runtime);
+  }
+
+  async describeRoutineSpecWithOptions(request: DescribeRoutineSpecRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRoutineSpecResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DescribeRoutineSpecResponse>(await this.doRPCRequest("DescribeRoutineSpec", "2018-01-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeRoutineSpecResponse({}));
+  }
+
+  async describeRoutineSpec(request: DescribeRoutineSpecRequest): Promise<DescribeRoutineSpecResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeRoutineSpecWithOptions(request, runtime);
+  }
+
+  async describeRoutineUserInfoWithOptions(request: DescribeRoutineUserInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRoutineUserInfoResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DescribeRoutineUserInfoResponse>(await this.doRPCRequest("DescribeRoutineUserInfo", "2018-01-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeRoutineUserInfoResponse({}));
+  }
+
+  async describeRoutineUserInfo(request: DescribeRoutineUserInfoRequest): Promise<DescribeRoutineUserInfoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeRoutineUserInfoWithOptions(request, runtime);
+  }
+
   async describeUserDcdnIpaStatusWithOptions(request: DescribeUserDcdnIpaStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUserDcdnIpaStatusResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -13513,6 +16363,32 @@ export default class Client extends OpenApi {
     return await this.describeUserDcdnStatusWithOptions(request, runtime);
   }
 
+  async describeUserErStatusWithOptions(request: DescribeUserErStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUserErStatusResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DescribeUserErStatusResponse>(await this.doRPCRequest("DescribeUserErStatus", "2018-01-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeUserErStatusResponse({}));
+  }
+
+  async describeUserErStatus(request: DescribeUserErStatusRequest): Promise<DescribeUserErStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeUserErStatusWithOptions(request, runtime);
+  }
+
+  async describeUserLogserviceStatusWithOptions(request: DescribeUserLogserviceStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUserLogserviceStatusResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DescribeUserLogserviceStatusResponse>(await this.doRPCRequest("DescribeUserLogserviceStatus", "2018-01-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeUserLogserviceStatusResponse({}));
+  }
+
+  async describeUserLogserviceStatus(request: DescribeUserLogserviceStatusRequest): Promise<DescribeUserLogserviceStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeUserLogserviceStatusWithOptions(request, runtime);
+  }
+
   async disableDcdnDomainOfflineLogDeliveryWithOptions(request: DisableDcdnDomainOfflineLogDeliveryRequest, runtime: $Util.RuntimeOptions): Promise<DisableDcdnDomainOfflineLogDeliveryResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -13537,6 +16413,25 @@ export default class Client extends OpenApi {
   async disableDcdnOfflineLogDelivery(request: DisableDcdnOfflineLogDeliveryRequest): Promise<DisableDcdnOfflineLogDeliveryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.disableDcdnOfflineLogDeliveryWithOptions(request, runtime);
+  }
+
+  async editRoutineConfWithOptions(tmpReq: EditRoutineConfRequest, runtime: $Util.RuntimeOptions): Promise<EditRoutineConfResponse> {
+    Util.validateModel(tmpReq);
+    let request = new EditRoutineConfShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.envConf)) {
+      request.envConfShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.envConf, "EnvConf", "json");
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<EditRoutineConfResponse>(await this.doRPCRequest("EditRoutineConf", "2018-01-15", "HTTPS", "POST", "AK", "json", req, runtime), new EditRoutineConfResponse({}));
+  }
+
+  async editRoutineConf(request: EditRoutineConfRequest): Promise<EditRoutineConfResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.editRoutineConfWithOptions(request, runtime);
   }
 
   async enableDcdnDomainOfflineLogDeliveryWithOptions(request: EnableDcdnDomainOfflineLogDeliveryRequest, runtime: $Util.RuntimeOptions): Promise<EnableDcdnDomainOfflineLogDeliveryResponse> {
@@ -13602,6 +16497,25 @@ export default class Client extends OpenApi {
   async publishDcdnStagingConfigToProduction(request: PublishDcdnStagingConfigToProductionRequest): Promise<PublishDcdnStagingConfigToProductionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.publishDcdnStagingConfigToProductionWithOptions(request, runtime);
+  }
+
+  async publishRoutineCodeRevisionWithOptions(tmpReq: PublishRoutineCodeRevisionRequest, runtime: $Util.RuntimeOptions): Promise<PublishRoutineCodeRevisionResponse> {
+    Util.validateModel(tmpReq);
+    let request = new PublishRoutineCodeRevisionShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.envs)) {
+      request.envsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.envs, "Envs", "json");
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<PublishRoutineCodeRevisionResponse>(await this.doRPCRequest("PublishRoutineCodeRevision", "2018-01-15", "HTTPS", "POST", "AK", "json", req, runtime), new PublishRoutineCodeRevisionResponse({}));
+  }
+
+  async publishRoutineCodeRevision(request: PublishRoutineCodeRevisionRequest): Promise<PublishRoutineCodeRevisionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.publishRoutineCodeRevisionWithOptions(request, runtime);
   }
 
   async refreshDcdnObjectCachesWithOptions(request: RefreshDcdnObjectCachesRequest, runtime: $Util.RuntimeOptions): Promise<RefreshDcdnObjectCachesResponse> {
@@ -13682,6 +16596,25 @@ export default class Client extends OpenApi {
     return await this.setDcdnDomainStagingConfigWithOptions(request, runtime);
   }
 
+  async setRoutineSubdomainWithOptions(tmpReq: SetRoutineSubdomainRequest, runtime: $Util.RuntimeOptions): Promise<SetRoutineSubdomainResponse> {
+    Util.validateModel(tmpReq);
+    let request = new SetRoutineSubdomainShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.subdomains)) {
+      request.subdomainsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.subdomains, "Subdomains", "json");
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<SetRoutineSubdomainResponse>(await this.doRPCRequest("SetRoutineSubdomain", "2018-01-15", "HTTPS", "POST", "AK", "json", req, runtime), new SetRoutineSubdomainResponse({}));
+  }
+
+  async setRoutineSubdomain(request: SetRoutineSubdomainRequest): Promise<SetRoutineSubdomainResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.setRoutineSubdomainWithOptions(request, runtime);
+  }
+
   async startDcdnDomainWithOptions(request: StartDcdnDomainRequest, runtime: $Util.RuntimeOptions): Promise<StartDcdnDomainResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -13760,6 +16693,29 @@ export default class Client extends OpenApi {
     return await this.untagDcdnResourcesWithOptions(request, runtime);
   }
 
+  async updateDcdnDeliverTaskWithOptions(tmpReq: UpdateDcdnDeliverTaskRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDcdnDeliverTaskResponse> {
+    Util.validateModel(tmpReq);
+    let request = new UpdateDcdnDeliverTaskShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.deliver)) {
+      request.deliverShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.deliver, "Deliver", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.schedule)) {
+      request.scheduleShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.schedule, "Schedule", "json");
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<UpdateDcdnDeliverTaskResponse>(await this.doRPCRequest("UpdateDcdnDeliverTask", "2018-01-15", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateDcdnDeliverTaskResponse({}));
+  }
+
+  async updateDcdnDeliverTask(request: UpdateDcdnDeliverTaskRequest): Promise<UpdateDcdnDeliverTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateDcdnDeliverTaskWithOptions(request, runtime);
+  }
+
   async updateDcdnDomainWithOptions(request: UpdateDcdnDomainRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDcdnDomainResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -13784,6 +16740,45 @@ export default class Client extends OpenApi {
   async updateDcdnIpaDomain(request: UpdateDcdnIpaDomainRequest): Promise<UpdateDcdnIpaDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateDcdnIpaDomainWithOptions(request, runtime);
+  }
+
+  async updateDcdnSubTaskWithOptions(request: UpdateDcdnSubTaskRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDcdnSubTaskResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<UpdateDcdnSubTaskResponse>(await this.doRPCRequest("UpdateDcdnSubTask", "2018-01-15", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateDcdnSubTaskResponse({}));
+  }
+
+  async updateDcdnSubTask(request: UpdateDcdnSubTaskRequest): Promise<UpdateDcdnSubTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateDcdnSubTaskWithOptions(request, runtime);
+  }
+
+  async uploadRoutineCodeWithOptions(request: UploadRoutineCodeRequest, runtime: $Util.RuntimeOptions): Promise<UploadRoutineCodeResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<UploadRoutineCodeResponse>(await this.doRPCRequest("UploadRoutineCode", "2018-01-15", "HTTPS", "POST", "AK", "json", req, runtime), new UploadRoutineCodeResponse({}));
+  }
+
+  async uploadRoutineCode(request: UploadRoutineCodeRequest): Promise<UploadRoutineCodeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.uploadRoutineCodeWithOptions(request, runtime);
+  }
+
+  async uploadStagingRoutineCodeWithOptions(request: UploadStagingRoutineCodeRequest, runtime: $Util.RuntimeOptions): Promise<UploadStagingRoutineCodeResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<UploadStagingRoutineCodeResponse>(await this.doRPCRequest("UploadStagingRoutineCode", "2018-01-15", "HTTPS", "POST", "AK", "json", req, runtime), new UploadStagingRoutineCodeResponse({}));
+  }
+
+  async uploadStagingRoutineCode(request: UploadStagingRoutineCodeRequest): Promise<UploadStagingRoutineCodeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.uploadStagingRoutineCodeWithOptions(request, runtime);
   }
 
   async verifyDcdnDomainOwnerWithOptions(request: VerifyDcdnDomainOwnerRequest, runtime: $Util.RuntimeOptions): Promise<VerifyDcdnDomainOwnerResponse> {
