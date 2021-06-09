@@ -1264,15 +1264,18 @@ export class CreateClusterNodePoolResponse extends $tea.Model {
 
 export class DescribeClusterUserKubeconfigRequest extends $tea.Model {
   privateIpAddress?: boolean;
+  temporaryDurationMinutes?: number;
   static names(): { [key: string]: string } {
     return {
       privateIpAddress: 'PrivateIpAddress',
+      temporaryDurationMinutes: 'TemporaryDurationMinutes',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       privateIpAddress: 'boolean',
+      temporaryDurationMinutes: 'number',
     };
   }
 
@@ -1283,15 +1286,18 @@ export class DescribeClusterUserKubeconfigRequest extends $tea.Model {
 
 export class DescribeClusterUserKubeconfigResponseBody extends $tea.Model {
   config?: string;
+  expiration?: string;
   static names(): { [key: string]: string } {
     return {
       config: 'config',
+      expiration: 'expiration',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       config: 'string',
+      expiration: 'string',
     };
   }
 
@@ -6926,6 +6932,10 @@ export default class Client extends OpenApi {
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.privateIpAddress)) {
       query["PrivateIpAddress"] = request.privateIpAddress;
+    }
+
+    if (!Util.isUnset(request.temporaryDurationMinutes)) {
+      query["TemporaryDurationMinutes"] = request.temporaryDurationMinutes;
     }
 
     let req = new $OpenApi.OpenApiRequest({
