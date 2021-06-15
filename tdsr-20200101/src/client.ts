@@ -826,6 +826,78 @@ export class OptimizeRightAngleResponse extends $tea.Model {
   }
 }
 
+export class AddRelativePositionRequest extends $tea.Model {
+  sceneId?: string;
+  relativePosition?: string;
+  static names(): { [key: string]: string } {
+    return {
+      sceneId: 'SceneId',
+      relativePosition: 'RelativePosition',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sceneId: 'string',
+      relativePosition: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddRelativePositionResponseBody extends $tea.Model {
+  requestId?: string;
+  code?: number;
+  success?: boolean;
+  message?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      code: 'Code',
+      success: 'Success',
+      message: 'Message',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      code: 'number',
+      success: 'boolean',
+      message: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddRelativePositionResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: AddRelativePositionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: AddRelativePositionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DetailSceneRequest extends $tea.Model {
   id?: string;
   static names(): { [key: string]: string } {
@@ -5600,6 +5672,19 @@ export default class Client extends OpenApi {
   async optimizeRightAngle(request: OptimizeRightAngleRequest): Promise<OptimizeRightAngleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.optimizeRightAngleWithOptions(request, runtime);
+  }
+
+  async addRelativePositionWithOptions(request: AddRelativePositionRequest, runtime: $Util.RuntimeOptions): Promise<AddRelativePositionResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<AddRelativePositionResponse>(await this.doRPCRequest("AddRelativePosition", "2020-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new AddRelativePositionResponse({}));
+  }
+
+  async addRelativePosition(request: AddRelativePositionRequest): Promise<AddRelativePositionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.addRelativePositionWithOptions(request, runtime);
   }
 
   async detailSceneWithOptions(request: DetailSceneRequest, runtime: $Util.RuntimeOptions): Promise<DetailSceneResponse> {
