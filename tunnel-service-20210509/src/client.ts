@@ -8,9 +8,40 @@ import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class DeleteSessionResponseBody extends $tea.Model {
+  code?: string;
+  data?: DeleteSessionResponseBodyData;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      data: 'data',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: DeleteSessionResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteSessionResponse extends $tea.Model {
   headers: { [key: string]: string };
-  body: string;
+  body: DeleteSessionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -21,7 +52,38 @@ export class DeleteSessionResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: 'string',
+      body: DeleteSessionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstanceResponseBody extends $tea.Model {
+  code?: string;
+  data?: GetInstanceResponseBodyData;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      data: 'data',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GetInstanceResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
     };
   }
 
@@ -32,7 +94,7 @@ export class DeleteSessionResponse extends $tea.Model {
 
 export class GetInstanceResponse extends $tea.Model {
   headers: { [key: string]: string };
-  body: string;
+  body: GetInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -43,7 +105,7 @@ export class GetInstanceResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: 'string',
+      body: GetInstanceResponseBody,
     };
   }
 
@@ -77,9 +139,40 @@ export class HeartBeatRequest extends $tea.Model {
   }
 }
 
+export class HeartBeatResponseBody extends $tea.Model {
+  code?: string;
+  data?: HeartBeatResponseBodyData;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      data: 'data',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: HeartBeatResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class HeartBeatResponse extends $tea.Model {
   headers: { [key: string]: string };
-  body: string;
+  body: HeartBeatResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -90,7 +183,38 @@ export class HeartBeatResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: 'string',
+      body: HeartBeatResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnRegisterInstanceResponseBody extends $tea.Model {
+  code?: string;
+  data?: UnRegisterInstanceResponseBodyData;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      data: 'data',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: UnRegisterInstanceResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
     };
   }
 
@@ -101,7 +225,7 @@ export class HeartBeatResponse extends $tea.Model {
 
 export class UnRegisterInstanceResponse extends $tea.Model {
   headers: { [key: string]: string };
-  body: string;
+  body: UnRegisterInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -112,7 +236,7 @@ export class UnRegisterInstanceResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: 'string',
+      body: UnRegisterInstanceResponseBody,
     };
   }
 
@@ -140,9 +264,40 @@ export class CreateSessionRequest extends $tea.Model {
   }
 }
 
+export class CreateSessionResponseBody extends $tea.Model {
+  code?: string;
+  data?: CreateSessionResponseBodyData;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      data: 'data',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: CreateSessionResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateSessionResponse extends $tea.Model {
   headers: { [key: string]: string };
-  body: string;
+  body: CreateSessionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -153,7 +308,7 @@ export class CreateSessionResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: 'string',
+      body: CreateSessionResponseBody,
     };
   }
 
@@ -196,9 +351,40 @@ export class RegisterInstanceRequest extends $tea.Model {
   }
 }
 
+export class RegisterInstanceResponseBody extends $tea.Model {
+  code?: string;
+  data?: RegisterInstanceResponseBodyData;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      data: 'data',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: RegisterInstanceResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RegisterInstanceResponse extends $tea.Model {
   headers: { [key: string]: string };
-  body: string;
+  body: RegisterInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -209,7 +395,38 @@ export class RegisterInstanceResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: 'string',
+      body: RegisterInstanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSessionResponseBody extends $tea.Model {
+  code?: string;
+  data?: GetSessionResponseBodyData;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      data: 'data',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GetSessionResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
     };
   }
 
@@ -220,7 +437,7 @@ export class RegisterInstanceResponse extends $tea.Model {
 
 export class GetSessionResponse extends $tea.Model {
   headers: { [key: string]: string };
-  body: string;
+  body: GetSessionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -231,7 +448,7 @@ export class GetSessionResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: 'string',
+      body: GetSessionResponseBody,
     };
   }
 
@@ -262,9 +479,40 @@ export class ListSessionsRequest extends $tea.Model {
   }
 }
 
+export class ListSessionsResponseBody extends $tea.Model {
+  code?: string;
+  data?: ListSessionsResponseBodyData;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      data: 'data',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: ListSessionsResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListSessionsResponse extends $tea.Model {
   headers: { [key: string]: string };
-  body: string;
+  body: ListSessionsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -275,7 +523,271 @@ export class ListSessionsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: 'string',
+      body: ListSessionsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteSessionResponseBodyData extends $tea.Model {
+  sessionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      sessionId: 'sessionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sessionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstanceResponseBodyData extends $tea.Model {
+  desc?: string;
+  instanceId?: string;
+  params?: string;
+  proxyIp?: string;
+  proxyPrivateKey?: string;
+  proxyRemotePort?: string;
+  remotePrivateKey?: string;
+  remotePubKey?: string;
+  sessionId?: string;
+  source?: string;
+  status?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      desc: 'desc',
+      instanceId: 'instanceId',
+      params: 'params',
+      proxyIp: 'proxyIp',
+      proxyPrivateKey: 'proxyPrivateKey',
+      proxyRemotePort: 'proxyRemotePort',
+      remotePrivateKey: 'remotePrivateKey',
+      remotePubKey: 'remotePubKey',
+      sessionId: 'sessionId',
+      source: 'source',
+      status: 'status',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      desc: 'string',
+      instanceId: 'string',
+      params: 'string',
+      proxyIp: 'string',
+      proxyPrivateKey: 'string',
+      proxyRemotePort: 'string',
+      remotePrivateKey: 'string',
+      remotePubKey: 'string',
+      sessionId: 'string',
+      source: 'string',
+      status: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HeartBeatResponseBodyData extends $tea.Model {
+  sessionStatus?: string;
+  static names(): { [key: string]: string } {
+    return {
+      sessionStatus: 'sessionStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sessionStatus: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnRegisterInstanceResponseBodyData extends $tea.Model {
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'instanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSessionResponseBodyData extends $tea.Model {
+  localInstanceId?: string;
+  remoteInstanceId?: string;
+  sessionId?: string;
+  sessionName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      localInstanceId: 'localInstanceId',
+      remoteInstanceId: 'remoteInstanceId',
+      sessionId: 'sessionId',
+      sessionName: 'sessionName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      localInstanceId: 'string',
+      remoteInstanceId: 'string',
+      sessionId: 'string',
+      sessionName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RegisterInstanceResponseBodyData extends $tea.Model {
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'instanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSessionResponseBodyData extends $tea.Model {
+  localInstanceId?: string;
+  proxyId?: string;
+  proxyIp?: string;
+  proxyRemotePort?: string;
+  remoteInstanceId?: string;
+  sessionId?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      localInstanceId: 'localInstanceId',
+      proxyId: 'proxyId',
+      proxyIp: 'proxyIp',
+      proxyRemotePort: 'proxyRemotePort',
+      remoteInstanceId: 'remoteInstanceId',
+      sessionId: 'sessionId',
+      status: 'status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      localInstanceId: 'string',
+      proxyId: 'string',
+      proxyIp: 'string',
+      proxyRemotePort: 'string',
+      remoteInstanceId: 'string',
+      sessionId: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSessionsResponseBodyDataSessions extends $tea.Model {
+  localInstanceId?: string;
+  proxyId?: string;
+  proxyIp?: string;
+  proxyRemotePort?: string;
+  remoteInstanceId?: string;
+  sessionId?: string;
+  status?: string;
+  sessionName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      localInstanceId: 'localInstanceId',
+      proxyId: 'proxyId',
+      proxyIp: 'proxyIp',
+      proxyRemotePort: 'proxyRemotePort',
+      remoteInstanceId: 'remoteInstanceId',
+      sessionId: 'sessionId',
+      status: 'status',
+      sessionName: 'sessionName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      localInstanceId: 'string',
+      proxyId: 'string',
+      proxyIp: 'string',
+      proxyRemotePort: 'string',
+      remoteInstanceId: 'string',
+      sessionId: 'string',
+      status: 'string',
+      sessionName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSessionsResponseBodyData extends $tea.Model {
+  hasNextPage?: boolean;
+  nextPageNum?: number;
+  nextPageSize?: number;
+  sessions?: ListSessionsResponseBodyDataSessions[];
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      hasNextPage: 'hasNextPage',
+      nextPageNum: 'nextPageNum',
+      nextPageSize: 'nextPageSize',
+      sessions: 'sessions',
+      total: 'total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hasNextPage: 'boolean',
+      nextPageNum: 'number',
+      nextPageSize: 'number',
+      sessions: { 'type': 'array', 'itemType': ListSessionsResponseBodyDataSessions },
+      total: 'number',
     };
   }
 
@@ -317,7 +829,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    return $tea.cast<DeleteSessionResponse>(await this.doROARequest("DeleteSession", "2021-05-09", "HTTPS", "DELETE", "AK", `/v1/sessions/${sessionId}`, "string", req, runtime), new DeleteSessionResponse({}));
+    return $tea.cast<DeleteSessionResponse>(await this.doROARequest("DeleteSession", "2021-05-09", "HTTPS", "DELETE", "AK", `/v1/sessions/${sessionId}`, "json", req, runtime), new DeleteSessionResponse({}));
   }
 
   async getInstance(instanceId: string): Promise<GetInstanceResponse> {
@@ -330,7 +842,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    return $tea.cast<GetInstanceResponse>(await this.doROARequest("GetInstance", "2021-05-09", "HTTPS", "GET", "AK", `/v1/instances/${instanceId}`, "string", req, runtime), new GetInstanceResponse({}));
+    return $tea.cast<GetInstanceResponse>(await this.doROARequest("GetInstance", "2021-05-09", "HTTPS", "GET", "AK", `/v1/instances/${instanceId}`, "json", req, runtime), new GetInstanceResponse({}));
   }
 
   async heartBeat(request: HeartBeatRequest): Promise<HeartBeatResponse> {
@@ -358,7 +870,7 @@ export default class Client extends OpenApi {
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<HeartBeatResponse>(await this.doROARequest("HeartBeat", "2021-05-09", "HTTPS", "PUT", "AK", `/v1/sessions/`, "string", req, runtime), new HeartBeatResponse({}));
+    return $tea.cast<HeartBeatResponse>(await this.doROARequest("HeartBeat", "2021-05-09", "HTTPS", "PUT", "AK", `/v1/sessions/`, "json", req, runtime), new HeartBeatResponse({}));
   }
 
   async unRegisterInstance(instanceId: string): Promise<UnRegisterInstanceResponse> {
@@ -371,7 +883,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    return $tea.cast<UnRegisterInstanceResponse>(await this.doROARequest("UnRegisterInstance", "2021-05-09", "HTTPS", "PUT", "AK", `/v1/instances/${instanceId}`, "string", req, runtime), new UnRegisterInstanceResponse({}));
+    return $tea.cast<UnRegisterInstanceResponse>(await this.doROARequest("UnRegisterInstance", "2021-05-09", "HTTPS", "PUT", "AK", `/v1/instances/${instanceId}`, "json", req, runtime), new UnRegisterInstanceResponse({}));
   }
 
   async createSession(request: CreateSessionRequest): Promise<CreateSessionResponse> {
@@ -391,7 +903,7 @@ export default class Client extends OpenApi {
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<CreateSessionResponse>(await this.doROARequest("CreateSession", "2021-05-09", "HTTPS", "POST", "AK", `/v1/sessions/`, "string", req, runtime), new CreateSessionResponse({}));
+    return $tea.cast<CreateSessionResponse>(await this.doROARequest("CreateSession", "2021-05-09", "HTTPS", "POST", "AK", `/v1/sessions/`, "json", req, runtime), new CreateSessionResponse({}));
   }
 
   async registerInstance(request: RegisterInstanceRequest): Promise<RegisterInstanceResponse> {
@@ -431,7 +943,7 @@ export default class Client extends OpenApi {
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<RegisterInstanceResponse>(await this.doROARequest("RegisterInstance", "2021-05-09", "HTTPS", "POST", "AK", `/v1/instances/`, "string", req, runtime), new RegisterInstanceResponse({}));
+    return $tea.cast<RegisterInstanceResponse>(await this.doROARequest("RegisterInstance", "2021-05-09", "HTTPS", "POST", "AK", `/v1/instances/`, "json", req, runtime), new RegisterInstanceResponse({}));
   }
 
   async getSession(sessionId: string): Promise<GetSessionResponse> {
@@ -444,7 +956,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    return $tea.cast<GetSessionResponse>(await this.doROARequest("GetSession", "2021-05-09", "HTTPS", "GET", "AK", `/v1/sessions/${sessionId}`, "string", req, runtime), new GetSessionResponse({}));
+    return $tea.cast<GetSessionResponse>(await this.doROARequest("GetSession", "2021-05-09", "HTTPS", "GET", "AK", `/v1/sessions/${sessionId}`, "json", req, runtime), new GetSessionResponse({}));
   }
 
   async listSessions(request: ListSessionsRequest): Promise<ListSessionsResponse> {
@@ -468,7 +980,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListSessionsResponse>(await this.doROARequest("ListSessions", "2021-05-09", "HTTPS", "GET", "AK", `/v1/sessions/`, "string", req, runtime), new ListSessionsResponse({}));
+    return $tea.cast<ListSessionsResponse>(await this.doROARequest("ListSessions", "2021-05-09", "HTTPS", "GET", "AK", `/v1/sessions/`, "json", req, runtime), new ListSessionsResponse({}));
   }
 
 }
