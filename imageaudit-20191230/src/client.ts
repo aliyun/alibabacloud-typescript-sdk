@@ -7,6 +7,72 @@ import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class ScanTextRequest extends $tea.Model {
+  tasks?: ScanTextRequestTasks[];
+  labels?: ScanTextRequestLabels[];
+  static names(): { [key: string]: string } {
+    return {
+      tasks: 'Tasks',
+      labels: 'Labels',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tasks: { 'type': 'array', 'itemType': ScanTextRequestTasks },
+      labels: { 'type': 'array', 'itemType': ScanTextRequestLabels },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScanTextResponseBody extends $tea.Model {
+  requestId?: string;
+  data?: ScanTextResponseBodyData;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      data: ScanTextResponseBodyData,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScanTextResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ScanTextResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ScanTextResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ScanImageRequest extends $tea.Model {
   task?: ScanImageRequestTask[];
   scene?: string[];
@@ -73,20 +139,17 @@ export class ScanImageResponse extends $tea.Model {
   }
 }
 
-export class ScanTextRequest extends $tea.Model {
-  tasks?: ScanTextRequestTasks[];
-  labels?: ScanTextRequestLabels[];
+export class ScanTextRequestTasks extends $tea.Model {
+  content?: string;
   static names(): { [key: string]: string } {
     return {
-      tasks: 'Tasks',
-      labels: 'Labels',
+      content: 'Content',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      tasks: { 'type': 'array', 'itemType': ScanTextRequestTasks },
-      labels: { 'type': 'array', 'itemType': ScanTextRequestLabels },
+      content: 'string',
     };
   }
 
@@ -95,20 +158,17 @@ export class ScanTextRequest extends $tea.Model {
   }
 }
 
-export class ScanTextResponseBody extends $tea.Model {
-  requestId?: string;
-  data?: ScanTextResponseBodyData;
+export class ScanTextRequestLabels extends $tea.Model {
+  label?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
-      data: 'Data',
+      label: 'Label',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
-      data: ScanTextResponseBodyData,
+      label: 'string',
     };
   }
 
@@ -117,20 +177,108 @@ export class ScanTextResponseBody extends $tea.Model {
   }
 }
 
-export class ScanTextResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ScanTextResponseBody;
+export class ScanTextResponseBodyDataElementsResultsDetailsContexts extends $tea.Model {
+  context?: string;
   static names(): { [key: string]: string } {
     return {
-      headers: 'headers',
-      body: 'body',
+      context: 'Context',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ScanTextResponseBody,
+      context: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScanTextResponseBodyDataElementsResultsDetails extends $tea.Model {
+  label?: string;
+  contexts?: ScanTextResponseBodyDataElementsResultsDetailsContexts[];
+  static names(): { [key: string]: string } {
+    return {
+      label: 'Label',
+      contexts: 'Contexts',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      label: 'string',
+      contexts: { 'type': 'array', 'itemType': ScanTextResponseBodyDataElementsResultsDetailsContexts },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScanTextResponseBodyDataElementsResults extends $tea.Model {
+  suggestion?: string;
+  label?: string;
+  rate?: number;
+  details?: ScanTextResponseBodyDataElementsResultsDetails[];
+  static names(): { [key: string]: string } {
+    return {
+      suggestion: 'Suggestion',
+      label: 'Label',
+      rate: 'Rate',
+      details: 'Details',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      suggestion: 'string',
+      label: 'string',
+      rate: 'number',
+      details: { 'type': 'array', 'itemType': ScanTextResponseBodyDataElementsResultsDetails },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScanTextResponseBodyDataElements extends $tea.Model {
+  taskId?: string;
+  results?: ScanTextResponseBodyDataElementsResults[];
+  static names(): { [key: string]: string } {
+    return {
+      taskId: 'TaskId',
+      results: 'Results',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskId: 'string',
+      results: { 'type': 'array', 'itemType': ScanTextResponseBodyDataElementsResults },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScanTextResponseBodyData extends $tea.Model {
+  elements?: ScanTextResponseBodyDataElements[];
+  static names(): { [key: string]: string } {
+    return {
+      elements: 'Elements',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      elements: { 'type': 'array', 'itemType': ScanTextResponseBodyDataElements },
     };
   }
 
@@ -422,154 +570,6 @@ export class ScanImageResponseBodyData extends $tea.Model {
   }
 }
 
-export class ScanTextRequestTasks extends $tea.Model {
-  content?: string;
-  static names(): { [key: string]: string } {
-    return {
-      content: 'Content',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      content: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ScanTextRequestLabels extends $tea.Model {
-  label?: string;
-  static names(): { [key: string]: string } {
-    return {
-      label: 'Label',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      label: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ScanTextResponseBodyDataElementsResultsDetailsContexts extends $tea.Model {
-  context?: string;
-  static names(): { [key: string]: string } {
-    return {
-      context: 'Context',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      context: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ScanTextResponseBodyDataElementsResultsDetails extends $tea.Model {
-  label?: string;
-  contexts?: ScanTextResponseBodyDataElementsResultsDetailsContexts[];
-  static names(): { [key: string]: string } {
-    return {
-      label: 'Label',
-      contexts: 'Contexts',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      label: 'string',
-      contexts: { 'type': 'array', 'itemType': ScanTextResponseBodyDataElementsResultsDetailsContexts },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ScanTextResponseBodyDataElementsResults extends $tea.Model {
-  suggestion?: string;
-  label?: string;
-  rate?: number;
-  details?: ScanTextResponseBodyDataElementsResultsDetails[];
-  static names(): { [key: string]: string } {
-    return {
-      suggestion: 'Suggestion',
-      label: 'Label',
-      rate: 'Rate',
-      details: 'Details',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      suggestion: 'string',
-      label: 'string',
-      rate: 'number',
-      details: { 'type': 'array', 'itemType': ScanTextResponseBodyDataElementsResultsDetails },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ScanTextResponseBodyDataElements extends $tea.Model {
-  taskId?: string;
-  results?: ScanTextResponseBodyDataElementsResults[];
-  static names(): { [key: string]: string } {
-    return {
-      taskId: 'TaskId',
-      results: 'Results',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      taskId: 'string',
-      results: { 'type': 'array', 'itemType': ScanTextResponseBodyDataElementsResults },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ScanTextResponseBodyData extends $tea.Model {
-  elements?: ScanTextResponseBodyDataElements[];
-  static names(): { [key: string]: string } {
-    return {
-      elements: 'Elements',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      elements: { 'type': 'array', 'itemType': ScanTextResponseBodyDataElements },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 
 export default class Client extends OpenApi {
 
@@ -593,19 +593,6 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
-  async scanImageWithOptions(request: ScanImageRequest, runtime: $Util.RuntimeOptions): Promise<ScanImageResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<ScanImageResponse>(await this.doRPCRequest("ScanImage", "2019-12-30", "HTTPS", "POST", "AK", "json", req, runtime), new ScanImageResponse({}));
-  }
-
-  async scanImage(request: ScanImageRequest): Promise<ScanImageResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.scanImageWithOptions(request, runtime);
-  }
-
   async scanTextWithOptions(request: ScanTextRequest, runtime: $Util.RuntimeOptions): Promise<ScanTextResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -617,6 +604,19 @@ export default class Client extends OpenApi {
   async scanText(request: ScanTextRequest): Promise<ScanTextResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.scanTextWithOptions(request, runtime);
+  }
+
+  async scanImageWithOptions(request: ScanImageRequest, runtime: $Util.RuntimeOptions): Promise<ScanImageResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<ScanImageResponse>(await this.doRPCRequest("ScanImage", "2019-12-30", "HTTPS", "POST", "AK", "json", req, runtime), new ScanImageResponse({}));
+  }
+
+  async scanImage(request: ScanImageRequest): Promise<ScanImageResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.scanImageWithOptions(request, runtime);
   }
 
 }
