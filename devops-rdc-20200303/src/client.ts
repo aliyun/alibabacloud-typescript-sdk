@@ -33,28 +33,28 @@ export class BatchInsertMembersRequest extends $tea.Model {
 }
 
 export class BatchInsertMembersResponseBody extends $tea.Model {
+  errorMessage?: string;
   requestId?: string;
   object?: boolean;
-  errorCode?: string;
-  errorMessage?: string;
   success?: boolean;
+  errorCode?: string;
   static names(): { [key: string]: string } {
     return {
+      errorMessage: 'ErrorMessage',
       requestId: 'RequestId',
       object: 'Object',
-      errorCode: 'ErrorCode',
-      errorMessage: 'ErrorMessage',
       success: 'Success',
+      errorCode: 'ErrorCode',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      errorMessage: 'string',
       requestId: 'string',
       object: 'boolean',
-      errorCode: 'string',
-      errorMessage: 'string',
       success: 'boolean',
+      errorCode: 'string',
     };
   }
 
@@ -115,16 +115,16 @@ export class CancelPipelineRequest extends $tea.Model {
 
 export class CancelPipelineResponseBody extends $tea.Model {
   requestId?: string;
+  errorMessage?: string;
   object?: boolean;
   errorCode?: string;
-  errorMessage?: string;
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
+      errorMessage: 'ErrorMessage',
       object: 'Object',
       errorCode: 'ErrorCode',
-      errorMessage: 'ErrorMessage',
       success: 'Success',
     };
   }
@@ -132,9 +132,9 @@ export class CancelPipelineResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
+      errorMessage: 'string',
       object: 'boolean',
       errorCode: 'string',
-      errorMessage: 'string',
       success: 'boolean',
     };
   }
@@ -186,28 +186,28 @@ export class CheckAliyunAccountExistsRequest extends $tea.Model {
 }
 
 export class CheckAliyunAccountExistsResponseBody extends $tea.Model {
-  requestId?: string;
   errorMsg?: string;
+  requestId?: string;
   object?: boolean;
-  errorCode?: string;
   successful?: boolean;
+  errorCode?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       errorMsg: 'ErrorMsg',
+      requestId: 'RequestId',
       object: 'Object',
-      errorCode: 'ErrorCode',
       successful: 'Successful',
+      errorCode: 'ErrorCode',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       errorMsg: 'string',
+      requestId: 'string',
       object: 'boolean',
-      errorCode: 'string',
       successful: 'boolean',
+      errorCode: 'string',
     };
   }
 
@@ -270,28 +270,28 @@ export class CreateCommonGroupRequest extends $tea.Model {
 }
 
 export class CreateCommonGroupResponseBody extends $tea.Model {
-  requestId?: string;
   errorMsg?: string;
-  object?: CreateCommonGroupResponseBodyObject;
-  errorCode?: string;
+  requestId?: string;
   successful?: boolean;
+  errorCode?: string;
+  object?: CreateCommonGroupResponseBodyObject;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       errorMsg: 'ErrorMsg',
-      object: 'Object',
-      errorCode: 'ErrorCode',
+      requestId: 'RequestId',
       successful: 'Successful',
+      errorCode: 'ErrorCode',
+      object: 'Object',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       errorMsg: 'string',
-      object: CreateCommonGroupResponseBodyObject,
-      errorCode: 'string',
+      requestId: 'string',
       successful: 'boolean',
+      errorCode: 'string',
+      object: CreateCommonGroupResponseBodyObject,
     };
   }
 
@@ -357,28 +357,28 @@ export class CreateCredentialRequest extends $tea.Model {
 }
 
 export class CreateCredentialResponseBody extends $tea.Model {
+  errorMessage?: string;
   requestId?: string;
   object?: number;
-  errorCode?: string;
-  errorMessage?: string;
   success?: boolean;
+  errorCode?: string;
   static names(): { [key: string]: string } {
     return {
+      errorMessage: 'ErrorMessage',
       requestId: 'RequestId',
       object: 'Object',
-      errorCode: 'ErrorCode',
-      errorMessage: 'ErrorMessage',
       success: 'Success',
+      errorCode: 'ErrorCode',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      errorMessage: 'string',
       requestId: 'string',
       object: 'number',
-      errorCode: 'string',
-      errorMessage: 'string',
       success: 'boolean',
+      errorCode: 'string',
     };
   }
 
@@ -438,28 +438,28 @@ export class CreateDevopsOrganizationRequest extends $tea.Model {
 }
 
 export class CreateDevopsOrganizationResponseBody extends $tea.Model {
+  errorMessage?: string;
   requestId?: string;
   object?: string;
-  errorCode?: string;
-  errorMessage?: string;
   success?: boolean;
+  errorCode?: string;
   static names(): { [key: string]: string } {
     return {
+      errorMessage: 'ErrorMessage',
       requestId: 'RequestId',
       object: 'Object',
-      errorCode: 'ErrorCode',
-      errorMessage: 'ErrorMessage',
       success: 'Success',
+      errorCode: 'ErrorCode',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      errorMessage: 'string',
       requestId: 'string',
       object: 'string',
-      errorCode: 'string',
-      errorMessage: 'string',
       success: 'boolean',
+      errorCode: 'string',
     };
   }
 
@@ -516,28 +516,28 @@ export class CreateDevopsProjectRequest extends $tea.Model {
 }
 
 export class CreateDevopsProjectResponseBody extends $tea.Model {
+  errorMessage?: string;
   requestId?: string;
   object?: string;
-  errorCode?: string;
-  errorMessage?: string;
   success?: boolean;
+  errorCode?: string;
   static names(): { [key: string]: string } {
     return {
+      errorMessage: 'ErrorMessage',
       requestId: 'RequestId',
       object: 'Object',
-      errorCode: 'ErrorCode',
-      errorMessage: 'ErrorMessage',
       success: 'Success',
+      errorCode: 'ErrorCode',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      errorMessage: 'string',
       requestId: 'string',
       object: 'string',
-      errorCode: 'string',
-      errorMessage: 'string',
       success: 'boolean',
+      errorCode: 'string',
     };
   }
 
@@ -606,28 +606,28 @@ export class CreateDevopsProjectSprintRequest extends $tea.Model {
 }
 
 export class CreateDevopsProjectSprintResponseBody extends $tea.Model {
-  requestId?: string;
   errorMsg?: string;
-  object?: CreateDevopsProjectSprintResponseBodyObject;
-  errorCode?: string;
+  requestId?: string;
   successful?: boolean;
+  errorCode?: string;
+  object?: CreateDevopsProjectSprintResponseBodyObject;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       errorMsg: 'ErrorMsg',
-      object: 'Object',
-      errorCode: 'ErrorCode',
+      requestId: 'RequestId',
       successful: 'Successful',
+      errorCode: 'ErrorCode',
+      object: 'Object',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       errorMsg: 'string',
-      object: CreateDevopsProjectSprintResponseBodyObject,
-      errorCode: 'string',
+      requestId: 'string',
       successful: 'boolean',
+      errorCode: 'string',
+      object: CreateDevopsProjectSprintResponseBodyObject,
     };
   }
 
@@ -717,28 +717,28 @@ export class CreateDevopsProjectTaskRequest extends $tea.Model {
 }
 
 export class CreateDevopsProjectTaskResponseBody extends $tea.Model {
-  requestId?: string;
   errorMsg?: string;
-  object?: CreateDevopsProjectTaskResponseBodyObject;
-  errorCode?: string;
+  requestId?: string;
   successful?: boolean;
+  errorCode?: string;
+  object?: CreateDevopsProjectTaskResponseBodyObject;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       errorMsg: 'ErrorMsg',
-      object: 'Object',
-      errorCode: 'ErrorCode',
+      requestId: 'RequestId',
       successful: 'Successful',
+      errorCode: 'ErrorCode',
+      object: 'Object',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       errorMsg: 'string',
-      object: CreateDevopsProjectTaskResponseBodyObject,
-      errorCode: 'string',
+      requestId: 'string',
       successful: 'boolean',
+      errorCode: 'string',
+      object: CreateDevopsProjectTaskResponseBodyObject,
     };
   }
 
@@ -795,28 +795,28 @@ export class CreatePipelineRequest extends $tea.Model {
 }
 
 export class CreatePipelineResponseBody extends $tea.Model {
+  errorMessage?: string;
   requestId?: string;
   object?: number;
-  errorCode?: string;
-  errorMessage?: string;
   success?: boolean;
+  errorCode?: string;
   static names(): { [key: string]: string } {
     return {
+      errorMessage: 'ErrorMessage',
       requestId: 'RequestId',
       object: 'Object',
-      errorCode: 'ErrorCode',
-      errorMessage: 'ErrorMessage',
       success: 'Success',
+      errorCode: 'ErrorCode',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      errorMessage: 'string',
       requestId: 'string',
       object: 'number',
-      errorCode: 'string',
-      errorMessage: 'string',
       success: 'boolean',
+      errorCode: 'string',
     };
   }
 
@@ -873,28 +873,28 @@ export class CreateServiceConnectionRequest extends $tea.Model {
 }
 
 export class CreateServiceConnectionResponseBody extends $tea.Model {
+  errorMessage?: string;
   requestId?: string;
   object?: number;
-  errorCode?: string;
-  errorMessage?: string;
   success?: boolean;
+  errorCode?: string;
   static names(): { [key: string]: string } {
     return {
+      errorMessage: 'ErrorMessage',
       requestId: 'RequestId',
       object: 'Object',
-      errorCode: 'ErrorCode',
-      errorMessage: 'ErrorMessage',
       success: 'Success',
+      errorCode: 'ErrorCode',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      errorMessage: 'string',
       requestId: 'string',
       object: 'number',
-      errorCode: 'string',
-      errorMessage: 'string',
       success: 'boolean',
+      errorCode: 'string',
     };
   }
 
@@ -951,28 +951,28 @@ export class DeleteCommonGroupRequest extends $tea.Model {
 }
 
 export class DeleteCommonGroupResponseBody extends $tea.Model {
-  requestId?: string;
   errorMsg?: string;
-  object?: DeleteCommonGroupResponseBodyObject;
-  errorCode?: string;
+  requestId?: string;
   successful?: boolean;
+  errorCode?: string;
+  object?: DeleteCommonGroupResponseBodyObject;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       errorMsg: 'ErrorMsg',
-      object: 'Object',
-      errorCode: 'ErrorCode',
+      requestId: 'RequestId',
       successful: 'Successful',
+      errorCode: 'ErrorCode',
+      object: 'Object',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       errorMsg: 'string',
-      object: DeleteCommonGroupResponseBodyObject,
-      errorCode: 'string',
+      requestId: 'string',
       successful: 'boolean',
+      errorCode: 'string',
+      object: DeleteCommonGroupResponseBodyObject,
     };
   }
 
@@ -995,6 +995,78 @@ export class DeleteCommonGroupResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: DeleteCommonGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDevopsOrganizationRequest extends $tea.Model {
+  orgId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      orgId: 'OrgId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      orgId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDevopsOrganizationResponseBody extends $tea.Model {
+  errorMessage?: string;
+  requestId?: string;
+  object?: string;
+  success?: boolean;
+  errorCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      object: 'Object',
+      success: 'Success',
+      errorCode: 'ErrorCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorMessage: 'string',
+      requestId: 'string',
+      object: 'string',
+      success: 'boolean',
+      errorCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDevopsOrganizationResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DeleteDevopsOrganizationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DeleteDevopsOrganizationResponseBody,
     };
   }
 
@@ -1029,28 +1101,28 @@ export class DeleteDevopsOrganizationMembersRequest extends $tea.Model {
 }
 
 export class DeleteDevopsOrganizationMembersResponseBody extends $tea.Model {
+  errorMessage?: string;
   requestId?: string;
   object?: boolean;
-  errorCode?: string;
-  errorMessage?: string;
   success?: boolean;
+  errorCode?: string;
   static names(): { [key: string]: string } {
     return {
+      errorMessage: 'ErrorMessage',
       requestId: 'RequestId',
       object: 'Object',
-      errorCode: 'ErrorCode',
-      errorMessage: 'ErrorMessage',
       success: 'Success',
+      errorCode: 'ErrorCode',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      errorMessage: 'string',
       requestId: 'string',
       object: 'boolean',
-      errorCode: 'string',
-      errorMessage: 'string',
       success: 'boolean',
+      errorCode: 'string',
     };
   }
 
@@ -1105,27 +1177,27 @@ export class DeleteDevopsProjectRequest extends $tea.Model {
 
 export class DeleteDevopsProjectResponseBody extends $tea.Model {
   requestId?: string;
-  object?: string;
-  errorCode?: string;
   errorMessage?: string;
+  object?: string;
   success?: boolean;
+  errorCode?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      object: 'Object',
-      errorCode: 'ErrorCode',
       errorMessage: 'ErrorMessage',
+      object: 'Object',
       success: 'Success',
+      errorCode: 'ErrorCode',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      object: 'string',
-      errorCode: 'string',
       errorMessage: 'string',
+      object: 'string',
       success: 'boolean',
+      errorCode: 'string',
     };
   }
 
@@ -1182,28 +1254,28 @@ export class DeleteDevopsProjectMembersRequest extends $tea.Model {
 }
 
 export class DeleteDevopsProjectMembersResponseBody extends $tea.Model {
-  requestId?: string;
   errorMsg?: string;
+  requestId?: string;
   object?: boolean;
-  errorCode?: string;
   successful?: boolean;
+  errorCode?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       errorMsg: 'ErrorMsg',
+      requestId: 'RequestId',
       object: 'Object',
-      errorCode: 'ErrorCode',
       successful: 'Successful',
+      errorCode: 'ErrorCode',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       errorMsg: 'string',
+      requestId: 'string',
       object: 'boolean',
-      errorCode: 'string',
       successful: 'boolean',
+      errorCode: 'string',
     };
   }
 
@@ -1257,28 +1329,28 @@ export class DeleteDevopsProjectSprintRequest extends $tea.Model {
 }
 
 export class DeleteDevopsProjectSprintResponseBody extends $tea.Model {
-  requestId?: string;
   errorMsg?: string;
+  requestId?: string;
   object?: boolean;
-  errorCode?: string;
   successful?: boolean;
+  errorCode?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       errorMsg: 'ErrorMsg',
+      requestId: 'RequestId',
       object: 'Object',
-      errorCode: 'ErrorCode',
       successful: 'Successful',
+      errorCode: 'ErrorCode',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       errorMsg: 'string',
+      requestId: 'string',
       object: 'boolean',
-      errorCode: 'string',
       successful: 'boolean',
+      errorCode: 'string',
     };
   }
 
@@ -1332,28 +1404,28 @@ export class DeleteDevopsProjectTaskRequest extends $tea.Model {
 }
 
 export class DeleteDevopsProjectTaskResponseBody extends $tea.Model {
-  requestId?: string;
   errorMsg?: string;
+  requestId?: string;
   object?: boolean;
-  errorCode?: string;
   successful?: boolean;
+  errorCode?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       errorMsg: 'ErrorMsg',
+      requestId: 'RequestId',
       object: 'Object',
-      errorCode: 'ErrorCode',
       successful: 'Successful',
+      errorCode: 'ErrorCode',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       errorMsg: 'string',
+      requestId: 'string',
       object: 'boolean',
-      errorCode: 'string',
       successful: 'boolean',
+      errorCode: 'string',
     };
   }
 
@@ -1414,16 +1486,16 @@ export class DeletePipelineMemberRequest extends $tea.Model {
 
 export class DeletePipelineMemberResponseBody extends $tea.Model {
   requestId?: string;
+  errorMessage?: string;
   object?: boolean;
   errorCode?: string;
-  errorMessage?: string;
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
+      errorMessage: 'ErrorMessage',
       object: 'Object',
       errorCode: 'ErrorCode',
-      errorMessage: 'ErrorMessage',
       success: 'Success',
     };
   }
@@ -1431,9 +1503,9 @@ export class DeletePipelineMemberResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
+      errorMessage: 'string',
       object: 'boolean',
       errorCode: 'string',
-      errorMessage: 'string',
       success: 'boolean',
     };
   }
@@ -1495,27 +1567,27 @@ export class ExecutePipelineRequest extends $tea.Model {
 
 export class ExecutePipelineResponseBody extends $tea.Model {
   requestId?: string;
-  object?: number;
-  errorCode?: string;
   errorMessage?: string;
+  object?: number;
   success?: boolean;
+  errorCode?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      object: 'Object',
-      errorCode: 'ErrorCode',
       errorMessage: 'ErrorMessage',
+      object: 'Object',
       success: 'Success',
+      errorCode: 'ErrorCode',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      object: 'number',
-      errorCode: 'string',
       errorMessage: 'string',
+      object: 'number',
       success: 'boolean',
+      errorCode: 'string',
     };
   }
 
@@ -1566,28 +1638,28 @@ export class GetDevopsOrganizationMembersRequest extends $tea.Model {
 }
 
 export class GetDevopsOrganizationMembersResponseBody extends $tea.Model {
-  requestId?: string;
   errorMsg?: string;
-  object?: GetDevopsOrganizationMembersResponseBodyObject[];
-  errorCode?: string;
+  requestId?: string;
   successful?: boolean;
+  errorCode?: string;
+  object?: GetDevopsOrganizationMembersResponseBodyObject[];
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       errorMsg: 'ErrorMsg',
-      object: 'Object',
-      errorCode: 'ErrorCode',
+      requestId: 'RequestId',
       successful: 'Successful',
+      errorCode: 'ErrorCode',
+      object: 'Object',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       errorMsg: 'string',
-      object: { 'type': 'array', 'itemType': GetDevopsOrganizationMembersResponseBodyObject },
-      errorCode: 'string',
+      requestId: 'string',
       successful: 'boolean',
+      errorCode: 'string',
+      object: { 'type': 'array', 'itemType': GetDevopsOrganizationMembersResponseBodyObject },
     };
   }
 
@@ -1641,28 +1713,28 @@ export class GetDevopsProjectInfoRequest extends $tea.Model {
 }
 
 export class GetDevopsProjectInfoResponseBody extends $tea.Model {
-  requestId?: string;
   errorMsg?: string;
-  object?: GetDevopsProjectInfoResponseBodyObject;
-  errorCode?: string;
+  requestId?: string;
   successful?: boolean;
+  errorCode?: string;
+  object?: GetDevopsProjectInfoResponseBodyObject;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       errorMsg: 'ErrorMsg',
-      object: 'Object',
-      errorCode: 'ErrorCode',
+      requestId: 'RequestId',
       successful: 'Successful',
+      errorCode: 'ErrorCode',
+      object: 'Object',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       errorMsg: 'string',
-      object: GetDevopsProjectInfoResponseBodyObject,
-      errorCode: 'string',
+      requestId: 'string',
       successful: 'boolean',
+      errorCode: 'string',
+      object: GetDevopsProjectInfoResponseBodyObject,
     };
   }
 
@@ -1696,10 +1768,14 @@ export class GetDevopsProjectInfoResponse extends $tea.Model {
 export class GetDevopsProjectMembersRequest extends $tea.Model {
   orgId?: string;
   projectId?: string;
+  pageSize?: number;
+  pageToken?: string;
   static names(): { [key: string]: string } {
     return {
       orgId: 'OrgId',
       projectId: 'ProjectId',
+      pageSize: 'PageSize',
+      pageToken: 'PageToken',
     };
   }
 
@@ -1707,6 +1783,8 @@ export class GetDevopsProjectMembersRequest extends $tea.Model {
     return {
       orgId: 'string',
       projectId: 'string',
+      pageSize: 'number',
+      pageToken: 'string',
     };
   }
 
@@ -1717,27 +1795,33 @@ export class GetDevopsProjectMembersRequest extends $tea.Model {
 
 export class GetDevopsProjectMembersResponseBody extends $tea.Model {
   requestId?: string;
-  errorMsg?: string;
-  object?: GetDevopsProjectMembersResponseBodyObject[];
+  nextPageToken?: string;
   errorCode?: string;
+  errorMsg?: string;
   successful?: boolean;
+  total?: number;
+  object?: GetDevopsProjectMembersResponseBodyObject[];
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      errorMsg: 'ErrorMsg',
-      object: 'Object',
+      nextPageToken: 'NextPageToken',
       errorCode: 'ErrorCode',
+      errorMsg: 'ErrorMsg',
       successful: 'Successful',
+      total: 'Total',
+      object: 'Object',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      errorMsg: 'string',
-      object: { 'type': 'array', 'itemType': GetDevopsProjectMembersResponseBodyObject },
+      nextPageToken: 'string',
       errorCode: 'string',
+      errorMsg: 'string',
       successful: 'boolean',
+      total: 'number',
+      object: { 'type': 'array', 'itemType': GetDevopsProjectMembersResponseBodyObject },
     };
   }
 
@@ -1791,28 +1875,28 @@ export class GetDevopsProjectSprintInfoRequest extends $tea.Model {
 }
 
 export class GetDevopsProjectSprintInfoResponseBody extends $tea.Model {
-  requestId?: string;
   errorMsg?: string;
-  object?: GetDevopsProjectSprintInfoResponseBodyObject;
-  errorCode?: string;
+  requestId?: string;
   successful?: boolean;
+  errorCode?: string;
+  object?: GetDevopsProjectSprintInfoResponseBodyObject;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       errorMsg: 'ErrorMsg',
-      object: 'Object',
-      errorCode: 'ErrorCode',
+      requestId: 'RequestId',
       successful: 'Successful',
+      errorCode: 'ErrorCode',
+      object: 'Object',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       errorMsg: 'string',
-      object: GetDevopsProjectSprintInfoResponseBodyObject,
-      errorCode: 'string',
+      requestId: 'string',
       successful: 'boolean',
+      errorCode: 'string',
+      object: GetDevopsProjectSprintInfoResponseBodyObject,
     };
   }
 
@@ -1866,28 +1950,28 @@ export class GetDevopsProjectTaskInfoRequest extends $tea.Model {
 }
 
 export class GetDevopsProjectTaskInfoResponseBody extends $tea.Model {
-  requestId?: string;
   errorMsg?: string;
-  object?: GetDevopsProjectTaskInfoResponseBodyObject;
-  errorCode?: string;
+  requestId?: string;
   successful?: boolean;
+  errorCode?: string;
+  object?: GetDevopsProjectTaskInfoResponseBodyObject;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       errorMsg: 'ErrorMsg',
-      object: 'Object',
-      errorCode: 'ErrorCode',
+      requestId: 'RequestId',
       successful: 'Successful',
+      errorCode: 'ErrorCode',
+      object: 'Object',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       errorMsg: 'string',
-      object: GetDevopsProjectTaskInfoResponseBodyObject,
-      errorCode: 'string',
+      requestId: 'string',
       successful: 'boolean',
+      errorCode: 'string',
+      object: GetDevopsProjectTaskInfoResponseBodyObject,
     };
   }
 
@@ -1941,28 +2025,28 @@ export class GetLastWorkspaceRequest extends $tea.Model {
 }
 
 export class GetLastWorkspaceResponseBody extends $tea.Model {
+  errorMessage?: string;
   requestId?: string;
   object?: string;
-  errorCode?: string;
-  errorMessage?: string;
   success?: boolean;
+  errorCode?: string;
   static names(): { [key: string]: string } {
     return {
+      errorMessage: 'ErrorMessage',
       requestId: 'RequestId',
       object: 'Object',
-      errorCode: 'ErrorCode',
-      errorMessage: 'ErrorMessage',
       success: 'Success',
+      errorCode: 'ErrorCode',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      errorMessage: 'string',
       requestId: 'string',
       object: 'string',
-      errorCode: 'string',
-      errorMessage: 'string',
       success: 'boolean',
+      errorCode: 'string',
     };
   }
 
@@ -2023,27 +2107,27 @@ export class GetPipelineInstanceBuildNumberStatusRequest extends $tea.Model {
 
 export class GetPipelineInstanceBuildNumberStatusResponseBody extends $tea.Model {
   requestId?: string;
-  object?: GetPipelineInstanceBuildNumberStatusResponseBodyObject;
-  errorCode?: string;
   errorMessage?: string;
   success?: boolean;
+  errorCode?: string;
+  object?: GetPipelineInstanceBuildNumberStatusResponseBodyObject;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      object: 'Object',
-      errorCode: 'ErrorCode',
       errorMessage: 'ErrorMessage',
       success: 'Success',
+      errorCode: 'ErrorCode',
+      object: 'Object',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      object: GetPipelineInstanceBuildNumberStatusResponseBodyObject,
-      errorCode: 'string',
       errorMessage: 'string',
       success: 'boolean',
+      errorCode: 'string',
+      object: GetPipelineInstanceBuildNumberStatusResponseBodyObject,
     };
   }
 
@@ -2104,27 +2188,27 @@ export class GetPipelineInstanceGroupStatusRequest extends $tea.Model {
 
 export class GetPipelineInstanceGroupStatusResponseBody extends $tea.Model {
   requestId?: string;
-  object?: GetPipelineInstanceGroupStatusResponseBodyObject;
-  errorCode?: string;
   errorMessage?: string;
   success?: boolean;
+  errorCode?: string;
+  object?: GetPipelineInstanceGroupStatusResponseBodyObject;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      object: 'Object',
-      errorCode: 'ErrorCode',
       errorMessage: 'ErrorMessage',
       success: 'Success',
+      errorCode: 'ErrorCode',
+      object: 'Object',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      object: GetPipelineInstanceGroupStatusResponseBodyObject,
-      errorCode: 'string',
       errorMessage: 'string',
       success: 'boolean',
+      errorCode: 'string',
+      object: GetPipelineInstanceGroupStatusResponseBodyObject,
     };
   }
 
@@ -2184,28 +2268,28 @@ export class GetPipelineInstanceInfoRequest extends $tea.Model {
 }
 
 export class GetPipelineInstanceInfoResponseBody extends $tea.Model {
-  requestId?: string;
-  object?: GetPipelineInstanceInfoResponseBodyObject;
-  errorCode?: string;
   errorMessage?: string;
+  requestId?: string;
   success?: boolean;
+  errorCode?: string;
+  object?: GetPipelineInstanceInfoResponseBodyObject;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
-      object: 'Object',
-      errorCode: 'ErrorCode',
       errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
       success: 'Success',
+      errorCode: 'ErrorCode',
+      object: 'Object',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
-      object: GetPipelineInstanceInfoResponseBodyObject,
-      errorCode: 'string',
       errorMessage: 'string',
+      requestId: 'string',
       success: 'boolean',
+      errorCode: 'string',
+      object: GetPipelineInstanceInfoResponseBodyObject,
     };
   }
 
@@ -2266,16 +2350,16 @@ export class GetPipelineInstanceStatusRequest extends $tea.Model {
 
 export class GetPipelineInstanceStatusResponseBody extends $tea.Model {
   requestId?: string;
+  errorMessage?: string;
   object?: string;
   errorCode?: string;
-  errorMessage?: string;
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
+      errorMessage: 'ErrorMessage',
       object: 'Object',
       errorCode: 'ErrorCode',
-      errorMessage: 'ErrorMessage',
       success: 'Success',
     };
   }
@@ -2283,9 +2367,9 @@ export class GetPipelineInstanceStatusResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
+      errorMessage: 'string',
       object: 'string',
       errorCode: 'string',
-      errorMessage: 'string',
       success: 'boolean',
     };
   }
@@ -2356,27 +2440,27 @@ export class GetPipelineInstHistoryRequest extends $tea.Model {
 
 export class GetPipelineInstHistoryResponseBody extends $tea.Model {
   requestId?: string;
-  data?: GetPipelineInstHistoryResponseBodyData;
-  errorCode?: string;
   errorMessage?: string;
   success?: boolean;
+  errorCode?: string;
+  data?: GetPipelineInstHistoryResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      data: 'Data',
-      errorCode: 'ErrorCode',
       errorMessage: 'ErrorMessage',
       success: 'Success',
+      errorCode: 'ErrorCode',
+      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      data: GetPipelineInstHistoryResponseBodyData,
-      errorCode: 'string',
       errorMessage: 'string',
       success: 'boolean',
+      errorCode: 'string',
+      data: GetPipelineInstHistoryResponseBodyData,
     };
   }
 
@@ -2437,27 +2521,27 @@ export class GetPipelineLogRequest extends $tea.Model {
 
 export class GetPipelineLogResponseBody extends $tea.Model {
   requestId?: string;
-  object?: GetPipelineLogResponseBodyObject[];
-  errorCode?: string;
   errorMessage?: string;
   success?: boolean;
+  errorCode?: string;
+  object?: GetPipelineLogResponseBodyObject[];
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      object: 'Object',
-      errorCode: 'ErrorCode',
       errorMessage: 'ErrorMessage',
       success: 'Success',
+      errorCode: 'ErrorCode',
+      object: 'Object',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      object: { 'type': 'array', 'itemType': GetPipelineLogResponseBodyObject },
-      errorCode: 'string',
       errorMessage: 'string',
       success: 'boolean',
+      errorCode: 'string',
+      object: { 'type': 'array', 'itemType': GetPipelineLogResponseBodyObject },
     };
   }
 
@@ -2527,27 +2611,27 @@ export class GetPipelineStepLogRequest extends $tea.Model {
 
 export class GetPipelineStepLogResponseBody extends $tea.Model {
   requestId?: string;
-  object?: GetPipelineStepLogResponseBodyObject;
-  errorCode?: string;
   errorMessage?: string;
   success?: boolean;
+  errorCode?: string;
+  object?: GetPipelineStepLogResponseBodyObject;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      object: 'Object',
-      errorCode: 'ErrorCode',
       errorMessage: 'ErrorMessage',
       success: 'Success',
+      errorCode: 'ErrorCode',
+      object: 'Object',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      object: GetPipelineStepLogResponseBodyObject,
-      errorCode: 'string',
       errorMessage: 'string',
       success: 'boolean',
+      errorCode: 'string',
+      object: GetPipelineStepLogResponseBodyObject,
     };
   }
 
@@ -2605,27 +2689,27 @@ export class GetPipleineLatestInstanceStatusRequest extends $tea.Model {
 
 export class GetPipleineLatestInstanceStatusResponseBody extends $tea.Model {
   requestId?: string;
-  object?: GetPipleineLatestInstanceStatusResponseBodyObject;
-  errorCode?: string;
   errorMessage?: string;
   success?: boolean;
+  errorCode?: string;
+  object?: GetPipleineLatestInstanceStatusResponseBodyObject;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      object: 'Object',
-      errorCode: 'ErrorCode',
       errorMessage: 'ErrorMessage',
       success: 'Success',
+      errorCode: 'ErrorCode',
+      object: 'Object',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      object: GetPipleineLatestInstanceStatusResponseBodyObject,
-      errorCode: 'string',
       errorMessage: 'string',
       success: 'boolean',
+      errorCode: 'string',
+      object: GetPipleineLatestInstanceStatusResponseBodyObject,
     };
   }
 
@@ -2685,28 +2769,28 @@ export class GetProjectOptionRequest extends $tea.Model {
 }
 
 export class GetProjectOptionResponseBody extends $tea.Model {
-  requestId?: string;
   errorMsg?: string;
-  object?: GetProjectOptionResponseBodyObject[];
-  errorCode?: string;
+  requestId?: string;
   successful?: boolean;
+  errorCode?: string;
+  object?: GetProjectOptionResponseBodyObject[];
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       errorMsg: 'ErrorMsg',
-      object: 'Object',
-      errorCode: 'ErrorCode',
+      requestId: 'RequestId',
       successful: 'Successful',
+      errorCode: 'ErrorCode',
+      object: 'Object',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       errorMsg: 'string',
-      object: { 'type': 'array', 'itemType': GetProjectOptionResponseBodyObject },
-      errorCode: 'string',
+      requestId: 'string',
       successful: 'boolean',
+      errorCode: 'string',
+      object: { 'type': 'array', 'itemType': GetProjectOptionResponseBodyObject },
     };
   }
 
@@ -2763,31 +2847,31 @@ export class GetTaskDetailActivityRequest extends $tea.Model {
 }
 
 export class GetTaskDetailActivityResponseBody extends $tea.Model {
-  requestId?: string;
   httpStatusCode?: number;
   errorMsg?: string;
-  object?: GetTaskDetailActivityResponseBodyObject[];
-  errorCode?: string;
+  requestId?: string;
   successful?: boolean;
+  errorCode?: string;
+  object?: GetTaskDetailActivityResponseBodyObject[];
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       httpStatusCode: 'HttpStatusCode',
       errorMsg: 'ErrorMsg',
-      object: 'Object',
-      errorCode: 'ErrorCode',
+      requestId: 'RequestId',
       successful: 'Successful',
+      errorCode: 'ErrorCode',
+      object: 'Object',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       httpStatusCode: 'number',
       errorMsg: 'string',
-      object: { 'type': 'array', 'itemType': GetTaskDetailActivityResponseBodyObject },
-      errorCode: 'string',
+      requestId: 'string',
       successful: 'boolean',
+      errorCode: 'string',
+      object: { 'type': 'array', 'itemType': GetTaskDetailActivityResponseBodyObject },
     };
   }
 
@@ -2844,28 +2928,28 @@ export class GetTaskDetailBaseRequest extends $tea.Model {
 }
 
 export class GetTaskDetailBaseResponseBody extends $tea.Model {
-  requestId?: string;
   errorMsg?: string;
-  object?: GetTaskDetailBaseResponseBodyObject;
-  errorCode?: string;
+  requestId?: string;
   successful?: boolean;
+  errorCode?: string;
+  object?: GetTaskDetailBaseResponseBodyObject;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       errorMsg: 'ErrorMsg',
-      object: 'Object',
-      errorCode: 'ErrorCode',
+      requestId: 'RequestId',
       successful: 'Successful',
+      errorCode: 'ErrorCode',
+      object: 'Object',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       errorMsg: 'string',
-      object: GetTaskDetailBaseResponseBodyObject,
-      errorCode: 'string',
+      requestId: 'string',
       successful: 'boolean',
+      errorCode: 'string',
+      object: GetTaskDetailBaseResponseBodyObject,
     };
   }
 
@@ -2973,28 +3057,28 @@ export class GetTaskListFilterRequest extends $tea.Model {
 }
 
 export class GetTaskListFilterResponseBody extends $tea.Model {
-  requestId?: string;
   errorMsg?: string;
-  object?: GetTaskListFilterResponseBodyObject;
-  errorCode?: string;
+  requestId?: string;
   successful?: string;
+  errorCode?: string;
+  object?: GetTaskListFilterResponseBodyObject;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       errorMsg: 'ErrorMsg',
-      object: 'Object',
-      errorCode: 'ErrorCode',
+      requestId: 'RequestId',
       successful: 'Successful',
+      errorCode: 'ErrorCode',
+      object: 'Object',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       errorMsg: 'string',
-      object: GetTaskListFilterResponseBodyObject,
-      errorCode: 'string',
+      requestId: 'string',
       successful: 'string',
+      errorCode: 'string',
+      object: GetTaskListFilterResponseBodyObject,
     };
   }
 
@@ -3048,28 +3132,28 @@ export class GetUserByAliyunUidRequest extends $tea.Model {
 }
 
 export class GetUserByAliyunUidResponseBody extends $tea.Model {
-  requestId?: string;
   errorMsg?: string;
-  object?: GetUserByAliyunUidResponseBodyObject;
-  errorCode?: string;
+  requestId?: string;
   successful?: boolean;
+  errorCode?: string;
+  object?: GetUserByAliyunUidResponseBodyObject;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       errorMsg: 'ErrorMsg',
-      object: 'Object',
-      errorCode: 'ErrorCode',
+      requestId: 'RequestId',
       successful: 'Successful',
+      errorCode: 'ErrorCode',
+      object: 'Object',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       errorMsg: 'string',
-      object: GetUserByAliyunUidResponseBodyObject,
-      errorCode: 'string',
+      requestId: 'string',
       successful: 'boolean',
+      errorCode: 'string',
+      object: GetUserByAliyunUidResponseBodyObject,
     };
   }
 
@@ -3123,28 +3207,28 @@ export class GetUserNameRequest extends $tea.Model {
 }
 
 export class GetUserNameResponseBody extends $tea.Model {
-  requestId?: string;
   errorMsg?: string;
+  requestId?: string;
   object?: string;
-  errorCode?: string;
   successful?: boolean;
+  errorCode?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       errorMsg: 'ErrorMsg',
+      requestId: 'RequestId',
       object: 'Object',
-      errorCode: 'ErrorCode',
       successful: 'Successful',
+      errorCode: 'ErrorCode',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       errorMsg: 'string',
+      requestId: 'string',
       object: 'string',
-      errorCode: 'string',
       successful: 'boolean',
+      errorCode: 'string',
     };
   }
 
@@ -3205,27 +3289,27 @@ export class InsertDevopsUserRequest extends $tea.Model {
 
 export class InsertDevopsUserResponseBody extends $tea.Model {
   requestId?: string;
-  object?: string;
-  errorCode?: string;
   errorMessage?: string;
+  object?: string;
   success?: boolean;
+  errorCode?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      object: 'Object',
-      errorCode: 'ErrorCode',
       errorMessage: 'ErrorMessage',
+      object: 'Object',
       success: 'Success',
+      errorCode: 'ErrorCode',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      object: 'string',
-      errorCode: 'string',
       errorMessage: 'string',
+      object: 'string',
       success: 'boolean',
+      errorCode: 'string',
     };
   }
 
@@ -3289,16 +3373,16 @@ export class InsertPipelineMemberRequest extends $tea.Model {
 
 export class InsertPipelineMemberResponseBody extends $tea.Model {
   requestId?: string;
+  errorMessage?: string;
   object?: boolean;
   errorCode?: string;
-  errorMessage?: string;
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
+      errorMessage: 'ErrorMessage',
       object: 'Object',
       errorCode: 'ErrorCode',
-      errorMessage: 'ErrorMessage',
       success: 'Success',
     };
   }
@@ -3306,9 +3390,9 @@ export class InsertPipelineMemberResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
+      errorMessage: 'string',
       object: 'boolean',
       errorCode: 'string',
-      errorMessage: 'string',
       success: 'boolean',
     };
   }
@@ -3366,28 +3450,28 @@ export class InsertProjectMembersRequest extends $tea.Model {
 }
 
 export class InsertProjectMembersResponseBody extends $tea.Model {
-  requestId?: string;
   errorMsg?: string;
+  requestId?: string;
   object?: boolean;
-  errorCode?: string;
   successful?: boolean;
+  errorCode?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       errorMsg: 'ErrorMsg',
+      requestId: 'RequestId',
       object: 'Object',
-      errorCode: 'ErrorCode',
       successful: 'Successful',
+      errorCode: 'ErrorCode',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       errorMsg: 'string',
+      requestId: 'string',
       object: 'boolean',
-      errorCode: 'string',
       successful: 'boolean',
+      errorCode: 'string',
     };
   }
 
@@ -3447,28 +3531,28 @@ export class ListCommonGroupRequest extends $tea.Model {
 }
 
 export class ListCommonGroupResponseBody extends $tea.Model {
-  requestId?: string;
   errorMsg?: string;
-  object?: ListCommonGroupResponseBodyObject[];
-  errorCode?: string;
+  requestId?: string;
   successful?: boolean;
+  errorCode?: string;
+  object?: ListCommonGroupResponseBodyObject[];
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       errorMsg: 'ErrorMsg',
-      object: 'Object',
-      errorCode: 'ErrorCode',
+      requestId: 'RequestId',
       successful: 'Successful',
+      errorCode: 'ErrorCode',
+      object: 'Object',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       errorMsg: 'string',
-      object: { 'type': 'array', 'itemType': ListCommonGroupResponseBodyObject },
-      errorCode: 'string',
+      requestId: 'string',
       successful: 'boolean',
+      errorCode: 'string',
+      object: { 'type': 'array', 'itemType': ListCommonGroupResponseBodyObject },
     };
   }
 
@@ -3523,27 +3607,27 @@ export class ListCredentialsRequest extends $tea.Model {
 
 export class ListCredentialsResponseBody extends $tea.Model {
   requestId?: string;
-  object?: { [key: string]: any }[];
-  errorCode?: string;
   errorMessage?: string;
   success?: boolean;
+  errorCode?: string;
+  object?: { [key: string]: any }[];
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      object: 'Object',
-      errorCode: 'ErrorCode',
       errorMessage: 'ErrorMessage',
       success: 'Success',
+      errorCode: 'ErrorCode',
+      object: 'Object',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      object: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
-      errorCode: 'string',
       errorMessage: 'string',
       success: 'boolean',
+      errorCode: 'string',
+      object: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
     };
   }
 
@@ -3566,6 +3650,90 @@ export class ListCredentialsResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: ListCredentialsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDevopsProjectsRequest extends $tea.Model {
+  orgId?: string;
+  pageSize?: number;
+  orderBy?: string;
+  pageToken?: string;
+  selectBy?: string;
+  static names(): { [key: string]: string } {
+    return {
+      orgId: 'OrgId',
+      pageSize: 'PageSize',
+      orderBy: 'OrderBy',
+      pageToken: 'PageToken',
+      selectBy: 'SelectBy',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      orgId: 'string',
+      pageSize: 'number',
+      orderBy: 'string',
+      pageToken: 'string',
+      selectBy: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDevopsProjectsResponseBody extends $tea.Model {
+  errorMsg?: string;
+  requestId?: string;
+  successful?: boolean;
+  errorCode?: string;
+  object?: ListDevopsProjectsResponseBodyObject;
+  static names(): { [key: string]: string } {
+    return {
+      errorMsg: 'ErrorMsg',
+      requestId: 'RequestId',
+      successful: 'Successful',
+      errorCode: 'ErrorCode',
+      object: 'Object',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorMsg: 'string',
+      requestId: 'string',
+      successful: 'boolean',
+      errorCode: 'string',
+      object: ListDevopsProjectsResponseBodyObject,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDevopsProjectsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListDevopsProjectsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListDevopsProjectsResponseBody,
     };
   }
 
@@ -3597,28 +3765,28 @@ export class ListDevopsProjectSprintsRequest extends $tea.Model {
 }
 
 export class ListDevopsProjectSprintsResponseBody extends $tea.Model {
-  requestId?: string;
   errorMsg?: string;
-  object?: ListDevopsProjectSprintsResponseBodyObject[];
-  errorCode?: string;
+  requestId?: string;
   successful?: boolean;
+  errorCode?: string;
+  object?: ListDevopsProjectSprintsResponseBodyObject[];
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       errorMsg: 'ErrorMsg',
-      object: 'Object',
-      errorCode: 'ErrorCode',
+      requestId: 'RequestId',
       successful: 'Successful',
+      errorCode: 'ErrorCode',
+      object: 'Object',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       errorMsg: 'string',
-      object: { 'type': 'array', 'itemType': ListDevopsProjectSprintsResponseBodyObject },
-      errorCode: 'string',
+      requestId: 'string',
       successful: 'boolean',
+      errorCode: 'string',
+      object: { 'type': 'array', 'itemType': ListDevopsProjectSprintsResponseBodyObject },
     };
   }
 
@@ -3672,28 +3840,28 @@ export class ListDevopsProjectTaskFlowRequest extends $tea.Model {
 }
 
 export class ListDevopsProjectTaskFlowResponseBody extends $tea.Model {
-  requestId?: string;
   errorMsg?: string;
-  object?: ListDevopsProjectTaskFlowResponseBodyObject[];
-  errorCode?: string;
+  requestId?: string;
   successful?: boolean;
+  errorCode?: string;
+  object?: ListDevopsProjectTaskFlowResponseBodyObject[];
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       errorMsg: 'ErrorMsg',
-      object: 'Object',
-      errorCode: 'ErrorCode',
+      requestId: 'RequestId',
       successful: 'Successful',
+      errorCode: 'ErrorCode',
+      object: 'Object',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       errorMsg: 'string',
-      object: { 'type': 'array', 'itemType': ListDevopsProjectTaskFlowResponseBodyObject },
-      errorCode: 'string',
+      requestId: 'string',
       successful: 'boolean',
+      errorCode: 'string',
+      object: { 'type': 'array', 'itemType': ListDevopsProjectTaskFlowResponseBodyObject },
     };
   }
 
@@ -3747,28 +3915,28 @@ export class ListDevopsProjectTaskFlowStatusRequest extends $tea.Model {
 }
 
 export class ListDevopsProjectTaskFlowStatusResponseBody extends $tea.Model {
-  requestId?: string;
   errorMsg?: string;
-  object?: ListDevopsProjectTaskFlowStatusResponseBodyObject[];
-  errorCode?: string;
+  requestId?: string;
   successful?: boolean;
+  errorCode?: string;
+  object?: ListDevopsProjectTaskFlowStatusResponseBodyObject[];
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       errorMsg: 'ErrorMsg',
-      object: 'Object',
-      errorCode: 'ErrorCode',
+      requestId: 'RequestId',
       successful: 'Successful',
+      errorCode: 'ErrorCode',
+      object: 'Object',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       errorMsg: 'string',
-      object: { 'type': 'array', 'itemType': ListDevopsProjectTaskFlowStatusResponseBodyObject },
-      errorCode: 'string',
+      requestId: 'string',
       successful: 'boolean',
+      errorCode: 'string',
+      object: { 'type': 'array', 'itemType': ListDevopsProjectTaskFlowStatusResponseBodyObject },
     };
   }
 
@@ -3822,28 +3990,28 @@ export class ListDevopsProjectTaskListRequest extends $tea.Model {
 }
 
 export class ListDevopsProjectTaskListResponseBody extends $tea.Model {
-  requestId?: string;
   errorMsg?: string;
-  object?: ListDevopsProjectTaskListResponseBodyObject;
-  errorCode?: string;
+  requestId?: string;
   successful?: boolean;
+  errorCode?: string;
+  object?: ListDevopsProjectTaskListResponseBodyObject;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       errorMsg: 'ErrorMsg',
-      object: 'Object',
-      errorCode: 'ErrorCode',
+      requestId: 'RequestId',
       successful: 'Successful',
+      errorCode: 'ErrorCode',
+      object: 'Object',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       errorMsg: 'string',
-      object: ListDevopsProjectTaskListResponseBodyObject,
-      errorCode: 'string',
+      requestId: 'string',
       successful: 'boolean',
+      errorCode: 'string',
+      object: ListDevopsProjectTaskListResponseBodyObject,
     };
   }
 
@@ -3897,28 +4065,28 @@ export class ListDevopsProjectTasksRequest extends $tea.Model {
 }
 
 export class ListDevopsProjectTasksResponseBody extends $tea.Model {
-  requestId?: string;
   errorMsg?: string;
-  object?: ListDevopsProjectTasksResponseBodyObject[];
-  errorCode?: string;
+  requestId?: string;
   successful?: boolean;
+  errorCode?: string;
+  object?: ListDevopsProjectTasksResponseBodyObject[];
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       errorMsg: 'ErrorMsg',
-      object: 'Object',
-      errorCode: 'ErrorCode',
+      requestId: 'RequestId',
       successful: 'Successful',
+      errorCode: 'ErrorCode',
+      object: 'Object',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       errorMsg: 'string',
-      object: { 'type': 'array', 'itemType': ListDevopsProjectTasksResponseBodyObject },
-      errorCode: 'string',
+      requestId: 'string',
       successful: 'boolean',
+      errorCode: 'string',
+      object: { 'type': 'array', 'itemType': ListDevopsProjectTasksResponseBodyObject },
     };
   }
 
@@ -3972,28 +4140,28 @@ export class ListDevopsScenarioFieldConfigRequest extends $tea.Model {
 }
 
 export class ListDevopsScenarioFieldConfigResponseBody extends $tea.Model {
-  requestId?: string;
   errorMsg?: string;
-  object?: ListDevopsScenarioFieldConfigResponseBodyObject[];
-  errorCode?: string;
+  requestId?: string;
   successful?: boolean;
+  errorCode?: string;
+  object?: ListDevopsScenarioFieldConfigResponseBodyObject[];
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       errorMsg: 'ErrorMsg',
-      object: 'Object',
-      errorCode: 'ErrorCode',
+      requestId: 'RequestId',
       successful: 'Successful',
+      errorCode: 'ErrorCode',
+      object: 'Object',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       errorMsg: 'string',
-      object: { 'type': 'array', 'itemType': ListDevopsScenarioFieldConfigResponseBodyObject },
-      errorCode: 'string',
+      requestId: 'string',
       successful: 'boolean',
+      errorCode: 'string',
+      object: { 'type': 'array', 'itemType': ListDevopsScenarioFieldConfigResponseBodyObject },
     };
   }
 
@@ -4078,16 +4246,16 @@ export class ListPipelinesRequest extends $tea.Model {
 
 export class ListPipelinesResponseBody extends $tea.Model {
   requestId?: string;
+  errorMessage?: string;
   object?: { [key: string]: any };
   errorCode?: string;
-  errorMessage?: string;
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
+      errorMessage: 'ErrorMessage',
       object: 'Object',
       errorCode: 'ErrorCode',
-      errorMessage: 'ErrorMessage',
       success: 'Success',
     };
   }
@@ -4095,9 +4263,9 @@ export class ListPipelinesResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
+      errorMessage: 'string',
       object: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       errorCode: 'string',
-      errorMessage: 'string',
       success: 'boolean',
     };
   }
@@ -4152,28 +4320,28 @@ export class ListProjectCustomFieldsRequest extends $tea.Model {
 }
 
 export class ListProjectCustomFieldsResponseBody extends $tea.Model {
-  requestId?: string;
   errorMsg?: string;
-  object?: ListProjectCustomFieldsResponseBodyObject[];
-  errorCode?: string;
+  requestId?: string;
   successful?: boolean;
+  errorCode?: string;
+  object?: ListProjectCustomFieldsResponseBodyObject[];
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       errorMsg: 'ErrorMsg',
-      object: 'Object',
-      errorCode: 'ErrorCode',
+      requestId: 'RequestId',
       successful: 'Successful',
+      errorCode: 'ErrorCode',
+      object: 'Object',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       errorMsg: 'string',
-      object: { 'type': 'array', 'itemType': ListProjectCustomFieldsResponseBodyObject },
-      errorCode: 'string',
+      requestId: 'string',
       successful: 'boolean',
+      errorCode: 'string',
+      object: { 'type': 'array', 'itemType': ListProjectCustomFieldsResponseBodyObject },
     };
   }
 
@@ -4231,27 +4399,27 @@ export class ListServiceConnectionsRequest extends $tea.Model {
 
 export class ListServiceConnectionsResponseBody extends $tea.Model {
   requestId?: string;
-  object?: { [key: string]: any }[];
-  errorCode?: string;
   errorMessage?: string;
   success?: boolean;
+  errorCode?: string;
+  object?: { [key: string]: any }[];
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      object: 'Object',
-      errorCode: 'ErrorCode',
       errorMessage: 'ErrorMessage',
       success: 'Success',
+      errorCode: 'ErrorCode',
+      object: 'Object',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      object: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
-      errorCode: 'string',
       errorMessage: 'string',
       success: 'boolean',
+      errorCode: 'string',
+      object: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
     };
   }
 
@@ -4305,28 +4473,28 @@ export class ListSmartGroupRequest extends $tea.Model {
 }
 
 export class ListSmartGroupResponseBody extends $tea.Model {
-  requestId?: string;
   errorMsg?: string;
-  object?: ListSmartGroupResponseBodyObject[];
-  errorCode?: string;
+  requestId?: string;
   successful?: boolean;
+  errorCode?: string;
+  object?: ListSmartGroupResponseBodyObject[];
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       errorMsg: 'ErrorMsg',
-      object: 'Object',
-      errorCode: 'ErrorCode',
+      requestId: 'RequestId',
       successful: 'Successful',
+      errorCode: 'ErrorCode',
+      object: 'Object',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       errorMsg: 'string',
-      object: { 'type': 'array', 'itemType': ListSmartGroupResponseBodyObject },
-      errorCode: 'string',
+      requestId: 'string',
       successful: 'boolean',
+      errorCode: 'string',
+      object: { 'type': 'array', 'itemType': ListSmartGroupResponseBodyObject },
     };
   }
 
@@ -4377,28 +4545,28 @@ export class ListUserOrganizationRequest extends $tea.Model {
 }
 
 export class ListUserOrganizationResponseBody extends $tea.Model {
-  requestId?: string;
-  object?: ListUserOrganizationResponseBodyObject[];
-  errorCode?: string;
   errorMessage?: string;
+  requestId?: string;
   success?: boolean;
+  errorCode?: string;
+  object?: ListUserOrganizationResponseBodyObject[];
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
-      object: 'Object',
-      errorCode: 'ErrorCode',
       errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
       success: 'Success',
+      errorCode: 'ErrorCode',
+      object: 'Object',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
-      object: { 'type': 'array', 'itemType': ListUserOrganizationResponseBodyObject },
-      errorCode: 'string',
       errorMessage: 'string',
+      requestId: 'string',
       success: 'boolean',
+      errorCode: 'string',
+      object: { 'type': 'array', 'itemType': ListUserOrganizationResponseBodyObject },
     };
   }
 
@@ -4459,16 +4627,16 @@ export class TransferPipelineOwnerRequest extends $tea.Model {
 
 export class TransferPipelineOwnerResponseBody extends $tea.Model {
   requestId?: string;
+  errorMessage?: string;
   object?: { [key: string]: any };
   errorCode?: string;
-  errorMessage?: string;
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
+      errorMessage: 'ErrorMessage',
       object: 'Object',
       errorCode: 'ErrorCode',
-      errorMessage: 'ErrorMessage',
       success: 'Success',
     };
   }
@@ -4476,9 +4644,9 @@ export class TransferPipelineOwnerResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
+      errorMessage: 'string',
       object: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       errorCode: 'string',
-      errorMessage: 'string',
       success: 'boolean',
     };
   }
@@ -4545,28 +4713,28 @@ export class UpdateCommonGroupRequest extends $tea.Model {
 }
 
 export class UpdateCommonGroupResponseBody extends $tea.Model {
-  requestId?: string;
   errorMsg?: string;
-  object?: UpdateCommonGroupResponseBodyObject;
-  errorCode?: string;
+  requestId?: string;
   successful?: boolean;
+  errorCode?: string;
+  object?: UpdateCommonGroupResponseBodyObject;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       errorMsg: 'ErrorMsg',
-      object: 'Object',
-      errorCode: 'ErrorCode',
+      requestId: 'RequestId',
       successful: 'Successful',
+      errorCode: 'ErrorCode',
+      object: 'Object',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       errorMsg: 'string',
-      object: UpdateCommonGroupResponseBodyObject,
-      errorCode: 'string',
+      requestId: 'string',
       successful: 'boolean',
+      errorCode: 'string',
+      object: UpdateCommonGroupResponseBodyObject,
     };
   }
 
@@ -4626,28 +4794,28 @@ export class UpdateDevopsProjectRequest extends $tea.Model {
 }
 
 export class UpdateDevopsProjectResponseBody extends $tea.Model {
+  errorMessage?: string;
   requestId?: string;
   object?: string;
-  errorCode?: string;
-  errorMessage?: string;
   success?: boolean;
+  errorCode?: string;
   static names(): { [key: string]: string } {
     return {
+      errorMessage: 'ErrorMessage',
       requestId: 'RequestId',
       object: 'Object',
-      errorCode: 'ErrorCode',
-      errorMessage: 'ErrorMessage',
       success: 'Success',
+      errorCode: 'ErrorCode',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      errorMessage: 'string',
       requestId: 'string',
       object: 'string',
-      errorCode: 'string',
-      errorMessage: 'string',
       success: 'boolean',
+      errorCode: 'string',
     };
   }
 
@@ -4719,28 +4887,28 @@ export class UpdateDevopsProjectSprintRequest extends $tea.Model {
 }
 
 export class UpdateDevopsProjectSprintResponseBody extends $tea.Model {
-  requestId?: string;
   errorMsg?: string;
+  requestId?: string;
   object?: boolean;
-  errorCode?: string;
   successful?: boolean;
+  errorCode?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       errorMsg: 'ErrorMsg',
+      requestId: 'RequestId',
       object: 'Object',
-      errorCode: 'ErrorCode',
       successful: 'Successful',
+      errorCode: 'ErrorCode',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       errorMsg: 'string',
+      requestId: 'string',
       object: 'boolean',
-      errorCode: 'string',
       successful: 'boolean',
+      errorCode: 'string',
     };
   }
 
@@ -4830,28 +4998,28 @@ export class UpdateDevopsProjectTaskRequest extends $tea.Model {
 }
 
 export class UpdateDevopsProjectTaskResponseBody extends $tea.Model {
-  requestId?: string;
   errorMsg?: string;
+  requestId?: string;
   object?: boolean;
-  errorCode?: string;
   successful?: boolean;
+  errorCode?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       errorMsg: 'ErrorMsg',
+      requestId: 'RequestId',
       object: 'Object',
-      errorCode: 'ErrorCode',
       successful: 'Successful',
+      errorCode: 'ErrorCode',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       errorMsg: 'string',
+      requestId: 'string',
       object: 'boolean',
-      errorCode: 'string',
       successful: 'boolean',
+      errorCode: 'string',
     };
   }
 
@@ -4915,16 +5083,16 @@ export class UpdatePipelineMemberRequest extends $tea.Model {
 
 export class UpdatePipelineMemberResponseBody extends $tea.Model {
   requestId?: string;
+  errorMessage?: string;
   object?: boolean;
   errorCode?: string;
-  errorMessage?: string;
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
+      errorMessage: 'ErrorMessage',
       object: 'Object',
       errorCode: 'ErrorCode',
-      errorMessage: 'ErrorMessage',
       success: 'Success',
     };
   }
@@ -4932,9 +5100,9 @@ export class UpdatePipelineMemberResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
+      errorMessage: 'string',
       object: 'boolean',
       errorCode: 'string',
-      errorMessage: 'string',
       success: 'boolean',
     };
   }
@@ -5037,28 +5205,28 @@ export class UpdateTaskDetailRequest extends $tea.Model {
 }
 
 export class UpdateTaskDetailResponseBody extends $tea.Model {
-  requestId?: string;
   errorMsg?: string;
+  requestId?: string;
   object?: boolean;
-  errorCode?: string;
   successful?: boolean;
+  errorCode?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       errorMsg: 'ErrorMsg',
+      requestId: 'RequestId',
       object: 'Object',
-      errorCode: 'ErrorCode',
       successful: 'Successful',
+      errorCode: 'ErrorCode',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       errorMsg: 'string',
+      requestId: 'string',
       object: 'boolean',
-      errorCode: 'string',
       successful: 'boolean',
+      errorCode: 'string',
     };
   }
 
@@ -5144,10 +5312,10 @@ export class CreateDevopsProjectSprintResponseBodyObject extends $tea.Model {
   isDeleted?: boolean;
   updated?: string;
   dueDate?: string;
-  name?: string;
   created?: string;
-  planToDo?: CreateDevopsProjectSprintResponseBodyObjectPlanToDo;
+  name?: string;
   id?: string;
+  planToDo?: CreateDevopsProjectSprintResponseBodyObjectPlanToDo;
   static names(): { [key: string]: string } {
     return {
       status: 'Status',
@@ -5160,10 +5328,10 @@ export class CreateDevopsProjectSprintResponseBodyObject extends $tea.Model {
       isDeleted: 'IsDeleted',
       updated: 'Updated',
       dueDate: 'DueDate',
-      name: 'Name',
       created: 'Created',
-      planToDo: 'PlanToDo',
+      name: 'Name',
       id: 'Id',
+      planToDo: 'PlanToDo',
     };
   }
 
@@ -5179,10 +5347,10 @@ export class CreateDevopsProjectSprintResponseBodyObject extends $tea.Model {
       isDeleted: 'boolean',
       updated: 'string',
       dueDate: 'string',
-      name: 'string',
       created: 'string',
-      planToDo: CreateDevopsProjectSprintResponseBodyObjectPlanToDo,
+      name: 'string',
       id: 'string',
+      planToDo: CreateDevopsProjectSprintResponseBodyObjectPlanToDo,
     };
   }
 
@@ -5206,8 +5374,8 @@ export class CreateDevopsProjectTaskResponseBodyObject extends $tea.Model {
   content?: string;
   rating?: number;
   pos?: number;
-  startDate?: string;
   storyPoint?: string;
+  startDate?: string;
   creatorId?: string;
   source?: string;
   organizationId?: string;
@@ -5233,8 +5401,8 @@ export class CreateDevopsProjectTaskResponseBodyObject extends $tea.Model {
       content: 'Content',
       rating: 'Rating',
       pos: 'Pos',
-      startDate: 'StartDate',
       storyPoint: 'StoryPoint',
+      startDate: 'StartDate',
       creatorId: 'CreatorId',
       source: 'Source',
       organizationId: 'OrganizationId',
@@ -5263,8 +5431,8 @@ export class CreateDevopsProjectTaskResponseBodyObject extends $tea.Model {
       content: 'string',
       rating: 'number',
       pos: 'number',
-      startDate: 'string',
       storyPoint: 'string',
+      startDate: 'string',
       creatorId: 'string',
       source: 'string',
       organizationId: 'string',
@@ -5350,17 +5518,17 @@ export class GetDevopsProjectInfoResponseBodyObject extends $tea.Model {
   rootCollectionId?: string;
   isDeleted?: boolean;
   updated?: string;
-  isArchived?: boolean;
   name?: string;
+  isArchived?: boolean;
   endDate?: string;
   logo?: string;
   startDate?: string;
   pinyin?: string;
   creatorId?: string;
   sourceId?: string;
-  organizationId?: string;
-  isSuspended?: boolean;
   defaultCollectionId?: string;
+  isSuspended?: boolean;
+  organizationId?: string;
   visibility?: string;
   py?: string;
   category?: string;
@@ -5381,17 +5549,17 @@ export class GetDevopsProjectInfoResponseBodyObject extends $tea.Model {
       rootCollectionId: 'RootCollectionId',
       isDeleted: 'IsDeleted',
       updated: 'Updated',
-      isArchived: 'IsArchived',
       name: 'Name',
+      isArchived: 'IsArchived',
       endDate: 'EndDate',
       logo: 'Logo',
       startDate: 'StartDate',
       pinyin: 'Pinyin',
       creatorId: 'CreatorId',
       sourceId: 'SourceId',
-      organizationId: 'OrganizationId',
-      isSuspended: 'IsSuspended',
       defaultCollectionId: 'DefaultCollectionId',
+      isSuspended: 'IsSuspended',
+      organizationId: 'OrganizationId',
       visibility: 'Visibility',
       py: 'Py',
       category: 'Category',
@@ -5415,17 +5583,17 @@ export class GetDevopsProjectInfoResponseBodyObject extends $tea.Model {
       rootCollectionId: 'string',
       isDeleted: 'boolean',
       updated: 'string',
-      isArchived: 'boolean',
       name: 'string',
+      isArchived: 'boolean',
       endDate: 'string',
       logo: 'string',
       startDate: 'string',
       pinyin: 'string',
       creatorId: 'string',
       sourceId: 'string',
-      organizationId: 'string',
-      isSuspended: 'boolean',
       defaultCollectionId: 'string',
+      isSuspended: 'boolean',
+      organizationId: 'string',
       visibility: 'string',
       py: 'string',
       category: 'string',
@@ -5505,48 +5673,48 @@ export class GetDevopsProjectSprintInfoResponseBodyObjectPlanToDo extends $tea.M
 
 export class GetDevopsProjectSprintInfoResponseBodyObject extends $tea.Model {
   status?: string;
-  projectId?: string;
-  startDate?: string;
-  creatorId?: string;
   accomplished?: string;
+  projectId?: string;
   isDeleted?: boolean;
+  startDate?: string;
   updated?: string;
+  creatorId?: string;
   dueDate?: string;
   name?: string;
   created?: string;
-  planToDo?: GetDevopsProjectSprintInfoResponseBodyObjectPlanToDo;
   id?: string;
+  planToDo?: GetDevopsProjectSprintInfoResponseBodyObjectPlanToDo;
   static names(): { [key: string]: string } {
     return {
       status: 'Status',
-      projectId: 'ProjectId',
-      startDate: 'StartDate',
-      creatorId: 'CreatorId',
       accomplished: 'Accomplished',
+      projectId: 'ProjectId',
       isDeleted: 'IsDeleted',
+      startDate: 'StartDate',
       updated: 'Updated',
+      creatorId: 'CreatorId',
       dueDate: 'DueDate',
       name: 'Name',
       created: 'Created',
-      planToDo: 'PlanToDo',
       id: 'Id',
+      planToDo: 'PlanToDo',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       status: 'string',
-      projectId: 'string',
-      startDate: 'string',
-      creatorId: 'string',
       accomplished: 'string',
+      projectId: 'string',
       isDeleted: 'boolean',
+      startDate: 'string',
       updated: 'string',
+      creatorId: 'string',
       dueDate: 'string',
       name: 'string',
       created: 'string',
-      planToDo: GetDevopsProjectSprintInfoResponseBodyObjectPlanToDo,
       id: 'string',
+      planToDo: GetDevopsProjectSprintInfoResponseBodyObjectPlanToDo,
     };
   }
 
@@ -5558,50 +5726,50 @@ export class GetDevopsProjectSprintInfoResponseBodyObject extends $tea.Model {
 export class GetDevopsProjectTaskInfoResponseBodyObject extends $tea.Model {
   executorId?: string;
   projectId?: string;
-  storyPoint?: string;
   startDate?: string;
-  isTopInProject?: boolean;
+  storyPoint?: string;
   priority?: string;
+  isTopInProject?: boolean;
   creatorId?: string;
   organizationId?: string;
   taskType?: string;
-  tasklistId?: string;
   visible?: string;
+  tasklistId?: string;
   isDone?: boolean;
   isDeleted?: boolean;
   taskflowstatusId?: string;
   note?: string;
   sprintId?: string;
   updated?: string;
-  involveMembers?: string[];
   dueDate?: string;
   created?: string;
   content?: string;
   id?: string;
+  involveMembers?: string[];
   static names(): { [key: string]: string } {
     return {
       executorId: 'ExecutorId',
       projectId: 'ProjectId',
-      storyPoint: 'StoryPoint',
       startDate: 'StartDate',
-      isTopInProject: 'IsTopInProject',
+      storyPoint: 'StoryPoint',
       priority: 'Priority',
+      isTopInProject: 'IsTopInProject',
       creatorId: 'CreatorId',
       organizationId: 'OrganizationId',
       taskType: 'TaskType',
-      tasklistId: 'TasklistId',
       visible: 'Visible',
+      tasklistId: 'TasklistId',
       isDone: 'IsDone',
       isDeleted: 'IsDeleted',
       taskflowstatusId: 'TaskflowstatusId',
       note: 'Note',
       sprintId: 'SprintId',
       updated: 'Updated',
-      involveMembers: 'InvolveMembers',
       dueDate: 'DueDate',
       created: 'Created',
       content: 'Content',
       id: 'Id',
+      involveMembers: 'InvolveMembers',
     };
   }
 
@@ -5609,26 +5777,26 @@ export class GetDevopsProjectTaskInfoResponseBodyObject extends $tea.Model {
     return {
       executorId: 'string',
       projectId: 'string',
-      storyPoint: 'string',
       startDate: 'string',
-      isTopInProject: 'boolean',
+      storyPoint: 'string',
       priority: 'string',
+      isTopInProject: 'boolean',
       creatorId: 'string',
       organizationId: 'string',
       taskType: 'string',
-      tasklistId: 'string',
       visible: 'string',
+      tasklistId: 'string',
       isDone: 'boolean',
       isDeleted: 'boolean',
       taskflowstatusId: 'string',
       note: 'string',
       sprintId: 'string',
       updated: 'string',
-      involveMembers: { 'type': 'array', 'itemType': 'string' },
       dueDate: 'string',
       created: 'string',
       content: 'string',
       id: 'string',
+      involveMembers: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -5639,21 +5807,21 @@ export class GetDevopsProjectTaskInfoResponseBodyObject extends $tea.Model {
 
 export class GetPipelineInstanceBuildNumberStatusResponseBodyObjectGroupsStagesComponents extends $tea.Model {
   status?: string;
-  jobId?: number;
   name?: string;
+  jobId?: number;
   static names(): { [key: string]: string } {
     return {
       status: 'Status',
-      jobId: 'JobId',
       name: 'Name',
+      jobId: 'JobId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       status: 'string',
-      jobId: 'number',
       name: 'string',
+      jobId: 'number',
     };
   }
 
@@ -5689,21 +5857,21 @@ export class GetPipelineInstanceBuildNumberStatusResponseBodyObjectGroupsStages 
 
 export class GetPipelineInstanceBuildNumberStatusResponseBodyObjectGroups extends $tea.Model {
   status?: string;
-  stages?: GetPipelineInstanceBuildNumberStatusResponseBodyObjectGroupsStages[];
   name?: string;
+  stages?: GetPipelineInstanceBuildNumberStatusResponseBodyObjectGroupsStages[];
   static names(): { [key: string]: string } {
     return {
       status: 'Status',
-      stages: 'Stages',
       name: 'Name',
+      stages: 'Stages',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       status: 'string',
-      stages: { 'type': 'array', 'itemType': GetPipelineInstanceBuildNumberStatusResponseBodyObjectGroupsStages },
       name: 'string',
+      stages: { 'type': 'array', 'itemType': GetPipelineInstanceBuildNumberStatusResponseBodyObjectGroupsStages },
     };
   }
 
@@ -5736,21 +5904,21 @@ export class GetPipelineInstanceBuildNumberStatusResponseBodyObject extends $tea
 
 export class GetPipelineInstanceGroupStatusResponseBodyObjectGroupsStagesComponents extends $tea.Model {
   status?: string;
-  jobId?: string;
   name?: string;
+  jobId?: string;
   static names(): { [key: string]: string } {
     return {
       status: 'Status',
-      jobId: 'JobId',
       name: 'Name',
+      jobId: 'JobId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       status: 'string',
-      jobId: 'string',
       name: 'string',
+      jobId: 'string',
     };
   }
 
@@ -5786,21 +5954,21 @@ export class GetPipelineInstanceGroupStatusResponseBodyObjectGroupsStages extend
 
 export class GetPipelineInstanceGroupStatusResponseBodyObjectGroups extends $tea.Model {
   status?: string;
-  stages?: GetPipelineInstanceGroupStatusResponseBodyObjectGroupsStages[];
   name?: string;
+  stages?: GetPipelineInstanceGroupStatusResponseBodyObjectGroupsStages[];
   static names(): { [key: string]: string } {
     return {
       status: 'Status',
-      stages: 'Stages',
       name: 'Name',
+      stages: 'Stages',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       status: 'string',
-      stages: { 'type': 'array', 'itemType': GetPipelineInstanceGroupStatusResponseBodyObjectGroupsStages },
       name: 'string',
+      stages: { 'type': 'array', 'itemType': GetPipelineInstanceGroupStatusResponseBodyObjectGroupsStages },
     };
   }
 
@@ -5832,80 +6000,34 @@ export class GetPipelineInstanceGroupStatusResponseBodyObject extends $tea.Model
 }
 
 export class GetPipelineInstanceInfoResponseBodyObject extends $tea.Model {
+  employeeId?: string;
   endTime?: number;
   status?: string;
   startTime?: number;
-  packageDownloadUrls?: string[];
-  employeeId?: string;
-  dockerImages?: string[];
   sources?: string;
+  dockerImages?: string[];
+  packageDownloadUrls?: string[];
   static names(): { [key: string]: string } {
     return {
+      employeeId: 'EmployeeId',
       endTime: 'EndTime',
       status: 'Status',
       startTime: 'StartTime',
-      packageDownloadUrls: 'PackageDownloadUrls',
-      employeeId: 'EmployeeId',
-      dockerImages: 'DockerImages',
       sources: 'Sources',
+      dockerImages: 'DockerImages',
+      packageDownloadUrls: 'PackageDownloadUrls',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      employeeId: 'string',
       endTime: 'number',
       status: 'string',
       startTime: 'number',
-      packageDownloadUrls: { 'type': 'array', 'itemType': 'string' },
-      employeeId: 'string',
+      sources: 'string',
       dockerImages: { 'type': 'array', 'itemType': 'string' },
-      sources: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetPipelineInstHistoryResponseBodyDataDataListFlowInstanceResult extends $tea.Model {
-  enginePipelineNumber?: number;
-  mixFlowInstId?: string;
-  enginePipelineName?: string;
-  enginePipelineId?: number;
-  enginePipelineInstId?: number;
-  timeStamp?: string;
-  triggerMode?: string;
-  sources?: string;
-  caches?: string;
-  dateTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      enginePipelineNumber: 'EnginePipelineNumber',
-      mixFlowInstId: 'MixFlowInstId',
-      enginePipelineName: 'EnginePipelineName',
-      enginePipelineId: 'EnginePipelineId',
-      enginePipelineInstId: 'EnginePipelineInstId',
-      timeStamp: 'TimeStamp',
-      triggerMode: 'TriggerMode',
-      sources: 'Sources',
-      caches: 'Caches',
-      dateTime: 'DateTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      enginePipelineNumber: 'number',
-      mixFlowInstId: 'string',
-      enginePipelineName: 'string',
-      enginePipelineId: 'number',
-      enginePipelineInstId: 'number',
-      timeStamp: 'string',
-      triggerMode: 'string',
-      sources: 'string',
-      caches: 'string',
-      dateTime: 'string',
+      packageDownloadUrls: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -5969,41 +6091,87 @@ export class GetPipelineInstHistoryResponseBodyDataDataListFlowInstanceGroups ex
   }
 }
 
+export class GetPipelineInstHistoryResponseBodyDataDataListFlowInstanceResult extends $tea.Model {
+  enginePipelineNumber?: number;
+  mixFlowInstId?: string;
+  enginePipelineName?: string;
+  enginePipelineId?: number;
+  enginePipelineInstId?: number;
+  timeStamp?: string;
+  triggerMode?: string;
+  sources?: string;
+  caches?: string;
+  dateTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      enginePipelineNumber: 'EnginePipelineNumber',
+      mixFlowInstId: 'MixFlowInstId',
+      enginePipelineName: 'EnginePipelineName',
+      enginePipelineId: 'EnginePipelineId',
+      enginePipelineInstId: 'EnginePipelineInstId',
+      timeStamp: 'TimeStamp',
+      triggerMode: 'TriggerMode',
+      sources: 'Sources',
+      caches: 'Caches',
+      dateTime: 'DateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enginePipelineNumber: 'number',
+      mixFlowInstId: 'string',
+      enginePipelineName: 'string',
+      enginePipelineId: 'number',
+      enginePipelineInstId: 'number',
+      timeStamp: 'string',
+      triggerMode: 'string',
+      sources: 'string',
+      caches: 'string',
+      dateTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetPipelineInstHistoryResponseBodyDataDataListFlowInstance extends $tea.Model {
   status?: string;
   stages?: { [key: string]: any };
-  result?: GetPipelineInstHistoryResponseBodyDataDataListFlowInstanceResult;
   createTime?: number;
   statusName?: string;
   runningStatus?: string;
-  stageTopo?: string;
   creator?: string;
+  stageTopo?: string;
   modifier?: string;
-  groups?: GetPipelineInstHistoryResponseBodyDataDataListFlowInstanceGroups[];
   autoDrivenStatus?: boolean;
   resultStatus?: string;
   id?: number;
   systemCode?: string;
   modifyTime?: number;
   systemId?: string;
+  groups?: GetPipelineInstHistoryResponseBodyDataDataListFlowInstanceGroups[];
+  result?: GetPipelineInstHistoryResponseBodyDataDataListFlowInstanceResult;
   static names(): { [key: string]: string } {
     return {
       status: 'Status',
       stages: 'Stages',
-      result: 'Result',
       createTime: 'CreateTime',
       statusName: 'StatusName',
       runningStatus: 'RunningStatus',
-      stageTopo: 'StageTopo',
       creator: 'Creator',
+      stageTopo: 'StageTopo',
       modifier: 'Modifier',
-      groups: 'Groups',
       autoDrivenStatus: 'AutoDrivenStatus',
       resultStatus: 'ResultStatus',
       id: 'Id',
       systemCode: 'SystemCode',
       modifyTime: 'ModifyTime',
       systemId: 'SystemId',
+      groups: 'Groups',
+      result: 'Result',
     };
   }
 
@@ -6011,20 +6179,20 @@ export class GetPipelineInstHistoryResponseBodyDataDataListFlowInstance extends 
     return {
       status: 'string',
       stages: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      result: GetPipelineInstHistoryResponseBodyDataDataListFlowInstanceResult,
       createTime: 'number',
       statusName: 'string',
       runningStatus: 'string',
-      stageTopo: 'string',
       creator: 'string',
+      stageTopo: 'string',
       modifier: 'string',
-      groups: { 'type': 'array', 'itemType': GetPipelineInstHistoryResponseBodyDataDataListFlowInstanceGroups },
       autoDrivenStatus: 'boolean',
       resultStatus: 'string',
       id: 'number',
       systemCode: 'string',
       modifyTime: 'number',
       systemId: 'string',
+      groups: { 'type': 'array', 'itemType': GetPipelineInstHistoryResponseBodyDataDataListFlowInstanceGroups },
+      result: GetPipelineInstHistoryResponseBodyDataDataListFlowInstanceResult,
     };
   }
 
@@ -6037,35 +6205,35 @@ export class GetPipelineInstHistoryResponseBodyDataDataList extends $tea.Model {
   status?: string;
   createTime?: number;
   statusName?: string;
-  deletion?: string;
-  pipelineConfigId?: number;
   triggerMode?: number;
+  pipelineConfigId?: number;
+  deletion?: string;
   creator?: string;
   instNumber?: number;
   modifier?: string;
-  flowInstance?: GetPipelineInstHistoryResponseBodyDataDataListFlowInstance;
   packages?: string;
   flowInstId?: number;
   pipelineId?: number;
   id?: number;
   modifyTime?: number;
+  flowInstance?: GetPipelineInstHistoryResponseBodyDataDataListFlowInstance;
   static names(): { [key: string]: string } {
     return {
       status: 'Status',
       createTime: 'CreateTime',
       statusName: 'StatusName',
-      deletion: 'Deletion',
-      pipelineConfigId: 'PipelineConfigId',
       triggerMode: 'TriggerMode',
+      pipelineConfigId: 'PipelineConfigId',
+      deletion: 'Deletion',
       creator: 'Creator',
       instNumber: 'InstNumber',
       modifier: 'Modifier',
-      flowInstance: 'FlowInstance',
       packages: 'Packages',
       flowInstId: 'FlowInstId',
       pipelineId: 'PipelineId',
       id: 'Id',
       modifyTime: 'ModifyTime',
+      flowInstance: 'FlowInstance',
     };
   }
 
@@ -6074,18 +6242,18 @@ export class GetPipelineInstHistoryResponseBodyDataDataList extends $tea.Model {
       status: 'string',
       createTime: 'number',
       statusName: 'string',
-      deletion: 'string',
-      pipelineConfigId: 'number',
       triggerMode: 'number',
+      pipelineConfigId: 'number',
+      deletion: 'string',
       creator: 'string',
       instNumber: 'number',
       modifier: 'string',
-      flowInstance: GetPipelineInstHistoryResponseBodyDataDataListFlowInstance,
       packages: 'string',
       flowInstId: 'number',
       pipelineId: 'number',
       id: 'number',
       modifyTime: 'number',
+      flowInstance: GetPipelineInstHistoryResponseBodyDataDataListFlowInstance,
     };
   }
 
@@ -6095,19 +6263,19 @@ export class GetPipelineInstHistoryResponseBodyDataDataList extends $tea.Model {
 }
 
 export class GetPipelineInstHistoryResponseBodyData extends $tea.Model {
-  dataList?: GetPipelineInstHistoryResponseBodyDataDataList[];
   total?: number;
+  dataList?: GetPipelineInstHistoryResponseBodyDataDataList[];
   static names(): { [key: string]: string } {
     return {
-      dataList: 'DataList',
       total: 'Total',
+      dataList: 'DataList',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      dataList: { 'type': 'array', 'itemType': GetPipelineInstHistoryResponseBodyDataDataList },
       total: 'number',
+      dataList: { 'type': 'array', 'itemType': GetPipelineInstHistoryResponseBodyDataDataList },
     };
   }
 
@@ -6118,21 +6286,21 @@ export class GetPipelineInstHistoryResponseBodyData extends $tea.Model {
 
 export class GetPipelineLogResponseBodyObjectBuildProcessNodes extends $tea.Model {
   status?: string;
-  nodeName?: string;
   nodeIndex?: number;
+  nodeName?: string;
   static names(): { [key: string]: string } {
     return {
       status: 'Status',
-      nodeName: 'NodeName',
       nodeIndex: 'NodeIndex',
+      nodeName: 'NodeName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       status: 'string',
-      nodeName: 'string',
       nodeIndex: 'number',
+      nodeName: 'string',
     };
   }
 
@@ -6142,24 +6310,24 @@ export class GetPipelineLogResponseBodyObjectBuildProcessNodes extends $tea.Mode
 }
 
 export class GetPipelineLogResponseBodyObject extends $tea.Model {
+  actionName?: string;
   startTime?: string;
   jobId?: number;
-  actionName?: string;
   buildProcessNodes?: GetPipelineLogResponseBodyObjectBuildProcessNodes[];
   static names(): { [key: string]: string } {
     return {
+      actionName: 'ActionName',
       startTime: 'StartTime',
       jobId: 'JobId',
-      actionName: 'ActionName',
       buildProcessNodes: 'BuildProcessNodes',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      actionName: 'string',
       startTime: 'string',
       jobId: 'number',
-      actionName: 'string',
       buildProcessNodes: { 'type': 'array', 'itemType': GetPipelineLogResponseBodyObjectBuildProcessNodes },
     };
   }
@@ -6170,22 +6338,22 @@ export class GetPipelineLogResponseBodyObject extends $tea.Model {
 }
 
 export class GetPipelineStepLogResponseBodyObject extends $tea.Model {
-  logs?: string;
   last?: number;
   more?: boolean;
+  logs?: string;
   static names(): { [key: string]: string } {
     return {
-      logs: 'Logs',
       last: 'Last',
       more: 'More',
+      logs: 'Logs',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      logs: 'string',
       last: 'number',
       more: 'boolean',
+      logs: 'string',
     };
   }
 
@@ -6196,21 +6364,21 @@ export class GetPipelineStepLogResponseBodyObject extends $tea.Model {
 
 export class GetPipleineLatestInstanceStatusResponseBodyObjectGroupsStagesComponents extends $tea.Model {
   status?: string;
-  jobId?: number;
   name?: string;
+  jobId?: number;
   static names(): { [key: string]: string } {
     return {
       status: 'Status',
-      jobId: 'JobId',
       name: 'Name',
+      jobId: 'JobId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       status: 'string',
-      jobId: 'number',
       name: 'string',
+      jobId: 'number',
     };
   }
 
@@ -6246,21 +6414,21 @@ export class GetPipleineLatestInstanceStatusResponseBodyObjectGroupsStages exten
 
 export class GetPipleineLatestInstanceStatusResponseBodyObjectGroups extends $tea.Model {
   status?: string;
-  stages?: GetPipleineLatestInstanceStatusResponseBodyObjectGroupsStages[];
   name?: string;
+  stages?: GetPipleineLatestInstanceStatusResponseBodyObjectGroupsStages[];
   static names(): { [key: string]: string } {
     return {
       status: 'Status',
-      stages: 'Stages',
       name: 'Name',
+      stages: 'Stages',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       status: 'string',
-      stages: { 'type': 'array', 'itemType': GetPipleineLatestInstanceStatusResponseBodyObjectGroupsStages },
       name: 'string',
+      stages: { 'type': 'array', 'itemType': GetPipleineLatestInstanceStatusResponseBodyObjectGroupsStages },
     };
   }
 
@@ -6294,10 +6462,14 @@ export class GetPipleineLatestInstanceStatusResponseBodyObject extends $tea.Mode
 export class GetProjectOptionResponseBodyObject extends $tea.Model {
   value?: string;
   name?: string;
+  scopeName?: string;
+  kind?: string;
   static names(): { [key: string]: string } {
     return {
       value: 'Value',
       name: 'Name',
+      scopeName: 'ScopeName',
+      kind: 'Kind',
     };
   }
 
@@ -6305,6 +6477,8 @@ export class GetProjectOptionResponseBodyObject extends $tea.Model {
     return {
       value: 'string',
       name: 'string',
+      scopeName: 'string',
+      kind: 'string',
     };
   }
 
@@ -6314,15 +6488,15 @@ export class GetProjectOptionResponseBodyObject extends $tea.Model {
 }
 
 export class GetTaskDetailActivityResponseBodyObject extends $tea.Model {
-  action?: string;
   updated?: string;
+  action?: string;
   title?: string;
   created?: string;
   content?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
-      action: 'Action',
       updated: 'Updated',
+      action: 'Action',
       title: 'Title',
       created: 'Created',
       content: 'Content',
@@ -6331,8 +6505,8 @@ export class GetTaskDetailActivityResponseBodyObject extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      action: 'string',
       updated: 'string',
+      action: 'string',
       title: 'string',
       created: 'string',
       content: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
@@ -6344,19 +6518,69 @@ export class GetTaskDetailActivityResponseBodyObject extends $tea.Model {
   }
 }
 
-export class GetTaskDetailBaseResponseBodyObjectTasklist extends $tea.Model {
+export class GetTaskDetailBaseResponseBodyObjectCustomfieldsValue extends $tea.Model {
+  id?: string;
   title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      title: 'Title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      title: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTaskDetailBaseResponseBodyObjectCustomfields extends $tea.Model {
+  type?: string;
+  customfieldId?: string;
+  value?: GetTaskDetailBaseResponseBodyObjectCustomfieldsValue[];
+  values?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      type: 'Type',
+      customfieldId: 'CustomfieldId',
+      value: 'Value',
+      values: 'Values',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      type: 'string',
+      customfieldId: 'string',
+      value: { 'type': 'array', 'itemType': GetTaskDetailBaseResponseBodyObjectCustomfieldsValue },
+      values: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTaskDetailBaseResponseBodyObjectSubtasks extends $tea.Model {
+  content?: string;
   id?: string;
   static names(): { [key: string]: string } {
     return {
-      title: 'Title',
+      content: 'Content',
       id: 'Id',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      title: 'string',
+      content: 'string',
       id: 'string',
     };
   }
@@ -6366,72 +6590,7 @@ export class GetTaskDetailBaseResponseBodyObjectTasklist extends $tea.Model {
   }
 }
 
-export class GetTaskDetailBaseResponseBodyObjectBadges extends $tea.Model {
-  likesCount?: number;
-  objectlinksCount?: number;
-  attachmentsCount?: number;
-  commentsCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      likesCount: 'LikesCount',
-      objectlinksCount: 'ObjectlinksCount',
-      attachmentsCount: 'AttachmentsCount',
-      commentsCount: 'CommentsCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      likesCount: 'number',
-      objectlinksCount: 'number',
-      attachmentsCount: 'number',
-      commentsCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetTaskDetailBaseResponseBodyObjectReminder extends $tea.Model {
-  type?: string;
-  members?: string[];
-  date?: string;
-  memberRoles?: string[];
-  method?: string;
-  creatorId?: string;
-  rules?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      type: 'Type',
-      members: 'Members',
-      date: 'Date',
-      memberRoles: 'MemberRoles',
-      method: 'Method',
-      creatorId: 'CreatorId',
-      rules: 'Rules',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      type: 'string',
-      members: { 'type': 'array', 'itemType': 'string' },
-      date: 'string',
-      memberRoles: { 'type': 'array', 'itemType': 'string' },
-      method: 'string',
-      creatorId: 'string',
-      rules: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetTaskDetailBaseResponseBodyObjectStage extends $tea.Model {
+export class GetTaskDetailBaseResponseBodyObjectInvolvers extends $tea.Model {
   name?: string;
   id?: string;
   static names(): { [key: string]: string } {
@@ -6481,23 +6640,73 @@ export class GetTaskDetailBaseResponseBodyObjectScenariofieldconfig extends $tea
   }
 }
 
-export class GetTaskDetailBaseResponseBodyObjectWorkTime extends $tea.Model {
-  usedTime?: number;
-  totalTime?: number;
-  unit?: string;
+export class GetTaskDetailBaseResponseBodyObjectExecutor extends $tea.Model {
+  avatarUrl?: string;
+  name?: string;
+  id?: string;
   static names(): { [key: string]: string } {
     return {
-      usedTime: 'UsedTime',
-      totalTime: 'TotalTime',
-      unit: 'Unit',
+      avatarUrl: 'AvatarUrl',
+      name: 'Name',
+      id: 'Id',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      usedTime: 'number',
-      totalTime: 'number',
-      unit: 'string',
+      avatarUrl: 'string',
+      name: 'string',
+      id: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTaskDetailBaseResponseBodyObjectTasklist extends $tea.Model {
+  id?: string;
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      title: 'Title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      title: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTaskDetailBaseResponseBodyObjectTaskflowstatus extends $tea.Model {
+  taskflowId?: string;
+  name?: string;
+  id?: string;
+  kind?: string;
+  static names(): { [key: string]: string } {
+    return {
+      taskflowId: 'TaskflowId',
+      name: 'Name',
+      id: 'Id',
+      kind: 'Kind',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskflowId: 'string',
+      name: 'string',
+      id: 'string',
+      kind: 'string',
     };
   }
 
@@ -6528,23 +6737,35 @@ export class GetTaskDetailBaseResponseBodyObjectCreator extends $tea.Model {
   }
 }
 
-export class GetTaskDetailBaseResponseBodyObjectExecutor extends $tea.Model {
-  avatarUrl?: string;
-  name?: string;
-  id?: string;
+export class GetTaskDetailBaseResponseBodyObjectReminder extends $tea.Model {
+  type?: string;
+  date?: string;
+  method?: string;
+  creatorId?: string;
+  memberRoles?: string[];
+  members?: string[];
+  rules?: string[];
   static names(): { [key: string]: string } {
     return {
-      avatarUrl: 'AvatarUrl',
-      name: 'Name',
-      id: 'Id',
+      type: 'Type',
+      date: 'Date',
+      method: 'Method',
+      creatorId: 'CreatorId',
+      memberRoles: 'MemberRoles',
+      members: 'Members',
+      rules: 'Rules',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      avatarUrl: 'string',
-      name: 'string',
-      id: 'string',
+      type: 'string',
+      date: 'string',
+      method: 'string',
+      creatorId: 'string',
+      memberRoles: { 'type': 'array', 'itemType': 'string' },
+      members: { 'type': 'array', 'itemType': 'string' },
+      rules: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -6575,7 +6796,60 @@ export class GetTaskDetailBaseResponseBodyObjectSubtaskCount extends $tea.Model 
   }
 }
 
-export class GetTaskDetailBaseResponseBodyObjectInvolvers extends $tea.Model {
+export class GetTaskDetailBaseResponseBodyObjectWorkTime extends $tea.Model {
+  usedTime?: number;
+  totalTime?: number;
+  unit?: string;
+  static names(): { [key: string]: string } {
+    return {
+      usedTime: 'UsedTime',
+      totalTime: 'TotalTime',
+      unit: 'Unit',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      usedTime: 'number',
+      totalTime: 'number',
+      unit: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTaskDetailBaseResponseBodyObjectBadges extends $tea.Model {
+  likesCount?: number;
+  objectlinksCount?: number;
+  attachmentsCount?: number;
+  commentsCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      likesCount: 'LikesCount',
+      objectlinksCount: 'ObjectlinksCount',
+      attachmentsCount: 'AttachmentsCount',
+      commentsCount: 'CommentsCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      likesCount: 'number',
+      objectlinksCount: 'number',
+      attachmentsCount: 'number',
+      commentsCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTaskDetailBaseResponseBodyObjectStage extends $tea.Model {
   name?: string;
   id?: string;
   static names(): { [key: string]: string } {
@@ -6587,106 +6861,6 @@ export class GetTaskDetailBaseResponseBodyObjectInvolvers extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      name: 'string',
-      id: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetTaskDetailBaseResponseBodyObjectSubtasks extends $tea.Model {
-  content?: string;
-  id?: string;
-  static names(): { [key: string]: string } {
-    return {
-      content: 'Content',
-      id: 'Id',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      content: 'string',
-      id: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetTaskDetailBaseResponseBodyObjectCustomfieldsValue extends $tea.Model {
-  title?: string;
-  id?: string;
-  static names(): { [key: string]: string } {
-    return {
-      title: 'Title',
-      id: 'Id',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      title: 'string',
-      id: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetTaskDetailBaseResponseBodyObjectCustomfields extends $tea.Model {
-  type?: string;
-  value?: GetTaskDetailBaseResponseBodyObjectCustomfieldsValue[];
-  values?: string[];
-  customfieldId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      type: 'Type',
-      value: 'Value',
-      values: 'Values',
-      customfieldId: 'CustomfieldId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      type: 'string',
-      value: { 'type': 'array', 'itemType': GetTaskDetailBaseResponseBodyObjectCustomfieldsValue },
-      values: { 'type': 'array', 'itemType': 'string' },
-      customfieldId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetTaskDetailBaseResponseBodyObjectTaskflowstatus extends $tea.Model {
-  taskflowId?: string;
-  kind?: string;
-  name?: string;
-  id?: string;
-  static names(): { [key: string]: string } {
-    return {
-      taskflowId: 'TaskflowId',
-      kind: 'Kind',
-      name: 'Name',
-      id: 'Id',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      taskflowId: 'string',
-      kind: 'string',
       name: 'string',
       id: 'string',
     };
@@ -6698,193 +6872,268 @@ export class GetTaskDetailBaseResponseBodyObjectTaskflowstatus extends $tea.Mode
 }
 
 export class GetTaskDetailBaseResponseBodyObject extends $tea.Model {
+  isFavorite?: boolean;
   organization?: string;
+  executorId?: string;
   scenariofieldconfigId?: string;
   projectId?: string;
   isTopInProject?: boolean;
-  tasklist?: GetTaskDetailBaseResponseBodyObjectTasklist;
-  badges?: GetTaskDetailBaseResponseBodyObjectBadges;
-  ancestorIds?: string[];
+  priority?: number;
   shareStatus?: number;
-  reminder?: GetTaskDetailBaseResponseBodyObjectReminder;
-  ancestors?: string[];
+  accomplished?: string;
   taskflowstatusId?: string;
-  updated?: string;
   note?: string;
+  updated?: string;
+  uniqueId?: number;
   isArchived?: boolean;
   content?: string;
+  commentsCount?: number;
   rating?: number;
+  recurrence?: string;
+  objectType?: string;
   progress?: number;
-  stage?: GetTaskDetailBaseResponseBodyObjectStage;
-  labels?: string[];
+  untilDate?: string;
   startDate?: string;
+  storyPoint?: string;
+  objectlinksCount?: number;
   sprint?: string;
   creatorId?: string;
+  source?: string;
   sourceId?: string;
   organizationId?: string;
   sourceDate?: string;
-  isFavorite?: boolean;
-  executorId?: string;
-  scenariofieldconfig?: GetTaskDetailBaseResponseBodyObjectScenariofieldconfig;
-  workTime?: GetTaskDetailBaseResponseBodyObjectWorkTime;
-  tagIds?: string[];
-  priority?: number;
-  creator?: GetTaskDetailBaseResponseBodyObjectCreator;
-  executor?: GetTaskDetailBaseResponseBodyObjectExecutor;
-  accomplished?: string;
-  involveMembers?: string[];
-  uniqueId?: number;
-  commentsCount?: number;
-  recurrence?: string;
-  objectType?: string;
-  subtaskCount?: GetTaskDetailBaseResponseBodyObjectSubtaskCount;
-  untilDate?: string;
-  storyPoint?: string;
-  objectlinksCount?: number;
-  source?: string;
   likesCount?: number;
   stageId?: string;
-  divisions?: string[];
   visible?: string;
   isDone?: boolean;
-  involvers?: GetTaskDetailBaseResponseBodyObjectInvolvers[];
   parent?: string;
   sprintId?: string;
-  dueDate?: string;
   attachmentsCount?: number;
-  subtasks?: GetTaskDetailBaseResponseBodyObjectSubtasks[];
-  customfields?: GetTaskDetailBaseResponseBodyObjectCustomfields[];
+  dueDate?: string;
   created?: string;
   taskId?: string;
-  taskflowstatus?: GetTaskDetailBaseResponseBodyObjectTaskflowstatus;
   id?: string;
+  customfields?: GetTaskDetailBaseResponseBodyObjectCustomfields[];
+  subtasks?: GetTaskDetailBaseResponseBodyObjectSubtasks[];
+  involvers?: GetTaskDetailBaseResponseBodyObjectInvolvers[];
+  labels?: string[];
+  divisions?: string[];
+  ancestors?: string[];
+  involveMembers?: string[];
+  tagIds?: string[];
+  ancestorIds?: string[];
+  scenariofieldconfig?: GetTaskDetailBaseResponseBodyObjectScenariofieldconfig;
+  executor?: GetTaskDetailBaseResponseBodyObjectExecutor;
+  tasklist?: GetTaskDetailBaseResponseBodyObjectTasklist;
+  taskflowstatus?: GetTaskDetailBaseResponseBodyObjectTaskflowstatus;
+  creator?: GetTaskDetailBaseResponseBodyObjectCreator;
+  reminder?: GetTaskDetailBaseResponseBodyObjectReminder;
+  subtaskCount?: GetTaskDetailBaseResponseBodyObjectSubtaskCount;
+  workTime?: GetTaskDetailBaseResponseBodyObjectWorkTime;
+  badges?: GetTaskDetailBaseResponseBodyObjectBadges;
+  stage?: GetTaskDetailBaseResponseBodyObjectStage;
   static names(): { [key: string]: string } {
     return {
+      isFavorite: 'IsFavorite',
       organization: 'Organization',
+      executorId: 'ExecutorId',
       scenariofieldconfigId: 'ScenariofieldconfigId',
       projectId: 'ProjectId',
       isTopInProject: 'IsTopInProject',
-      tasklist: 'Tasklist',
-      badges: 'Badges',
-      ancestorIds: 'AncestorIds',
+      priority: 'Priority',
       shareStatus: 'ShareStatus',
-      reminder: 'Reminder',
-      ancestors: 'Ancestors',
+      accomplished: 'Accomplished',
       taskflowstatusId: 'TaskflowstatusId',
-      updated: 'Updated',
       note: 'Note',
+      updated: 'Updated',
+      uniqueId: 'UniqueId',
       isArchived: 'IsArchived',
       content: 'Content',
+      commentsCount: 'CommentsCount',
       rating: 'Rating',
+      recurrence: 'Recurrence',
+      objectType: 'ObjectType',
       progress: 'Progress',
-      stage: 'Stage',
-      labels: 'Labels',
+      untilDate: 'UntilDate',
       startDate: 'StartDate',
+      storyPoint: 'StoryPoint',
+      objectlinksCount: 'ObjectlinksCount',
       sprint: 'Sprint',
       creatorId: 'CreatorId',
+      source: 'Source',
       sourceId: 'SourceId',
       organizationId: 'OrganizationId',
       sourceDate: 'SourceDate',
-      isFavorite: 'IsFavorite',
-      executorId: 'ExecutorId',
-      scenariofieldconfig: 'Scenariofieldconfig',
-      workTime: 'WorkTime',
-      tagIds: 'TagIds',
-      priority: 'Priority',
-      creator: 'Creator',
-      executor: 'Executor',
-      accomplished: 'Accomplished',
-      involveMembers: 'InvolveMembers',
-      uniqueId: 'UniqueId',
-      commentsCount: 'CommentsCount',
-      recurrence: 'Recurrence',
-      objectType: 'ObjectType',
-      subtaskCount: 'SubtaskCount',
-      untilDate: 'UntilDate',
-      storyPoint: 'StoryPoint',
-      objectlinksCount: 'ObjectlinksCount',
-      source: 'Source',
       likesCount: 'LikesCount',
       stageId: 'StageId',
-      divisions: 'Divisions',
       visible: 'Visible',
       isDone: 'IsDone',
-      involvers: 'Involvers',
       parent: 'Parent',
       sprintId: 'SprintId',
-      dueDate: 'DueDate',
       attachmentsCount: 'AttachmentsCount',
-      subtasks: 'Subtasks',
-      customfields: 'Customfields',
+      dueDate: 'DueDate',
       created: 'Created',
       taskId: 'TaskId',
-      taskflowstatus: 'Taskflowstatus',
       id: 'Id',
+      customfields: 'Customfields',
+      subtasks: 'Subtasks',
+      involvers: 'Involvers',
+      labels: 'Labels',
+      divisions: 'Divisions',
+      ancestors: 'Ancestors',
+      involveMembers: 'InvolveMembers',
+      tagIds: 'TagIds',
+      ancestorIds: 'AncestorIds',
+      scenariofieldconfig: 'Scenariofieldconfig',
+      executor: 'Executor',
+      tasklist: 'Tasklist',
+      taskflowstatus: 'Taskflowstatus',
+      creator: 'Creator',
+      reminder: 'Reminder',
+      subtaskCount: 'SubtaskCount',
+      workTime: 'WorkTime',
+      badges: 'Badges',
+      stage: 'Stage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      isFavorite: 'boolean',
       organization: 'string',
+      executorId: 'string',
       scenariofieldconfigId: 'string',
       projectId: 'string',
       isTopInProject: 'boolean',
-      tasklist: GetTaskDetailBaseResponseBodyObjectTasklist,
-      badges: GetTaskDetailBaseResponseBodyObjectBadges,
-      ancestorIds: { 'type': 'array', 'itemType': 'string' },
+      priority: 'number',
       shareStatus: 'number',
-      reminder: GetTaskDetailBaseResponseBodyObjectReminder,
-      ancestors: { 'type': 'array', 'itemType': 'string' },
+      accomplished: 'string',
       taskflowstatusId: 'string',
-      updated: 'string',
       note: 'string',
+      updated: 'string',
+      uniqueId: 'number',
       isArchived: 'boolean',
       content: 'string',
+      commentsCount: 'number',
       rating: 'number',
+      recurrence: 'string',
+      objectType: 'string',
       progress: 'number',
-      stage: GetTaskDetailBaseResponseBodyObjectStage,
-      labels: { 'type': 'array', 'itemType': 'string' },
+      untilDate: 'string',
       startDate: 'string',
+      storyPoint: 'string',
+      objectlinksCount: 'number',
       sprint: 'string',
       creatorId: 'string',
+      source: 'string',
       sourceId: 'string',
       organizationId: 'string',
       sourceDate: 'string',
-      isFavorite: 'boolean',
-      executorId: 'string',
-      scenariofieldconfig: GetTaskDetailBaseResponseBodyObjectScenariofieldconfig,
-      workTime: GetTaskDetailBaseResponseBodyObjectWorkTime,
-      tagIds: { 'type': 'array', 'itemType': 'string' },
-      priority: 'number',
-      creator: GetTaskDetailBaseResponseBodyObjectCreator,
-      executor: GetTaskDetailBaseResponseBodyObjectExecutor,
-      accomplished: 'string',
-      involveMembers: { 'type': 'array', 'itemType': 'string' },
-      uniqueId: 'number',
-      commentsCount: 'number',
-      recurrence: 'string',
-      objectType: 'string',
-      subtaskCount: GetTaskDetailBaseResponseBodyObjectSubtaskCount,
-      untilDate: 'string',
-      storyPoint: 'string',
-      objectlinksCount: 'number',
-      source: 'string',
       likesCount: 'number',
       stageId: 'string',
-      divisions: { 'type': 'array', 'itemType': 'string' },
       visible: 'string',
       isDone: 'boolean',
-      involvers: { 'type': 'array', 'itemType': GetTaskDetailBaseResponseBodyObjectInvolvers },
       parent: 'string',
       sprintId: 'string',
-      dueDate: 'string',
       attachmentsCount: 'number',
-      subtasks: { 'type': 'array', 'itemType': GetTaskDetailBaseResponseBodyObjectSubtasks },
-      customfields: { 'type': 'array', 'itemType': GetTaskDetailBaseResponseBodyObjectCustomfields },
+      dueDate: 'string',
       created: 'string',
       taskId: 'string',
-      taskflowstatus: GetTaskDetailBaseResponseBodyObjectTaskflowstatus,
       id: 'string',
+      customfields: { 'type': 'array', 'itemType': GetTaskDetailBaseResponseBodyObjectCustomfields },
+      subtasks: { 'type': 'array', 'itemType': GetTaskDetailBaseResponseBodyObjectSubtasks },
+      involvers: { 'type': 'array', 'itemType': GetTaskDetailBaseResponseBodyObjectInvolvers },
+      labels: { 'type': 'array', 'itemType': 'string' },
+      divisions: { 'type': 'array', 'itemType': 'string' },
+      ancestors: { 'type': 'array', 'itemType': 'string' },
+      involveMembers: { 'type': 'array', 'itemType': 'string' },
+      tagIds: { 'type': 'array', 'itemType': 'string' },
+      ancestorIds: { 'type': 'array', 'itemType': 'string' },
+      scenariofieldconfig: GetTaskDetailBaseResponseBodyObjectScenariofieldconfig,
+      executor: GetTaskDetailBaseResponseBodyObjectExecutor,
+      tasklist: GetTaskDetailBaseResponseBodyObjectTasklist,
+      taskflowstatus: GetTaskDetailBaseResponseBodyObjectTaskflowstatus,
+      creator: GetTaskDetailBaseResponseBodyObjectCreator,
+      reminder: GetTaskDetailBaseResponseBodyObjectReminder,
+      subtaskCount: GetTaskDetailBaseResponseBodyObjectSubtaskCount,
+      workTime: GetTaskDetailBaseResponseBodyObjectWorkTime,
+      badges: GetTaskDetailBaseResponseBodyObjectBadges,
+      stage: GetTaskDetailBaseResponseBodyObjectStage,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTaskListFilterResponseBodyObjectResultCustomfieldsValue extends $tea.Model {
+  id?: string;
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      title: 'Title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      title: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTaskListFilterResponseBodyObjectResultCustomfields extends $tea.Model {
+  type?: string;
+  customfieldId?: string;
+  values?: string;
+  value?: GetTaskListFilterResponseBodyObjectResultCustomfieldsValue[];
+  static names(): { [key: string]: string } {
+    return {
+      type: 'Type',
+      customfieldId: 'CustomfieldId',
+      values: 'Values',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      type: 'string',
+      customfieldId: 'string',
+      values: 'string',
+      value: { 'type': 'array', 'itemType': GetTaskListFilterResponseBodyObjectResultCustomfieldsValue },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTaskListFilterResponseBodyObjectResultWorkTime extends $tea.Model {
+  usedTime?: number;
+  totalTime?: number;
+  unit?: string;
+  static names(): { [key: string]: string } {
+    return {
+      usedTime: 'UsedTime',
+      totalTime: 'TotalTime',
+      unit: 'Unit',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      usedTime: 'number',
+      totalTime: 'number',
+      unit: 'string',
     };
   }
 
@@ -6921,18 +7170,40 @@ export class GetTaskListFilterResponseBodyObjectResultBadges extends $tea.Model 
   }
 }
 
+export class GetTaskListFilterResponseBodyObjectResultSubtaskCount extends $tea.Model {
+  done?: number;
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      done: 'Done',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      done: 'number',
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetTaskListFilterResponseBodyObjectResultReminder extends $tea.Model {
   type?: string;
-  members?: string[];
   date?: string;
   creatorId?: string;
+  members?: string[];
   rules?: string[];
   static names(): { [key: string]: string } {
     return {
       type: 'Type',
-      members: 'Members',
       date: 'Date',
       creatorId: 'CreatorId',
+      members: 'Members',
       rules: 'Rules',
     };
   }
@@ -6940,10 +7211,35 @@ export class GetTaskListFilterResponseBodyObjectResultReminder extends $tea.Mode
   static types(): { [key: string]: any } {
     return {
       type: 'string',
-      members: { 'type': 'array', 'itemType': 'string' },
       date: 'string',
       creatorId: 'string',
+      members: { 'type': 'array', 'itemType': 'string' },
       rules: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTaskListFilterResponseBodyObjectResultCreator extends $tea.Model {
+  name?: string;
+  avatarUrl?: string;
+  id?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      avatarUrl: 'AvatarUrl',
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      avatarUrl: 'string',
+      id: 'string',
     };
   }
 
@@ -6974,72 +7270,22 @@ export class GetTaskListFilterResponseBodyObjectResultStage extends $tea.Model {
   }
 }
 
-export class GetTaskListFilterResponseBodyObjectResultWorkTime extends $tea.Model {
-  usedTime?: number;
-  totalTime?: number;
-  unit?: string;
-  static names(): { [key: string]: string } {
-    return {
-      usedTime: 'UsedTime',
-      totalTime: 'TotalTime',
-      unit: 'Unit',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      usedTime: 'number',
-      totalTime: 'number',
-      unit: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetTaskListFilterResponseBodyObjectResultCreator extends $tea.Model {
-  avatarUrl?: string;
-  name?: string;
-  id?: string;
-  static names(): { [key: string]: string } {
-    return {
-      avatarUrl: 'AvatarUrl',
-      name: 'Name',
-      id: 'Id',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      avatarUrl: 'string',
-      name: 'string',
-      id: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class GetTaskListFilterResponseBodyObjectResultExecutor extends $tea.Model {
-  avatarUrl?: string;
   name?: string;
+  avatarUrl?: string;
   id?: string;
   static names(): { [key: string]: string } {
     return {
-      avatarUrl: 'AvatarUrl',
       name: 'Name',
+      avatarUrl: 'AvatarUrl',
       id: 'Id',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      avatarUrl: 'string',
       name: 'string',
+      avatarUrl: 'string',
       id: 'string',
     };
   }
@@ -7051,16 +7297,16 @@ export class GetTaskListFilterResponseBodyObjectResultExecutor extends $tea.Mode
 
 export class GetTaskListFilterResponseBodyObjectResultTaskFlowStatus extends $tea.Model {
   taskFlowId?: string;
+  name?: string;
   pos?: number;
   kind?: string;
-  name?: string;
   id?: string;
   static names(): { [key: string]: string } {
     return {
       taskFlowId: 'TaskFlowId',
+      name: 'Name',
       pos: 'Pos',
       kind: 'Kind',
-      name: 'Name',
       id: 'Id',
     };
   }
@@ -7068,82 +7314,10 @@ export class GetTaskListFilterResponseBodyObjectResultTaskFlowStatus extends $te
   static types(): { [key: string]: any } {
     return {
       taskFlowId: 'string',
+      name: 'string',
       pos: 'number',
       kind: 'string',
-      name: 'string',
       id: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetTaskListFilterResponseBodyObjectResultSubtaskCount extends $tea.Model {
-  done?: number;
-  total?: number;
-  static names(): { [key: string]: string } {
-    return {
-      done: 'Done',
-      total: 'Total',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      done: 'number',
-      total: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetTaskListFilterResponseBodyObjectResultCustomfieldsValue extends $tea.Model {
-  title?: string;
-  id?: string;
-  static names(): { [key: string]: string } {
-    return {
-      title: 'Title',
-      id: 'Id',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      title: 'string',
-      id: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetTaskListFilterResponseBodyObjectResultCustomfields extends $tea.Model {
-  type?: string;
-  value?: GetTaskListFilterResponseBodyObjectResultCustomfieldsValue[];
-  values?: string;
-  customfieldId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      type: 'Type',
-      value: 'Value',
-      values: 'Values',
-      customfieldId: 'CustomfieldId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      type: 'string',
-      value: { 'type': 'array', 'itemType': GetTaskListFilterResponseBodyObjectResultCustomfieldsValue },
-      values: 'string',
-      customfieldId: 'string',
     };
   }
 
@@ -7153,184 +7327,184 @@ export class GetTaskListFilterResponseBodyObjectResultCustomfields extends $tea.
 }
 
 export class GetTaskListFilterResponseBodyObjectResult extends $tea.Model {
+  isFavorite?: boolean;
+  executorId?: string;
   projectId?: string;
+  priority?: number;
   isTopInProject?: boolean;
-  badges?: GetTaskListFilterResponseBodyObjectResultBadges;
-  ancestorIds?: string[];
+  scenariofFeldConfigId?: string;
   shareStatus?: number;
-  reminder?: GetTaskListFilterResponseBodyObjectResultReminder;
+  accomplished?: string;
+  taskListId?: string;
   note?: string;
   updated?: string;
+  uniqueId?: number;
   isArchived?: boolean;
   content?: string;
   rating?: number;
+  commentsCount?: number;
   taskFlowStatusId?: string;
+  recurrence?: string;
+  objectType?: string;
   progress?: number;
-  stage?: GetTaskListFilterResponseBodyObjectResultStage;
-  labels?: string[];
+  untilDate?: string;
   pos?: number;
+  storyPoint?: string;
+  objectlinksCount?: number;
   startDate?: string;
   sprint?: string;
   creatorId?: string;
-  sourceId?: string;
-  organizationId?: string;
-  sourceDate?: string;
-  isFavorite?: boolean;
-  executorId?: string;
-  workTime?: GetTaskListFilterResponseBodyObjectResultWorkTime;
-  tagIds?: string[];
-  priority?: number;
-  scenariofFeldConfigId?: string;
-  creator?: GetTaskListFilterResponseBodyObjectResultCreator;
-  executor?: GetTaskListFilterResponseBodyObjectResultExecutor;
-  accomplished?: string;
-  taskListId?: string;
-  involveMembers?: string[];
-  uniqueId?: number;
-  taskFlowStatus?: GetTaskListFilterResponseBodyObjectResultTaskFlowStatus;
-  commentsCount?: number;
-  recurrence?: string;
-  objectType?: string;
-  subtaskCount?: GetTaskListFilterResponseBodyObjectResultSubtaskCount;
-  untilDate?: string;
-  storyPoint?: string;
-  objectlinksCount?: number;
   source?: string;
+  sourceId?: string;
+  sourceDate?: string;
+  organizationId?: string;
   likesCount?: number;
   stageId?: string;
-  divisions?: string[];
   visible?: string;
   isDone?: boolean;
   parent?: string;
   sprintId?: string;
-  dueDate?: string;
   attachmentsCount?: number;
-  customfields?: GetTaskListFilterResponseBodyObjectResultCustomfields[];
-  created?: string;
+  dueDate?: string;
   taskUniqueId?: string;
+  created?: string;
   taskId?: string;
   id?: string;
+  customfields?: GetTaskListFilterResponseBodyObjectResultCustomfields[];
+  involveMembers?: string[];
+  tagIds?: string[];
+  labels?: string[];
+  divisions?: string[];
+  ancestorIds?: string[];
+  workTime?: GetTaskListFilterResponseBodyObjectResultWorkTime;
+  badges?: GetTaskListFilterResponseBodyObjectResultBadges;
+  subtaskCount?: GetTaskListFilterResponseBodyObjectResultSubtaskCount;
+  reminder?: GetTaskListFilterResponseBodyObjectResultReminder;
+  creator?: GetTaskListFilterResponseBodyObjectResultCreator;
+  stage?: GetTaskListFilterResponseBodyObjectResultStage;
+  executor?: GetTaskListFilterResponseBodyObjectResultExecutor;
+  taskFlowStatus?: GetTaskListFilterResponseBodyObjectResultTaskFlowStatus;
   static names(): { [key: string]: string } {
     return {
+      isFavorite: 'IsFavorite',
+      executorId: 'ExecutorId',
       projectId: 'ProjectId',
+      priority: 'Priority',
       isTopInProject: 'IsTopInProject',
-      badges: 'Badges',
-      ancestorIds: 'AncestorIds',
+      scenariofFeldConfigId: 'ScenariofFeldConfigId',
       shareStatus: 'ShareStatus',
-      reminder: 'Reminder',
+      accomplished: 'Accomplished',
+      taskListId: 'TaskListId',
       note: 'Note',
       updated: 'Updated',
+      uniqueId: 'UniqueId',
       isArchived: 'IsArchived',
       content: 'Content',
       rating: 'Rating',
+      commentsCount: 'CommentsCount',
       taskFlowStatusId: 'TaskFlowStatusId',
+      recurrence: 'Recurrence',
+      objectType: 'ObjectType',
       progress: 'Progress',
-      stage: 'Stage',
-      labels: 'Labels',
+      untilDate: 'UntilDate',
       pos: 'Pos',
+      storyPoint: 'StoryPoint',
+      objectlinksCount: 'ObjectlinksCount',
       startDate: 'StartDate',
       sprint: 'Sprint',
       creatorId: 'CreatorId',
-      sourceId: 'SourceId',
-      organizationId: 'OrganizationId',
-      sourceDate: 'SourceDate',
-      isFavorite: 'IsFavorite',
-      executorId: 'ExecutorId',
-      workTime: 'WorkTime',
-      tagIds: 'TagIds',
-      priority: 'Priority',
-      scenariofFeldConfigId: 'ScenariofFeldConfigId',
-      creator: 'Creator',
-      executor: 'Executor',
-      accomplished: 'Accomplished',
-      taskListId: 'TaskListId',
-      involveMembers: 'InvolveMembers',
-      uniqueId: 'UniqueId',
-      taskFlowStatus: 'TaskFlowStatus',
-      commentsCount: 'CommentsCount',
-      recurrence: 'Recurrence',
-      objectType: 'ObjectType',
-      subtaskCount: 'SubtaskCount',
-      untilDate: 'UntilDate',
-      storyPoint: 'StoryPoint',
-      objectlinksCount: 'ObjectlinksCount',
       source: 'Source',
+      sourceId: 'SourceId',
+      sourceDate: 'SourceDate',
+      organizationId: 'OrganizationId',
       likesCount: 'LikesCount',
       stageId: 'StageId',
-      divisions: 'Divisions',
       visible: 'Visible',
       isDone: 'IsDone',
       parent: 'Parent',
       sprintId: 'SprintId',
-      dueDate: 'DueDate',
       attachmentsCount: 'AttachmentsCount',
-      customfields: 'Customfields',
-      created: 'Created',
+      dueDate: 'DueDate',
       taskUniqueId: 'TaskUniqueId',
+      created: 'Created',
       taskId: 'TaskId',
       id: 'Id',
+      customfields: 'Customfields',
+      involveMembers: 'InvolveMembers',
+      tagIds: 'TagIds',
+      labels: 'Labels',
+      divisions: 'Divisions',
+      ancestorIds: 'AncestorIds',
+      workTime: 'WorkTime',
+      badges: 'Badges',
+      subtaskCount: 'SubtaskCount',
+      reminder: 'Reminder',
+      creator: 'Creator',
+      stage: 'Stage',
+      executor: 'Executor',
+      taskFlowStatus: 'TaskFlowStatus',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      isFavorite: 'boolean',
+      executorId: 'string',
       projectId: 'string',
+      priority: 'number',
       isTopInProject: 'boolean',
-      badges: GetTaskListFilterResponseBodyObjectResultBadges,
-      ancestorIds: { 'type': 'array', 'itemType': 'string' },
+      scenariofFeldConfigId: 'string',
       shareStatus: 'number',
-      reminder: GetTaskListFilterResponseBodyObjectResultReminder,
+      accomplished: 'string',
+      taskListId: 'string',
       note: 'string',
       updated: 'string',
+      uniqueId: 'number',
       isArchived: 'boolean',
       content: 'string',
       rating: 'number',
+      commentsCount: 'number',
       taskFlowStatusId: 'string',
+      recurrence: 'string',
+      objectType: 'string',
       progress: 'number',
-      stage: GetTaskListFilterResponseBodyObjectResultStage,
-      labels: { 'type': 'array', 'itemType': 'string' },
+      untilDate: 'string',
       pos: 'number',
+      storyPoint: 'string',
+      objectlinksCount: 'number',
       startDate: 'string',
       sprint: 'string',
       creatorId: 'string',
-      sourceId: 'string',
-      organizationId: 'string',
-      sourceDate: 'string',
-      isFavorite: 'boolean',
-      executorId: 'string',
-      workTime: GetTaskListFilterResponseBodyObjectResultWorkTime,
-      tagIds: { 'type': 'array', 'itemType': 'string' },
-      priority: 'number',
-      scenariofFeldConfigId: 'string',
-      creator: GetTaskListFilterResponseBodyObjectResultCreator,
-      executor: GetTaskListFilterResponseBodyObjectResultExecutor,
-      accomplished: 'string',
-      taskListId: 'string',
-      involveMembers: { 'type': 'array', 'itemType': 'string' },
-      uniqueId: 'number',
-      taskFlowStatus: GetTaskListFilterResponseBodyObjectResultTaskFlowStatus,
-      commentsCount: 'number',
-      recurrence: 'string',
-      objectType: 'string',
-      subtaskCount: GetTaskListFilterResponseBodyObjectResultSubtaskCount,
-      untilDate: 'string',
-      storyPoint: 'string',
-      objectlinksCount: 'number',
       source: 'string',
+      sourceId: 'string',
+      sourceDate: 'string',
+      organizationId: 'string',
       likesCount: 'number',
       stageId: 'string',
-      divisions: { 'type': 'array', 'itemType': 'string' },
       visible: 'string',
       isDone: 'boolean',
       parent: 'string',
       sprintId: 'string',
-      dueDate: 'string',
       attachmentsCount: 'number',
-      customfields: { 'type': 'array', 'itemType': GetTaskListFilterResponseBodyObjectResultCustomfields },
-      created: 'string',
+      dueDate: 'string',
       taskUniqueId: 'string',
+      created: 'string',
       taskId: 'string',
       id: 'string',
+      customfields: { 'type': 'array', 'itemType': GetTaskListFilterResponseBodyObjectResultCustomfields },
+      involveMembers: { 'type': 'array', 'itemType': 'string' },
+      tagIds: { 'type': 'array', 'itemType': 'string' },
+      labels: { 'type': 'array', 'itemType': 'string' },
+      divisions: { 'type': 'array', 'itemType': 'string' },
+      ancestorIds: { 'type': 'array', 'itemType': 'string' },
+      workTime: GetTaskListFilterResponseBodyObjectResultWorkTime,
+      badges: GetTaskListFilterResponseBodyObjectResultBadges,
+      subtaskCount: GetTaskListFilterResponseBodyObjectResultSubtaskCount,
+      reminder: GetTaskListFilterResponseBodyObjectResultReminder,
+      creator: GetTaskListFilterResponseBodyObjectResultCreator,
+      stage: GetTaskListFilterResponseBodyObjectResultStage,
+      executor: GetTaskListFilterResponseBodyObjectResultExecutor,
+      taskFlowStatus: GetTaskListFilterResponseBodyObjectResultTaskFlowStatus,
     };
   }
 
@@ -7341,21 +7515,21 @@ export class GetTaskListFilterResponseBodyObjectResult extends $tea.Model {
 
 export class GetTaskListFilterResponseBodyObject extends $tea.Model {
   nextPageToken?: string;
-  result?: GetTaskListFilterResponseBodyObjectResult[];
   totalSize?: number;
+  result?: GetTaskListFilterResponseBodyObjectResult[];
   static names(): { [key: string]: string } {
     return {
       nextPageToken: 'NextPageToken',
-      result: 'Result',
       totalSize: 'TotalSize',
+      result: 'Result',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       nextPageToken: 'string',
-      result: { 'type': 'array', 'itemType': GetTaskListFilterResponseBodyObjectResult },
       totalSize: 'number',
+      result: { 'type': 'array', 'itemType': GetTaskListFilterResponseBodyObjectResult },
     };
   }
 
@@ -7441,6 +7615,92 @@ export class ListCommonGroupResponseBodyObject extends $tea.Model {
   }
 }
 
+export class ListDevopsProjectsResponseBodyObjectResult extends $tea.Model {
+  logo?: string;
+  isStar?: boolean;
+  creatorId?: string;
+  membersCount?: number;
+  organizationId?: string;
+  visibility?: string;
+  isTemplate?: boolean;
+  description?: string;
+  updated?: string;
+  created?: string;
+  isArchived?: boolean;
+  name?: string;
+  isPublic?: boolean;
+  tasksCount?: number;
+  roleId?: number;
+  id?: string;
+  static names(): { [key: string]: string } {
+    return {
+      logo: 'Logo',
+      isStar: 'IsStar',
+      creatorId: 'CreatorId',
+      membersCount: 'MembersCount',
+      organizationId: 'OrganizationId',
+      visibility: 'Visibility',
+      isTemplate: 'IsTemplate',
+      description: 'Description',
+      updated: 'Updated',
+      created: 'Created',
+      isArchived: 'IsArchived',
+      name: 'Name',
+      isPublic: 'IsPublic',
+      tasksCount: 'TasksCount',
+      roleId: 'RoleId',
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      logo: 'string',
+      isStar: 'boolean',
+      creatorId: 'string',
+      membersCount: 'number',
+      organizationId: 'string',
+      visibility: 'string',
+      isTemplate: 'boolean',
+      description: 'string',
+      updated: 'string',
+      created: 'string',
+      isArchived: 'boolean',
+      name: 'string',
+      isPublic: 'boolean',
+      tasksCount: 'number',
+      roleId: 'number',
+      id: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDevopsProjectsResponseBodyObject extends $tea.Model {
+  nextPageToken?: string;
+  result?: ListDevopsProjectsResponseBodyObjectResult[];
+  static names(): { [key: string]: string } {
+    return {
+      nextPageToken: 'NextPageToken',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nextPageToken: 'string',
+      result: { 'type': 'array', 'itemType': ListDevopsProjectsResponseBodyObjectResult },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListDevopsProjectSprintsResponseBodyObjectPlanToDo extends $tea.Model {
   tasks?: number;
   workTimes?: number;
@@ -7468,48 +7728,48 @@ export class ListDevopsProjectSprintsResponseBodyObjectPlanToDo extends $tea.Mod
 
 export class ListDevopsProjectSprintsResponseBodyObject extends $tea.Model {
   status?: string;
-  projectId?: string;
-  startDate?: string;
-  creatorId?: string;
   accomplished?: string;
+  projectId?: string;
   isDeleted?: boolean;
+  startDate?: string;
   updated?: string;
+  creatorId?: string;
   dueDate?: string;
   name?: string;
   created?: string;
-  planToDo?: ListDevopsProjectSprintsResponseBodyObjectPlanToDo;
   id?: string;
+  planToDo?: ListDevopsProjectSprintsResponseBodyObjectPlanToDo;
   static names(): { [key: string]: string } {
     return {
       status: 'Status',
-      projectId: 'ProjectId',
-      startDate: 'StartDate',
-      creatorId: 'CreatorId',
       accomplished: 'Accomplished',
+      projectId: 'ProjectId',
       isDeleted: 'IsDeleted',
+      startDate: 'StartDate',
       updated: 'Updated',
+      creatorId: 'CreatorId',
       dueDate: 'DueDate',
       name: 'Name',
       created: 'Created',
-      planToDo: 'PlanToDo',
       id: 'Id',
+      planToDo: 'PlanToDo',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       status: 'string',
-      projectId: 'string',
-      startDate: 'string',
-      creatorId: 'string',
       accomplished: 'string',
+      projectId: 'string',
       isDeleted: 'boolean',
+      startDate: 'string',
       updated: 'string',
+      creatorId: 'string',
       dueDate: 'string',
       name: 'string',
       created: 'string',
-      planToDo: ListDevopsProjectSprintsResponseBodyObjectPlanToDo,
       id: 'string',
+      planToDo: ListDevopsProjectSprintsResponseBodyObjectPlanToDo,
     };
   }
 
@@ -7672,10 +7932,12 @@ export class ListDevopsProjectTasksResponseBodyObject extends $tea.Model {
 
 export class ListDevopsScenarioFieldConfigResponseBodyObject extends $tea.Model {
   type?: string;
+  name?: string;
   id?: string;
   static names(): { [key: string]: string } {
     return {
       type: 'Type',
+      name: 'Name',
       id: 'Id',
     };
   }
@@ -7683,6 +7945,7 @@ export class ListDevopsScenarioFieldConfigResponseBodyObject extends $tea.Model 
   static types(): { [key: string]: any } {
     return {
       type: 'string',
+      name: 'string',
       id: 'string',
     };
   }
@@ -7716,27 +7979,27 @@ export class ListProjectCustomFieldsResponseBodyObjectValues extends $tea.Model 
 
 export class ListProjectCustomFieldsResponseBodyObject extends $tea.Model {
   type?: string;
-  subtype?: string;
-  values?: ListProjectCustomFieldsResponseBodyObjectValues[];
   customFieldId?: string;
+  subtype?: string;
   name?: string;
+  values?: ListProjectCustomFieldsResponseBodyObjectValues[];
   static names(): { [key: string]: string } {
     return {
       type: 'Type',
-      subtype: 'Subtype',
-      values: 'Values',
       customFieldId: 'CustomFieldId',
+      subtype: 'Subtype',
       name: 'Name',
+      values: 'Values',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       type: 'string',
-      subtype: 'string',
-      values: { 'type': 'array', 'itemType': ListProjectCustomFieldsResponseBodyObjectValues },
       customFieldId: 'string',
+      subtype: 'string',
       name: 'string',
+      values: { 'type': 'array', 'itemType': ListProjectCustomFieldsResponseBodyObjectValues },
     };
   }
 
@@ -7985,6 +8248,19 @@ export default class Client extends OpenApi {
   async deleteCommonGroup(request: DeleteCommonGroupRequest): Promise<DeleteCommonGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteCommonGroupWithOptions(request, runtime);
+  }
+
+  async deleteDevopsOrganizationWithOptions(request: DeleteDevopsOrganizationRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDevopsOrganizationResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DeleteDevopsOrganizationResponse>(await this.doRPCRequest("DeleteDevopsOrganization", "2020-03-03", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteDevopsOrganizationResponse({}));
+  }
+
+  async deleteDevopsOrganization(request: DeleteDevopsOrganizationRequest): Promise<DeleteDevopsOrganizationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteDevopsOrganizationWithOptions(request, runtime);
   }
 
   async deleteDevopsOrganizationMembersWithOptions(request: DeleteDevopsOrganizationMembersRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDevopsOrganizationMembersResponse> {
@@ -8401,6 +8677,19 @@ export default class Client extends OpenApi {
   async listCredentials(request: ListCredentialsRequest): Promise<ListCredentialsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listCredentialsWithOptions(request, runtime);
+  }
+
+  async listDevopsProjectsWithOptions(request: ListDevopsProjectsRequest, runtime: $Util.RuntimeOptions): Promise<ListDevopsProjectsResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<ListDevopsProjectsResponse>(await this.doRPCRequest("ListDevopsProjects", "2020-03-03", "HTTPS", "POST", "AK", "json", req, runtime), new ListDevopsProjectsResponse({}));
+  }
+
+  async listDevopsProjects(request: ListDevopsProjectsRequest): Promise<ListDevopsProjectsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listDevopsProjectsWithOptions(request, runtime);
   }
 
   async listDevopsProjectSprintsWithOptions(request: ListDevopsProjectSprintsRequest, runtime: $Util.RuntimeOptions): Promise<ListDevopsProjectSprintsResponse> {
