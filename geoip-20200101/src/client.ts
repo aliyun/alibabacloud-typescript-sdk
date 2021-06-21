@@ -4,7 +4,6 @@
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
-import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
@@ -198,10 +197,12 @@ export class DescribeGeoipInstanceDataUrlRequest extends $tea.Model {
 export class DescribeGeoipInstanceDataUrlResponseBody extends $tea.Model {
   requestId?: string;
   downloadUrl?: string;
+  fixedDomainDownloadUrl?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
       downloadUrl: 'DownloadUrl',
+      fixedDomainDownloadUrl: 'FixedDomainDownloadUrl',
     };
   }
 
@@ -209,6 +210,7 @@ export class DescribeGeoipInstanceDataUrlResponseBody extends $tea.Model {
     return {
       requestId: 'string',
       downloadUrl: 'string',
+      fixedDomainDownloadUrl: 'string',
     };
   }
 
@@ -753,25 +755,10 @@ export default class Client extends OpenApi {
 
   async describeGeoipInstanceWithOptions(request: DescribeGeoipInstanceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeGeoipInstanceResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["Lang"] = request.lang;
-    query["InstanceId"] = request.instanceId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DescribeGeoipInstance",
-      version: "2020-01-01",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeGeoipInstanceResponse>(await this.callApi(params, req, runtime), new DescribeGeoipInstanceResponse({}));
+    return $tea.cast<DescribeGeoipInstanceResponse>(await this.doRPCRequest("DescribeGeoipInstance", "2020-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeGeoipInstanceResponse({}));
   }
 
   async describeGeoipInstance(request: DescribeGeoipInstanceRequest): Promise<DescribeGeoipInstanceResponse> {
@@ -781,26 +768,10 @@ export default class Client extends OpenApi {
 
   async describeGeoipInstanceDataInfosWithOptions(request: DescribeGeoipInstanceDataInfosRequest, runtime: $Util.RuntimeOptions): Promise<DescribeGeoipInstanceDataInfosResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["Lang"] = request.lang;
-    query["InstanceId"] = request.instanceId;
-    query["LocationDataType"] = request.locationDataType;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DescribeGeoipInstanceDataInfos",
-      version: "2020-01-01",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeGeoipInstanceDataInfosResponse>(await this.callApi(params, req, runtime), new DescribeGeoipInstanceDataInfosResponse({}));
+    return $tea.cast<DescribeGeoipInstanceDataInfosResponse>(await this.doRPCRequest("DescribeGeoipInstanceDataInfos", "2020-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeGeoipInstanceDataInfosResponse({}));
   }
 
   async describeGeoipInstanceDataInfos(request: DescribeGeoipInstanceDataInfosRequest): Promise<DescribeGeoipInstanceDataInfosResponse> {
@@ -810,26 +781,10 @@ export default class Client extends OpenApi {
 
   async describeGeoipInstanceDataUrlWithOptions(request: DescribeGeoipInstanceDataUrlRequest, runtime: $Util.RuntimeOptions): Promise<DescribeGeoipInstanceDataUrlResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["Lang"] = request.lang;
-    query["InstanceId"] = request.instanceId;
-    query["DataType"] = request.dataType;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DescribeGeoipInstanceDataUrl",
-      version: "2020-01-01",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeGeoipInstanceDataUrlResponse>(await this.callApi(params, req, runtime), new DescribeGeoipInstanceDataUrlResponse({}));
+    return $tea.cast<DescribeGeoipInstanceDataUrlResponse>(await this.doRPCRequest("DescribeGeoipInstanceDataUrl", "2020-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeGeoipInstanceDataUrlResponse({}));
   }
 
   async describeGeoipInstanceDataUrl(request: DescribeGeoipInstanceDataUrlRequest): Promise<DescribeGeoipInstanceDataUrlResponse> {
@@ -839,24 +794,10 @@ export default class Client extends OpenApi {
 
   async describeGeoipInstancesWithOptions(request: DescribeGeoipInstancesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeGeoipInstancesResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["Lang"] = request.lang;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DescribeGeoipInstances",
-      version: "2020-01-01",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeGeoipInstancesResponse>(await this.callApi(params, req, runtime), new DescribeGeoipInstancesResponse({}));
+    return $tea.cast<DescribeGeoipInstancesResponse>(await this.doRPCRequest("DescribeGeoipInstances", "2020-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeGeoipInstancesResponse({}));
   }
 
   async describeGeoipInstances(request: DescribeGeoipInstancesRequest): Promise<DescribeGeoipInstancesResponse> {
@@ -866,27 +807,10 @@ export default class Client extends OpenApi {
 
   async describeGeoipInstanceStatisticsWithOptions(request: DescribeGeoipInstanceStatisticsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeGeoipInstanceStatisticsResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["Lang"] = request.lang;
-    query["InstanceId"] = request.instanceId;
-    query["StartDate"] = request.startDate;
-    query["EndDate"] = request.endDate;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DescribeGeoipInstanceStatistics",
-      version: "2020-01-01",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeGeoipInstanceStatisticsResponse>(await this.callApi(params, req, runtime), new DescribeGeoipInstanceStatisticsResponse({}));
+    return $tea.cast<DescribeGeoipInstanceStatisticsResponse>(await this.doRPCRequest("DescribeGeoipInstanceStatistics", "2020-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeGeoipInstanceStatisticsResponse({}));
   }
 
   async describeGeoipInstanceStatistics(request: DescribeGeoipInstanceStatisticsRequest): Promise<DescribeGeoipInstanceStatisticsResponse> {
@@ -896,25 +820,10 @@ export default class Client extends OpenApi {
 
   async describeIpv4LocationWithOptions(request: DescribeIpv4LocationRequest, runtime: $Util.RuntimeOptions): Promise<DescribeIpv4LocationResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["Lang"] = request.lang;
-    query["Ip"] = request.ip;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DescribeIpv4Location",
-      version: "2020-01-01",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeIpv4LocationResponse>(await this.callApi(params, req, runtime), new DescribeIpv4LocationResponse({}));
+    return $tea.cast<DescribeIpv4LocationResponse>(await this.doRPCRequest("DescribeIpv4Location", "2020-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeIpv4LocationResponse({}));
   }
 
   async describeIpv4Location(request: DescribeIpv4LocationRequest): Promise<DescribeIpv4LocationResponse> {
@@ -924,25 +833,10 @@ export default class Client extends OpenApi {
 
   async describeIpv6LocationWithOptions(request: DescribeIpv6LocationRequest, runtime: $Util.RuntimeOptions): Promise<DescribeIpv6LocationResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["Lang"] = request.lang;
-    query["Ip"] = request.ip;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DescribeIpv6Location",
-      version: "2020-01-01",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeIpv6LocationResponse>(await this.callApi(params, req, runtime), new DescribeIpv6LocationResponse({}));
+    return $tea.cast<DescribeIpv6LocationResponse>(await this.doRPCRequest("DescribeIpv6Location", "2020-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeIpv6LocationResponse({}));
   }
 
   async describeIpv6Location(request: DescribeIpv6LocationRequest): Promise<DescribeIpv6LocationResponse> {
