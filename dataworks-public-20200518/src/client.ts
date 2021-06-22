@@ -10,6 +10,121 @@ import FileForm, * as $FileForm from '@alicloud/tea-fileform';
 import { Readable } from 'stream';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class CreateDISyncTaskRequest extends $tea.Model {
+  projectId: number;
+  taskType: string;
+  taskContent: string;
+  taskParam: string;
+  taskName: string;
+  clientToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      projectId: 'ProjectId',
+      taskType: 'TaskType',
+      taskContent: 'TaskContent',
+      taskParam: 'TaskParam',
+      taskName: 'TaskName',
+      clientToken: 'ClientToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectId: 'number',
+      taskType: 'string',
+      taskContent: 'string',
+      taskParam: 'string',
+      taskName: 'string',
+      clientToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDISyncTaskResponse extends $tea.Model {
+  requestId: string;
+  success: boolean;
+  data: CreateDISyncTaskResponseData;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+      data: CreateDISyncTaskResponseData,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDISyncTaskRequest extends $tea.Model {
+  projectId: number;
+  taskType: string;
+  taskContent?: string;
+  taskParam?: string;
+  fileId: string;
+  static names(): { [key: string]: string } {
+    return {
+      projectId: 'ProjectId',
+      taskType: 'TaskType',
+      taskContent: 'TaskContent',
+      taskParam: 'TaskParam',
+      fileId: 'FileId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectId: 'number',
+      taskType: 'string',
+      taskContent: 'string',
+      taskParam: 'string',
+      fileId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDISyncTaskResponse extends $tea.Model {
+  requestId: string;
+  success: boolean;
+  data: UpdateDISyncTaskResponseData;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+      data: UpdateDISyncTaskResponseData,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class TestNetworkConnectionRequest extends $tea.Model {
   projectId: number;
   datasourceName: string;
@@ -159,12 +274,10 @@ export class UpdateNodeOwnerResponse extends $tea.Model {
 
 export class QueryPublicModelEngineRequest extends $tea.Model {
   text: string;
-  tenantId: string;
   projectId: string;
   static names(): { [key: string]: string } {
     return {
       text: 'Text',
-      tenantId: 'TenantId',
       projectId: 'ProjectId',
     };
   }
@@ -172,7 +285,6 @@ export class QueryPublicModelEngineRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       text: 'string',
-      tenantId: 'string',
       projectId: 'string',
     };
   }
@@ -11992,6 +12104,44 @@ export class DeleteQualityRelativeNodeResponse extends $tea.Model {
   }
 }
 
+export class CreateDISyncTaskResponseData extends $tea.Model {
+  fileId: number;
+  static names(): { [key: string]: string } {
+    return {
+      fileId: 'FileId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDISyncTaskResponseData extends $tea.Model {
+  status: string;
+  static names(): { [key: string]: string } {
+    return {
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class TestNetworkConnectionResponseTaskList extends $tea.Model {
   connectStatus: boolean;
   connectMessage: string;
@@ -12801,6 +12951,7 @@ export class ListDataSourcesResponseDataDataSources extends $tea.Model {
   id: number;
   projectId: number;
   status: number;
+  content: string;
   static names(): { [key: string]: string } {
     return {
       shared: 'Shared',
@@ -12820,6 +12971,7 @@ export class ListDataSourcesResponseDataDataSources extends $tea.Model {
       id: 'Id',
       projectId: 'ProjectId',
       status: 'Status',
+      content: 'Content',
     };
   }
 
@@ -12842,6 +12994,7 @@ export class ListDataSourcesResponseDataDataSources extends $tea.Model {
       id: 'number',
       projectId: 'number',
       status: 'number',
+      content: 'string',
     };
   }
 
@@ -16197,6 +16350,7 @@ export class GetMetaTableBasicInfoResponseData extends $tea.Model {
   viewCount: number;
   favoriteCount: number;
   isView: boolean;
+  columnCount: number;
   static names(): { [key: string]: string } {
     return {
       tableName: 'TableName',
@@ -16224,6 +16378,7 @@ export class GetMetaTableBasicInfoResponseData extends $tea.Model {
       viewCount: 'ViewCount',
       favoriteCount: 'FavoriteCount',
       isView: 'IsView',
+      columnCount: 'ColumnCount',
     };
   }
 
@@ -16254,6 +16409,7 @@ export class GetMetaTableBasicInfoResponseData extends $tea.Model {
       viewCount: 'number',
       favoriteCount: 'number',
       isView: 'boolean',
+      columnCount: 'number',
     };
   }
 
@@ -21404,6 +21560,26 @@ export default class Client extends RPC {
     this._endpoint = this.getEndpoint("dataworks-public", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
 
+
+  async createDISyncTask(request: CreateDISyncTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateDISyncTaskResponse> {
+    Util.validateModel(request);
+    return $tea.cast<CreateDISyncTaskResponse>(await this.doRequest("CreateDISyncTask", "HTTPS", "POST", "2020-05-18", "AK,APP,PrivateKey", null, $tea.toMap(request), runtime), new CreateDISyncTaskResponse({}));
+  }
+
+  async createDISyncTaskSimply(request: CreateDISyncTaskRequest): Promise<CreateDISyncTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createDISyncTask(request, runtime);
+  }
+
+  async updateDISyncTask(request: UpdateDISyncTaskRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDISyncTaskResponse> {
+    Util.validateModel(request);
+    return $tea.cast<UpdateDISyncTaskResponse>(await this.doRequest("UpdateDISyncTask", "HTTPS", "POST", "2020-05-18", "AK,APP,PrivateKey", null, $tea.toMap(request), runtime), new UpdateDISyncTaskResponse({}));
+  }
+
+  async updateDISyncTaskSimply(request: UpdateDISyncTaskRequest): Promise<UpdateDISyncTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateDISyncTask(request, runtime);
+  }
 
   async testNetworkConnection(request: TestNetworkConnectionRequest, runtime: $Util.RuntimeOptions): Promise<TestNetworkConnectionResponse> {
     Util.validateModel(request);
