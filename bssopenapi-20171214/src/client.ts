@@ -1675,6 +1675,8 @@ export class DescribeSplitItemBillRequest extends $tea.Model {
   billOwnerId?: number;
   instanceID?: string;
   splitItemID?: string;
+  granularity?: string;
+  billingDate?: string;
   tagFilter?: DescribeSplitItemBillRequestTagFilter[];
   static names(): { [key: string]: string } {
     return {
@@ -1688,6 +1690,8 @@ export class DescribeSplitItemBillRequest extends $tea.Model {
       billOwnerId: 'BillOwnerId',
       instanceID: 'InstanceID',
       splitItemID: 'SplitItemID',
+      granularity: 'Granularity',
+      billingDate: 'BillingDate',
       tagFilter: 'TagFilter',
     };
   }
@@ -1704,6 +1708,8 @@ export class DescribeSplitItemBillRequest extends $tea.Model {
       billOwnerId: 'number',
       instanceID: 'string',
       splitItemID: 'string',
+      granularity: 'string',
+      billingDate: 'string',
       tagFilter: { 'type': 'array', 'itemType': DescribeSplitItemBillRequestTagFilter },
     };
   }
@@ -5930,6 +5936,78 @@ export class SaveUserCreditResponse extends $tea.Model {
   }
 }
 
+export class SetAllExpirationDayRequest extends $tea.Model {
+  ownerId?: number;
+  unifyExpireDay?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      unifyExpireDay: 'UnifyExpireDay',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      unifyExpireDay: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetAllExpirationDayResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetAllExpirationDayResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: SetAllExpirationDayResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: SetAllExpirationDayResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SetCreditLabelActionRequest extends $tea.Model {
   actionType?: string;
   uid?: string;
@@ -7117,8 +7195,10 @@ export class DescribeInstanceBillResponseBodyDataItems extends $tea.Model {
   tag?: string;
   instanceID?: string;
   currency?: string;
+  billAccountName?: string;
   deductedByCashCoupons?: number;
   subscriptionType?: string;
+  bizType?: string;
   instanceSpec?: string;
   deductedByCoupons?: number;
   billingItem?: string;
@@ -7139,6 +7219,7 @@ export class DescribeInstanceBillResponseBodyDataItems extends $tea.Model {
   ownerID?: string;
   deductedByPrepaidCard?: number;
   usageUnit?: string;
+  billAccountID?: string;
   paymentAmount?: number;
   invoiceDiscount?: number;
   deductedByResourcePackage?: string;
@@ -7158,8 +7239,10 @@ export class DescribeInstanceBillResponseBodyDataItems extends $tea.Model {
       tag: 'Tag',
       instanceID: 'InstanceID',
       currency: 'Currency',
+      billAccountName: 'BillAccountName',
       deductedByCashCoupons: 'DeductedByCashCoupons',
       subscriptionType: 'SubscriptionType',
+      bizType: 'BizType',
       instanceSpec: 'InstanceSpec',
       deductedByCoupons: 'DeductedByCoupons',
       billingItem: 'BillingItem',
@@ -7180,6 +7263,7 @@ export class DescribeInstanceBillResponseBodyDataItems extends $tea.Model {
       ownerID: 'OwnerID',
       deductedByPrepaidCard: 'DeductedByPrepaidCard',
       usageUnit: 'UsageUnit',
+      billAccountID: 'BillAccountID',
       paymentAmount: 'PaymentAmount',
       invoiceDiscount: 'InvoiceDiscount',
       deductedByResourcePackage: 'DeductedByResourcePackage',
@@ -7202,8 +7286,10 @@ export class DescribeInstanceBillResponseBodyDataItems extends $tea.Model {
       tag: 'string',
       instanceID: 'string',
       currency: 'string',
+      billAccountName: 'string',
       deductedByCashCoupons: 'number',
       subscriptionType: 'string',
+      bizType: 'string',
       instanceSpec: 'string',
       deductedByCoupons: 'number',
       billingItem: 'string',
@@ -7224,6 +7310,7 @@ export class DescribeInstanceBillResponseBodyDataItems extends $tea.Model {
       ownerID: 'string',
       deductedByPrepaidCard: 'number',
       usageUnit: 'string',
+      billAccountID: 'string',
       paymentAmount: 'number',
       invoiceDiscount: 'number',
       deductedByResourcePackage: 'string',
@@ -7908,151 +7995,163 @@ export class DescribeSplitItemBillRequestTagFilter extends $tea.Model {
 }
 
 export class DescribeSplitItemBillResponseBodyDataItems extends $tea.Model {
-  billingDate?: string;
-  instanceConfig?: string;
-  internetIP?: string;
-  splitItemID?: string;
-  item?: string;
   splitAccountID?: string;
-  tag?: string;
-  instanceID?: string;
-  currency?: string;
-  deductedByCashCoupons?: number;
+  billAccountName?: string;
   subscriptionType?: string;
   instanceSpec?: string;
   deductedByCoupons?: number;
-  billingItem?: string;
   region?: string;
   outstandingAmount?: number;
-  costUnit?: string;
-  listPriceUnit?: string;
-  resourceGroup?: string;
   pipCode?: string;
-  servicePeriodUnit?: string;
-  pretaxAmount?: number;
   commodityCode?: string;
-  productName?: string;
-  splitProductDetail?: string;
   nickName?: string;
   productDetail?: string;
   usage?: string;
   intranetIP?: string;
-  ownerID?: string;
-  splitCommodityCode?: string;
-  deductedByPrepaidCard?: number;
   usageUnit?: string;
-  paymentAmount?: number;
-  invoiceDiscount?: number;
-  deductedByResourcePackage?: string;
+  splitCommodityCode?: string;
+  billAccountID?: string;
   productType?: string;
+  deductedByResourcePackage?: string;
+  paymentAmount?: number;
   splitBillingCycle?: string;
   servicePeriod?: string;
   splitItemName?: string;
-  zone?: string;
   listPrice?: string;
+  zone?: string;
   pretaxGrossAmount?: number;
+  instanceConfig?: string;
+  billingDate?: string;
+  internetIP?: string;
+  item?: string;
+  splitItemID?: string;
+  instanceID?: string;
+  tag?: string;
+  currency?: string;
+  deductedByCashCoupons?: number;
+  bizType?: string;
+  billingItem?: string;
+  costUnit?: string;
+  listPriceUnit?: string;
+  resourceGroup?: string;
+  pretaxAmount?: number;
+  servicePeriodUnit?: string;
+  splitBillingDate?: string;
+  productName?: string;
+  splitProductDetail?: string;
+  ownerID?: string;
+  deductedByPrepaidCard?: number;
+  invoiceDiscount?: number;
   splitAccountName?: string;
-  productCode?: string;
   billingType?: string;
+  productCode?: string;
   static names(): { [key: string]: string } {
     return {
-      billingDate: 'BillingDate',
-      instanceConfig: 'InstanceConfig',
-      internetIP: 'InternetIP',
-      splitItemID: 'SplitItemID',
-      item: 'Item',
       splitAccountID: 'SplitAccountID',
-      tag: 'Tag',
-      instanceID: 'InstanceID',
-      currency: 'Currency',
-      deductedByCashCoupons: 'DeductedByCashCoupons',
+      billAccountName: 'BillAccountName',
       subscriptionType: 'SubscriptionType',
       instanceSpec: 'InstanceSpec',
       deductedByCoupons: 'DeductedByCoupons',
-      billingItem: 'BillingItem',
       region: 'Region',
       outstandingAmount: 'OutstandingAmount',
-      costUnit: 'CostUnit',
-      listPriceUnit: 'ListPriceUnit',
-      resourceGroup: 'ResourceGroup',
       pipCode: 'PipCode',
-      servicePeriodUnit: 'ServicePeriodUnit',
-      pretaxAmount: 'PretaxAmount',
       commodityCode: 'CommodityCode',
-      productName: 'ProductName',
-      splitProductDetail: 'SplitProductDetail',
       nickName: 'NickName',
       productDetail: 'ProductDetail',
       usage: 'Usage',
       intranetIP: 'IntranetIP',
-      ownerID: 'OwnerID',
-      splitCommodityCode: 'SplitCommodityCode',
-      deductedByPrepaidCard: 'DeductedByPrepaidCard',
       usageUnit: 'UsageUnit',
-      paymentAmount: 'PaymentAmount',
-      invoiceDiscount: 'InvoiceDiscount',
-      deductedByResourcePackage: 'DeductedByResourcePackage',
+      splitCommodityCode: 'SplitCommodityCode',
+      billAccountID: 'BillAccountID',
       productType: 'ProductType',
+      deductedByResourcePackage: 'DeductedByResourcePackage',
+      paymentAmount: 'PaymentAmount',
       splitBillingCycle: 'SplitBillingCycle',
       servicePeriod: 'ServicePeriod',
       splitItemName: 'SplitItemName',
-      zone: 'Zone',
       listPrice: 'ListPrice',
+      zone: 'Zone',
       pretaxGrossAmount: 'PretaxGrossAmount',
+      instanceConfig: 'InstanceConfig',
+      billingDate: 'BillingDate',
+      internetIP: 'InternetIP',
+      item: 'Item',
+      splitItemID: 'SplitItemID',
+      instanceID: 'InstanceID',
+      tag: 'Tag',
+      currency: 'Currency',
+      deductedByCashCoupons: 'DeductedByCashCoupons',
+      bizType: 'BizType',
+      billingItem: 'BillingItem',
+      costUnit: 'CostUnit',
+      listPriceUnit: 'ListPriceUnit',
+      resourceGroup: 'ResourceGroup',
+      pretaxAmount: 'PretaxAmount',
+      servicePeriodUnit: 'ServicePeriodUnit',
+      splitBillingDate: 'SplitBillingDate',
+      productName: 'ProductName',
+      splitProductDetail: 'SplitProductDetail',
+      ownerID: 'OwnerID',
+      deductedByPrepaidCard: 'DeductedByPrepaidCard',
+      invoiceDiscount: 'InvoiceDiscount',
       splitAccountName: 'SplitAccountName',
-      productCode: 'ProductCode',
       billingType: 'BillingType',
+      productCode: 'ProductCode',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      billingDate: 'string',
-      instanceConfig: 'string',
-      internetIP: 'string',
-      splitItemID: 'string',
-      item: 'string',
       splitAccountID: 'string',
-      tag: 'string',
-      instanceID: 'string',
-      currency: 'string',
-      deductedByCashCoupons: 'number',
+      billAccountName: 'string',
       subscriptionType: 'string',
       instanceSpec: 'string',
       deductedByCoupons: 'number',
-      billingItem: 'string',
       region: 'string',
       outstandingAmount: 'number',
-      costUnit: 'string',
-      listPriceUnit: 'string',
-      resourceGroup: 'string',
       pipCode: 'string',
-      servicePeriodUnit: 'string',
-      pretaxAmount: 'number',
       commodityCode: 'string',
-      productName: 'string',
-      splitProductDetail: 'string',
       nickName: 'string',
       productDetail: 'string',
       usage: 'string',
       intranetIP: 'string',
-      ownerID: 'string',
-      splitCommodityCode: 'string',
-      deductedByPrepaidCard: 'number',
       usageUnit: 'string',
-      paymentAmount: 'number',
-      invoiceDiscount: 'number',
-      deductedByResourcePackage: 'string',
+      splitCommodityCode: 'string',
+      billAccountID: 'string',
       productType: 'string',
+      deductedByResourcePackage: 'string',
+      paymentAmount: 'number',
       splitBillingCycle: 'string',
       servicePeriod: 'string',
       splitItemName: 'string',
-      zone: 'string',
       listPrice: 'string',
+      zone: 'string',
       pretaxGrossAmount: 'number',
+      instanceConfig: 'string',
+      billingDate: 'string',
+      internetIP: 'string',
+      item: 'string',
+      splitItemID: 'string',
+      instanceID: 'string',
+      tag: 'string',
+      currency: 'string',
+      deductedByCashCoupons: 'number',
+      bizType: 'string',
+      billingItem: 'string',
+      costUnit: 'string',
+      listPriceUnit: 'string',
+      resourceGroup: 'string',
+      pretaxAmount: 'number',
+      servicePeriodUnit: 'string',
+      splitBillingDate: 'string',
+      productName: 'string',
+      splitProductDetail: 'string',
+      ownerID: 'string',
+      deductedByPrepaidCard: 'number',
+      invoiceDiscount: 'number',
       splitAccountName: 'string',
-      productCode: 'string',
       billingType: 'string',
+      productCode: 'string',
     };
   }
 
@@ -13530,6 +13629,19 @@ export default class Client extends OpenApi {
   async saveUserCredit(request: SaveUserCreditRequest): Promise<SaveUserCreditResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.saveUserCreditWithOptions(request, runtime);
+  }
+
+  async setAllExpirationDayWithOptions(request: SetAllExpirationDayRequest, runtime: $Util.RuntimeOptions): Promise<SetAllExpirationDayResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<SetAllExpirationDayResponse>(await this.doRPCRequest("SetAllExpirationDay", "2017-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new SetAllExpirationDayResponse({}));
+  }
+
+  async setAllExpirationDay(request: SetAllExpirationDayRequest): Promise<SetAllExpirationDayResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.setAllExpirationDayWithOptions(request, runtime);
   }
 
   async setCreditLabelActionWithOptions(request: SetCreditLabelActionRequest, runtime: $Util.RuntimeOptions): Promise<SetCreditLabelActionResponse> {
