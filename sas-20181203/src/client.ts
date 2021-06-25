@@ -8822,10 +8822,14 @@ export class DescribeStrategyResponse extends $tea.Model {
 export class DescribeStrategyExecDetailRequest extends $tea.Model {
   sourceIp?: string;
   strategyId?: number;
+  pageSize?: number;
+  currentPage?: number;
   static names(): { [key: string]: string } {
     return {
       sourceIp: 'SourceIp',
       strategyId: 'StrategyId',
+      pageSize: 'PageSize',
+      currentPage: 'CurrentPage',
     };
   }
 
@@ -8833,6 +8837,8 @@ export class DescribeStrategyExecDetailRequest extends $tea.Model {
     return {
       sourceIp: 'string',
       strategyId: 'number',
+      pageSize: 'number',
+      currentPage: 'number',
     };
   }
 
@@ -20001,14 +20007,16 @@ export class DescribeStrategyTargetResponseBodyStrategyTargets extends $tea.Mode
 export class DescribeSuspEventDetailResponseBodyDetails extends $tea.Model {
   type?: string;
   value?: string;
-  name?: string;
   infoType?: string;
+  nameDisplay?: string;
+  name?: string;
   static names(): { [key: string]: string } {
     return {
       type: 'Type',
       value: 'Value',
-      name: 'Name',
       infoType: 'InfoType',
+      nameDisplay: 'NameDisplay',
+      name: 'Name',
     };
   }
 
@@ -20016,8 +20024,9 @@ export class DescribeSuspEventDetailResponseBodyDetails extends $tea.Model {
     return {
       type: 'string',
       value: 'string',
-      name: 'string',
       infoType: 'string',
+      nameDisplay: 'string',
+      name: 'string',
     };
   }
 
