@@ -10,12 +10,10 @@ import * as $tea from '@alicloud/tea-typescript';
 
 export class CreateFaceGroupRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   name?: string;
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       name: 'Name',
     };
   }
@@ -23,7 +21,6 @@ export class CreateFaceGroupRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       name: 'string',
     };
   }
@@ -77,9 +74,95 @@ export class CreateFaceGroupResponse extends $tea.Model {
   }
 }
 
+export class CreateFilePredictRequest extends $tea.Model {
+  algorithmCode?: string;
+  resourceUrl?: string;
+  pushConfig?: string;
+  decryptConfig?: string;
+  clientToken?: string;
+  outputOss?: string;
+  outputRegion?: string;
+  static names(): { [key: string]: string } {
+    return {
+      algorithmCode: 'AlgorithmCode',
+      resourceUrl: 'ResourceUrl',
+      pushConfig: 'PushConfig',
+      decryptConfig: 'DecryptConfig',
+      clientToken: 'ClientToken',
+      outputOss: 'OutputOss',
+      outputRegion: 'OutputRegion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      algorithmCode: 'string',
+      resourceUrl: 'string',
+      pushConfig: 'string',
+      decryptConfig: 'string',
+      clientToken: 'string',
+      outputOss: 'string',
+      outputRegion: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateFilePredictResponseBody extends $tea.Model {
+  message?: string;
+  requestId?: string;
+  data?: CreateFilePredictResponseBodyData;
+  code?: string;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      requestId: 'RequestId',
+      data: 'Data',
+      code: 'Code',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      requestId: 'string',
+      data: CreateFilePredictResponseBodyData,
+      code: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateFilePredictResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CreateFilePredictResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CreateFilePredictResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateStreamPredictRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   clientToken?: string;
   streamType?: string;
   streamId?: string;
@@ -95,7 +178,6 @@ export class CreateStreamPredictRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       clientToken: 'ClientToken',
       streamType: 'StreamType',
       streamId: 'StreamId',
@@ -114,7 +196,6 @@ export class CreateStreamPredictRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       clientToken: 'string',
       streamType: 'string',
       streamId: 'string',
@@ -181,12 +262,10 @@ export class CreateStreamPredictResponse extends $tea.Model {
 
 export class DeleteFaceGroupRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   groupId?: string;
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       groupId: 'GroupId',
     };
   }
@@ -194,7 +273,6 @@ export class DeleteFaceGroupRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       groupId: 'string',
     };
   }
@@ -248,14 +326,81 @@ export class DeleteFaceGroupResponse extends $tea.Model {
   }
 }
 
+export class DeleteFilePredictRequest extends $tea.Model {
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteFilePredictResponseBody extends $tea.Model {
+  message?: string;
+  requestId?: string;
+  data?: DeleteFilePredictResponseBodyData;
+  code?: string;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      requestId: 'RequestId',
+      data: 'Data',
+      code: 'Code',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      requestId: 'string',
+      data: DeleteFilePredictResponseBodyData,
+      code: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteFilePredictResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DeleteFilePredictResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DeleteFilePredictResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteStreamPredictRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   predictId?: string;
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       predictId: 'PredictId',
     };
   }
@@ -263,7 +408,6 @@ export class DeleteStreamPredictRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       predictId: 'string',
     };
   }
@@ -319,14 +463,12 @@ export class DeleteStreamPredictResponse extends $tea.Model {
 
 export class DescribeFaceGroupsRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   nextPageToken?: string;
   currentPage?: number;
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       nextPageToken: 'NextPageToken',
       currentPage: 'CurrentPage',
       pageSize: 'PageSize',
@@ -336,7 +478,6 @@ export class DescribeFaceGroupsRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       nextPageToken: 'string',
       currentPage: 'number',
       pageSize: 'number',
@@ -349,30 +490,30 @@ export class DescribeFaceGroupsRequest extends $tea.Model {
 }
 
 export class DescribeFaceGroupsResponseBody extends $tea.Model {
+  totalNum?: number;
+  pageSize?: number;
   requestId?: string;
   currentPage?: number;
-  pageSize?: number;
   nextPageToken?: string;
-  totalNum?: number;
   groups?: DescribeFaceGroupsResponseBodyGroups[];
   static names(): { [key: string]: string } {
     return {
+      totalNum: 'TotalNum',
+      pageSize: 'PageSize',
       requestId: 'RequestId',
       currentPage: 'CurrentPage',
-      pageSize: 'PageSize',
       nextPageToken: 'NextPageToken',
-      totalNum: 'TotalNum',
       groups: 'Groups',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      totalNum: 'number',
+      pageSize: 'number',
       requestId: 'string',
       currentPage: 'number',
-      pageSize: 'number',
       nextPageToken: 'string',
-      totalNum: 'number',
       groups: { 'type': 'array', 'itemType': DescribeFaceGroupsResponseBodyGroups },
     };
   }
@@ -406,7 +547,6 @@ export class DescribeFaceGroupsResponse extends $tea.Model {
 
 export class DescribeStreamPredictResultRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   predictId?: string;
   modelId?: string;
   startTime?: string;
@@ -418,7 +558,6 @@ export class DescribeStreamPredictResultRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       predictId: 'PredictId',
       modelId: 'ModelId',
       startTime: 'StartTime',
@@ -433,7 +572,6 @@ export class DescribeStreamPredictResultRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       predictId: 'string',
       modelId: 'string',
       startTime: 'string',
@@ -451,31 +589,31 @@ export class DescribeStreamPredictResultRequest extends $tea.Model {
 }
 
 export class DescribeStreamPredictResultResponseBody extends $tea.Model {
-  requestId?: string;
-  totalNum?: number;
-  currentPage?: number;
-  pageSize?: number;
-  nextPageToken?: string;
   streamPredictDatas?: DescribeStreamPredictResultResponseBodyStreamPredictDatas[];
+  totalNum?: number;
+  pageSize?: number;
+  requestId?: string;
+  currentPage?: number;
+  nextPageToken?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
-      totalNum: 'TotalNum',
-      currentPage: 'CurrentPage',
-      pageSize: 'PageSize',
-      nextPageToken: 'NextPageToken',
       streamPredictDatas: 'StreamPredictDatas',
+      totalNum: 'TotalNum',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      currentPage: 'CurrentPage',
+      nextPageToken: 'NextPageToken',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
-      totalNum: 'number',
-      currentPage: 'number',
-      pageSize: 'number',
-      nextPageToken: 'string',
       streamPredictDatas: { 'type': 'array', 'itemType': DescribeStreamPredictResultResponseBodyStreamPredictDatas },
+      totalNum: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      currentPage: 'number',
+      nextPageToken: 'string',
     };
   }
 
@@ -508,7 +646,6 @@ export class DescribeStreamPredictResultResponse extends $tea.Model {
 
 export class DescribeStreamPredictsRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   predictIds?: string;
   modelId?: string;
   nextPageToken?: string;
@@ -517,7 +654,6 @@ export class DescribeStreamPredictsRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       predictIds: 'PredictIds',
       modelId: 'ModelId',
       nextPageToken: 'NextPageToken',
@@ -529,7 +665,6 @@ export class DescribeStreamPredictsRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       predictIds: 'string',
       modelId: 'string',
       nextPageToken: 'string',
@@ -700,28 +835,28 @@ export class GetAlgorithmHistogramsRequest extends $tea.Model {
 }
 
 export class GetAlgorithmHistogramsResponseBody extends $tea.Model {
-  success?: boolean;
-  code?: string;
   message?: string;
   requestId?: string;
   data?: GetAlgorithmHistogramsResponseBodyData;
+  code?: string;
+  success?: boolean;
   static names(): { [key: string]: string } {
     return {
-      success: 'Success',
-      code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
       data: 'Data',
+      code: 'Code',
+      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      success: 'boolean',
-      code: 'string',
       message: 'string',
       requestId: 'string',
       data: GetAlgorithmHistogramsResponseBodyData,
+      code: 'string',
+      success: 'boolean',
     };
   }
 
@@ -754,13 +889,11 @@ export class GetAlgorithmHistogramsResponse extends $tea.Model {
 
 export class ImagePredictRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   modelId?: string;
   dataUrl?: string;
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       modelId: 'ModelId',
       dataUrl: 'DataUrl',
     };
@@ -769,7 +902,6 @@ export class ImagePredictRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       modelId: 'string',
       dataUrl: 'string',
     };
@@ -905,10 +1037,16 @@ export class ListMyAlgorithmResponse extends $tea.Model {
 export class PredictPictureRequest extends $tea.Model {
   algorithmCode?: string;
   ossPath?: string;
+  resourceUrl?: string;
+  customerData?: string;
+  imageUrl?: string;
   static names(): { [key: string]: string } {
     return {
       algorithmCode: 'AlgorithmCode',
       ossPath: 'OssPath',
+      resourceUrl: 'ResourceUrl',
+      customerData: 'CustomerData',
+      imageUrl: 'ImageUrl',
     };
   }
 
@@ -916,6 +1054,9 @@ export class PredictPictureRequest extends $tea.Model {
     return {
       algorithmCode: 'string',
       ossPath: 'string',
+      resourceUrl: 'string',
+      customerData: 'string',
+      imageUrl: 'string',
     };
   }
 
@@ -925,25 +1066,25 @@ export class PredictPictureRequest extends $tea.Model {
 }
 
 export class PredictPictureResponseBody extends $tea.Model {
-  code?: string;
   message?: string;
   requestId?: string;
   data?: PredictPictureResponseBodyData;
+  code?: string;
   static names(): { [key: string]: string } {
     return {
-      code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
       data: 'Data',
+      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      code: 'string',
       message: 'string',
       requestId: 'string',
       data: PredictPictureResponseBodyData,
+      code: 'string',
     };
   }
 
@@ -976,14 +1117,12 @@ export class PredictPictureResponse extends $tea.Model {
 
 export class RegisterFaceRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   groupId?: string;
   dataType?: string;
   content?: string;
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       groupId: 'GroupId',
       dataType: 'DataType',
       content: 'Content',
@@ -993,7 +1132,6 @@ export class RegisterFaceRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       groupId: 'string',
       dataType: 'string',
       content: 'string',
@@ -1007,21 +1145,21 @@ export class RegisterFaceRequest extends $tea.Model {
 
 export class RegisterFaceResponseBody extends $tea.Model {
   requestId?: string;
-  groupId?: string;
   faces?: RegisterFaceResponseBodyFaces[];
+  groupId?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      groupId: 'GroupId',
       faces: 'Faces',
+      groupId: 'GroupId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      groupId: 'string',
       faces: { 'type': 'array', 'itemType': RegisterFaceResponseBodyFaces },
+      groupId: 'string',
     };
   }
 
@@ -1054,7 +1192,6 @@ export class RegisterFaceResponse extends $tea.Model {
 
 export class SearchFaceRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   groupId?: string;
   probabilityThreshold?: number;
   count?: number;
@@ -1063,7 +1200,6 @@ export class SearchFaceRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       groupId: 'GroupId',
       probabilityThreshold: 'ProbabilityThreshold',
       count: 'Count',
@@ -1075,7 +1211,6 @@ export class SearchFaceRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       groupId: 'string',
       probabilityThreshold: 'number',
       count: 'number',
@@ -1141,12 +1276,10 @@ export class SearchFaceResponse extends $tea.Model {
 
 export class StartStreamPredictRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   predictId?: string;
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       predictId: 'PredictId',
     };
   }
@@ -1154,7 +1287,6 @@ export class StartStreamPredictRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       predictId: 'string',
     };
   }
@@ -1210,12 +1342,10 @@ export class StartStreamPredictResponse extends $tea.Model {
 
 export class StopStreamPredictRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   predictId?: string;
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       predictId: 'PredictId',
     };
   }
@@ -1223,7 +1353,6 @@ export class StopStreamPredictRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       predictId: 'string',
     };
   }
@@ -1279,13 +1408,11 @@ export class StopStreamPredictResponse extends $tea.Model {
 
 export class UnregisterFaceRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   groupId?: string;
   faceToken?: string;
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       groupId: 'GroupId',
       faceToken: 'FaceToken',
     };
@@ -1294,7 +1421,6 @@ export class UnregisterFaceRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       groupId: 'string',
       faceToken: 'string',
     };
@@ -1306,22 +1432,22 @@ export class UnregisterFaceRequest extends $tea.Model {
 }
 
 export class UnregisterFaceResponseBody extends $tea.Model {
+  faceToken?: string;
   requestId?: string;
   groupId?: string;
-  faceToken?: string;
   static names(): { [key: string]: string } {
     return {
+      faceToken: 'FaceToken',
       requestId: 'RequestId',
       groupId: 'GroupId',
-      faceToken: 'FaceToken',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      faceToken: 'string',
       requestId: 'string',
       groupId: 'string',
-      faceToken: 'string',
     };
   }
 
@@ -1352,23 +1478,61 @@ export class UnregisterFaceResponse extends $tea.Model {
   }
 }
 
-export class DescribeFaceGroupsResponseBodyGroups extends $tea.Model {
-  groupId?: string;
-  name?: string;
-  creationTime?: string;
+export class CreateFilePredictResponseBodyData extends $tea.Model {
+  taskId?: string;
   static names(): { [key: string]: string } {
     return {
-      groupId: 'GroupId',
-      name: 'Name',
-      creationTime: 'CreationTime',
+      taskId: 'TaskId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteFilePredictResponseBodyData extends $tea.Model {
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeFaceGroupsResponseBodyGroups extends $tea.Model {
+  creationTime?: string;
+  groupId?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      creationTime: 'CreationTime',
+      groupId: 'GroupId',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      creationTime: 'string',
       groupId: 'string',
       name: 'string',
-      creationTime: 'string',
     };
   }
 
@@ -1378,34 +1542,34 @@ export class DescribeFaceGroupsResponseBodyGroups extends $tea.Model {
 }
 
 export class DescribeStreamPredictResultResponseBodyStreamPredictDatas extends $tea.Model {
-  predictId?: string;
-  modelId?: string;
-  dataUrl?: string;
-  timestamp?: number;
-  predictTime?: string;
   status?: string;
   predictResult?: string;
+  predictId?: string;
+  predictTime?: string;
+  dataUrl?: string;
+  timestamp?: number;
+  modelId?: string;
   static names(): { [key: string]: string } {
     return {
-      predictId: 'PredictId',
-      modelId: 'ModelId',
-      dataUrl: 'DataUrl',
-      timestamp: 'Timestamp',
-      predictTime: 'PredictTime',
       status: 'Status',
       predictResult: 'PredictResult',
+      predictId: 'PredictId',
+      predictTime: 'PredictTime',
+      dataUrl: 'DataUrl',
+      timestamp: 'Timestamp',
+      modelId: 'ModelId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      predictId: 'string',
-      modelId: 'string',
-      dataUrl: 'string',
-      timestamp: 'number',
-      predictTime: 'string',
       status: 'string',
       predictResult: 'string',
+      predictId: 'string',
+      predictTime: 'string',
+      dataUrl: 'string',
+      timestamp: 'number',
+      modelId: 'string',
     };
   }
 
@@ -1511,21 +1675,21 @@ export class GetAlgorithmDetailResponseBodyData extends $tea.Model {
 
 export class GetAlgorithmHistogramsResponseBodyDataHistograms extends $tea.Model {
   time?: string;
-  successCount?: number;
   failureCount?: number;
+  successCount?: number;
   static names(): { [key: string]: string } {
     return {
       time: 'Time',
-      successCount: 'SuccessCount',
       failureCount: 'FailureCount',
+      successCount: 'SuccessCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       time: 'string',
-      successCount: 'number',
       failureCount: 'number',
+      successCount: 'number',
     };
   }
 
@@ -1535,21 +1699,21 @@ export class GetAlgorithmHistogramsResponseBodyDataHistograms extends $tea.Model
 }
 
 export class GetAlgorithmHistogramsResponseBodyData extends $tea.Model {
-  successCount?: number;
   failureCount?: number;
+  successCount?: number;
   histograms?: GetAlgorithmHistogramsResponseBodyDataHistograms[];
   static names(): { [key: string]: string } {
     return {
-      successCount: 'SuccessCount',
       failureCount: 'FailureCount',
+      successCount: 'SuccessCount',
       histograms: 'Histograms',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      successCount: 'number',
       failureCount: 'number',
+      successCount: 'number',
       histograms: { 'type': 'array', 'itemType': GetAlgorithmHistogramsResponseBodyDataHistograms },
     };
   }
@@ -1684,25 +1848,25 @@ export class PredictPictureResponseBodyData extends $tea.Model {
 }
 
 export class RegisterFaceResponseBodyFacesRect extends $tea.Model {
-  left?: number;
   top?: number;
   width?: number;
   height?: number;
+  left?: number;
   static names(): { [key: string]: string } {
     return {
-      left: 'Left',
       top: 'Top',
       width: 'Width',
       height: 'Height',
+      left: 'Left',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      left: 'number',
       top: 'number',
       width: 'number',
       height: 'number',
+      left: 'number',
     };
   }
 
@@ -1820,6 +1984,19 @@ export default class Client extends OpenApi {
     return await this.createFaceGroupWithOptions(request, runtime);
   }
 
+  async createFilePredictWithOptions(request: CreateFilePredictRequest, runtime: $Util.RuntimeOptions): Promise<CreateFilePredictResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<CreateFilePredictResponse>(await this.doRPCRequest("CreateFilePredict", "2019-03-08", "HTTPS", "POST", "AK", "json", req, runtime), new CreateFilePredictResponse({}));
+  }
+
+  async createFilePredict(request: CreateFilePredictRequest): Promise<CreateFilePredictResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createFilePredictWithOptions(request, runtime);
+  }
+
   async createStreamPredictWithOptions(request: CreateStreamPredictRequest, runtime: $Util.RuntimeOptions): Promise<CreateStreamPredictResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -1845,6 +2022,19 @@ export default class Client extends OpenApi {
   async deleteFaceGroup(request: DeleteFaceGroupRequest): Promise<DeleteFaceGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteFaceGroupWithOptions(request, runtime);
+  }
+
+  async deleteFilePredictWithOptions(request: DeleteFilePredictRequest, runtime: $Util.RuntimeOptions): Promise<DeleteFilePredictResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DeleteFilePredictResponse>(await this.doRPCRequest("DeleteFilePredict", "2019-03-08", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteFilePredictResponse({}));
+  }
+
+  async deleteFilePredict(request: DeleteFilePredictRequest): Promise<DeleteFilePredictResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteFilePredictWithOptions(request, runtime);
   }
 
   async deleteStreamPredictWithOptions(request: DeleteStreamPredictRequest, runtime: $Util.RuntimeOptions): Promise<DeleteStreamPredictResponse> {
