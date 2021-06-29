@@ -1772,6 +1772,156 @@ export class SearchDatabaseResponse extends $tea.Model {
   }
 }
 
+export class GetDBTopologyRequest extends $tea.Model {
+  logicDbId?: number;
+  tid?: number;
+  static names(): { [key: string]: string } {
+    return {
+      logicDbId: 'LogicDbId',
+      tid: 'Tid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      logicDbId: 'number',
+      tid: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDBTopologyResponseBody extends $tea.Model {
+  requestId?: string;
+  success?: boolean;
+  errorMessage?: string;
+  errorCode?: string;
+  DBTopology?: GetDBTopologyResponseBodyDBTopology;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+      errorMessage: 'ErrorMessage',
+      errorCode: 'ErrorCode',
+      DBTopology: 'DBTopology',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+      errorMessage: 'string',
+      errorCode: 'string',
+      DBTopology: GetDBTopologyResponseBodyDBTopology,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDBTopologyResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetDBTopologyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetDBTopologyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSQLReviewCheckResultStatusRequest extends $tea.Model {
+  orderId?: number;
+  tid?: number;
+  static names(): { [key: string]: string } {
+    return {
+      orderId: 'OrderId',
+      tid: 'Tid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      orderId: 'number',
+      tid: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSQLReviewCheckResultStatusResponseBody extends $tea.Model {
+  requestId?: string;
+  errorCode?: string;
+  errorMessage?: string;
+  success?: boolean;
+  checkResultStatus?: GetSQLReviewCheckResultStatusResponseBodyCheckResultStatus;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      success: 'Success',
+      checkResultStatus: 'CheckResultStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      errorCode: 'string',
+      errorMessage: 'string',
+      success: 'boolean',
+      checkResultStatus: GetSQLReviewCheckResultStatusResponseBodyCheckResultStatus,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSQLReviewCheckResultStatusResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetSQLReviewCheckResultStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetSQLReviewCheckResultStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SyncDatabaseMetaRequest extends $tea.Model {
   tid?: number;
   dbId?: string;
@@ -2826,6 +2976,112 @@ export class GetApprovalDetailResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: GetApprovalDetailResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSQLReviewOriginSQLRequest extends $tea.Model {
+  orderId?: number;
+  orderActionDetail?: ListSQLReviewOriginSQLRequestOrderActionDetail;
+  tid?: number;
+  static names(): { [key: string]: string } {
+    return {
+      orderId: 'OrderId',
+      orderActionDetail: 'OrderActionDetail',
+      tid: 'Tid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      orderId: 'number',
+      orderActionDetail: ListSQLReviewOriginSQLRequestOrderActionDetail,
+      tid: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSQLReviewOriginSQLShrinkRequest extends $tea.Model {
+  orderId?: number;
+  orderActionDetailShrink?: string;
+  tid?: number;
+  static names(): { [key: string]: string } {
+    return {
+      orderId: 'OrderId',
+      orderActionDetailShrink: 'OrderActionDetail',
+      tid: 'Tid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      orderId: 'number',
+      orderActionDetailShrink: 'string',
+      tid: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSQLReviewOriginSQLResponseBody extends $tea.Model {
+  requestId?: string;
+  errorCode?: string;
+  errorMessage?: string;
+  success?: boolean;
+  totalCount?: number;
+  originSQLList?: ListSQLReviewOriginSQLResponseBodyOriginSQLList[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      success: 'Success',
+      totalCount: 'TotalCount',
+      originSQLList: 'OriginSQLList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      errorCode: 'string',
+      errorMessage: 'string',
+      success: 'boolean',
+      totalCount: 'number',
+      originSQLList: { 'type': 'array', 'itemType': ListSQLReviewOriginSQLResponseBodyOriginSQLList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSQLReviewOriginSQLResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListSQLReviewOriginSQLResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListSQLReviewOriginSQLResponseBody,
     };
   }
 
@@ -5017,6 +5273,115 @@ export class ListOrdersResponse extends $tea.Model {
   }
 }
 
+export class CreateSQLReviewOrderRequest extends $tea.Model {
+  comment?: string;
+  relatedUserList?: number[];
+  param?: CreateSQLReviewOrderRequestParam;
+  tid?: number;
+  static names(): { [key: string]: string } {
+    return {
+      comment: 'Comment',
+      relatedUserList: 'RelatedUserList',
+      param: 'Param',
+      tid: 'Tid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      comment: 'string',
+      relatedUserList: { 'type': 'array', 'itemType': 'number' },
+      param: CreateSQLReviewOrderRequestParam,
+      tid: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSQLReviewOrderShrinkRequest extends $tea.Model {
+  comment?: string;
+  relatedUserListShrink?: string;
+  paramShrink?: string;
+  tid?: number;
+  static names(): { [key: string]: string } {
+    return {
+      comment: 'Comment',
+      relatedUserListShrink: 'RelatedUserList',
+      paramShrink: 'Param',
+      tid: 'Tid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      comment: 'string',
+      relatedUserListShrink: 'string',
+      paramShrink: 'string',
+      tid: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSQLReviewOrderResponseBody extends $tea.Model {
+  requestId?: string;
+  success?: boolean;
+  errorMessage?: string;
+  errorCode?: string;
+  createOrderResult?: number[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+      errorMessage: 'ErrorMessage',
+      errorCode: 'ErrorCode',
+      createOrderResult: 'CreateOrderResult',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+      errorMessage: 'string',
+      errorCode: 'string',
+      createOrderResult: { 'type': 'array', 'itemType': 'number' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSQLReviewOrderResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CreateSQLReviewOrderResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CreateSQLReviewOrderResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetOrderBaseInfoRequest extends $tea.Model {
   tid?: number;
   orderId?: number;
@@ -5084,6 +5449,81 @@ export class GetOrderBaseInfoResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: GetOrderBaseInfoResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSQLReviewOptimizeDetailRequest extends $tea.Model {
+  SQLReviewQueryKey?: string;
+  tid?: number;
+  static names(): { [key: string]: string } {
+    return {
+      SQLReviewQueryKey: 'SQLReviewQueryKey',
+      tid: 'Tid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      SQLReviewQueryKey: 'string',
+      tid: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSQLReviewOptimizeDetailResponseBody extends $tea.Model {
+  requestId?: string;
+  errorCode?: string;
+  errorMessage?: string;
+  success?: boolean;
+  optimizeDetail?: GetSQLReviewOptimizeDetailResponseBodyOptimizeDetail;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      success: 'Success',
+      optimizeDetail: 'OptimizeDetail',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      errorCode: 'string',
+      errorMessage: 'string',
+      success: 'boolean',
+      optimizeDetail: GetSQLReviewOptimizeDetailResponseBodyOptimizeDetail,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSQLReviewOptimizeDetailResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetSQLReviewOptimizeDetailResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetSQLReviewOptimizeDetailResponseBody,
     };
   }
 
@@ -6382,6 +6822,81 @@ export class UpdateUserResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: UpdateUserResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPhysicalDatabaseRequest extends $tea.Model {
+  dbId?: number;
+  tid?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dbId: 'DbId',
+      tid: 'Tid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dbId: 'number',
+      tid: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPhysicalDatabaseResponseBody extends $tea.Model {
+  requestId?: string;
+  database?: GetPhysicalDatabaseResponseBodyDatabase;
+  errorCode?: string;
+  errorMessage?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      database: 'Database',
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      database: GetPhysicalDatabaseResponseBodyDatabase,
+      errorCode: 'string',
+      errorMessage: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPhysicalDatabaseResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetPhysicalDatabaseResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetPhysicalDatabaseResponseBody,
     };
   }
 
@@ -8074,6 +8589,185 @@ export class SearchDatabaseResponseBodySearchDatabaseList extends $tea.Model {
   }
 }
 
+export class GetDBTopologyResponseBodyDBTopologyDBTopologyInfoList extends $tea.Model {
+  dbId?: number;
+  schemaName?: string;
+  catalogName?: string;
+  searchName?: string;
+  dbType?: string;
+  envType?: string;
+  instanceId?: number;
+  regionId?: string;
+  instanceResourceId?: string;
+  instanceSource?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dbId: 'DbId',
+      schemaName: 'SchemaName',
+      catalogName: 'CatalogName',
+      searchName: 'SearchName',
+      dbType: 'DbType',
+      envType: 'EnvType',
+      instanceId: 'InstanceId',
+      regionId: 'RegionId',
+      instanceResourceId: 'InstanceResourceId',
+      instanceSource: 'InstanceSource',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dbId: 'number',
+      schemaName: 'string',
+      catalogName: 'string',
+      searchName: 'string',
+      dbType: 'string',
+      envType: 'string',
+      instanceId: 'number',
+      regionId: 'string',
+      instanceResourceId: 'string',
+      instanceSource: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDBTopologyResponseBodyDBTopology extends $tea.Model {
+  logicDbId?: number;
+  logicDbName?: string;
+  searchName?: string;
+  alias?: string;
+  dbType?: string;
+  envType?: string;
+  DBTopologyInfoList?: GetDBTopologyResponseBodyDBTopologyDBTopologyInfoList[];
+  static names(): { [key: string]: string } {
+    return {
+      logicDbId: 'LogicDbId',
+      logicDbName: 'LogicDbName',
+      searchName: 'SearchName',
+      alias: 'Alias',
+      dbType: 'DbType',
+      envType: 'EnvType',
+      DBTopologyInfoList: 'DBTopologyInfoList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      logicDbId: 'number',
+      logicDbName: 'string',
+      searchName: 'string',
+      alias: 'string',
+      dbType: 'string',
+      envType: 'string',
+      DBTopologyInfoList: { 'type': 'array', 'itemType': GetDBTopologyResponseBodyDBTopologyDBTopologyInfoList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSQLReviewCheckResultStatusResponseBodyCheckResultStatusCheckStatusResult extends $tea.Model {
+  new?: number;
+  unknown?: number;
+  checkNotPass?: number;
+  checkPass?: number;
+  forcePass?: number;
+  forceNotPass?: number;
+  static names(): { [key: string]: string } {
+    return {
+      new: 'New',
+      unknown: 'Unknown',
+      checkNotPass: 'CheckNotPass',
+      checkPass: 'CheckPass',
+      forcePass: 'ForcePass',
+      forceNotPass: 'ForceNotPass',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      new: 'number',
+      unknown: 'number',
+      checkNotPass: 'number',
+      checkPass: 'number',
+      forcePass: 'number',
+      forceNotPass: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSQLReviewCheckResultStatusResponseBodyCheckResultStatusSQLReviewResult extends $tea.Model {
+  mustImprove?: number;
+  potentialIssue?: number;
+  suggestImprove?: number;
+  useDmsToolkit?: number;
+  useDmsDmlUnlock?: number;
+  tableIndexSuggest?: number;
+  static names(): { [key: string]: string } {
+    return {
+      mustImprove: 'MustImprove',
+      potentialIssue: 'PotentialIssue',
+      suggestImprove: 'SuggestImprove',
+      useDmsToolkit: 'UseDmsToolkit',
+      useDmsDmlUnlock: 'UseDmsDmlUnlock',
+      tableIndexSuggest: 'TableIndexSuggest',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mustImprove: 'number',
+      potentialIssue: 'number',
+      suggestImprove: 'number',
+      useDmsToolkit: 'number',
+      useDmsDmlUnlock: 'number',
+      tableIndexSuggest: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSQLReviewCheckResultStatusResponseBodyCheckResultStatus extends $tea.Model {
+  totalSQLCount?: number;
+  checkedCount?: number;
+  checkStatusResult?: GetSQLReviewCheckResultStatusResponseBodyCheckResultStatusCheckStatusResult;
+  SQLReviewResult?: GetSQLReviewCheckResultStatusResponseBodyCheckResultStatusSQLReviewResult;
+  static names(): { [key: string]: string } {
+    return {
+      totalSQLCount: 'TotalSQLCount',
+      checkedCount: 'CheckedCount',
+      checkStatusResult: 'CheckStatusResult',
+      SQLReviewResult: 'SQLReviewResult',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      totalSQLCount: 'number',
+      checkedCount: 'number',
+      checkStatusResult: GetSQLReviewCheckResultStatusResponseBodyCheckResultStatusCheckStatusResult,
+      SQLReviewResult: GetSQLReviewCheckResultStatusResponseBodyCheckResultStatusSQLReviewResult,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetUserResponseBodyUserRoleIdList extends $tea.Model {
   roleIds?: number[];
   static names(): { [key: string]: string } {
@@ -8705,6 +9399,102 @@ export class GetApprovalDetailResponseBodyApprovalDetail extends $tea.Model {
       orderId: 'number',
       workflowInsCode: 'string',
       reasonList: GetApprovalDetailResponseBodyApprovalDetailReasonList,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSQLReviewOriginSQLRequestOrderActionDetailPage extends $tea.Model {
+  pageNumber?: number;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSQLReviewOriginSQLRequestOrderActionDetail extends $tea.Model {
+  fileId?: number;
+  SQLReviewResult?: string;
+  checkStatusResult?: string;
+  page?: ListSQLReviewOriginSQLRequestOrderActionDetailPage;
+  static names(): { [key: string]: string } {
+    return {
+      fileId: 'FileId',
+      SQLReviewResult: 'SQLReviewResult',
+      checkStatusResult: 'CheckStatusResult',
+      page: 'Page',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileId: 'number',
+      SQLReviewResult: 'string',
+      checkStatusResult: 'string',
+      page: ListSQLReviewOriginSQLRequestOrderActionDetailPage,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSQLReviewOriginSQLResponseBodyOriginSQLList extends $tea.Model {
+  SQLId?: number;
+  fileId?: number;
+  fileName?: string;
+  SQLContent?: string;
+  checkStatus?: string;
+  statusDesc?: string;
+  checkedTime?: string;
+  sqlHash?: string;
+  reviewSummary?: string;
+  SQLReviewQueryKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      SQLId: 'SQLId',
+      fileId: 'FileId',
+      fileName: 'FileName',
+      SQLContent: 'SQLContent',
+      checkStatus: 'CheckStatus',
+      statusDesc: 'StatusDesc',
+      checkedTime: 'CheckedTime',
+      sqlHash: 'SqlHash',
+      reviewSummary: 'ReviewSummary',
+      SQLReviewQueryKey: 'SQLReviewQueryKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      SQLId: 'number',
+      fileId: 'number',
+      fileName: 'string',
+      SQLContent: 'string',
+      checkStatus: 'string',
+      statusDesc: 'string',
+      checkedTime: 'string',
+      sqlHash: 'string',
+      reviewSummary: 'string',
+      SQLReviewQueryKey: 'string',
     };
   }
 
@@ -10153,6 +10943,31 @@ export class ListOrdersResponseBodyOrders extends $tea.Model {
   }
 }
 
+export class CreateSQLReviewOrderRequestParam extends $tea.Model {
+  projectName?: string;
+  dbId?: number;
+  attachmentKeyList?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      projectName: 'ProjectName',
+      dbId: 'DbId',
+      attachmentKeyList: 'AttachmentKeyList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectName: 'string',
+      dbId: 'number',
+      attachmentKeyList: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetOrderBaseInfoResponseBodyOrderBaseInfoRelatedUserNickList extends $tea.Model {
   userNicks?: string[];
   static names(): { [key: string]: string } {
@@ -10238,6 +11053,121 @@ export class GetOrderBaseInfoResponseBodyOrderBaseInfo extends $tea.Model {
       statusDesc: 'string',
       pluginType: 'string',
       orderId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSQLReviewOptimizeDetailResponseBodyOptimizeDetailQualityResultResultsScripts extends $tea.Model {
+  opType?: string;
+  content?: string;
+  tableName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      opType: 'OpType',
+      content: 'Content',
+      tableName: 'TableName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      opType: 'string',
+      content: 'string',
+      tableName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSQLReviewOptimizeDetailResponseBodyOptimizeDetailQualityResultResults extends $tea.Model {
+  ruleName?: string;
+  feedback?: string;
+  comments?: string;
+  messages?: string[];
+  scripts?: GetSQLReviewOptimizeDetailResponseBodyOptimizeDetailQualityResultResultsScripts[];
+  ruleType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ruleName: 'RuleName',
+      feedback: 'Feedback',
+      comments: 'Comments',
+      messages: 'Messages',
+      scripts: 'Scripts',
+      ruleType: 'RuleType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ruleName: 'string',
+      feedback: 'string',
+      comments: 'string',
+      messages: { 'type': 'array', 'itemType': 'string' },
+      scripts: { 'type': 'array', 'itemType': GetSQLReviewOptimizeDetailResponseBodyOptimizeDetailQualityResultResultsScripts },
+      ruleType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSQLReviewOptimizeDetailResponseBodyOptimizeDetailQualityResult extends $tea.Model {
+  errorMessage?: string;
+  results?: GetSQLReviewOptimizeDetailResponseBodyOptimizeDetailQualityResultResults[];
+  occurError?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorMessage: 'ErrorMessage',
+      results: 'Results',
+      occurError: 'OccurError',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorMessage: 'string',
+      results: { 'type': 'array', 'itemType': GetSQLReviewOptimizeDetailResponseBodyOptimizeDetailQualityResultResults },
+      occurError: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSQLReviewOptimizeDetailResponseBodyOptimizeDetail extends $tea.Model {
+  queryKey?: string;
+  instanceId?: number;
+  dbId?: number;
+  sqlType?: string;
+  qualityResult?: GetSQLReviewOptimizeDetailResponseBodyOptimizeDetailQualityResult;
+  static names(): { [key: string]: string } {
+    return {
+      queryKey: 'QueryKey',
+      instanceId: 'InstanceId',
+      dbId: 'DbId',
+      sqlType: 'SqlType',
+      qualityResult: 'QualityResult',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      queryKey: 'string',
+      instanceId: 'number',
+      dbId: 'number',
+      sqlType: 'string',
+      qualityResult: GetSQLReviewOptimizeDetailResponseBodyOptimizeDetailQualityResult,
     };
   }
 
@@ -10978,6 +11908,108 @@ export class ListSensitiveColumnsDetailResponseBodySensitiveColumnsDetailList ex
   }
 }
 
+export class GetPhysicalDatabaseResponseBodyDatabaseOwnerIdList extends $tea.Model {
+  ownerIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      ownerIds: 'OwnerIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPhysicalDatabaseResponseBodyDatabaseOwnerNameList extends $tea.Model {
+  ownerNames?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      ownerNames: 'OwnerNames',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerNames: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPhysicalDatabaseResponseBodyDatabase extends $tea.Model {
+  databaseId?: string;
+  host?: string;
+  catalogName?: string;
+  dbaName?: string;
+  state?: string;
+  dbaId?: string;
+  schemaName?: string;
+  instanceId?: string;
+  port?: number;
+  envType?: string;
+  sid?: string;
+  ownerIdList?: GetPhysicalDatabaseResponseBodyDatabaseOwnerIdList;
+  encoding?: string;
+  dbType?: string;
+  ownerNameList?: GetPhysicalDatabaseResponseBodyDatabaseOwnerNameList;
+  searchName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      databaseId: 'DatabaseId',
+      host: 'Host',
+      catalogName: 'CatalogName',
+      dbaName: 'DbaName',
+      state: 'State',
+      dbaId: 'DbaId',
+      schemaName: 'SchemaName',
+      instanceId: 'InstanceId',
+      port: 'Port',
+      envType: 'EnvType',
+      sid: 'Sid',
+      ownerIdList: 'OwnerIdList',
+      encoding: 'Encoding',
+      dbType: 'DbType',
+      ownerNameList: 'OwnerNameList',
+      searchName: 'SearchName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      databaseId: 'string',
+      host: 'string',
+      catalogName: 'string',
+      dbaName: 'string',
+      state: 'string',
+      dbaId: 'string',
+      schemaName: 'string',
+      instanceId: 'string',
+      port: 'number',
+      envType: 'string',
+      sid: 'string',
+      ownerIdList: GetPhysicalDatabaseResponseBodyDatabaseOwnerIdList,
+      encoding: 'string',
+      dbType: 'string',
+      ownerNameList: GetPhysicalDatabaseResponseBodyDatabaseOwnerNameList,
+      searchName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetStructSyncExecSqlDetailResponseBodyStructSyncExecSqlDetail extends $tea.Model {
   totalSqlCount?: number;
   execSql?: string;
@@ -11417,6 +12449,32 @@ export default class Client extends OpenApi {
     return await this.searchDatabaseWithOptions(request, runtime);
   }
 
+  async getDBTopologyWithOptions(request: GetDBTopologyRequest, runtime: $Util.RuntimeOptions): Promise<GetDBTopologyResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<GetDBTopologyResponse>(await this.doRPCRequest("GetDBTopology", "2018-11-01", "HTTPS", "POST", "AK", "json", req, runtime), new GetDBTopologyResponse({}));
+  }
+
+  async getDBTopology(request: GetDBTopologyRequest): Promise<GetDBTopologyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getDBTopologyWithOptions(request, runtime);
+  }
+
+  async getSQLReviewCheckResultStatusWithOptions(request: GetSQLReviewCheckResultStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetSQLReviewCheckResultStatusResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<GetSQLReviewCheckResultStatusResponse>(await this.doRPCRequest("GetSQLReviewCheckResultStatus", "2018-11-01", "HTTPS", "POST", "AK", "json", req, runtime), new GetSQLReviewCheckResultStatusResponse({}));
+  }
+
+  async getSQLReviewCheckResultStatus(request: GetSQLReviewCheckResultStatusRequest): Promise<GetSQLReviewCheckResultStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getSQLReviewCheckResultStatusWithOptions(request, runtime);
+  }
+
   async syncDatabaseMetaWithOptions(request: SyncDatabaseMetaRequest, runtime: $Util.RuntimeOptions): Promise<SyncDatabaseMetaResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -11584,6 +12642,25 @@ export default class Client extends OpenApi {
   async getApprovalDetail(request: GetApprovalDetailRequest): Promise<GetApprovalDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getApprovalDetailWithOptions(request, runtime);
+  }
+
+  async listSQLReviewOriginSQLWithOptions(tmpReq: ListSQLReviewOriginSQLRequest, runtime: $Util.RuntimeOptions): Promise<ListSQLReviewOriginSQLResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ListSQLReviewOriginSQLShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset($tea.toMap(tmpReq.orderActionDetail))) {
+      request.orderActionDetailShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.orderActionDetail), "OrderActionDetail", "json");
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<ListSQLReviewOriginSQLResponse>(await this.doRPCRequest("ListSQLReviewOriginSQL", "2018-11-01", "HTTPS", "POST", "AK", "json", req, runtime), new ListSQLReviewOriginSQLResponse({}));
+  }
+
+  async listSQLReviewOriginSQL(request: ListSQLReviewOriginSQLRequest): Promise<ListSQLReviewOriginSQLResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listSQLReviewOriginSQLWithOptions(request, runtime);
   }
 
   async getUserActiveTenantWithOptions(request: GetUserActiveTenantRequest, runtime: $Util.RuntimeOptions): Promise<GetUserActiveTenantResponse> {
@@ -11944,6 +13021,29 @@ export default class Client extends OpenApi {
     return await this.listOrdersWithOptions(request, runtime);
   }
 
+  async createSQLReviewOrderWithOptions(tmpReq: CreateSQLReviewOrderRequest, runtime: $Util.RuntimeOptions): Promise<CreateSQLReviewOrderResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateSQLReviewOrderShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.relatedUserList)) {
+      request.relatedUserListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.relatedUserList, "RelatedUserList", "json");
+    }
+
+    if (!Util.isUnset($tea.toMap(tmpReq.param))) {
+      request.paramShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.param), "Param", "json");
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<CreateSQLReviewOrderResponse>(await this.doRPCRequest("CreateSQLReviewOrder", "2018-11-01", "HTTPS", "POST", "AK", "json", req, runtime), new CreateSQLReviewOrderResponse({}));
+  }
+
+  async createSQLReviewOrder(request: CreateSQLReviewOrderRequest): Promise<CreateSQLReviewOrderResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createSQLReviewOrderWithOptions(request, runtime);
+  }
+
   async getOrderBaseInfoWithOptions(request: GetOrderBaseInfoRequest, runtime: $Util.RuntimeOptions): Promise<GetOrderBaseInfoResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -11955,6 +13055,19 @@ export default class Client extends OpenApi {
   async getOrderBaseInfo(request: GetOrderBaseInfoRequest): Promise<GetOrderBaseInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getOrderBaseInfoWithOptions(request, runtime);
+  }
+
+  async getSQLReviewOptimizeDetailWithOptions(request: GetSQLReviewOptimizeDetailRequest, runtime: $Util.RuntimeOptions): Promise<GetSQLReviewOptimizeDetailResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<GetSQLReviewOptimizeDetailResponse>(await this.doRPCRequest("GetSQLReviewOptimizeDetail", "2018-11-01", "HTTPS", "POST", "AK", "json", req, runtime), new GetSQLReviewOptimizeDetailResponse({}));
+  }
+
+  async getSQLReviewOptimizeDetail(request: GetSQLReviewOptimizeDetailRequest): Promise<GetSQLReviewOptimizeDetailResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getSQLReviewOptimizeDetailWithOptions(request, runtime);
   }
 
   async listUserTenantsWithOptions(request: ListUserTenantsRequest, runtime: $Util.RuntimeOptions): Promise<ListUserTenantsResponse> {
@@ -12175,6 +13288,19 @@ export default class Client extends OpenApi {
   async updateUser(request: UpdateUserRequest): Promise<UpdateUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateUserWithOptions(request, runtime);
+  }
+
+  async getPhysicalDatabaseWithOptions(request: GetPhysicalDatabaseRequest, runtime: $Util.RuntimeOptions): Promise<GetPhysicalDatabaseResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<GetPhysicalDatabaseResponse>(await this.doRPCRequest("GetPhysicalDatabase", "2018-11-01", "HTTPS", "POST", "AK", "json", req, runtime), new GetPhysicalDatabaseResponse({}));
+  }
+
+  async getPhysicalDatabase(request: GetPhysicalDatabaseRequest): Promise<GetPhysicalDatabaseResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getPhysicalDatabaseWithOptions(request, runtime);
   }
 
   async getStructSyncExecSqlDetailWithOptions(request: GetStructSyncExecSqlDetailRequest, runtime: $Util.RuntimeOptions): Promise<GetStructSyncExecSqlDetailResponse> {
