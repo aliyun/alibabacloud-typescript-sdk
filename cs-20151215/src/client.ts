@@ -3383,7 +3383,7 @@ export class ScaleOutClusterRequest extends $tea.Model {
   workerInstanceTypes?: string[];
   workerSystemDiskCategory?: string;
   workerSystemDiskSize?: number;
-  workerDataDisks?: DataDisk[];
+  workerDataDisks?: ScaleOutClusterRequestWorkerDataDisks[];
   cloudMonitorFlags?: boolean;
   cpuPolicy?: string;
   imageId?: string;
@@ -3432,7 +3432,7 @@ export class ScaleOutClusterRequest extends $tea.Model {
       workerInstanceTypes: { 'type': 'array', 'itemType': 'string' },
       workerSystemDiskCategory: 'string',
       workerSystemDiskSize: 'number',
-      workerDataDisks: { 'type': 'array', 'itemType': DataDisk },
+      workerDataDisks: { 'type': 'array', 'itemType': ScaleOutClusterRequestWorkerDataDisks },
       cloudMonitorFlags: 'boolean',
       cpuPolicy: 'string',
       imageId: 'string',
@@ -4361,6 +4361,8 @@ export class ModifyClusterNodePoolRequestScalingGroup extends $tea.Model {
   spotInstancePools?: number;
   spotInstanceRemedy?: boolean;
   compensateWithOnDemand?: boolean;
+  internetChargeType?: string;
+  internetMaxBandwidthOut?: number;
   static names(): { [key: string]: string } {
     return {
       dataDisks: 'data_disks',
@@ -4388,6 +4390,8 @@ export class ModifyClusterNodePoolRequestScalingGroup extends $tea.Model {
       spotInstancePools: 'spot_instance_pools',
       spotInstanceRemedy: 'spot_instance_remedy',
       compensateWithOnDemand: 'compensate_with_on_demand',
+      internetChargeType: 'internet_charge_type',
+      internetMaxBandwidthOut: 'internet_max_bandwidth_out',
     };
   }
 
@@ -4418,6 +4422,8 @@ export class ModifyClusterNodePoolRequestScalingGroup extends $tea.Model {
       spotInstancePools: 'number',
       spotInstanceRemedy: 'boolean',
       compensateWithOnDemand: 'boolean',
+      internetChargeType: 'string',
+      internetMaxBandwidthOut: 'number',
     };
   }
 
@@ -4663,6 +4669,8 @@ export class DescribeClusterNodePoolDetailResponseBodyScalingGroup extends $tea.
   vswitchIds?: string[];
   loginPassword?: string;
   keyPair?: string;
+  internetChargeType?: string;
+  internetMaxBandwidthOut?: number;
   static names(): { [key: string]: string } {
     return {
       autoRenew: 'auto_renew',
@@ -4693,6 +4701,8 @@ export class DescribeClusterNodePoolDetailResponseBodyScalingGroup extends $tea.
       vswitchIds: 'vswitch_ids',
       loginPassword: 'login_password',
       keyPair: 'key_pair',
+      internetChargeType: 'internet_charge_type',
+      internetMaxBandwidthOut: 'internet_max_bandwidth_out',
     };
   }
 
@@ -4726,6 +4736,8 @@ export class DescribeClusterNodePoolDetailResponseBodyScalingGroup extends $tea.
       vswitchIds: { 'type': 'array', 'itemType': 'string' },
       loginPassword: 'string',
       keyPair: 'string',
+      internetChargeType: 'string',
+      internetMaxBandwidthOut: 'number',
     };
   }
 
@@ -5013,6 +5025,8 @@ export class CreateClusterNodePoolRequestScalingGroup extends $tea.Model {
   spotInstancePools?: number;
   spotInstanceRemedy?: boolean;
   compensateWithOnDemand?: boolean;
+  internetChargeType?: string;
+  internetMaxBandwidthOut?: number;
   static names(): { [key: string]: string } {
     return {
       autoRenew: 'auto_renew',
@@ -5041,6 +5055,8 @@ export class CreateClusterNodePoolRequestScalingGroup extends $tea.Model {
       spotInstancePools: 'spot_instance_pools',
       spotInstanceRemedy: 'spot_instance_remedy',
       compensateWithOnDemand: 'compensate_with_on_demand',
+      internetChargeType: 'internet_charge_type',
+      internetMaxBandwidthOut: 'internet_max_bandwidth_out',
     };
   }
 
@@ -5072,6 +5088,8 @@ export class CreateClusterNodePoolRequestScalingGroup extends $tea.Model {
       spotInstancePools: 'number',
       spotInstanceRemedy: 'boolean',
       compensateWithOnDemand: 'boolean',
+      internetChargeType: 'string',
+      internetMaxBandwidthOut: 'number',
     };
   }
 
@@ -5958,6 +5976,8 @@ export class DescribeClusterNodePoolsResponseBodyNodepoolsScalingGroup extends $
   vswitchIds?: string[];
   loginPassword?: string;
   keyPair?: string;
+  internetChargeType?: string;
+  internetMaxBandwidthOut?: number;
   static names(): { [key: string]: string } {
     return {
       autoRenew: 'auto_renew',
@@ -5988,6 +6008,8 @@ export class DescribeClusterNodePoolsResponseBodyNodepoolsScalingGroup extends $
       vswitchIds: 'vswitch_ids',
       loginPassword: 'login_password',
       keyPair: 'key_pair',
+      internetChargeType: 'internet_charge_type',
+      internetMaxBandwidthOut: 'internet_max_bandwidth_out',
     };
   }
 
@@ -6021,6 +6043,8 @@ export class DescribeClusterNodePoolsResponseBodyNodepoolsScalingGroup extends $
       vswitchIds: { 'type': 'array', 'itemType': 'string' },
       loginPassword: 'string',
       keyPair: 'string',
+      internetChargeType: 'string',
+      internetMaxBandwidthOut: 'number',
     };
   }
 
@@ -6170,6 +6194,34 @@ export class DescribeClusterNodePoolsResponseBodyNodepools extends $tea.Model {
       status: DescribeClusterNodePoolsResponseBodyNodepoolsStatus,
       teeConfig: DescribeClusterNodePoolsResponseBodyNodepoolsTeeConfig,
       management: DescribeClusterNodePoolsResponseBodyNodepoolsManagement,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScaleOutClusterRequestWorkerDataDisks extends $tea.Model {
+  category?: string;
+  size?: string;
+  encrypted?: string;
+  autoSnapshotPolicyId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'category',
+      size: 'size',
+      encrypted: 'encrypted',
+      autoSnapshotPolicyId: 'auto_snapshot_policy_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      size: 'string',
+      encrypted: 'string',
+      autoSnapshotPolicyId: 'string',
     };
   }
 
