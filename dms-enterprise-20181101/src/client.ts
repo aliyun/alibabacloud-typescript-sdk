@@ -5975,6 +5975,90 @@ export class GetDataCorrectBackupFilesResponse extends $tea.Model {
   }
 }
 
+export class ListDataCorrectPreCheckSQLRequest extends $tea.Model {
+  orderId?: number;
+  pageNumber?: number;
+  pageSize?: number;
+  dbId?: number;
+  tid?: number;
+  static names(): { [key: string]: string } {
+    return {
+      orderId: 'OrderId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      dbId: 'DbId',
+      tid: 'Tid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      orderId: 'number',
+      pageNumber: 'number',
+      pageSize: 'number',
+      dbId: 'number',
+      tid: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataCorrectPreCheckSQLResponseBody extends $tea.Model {
+  requestId?: string;
+  success?: boolean;
+  errorMessage?: string;
+  errorCode?: string;
+  preCheckSQLList?: ListDataCorrectPreCheckSQLResponseBodyPreCheckSQLList[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+      errorMessage: 'ErrorMessage',
+      errorCode: 'ErrorCode',
+      preCheckSQLList: 'PreCheckSQLList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+      errorMessage: 'string',
+      errorCode: 'string',
+      preCheckSQLList: { 'type': 'array', 'itemType': ListDataCorrectPreCheckSQLResponseBodyPreCheckSQLList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataCorrectPreCheckSQLResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListDataCorrectPreCheckSQLResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListDataCorrectPreCheckSQLResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RegisterInstanceRequest extends $tea.Model {
   tid?: number;
   instanceType?: string;
@@ -6414,6 +6498,87 @@ export class ExecuteDataCorrectResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: ExecuteDataCorrectResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataCorrectPreCheckDBRequest extends $tea.Model {
+  orderId?: number;
+  pageNumber?: number;
+  pageSize?: number;
+  tid?: number;
+  static names(): { [key: string]: string } {
+    return {
+      orderId: 'OrderId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      tid: 'Tid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      orderId: 'number',
+      pageNumber: 'number',
+      pageSize: 'number',
+      tid: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataCorrectPreCheckDBResponseBody extends $tea.Model {
+  requestId?: string;
+  success?: boolean;
+  errorMessage?: string;
+  errorCode?: string;
+  preCheckDBList?: ListDataCorrectPreCheckDBResponseBodyPreCheckDBList[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+      errorMessage: 'ErrorMessage',
+      errorCode: 'ErrorCode',
+      preCheckDBList: 'PreCheckDBList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+      errorMessage: 'string',
+      errorCode: 'string',
+      preCheckDBList: { 'type': 'array', 'itemType': ListDataCorrectPreCheckDBResponseBodyPreCheckDBList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataCorrectPreCheckDBResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListDataCorrectPreCheckDBResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListDataCorrectPreCheckDBResponseBody,
     };
   }
 
@@ -11363,6 +11528,40 @@ export class GetDataCorrectBackupFilesResponseBodyDataCorrectBackupFiles extends
   }
 }
 
+export class ListDataCorrectPreCheckSQLResponseBodyPreCheckSQLList extends $tea.Model {
+  checkSQL?: string;
+  affectRows?: number;
+  dbId?: number;
+  SQLReviewQueryKey?: string;
+  sqlReviewStatus?: string;
+  sqlType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      checkSQL: 'CheckSQL',
+      affectRows: 'AffectRows',
+      dbId: 'DbId',
+      SQLReviewQueryKey: 'SQLReviewQueryKey',
+      sqlReviewStatus: 'SqlReviewStatus',
+      sqlType: 'SqlType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      checkSQL: 'string',
+      affectRows: 'number',
+      dbId: 'number',
+      SQLReviewQueryKey: 'string',
+      sqlReviewStatus: 'string',
+      sqlType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateStructSyncOrderRequestParamSource extends $tea.Model {
   dbId?: number;
   dbSearchName?: string;
@@ -11461,6 +11660,31 @@ export class CreateStructSyncOrderRequestParam extends $tea.Model {
       target: CreateStructSyncOrderRequestParamTarget,
       ignoreError: 'boolean',
       tableInfoList: { 'type': 'array', 'itemType': CreateStructSyncOrderRequestParamTableInfoList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataCorrectPreCheckDBResponseBodyPreCheckDBList extends $tea.Model {
+  dbId?: number;
+  searchName?: string;
+  sqlNum?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dbId: 'DbId',
+      searchName: 'SearchName',
+      sqlNum: 'SqlNum',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dbId: 'number',
+      searchName: 'string',
+      sqlNum: 'number',
     };
   }
 
@@ -13151,6 +13375,19 @@ export default class Client extends OpenApi {
     return await this.getDataCorrectBackupFilesWithOptions(request, runtime);
   }
 
+  async listDataCorrectPreCheckSQLWithOptions(request: ListDataCorrectPreCheckSQLRequest, runtime: $Util.RuntimeOptions): Promise<ListDataCorrectPreCheckSQLResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<ListDataCorrectPreCheckSQLResponse>(await this.doRPCRequest("ListDataCorrectPreCheckSQL", "2018-11-01", "HTTPS", "POST", "AK", "json", req, runtime), new ListDataCorrectPreCheckSQLResponse({}));
+  }
+
+  async listDataCorrectPreCheckSQL(request: ListDataCorrectPreCheckSQLRequest): Promise<ListDataCorrectPreCheckSQLResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listDataCorrectPreCheckSQLWithOptions(request, runtime);
+  }
+
   async registerInstanceWithOptions(request: RegisterInstanceRequest, runtime: $Util.RuntimeOptions): Promise<RegisterInstanceResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -13223,6 +13460,19 @@ export default class Client extends OpenApi {
   async executeDataCorrect(request: ExecuteDataCorrectRequest): Promise<ExecuteDataCorrectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.executeDataCorrectWithOptions(request, runtime);
+  }
+
+  async listDataCorrectPreCheckDBWithOptions(request: ListDataCorrectPreCheckDBRequest, runtime: $Util.RuntimeOptions): Promise<ListDataCorrectPreCheckDBResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<ListDataCorrectPreCheckDBResponse>(await this.doRPCRequest("ListDataCorrectPreCheckDB", "2018-11-01", "HTTPS", "POST", "AK", "json", req, runtime), new ListDataCorrectPreCheckDBResponse({}));
+  }
+
+  async listDataCorrectPreCheckDB(request: ListDataCorrectPreCheckDBRequest): Promise<ListDataCorrectPreCheckDBResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listDataCorrectPreCheckDBWithOptions(request, runtime);
   }
 
   async listTablesWithOptions(request: ListTablesRequest, runtime: $Util.RuntimeOptions): Promise<ListTablesResponse> {
