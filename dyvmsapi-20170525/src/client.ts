@@ -36,25 +36,25 @@ export class AddRtcAccountRequest extends $tea.Model {
 }
 
 export class AddRtcAccountResponseBody extends $tea.Model {
-  message?: string;
-  requestId?: string;
-  module?: string;
   code?: string;
+  message?: string;
+  module?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      message: 'Message',
-      requestId: 'RequestId',
-      module: 'Module',
       code: 'Code',
+      message: 'Message',
+      module: 'Module',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      message: 'string',
-      requestId: 'string',
-      module: 'string',
       code: 'string',
+      message: 'string',
+      module: 'string',
+      requestId: 'string',
     };
   }
 
@@ -77,6 +77,96 @@ export class AddRtcAccountResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: AddRtcAccountResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddVirtualNumberRelationRequest extends $tea.Model {
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  prodCode?: string;
+  corpNameList?: string;
+  numberList?: string;
+  routeType?: number;
+  phoneNum?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      prodCode: 'ProdCode',
+      corpNameList: 'CorpNameList',
+      numberList: 'NumberList',
+      routeType: 'RouteType',
+      phoneNum: 'PhoneNum',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      prodCode: 'string',
+      corpNameList: 'string',
+      numberList: 'string',
+      routeType: 'number',
+      phoneNum: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddVirtualNumberRelationResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  data?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      data: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddVirtualNumberRelationResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: AddVirtualNumberRelationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: AddVirtualNumberRelationResponseBody,
     };
   }
 
@@ -144,25 +234,25 @@ export class BatchRobotSmartCallRequest extends $tea.Model {
 }
 
 export class BatchRobotSmartCallResponseBody extends $tea.Model {
-  taskId?: string;
+  code?: string;
   message?: string;
   requestId?: string;
-  code?: string;
+  taskId?: string;
   static names(): { [key: string]: string } {
     return {
-      taskId: 'TaskId',
+      code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
-      code: 'Code',
+      taskId: 'TaskId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      taskId: 'string',
+      code: 'string',
       message: 'string',
       requestId: 'string',
-      code: 'string',
+      taskId: 'string',
     };
   }
 
@@ -225,25 +315,25 @@ export class BindNumberAndVoipIdRequest extends $tea.Model {
 }
 
 export class BindNumberAndVoipIdResponseBody extends $tea.Model {
-  message?: string;
-  requestId?: string;
-  module?: string;
   code?: string;
+  message?: string;
+  module?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      message: 'Message',
-      requestId: 'RequestId',
-      module: 'Module',
       code: 'Code',
+      message: 'Message',
+      module: 'Module',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      message: 'string',
-      requestId: 'string',
-      module: 'string',
       code: 'string',
+      message: 'string',
+      module: 'string',
+      requestId: 'string',
     };
   }
 
@@ -304,24 +394,24 @@ export class CancelCallRequest extends $tea.Model {
 
 export class CancelCallResponseBody extends $tea.Model {
   status?: boolean;
+  code?: string;
   message?: string;
   requestId?: string;
-  code?: string;
   static names(): { [key: string]: string } {
     return {
       status: 'Status',
+      code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       status: 'boolean',
+      code: 'string',
       message: 'string',
       requestId: 'string',
-      code: 'string',
     };
   }
 
@@ -381,25 +471,25 @@ export class CancelOrderRobotTaskRequest extends $tea.Model {
 }
 
 export class CancelOrderRobotTaskResponseBody extends $tea.Model {
-  message?: string;
-  requestId?: string;
-  data?: string;
   code?: string;
+  message?: string;
+  data?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      message: 'Message',
-      requestId: 'RequestId',
-      data: 'Data',
       code: 'Code',
+      message: 'Message',
+      data: 'Data',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      message: 'string',
-      requestId: 'string',
-      data: 'string',
       code: 'string',
+      message: 'string',
+      data: 'string',
+      requestId: 'string',
     };
   }
 
@@ -459,25 +549,25 @@ export class CancelRobotTaskRequest extends $tea.Model {
 }
 
 export class CancelRobotTaskResponseBody extends $tea.Model {
-  message?: string;
-  requestId?: string;
-  data?: string;
   code?: string;
+  message?: string;
+  data?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      message: 'Message',
-      requestId: 'RequestId',
-      data: 'Data',
       code: 'Code',
+      message: 'Message',
+      data: 'Data',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      message: 'string',
-      requestId: 'string',
-      data: 'string',
       code: 'string',
+      message: 'string',
+      data: 'string',
+      requestId: 'string',
     };
   }
 
@@ -561,25 +651,25 @@ export class ClickToDialRequest extends $tea.Model {
 }
 
 export class ClickToDialResponseBody extends $tea.Model {
+  code?: string;
   message?: string;
   requestId?: string;
   callId?: string;
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
       callId: 'CallId',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
       message: 'string',
       requestId: 'string',
       callId: 'string',
-      code: 'string',
     };
   }
 
@@ -602,6 +692,192 @@ export class ClickToDialResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: ClickToDialResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CloseSipAccountRequest extends $tea.Model {
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  partnerId?: number;
+  sipAccountID?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      partnerId: 'PartnerId',
+      sipAccountID: 'SipAccountID',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      partnerId: 'number',
+      sipAccountID: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CloseSipAccountResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  data?: boolean;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      data: 'boolean',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CloseSipAccountResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CloseSipAccountResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CloseSipAccountResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCallTaskRequest extends $tea.Model {
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  taskName?: string;
+  bizType?: string;
+  templateCode?: string;
+  templateName?: string;
+  resourceType?: string;
+  resource?: string;
+  dataType?: string;
+  data?: string;
+  fireTime?: string;
+  stopTime?: string;
+  scheduleType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      taskName: 'TaskName',
+      bizType: 'BizType',
+      templateCode: 'TemplateCode',
+      templateName: 'TemplateName',
+      resourceType: 'ResourceType',
+      resource: 'Resource',
+      dataType: 'DataType',
+      data: 'Data',
+      fireTime: 'FireTime',
+      stopTime: 'StopTime',
+      scheduleType: 'ScheduleType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      taskName: 'string',
+      bizType: 'string',
+      templateCode: 'string',
+      templateName: 'string',
+      resourceType: 'string',
+      resource: 'string',
+      dataType: 'string',
+      data: 'string',
+      fireTime: 'string',
+      stopTime: 'string',
+      scheduleType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCallTaskResponseBody extends $tea.Model {
+  code?: string;
+  data?: number;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'number',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCallTaskResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CreateCallTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CreateCallTaskResponseBody,
     };
   }
 
@@ -666,25 +942,25 @@ export class CreateRobotTaskRequest extends $tea.Model {
 }
 
 export class CreateRobotTaskResponseBody extends $tea.Model {
-  message?: string;
-  requestId?: string;
-  data?: string;
   code?: string;
+  message?: string;
+  data?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      message: 'Message',
-      requestId: 'RequestId',
-      data: 'Data',
       code: 'Code',
+      message: 'Message',
+      data: 'Data',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      message: 'string',
-      requestId: 'string',
-      data: 'string',
       code: 'string',
+      message: 'string',
+      data: 'string',
+      requestId: 'string',
     };
   }
 
@@ -707,6 +983,87 @@ export class CreateRobotTaskResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: CreateRobotTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSipAccountRequest extends $tea.Model {
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  partnerId?: number;
+  businessKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      partnerId: 'PartnerId',
+      businessKey: 'BusinessKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      partnerId: 'number',
+      businessKey: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSipAccountResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  requestId?: string;
+  data?: CreateSipAccountResponseBodyData;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+      data: CreateSipAccountResponseBodyData,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSipAccountResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CreateSipAccountResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CreateSipAccountResponseBody,
     };
   }
 
@@ -744,25 +1101,25 @@ export class DeleteRobotTaskRequest extends $tea.Model {
 }
 
 export class DeleteRobotTaskResponseBody extends $tea.Model {
-  message?: string;
-  requestId?: string;
-  data?: string;
   code?: string;
+  message?: string;
+  data?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      message: 'Message',
-      requestId: 'RequestId',
-      data: 'Data',
       code: 'Code',
+      message: 'Message',
+      data: 'Data',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      message: 'string',
-      requestId: 'string',
-      data: 'string',
       code: 'string',
+      message: 'string',
+      data: 'string',
+      requestId: 'string',
     };
   }
 
@@ -834,31 +1191,31 @@ export class DescribeRecordDataRequest extends $tea.Model {
 }
 
 export class DescribeRecordDataResponseBody extends $tea.Model {
-  acid?: string;
-  requestId?: string;
-  message?: string;
   ossLink?: string;
+  requestId?: string;
   agentId?: string;
+  acid?: string;
   code?: string;
+  message?: string;
   static names(): { [key: string]: string } {
     return {
-      acid: 'Acid',
-      requestId: 'RequestId',
-      message: 'Message',
       ossLink: 'OssLink',
+      requestId: 'RequestId',
       agentId: 'AgentId',
+      acid: 'Acid',
       code: 'Code',
+      message: 'Message',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      acid: 'string',
-      requestId: 'string',
-      message: 'string',
       ossLink: 'string',
+      requestId: 'string',
       agentId: 'string',
+      acid: 'string',
       code: 'string',
+      message: 'string',
     };
   }
 
@@ -918,25 +1275,25 @@ export class DoRtcNumberAuthRequest extends $tea.Model {
 }
 
 export class DoRtcNumberAuthResponseBody extends $tea.Model {
-  message?: string;
-  requestId?: string;
-  module?: string;
   code?: string;
+  message?: string;
+  module?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      message: 'Message',
-      requestId: 'RequestId',
-      module: 'Module',
       code: 'Code',
+      message: 'Message',
+      module: 'Module',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      message: 'string',
-      requestId: 'string',
-      module: 'string',
       code: 'string',
+      message: 'string',
+      module: 'string',
+      requestId: 'string',
     };
   }
 
@@ -959,6 +1316,198 @@ export class DoRtcNumberAuthResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: DoRtcNumberAuthResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DoubleCallSeatRequest extends $tea.Model {
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  callerShowNumber?: string;
+  callerNumber?: string;
+  calledShowNumber?: string;
+  calledNumber?: string;
+  recordFlag?: boolean;
+  asrFlag?: boolean;
+  sessionTimeout?: number;
+  asrModelId?: string;
+  outId?: string;
+  callType?: string;
+  recordPoint?: number;
+  voiceCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      callerShowNumber: 'CallerShowNumber',
+      callerNumber: 'CallerNumber',
+      calledShowNumber: 'CalledShowNumber',
+      calledNumber: 'CalledNumber',
+      recordFlag: 'RecordFlag',
+      asrFlag: 'AsrFlag',
+      sessionTimeout: 'SessionTimeout',
+      asrModelId: 'AsrModelId',
+      outId: 'OutId',
+      callType: 'CallType',
+      recordPoint: 'RecordPoint',
+      voiceCode: 'VoiceCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      callerShowNumber: 'string',
+      callerNumber: 'string',
+      calledShowNumber: 'string',
+      calledNumber: 'string',
+      recordFlag: 'boolean',
+      asrFlag: 'boolean',
+      sessionTimeout: 'number',
+      asrModelId: 'string',
+      outId: 'string',
+      callType: 'string',
+      recordPoint: 'number',
+      voiceCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DoubleCallSeatResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  requestId?: string;
+  callId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      callId: 'CallId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+      callId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DoubleCallSeatResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DoubleCallSeatResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DoubleCallSeatResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExecuteCallTaskRequest extends $tea.Model {
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  taskId?: number;
+  status?: string;
+  fireTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      taskId: 'TaskId',
+      status: 'Status',
+      fireTime: 'FireTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      taskId: 'number',
+      status: 'string',
+      fireTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExecuteCallTaskResponseBody extends $tea.Model {
+  code?: string;
+  data?: boolean;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'boolean',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExecuteCallTaskResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ExecuteCallTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ExecuteCallTaskResponseBody,
     };
   }
 
@@ -1002,25 +1551,25 @@ export class GetRtcTokenRequest extends $tea.Model {
 }
 
 export class GetRtcTokenResponseBody extends $tea.Model {
-  message?: string;
-  requestId?: string;
-  module?: string;
   code?: string;
+  message?: string;
+  module?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      message: 'Message',
-      requestId: 'RequestId',
-      module: 'Module',
       code: 'Code',
+      message: 'Message',
+      module: 'Module',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      message: 'string',
-      requestId: 'string',
-      module: 'string',
       code: 'string',
+      message: 'string',
+      module: 'string',
+      requestId: 'string',
     };
   }
 
@@ -1043,6 +1592,87 @@ export class GetRtcTokenResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: GetRtcTokenResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTokenRequest extends $tea.Model {
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  tokenType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      tokenType: 'TokenType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      tokenType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTokenResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  token?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      token: 'Token',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      token: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTokenResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetTokenResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetTokenResponseBody,
     };
   }
 
@@ -1107,25 +1737,25 @@ export class IvrCallRequest extends $tea.Model {
 }
 
 export class IvrCallResponseBody extends $tea.Model {
+  code?: string;
   message?: string;
   requestId?: string;
   callId?: string;
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
       callId: 'CallId',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
       message: 'string',
       requestId: 'string',
       callId: 'string',
-      code: 'string',
     };
   }
 
@@ -1148,6 +1778,207 @@ export class IvrCallResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: IvrCallResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCallTaskRequest extends $tea.Model {
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  pageNumber?: number;
+  pageSize?: number;
+  templateName?: string;
+  status?: string;
+  taskName?: string;
+  taskId?: string;
+  bizType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      templateName: 'TemplateName',
+      status: 'Status',
+      taskName: 'TaskName',
+      taskId: 'TaskId',
+      bizType: 'BizType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      pageNumber: 'number',
+      pageSize: 'number',
+      templateName: 'string',
+      status: 'string',
+      taskName: 'string',
+      taskId: 'string',
+      bizType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCallTaskResponseBody extends $tea.Model {
+  code?: string;
+  pageSize?: number;
+  pageNumber?: number;
+  requestId?: string;
+  total?: number;
+  data?: ListCallTaskResponseBodyData[];
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      pageSize: 'PageSize',
+      pageNumber: 'PageNumber',
+      requestId: 'RequestId',
+      total: 'Total',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      pageSize: 'number',
+      pageNumber: 'number',
+      requestId: 'string',
+      total: 'number',
+      data: { 'type': 'array', 'itemType': ListCallTaskResponseBodyData },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCallTaskResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListCallTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListCallTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCallTaskDetailRequest extends $tea.Model {
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  taskId?: number;
+  calledNum?: string;
+  status?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      taskId: 'TaskId',
+      calledNum: 'CalledNum',
+      status: 'Status',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      taskId: 'number',
+      calledNum: 'string',
+      status: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCallTaskDetailResponseBody extends $tea.Model {
+  requestId?: string;
+  code?: string;
+  totalPage?: number;
+  pageSize?: number;
+  pageNumber?: number;
+  total?: number;
+  data?: ListCallTaskDetailResponseBodyData[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      code: 'Code',
+      totalPage: 'TotalPage',
+      pageSize: 'PageSize',
+      pageNumber: 'PageNumber',
+      total: 'Total',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      code: 'string',
+      totalPage: 'number',
+      pageSize: 'number',
+      pageNumber: 'number',
+      total: 'number',
+      data: { 'type': 'array', 'itemType': ListCallTaskDetailResponseBodyData },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCallTaskDetailResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListCallTaskDetailResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListCallTaskDetailResponseBody,
     };
   }
 
@@ -1185,25 +2016,25 @@ export class ListOrderedNumbersRequest extends $tea.Model {
 }
 
 export class ListOrderedNumbersResponseBody extends $tea.Model {
-  numbers?: string[];
+  code?: string;
   message?: string;
   requestId?: string;
-  code?: string;
+  numbers?: string[];
   static names(): { [key: string]: string } {
     return {
-      numbers: 'Numbers',
+      code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
-      code: 'Code',
+      numbers: 'Numbers',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      numbers: { 'type': 'array', 'itemType': 'string' },
+      code: 'string',
       message: 'string',
       requestId: 'string',
-      code: 'string',
+      numbers: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -1269,25 +2100,25 @@ export class ListOutboundStrategiesRequest extends $tea.Model {
 }
 
 export class ListOutboundStrategiesResponseBody extends $tea.Model {
+  code?: string;
   message?: string;
   requestId?: string;
   outboundStrategies?: ListOutboundStrategiesResponseBodyOutboundStrategies[];
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
       outboundStrategies: 'OutboundStrategies',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
       message: 'string',
       requestId: 'string',
       outboundStrategies: { 'type': 'array', 'itemType': ListOutboundStrategiesResponseBodyOutboundStrategies },
-      code: 'string',
     };
   }
 
@@ -1374,34 +2205,34 @@ export class ListRobotTaskCallsRequest extends $tea.Model {
 }
 
 export class ListRobotTaskCallsResponseBody extends $tea.Model {
-  totalCount?: string;
-  requestId?: string;
-  message?: string;
-  pageSize?: string;
   data?: string;
+  requestId?: string;
   pageNo?: string;
   code?: string;
+  message?: string;
+  pageSize?: string;
+  totalCount?: string;
   static names(): { [key: string]: string } {
     return {
-      totalCount: 'TotalCount',
-      requestId: 'RequestId',
-      message: 'Message',
-      pageSize: 'PageSize',
       data: 'Data',
+      requestId: 'RequestId',
       pageNo: 'PageNo',
       code: 'Code',
+      message: 'Message',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      totalCount: 'string',
-      requestId: 'string',
-      message: 'string',
-      pageSize: 'string',
       data: 'string',
+      requestId: 'string',
       pageNo: 'string',
       code: 'string',
+      message: 'string',
+      pageSize: 'string',
+      totalCount: 'string',
     };
   }
 
@@ -1467,25 +2298,25 @@ export class QueryCallDetailByCallIdRequest extends $tea.Model {
 }
 
 export class QueryCallDetailByCallIdResponseBody extends $tea.Model {
-  message?: string;
-  requestId?: string;
-  data?: string;
   code?: string;
+  message?: string;
+  data?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      message: 'Message',
-      requestId: 'RequestId',
-      data: 'Data',
       code: 'Code',
+      message: 'Message',
+      data: 'Data',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      message: 'string',
-      requestId: 'string',
-      data: 'string',
       code: 'string',
+      message: 'string',
+      data: 'string',
+      requestId: 'string',
     };
   }
 
@@ -1551,25 +2382,25 @@ export class QueryCallDetailByTaskIdRequest extends $tea.Model {
 }
 
 export class QueryCallDetailByTaskIdResponseBody extends $tea.Model {
-  message?: string;
-  requestId?: string;
-  data?: string;
   code?: string;
+  message?: string;
+  data?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      message: 'Message',
-      requestId: 'RequestId',
-      data: 'Data',
       code: 'Code',
+      message: 'Message',
+      data: 'Data',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      message: 'string',
-      requestId: 'string',
-      data: 'string',
       code: 'string',
+      message: 'string',
+      data: 'string',
+      requestId: 'string',
     };
   }
 
@@ -1629,25 +2460,25 @@ export class QueryRobotInfoListRequest extends $tea.Model {
 }
 
 export class QueryRobotInfoListResponseBody extends $tea.Model {
-  message?: string;
-  requestId?: string;
-  data?: string;
   code?: string;
+  message?: string;
+  data?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      message: 'Message',
-      requestId: 'RequestId',
-      data: 'Data',
       code: 'Code',
+      message: 'Message',
+      data: 'Data',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      message: 'string',
-      requestId: 'string',
-      data: 'string',
       code: 'string',
+      message: 'string',
+      data: 'string',
+      requestId: 'string',
     };
   }
 
@@ -1713,25 +2544,25 @@ export class QueryRobotTaskCallDetailRequest extends $tea.Model {
 }
 
 export class QueryRobotTaskCallDetailResponseBody extends $tea.Model {
-  message?: string;
-  requestId?: string;
-  data?: string;
   code?: string;
+  message?: string;
+  data?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      message: 'Message',
-      requestId: 'RequestId',
-      data: 'Data',
       code: 'Code',
+      message: 'Message',
+      data: 'Data',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      message: 'string',
-      requestId: 'string',
-      data: 'string',
       code: 'string',
+      message: 'string',
+      data: 'string',
+      requestId: 'string',
     };
   }
 
@@ -1818,25 +2649,25 @@ export class QueryRobotTaskCallListRequest extends $tea.Model {
 }
 
 export class QueryRobotTaskCallListResponseBody extends $tea.Model {
-  message?: string;
-  requestId?: string;
-  data?: string;
   code?: string;
+  message?: string;
+  data?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      message: 'Message',
-      requestId: 'RequestId',
-      data: 'Data',
       code: 'Code',
+      message: 'Message',
+      data: 'Data',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      message: 'string',
-      requestId: 'string',
-      data: 'string',
       code: 'string',
+      message: 'string',
+      data: 'string',
+      requestId: 'string',
     };
   }
 
@@ -1896,25 +2727,25 @@ export class QueryRobotTaskDetailRequest extends $tea.Model {
 }
 
 export class QueryRobotTaskDetailResponseBody extends $tea.Model {
-  message?: string;
-  requestId?: string;
-  data?: string;
   code?: string;
+  message?: string;
+  data?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      message: 'Message',
-      requestId: 'RequestId',
-      data: 'Data',
       code: 'Code',
+      message: 'Message',
+      data: 'Data',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      message: 'string',
-      requestId: 'string',
-      data: 'string',
       code: 'string',
+      message: 'string',
+      data: 'string',
+      requestId: 'string',
     };
   }
 
@@ -1986,34 +2817,34 @@ export class QueryRobotTaskListRequest extends $tea.Model {
 }
 
 export class QueryRobotTaskListResponseBody extends $tea.Model {
-  totalCount?: string;
-  requestId?: string;
-  message?: string;
-  pageSize?: string;
   data?: string;
+  requestId?: string;
   pageNo?: string;
   code?: string;
+  message?: string;
+  pageSize?: string;
+  totalCount?: string;
   static names(): { [key: string]: string } {
     return {
-      totalCount: 'TotalCount',
-      requestId: 'RequestId',
-      message: 'Message',
-      pageSize: 'PageSize',
       data: 'Data',
+      requestId: 'RequestId',
       pageNo: 'PageNo',
       code: 'Code',
+      message: 'Message',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      totalCount: 'string',
-      requestId: 'string',
-      message: 'string',
-      pageSize: 'string',
       data: 'string',
+      requestId: 'string',
       pageNo: 'string',
       code: 'string',
+      message: 'string',
+      pageSize: 'string',
+      totalCount: 'string',
     };
   }
 
@@ -2070,25 +2901,25 @@ export class QueryRobotv2AllListRequest extends $tea.Model {
 }
 
 export class QueryRobotv2AllListResponseBody extends $tea.Model {
-  message?: string;
-  requestId?: string;
-  data?: string;
   code?: string;
+  message?: string;
+  data?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      message: 'Message',
-      requestId: 'RequestId',
-      data: 'Data',
       code: 'Code',
+      message: 'Message',
+      data: 'Data',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      message: 'string',
-      requestId: 'string',
-      data: 'string',
       code: 'string',
+      message: 'string',
+      data: 'string',
+      requestId: 'string',
     };
   }
 
@@ -2148,25 +2979,25 @@ export class QueryRtcNumberAuthStatusRequest extends $tea.Model {
 }
 
 export class QueryRtcNumberAuthStatusResponseBody extends $tea.Model {
-  message?: string;
-  requestId?: string;
-  module?: string;
   code?: string;
+  message?: string;
+  module?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      message: 'Message',
-      requestId: 'RequestId',
-      module: 'Module',
       code: 'Code',
+      message: 'Message',
+      module: 'Module',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      message: 'string',
-      requestId: 'string',
-      module: 'string',
       code: 'string',
+      message: 'string',
+      module: 'string',
+      requestId: 'string',
     };
   }
 
@@ -2189,6 +3020,189 @@ export class QueryRtcNumberAuthStatusResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: QueryRtcNumberAuthStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryVirtualNumberRequest extends $tea.Model {
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  prodCode?: string;
+  pageNo?: number;
+  pageSize?: number;
+  routeType?: number;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      prodCode: 'ProdCode',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      routeType: 'RouteType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      prodCode: 'string',
+      pageNo: 'number',
+      pageSize: 'number',
+      routeType: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryVirtualNumberResponseBody extends $tea.Model {
+  code?: string;
+  data?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryVirtualNumberResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: QueryVirtualNumberResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: QueryVirtualNumberResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryVirtualNumberRelationRequest extends $tea.Model {
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  prodCode?: string;
+  pageNo?: number;
+  pageSize?: number;
+  routeType?: number;
+  qualificationId?: number;
+  regionNameCity?: string;
+  specId?: number;
+  relatedNum?: string;
+  phoneNum?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      prodCode: 'ProdCode',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      routeType: 'RouteType',
+      qualificationId: 'QualificationId',
+      regionNameCity: 'RegionNameCity',
+      specId: 'SpecId',
+      relatedNum: 'RelatedNum',
+      phoneNum: 'PhoneNum',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      prodCode: 'string',
+      pageNo: 'number',
+      pageSize: 'number',
+      routeType: 'number',
+      qualificationId: 'number',
+      regionNameCity: 'string',
+      specId: 'number',
+      relatedNum: 'string',
+      phoneNum: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryVirtualNumberRelationResponseBody extends $tea.Model {
+  code?: string;
+  data?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryVirtualNumberRelationResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: QueryVirtualNumberRelationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: QueryVirtualNumberRelationResponseBody,
     };
   }
 
@@ -2229,25 +3243,25 @@ export class QueryVoipNumberBindInfosRequest extends $tea.Model {
 }
 
 export class QueryVoipNumberBindInfosResponseBody extends $tea.Model {
-  message?: string;
-  requestId?: string;
-  module?: string;
   code?: string;
+  message?: string;
+  module?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      message: 'Message',
-      requestId: 'RequestId',
-      module: 'Module',
       code: 'Code',
+      message: 'Message',
+      module: 'Module',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      message: 'string',
-      requestId: 'string',
-      module: 'string',
       code: 'string',
+      message: 'string',
+      module: 'string',
+      requestId: 'string',
     };
   }
 
@@ -2316,25 +3330,25 @@ export class ReportVoipProblemsRequest extends $tea.Model {
 }
 
 export class ReportVoipProblemsResponseBody extends $tea.Model {
-  message?: string;
-  requestId?: string;
-  module?: string;
   code?: string;
+  message?: string;
+  module?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      message: 'Message',
-      requestId: 'RequestId',
-      module: 'Module',
       code: 'Code',
+      message: 'Message',
+      module: 'Module',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      message: 'string',
-      requestId: 'string',
-      module: 'string',
       code: 'string',
+      message: 'string',
+      module: 'string',
+      requestId: 'string',
     };
   }
 
@@ -2415,25 +3429,25 @@ export class SingleCallByTtsRequest extends $tea.Model {
 }
 
 export class SingleCallByTtsResponseBody extends $tea.Model {
+  code?: string;
   message?: string;
   requestId?: string;
   callId?: string;
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
       callId: 'CallId',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
       message: 'string',
       requestId: 'string',
       callId: 'string',
-      code: 'string',
     };
   }
 
@@ -2511,25 +3525,25 @@ export class SingleCallByVoiceRequest extends $tea.Model {
 }
 
 export class SingleCallByVoiceResponseBody extends $tea.Model {
+  code?: string;
   message?: string;
   requestId?: string;
   callId?: string;
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
       callId: 'CallId',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
       message: 'string',
       requestId: 'string',
       callId: 'string',
-      code: 'string',
     };
   }
 
@@ -2585,6 +3599,7 @@ export class SmartCallRequest extends $tea.Model {
   ttsSpeed?: number;
   ttsConf?: boolean;
   asrBaseId?: string;
+  streamAsr?: number;
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
@@ -2611,6 +3626,7 @@ export class SmartCallRequest extends $tea.Model {
       ttsSpeed: 'TtsSpeed',
       ttsConf: 'TtsConf',
       asrBaseId: 'AsrBaseId',
+      streamAsr: 'StreamAsr',
     };
   }
 
@@ -2640,6 +3656,7 @@ export class SmartCallRequest extends $tea.Model {
       ttsSpeed: 'number',
       ttsConf: 'boolean',
       asrBaseId: 'string',
+      streamAsr: 'number',
     };
   }
 
@@ -2649,25 +3666,25 @@ export class SmartCallRequest extends $tea.Model {
 }
 
 export class SmartCallResponseBody extends $tea.Model {
+  code?: string;
   message?: string;
   requestId?: string;
   callId?: string;
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
       callId: 'CallId',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
       message: 'string',
       requestId: 'string',
       callId: 'string',
-      code: 'string',
     };
   }
 
@@ -2734,24 +3751,24 @@ export class SmartCallOperateRequest extends $tea.Model {
 
 export class SmartCallOperateResponseBody extends $tea.Model {
   status?: boolean;
+  code?: string;
   message?: string;
   requestId?: string;
-  code?: string;
   static names(): { [key: string]: string } {
     return {
       status: 'Status',
+      code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       status: 'boolean',
+      code: 'string',
       message: 'string',
       requestId: 'string',
-      code: 'string',
     };
   }
 
@@ -2832,31 +3849,31 @@ export class StartMicroOutboundRequest extends $tea.Model {
 }
 
 export class StartMicroOutboundResponseBody extends $tea.Model {
-  invokeCreateTime?: string;
-  requestId?: string;
-  message?: string;
-  invokeCmdId?: string;
   customerInfo?: string;
+  requestId?: string;
+  invokeCmdId?: string;
   code?: string;
+  invokeCreateTime?: string;
+  message?: string;
   static names(): { [key: string]: string } {
     return {
-      invokeCreateTime: 'InvokeCreateTime',
-      requestId: 'RequestId',
-      message: 'Message',
-      invokeCmdId: 'InvokeCmdId',
       customerInfo: 'CustomerInfo',
+      requestId: 'RequestId',
+      invokeCmdId: 'InvokeCmdId',
       code: 'Code',
+      invokeCreateTime: 'InvokeCreateTime',
+      message: 'Message',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      invokeCreateTime: 'string',
-      requestId: 'string',
-      message: 'string',
-      invokeCmdId: 'string',
       customerInfo: 'string',
+      requestId: 'string',
+      invokeCmdId: 'string',
       code: 'string',
+      invokeCreateTime: 'string',
+      message: 'string',
     };
   }
 
@@ -2919,25 +3936,25 @@ export class StartRobotTaskRequest extends $tea.Model {
 }
 
 export class StartRobotTaskResponseBody extends $tea.Model {
-  message?: string;
-  requestId?: string;
-  data?: string;
   code?: string;
+  message?: string;
+  data?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      message: 'Message',
-      requestId: 'RequestId',
-      data: 'Data',
       code: 'Code',
+      message: 'Message',
+      data: 'Data',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      message: 'string',
-      requestId: 'string',
-      data: 'string',
       code: 'string',
+      message: 'string',
+      data: 'string',
+      requestId: 'string',
     };
   }
 
@@ -2997,25 +4014,25 @@ export class StopRobotTaskRequest extends $tea.Model {
 }
 
 export class StopRobotTaskResponseBody extends $tea.Model {
-  message?: string;
-  requestId?: string;
-  data?: string;
   code?: string;
+  message?: string;
+  data?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      message: 'Message',
-      requestId: 'RequestId',
-      data: 'Data',
       code: 'Code',
+      message: 'Message',
+      data: 'Data',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      message: 'string',
-      requestId: 'string',
-      data: 'string',
       code: 'string',
+      message: 'string',
+      data: 'string',
+      requestId: 'string',
     };
   }
 
@@ -3078,25 +4095,25 @@ export class UnbindNumberAndVoipIdRequest extends $tea.Model {
 }
 
 export class UnbindNumberAndVoipIdResponseBody extends $tea.Model {
-  message?: string;
-  requestId?: string;
-  module?: string;
   code?: string;
+  message?: string;
+  module?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      message: 'Message',
-      requestId: 'RequestId',
-      module: 'Module',
       code: 'Code',
+      message: 'Message',
+      module: 'Module',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      message: 'string',
-      requestId: 'string',
-      module: 'string',
       code: 'string',
+      message: 'string',
+      module: 'string',
+      requestId: 'string',
     };
   }
 
@@ -3156,25 +4173,25 @@ export class UndoRtcNumberAuthRequest extends $tea.Model {
 }
 
 export class UndoRtcNumberAuthResponseBody extends $tea.Model {
-  message?: string;
-  requestId?: string;
-  module?: string;
   code?: string;
+  message?: string;
+  module?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      message: 'Message',
-      requestId: 'RequestId',
-      module: 'Module',
       code: 'Code',
+      message: 'Message',
+      module: 'Module',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      message: 'string',
-      requestId: 'string',
-      module: 'string',
       code: 'string',
+      message: 'string',
+      module: 'string',
+      requestId: 'string',
     };
   }
 
@@ -3243,25 +4260,25 @@ export class UploadRobotTaskCalledFileRequest extends $tea.Model {
 }
 
 export class UploadRobotTaskCalledFileResponseBody extends $tea.Model {
-  message?: string;
-  requestId?: string;
-  data?: string;
   code?: string;
+  message?: string;
+  data?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      message: 'Message',
-      requestId: 'RequestId',
-      data: 'Data',
       code: 'Code',
+      message: 'Message',
+      data: 'Data',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      message: 'string',
-      requestId: 'string',
-      data: 'string',
       code: 'string',
+      message: 'string',
+      data: 'string',
+      requestId: 'string',
     };
   }
 
@@ -3321,25 +4338,25 @@ export class VoipAddAccountRequest extends $tea.Model {
 }
 
 export class VoipAddAccountResponseBody extends $tea.Model {
-  message?: string;
-  requestId?: string;
-  module?: string;
   code?: string;
+  message?: string;
+  module?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      message: 'Message',
-      requestId: 'RequestId',
-      module: 'Module',
       code: 'Code',
+      message: 'Message',
+      module: 'Module',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      message: 'string',
-      requestId: 'string',
-      module: 'string',
       code: 'string',
+      message: 'string',
+      module: 'string',
+      requestId: 'string',
     };
   }
 
@@ -3405,25 +4422,25 @@ export class VoipGetTokenRequest extends $tea.Model {
 }
 
 export class VoipGetTokenResponseBody extends $tea.Model {
-  message?: string;
-  requestId?: string;
-  module?: string;
   code?: string;
+  message?: string;
+  module?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      message: 'Message',
-      requestId: 'RequestId',
-      module: 'Module',
       code: 'Code',
+      message: 'Message',
+      module: 'Module',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      message: 'string',
-      requestId: 'string',
-      module: 'string',
       code: 'string',
+      message: 'string',
+      module: 'string',
+      requestId: 'string',
     };
   }
 
@@ -3454,6 +4471,31 @@ export class VoipGetTokenResponse extends $tea.Model {
   }
 }
 
+export class CreateSipAccountResponseBodyData extends $tea.Model {
+  sipAccountID?: string;
+  voipName?: string;
+  voipPassword?: string;
+  static names(): { [key: string]: string } {
+    return {
+      sipAccountID: 'SipAccountID',
+      voipName: 'VoipName',
+      voipPassword: 'VoipPassword',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sipAccountID: 'string',
+      voipName: 'string',
+      voipPassword: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class IvrCallRequestMenuKeyMap extends $tea.Model {
   key?: string;
   ttsParams?: string;
@@ -3471,6 +4513,98 @@ export class IvrCallRequestMenuKeyMap extends $tea.Model {
       key: 'string',
       ttsParams: 'string',
       code: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCallTaskResponseBodyData extends $tea.Model {
+  status?: string;
+  data?: string;
+  dataType?: string;
+  taskName?: string;
+  completedCount?: number;
+  totalCount?: number;
+  templateName?: string;
+  stopTime?: string;
+  bizType?: string;
+  resource?: string;
+  templateCode?: string;
+  fireTime?: string;
+  completeTime?: string;
+  completedRate?: number;
+  id?: number;
+  static names(): { [key: string]: string } {
+    return {
+      status: 'Status',
+      data: 'Data',
+      dataType: 'DataType',
+      taskName: 'TaskName',
+      completedCount: 'CompletedCount',
+      totalCount: 'TotalCount',
+      templateName: 'TemplateName',
+      stopTime: 'StopTime',
+      bizType: 'BizType',
+      resource: 'Resource',
+      templateCode: 'TemplateCode',
+      fireTime: 'FireTime',
+      completeTime: 'CompleteTime',
+      completedRate: 'CompletedRate',
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      status: 'string',
+      data: 'string',
+      dataType: 'string',
+      taskName: 'string',
+      completedCount: 'number',
+      totalCount: 'number',
+      templateName: 'string',
+      stopTime: 'string',
+      bizType: 'string',
+      resource: 'string',
+      templateCode: 'string',
+      fireTime: 'string',
+      completeTime: 'string',
+      completedRate: 'number',
+      id: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCallTaskDetailResponseBodyData extends $tea.Model {
+  status?: string;
+  duration?: number;
+  calledNum?: string;
+  caller?: string;
+  id?: number;
+  static names(): { [key: string]: string } {
+    return {
+      status: 'Status',
+      duration: 'Duration',
+      calledNum: 'CalledNum',
+      caller: 'Caller',
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      status: 'string',
+      duration: 'number',
+      calledNum: 'string',
+      caller: 'string',
+      id: 'number',
     };
   }
 
@@ -3597,6 +4731,19 @@ export default class Client extends OpenApi {
     return await this.addRtcAccountWithOptions(request, runtime);
   }
 
+  async addVirtualNumberRelationWithOptions(request: AddVirtualNumberRelationRequest, runtime: $Util.RuntimeOptions): Promise<AddVirtualNumberRelationResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<AddVirtualNumberRelationResponse>(await this.doRPCRequest("AddVirtualNumberRelation", "2017-05-25", "HTTPS", "POST", "AK", "json", req, runtime), new AddVirtualNumberRelationResponse({}));
+  }
+
+  async addVirtualNumberRelation(request: AddVirtualNumberRelationRequest): Promise<AddVirtualNumberRelationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.addVirtualNumberRelationWithOptions(request, runtime);
+  }
+
   async batchRobotSmartCallWithOptions(request: BatchRobotSmartCallRequest, runtime: $Util.RuntimeOptions): Promise<BatchRobotSmartCallResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -3675,6 +4822,32 @@ export default class Client extends OpenApi {
     return await this.clickToDialWithOptions(request, runtime);
   }
 
+  async closeSipAccountWithOptions(request: CloseSipAccountRequest, runtime: $Util.RuntimeOptions): Promise<CloseSipAccountResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<CloseSipAccountResponse>(await this.doRPCRequest("CloseSipAccount", "2017-05-25", "HTTPS", "POST", "AK", "json", req, runtime), new CloseSipAccountResponse({}));
+  }
+
+  async closeSipAccount(request: CloseSipAccountRequest): Promise<CloseSipAccountResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.closeSipAccountWithOptions(request, runtime);
+  }
+
+  async createCallTaskWithOptions(request: CreateCallTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateCallTaskResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<CreateCallTaskResponse>(await this.doRPCRequest("CreateCallTask", "2017-05-25", "HTTPS", "POST", "AK", "json", req, runtime), new CreateCallTaskResponse({}));
+  }
+
+  async createCallTask(request: CreateCallTaskRequest): Promise<CreateCallTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createCallTaskWithOptions(request, runtime);
+  }
+
   async createRobotTaskWithOptions(request: CreateRobotTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateRobotTaskResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -3686,6 +4859,19 @@ export default class Client extends OpenApi {
   async createRobotTask(request: CreateRobotTaskRequest): Promise<CreateRobotTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createRobotTaskWithOptions(request, runtime);
+  }
+
+  async createSipAccountWithOptions(request: CreateSipAccountRequest, runtime: $Util.RuntimeOptions): Promise<CreateSipAccountResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<CreateSipAccountResponse>(await this.doRPCRequest("CreateSipAccount", "2017-05-25", "HTTPS", "POST", "AK", "json", req, runtime), new CreateSipAccountResponse({}));
+  }
+
+  async createSipAccount(request: CreateSipAccountRequest): Promise<CreateSipAccountResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createSipAccountWithOptions(request, runtime);
   }
 
   async deleteRobotTaskWithOptions(request: DeleteRobotTaskRequest, runtime: $Util.RuntimeOptions): Promise<DeleteRobotTaskResponse> {
@@ -3727,6 +4913,32 @@ export default class Client extends OpenApi {
     return await this.doRtcNumberAuthWithOptions(request, runtime);
   }
 
+  async doubleCallSeatWithOptions(request: DoubleCallSeatRequest, runtime: $Util.RuntimeOptions): Promise<DoubleCallSeatResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DoubleCallSeatResponse>(await this.doRPCRequest("DoubleCallSeat", "2017-05-25", "HTTPS", "POST", "AK", "json", req, runtime), new DoubleCallSeatResponse({}));
+  }
+
+  async doubleCallSeat(request: DoubleCallSeatRequest): Promise<DoubleCallSeatResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.doubleCallSeatWithOptions(request, runtime);
+  }
+
+  async executeCallTaskWithOptions(request: ExecuteCallTaskRequest, runtime: $Util.RuntimeOptions): Promise<ExecuteCallTaskResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<ExecuteCallTaskResponse>(await this.doRPCRequest("ExecuteCallTask", "2017-05-25", "HTTPS", "POST", "AK", "json", req, runtime), new ExecuteCallTaskResponse({}));
+  }
+
+  async executeCallTask(request: ExecuteCallTaskRequest): Promise<ExecuteCallTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.executeCallTaskWithOptions(request, runtime);
+  }
+
   async getRtcTokenWithOptions(request: GetRtcTokenRequest, runtime: $Util.RuntimeOptions): Promise<GetRtcTokenResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -3740,6 +4952,19 @@ export default class Client extends OpenApi {
     return await this.getRtcTokenWithOptions(request, runtime);
   }
 
+  async getTokenWithOptions(request: GetTokenRequest, runtime: $Util.RuntimeOptions): Promise<GetTokenResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<GetTokenResponse>(await this.doRPCRequest("GetToken", "2017-05-25", "HTTPS", "POST", "AK", "json", req, runtime), new GetTokenResponse({}));
+  }
+
+  async getToken(request: GetTokenRequest): Promise<GetTokenResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getTokenWithOptions(request, runtime);
+  }
+
   async ivrCallWithOptions(request: IvrCallRequest, runtime: $Util.RuntimeOptions): Promise<IvrCallResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -3751,6 +4976,32 @@ export default class Client extends OpenApi {
   async ivrCall(request: IvrCallRequest): Promise<IvrCallResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.ivrCallWithOptions(request, runtime);
+  }
+
+  async listCallTaskWithOptions(request: ListCallTaskRequest, runtime: $Util.RuntimeOptions): Promise<ListCallTaskResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<ListCallTaskResponse>(await this.doRPCRequest("ListCallTask", "2017-05-25", "HTTPS", "POST", "AK", "json", req, runtime), new ListCallTaskResponse({}));
+  }
+
+  async listCallTask(request: ListCallTaskRequest): Promise<ListCallTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listCallTaskWithOptions(request, runtime);
+  }
+
+  async listCallTaskDetailWithOptions(request: ListCallTaskDetailRequest, runtime: $Util.RuntimeOptions): Promise<ListCallTaskDetailResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<ListCallTaskDetailResponse>(await this.doRPCRequest("ListCallTaskDetail", "2017-05-25", "HTTPS", "POST", "AK", "json", req, runtime), new ListCallTaskDetailResponse({}));
+  }
+
+  async listCallTaskDetail(request: ListCallTaskDetailRequest): Promise<ListCallTaskDetailResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listCallTaskDetailWithOptions(request, runtime);
   }
 
   async listOrderedNumbersWithOptions(request: ListOrderedNumbersRequest, runtime: $Util.RuntimeOptions): Promise<ListOrderedNumbersResponse> {
@@ -3907,6 +5158,32 @@ export default class Client extends OpenApi {
   async queryRtcNumberAuthStatus(request: QueryRtcNumberAuthStatusRequest): Promise<QueryRtcNumberAuthStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryRtcNumberAuthStatusWithOptions(request, runtime);
+  }
+
+  async queryVirtualNumberWithOptions(request: QueryVirtualNumberRequest, runtime: $Util.RuntimeOptions): Promise<QueryVirtualNumberResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<QueryVirtualNumberResponse>(await this.doRPCRequest("QueryVirtualNumber", "2017-05-25", "HTTPS", "POST", "AK", "json", req, runtime), new QueryVirtualNumberResponse({}));
+  }
+
+  async queryVirtualNumber(request: QueryVirtualNumberRequest): Promise<QueryVirtualNumberResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryVirtualNumberWithOptions(request, runtime);
+  }
+
+  async queryVirtualNumberRelationWithOptions(request: QueryVirtualNumberRelationRequest, runtime: $Util.RuntimeOptions): Promise<QueryVirtualNumberRelationResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<QueryVirtualNumberRelationResponse>(await this.doRPCRequest("QueryVirtualNumberRelation", "2017-05-25", "HTTPS", "POST", "AK", "json", req, runtime), new QueryVirtualNumberRelationResponse({}));
+  }
+
+  async queryVirtualNumberRelation(request: QueryVirtualNumberRelationRequest): Promise<QueryVirtualNumberRelationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryVirtualNumberRelationWithOptions(request, runtime);
   }
 
   async queryVoipNumberBindInfosWithOptions(request: QueryVoipNumberBindInfosRequest, runtime: $Util.RuntimeOptions): Promise<QueryVoipNumberBindInfosResponse> {
