@@ -5610,12 +5610,14 @@ export class DescribeDispatchRuleResponseDispatchRuleGroupRules extends $tea.Mod
   groupId: number;
   groupWaitTime: number;
   groupInterval: number;
+  repeatInterval: number;
   groupingFields: string[];
   static names(): { [key: string]: string } {
     return {
       groupId: 'GroupId',
       groupWaitTime: 'GroupWaitTime',
       groupInterval: 'GroupInterval',
+      repeatInterval: 'RepeatInterval',
       groupingFields: 'GroupingFields',
     };
   }
@@ -5625,6 +5627,7 @@ export class DescribeDispatchRuleResponseDispatchRuleGroupRules extends $tea.Mod
       groupId: 'number',
       groupWaitTime: 'number',
       groupInterval: 'number',
+      repeatInterval: 'number',
       groupingFields: { 'type': 'array', 'itemType': 'string' },
     };
   }
@@ -5748,6 +5751,8 @@ export class DescribeDispatchRuleResponseDispatchRule extends $tea.Model {
   ruleId: number;
   name: string;
   state: string;
+  dispatchType: string;
+  isRecover: boolean;
   groupRules: DescribeDispatchRuleResponseDispatchRuleGroupRules[];
   notifyRules: DescribeDispatchRuleResponseDispatchRuleNotifyRules[];
   labelMatchExpressionGrid: DescribeDispatchRuleResponseDispatchRuleLabelMatchExpressionGrid;
@@ -5756,6 +5761,8 @@ export class DescribeDispatchRuleResponseDispatchRule extends $tea.Model {
       ruleId: 'RuleId',
       name: 'Name',
       state: 'State',
+      dispatchType: 'DispatchType',
+      isRecover: 'IsRecover',
       groupRules: 'GroupRules',
       notifyRules: 'NotifyRules',
       labelMatchExpressionGrid: 'LabelMatchExpressionGrid',
@@ -5767,6 +5774,8 @@ export class DescribeDispatchRuleResponseDispatchRule extends $tea.Model {
       ruleId: 'number',
       name: 'string',
       state: 'string',
+      dispatchType: 'string',
+      isRecover: 'boolean',
       groupRules: { 'type': 'array', 'itemType': DescribeDispatchRuleResponseDispatchRuleGroupRules },
       notifyRules: { 'type': 'array', 'itemType': DescribeDispatchRuleResponseDispatchRuleNotifyRules },
       labelMatchExpressionGrid: DescribeDispatchRuleResponseDispatchRuleLabelMatchExpressionGrid,
@@ -6999,6 +7008,7 @@ export class SearchAlertRulesResponsePageBeanAlertRules extends $tea.Model {
   userId: string;
   title: string;
   contactGroupIds: string;
+  hostByAlertManager: boolean;
   alarmContext: SearchAlertRulesResponsePageBeanAlertRulesAlarmContext;
   alertRule: SearchAlertRulesResponsePageBeanAlertRulesAlertRule;
   metricParam: SearchAlertRulesResponsePageBeanAlertRulesMetricParam;
@@ -7023,6 +7033,7 @@ export class SearchAlertRulesResponsePageBeanAlertRules extends $tea.Model {
       userId: 'UserId',
       title: 'Title',
       contactGroupIds: 'ContactGroupIds',
+      hostByAlertManager: 'HostByAlertManager',
       alarmContext: 'AlarmContext',
       alertRule: 'AlertRule',
       metricParam: 'MetricParam',
@@ -7050,6 +7061,7 @@ export class SearchAlertRulesResponsePageBeanAlertRules extends $tea.Model {
       userId: 'string',
       title: 'string',
       contactGroupIds: 'string',
+      hostByAlertManager: 'boolean',
       alarmContext: SearchAlertRulesResponsePageBeanAlertRulesAlarmContext,
       alertRule: SearchAlertRulesResponsePageBeanAlertRulesAlertRule,
       metricParam: SearchAlertRulesResponsePageBeanAlertRulesMetricParam,
@@ -7371,6 +7383,7 @@ export class SearchRetcodeAppByPageResponsePageBeanRetcodeApps extends $tea.Mode
   regionId: string;
   createTime: number;
   updateTime: number;
+  retcodeAppType: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
@@ -7381,6 +7394,7 @@ export class SearchRetcodeAppByPageResponsePageBeanRetcodeApps extends $tea.Mode
       regionId: 'RegionId',
       createTime: 'CreateTime',
       updateTime: 'UpdateTime',
+      retcodeAppType: 'RetcodeAppType',
     };
   }
 
@@ -7394,6 +7408,7 @@ export class SearchRetcodeAppByPageResponsePageBeanRetcodeApps extends $tea.Mode
       regionId: 'string',
       createTime: 'number',
       updateTime: 'number',
+      retcodeAppType: 'string',
     };
   }
 
@@ -7554,11 +7569,13 @@ export class ListRetcodeAppsResponseRetcodeApps extends $tea.Model {
   appId: number;
   pid: string;
   appName: string;
+  retcodeAppType: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
       pid: 'Pid',
       appName: 'AppName',
+      retcodeAppType: 'RetcodeAppType',
     };
   }
 
@@ -7567,6 +7584,7 @@ export class ListRetcodeAppsResponseRetcodeApps extends $tea.Model {
       appId: 'number',
       pid: 'string',
       appName: 'string',
+      retcodeAppType: 'string',
     };
   }
 
