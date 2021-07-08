@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/live-interaction20201214",
-  "version": "1.0.1",
+  "version": "2.1.0",
   "description": "",
   "main": "dist/client.js",
   "scripts": {
