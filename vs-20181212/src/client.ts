@@ -7,9 +7,80 @@ import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class AddDeviceRequest extends $tea.Model {
+  ownerId?: number;
+  groupId?: string;
+  protocol?: string;
+  config?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      groupId: 'GroupId',
+      protocol: 'Protocol',
+      config: 'Config',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      groupId: 'string',
+      protocol: 'string',
+      config: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddDeviceResponseBody extends $tea.Model {
+  id?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddDeviceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: AddDeviceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: AddDeviceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AddVsPullStreamInfoConfigRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   domainName?: string;
   appName?: string;
   streamName?: string;
@@ -20,7 +91,6 @@ export class AddVsPullStreamInfoConfigRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       domainName: 'DomainName',
       appName: 'AppName',
       streamName: 'StreamName',
@@ -34,7 +104,6 @@ export class AddVsPullStreamInfoConfigRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       domainName: 'string',
       appName: 'string',
       streamName: 'string',
@@ -93,13 +162,11 @@ export class AddVsPullStreamInfoConfigResponse extends $tea.Model {
 
 export class BatchBindDirectoriesRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   directoryId?: string;
   deviceId?: string;
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       directoryId: 'DirectoryId',
       deviceId: 'DeviceId',
     };
@@ -108,7 +175,6 @@ export class BatchBindDirectoriesRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       directoryId: 'string',
       deviceId: 'string',
     };
@@ -165,13 +231,11 @@ export class BatchBindDirectoriesResponse extends $tea.Model {
 
 export class BatchBindParentPlatformDevicesRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   parentPlatformId?: string;
   deviceId?: string;
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       parentPlatformId: 'ParentPlatformId',
       deviceId: 'DeviceId',
     };
@@ -180,7 +244,6 @@ export class BatchBindParentPlatformDevicesRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       parentPlatformId: 'string',
       deviceId: 'string',
     };
@@ -237,14 +300,12 @@ export class BatchBindParentPlatformDevicesResponse extends $tea.Model {
 
 export class BatchBindPurchasedDevicesRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   region?: string;
   groupId?: string;
   deviceId?: string;
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       region: 'Region',
       groupId: 'GroupId',
       deviceId: 'DeviceId',
@@ -254,7 +315,6 @@ export class BatchBindPurchasedDevicesRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       region: 'string',
       groupId: 'string',
       deviceId: 'string',
@@ -312,7 +372,6 @@ export class BatchBindPurchasedDevicesResponse extends $tea.Model {
 
 export class BatchBindTemplateRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   templateId?: string;
   instanceId?: string;
   instanceType?: string;
@@ -321,7 +380,6 @@ export class BatchBindTemplateRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       templateId: 'TemplateId',
       instanceId: 'InstanceId',
       instanceType: 'InstanceType',
@@ -333,7 +391,6 @@ export class BatchBindTemplateRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       templateId: 'string',
       instanceId: 'string',
       instanceType: 'string',
@@ -393,7 +450,6 @@ export class BatchBindTemplateResponse extends $tea.Model {
 
 export class BatchBindTemplatesRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   templateId?: string;
   templateType?: string;
   instanceId?: string;
@@ -403,7 +459,6 @@ export class BatchBindTemplatesRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       templateId: 'TemplateId',
       templateType: 'TemplateType',
       instanceId: 'InstanceId',
@@ -416,7 +471,6 @@ export class BatchBindTemplatesRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       templateId: 'string',
       templateType: 'string',
       instanceId: 'string',
@@ -477,12 +531,10 @@ export class BatchBindTemplatesResponse extends $tea.Model {
 
 export class BatchDeleteDevicesRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   id?: string;
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       id: 'Id',
     };
   }
@@ -490,7 +542,6 @@ export class BatchDeleteDevicesRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       id: 'string',
     };
   }
@@ -546,13 +597,11 @@ export class BatchDeleteDevicesResponse extends $tea.Model {
 
 export class BatchDeleteVsDomainConfigsRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   domainNames?: string;
   functionNames?: string;
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       domainNames: 'DomainNames',
       functionNames: 'FunctionNames',
     };
@@ -561,7 +610,6 @@ export class BatchDeleteVsDomainConfigsRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       domainNames: 'string',
       functionNames: 'string',
     };
@@ -615,7 +663,6 @@ export class BatchDeleteVsDomainConfigsResponse extends $tea.Model {
 
 export class BatchForbidVsStreamRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   domainName?: string;
   channel?: string;
   liveStreamType?: string;
@@ -625,7 +672,6 @@ export class BatchForbidVsStreamRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       domainName: 'DomainName',
       channel: 'Channel',
       liveStreamType: 'LiveStreamType',
@@ -638,7 +684,6 @@ export class BatchForbidVsStreamRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       domainName: 'string',
       channel: 'string',
       liveStreamType: 'string',
@@ -654,19 +699,19 @@ export class BatchForbidVsStreamRequest extends $tea.Model {
 }
 
 export class BatchForbidVsStreamResponseBody extends $tea.Model {
-  forbidResult?: BatchForbidVsStreamResponseBodyForbidResult;
   requestId?: string;
+  forbidResult?: BatchForbidVsStreamResponseBodyForbidResult;
   static names(): { [key: string]: string } {
     return {
-      forbidResult: 'ForbidResult',
       requestId: 'RequestId',
+      forbidResult: 'ForbidResult',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      forbidResult: BatchForbidVsStreamResponseBodyForbidResult,
       requestId: 'string',
+      forbidResult: BatchForbidVsStreamResponseBodyForbidResult,
     };
   }
 
@@ -699,7 +744,6 @@ export class BatchForbidVsStreamResponse extends $tea.Model {
 
 export class BatchResumeVsStreamRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   domainName?: string;
   channel?: string;
   liveStreamType?: string;
@@ -707,7 +751,6 @@ export class BatchResumeVsStreamRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       domainName: 'DomainName',
       channel: 'Channel',
       liveStreamType: 'LiveStreamType',
@@ -718,7 +761,6 @@ export class BatchResumeVsStreamRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       domainName: 'string',
       channel: 'string',
       liveStreamType: 'string',
@@ -777,13 +819,11 @@ export class BatchResumeVsStreamResponse extends $tea.Model {
 
 export class BatchSetVsDomainConfigsRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   domainNames?: string;
   functions?: string;
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       domainNames: 'DomainNames',
       functions: 'Functions',
     };
@@ -792,7 +832,6 @@ export class BatchSetVsDomainConfigsRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       domainNames: 'string',
       functions: 'string',
     };
@@ -846,12 +885,10 @@ export class BatchSetVsDomainConfigsResponse extends $tea.Model {
 
 export class BatchStartDevicesRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   id?: string;
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       id: 'Id',
     };
   }
@@ -859,7 +896,6 @@ export class BatchStartDevicesRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       id: 'string',
     };
   }
@@ -915,12 +951,10 @@ export class BatchStartDevicesResponse extends $tea.Model {
 
 export class BatchStartStreamsRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   id?: string;
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       id: 'Id',
     };
   }
@@ -928,7 +962,6 @@ export class BatchStartStreamsRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       id: 'string',
     };
   }
@@ -984,13 +1017,11 @@ export class BatchStartStreamsResponse extends $tea.Model {
 
 export class BatchStopDevicesRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   id?: string;
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       id: 'Id',
       startTime: 'StartTime',
     };
@@ -999,7 +1030,6 @@ export class BatchStopDevicesRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       id: 'string',
       startTime: 'string',
     };
@@ -1056,13 +1086,11 @@ export class BatchStopDevicesResponse extends $tea.Model {
 
 export class BatchStopStreamsRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   id?: string;
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       id: 'Id',
       startTime: 'StartTime',
     };
@@ -1071,7 +1099,6 @@ export class BatchStopStreamsRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       id: 'string',
       startTime: 'string',
     };
@@ -1128,13 +1155,11 @@ export class BatchStopStreamsResponse extends $tea.Model {
 
 export class BatchUnbindDirectoriesRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   directoryId?: string;
   deviceId?: string;
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       directoryId: 'DirectoryId',
       deviceId: 'DeviceId',
     };
@@ -1143,7 +1168,6 @@ export class BatchUnbindDirectoriesRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       directoryId: 'string',
       deviceId: 'string',
     };
@@ -1200,13 +1224,11 @@ export class BatchUnbindDirectoriesResponse extends $tea.Model {
 
 export class BatchUnbindParentPlatformDevicesRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   parentPlatformId?: string;
   deviceId?: string;
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       parentPlatformId: 'ParentPlatformId',
       deviceId: 'DeviceId',
     };
@@ -1215,7 +1237,6 @@ export class BatchUnbindParentPlatformDevicesRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       parentPlatformId: 'string',
       deviceId: 'string',
     };
@@ -1272,12 +1293,10 @@ export class BatchUnbindParentPlatformDevicesResponse extends $tea.Model {
 
 export class BatchUnbindPurchasedDevicesRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   deviceId?: string;
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       deviceId: 'DeviceId',
     };
   }
@@ -1285,7 +1304,6 @@ export class BatchUnbindPurchasedDevicesRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       deviceId: 'string',
     };
   }
@@ -1341,7 +1359,6 @@ export class BatchUnbindPurchasedDevicesResponse extends $tea.Model {
 
 export class BatchUnbindTemplateRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   templateId?: string;
   templateType?: string;
   instanceId?: string;
@@ -1349,7 +1366,6 @@ export class BatchUnbindTemplateRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       templateId: 'TemplateId',
       templateType: 'TemplateType',
       instanceId: 'InstanceId',
@@ -1360,7 +1376,6 @@ export class BatchUnbindTemplateRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       templateId: 'string',
       templateType: 'string',
       instanceId: 'string',
@@ -1419,7 +1434,6 @@ export class BatchUnbindTemplateResponse extends $tea.Model {
 
 export class BatchUnbindTemplatesRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   templateId?: string;
   templateType?: string;
   instanceId?: string;
@@ -1427,7 +1441,6 @@ export class BatchUnbindTemplatesRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       templateId: 'TemplateId',
       templateType: 'TemplateType',
       instanceId: 'InstanceId',
@@ -1438,7 +1451,6 @@ export class BatchUnbindTemplatesRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       templateId: 'string',
       templateType: 'string',
       instanceId: 'string',
@@ -1497,13 +1509,11 @@ export class BatchUnbindTemplatesResponse extends $tea.Model {
 
 export class BindDirectoryRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   directoryId?: string;
   deviceId?: string;
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       directoryId: 'DirectoryId',
       deviceId: 'DeviceId',
     };
@@ -1512,7 +1522,6 @@ export class BindDirectoryRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       directoryId: 'string',
       deviceId: 'string',
     };
@@ -1566,13 +1575,11 @@ export class BindDirectoryResponse extends $tea.Model {
 
 export class BindParentPlatformDeviceRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   parentPlatformId?: string;
   deviceId?: string;
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       parentPlatformId: 'ParentPlatformId',
       deviceId: 'DeviceId',
     };
@@ -1581,7 +1588,6 @@ export class BindParentPlatformDeviceRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       parentPlatformId: 'string',
       deviceId: 'string',
     };
@@ -1635,14 +1641,12 @@ export class BindParentPlatformDeviceResponse extends $tea.Model {
 
 export class BindPurchasedDeviceRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   region?: string;
   groupId?: string;
   deviceId?: string;
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       region: 'Region',
       groupId: 'GroupId',
       deviceId: 'DeviceId',
@@ -1652,7 +1656,6 @@ export class BindPurchasedDeviceRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       region: 'string',
       groupId: 'string',
       deviceId: 'string',
@@ -1707,7 +1710,6 @@ export class BindPurchasedDeviceResponse extends $tea.Model {
 
 export class BindTemplateRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   templateId?: string;
   templateType?: string;
   instanceId?: string;
@@ -1717,7 +1719,6 @@ export class BindTemplateRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       templateId: 'TemplateId',
       templateType: 'TemplateType',
       instanceId: 'InstanceId',
@@ -1730,7 +1731,6 @@ export class BindTemplateRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       templateId: 'string',
       templateType: 'string',
       instanceId: 'string',
@@ -1797,27 +1797,27 @@ export class BindTemplateResponse extends $tea.Model {
 
 export class ContinuousAdjustRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   id?: string;
   iris?: string;
   focus?: string;
+  subProtocol?: string;
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       id: 'Id',
       iris: 'Iris',
       focus: 'Focus',
+      subProtocol: 'SubProtocol',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       id: 'string',
       iris: 'string',
       focus: 'string',
+      subProtocol: 'string',
     };
   }
 
@@ -1827,19 +1827,19 @@ export class ContinuousAdjustRequest extends $tea.Model {
 }
 
 export class ContinuousAdjustResponseBody extends $tea.Model {
-  requestId?: string;
   id?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       id: 'Id',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       id: 'string',
+      requestId: 'string',
     };
   }
 
@@ -1872,30 +1872,30 @@ export class ContinuousAdjustResponse extends $tea.Model {
 
 export class ContinuousMoveRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   id?: string;
   pan?: string;
   tilt?: string;
   zoom?: string;
+  subProtocol?: string;
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       id: 'Id',
       pan: 'Pan',
       tilt: 'Tilt',
       zoom: 'Zoom',
+      subProtocol: 'SubProtocol',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       id: 'string',
       pan: 'string',
       tilt: 'string',
       zoom: 'string',
+      subProtocol: 'string',
     };
   }
 
@@ -1905,19 +1905,19 @@ export class ContinuousMoveRequest extends $tea.Model {
 }
 
 export class ContinuousMoveResponseBody extends $tea.Model {
-  requestId?: string;
   id?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       id: 'Id',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       id: 'string',
+      requestId: 'string',
     };
   }
 
@@ -1950,7 +1950,6 @@ export class ContinuousMoveResponse extends $tea.Model {
 
 export class CreateDeviceRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   name?: string;
   description?: string;
   groupId?: string;
@@ -1975,7 +1974,6 @@ export class CreateDeviceRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       name: 'Name',
       description: 'Description',
       groupId: 'GroupId',
@@ -2003,7 +2001,6 @@ export class CreateDeviceRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       name: 'string',
       description: 'string',
       groupId: 'string',
@@ -2034,19 +2031,19 @@ export class CreateDeviceRequest extends $tea.Model {
 }
 
 export class CreateDeviceResponseBody extends $tea.Model {
-  requestId?: string;
   id?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       id: 'Id',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       id: 'string',
+      requestId: 'string',
     };
   }
 
@@ -2079,7 +2076,6 @@ export class CreateDeviceResponse extends $tea.Model {
 
 export class CreateDeviceAlarmRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   id?: string;
   channelId?: number;
   objectType?: number;
@@ -2091,7 +2087,6 @@ export class CreateDeviceAlarmRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       id: 'Id',
       channelId: 'ChannelId',
       objectType: 'ObjectType',
@@ -2106,7 +2101,6 @@ export class CreateDeviceAlarmRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       id: 'string',
       channelId: 'number',
       objectType: 'number',
@@ -2124,28 +2118,28 @@ export class CreateDeviceAlarmRequest extends $tea.Model {
 }
 
 export class CreateDeviceAlarmResponseBody extends $tea.Model {
-  alarmId?: string;
-  expire?: number;
-  requestId?: string;
-  alarmDelay?: number;
   url?: string;
+  alarmId?: string;
+  requestId?: string;
+  expire?: number;
+  alarmDelay?: number;
   static names(): { [key: string]: string } {
     return {
-      alarmId: 'AlarmId',
-      expire: 'Expire',
-      requestId: 'RequestId',
-      alarmDelay: 'AlarmDelay',
       url: 'Url',
+      alarmId: 'AlarmId',
+      requestId: 'RequestId',
+      expire: 'Expire',
+      alarmDelay: 'AlarmDelay',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      alarmId: 'string',
-      expire: 'number',
-      requestId: 'string',
-      alarmDelay: 'number',
       url: 'string',
+      alarmId: 'string',
+      requestId: 'string',
+      expire: 'number',
+      alarmDelay: 'number',
     };
   }
 
@@ -2176,9 +2170,83 @@ export class CreateDeviceAlarmResponse extends $tea.Model {
   }
 }
 
+export class CreateDeviceSnapshotRequest extends $tea.Model {
+  ownerId?: number;
+  deviceId?: string;
+  streamId?: string;
+  mode?: string;
+  snapshotConfig?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      deviceId: 'DeviceId',
+      streamId: 'StreamId',
+      mode: 'Mode',
+      snapshotConfig: 'SnapshotConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      deviceId: 'string',
+      streamId: 'string',
+      mode: 'string',
+      snapshotConfig: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDeviceSnapshotResponseBody extends $tea.Model {
+  id?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDeviceSnapshotResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CreateDeviceSnapshotResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CreateDeviceSnapshotResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateDirectoryRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   name?: string;
   description?: string;
   groupId?: string;
@@ -2186,7 +2254,6 @@ export class CreateDirectoryRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       name: 'Name',
       description: 'Description',
       groupId: 'GroupId',
@@ -2197,7 +2264,6 @@ export class CreateDirectoryRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       name: 'string',
       description: 'string',
       groupId: 'string',
@@ -2211,19 +2277,19 @@ export class CreateDirectoryRequest extends $tea.Model {
 }
 
 export class CreateDirectoryResponseBody extends $tea.Model {
-  requestId?: string;
   id?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       id: 'Id',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       id: 'string',
+      requestId: 'string',
     };
   }
 
@@ -2256,7 +2322,6 @@ export class CreateDirectoryResponse extends $tea.Model {
 
 export class CreateGroupRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   name?: string;
   description?: string;
   app?: string;
@@ -2275,7 +2340,6 @@ export class CreateGroupRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       name: 'Name',
       description: 'Description',
       app: 'App',
@@ -2297,7 +2361,6 @@ export class CreateGroupRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       name: 'string',
       description: 'string',
       app: 'string',
@@ -2322,28 +2385,28 @@ export class CreateGroupRequest extends $tea.Model {
 }
 
 export class CreateGroupResponseBody extends $tea.Model {
+  gbId?: string;
   gbIp?: string;
   requestId?: string;
-  gbId?: string;
-  id?: string;
   gbPort?: number;
+  id?: string;
   static names(): { [key: string]: string } {
     return {
+      gbId: 'GbId',
       gbIp: 'GbIp',
       requestId: 'RequestId',
-      gbId: 'GbId',
-      id: 'Id',
       gbPort: 'GbPort',
+      id: 'Id',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      gbId: 'string',
       gbIp: 'string',
       requestId: 'string',
-      gbId: 'string',
-      id: 'string',
       gbPort: 'number',
+      id: 'string',
     };
   }
 
@@ -2376,7 +2439,6 @@ export class CreateGroupResponse extends $tea.Model {
 
 export class CreateParentPlatformRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   name?: string;
   description?: string;
   protocol?: string;
@@ -2390,7 +2452,6 @@ export class CreateParentPlatformRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       name: 'Name',
       description: 'Description',
       protocol: 'Protocol',
@@ -2407,7 +2468,6 @@ export class CreateParentPlatformRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       name: 'string',
       description: 'string',
       protocol: 'string',
@@ -2427,19 +2487,19 @@ export class CreateParentPlatformRequest extends $tea.Model {
 }
 
 export class CreateParentPlatformResponseBody extends $tea.Model {
-  requestId?: string;
   id?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       id: 'Id',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       id: 'string',
+      requestId: 'string',
     };
   }
 
@@ -2472,13 +2532,11 @@ export class CreateParentPlatformResponse extends $tea.Model {
 
 export class CreateStreamSnapshotRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   id?: string;
   location?: string;
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       id: 'Id',
       location: 'Location',
     };
@@ -2487,7 +2545,6 @@ export class CreateStreamSnapshotRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       id: 'string',
       location: 'string',
     };
@@ -2499,43 +2556,43 @@ export class CreateStreamSnapshotRequest extends $tea.Model {
 }
 
 export class CreateStreamSnapshotResponseBody extends $tea.Model {
-  format?: string;
-  requestId?: string;
-  ossEndpoint?: string;
-  ossBucket?: string;
   ossObject?: string;
-  height?: number;
-  id?: string;
+  requestId?: string;
   width?: number;
-  timestamp?: number;
+  height?: number;
   url?: string;
+  timestamp?: number;
+  ossBucket?: string;
+  format?: string;
+  ossEndpoint?: string;
+  id?: string;
   static names(): { [key: string]: string } {
     return {
-      format: 'Format',
-      requestId: 'RequestId',
-      ossEndpoint: 'OssEndpoint',
-      ossBucket: 'OssBucket',
       ossObject: 'OssObject',
-      height: 'Height',
-      id: 'Id',
+      requestId: 'RequestId',
       width: 'Width',
-      timestamp: 'Timestamp',
+      height: 'Height',
       url: 'Url',
+      timestamp: 'Timestamp',
+      ossBucket: 'OssBucket',
+      format: 'Format',
+      ossEndpoint: 'OssEndpoint',
+      id: 'Id',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      format: 'string',
-      requestId: 'string',
-      ossEndpoint: 'string',
-      ossBucket: 'string',
       ossObject: 'string',
-      height: 'number',
-      id: 'string',
+      requestId: 'string',
       width: 'number',
-      timestamp: 'number',
+      height: 'number',
       url: 'string',
+      timestamp: 'number',
+      ossBucket: 'string',
+      format: 'string',
+      ossEndpoint: 'string',
+      id: 'string',
     };
   }
 
@@ -2568,7 +2625,6 @@ export class CreateStreamSnapshotResponse extends $tea.Model {
 
 export class CreateTemplateRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   name?: string;
   description?: string;
   type?: string;
@@ -2594,7 +2650,6 @@ export class CreateTemplateRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       name: 'Name',
       description: 'Description',
       type: 'Type',
@@ -2623,7 +2678,6 @@ export class CreateTemplateRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       name: 'string',
       description: 'string',
       type: 'string',
@@ -2655,19 +2709,19 @@ export class CreateTemplateRequest extends $tea.Model {
 }
 
 export class CreateTemplateResponseBody extends $tea.Model {
-  requestId?: string;
   id?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       id: 'Id',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       id: 'string',
+      requestId: 'string',
     };
   }
 
@@ -2698,14 +2752,75 @@ export class CreateTemplateResponse extends $tea.Model {
   }
 }
 
+export class DeleteBucketRequest extends $tea.Model {
+  ownerId?: number;
+  bucketName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      bucketName: 'BucketName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      bucketName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteBucketResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteBucketResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DeleteBucketResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DeleteBucketResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteDeviceRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   id?: string;
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       id: 'Id',
     };
   }
@@ -2713,7 +2828,6 @@ export class DeleteDeviceRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       id: 'string',
     };
   }
@@ -2766,12 +2880,10 @@ export class DeleteDeviceResponse extends $tea.Model {
 
 export class DeleteDirectoryRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   id?: string;
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       id: 'Id',
     };
   }
@@ -2779,7 +2891,6 @@ export class DeleteDirectoryRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       id: 'string',
     };
   }
@@ -2832,12 +2943,10 @@ export class DeleteDirectoryResponse extends $tea.Model {
 
 export class DeleteGroupRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   id?: string;
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       id: 'Id',
     };
   }
@@ -2845,7 +2954,6 @@ export class DeleteGroupRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       id: 'string',
     };
   }
@@ -2898,12 +3006,10 @@ export class DeleteGroupResponse extends $tea.Model {
 
 export class DeleteParentPlatformRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   id?: string;
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       id: 'Id',
     };
   }
@@ -2911,7 +3017,6 @@ export class DeleteParentPlatformRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       id: 'string',
     };
   }
@@ -2964,24 +3069,24 @@ export class DeleteParentPlatformResponse extends $tea.Model {
 
 export class DeletePresetRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   id?: string;
   presetId?: string;
+  subProtocol?: string;
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       id: 'Id',
       presetId: 'PresetId',
+      subProtocol: 'SubProtocol',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       id: 'string',
       presetId: 'string',
+      subProtocol: 'string',
     };
   }
 
@@ -2991,19 +3096,19 @@ export class DeletePresetRequest extends $tea.Model {
 }
 
 export class DeletePresetResponseBody extends $tea.Model {
-  requestId?: string;
   id?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       id: 'Id',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       id: 'string',
+      requestId: 'string',
     };
   }
 
@@ -3036,12 +3141,10 @@ export class DeletePresetResponse extends $tea.Model {
 
 export class DeleteTemplateRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   id?: string;
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       id: 'Id',
     };
   }
@@ -3049,7 +3152,6 @@ export class DeleteTemplateRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       id: 'string',
     };
   }
@@ -3102,14 +3204,12 @@ export class DeleteTemplateResponse extends $tea.Model {
 
 export class DeleteVsPullStreamInfoConfigRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   domainName?: string;
   appName?: string;
   streamName?: string;
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       domainName: 'DomainName',
       appName: 'AppName',
       streamName: 'StreamName',
@@ -3119,7 +3219,6 @@ export class DeleteVsPullStreamInfoConfigRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       domainName: 'string',
       appName: 'string',
       streamName: 'string',
@@ -3174,12 +3273,10 @@ export class DeleteVsPullStreamInfoConfigResponse extends $tea.Model {
 
 export class DeleteVsStreamsNotifyUrlConfigRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   domainName?: string;
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       domainName: 'DomainName',
     };
   }
@@ -3187,7 +3284,6 @@ export class DeleteVsStreamsNotifyUrlConfigRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       domainName: 'string',
     };
   }
@@ -3240,12 +3336,10 @@ export class DeleteVsStreamsNotifyUrlConfigResponse extends $tea.Model {
 
 export class DescribeAccountStatRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   id?: string;
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       id: 'Id',
     };
   }
@@ -3253,7 +3347,6 @@ export class DescribeAccountStatRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       id: 'string',
     };
   }
@@ -3264,31 +3357,31 @@ export class DescribeAccountStatRequest extends $tea.Model {
 }
 
 export class DescribeAccountStatResponseBody extends $tea.Model {
-  templateLimit?: number;
-  requestId?: string;
   templateNum?: number;
-  id?: string;
   groupLimit?: number;
+  requestId?: string;
+  templateLimit?: number;
   groupNum?: number;
+  id?: string;
   static names(): { [key: string]: string } {
     return {
-      templateLimit: 'TemplateLimit',
-      requestId: 'RequestId',
       templateNum: 'TemplateNum',
-      id: 'Id',
       groupLimit: 'GroupLimit',
+      requestId: 'RequestId',
+      templateLimit: 'TemplateLimit',
       groupNum: 'GroupNum',
+      id: 'Id',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      templateLimit: 'number',
-      requestId: 'string',
       templateNum: 'number',
-      id: 'string',
       groupLimit: 'number',
+      requestId: 'string',
+      templateLimit: 'number',
       groupNum: 'number',
+      id: 'string',
     };
   }
 
@@ -3321,14 +3414,12 @@ export class DescribeAccountStatResponse extends $tea.Model {
 
 export class DescribeDeviceRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   id?: string;
   includeStats?: boolean;
   includeDirectory?: boolean;
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       id: 'Id',
       includeStats: 'IncludeStats',
       includeDirectory: 'IncludeDirectory',
@@ -3338,7 +3429,6 @@ export class DescribeDeviceRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       id: 'string',
       includeStats: 'boolean',
       includeDirectory: 'boolean',
@@ -3351,106 +3441,106 @@ export class DescribeDeviceRequest extends $tea.Model {
 }
 
 export class DescribeDeviceResponseBody extends $tea.Model {
-  alarmMethod?: string;
-  description?: string;
-  createdTime?: string;
-  port?: number;
-  ip?: string;
-  channelSyncTime?: string;
-  latitude?: string;
-  url?: string;
-  name?: string;
-  gbId?: string;
-  protocol?: string;
-  autoStart?: boolean;
-  dsn?: string;
-  password?: string;
-  directory?: DescribeDeviceResponseBodyDirectory;
-  status?: string;
-  parentId?: string;
-  requestId?: string;
-  params?: string;
-  enabled?: boolean;
-  vendor?: string;
-  registeredTime?: string;
-  longitude?: string;
-  groupId?: string;
-  posInterval?: number;
   type?: string;
-  directoryId?: string;
-  username?: string;
+  status?: string;
+  alarmMethod?: string;
+  dsn?: string;
+  port?: number;
+  posInterval?: number;
+  parentId?: string;
+  password?: string;
   autoPos?: boolean;
-  stats?: DescribeDeviceResponseBodyStats;
+  params?: string;
+  requestId?: string;
+  description?: string;
+  enabled?: boolean;
+  name?: string;
+  channelSyncTime?: string;
+  createdTime?: string;
+  directoryId?: string;
+  registeredTime?: string;
+  protocol?: string;
+  ip?: string;
+  url?: string;
+  autoStart?: boolean;
+  vendor?: string;
+  gbId?: string;
+  groupId?: string;
+  longitude?: string;
+  latitude?: string;
   id?: string;
+  username?: string;
+  stats?: DescribeDeviceResponseBodyStats;
+  directory?: DescribeDeviceResponseBodyDirectory;
   static names(): { [key: string]: string } {
     return {
-      alarmMethod: 'AlarmMethod',
-      description: 'Description',
-      createdTime: 'CreatedTime',
-      port: 'Port',
-      ip: 'Ip',
-      channelSyncTime: 'ChannelSyncTime',
-      latitude: 'Latitude',
-      url: 'Url',
-      name: 'Name',
-      gbId: 'GbId',
-      protocol: 'Protocol',
-      autoStart: 'AutoStart',
-      dsn: 'Dsn',
-      password: 'Password',
-      directory: 'Directory',
-      status: 'Status',
-      parentId: 'ParentId',
-      requestId: 'RequestId',
-      params: 'Params',
-      enabled: 'Enabled',
-      vendor: 'Vendor',
-      registeredTime: 'RegisteredTime',
-      longitude: 'Longitude',
-      groupId: 'GroupId',
-      posInterval: 'PosInterval',
       type: 'Type',
-      directoryId: 'DirectoryId',
-      username: 'Username',
+      status: 'Status',
+      alarmMethod: 'AlarmMethod',
+      dsn: 'Dsn',
+      port: 'Port',
+      posInterval: 'PosInterval',
+      parentId: 'ParentId',
+      password: 'Password',
       autoPos: 'AutoPos',
-      stats: 'Stats',
+      params: 'Params',
+      requestId: 'RequestId',
+      description: 'Description',
+      enabled: 'Enabled',
+      name: 'Name',
+      channelSyncTime: 'ChannelSyncTime',
+      createdTime: 'CreatedTime',
+      directoryId: 'DirectoryId',
+      registeredTime: 'RegisteredTime',
+      protocol: 'Protocol',
+      ip: 'Ip',
+      url: 'Url',
+      autoStart: 'AutoStart',
+      vendor: 'Vendor',
+      gbId: 'GbId',
+      groupId: 'GroupId',
+      longitude: 'Longitude',
+      latitude: 'Latitude',
       id: 'Id',
+      username: 'Username',
+      stats: 'Stats',
+      directory: 'Directory',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      alarmMethod: 'string',
-      description: 'string',
-      createdTime: 'string',
-      port: 'number',
-      ip: 'string',
-      channelSyncTime: 'string',
-      latitude: 'string',
-      url: 'string',
-      name: 'string',
-      gbId: 'string',
-      protocol: 'string',
-      autoStart: 'boolean',
-      dsn: 'string',
-      password: 'string',
-      directory: DescribeDeviceResponseBodyDirectory,
-      status: 'string',
-      parentId: 'string',
-      requestId: 'string',
-      params: 'string',
-      enabled: 'boolean',
-      vendor: 'string',
-      registeredTime: 'string',
-      longitude: 'string',
-      groupId: 'string',
-      posInterval: 'number',
       type: 'string',
-      directoryId: 'string',
-      username: 'string',
+      status: 'string',
+      alarmMethod: 'string',
+      dsn: 'string',
+      port: 'number',
+      posInterval: 'number',
+      parentId: 'string',
+      password: 'string',
       autoPos: 'boolean',
-      stats: DescribeDeviceResponseBodyStats,
+      params: 'string',
+      requestId: 'string',
+      description: 'string',
+      enabled: 'boolean',
+      name: 'string',
+      channelSyncTime: 'string',
+      createdTime: 'string',
+      directoryId: 'string',
+      registeredTime: 'string',
+      protocol: 'string',
+      ip: 'string',
+      url: 'string',
+      autoStart: 'boolean',
+      vendor: 'string',
+      gbId: 'string',
+      groupId: 'string',
+      longitude: 'string',
+      latitude: 'string',
       id: 'string',
+      username: 'string',
+      stats: DescribeDeviceResponseBodyStats,
+      directory: DescribeDeviceResponseBodyDirectory,
     };
   }
 
@@ -3483,14 +3573,12 @@ export class DescribeDeviceResponse extends $tea.Model {
 
 export class DescribeDeviceChannelsRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   id?: string;
   pageSize?: number;
   pageNum?: number;
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       id: 'Id',
       pageSize: 'PageSize',
       pageNum: 'PageNum',
@@ -3500,7 +3588,6 @@ export class DescribeDeviceChannelsRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       id: 'string',
       pageSize: 'number',
       pageNum: 'number',
@@ -3513,18 +3600,18 @@ export class DescribeDeviceChannelsRequest extends $tea.Model {
 }
 
 export class DescribeDeviceChannelsResponseBody extends $tea.Model {
-  totalCount?: number;
   pageNum?: number;
   pageSize?: number;
   requestId?: string;
+  totalCount?: number;
   pageCount?: number;
   channels?: DescribeDeviceChannelsResponseBodyChannels[];
   static names(): { [key: string]: string } {
     return {
-      totalCount: 'TotalCount',
       pageNum: 'PageNum',
       pageSize: 'PageSize',
       requestId: 'RequestId',
+      totalCount: 'TotalCount',
       pageCount: 'PageCount',
       channels: 'Channels',
     };
@@ -3532,10 +3619,10 @@ export class DescribeDeviceChannelsResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      totalCount: 'number',
       pageNum: 'number',
       pageSize: 'number',
       requestId: 'string',
+      totalCount: 'number',
       pageCount: 'number',
       channels: { 'type': 'array', 'itemType': DescribeDeviceChannelsResponseBodyChannels },
     };
@@ -3570,14 +3657,12 @@ export class DescribeDeviceChannelsResponse extends $tea.Model {
 
 export class DescribeDeviceGatewayRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   id?: string;
   clientIp?: string;
   expire?: number;
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       id: 'Id',
       clientIp: 'ClientIp',
       expire: 'Expire',
@@ -3587,7 +3672,6 @@ export class DescribeDeviceGatewayRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       id: 'string',
       clientIp: 'string',
       expire: 'number',
@@ -3600,27 +3684,27 @@ export class DescribeDeviceGatewayRequest extends $tea.Model {
 }
 
 export class DescribeDeviceGatewayResponseBody extends $tea.Model {
-  requestId?: string;
-  port?: number;
   host?: string;
   token?: string;
+  requestId?: string;
+  port?: number;
   protocol?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
-      port: 'Port',
       host: 'Host',
       token: 'Token',
+      requestId: 'RequestId',
+      port: 'Port',
       protocol: 'Protocol',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
-      port: 'number',
       host: 'string',
       token: 'string',
+      requestId: 'string',
+      port: 'number',
       protocol: 'string',
     };
   }
@@ -3654,7 +3738,6 @@ export class DescribeDeviceGatewayResponse extends $tea.Model {
 
 export class DescribeDevicesRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   id?: string;
   name?: string;
   type?: string;
@@ -3673,7 +3756,6 @@ export class DescribeDevicesRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       id: 'Id',
       name: 'Name',
       type: 'Type',
@@ -3695,7 +3777,6 @@ export class DescribeDevicesRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       id: 'string',
       name: 'string',
       type: 'string',
@@ -3720,18 +3801,18 @@ export class DescribeDevicesRequest extends $tea.Model {
 }
 
 export class DescribeDevicesResponseBody extends $tea.Model {
-  totalCount?: number;
   pageNum?: number;
   pageSize?: number;
   requestId?: string;
+  totalCount?: number;
   pageCount?: number;
   devices?: DescribeDevicesResponseBodyDevices[];
   static names(): { [key: string]: string } {
     return {
-      totalCount: 'TotalCount',
       pageNum: 'PageNum',
       pageSize: 'PageSize',
       requestId: 'RequestId',
+      totalCount: 'TotalCount',
       pageCount: 'PageCount',
       devices: 'Devices',
     };
@@ -3739,10 +3820,10 @@ export class DescribeDevicesResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      totalCount: 'number',
       pageNum: 'number',
       pageSize: 'number',
       requestId: 'string',
+      totalCount: 'number',
       pageCount: 'number',
       devices: { 'type': 'array', 'itemType': DescribeDevicesResponseBodyDevices },
     };
@@ -3777,7 +3858,6 @@ export class DescribeDevicesResponse extends $tea.Model {
 
 export class DescribeDeviceURLRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   id?: string;
   stream?: string;
   outProtocol?: string;
@@ -3788,7 +3868,6 @@ export class DescribeDeviceURLRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       id: 'Id',
       stream: 'Stream',
       outProtocol: 'OutProtocol',
@@ -3802,7 +3881,6 @@ export class DescribeDeviceURLRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       id: 'string',
       stream: 'string',
       outProtocol: 'string',
@@ -3819,22 +3897,22 @@ export class DescribeDeviceURLRequest extends $tea.Model {
 }
 
 export class DescribeDeviceURLResponseBody extends $tea.Model {
+  url?: string;
   requestId?: string;
   expireTime?: number;
-  url?: string;
   static names(): { [key: string]: string } {
     return {
+      url: 'Url',
       requestId: 'RequestId',
       expireTime: 'ExpireTime',
-      url: 'Url',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      url: 'string',
       requestId: 'string',
       expireTime: 'number',
-      url: 'string',
     };
   }
 
@@ -3867,7 +3945,6 @@ export class DescribeDeviceURLResponse extends $tea.Model {
 
 export class DescribeDirectoriesRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   groupId?: string;
   parentId?: string;
   sortBy?: string;
@@ -3878,7 +3955,6 @@ export class DescribeDirectoriesRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       groupId: 'GroupId',
       parentId: 'ParentId',
       sortBy: 'SortBy',
@@ -3892,7 +3968,6 @@ export class DescribeDirectoriesRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       groupId: 'string',
       parentId: 'string',
       sortBy: 'string',
@@ -3909,31 +3984,31 @@ export class DescribeDirectoriesRequest extends $tea.Model {
 }
 
 export class DescribeDirectoriesResponseBody extends $tea.Model {
-  directories?: DescribeDirectoriesResponseBodyDirectories[];
-  totalCount?: number;
   pageNum?: number;
   pageSize?: number;
   requestId?: string;
+  totalCount?: number;
   pageCount?: number;
+  directories?: DescribeDirectoriesResponseBodyDirectories[];
   static names(): { [key: string]: string } {
     return {
-      directories: 'Directories',
-      totalCount: 'TotalCount',
       pageNum: 'PageNum',
       pageSize: 'PageSize',
       requestId: 'RequestId',
+      totalCount: 'TotalCount',
       pageCount: 'PageCount',
+      directories: 'Directories',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      directories: { 'type': 'array', 'itemType': DescribeDirectoriesResponseBodyDirectories },
-      totalCount: 'number',
       pageNum: 'number',
       pageSize: 'number',
       requestId: 'string',
+      totalCount: 'number',
       pageCount: 'number',
+      directories: { 'type': 'array', 'itemType': DescribeDirectoriesResponseBodyDirectories },
     };
   }
 
@@ -3966,12 +4041,10 @@ export class DescribeDirectoriesResponse extends $tea.Model {
 
 export class DescribeDirectoryRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   id?: string;
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       id: 'Id',
     };
   }
@@ -3979,7 +4052,6 @@ export class DescribeDirectoryRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       id: 'string',
     };
   }
@@ -3991,33 +4063,33 @@ export class DescribeDirectoryRequest extends $tea.Model {
 
 export class DescribeDirectoryResponseBody extends $tea.Model {
   parentId?: string;
-  description?: string;
-  createdTime?: string;
   requestId?: string;
-  id?: string;
+  description?: string;
   groupId?: string;
   name?: string;
+  createdTime?: string;
+  id?: string;
   static names(): { [key: string]: string } {
     return {
       parentId: 'ParentId',
-      description: 'Description',
-      createdTime: 'CreatedTime',
       requestId: 'RequestId',
-      id: 'Id',
+      description: 'Description',
       groupId: 'GroupId',
       name: 'Name',
+      createdTime: 'CreatedTime',
+      id: 'Id',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       parentId: 'string',
-      description: 'string',
-      createdTime: 'string',
       requestId: 'string',
-      id: 'string',
+      description: 'string',
       groupId: 'string',
       name: 'string',
+      createdTime: 'string',
+      id: 'string',
     };
   }
 
@@ -4050,13 +4122,11 @@ export class DescribeDirectoryResponse extends $tea.Model {
 
 export class DescribeGroupRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   id?: string;
   includeStats?: boolean;
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       id: 'Id',
       includeStats: 'IncludeStats',
     };
@@ -4065,7 +4135,6 @@ export class DescribeGroupRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       id: 'string',
       includeStats: 'boolean',
     };
@@ -4077,94 +4146,94 @@ export class DescribeGroupRequest extends $tea.Model {
 }
 
 export class DescribeGroupResponseBody extends $tea.Model {
-  app?: string;
-  inProtocol?: string;
-  description?: string;
-  createdTime?: string;
-  name?: string;
-  gbUdpPorts?: string[];
-  captureInterval?: number;
-  gbId?: string;
-  pushDomain?: string;
-  aliasId?: string;
-  captureImage?: number;
   status?: string;
-  captureOssPath?: string;
-  gbIp?: string;
-  requestId?: string;
-  enabled?: boolean;
   lazyPull?: boolean;
-  outProtocol?: string;
-  gbPort?: number;
   callback?: string;
+  requestId?: string;
+  description?: string;
+  app?: string;
+  region?: string;
+  enabled?: boolean;
+  inProtocol?: string;
+  outProtocol?: string;
+  name?: string;
+  pushDomain?: string;
+  createdTime?: string;
   captureVideo?: number;
   playDomain?: string;
-  stats?: DescribeGroupResponseBodyStats;
-  region?: string;
+  captureInterval?: number;
+  gbPort?: number;
+  gbId?: string;
+  gbIp?: string;
+  captureImage?: number;
+  aliasId?: string;
   captureOssBucket?: string;
-  gbTcpPorts?: string[];
+  captureOssPath?: string;
   id?: string;
+  gbTcpPorts?: string[];
+  gbUdpPorts?: string[];
+  stats?: DescribeGroupResponseBodyStats;
   static names(): { [key: string]: string } {
     return {
-      app: 'App',
-      inProtocol: 'InProtocol',
-      description: 'Description',
-      createdTime: 'CreatedTime',
-      name: 'Name',
-      gbUdpPorts: 'GbUdpPorts',
-      captureInterval: 'CaptureInterval',
-      gbId: 'GbId',
-      pushDomain: 'PushDomain',
-      aliasId: 'AliasId',
-      captureImage: 'CaptureImage',
       status: 'Status',
-      captureOssPath: 'CaptureOssPath',
-      gbIp: 'GbIp',
-      requestId: 'RequestId',
-      enabled: 'Enabled',
       lazyPull: 'LazyPull',
-      outProtocol: 'OutProtocol',
-      gbPort: 'GbPort',
       callback: 'Callback',
+      requestId: 'RequestId',
+      description: 'Description',
+      app: 'App',
+      region: 'Region',
+      enabled: 'Enabled',
+      inProtocol: 'InProtocol',
+      outProtocol: 'OutProtocol',
+      name: 'Name',
+      pushDomain: 'PushDomain',
+      createdTime: 'CreatedTime',
       captureVideo: 'CaptureVideo',
       playDomain: 'PlayDomain',
-      stats: 'Stats',
-      region: 'Region',
+      captureInterval: 'CaptureInterval',
+      gbPort: 'GbPort',
+      gbId: 'GbId',
+      gbIp: 'GbIp',
+      captureImage: 'CaptureImage',
+      aliasId: 'AliasId',
       captureOssBucket: 'CaptureOssBucket',
-      gbTcpPorts: 'GbTcpPorts',
+      captureOssPath: 'CaptureOssPath',
       id: 'Id',
+      gbTcpPorts: 'GbTcpPorts',
+      gbUdpPorts: 'GbUdpPorts',
+      stats: 'Stats',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      app: 'string',
-      inProtocol: 'string',
-      description: 'string',
-      createdTime: 'string',
-      name: 'string',
-      gbUdpPorts: { 'type': 'array', 'itemType': 'string' },
-      captureInterval: 'number',
-      gbId: 'string',
-      pushDomain: 'string',
-      aliasId: 'string',
-      captureImage: 'number',
       status: 'string',
-      captureOssPath: 'string',
-      gbIp: 'string',
-      requestId: 'string',
-      enabled: 'boolean',
       lazyPull: 'boolean',
-      outProtocol: 'string',
-      gbPort: 'number',
       callback: 'string',
+      requestId: 'string',
+      description: 'string',
+      app: 'string',
+      region: 'string',
+      enabled: 'boolean',
+      inProtocol: 'string',
+      outProtocol: 'string',
+      name: 'string',
+      pushDomain: 'string',
+      createdTime: 'string',
       captureVideo: 'number',
       playDomain: 'string',
-      stats: DescribeGroupResponseBodyStats,
-      region: 'string',
+      captureInterval: 'number',
+      gbPort: 'number',
+      gbId: 'string',
+      gbIp: 'string',
+      captureImage: 'number',
+      aliasId: 'string',
       captureOssBucket: 'string',
-      gbTcpPorts: { 'type': 'array', 'itemType': 'string' },
+      captureOssPath: 'string',
       id: 'string',
+      gbTcpPorts: { 'type': 'array', 'itemType': 'string' },
+      gbUdpPorts: { 'type': 'array', 'itemType': 'string' },
+      stats: DescribeGroupResponseBodyStats,
     };
   }
 
@@ -4197,7 +4266,6 @@ export class DescribeGroupResponse extends $tea.Model {
 
 export class DescribeGroupsRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   id?: string;
   name?: string;
   region?: string;
@@ -4211,7 +4279,6 @@ export class DescribeGroupsRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       id: 'Id',
       name: 'Name',
       region: 'Region',
@@ -4228,7 +4295,6 @@ export class DescribeGroupsRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       id: 'string',
       name: 'string',
       region: 'string',
@@ -4248,18 +4314,18 @@ export class DescribeGroupsRequest extends $tea.Model {
 }
 
 export class DescribeGroupsResponseBody extends $tea.Model {
-  totalCount?: number;
   pageNum?: number;
   pageSize?: number;
   requestId?: string;
+  totalCount?: number;
   pageCount?: number;
   groups?: DescribeGroupsResponseBodyGroups[];
   static names(): { [key: string]: string } {
     return {
-      totalCount: 'TotalCount',
       pageNum: 'PageNum',
       pageSize: 'PageSize',
       requestId: 'RequestId',
+      totalCount: 'TotalCount',
       pageCount: 'PageCount',
       groups: 'Groups',
     };
@@ -4267,10 +4333,10 @@ export class DescribeGroupsResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      totalCount: 'number',
       pageNum: 'number',
       pageSize: 'number',
       requestId: 'string',
+      totalCount: 'number',
       pageCount: 'number',
       groups: { 'type': 'array', 'itemType': DescribeGroupsResponseBodyGroups },
     };
@@ -4305,12 +4371,10 @@ export class DescribeGroupsResponse extends $tea.Model {
 
 export class DescribeParentPlatformRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   id?: string;
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       id: 'Id',
     };
   }
@@ -4318,7 +4382,6 @@ export class DescribeParentPlatformRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       id: 'string',
     };
   }
@@ -4330,63 +4393,63 @@ export class DescribeParentPlatformRequest extends $tea.Model {
 
 export class DescribeParentPlatformResponseBody extends $tea.Model {
   status?: string;
+  clientPort?: number;
   clientGbId?: string;
-  description?: string;
-  createdTime?: string;
-  requestId?: string;
+  protocol?: string;
   ip?: string;
   port?: number;
-  clientPort?: number;
+  clientPassword?: string;
+  clientUsername?: string;
+  autoStart?: boolean;
   clientAuth?: boolean;
+  gbId?: string;
+  requestId?: string;
+  description?: string;
   clientIp?: string;
   name?: string;
-  gbId?: string;
-  clientPassword?: string;
+  createdTime?: string;
   id?: string;
-  protocol?: string;
-  autoStart?: boolean;
-  clientUsername?: string;
   static names(): { [key: string]: string } {
     return {
       status: 'Status',
+      clientPort: 'ClientPort',
       clientGbId: 'ClientGbId',
-      description: 'Description',
-      createdTime: 'CreatedTime',
-      requestId: 'RequestId',
+      protocol: 'Protocol',
       ip: 'Ip',
       port: 'Port',
-      clientPort: 'ClientPort',
+      clientPassword: 'ClientPassword',
+      clientUsername: 'ClientUsername',
+      autoStart: 'AutoStart',
       clientAuth: 'ClientAuth',
+      gbId: 'GbId',
+      requestId: 'RequestId',
+      description: 'Description',
       clientIp: 'ClientIp',
       name: 'Name',
-      gbId: 'GbId',
-      clientPassword: 'ClientPassword',
+      createdTime: 'CreatedTime',
       id: 'Id',
-      protocol: 'Protocol',
-      autoStart: 'AutoStart',
-      clientUsername: 'ClientUsername',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       status: 'string',
+      clientPort: 'number',
       clientGbId: 'string',
-      description: 'string',
-      createdTime: 'string',
-      requestId: 'string',
+      protocol: 'string',
       ip: 'string',
       port: 'number',
-      clientPort: 'number',
+      clientPassword: 'string',
+      clientUsername: 'string',
+      autoStart: 'boolean',
       clientAuth: 'boolean',
+      gbId: 'string',
+      requestId: 'string',
+      description: 'string',
       clientIp: 'string',
       name: 'string',
-      gbId: 'string',
-      clientPassword: 'string',
+      createdTime: 'string',
       id: 'string',
-      protocol: 'string',
-      autoStart: 'boolean',
-      clientUsername: 'string',
     };
   }
 
@@ -4419,7 +4482,6 @@ export class DescribeParentPlatformResponse extends $tea.Model {
 
 export class DescribeParentPlatformDevicesRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   id?: string;
   sortBy?: string;
   sortDirection?: string;
@@ -4428,7 +4490,6 @@ export class DescribeParentPlatformDevicesRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       id: 'Id',
       sortBy: 'SortBy',
       sortDirection: 'SortDirection',
@@ -4440,7 +4501,6 @@ export class DescribeParentPlatformDevicesRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       id: 'string',
       sortBy: 'string',
       sortDirection: 'string',
@@ -4455,18 +4515,18 @@ export class DescribeParentPlatformDevicesRequest extends $tea.Model {
 }
 
 export class DescribeParentPlatformDevicesResponseBody extends $tea.Model {
-  totalCount?: number;
   pageNum?: number;
   pageSize?: number;
   requestId?: string;
+  totalCount?: number;
   pageCount?: number;
   devices?: DescribeParentPlatformDevicesResponseBodyDevices[];
   static names(): { [key: string]: string } {
     return {
-      totalCount: 'TotalCount',
       pageNum: 'PageNum',
       pageSize: 'PageSize',
       requestId: 'RequestId',
+      totalCount: 'TotalCount',
       pageCount: 'PageCount',
       devices: 'Devices',
     };
@@ -4474,10 +4534,10 @@ export class DescribeParentPlatformDevicesResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      totalCount: 'number',
       pageNum: 'number',
       pageSize: 'number',
       requestId: 'string',
+      totalCount: 'number',
       pageCount: 'number',
       devices: { 'type': 'array', 'itemType': DescribeParentPlatformDevicesResponseBodyDevices },
     };
@@ -4512,7 +4572,6 @@ export class DescribeParentPlatformDevicesResponse extends $tea.Model {
 
 export class DescribeParentPlatformsRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   gbId?: string;
   status?: string;
   sortBy?: string;
@@ -4522,7 +4581,6 @@ export class DescribeParentPlatformsRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       gbId: 'GbId',
       status: 'Status',
       sortBy: 'SortBy',
@@ -4535,7 +4593,6 @@ export class DescribeParentPlatformsRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       gbId: 'string',
       status: 'string',
       sortBy: 'string',
@@ -4551,31 +4608,31 @@ export class DescribeParentPlatformsRequest extends $tea.Model {
 }
 
 export class DescribeParentPlatformsResponseBody extends $tea.Model {
-  platforms?: DescribeParentPlatformsResponseBodyPlatforms[];
-  totalCount?: number;
   pageNum?: number;
   pageSize?: number;
   requestId?: string;
+  totalCount?: number;
   pageCount?: number;
+  platforms?: DescribeParentPlatformsResponseBodyPlatforms[];
   static names(): { [key: string]: string } {
     return {
-      platforms: 'Platforms',
-      totalCount: 'TotalCount',
       pageNum: 'PageNum',
       pageSize: 'PageSize',
       requestId: 'RequestId',
+      totalCount: 'TotalCount',
       pageCount: 'PageCount',
+      platforms: 'Platforms',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      platforms: { 'type': 'array', 'itemType': DescribeParentPlatformsResponseBodyPlatforms },
-      totalCount: 'number',
       pageNum: 'number',
       pageSize: 'number',
       requestId: 'string',
+      totalCount: 'number',
       pageCount: 'number',
+      platforms: { 'type': 'array', 'itemType': DescribeParentPlatformsResponseBodyPlatforms },
     };
   }
 
@@ -4608,21 +4665,21 @@ export class DescribeParentPlatformsResponse extends $tea.Model {
 
 export class DescribePresetsRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   id?: string;
+  subProtocol?: string;
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       id: 'Id',
+      subProtocol: 'SubProtocol',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       id: 'string',
+      subProtocol: 'string',
     };
   }
 
@@ -4632,22 +4689,22 @@ export class DescribePresetsRequest extends $tea.Model {
 }
 
 export class DescribePresetsResponseBody extends $tea.Model {
+  id?: string;
   requestId?: string;
   presets?: DescribePresetsResponseBodyPresets[];
-  id?: string;
   static names(): { [key: string]: string } {
     return {
+      id: 'Id',
       requestId: 'RequestId',
       presets: 'Presets',
-      id: 'Id',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      id: 'string',
       requestId: 'string',
       presets: { 'type': 'array', 'itemType': DescribePresetsResponseBodyPresets },
-      id: 'string',
     };
   }
 
@@ -4680,12 +4737,10 @@ export class DescribePresetsResponse extends $tea.Model {
 
 export class DescribePurchasedDeviceRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   id?: string;
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       id: 'Id',
     };
   }
@@ -4693,7 +4748,6 @@ export class DescribePurchasedDeviceRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       id: 'string',
     };
   }
@@ -4704,52 +4758,52 @@ export class DescribePurchasedDeviceRequest extends $tea.Model {
 }
 
 export class DescribePurchasedDeviceResponseBody extends $tea.Model {
-  groupName?: string;
-  subType?: string;
-  description?: string;
-  createdTime?: string;
-  requestId?: string;
-  registerCode?: string;
-  vendor?: string;
-  orderId?: string;
-  groupId?: string;
-  name?: string;
   type?: string;
+  subType?: string;
+  vendor?: string;
+  requestId?: string;
+  description?: string;
+  registerCode?: string;
+  groupId?: string;
+  groupName?: string;
   region?: string;
+  name?: string;
+  createdTime?: string;
   id?: string;
+  orderId?: string;
   static names(): { [key: string]: string } {
     return {
-      groupName: 'GroupName',
-      subType: 'SubType',
-      description: 'Description',
-      createdTime: 'CreatedTime',
-      requestId: 'RequestId',
-      registerCode: 'RegisterCode',
-      vendor: 'Vendor',
-      orderId: 'OrderId',
-      groupId: 'GroupId',
-      name: 'Name',
       type: 'Type',
+      subType: 'SubType',
+      vendor: 'Vendor',
+      requestId: 'RequestId',
+      description: 'Description',
+      registerCode: 'RegisterCode',
+      groupId: 'GroupId',
+      groupName: 'GroupName',
       region: 'Region',
+      name: 'Name',
+      createdTime: 'CreatedTime',
       id: 'Id',
+      orderId: 'OrderId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      groupName: 'string',
-      subType: 'string',
-      description: 'string',
-      createdTime: 'string',
-      requestId: 'string',
-      registerCode: 'string',
-      vendor: 'string',
-      orderId: 'string',
-      groupId: 'string',
-      name: 'string',
       type: 'string',
+      subType: 'string',
+      vendor: 'string',
+      requestId: 'string',
+      description: 'string',
+      registerCode: 'string',
+      groupId: 'string',
+      groupName: 'string',
       region: 'string',
+      name: 'string',
+      createdTime: 'string',
       id: 'string',
+      orderId: 'string',
     };
   }
 
@@ -4782,7 +4836,6 @@ export class DescribePurchasedDeviceResponse extends $tea.Model {
 
 export class DescribePurchasedDevicesRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   id?: string;
   name?: string;
   type?: string;
@@ -4796,7 +4849,6 @@ export class DescribePurchasedDevicesRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       id: 'Id',
       name: 'Name',
       type: 'Type',
@@ -4813,7 +4865,6 @@ export class DescribePurchasedDevicesRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       id: 'string',
       name: 'string',
       type: 'string',
@@ -4833,18 +4884,18 @@ export class DescribePurchasedDevicesRequest extends $tea.Model {
 }
 
 export class DescribePurchasedDevicesResponseBody extends $tea.Model {
-  totalCount?: number;
   pageNum?: number;
   pageSize?: number;
   requestId?: string;
+  totalCount?: number;
   pageCount?: number;
   devices?: DescribePurchasedDevicesResponseBodyDevices[];
   static names(): { [key: string]: string } {
     return {
-      totalCount: 'TotalCount',
       pageNum: 'PageNum',
       pageSize: 'PageSize',
       requestId: 'RequestId',
+      totalCount: 'TotalCount',
       pageCount: 'PageCount',
       devices: 'Devices',
     };
@@ -4852,10 +4903,10 @@ export class DescribePurchasedDevicesResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      totalCount: 'number',
       pageNum: 'number',
       pageSize: 'number',
       requestId: 'string',
+      totalCount: 'number',
       pageCount: 'number',
       devices: { 'type': 'array', 'itemType': DescribePurchasedDevicesResponseBodyDevices },
     };
@@ -4890,7 +4941,6 @@ export class DescribePurchasedDevicesResponse extends $tea.Model {
 
 export class DescribeRecordsRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   type?: string;
   streamId?: string;
   startTime?: string;
@@ -4903,7 +4953,6 @@ export class DescribeRecordsRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       type: 'Type',
       streamId: 'StreamId',
       startTime: 'StartTime',
@@ -4919,7 +4968,6 @@ export class DescribeRecordsRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       type: 'string',
       streamId: 'string',
       startTime: 'string',
@@ -4938,33 +4986,33 @@ export class DescribeRecordsRequest extends $tea.Model {
 }
 
 export class DescribeRecordsResponseBody extends $tea.Model {
-  totalCount?: number;
   pageNum?: number;
   requestId?: string;
-  pageSize?: number;
-  pageCount?: number;
   nextStartTime?: string;
+  pageSize?: number;
+  totalCount?: number;
+  pageCount?: number;
   records?: DescribeRecordsResponseBodyRecords[];
   static names(): { [key: string]: string } {
     return {
-      totalCount: 'TotalCount',
       pageNum: 'PageNum',
       requestId: 'RequestId',
-      pageSize: 'PageSize',
-      pageCount: 'PageCount',
       nextStartTime: 'NextStartTime',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+      pageCount: 'PageCount',
       records: 'Records',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      totalCount: 'number',
       pageNum: 'number',
       requestId: 'string',
-      pageSize: 'number',
-      pageCount: 'number',
       nextStartTime: 'string',
+      pageSize: 'number',
+      totalCount: 'number',
+      pageCount: 'number',
       records: { 'type': 'array', 'itemType': DescribeRecordsResponseBodyRecords },
     };
   }
@@ -4998,12 +5046,10 @@ export class DescribeRecordsResponse extends $tea.Model {
 
 export class DescribeStreamRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   id?: string;
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       id: 'Id',
     };
   }
@@ -5011,7 +5057,6 @@ export class DescribeStreamRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       id: 'string',
     };
   }
@@ -5023,54 +5068,54 @@ export class DescribeStreamRequest extends $tea.Model {
 
 export class DescribeStreamResponseBody extends $tea.Model {
   status?: string;
-  app?: string;
-  createdTime?: string;
-  requestId?: string;
-  deviceId?: string;
-  enabled?: boolean;
-  groupId?: string;
-  name?: string;
   playDomain?: string;
-  height?: number;
-  id?: string;
   protocol?: string;
-  pushDomain?: string;
+  deviceId?: string;
+  height?: number;
+  requestId?: string;
+  groupId?: string;
   width?: number;
+  app?: string;
+  enabled?: boolean;
+  name?: string;
+  pushDomain?: string;
+  createdTime?: string;
+  id?: string;
   static names(): { [key: string]: string } {
     return {
       status: 'Status',
-      app: 'App',
-      createdTime: 'CreatedTime',
-      requestId: 'RequestId',
-      deviceId: 'DeviceId',
-      enabled: 'Enabled',
-      groupId: 'GroupId',
-      name: 'Name',
       playDomain: 'PlayDomain',
-      height: 'Height',
-      id: 'Id',
       protocol: 'Protocol',
-      pushDomain: 'PushDomain',
+      deviceId: 'DeviceId',
+      height: 'Height',
+      requestId: 'RequestId',
+      groupId: 'GroupId',
       width: 'Width',
+      app: 'App',
+      enabled: 'Enabled',
+      name: 'Name',
+      pushDomain: 'PushDomain',
+      createdTime: 'CreatedTime',
+      id: 'Id',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       status: 'string',
-      app: 'string',
-      createdTime: 'string',
-      requestId: 'string',
-      deviceId: 'string',
-      enabled: 'boolean',
-      groupId: 'string',
-      name: 'string',
       playDomain: 'string',
-      height: 'number',
-      id: 'string',
       protocol: 'string',
-      pushDomain: 'string',
+      deviceId: 'string',
+      height: 'number',
+      requestId: 'string',
+      groupId: 'string',
       width: 'number',
+      app: 'string',
+      enabled: 'boolean',
+      name: 'string',
+      pushDomain: 'string',
+      createdTime: 'string',
+      id: 'string',
     };
   }
 
@@ -5103,7 +5148,6 @@ export class DescribeStreamResponse extends $tea.Model {
 
 export class DescribeStreamsRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   id?: string;
   groupId?: string;
   deviceId?: string;
@@ -5118,7 +5162,6 @@ export class DescribeStreamsRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       id: 'Id',
       groupId: 'GroupId',
       deviceId: 'DeviceId',
@@ -5136,7 +5179,6 @@ export class DescribeStreamsRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       id: 'string',
       groupId: 'string',
       deviceId: 'string',
@@ -5157,18 +5199,18 @@ export class DescribeStreamsRequest extends $tea.Model {
 }
 
 export class DescribeStreamsResponseBody extends $tea.Model {
-  totalCount?: number;
   pageNum?: number;
   pageSize?: number;
   requestId?: string;
+  totalCount?: number;
   pageCount?: number;
   streams?: DescribeStreamsResponseBodyStreams[];
   static names(): { [key: string]: string } {
     return {
-      totalCount: 'TotalCount',
       pageNum: 'PageNum',
       pageSize: 'PageSize',
       requestId: 'RequestId',
+      totalCount: 'TotalCount',
       pageCount: 'PageCount',
       streams: 'Streams',
     };
@@ -5176,10 +5218,10 @@ export class DescribeStreamsResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      totalCount: 'number',
       pageNum: 'number',
       pageSize: 'number',
       requestId: 'string',
+      totalCount: 'number',
       pageCount: 'number',
       streams: { 'type': 'array', 'itemType': DescribeStreamsResponseBodyStreams },
     };
@@ -5214,7 +5256,6 @@ export class DescribeStreamsResponse extends $tea.Model {
 
 export class DescribeStreamURLRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   id?: string;
   type?: string;
   outProtocol?: string;
@@ -5229,7 +5270,6 @@ export class DescribeStreamURLRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       id: 'Id',
       type: 'Type',
       outProtocol: 'OutProtocol',
@@ -5247,7 +5287,6 @@ export class DescribeStreamURLRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       id: 'string',
       type: 'string',
       outProtocol: 'string',
@@ -5268,22 +5307,22 @@ export class DescribeStreamURLRequest extends $tea.Model {
 }
 
 export class DescribeStreamURLResponseBody extends $tea.Model {
+  url?: string;
   requestId?: string;
   expireTime?: number;
-  url?: string;
   static names(): { [key: string]: string } {
     return {
+      url: 'Url',
       requestId: 'RequestId',
       expireTime: 'ExpireTime',
-      url: 'Url',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      url: 'string',
       requestId: 'string',
       expireTime: 'number',
-      url: 'string',
     };
   }
 
@@ -5316,14 +5355,12 @@ export class DescribeStreamURLResponse extends $tea.Model {
 
 export class DescribeStreamVodListRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   id?: string;
   startTime?: number;
   endTime?: number;
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       id: 'Id',
       startTime: 'StartTime',
       endTime: 'EndTime',
@@ -5333,7 +5370,6 @@ export class DescribeStreamVodListRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       id: 'string',
       startTime: 'number',
       endTime: 'number',
@@ -5391,12 +5427,10 @@ export class DescribeStreamVodListResponse extends $tea.Model {
 
 export class DescribeTemplateRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   id?: string;
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       id: 'Id',
     };
   }
@@ -5404,7 +5438,6 @@ export class DescribeTemplateRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       id: 'string',
     };
   }
@@ -5415,88 +5448,88 @@ export class DescribeTemplateRequest extends $tea.Model {
 }
 
 export class DescribeTemplateResponseBody extends $tea.Model {
-  description?: string;
-  createdTime?: string;
-  endTime?: string;
-  hlsTs?: string;
-  ossBucket?: string;
-  retention?: number;
-  fileFormat?: string;
-  name?: string;
-  mp4?: string;
-  jpgOnDemand?: string;
-  flv?: string;
-  ossFilePrefix?: string;
-  trigger?: string;
-  ossEndpoint?: string;
-  requestId?: string;
-  transConfigs?: DescribeTemplateResponseBodyTransConfigs[];
-  startTime?: string;
   type?: string;
-  jpgSequence?: string;
-  callback?: string;
+  trigger?: string;
+  hlsTs?: string;
+  mp4?: string;
   jpgOverwrite?: string;
+  callback?: string;
+  requestId?: string;
+  description?: string;
   region?: string;
-  id?: string;
+  retention?: number;
   hlsM3u8?: string;
+  name?: string;
+  flv?: string;
+  createdTime?: string;
+  ossEndpoint?: string;
+  ossFilePrefix?: string;
+  jpgOnDemand?: string;
+  ossBucket?: string;
+  fileFormat?: string;
+  jpgSequence?: string;
+  endTime?: string;
+  startTime?: string;
   interval?: number;
+  id?: string;
+  transConfigs?: DescribeTemplateResponseBodyTransConfigs[];
   static names(): { [key: string]: string } {
     return {
-      description: 'Description',
-      createdTime: 'CreatedTime',
-      endTime: 'EndTime',
-      hlsTs: 'HlsTs',
-      ossBucket: 'OssBucket',
-      retention: 'Retention',
-      fileFormat: 'FileFormat',
-      name: 'Name',
-      mp4: 'Mp4',
-      jpgOnDemand: 'JpgOnDemand',
-      flv: 'Flv',
-      ossFilePrefix: 'OssFilePrefix',
-      trigger: 'Trigger',
-      ossEndpoint: 'OssEndpoint',
-      requestId: 'RequestId',
-      transConfigs: 'TransConfigs',
-      startTime: 'StartTime',
       type: 'Type',
-      jpgSequence: 'JpgSequence',
-      callback: 'Callback',
+      trigger: 'Trigger',
+      hlsTs: 'HlsTs',
+      mp4: 'Mp4',
       jpgOverwrite: 'JpgOverwrite',
+      callback: 'Callback',
+      requestId: 'RequestId',
+      description: 'Description',
       region: 'Region',
-      id: 'Id',
+      retention: 'Retention',
       hlsM3u8: 'HlsM3u8',
+      name: 'Name',
+      flv: 'Flv',
+      createdTime: 'CreatedTime',
+      ossEndpoint: 'OssEndpoint',
+      ossFilePrefix: 'OssFilePrefix',
+      jpgOnDemand: 'JpgOnDemand',
+      ossBucket: 'OssBucket',
+      fileFormat: 'FileFormat',
+      jpgSequence: 'JpgSequence',
+      endTime: 'EndTime',
+      startTime: 'StartTime',
       interval: 'Interval',
+      id: 'Id',
+      transConfigs: 'TransConfigs',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      description: 'string',
-      createdTime: 'string',
-      endTime: 'string',
-      hlsTs: 'string',
-      ossBucket: 'string',
-      retention: 'number',
-      fileFormat: 'string',
-      name: 'string',
-      mp4: 'string',
-      jpgOnDemand: 'string',
-      flv: 'string',
-      ossFilePrefix: 'string',
-      trigger: 'string',
-      ossEndpoint: 'string',
-      requestId: 'string',
-      transConfigs: { 'type': 'array', 'itemType': DescribeTemplateResponseBodyTransConfigs },
-      startTime: 'string',
       type: 'string',
-      jpgSequence: 'string',
-      callback: 'string',
+      trigger: 'string',
+      hlsTs: 'string',
+      mp4: 'string',
       jpgOverwrite: 'string',
+      callback: 'string',
+      requestId: 'string',
+      description: 'string',
       region: 'string',
-      id: 'string',
+      retention: 'number',
       hlsM3u8: 'string',
+      name: 'string',
+      flv: 'string',
+      createdTime: 'string',
+      ossEndpoint: 'string',
+      ossFilePrefix: 'string',
+      jpgOnDemand: 'string',
+      ossBucket: 'string',
+      fileFormat: 'string',
+      jpgSequence: 'string',
+      endTime: 'string',
+      startTime: 'string',
       interval: 'number',
+      id: 'string',
+      transConfigs: { 'type': 'array', 'itemType': DescribeTemplateResponseBodyTransConfigs },
     };
   }
 
@@ -5529,7 +5562,6 @@ export class DescribeTemplateResponse extends $tea.Model {
 
 export class DescribeTemplatesRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   id?: string;
   type?: string;
   instanceId?: string;
@@ -5540,7 +5572,6 @@ export class DescribeTemplatesRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       id: 'Id',
       type: 'Type',
       instanceId: 'InstanceId',
@@ -5554,7 +5585,6 @@ export class DescribeTemplatesRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       id: 'string',
       type: 'string',
       instanceId: 'string',
@@ -5571,18 +5601,18 @@ export class DescribeTemplatesRequest extends $tea.Model {
 }
 
 export class DescribeTemplatesResponseBody extends $tea.Model {
-  totalCount?: number;
   pageNum?: number;
   pageSize?: number;
   requestId?: string;
+  totalCount?: number;
   pageCount?: number;
   templates?: DescribeTemplatesResponseBodyTemplates[];
   static names(): { [key: string]: string } {
     return {
-      totalCount: 'TotalCount',
       pageNum: 'PageNum',
       pageSize: 'PageSize',
       requestId: 'RequestId',
+      totalCount: 'TotalCount',
       pageCount: 'PageCount',
       templates: 'Templates',
     };
@@ -5590,10 +5620,10 @@ export class DescribeTemplatesResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      totalCount: 'number',
       pageNum: 'number',
       pageSize: 'number',
       requestId: 'string',
+      totalCount: 'number',
       pageCount: 'number',
       templates: { 'type': 'array', 'itemType': DescribeTemplatesResponseBodyTemplates },
     };
@@ -5628,13 +5658,11 @@ export class DescribeTemplatesResponse extends $tea.Model {
 
 export class DescribeVodStreamURLRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   url?: string;
   txId?: string;
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       url: 'Url',
       txId: 'TxId',
     };
@@ -5643,7 +5671,6 @@ export class DescribeVodStreamURLRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       url: 'string',
       txId: 'string',
     };
@@ -5655,28 +5682,28 @@ export class DescribeVodStreamURLRequest extends $tea.Model {
 }
 
 export class DescribeVodStreamURLResponseBody extends $tea.Model {
+  url?: string;
+  outProtocol?: string;
   requestId?: string;
   port?: number;
   txId?: string;
-  outProtocol?: string;
-  url?: string;
   static names(): { [key: string]: string } {
     return {
+      url: 'Url',
+      outProtocol: 'OutProtocol',
       requestId: 'RequestId',
       port: 'Port',
       txId: 'TxId',
-      outProtocol: 'OutProtocol',
-      url: 'Url',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      url: 'string',
+      outProtocol: 'string',
       requestId: 'string',
       port: 'number',
       txId: 'string',
-      outProtocol: 'string',
-      url: 'string',
     };
   }
 
@@ -5709,12 +5736,10 @@ export class DescribeVodStreamURLResponse extends $tea.Model {
 
 export class DescribeVsCertificateDetailRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   certName?: string;
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       certName: 'CertName',
     };
   }
@@ -5722,7 +5747,6 @@ export class DescribeVsCertificateDetailRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       certName: 'string',
     };
   }
@@ -5733,28 +5757,28 @@ export class DescribeVsCertificateDetailRequest extends $tea.Model {
 }
 
 export class DescribeVsCertificateDetailResponseBody extends $tea.Model {
-  requestId?: string;
-  certId?: number;
   certName?: string;
-  cert?: string;
   key?: string;
+  cert?: string;
+  certId?: number;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
-      certId: 'CertId',
       certName: 'CertName',
-      cert: 'Cert',
       key: 'Key',
+      cert: 'Cert',
+      certId: 'CertId',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
-      certId: 'number',
       certName: 'string',
-      cert: 'string',
       key: 'string',
+      cert: 'string',
+      certId: 'number',
+      requestId: 'string',
     };
   }
 
@@ -5787,12 +5811,10 @@ export class DescribeVsCertificateDetailResponse extends $tea.Model {
 
 export class DescribeVsCertificateListRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   domainName?: string;
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       domainName: 'DomainName',
     };
   }
@@ -5800,7 +5822,6 @@ export class DescribeVsCertificateListRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       domainName: 'string',
     };
   }
@@ -5856,7 +5877,6 @@ export class DescribeVsCertificateListResponse extends $tea.Model {
 
 export class DescribeVsDomainBpsDataRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   domainName?: string;
   startTime?: string;
   endTime?: string;
@@ -5866,7 +5886,6 @@ export class DescribeVsDomainBpsDataRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       domainName: 'DomainName',
       startTime: 'StartTime',
       endTime: 'EndTime',
@@ -5879,7 +5898,6 @@ export class DescribeVsDomainBpsDataRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       domainName: 'string',
       startTime: 'string',
       endTime: 'string',
@@ -5896,17 +5914,17 @@ export class DescribeVsDomainBpsDataRequest extends $tea.Model {
 
 export class DescribeVsDomainBpsDataResponseBody extends $tea.Model {
   endTime?: string;
+  startTime?: string;
   requestId?: string;
   domainName?: string;
-  startTime?: string;
   dataInterval?: string;
   bpsDataPerInterval?: DescribeVsDomainBpsDataResponseBodyBpsDataPerInterval;
   static names(): { [key: string]: string } {
     return {
       endTime: 'EndTime',
+      startTime: 'StartTime',
       requestId: 'RequestId',
       domainName: 'DomainName',
-      startTime: 'StartTime',
       dataInterval: 'DataInterval',
       bpsDataPerInterval: 'BpsDataPerInterval',
     };
@@ -5915,9 +5933,9 @@ export class DescribeVsDomainBpsDataResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       endTime: 'string',
+      startTime: 'string',
       requestId: 'string',
       domainName: 'string',
-      startTime: 'string',
       dataInterval: 'string',
       bpsDataPerInterval: DescribeVsDomainBpsDataResponseBodyBpsDataPerInterval,
     };
@@ -5952,12 +5970,10 @@ export class DescribeVsDomainBpsDataResponse extends $tea.Model {
 
 export class DescribeVsDomainCertificateInfoRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   domainName?: string;
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       domainName: 'DomainName',
     };
   }
@@ -5965,7 +5981,6 @@ export class DescribeVsDomainCertificateInfoRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       domainName: 'string',
     };
   }
@@ -5976,19 +5991,19 @@ export class DescribeVsDomainCertificateInfoRequest extends $tea.Model {
 }
 
 export class DescribeVsDomainCertificateInfoResponseBody extends $tea.Model {
-  certInfos?: DescribeVsDomainCertificateInfoResponseBodyCertInfos;
   requestId?: string;
+  certInfos?: DescribeVsDomainCertificateInfoResponseBodyCertInfos;
   static names(): { [key: string]: string } {
     return {
-      certInfos: 'CertInfos',
       requestId: 'RequestId',
+      certInfos: 'CertInfos',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      certInfos: DescribeVsDomainCertificateInfoResponseBodyCertInfos,
       requestId: 'string',
+      certInfos: DescribeVsDomainCertificateInfoResponseBodyCertInfos,
     };
   }
 
@@ -6021,13 +6036,11 @@ export class DescribeVsDomainCertificateInfoResponse extends $tea.Model {
 
 export class DescribeVsDomainConfigsRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   domainName?: string;
   functionNames?: string;
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       domainName: 'DomainName',
       functionNames: 'FunctionNames',
     };
@@ -6036,7 +6049,6 @@ export class DescribeVsDomainConfigsRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       domainName: 'string',
       functionNames: 'string',
     };
@@ -6093,12 +6105,10 @@ export class DescribeVsDomainConfigsResponse extends $tea.Model {
 
 export class DescribeVsDomainDetailRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   domainName?: string;
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       domainName: 'DomainName',
     };
   }
@@ -6106,7 +6116,6 @@ export class DescribeVsDomainDetailRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       domainName: 'string',
     };
   }
@@ -6162,14 +6171,12 @@ export class DescribeVsDomainDetailResponse extends $tea.Model {
 
 export class DescribeVsDomainPvDataRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   domainName?: string;
   startTime?: string;
   endTime?: string;
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       domainName: 'DomainName',
       startTime: 'StartTime',
       endTime: 'EndTime',
@@ -6179,7 +6186,6 @@ export class DescribeVsDomainPvDataRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       domainName: 'string',
       startTime: 'string',
       endTime: 'string',
@@ -6193,17 +6199,17 @@ export class DescribeVsDomainPvDataRequest extends $tea.Model {
 
 export class DescribeVsDomainPvDataResponseBody extends $tea.Model {
   endTime?: string;
+  startTime?: string;
   requestId?: string;
   domainName?: string;
-  startTime?: string;
   dataInterval?: string;
   pvDataInterval?: DescribeVsDomainPvDataResponseBodyPvDataInterval;
   static names(): { [key: string]: string } {
     return {
       endTime: 'EndTime',
+      startTime: 'StartTime',
       requestId: 'RequestId',
       domainName: 'DomainName',
-      startTime: 'StartTime',
       dataInterval: 'DataInterval',
       pvDataInterval: 'PvDataInterval',
     };
@@ -6212,9 +6218,9 @@ export class DescribeVsDomainPvDataResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       endTime: 'string',
+      startTime: 'string',
       requestId: 'string',
       domainName: 'string',
-      startTime: 'string',
       dataInterval: 'string',
       pvDataInterval: DescribeVsDomainPvDataResponseBodyPvDataInterval,
     };
@@ -6249,14 +6255,12 @@ export class DescribeVsDomainPvDataResponse extends $tea.Model {
 
 export class DescribeVsDomainPvUvDataRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   domainName?: string;
   startTime?: string;
   endTime?: string;
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       domainName: 'DomainName',
       startTime: 'StartTime',
       endTime: 'EndTime',
@@ -6266,7 +6270,6 @@ export class DescribeVsDomainPvUvDataRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       domainName: 'string',
       startTime: 'string',
       endTime: 'string',
@@ -6280,17 +6283,17 @@ export class DescribeVsDomainPvUvDataRequest extends $tea.Model {
 
 export class DescribeVsDomainPvUvDataResponseBody extends $tea.Model {
   endTime?: string;
+  startTime?: string;
   requestId?: string;
   domainName?: string;
-  startTime?: string;
   dataInterval?: string;
   pvUvDataInfos?: DescribeVsDomainPvUvDataResponseBodyPvUvDataInfos;
   static names(): { [key: string]: string } {
     return {
       endTime: 'EndTime',
+      startTime: 'StartTime',
       requestId: 'RequestId',
       domainName: 'DomainName',
-      startTime: 'StartTime',
       dataInterval: 'DataInterval',
       pvUvDataInfos: 'PvUvDataInfos',
     };
@@ -6299,9 +6302,9 @@ export class DescribeVsDomainPvUvDataResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       endTime: 'string',
+      startTime: 'string',
       requestId: 'string',
       domainName: 'string',
-      startTime: 'string',
       dataInterval: 'string',
       pvUvDataInfos: DescribeVsDomainPvUvDataResponseBodyPvUvDataInfos,
     };
@@ -6336,14 +6339,12 @@ export class DescribeVsDomainPvUvDataResponse extends $tea.Model {
 
 export class DescribeVsDomainRecordDataRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   domainName?: string;
   startTime?: string;
   endTime?: string;
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       domainName: 'DomainName',
       startTime: 'StartTime',
       endTime: 'EndTime',
@@ -6353,7 +6354,6 @@ export class DescribeVsDomainRecordDataRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       domainName: 'string',
       startTime: 'string',
       endTime: 'string',
@@ -6367,27 +6367,27 @@ export class DescribeVsDomainRecordDataRequest extends $tea.Model {
 
 export class DescribeVsDomainRecordDataResponseBody extends $tea.Model {
   endTime?: string;
+  startTime?: string;
   requestId?: string;
   domainName?: string;
   recordDataPerInterval?: DescribeVsDomainRecordDataResponseBodyRecordDataPerInterval;
-  startTime?: string;
   static names(): { [key: string]: string } {
     return {
       endTime: 'EndTime',
+      startTime: 'StartTime',
       requestId: 'RequestId',
       domainName: 'DomainName',
       recordDataPerInterval: 'RecordDataPerInterval',
-      startTime: 'StartTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       endTime: 'string',
+      startTime: 'string',
       requestId: 'string',
       domainName: 'string',
       recordDataPerInterval: DescribeVsDomainRecordDataResponseBodyRecordDataPerInterval,
-      startTime: 'string',
     };
   }
 
@@ -6420,14 +6420,12 @@ export class DescribeVsDomainRecordDataResponse extends $tea.Model {
 
 export class DescribeVsDomainRegionDataRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   domainName?: string;
   startTime?: string;
   endTime?: string;
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       domainName: 'DomainName',
       startTime: 'StartTime',
       endTime: 'EndTime',
@@ -6437,7 +6435,6 @@ export class DescribeVsDomainRegionDataRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       domainName: 'string',
       startTime: 'string',
       endTime: 'string',
@@ -6451,17 +6448,17 @@ export class DescribeVsDomainRegionDataRequest extends $tea.Model {
 
 export class DescribeVsDomainRegionDataResponseBody extends $tea.Model {
   endTime?: string;
+  startTime?: string;
   requestId?: string;
   domainName?: string;
-  startTime?: string;
   dataInterval?: string;
   value?: DescribeVsDomainRegionDataResponseBodyValue;
   static names(): { [key: string]: string } {
     return {
       endTime: 'EndTime',
+      startTime: 'StartTime',
       requestId: 'RequestId',
       domainName: 'DomainName',
-      startTime: 'StartTime',
       dataInterval: 'DataInterval',
       value: 'Value',
     };
@@ -6470,9 +6467,9 @@ export class DescribeVsDomainRegionDataResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       endTime: 'string',
+      startTime: 'string',
       requestId: 'string',
       domainName: 'string',
-      startTime: 'string',
       dataInterval: 'string',
       value: DescribeVsDomainRegionDataResponseBodyValue,
     };
@@ -6507,7 +6504,6 @@ export class DescribeVsDomainRegionDataResponse extends $tea.Model {
 
 export class DescribeVsDomainReqBpsDataRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   domainName?: string;
   startTime?: string;
   endTime?: string;
@@ -6517,7 +6513,6 @@ export class DescribeVsDomainReqBpsDataRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       domainName: 'DomainName',
       startTime: 'StartTime',
       endTime: 'EndTime',
@@ -6530,7 +6525,6 @@ export class DescribeVsDomainReqBpsDataRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       domainName: 'string',
       startTime: 'string',
       endTime: 'string',
@@ -6547,30 +6541,30 @@ export class DescribeVsDomainReqBpsDataRequest extends $tea.Model {
 
 export class DescribeVsDomainReqBpsDataResponseBody extends $tea.Model {
   endTime?: string;
+  startTime?: string;
   requestId?: string;
   domainName?: string;
-  reqBpsDataPerInterval?: DescribeVsDomainReqBpsDataResponseBodyReqBpsDataPerInterval;
-  startTime?: string;
   dataInterval?: string;
+  reqBpsDataPerInterval?: DescribeVsDomainReqBpsDataResponseBodyReqBpsDataPerInterval;
   static names(): { [key: string]: string } {
     return {
       endTime: 'EndTime',
+      startTime: 'StartTime',
       requestId: 'RequestId',
       domainName: 'DomainName',
-      reqBpsDataPerInterval: 'ReqBpsDataPerInterval',
-      startTime: 'StartTime',
       dataInterval: 'DataInterval',
+      reqBpsDataPerInterval: 'ReqBpsDataPerInterval',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       endTime: 'string',
+      startTime: 'string',
       requestId: 'string',
       domainName: 'string',
-      reqBpsDataPerInterval: DescribeVsDomainReqBpsDataResponseBodyReqBpsDataPerInterval,
-      startTime: 'string',
       dataInterval: 'string',
+      reqBpsDataPerInterval: DescribeVsDomainReqBpsDataResponseBodyReqBpsDataPerInterval,
     };
   }
 
@@ -6603,7 +6597,6 @@ export class DescribeVsDomainReqBpsDataResponse extends $tea.Model {
 
 export class DescribeVsDomainReqTrafficDataRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   domainName?: string;
   startTime?: string;
   endTime?: string;
@@ -6613,7 +6606,6 @@ export class DescribeVsDomainReqTrafficDataRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       domainName: 'DomainName',
       startTime: 'StartTime',
       endTime: 'EndTime',
@@ -6626,7 +6618,6 @@ export class DescribeVsDomainReqTrafficDataRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       domainName: 'string',
       startTime: 'string',
       endTime: 'string',
@@ -6642,31 +6633,31 @@ export class DescribeVsDomainReqTrafficDataRequest extends $tea.Model {
 }
 
 export class DescribeVsDomainReqTrafficDataResponseBody extends $tea.Model {
-  reqTrafficDataPerInterval?: DescribeVsDomainReqTrafficDataResponseBodyReqTrafficDataPerInterval;
   endTime?: string;
+  startTime?: string;
   requestId?: string;
   domainName?: string;
-  startTime?: string;
   dataInterval?: string;
+  reqTrafficDataPerInterval?: DescribeVsDomainReqTrafficDataResponseBodyReqTrafficDataPerInterval;
   static names(): { [key: string]: string } {
     return {
-      reqTrafficDataPerInterval: 'ReqTrafficDataPerInterval',
       endTime: 'EndTime',
+      startTime: 'StartTime',
       requestId: 'RequestId',
       domainName: 'DomainName',
-      startTime: 'StartTime',
       dataInterval: 'DataInterval',
+      reqTrafficDataPerInterval: 'ReqTrafficDataPerInterval',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      reqTrafficDataPerInterval: DescribeVsDomainReqTrafficDataResponseBodyReqTrafficDataPerInterval,
       endTime: 'string',
+      startTime: 'string',
       requestId: 'string',
       domainName: 'string',
-      startTime: 'string',
       dataInterval: 'string',
+      reqTrafficDataPerInterval: DescribeVsDomainReqTrafficDataResponseBodyReqTrafficDataPerInterval,
     };
   }
 
@@ -6699,14 +6690,12 @@ export class DescribeVsDomainReqTrafficDataResponse extends $tea.Model {
 
 export class DescribeVsDomainSnapshotDataRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   domainName?: string;
   startTime?: string;
   endTime?: string;
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       domainName: 'DomainName',
       startTime: 'StartTime',
       endTime: 'EndTime',
@@ -6716,7 +6705,6 @@ export class DescribeVsDomainSnapshotDataRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       domainName: 'string',
       startTime: 'string',
       endTime: 'string',
@@ -6730,27 +6718,27 @@ export class DescribeVsDomainSnapshotDataRequest extends $tea.Model {
 
 export class DescribeVsDomainSnapshotDataResponseBody extends $tea.Model {
   endTime?: string;
-  requestId?: string;
-  snapshotDataPerInterval?: DescribeVsDomainSnapshotDataResponseBodySnapshotDataPerInterval;
-  domainName?: string;
   startTime?: string;
+  requestId?: string;
+  domainName?: string;
+  snapshotDataPerInterval?: DescribeVsDomainSnapshotDataResponseBodySnapshotDataPerInterval;
   static names(): { [key: string]: string } {
     return {
       endTime: 'EndTime',
-      requestId: 'RequestId',
-      snapshotDataPerInterval: 'SnapshotDataPerInterval',
-      domainName: 'DomainName',
       startTime: 'StartTime',
+      requestId: 'RequestId',
+      domainName: 'DomainName',
+      snapshotDataPerInterval: 'SnapshotDataPerInterval',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       endTime: 'string',
-      requestId: 'string',
-      snapshotDataPerInterval: DescribeVsDomainSnapshotDataResponseBodySnapshotDataPerInterval,
-      domainName: 'string',
       startTime: 'string',
+      requestId: 'string',
+      domainName: 'string',
+      snapshotDataPerInterval: DescribeVsDomainSnapshotDataResponseBodySnapshotDataPerInterval,
     };
   }
 
@@ -6783,7 +6771,6 @@ export class DescribeVsDomainSnapshotDataResponse extends $tea.Model {
 
 export class DescribeVsDomainTrafficDataRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   domainName?: string;
   startTime?: string;
   endTime?: string;
@@ -6793,7 +6780,6 @@ export class DescribeVsDomainTrafficDataRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       domainName: 'DomainName',
       startTime: 'StartTime',
       endTime: 'EndTime',
@@ -6806,7 +6792,6 @@ export class DescribeVsDomainTrafficDataRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       domainName: 'string',
       startTime: 'string',
       endTime: 'string',
@@ -6823,30 +6808,30 @@ export class DescribeVsDomainTrafficDataRequest extends $tea.Model {
 
 export class DescribeVsDomainTrafficDataResponseBody extends $tea.Model {
   endTime?: string;
+  startTime?: string;
   requestId?: string;
   domainName?: string;
-  trafficDataPerInterval?: DescribeVsDomainTrafficDataResponseBodyTrafficDataPerInterval;
-  startTime?: string;
   dataInterval?: string;
+  trafficDataPerInterval?: DescribeVsDomainTrafficDataResponseBodyTrafficDataPerInterval;
   static names(): { [key: string]: string } {
     return {
       endTime: 'EndTime',
+      startTime: 'StartTime',
       requestId: 'RequestId',
       domainName: 'DomainName',
-      trafficDataPerInterval: 'TrafficDataPerInterval',
-      startTime: 'StartTime',
       dataInterval: 'DataInterval',
+      trafficDataPerInterval: 'TrafficDataPerInterval',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       endTime: 'string',
+      startTime: 'string',
       requestId: 'string',
       domainName: 'string',
-      trafficDataPerInterval: DescribeVsDomainTrafficDataResponseBodyTrafficDataPerInterval,
-      startTime: 'string',
       dataInterval: 'string',
+      trafficDataPerInterval: DescribeVsDomainTrafficDataResponseBodyTrafficDataPerInterval,
     };
   }
 
@@ -6879,14 +6864,12 @@ export class DescribeVsDomainTrafficDataResponse extends $tea.Model {
 
 export class DescribeVsDomainUvDataRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   domainName?: string;
   startTime?: string;
   endTime?: string;
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       domainName: 'DomainName',
       startTime: 'StartTime',
       endTime: 'EndTime',
@@ -6896,7 +6879,6 @@ export class DescribeVsDomainUvDataRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       domainName: 'string',
       startTime: 'string',
       endTime: 'string',
@@ -6909,31 +6891,31 @@ export class DescribeVsDomainUvDataRequest extends $tea.Model {
 }
 
 export class DescribeVsDomainUvDataResponseBody extends $tea.Model {
-  uvDataInterval?: DescribeVsDomainUvDataResponseBodyUvDataInterval;
   endTime?: string;
+  startTime?: string;
   requestId?: string;
   domainName?: string;
-  startTime?: string;
   dataInterval?: string;
+  uvDataInterval?: DescribeVsDomainUvDataResponseBodyUvDataInterval;
   static names(): { [key: string]: string } {
     return {
-      uvDataInterval: 'UvDataInterval',
       endTime: 'EndTime',
+      startTime: 'StartTime',
       requestId: 'RequestId',
       domainName: 'DomainName',
-      startTime: 'StartTime',
       dataInterval: 'DataInterval',
+      uvDataInterval: 'UvDataInterval',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      uvDataInterval: DescribeVsDomainUvDataResponseBodyUvDataInterval,
       endTime: 'string',
+      startTime: 'string',
       requestId: 'string',
       domainName: 'string',
-      startTime: 'string',
       dataInterval: 'string',
+      uvDataInterval: DescribeVsDomainUvDataResponseBodyUvDataInterval,
     };
   }
 
@@ -6966,12 +6948,10 @@ export class DescribeVsDomainUvDataResponse extends $tea.Model {
 
 export class DescribeVsPullStreamInfoConfigRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   domainName?: string;
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       domainName: 'DomainName',
     };
   }
@@ -6979,7 +6959,6 @@ export class DescribeVsPullStreamInfoConfigRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       domainName: 'string',
     };
   }
@@ -7033,14 +7012,90 @@ export class DescribeVsPullStreamInfoConfigResponse extends $tea.Model {
   }
 }
 
+export class DescribeVsStorageUsageDataRequest extends $tea.Model {
+  ownerId?: number;
+  bucket?: string;
+  splitBy?: string;
+  interval?: string;
+  startTime?: string;
+  endTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      bucket: 'Bucket',
+      splitBy: 'SplitBy',
+      interval: 'Interval',
+      startTime: 'StartTime',
+      endTime: 'EndTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      bucket: 'string',
+      splitBy: 'string',
+      interval: 'string',
+      startTime: 'string',
+      endTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVsStorageUsageDataResponseBody extends $tea.Model {
+  requestId?: string;
+  storageUsage?: DescribeVsStorageUsageDataResponseBodyStorageUsage;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      storageUsage: 'StorageUsage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      storageUsage: DescribeVsStorageUsageDataResponseBodyStorageUsage,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVsStorageUsageDataResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeVsStorageUsageDataResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeVsStorageUsageDataResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeVsStreamsNotifyUrlConfigRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   domainName?: string;
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       domainName: 'DomainName',
     };
   }
@@ -7048,7 +7103,6 @@ export class DescribeVsStreamsNotifyUrlConfigRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       domainName: 'string',
     };
   }
@@ -7104,7 +7158,6 @@ export class DescribeVsStreamsNotifyUrlConfigResponse extends $tea.Model {
 
 export class DescribeVsStreamsOnlineListRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   domainName?: string;
   appName?: string;
   streamName?: string;
@@ -7118,7 +7171,6 @@ export class DescribeVsStreamsOnlineListRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       domainName: 'DomainName',
       appName: 'AppName',
       streamName: 'StreamName',
@@ -7135,7 +7187,6 @@ export class DescribeVsStreamsOnlineListRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       domainName: 'string',
       appName: 'string',
       streamName: 'string',
@@ -7155,30 +7206,30 @@ export class DescribeVsStreamsOnlineListRequest extends $tea.Model {
 }
 
 export class DescribeVsStreamsOnlineListResponseBody extends $tea.Model {
-  totalNum?: number;
   totalPage?: number;
   pageNum?: number;
   pageSize?: number;
   requestId?: string;
+  totalNum?: number;
   onlineInfo?: DescribeVsStreamsOnlineListResponseBodyOnlineInfo;
   static names(): { [key: string]: string } {
     return {
-      totalNum: 'TotalNum',
       totalPage: 'TotalPage',
       pageNum: 'PageNum',
       pageSize: 'PageSize',
       requestId: 'RequestId',
+      totalNum: 'TotalNum',
       onlineInfo: 'OnlineInfo',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      totalNum: 'number',
       totalPage: 'number',
       pageNum: 'number',
       pageSize: 'number',
       requestId: 'string',
+      totalNum: 'number',
       onlineInfo: DescribeVsStreamsOnlineListResponseBodyOnlineInfo,
     };
   }
@@ -7212,7 +7263,6 @@ export class DescribeVsStreamsOnlineListResponse extends $tea.Model {
 
 export class DescribeVsStreamsPublishListRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   domainName?: string;
   appName?: string;
   streamName?: string;
@@ -7226,7 +7276,6 @@ export class DescribeVsStreamsPublishListRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       domainName: 'DomainName',
       appName: 'AppName',
       streamName: 'StreamName',
@@ -7243,7 +7292,6 @@ export class DescribeVsStreamsPublishListRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       domainName: 'string',
       appName: 'string',
       streamName: 'string',
@@ -7263,30 +7311,30 @@ export class DescribeVsStreamsPublishListRequest extends $tea.Model {
 }
 
 export class DescribeVsStreamsPublishListResponseBody extends $tea.Model {
-  totalNum?: number;
   totalPage?: number;
   pageNum?: number;
   pageSize?: number;
   requestId?: string;
+  totalNum?: number;
   publishInfo?: DescribeVsStreamsPublishListResponseBodyPublishInfo;
   static names(): { [key: string]: string } {
     return {
-      totalNum: 'TotalNum',
       totalPage: 'TotalPage',
       pageNum: 'PageNum',
       pageSize: 'PageSize',
       requestId: 'RequestId',
+      totalNum: 'TotalNum',
       publishInfo: 'PublishInfo',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      totalNum: 'number',
       totalPage: 'number',
       pageNum: 'number',
       pageSize: 'number',
       requestId: 'string',
+      totalNum: 'number',
       publishInfo: DescribeVsStreamsPublishListResponseBodyPublishInfo,
     };
   }
@@ -7320,14 +7368,12 @@ export class DescribeVsStreamsPublishListResponse extends $tea.Model {
 
 export class DescribeVsTopDomainsByFlowRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   startTime?: string;
   endTime?: string;
   limit?: number;
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       startTime: 'StartTime',
       endTime: 'EndTime',
       limit: 'Limit',
@@ -7337,7 +7383,6 @@ export class DescribeVsTopDomainsByFlowRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       startTime: 'string',
       endTime: 'string',
       limit: 'number',
@@ -7350,31 +7395,31 @@ export class DescribeVsTopDomainsByFlowRequest extends $tea.Model {
 }
 
 export class DescribeVsTopDomainsByFlowResponseBody extends $tea.Model {
-  topDomains?: DescribeVsTopDomainsByFlowResponseBodyTopDomains;
-  endTime?: string;
-  requestId?: string;
   domainOnlineCount?: number;
+  endTime?: string;
   startTime?: string;
+  requestId?: string;
   domainCount?: number;
+  topDomains?: DescribeVsTopDomainsByFlowResponseBodyTopDomains;
   static names(): { [key: string]: string } {
     return {
-      topDomains: 'TopDomains',
-      endTime: 'EndTime',
-      requestId: 'RequestId',
       domainOnlineCount: 'DomainOnlineCount',
+      endTime: 'EndTime',
       startTime: 'StartTime',
+      requestId: 'RequestId',
       domainCount: 'DomainCount',
+      topDomains: 'TopDomains',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      topDomains: DescribeVsTopDomainsByFlowResponseBodyTopDomains,
-      endTime: 'string',
-      requestId: 'string',
       domainOnlineCount: 'number',
+      endTime: 'string',
       startTime: 'string',
+      requestId: 'string',
       domainCount: 'number',
+      topDomains: DescribeVsTopDomainsByFlowResponseBodyTopDomains,
     };
   }
 
@@ -7407,7 +7452,6 @@ export class DescribeVsTopDomainsByFlowResponse extends $tea.Model {
 
 export class DescribeVsUpPeakPublishStreamDataRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   startTime?: string;
   endTime?: string;
   domainSwitch?: string;
@@ -7415,7 +7459,6 @@ export class DescribeVsUpPeakPublishStreamDataRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       startTime: 'StartTime',
       endTime: 'EndTime',
       domainSwitch: 'DomainSwitch',
@@ -7426,7 +7469,6 @@ export class DescribeVsUpPeakPublishStreamDataRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       startTime: 'string',
       endTime: 'string',
       domainSwitch: 'string',
@@ -7486,12 +7528,10 @@ export class DescribeVsUpPeakPublishStreamDataResponse extends $tea.Model {
 export class DescribeVsUserResourcePackageRequest extends $tea.Model {
   securityToken?: string;
   ownerId?: number;
-  showLog?: string;
   static names(): { [key: string]: string } {
     return {
       securityToken: 'SecurityToken',
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
     };
   }
 
@@ -7499,7 +7539,6 @@ export class DescribeVsUserResourcePackageRequest extends $tea.Model {
     return {
       securityToken: 'string',
       ownerId: 'number',
-      showLog: 'string',
     };
   }
 
@@ -7554,7 +7593,6 @@ export class DescribeVsUserResourcePackageResponse extends $tea.Model {
 
 export class ForbidVsStreamRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   domainName?: string;
   appName?: string;
   streamName?: string;
@@ -7565,7 +7603,6 @@ export class ForbidVsStreamRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       domainName: 'DomainName',
       appName: 'AppName',
       streamName: 'StreamName',
@@ -7579,7 +7616,6 @@ export class ForbidVsStreamRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       domainName: 'string',
       appName: 'string',
       streamName: 'string',
@@ -7636,26 +7672,92 @@ export class ForbidVsStreamResponse extends $tea.Model {
   }
 }
 
-export class GotoPresetRequest extends $tea.Model {
+export class GetBucketInfoRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
-  id?: string;
-  presetId?: string;
+  bucketName?: string;
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
-      id: 'Id',
-      presetId: 'PresetId',
+      bucketName: 'BucketName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
+      bucketName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBucketInfoResponseBody extends $tea.Model {
+  requestId?: string;
+  bucketInfo?: GetBucketInfoResponseBodyBucketInfo;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      bucketInfo: 'BucketInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      bucketInfo: GetBucketInfoResponseBodyBucketInfo,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBucketInfoResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetBucketInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetBucketInfoResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GotoPresetRequest extends $tea.Model {
+  ownerId?: number;
+  id?: string;
+  presetId?: string;
+  subProtocol?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      id: 'Id',
+      presetId: 'PresetId',
+      subProtocol: 'SubProtocol',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
       id: 'string',
       presetId: 'string',
+      subProtocol: 'string',
     };
   }
 
@@ -7665,19 +7767,19 @@ export class GotoPresetRequest extends $tea.Model {
 }
 
 export class GotoPresetResponseBody extends $tea.Model {
-  requestId?: string;
   id?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       id: 'Id',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       id: 'string',
+      requestId: 'string',
     };
   }
 
@@ -7708,9 +7810,386 @@ export class GotoPresetResponse extends $tea.Model {
   }
 }
 
+export class ListBucketsRequest extends $tea.Model {
+  ownerId?: number;
+  prefix?: string;
+  keyword?: string;
+  marker?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      prefix: 'Prefix',
+      keyword: 'Keyword',
+      marker: 'Marker',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      prefix: 'string',
+      keyword: 'string',
+      marker: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListBucketsResponseBody extends $tea.Model {
+  totalCount?: number;
+  requestId?: string;
+  bucketInfos?: ListBucketsResponseBodyBucketInfos[];
+  static names(): { [key: string]: string } {
+    return {
+      totalCount: 'TotalCount',
+      requestId: 'RequestId',
+      bucketInfos: 'BucketInfos',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      totalCount: 'number',
+      requestId: 'string',
+      bucketInfos: { 'type': 'array', 'itemType': ListBucketsResponseBodyBucketInfos },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListBucketsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListBucketsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListBucketsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDeviceChannelsRequest extends $tea.Model {
+  ownerId?: number;
+  deviceId?: string;
+  pageSize?: number;
+  pageNum?: number;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      deviceId: 'DeviceId',
+      pageSize: 'PageSize',
+      pageNum: 'PageNum',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      deviceId: 'string',
+      pageSize: 'number',
+      pageNum: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDeviceChannelsResponseBody extends $tea.Model {
+  pageNum?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
+  pageCount?: number;
+  channels?: ListDeviceChannelsResponseBodyChannels[];
+  static names(): { [key: string]: string } {
+    return {
+      pageNum: 'PageNum',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+      pageCount: 'PageCount',
+      channels: 'Channels',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNum: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+      pageCount: 'number',
+      channels: { 'type': 'array', 'itemType': ListDeviceChannelsResponseBodyChannels },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDeviceChannelsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListDeviceChannelsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListDeviceChannelsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDeviceRecordsRequest extends $tea.Model {
+  ownerId?: number;
+  deviceId?: string;
+  streamId?: string;
+  searchCriteria?: string;
+  pageSize?: number;
+  pageNum?: number;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      deviceId: 'DeviceId',
+      streamId: 'StreamId',
+      searchCriteria: 'SearchCriteria',
+      pageSize: 'PageSize',
+      pageNum: 'PageNum',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      deviceId: 'string',
+      streamId: 'string',
+      searchCriteria: 'string',
+      pageSize: 'number',
+      pageNum: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDeviceRecordsResponseBody extends $tea.Model {
+  pageNum?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
+  pageCount?: number;
+  records?: ListDeviceRecordsResponseBodyRecords[];
+  static names(): { [key: string]: string } {
+    return {
+      pageNum: 'PageNum',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+      pageCount: 'PageCount',
+      records: 'Records',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNum: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+      pageCount: 'number',
+      records: { 'type': 'array', 'itemType': ListDeviceRecordsResponseBodyRecords },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDeviceRecordsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListDeviceRecordsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListDeviceRecordsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListObjectsRequest extends $tea.Model {
+  ownerId?: number;
+  bucketName?: string;
+  delimiter?: string;
+  encodingType?: string;
+  marker?: string;
+  maxKeys?: number;
+  prefix?: string;
+  continuationToken?: string;
+  startAfter?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      bucketName: 'BucketName',
+      delimiter: 'Delimiter',
+      encodingType: 'EncodingType',
+      marker: 'Marker',
+      maxKeys: 'MaxKeys',
+      prefix: 'Prefix',
+      continuationToken: 'ContinuationToken',
+      startAfter: 'StartAfter',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      bucketName: 'string',
+      delimiter: 'string',
+      encodingType: 'string',
+      marker: 'string',
+      maxKeys: 'number',
+      prefix: 'string',
+      continuationToken: 'string',
+      startAfter: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListObjectsResponseBody extends $tea.Model {
+  marker?: string;
+  maxKeys?: number;
+  prefix?: string;
+  continuationToken?: string;
+  nextContinuationToken?: string;
+  encodingType?: string;
+  nextMarker?: string;
+  delimiter?: string;
+  requestId?: string;
+  bucketName?: string;
+  isTruncated?: boolean;
+  keyCount?: number;
+  commonPrefixes?: string[];
+  contents?: ListObjectsResponseBodyContents[];
+  static names(): { [key: string]: string } {
+    return {
+      marker: 'Marker',
+      maxKeys: 'MaxKeys',
+      prefix: 'Prefix',
+      continuationToken: 'ContinuationToken',
+      nextContinuationToken: 'NextContinuationToken',
+      encodingType: 'EncodingType',
+      nextMarker: 'NextMarker',
+      delimiter: 'Delimiter',
+      requestId: 'RequestId',
+      bucketName: 'BucketName',
+      isTruncated: 'IsTruncated',
+      keyCount: 'KeyCount',
+      commonPrefixes: 'CommonPrefixes',
+      contents: 'Contents',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      marker: 'string',
+      maxKeys: 'number',
+      prefix: 'string',
+      continuationToken: 'string',
+      nextContinuationToken: 'string',
+      encodingType: 'string',
+      nextMarker: 'string',
+      delimiter: 'string',
+      requestId: 'string',
+      bucketName: 'string',
+      isTruncated: 'boolean',
+      keyCount: 'number',
+      commonPrefixes: { 'type': 'array', 'itemType': 'string' },
+      contents: { 'type': 'array', 'itemType': ListObjectsResponseBodyContents },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListObjectsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListObjectsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListObjectsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyDeviceRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   id?: string;
   name?: string;
   description?: string;
@@ -7735,7 +8214,6 @@ export class ModifyDeviceRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       id: 'Id',
       name: 'Name',
       description: 'Description',
@@ -7763,7 +8241,6 @@ export class ModifyDeviceRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       id: 'string',
       name: 'string',
       description: 'string',
@@ -7794,19 +8271,19 @@ export class ModifyDeviceRequest extends $tea.Model {
 }
 
 export class ModifyDeviceResponseBody extends $tea.Model {
-  requestId?: string;
   id?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       id: 'Id',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       id: 'string',
+      requestId: 'string',
     };
   }
 
@@ -7839,7 +8316,6 @@ export class ModifyDeviceResponse extends $tea.Model {
 
 export class ModifyDeviceAlarmRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   id?: string;
   channelId?: number;
   alarmId?: string;
@@ -7847,7 +8323,6 @@ export class ModifyDeviceAlarmRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       id: 'Id',
       channelId: 'ChannelId',
       alarmId: 'AlarmId',
@@ -7858,7 +8333,6 @@ export class ModifyDeviceAlarmRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       id: 'string',
       channelId: 'number',
       alarmId: 'string',
@@ -7914,14 +8388,12 @@ export class ModifyDeviceAlarmResponse extends $tea.Model {
 
 export class ModifyDeviceCaptureRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   id?: string;
   image?: number;
   video?: number;
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       id: 'Id',
       image: 'Image',
       video: 'Video',
@@ -7931,7 +8403,6 @@ export class ModifyDeviceCaptureRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       id: 'string',
       image: 'number',
       video: 'number',
@@ -7986,7 +8457,6 @@ export class ModifyDeviceCaptureResponse extends $tea.Model {
 
 export class ModifyDeviceChannelsRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   id?: string;
   dsn?: string;
   deviceStatus?: string;
@@ -7994,7 +8464,6 @@ export class ModifyDeviceChannelsRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       id: 'Id',
       dsn: 'Dsn',
       deviceStatus: 'DeviceStatus',
@@ -8005,7 +8474,6 @@ export class ModifyDeviceChannelsRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       id: 'string',
       dsn: 'string',
       deviceStatus: 'string',
@@ -8061,14 +8529,12 @@ export class ModifyDeviceChannelsResponse extends $tea.Model {
 
 export class ModifyDirectoryRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   id?: string;
   name?: string;
   description?: string;
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       id: 'Id',
       name: 'Name',
       description: 'Description',
@@ -8078,7 +8544,6 @@ export class ModifyDirectoryRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       id: 'string',
       name: 'string',
       description: 'string',
@@ -8091,19 +8556,19 @@ export class ModifyDirectoryRequest extends $tea.Model {
 }
 
 export class ModifyDirectoryResponseBody extends $tea.Model {
-  requestId?: string;
   id?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       id: 'Id',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       id: 'string',
+      requestId: 'string',
     };
   }
 
@@ -8136,7 +8601,6 @@ export class ModifyDirectoryResponse extends $tea.Model {
 
 export class ModifyGroupRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   id?: string;
   name?: string;
   description?: string;
@@ -8156,7 +8620,6 @@ export class ModifyGroupRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       id: 'Id',
       name: 'Name',
       description: 'Description',
@@ -8179,7 +8642,6 @@ export class ModifyGroupRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       id: 'string',
       name: 'string',
       description: 'string',
@@ -8205,19 +8667,19 @@ export class ModifyGroupRequest extends $tea.Model {
 }
 
 export class ModifyGroupResponseBody extends $tea.Model {
-  requestId?: string;
   id?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       id: 'Id',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       id: 'string',
+      requestId: 'string',
     };
   }
 
@@ -8250,7 +8712,6 @@ export class ModifyGroupResponse extends $tea.Model {
 
 export class ModifyParentPlatformRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   id?: string;
   name?: string;
   description?: string;
@@ -8264,7 +8725,6 @@ export class ModifyParentPlatformRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       id: 'Id',
       name: 'Name',
       description: 'Description',
@@ -8281,7 +8741,6 @@ export class ModifyParentPlatformRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       id: 'string',
       name: 'string',
       description: 'string',
@@ -8301,19 +8760,19 @@ export class ModifyParentPlatformRequest extends $tea.Model {
 }
 
 export class ModifyParentPlatformResponseBody extends $tea.Model {
-  requestId?: string;
   id?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       id: 'Id',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       id: 'string',
+      requestId: 'string',
     };
   }
 
@@ -8346,7 +8805,6 @@ export class ModifyParentPlatformResponse extends $tea.Model {
 
 export class ModifyTemplateRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   id?: string;
   name?: string;
   description?: string;
@@ -8372,7 +8830,6 @@ export class ModifyTemplateRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       id: 'Id',
       name: 'Name',
       description: 'Description',
@@ -8401,7 +8858,6 @@ export class ModifyTemplateRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       id: 'string',
       name: 'string',
       description: 'string',
@@ -8433,19 +8889,19 @@ export class ModifyTemplateRequest extends $tea.Model {
 }
 
 export class ModifyTemplateResponseBody extends $tea.Model {
-  requestId?: string;
   id?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       id: 'Id',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       id: 'string',
+      requestId: 'string',
     };
   }
 
@@ -8477,19 +8933,19 @@ export class ModifyTemplateResponse extends $tea.Model {
 }
 
 export class OpenVsServiceResponseBody extends $tea.Model {
-  requestId?: string;
   orderId?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       orderId: 'OrderId',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       orderId: 'string',
+      requestId: 'string',
     };
   }
 
@@ -8520,9 +8976,164 @@ export class OpenVsServiceResponse extends $tea.Model {
   }
 }
 
+export class PrepareUploadRequest extends $tea.Model {
+  ownerId?: number;
+  bucketName?: string;
+  clientIp?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      bucketName: 'BucketName',
+      clientIp: 'ClientIp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      bucketName: 'string',
+      clientIp: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PrepareUploadResponseBody extends $tea.Model {
+  requestId?: string;
+  bucketName?: string;
+  endpoint?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      bucketName: 'BucketName',
+      endpoint: 'Endpoint',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      bucketName: 'string',
+      endpoint: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PrepareUploadResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: PrepareUploadResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: PrepareUploadResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PutBucketRequest extends $tea.Model {
+  ownerId?: number;
+  bucketName?: string;
+  endpoint?: string;
+  comment?: string;
+  dispatcherType?: string;
+  bucketAcl?: string;
+  storageClass?: string;
+  resourceType?: string;
+  dataRedundancyType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      bucketName: 'BucketName',
+      endpoint: 'Endpoint',
+      comment: 'Comment',
+      dispatcherType: 'DispatcherType',
+      bucketAcl: 'BucketAcl',
+      storageClass: 'StorageClass',
+      resourceType: 'ResourceType',
+      dataRedundancyType: 'DataRedundancyType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      bucketName: 'string',
+      endpoint: 'string',
+      comment: 'string',
+      dispatcherType: 'string',
+      bucketAcl: 'string',
+      storageClass: 'string',
+      resourceType: 'string',
+      dataRedundancyType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PutBucketResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PutBucketResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: PutBucketResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: PutBucketResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ResumeVsStreamRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   domainName?: string;
   appName?: string;
   streamName?: string;
@@ -8531,7 +9142,6 @@ export class ResumeVsStreamRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       domainName: 'DomainName',
       appName: 'AppName',
       streamName: 'StreamName',
@@ -8543,7 +9153,6 @@ export class ResumeVsStreamRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       domainName: 'string',
       appName: 'string',
       streamName: 'string',
@@ -8600,24 +9209,24 @@ export class ResumeVsStreamResponse extends $tea.Model {
 
 export class SetPresetRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   id?: string;
   presetId?: string;
+  subProtocol?: string;
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       id: 'Id',
       presetId: 'PresetId',
+      subProtocol: 'SubProtocol',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       id: 'string',
       presetId: 'string',
+      subProtocol: 'string',
     };
   }
 
@@ -8627,19 +9236,19 @@ export class SetPresetRequest extends $tea.Model {
 }
 
 export class SetPresetResponseBody extends $tea.Model {
-  requestId?: string;
   id?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       id: 'Id',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       id: 'string',
+      requestId: 'string',
     };
   }
 
@@ -8672,7 +9281,6 @@ export class SetPresetResponse extends $tea.Model {
 
 export class SetVsDomainCertificateRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   domainName?: string;
   SSLProtocol?: string;
   certName?: string;
@@ -8684,7 +9292,6 @@ export class SetVsDomainCertificateRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       domainName: 'DomainName',
       SSLProtocol: 'SSLProtocol',
       certName: 'CertName',
@@ -8699,7 +9306,6 @@ export class SetVsDomainCertificateRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       domainName: 'string',
       SSLProtocol: 'string',
       certName: 'string',
@@ -8759,7 +9365,6 @@ export class SetVsDomainCertificateResponse extends $tea.Model {
 
 export class SetVsStreamsNotifyUrlConfigRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   domainName?: string;
   notifyUrl?: string;
   authType?: string;
@@ -8767,7 +9372,6 @@ export class SetVsStreamsNotifyUrlConfigRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       domainName: 'DomainName',
       notifyUrl: 'NotifyUrl',
       authType: 'AuthType',
@@ -8778,7 +9382,6 @@ export class SetVsStreamsNotifyUrlConfigRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       domainName: 'string',
       notifyUrl: 'string',
       authType: 'string',
@@ -8834,12 +9437,10 @@ export class SetVsStreamsNotifyUrlConfigResponse extends $tea.Model {
 
 export class StartDeviceRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   id?: string;
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       id: 'Id',
     };
   }
@@ -8847,7 +9448,6 @@ export class StartDeviceRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       id: 'string',
     };
   }
@@ -8858,19 +9458,19 @@ export class StartDeviceRequest extends $tea.Model {
 }
 
 export class StartDeviceResponseBody extends $tea.Model {
-  requestId?: string;
   id?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       id: 'Id',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       id: 'string',
+      requestId: 'string',
     };
   }
 
@@ -8903,12 +9503,10 @@ export class StartDeviceResponse extends $tea.Model {
 
 export class StartParentPlatformRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   id?: string;
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       id: 'Id',
     };
   }
@@ -8916,7 +9514,6 @@ export class StartParentPlatformRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       id: 'string',
     };
   }
@@ -8927,19 +9524,19 @@ export class StartParentPlatformRequest extends $tea.Model {
 }
 
 export class StartParentPlatformResponseBody extends $tea.Model {
-  requestId?: string;
   id?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       id: 'Id',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       id: 'string',
+      requestId: 'string',
     };
   }
 
@@ -8972,7 +9569,6 @@ export class StartParentPlatformResponse extends $tea.Model {
 
 export class StartRecordStreamRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   id?: string;
   playDomain?: string;
   app?: string;
@@ -8980,7 +9576,6 @@ export class StartRecordStreamRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       id: 'Id',
       playDomain: 'PlayDomain',
       app: 'App',
@@ -8991,7 +9586,6 @@ export class StartRecordStreamRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       id: 'string',
       playDomain: 'string',
       app: 'string',
@@ -9047,14 +9641,12 @@ export class StartRecordStreamResponse extends $tea.Model {
 
 export class StartStreamRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   id?: string;
   startTime?: number;
   endTime?: number;
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       id: 'Id',
       startTime: 'StartTime',
       endTime: 'EndTime',
@@ -9064,7 +9656,6 @@ export class StartStreamRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       id: 'string',
       startTime: 'number',
       endTime: 'number',
@@ -9078,21 +9669,21 @@ export class StartStreamRequest extends $tea.Model {
 
 export class StartStreamResponseBody extends $tea.Model {
   requestId?: string;
-  id?: string;
   name?: string;
+  id?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      id: 'Id',
       name: 'Name',
+      id: 'Id',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      id: 'string',
       name: 'string',
+      id: 'string',
     };
   }
 
@@ -9125,14 +9716,12 @@ export class StartStreamResponse extends $tea.Model {
 
 export class StartTransferStreamRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   id?: string;
   url?: string;
   transcode?: string;
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       id: 'Id',
       url: 'Url',
       transcode: 'Transcode',
@@ -9142,7 +9731,6 @@ export class StartTransferStreamRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       id: 'string',
       url: 'string',
       transcode: 'string',
@@ -9197,27 +9785,27 @@ export class StartTransferStreamResponse extends $tea.Model {
 
 export class StopAdjustRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   id?: string;
   iris?: boolean;
   focus?: boolean;
+  subProtocol?: string;
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       id: 'Id',
       iris: 'Iris',
       focus: 'Focus',
+      subProtocol: 'SubProtocol',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       id: 'string',
       iris: 'boolean',
       focus: 'boolean',
+      subProtocol: 'string',
     };
   }
 
@@ -9227,19 +9815,19 @@ export class StopAdjustRequest extends $tea.Model {
 }
 
 export class StopAdjustResponseBody extends $tea.Model {
-  requestId?: string;
   id?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       id: 'Id',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       id: 'string',
+      requestId: 'string',
     };
   }
 
@@ -9272,13 +9860,11 @@ export class StopAdjustResponse extends $tea.Model {
 
 export class StopDeviceRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   id?: string;
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       id: 'Id',
       startTime: 'StartTime',
     };
@@ -9287,7 +9873,6 @@ export class StopDeviceRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       id: 'string',
       startTime: 'string',
     };
@@ -9299,19 +9884,19 @@ export class StopDeviceRequest extends $tea.Model {
 }
 
 export class StopDeviceResponseBody extends $tea.Model {
-  requestId?: string;
   id?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       id: 'Id',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       id: 'string',
+      requestId: 'string',
     };
   }
 
@@ -9344,30 +9929,30 @@ export class StopDeviceResponse extends $tea.Model {
 
 export class StopMoveRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   id?: string;
   pan?: boolean;
   tilt?: boolean;
   zoom?: boolean;
+  subProtocol?: string;
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       id: 'Id',
       pan: 'Pan',
       tilt: 'Tilt',
       zoom: 'Zoom',
+      subProtocol: 'SubProtocol',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       id: 'string',
       pan: 'boolean',
       tilt: 'boolean',
       zoom: 'boolean',
+      subProtocol: 'string',
     };
   }
 
@@ -9377,19 +9962,19 @@ export class StopMoveRequest extends $tea.Model {
 }
 
 export class StopMoveResponseBody extends $tea.Model {
-  requestId?: string;
   id?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       id: 'Id',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       id: 'string',
+      requestId: 'string',
     };
   }
 
@@ -9422,7 +10007,6 @@ export class StopMoveResponse extends $tea.Model {
 
 export class StopRecordStreamRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   id?: string;
   playDomain?: string;
   app?: string;
@@ -9430,7 +10014,6 @@ export class StopRecordStreamRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       id: 'Id',
       playDomain: 'PlayDomain',
       app: 'App',
@@ -9441,7 +10024,6 @@ export class StopRecordStreamRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       id: 'string',
       playDomain: 'string',
       app: 'string',
@@ -9497,14 +10079,12 @@ export class StopRecordStreamResponse extends $tea.Model {
 
 export class StopStreamRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   id?: string;
   name?: string;
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       id: 'Id',
       name: 'Name',
       startTime: 'StartTime',
@@ -9514,7 +10094,6 @@ export class StopStreamRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       id: 'string',
       name: 'string',
       startTime: 'string',
@@ -9527,19 +10106,19 @@ export class StopStreamRequest extends $tea.Model {
 }
 
 export class StopStreamResponseBody extends $tea.Model {
-  requestId?: string;
   id?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       id: 'Id',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       id: 'string',
+      requestId: 'string',
     };
   }
 
@@ -9572,13 +10151,11 @@ export class StopStreamResponse extends $tea.Model {
 
 export class StopTransferStreamRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   id?: string;
   transcode?: string;
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       id: 'Id',
       transcode: 'Transcode',
     };
@@ -9587,7 +10164,6 @@ export class StopTransferStreamRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       id: 'string',
       transcode: 'string',
     };
@@ -9641,12 +10217,10 @@ export class StopTransferStreamResponse extends $tea.Model {
 
 export class SyncCatalogsRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   id?: string;
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       id: 'Id',
     };
   }
@@ -9654,7 +10228,6 @@ export class SyncCatalogsRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       id: 'string',
     };
   }
@@ -9665,19 +10238,19 @@ export class SyncCatalogsRequest extends $tea.Model {
 }
 
 export class SyncCatalogsResponseBody extends $tea.Model {
-  requestId?: string;
   id?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       id: 'Id',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       id: 'string',
+      requestId: 'string',
     };
   }
 
@@ -9708,15 +10281,79 @@ export class SyncCatalogsResponse extends $tea.Model {
   }
 }
 
+export class SyncDeviceChannelsRequest extends $tea.Model {
+  ownerId?: number;
+  deviceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      deviceId: 'DeviceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      deviceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SyncDeviceChannelsResponseBody extends $tea.Model {
+  id?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SyncDeviceChannelsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: SyncDeviceChannelsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: SyncDeviceChannelsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UnbindDirectoryRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   directoryId?: string;
   deviceId?: string;
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       directoryId: 'DirectoryId',
       deviceId: 'DeviceId',
     };
@@ -9725,7 +10362,6 @@ export class UnbindDirectoryRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       directoryId: 'string',
       deviceId: 'string',
     };
@@ -9779,13 +10415,11 @@ export class UnbindDirectoryResponse extends $tea.Model {
 
 export class UnbindParentPlatformDeviceRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   parentPlatformId?: string;
   deviceId?: string;
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       parentPlatformId: 'ParentPlatformId',
       deviceId: 'DeviceId',
     };
@@ -9794,7 +10428,6 @@ export class UnbindParentPlatformDeviceRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       parentPlatformId: 'string',
       deviceId: 'string',
     };
@@ -9848,12 +10481,10 @@ export class UnbindParentPlatformDeviceResponse extends $tea.Model {
 
 export class UnbindPurchasedDeviceRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   deviceId?: string;
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       deviceId: 'DeviceId',
     };
   }
@@ -9861,7 +10492,6 @@ export class UnbindPurchasedDeviceRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       deviceId: 'string',
     };
   }
@@ -9914,7 +10544,6 @@ export class UnbindPurchasedDeviceResponse extends $tea.Model {
 
 export class UnbindTemplateRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   templateId?: string;
   templateType?: string;
   instanceId?: string;
@@ -9922,7 +10551,6 @@ export class UnbindTemplateRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       templateId: 'TemplateId',
       templateType: 'TemplateType',
       instanceId: 'InstanceId',
@@ -9933,7 +10561,6 @@ export class UnbindTemplateRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       templateId: 'string',
       templateType: 'string',
       instanceId: 'string',
@@ -9947,16 +10574,16 @@ export class UnbindTemplateRequest extends $tea.Model {
 }
 
 export class UnbindTemplateResponseBody extends $tea.Model {
-  requestId?: string;
-  instanceId?: string;
   templateType?: string;
+  instanceId?: string;
+  requestId?: string;
   instanceType?: string;
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
-      instanceId: 'InstanceId',
       templateType: 'TemplateType',
+      instanceId: 'InstanceId',
+      requestId: 'RequestId',
       instanceType: 'InstanceType',
       templateId: 'TemplateId',
     };
@@ -9964,9 +10591,9 @@ export class UnbindTemplateResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
-      instanceId: 'string',
       templateType: 'string',
+      instanceId: 'string',
+      requestId: 'string',
       instanceType: 'string',
       templateId: 'string',
     };
@@ -10001,12 +10628,10 @@ export class UnbindTemplateResponse extends $tea.Model {
 
 export class UnlockDeviceRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   id?: string;
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       id: 'Id',
     };
   }
@@ -10014,7 +10639,6 @@ export class UnlockDeviceRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       id: 'string',
     };
   }
@@ -10025,19 +10649,19 @@ export class UnlockDeviceRequest extends $tea.Model {
 }
 
 export class UnlockDeviceResponseBody extends $tea.Model {
-  requestId?: string;
   id?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       id: 'Id',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       id: 'string',
+      requestId: 'string',
     };
   }
 
@@ -10068,9 +10692,74 @@ export class UnlockDeviceResponse extends $tea.Model {
   }
 }
 
+export class UpdateBucketInfoRequest extends $tea.Model {
+  ownerId?: number;
+  bucketName?: string;
+  comment?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      bucketName: 'BucketName',
+      comment: 'Comment',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      bucketName: 'string',
+      comment: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateBucketInfoResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateBucketInfoResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: UpdateBucketInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: UpdateBucketInfoResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateVsPullStreamInfoConfigRequest extends $tea.Model {
   ownerId?: number;
-  showLog?: string;
   domainName?: string;
   appName?: string;
   streamName?: string;
@@ -10081,7 +10770,6 @@ export class UpdateVsPullStreamInfoConfigRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
-      showLog: 'ShowLog',
       domainName: 'DomainName',
       appName: 'AppName',
       streamName: 'StreamName',
@@ -10095,7 +10783,6 @@ export class UpdateVsPullStreamInfoConfigRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
-      showLog: 'string',
       domainName: 'string',
       appName: 'string',
       streamName: 'string',
@@ -10152,23 +10839,107 @@ export class UpdateVsPullStreamInfoConfigResponse extends $tea.Model {
   }
 }
 
-export class BatchBindDirectoriesResponseBodyResults extends $tea.Model {
+export class UploadDeviceRecordRequest extends $tea.Model {
+  ownerId?: number;
   deviceId?: string;
-  error?: string;
-  directoryId?: string;
+  streamId?: string;
+  searchCriteria?: string;
+  uploadType?: string;
+  uploadId?: string;
+  uploadMode?: string;
+  uploadParams?: string;
   static names(): { [key: string]: string } {
     return {
+      ownerId: 'OwnerId',
       deviceId: 'DeviceId',
-      error: 'Error',
-      directoryId: 'DirectoryId',
+      streamId: 'StreamId',
+      searchCriteria: 'SearchCriteria',
+      uploadType: 'UploadType',
+      uploadId: 'UploadId',
+      uploadMode: 'UploadMode',
+      uploadParams: 'UploadParams',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      ownerId: 'number',
       deviceId: 'string',
+      streamId: 'string',
+      searchCriteria: 'string',
+      uploadType: 'string',
+      uploadId: 'string',
+      uploadMode: 'string',
+      uploadParams: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UploadDeviceRecordResponseBody extends $tea.Model {
+  id?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UploadDeviceRecordResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: UploadDeviceRecordResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: UploadDeviceRecordResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchBindDirectoriesResponseBodyResults extends $tea.Model {
+  error?: string;
+  directoryId?: string;
+  deviceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      error: 'Error',
+      directoryId: 'DirectoryId',
+      deviceId: 'DeviceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
       error: 'string',
       directoryId: 'string',
+      deviceId: 'string',
     };
   }
 
@@ -10178,22 +10949,22 @@ export class BatchBindDirectoriesResponseBodyResults extends $tea.Model {
 }
 
 export class BatchBindParentPlatformDevicesResponseBodyResults extends $tea.Model {
+  error?: string;
   parentPlatformId?: string;
   deviceId?: string;
-  error?: string;
   static names(): { [key: string]: string } {
     return {
+      error: 'Error',
       parentPlatformId: 'ParentPlatformId',
       deviceId: 'DeviceId',
-      error: 'Error',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      error: 'string',
       parentPlatformId: 'string',
       deviceId: 'string',
-      error: 'string',
     };
   }
 
@@ -10203,25 +10974,25 @@ export class BatchBindParentPlatformDevicesResponseBodyResults extends $tea.Mode
 }
 
 export class BatchBindPurchasedDevicesResponseBodyResults extends $tea.Model {
+  error?: string;
   groupId?: string;
   deviceId?: string;
   region?: string;
-  error?: string;
   static names(): { [key: string]: string } {
     return {
+      error: 'Error',
       groupId: 'GroupId',
       deviceId: 'DeviceId',
       region: 'Region',
-      error: 'Error',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      error: 'string',
       groupId: 'string',
       deviceId: 'string',
       region: 'string',
-      error: 'string',
     };
   }
 
@@ -10329,24 +11100,24 @@ export class BatchForbidVsStreamResponseBodyForbidResultForbidResultInfoChannels
 
 export class BatchForbidVsStreamResponseBodyForbidResultForbidResultInfo extends $tea.Model {
   result?: string;
-  channels?: BatchForbidVsStreamResponseBodyForbidResultForbidResultInfoChannels;
   count?: number;
   detail?: string;
+  channels?: BatchForbidVsStreamResponseBodyForbidResultForbidResultInfoChannels;
   static names(): { [key: string]: string } {
     return {
       result: 'Result',
-      channels: 'Channels',
       count: 'Count',
       detail: 'Detail',
+      channels: 'Channels',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       result: 'string',
-      channels: BatchForbidVsStreamResponseBodyForbidResultForbidResultInfoChannels,
       count: 'number',
       detail: 'string',
+      channels: BatchForbidVsStreamResponseBodyForbidResultForbidResultInfoChannels,
     };
   }
 
@@ -10395,24 +11166,24 @@ export class BatchResumeVsStreamResponseBodyResumeResultResumeResultInfoChannels
 
 export class BatchResumeVsStreamResponseBodyResumeResultResumeResultInfo extends $tea.Model {
   result?: string;
-  channels?: BatchResumeVsStreamResponseBodyResumeResultResumeResultInfoChannels;
   count?: number;
   detail?: string;
+  channels?: BatchResumeVsStreamResponseBodyResumeResultResumeResultInfoChannels;
   static names(): { [key: string]: string } {
     return {
       result: 'Result',
-      channels: 'Channels',
       count: 'Count',
       detail: 'Detail',
+      channels: 'Channels',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       result: 'string',
-      channels: BatchResumeVsStreamResponseBodyResumeResultResumeResultInfoChannels,
       count: 'number',
       detail: 'string',
+      channels: BatchResumeVsStreamResponseBodyResumeResultResumeResultInfoChannels,
     };
   }
 
@@ -10466,19 +11237,19 @@ export class BatchStartDevicesResponseBodyResultsStreams extends $tea.Model {
 }
 
 export class BatchStartDevicesResponseBodyResults extends $tea.Model {
-  streams?: BatchStartDevicesResponseBodyResultsStreams[];
   id?: string;
+  streams?: BatchStartDevicesResponseBodyResultsStreams[];
   static names(): { [key: string]: string } {
     return {
-      streams: 'Streams',
       id: 'Id',
+      streams: 'Streams',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      streams: { 'type': 'array', 'itemType': BatchStartDevicesResponseBodyResultsStreams },
       id: 'string',
+      streams: { 'type': 'array', 'itemType': BatchStartDevicesResponseBodyResultsStreams },
     };
   }
 
@@ -10538,19 +11309,19 @@ export class BatchStopDevicesResponseBodyResultsStreams extends $tea.Model {
 }
 
 export class BatchStopDevicesResponseBodyResults extends $tea.Model {
-  streams?: BatchStopDevicesResponseBodyResultsStreams[];
   id?: string;
+  streams?: BatchStopDevicesResponseBodyResultsStreams[];
   static names(): { [key: string]: string } {
     return {
-      streams: 'Streams',
       id: 'Id',
+      streams: 'Streams',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      streams: { 'type': 'array', 'itemType': BatchStopDevicesResponseBodyResultsStreams },
       id: 'string',
+      streams: { 'type': 'array', 'itemType': BatchStopDevicesResponseBodyResultsStreams },
     };
   }
 
@@ -10585,22 +11356,22 @@ export class BatchStopStreamsResponseBodyResults extends $tea.Model {
 }
 
 export class BatchUnbindDirectoriesResponseBodyResults extends $tea.Model {
-  deviceId?: string;
   error?: string;
   directoryId?: string;
+  deviceId?: string;
   static names(): { [key: string]: string } {
     return {
-      deviceId: 'DeviceId',
       error: 'Error',
       directoryId: 'DirectoryId',
+      deviceId: 'DeviceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      deviceId: 'string',
       error: 'string',
       directoryId: 'string',
+      deviceId: 'string',
     };
   }
 
@@ -10610,22 +11381,22 @@ export class BatchUnbindDirectoriesResponseBodyResults extends $tea.Model {
 }
 
 export class BatchUnbindParentPlatformDevicesResponseBodyResults extends $tea.Model {
+  error?: string;
   parentPlatformId?: string;
   deviceId?: string;
-  error?: string;
   static names(): { [key: string]: string } {
     return {
+      error: 'Error',
       parentPlatformId: 'ParentPlatformId',
       deviceId: 'DeviceId',
-      error: 'Error',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      error: 'string',
       parentPlatformId: 'string',
       deviceId: 'string',
-      error: 'string',
     };
   }
 
@@ -10635,19 +11406,19 @@ export class BatchUnbindParentPlatformDevicesResponseBodyResults extends $tea.Mo
 }
 
 export class BatchUnbindPurchasedDevicesResponseBodyResults extends $tea.Model {
-  deviceId?: string;
   error?: string;
+  deviceId?: string;
   static names(): { [key: string]: string } {
     return {
-      deviceId: 'DeviceId',
       error: 'Error',
+      deviceId: 'DeviceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      deviceId: 'string',
       error: 'string',
+      deviceId: 'string',
     };
   }
 
@@ -10715,6 +11486,37 @@ export class BatchUnbindTemplatesResponseBodyResults extends $tea.Model {
   }
 }
 
+export class DescribeDeviceResponseBodyStats extends $tea.Model {
+  failedNum?: number;
+  streamNum?: number;
+  channelNum?: number;
+  onlineNum?: number;
+  offlineNum?: number;
+  static names(): { [key: string]: string } {
+    return {
+      failedNum: 'FailedNum',
+      streamNum: 'StreamNum',
+      channelNum: 'ChannelNum',
+      onlineNum: 'OnlineNum',
+      offlineNum: 'OfflineNum',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      failedNum: 'number',
+      streamNum: 'number',
+      channelNum: 'number',
+      onlineNum: 'number',
+      offlineNum: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDeviceResponseBodyDirectory extends $tea.Model {
   parentId?: string;
   description?: string;
@@ -10741,37 +11543,6 @@ export class DescribeDeviceResponseBodyDirectory extends $tea.Model {
       name: 'string',
       createdTime: 'string',
       id: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDeviceResponseBodyStats extends $tea.Model {
-  failedNum?: number;
-  streamNum?: number;
-  onlineNum?: number;
-  offlineNum?: number;
-  channelNum?: number;
-  static names(): { [key: string]: string } {
-    return {
-      failedNum: 'FailedNum',
-      streamNum: 'StreamNum',
-      onlineNum: 'OnlineNum',
-      offlineNum: 'OfflineNum',
-      channelNum: 'ChannelNum',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      failedNum: 'number',
-      streamNum: 'number',
-      onlineNum: 'number',
-      offlineNum: 'number',
-      channelNum: 'number',
     };
   }
 
@@ -10823,16 +11594,16 @@ export class DescribeDeviceChannelsResponseBodyChannels extends $tea.Model {
 export class DescribeDevicesResponseBodyDevicesStats extends $tea.Model {
   failedNum?: number;
   streamNum?: number;
+  channelNum?: number;
   onlineNum?: number;
   offlineNum?: number;
-  channelNum?: number;
   static names(): { [key: string]: string } {
     return {
       failedNum: 'FailedNum',
       streamNum: 'StreamNum',
+      channelNum: 'ChannelNum',
       onlineNum: 'OnlineNum',
       offlineNum: 'OfflineNum',
-      channelNum: 'ChannelNum',
     };
   }
 
@@ -10840,9 +11611,9 @@ export class DescribeDevicesResponseBodyDevicesStats extends $tea.Model {
     return {
       failedNum: 'number',
       streamNum: 'number',
+      channelNum: 'number',
       onlineNum: 'number',
       offlineNum: 'number',
-      channelNum: 'number',
     };
   }
 
@@ -10899,23 +11670,23 @@ export class DescribeDevicesResponseBodyDevices extends $tea.Model {
   description?: string;
   enabled?: boolean;
   name?: string;
-  directoryId?: string;
-  createdTime?: string;
   channelSyncTime?: string;
+  createdTime?: string;
+  directoryId?: string;
   registeredTime?: string;
-  stats?: DescribeDevicesResponseBodyDevicesStats;
   protocol?: string;
-  url?: string;
   ip?: string;
-  vendor?: string;
+  url?: string;
   autoStart?: boolean;
+  vendor?: string;
   gbId?: string;
   groupId?: string;
   longitude?: string;
   latitude?: string;
-  directory?: DescribeDevicesResponseBodyDevicesDirectory;
   id?: string;
   username?: string;
+  stats?: DescribeDevicesResponseBodyDevicesStats;
+  directory?: DescribeDevicesResponseBodyDevicesDirectory;
   static names(): { [key: string]: string } {
     return {
       type: 'Type',
@@ -10931,23 +11702,23 @@ export class DescribeDevicesResponseBodyDevices extends $tea.Model {
       description: 'Description',
       enabled: 'Enabled',
       name: 'Name',
-      directoryId: 'DirectoryId',
-      createdTime: 'CreatedTime',
       channelSyncTime: 'ChannelSyncTime',
+      createdTime: 'CreatedTime',
+      directoryId: 'DirectoryId',
       registeredTime: 'RegisteredTime',
-      stats: 'Stats',
       protocol: 'Protocol',
-      url: 'Url',
       ip: 'Ip',
-      vendor: 'Vendor',
+      url: 'Url',
       autoStart: 'AutoStart',
+      vendor: 'Vendor',
       gbId: 'GbId',
       groupId: 'GroupId',
       longitude: 'Longitude',
       latitude: 'Latitude',
-      directory: 'Directory',
       id: 'Id',
       username: 'Username',
+      stats: 'Stats',
+      directory: 'Directory',
     };
   }
 
@@ -10966,23 +11737,23 @@ export class DescribeDevicesResponseBodyDevices extends $tea.Model {
       description: 'string',
       enabled: 'boolean',
       name: 'string',
-      directoryId: 'string',
-      createdTime: 'string',
       channelSyncTime: 'string',
+      createdTime: 'string',
+      directoryId: 'string',
       registeredTime: 'string',
-      stats: DescribeDevicesResponseBodyDevicesStats,
       protocol: 'string',
-      url: 'string',
       ip: 'string',
-      vendor: 'string',
+      url: 'string',
       autoStart: 'boolean',
+      vendor: 'string',
       gbId: 'string',
       groupId: 'string',
       longitude: 'string',
       latitude: 'string',
-      directory: DescribeDevicesResponseBodyDevicesDirectory,
       id: 'string',
       username: 'string',
+      stats: DescribeDevicesResponseBodyDevicesStats,
+      directory: DescribeDevicesResponseBodyDevicesDirectory,
     };
   }
 
@@ -11084,58 +11855,58 @@ export class DescribeGroupsResponseBodyGroupsStats extends $tea.Model {
 export class DescribeGroupsResponseBodyGroups extends $tea.Model {
   status?: string;
   lazyPull?: boolean;
-  callback?: string;
-  description?: string;
-  app?: string;
-  region?: string;
-  enabled?: boolean;
-  inProtocol?: string;
-  outProtocol?: string;
-  name?: string;
-  pushDomain?: string;
-  createdTime?: string;
-  captureVideo?: number;
-  stats?: DescribeGroupsResponseBodyGroupsStats;
   playDomain?: string;
   gbPort?: number;
   captureInterval?: number;
-  gbTcpPorts?: string[];
+  callback?: string;
   gbId?: string;
   gbIp?: string;
   captureImage?: number;
+  description?: string;
+  region?: string;
+  app?: string;
   aliasId?: string;
+  enabled?: boolean;
+  inProtocol?: string;
   captureOssPath?: string;
   captureOssBucket?: string;
-  gbUdpPorts?: string[];
+  outProtocol?: string;
+  pushDomain?: string;
+  name?: string;
+  createdTime?: string;
+  captureVideo?: number;
   id?: string;
+  gbTcpPorts?: string[];
+  gbUdpPorts?: string[];
+  stats?: DescribeGroupsResponseBodyGroupsStats;
   static names(): { [key: string]: string } {
     return {
       status: 'Status',
       lazyPull: 'LazyPull',
-      callback: 'Callback',
-      description: 'Description',
-      app: 'App',
-      region: 'Region',
-      enabled: 'Enabled',
-      inProtocol: 'InProtocol',
-      outProtocol: 'OutProtocol',
-      name: 'Name',
-      pushDomain: 'PushDomain',
-      createdTime: 'CreatedTime',
-      captureVideo: 'CaptureVideo',
-      stats: 'Stats',
       playDomain: 'PlayDomain',
       gbPort: 'GbPort',
       captureInterval: 'CaptureInterval',
-      gbTcpPorts: 'GbTcpPorts',
+      callback: 'Callback',
       gbId: 'GbId',
       gbIp: 'GbIp',
       captureImage: 'CaptureImage',
+      description: 'Description',
+      region: 'Region',
+      app: 'App',
       aliasId: 'AliasId',
+      enabled: 'Enabled',
+      inProtocol: 'InProtocol',
       captureOssPath: 'CaptureOssPath',
       captureOssBucket: 'CaptureOssBucket',
-      gbUdpPorts: 'GbUdpPorts',
+      outProtocol: 'OutProtocol',
+      pushDomain: 'PushDomain',
+      name: 'Name',
+      createdTime: 'CreatedTime',
+      captureVideo: 'CaptureVideo',
       id: 'Id',
+      gbTcpPorts: 'GbTcpPorts',
+      gbUdpPorts: 'GbUdpPorts',
+      stats: 'Stats',
     };
   }
 
@@ -11143,30 +11914,30 @@ export class DescribeGroupsResponseBodyGroups extends $tea.Model {
     return {
       status: 'string',
       lazyPull: 'boolean',
-      callback: 'string',
-      description: 'string',
-      app: 'string',
-      region: 'string',
-      enabled: 'boolean',
-      inProtocol: 'string',
-      outProtocol: 'string',
-      name: 'string',
-      pushDomain: 'string',
-      createdTime: 'string',
-      captureVideo: 'number',
-      stats: DescribeGroupsResponseBodyGroupsStats,
       playDomain: 'string',
       gbPort: 'number',
       captureInterval: 'number',
-      gbTcpPorts: { 'type': 'array', 'itemType': 'string' },
+      callback: 'string',
       gbId: 'string',
       gbIp: 'string',
       captureImage: 'number',
+      description: 'string',
+      region: 'string',
+      app: 'string',
       aliasId: 'string',
+      enabled: 'boolean',
+      inProtocol: 'string',
       captureOssPath: 'string',
       captureOssBucket: 'string',
-      gbUdpPorts: { 'type': 'array', 'itemType': 'string' },
+      outProtocol: 'string',
+      pushDomain: 'string',
+      name: 'string',
+      createdTime: 'string',
+      captureVideo: 'number',
       id: 'string',
+      gbTcpPorts: { 'type': 'array', 'itemType': 'string' },
+      gbUdpPorts: { 'type': 'array', 'itemType': 'string' },
+      stats: DescribeGroupsResponseBodyGroupsStats,
     };
   }
 
@@ -11209,12 +11980,12 @@ export class DescribeParentPlatformDevicesResponseBodyDevices extends $tea.Model
 export class DescribeParentPlatformsResponseBodyPlatforms extends $tea.Model {
   status?: string;
   clientPort?: number;
-  clientGbId?: string;
   protocol?: string;
+  clientGbId?: string;
   ip?: string;
   port?: number;
-  clientPassword?: string;
   clientUsername?: string;
+  clientPassword?: string;
   autoStart?: boolean;
   clientAuth?: boolean;
   gbId?: string;
@@ -11227,12 +11998,12 @@ export class DescribeParentPlatformsResponseBodyPlatforms extends $tea.Model {
     return {
       status: 'Status',
       clientPort: 'ClientPort',
-      clientGbId: 'ClientGbId',
       protocol: 'Protocol',
+      clientGbId: 'ClientGbId',
       ip: 'Ip',
       port: 'Port',
-      clientPassword: 'ClientPassword',
       clientUsername: 'ClientUsername',
+      clientPassword: 'ClientPassword',
       autoStart: 'AutoStart',
       clientAuth: 'ClientAuth',
       gbId: 'GbId',
@@ -11248,12 +12019,12 @@ export class DescribeParentPlatformsResponseBodyPlatforms extends $tea.Model {
     return {
       status: 'string',
       clientPort: 'number',
-      clientGbId: 'string',
       protocol: 'string',
+      clientGbId: 'string',
       ip: 'string',
       port: 'number',
-      clientPassword: 'string',
       clientUsername: 'string',
+      clientPassword: 'string',
       autoStart: 'boolean',
       clientAuth: 'boolean',
       gbId: 'string',
@@ -11296,29 +12067,29 @@ export class DescribePurchasedDevicesResponseBodyDevices extends $tea.Model {
   type?: string;
   subType?: string;
   vendor?: string;
-  groupName?: string;
-  groupId?: string;
-  registerCode?: string;
   description?: string;
+  registerCode?: string;
+  groupId?: string;
+  groupName?: string;
   region?: string;
   name?: string;
   createdTime?: string;
-  orderId?: string;
   id?: string;
+  orderId?: string;
   static names(): { [key: string]: string } {
     return {
       type: 'Type',
       subType: 'SubType',
       vendor: 'Vendor',
-      groupName: 'GroupName',
-      groupId: 'GroupId',
-      registerCode: 'RegisterCode',
       description: 'Description',
+      registerCode: 'RegisterCode',
+      groupId: 'GroupId',
+      groupName: 'GroupName',
       region: 'Region',
       name: 'Name',
       createdTime: 'CreatedTime',
-      orderId: 'OrderId',
       id: 'Id',
+      orderId: 'OrderId',
     };
   }
 
@@ -11327,15 +12098,15 @@ export class DescribePurchasedDevicesResponseBodyDevices extends $tea.Model {
       type: 'string',
       subType: 'string',
       vendor: 'string',
-      groupName: 'string',
-      groupId: 'string',
-      registerCode: 'string',
       description: 'string',
+      registerCode: 'string',
+      groupId: 'string',
+      groupName: 'string',
       region: 'string',
       name: 'string',
       createdTime: 'string',
-      orderId: 'string',
       id: 'string',
+      orderId: 'string',
     };
   }
 
@@ -11351,8 +12122,8 @@ export class DescribeRecordsResponseBodyRecords extends $tea.Model {
   ossBucket?: string;
   fileFormat?: string;
   streamId?: string;
-  endTime?: string;
   ossObject?: string;
+  endTime?: string;
   startTime?: string;
   width?: number;
   templateId?: string;
@@ -11366,8 +12137,8 @@ export class DescribeRecordsResponseBodyRecords extends $tea.Model {
       ossBucket: 'OssBucket',
       fileFormat: 'FileFormat',
       streamId: 'StreamId',
-      endTime: 'EndTime',
       ossObject: 'OssObject',
+      endTime: 'EndTime',
       startTime: 'StartTime',
       width: 'Width',
       templateId: 'TemplateId',
@@ -11384,8 +12155,8 @@ export class DescribeRecordsResponseBodyRecords extends $tea.Model {
       ossBucket: 'string',
       fileFormat: 'string',
       streamId: 'string',
-      endTime: 'string',
       ossObject: 'string',
+      endTime: 'string',
       startTime: 'string',
       width: 'number',
       templateId: 'string',
@@ -11401,31 +12172,31 @@ export class DescribeRecordsResponseBodyRecords extends $tea.Model {
 
 export class DescribeStreamsResponseBodyStreams extends $tea.Model {
   status?: string;
-  deviceId?: string;
-  protocol?: string;
   playDomain?: string;
+  protocol?: string;
+  deviceId?: string;
   height?: number;
   groupId?: string;
-  width?: number;
   app?: string;
+  width?: number;
   enabled?: boolean;
-  pushDomain?: string;
   name?: string;
+  pushDomain?: string;
   createdTime?: string;
   id?: string;
   static names(): { [key: string]: string } {
     return {
       status: 'Status',
-      deviceId: 'DeviceId',
-      protocol: 'Protocol',
       playDomain: 'PlayDomain',
+      protocol: 'Protocol',
+      deviceId: 'DeviceId',
       height: 'Height',
       groupId: 'GroupId',
-      width: 'Width',
       app: 'App',
+      width: 'Width',
       enabled: 'Enabled',
-      pushDomain: 'PushDomain',
       name: 'Name',
+      pushDomain: 'PushDomain',
       createdTime: 'CreatedTime',
       id: 'Id',
     };
@@ -11434,16 +12205,16 @@ export class DescribeStreamsResponseBodyStreams extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       status: 'string',
-      deviceId: 'string',
-      protocol: 'string',
       playDomain: 'string',
+      protocol: 'string',
+      deviceId: 'string',
       height: 'number',
       groupId: 'string',
-      width: 'number',
       app: 'string',
+      width: 'number',
       enabled: 'boolean',
-      pushDomain: 'string',
       name: 'string',
+      pushDomain: 'string',
       createdTime: 'string',
       id: 'string',
     };
@@ -11559,54 +12330,54 @@ export class DescribeTemplatesResponseBodyTemplatesTransConfigs extends $tea.Mod
 export class DescribeTemplatesResponseBodyTemplates extends $tea.Model {
   type?: string;
   trigger?: string;
+  ossFilePrefix?: string;
   hlsTs?: string;
   mp4?: string;
+  jpgOnDemand?: string;
+  ossBucket?: string;
+  jpgSequence?: string;
   jpgOverwrite?: string;
+  fileFormat?: string;
   callback?: string;
+  endTime?: string;
+  startTime?: string;
+  interval?: number;
   description?: string;
   region?: string;
   retention?: number;
   hlsM3u8?: string;
-  name?: string;
   flv?: string;
+  name?: string;
   createdTime?: string;
   ossEndpoint?: string;
-  ossFilePrefix?: string;
-  transConfigs?: DescribeTemplatesResponseBodyTemplatesTransConfigs[];
-  jpgOnDemand?: string;
-  ossBucket?: string;
-  jpgSequence?: string;
-  fileFormat?: string;
-  endTime?: string;
-  startTime?: string;
-  interval?: number;
   id?: string;
+  transConfigs?: DescribeTemplatesResponseBodyTemplatesTransConfigs[];
   static names(): { [key: string]: string } {
     return {
       type: 'Type',
       trigger: 'Trigger',
+      ossFilePrefix: 'OssFilePrefix',
       hlsTs: 'HlsTs',
       mp4: 'Mp4',
+      jpgOnDemand: 'JpgOnDemand',
+      ossBucket: 'OssBucket',
+      jpgSequence: 'JpgSequence',
       jpgOverwrite: 'JpgOverwrite',
+      fileFormat: 'FileFormat',
       callback: 'Callback',
+      endTime: 'EndTime',
+      startTime: 'StartTime',
+      interval: 'Interval',
       description: 'Description',
       region: 'Region',
       retention: 'Retention',
       hlsM3u8: 'HlsM3u8',
-      name: 'Name',
       flv: 'Flv',
+      name: 'Name',
       createdTime: 'CreatedTime',
       ossEndpoint: 'OssEndpoint',
-      ossFilePrefix: 'OssFilePrefix',
-      transConfigs: 'TransConfigs',
-      jpgOnDemand: 'JpgOnDemand',
-      ossBucket: 'OssBucket',
-      jpgSequence: 'JpgSequence',
-      fileFormat: 'FileFormat',
-      endTime: 'EndTime',
-      startTime: 'StartTime',
-      interval: 'Interval',
       id: 'Id',
+      transConfigs: 'TransConfigs',
     };
   }
 
@@ -11614,28 +12385,28 @@ export class DescribeTemplatesResponseBodyTemplates extends $tea.Model {
     return {
       type: 'string',
       trigger: 'string',
+      ossFilePrefix: 'string',
       hlsTs: 'string',
       mp4: 'string',
+      jpgOnDemand: 'string',
+      ossBucket: 'string',
+      jpgSequence: 'string',
       jpgOverwrite: 'string',
+      fileFormat: 'string',
       callback: 'string',
+      endTime: 'string',
+      startTime: 'string',
+      interval: 'number',
       description: 'string',
       region: 'string',
       retention: 'number',
       hlsM3u8: 'string',
-      name: 'string',
       flv: 'string',
+      name: 'string',
       createdTime: 'string',
       ossEndpoint: 'string',
-      ossFilePrefix: 'string',
-      transConfigs: { 'type': 'array', 'itemType': DescribeTemplatesResponseBodyTemplatesTransConfigs },
-      jpgOnDemand: 'string',
-      ossBucket: 'string',
-      jpgSequence: 'string',
-      fileFormat: 'string',
-      endTime: 'string',
-      startTime: 'string',
-      interval: 'number',
       id: 'string',
+      transConfigs: { 'type': 'array', 'itemType': DescribeTemplatesResponseBodyTemplatesTransConfigs },
     };
   }
 
@@ -11679,19 +12450,19 @@ export class DescribeVsCertificateListResponseBodyCertificateListModelCertList e
 }
 
 export class DescribeVsCertificateListResponseBodyCertificateListModel extends $tea.Model {
-  certList?: DescribeVsCertificateListResponseBodyCertificateListModelCertList[];
   count?: number;
+  certList?: DescribeVsCertificateListResponseBodyCertificateListModelCertList[];
   static names(): { [key: string]: string } {
     return {
-      certList: 'CertList',
       count: 'Count',
+      certList: 'CertList',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      certList: { 'type': 'array', 'itemType': DescribeVsCertificateListResponseBodyCertificateListModelCertList },
       count: 'number',
+      certList: { 'type': 'array', 'itemType': DescribeVsCertificateListResponseBodyCertificateListModelCertList },
     };
   }
 
@@ -11988,19 +12759,19 @@ export class DescribeVsDomainPvUvDataResponseBodyPvUvDataInfos extends $tea.Mode
 }
 
 export class DescribeVsDomainRecordDataResponseBodyRecordDataPerIntervalDataModule extends $tea.Model {
-  timeStamp?: string;
   recordValue?: string;
+  timeStamp?: string;
   static names(): { [key: string]: string } {
     return {
-      timeStamp: 'TimeStamp',
       recordValue: 'RecordValue',
+      timeStamp: 'TimeStamp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      timeStamp: 'string',
       recordValue: 'string',
+      timeStamp: 'string',
     };
   }
 
@@ -12182,19 +12953,19 @@ export class DescribeVsDomainReqTrafficDataResponseBodyReqTrafficDataPerInterval
 }
 
 export class DescribeVsDomainSnapshotDataResponseBodySnapshotDataPerIntervalDataModule extends $tea.Model {
-  timeStamp?: string;
   snapshotValue?: string;
+  timeStamp?: string;
   static names(): { [key: string]: string } {
     return {
-      timeStamp: 'TimeStamp',
       snapshotValue: 'SnapshotValue',
+      timeStamp: 'TimeStamp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      timeStamp: 'string',
       snapshotValue: 'string',
+      timeStamp: 'string',
     };
   }
 
@@ -12357,26 +13128,70 @@ export class DescribeVsPullStreamInfoConfigResponseBodyLiveAppRecordList extends
   }
 }
 
+export class DescribeVsStorageUsageDataResponseBodyStorageUsageStorageUsageDataModule extends $tea.Model {
+  storageDataValue?: number;
+  timeStamp?: string;
+  bucket?: string;
+  static names(): { [key: string]: string } {
+    return {
+      storageDataValue: 'StorageDataValue',
+      timeStamp: 'TimeStamp',
+      bucket: 'Bucket',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      storageDataValue: 'number',
+      timeStamp: 'string',
+      bucket: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVsStorageUsageDataResponseBodyStorageUsage extends $tea.Model {
+  storageUsageDataModule?: DescribeVsStorageUsageDataResponseBodyStorageUsageStorageUsageDataModule[];
+  static names(): { [key: string]: string } {
+    return {
+      storageUsageDataModule: 'StorageUsageDataModule',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      storageUsageDataModule: { 'type': 'array', 'itemType': DescribeVsStorageUsageDataResponseBodyStorageUsageStorageUsageDataModule },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeVsStreamsNotifyUrlConfigResponseBodyLiveStreamsNotifyConfig extends $tea.Model {
   authType?: string;
-  notifyUrl?: string;
   authKey?: string;
   domainName?: string;
+  notifyUrl?: string;
   static names(): { [key: string]: string } {
     return {
       authType: 'AuthType',
-      notifyUrl: 'NotifyUrl',
       authKey: 'AuthKey',
       domainName: 'DomainName',
+      notifyUrl: 'NotifyUrl',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       authType: 'string',
-      notifyUrl: 'string',
       authKey: 'string',
       domainName: 'string',
+      notifyUrl: 'string',
     };
   }
 
@@ -12451,12 +13266,12 @@ export class DescribeVsStreamsPublishListResponseBodyPublishInfoLiveStreamPublis
   edgeNodeAddr?: string;
   publishUrl?: string;
   streamName?: string;
-  stopTime?: string;
   domainName?: string;
+  stopTime?: string;
   transcodeId?: string;
   publishDomain?: string;
-  publishTime?: string;
   appName?: string;
+  publishTime?: string;
   publishType?: string;
   transcoded?: string;
   clientAddr?: string;
@@ -12466,12 +13281,12 @@ export class DescribeVsStreamsPublishListResponseBodyPublishInfoLiveStreamPublis
       edgeNodeAddr: 'EdgeNodeAddr',
       publishUrl: 'PublishUrl',
       streamName: 'StreamName',
-      stopTime: 'StopTime',
       domainName: 'DomainName',
+      stopTime: 'StopTime',
       transcodeId: 'TranscodeId',
       publishDomain: 'PublishDomain',
-      publishTime: 'PublishTime',
       appName: 'AppName',
+      publishTime: 'PublishTime',
       publishType: 'PublishType',
       transcoded: 'Transcoded',
       clientAddr: 'ClientAddr',
@@ -12484,12 +13299,12 @@ export class DescribeVsStreamsPublishListResponseBodyPublishInfoLiveStreamPublis
       edgeNodeAddr: 'string',
       publishUrl: 'string',
       streamName: 'string',
-      stopTime: 'string',
       domainName: 'string',
+      stopTime: 'string',
       transcodeId: 'string',
       publishDomain: 'string',
-      publishTime: 'string',
       appName: 'string',
+      publishTime: 'string',
       publishType: 'string',
       transcoded: 'string',
       clientAddr: 'string',
@@ -12579,16 +13394,16 @@ export class DescribeVsTopDomainsByFlowResponseBodyTopDomains extends $tea.Model
 
 export class DescribeVsUpPeakPublishStreamDataResponseBodyDescribeVsUpPeakPublishStreamDatasDescribeVsUpPeakPublishStreamData extends $tea.Model {
   queryTime?: string;
+  bandWidth?: string;
   statName?: string;
   peakTime?: string;
-  bandWidth?: string;
   publishStreamNum?: number;
   static names(): { [key: string]: string } {
     return {
       queryTime: 'QueryTime',
+      bandWidth: 'BandWidth',
       statName: 'StatName',
       peakTime: 'PeakTime',
-      bandWidth: 'BandWidth',
       publishStreamNum: 'PublishStreamNum',
     };
   }
@@ -12596,9 +13411,9 @@ export class DescribeVsUpPeakPublishStreamDataResponseBodyDescribeVsUpPeakPublis
   static types(): { [key: string]: any } {
     return {
       queryTime: 'string',
+      bandWidth: 'string',
       statName: 'string',
       peakTime: 'string',
-      bandWidth: 'string',
       publishStreamNum: 'number',
     };
   }
@@ -12680,6 +13495,191 @@ export class DescribeVsUserResourcePackageResponseBodyResourcePackageInfos exten
   }
 }
 
+export class GetBucketInfoResponseBodyBucketInfo extends $tea.Model {
+  storageClass?: string;
+  dataRedundancyType?: string;
+  resourceType?: string;
+  comment?: string;
+  dispatcherType?: string;
+  createTime?: string;
+  endpoint?: string;
+  bucketAcl?: string;
+  bucketName?: string;
+  modifyTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      storageClass: 'StorageClass',
+      dataRedundancyType: 'DataRedundancyType',
+      resourceType: 'ResourceType',
+      comment: 'Comment',
+      dispatcherType: 'DispatcherType',
+      createTime: 'CreateTime',
+      endpoint: 'Endpoint',
+      bucketAcl: 'BucketAcl',
+      bucketName: 'BucketName',
+      modifyTime: 'ModifyTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      storageClass: 'string',
+      dataRedundancyType: 'string',
+      resourceType: 'string',
+      comment: 'string',
+      dispatcherType: 'string',
+      createTime: 'string',
+      endpoint: 'string',
+      bucketAcl: 'string',
+      bucketName: 'string',
+      modifyTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListBucketsResponseBodyBucketInfos extends $tea.Model {
+  storageClass?: string;
+  dataRedundancyType?: string;
+  resourceType?: string;
+  comment?: string;
+  dispatcherType?: string;
+  createTime?: string;
+  endpoint?: string;
+  bucketAcl?: string;
+  bucketName?: string;
+  modifyTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      storageClass: 'StorageClass',
+      dataRedundancyType: 'DataRedundancyType',
+      resourceType: 'ResourceType',
+      comment: 'Comment',
+      dispatcherType: 'DispatcherType',
+      createTime: 'CreateTime',
+      endpoint: 'Endpoint',
+      bucketAcl: 'BucketAcl',
+      bucketName: 'BucketName',
+      modifyTime: 'ModifyTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      storageClass: 'string',
+      dataRedundancyType: 'string',
+      resourceType: 'string',
+      comment: 'string',
+      dispatcherType: 'string',
+      createTime: 'string',
+      endpoint: 'string',
+      bucketAcl: 'string',
+      bucketName: 'string',
+      modifyTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDeviceChannelsResponseBodyChannels extends $tea.Model {
+  channelId?: number;
+  params?: string;
+  deviceStatus?: string;
+  name?: string;
+  deviceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      channelId: 'ChannelId',
+      params: 'Params',
+      deviceStatus: 'DeviceStatus',
+      name: 'Name',
+      deviceId: 'DeviceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      channelId: 'number',
+      params: 'string',
+      deviceStatus: 'string',
+      name: 'string',
+      deviceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDeviceRecordsResponseBodyRecords extends $tea.Model {
+  endTime?: string;
+  startTime?: string;
+  recordType?: string;
+  filename?: string;
+  fileSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      startTime: 'StartTime',
+      recordType: 'RecordType',
+      filename: 'Filename',
+      fileSize: 'FileSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'string',
+      startTime: 'string',
+      recordType: 'string',
+      filename: 'string',
+      fileSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListObjectsResponseBodyContents extends $tea.Model {
+  storageClass?: string;
+  lastModified?: string;
+  key?: string;
+  ETag?: string;
+  size?: number;
+  static names(): { [key: string]: string } {
+    return {
+      storageClass: 'StorageClass',
+      lastModified: 'LastModified',
+      key: 'Key',
+      ETag: 'ETag',
+      size: 'Size',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      storageClass: 'string',
+      lastModified: 'string',
+      key: 'string',
+      ETag: 'string',
+      size: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 
 export default class Client extends OpenApi {
 
@@ -12701,6 +13701,19 @@ export default class Client extends OpenApi {
     }
 
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+  }
+
+  async addDeviceWithOptions(request: AddDeviceRequest, runtime: $Util.RuntimeOptions): Promise<AddDeviceResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<AddDeviceResponse>(await this.doRPCRequest("AddDevice", "2018-12-12", "HTTPS", "POST", "AK", "json", req, runtime), new AddDeviceResponse({}));
+  }
+
+  async addDevice(request: AddDeviceRequest): Promise<AddDeviceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.addDeviceWithOptions(request, runtime);
   }
 
   async addVsPullStreamInfoConfigWithOptions(request: AddVsPullStreamInfoConfigRequest, runtime: $Util.RuntimeOptions): Promise<AddVsPullStreamInfoConfigResponse> {
@@ -13067,6 +14080,19 @@ export default class Client extends OpenApi {
     return await this.createDeviceAlarmWithOptions(request, runtime);
   }
 
+  async createDeviceSnapshotWithOptions(request: CreateDeviceSnapshotRequest, runtime: $Util.RuntimeOptions): Promise<CreateDeviceSnapshotResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<CreateDeviceSnapshotResponse>(await this.doRPCRequest("CreateDeviceSnapshot", "2018-12-12", "HTTPS", "POST", "AK", "json", req, runtime), new CreateDeviceSnapshotResponse({}));
+  }
+
+  async createDeviceSnapshot(request: CreateDeviceSnapshotRequest): Promise<CreateDeviceSnapshotResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createDeviceSnapshotWithOptions(request, runtime);
+  }
+
   async createDirectoryWithOptions(request: CreateDirectoryRequest, runtime: $Util.RuntimeOptions): Promise<CreateDirectoryResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -13130,6 +14156,19 @@ export default class Client extends OpenApi {
   async createTemplate(request: CreateTemplateRequest): Promise<CreateTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createTemplateWithOptions(request, runtime);
+  }
+
+  async deleteBucketWithOptions(request: DeleteBucketRequest, runtime: $Util.RuntimeOptions): Promise<DeleteBucketResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DeleteBucketResponse>(await this.doRPCRequest("DeleteBucket", "2018-12-12", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteBucketResponse({}));
+  }
+
+  async deleteBucket(request: DeleteBucketRequest): Promise<DeleteBucketResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteBucketWithOptions(request, runtime);
   }
 
   async deleteDeviceWithOptions(request: DeleteDeviceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDeviceResponse> {
@@ -13756,6 +14795,19 @@ export default class Client extends OpenApi {
     return await this.describeVsPullStreamInfoConfigWithOptions(request, runtime);
   }
 
+  async describeVsStorageUsageDataWithOptions(request: DescribeVsStorageUsageDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVsStorageUsageDataResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DescribeVsStorageUsageDataResponse>(await this.doRPCRequest("DescribeVsStorageUsageData", "2018-12-12", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeVsStorageUsageDataResponse({}));
+  }
+
+  async describeVsStorageUsageData(request: DescribeVsStorageUsageDataRequest): Promise<DescribeVsStorageUsageDataResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeVsStorageUsageDataWithOptions(request, runtime);
+  }
+
   async describeVsStreamsNotifyUrlConfigWithOptions(request: DescribeVsStreamsNotifyUrlConfigRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVsStreamsNotifyUrlConfigResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -13847,6 +14899,19 @@ export default class Client extends OpenApi {
     return await this.forbidVsStreamWithOptions(request, runtime);
   }
 
+  async getBucketInfoWithOptions(request: GetBucketInfoRequest, runtime: $Util.RuntimeOptions): Promise<GetBucketInfoResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<GetBucketInfoResponse>(await this.doRPCRequest("GetBucketInfo", "2018-12-12", "HTTPS", "POST", "AK", "json", req, runtime), new GetBucketInfoResponse({}));
+  }
+
+  async getBucketInfo(request: GetBucketInfoRequest): Promise<GetBucketInfoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getBucketInfoWithOptions(request, runtime);
+  }
+
   async gotoPresetWithOptions(request: GotoPresetRequest, runtime: $Util.RuntimeOptions): Promise<GotoPresetResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -13858,6 +14923,58 @@ export default class Client extends OpenApi {
   async gotoPreset(request: GotoPresetRequest): Promise<GotoPresetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.gotoPresetWithOptions(request, runtime);
+  }
+
+  async listBucketsWithOptions(request: ListBucketsRequest, runtime: $Util.RuntimeOptions): Promise<ListBucketsResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<ListBucketsResponse>(await this.doRPCRequest("ListBuckets", "2018-12-12", "HTTPS", "POST", "AK", "json", req, runtime), new ListBucketsResponse({}));
+  }
+
+  async listBuckets(request: ListBucketsRequest): Promise<ListBucketsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listBucketsWithOptions(request, runtime);
+  }
+
+  async listDeviceChannelsWithOptions(request: ListDeviceChannelsRequest, runtime: $Util.RuntimeOptions): Promise<ListDeviceChannelsResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<ListDeviceChannelsResponse>(await this.doRPCRequest("ListDeviceChannels", "2018-12-12", "HTTPS", "POST", "AK", "json", req, runtime), new ListDeviceChannelsResponse({}));
+  }
+
+  async listDeviceChannels(request: ListDeviceChannelsRequest): Promise<ListDeviceChannelsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listDeviceChannelsWithOptions(request, runtime);
+  }
+
+  async listDeviceRecordsWithOptions(request: ListDeviceRecordsRequest, runtime: $Util.RuntimeOptions): Promise<ListDeviceRecordsResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<ListDeviceRecordsResponse>(await this.doRPCRequest("ListDeviceRecords", "2018-12-12", "HTTPS", "POST", "AK", "json", req, runtime), new ListDeviceRecordsResponse({}));
+  }
+
+  async listDeviceRecords(request: ListDeviceRecordsRequest): Promise<ListDeviceRecordsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listDeviceRecordsWithOptions(request, runtime);
+  }
+
+  async listObjectsWithOptions(request: ListObjectsRequest, runtime: $Util.RuntimeOptions): Promise<ListObjectsResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<ListObjectsResponse>(await this.doRPCRequest("ListObjects", "2018-12-12", "HTTPS", "POST", "AK", "json", req, runtime), new ListObjectsResponse({}));
+  }
+
+  async listObjects(request: ListObjectsRequest): Promise<ListObjectsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listObjectsWithOptions(request, runtime);
   }
 
   async modifyDeviceWithOptions(request: ModifyDeviceRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDeviceResponse> {
@@ -13972,6 +15089,32 @@ export default class Client extends OpenApi {
   async openVsService(): Promise<OpenVsServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.openVsServiceWithOptions(runtime);
+  }
+
+  async prepareUploadWithOptions(request: PrepareUploadRequest, runtime: $Util.RuntimeOptions): Promise<PrepareUploadResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<PrepareUploadResponse>(await this.doRPCRequest("PrepareUpload", "2018-12-12", "HTTPS", "POST", "AK", "json", req, runtime), new PrepareUploadResponse({}));
+  }
+
+  async prepareUpload(request: PrepareUploadRequest): Promise<PrepareUploadResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.prepareUploadWithOptions(request, runtime);
+  }
+
+  async putBucketWithOptions(request: PutBucketRequest, runtime: $Util.RuntimeOptions): Promise<PutBucketResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<PutBucketResponse>(await this.doRPCRequest("PutBucket", "2018-12-12", "HTTPS", "POST", "AK", "json", req, runtime), new PutBucketResponse({}));
+  }
+
+  async putBucket(request: PutBucketRequest): Promise<PutBucketResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.putBucketWithOptions(request, runtime);
   }
 
   async resumeVsStreamWithOptions(request: ResumeVsStreamRequest, runtime: $Util.RuntimeOptions): Promise<ResumeVsStreamResponse> {
@@ -14182,6 +15325,19 @@ export default class Client extends OpenApi {
     return await this.syncCatalogsWithOptions(request, runtime);
   }
 
+  async syncDeviceChannelsWithOptions(request: SyncDeviceChannelsRequest, runtime: $Util.RuntimeOptions): Promise<SyncDeviceChannelsResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<SyncDeviceChannelsResponse>(await this.doRPCRequest("SyncDeviceChannels", "2018-12-12", "HTTPS", "POST", "AK", "json", req, runtime), new SyncDeviceChannelsResponse({}));
+  }
+
+  async syncDeviceChannels(request: SyncDeviceChannelsRequest): Promise<SyncDeviceChannelsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.syncDeviceChannelsWithOptions(request, runtime);
+  }
+
   async unbindDirectoryWithOptions(request: UnbindDirectoryRequest, runtime: $Util.RuntimeOptions): Promise<UnbindDirectoryResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -14247,6 +15403,19 @@ export default class Client extends OpenApi {
     return await this.unlockDeviceWithOptions(request, runtime);
   }
 
+  async updateBucketInfoWithOptions(request: UpdateBucketInfoRequest, runtime: $Util.RuntimeOptions): Promise<UpdateBucketInfoResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<UpdateBucketInfoResponse>(await this.doRPCRequest("UpdateBucketInfo", "2018-12-12", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateBucketInfoResponse({}));
+  }
+
+  async updateBucketInfo(request: UpdateBucketInfoRequest): Promise<UpdateBucketInfoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateBucketInfoWithOptions(request, runtime);
+  }
+
   async updateVsPullStreamInfoConfigWithOptions(request: UpdateVsPullStreamInfoConfigRequest, runtime: $Util.RuntimeOptions): Promise<UpdateVsPullStreamInfoConfigResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -14258,6 +15427,19 @@ export default class Client extends OpenApi {
   async updateVsPullStreamInfoConfig(request: UpdateVsPullStreamInfoConfigRequest): Promise<UpdateVsPullStreamInfoConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateVsPullStreamInfoConfigWithOptions(request, runtime);
+  }
+
+  async uploadDeviceRecordWithOptions(request: UploadDeviceRecordRequest, runtime: $Util.RuntimeOptions): Promise<UploadDeviceRecordResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<UploadDeviceRecordResponse>(await this.doRPCRequest("UploadDeviceRecord", "2018-12-12", "HTTPS", "POST", "AK", "json", req, runtime), new UploadDeviceRecordResponse({}));
+  }
+
+  async uploadDeviceRecord(request: UploadDeviceRecordRequest): Promise<UploadDeviceRecordResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.uploadDeviceRecordWithOptions(request, runtime);
   }
 
 }
