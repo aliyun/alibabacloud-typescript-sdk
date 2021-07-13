@@ -433,105 +433,6 @@ export class DescribeSagRouteListResponse extends $tea.Model {
   }
 }
 
-export class DescribePolicyBasedRoutingsRequest extends $tea.Model {
-  ownerAccount?: string;
-  ownerId?: number;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  regionId?: string;
-  pageSize?: number;
-  pageNumber?: number;
-  smartAGId?: string;
-  pbrInstanceId?: string;
-  name?: string;
-  static names(): { [key: string]: string } {
-    return {
-      ownerAccount: 'OwnerAccount',
-      ownerId: 'OwnerId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-      regionId: 'RegionId',
-      pageSize: 'PageSize',
-      pageNumber: 'PageNumber',
-      smartAGId: 'SmartAGId',
-      pbrInstanceId: 'PbrInstanceId',
-      name: 'Name',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ownerAccount: 'string',
-      ownerId: 'number',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-      regionId: 'string',
-      pageSize: 'number',
-      pageNumber: 'number',
-      smartAGId: 'string',
-      pbrInstanceId: 'string',
-      name: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribePolicyBasedRoutingsResponseBody extends $tea.Model {
-  totalCount?: number;
-  pageSize?: number;
-  requestId?: string;
-  pageNumber?: number;
-  policyBasedRoutings?: DescribePolicyBasedRoutingsResponseBodyPolicyBasedRoutings;
-  static names(): { [key: string]: string } {
-    return {
-      totalCount: 'TotalCount',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      pageNumber: 'PageNumber',
-      policyBasedRoutings: 'PolicyBasedRoutings',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      totalCount: 'number',
-      pageSize: 'number',
-      requestId: 'string',
-      pageNumber: 'number',
-      policyBasedRoutings: DescribePolicyBasedRoutingsResponseBodyPolicyBasedRoutings,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribePolicyBasedRoutingsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DescribePolicyBasedRoutingsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DescribePolicyBasedRoutingsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ProbeAccessPointNetworkQualityRequest extends $tea.Model {
   ownerAccount?: string;
   ownerId?: number;
@@ -1928,93 +1829,6 @@ export class CreateQosResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: CreateQosResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifySagECRouteBackupRequest extends $tea.Model {
-  ownerAccount?: string;
-  ownerId?: number;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  regionId?: string;
-  smartAGId?: string;
-  hcIp?: string;
-  expressConnectionInterface?: string;
-  expressConnectionNexthop?: string;
-  routeBackup?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      ownerAccount: 'OwnerAccount',
-      ownerId: 'OwnerId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-      regionId: 'RegionId',
-      smartAGId: 'SmartAGId',
-      hcIp: 'HcIp',
-      expressConnectionInterface: 'ExpressConnectionInterface',
-      expressConnectionNexthop: 'ExpressConnectionNexthop',
-      routeBackup: 'RouteBackup',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ownerAccount: 'string',
-      ownerId: 'number',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-      regionId: 'string',
-      smartAGId: 'string',
-      hcIp: 'string',
-      expressConnectionInterface: 'string',
-      expressConnectionNexthop: 'string',
-      routeBackup: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifySagECRouteBackupResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifySagECRouteBackupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ModifySagECRouteBackupResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ModifySagECRouteBackupResponseBody,
     };
   }
 
@@ -5818,87 +5632,6 @@ export class KickOutClientsResponse extends $tea.Model {
   }
 }
 
-export class DescribeSagRouteableAddressRequest extends $tea.Model {
-  ownerAccount?: string;
-  ownerId?: number;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  regionId?: string;
-  sagId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      ownerAccount: 'OwnerAccount',
-      ownerId: 'OwnerId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-      regionId: 'RegionId',
-      sagId: 'SagId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ownerAccount: 'string',
-      ownerId: 'number',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-      regionId: 'string',
-      sagId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSagRouteableAddressResponseBody extends $tea.Model {
-  origin?: string;
-  requestId?: string;
-  routeableAddress?: string;
-  static names(): { [key: string]: string } {
-    return {
-      origin: 'Origin',
-      requestId: 'RequestId',
-      routeableAddress: 'RouteableAddress',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      origin: 'string',
-      requestId: 'string',
-      routeableAddress: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSagRouteableAddressResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DescribeSagRouteableAddressResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DescribeSagRouteableAddressResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ModifySagPortRoleRequest extends $tea.Model {
   ownerAccount?: string;
   ownerId?: number;
@@ -6287,87 +6020,6 @@ export class UpdateSmartAGEnterpriseCodeResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: UpdateSmartAGEnterpriseCodeResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribePbrInterfacesRequest extends $tea.Model {
-  ownerAccount?: string;
-  ownerId?: number;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  regionId?: string;
-  pbrInstanceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      ownerAccount: 'OwnerAccount',
-      ownerId: 'OwnerId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-      regionId: 'RegionId',
-      pbrInstanceId: 'PbrInstanceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ownerAccount: 'string',
-      ownerId: 'number',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-      regionId: 'string',
-      pbrInstanceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribePbrInterfacesResponseBody extends $tea.Model {
-  totalCount?: number;
-  requestId?: string;
-  pbrInterfaces?: DescribePbrInterfacesResponseBodyPbrInterfaces;
-  static names(): { [key: string]: string } {
-    return {
-      totalCount: 'TotalCount',
-      requestId: 'RequestId',
-      pbrInterfaces: 'PbrInterfaces',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      totalCount: 'number',
-      requestId: 'string',
-      pbrInterfaces: DescribePbrInterfacesResponseBodyPbrInterfaces,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribePbrInterfacesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DescribePbrInterfacesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DescribePbrInterfacesResponseBody,
     };
   }
 
@@ -10753,78 +10405,6 @@ export class GrantSagInstanceToCcnResponse extends $tea.Model {
   }
 }
 
-export class OrchestrateSagECRouteBackupRequest extends $tea.Model {
-  ownerAccount?: string;
-  ownerId?: number;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      ownerAccount: 'OwnerAccount',
-      ownerId: 'OwnerId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ownerAccount: 'string',
-      ownerId: 'number',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OrchestrateSagECRouteBackupResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OrchestrateSagECRouteBackupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: OrchestrateSagECRouteBackupResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: OrchestrateSagECRouteBackupResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ModifySmartAccessGatewayRequest extends $tea.Model {
   ownerAccount?: string;
   ownerId?: number;
@@ -10999,87 +10579,6 @@ export class UpdateSmartAccessGatewayVersionResponse extends $tea.Model {
   }
 }
 
-export class ModifySagCidrRequest extends $tea.Model {
-  ownerAccount?: string;
-  ownerId?: number;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  regionId?: string;
-  cidr?: string;
-  smartAGId?: string;
-  enableBackup?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      ownerAccount: 'OwnerAccount',
-      ownerId: 'OwnerId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-      regionId: 'RegionId',
-      cidr: 'Cidr',
-      smartAGId: 'SmartAGId',
-      enableBackup: 'EnableBackup',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ownerAccount: 'string',
-      ownerId: 'number',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-      regionId: 'string',
-      cidr: 'string',
-      smartAGId: 'string',
-      enableBackup: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifySagCidrResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifySagCidrResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ModifySagCidrResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ModifySagCidrResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeSagDropTopNRequest extends $tea.Model {
   ownerAccount?: string;
   ownerId?: number;
@@ -11234,99 +10733,6 @@ export class DescribeSagLanListResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: DescribeSagLanListResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribePbrRulesRequest extends $tea.Model {
-  ownerAccount?: string;
-  ownerId?: number;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  regionId?: string;
-  pbrInstanceId?: string;
-  pageSize?: string;
-  pageNumber?: string;
-  static names(): { [key: string]: string } {
-    return {
-      ownerAccount: 'OwnerAccount',
-      ownerId: 'OwnerId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-      regionId: 'RegionId',
-      pbrInstanceId: 'PbrInstanceId',
-      pageSize: 'PageSize',
-      pageNumber: 'PageNumber',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ownerAccount: 'string',
-      ownerId: 'number',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-      regionId: 'string',
-      pbrInstanceId: 'string',
-      pageSize: 'string',
-      pageNumber: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribePbrRulesResponseBody extends $tea.Model {
-  totalCount?: number;
-  pageSize?: number;
-  requestId?: string;
-  pbrRules?: DescribePbrRulesResponseBodyPbrRules;
-  pageNumber?: number;
-  static names(): { [key: string]: string } {
-    return {
-      totalCount: 'TotalCount',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      pbrRules: 'PbrRules',
-      pageNumber: 'PageNumber',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      totalCount: 'number',
-      pageSize: 'number',
-      requestId: 'string',
-      pbrRules: DescribePbrRulesResponseBodyPbrRules,
-      pageNumber: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribePbrRulesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DescribePbrRulesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DescribePbrRulesResponseBody,
     };
   }
 
@@ -12680,84 +12086,6 @@ export class DeleteDnatEntryResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: DeleteDnatEntryResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SetSagRouteableAddressRequest extends $tea.Model {
-  regionId?: string;
-  ownerId?: number;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  ownerAccount?: string;
-  sagId?: string;
-  routeableAddress?: string;
-  static names(): { [key: string]: string } {
-    return {
-      regionId: 'RegionId',
-      ownerId: 'OwnerId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-      ownerAccount: 'OwnerAccount',
-      sagId: 'SagId',
-      routeableAddress: 'RouteableAddress',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      regionId: 'string',
-      ownerId: 'number',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-      ownerAccount: 'string',
-      sagId: 'string',
-      routeableAddress: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SetSagRouteableAddressResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SetSagRouteableAddressResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: SetSagRouteableAddressResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: SetSagRouteableAddressResponseBody,
     };
   }
 
@@ -14740,102 +14068,6 @@ export class CreateQosPolicyResponse extends $tea.Model {
   }
 }
 
-export class DescribeSagECRouteBackupAttributeRequest extends $tea.Model {
-  ownerAccount?: string;
-  ownerId?: number;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  regionId?: string;
-  smartAGId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      ownerAccount: 'OwnerAccount',
-      ownerId: 'OwnerId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-      regionId: 'RegionId',
-      smartAGId: 'SmartAGId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ownerAccount: 'string',
-      ownerId: 'number',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-      regionId: 'string',
-      smartAGId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSagECRouteBackupAttributeResponseBody extends $tea.Model {
-  status?: string;
-  hcIp?: string;
-  requestId?: string;
-  expressConnectionInterface?: string;
-  routeBackup?: boolean;
-  expressConnectionNexthop?: string;
-  sagId?: string;
-  cidrs?: DescribeSagECRouteBackupAttributeResponseBodyCidrs;
-  static names(): { [key: string]: string } {
-    return {
-      status: 'Status',
-      hcIp: 'HcIp',
-      requestId: 'RequestId',
-      expressConnectionInterface: 'ExpressConnectionInterface',
-      routeBackup: 'RouteBackup',
-      expressConnectionNexthop: 'ExpressConnectionNexthop',
-      sagId: 'SagId',
-      cidrs: 'Cidrs',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      status: 'string',
-      hcIp: 'string',
-      requestId: 'string',
-      expressConnectionInterface: 'string',
-      routeBackup: 'boolean',
-      expressConnectionNexthop: 'string',
-      sagId: 'string',
-      cidrs: DescribeSagECRouteBackupAttributeResponseBodyCidrs,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSagECRouteBackupAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DescribeSagECRouteBackupAttributeResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DescribeSagECRouteBackupAttributeResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeFlowLogSagsRequest extends $tea.Model {
   ownerAccount?: string;
   ownerId?: number;
@@ -16555,53 +15787,6 @@ export class DescribeSagRouteListResponseBodyRoutes extends $tea.Model {
   }
 }
 
-export class DescribePolicyBasedRoutingsResponseBodyPolicyBasedRoutingsPolicyBasedRouting extends $tea.Model {
-  description?: string;
-  pbrInstanceId?: string;
-  priority?: number;
-  name?: string;
-  static names(): { [key: string]: string } {
-    return {
-      description: 'Description',
-      pbrInstanceId: 'PbrInstanceId',
-      priority: 'Priority',
-      name: 'Name',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      description: 'string',
-      pbrInstanceId: 'string',
-      priority: 'number',
-      name: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribePolicyBasedRoutingsResponseBodyPolicyBasedRoutings extends $tea.Model {
-  policyBasedRouting?: DescribePolicyBasedRoutingsResponseBodyPolicyBasedRoutingsPolicyBasedRouting[];
-  static names(): { [key: string]: string } {
-    return {
-      policyBasedRouting: 'PolicyBasedRouting',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      policyBasedRouting: { 'type': 'array', 'itemType': DescribePolicyBasedRoutingsResponseBodyPolicyBasedRoutingsPolicyBasedRouting },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeSagPortRouteProtocolListResponseBodyPorts extends $tea.Model {
   status?: string;
   remoteIp?: string;
@@ -17877,53 +17062,6 @@ export class ListDpiConfigErrorResponseBodyDpiConfigError extends $tea.Model {
   }
 }
 
-export class DescribePbrInterfacesResponseBodyPbrInterfacesPbrInterface extends $tea.Model {
-  action?: string;
-  interfaceName?: string;
-  healthCheckInstanceId?: string;
-  priority?: number;
-  static names(): { [key: string]: string } {
-    return {
-      action: 'Action',
-      interfaceName: 'InterfaceName',
-      healthCheckInstanceId: 'HealthCheckInstanceId',
-      priority: 'Priority',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      action: 'string',
-      interfaceName: 'string',
-      healthCheckInstanceId: 'string',
-      priority: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribePbrInterfacesResponseBodyPbrInterfaces extends $tea.Model {
-  pbrInterface?: DescribePbrInterfacesResponseBodyPbrInterfacesPbrInterface[];
-  static names(): { [key: string]: string } {
-    return {
-      pbrInterface: 'PbrInterface',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pbrInterface: { 'type': 'array', 'itemType': DescribePbrInterfacesResponseBodyPbrInterfacesPbrInterface },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeACLsResponseBodyAclsAcl extends $tea.Model {
   sagCount?: string;
   aclId?: string;
@@ -18745,65 +17883,6 @@ export class DescribeSagLanListResponseBodyLans extends $tea.Model {
   }
 }
 
-export class DescribePbrRulesResponseBodyPbrRulesPbrRule extends $tea.Model {
-  dstCidr?: string;
-  description?: string;
-  pbrRuleId?: string;
-  protocol?: string;
-  dstPort?: string;
-  srcCidr?: string;
-  name?: string;
-  srcPort?: string;
-  static names(): { [key: string]: string } {
-    return {
-      dstCidr: 'DstCidr',
-      description: 'Description',
-      pbrRuleId: 'PbrRuleId',
-      protocol: 'Protocol',
-      dstPort: 'DstPort',
-      srcCidr: 'SrcCidr',
-      name: 'Name',
-      srcPort: 'SrcPort',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dstCidr: 'string',
-      description: 'string',
-      pbrRuleId: 'string',
-      protocol: 'string',
-      dstPort: 'string',
-      srcCidr: 'string',
-      name: 'string',
-      srcPort: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribePbrRulesResponseBodyPbrRules extends $tea.Model {
-  pbrRule?: DescribePbrRulesResponseBodyPbrRulesPbrRule[];
-  static names(): { [key: string]: string } {
-    return {
-      pbrRule: 'PbrRule',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pbrRule: { 'type': 'array', 'itemType': DescribePbrRulesResponseBodyPbrRulesPbrRule },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeACLAttributeResponseBodyAcrsAcrDpiSignatureIds extends $tea.Model {
   dpiSignatureId?: string[];
   static names(): { [key: string]: string } {
@@ -19580,47 +18659,6 @@ export class CreateQosPolicyResponseBodyDpiSignatureIds extends $tea.Model {
   }
 }
 
-export class DescribeSagECRouteBackupAttributeResponseBodyCidrsCidr extends $tea.Model {
-  enableBackup?: boolean;
-  cidr?: string;
-  static names(): { [key: string]: string } {
-    return {
-      enableBackup: 'EnableBackup',
-      cidr: 'Cidr',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      enableBackup: 'boolean',
-      cidr: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSagECRouteBackupAttributeResponseBodyCidrs extends $tea.Model {
-  cidr?: DescribeSagECRouteBackupAttributeResponseBodyCidrsCidr[];
-  static names(): { [key: string]: string } {
-    return {
-      cidr: 'Cidr',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      cidr: { 'type': 'array', 'itemType': DescribeSagECRouteBackupAttributeResponseBodyCidrsCidr },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeFlowLogSagsResponseBodySagsSag extends $tea.Model {
   description?: string;
   smartAGId?: string;
@@ -20126,19 +19164,6 @@ export default class Client extends OpenApi {
     return await this.describeSagRouteListWithOptions(request, runtime);
   }
 
-  async describePolicyBasedRoutingsWithOptions(request: DescribePolicyBasedRoutingsRequest, runtime: $Util.RuntimeOptions): Promise<DescribePolicyBasedRoutingsResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<DescribePolicyBasedRoutingsResponse>(await this.doRPCRequest("DescribePolicyBasedRoutings", "2018-03-13", "HTTPS", "POST", "AK", "json", req, runtime), new DescribePolicyBasedRoutingsResponse({}));
-  }
-
-  async describePolicyBasedRoutings(request: DescribePolicyBasedRoutingsRequest): Promise<DescribePolicyBasedRoutingsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describePolicyBasedRoutingsWithOptions(request, runtime);
-  }
-
   async probeAccessPointNetworkQualityWithOptions(request: ProbeAccessPointNetworkQualityRequest, runtime: $Util.RuntimeOptions): Promise<ProbeAccessPointNetworkQualityResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -20345,19 +19370,6 @@ export default class Client extends OpenApi {
   async createQos(request: CreateQosRequest): Promise<CreateQosResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createQosWithOptions(request, runtime);
-  }
-
-  async modifySagECRouteBackupWithOptions(request: ModifySagECRouteBackupRequest, runtime: $Util.RuntimeOptions): Promise<ModifySagECRouteBackupResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<ModifySagECRouteBackupResponse>(await this.doRPCRequest("ModifySagECRouteBackup", "2018-03-13", "HTTPS", "POST", "AK", "json", req, runtime), new ModifySagECRouteBackupResponse({}));
-  }
-
-  async modifySagECRouteBackup(request: ModifySagECRouteBackupRequest): Promise<ModifySagECRouteBackupResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.modifySagECRouteBackupWithOptions(request, runtime);
   }
 
   async discribeSmartAccessGatewayDiagnosisReportWithOptions(request: DiscribeSmartAccessGatewayDiagnosisReportRequest, runtime: $Util.RuntimeOptions): Promise<DiscribeSmartAccessGatewayDiagnosisReportResponse> {
@@ -20893,19 +19905,6 @@ export default class Client extends OpenApi {
     return await this.kickOutClientsWithOptions(request, runtime);
   }
 
-  async describeSagRouteableAddressWithOptions(request: DescribeSagRouteableAddressRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSagRouteableAddressResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<DescribeSagRouteableAddressResponse>(await this.doRPCRequest("DescribeSagRouteableAddress", "2018-03-13", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeSagRouteableAddressResponse({}));
-  }
-
-  async describeSagRouteableAddress(request: DescribeSagRouteableAddressRequest): Promise<DescribeSagRouteableAddressResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeSagRouteableAddressWithOptions(request, runtime);
-  }
-
   async modifySagPortRoleWithOptions(request: ModifySagPortRoleRequest, runtime: $Util.RuntimeOptions): Promise<ModifySagPortRoleResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -20969,19 +19968,6 @@ export default class Client extends OpenApi {
   async updateSmartAGEnterpriseCode(request: UpdateSmartAGEnterpriseCodeRequest): Promise<UpdateSmartAGEnterpriseCodeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateSmartAGEnterpriseCodeWithOptions(request, runtime);
-  }
-
-  async describePbrInterfacesWithOptions(request: DescribePbrInterfacesRequest, runtime: $Util.RuntimeOptions): Promise<DescribePbrInterfacesResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<DescribePbrInterfacesResponse>(await this.doRPCRequest("DescribePbrInterfaces", "2018-03-13", "HTTPS", "POST", "AK", "json", req, runtime), new DescribePbrInterfacesResponse({}));
-  }
-
-  async describePbrInterfaces(request: DescribePbrInterfacesRequest): Promise<DescribePbrInterfacesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describePbrInterfacesWithOptions(request, runtime);
   }
 
   async associateACLWithOptions(request: AssociateACLRequest, runtime: $Util.RuntimeOptions): Promise<AssociateACLResponse> {
@@ -21634,19 +20620,6 @@ export default class Client extends OpenApi {
     return await this.grantSagInstanceToCcnWithOptions(request, runtime);
   }
 
-  async orchestrateSagECRouteBackupWithOptions(request: OrchestrateSagECRouteBackupRequest, runtime: $Util.RuntimeOptions): Promise<OrchestrateSagECRouteBackupResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<OrchestrateSagECRouteBackupResponse>(await this.doRPCRequest("OrchestrateSagECRouteBackup", "2018-03-13", "HTTPS", "POST", "AK", "json", req, runtime), new OrchestrateSagECRouteBackupResponse({}));
-  }
-
-  async orchestrateSagECRouteBackup(request: OrchestrateSagECRouteBackupRequest): Promise<OrchestrateSagECRouteBackupResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.orchestrateSagECRouteBackupWithOptions(request, runtime);
-  }
-
   async modifySmartAccessGatewayWithOptions(request: ModifySmartAccessGatewayRequest, runtime: $Util.RuntimeOptions): Promise<ModifySmartAccessGatewayResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -21673,19 +20646,6 @@ export default class Client extends OpenApi {
     return await this.updateSmartAccessGatewayVersionWithOptions(request, runtime);
   }
 
-  async modifySagCidrWithOptions(request: ModifySagCidrRequest, runtime: $Util.RuntimeOptions): Promise<ModifySagCidrResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<ModifySagCidrResponse>(await this.doRPCRequest("ModifySagCidr", "2018-03-13", "HTTPS", "POST", "AK", "json", req, runtime), new ModifySagCidrResponse({}));
-  }
-
-  async modifySagCidr(request: ModifySagCidrRequest): Promise<ModifySagCidrResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.modifySagCidrWithOptions(request, runtime);
-  }
-
   async describeSagDropTopNWithOptions(request: DescribeSagDropTopNRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSagDropTopNResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -21710,19 +20670,6 @@ export default class Client extends OpenApi {
   async describeSagLanList(request: DescribeSagLanListRequest): Promise<DescribeSagLanListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSagLanListWithOptions(request, runtime);
-  }
-
-  async describePbrRulesWithOptions(request: DescribePbrRulesRequest, runtime: $Util.RuntimeOptions): Promise<DescribePbrRulesResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<DescribePbrRulesResponse>(await this.doRPCRequest("DescribePbrRules", "2018-03-13", "HTTPS", "POST", "AK", "json", req, runtime), new DescribePbrRulesResponse({}));
-  }
-
-  async describePbrRules(request: DescribePbrRulesRequest): Promise<DescribePbrRulesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describePbrRulesWithOptions(request, runtime);
   }
 
   async describeACLAttributeWithOptions(request: DescribeACLAttributeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeACLAttributeResponse> {
@@ -21918,19 +20865,6 @@ export default class Client extends OpenApi {
   async deleteDnatEntry(request: DeleteDnatEntryRequest): Promise<DeleteDnatEntryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDnatEntryWithOptions(request, runtime);
-  }
-
-  async setSagRouteableAddressWithOptions(request: SetSagRouteableAddressRequest, runtime: $Util.RuntimeOptions): Promise<SetSagRouteableAddressResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<SetSagRouteableAddressResponse>(await this.doRPCRequest("SetSagRouteableAddress", "2018-03-13", "HTTPS", "POST", "AK", "json", req, runtime), new SetSagRouteableAddressResponse({}));
-  }
-
-  async setSagRouteableAddress(request: SetSagRouteableAddressRequest): Promise<SetSagRouteableAddressResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.setSagRouteableAddressWithOptions(request, runtime);
   }
 
   async modifyACLWithOptions(request: ModifyACLRequest, runtime: $Util.RuntimeOptions): Promise<ModifyACLResponse> {
@@ -22217,19 +21151,6 @@ export default class Client extends OpenApi {
   async createQosPolicy(request: CreateQosPolicyRequest): Promise<CreateQosPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createQosPolicyWithOptions(request, runtime);
-  }
-
-  async describeSagECRouteBackupAttributeWithOptions(request: DescribeSagECRouteBackupAttributeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSagECRouteBackupAttributeResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<DescribeSagECRouteBackupAttributeResponse>(await this.doRPCRequest("DescribeSagECRouteBackupAttribute", "2018-03-13", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeSagECRouteBackupAttributeResponse({}));
-  }
-
-  async describeSagECRouteBackupAttribute(request: DescribeSagECRouteBackupAttributeRequest): Promise<DescribeSagECRouteBackupAttributeResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeSagECRouteBackupAttributeWithOptions(request, runtime);
   }
 
   async describeFlowLogSagsWithOptions(request: DescribeFlowLogSagsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeFlowLogSagsResponse> {
