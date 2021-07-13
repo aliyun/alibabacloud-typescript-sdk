@@ -1536,6 +1536,56 @@ export class DescribeAddonsResponse extends $tea.Model {
   }
 }
 
+export class CreateAutoscalingConfigRequest extends $tea.Model {
+  coolDownDuration?: string;
+  unneededDuration?: string;
+  utilizationThreshold?: string;
+  gpuUtilizationThreshold?: string;
+  scanInterval?: string;
+  static names(): { [key: string]: string } {
+    return {
+      coolDownDuration: 'cool_down_duration',
+      unneededDuration: 'unneeded_duration',
+      utilizationThreshold: 'utilization_threshold',
+      gpuUtilizationThreshold: 'gpu_utilization_threshold',
+      scanInterval: 'scan_interval',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      coolDownDuration: 'string',
+      unneededDuration: 'string',
+      utilizationThreshold: 'string',
+      gpuUtilizationThreshold: 'string',
+      scanInterval: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAutoscalingConfigResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateClusterRequest extends $tea.Model {
   name?: string;
   regionId?: string;
@@ -7124,6 +7174,42 @@ export default class Client extends OpenApi {
       query: OpenApiUtil.query(query),
     });
     return $tea.cast<DescribeAddonsResponse>(await this.doROARequest("DescribeAddons", "2015-12-15", "HTTPS", "GET", "AK", `/clusters/components/metadata`, "json", req, runtime), new DescribeAddonsResponse({}));
+  }
+
+  async createAutoscalingConfig(ClusterId: string, request: CreateAutoscalingConfigRequest): Promise<CreateAutoscalingConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createAutoscalingConfigWithOptions(ClusterId, request, headers, runtime);
+  }
+
+  async createAutoscalingConfigWithOptions(ClusterId: string, request: CreateAutoscalingConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateAutoscalingConfigResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.coolDownDuration)) {
+      body["cool_down_duration"] = request.coolDownDuration;
+    }
+
+    if (!Util.isUnset(request.unneededDuration)) {
+      body["unneeded_duration"] = request.unneededDuration;
+    }
+
+    if (!Util.isUnset(request.utilizationThreshold)) {
+      body["utilization_threshold"] = request.utilizationThreshold;
+    }
+
+    if (!Util.isUnset(request.gpuUtilizationThreshold)) {
+      body["gpu_utilization_threshold"] = request.gpuUtilizationThreshold;
+    }
+
+    if (!Util.isUnset(request.scanInterval)) {
+      body["scan_interval"] = request.scanInterval;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    return $tea.cast<CreateAutoscalingConfigResponse>(await this.doROARequest("CreateAutoscalingConfig", "2015-12-15", "HTTPS", "POST", "AK", `/cluster/${ClusterId}/autoscale/config/`, "none", req, runtime), new CreateAutoscalingConfigResponse({}));
   }
 
   async createCluster(request: CreateClusterRequest): Promise<CreateClusterResponse> {
