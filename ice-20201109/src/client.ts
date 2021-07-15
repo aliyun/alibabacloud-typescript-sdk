@@ -221,7 +221,6 @@ export class DeleteSmartJobResponse extends $tea.Model {
 }
 
 export class AddTemplateRequest extends $tea.Model {
-  templateId?: string;
   name?: string;
   type?: string;
   config?: string;
@@ -232,7 +231,6 @@ export class AddTemplateRequest extends $tea.Model {
   relatedMediaids?: string;
   static names(): { [key: string]: string } {
     return {
-      templateId: 'TemplateId',
       name: 'Name',
       type: 'Type',
       config: 'Config',
@@ -246,7 +244,6 @@ export class AddTemplateRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      templateId: 'string',
       name: 'string',
       type: 'string',
       config: 'string',
@@ -585,7 +582,7 @@ export class DeleteMediaInfosRequest extends $tea.Model {
 
 export class DeleteMediaInfosResponseBody extends $tea.Model {
   requestId?: string;
-  ignoredList?: string;
+  ignoredList?: string[];
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
@@ -596,7 +593,7 @@ export class DeleteMediaInfosResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      ignoredList: 'string',
+      ignoredList: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -682,6 +679,69 @@ export class SetEventCallbackResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: SetEventCallbackResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTemplateRequest extends $tea.Model {
+  templateId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      templateId: 'TemplateId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      templateId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTemplateResponseBody extends $tea.Model {
+  requestId?: string;
+  template?: GetTemplateResponseBodyTemplate;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      template: 'Template',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      template: GetTemplateResponseBodyTemplate,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTemplateResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetTemplateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetTemplateResponseBody,
     };
   }
 
@@ -2071,7 +2131,6 @@ export class SearchEditingProjectResponse extends $tea.Model {
 
 export class ListTemplatesRequest extends $tea.Model {
   type?: string;
-  nextToken?: string;
   status?: string;
   createSource?: string;
   keyword?: string;
@@ -2079,7 +2138,6 @@ export class ListTemplatesRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       type: 'Type',
-      nextToken: 'NextToken',
       status: 'Status',
       createSource: 'CreateSource',
       keyword: 'Keyword',
@@ -2090,7 +2148,6 @@ export class ListTemplatesRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       type: 'string',
-      nextToken: 'string',
       status: 'string',
       createSource: 'string',
       keyword: 'string',
@@ -2106,15 +2163,11 @@ export class ListTemplatesRequest extends $tea.Model {
 export class ListTemplatesResponseBody extends $tea.Model {
   requestId?: string;
   totalCount?: number;
-  nextToken?: string;
-  maxResults?: number;
   templates?: ListTemplatesResponseBodyTemplates[];
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
       totalCount: 'TotalCount',
-      nextToken: 'NextToken',
-      maxResults: 'MaxResults',
       templates: 'Templates',
     };
   }
@@ -2123,8 +2176,6 @@ export class ListTemplatesResponseBody extends $tea.Model {
     return {
       requestId: 'string',
       totalCount: 'number',
-      nextToken: 'string',
-      maxResults: 'number',
       templates: { 'type': 'array', 'itemType': ListTemplatesResponseBodyTemplates },
     };
   }
@@ -2470,7 +2521,6 @@ export class UpdateTemplateRequest extends $tea.Model {
   previewMedia?: string;
   status?: string;
   source?: string;
-  relatedMediaids?: string;
   static names(): { [key: string]: string } {
     return {
       templateId: 'TemplateId',
@@ -2480,7 +2530,6 @@ export class UpdateTemplateRequest extends $tea.Model {
       previewMedia: 'PreviewMedia',
       status: 'Status',
       source: 'Source',
-      relatedMediaids: 'RelatedMediaids',
     };
   }
 
@@ -2493,7 +2542,6 @@ export class UpdateTemplateRequest extends $tea.Model {
       previewMedia: 'string',
       status: 'string',
       source: 'string',
-      relatedMediaids: 'string',
     };
   }
 
@@ -3769,6 +3817,58 @@ export class GetEditingProjectMaterialsResponseBodyMediaInfos extends $tea.Model
   }
 }
 
+export class GetTemplateResponseBodyTemplate extends $tea.Model {
+  templateId?: string;
+  name?: string;
+  type?: string;
+  config?: string;
+  previewMedia?: string;
+  status?: string;
+  createSource?: string;
+  modifiedSource?: string;
+  previewMediaStatus?: string;
+  creationTime?: string;
+  modifiedTime?: string;
+  coverURL?: string;
+  static names(): { [key: string]: string } {
+    return {
+      templateId: 'TemplateId',
+      name: 'Name',
+      type: 'Type',
+      config: 'Config',
+      previewMedia: 'PreviewMedia',
+      status: 'Status',
+      createSource: 'CreateSource',
+      modifiedSource: 'ModifiedSource',
+      previewMediaStatus: 'PreviewMediaStatus',
+      creationTime: 'CreationTime',
+      modifiedTime: 'ModifiedTime',
+      coverURL: 'CoverURL',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      templateId: 'string',
+      name: 'string',
+      type: 'string',
+      config: 'string',
+      previewMedia: 'string',
+      status: 'string',
+      createSource: 'string',
+      modifiedSource: 'string',
+      previewMediaStatus: 'string',
+      creationTime: 'string',
+      modifiedTime: 'string',
+      coverURL: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateEditingProjectResponseBodyProject extends $tea.Model {
   projectId?: string;
   title?: string;
@@ -4522,7 +4622,6 @@ export class ListTemplatesResponseBodyTemplates extends $tea.Model {
   creationTime?: string;
   modifiedTime?: string;
   coverURL?: string;
-  clipsParam?: string;
   static names(): { [key: string]: string } {
     return {
       templateId: 'TemplateId',
@@ -4537,7 +4636,6 @@ export class ListTemplatesResponseBodyTemplates extends $tea.Model {
       creationTime: 'CreationTime',
       modifiedTime: 'ModifiedTime',
       coverURL: 'CoverURL',
-      clipsParam: 'ClipsParam',
     };
   }
 
@@ -4555,7 +4653,6 @@ export class ListTemplatesResponseBodyTemplates extends $tea.Model {
       creationTime: 'string',
       modifiedTime: 'string',
       coverURL: 'string',
-      clipsParam: 'string',
     };
   }
 
@@ -5446,6 +5543,20 @@ export default class Client extends OpenApi {
   async setEventCallback(request: SetEventCallbackRequest): Promise<SetEventCallbackResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setEventCallbackWithOptions(request, runtime);
+  }
+
+  async getTemplateWithOptions(request: GetTemplateRequest, runtime: $Util.RuntimeOptions): Promise<GetTemplateResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: query,
+    });
+    return $tea.cast<GetTemplateResponse>(await this.doRPCRequest("GetTemplate", "2020-11-09", "HTTPS", "GET", "AK", "json", req, runtime), new GetTemplateResponse({}));
+  }
+
+  async getTemplate(request: GetTemplateRequest): Promise<GetTemplateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getTemplateWithOptions(request, runtime);
   }
 
   async registerMediaInfoWithOptions(request: RegisterMediaInfoRequest, runtime: $Util.RuntimeOptions): Promise<RegisterMediaInfoResponse> {
