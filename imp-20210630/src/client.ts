@@ -51,14 +51,10 @@ export class CreateLiveRequest extends $tea.Model {
 export class CreateLiveResponseBody extends $tea.Model {
   requestId?: string;
   result?: CreateLiveResponseBodyResult;
-  errorCode?: string;
-  errorMessage?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
       result: 'Result',
-      errorCode: 'ErrorCode',
-      errorMessage: 'ErrorMessage',
     };
   }
 
@@ -66,8 +62,6 @@ export class CreateLiveResponseBody extends $tea.Model {
     return {
       requestId: 'string',
       result: CreateLiveResponseBodyResult,
-      errorCode: 'string',
-      errorMessage: 'string',
     };
   }
 
@@ -119,21 +113,15 @@ export class DeleteAppRequest extends $tea.Model {
 
 export class DeleteAppResponseBody extends $tea.Model {
   requestId?: string;
-  errorCode?: string;
-  errorMessage?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      errorCode: 'ErrorCode',
-      errorMessage: 'ErrorMessage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      errorCode: 'string',
-      errorMessage: 'string',
     };
   }
 
@@ -200,21 +188,15 @@ export class UpdateRoomRequest extends $tea.Model {
 
 export class UpdateRoomResponseBody extends $tea.Model {
   requestId?: string;
-  errorCode?: string;
-  errorMessage?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      errorCode: 'ErrorCode',
-      errorMessage: 'ErrorMessage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      errorCode: 'string',
-      errorMessage: 'string',
     };
   }
 
@@ -266,14 +248,10 @@ export class GetAppTemplateRequest extends $tea.Model {
 
 export class GetAppTemplateResponseBody extends $tea.Model {
   requestId?: string;
-  errorCode?: string;
-  errorMessage?: string;
   result?: GetAppTemplateResponseBodyResult;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      errorCode: 'ErrorCode',
-      errorMessage: 'ErrorMessage',
       result: 'Result',
     };
   }
@@ -281,8 +259,6 @@ export class GetAppTemplateResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      errorCode: 'string',
-      errorMessage: 'string',
       result: GetAppTemplateResponseBodyResult,
     };
   }
@@ -339,14 +315,10 @@ export class GetRoomRequest extends $tea.Model {
 export class GetRoomResponseBody extends $tea.Model {
   requestId?: string;
   result?: GetRoomResponseBodyResult;
-  errorCode?: string;
-  errorMessage?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
       result: 'Result',
-      errorCode: 'ErrorCode',
-      errorMessage: 'ErrorMessage',
     };
   }
 
@@ -354,8 +326,6 @@ export class GetRoomResponseBody extends $tea.Model {
     return {
       requestId: 'string',
       result: GetRoomResponseBodyResult,
-      errorCode: 'string',
-      errorMessage: 'string',
     };
   }
 
@@ -432,14 +402,10 @@ export class CreateAppTemplateShrinkRequest extends $tea.Model {
 
 export class CreateAppTemplateResponseBody extends $tea.Model {
   requestId?: string;
-  errorCode?: string;
-  errorMessage?: string;
   result?: CreateAppTemplateResponseBodyResult;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      errorCode: 'ErrorCode',
-      errorMessage: 'ErrorMessage',
       result: 'Result',
     };
   }
@@ -447,8 +413,6 @@ export class CreateAppTemplateResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      errorCode: 'string',
-      errorMessage: 'string',
       result: CreateAppTemplateResponseBodyResult,
     };
   }
@@ -504,14 +468,10 @@ export class ListAppsRequest extends $tea.Model {
 
 export class ListAppsResponseBody extends $tea.Model {
   requestId?: string;
-  errorCode?: string;
-  errorMessage?: string;
   result?: ListAppsResponseBodyResult;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      errorCode: 'ErrorCode',
-      errorMessage: 'ErrorMessage',
       result: 'Result',
     };
   }
@@ -519,8 +479,6 @@ export class ListAppsResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      errorCode: 'string',
-      errorMessage: 'string',
       result: ListAppsResponseBodyResult,
     };
   }
@@ -580,14 +538,10 @@ export class ListRoomsRequest extends $tea.Model {
 export class ListRoomsResponseBody extends $tea.Model {
   requestId?: string;
   result?: ListRoomsResponseBodyResult;
-  errorCode?: string;
-  errorMessage?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
       result: 'Result',
-      errorCode: 'ErrorCode',
-      errorMessage: 'ErrorMessage',
     };
   }
 
@@ -595,8 +549,6 @@ export class ListRoomsResponseBody extends $tea.Model {
     return {
       requestId: 'string',
       result: ListRoomsResponseBodyResult,
-      errorCode: 'string',
-      errorMessage: 'string',
     };
   }
 
@@ -648,21 +600,15 @@ export class DeleteAppTemplateRequest extends $tea.Model {
 
 export class DeleteAppTemplateResponseBody extends $tea.Model {
   requestId?: string;
-  errorCode?: string;
-  errorMessage?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      errorCode: 'ErrorCode',
-      errorMessage: 'ErrorMessage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      errorCode: 'string',
-      errorMessage: 'string',
     };
   }
 
@@ -717,14 +663,10 @@ export class ListAppTemplatesRequest extends $tea.Model {
 
 export class ListAppTemplatesResponseBody extends $tea.Model {
   requestId?: string;
-  errorCode?: string;
-  errorMessage?: string;
   result?: ListAppTemplatesResponseBodyResult;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      errorCode: 'ErrorCode',
-      errorMessage: 'ErrorMessage',
       result: 'Result',
     };
   }
@@ -732,8 +674,6 @@ export class ListAppTemplatesResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      errorCode: 'string',
-      errorMessage: 'string',
       result: ListAppTemplatesResponseBodyResult,
     };
   }
@@ -789,14 +729,10 @@ export class ListComponentsRequest extends $tea.Model {
 
 export class ListComponentsResponseBody extends $tea.Model {
   requestId?: string;
-  errorCode?: string;
-  errorMessage?: string;
   result?: ListComponentsResponseBodyResult;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      errorCode: 'ErrorCode',
-      errorMessage: 'ErrorMessage',
       result: 'Result',
     };
   }
@@ -804,8 +740,6 @@ export class ListComponentsResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      errorCode: 'string',
-      errorMessage: 'string',
       result: ListComponentsResponseBodyResult,
     };
   }
@@ -864,21 +798,15 @@ export class UpdateLiveRequest extends $tea.Model {
 
 export class UpdateLiveResponseBody extends $tea.Model {
   requestId?: string;
-  errorCode?: string;
-  errorMessage?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      errorCode: 'ErrorCode',
-      errorMessage: 'ErrorMessage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      errorCode: 'string',
-      errorMessage: 'string',
     };
   }
 
@@ -955,21 +883,15 @@ export class UpdateAppTemplateConfigShrinkRequest extends $tea.Model {
 
 export class UpdateAppTemplateConfigResponseBody extends $tea.Model {
   requestId?: string;
-  errorCode?: string;
-  errorMessage?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      errorCode: 'ErrorCode',
-      errorMessage: 'ErrorMessage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      errorCode: 'string',
-      errorMessage: 'string',
     };
   }
 
@@ -1030,21 +952,15 @@ export class StopLiveRequest extends $tea.Model {
 
 export class StopLiveResponseBody extends $tea.Model {
   requestId?: string;
-  errorCode?: string;
-  errorMessage?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      errorCode: 'ErrorCode',
-      errorMessage: 'ErrorMessage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      errorCode: 'string',
-      errorMessage: 'string',
     };
   }
 
@@ -1096,14 +1012,10 @@ export class GetAppRequest extends $tea.Model {
 
 export class GetAppResponseBody extends $tea.Model {
   requestId?: string;
-  errorCode?: string;
-  errorMessage?: string;
   result?: GetAppResponseBodyResult;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      errorCode: 'ErrorCode',
-      errorMessage: 'ErrorMessage',
       result: 'Result',
     };
   }
@@ -1111,8 +1023,6 @@ export class GetAppResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      errorCode: 'string',
-      errorMessage: 'string',
       result: GetAppResponseBodyResult,
     };
   }
@@ -1165,21 +1075,15 @@ export class DeleteLiveRequest extends $tea.Model {
 
 export class DeleteLiveResponseBody extends $tea.Model {
   requestId?: string;
-  errorCode?: string;
-  errorMessage?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      errorCode: 'ErrorCode',
-      errorMessage: 'ErrorMessage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      errorCode: 'string',
-      errorMessage: 'string',
     };
   }
 
@@ -1256,14 +1160,10 @@ export class GetLiveDomainStatusShrinkRequest extends $tea.Model {
 
 export class GetLiveDomainStatusResponseBody extends $tea.Model {
   requestId?: string;
-  errorCode?: string;
-  errorMessage?: string;
   result?: GetLiveDomainStatusResponseBodyResult;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      errorCode: 'ErrorCode',
-      errorMessage: 'ErrorMessage',
       result: 'Result',
     };
   }
@@ -1271,8 +1171,6 @@ export class GetLiveDomainStatusResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      errorCode: 'string',
-      errorMessage: 'string',
       result: GetLiveDomainStatusResponseBodyResult,
     };
   }
@@ -1335,14 +1233,10 @@ export class GetAuthTokenRequest extends $tea.Model {
 export class GetAuthTokenResponseBody extends $tea.Model {
   requestId?: string;
   result?: GetAuthTokenResponseBodyResult;
-  errorCode?: string;
-  errorMessage?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
       result: 'Result',
-      errorCode: 'ErrorCode',
-      errorMessage: 'ErrorMessage',
     };
   }
 
@@ -1350,8 +1244,6 @@ export class GetAuthTokenResponseBody extends $tea.Model {
     return {
       requestId: 'string',
       result: GetAuthTokenResponseBodyResult,
-      errorCode: 'string',
-      errorMessage: 'string',
     };
   }
 
@@ -1406,21 +1298,15 @@ export class UpdateAppTemplateRequest extends $tea.Model {
 
 export class UpdateAppTemplateResponseBody extends $tea.Model {
   requestId?: string;
-  errorCode?: string;
-  errorMessage?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      errorCode: 'ErrorCode',
-      errorMessage: 'ErrorMessage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      errorCode: 'string',
-      errorMessage: 'string',
     };
   }
 
@@ -1453,14 +1339,10 @@ export class UpdateAppTemplateResponse extends $tea.Model {
 
 export class GetImpProductStatusResponseBody extends $tea.Model {
   requestId?: string;
-  errorCode?: string;
-  errorMessage?: string;
   result?: boolean;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      errorCode: 'ErrorCode',
-      errorMessage: 'ErrorMessage',
       result: 'Result',
     };
   }
@@ -1468,8 +1350,6 @@ export class GetImpProductStatusResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      errorCode: 'string',
-      errorMessage: 'string',
       result: 'boolean',
     };
   }
@@ -1526,14 +1406,10 @@ export class PublishLiveRequest extends $tea.Model {
 export class PublishLiveResponseBody extends $tea.Model {
   requestId?: string;
   result?: PublishLiveResponseBodyResult;
-  errorCode?: string;
-  errorMessage?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
       result: 'Result',
-      errorCode: 'ErrorCode',
-      errorMessage: 'ErrorMessage',
     };
   }
 
@@ -1541,8 +1417,6 @@ export class PublishLiveResponseBody extends $tea.Model {
     return {
       requestId: 'string',
       result: PublishLiveResponseBodyResult,
-      errorCode: 'string',
-      errorMessage: 'string',
     };
   }
 
@@ -1595,14 +1469,10 @@ export class GetLiveRequest extends $tea.Model {
 export class GetLiveResponseBody extends $tea.Model {
   requestId?: string;
   result?: GetLiveResponseBodyResult;
-  errorCode?: string;
-  errorMessage?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
       result: 'Result',
-      errorCode: 'ErrorCode',
-      errorMessage: 'ErrorMessage',
     };
   }
 
@@ -1610,8 +1480,6 @@ export class GetLiveResponseBody extends $tea.Model {
     return {
       requestId: 'string',
       result: GetLiveResponseBodyResult,
-      errorCode: 'string',
-      errorMessage: 'string',
     };
   }
 
@@ -1666,21 +1534,15 @@ export class DeleteRoomRequest extends $tea.Model {
 
 export class DeleteRoomResponseBody extends $tea.Model {
   requestId?: string;
-  errorCode?: string;
-  errorMessage?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      errorCode: 'ErrorCode',
-      errorMessage: 'ErrorMessage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      errorCode: 'string',
-      errorMessage: 'string',
     };
   }
 
@@ -1735,14 +1597,10 @@ export class CreateAppRequest extends $tea.Model {
 
 export class CreateAppResponseBody extends $tea.Model {
   requestId?: string;
-  errorCode?: string;
-  errorMessage?: string;
   result?: CreateAppResponseBodyResult;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      errorCode: 'ErrorCode',
-      errorMessage: 'ErrorMessage',
       result: 'Result',
     };
   }
@@ -1750,8 +1608,6 @@ export class CreateAppResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      errorCode: 'string',
-      errorMessage: 'string',
       result: CreateAppResponseBodyResult,
     };
   }
@@ -1823,14 +1679,10 @@ export class CreateRoomRequest extends $tea.Model {
 export class CreateRoomResponseBody extends $tea.Model {
   requestId?: string;
   result?: CreateRoomResponseBodyResult;
-  errorCode?: string;
-  errorMessage?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
       result: 'Result',
-      errorCode: 'ErrorCode',
-      errorMessage: 'ErrorMessage',
     };
   }
 
@@ -1838,8 +1690,6 @@ export class CreateRoomResponseBody extends $tea.Model {
     return {
       requestId: 'string',
       result: CreateRoomResponseBodyResult,
-      errorCode: 'string',
-      errorMessage: 'string',
     };
   }
 
@@ -1897,21 +1747,15 @@ export class UpdateAppRequest extends $tea.Model {
 
 export class UpdateAppResponseBody extends $tea.Model {
   requestId?: string;
-  errorCode?: string;
-  errorMessage?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      errorCode: 'ErrorCode',
-      errorMessage: 'ErrorMessage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      errorCode: 'string',
-      errorMessage: 'string',
     };
   }
 
