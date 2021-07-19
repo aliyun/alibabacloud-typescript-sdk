@@ -2556,12 +2556,109 @@ export class ScreenChestCTResponseBodyDataDetectRibFracture extends $tea.Model {
   }
 }
 
+export class ScreenChestCTResponseBodyDataAnalyzeChestVesselAortaInfo extends $tea.Model {
+  maxAreaIndex?: number;
+  maxArea?: number;
+  maxDiameter?: number;
+  labelValue?: number;
+  coordinates?: number[][];
+  area?: number[];
+  static names(): { [key: string]: string } {
+    return {
+      maxAreaIndex: 'MaxAreaIndex',
+      maxArea: 'MaxArea',
+      maxDiameter: 'MaxDiameter',
+      labelValue: 'LabelValue',
+      coordinates: 'Coordinates',
+      area: 'Area',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxAreaIndex: 'number',
+      maxArea: 'number',
+      maxDiameter: 'number',
+      labelValue: 'number',
+      coordinates: { 'type': 'array', 'itemType': { 'type': 'array', 'itemType': 'number' } },
+      area: { 'type': 'array', 'itemType': 'number' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScreenChestCTResponseBodyDataAnalyzeChestVesselPulmonaryInfo extends $tea.Model {
+  maxAreaIndex?: number;
+  maxArea?: number;
+  maxDiameter?: number;
+  labelValue?: number;
+  coordinates?: number[][];
+  area?: number[];
+  nearestAortaArea?: number;
+  static names(): { [key: string]: string } {
+    return {
+      maxAreaIndex: 'MaxAreaIndex',
+      maxArea: 'MaxArea',
+      maxDiameter: 'MaxDiameter',
+      labelValue: 'LabelValue',
+      coordinates: 'Coordinates',
+      area: 'Area',
+      nearestAortaArea: 'NearestAortaArea',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxAreaIndex: 'number',
+      maxArea: 'number',
+      maxDiameter: 'number',
+      labelValue: 'number',
+      coordinates: { 'type': 'array', 'itemType': { 'type': 'array', 'itemType': 'number' } },
+      area: { 'type': 'array', 'itemType': 'number' },
+      nearestAortaArea: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScreenChestCTResponseBodyDataAnalyzeChestVessel extends $tea.Model {
+  aortaInfo?: ScreenChestCTResponseBodyDataAnalyzeChestVesselAortaInfo;
+  pulmonaryInfo?: ScreenChestCTResponseBodyDataAnalyzeChestVesselPulmonaryInfo;
+  resultURL?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aortaInfo: 'AortaInfo',
+      pulmonaryInfo: 'PulmonaryInfo',
+      resultURL: 'ResultURL',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aortaInfo: ScreenChestCTResponseBodyDataAnalyzeChestVesselAortaInfo,
+      pulmonaryInfo: ScreenChestCTResponseBodyDataAnalyzeChestVesselPulmonaryInfo,
+      resultURL: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ScreenChestCTResponseBodyData extends $tea.Model {
   lungNodule?: ScreenChestCTResponseBodyDataLungNodule;
   CACS?: ScreenChestCTResponseBodyDataCACS;
   covid?: ScreenChestCTResponseBodyDataCovid;
   detectRibFracture?: ScreenChestCTResponseBodyDataDetectRibFracture;
   errorMessage?: string;
+  analyzeChestVessel?: ScreenChestCTResponseBodyDataAnalyzeChestVessel;
   static names(): { [key: string]: string } {
     return {
       lungNodule: 'LungNodule',
@@ -2569,6 +2666,7 @@ export class ScreenChestCTResponseBodyData extends $tea.Model {
       covid: 'Covid',
       detectRibFracture: 'DetectRibFracture',
       errorMessage: 'ErrorMessage',
+      analyzeChestVessel: 'AnalyzeChestVessel',
     };
   }
 
@@ -2579,6 +2677,7 @@ export class ScreenChestCTResponseBodyData extends $tea.Model {
       covid: ScreenChestCTResponseBodyDataCovid,
       detectRibFracture: ScreenChestCTResponseBodyDataDetectRibFracture,
       errorMessage: 'string',
+      analyzeChestVessel: ScreenChestCTResponseBodyDataAnalyzeChestVessel,
     };
   }
 
