@@ -2765,16 +2765,16 @@ export class GetSceneBuildTaskStatusResponse extends $tea.Model {
 }
 
 export class TempPreviewRequest extends $tea.Model {
-  id?: string;
+  sceneId?: string;
   static names(): { [key: string]: string } {
     return {
-      id: 'Id',
+      sceneId: 'SceneId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      id: 'string',
+      sceneId: 'string',
     };
   }
 
