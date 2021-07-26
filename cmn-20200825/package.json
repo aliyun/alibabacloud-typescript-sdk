@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/cmn20200825",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "",
   "main": "dist/client.js",
   "scripts": {
@@ -22,7 +22,7 @@
     "@alicloud/tea-typescript": "latest",
     "@alicloud/tea-util": "^1.4.0",
     "@alicloud/openapi-client": "^0.3.0",
-    "@alicloud/openapi-util": "^0.2.1",
+    "@alicloud/openapi-util": "^0.2.2",
     "@alicloud/endpoint-util": "^0.0.1"
   },
   "files": [
