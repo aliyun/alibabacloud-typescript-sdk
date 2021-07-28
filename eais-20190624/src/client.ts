@@ -34,21 +34,21 @@ export class AttachEaiRequest extends $tea.Model {
 
 export class AttachEaiResponseBody extends $tea.Model {
   requestId?: string;
-  clientInstanceId?: string;
   elasticAcceleratedInstanceId?: string;
+  clientInstanceId?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      clientInstanceId: 'ClientInstanceId',
       elasticAcceleratedInstanceId: 'ElasticAcceleratedInstanceId',
+      clientInstanceId: 'ClientInstanceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      clientInstanceId: 'string',
       elasticAcceleratedInstanceId: 'string',
+      clientInstanceId: 'string',
     };
   }
 
@@ -114,19 +114,19 @@ export class CreateEaiRequest extends $tea.Model {
 }
 
 export class CreateEaiResponseBody extends $tea.Model {
-  requestId?: string;
   elasticAcceleratedInstanceId?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       elasticAcceleratedInstanceId: 'ElasticAcceleratedInstanceId',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       elasticAcceleratedInstanceId: 'string',
+      requestId: 'string',
     };
   }
 
@@ -220,21 +220,21 @@ export class CreateEaiAllRequest extends $tea.Model {
 
 export class CreateEaiAllResponseBody extends $tea.Model {
   requestId?: string;
-  clientInstanceId?: string;
   elasticAcceleratedInstanceId?: string;
+  clientInstanceId?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      clientInstanceId: 'ClientInstanceId',
       elasticAcceleratedInstanceId: 'ElasticAcceleratedInstanceId',
+      clientInstanceId: 'ClientInstanceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      clientInstanceId: 'string',
       elasticAcceleratedInstanceId: 'string',
+      clientInstanceId: 'string',
     };
   }
 
@@ -429,28 +429,28 @@ export class DescribeEaisRequest extends $tea.Model {
 }
 
 export class DescribeEaisResponseBody extends $tea.Model {
-  instances?: DescribeEaisResponseBodyInstances;
-  totalCount?: number;
   requestId?: string;
-  pageSize?: number;
   pageNumber?: number;
+  pageSize?: number;
+  totalCount?: number;
+  instances?: DescribeEaisResponseBodyInstances;
   static names(): { [key: string]: string } {
     return {
-      instances: 'Instances',
-      totalCount: 'TotalCount',
       requestId: 'RequestId',
-      pageSize: 'PageSize',
       pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+      instances: 'Instances',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      instances: DescribeEaisResponseBodyInstances,
-      totalCount: 'number',
       requestId: 'string',
-      pageSize: 'number',
       pageNumber: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
+      instances: DescribeEaisResponseBodyInstances,
     };
   }
 
@@ -655,19 +655,19 @@ export class GetPrivateIpResponse extends $tea.Model {
 }
 
 export class DescribeEaisResponseBodyInstancesInstanceTagsTag extends $tea.Model {
-  tagValue?: string;
   tagKey?: string;
+  tagValue?: string;
   static names(): { [key: string]: string } {
     return {
-      tagValue: 'TagValue',
       tagKey: 'TagKey',
+      tagValue: 'TagValue',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      tagValue: 'string',
       tagKey: 'string',
+      tagValue: 'string',
     };
   }
 
@@ -698,30 +698,30 @@ export class DescribeEaisResponseBodyInstancesInstanceTags extends $tea.Model {
 export class DescribeEaisResponseBodyInstancesInstance extends $tea.Model {
   status?: string;
   creationTime?: string;
-  clientInstanceType?: string;
-  clientInstanceId?: string;
-  tags?: DescribeEaisResponseBodyInstancesInstanceTags;
-  instanceType?: string;
-  regionId?: string;
   clientInstanceName?: string;
   description?: string;
   elasticAcceleratedInstanceId?: string;
   instanceName?: string;
+  clientInstanceType?: string;
+  clientInstanceId?: string;
   zoneId?: string;
+  instanceType?: string;
+  regionId?: string;
+  tags?: DescribeEaisResponseBodyInstancesInstanceTags;
   static names(): { [key: string]: string } {
     return {
       status: 'Status',
       creationTime: 'CreationTime',
-      clientInstanceType: 'ClientInstanceType',
-      clientInstanceId: 'ClientInstanceId',
-      tags: 'Tags',
-      instanceType: 'InstanceType',
-      regionId: 'RegionId',
       clientInstanceName: 'ClientInstanceName',
       description: 'Description',
       elasticAcceleratedInstanceId: 'ElasticAcceleratedInstanceId',
       instanceName: 'InstanceName',
+      clientInstanceType: 'ClientInstanceType',
+      clientInstanceId: 'ClientInstanceId',
       zoneId: 'ZoneId',
+      instanceType: 'InstanceType',
+      regionId: 'RegionId',
+      tags: 'Tags',
     };
   }
 
@@ -729,16 +729,16 @@ export class DescribeEaisResponseBodyInstancesInstance extends $tea.Model {
     return {
       status: 'string',
       creationTime: 'string',
-      clientInstanceType: 'string',
-      clientInstanceId: 'string',
-      tags: DescribeEaisResponseBodyInstancesInstanceTags,
-      instanceType: 'string',
-      regionId: 'string',
       clientInstanceName: 'string',
       description: 'string',
       elasticAcceleratedInstanceId: 'string',
       instanceName: 'string',
+      clientInstanceType: 'string',
+      clientInstanceId: 'string',
       zoneId: 'string',
+      instanceType: 'string',
+      regionId: 'string',
+      tags: DescribeEaisResponseBodyInstancesInstanceTags,
     };
   }
 
@@ -767,21 +767,21 @@ export class DescribeEaisResponseBodyInstances extends $tea.Model {
 }
 
 export class DescribeRegionsResponseBodyRegionsRegion extends $tea.Model {
-  localName?: string;
   regionEndpoint?: string;
+  localName?: string;
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      localName: 'LocalName',
       regionEndpoint: 'RegionEndpoint',
+      localName: 'LocalName',
       regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      localName: 'string',
       regionEndpoint: 'string',
+      localName: 'string',
       regionId: 'string',
     };
   }
