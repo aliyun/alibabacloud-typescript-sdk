@@ -4,6 +4,7 @@
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
+import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
@@ -1562,6 +1563,7 @@ export class CreateDBInstanceRequest extends $tea.Model {
   storageUpperBound?: number;
   dryRun?: boolean;
   userBackupId?: string;
+  tag?: CreateDBInstanceRequestTag[];
   static names(): { [key: string]: string } {
     return {
       resourceOwnerId: 'ResourceOwnerId',
@@ -1606,6 +1608,7 @@ export class CreateDBInstanceRequest extends $tea.Model {
       storageUpperBound: 'StorageUpperBound',
       dryRun: 'DryRun',
       userBackupId: 'UserBackupId',
+      tag: 'Tag',
     };
   }
 
@@ -1653,6 +1656,7 @@ export class CreateDBInstanceRequest extends $tea.Model {
       storageUpperBound: 'number',
       dryRun: 'boolean',
       userBackupId: 'string',
+      tag: { 'type': 'array', 'itemType': CreateDBInstanceRequestTag },
     };
   }
 
@@ -1663,6 +1667,7 @@ export class CreateDBInstanceRequest extends $tea.Model {
 
 export class CreateDBInstanceResponseBody extends $tea.Model {
   dryRunResult?: boolean;
+  tagResult?: boolean;
   requestId?: string;
   connectionString?: string;
   DBInstanceId?: string;
@@ -1672,6 +1677,7 @@ export class CreateDBInstanceResponseBody extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       dryRunResult: 'DryRunResult',
+      tagResult: 'TagResult',
       requestId: 'RequestId',
       connectionString: 'ConnectionString',
       DBInstanceId: 'DBInstanceId',
@@ -1684,6 +1690,7 @@ export class CreateDBInstanceResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       dryRunResult: 'boolean',
+      tagResult: 'boolean',
       requestId: 'string',
       connectionString: 'string',
       DBInstanceId: 'string',
@@ -7405,6 +7412,102 @@ export class DescribeDBInstanceSSLResponse extends $tea.Model {
   }
 }
 
+export class DescribeDBInstanceStatusRequest extends $tea.Model {
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  clientToken?: string;
+  DBInstanceId?: string;
+  addressIP?: string;
+  addressPort?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      clientToken: 'ClientToken',
+      DBInstanceId: 'DBInstanceId',
+      addressIP: 'AddressIP',
+      addressPort: 'AddressPort',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      clientToken: 'string',
+      DBInstanceId: 'string',
+      addressIP: 'string',
+      addressPort: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBInstanceStatusResponseBody extends $tea.Model {
+  DBInstanceName?: string;
+  requestId?: string;
+  DBInstanceCpuCores?: string;
+  taskStatus?: number;
+  DBInstanceId?: number;
+  DBInstanceStatus?: number;
+  DBInstanceUseType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceName: 'DBInstanceName',
+      requestId: 'RequestId',
+      DBInstanceCpuCores: 'DBInstanceCpuCores',
+      taskStatus: 'TaskStatus',
+      DBInstanceId: 'DBInstanceId',
+      DBInstanceStatus: 'DBInstanceStatus',
+      DBInstanceUseType: 'DBInstanceUseType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceName: 'string',
+      requestId: 'string',
+      DBInstanceCpuCores: 'string',
+      taskStatus: 'number',
+      DBInstanceId: 'number',
+      DBInstanceStatus: 'number',
+      DBInstanceUseType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBInstanceStatusResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeDBInstanceStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeDBInstanceStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDBInstanceTDERequest extends $tea.Model {
   ownerId?: number;
   resourceOwnerAccount?: string;
@@ -10565,6 +10668,90 @@ export class DescribeReadDBInstanceDelayResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: DescribeReadDBInstanceDelayResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRegionInfosRequest extends $tea.Model {
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  clientToken?: string;
+  regionId?: string;
+  instanceUsedType?: string;
+  specifyCount?: string;
+  hostType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      clientToken: 'ClientToken',
+      regionId: 'RegionId',
+      instanceUsedType: 'InstanceUsedType',
+      specifyCount: 'SpecifyCount',
+      hostType: 'HostType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      clientToken: 'string',
+      regionId: 'string',
+      instanceUsedType: 'string',
+      specifyCount: 'string',
+      hostType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRegionInfosResponseBody extends $tea.Model {
+  requestId?: string;
+  regions?: DescribeRegionInfosResponseBodyRegions;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      regions: 'Regions',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      regions: DescribeRegionInfosResponseBodyRegions,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRegionInfosResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeRegionInfosResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeRegionInfosResponseBody,
     };
   }
 
@@ -19438,6 +19625,28 @@ export class CalculateDBInstanceWeightResponseBodyItems extends $tea.Model {
   }
 }
 
+export class CreateDBInstanceRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateDedicatedHostResponseBodyDedicateHostListDedicateHostList extends $tea.Model {
   dedicatedHostId?: string;
   static names(): { [key: string]: string } {
@@ -20183,6 +20392,50 @@ export class DescribeAvailableZonesResponseBodyAvailableZones extends $tea.Model
   }
 }
 
+export class DescribeBackupsResponseBodyItemsBackupBackupDownloadLinkByDBBackupDownloadLinkByDB extends $tea.Model {
+  intranetDownloadLink?: string;
+  dataBase?: string;
+  downloadLink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      intranetDownloadLink: 'IntranetDownloadLink',
+      dataBase: 'DataBase',
+      downloadLink: 'DownloadLink',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      intranetDownloadLink: 'string',
+      dataBase: 'string',
+      downloadLink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeBackupsResponseBodyItemsBackupBackupDownloadLinkByDB extends $tea.Model {
+  backupDownloadLinkByDB?: DescribeBackupsResponseBodyItemsBackupBackupDownloadLinkByDBBackupDownloadLinkByDB[];
+  static names(): { [key: string]: string } {
+    return {
+      backupDownloadLinkByDB: 'BackupDownloadLinkByDB',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      backupDownloadLinkByDB: { 'type': 'array', 'itemType': DescribeBackupsResponseBodyItemsBackupBackupDownloadLinkByDBBackupDownloadLinkByDB },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeBackupsResponseBodyItemsBackup extends $tea.Model {
   storageClass?: string;
   encryption?: string;
@@ -20204,6 +20457,7 @@ export class DescribeBackupsResponseBodyItemsBackup extends $tea.Model {
   backupSize?: number;
   backupMode?: string;
   DBInstanceId?: string;
+  backupDownloadLinkByDB?: DescribeBackupsResponseBodyItemsBackupBackupDownloadLinkByDB;
   static names(): { [key: string]: string } {
     return {
       storageClass: 'StorageClass',
@@ -20226,6 +20480,7 @@ export class DescribeBackupsResponseBodyItemsBackup extends $tea.Model {
       backupSize: 'BackupSize',
       backupMode: 'BackupMode',
       DBInstanceId: 'DBInstanceId',
+      backupDownloadLinkByDB: 'BackupDownloadLinkByDB',
     };
   }
 
@@ -20251,6 +20506,7 @@ export class DescribeBackupsResponseBodyItemsBackup extends $tea.Model {
       backupSize: 'number',
       backupMode: 'string',
       DBInstanceId: 'string',
+      backupDownloadLinkByDB: DescribeBackupsResponseBodyItemsBackupBackupDownloadLinkByDB,
     };
   }
 
@@ -24178,6 +24434,65 @@ export class DescribeReadDBInstanceDelayResponseBodyItems extends $tea.Model {
   }
 }
 
+export class DescribeRegionInfosResponseBodyRegionsRDSRegion extends $tea.Model {
+  cnLocalName?: string;
+  regionName?: string;
+  avz?: string;
+  avzStatus?: string;
+  regionEndpoint?: string;
+  category?: string;
+  enLocalName?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cnLocalName: 'CnLocalName',
+      regionName: 'RegionName',
+      avz: 'Avz',
+      avzStatus: 'AvzStatus',
+      regionEndpoint: 'RegionEndpoint',
+      category: 'Category',
+      enLocalName: 'EnLocalName',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cnLocalName: 'string',
+      regionName: 'string',
+      avz: 'string',
+      avzStatus: 'string',
+      regionEndpoint: 'string',
+      category: 'string',
+      enLocalName: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRegionInfosResponseBodyRegions extends $tea.Model {
+  RDSRegion?: DescribeRegionInfosResponseBodyRegionsRDSRegion[];
+  static names(): { [key: string]: string } {
+    return {
+      RDSRegion: 'RDSRegion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      RDSRegion: { 'type': 'array', 'itemType': DescribeRegionInfosResponseBodyRegionsRDSRegion },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeRegionsResponseBodyRegionsRDSRegion extends $tea.Model {
   zoneId?: string;
   regionEndpoint?: string;
@@ -25602,10 +25917,32 @@ export default class Client extends OpenApi {
 
   async addTagsToResourceWithOptions(request: AddTagsToResourceRequest, runtime: $Util.RuntimeOptions): Promise<AddTagsToResourceResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["ClientToken"] = request.clientToken;
+    query["proxyId"] = request.proxyId;
+    query["RegionId"] = request.regionId;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["Tags"] = request.tags;
+    query["OwnerAccount"] = request.ownerAccount;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<AddTagsToResourceResponse>(await this.doRPCRequest("AddTagsToResource", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new AddTagsToResourceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "AddTagsToResource",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<AddTagsToResourceResponse>(await this.callApi(params, req, runtime), new AddTagsToResourceResponse({}));
   }
 
   async addTagsToResource(request: AddTagsToResourceRequest): Promise<AddTagsToResourceResponse> {
@@ -25615,10 +25952,30 @@ export default class Client extends OpenApi {
 
   async allocateInstancePublicConnectionWithOptions(request: AllocateInstancePublicConnectionRequest, runtime: $Util.RuntimeOptions): Promise<AllocateInstancePublicConnectionResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["ConnectionStringPrefix"] = request.connectionStringPrefix;
+    query["Port"] = request.port;
+    query["OwnerAccount"] = request.ownerAccount;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<AllocateInstancePublicConnectionResponse>(await this.doRPCRequest("AllocateInstancePublicConnection", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new AllocateInstancePublicConnectionResponse({}));
+    let params = new $OpenApi.Params({
+      action: "AllocateInstancePublicConnection",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<AllocateInstancePublicConnectionResponse>(await this.callApi(params, req, runtime), new AllocateInstancePublicConnectionResponse({}));
   }
 
   async allocateInstancePublicConnection(request: AllocateInstancePublicConnectionRequest): Promise<AllocateInstancePublicConnectionResponse> {
@@ -25628,10 +25985,34 @@ export default class Client extends OpenApi {
 
   async allocateReadWriteSplittingConnectionWithOptions(request: AllocateReadWriteSplittingConnectionRequest, runtime: $Util.RuntimeOptions): Promise<AllocateReadWriteSplittingConnectionResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["OwnerAccount"] = request.ownerAccount;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["ConnectionStringPrefix"] = request.connectionStringPrefix;
+    query["Port"] = request.port;
+    query["MaxDelayTime"] = request.maxDelayTime;
+    query["NetType"] = request.netType;
+    query["DistributionType"] = request.distributionType;
+    query["Weight"] = request.weight;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<AllocateReadWriteSplittingConnectionResponse>(await this.doRPCRequest("AllocateReadWriteSplittingConnection", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new AllocateReadWriteSplittingConnectionResponse({}));
+    let params = new $OpenApi.Params({
+      action: "AllocateReadWriteSplittingConnection",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<AllocateReadWriteSplittingConnectionResponse>(await this.callApi(params, req, runtime), new AllocateReadWriteSplittingConnectionResponse({}));
   }
 
   async allocateReadWriteSplittingConnection(request: AllocateReadWriteSplittingConnectionRequest): Promise<AllocateReadWriteSplittingConnectionResponse> {
@@ -25641,10 +26022,25 @@ export default class Client extends OpenApi {
 
   async calculateDBInstanceWeightWithOptions(request: CalculateDBInstanceWeightRequest, runtime: $Util.RuntimeOptions): Promise<CalculateDBInstanceWeightResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["DBInstanceId"] = request.DBInstanceId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<CalculateDBInstanceWeightResponse>(await this.doRPCRequest("CalculateDBInstanceWeight", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new CalculateDBInstanceWeightResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CalculateDBInstanceWeight",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CalculateDBInstanceWeightResponse>(await this.callApi(params, req, runtime), new CalculateDBInstanceWeightResponse({}));
   }
 
   async calculateDBInstanceWeight(request: CalculateDBInstanceWeightRequest): Promise<CalculateDBInstanceWeightResponse> {
@@ -25654,10 +26050,29 @@ export default class Client extends OpenApi {
 
   async cancelImportWithOptions(request: CancelImportRequest, runtime: $Util.RuntimeOptions): Promise<CancelImportResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["ImportId"] = request.importId;
+    query["OwnerAccount"] = request.ownerAccount;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<CancelImportResponse>(await this.doRPCRequest("CancelImport", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new CancelImportResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CancelImport",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CancelImportResponse>(await this.callApi(params, req, runtime), new CancelImportResponse({}));
   }
 
   async cancelImport(request: CancelImportRequest): Promise<CancelImportResponse> {
@@ -25667,10 +26082,30 @@ export default class Client extends OpenApi {
 
   async checkAccountNameAvailableWithOptions(request: CheckAccountNameAvailableRequest, runtime: $Util.RuntimeOptions): Promise<CheckAccountNameAvailableResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["ClientToken"] = request.clientToken;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["AccountName"] = request.accountName;
+    query["OwnerAccount"] = request.ownerAccount;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<CheckAccountNameAvailableResponse>(await this.doRPCRequest("CheckAccountNameAvailable", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new CheckAccountNameAvailableResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CheckAccountNameAvailable",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CheckAccountNameAvailableResponse>(await this.callApi(params, req, runtime), new CheckAccountNameAvailableResponse({}));
   }
 
   async checkAccountNameAvailable(request: CheckAccountNameAvailableRequest): Promise<CheckAccountNameAvailableResponse> {
@@ -25680,10 +26115,31 @@ export default class Client extends OpenApi {
 
   async checkCloudResourceAuthorizedWithOptions(request: CheckCloudResourceAuthorizedRequest, runtime: $Util.RuntimeOptions): Promise<CheckCloudResourceAuthorizedResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["SecurityToken"] = request.securityToken;
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["OwnerAccount"] = request.ownerAccount;
+    query["RegionId"] = request.regionId;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["TargetRegionId"] = request.targetRegionId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<CheckCloudResourceAuthorizedResponse>(await this.doRPCRequest("CheckCloudResourceAuthorized", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new CheckCloudResourceAuthorizedResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CheckCloudResourceAuthorized",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CheckCloudResourceAuthorizedResponse>(await this.callApi(params, req, runtime), new CheckCloudResourceAuthorizedResponse({}));
   }
 
   async checkCloudResourceAuthorized(request: CheckCloudResourceAuthorizedRequest): Promise<CheckCloudResourceAuthorizedResponse> {
@@ -25693,10 +26149,39 @@ export default class Client extends OpenApi {
 
   async checkCreateDdrDBInstanceWithOptions(request: CheckCreateDdrDBInstanceRequest, runtime: $Util.RuntimeOptions): Promise<CheckCreateDdrDBInstanceResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["RegionId"] = request.regionId;
+    query["Engine"] = request.engine;
+    query["EngineVersion"] = request.engineVersion;
+    query["DBInstanceClass"] = request.DBInstanceClass;
+    query["DBInstanceStorage"] = request.DBInstanceStorage;
+    query["RestoreType"] = request.restoreType;
+    query["BackupSetId"] = request.backupSetId;
+    query["RestoreTime"] = request.restoreTime;
+    query["SourceRegion"] = request.sourceRegion;
+    query["SourceDBInstanceName"] = request.sourceDBInstanceName;
+    query["BinlogName"] = request.binlogName;
+    query["BinlogPosition"] = request.binlogPosition;
+    query["BinlogRole"] = request.binlogRole;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<CheckCreateDdrDBInstanceResponse>(await this.doRPCRequest("CheckCreateDdrDBInstance", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new CheckCreateDdrDBInstanceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CheckCreateDdrDBInstance",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CheckCreateDdrDBInstanceResponse>(await this.callApi(params, req, runtime), new CheckCreateDdrDBInstanceResponse({}));
   }
 
   async checkCreateDdrDBInstance(request: CheckCreateDdrDBInstanceRequest): Promise<CheckCreateDdrDBInstanceResponse> {
@@ -25706,10 +26191,30 @@ export default class Client extends OpenApi {
 
   async checkDBNameAvailableWithOptions(request: CheckDBNameAvailableRequest, runtime: $Util.RuntimeOptions): Promise<CheckDBNameAvailableResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["ClientToken"] = request.clientToken;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["DBName"] = request.DBName;
+    query["OwnerAccount"] = request.ownerAccount;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<CheckDBNameAvailableResponse>(await this.doRPCRequest("CheckDBNameAvailable", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new CheckDBNameAvailableResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CheckDBNameAvailable",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CheckDBNameAvailableResponse>(await this.callApi(params, req, runtime), new CheckDBNameAvailableResponse({}));
   }
 
   async checkDBNameAvailable(request: CheckDBNameAvailableRequest): Promise<CheckDBNameAvailableResponse> {
@@ -25719,10 +26224,27 @@ export default class Client extends OpenApi {
 
   async checkInstanceExistWithOptions(request: CheckInstanceExistRequest, runtime: $Util.RuntimeOptions): Promise<CheckInstanceExistResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["DBInstanceId"] = request.DBInstanceId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<CheckInstanceExistResponse>(await this.doRPCRequest("CheckInstanceExist", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new CheckInstanceExistResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CheckInstanceExist",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CheckInstanceExistResponse>(await this.callApi(params, req, runtime), new CheckInstanceExistResponse({}));
   }
 
   async checkInstanceExist(request: CheckInstanceExistRequest): Promise<CheckInstanceExistResponse> {
@@ -25732,10 +26254,29 @@ export default class Client extends OpenApi {
 
   async clearDedicatedHostWithOptions(request: ClearDedicatedHostRequest, runtime: $Util.RuntimeOptions): Promise<ClearDedicatedHostResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["RegionId"] = request.regionId;
+    query["DedicatedHostId"] = request.dedicatedHostId;
+    query["FailoverMode"] = request.failoverMode;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ClearDedicatedHostResponse>(await this.doRPCRequest("ClearDedicatedHost", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new ClearDedicatedHostResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ClearDedicatedHost",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ClearDedicatedHostResponse>(await this.callApi(params, req, runtime), new ClearDedicatedHostResponse({}));
   }
 
   async clearDedicatedHost(request: ClearDedicatedHostRequest): Promise<ClearDedicatedHostResponse> {
@@ -25745,10 +26286,45 @@ export default class Client extends OpenApi {
 
   async cloneDBInstanceWithOptions(request: CloneDBInstanceRequest, runtime: $Util.RuntimeOptions): Promise<CloneDBInstanceResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["RegionId"] = request.regionId;
+    query["ZoneId"] = request.zoneId;
+    query["DBInstanceClass"] = request.DBInstanceClass;
+    query["DBInstanceStorage"] = request.DBInstanceStorage;
+    query["DbNames"] = request.dbNames;
+    query["PayType"] = request.payType;
+    query["InstanceNetworkType"] = request.instanceNetworkType;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["BackupId"] = request.backupId;
+    query["RestoreTime"] = request.restoreTime;
+    query["VPCId"] = request.VPCId;
+    query["VSwitchId"] = request.vSwitchId;
+    query["PrivateIpAddress"] = request.privateIpAddress;
+    query["UsedTime"] = request.usedTime;
+    query["Period"] = request.period;
+    query["Category"] = request.category;
+    query["DBInstanceStorageType"] = request.DBInstanceStorageType;
+    query["RestoreTable"] = request.restoreTable;
+    query["TableMeta"] = request.tableMeta;
+    query["DedicatedHostGroupId"] = request.dedicatedHostGroupId;
+    query["BackupType"] = request.backupType;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<CloneDBInstanceResponse>(await this.doRPCRequest("CloneDBInstance", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new CloneDBInstanceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CloneDBInstance",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CloneDBInstanceResponse>(await this.callApi(params, req, runtime), new CloneDBInstanceResponse({}));
   }
 
   async cloneDBInstance(request: CloneDBInstanceRequest): Promise<CloneDBInstanceResponse> {
@@ -25758,10 +26334,31 @@ export default class Client extends OpenApi {
 
   async cloneParameterGroupWithOptions(request: CloneParameterGroupRequest, runtime: $Util.RuntimeOptions): Promise<CloneParameterGroupResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["RegionId"] = request.regionId;
+    query["TargetRegionId"] = request.targetRegionId;
+    query["ParameterGroupId"] = request.parameterGroupId;
+    query["ParameterGroupName"] = request.parameterGroupName;
+    query["ParameterGroupDesc"] = request.parameterGroupDesc;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<CloneParameterGroupResponse>(await this.doRPCRequest("CloneParameterGroup", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new CloneParameterGroupResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CloneParameterGroup",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CloneParameterGroupResponse>(await this.callApi(params, req, runtime), new CloneParameterGroupResponse({}));
   }
 
   async cloneParameterGroup(request: CloneParameterGroupRequest): Promise<CloneParameterGroupResponse> {
@@ -25771,10 +26368,26 @@ export default class Client extends OpenApi {
 
   async copyDatabaseWithOptions(request: CopyDatabaseRequest, runtime: $Util.RuntimeOptions): Promise<CopyDatabaseResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<CopyDatabaseResponse>(await this.doRPCRequest("CopyDatabase", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new CopyDatabaseResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CopyDatabase",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CopyDatabaseResponse>(await this.callApi(params, req, runtime), new CopyDatabaseResponse({}));
   }
 
   async copyDatabase(request: CopyDatabaseRequest): Promise<CopyDatabaseResponse> {
@@ -25784,10 +26397,30 @@ export default class Client extends OpenApi {
 
   async copyDatabaseBetweenInstancesWithOptions(request: CopyDatabaseBetweenInstancesRequest, runtime: $Util.RuntimeOptions): Promise<CopyDatabaseBetweenInstancesResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["TargetDBInstanceId"] = request.targetDBInstanceId;
+    query["DbNames"] = request.dbNames;
+    query["BackupId"] = request.backupId;
+    query["RestoreTime"] = request.restoreTime;
+    query["SyncUserPrivilege"] = request.syncUserPrivilege;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<CopyDatabaseBetweenInstancesResponse>(await this.doRPCRequest("CopyDatabaseBetweenInstances", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new CopyDatabaseBetweenInstancesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CopyDatabaseBetweenInstances",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CopyDatabaseBetweenInstancesResponse>(await this.callApi(params, req, runtime), new CopyDatabaseBetweenInstancesResponse({}));
   }
 
   async copyDatabaseBetweenInstances(request: CopyDatabaseBetweenInstancesRequest): Promise<CopyDatabaseBetweenInstancesResponse> {
@@ -25797,10 +26430,32 @@ export default class Client extends OpenApi {
 
   async createAccountWithOptions(request: CreateAccountRequest, runtime: $Util.RuntimeOptions): Promise<CreateAccountResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["AccountName"] = request.accountName;
+    query["AccountPassword"] = request.accountPassword;
+    query["AccountDescription"] = request.accountDescription;
+    query["AccountType"] = request.accountType;
+    query["OwnerAccount"] = request.ownerAccount;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<CreateAccountResponse>(await this.doRPCRequest("CreateAccount", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new CreateAccountResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateAccount",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateAccountResponse>(await this.callApi(params, req, runtime), new CreateAccountResponse({}));
   }
 
   async createAccount(request: CreateAccountRequest): Promise<CreateAccountResponse> {
@@ -25810,10 +26465,29 @@ export default class Client extends OpenApi {
 
   async createBackupWithOptions(request: CreateBackupRequest, runtime: $Util.RuntimeOptions): Promise<CreateBackupResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["DBName"] = request.DBName;
+    query["BackupStrategy"] = request.backupStrategy;
+    query["BackupMethod"] = request.backupMethod;
+    query["BackupType"] = request.backupType;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<CreateBackupResponse>(await this.doRPCRequest("CreateBackup", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new CreateBackupResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateBackup",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateBackupResponse>(await this.callApi(params, req, runtime), new CreateBackupResponse({}));
   }
 
   async createBackup(request: CreateBackupRequest): Promise<CreateBackupResponse> {
@@ -25823,10 +26497,31 @@ export default class Client extends OpenApi {
 
   async createDatabaseWithOptions(request: CreateDatabaseRequest, runtime: $Util.RuntimeOptions): Promise<CreateDatabaseResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["DBName"] = request.DBName;
+    query["CharacterSetName"] = request.characterSetName;
+    query["DBDescription"] = request.DBDescription;
+    query["OwnerAccount"] = request.ownerAccount;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<CreateDatabaseResponse>(await this.doRPCRequest("CreateDatabase", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new CreateDatabaseResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateDatabase",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateDatabaseResponse>(await this.callApi(params, req, runtime), new CreateDatabaseResponse({}));
   }
 
   async createDatabase(request: CreateDatabaseRequest): Promise<CreateDatabaseResponse> {
@@ -25836,10 +26531,66 @@ export default class Client extends OpenApi {
 
   async createDBInstanceWithOptions(request: CreateDBInstanceRequest, runtime: $Util.RuntimeOptions): Promise<CreateDBInstanceResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["RegionId"] = request.regionId;
+    query["Engine"] = request.engine;
+    query["EngineVersion"] = request.engineVersion;
+    query["DBInstanceClass"] = request.DBInstanceClass;
+    query["DBInstanceStorage"] = request.DBInstanceStorage;
+    query["SystemDBCharset"] = request.systemDBCharset;
+    query["DBInstanceNetType"] = request.DBInstanceNetType;
+    query["DBInstanceDescription"] = request.DBInstanceDescription;
+    query["SecurityIPList"] = request.securityIPList;
+    query["ClientToken"] = request.clientToken;
+    query["PayType"] = request.payType;
+    query["ZoneId"] = request.zoneId;
+    query["ZoneIdSlave1"] = request.zoneIdSlave1;
+    query["ZoneIdSlave2"] = request.zoneIdSlave2;
+    query["InstanceNetworkType"] = request.instanceNetworkType;
+    query["ConnectionMode"] = request.connectionMode;
+    query["VPCId"] = request.VPCId;
+    query["VSwitchId"] = request.vSwitchId;
+    query["PrivateIpAddress"] = request.privateIpAddress;
+    query["UsedTime"] = request.usedTime;
+    query["Period"] = request.period;
+    query["ResourceGroupId"] = request.resourceGroupId;
+    query["DBInstanceStorageType"] = request.DBInstanceStorageType;
+    query["BusinessInfo"] = request.businessInfo;
+    query["EncryptionKey"] = request.encryptionKey;
+    query["RoleARN"] = request.roleARN;
+    query["AutoRenew"] = request.autoRenew;
+    query["Category"] = request.category;
+    query["DedicatedHostGroupId"] = request.dedicatedHostGroupId;
+    query["TargetDedicatedHostIdForMaster"] = request.targetDedicatedHostIdForMaster;
+    query["TargetDedicatedHostIdForSlave"] = request.targetDedicatedHostIdForSlave;
+    query["TargetDedicatedHostIdForLog"] = request.targetDedicatedHostIdForLog;
+    query["DBParamGroupId"] = request.DBParamGroupId;
+    query["DBTimeZone"] = request.DBTimeZone;
+    query["DBIsIgnoreCase"] = request.DBIsIgnoreCase;
+    query["TargetMinorVersion"] = request.targetMinorVersion;
+    query["StorageAutoScale"] = request.storageAutoScale;
+    query["StorageThreshold"] = request.storageThreshold;
+    query["StorageUpperBound"] = request.storageUpperBound;
+    query["DryRun"] = request.dryRun;
+    query["UserBackupId"] = request.userBackupId;
+    query["Tag"] = request.tag;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<CreateDBInstanceResponse>(await this.doRPCRequest("CreateDBInstance", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new CreateDBInstanceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateDBInstance",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateDBInstanceResponse>(await this.callApi(params, req, runtime), new CreateDBInstanceResponse({}));
   }
 
   async createDBInstance(request: CreateDBInstanceRequest): Promise<CreateDBInstanceResponse> {
@@ -25849,10 +26600,32 @@ export default class Client extends OpenApi {
 
   async createDBProxyEndpointAddressWithOptions(request: CreateDBProxyEndpointAddressRequest, runtime: $Util.RuntimeOptions): Promise<CreateDBProxyEndpointAddressResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["RegionId"] = request.regionId;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["DBProxyEndpointId"] = request.DBProxyEndpointId;
+    query["ConnectionStringPrefix"] = request.connectionStringPrefix;
+    query["DBProxyNewConnectStringPort"] = request.DBProxyNewConnectStringPort;
+    query["DBProxyConnectStringNetType"] = request.DBProxyConnectStringNetType;
+    query["VPCId"] = request.VPCId;
+    query["VSwitchId"] = request.vSwitchId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<CreateDBProxyEndpointAddressResponse>(await this.doRPCRequest("CreateDBProxyEndpointAddress", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new CreateDBProxyEndpointAddressResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateDBProxyEndpointAddress",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateDBProxyEndpointAddressResponse>(await this.callApi(params, req, runtime), new CreateDBProxyEndpointAddressResponse({}));
   }
 
   async createDBProxyEndpointAddress(request: CreateDBProxyEndpointAddressRequest): Promise<CreateDBProxyEndpointAddressResponse> {
@@ -25862,10 +26635,56 @@ export default class Client extends OpenApi {
 
   async createDdrInstanceWithOptions(request: CreateDdrInstanceRequest, runtime: $Util.RuntimeOptions): Promise<CreateDdrInstanceResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["RegionId"] = request.regionId;
+    query["Engine"] = request.engine;
+    query["EngineVersion"] = request.engineVersion;
+    query["DBInstanceClass"] = request.DBInstanceClass;
+    query["DBInstanceStorage"] = request.DBInstanceStorage;
+    query["SystemDBCharset"] = request.systemDBCharset;
+    query["DBInstanceNetType"] = request.DBInstanceNetType;
+    query["DBInstanceDescription"] = request.DBInstanceDescription;
+    query["SecurityIPList"] = request.securityIPList;
+    query["ClientToken"] = request.clientToken;
+    query["PayType"] = request.payType;
+    query["ZoneId"] = request.zoneId;
+    query["InstanceNetworkType"] = request.instanceNetworkType;
+    query["ConnectionMode"] = request.connectionMode;
+    query["VPCId"] = request.VPCId;
+    query["VSwitchId"] = request.vSwitchId;
+    query["PrivateIpAddress"] = request.privateIpAddress;
+    query["OwnerAccount"] = request.ownerAccount;
+    query["UsedTime"] = request.usedTime;
+    query["Period"] = request.period;
+    query["ResourceGroupId"] = request.resourceGroupId;
+    query["RestoreType"] = request.restoreType;
+    query["BackupSetId"] = request.backupSetId;
+    query["RestoreTime"] = request.restoreTime;
+    query["SourceRegion"] = request.sourceRegion;
+    query["SourceDBInstanceName"] = request.sourceDBInstanceName;
+    query["DBInstanceStorageType"] = request.DBInstanceStorageType;
+    query["BinlogName"] = request.binlogName;
+    query["BinlogPosition"] = request.binlogPosition;
+    query["BinlogRole"] = request.binlogRole;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<CreateDdrInstanceResponse>(await this.doRPCRequest("CreateDdrInstance", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new CreateDdrInstanceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateDdrInstance",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateDdrInstanceResponse>(await this.callApi(params, req, runtime), new CreateDdrInstanceResponse({}));
   }
 
   async createDdrInstance(request: CreateDdrInstanceRequest): Promise<CreateDdrInstanceResponse> {
@@ -25875,10 +26694,37 @@ export default class Client extends OpenApi {
 
   async createDedicatedHostWithOptions(request: CreateDedicatedHostRequest, runtime: $Util.RuntimeOptions): Promise<CreateDedicatedHostResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["RegionId"] = request.regionId;
+    query["DedicatedHostGroupId"] = request.dedicatedHostGroupId;
+    query["HostName"] = request.hostName;
+    query["ZoneId"] = request.zoneId;
+    query["VSwitchId"] = request.vSwitchId;
+    query["HostClass"] = request.hostClass;
+    query["PayType"] = request.payType;
+    query["Period"] = request.period;
+    query["UsedTime"] = request.usedTime;
+    query["ClientToken"] = request.clientToken;
+    query["AutoRenew"] = request.autoRenew;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<CreateDedicatedHostResponse>(await this.doRPCRequest("CreateDedicatedHost", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new CreateDedicatedHostResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateDedicatedHost",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateDedicatedHostResponse>(await this.callApi(params, req, runtime), new CreateDedicatedHostResponse({}));
   }
 
   async createDedicatedHost(request: CreateDedicatedHostRequest): Promise<CreateDedicatedHostResponse> {
@@ -25888,10 +26734,30 @@ export default class Client extends OpenApi {
 
   async createDedicatedHostAccountWithOptions(request: CreateDedicatedHostAccountRequest, runtime: $Util.RuntimeOptions): Promise<CreateDedicatedHostAccountResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["DedicatedHostId"] = request.dedicatedHostId;
+    query["AccountName"] = request.accountName;
+    query["AccountPassword"] = request.accountPassword;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<CreateDedicatedHostAccountResponse>(await this.doRPCRequest("CreateDedicatedHostAccount", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new CreateDedicatedHostAccountResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateDedicatedHostAccount",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateDedicatedHostAccountResponse>(await this.callApi(params, req, runtime), new CreateDedicatedHostAccountResponse({}));
   }
 
   async createDedicatedHostAccount(request: CreateDedicatedHostAccountRequest): Promise<CreateDedicatedHostAccountResponse> {
@@ -25901,10 +26767,36 @@ export default class Client extends OpenApi {
 
   async createDedicatedHostGroupWithOptions(request: CreateDedicatedHostGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateDedicatedHostGroupResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["RegionId"] = request.regionId;
+    query["Engine"] = request.engine;
+    query["CpuAllocationRatio"] = request.cpuAllocationRatio;
+    query["MemAllocationRatio"] = request.memAllocationRatio;
+    query["DiskAllocationRatio"] = request.diskAllocationRatio;
+    query["AllocationPolicy"] = request.allocationPolicy;
+    query["VPCId"] = request.VPCId;
+    query["HostReplacePolicy"] = request.hostReplacePolicy;
+    query["ClientToken"] = request.clientToken;
+    query["OpenPermission"] = request.openPermission;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<CreateDedicatedHostGroupResponse>(await this.doRPCRequest("CreateDedicatedHostGroup", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new CreateDedicatedHostGroupResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateDedicatedHostGroup",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateDedicatedHostGroupResponse>(await this.callApi(params, req, runtime), new CreateDedicatedHostGroupResponse({}));
   }
 
   async createDedicatedHostGroup(request: CreateDedicatedHostGroupRequest): Promise<CreateDedicatedHostGroupResponse> {
@@ -25914,10 +26806,30 @@ export default class Client extends OpenApi {
 
   async createDedicatedHostUserWithOptions(request: CreateDedicatedHostUserRequest, runtime: $Util.RuntimeOptions): Promise<CreateDedicatedHostUserResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["DedicatedHostName"] = request.dedicatedHostName;
+    query["UserName"] = request.userName;
+    query["UserPassword"] = request.userPassword;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<CreateDedicatedHostUserResponse>(await this.doRPCRequest("CreateDedicatedHostUser", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new CreateDedicatedHostUserResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateDedicatedHostUser",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateDedicatedHostUserResponse>(await this.callApi(params, req, runtime), new CreateDedicatedHostUserResponse({}));
   }
 
   async createDedicatedHostUser(request: CreateDedicatedHostUserRequest): Promise<CreateDedicatedHostUserResponse> {
@@ -25927,10 +26839,26 @@ export default class Client extends OpenApi {
 
   async createDiagnosticReportWithOptions(request: CreateDiagnosticReportRequest, runtime: $Util.RuntimeOptions): Promise<CreateDiagnosticReportResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["StartTime"] = request.startTime;
+    query["EndTime"] = request.endTime;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<CreateDiagnosticReportResponse>(await this.doRPCRequest("CreateDiagnosticReport", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new CreateDiagnosticReportResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateDiagnosticReport",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateDiagnosticReportResponse>(await this.callApi(params, req, runtime), new CreateDiagnosticReportResponse({}));
   }
 
   async createDiagnosticReport(request: CreateDiagnosticReportRequest): Promise<CreateDiagnosticReportResponse> {
@@ -25940,10 +26868,30 @@ export default class Client extends OpenApi {
 
   async createGdnInstanceWithOptions(request: CreateGdnInstanceRequest, runtime: $Util.RuntimeOptions): Promise<CreateGdnInstanceResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["ClientToken"] = request.clientToken;
+    query["PrimaryInstanceName"] = request.primaryInstanceName;
+    query["PrimaryInstanceRegion"] = request.primaryInstanceRegion;
+    query["Description"] = request.description;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<CreateGdnInstanceResponse>(await this.doRPCRequest("CreateGdnInstance", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new CreateGdnInstanceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateGdnInstance",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateGdnInstanceResponse>(await this.callApi(params, req, runtime), new CreateGdnInstanceResponse({}));
   }
 
   async createGdnInstance(request: CreateGdnInstanceRequest): Promise<CreateGdnInstanceResponse> {
@@ -25953,10 +26901,34 @@ export default class Client extends OpenApi {
 
   async createMigrateTaskWithOptions(request: CreateMigrateTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateMigrateTaskResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["DBName"] = request.DBName;
+    query["BackupMode"] = request.backupMode;
+    query["IsOnlineDB"] = request.isOnlineDB;
+    query["CheckDBMode"] = request.checkDBMode;
+    query["OssObjectPositions"] = request.ossObjectPositions;
+    query["OSSUrls"] = request.OSSUrls;
+    query["MigrateTaskId"] = request.migrateTaskId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<CreateMigrateTaskResponse>(await this.doRPCRequest("CreateMigrateTask", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new CreateMigrateTaskResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateMigrateTask",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateMigrateTaskResponse>(await this.callApi(params, req, runtime), new CreateMigrateTaskResponse({}));
   }
 
   async createMigrateTask(request: CreateMigrateTaskRequest): Promise<CreateMigrateTaskResponse> {
@@ -25966,10 +26938,31 @@ export default class Client extends OpenApi {
 
   async createMigrateTaskForSQLServerWithOptions(request: CreateMigrateTaskForSQLServerRequest, runtime: $Util.RuntimeOptions): Promise<CreateMigrateTaskForSQLServerResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["DBName"] = request.DBName;
+    query["TaskType"] = request.taskType;
+    query["IsOnlineDB"] = request.isOnlineDB;
+    query["OSSUrls"] = request.OSSUrls;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<CreateMigrateTaskForSQLServerResponse>(await this.doRPCRequest("CreateMigrateTaskForSQLServer", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new CreateMigrateTaskForSQLServerResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateMigrateTaskForSQLServer",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateMigrateTaskForSQLServerResponse>(await this.callApi(params, req, runtime), new CreateMigrateTaskForSQLServerResponse({}));
   }
 
   async createMigrateTaskForSQLServer(request: CreateMigrateTaskForSQLServerRequest): Promise<CreateMigrateTaskForSQLServerResponse> {
@@ -25979,10 +26972,32 @@ export default class Client extends OpenApi {
 
   async createOnlineDatabaseTaskWithOptions(request: CreateOnlineDatabaseTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateOnlineDatabaseTaskResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["ClientToken"] = request.clientToken;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["DBName"] = request.DBName;
+    query["MigrateTaskId"] = request.migrateTaskId;
+    query["CheckDBMode"] = request.checkDBMode;
+    query["OwnerAccount"] = request.ownerAccount;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<CreateOnlineDatabaseTaskResponse>(await this.doRPCRequest("CreateOnlineDatabaseTask", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new CreateOnlineDatabaseTaskResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateOnlineDatabaseTask",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateOnlineDatabaseTaskResponse>(await this.callApi(params, req, runtime), new CreateOnlineDatabaseTaskResponse({}));
   }
 
   async createOnlineDatabaseTask(request: CreateOnlineDatabaseTaskRequest): Promise<CreateOnlineDatabaseTaskResponse> {
@@ -25992,10 +27007,32 @@ export default class Client extends OpenApi {
 
   async createParameterGroupWithOptions(request: CreateParameterGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateParameterGroupResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["RegionId"] = request.regionId;
+    query["ParameterGroupName"] = request.parameterGroupName;
+    query["Engine"] = request.engine;
+    query["EngineVersion"] = request.engineVersion;
+    query["Parameters"] = request.parameters;
+    query["ParameterGroupDesc"] = request.parameterGroupDesc;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<CreateParameterGroupResponse>(await this.doRPCRequest("CreateParameterGroup", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new CreateParameterGroupResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateParameterGroup",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateParameterGroupResponse>(await this.callApi(params, req, runtime), new CreateParameterGroupResponse({}));
   }
 
   async createParameterGroup(request: CreateParameterGroupRequest): Promise<CreateParameterGroupResponse> {
@@ -26005,10 +27042,52 @@ export default class Client extends OpenApi {
 
   async createReadOnlyDBInstanceWithOptions(request: CreateReadOnlyDBInstanceRequest, runtime: $Util.RuntimeOptions): Promise<CreateReadOnlyDBInstanceResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["ClientToken"] = request.clientToken;
+    query["RegionId"] = request.regionId;
+    query["ZoneId"] = request.zoneId;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["DBInstanceClass"] = request.DBInstanceClass;
+    query["DBInstanceStorage"] = request.DBInstanceStorage;
+    query["EngineVersion"] = request.engineVersion;
+    query["PayType"] = request.payType;
+    query["DBInstanceDescription"] = request.DBInstanceDescription;
+    query["InstanceNetworkType"] = request.instanceNetworkType;
+    query["VPCId"] = request.VPCId;
+    query["VSwitchId"] = request.vSwitchId;
+    query["PrivateIpAddress"] = request.privateIpAddress;
+    query["OwnerAccount"] = request.ownerAccount;
+    query["ResourceGroupId"] = request.resourceGroupId;
+    query["Category"] = request.category;
+    query["DBInstanceStorageType"] = request.DBInstanceStorageType;
+    query["DedicatedHostGroupId"] = request.dedicatedHostGroupId;
+    query["TargetDedicatedHostIdForMaster"] = request.targetDedicatedHostIdForMaster;
+    query["GdnInstanceName"] = request.gdnInstanceName;
+    query["TddlBizType"] = request.tddlBizType;
+    query["TddlRegionConfig"] = request.tddlRegionConfig;
+    query["InstructionSetArch"] = request.instructionSetArch;
+    query["UsedTime"] = request.usedTime;
+    query["Period"] = request.period;
+    query["AutoRenew"] = request.autoRenew;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<CreateReadOnlyDBInstanceResponse>(await this.doRPCRequest("CreateReadOnlyDBInstance", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new CreateReadOnlyDBInstanceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateReadOnlyDBInstance",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateReadOnlyDBInstanceResponse>(await this.callApi(params, req, runtime), new CreateReadOnlyDBInstanceResponse({}));
   }
 
   async createReadOnlyDBInstance(request: CreateReadOnlyDBInstanceRequest): Promise<CreateReadOnlyDBInstanceResponse> {
@@ -26018,10 +27097,30 @@ export default class Client extends OpenApi {
 
   async createTempDBInstanceWithOptions(request: CreateTempDBInstanceRequest, runtime: $Util.RuntimeOptions): Promise<CreateTempDBInstanceResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["BackupId"] = request.backupId;
+    query["RestoreTime"] = request.restoreTime;
+    query["OwnerAccount"] = request.ownerAccount;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<CreateTempDBInstanceResponse>(await this.doRPCRequest("CreateTempDBInstance", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new CreateTempDBInstanceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateTempDBInstance",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateTempDBInstanceResponse>(await this.callApi(params, req, runtime), new CreateTempDBInstanceResponse({}));
   }
 
   async createTempDBInstance(request: CreateTempDBInstanceRequest): Promise<CreateTempDBInstanceResponse> {
@@ -26031,10 +27130,29 @@ export default class Client extends OpenApi {
 
   async deleteAccountWithOptions(request: DeleteAccountRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAccountResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["AccountName"] = request.accountName;
+    query["OwnerAccount"] = request.ownerAccount;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DeleteAccountResponse>(await this.doRPCRequest("DeleteAccount", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteAccountResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteAccount",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteAccountResponse>(await this.callApi(params, req, runtime), new DeleteAccountResponse({}));
   }
 
   async deleteAccount(request: DeleteAccountRequest): Promise<DeleteAccountResponse> {
@@ -26044,10 +27162,29 @@ export default class Client extends OpenApi {
 
   async deleteBackupWithOptions(request: DeleteBackupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteBackupResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["BackupId"] = request.backupId;
+    query["OwnerAccount"] = request.ownerAccount;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DeleteBackupResponse>(await this.doRPCRequest("DeleteBackup", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteBackupResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteBackup",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteBackupResponse>(await this.callApi(params, req, runtime), new DeleteBackupResponse({}));
   }
 
   async deleteBackup(request: DeleteBackupRequest): Promise<DeleteBackupResponse> {
@@ -26057,10 +27194,31 @@ export default class Client extends OpenApi {
 
   async deleteBackupFileWithOptions(request: DeleteBackupFileRequest, runtime: $Util.RuntimeOptions): Promise<DeleteBackupFileResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["RegionId"] = request.regionId;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["BackupId"] = request.backupId;
+    query["DBName"] = request.DBName;
+    query["BackupTime"] = request.backupTime;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DeleteBackupFileResponse>(await this.doRPCRequest("DeleteBackupFile", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteBackupFileResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteBackupFile",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteBackupFileResponse>(await this.callApi(params, req, runtime), new DeleteBackupFileResponse({}));
   }
 
   async deleteBackupFile(request: DeleteBackupFileRequest): Promise<DeleteBackupFileResponse> {
@@ -26070,10 +27228,26 @@ export default class Client extends OpenApi {
 
   async deleteDatabaseWithOptions(request: DeleteDatabaseRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDatabaseResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["DBName"] = request.DBName;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DeleteDatabaseResponse>(await this.doRPCRequest("DeleteDatabase", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteDatabaseResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteDatabase",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteDatabaseResponse>(await this.callApi(params, req, runtime), new DeleteDatabaseResponse({}));
   }
 
   async deleteDatabase(request: DeleteDatabaseRequest): Promise<DeleteDatabaseResponse> {
@@ -26083,10 +27257,29 @@ export default class Client extends OpenApi {
 
   async deleteDBInstanceWithOptions(request: DeleteDBInstanceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDBInstanceResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["OwnerAccount"] = request.ownerAccount;
+    query["ReleasedKeepPolicy"] = request.releasedKeepPolicy;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DeleteDBInstanceResponse>(await this.doRPCRequest("DeleteDBInstance", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteDBInstanceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteDBInstance",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteDBInstanceResponse>(await this.callApi(params, req, runtime), new DeleteDBInstanceResponse({}));
   }
 
   async deleteDBInstance(request: DeleteDBInstanceRequest): Promise<DeleteDBInstanceResponse> {
@@ -26096,10 +27289,28 @@ export default class Client extends OpenApi {
 
   async deleteDBProxyEndpointAddressWithOptions(request: DeleteDBProxyEndpointAddressRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDBProxyEndpointAddressResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["RegionId"] = request.regionId;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["DBProxyEndpointId"] = request.DBProxyEndpointId;
+    query["DBProxyConnectStringNetType"] = request.DBProxyConnectStringNetType;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DeleteDBProxyEndpointAddressResponse>(await this.doRPCRequest("DeleteDBProxyEndpointAddress", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteDBProxyEndpointAddressResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteDBProxyEndpointAddress",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteDBProxyEndpointAddressResponse>(await this.callApi(params, req, runtime), new DeleteDBProxyEndpointAddressResponse({}));
   }
 
   async deleteDBProxyEndpointAddress(request: DeleteDBProxyEndpointAddressRequest): Promise<DeleteDBProxyEndpointAddressResponse> {
@@ -26109,10 +27320,29 @@ export default class Client extends OpenApi {
 
   async deleteDedicatedHostAccountWithOptions(request: DeleteDedicatedHostAccountRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDedicatedHostAccountResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["DedicatedHostId"] = request.dedicatedHostId;
+    query["AccountName"] = request.accountName;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DeleteDedicatedHostAccountResponse>(await this.doRPCRequest("DeleteDedicatedHostAccount", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteDedicatedHostAccountResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteDedicatedHostAccount",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteDedicatedHostAccountResponse>(await this.callApi(params, req, runtime), new DeleteDedicatedHostAccountResponse({}));
   }
 
   async deleteDedicatedHostAccount(request: DeleteDedicatedHostAccountRequest): Promise<DeleteDedicatedHostAccountResponse> {
@@ -26122,10 +27352,28 @@ export default class Client extends OpenApi {
 
   async deleteDedicatedHostGroupWithOptions(request: DeleteDedicatedHostGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDedicatedHostGroupResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["DedicatedHostGroupId"] = request.dedicatedHostGroupId;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DeleteDedicatedHostGroupResponse>(await this.doRPCRequest("DeleteDedicatedHostGroup", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteDedicatedHostGroupResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteDedicatedHostGroup",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteDedicatedHostGroupResponse>(await this.callApi(params, req, runtime), new DeleteDedicatedHostGroupResponse({}));
   }
 
   async deleteDedicatedHostGroup(request: DeleteDedicatedHostGroupRequest): Promise<DeleteDedicatedHostGroupResponse> {
@@ -26135,10 +27383,28 @@ export default class Client extends OpenApi {
 
   async deleteParameterGroupWithOptions(request: DeleteParameterGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteParameterGroupResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["RegionId"] = request.regionId;
+    query["ParameterGroupId"] = request.parameterGroupId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DeleteParameterGroupResponse>(await this.doRPCRequest("DeleteParameterGroup", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteParameterGroupResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteParameterGroup",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteParameterGroupResponse>(await this.callApi(params, req, runtime), new DeleteParameterGroupResponse({}));
   }
 
   async deleteParameterGroup(request: DeleteParameterGroupRequest): Promise<DeleteParameterGroupResponse> {
@@ -26148,10 +27414,28 @@ export default class Client extends OpenApi {
 
   async deleteUserBackupFileWithOptions(request: DeleteUserBackupFileRequest, runtime: $Util.RuntimeOptions): Promise<DeleteUserBackupFileResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["BackupId"] = request.backupId;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DeleteUserBackupFileResponse>(await this.doRPCRequest("DeleteUserBackupFile", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteUserBackupFileResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteUserBackupFile",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteUserBackupFileResponse>(await this.callApi(params, req, runtime), new DeleteUserBackupFileResponse({}));
   }
 
   async deleteUserBackupFile(request: DeleteUserBackupFileRequest): Promise<DeleteUserBackupFileResponse> {
@@ -26161,10 +27445,35 @@ export default class Client extends OpenApi {
 
   async descibeImportsFromDatabaseWithOptions(request: DescibeImportsFromDatabaseRequest, runtime: $Util.RuntimeOptions): Promise<DescibeImportsFromDatabaseResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["ClientToken"] = request.clientToken;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["Engine"] = request.engine;
+    query["ImportId"] = request.importId;
+    query["StartTime"] = request.startTime;
+    query["EndTime"] = request.endTime;
+    query["PageSize"] = request.pageSize;
+    query["PageNumber"] = request.pageNumber;
+    query["OwnerAccount"] = request.ownerAccount;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescibeImportsFromDatabaseResponse>(await this.doRPCRequest("DescibeImportsFromDatabase", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescibeImportsFromDatabaseResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescibeImportsFromDatabase",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescibeImportsFromDatabaseResponse>(await this.callApi(params, req, runtime), new DescibeImportsFromDatabaseResponse({}));
   }
 
   async descibeImportsFromDatabase(request: DescibeImportsFromDatabaseRequest): Promise<DescibeImportsFromDatabaseResponse> {
@@ -26174,10 +27483,29 @@ export default class Client extends OpenApi {
 
   async describeAccountsWithOptions(request: DescribeAccountsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAccountsResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["AccountName"] = request.accountName;
+    query["PageSize"] = request.pageSize;
+    query["PageNumber"] = request.pageNumber;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeAccountsResponse>(await this.doRPCRequest("DescribeAccounts", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeAccountsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeAccounts",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeAccountsResponse>(await this.callApi(params, req, runtime), new DescribeAccountsResponse({}));
   }
 
   async describeAccounts(request: DescribeAccountsRequest): Promise<DescribeAccountsResponse> {
@@ -26187,10 +27515,27 @@ export default class Client extends OpenApi {
 
   async describeActionEventPolicyWithOptions(request: DescribeActionEventPolicyRequest, runtime: $Util.RuntimeOptions): Promise<DescribeActionEventPolicyResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeActionEventPolicyResponse>(await this.doRPCRequest("DescribeActionEventPolicy", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeActionEventPolicyResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeActionEventPolicy",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeActionEventPolicyResponse>(await this.callApi(params, req, runtime), new DescribeActionEventPolicyResponse({}));
   }
 
   async describeActionEventPolicy(request: DescribeActionEventPolicyRequest): Promise<DescribeActionEventPolicyResponse> {
@@ -26200,10 +27545,34 @@ export default class Client extends OpenApi {
 
   async describeAvailableClassesWithOptions(request: DescribeAvailableClassesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAvailableClassesResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["RegionId"] = request.regionId;
+    query["ZoneId"] = request.zoneId;
+    query["InstanceChargeType"] = request.instanceChargeType;
+    query["Engine"] = request.engine;
+    query["EngineVersion"] = request.engineVersion;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["OrderType"] = request.orderType;
+    query["DBInstanceStorageType"] = request.DBInstanceStorageType;
+    query["Category"] = request.category;
+    query["CommodityCode"] = request.commodityCode;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeAvailableClassesResponse>(await this.doRPCRequest("DescribeAvailableClasses", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeAvailableClassesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeAvailableClasses",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeAvailableClassesResponse>(await this.callApi(params, req, runtime), new DescribeAvailableClassesResponse({}));
   }
 
   async describeAvailableClasses(request: DescribeAvailableClassesRequest): Promise<DescribeAvailableClassesResponse> {
@@ -26213,10 +27582,27 @@ export default class Client extends OpenApi {
 
   async describeAvailableCrossRegionWithOptions(request: DescribeAvailableCrossRegionRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAvailableCrossRegionResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeAvailableCrossRegionResponse>(await this.doRPCRequest("DescribeAvailableCrossRegion", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeAvailableCrossRegionResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeAvailableCrossRegion",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeAvailableCrossRegionResponse>(await this.callApi(params, req, runtime), new DescribeAvailableCrossRegionResponse({}));
   }
 
   async describeAvailableCrossRegion(request: DescribeAvailableCrossRegionRequest): Promise<DescribeAvailableCrossRegionResponse> {
@@ -26226,10 +27612,29 @@ export default class Client extends OpenApi {
 
   async describeAvailableDedicatedHostClassesWithOptions(request: DescribeAvailableDedicatedHostClassesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAvailableDedicatedHostClassesResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["RegionId"] = request.regionId;
+    query["ZoneId"] = request.zoneId;
+    query["StorageType"] = request.storageType;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeAvailableDedicatedHostClassesResponse>(await this.doRPCRequest("DescribeAvailableDedicatedHostClasses", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeAvailableDedicatedHostClassesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeAvailableDedicatedHostClasses",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeAvailableDedicatedHostClassesResponse>(await this.callApi(params, req, runtime), new DescribeAvailableDedicatedHostClassesResponse({}));
   }
 
   async describeAvailableDedicatedHostClasses(request: DescribeAvailableDedicatedHostClassesRequest): Promise<DescribeAvailableDedicatedHostClassesResponse> {
@@ -26239,10 +27644,27 @@ export default class Client extends OpenApi {
 
   async describeAvailableDedicatedHostZonesWithOptions(request: DescribeAvailableDedicatedHostZonesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAvailableDedicatedHostZonesResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeAvailableDedicatedHostZonesResponse>(await this.doRPCRequest("DescribeAvailableDedicatedHostZones", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeAvailableDedicatedHostZonesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeAvailableDedicatedHostZones",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeAvailableDedicatedHostZonesResponse>(await this.callApi(params, req, runtime), new DescribeAvailableDedicatedHostZonesResponse({}));
   }
 
   async describeAvailableDedicatedHostZones(request: DescribeAvailableDedicatedHostZonesRequest): Promise<DescribeAvailableDedicatedHostZonesResponse> {
@@ -26252,10 +27674,28 @@ export default class Client extends OpenApi {
 
   async describeAvailableRecoveryTimeWithOptions(request: DescribeAvailableRecoveryTimeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAvailableRecoveryTimeResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["CrossBackupId"] = request.crossBackupId;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeAvailableRecoveryTimeResponse>(await this.doRPCRequest("DescribeAvailableRecoveryTime", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeAvailableRecoveryTimeResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeAvailableRecoveryTime",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeAvailableRecoveryTimeResponse>(await this.callApi(params, req, runtime), new DescribeAvailableRecoveryTimeResponse({}));
   }
 
   async describeAvailableRecoveryTime(request: DescribeAvailableRecoveryTimeRequest): Promise<DescribeAvailableRecoveryTimeResponse> {
@@ -26265,10 +27705,34 @@ export default class Client extends OpenApi {
 
   async describeAvailableResourceWithOptions(request: DescribeAvailableResourceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAvailableResourceResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["RegionId"] = request.regionId;
+    query["ZoneId"] = request.zoneId;
+    query["InstanceChargeType"] = request.instanceChargeType;
+    query["Engine"] = request.engine;
+    query["EngineVersion"] = request.engineVersion;
+    query["DBInstanceClass"] = request.DBInstanceClass;
+    query["OrderType"] = request.orderType;
+    query["DBInstanceStorageType"] = request.DBInstanceStorageType;
+    query["Category"] = request.category;
+    query["DispenseMode"] = request.dispenseMode;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeAvailableResourceResponse>(await this.doRPCRequest("DescribeAvailableResource", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeAvailableResourceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeAvailableResource",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeAvailableResourceResponse>(await this.callApi(params, req, runtime), new DescribeAvailableResourceResponse({}));
   }
 
   async describeAvailableResource(request: DescribeAvailableResourceRequest): Promise<DescribeAvailableResourceResponse> {
@@ -26278,10 +27742,32 @@ export default class Client extends OpenApi {
 
   async describeAvailableZonesWithOptions(request: DescribeAvailableZonesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAvailableZonesResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["RegionId"] = request.regionId;
+    query["Engine"] = request.engine;
+    query["ZoneId"] = request.zoneId;
+    query["EngineVersion"] = request.engineVersion;
+    query["CommodityCode"] = request.commodityCode;
+    query["DispenseMode"] = request.dispenseMode;
+    query["DBInstanceName"] = request.DBInstanceName;
+    query["Category"] = request.category;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeAvailableZonesResponse>(await this.doRPCRequest("DescribeAvailableZones", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeAvailableZonesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeAvailableZones",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeAvailableZonesResponse>(await this.callApi(params, req, runtime), new DescribeAvailableZonesResponse({}));
   }
 
   async describeAvailableZones(request: DescribeAvailableZonesRequest): Promise<DescribeAvailableZonesResponse> {
@@ -26291,10 +27777,28 @@ export default class Client extends OpenApi {
 
   async describeBackupDatabaseWithOptions(request: DescribeBackupDatabaseRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBackupDatabaseResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["BackupId"] = request.backupId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeBackupDatabaseResponse>(await this.doRPCRequest("DescribeBackupDatabase", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeBackupDatabaseResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeBackupDatabase",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeBackupDatabaseResponse>(await this.callApi(params, req, runtime), new DescribeBackupDatabaseResponse({}));
   }
 
   async describeBackupDatabase(request: DescribeBackupDatabaseRequest): Promise<DescribeBackupDatabaseResponse> {
@@ -26304,10 +27808,31 @@ export default class Client extends OpenApi {
 
   async describeBackupPolicyWithOptions(request: DescribeBackupPolicyRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBackupPolicyResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["BackupPolicyMode"] = request.backupPolicyMode;
+    query["OwnerAccount"] = request.ownerAccount;
+    query["CompressType"] = request.compressType;
+    query["ReleasedKeepPolicy"] = request.releasedKeepPolicy;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeBackupPolicyResponse>(await this.doRPCRequest("DescribeBackupPolicy", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeBackupPolicyResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeBackupPolicy",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeBackupPolicyResponse>(await this.callApi(params, req, runtime), new DescribeBackupPolicyResponse({}));
   }
 
   async describeBackupPolicy(request: DescribeBackupPolicyRequest): Promise<DescribeBackupPolicyResponse> {
@@ -26317,10 +27842,32 @@ export default class Client extends OpenApi {
 
   async describeBackupsWithOptions(request: DescribeBackupsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBackupsResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["BackupId"] = request.backupId;
+    query["BackupStatus"] = request.backupStatus;
+    query["BackupMode"] = request.backupMode;
+    query["StartTime"] = request.startTime;
+    query["EndTime"] = request.endTime;
+    query["PageSize"] = request.pageSize;
+    query["PageNumber"] = request.pageNumber;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeBackupsResponse>(await this.doRPCRequest("DescribeBackups", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeBackupsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeBackups",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeBackupsResponse>(await this.callApi(params, req, runtime), new DescribeBackupsResponse({}));
   }
 
   async describeBackups(request: DescribeBackupsRequest): Promise<DescribeBackupsResponse> {
@@ -26330,10 +27877,33 @@ export default class Client extends OpenApi {
 
   async describeBackupTasksWithOptions(request: DescribeBackupTasksRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBackupTasksResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["ClientToken"] = request.clientToken;
+    query["Flag"] = request.flag;
+    query["OwnerAccount"] = request.ownerAccount;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["BackupJobId"] = request.backupJobId;
+    query["BackupMode"] = request.backupMode;
+    query["BackupJobStatus"] = request.backupJobStatus;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeBackupTasksResponse>(await this.doRPCRequest("DescribeBackupTasks", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeBackupTasksResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeBackupTasks",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeBackupTasksResponse>(await this.callApi(params, req, runtime), new DescribeBackupTasksResponse({}));
   }
 
   async describeBackupTasks(request: DescribeBackupTasksRequest): Promise<DescribeBackupTasksResponse> {
@@ -26343,10 +27913,32 @@ export default class Client extends OpenApi {
 
   async describeBinlogFilesWithOptions(request: DescribeBinlogFilesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBinlogFilesResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["StartTime"] = request.startTime;
+    query["EndTime"] = request.endTime;
+    query["PageSize"] = request.pageSize;
+    query["PageNumber"] = request.pageNumber;
+    query["OwnerAccount"] = request.ownerAccount;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeBinlogFilesResponse>(await this.doRPCRequest("DescribeBinlogFiles", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeBinlogFilesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeBinlogFiles",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeBinlogFilesResponse>(await this.callApi(params, req, runtime), new DescribeBinlogFilesResponse({}));
   }
 
   async describeBinlogFiles(request: DescribeBinlogFilesRequest): Promise<DescribeBinlogFilesResponse> {
@@ -26356,10 +27948,29 @@ export default class Client extends OpenApi {
 
   async describeCharacterSetNameWithOptions(request: DescribeCharacterSetNameRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCharacterSetNameResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["Engine"] = request.engine;
+    query["RegionId"] = request.regionId;
+    query["OwnerAccount"] = request.ownerAccount;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeCharacterSetNameResponse>(await this.doRPCRequest("DescribeCharacterSetName", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeCharacterSetNameResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeCharacterSetName",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeCharacterSetNameResponse>(await this.callApi(params, req, runtime), new DescribeCharacterSetNameResponse({}));
   }
 
   async describeCharacterSetName(request: DescribeCharacterSetNameRequest): Promise<DescribeCharacterSetNameResponse> {
@@ -26369,10 +27980,26 @@ export default class Client extends OpenApi {
 
   async describeCollationTimeZonesWithOptions(request: DescribeCollationTimeZonesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCollationTimeZonesResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeCollationTimeZonesResponse>(await this.doRPCRequest("DescribeCollationTimeZones", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeCollationTimeZonesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeCollationTimeZones",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeCollationTimeZonesResponse>(await this.callApi(params, req, runtime), new DescribeCollationTimeZonesResponse({}));
   }
 
   async describeCollationTimeZones(request: DescribeCollationTimeZonesRequest): Promise<DescribeCollationTimeZonesResponse> {
@@ -26382,10 +28009,32 @@ export default class Client extends OpenApi {
 
   async describeCrossBackupMetaListWithOptions(request: DescribeCrossBackupMetaListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCrossBackupMetaListResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["BackupSetId"] = request.backupSetId;
+    query["GetDbName"] = request.getDbName;
+    query["Pattern"] = request.pattern;
+    query["PageSize"] = request.pageSize;
+    query["PageIndex"] = request.pageIndex;
+    query["Region"] = request.region;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeCrossBackupMetaListResponse>(await this.doRPCRequest("DescribeCrossBackupMetaList", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeCrossBackupMetaListResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeCrossBackupMetaList",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeCrossBackupMetaListResponse>(await this.callApi(params, req, runtime), new DescribeCrossBackupMetaListResponse({}));
   }
 
   async describeCrossBackupMetaList(request: DescribeCrossBackupMetaListRequest): Promise<DescribeCrossBackupMetaListResponse> {
@@ -26395,10 +28044,30 @@ export default class Client extends OpenApi {
 
   async describeCrossRegionBackupDBInstanceWithOptions(request: DescribeCrossRegionBackupDBInstanceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCrossRegionBackupDBInstanceResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["RegionId"] = request.regionId;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["PageSize"] = request.pageSize;
+    query["PageNumber"] = request.pageNumber;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeCrossRegionBackupDBInstanceResponse>(await this.doRPCRequest("DescribeCrossRegionBackupDBInstance", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeCrossRegionBackupDBInstanceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeCrossRegionBackupDBInstance",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeCrossRegionBackupDBInstanceResponse>(await this.callApi(params, req, runtime), new DescribeCrossRegionBackupDBInstanceResponse({}));
   }
 
   async describeCrossRegionBackupDBInstance(request: DescribeCrossRegionBackupDBInstanceRequest): Promise<DescribeCrossRegionBackupDBInstanceResponse> {
@@ -26408,10 +28077,35 @@ export default class Client extends OpenApi {
 
   async describeCrossRegionBackupsWithOptions(request: DescribeCrossRegionBackupsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCrossRegionBackupsResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["RegionId"] = request.regionId;
+    query["CrossBackupRegion"] = request.crossBackupRegion;
+    query["CrossBackupId"] = request.crossBackupId;
+    query["StartTime"] = request.startTime;
+    query["EndTime"] = request.endTime;
+    query["PageSize"] = request.pageSize;
+    query["PageNumber"] = request.pageNumber;
+    query["BackupId"] = request.backupId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeCrossRegionBackupsResponse>(await this.doRPCRequest("DescribeCrossRegionBackups", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeCrossRegionBackupsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeCrossRegionBackups",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeCrossRegionBackupsResponse>(await this.callApi(params, req, runtime), new DescribeCrossRegionBackupsResponse({}));
   }
 
   async describeCrossRegionBackups(request: DescribeCrossRegionBackupsRequest): Promise<DescribeCrossRegionBackupsResponse> {
@@ -26421,10 +28115,33 @@ export default class Client extends OpenApi {
 
   async describeCrossRegionLogBackupFilesWithOptions(request: DescribeCrossRegionLogBackupFilesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCrossRegionLogBackupFilesResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["RegionId"] = request.regionId;
+    query["CrossBackupRegion"] = request.crossBackupRegion;
+    query["StartTime"] = request.startTime;
+    query["EndTime"] = request.endTime;
+    query["PageSize"] = request.pageSize;
+    query["PageNumber"] = request.pageNumber;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeCrossRegionLogBackupFilesResponse>(await this.doRPCRequest("DescribeCrossRegionLogBackupFiles", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeCrossRegionLogBackupFilesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeCrossRegionLogBackupFiles",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeCrossRegionLogBackupFilesResponse>(await this.callApi(params, req, runtime), new DescribeCrossRegionLogBackupFilesResponse({}));
   }
 
   async describeCrossRegionLogBackupFiles(request: DescribeCrossRegionLogBackupFilesRequest): Promise<DescribeCrossRegionLogBackupFilesResponse> {
@@ -26434,10 +28151,32 @@ export default class Client extends OpenApi {
 
   async describeDatabasesWithOptions(request: DescribeDatabasesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDatabasesResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["DBName"] = request.DBName;
+    query["DBStatus"] = request.DBStatus;
+    query["OwnerAccount"] = request.ownerAccount;
+    query["PageSize"] = request.pageSize;
+    query["PageNumber"] = request.pageNumber;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeDatabasesResponse>(await this.doRPCRequest("DescribeDatabases", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeDatabasesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeDatabases",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDatabasesResponse>(await this.callApi(params, req, runtime), new DescribeDatabasesResponse({}));
   }
 
   async describeDatabases(request: DescribeDatabasesRequest): Promise<DescribeDatabasesResponse> {
@@ -26447,10 +28186,26 @@ export default class Client extends OpenApi {
 
   async describeDBInstanceAttributeWithOptions(request: DescribeDBInstanceAttributeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstanceAttributeResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["Expired"] = request.expired;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeDBInstanceAttributeResponse>(await this.doRPCRequest("DescribeDBInstanceAttribute", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeDBInstanceAttributeResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeDBInstanceAttribute",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDBInstanceAttributeResponse>(await this.callApi(params, req, runtime), new DescribeDBInstanceAttributeResponse({}));
   }
 
   async describeDBInstanceAttribute(request: DescribeDBInstanceAttributeRequest): Promise<DescribeDBInstanceAttributeResponse> {
@@ -26460,10 +28215,29 @@ export default class Client extends OpenApi {
 
   async describeDBInstanceDetailWithOptions(request: DescribeDBInstanceDetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstanceDetailResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["ClientToken"] = request.clientToken;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["DBInstanceId"] = request.DBInstanceId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeDBInstanceDetailResponse>(await this.doRPCRequest("DescribeDBInstanceDetail", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeDBInstanceDetailResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeDBInstanceDetail",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDBInstanceDetailResponse>(await this.callApi(params, req, runtime), new DescribeDBInstanceDetailResponse({}));
   }
 
   async describeDBInstanceDetail(request: DescribeDBInstanceDetailRequest): Promise<DescribeDBInstanceDetailResponse> {
@@ -26473,10 +28247,32 @@ export default class Client extends OpenApi {
 
   async describeDBInstanceEncryptionKeyWithOptions(request: DescribeDBInstanceEncryptionKeyRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstanceEncryptionKeyResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["SecurityToken"] = request.securityToken;
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["OwnerAccount"] = request.ownerAccount;
+    query["RegionId"] = request.regionId;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["EncryptionKey"] = request.encryptionKey;
+    query["TargetRegionId"] = request.targetRegionId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeDBInstanceEncryptionKeyResponse>(await this.doRPCRequest("DescribeDBInstanceEncryptionKey", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeDBInstanceEncryptionKeyResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeDBInstanceEncryptionKey",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDBInstanceEncryptionKeyResponse>(await this.callApi(params, req, runtime), new DescribeDBInstanceEncryptionKeyResponse({}));
   }
 
   async describeDBInstanceEncryptionKey(request: DescribeDBInstanceEncryptionKeyRequest): Promise<DescribeDBInstanceEncryptionKeyResponse> {
@@ -26486,10 +28282,28 @@ export default class Client extends OpenApi {
 
   async describeDBInstanceHAConfigWithOptions(request: DescribeDBInstanceHAConfigRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstanceHAConfigResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["OwnerAccount"] = request.ownerAccount;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeDBInstanceHAConfigResponse>(await this.doRPCRequest("DescribeDBInstanceHAConfig", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeDBInstanceHAConfigResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeDBInstanceHAConfig",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDBInstanceHAConfigResponse>(await this.callApi(params, req, runtime), new DescribeDBInstanceHAConfigResponse({}));
   }
 
   async describeDBInstanceHAConfig(request: DescribeDBInstanceHAConfigRequest): Promise<DescribeDBInstanceHAConfigResponse> {
@@ -26499,10 +28313,27 @@ export default class Client extends OpenApi {
 
   async describeDBInstanceIPArrayListWithOptions(request: DescribeDBInstanceIPArrayListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstanceIPArrayListResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["OwnerAccount"] = request.ownerAccount;
+    query["WhitelistNetworkType"] = request.whitelistNetworkType;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeDBInstanceIPArrayListResponse>(await this.doRPCRequest("DescribeDBInstanceIPArrayList", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeDBInstanceIPArrayListResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeDBInstanceIPArrayList",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDBInstanceIPArrayListResponse>(await this.callApi(params, req, runtime), new DescribeDBInstanceIPArrayListResponse({}));
   }
 
   async describeDBInstanceIPArrayList(request: DescribeDBInstanceIPArrayListRequest): Promise<DescribeDBInstanceIPArrayListResponse> {
@@ -26512,10 +28343,30 @@ export default class Client extends OpenApi {
 
   async describeDBInstanceIpHostnameWithOptions(request: DescribeDBInstanceIpHostnameRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstanceIpHostnameResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["SecurityToken"] = request.securityToken;
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["OwnerAccount"] = request.ownerAccount;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeDBInstanceIpHostnameResponse>(await this.doRPCRequest("DescribeDBInstanceIpHostname", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeDBInstanceIpHostnameResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeDBInstanceIpHostname",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDBInstanceIpHostnameResponse>(await this.callApi(params, req, runtime), new DescribeDBInstanceIpHostnameResponse({}));
   }
 
   async describeDBInstanceIpHostname(request: DescribeDBInstanceIpHostnameRequest): Promise<DescribeDBInstanceIpHostnameResponse> {
@@ -26525,10 +28376,29 @@ export default class Client extends OpenApi {
 
   async describeDBInstanceMonitorWithOptions(request: DescribeDBInstanceMonitorRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstanceMonitorResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["ClientToken"] = request.clientToken;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["OwnerAccount"] = request.ownerAccount;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeDBInstanceMonitorResponse>(await this.doRPCRequest("DescribeDBInstanceMonitor", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeDBInstanceMonitorResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeDBInstanceMonitor",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDBInstanceMonitorResponse>(await this.callApi(params, req, runtime), new DescribeDBInstanceMonitorResponse({}));
   }
 
   async describeDBInstanceMonitor(request: DescribeDBInstanceMonitorRequest): Promise<DescribeDBInstanceMonitorResponse> {
@@ -26538,10 +28408,31 @@ export default class Client extends OpenApi {
 
   async describeDBInstanceNetInfoWithOptions(request: DescribeDBInstanceNetInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstanceNetInfoResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["ClientToken"] = request.clientToken;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["Flag"] = request.flag;
+    query["DBInstanceNetRWSplitType"] = request.DBInstanceNetRWSplitType;
+    query["OwnerAccount"] = request.ownerAccount;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeDBInstanceNetInfoResponse>(await this.doRPCRequest("DescribeDBInstanceNetInfo", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeDBInstanceNetInfoResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeDBInstanceNetInfo",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDBInstanceNetInfoResponse>(await this.callApi(params, req, runtime), new DescribeDBInstanceNetInfoResponse({}));
   }
 
   async describeDBInstanceNetInfo(request: DescribeDBInstanceNetInfoRequest): Promise<DescribeDBInstanceNetInfoResponse> {
@@ -26551,10 +28442,28 @@ export default class Client extends OpenApi {
 
   async describeDBInstancePerformanceWithOptions(request: DescribeDBInstancePerformanceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstancePerformanceResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["Key"] = request.key;
+    query["StartTime"] = request.startTime;
+    query["EndTime"] = request.endTime;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeDBInstancePerformanceResponse>(await this.doRPCRequest("DescribeDBInstancePerformance", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeDBInstancePerformanceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeDBInstancePerformance",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDBInstancePerformanceResponse>(await this.callApi(params, req, runtime), new DescribeDBInstancePerformanceResponse({}));
   }
 
   async describeDBInstancePerformance(request: DescribeDBInstancePerformanceRequest): Promise<DescribeDBInstancePerformanceResponse> {
@@ -26564,10 +28473,27 @@ export default class Client extends OpenApi {
 
   async describeDBInstanceProxyConfigurationWithOptions(request: DescribeDBInstanceProxyConfigurationRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstanceProxyConfigurationResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["DBInstanceId"] = request.DBInstanceId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeDBInstanceProxyConfigurationResponse>(await this.doRPCRequest("DescribeDBInstanceProxyConfiguration", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeDBInstanceProxyConfigurationResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeDBInstanceProxyConfiguration",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDBInstanceProxyConfigurationResponse>(await this.callApi(params, req, runtime), new DescribeDBInstanceProxyConfigurationResponse({}));
   }
 
   async describeDBInstanceProxyConfiguration(request: DescribeDBInstanceProxyConfigurationRequest): Promise<DescribeDBInstanceProxyConfigurationResponse> {
@@ -26577,10 +28503,52 @@ export default class Client extends OpenApi {
 
   async describeDBInstancesWithOptions(request: DescribeDBInstancesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstancesResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["ClientToken"] = request.clientToken;
+    query["proxyId"] = request.proxyId;
+    query["Engine"] = request.engine;
+    query["ZoneId"] = request.zoneId;
+    query["ResourceGroupId"] = request.resourceGroupId;
+    query["DBInstanceStatus"] = request.DBInstanceStatus;
+    query["Expired"] = request.expired;
+    query["SearchKey"] = request.searchKey;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["DBInstanceType"] = request.DBInstanceType;
+    query["RegionId"] = request.regionId;
+    query["PageSize"] = request.pageSize;
+    query["PageNumber"] = request.pageNumber;
+    query["InstanceNetworkType"] = request.instanceNetworkType;
+    query["VpcId"] = request.vpcId;
+    query["VSwitchId"] = request.vSwitchId;
+    query["DBInstanceClass"] = request.DBInstanceClass;
+    query["EngineVersion"] = request.engineVersion;
+    query["PayType"] = request.payType;
+    query["ConnectionMode"] = request.connectionMode;
+    query["Tags"] = request.tags;
+    query["OwnerAccount"] = request.ownerAccount;
+    query["DedicatedHostGroupId"] = request.dedicatedHostGroupId;
+    query["DedicatedHostId"] = request.dedicatedHostId;
+    query["InstanceLevel"] = request.instanceLevel;
+    query["ConnectionString"] = request.connectionString;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeDBInstancesResponse>(await this.doRPCRequest("DescribeDBInstances", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeDBInstancesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeDBInstances",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDBInstancesResponse>(await this.callApi(params, req, runtime), new DescribeDBInstancesResponse({}));
   }
 
   async describeDBInstances(request: DescribeDBInstancesRequest): Promise<DescribeDBInstancesResponse> {
@@ -26590,10 +28558,28 @@ export default class Client extends OpenApi {
 
   async describeDBInstancesAsCsvWithOptions(request: DescribeDBInstancesAsCsvRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstancesAsCsvResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["RegionId"] = request.regionId;
+    query["DBInstanceId"] = request.DBInstanceId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeDBInstancesAsCsvResponse>(await this.doRPCRequest("DescribeDBInstancesAsCsv", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeDBInstancesAsCsvResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeDBInstancesAsCsv",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDBInstancesAsCsvResponse>(await this.callApi(params, req, runtime), new DescribeDBInstancesAsCsvResponse({}));
   }
 
   async describeDBInstancesAsCsv(request: DescribeDBInstancesAsCsvRequest): Promise<DescribeDBInstancesAsCsvResponse> {
@@ -26603,10 +28589,34 @@ export default class Client extends OpenApi {
 
   async describeDBInstancesByExpireTimeWithOptions(request: DescribeDBInstancesByExpireTimeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstancesByExpireTimeResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["RegionId"] = request.regionId;
+    query["proxyId"] = request.proxyId;
+    query["ExpirePeriod"] = request.expirePeriod;
+    query["Expired"] = request.expired;
+    query["PageSize"] = request.pageSize;
+    query["PageNumber"] = request.pageNumber;
+    query["Tags"] = request.tags;
+    query["OwnerAccount"] = request.ownerAccount;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeDBInstancesByExpireTimeResponse>(await this.doRPCRequest("DescribeDBInstancesByExpireTime", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeDBInstancesByExpireTimeResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeDBInstancesByExpireTime",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDBInstancesByExpireTimeResponse>(await this.callApi(params, req, runtime), new DescribeDBInstancesByExpireTimeResponse({}));
   }
 
   async describeDBInstancesByExpireTime(request: DescribeDBInstancesByExpireTimeRequest): Promise<DescribeDBInstancesByExpireTimeResponse> {
@@ -26616,10 +28626,36 @@ export default class Client extends OpenApi {
 
   async describeDBInstancesByPerformanceWithOptions(request: DescribeDBInstancesByPerformanceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstancesByPerformanceResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["ClientToken"] = request.clientToken;
+    query["proxyId"] = request.proxyId;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["PageSize"] = request.pageSize;
+    query["PageNumber"] = request.pageNumber;
+    query["SortMethod"] = request.sortMethod;
+    query["SortKey"] = request.sortKey;
+    query["Tags"] = request.tags;
+    query["OwnerAccount"] = request.ownerAccount;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeDBInstancesByPerformanceResponse>(await this.doRPCRequest("DescribeDBInstancesByPerformance", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeDBInstancesByPerformanceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeDBInstancesByPerformance",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDBInstancesByPerformanceResponse>(await this.callApi(params, req, runtime), new DescribeDBInstancesByPerformanceResponse({}));
   }
 
   async describeDBInstancesByPerformance(request: DescribeDBInstancesByPerformanceRequest): Promise<DescribeDBInstancesByPerformanceResponse> {
@@ -26629,10 +28665,48 @@ export default class Client extends OpenApi {
 
   async describeDBInstancesForCloneWithOptions(request: DescribeDBInstancesForCloneRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstancesForCloneResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["ClientToken"] = request.clientToken;
+    query["proxyId"] = request.proxyId;
+    query["Engine"] = request.engine;
+    query["ZoneId"] = request.zoneId;
+    query["DBInstanceStatus"] = request.DBInstanceStatus;
+    query["Expired"] = request.expired;
+    query["SearchKey"] = request.searchKey;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["DBInstanceType"] = request.DBInstanceType;
+    query["RegionId"] = request.regionId;
+    query["PageSize"] = request.pageSize;
+    query["PageNumber"] = request.pageNumber;
+    query["InstanceNetworkType"] = request.instanceNetworkType;
+    query["VpcId"] = request.vpcId;
+    query["VSwitchId"] = request.vSwitchId;
+    query["DBInstanceClass"] = request.DBInstanceClass;
+    query["EngineVersion"] = request.engineVersion;
+    query["NodeType"] = request.nodeType;
+    query["PayType"] = request.payType;
+    query["ConnectionMode"] = request.connectionMode;
+    query["OwnerAccount"] = request.ownerAccount;
+    query["CurrentInstanceId"] = request.currentInstanceId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeDBInstancesForCloneResponse>(await this.doRPCRequest("DescribeDBInstancesForClone", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeDBInstancesForCloneResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeDBInstancesForClone",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDBInstancesForCloneResponse>(await this.callApi(params, req, runtime), new DescribeDBInstancesForCloneResponse({}));
   }
 
   async describeDBInstancesForClone(request: DescribeDBInstancesForCloneRequest): Promise<DescribeDBInstancesForCloneResponse> {
@@ -26642,10 +28716,28 @@ export default class Client extends OpenApi {
 
   async describeDBInstanceSSLWithOptions(request: DescribeDBInstanceSSLRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstanceSSLResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["OwnerAccount"] = request.ownerAccount;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeDBInstanceSSLResponse>(await this.doRPCRequest("DescribeDBInstanceSSL", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeDBInstanceSSLResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeDBInstanceSSL",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDBInstanceSSLResponse>(await this.callApi(params, req, runtime), new DescribeDBInstanceSSLResponse({}));
   }
 
   async describeDBInstanceSSL(request: DescribeDBInstanceSSLRequest): Promise<DescribeDBInstanceSSLResponse> {
@@ -26653,12 +28745,55 @@ export default class Client extends OpenApi {
     return await this.describeDBInstanceSSLWithOptions(request, runtime);
   }
 
+  async describeDBInstanceStatusWithOptions(request: DescribeDBInstanceStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstanceStatusResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeDBInstanceStatus",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDBInstanceStatusResponse>(await this.callApi(params, req, runtime), new DescribeDBInstanceStatusResponse({}));
+  }
+
+  async describeDBInstanceStatus(request: DescribeDBInstanceStatusRequest): Promise<DescribeDBInstanceStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDBInstanceStatusWithOptions(request, runtime);
+  }
+
   async describeDBInstanceTDEWithOptions(request: DescribeDBInstanceTDERequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstanceTDEResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["OwnerAccount"] = request.ownerAccount;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeDBInstanceTDEResponse>(await this.doRPCRequest("DescribeDBInstanceTDE", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeDBInstanceTDEResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeDBInstanceTDE",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDBInstanceTDEResponse>(await this.callApi(params, req, runtime), new DescribeDBInstanceTDEResponse({}));
   }
 
   async describeDBInstanceTDE(request: DescribeDBInstanceTDERequest): Promise<DescribeDBInstanceTDEResponse> {
@@ -26668,10 +28803,29 @@ export default class Client extends OpenApi {
 
   async describeDBProxyWithOptions(request: DescribeDBProxyRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBProxyResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["RegionId"] = request.regionId;
+    query["DBInstanceId"] = request.DBInstanceId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeDBProxyResponse>(await this.doRPCRequest("DescribeDBProxy", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeDBProxyResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeDBProxy",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDBProxyResponse>(await this.callApi(params, req, runtime), new DescribeDBProxyResponse({}));
   }
 
   async describeDBProxy(request: DescribeDBProxyRequest): Promise<DescribeDBProxyResponse> {
@@ -26681,10 +28835,31 @@ export default class Client extends OpenApi {
 
   async describeDBProxyEndpointWithOptions(request: DescribeDBProxyEndpointRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBProxyEndpointResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["DBProxyEndpointId"] = request.DBProxyEndpointId;
+    query["DBProxyConnectString"] = request.DBProxyConnectString;
+    query["RegionId"] = request.regionId;
+    query["DBInstanceId"] = request.DBInstanceId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeDBProxyEndpointResponse>(await this.doRPCRequest("DescribeDBProxyEndpoint", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeDBProxyEndpointResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeDBProxyEndpoint",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDBProxyEndpointResponse>(await this.callApi(params, req, runtime), new DescribeDBProxyEndpointResponse({}));
   }
 
   async describeDBProxyEndpoint(request: DescribeDBProxyEndpointRequest): Promise<DescribeDBProxyEndpointResponse> {
@@ -26694,10 +28869,33 @@ export default class Client extends OpenApi {
 
   async describeDBProxyPerformanceWithOptions(request: DescribeDBProxyPerformanceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBProxyPerformanceResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["DBProxyInstanceType"] = request.DBProxyInstanceType;
+    query["StartTime"] = request.startTime;
+    query["EndTime"] = request.endTime;
+    query["RegionId"] = request.regionId;
+    query["MetricsName"] = request.metricsName;
+    query["DBInstanceId"] = request.DBInstanceId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeDBProxyPerformanceResponse>(await this.doRPCRequest("DescribeDBProxyPerformance", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeDBProxyPerformanceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeDBProxyPerformance",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDBProxyPerformanceResponse>(await this.callApi(params, req, runtime), new DescribeDBProxyPerformanceResponse({}));
   }
 
   async describeDBProxyPerformance(request: DescribeDBProxyPerformanceRequest): Promise<DescribeDBProxyPerformanceResponse> {
@@ -26707,10 +28905,29 @@ export default class Client extends OpenApi {
 
   async describeDedicatedHostAttributeWithOptions(request: DescribeDedicatedHostAttributeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDedicatedHostAttributeResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["RegionId"] = request.regionId;
+    query["DedicatedHostId"] = request.dedicatedHostId;
+    query["DedicatedHostGroupId"] = request.dedicatedHostGroupId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeDedicatedHostAttributeResponse>(await this.doRPCRequest("DescribeDedicatedHostAttribute", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeDedicatedHostAttributeResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeDedicatedHostAttribute",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDedicatedHostAttributeResponse>(await this.callApi(params, req, runtime), new DescribeDedicatedHostAttributeResponse({}));
   }
 
   async describeDedicatedHostAttribute(request: DescribeDedicatedHostAttributeRequest): Promise<DescribeDedicatedHostAttributeResponse> {
@@ -26720,10 +28937,29 @@ export default class Client extends OpenApi {
 
   async describeDedicatedHostGroupsWithOptions(request: DescribeDedicatedHostGroupsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDedicatedHostGroupsResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["RegionId"] = request.regionId;
+    query["DedicatedHostGroupId"] = request.dedicatedHostGroupId;
+    query["ImageCategory"] = request.imageCategory;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeDedicatedHostGroupsResponse>(await this.doRPCRequest("DescribeDedicatedHostGroups", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeDedicatedHostGroupsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeDedicatedHostGroups",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDedicatedHostGroupsResponse>(await this.callApi(params, req, runtime), new DescribeDedicatedHostGroupsResponse({}));
   }
 
   async describeDedicatedHostGroups(request: DescribeDedicatedHostGroupsRequest): Promise<DescribeDedicatedHostGroupsResponse> {
@@ -26733,10 +28969,28 @@ export default class Client extends OpenApi {
 
   async describeDedicatedHostImageCategoriesWithOptions(request: DescribeDedicatedHostImageCategoriesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDedicatedHostImageCategoriesResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["RegionId"] = request.regionId;
+    query["HostGroup"] = request.hostGroup;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeDedicatedHostImageCategoriesResponse>(await this.doRPCRequest("DescribeDedicatedHostImageCategories", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeDedicatedHostImageCategoriesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeDedicatedHostImageCategories",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDedicatedHostImageCategoriesResponse>(await this.callApi(params, req, runtime), new DescribeDedicatedHostImageCategoriesResponse({}));
   }
 
   async describeDedicatedHostImageCategories(request: DescribeDedicatedHostImageCategoriesRequest): Promise<DescribeDedicatedHostImageCategoriesResponse> {
@@ -26746,10 +29000,34 @@ export default class Client extends OpenApi {
 
   async describeDedicatedHostsWithOptions(request: DescribeDedicatedHostsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDedicatedHostsResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["RegionId"] = request.regionId;
+    query["DedicatedHostGroupId"] = request.dedicatedHostGroupId;
+    query["OrderId"] = request.orderId;
+    query["HostType"] = request.hostType;
+    query["HostStatus"] = request.hostStatus;
+    query["AllocationStatus"] = request.allocationStatus;
+    query["ZoneId"] = request.zoneId;
+    query["DedicatedHostId"] = request.dedicatedHostId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeDedicatedHostsResponse>(await this.doRPCRequest("DescribeDedicatedHosts", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeDedicatedHostsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeDedicatedHosts",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDedicatedHostsResponse>(await this.callApi(params, req, runtime), new DescribeDedicatedHostsResponse({}));
   }
 
   async describeDedicatedHosts(request: DescribeDedicatedHostsRequest): Promise<DescribeDedicatedHostsResponse> {
@@ -26759,10 +29037,33 @@ export default class Client extends OpenApi {
 
   async describeDetachedBackupsWithOptions(request: DescribeDetachedBackupsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDetachedBackupsResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["BackupId"] = request.backupId;
+    query["BackupStatus"] = request.backupStatus;
+    query["BackupMode"] = request.backupMode;
+    query["StartTime"] = request.startTime;
+    query["EndTime"] = request.endTime;
+    query["PageSize"] = request.pageSize;
+    query["PageNumber"] = request.pageNumber;
+    query["Region"] = request.region;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeDetachedBackupsResponse>(await this.doRPCRequest("DescribeDetachedBackups", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeDetachedBackupsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeDetachedBackups",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDetachedBackupsResponse>(await this.callApi(params, req, runtime), new DescribeDetachedBackupsResponse({}));
   }
 
   async describeDetachedBackups(request: DescribeDetachedBackupsRequest): Promise<DescribeDetachedBackupsResponse> {
@@ -26772,10 +29073,24 @@ export default class Client extends OpenApi {
 
   async describeDiagnosticReportListWithOptions(request: DescribeDiagnosticReportListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDiagnosticReportListResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["DBInstanceId"] = request.DBInstanceId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeDiagnosticReportListResponse>(await this.doRPCRequest("DescribeDiagnosticReportList", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeDiagnosticReportListResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeDiagnosticReportList",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDiagnosticReportListResponse>(await this.callApi(params, req, runtime), new DescribeDiagnosticReportListResponse({}));
   }
 
   async describeDiagnosticReportList(request: DescribeDiagnosticReportListRequest): Promise<DescribeDiagnosticReportListResponse> {
@@ -26785,10 +29100,30 @@ export default class Client extends OpenApi {
 
   async describeDTCSecurityIpHostsForSQLServerWithOptions(request: DescribeDTCSecurityIpHostsForSQLServerRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDTCSecurityIpHostsForSQLServerResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["SecurityToken"] = request.securityToken;
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["OwnerAccount"] = request.ownerAccount;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeDTCSecurityIpHostsForSQLServerResponse>(await this.doRPCRequest("DescribeDTCSecurityIpHostsForSQLServer", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeDTCSecurityIpHostsForSQLServerResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeDTCSecurityIpHostsForSQLServer",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDTCSecurityIpHostsForSQLServerResponse>(await this.callApi(params, req, runtime), new DescribeDTCSecurityIpHostsForSQLServerResponse({}));
   }
 
   async describeDTCSecurityIpHostsForSQLServer(request: DescribeDTCSecurityIpHostsForSQLServerRequest): Promise<DescribeDTCSecurityIpHostsForSQLServerResponse> {
@@ -26798,10 +29133,32 @@ export default class Client extends OpenApi {
 
   async describeErrorLogsWithOptions(request: DescribeErrorLogsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeErrorLogsResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["StartTime"] = request.startTime;
+    query["EndTime"] = request.endTime;
+    query["PageSize"] = request.pageSize;
+    query["PageNumber"] = request.pageNumber;
+    query["OwnerAccount"] = request.ownerAccount;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeErrorLogsResponse>(await this.doRPCRequest("DescribeErrorLogs", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeErrorLogsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeErrorLogs",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeErrorLogsResponse>(await this.callApi(params, req, runtime), new DescribeErrorLogsResponse({}));
   }
 
   async describeErrorLogs(request: DescribeErrorLogsRequest): Promise<DescribeErrorLogsResponse> {
@@ -26811,10 +29168,31 @@ export default class Client extends OpenApi {
 
   async describeEventsWithOptions(request: DescribeEventsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEventsResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["RegionId"] = request.regionId;
+    query["StartTime"] = request.startTime;
+    query["EndTime"] = request.endTime;
+    query["PageSize"] = request.pageSize;
+    query["PageNumber"] = request.pageNumber;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeEventsResponse>(await this.doRPCRequest("DescribeEvents", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeEventsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeEvents",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeEventsResponse>(await this.callApi(params, req, runtime), new DescribeEventsResponse({}));
   }
 
   async describeEvents(request: DescribeEventsRequest): Promise<DescribeEventsResponse> {
@@ -26824,10 +29202,28 @@ export default class Client extends OpenApi {
 
   async describeHADiagnoseConfigWithOptions(request: DescribeHADiagnoseConfigRequest, runtime: $Util.RuntimeOptions): Promise<DescribeHADiagnoseConfigResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeHADiagnoseConfigResponse>(await this.doRPCRequest("DescribeHADiagnoseConfig", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeHADiagnoseConfigResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeHADiagnoseConfig",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeHADiagnoseConfigResponse>(await this.callApi(params, req, runtime), new DescribeHADiagnoseConfigResponse({}));
   }
 
   async describeHADiagnoseConfig(request: DescribeHADiagnoseConfigRequest): Promise<DescribeHADiagnoseConfigResponse> {
@@ -26837,10 +29233,28 @@ export default class Client extends OpenApi {
 
   async describeHASwitchConfigWithOptions(request: DescribeHASwitchConfigRequest, runtime: $Util.RuntimeOptions): Promise<DescribeHASwitchConfigResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeHASwitchConfigResponse>(await this.doRPCRequest("DescribeHASwitchConfig", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeHASwitchConfigResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeHASwitchConfig",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeHASwitchConfigResponse>(await this.callApi(params, req, runtime), new DescribeHASwitchConfigResponse({}));
   }
 
   async describeHASwitchConfig(request: DescribeHASwitchConfigRequest): Promise<DescribeHASwitchConfigResponse> {
@@ -26850,10 +29264,33 @@ export default class Client extends OpenApi {
 
   async describeInstanceAutoRenewalAttributeWithOptions(request: DescribeInstanceAutoRenewalAttributeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceAutoRenewalAttributeResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["ClientToken"] = request.clientToken;
+    query["proxyId"] = request.proxyId;
+    query["RegionId"] = request.regionId;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["PageSize"] = request.pageSize;
+    query["PageNumber"] = request.pageNumber;
+    query["OwnerAccount"] = request.ownerAccount;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeInstanceAutoRenewalAttributeResponse>(await this.doRPCRequest("DescribeInstanceAutoRenewalAttribute", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeInstanceAutoRenewalAttributeResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeInstanceAutoRenewalAttribute",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeInstanceAutoRenewalAttributeResponse>(await this.callApi(params, req, runtime), new DescribeInstanceAutoRenewalAttributeResponse({}));
   }
 
   async describeInstanceAutoRenewalAttribute(request: DescribeInstanceAutoRenewalAttributeRequest): Promise<DescribeInstanceAutoRenewalAttributeResponse> {
@@ -26863,10 +29300,28 @@ export default class Client extends OpenApi {
 
   async describeInstanceCrossBackupPolicyWithOptions(request: DescribeInstanceCrossBackupPolicyRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceCrossBackupPolicyResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeInstanceCrossBackupPolicyResponse>(await this.doRPCRequest("DescribeInstanceCrossBackupPolicy", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeInstanceCrossBackupPolicyResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeInstanceCrossBackupPolicy",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeInstanceCrossBackupPolicyResponse>(await this.callApi(params, req, runtime), new DescribeInstanceCrossBackupPolicyResponse({}));
   }
 
   async describeInstanceCrossBackupPolicy(request: DescribeInstanceCrossBackupPolicyRequest): Promise<DescribeInstanceCrossBackupPolicyResponse> {
@@ -26876,10 +29331,28 @@ export default class Client extends OpenApi {
 
   async describeInstanceKeywordsWithOptions(request: DescribeInstanceKeywordsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceKeywordsResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["Key"] = request.key;
+    query["OwnerAccount"] = request.ownerAccount;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeInstanceKeywordsResponse>(await this.doRPCRequest("DescribeInstanceKeywords", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeInstanceKeywordsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeInstanceKeywords",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeInstanceKeywordsResponse>(await this.callApi(params, req, runtime), new DescribeInstanceKeywordsResponse({}));
   }
 
   async describeInstanceKeywords(request: DescribeInstanceKeywordsRequest): Promise<DescribeInstanceKeywordsResponse> {
@@ -26889,10 +29362,28 @@ export default class Client extends OpenApi {
 
   async describeLocalAvailableRecoveryTimeWithOptions(request: DescribeLocalAvailableRecoveryTimeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeLocalAvailableRecoveryTimeResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["Region"] = request.region;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeLocalAvailableRecoveryTimeResponse>(await this.doRPCRequest("DescribeLocalAvailableRecoveryTime", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeLocalAvailableRecoveryTimeResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeLocalAvailableRecoveryTime",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeLocalAvailableRecoveryTimeResponse>(await this.callApi(params, req, runtime), new DescribeLocalAvailableRecoveryTimeResponse({}));
   }
 
   async describeLocalAvailableRecoveryTime(request: DescribeLocalAvailableRecoveryTimeRequest): Promise<DescribeLocalAvailableRecoveryTimeResponse> {
@@ -26902,10 +29393,32 @@ export default class Client extends OpenApi {
 
   async describeLogBackupFilesWithOptions(request: DescribeLogBackupFilesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeLogBackupFilesResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["StartTime"] = request.startTime;
+    query["EndTime"] = request.endTime;
+    query["PageSize"] = request.pageSize;
+    query["PageNumber"] = request.pageNumber;
+    query["OwnerAccount"] = request.ownerAccount;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeLogBackupFilesResponse>(await this.doRPCRequest("DescribeLogBackupFiles", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeLogBackupFilesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeLogBackupFiles",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeLogBackupFilesResponse>(await this.callApi(params, req, runtime), new DescribeLogBackupFilesResponse({}));
   }
 
   async describeLogBackupFiles(request: DescribeLogBackupFilesRequest): Promise<DescribeLogBackupFilesResponse> {
@@ -26915,10 +29428,35 @@ export default class Client extends OpenApi {
 
   async describeMetaListWithOptions(request: DescribeMetaListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeMetaListResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["ClientToken"] = request.clientToken;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["RestoreType"] = request.restoreType;
+    query["BackupSetID"] = request.backupSetID;
+    query["RestoreTime"] = request.restoreTime;
+    query["GetDbName"] = request.getDbName;
+    query["Pattern"] = request.pattern;
+    query["PageSize"] = request.pageSize;
+    query["PageIndex"] = request.pageIndex;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeMetaListResponse>(await this.doRPCRequest("DescribeMetaList", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeMetaListResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeMetaList",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeMetaListResponse>(await this.callApi(params, req, runtime), new DescribeMetaListResponse({}));
   }
 
   async describeMetaList(request: DescribeMetaListRequest): Promise<DescribeMetaListResponse> {
@@ -26928,10 +29466,28 @@ export default class Client extends OpenApi {
 
   async describeMigrateTaskByIdWithOptions(request: DescribeMigrateTaskByIdRequest, runtime: $Util.RuntimeOptions): Promise<DescribeMigrateTaskByIdResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["MigrateTaskId"] = request.migrateTaskId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeMigrateTaskByIdResponse>(await this.doRPCRequest("DescribeMigrateTaskById", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeMigrateTaskByIdResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeMigrateTaskById",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeMigrateTaskByIdResponse>(await this.callApi(params, req, runtime), new DescribeMigrateTaskByIdResponse({}));
   }
 
   async describeMigrateTaskById(request: DescribeMigrateTaskByIdRequest): Promise<DescribeMigrateTaskByIdResponse> {
@@ -26941,10 +29497,31 @@ export default class Client extends OpenApi {
 
   async describeMigrateTasksWithOptions(request: DescribeMigrateTasksRequest, runtime: $Util.RuntimeOptions): Promise<DescribeMigrateTasksResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["StartTime"] = request.startTime;
+    query["EndTime"] = request.endTime;
+    query["PageSize"] = request.pageSize;
+    query["PageNumber"] = request.pageNumber;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeMigrateTasksResponse>(await this.doRPCRequest("DescribeMigrateTasks", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeMigrateTasksResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeMigrateTasks",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeMigrateTasksResponse>(await this.callApi(params, req, runtime), new DescribeMigrateTasksResponse({}));
   }
 
   async describeMigrateTasks(request: DescribeMigrateTasksRequest): Promise<DescribeMigrateTasksResponse> {
@@ -26954,10 +29531,31 @@ export default class Client extends OpenApi {
 
   async describeMigrateTasksForSQLServerWithOptions(request: DescribeMigrateTasksForSQLServerRequest, runtime: $Util.RuntimeOptions): Promise<DescribeMigrateTasksForSQLServerResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["StartTime"] = request.startTime;
+    query["EndTime"] = request.endTime;
+    query["PageSize"] = request.pageSize;
+    query["PageNumber"] = request.pageNumber;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeMigrateTasksForSQLServerResponse>(await this.doRPCRequest("DescribeMigrateTasksForSQLServer", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeMigrateTasksForSQLServerResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeMigrateTasksForSQLServer",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeMigrateTasksForSQLServerResponse>(await this.callApi(params, req, runtime), new DescribeMigrateTasksForSQLServerResponse({}));
   }
 
   async describeMigrateTasksForSQLServer(request: DescribeMigrateTasksForSQLServerRequest): Promise<DescribeMigrateTasksForSQLServerResponse> {
@@ -26967,10 +29565,32 @@ export default class Client extends OpenApi {
 
   async describeModifyParameterLogWithOptions(request: DescribeModifyParameterLogRequest, runtime: $Util.RuntimeOptions): Promise<DescribeModifyParameterLogResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["StartTime"] = request.startTime;
+    query["EndTime"] = request.endTime;
+    query["PageSize"] = request.pageSize;
+    query["PageNumber"] = request.pageNumber;
+    query["OwnerAccount"] = request.ownerAccount;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeModifyParameterLogResponse>(await this.doRPCRequest("DescribeModifyParameterLog", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeModifyParameterLogResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeModifyParameterLog",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeModifyParameterLogResponse>(await this.callApi(params, req, runtime), new DescribeModifyParameterLogResponse({}));
   }
 
   async describeModifyParameterLog(request: DescribeModifyParameterLogRequest): Promise<DescribeModifyParameterLogResponse> {
@@ -26980,10 +29600,28 @@ export default class Client extends OpenApi {
 
   async describeOssDownloadsWithOptions(request: DescribeOssDownloadsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeOssDownloadsResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["MigrateTaskId"] = request.migrateTaskId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeOssDownloadsResponse>(await this.doRPCRequest("DescribeOssDownloads", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeOssDownloadsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeOssDownloads",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeOssDownloadsResponse>(await this.callApi(params, req, runtime), new DescribeOssDownloadsResponse({}));
   }
 
   async describeOssDownloads(request: DescribeOssDownloadsRequest): Promise<DescribeOssDownloadsResponse> {
@@ -26993,10 +29631,28 @@ export default class Client extends OpenApi {
 
   async describeOssDownloadsForSQLServerWithOptions(request: DescribeOssDownloadsForSQLServerRequest, runtime: $Util.RuntimeOptions): Promise<DescribeOssDownloadsForSQLServerResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["MigrateTaskId"] = request.migrateTaskId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeOssDownloadsForSQLServerResponse>(await this.doRPCRequest("DescribeOssDownloadsForSQLServer", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeOssDownloadsForSQLServerResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeOssDownloadsForSQLServer",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeOssDownloadsForSQLServerResponse>(await this.callApi(params, req, runtime), new DescribeOssDownloadsForSQLServerResponse({}));
   }
 
   async describeOssDownloadsForSQLServer(request: DescribeOssDownloadsForSQLServerRequest): Promise<DescribeOssDownloadsForSQLServerResponse> {
@@ -27006,10 +29662,28 @@ export default class Client extends OpenApi {
 
   async describeParameterGroupWithOptions(request: DescribeParameterGroupRequest, runtime: $Util.RuntimeOptions): Promise<DescribeParameterGroupResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["ParameterGroupId"] = request.parameterGroupId;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeParameterGroupResponse>(await this.doRPCRequest("DescribeParameterGroup", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeParameterGroupResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeParameterGroup",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeParameterGroupResponse>(await this.callApi(params, req, runtime), new DescribeParameterGroupResponse({}));
   }
 
   async describeParameterGroup(request: DescribeParameterGroupRequest): Promise<DescribeParameterGroupResponse> {
@@ -27019,10 +29693,27 @@ export default class Client extends OpenApi {
 
   async describeParameterGroupsWithOptions(request: DescribeParameterGroupsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeParameterGroupsResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeParameterGroupsResponse>(await this.doRPCRequest("DescribeParameterGroups", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeParameterGroupsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeParameterGroups",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeParameterGroupsResponse>(await this.callApi(params, req, runtime), new DescribeParameterGroupsResponse({}));
   }
 
   async describeParameterGroups(request: DescribeParameterGroupsRequest): Promise<DescribeParameterGroupsResponse> {
@@ -27032,10 +29723,29 @@ export default class Client extends OpenApi {
 
   async describeParametersWithOptions(request: DescribeParametersRequest, runtime: $Util.RuntimeOptions): Promise<DescribeParametersResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["ClientToken"] = request.clientToken;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["OwnerAccount"] = request.ownerAccount;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeParametersResponse>(await this.doRPCRequest("DescribeParameters", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeParametersResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeParameters",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeParametersResponse>(await this.callApi(params, req, runtime), new DescribeParametersResponse({}));
   }
 
   async describeParameters(request: DescribeParametersRequest): Promise<DescribeParametersResponse> {
@@ -27045,10 +29755,33 @@ export default class Client extends OpenApi {
 
   async describeParameterTemplatesWithOptions(request: DescribeParameterTemplatesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeParameterTemplatesResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["ClientToken"] = request.clientToken;
+    query["Engine"] = request.engine;
+    query["EngineVersion"] = request.engineVersion;
+    query["OwnerAccount"] = request.ownerAccount;
+    query["Category"] = request.category;
+    query["RegionId"] = request.regionId;
+    query["DBInstanceId"] = request.DBInstanceId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeParameterTemplatesResponse>(await this.doRPCRequest("DescribeParameterTemplates", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeParameterTemplatesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeParameterTemplates",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeParameterTemplatesResponse>(await this.callApi(params, req, runtime), new DescribeParameterTemplatesResponse({}));
   }
 
   async describeParameterTemplates(request: DescribeParameterTemplatesRequest): Promise<DescribeParameterTemplatesResponse> {
@@ -27058,10 +29791,43 @@ export default class Client extends OpenApi {
 
   async describePriceWithOptions(request: DescribePriceRequest, runtime: $Util.RuntimeOptions): Promise<DescribePriceResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["ClientToken"] = request.clientToken;
+    query["OwnerAccount"] = request.ownerAccount;
+    query["CommodityCode"] = request.commodityCode;
+    query["RegionId"] = request.regionId;
+    query["Engine"] = request.engine;
+    query["EngineVersion"] = request.engineVersion;
+    query["DBInstanceClass"] = request.DBInstanceClass;
+    query["DBInstanceStorage"] = request.DBInstanceStorage;
+    query["PayType"] = request.payType;
+    query["ZoneId"] = request.zoneId;
+    query["UsedTime"] = request.usedTime;
+    query["TimeType"] = request.timeType;
+    query["Quantity"] = request.quantity;
+    query["InstanceUsedType"] = request.instanceUsedType;
+    query["OrderType"] = request.orderType;
+    query["DBInstanceStorageType"] = request.DBInstanceStorageType;
+    query["DBInstanceId"] = request.DBInstanceId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribePriceResponse>(await this.doRPCRequest("DescribePrice", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribePriceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribePrice",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribePriceResponse>(await this.callApi(params, req, runtime), new DescribePriceResponse({}));
   }
 
   async describePrice(request: DescribePriceRequest): Promise<DescribePriceResponse> {
@@ -27071,10 +29837,27 @@ export default class Client extends OpenApi {
 
   async describeRdsResourceSettingsWithOptions(request: DescribeRdsResourceSettingsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRdsResourceSettingsResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["ResourceNiche"] = request.resourceNiche;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeRdsResourceSettingsResponse>(await this.doRPCRequest("DescribeRdsResourceSettings", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeRdsResourceSettingsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeRdsResourceSettings",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeRdsResourceSettingsResponse>(await this.callApi(params, req, runtime), new DescribeRdsResourceSettingsResponse({}));
   }
 
   async describeRdsResourceSettings(request: DescribeRdsResourceSettingsRequest): Promise<DescribeRdsResourceSettingsResponse> {
@@ -27084,10 +29867,30 @@ export default class Client extends OpenApi {
 
   async describeReadDBInstanceDelayWithOptions(request: DescribeReadDBInstanceDelayRequest, runtime: $Util.RuntimeOptions): Promise<DescribeReadDBInstanceDelayResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["SecurityToken"] = request.securityToken;
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["OwnerAccount"] = request.ownerAccount;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["ReadInstanceId"] = request.readInstanceId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeReadDBInstanceDelayResponse>(await this.doRPCRequest("DescribeReadDBInstanceDelay", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeReadDBInstanceDelayResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeReadDBInstanceDelay",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeReadDBInstanceDelayResponse>(await this.callApi(params, req, runtime), new DescribeReadDBInstanceDelayResponse({}));
   }
 
   async describeReadDBInstanceDelay(request: DescribeReadDBInstanceDelayRequest): Promise<DescribeReadDBInstanceDelayResponse> {
@@ -27095,12 +29898,60 @@ export default class Client extends OpenApi {
     return await this.describeReadDBInstanceDelayWithOptions(request, runtime);
   }
 
-  async describeRegionsWithOptions(request: DescribeRegionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRegionsResponse> {
+  async describeRegionInfosWithOptions(request: DescribeRegionInfosRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRegionInfosResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["ClientToken"] = request.clientToken;
+    query["RegionId"] = request.regionId;
+    query["InstanceUsedType"] = request.instanceUsedType;
+    query["SpecifyCount"] = request.specifyCount;
+    query["HostType"] = request.hostType;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeRegionsResponse>(await this.doRPCRequest("DescribeRegions", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeRegionsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeRegionInfos",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeRegionInfosResponse>(await this.callApi(params, req, runtime), new DescribeRegionInfosResponse({}));
+  }
+
+  async describeRegionInfos(request: DescribeRegionInfosRequest): Promise<DescribeRegionInfosResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeRegionInfosWithOptions(request, runtime);
+  }
+
+  async describeRegionsWithOptions(request: DescribeRegionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRegionsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: Util.toMap(request),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeRegions",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeRegionsResponse>(await this.callApi(params, req, runtime), new DescribeRegionsResponse({}));
   }
 
   async describeRegions(request: DescribeRegionsRequest): Promise<DescribeRegionsResponse> {
@@ -27110,10 +29961,37 @@ export default class Client extends OpenApi {
 
   async describeRenewalPriceWithOptions(request: DescribeRenewalPriceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRenewalPriceResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["ClientToken"] = request.clientToken;
+    query["OwnerAccount"] = request.ownerAccount;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["RegionId"] = request.regionId;
+    query["PayType"] = request.payType;
+    query["DBInstanceClass"] = request.DBInstanceClass;
+    query["UsedTime"] = request.usedTime;
+    query["TimeType"] = request.timeType;
+    query["Quantity"] = request.quantity;
+    query["OrderType"] = request.orderType;
+    query["BusinessInfo"] = request.businessInfo;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeRenewalPriceResponse>(await this.doRPCRequest("DescribeRenewalPrice", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeRenewalPriceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeRenewalPrice",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeRenewalPriceResponse>(await this.callApi(params, req, runtime), new DescribeRenewalPriceResponse({}));
   }
 
   async describeRenewalPrice(request: DescribeRenewalPriceRequest): Promise<DescribeRenewalPriceResponse> {
@@ -27123,10 +30001,28 @@ export default class Client extends OpenApi {
 
   async describeResourceUsageWithOptions(request: DescribeResourceUsageRequest, runtime: $Util.RuntimeOptions): Promise<DescribeResourceUsageResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["OwnerAccount"] = request.ownerAccount;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeResourceUsageResponse>(await this.doRPCRequest("DescribeResourceUsage", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeResourceUsageResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeResourceUsage",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeResourceUsageResponse>(await this.callApi(params, req, runtime), new DescribeResourceUsageResponse({}));
   }
 
   async describeResourceUsage(request: DescribeResourceUsageRequest): Promise<DescribeResourceUsageResponse> {
@@ -27136,10 +30032,27 @@ export default class Client extends OpenApi {
 
   async describeSecurityGroupConfigurationWithOptions(request: DescribeSecurityGroupConfigurationRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSecurityGroupConfigurationResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["DBInstanceId"] = request.DBInstanceId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeSecurityGroupConfigurationResponse>(await this.doRPCRequest("DescribeSecurityGroupConfiguration", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeSecurityGroupConfigurationResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeSecurityGroupConfiguration",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeSecurityGroupConfigurationResponse>(await this.callApi(params, req, runtime), new DescribeSecurityGroupConfigurationResponse({}));
   }
 
   async describeSecurityGroupConfiguration(request: DescribeSecurityGroupConfigurationRequest): Promise<DescribeSecurityGroupConfigurationResponse> {
@@ -27149,10 +30062,34 @@ export default class Client extends OpenApi {
 
   async describeSlowLogRecordsWithOptions(request: DescribeSlowLogRecordsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSlowLogRecordsResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["SQLHASH"] = request.SQLHASH;
+    query["StartTime"] = request.startTime;
+    query["EndTime"] = request.endTime;
+    query["DBName"] = request.DBName;
+    query["PageSize"] = request.pageSize;
+    query["PageNumber"] = request.pageNumber;
+    query["OwnerAccount"] = request.ownerAccount;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeSlowLogRecordsResponse>(await this.doRPCRequest("DescribeSlowLogRecords", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeSlowLogRecordsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeSlowLogRecords",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeSlowLogRecordsResponse>(await this.callApi(params, req, runtime), new DescribeSlowLogRecordsResponse({}));
   }
 
   async describeSlowLogRecords(request: DescribeSlowLogRecordsRequest): Promise<DescribeSlowLogRecordsResponse> {
@@ -27162,10 +30099,34 @@ export default class Client extends OpenApi {
 
   async describeSlowLogsWithOptions(request: DescribeSlowLogsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSlowLogsResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["StartTime"] = request.startTime;
+    query["EndTime"] = request.endTime;
+    query["DBName"] = request.DBName;
+    query["SortKey"] = request.sortKey;
+    query["PageSize"] = request.pageSize;
+    query["PageNumber"] = request.pageNumber;
+    query["OwnerAccount"] = request.ownerAccount;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeSlowLogsResponse>(await this.doRPCRequest("DescribeSlowLogs", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeSlowLogsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeSlowLogs",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeSlowLogsResponse>(await this.callApi(params, req, runtime), new DescribeSlowLogsResponse({}));
   }
 
   async describeSlowLogs(request: DescribeSlowLogsRequest): Promise<DescribeSlowLogsResponse> {
@@ -27175,10 +30136,30 @@ export default class Client extends OpenApi {
 
   async describeSQLCollectorPolicyWithOptions(request: DescribeSQLCollectorPolicyRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSQLCollectorPolicyResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["ClientToken"] = request.clientToken;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["OwnerAccount"] = request.ownerAccount;
+    query["ResourceGroupId"] = request.resourceGroupId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeSQLCollectorPolicyResponse>(await this.doRPCRequest("DescribeSQLCollectorPolicy", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeSQLCollectorPolicyResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeSQLCollectorPolicy",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeSQLCollectorPolicyResponse>(await this.callApi(params, req, runtime), new DescribeSQLCollectorPolicyResponse({}));
   }
 
   async describeSQLCollectorPolicy(request: DescribeSQLCollectorPolicyRequest): Promise<DescribeSQLCollectorPolicyResponse> {
@@ -27188,10 +30169,30 @@ export default class Client extends OpenApi {
 
   async describeSQLCollectorRetentionWithOptions(request: DescribeSQLCollectorRetentionRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSQLCollectorRetentionResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["SecurityToken"] = request.securityToken;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["OwnerAccount"] = request.ownerAccount;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["ResourceGroupId"] = request.resourceGroupId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeSQLCollectorRetentionResponse>(await this.doRPCRequest("DescribeSQLCollectorRetention", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeSQLCollectorRetentionResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeSQLCollectorRetention",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeSQLCollectorRetentionResponse>(await this.callApi(params, req, runtime), new DescribeSQLCollectorRetentionResponse({}));
   }
 
   async describeSQLCollectorRetention(request: DescribeSQLCollectorRetentionRequest): Promise<DescribeSQLCollectorRetentionResponse> {
@@ -27201,10 +30202,31 @@ export default class Client extends OpenApi {
 
   async describeSQLLogFilesWithOptions(request: DescribeSQLLogFilesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSQLLogFilesResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["FileName"] = request.fileName;
+    query["PageSize"] = request.pageSize;
+    query["PageNumber"] = request.pageNumber;
+    query["OwnerAccount"] = request.ownerAccount;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeSQLLogFilesResponse>(await this.doRPCRequest("DescribeSQLLogFiles", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeSQLLogFilesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeSQLLogFiles",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeSQLLogFilesResponse>(await this.callApi(params, req, runtime), new DescribeSQLLogFilesResponse({}));
   }
 
   async describeSQLLogFiles(request: DescribeSQLLogFilesRequest): Promise<DescribeSQLLogFilesResponse> {
@@ -27214,10 +30236,38 @@ export default class Client extends OpenApi {
 
   async describeSQLLogRecordsWithOptions(request: DescribeSQLLogRecordsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSQLLogRecordsResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["ClientToken"] = request.clientToken;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["SQLId"] = request.SQLId;
+    query["QueryKeywords"] = request.queryKeywords;
+    query["StartTime"] = request.startTime;
+    query["Database"] = request.database;
+    query["User"] = request.user;
+    query["Form"] = request.form;
+    query["EndTime"] = request.endTime;
+    query["PageSize"] = request.pageSize;
+    query["PageNumber"] = request.pageNumber;
+    query["OwnerAccount"] = request.ownerAccount;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeSQLLogRecordsResponse>(await this.doRPCRequest("DescribeSQLLogRecords", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeSQLLogRecordsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeSQLLogRecords",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeSQLLogRecordsResponse>(await this.callApi(params, req, runtime), new DescribeSQLLogRecordsResponse({}));
   }
 
   async describeSQLLogRecords(request: DescribeSQLLogRecordsRequest): Promise<DescribeSQLLogRecordsResponse> {
@@ -27227,10 +30277,32 @@ export default class Client extends OpenApi {
 
   async describeSQLLogReportListWithOptions(request: DescribeSQLLogReportListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSQLLogReportListResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["StartTime"] = request.startTime;
+    query["EndTime"] = request.endTime;
+    query["PageSize"] = request.pageSize;
+    query["PageNumber"] = request.pageNumber;
+    query["OwnerAccount"] = request.ownerAccount;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeSQLLogReportListResponse>(await this.doRPCRequest("DescribeSQLLogReportList", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeSQLLogReportListResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeSQLLogReportList",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeSQLLogReportListResponse>(await this.callApi(params, req, runtime), new DescribeSQLLogReportListResponse({}));
   }
 
   async describeSQLLogReportList(request: DescribeSQLLogReportListRequest): Promise<DescribeSQLLogReportListResponse> {
@@ -27240,10 +30312,32 @@ export default class Client extends OpenApi {
 
   async describeSQLLogReportsWithOptions(request: DescribeSQLLogReportsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSQLLogReportsResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["StartTime"] = request.startTime;
+    query["EndTime"] = request.endTime;
+    query["PageSize"] = request.pageSize;
+    query["PageNumber"] = request.pageNumber;
+    query["OwnerAccount"] = request.ownerAccount;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeSQLLogReportsResponse>(await this.doRPCRequest("DescribeSQLLogReports", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeSQLLogReportsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeSQLLogReports",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeSQLLogReportsResponse>(await this.callApi(params, req, runtime), new DescribeSQLLogReportsResponse({}));
   }
 
   async describeSQLLogReports(request: DescribeSQLLogReportsRequest): Promise<DescribeSQLLogReportsResponse> {
@@ -27253,10 +30347,33 @@ export default class Client extends OpenApi {
 
   async describeTagsWithOptions(request: DescribeTagsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTagsResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["ClientToken"] = request.clientToken;
+    query["proxyId"] = request.proxyId;
+    query["RegionId"] = request.regionId;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["Tags"] = request.tags;
+    query["OwnerAccount"] = request.ownerAccount;
+    query["ResourceType"] = request.resourceType;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeTagsResponse>(await this.doRPCRequest("DescribeTags", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeTagsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeTags",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeTagsResponse>(await this.callApi(params, req, runtime), new DescribeTagsResponse({}));
   }
 
   async describeTags(request: DescribeTagsRequest): Promise<DescribeTagsResponse> {
@@ -27266,10 +30383,34 @@ export default class Client extends OpenApi {
 
   async describeTasksWithOptions(request: DescribeTasksRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTasksResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["StartTime"] = request.startTime;
+    query["EndTime"] = request.endTime;
+    query["PageSize"] = request.pageSize;
+    query["PageNumber"] = request.pageNumber;
+    query["Status"] = request.status;
+    query["TaskAction"] = request.taskAction;
+    query["OwnerAccount"] = request.ownerAccount;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeTasksResponse>(await this.doRPCRequest("DescribeTasks", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeTasksResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeTasks",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeTasksResponse>(await this.callApi(params, req, runtime), new DescribeTasksResponse({}));
   }
 
   async describeTasks(request: DescribeTasksRequest): Promise<DescribeTasksResponse> {
@@ -27279,10 +30420,29 @@ export default class Client extends OpenApi {
 
   async destroyDBInstanceWithOptions(request: DestroyDBInstanceRequest, runtime: $Util.RuntimeOptions): Promise<DestroyDBInstanceResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["ClientToken"] = request.clientToken;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["OwnerAccount"] = request.ownerAccount;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DestroyDBInstanceResponse>(await this.doRPCRequest("DestroyDBInstance", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new DestroyDBInstanceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DestroyDBInstance",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DestroyDBInstanceResponse>(await this.callApi(params, req, runtime), new DestroyDBInstanceResponse({}));
   }
 
   async destroyDBInstance(request: DestroyDBInstanceRequest): Promise<DestroyDBInstanceResponse> {
@@ -27292,10 +30452,29 @@ export default class Client extends OpenApi {
 
   async dropDedicatedHostUserWithOptions(request: DropDedicatedHostUserRequest, runtime: $Util.RuntimeOptions): Promise<DropDedicatedHostUserResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["DedicatedHostName"] = request.dedicatedHostName;
+    query["UserName"] = request.userName;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DropDedicatedHostUserResponse>(await this.doRPCRequest("DropDedicatedHostUser", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new DropDedicatedHostUserResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DropDedicatedHostUser",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DropDedicatedHostUserResponse>(await this.callApi(params, req, runtime), new DropDedicatedHostUserResponse({}));
   }
 
   async dropDedicatedHostUser(request: DropDedicatedHostUserRequest): Promise<DropDedicatedHostUserResponse> {
@@ -27305,10 +30484,33 @@ export default class Client extends OpenApi {
 
   async evaluateDedicatedHostInstanceResourceWithOptions(request: EvaluateDedicatedHostInstanceResourceRequest, runtime: $Util.RuntimeOptions): Promise<EvaluateDedicatedHostInstanceResourceResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["RegionId"] = request.regionId;
+    query["DedicatedHostGroupId"] = request.dedicatedHostGroupId;
+    query["DiskType"] = request.diskType;
+    query["DiskSize"] = request.diskSize;
+    query["InstanceClassNames"] = request.instanceClassNames;
+    query["Engine"] = request.engine;
+    query["EngineVersion"] = request.engineVersion;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<EvaluateDedicatedHostInstanceResourceResponse>(await this.doRPCRequest("EvaluateDedicatedHostInstanceResource", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new EvaluateDedicatedHostInstanceResourceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "EvaluateDedicatedHostInstanceResource",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<EvaluateDedicatedHostInstanceResourceResponse>(await this.callApi(params, req, runtime), new EvaluateDedicatedHostInstanceResourceResponse({}));
   }
 
   async evaluateDedicatedHostInstanceResource(request: EvaluateDedicatedHostInstanceResourceRequest): Promise<EvaluateDedicatedHostInstanceResourceResponse> {
@@ -27318,10 +30520,26 @@ export default class Client extends OpenApi {
 
   async getDbProxyInstanceSslWithOptions(request: GetDbProxyInstanceSslRequest, runtime: $Util.RuntimeOptions): Promise<GetDbProxyInstanceSslResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["RegionId"] = request.regionId;
+    query["DbInstanceId"] = request.dbInstanceId;
+    query["DbInstanceId"] = request.dbInstanceId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<GetDbProxyInstanceSslResponse>(await this.doRPCRequest("GetDbProxyInstanceSsl", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new GetDbProxyInstanceSslResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetDbProxyInstanceSsl",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetDbProxyInstanceSslResponse>(await this.callApi(params, req, runtime), new GetDbProxyInstanceSslResponse({}));
   }
 
   async getDbProxyInstanceSsl(request: GetDbProxyInstanceSslRequest): Promise<GetDbProxyInstanceSslResponse> {
@@ -27331,10 +30549,28 @@ export default class Client extends OpenApi {
 
   async grantAccountPrivilegeWithOptions(request: GrantAccountPrivilegeRequest, runtime: $Util.RuntimeOptions): Promise<GrantAccountPrivilegeResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["AccountName"] = request.accountName;
+    query["DBName"] = request.DBName;
+    query["AccountPrivilege"] = request.accountPrivilege;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<GrantAccountPrivilegeResponse>(await this.doRPCRequest("GrantAccountPrivilege", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new GrantAccountPrivilegeResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GrantAccountPrivilege",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GrantAccountPrivilegeResponse>(await this.callApi(params, req, runtime), new GrantAccountPrivilegeResponse({}));
   }
 
   async grantAccountPrivilege(request: GrantAccountPrivilegeRequest): Promise<GrantAccountPrivilegeResponse> {
@@ -27344,10 +30580,30 @@ export default class Client extends OpenApi {
 
   async grantOperatorPermissionWithOptions(request: GrantOperatorPermissionRequest, runtime: $Util.RuntimeOptions): Promise<GrantOperatorPermissionResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["ExpiredTime"] = request.expiredTime;
+    query["Privileges"] = request.privileges;
+    query["OwnerAccount"] = request.ownerAccount;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<GrantOperatorPermissionResponse>(await this.doRPCRequest("GrantOperatorPermission", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new GrantOperatorPermissionResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GrantOperatorPermission",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GrantOperatorPermissionResponse>(await this.callApi(params, req, runtime), new GrantOperatorPermissionResponse({}));
   }
 
   async grantOperatorPermission(request: GrantOperatorPermissionRequest): Promise<GrantOperatorPermissionResponse> {
@@ -27357,10 +30613,30 @@ export default class Client extends OpenApi {
 
   async importDatabaseBetweenInstancesWithOptions(request: ImportDatabaseBetweenInstancesRequest, runtime: $Util.RuntimeOptions): Promise<ImportDatabaseBetweenInstancesResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["SourceDBInstanceId"] = request.sourceDBInstanceId;
+    query["DBInfo"] = request.DBInfo;
+    query["OwnerAccount"] = request.ownerAccount;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ImportDatabaseBetweenInstancesResponse>(await this.doRPCRequest("ImportDatabaseBetweenInstances", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new ImportDatabaseBetweenInstancesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ImportDatabaseBetweenInstances",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ImportDatabaseBetweenInstancesResponse>(await this.callApi(params, req, runtime), new ImportDatabaseBetweenInstancesResponse({}));
   }
 
   async importDatabaseBetweenInstances(request: ImportDatabaseBetweenInstancesRequest): Promise<ImportDatabaseBetweenInstancesResponse> {
@@ -27370,10 +30646,34 @@ export default class Client extends OpenApi {
 
   async importUserBackupFileWithOptions(request: ImportUserBackupFileRequest, runtime: $Util.RuntimeOptions): Promise<ImportUserBackupFileResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["RegionId"] = request.regionId;
+    query["EngineVersion"] = request.engineVersion;
+    query["BucketRegion"] = request.bucketRegion;
+    query["BackupFile"] = request.backupFile;
+    query["Comment"] = request.comment;
+    query["RestoreSize"] = request.restoreSize;
+    query["Retention"] = request.retention;
+    query["ZoneId"] = request.zoneId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ImportUserBackupFileResponse>(await this.doRPCRequest("ImportUserBackupFile", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new ImportUserBackupFileResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ImportUserBackupFile",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ImportUserBackupFileResponse>(await this.callApi(params, req, runtime), new ImportUserBackupFileResponse({}));
   }
 
   async importUserBackupFile(request: ImportUserBackupFileRequest): Promise<ImportUserBackupFileResponse> {
@@ -27383,10 +30683,31 @@ export default class Client extends OpenApi {
 
   async listClassesWithOptions(request: ListClassesRequest, runtime: $Util.RuntimeOptions): Promise<ListClassesResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["ClientToken"] = request.clientToken;
+    query["CommodityCode"] = request.commodityCode;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["OrderType"] = request.orderType;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ListClassesResponse>(await this.doRPCRequest("ListClasses", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new ListClassesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListClasses",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListClassesResponse>(await this.callApi(params, req, runtime), new ListClassesResponse({}));
   }
 
   async listClasses(request: ListClassesRequest): Promise<ListClassesResponse> {
@@ -27396,10 +30717,31 @@ export default class Client extends OpenApi {
 
   async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["RegionId"] = request.regionId;
+    query["ResourceType"] = request.resourceType;
+    query["NextToken"] = request.nextToken;
+    query["ResourceId"] = request.resourceId;
+    query["Tag"] = request.tag;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ListTagResourcesResponse>(await this.doRPCRequest("ListTagResources", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new ListTagResourcesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListTagResources",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
   }
 
   async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
@@ -27409,10 +30751,32 @@ export default class Client extends OpenApi {
 
   async listUserBackupFilesWithOptions(request: ListUserBackupFilesRequest, runtime: $Util.RuntimeOptions): Promise<ListUserBackupFilesResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["Status"] = request.status;
+    query["RegionId"] = request.regionId;
+    query["Comment"] = request.comment;
+    query["BackupId"] = request.backupId;
+    query["OssUrl"] = request.ossUrl;
+    query["Tags"] = request.tags;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ListUserBackupFilesResponse>(await this.doRPCRequest("ListUserBackupFiles", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new ListUserBackupFilesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListUserBackupFiles",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListUserBackupFilesResponse>(await this.callApi(params, req, runtime), new ListUserBackupFilesResponse({}));
   }
 
   async listUserBackupFiles(request: ListUserBackupFilesRequest): Promise<ListUserBackupFilesResponse> {
@@ -27422,10 +30786,28 @@ export default class Client extends OpenApi {
 
   async lockAccountWithOptions(request: LockAccountRequest, runtime: $Util.RuntimeOptions): Promise<LockAccountResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["AccountName"] = request.accountName;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<LockAccountResponse>(await this.doRPCRequest("LockAccount", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new LockAccountResponse({}));
+    let params = new $OpenApi.Params({
+      action: "LockAccount",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<LockAccountResponse>(await this.callApi(params, req, runtime), new LockAccountResponse({}));
   }
 
   async lockAccount(request: LockAccountRequest): Promise<LockAccountResponse> {
@@ -27435,10 +30817,35 @@ export default class Client extends OpenApi {
 
   async migrateDBInstanceWithOptions(request: MigrateDBInstanceRequest, runtime: $Util.RuntimeOptions): Promise<MigrateDBInstanceResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["RegionId"] = request.regionId;
+    query["DedicatedHostGroupId"] = request.dedicatedHostGroupId;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["TargetDedicatedHostIdForMaster"] = request.targetDedicatedHostIdForMaster;
+    query["TargetDedicatedHostIdForSlave"] = request.targetDedicatedHostIdForSlave;
+    query["EffectiveTime"] = request.effectiveTime;
+    query["SpecifiedTime"] = request.specifiedTime;
+    query["ZoneIdForLog"] = request.zoneIdForLog;
+    query["ZoneIdForFollower"] = request.zoneIdForFollower;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<MigrateDBInstanceResponse>(await this.doRPCRequest("MigrateDBInstance", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new MigrateDBInstanceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "MigrateDBInstance",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<MigrateDBInstanceResponse>(await this.callApi(params, req, runtime), new MigrateDBInstanceResponse({}));
   }
 
   async migrateDBInstance(request: MigrateDBInstanceRequest): Promise<MigrateDBInstanceResponse> {
@@ -27448,10 +30855,27 @@ export default class Client extends OpenApi {
 
   async migrateSecurityIPModeWithOptions(request: MigrateSecurityIPModeRequest, runtime: $Util.RuntimeOptions): Promise<MigrateSecurityIPModeResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["DBInstanceId"] = request.DBInstanceId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<MigrateSecurityIPModeResponse>(await this.doRPCRequest("MigrateSecurityIPMode", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new MigrateSecurityIPModeResponse({}));
+    let params = new $OpenApi.Params({
+      action: "MigrateSecurityIPMode",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<MigrateSecurityIPModeResponse>(await this.callApi(params, req, runtime), new MigrateSecurityIPModeResponse({}));
   }
 
   async migrateSecurityIPMode(request: MigrateSecurityIPModeRequest): Promise<MigrateSecurityIPModeResponse> {
@@ -27461,10 +30885,35 @@ export default class Client extends OpenApi {
 
   async migrateToOtherZoneWithOptions(request: MigrateToOtherZoneRequest, runtime: $Util.RuntimeOptions): Promise<MigrateToOtherZoneResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["VPCId"] = request.VPCId;
+    query["ZoneId"] = request.zoneId;
+    query["OwnerAccount"] = request.ownerAccount;
+    query["EffectiveTime"] = request.effectiveTime;
+    query["VSwitchId"] = request.vSwitchId;
+    query["Category"] = request.category;
+    query["ZoneIdSlave1"] = request.zoneIdSlave1;
+    query["ZoneIdSlave2"] = request.zoneIdSlave2;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<MigrateToOtherZoneResponse>(await this.doRPCRequest("MigrateToOtherZone", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new MigrateToOtherZoneResponse({}));
+    let params = new $OpenApi.Params({
+      action: "MigrateToOtherZone",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<MigrateToOtherZoneResponse>(await this.callApi(params, req, runtime), new MigrateToOtherZoneResponse({}));
   }
 
   async migrateToOtherZone(request: MigrateToOtherZoneRequest): Promise<MigrateToOtherZoneResponse> {
@@ -27474,10 +30923,30 @@ export default class Client extends OpenApi {
 
   async modifyAccountDescriptionWithOptions(request: ModifyAccountDescriptionRequest, runtime: $Util.RuntimeOptions): Promise<ModifyAccountDescriptionResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["AccountName"] = request.accountName;
+    query["AccountDescription"] = request.accountDescription;
+    query["OwnerAccount"] = request.ownerAccount;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ModifyAccountDescriptionResponse>(await this.doRPCRequest("ModifyAccountDescription", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyAccountDescriptionResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifyAccountDescription",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyAccountDescriptionResponse>(await this.callApi(params, req, runtime), new ModifyAccountDescriptionResponse({}));
   }
 
   async modifyAccountDescription(request: ModifyAccountDescriptionRequest): Promise<ModifyAccountDescriptionResponse> {
@@ -27487,10 +30956,28 @@ export default class Client extends OpenApi {
 
   async modifyActionEventPolicyWithOptions(request: ModifyActionEventPolicyRequest, runtime: $Util.RuntimeOptions): Promise<ModifyActionEventPolicyResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["RegionId"] = request.regionId;
+    query["EnableEventLog"] = request.enableEventLog;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ModifyActionEventPolicyResponse>(await this.doRPCRequest("ModifyActionEventPolicy", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyActionEventPolicyResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifyActionEventPolicy",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyActionEventPolicyResponse>(await this.callApi(params, req, runtime), new ModifyActionEventPolicyResponse({}));
   }
 
   async modifyActionEventPolicy(request: ModifyActionEventPolicyRequest): Promise<ModifyActionEventPolicyResponse> {
@@ -27500,10 +30987,48 @@ export default class Client extends OpenApi {
 
   async modifyBackupPolicyWithOptions(request: ModifyBackupPolicyRequest, runtime: $Util.RuntimeOptions): Promise<ModifyBackupPolicyResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["BackupPolicyMode"] = request.backupPolicyMode;
+    query["PreferredBackupTime"] = request.preferredBackupTime;
+    query["PreferredBackupPeriod"] = request.preferredBackupPeriod;
+    query["BackupRetentionPeriod"] = request.backupRetentionPeriod;
+    query["BackupLog"] = request.backupLog;
+    query["LogBackupRetentionPeriod"] = request.logBackupRetentionPeriod;
+    query["OwnerAccount"] = request.ownerAccount;
+    query["EnableBackupLog"] = request.enableBackupLog;
+    query["LocalLogRetentionHours"] = request.localLogRetentionHours;
+    query["LocalLogRetentionSpace"] = request.localLogRetentionSpace;
+    query["HighSpaceUsageProtection"] = request.highSpaceUsageProtection;
+    query["LogBackupFrequency"] = request.logBackupFrequency;
+    query["CompressType"] = request.compressType;
+    query["ArchiveBackupRetentionPeriod"] = request.archiveBackupRetentionPeriod;
+    query["ArchiveBackupKeepPolicy"] = request.archiveBackupKeepPolicy;
+    query["ArchiveBackupKeepCount"] = request.archiveBackupKeepCount;
+    query["ReleasedKeepPolicy"] = request.releasedKeepPolicy;
+    query["LogBackupLocalRetentionNumber"] = request.logBackupLocalRetentionNumber;
+    query["Category"] = request.category;
+    query["BackupInterval"] = request.backupInterval;
+    query["BackupMethod"] = request.backupMethod;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ModifyBackupPolicyResponse>(await this.doRPCRequest("ModifyBackupPolicy", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyBackupPolicyResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifyBackupPolicy",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyBackupPolicyResponse>(await this.callApi(params, req, runtime), new ModifyBackupPolicyResponse({}));
   }
 
   async modifyBackupPolicy(request: ModifyBackupPolicyRequest): Promise<ModifyBackupPolicyResponse> {
@@ -27513,10 +31038,29 @@ export default class Client extends OpenApi {
 
   async modifyCollationTimeZoneWithOptions(request: ModifyCollationTimeZoneRequest, runtime: $Util.RuntimeOptions): Promise<ModifyCollationTimeZoneResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["Collation"] = request.collation;
+    query["Timezone"] = request.timezone;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ModifyCollationTimeZoneResponse>(await this.doRPCRequest("ModifyCollationTimeZone", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyCollationTimeZoneResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifyCollationTimeZone",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyCollationTimeZoneResponse>(await this.callApi(params, req, runtime), new ModifyCollationTimeZoneResponse({}));
   }
 
   async modifyCollationTimeZone(request: ModifyCollationTimeZoneRequest): Promise<ModifyCollationTimeZoneResponse> {
@@ -27526,10 +31070,31 @@ export default class Client extends OpenApi {
 
   async modifyDasInstanceConfigWithOptions(request: ModifyDasInstanceConfigRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDasInstanceConfigResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["ClientToken"] = request.clientToken;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["StorageAutoScale"] = request.storageAutoScale;
+    query["StorageThreshold"] = request.storageThreshold;
+    query["StorageUpperBound"] = request.storageUpperBound;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ModifyDasInstanceConfigResponse>(await this.doRPCRequest("ModifyDasInstanceConfig", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyDasInstanceConfigResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifyDasInstanceConfig",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyDasInstanceConfigResponse>(await this.callApi(params, req, runtime), new ModifyDasInstanceConfigResponse({}));
   }
 
   async modifyDasInstanceConfig(request: ModifyDasInstanceConfigRequest): Promise<ModifyDasInstanceConfigResponse> {
@@ -27539,10 +31104,30 @@ export default class Client extends OpenApi {
 
   async modifyDBDescriptionWithOptions(request: ModifyDBDescriptionRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBDescriptionResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["DBName"] = request.DBName;
+    query["DBDescription"] = request.DBDescription;
+    query["OwnerAccount"] = request.ownerAccount;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ModifyDBDescriptionResponse>(await this.doRPCRequest("ModifyDBDescription", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyDBDescriptionResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifyDBDescription",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyDBDescriptionResponse>(await this.callApi(params, req, runtime), new ModifyDBDescriptionResponse({}));
   }
 
   async modifyDBDescription(request: ModifyDBDescriptionRequest): Promise<ModifyDBDescriptionResponse> {
@@ -27552,10 +31137,29 @@ export default class Client extends OpenApi {
 
   async modifyDBInstanceAutoUpgradeMinorVersionWithOptions(request: ModifyDBInstanceAutoUpgradeMinorVersionRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBInstanceAutoUpgradeMinorVersionResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["ClientToken"] = request.clientToken;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["AutoUpgradeMinorVersion"] = request.autoUpgradeMinorVersion;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ModifyDBInstanceAutoUpgradeMinorVersionResponse>(await this.doRPCRequest("ModifyDBInstanceAutoUpgradeMinorVersion", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyDBInstanceAutoUpgradeMinorVersionResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifyDBInstanceAutoUpgradeMinorVersion",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyDBInstanceAutoUpgradeMinorVersionResponse>(await this.callApi(params, req, runtime), new ModifyDBInstanceAutoUpgradeMinorVersionResponse({}));
   }
 
   async modifyDBInstanceAutoUpgradeMinorVersion(request: ModifyDBInstanceAutoUpgradeMinorVersionRequest): Promise<ModifyDBInstanceAutoUpgradeMinorVersionResponse> {
@@ -27565,10 +31169,29 @@ export default class Client extends OpenApi {
 
   async modifyDBInstanceConnectionModeWithOptions(request: ModifyDBInstanceConnectionModeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBInstanceConnectionModeResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["ConnectionMode"] = request.connectionMode;
+    query["OwnerAccount"] = request.ownerAccount;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ModifyDBInstanceConnectionModeResponse>(await this.doRPCRequest("ModifyDBInstanceConnectionMode", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyDBInstanceConnectionModeResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifyDBInstanceConnectionMode",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyDBInstanceConnectionModeResponse>(await this.callApi(params, req, runtime), new ModifyDBInstanceConnectionModeResponse({}));
   }
 
   async modifyDBInstanceConnectionMode(request: ModifyDBInstanceConnectionModeRequest): Promise<ModifyDBInstanceConnectionModeResponse> {
@@ -27578,10 +31201,31 @@ export default class Client extends OpenApi {
 
   async modifyDBInstanceConnectionStringWithOptions(request: ModifyDBInstanceConnectionStringRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBInstanceConnectionStringResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["CurrentConnectionString"] = request.currentConnectionString;
+    query["ConnectionStringPrefix"] = request.connectionStringPrefix;
+    query["Port"] = request.port;
+    query["OwnerAccount"] = request.ownerAccount;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ModifyDBInstanceConnectionStringResponse>(await this.doRPCRequest("ModifyDBInstanceConnectionString", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyDBInstanceConnectionStringResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifyDBInstanceConnectionString",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyDBInstanceConnectionStringResponse>(await this.callApi(params, req, runtime), new ModifyDBInstanceConnectionStringResponse({}));
   }
 
   async modifyDBInstanceConnectionString(request: ModifyDBInstanceConnectionStringRequest): Promise<ModifyDBInstanceConnectionStringResponse> {
@@ -27591,10 +31235,29 @@ export default class Client extends OpenApi {
 
   async modifyDBInstanceDescriptionWithOptions(request: ModifyDBInstanceDescriptionRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBInstanceDescriptionResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["DBInstanceDescription"] = request.DBInstanceDescription;
+    query["OwnerAccount"] = request.ownerAccount;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ModifyDBInstanceDescriptionResponse>(await this.doRPCRequest("ModifyDBInstanceDescription", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyDBInstanceDescriptionResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifyDBInstanceDescription",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyDBInstanceDescriptionResponse>(await this.callApi(params, req, runtime), new ModifyDBInstanceDescriptionResponse({}));
   }
 
   async modifyDBInstanceDescription(request: ModifyDBInstanceDescriptionRequest): Promise<ModifyDBInstanceDescriptionResponse> {
@@ -27604,10 +31267,30 @@ export default class Client extends OpenApi {
 
   async modifyDBInstanceHAConfigWithOptions(request: ModifyDBInstanceHAConfigRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBInstanceHAConfigResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["SyncMode"] = request.syncMode;
+    query["HAMode"] = request.HAMode;
+    query["DbInstanceId"] = request.dbInstanceId;
+    query["OwnerAccount"] = request.ownerAccount;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ModifyDBInstanceHAConfigResponse>(await this.doRPCRequest("ModifyDBInstanceHAConfig", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyDBInstanceHAConfigResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifyDBInstanceHAConfig",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyDBInstanceHAConfigResponse>(await this.callApi(params, req, runtime), new ModifyDBInstanceHAConfigResponse({}));
   }
 
   async modifyDBInstanceHAConfig(request: ModifyDBInstanceHAConfigRequest): Promise<ModifyDBInstanceHAConfigResponse> {
@@ -27617,10 +31300,30 @@ export default class Client extends OpenApi {
 
   async modifyDBInstanceMaintainTimeWithOptions(request: ModifyDBInstanceMaintainTimeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBInstanceMaintainTimeResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["ClientToken"] = request.clientToken;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["MaintainTime"] = request.maintainTime;
+    query["OwnerAccount"] = request.ownerAccount;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ModifyDBInstanceMaintainTimeResponse>(await this.doRPCRequest("ModifyDBInstanceMaintainTime", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyDBInstanceMaintainTimeResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifyDBInstanceMaintainTime",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyDBInstanceMaintainTimeResponse>(await this.callApi(params, req, runtime), new ModifyDBInstanceMaintainTimeResponse({}));
   }
 
   async modifyDBInstanceMaintainTime(request: ModifyDBInstanceMaintainTimeRequest): Promise<ModifyDBInstanceMaintainTimeResponse> {
@@ -27630,10 +31333,30 @@ export default class Client extends OpenApi {
 
   async modifyDBInstanceMonitorWithOptions(request: ModifyDBInstanceMonitorRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBInstanceMonitorResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["ClientToken"] = request.clientToken;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["Period"] = request.period;
+    query["OwnerAccount"] = request.ownerAccount;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ModifyDBInstanceMonitorResponse>(await this.doRPCRequest("ModifyDBInstanceMonitor", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyDBInstanceMonitorResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifyDBInstanceMonitor",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyDBInstanceMonitorResponse>(await this.callApi(params, req, runtime), new ModifyDBInstanceMonitorResponse({}));
   }
 
   async modifyDBInstanceMonitor(request: ModifyDBInstanceMonitorRequest): Promise<ModifyDBInstanceMonitorResponse> {
@@ -27643,10 +31366,30 @@ export default class Client extends OpenApi {
 
   async modifyDBInstanceNetworkExpireTimeWithOptions(request: ModifyDBInstanceNetworkExpireTimeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBInstanceNetworkExpireTimeResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["ConnectionString"] = request.connectionString;
+    query["ClassicExpiredDays"] = request.classicExpiredDays;
+    query["OwnerAccount"] = request.ownerAccount;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ModifyDBInstanceNetworkExpireTimeResponse>(await this.doRPCRequest("ModifyDBInstanceNetworkExpireTime", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyDBInstanceNetworkExpireTimeResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifyDBInstanceNetworkExpireTime",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyDBInstanceNetworkExpireTimeResponse>(await this.callApi(params, req, runtime), new ModifyDBInstanceNetworkExpireTimeResponse({}));
   }
 
   async modifyDBInstanceNetworkExpireTime(request: ModifyDBInstanceNetworkExpireTimeRequest): Promise<ModifyDBInstanceNetworkExpireTimeResponse> {
@@ -27656,10 +31399,36 @@ export default class Client extends OpenApi {
 
   async modifyDBInstanceNetworkTypeWithOptions(request: ModifyDBInstanceNetworkTypeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBInstanceNetworkTypeResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["RetainClassic"] = request.retainClassic;
+    query["ClassicExpiredDays"] = request.classicExpiredDays;
+    query["InstanceNetworkType"] = request.instanceNetworkType;
+    query["ReadWriteSplittingClassicExpiredDays"] = request.readWriteSplittingClassicExpiredDays;
+    query["VPCId"] = request.VPCId;
+    query["VSwitchId"] = request.vSwitchId;
+    query["PrivateIpAddress"] = request.privateIpAddress;
+    query["ReadWriteSplittingPrivateIpAddress"] = request.readWriteSplittingPrivateIpAddress;
+    query["OwnerAccount"] = request.ownerAccount;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ModifyDBInstanceNetworkTypeResponse>(await this.doRPCRequest("ModifyDBInstanceNetworkType", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyDBInstanceNetworkTypeResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifyDBInstanceNetworkType",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyDBInstanceNetworkTypeResponse>(await this.callApi(params, req, runtime), new ModifyDBInstanceNetworkTypeResponse({}));
   }
 
   async modifyDBInstanceNetworkType(request: ModifyDBInstanceNetworkTypeRequest): Promise<ModifyDBInstanceNetworkTypeResponse> {
@@ -27669,10 +31438,28 @@ export default class Client extends OpenApi {
 
   async modifyDBInstancePayTypeWithOptions(request: ModifyDBInstancePayTypeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBInstancePayTypeResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["UsedTime"] = request.usedTime;
+    query["PayType"] = request.payType;
+    query["Period"] = request.period;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ModifyDBInstancePayTypeResponse>(await this.doRPCRequest("ModifyDBInstancePayType", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyDBInstancePayTypeResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifyDBInstancePayType",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyDBInstancePayTypeResponse>(await this.callApi(params, req, runtime), new ModifyDBInstancePayTypeResponse({}));
   }
 
   async modifyDBInstancePayType(request: ModifyDBInstancePayTypeRequest): Promise<ModifyDBInstancePayTypeResponse> {
@@ -27682,10 +31469,29 @@ export default class Client extends OpenApi {
 
   async modifyDBInstanceProxyConfigurationWithOptions(request: ModifyDBInstanceProxyConfigurationRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBInstanceProxyConfigurationResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["ProxyConfigurationKey"] = request.proxyConfigurationKey;
+    query["ProxyConfigurationValue"] = request.proxyConfigurationValue;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ModifyDBInstanceProxyConfigurationResponse>(await this.doRPCRequest("ModifyDBInstanceProxyConfiguration", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyDBInstanceProxyConfigurationResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifyDBInstanceProxyConfiguration",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyDBInstanceProxyConfigurationResponse>(await this.callApi(params, req, runtime), new ModifyDBInstanceProxyConfigurationResponse({}));
   }
 
   async modifyDBInstanceProxyConfiguration(request: ModifyDBInstanceProxyConfigurationRequest): Promise<ModifyDBInstanceProxyConfigurationResponse> {
@@ -27695,10 +31501,38 @@ export default class Client extends OpenApi {
 
   async modifyDBInstanceSpecWithOptions(request: ModifyDBInstanceSpecRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBInstanceSpecResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["DBInstanceClass"] = request.DBInstanceClass;
+    query["DBInstanceStorage"] = request.DBInstanceStorage;
+    query["PayType"] = request.payType;
+    query["OwnerAccount"] = request.ownerAccount;
+    query["EffectiveTime"] = request.effectiveTime;
+    query["EngineVersion"] = request.engineVersion;
+    query["DBInstanceStorageType"] = request.DBInstanceStorageType;
+    query["Direction"] = request.direction;
+    query["SourceBiz"] = request.sourceBiz;
+    query["DedicatedHostGroupId"] = request.dedicatedHostGroupId;
+    query["ZoneId"] = request.zoneId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ModifyDBInstanceSpecResponse>(await this.doRPCRequest("ModifyDBInstanceSpec", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyDBInstanceSpecResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifyDBInstanceSpec",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyDBInstanceSpecResponse>(await this.callApi(params, req, runtime), new ModifyDBInstanceSpecResponse({}));
   }
 
   async modifyDBInstanceSpec(request: ModifyDBInstanceSpecRequest): Promise<ModifyDBInstanceSpecResponse> {
@@ -27708,10 +31542,39 @@ export default class Client extends OpenApi {
 
   async modifyDBInstanceSSLWithOptions(request: ModifyDBInstanceSSLRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBInstanceSSLResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["ConnectionString"] = request.connectionString;
+    query["OwnerAccount"] = request.ownerAccount;
+    query["SSLEnabled"] = request.SSLEnabled;
+    query["CAType"] = request.CAType;
+    query["ServerCert"] = request.serverCert;
+    query["ServerKey"] = request.serverKey;
+    query["ClientCAEnabled"] = request.clientCAEnabled;
+    query["ClientCACert"] = request.clientCACert;
+    query["ClientCrlEnabled"] = request.clientCrlEnabled;
+    query["ClientCertRevocationList"] = request.clientCertRevocationList;
+    query["ACL"] = request.ACL;
+    query["ReplicationACL"] = request.replicationACL;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ModifyDBInstanceSSLResponse>(await this.doRPCRequest("ModifyDBInstanceSSL", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyDBInstanceSSLResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifyDBInstanceSSL",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyDBInstanceSSLResponse>(await this.callApi(params, req, runtime), new ModifyDBInstanceSSLResponse({}));
   }
 
   async modifyDBInstanceSSL(request: ModifyDBInstanceSSLRequest): Promise<ModifyDBInstanceSSLResponse> {
@@ -27721,10 +31584,32 @@ export default class Client extends OpenApi {
 
   async modifyDBInstanceTDEWithOptions(request: ModifyDBInstanceTDERequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBInstanceTDEResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["TDEStatus"] = request.TDEStatus;
+    query["DBName"] = request.DBName;
+    query["OwnerAccount"] = request.ownerAccount;
+    query["EncryptionKey"] = request.encryptionKey;
+    query["RoleArn"] = request.roleArn;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ModifyDBInstanceTDEResponse>(await this.doRPCRequest("ModifyDBInstanceTDE", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyDBInstanceTDEResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifyDBInstanceTDE",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyDBInstanceTDEResponse>(await this.callApi(params, req, runtime), new ModifyDBInstanceTDEResponse({}));
   }
 
   async modifyDBInstanceTDE(request: ModifyDBInstanceTDERequest): Promise<ModifyDBInstanceTDEResponse> {
@@ -27734,10 +31619,34 @@ export default class Client extends OpenApi {
 
   async modifyDBProxyWithOptions(request: ModifyDBProxyRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBProxyResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["ConfigDBProxyService"] = request.configDBProxyService;
+    query["DBProxyInstanceNum"] = request.DBProxyInstanceNum;
+    query["RegionId"] = request.regionId;
+    query["InstanceNetworkType"] = request.instanceNetworkType;
+    query["VPCId"] = request.VPCId;
+    query["VSwitchId"] = request.vSwitchId;
+    query["DBInstanceId"] = request.DBInstanceId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ModifyDBProxyResponse>(await this.doRPCRequest("ModifyDBProxy", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyDBProxyResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifyDBProxy",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyDBProxyResponse>(await this.callApi(params, req, runtime), new ModifyDBProxyResponse({}));
   }
 
   async modifyDBProxy(request: ModifyDBProxyRequest): Promise<ModifyDBProxyResponse> {
@@ -27747,10 +31656,38 @@ export default class Client extends OpenApi {
 
   async modifyDBProxyEndpointWithOptions(request: ModifyDBProxyEndpointRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBProxyEndpointResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["DBProxyEndpointId"] = request.DBProxyEndpointId;
+    query["ConfigDBProxyFeatures"] = request.configDBProxyFeatures;
+    query["RegionId"] = request.regionId;
+    query["ReadOnlyInstanceMaxDelayTime"] = request.readOnlyInstanceMaxDelayTime;
+    query["ReadOnlyInstanceDistributionType"] = request.readOnlyInstanceDistributionType;
+    query["ReadOnlyInstanceWeight"] = request.readOnlyInstanceWeight;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["DbEndpointOperator"] = request.dbEndpointOperator;
+    query["DbEndpointAliases"] = request.dbEndpointAliases;
+    query["DbEndpointType"] = request.dbEndpointType;
+    query["DbEndpointReadWriteMode"] = request.dbEndpointReadWriteMode;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ModifyDBProxyEndpointResponse>(await this.doRPCRequest("ModifyDBProxyEndpoint", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyDBProxyEndpointResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifyDBProxyEndpoint",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyDBProxyEndpointResponse>(await this.callApi(params, req, runtime), new ModifyDBProxyEndpointResponse({}));
   }
 
   async modifyDBProxyEndpoint(request: ModifyDBProxyEndpointRequest): Promise<ModifyDBProxyEndpointResponse> {
@@ -27760,10 +31697,32 @@ export default class Client extends OpenApi {
 
   async modifyDBProxyEndpointAddressWithOptions(request: ModifyDBProxyEndpointAddressRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBProxyEndpointAddressResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["DBProxyEndpointId"] = request.DBProxyEndpointId;
+    query["DBProxyNewConnectString"] = request.DBProxyNewConnectString;
+    query["DBProxyNewConnectStringPort"] = request.DBProxyNewConnectStringPort;
+    query["DBProxyConnectStringNetType"] = request.DBProxyConnectStringNetType;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ModifyDBProxyEndpointAddressResponse>(await this.doRPCRequest("ModifyDBProxyEndpointAddress", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyDBProxyEndpointAddressResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifyDBProxyEndpointAddress",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyDBProxyEndpointAddressResponse>(await this.callApi(params, req, runtime), new ModifyDBProxyEndpointAddressResponse({}));
   }
 
   async modifyDBProxyEndpointAddress(request: ModifyDBProxyEndpointAddressRequest): Promise<ModifyDBProxyEndpointAddressResponse> {
@@ -27773,10 +31732,33 @@ export default class Client extends OpenApi {
 
   async modifyDBProxyInstanceWithOptions(request: ModifyDBProxyInstanceRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBProxyInstanceResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["DBProxyInstanceType"] = request.DBProxyInstanceType;
+    query["DBProxyInstanceNum"] = request.DBProxyInstanceNum;
+    query["EffectiveTime"] = request.effectiveTime;
+    query["EffectiveSpecificTime"] = request.effectiveSpecificTime;
+    query["RegionId"] = request.regionId;
+    query["DBInstanceId"] = request.DBInstanceId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ModifyDBProxyInstanceResponse>(await this.doRPCRequest("ModifyDBProxyInstance", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyDBProxyInstanceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifyDBProxyInstance",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyDBProxyInstanceResponse>(await this.callApi(params, req, runtime), new ModifyDBProxyInstanceResponse({}));
   }
 
   async modifyDBProxyInstance(request: ModifyDBProxyInstanceRequest): Promise<ModifyDBProxyInstanceResponse> {
@@ -27786,10 +31768,29 @@ export default class Client extends OpenApi {
 
   async modifyDbProxyInstanceSslWithOptions(request: ModifyDbProxyInstanceSslRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDbProxyInstanceSslResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["RegionId"] = request.regionId;
+    query["DbInstanceId"] = request.dbInstanceId;
+    query["DbInstanceId"] = request.dbInstanceId;
+    query["DbProxyEndpointId"] = request.dbProxyEndpointId;
+    query["DbProxyConnectString"] = request.dbProxyConnectString;
+    query["DbProxySslEnabled"] = request.dbProxySslEnabled;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ModifyDbProxyInstanceSslResponse>(await this.doRPCRequest("ModifyDbProxyInstanceSsl", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyDbProxyInstanceSslResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifyDbProxyInstanceSsl",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyDbProxyInstanceSslResponse>(await this.callApi(params, req, runtime), new ModifyDbProxyInstanceSslResponse({}));
   }
 
   async modifyDbProxyInstanceSsl(request: ModifyDbProxyInstanceSslRequest): Promise<ModifyDbProxyInstanceSslResponse> {
@@ -27799,10 +31800,30 @@ export default class Client extends OpenApi {
 
   async modifyDedicatedHostAccountWithOptions(request: ModifyDedicatedHostAccountRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDedicatedHostAccountResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["DedicatedHostId"] = request.dedicatedHostId;
+    query["AccountName"] = request.accountName;
+    query["AccountPassword"] = request.accountPassword;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ModifyDedicatedHostAccountResponse>(await this.doRPCRequest("ModifyDedicatedHostAccount", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyDedicatedHostAccountResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifyDedicatedHostAccount",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyDedicatedHostAccountResponse>(await this.callApi(params, req, runtime), new ModifyDedicatedHostAccountResponse({}));
   }
 
   async modifyDedicatedHostAccount(request: ModifyDedicatedHostAccountRequest): Promise<ModifyDedicatedHostAccountResponse> {
@@ -27812,10 +31833,30 @@ export default class Client extends OpenApi {
 
   async modifyDedicatedHostAttributeWithOptions(request: ModifyDedicatedHostAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDedicatedHostAttributeResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["RegionId"] = request.regionId;
+    query["DedicatedHostId"] = request.dedicatedHostId;
+    query["HostName"] = request.hostName;
+    query["AllocationStatus"] = request.allocationStatus;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ModifyDedicatedHostAttributeResponse>(await this.doRPCRequest("ModifyDedicatedHostAttribute", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyDedicatedHostAttributeResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifyDedicatedHostAttribute",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyDedicatedHostAttributeResponse>(await this.callApi(params, req, runtime), new ModifyDedicatedHostAttributeResponse({}));
   }
 
   async modifyDedicatedHostAttribute(request: ModifyDedicatedHostAttributeRequest): Promise<ModifyDedicatedHostAttributeResponse> {
@@ -27825,10 +31866,34 @@ export default class Client extends OpenApi {
 
   async modifyDedicatedHostGroupAttributeWithOptions(request: ModifyDedicatedHostGroupAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDedicatedHostGroupAttributeResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["RegionId"] = request.regionId;
+    query["DedicatedHostGroupId"] = request.dedicatedHostGroupId;
+    query["DedicatedHostGroupDesc"] = request.dedicatedHostGroupDesc;
+    query["CpuAllocationRatio"] = request.cpuAllocationRatio;
+    query["MemAllocationRatio"] = request.memAllocationRatio;
+    query["DiskAllocationRatio"] = request.diskAllocationRatio;
+    query["AllocationPolicy"] = request.allocationPolicy;
+    query["HostReplacePolicy"] = request.hostReplacePolicy;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ModifyDedicatedHostGroupAttributeResponse>(await this.doRPCRequest("ModifyDedicatedHostGroupAttribute", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyDedicatedHostGroupAttributeResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifyDedicatedHostGroupAttribute",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyDedicatedHostGroupAttributeResponse>(await this.callApi(params, req, runtime), new ModifyDedicatedHostGroupAttributeResponse({}));
   }
 
   async modifyDedicatedHostGroupAttribute(request: ModifyDedicatedHostGroupAttributeRequest): Promise<ModifyDedicatedHostGroupAttributeResponse> {
@@ -27838,10 +31903,31 @@ export default class Client extends OpenApi {
 
   async modifyDedicatedHostUserWithOptions(request: ModifyDedicatedHostUserRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDedicatedHostUserResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["DedicatedHostName"] = request.dedicatedHostName;
+    query["UserName"] = request.userName;
+    query["OldPassword"] = request.oldPassword;
+    query["NewPassword"] = request.newPassword;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ModifyDedicatedHostUserResponse>(await this.doRPCRequest("ModifyDedicatedHostUser", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyDedicatedHostUserResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifyDedicatedHostUser",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyDedicatedHostUserResponse>(await this.callApi(params, req, runtime), new ModifyDedicatedHostUserResponse({}));
   }
 
   async modifyDedicatedHostUser(request: ModifyDedicatedHostUserRequest): Promise<ModifyDedicatedHostUserResponse> {
@@ -27851,10 +31937,32 @@ export default class Client extends OpenApi {
 
   async modifyDTCSecurityIpHostsForSQLServerWithOptions(request: ModifyDTCSecurityIpHostsForSQLServerRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDTCSecurityIpHostsForSQLServerResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["SecurityToken"] = request.securityToken;
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["OwnerAccount"] = request.ownerAccount;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["SecurityIpHosts"] = request.securityIpHosts;
+    query["WhiteListGroupName"] = request.whiteListGroupName;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ModifyDTCSecurityIpHostsForSQLServerResponse>(await this.doRPCRequest("ModifyDTCSecurityIpHostsForSQLServer", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyDTCSecurityIpHostsForSQLServerResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifyDTCSecurityIpHostsForSQLServer",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyDTCSecurityIpHostsForSQLServerResponse>(await this.callApi(params, req, runtime), new ModifyDTCSecurityIpHostsForSQLServerResponse({}));
   }
 
   async modifyDTCSecurityIpHostsForSQLServer(request: ModifyDTCSecurityIpHostsForSQLServerRequest): Promise<ModifyDTCSecurityIpHostsForSQLServerResponse> {
@@ -27864,10 +31972,29 @@ export default class Client extends OpenApi {
 
   async modifyHADiagnoseConfigWithOptions(request: ModifyHADiagnoseConfigRequest, runtime: $Util.RuntimeOptions): Promise<ModifyHADiagnoseConfigResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["TcpConnectionType"] = request.tcpConnectionType;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ModifyHADiagnoseConfigResponse>(await this.doRPCRequest("ModifyHADiagnoseConfig", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyHADiagnoseConfigResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifyHADiagnoseConfig",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyHADiagnoseConfigResponse>(await this.callApi(params, req, runtime), new ModifyHADiagnoseConfigResponse({}));
   }
 
   async modifyHADiagnoseConfig(request: ModifyHADiagnoseConfigRequest): Promise<ModifyHADiagnoseConfigResponse> {
@@ -27877,10 +32004,30 @@ export default class Client extends OpenApi {
 
   async modifyHASwitchConfigWithOptions(request: ModifyHASwitchConfigRequest, runtime: $Util.RuntimeOptions): Promise<ModifyHASwitchConfigResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["HAConfig"] = request.HAConfig;
+    query["ManualHATime"] = request.manualHATime;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ModifyHASwitchConfigResponse>(await this.doRPCRequest("ModifyHASwitchConfig", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyHASwitchConfigResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifyHASwitchConfig",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyHASwitchConfigResponse>(await this.callApi(params, req, runtime), new ModifyHASwitchConfigResponse({}));
   }
 
   async modifyHASwitchConfig(request: ModifyHASwitchConfigRequest): Promise<ModifyHASwitchConfigResponse> {
@@ -27890,10 +32037,32 @@ export default class Client extends OpenApi {
 
   async modifyInstanceAutoRenewalAttributeWithOptions(request: ModifyInstanceAutoRenewalAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyInstanceAutoRenewalAttributeResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["RegionId"] = request.regionId;
+    query["ClientToken"] = request.clientToken;
+    query["OwnerAccount"] = request.ownerAccount;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["Duration"] = request.duration;
+    query["AutoRenew"] = request.autoRenew;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ModifyInstanceAutoRenewalAttributeResponse>(await this.doRPCRequest("ModifyInstanceAutoRenewalAttribute", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyInstanceAutoRenewalAttributeResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifyInstanceAutoRenewalAttribute",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyInstanceAutoRenewalAttributeResponse>(await this.callApi(params, req, runtime), new ModifyInstanceAutoRenewalAttributeResponse({}));
   }
 
   async modifyInstanceAutoRenewalAttribute(request: ModifyInstanceAutoRenewalAttributeRequest): Promise<ModifyInstanceAutoRenewalAttributeResponse> {
@@ -27903,10 +32072,34 @@ export default class Client extends OpenApi {
 
   async modifyInstanceCrossBackupPolicyWithOptions(request: ModifyInstanceCrossBackupPolicyRequest, runtime: $Util.RuntimeOptions): Promise<ModifyInstanceCrossBackupPolicyResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["RegionId"] = request.regionId;
+    query["CrossBackupType"] = request.crossBackupType;
+    query["LogBackupEnabled"] = request.logBackupEnabled;
+    query["BackupEnabled"] = request.backupEnabled;
+    query["CrossBackupRegion"] = request.crossBackupRegion;
+    query["RetentType"] = request.retentType;
+    query["Retention"] = request.retention;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ModifyInstanceCrossBackupPolicyResponse>(await this.doRPCRequest("ModifyInstanceCrossBackupPolicy", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyInstanceCrossBackupPolicyResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifyInstanceCrossBackupPolicy",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyInstanceCrossBackupPolicyResponse>(await this.callApi(params, req, runtime), new ModifyInstanceCrossBackupPolicyResponse({}));
   }
 
   async modifyInstanceCrossBackupPolicy(request: ModifyInstanceCrossBackupPolicyRequest): Promise<ModifyInstanceCrossBackupPolicyResponse> {
@@ -27916,10 +32109,32 @@ export default class Client extends OpenApi {
 
   async modifyParameterWithOptions(request: ModifyParameterRequest, runtime: $Util.RuntimeOptions): Promise<ModifyParameterResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["ClientToken"] = request.clientToken;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["Parameters"] = request.parameters;
+    query["Forcerestart"] = request.forcerestart;
+    query["OwnerAccount"] = request.ownerAccount;
+    query["ParameterGroupId"] = request.parameterGroupId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ModifyParameterResponse>(await this.doRPCRequest("ModifyParameter", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyParameterResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifyParameter",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyParameterResponse>(await this.callApi(params, req, runtime), new ModifyParameterResponse({}));
   }
 
   async modifyParameter(request: ModifyParameterRequest): Promise<ModifyParameterResponse> {
@@ -27929,10 +32144,31 @@ export default class Client extends OpenApi {
 
   async modifyParameterGroupWithOptions(request: ModifyParameterGroupRequest, runtime: $Util.RuntimeOptions): Promise<ModifyParameterGroupResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["ParameterGroupId"] = request.parameterGroupId;
+    query["ParameterGroupName"] = request.parameterGroupName;
+    query["ParameterGroupDesc"] = request.parameterGroupDesc;
+    query["Parameters"] = request.parameters;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ModifyParameterGroupResponse>(await this.doRPCRequest("ModifyParameterGroup", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyParameterGroupResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifyParameterGroup",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyParameterGroupResponse>(await this.callApi(params, req, runtime), new ModifyParameterGroupResponse({}));
   }
 
   async modifyParameterGroup(request: ModifyParameterGroupRequest): Promise<ModifyParameterGroupResponse> {
@@ -27942,10 +32178,28 @@ export default class Client extends OpenApi {
 
   async modifyReadonlyInstanceDelayReplicationTimeWithOptions(request: ModifyReadonlyInstanceDelayReplicationTimeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyReadonlyInstanceDelayReplicationTimeResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["ReadSQLReplicationTime"] = request.readSQLReplicationTime;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ModifyReadonlyInstanceDelayReplicationTimeResponse>(await this.doRPCRequest("ModifyReadonlyInstanceDelayReplicationTime", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyReadonlyInstanceDelayReplicationTimeResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifyReadonlyInstanceDelayReplicationTime",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyReadonlyInstanceDelayReplicationTimeResponse>(await this.callApi(params, req, runtime), new ModifyReadonlyInstanceDelayReplicationTimeResponse({}));
   }
 
   async modifyReadonlyInstanceDelayReplicationTime(request: ModifyReadonlyInstanceDelayReplicationTimeRequest): Promise<ModifyReadonlyInstanceDelayReplicationTimeResponse> {
@@ -27955,10 +32209,33 @@ export default class Client extends OpenApi {
 
   async modifyReadWriteSplittingConnectionWithOptions(request: ModifyReadWriteSplittingConnectionRequest, runtime: $Util.RuntimeOptions): Promise<ModifyReadWriteSplittingConnectionResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["OwnerAccount"] = request.ownerAccount;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["ConnectionStringPrefix"] = request.connectionStringPrefix;
+    query["Port"] = request.port;
+    query["MaxDelayTime"] = request.maxDelayTime;
+    query["DistributionType"] = request.distributionType;
+    query["Weight"] = request.weight;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ModifyReadWriteSplittingConnectionResponse>(await this.doRPCRequest("ModifyReadWriteSplittingConnection", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyReadWriteSplittingConnectionResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifyReadWriteSplittingConnection",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyReadWriteSplittingConnectionResponse>(await this.callApi(params, req, runtime), new ModifyReadWriteSplittingConnectionResponse({}));
   }
 
   async modifyReadWriteSplittingConnection(request: ModifyReadWriteSplittingConnectionRequest): Promise<ModifyReadWriteSplittingConnectionResponse> {
@@ -27968,10 +32245,30 @@ export default class Client extends OpenApi {
 
   async modifyResourceGroupWithOptions(request: ModifyResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<ModifyResourceGroupResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["ClientToken"] = request.clientToken;
+    query["OwnerAccount"] = request.ownerAccount;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["ResourceGroupId"] = request.resourceGroupId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ModifyResourceGroupResponse>(await this.doRPCRequest("ModifyResourceGroup", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyResourceGroupResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifyResourceGroup",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyResourceGroupResponse>(await this.callApi(params, req, runtime), new ModifyResourceGroupResponse({}));
   }
 
   async modifyResourceGroup(request: ModifyResourceGroupRequest): Promise<ModifyResourceGroupResponse> {
@@ -27981,10 +32278,28 @@ export default class Client extends OpenApi {
 
   async modifySecurityGroupConfigurationWithOptions(request: ModifySecurityGroupConfigurationRequest, runtime: $Util.RuntimeOptions): Promise<ModifySecurityGroupConfigurationResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["SecurityGroupId"] = request.securityGroupId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ModifySecurityGroupConfigurationResponse>(await this.doRPCRequest("ModifySecurityGroupConfiguration", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new ModifySecurityGroupConfigurationResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifySecurityGroupConfiguration",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifySecurityGroupConfigurationResponse>(await this.callApi(params, req, runtime), new ModifySecurityGroupConfigurationResponse({}));
   }
 
   async modifySecurityGroupConfiguration(request: ModifySecurityGroupConfigurationRequest): Promise<ModifySecurityGroupConfigurationResponse> {
@@ -27994,10 +32309,31 @@ export default class Client extends OpenApi {
 
   async modifySecurityIpsWithOptions(request: ModifySecurityIpsRequest, runtime: $Util.RuntimeOptions): Promise<ModifySecurityIpsResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["SecurityIps"] = request.securityIps;
+    query["DBInstanceIPArrayName"] = request.DBInstanceIPArrayName;
+    query["DBInstanceIPArrayAttribute"] = request.DBInstanceIPArrayAttribute;
+    query["SecurityIPType"] = request.securityIPType;
+    query["WhitelistNetworkType"] = request.whitelistNetworkType;
+    query["ModifyMode"] = request.modifyMode;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ModifySecurityIpsResponse>(await this.doRPCRequest("ModifySecurityIps", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new ModifySecurityIpsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifySecurityIps",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifySecurityIpsResponse>(await this.callApi(params, req, runtime), new ModifySecurityIpsResponse({}));
   }
 
   async modifySecurityIps(request: ModifySecurityIpsRequest): Promise<ModifySecurityIpsResponse> {
@@ -28007,10 +32343,30 @@ export default class Client extends OpenApi {
 
   async modifySQLCollectorPolicyWithOptions(request: ModifySQLCollectorPolicyRequest, runtime: $Util.RuntimeOptions): Promise<ModifySQLCollectorPolicyResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["SQLCollectorStatus"] = request.SQLCollectorStatus;
+    query["OwnerAccount"] = request.ownerAccount;
+    query["ResourceGroupId"] = request.resourceGroupId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ModifySQLCollectorPolicyResponse>(await this.doRPCRequest("ModifySQLCollectorPolicy", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new ModifySQLCollectorPolicyResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifySQLCollectorPolicy",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifySQLCollectorPolicyResponse>(await this.callApi(params, req, runtime), new ModifySQLCollectorPolicyResponse({}));
   }
 
   async modifySQLCollectorPolicy(request: ModifySQLCollectorPolicyRequest): Promise<ModifySQLCollectorPolicyResponse> {
@@ -28020,10 +32376,31 @@ export default class Client extends OpenApi {
 
   async modifySQLCollectorRetentionWithOptions(request: ModifySQLCollectorRetentionRequest, runtime: $Util.RuntimeOptions): Promise<ModifySQLCollectorRetentionResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["SecurityToken"] = request.securityToken;
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["OwnerAccount"] = request.ownerAccount;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["ConfigValue"] = request.configValue;
+    query["ResourceGroupId"] = request.resourceGroupId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ModifySQLCollectorRetentionResponse>(await this.doRPCRequest("ModifySQLCollectorRetention", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new ModifySQLCollectorRetentionResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifySQLCollectorRetention",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifySQLCollectorRetentionResponse>(await this.callApi(params, req, runtime), new ModifySQLCollectorRetentionResponse({}));
   }
 
   async modifySQLCollectorRetention(request: ModifySQLCollectorRetentionRequest): Promise<ModifySQLCollectorRetentionResponse> {
@@ -28033,10 +32410,29 @@ export default class Client extends OpenApi {
 
   async purgeDBInstanceLogWithOptions(request: PurgeDBInstanceLogRequest, runtime: $Util.RuntimeOptions): Promise<PurgeDBInstanceLogResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["ClientToken"] = request.clientToken;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["OwnerAccount"] = request.ownerAccount;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<PurgeDBInstanceLogResponse>(await this.doRPCRequest("PurgeDBInstanceLog", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new PurgeDBInstanceLogResponse({}));
+    let params = new $OpenApi.Params({
+      action: "PurgeDBInstanceLog",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<PurgeDBInstanceLogResponse>(await this.callApi(params, req, runtime), new PurgeDBInstanceLogResponse({}));
   }
 
   async purgeDBInstanceLog(request: PurgeDBInstanceLogRequest): Promise<PurgeDBInstanceLogResponse> {
@@ -28046,10 +32442,31 @@ export default class Client extends OpenApi {
 
   async rebuildDBInstanceWithOptions(request: RebuildDBInstanceRequest, runtime: $Util.RuntimeOptions): Promise<RebuildDBInstanceResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["RegionId"] = request.regionId;
+    query["DedicatedHostGroupId"] = request.dedicatedHostGroupId;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["DedicatedHostId"] = request.dedicatedHostId;
+    query["RebuildNodeType"] = request.rebuildNodeType;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<RebuildDBInstanceResponse>(await this.doRPCRequest("RebuildDBInstance", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new RebuildDBInstanceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RebuildDBInstance",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<RebuildDBInstanceResponse>(await this.callApi(params, req, runtime), new RebuildDBInstanceResponse({}));
   }
 
   async rebuildDBInstance(request: RebuildDBInstanceRequest): Promise<RebuildDBInstanceResponse> {
@@ -28059,10 +32476,39 @@ export default class Client extends OpenApi {
 
   async recoveryDBInstanceWithOptions(request: RecoveryDBInstanceRequest, runtime: $Util.RuntimeOptions): Promise<RecoveryDBInstanceResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["DBInstanceClass"] = request.DBInstanceClass;
+    query["DBInstanceStorage"] = request.DBInstanceStorage;
+    query["PayType"] = request.payType;
+    query["InstanceNetworkType"] = request.instanceNetworkType;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["TargetDBInstanceId"] = request.targetDBInstanceId;
+    query["DbNames"] = request.dbNames;
+    query["BackupId"] = request.backupId;
+    query["RestoreTime"] = request.restoreTime;
+    query["VPCId"] = request.VPCId;
+    query["VSwitchId"] = request.vSwitchId;
+    query["PrivateIpAddress"] = request.privateIpAddress;
+    query["UsedTime"] = request.usedTime;
+    query["Period"] = request.period;
+    query["DBInstanceStorageType"] = request.DBInstanceStorageType;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<RecoveryDBInstanceResponse>(await this.doRPCRequest("RecoveryDBInstance", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new RecoveryDBInstanceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RecoveryDBInstance",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<RecoveryDBInstanceResponse>(await this.callApi(params, req, runtime), new RecoveryDBInstanceResponse({}));
   }
 
   async recoveryDBInstance(request: RecoveryDBInstanceRequest): Promise<RecoveryDBInstanceResponse> {
@@ -28072,10 +32518,30 @@ export default class Client extends OpenApi {
 
   async releaseInstanceConnectionWithOptions(request: ReleaseInstanceConnectionRequest, runtime: $Util.RuntimeOptions): Promise<ReleaseInstanceConnectionResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["CurrentConnectionString"] = request.currentConnectionString;
+    query["InstanceNetworkType"] = request.instanceNetworkType;
+    query["OwnerAccount"] = request.ownerAccount;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ReleaseInstanceConnectionResponse>(await this.doRPCRequest("ReleaseInstanceConnection", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new ReleaseInstanceConnectionResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ReleaseInstanceConnection",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ReleaseInstanceConnectionResponse>(await this.callApi(params, req, runtime), new ReleaseInstanceConnectionResponse({}));
   }
 
   async releaseInstanceConnection(request: ReleaseInstanceConnectionRequest): Promise<ReleaseInstanceConnectionResponse> {
@@ -28085,10 +32551,29 @@ export default class Client extends OpenApi {
 
   async releaseInstancePublicConnectionWithOptions(request: ReleaseInstancePublicConnectionRequest, runtime: $Util.RuntimeOptions): Promise<ReleaseInstancePublicConnectionResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["CurrentConnectionString"] = request.currentConnectionString;
+    query["OwnerAccount"] = request.ownerAccount;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ReleaseInstancePublicConnectionResponse>(await this.doRPCRequest("ReleaseInstancePublicConnection", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new ReleaseInstancePublicConnectionResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ReleaseInstancePublicConnection",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ReleaseInstancePublicConnectionResponse>(await this.callApi(params, req, runtime), new ReleaseInstancePublicConnectionResponse({}));
   }
 
   async releaseInstancePublicConnection(request: ReleaseInstancePublicConnectionRequest): Promise<ReleaseInstancePublicConnectionResponse> {
@@ -28098,10 +32583,28 @@ export default class Client extends OpenApi {
 
   async releaseReadWriteSplittingConnectionWithOptions(request: ReleaseReadWriteSplittingConnectionRequest, runtime: $Util.RuntimeOptions): Promise<ReleaseReadWriteSplittingConnectionResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["OwnerAccount"] = request.ownerAccount;
+    query["DBInstanceId"] = request.DBInstanceId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ReleaseReadWriteSplittingConnectionResponse>(await this.doRPCRequest("ReleaseReadWriteSplittingConnection", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new ReleaseReadWriteSplittingConnectionResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ReleaseReadWriteSplittingConnection",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ReleaseReadWriteSplittingConnectionResponse>(await this.callApi(params, req, runtime), new ReleaseReadWriteSplittingConnectionResponse({}));
   }
 
   async releaseReadWriteSplittingConnection(request: ReleaseReadWriteSplittingConnectionRequest): Promise<ReleaseReadWriteSplittingConnectionResponse> {
@@ -28111,10 +32614,32 @@ export default class Client extends OpenApi {
 
   async removeTagsFromResourceWithOptions(request: RemoveTagsFromResourceRequest, runtime: $Util.RuntimeOptions): Promise<RemoveTagsFromResourceResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["ClientToken"] = request.clientToken;
+    query["proxyId"] = request.proxyId;
+    query["RegionId"] = request.regionId;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["Tags"] = request.tags;
+    query["OwnerAccount"] = request.ownerAccount;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<RemoveTagsFromResourceResponse>(await this.doRPCRequest("RemoveTagsFromResource", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new RemoveTagsFromResourceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RemoveTagsFromResource",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<RemoveTagsFromResourceResponse>(await this.callApi(params, req, runtime), new RemoveTagsFromResourceResponse({}));
   }
 
   async removeTagsFromResource(request: RemoveTagsFromResourceRequest): Promise<RemoveTagsFromResourceResponse> {
@@ -28124,10 +32649,30 @@ export default class Client extends OpenApi {
 
   async renewInstanceWithOptions(request: RenewInstanceRequest, runtime: $Util.RuntimeOptions): Promise<RenewInstanceResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["ClientToken"] = request.clientToken;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["Period"] = request.period;
+    query["AutoPay"] = request.autoPay;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<RenewInstanceResponse>(await this.doRPCRequest("RenewInstance", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new RenewInstanceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RenewInstance",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<RenewInstanceResponse>(await this.callApi(params, req, runtime), new RenewInstanceResponse({}));
   }
 
   async renewInstance(request: RenewInstanceRequest): Promise<RenewInstanceResponse> {
@@ -28137,10 +32682,29 @@ export default class Client extends OpenApi {
 
   async replaceDedicatedHostWithOptions(request: ReplaceDedicatedHostRequest, runtime: $Util.RuntimeOptions): Promise<ReplaceDedicatedHostResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["RegionId"] = request.regionId;
+    query["DedicatedHostId"] = request.dedicatedHostId;
+    query["FailoverMode"] = request.failoverMode;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ReplaceDedicatedHostResponse>(await this.doRPCRequest("ReplaceDedicatedHost", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new ReplaceDedicatedHostResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ReplaceDedicatedHost",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ReplaceDedicatedHostResponse>(await this.callApi(params, req, runtime), new ReplaceDedicatedHostResponse({}));
   }
 
   async replaceDedicatedHost(request: ReplaceDedicatedHostRequest): Promise<ReplaceDedicatedHostResponse> {
@@ -28150,10 +32714,30 @@ export default class Client extends OpenApi {
 
   async resetAccountWithOptions(request: ResetAccountRequest, runtime: $Util.RuntimeOptions): Promise<ResetAccountResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["AccountName"] = request.accountName;
+    query["AccountPassword"] = request.accountPassword;
+    query["OwnerAccount"] = request.ownerAccount;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ResetAccountResponse>(await this.doRPCRequest("ResetAccount", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new ResetAccountResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ResetAccount",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ResetAccountResponse>(await this.callApi(params, req, runtime), new ResetAccountResponse({}));
   }
 
   async resetAccount(request: ResetAccountRequest): Promise<ResetAccountResponse> {
@@ -28163,10 +32747,30 @@ export default class Client extends OpenApi {
 
   async resetAccountPasswordWithOptions(request: ResetAccountPasswordRequest, runtime: $Util.RuntimeOptions): Promise<ResetAccountPasswordResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["AccountName"] = request.accountName;
+    query["AccountPassword"] = request.accountPassword;
+    query["OwnerAccount"] = request.ownerAccount;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ResetAccountPasswordResponse>(await this.doRPCRequest("ResetAccountPassword", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new ResetAccountPasswordResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ResetAccountPassword",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ResetAccountPasswordResponse>(await this.callApi(params, req, runtime), new ResetAccountPasswordResponse({}));
   }
 
   async resetAccountPassword(request: ResetAccountPasswordRequest): Promise<ResetAccountPasswordResponse> {
@@ -28176,10 +32780,29 @@ export default class Client extends OpenApi {
 
   async restartDBInstanceWithOptions(request: RestartDBInstanceRequest, runtime: $Util.RuntimeOptions): Promise<RestartDBInstanceResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["ClientToken"] = request.clientToken;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["OwnerAccount"] = request.ownerAccount;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<RestartDBInstanceResponse>(await this.doRPCRequest("RestartDBInstance", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new RestartDBInstanceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RestartDBInstance",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<RestartDBInstanceResponse>(await this.callApi(params, req, runtime), new RestartDBInstanceResponse({}));
   }
 
   async restartDBInstance(request: RestartDBInstanceRequest): Promise<RestartDBInstanceResponse> {
@@ -28189,10 +32812,29 @@ export default class Client extends OpenApi {
 
   async restartDedicatedHostWithOptions(request: RestartDedicatedHostRequest, runtime: $Util.RuntimeOptions): Promise<RestartDedicatedHostResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["RegionId"] = request.regionId;
+    query["DedicatedHostId"] = request.dedicatedHostId;
+    query["FailoverMode"] = request.failoverMode;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<RestartDedicatedHostResponse>(await this.doRPCRequest("RestartDedicatedHost", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new RestartDedicatedHostResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RestartDedicatedHost",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<RestartDedicatedHostResponse>(await this.callApi(params, req, runtime), new RestartDedicatedHostResponse({}));
   }
 
   async restartDedicatedHost(request: RestartDedicatedHostRequest): Promise<RestartDedicatedHostResponse> {
@@ -28202,10 +32844,35 @@ export default class Client extends OpenApi {
 
   async restoreDdrTableWithOptions(request: RestoreDdrTableRequest, runtime: $Util.RuntimeOptions): Promise<RestoreDdrTableResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["RegionId"] = request.regionId;
+    query["ClientToken"] = request.clientToken;
+    query["RestoreType"] = request.restoreType;
+    query["BackupId"] = request.backupId;
+    query["RestoreTime"] = request.restoreTime;
+    query["SourceRegion"] = request.sourceRegion;
+    query["SourceDBInstanceName"] = request.sourceDBInstanceName;
+    query["TableMeta"] = request.tableMeta;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<RestoreDdrTableResponse>(await this.doRPCRequest("RestoreDdrTable", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new RestoreDdrTableResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RestoreDdrTable",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<RestoreDdrTableResponse>(await this.callApi(params, req, runtime), new RestoreDdrTableResponse({}));
   }
 
   async restoreDdrTable(request: RestoreDdrTableRequest): Promise<RestoreDdrTableResponse> {
@@ -28215,10 +32882,32 @@ export default class Client extends OpenApi {
 
   async restoreTableWithOptions(request: RestoreTableRequest, runtime: $Util.RuntimeOptions): Promise<RestoreTableResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["ClientToken"] = request.clientToken;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["BackupId"] = request.backupId;
+    query["RestoreTime"] = request.restoreTime;
+    query["OwnerAccount"] = request.ownerAccount;
+    query["TableMeta"] = request.tableMeta;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<RestoreTableResponse>(await this.doRPCRequest("RestoreTable", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new RestoreTableResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RestoreTable",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<RestoreTableResponse>(await this.callApi(params, req, runtime), new RestoreTableResponse({}));
   }
 
   async restoreTable(request: RestoreTableRequest): Promise<RestoreTableResponse> {
@@ -28228,10 +32917,30 @@ export default class Client extends OpenApi {
 
   async revokeAccountPrivilegeWithOptions(request: RevokeAccountPrivilegeRequest, runtime: $Util.RuntimeOptions): Promise<RevokeAccountPrivilegeResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["AccountName"] = request.accountName;
+    query["DBName"] = request.DBName;
+    query["OwnerAccount"] = request.ownerAccount;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<RevokeAccountPrivilegeResponse>(await this.doRPCRequest("RevokeAccountPrivilege", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new RevokeAccountPrivilegeResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RevokeAccountPrivilege",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<RevokeAccountPrivilegeResponse>(await this.callApi(params, req, runtime), new RevokeAccountPrivilegeResponse({}));
   }
 
   async revokeAccountPrivilege(request: RevokeAccountPrivilegeRequest): Promise<RevokeAccountPrivilegeResponse> {
@@ -28241,10 +32950,28 @@ export default class Client extends OpenApi {
 
   async revokeOperatorPermissionWithOptions(request: RevokeOperatorPermissionRequest, runtime: $Util.RuntimeOptions): Promise<RevokeOperatorPermissionResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["OwnerAccount"] = request.ownerAccount;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<RevokeOperatorPermissionResponse>(await this.doRPCRequest("RevokeOperatorPermission", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new RevokeOperatorPermissionResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RevokeOperatorPermission",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<RevokeOperatorPermissionResponse>(await this.callApi(params, req, runtime), new RevokeOperatorPermissionResponse({}));
   }
 
   async revokeOperatorPermission(request: RevokeOperatorPermissionRequest): Promise<RevokeOperatorPermissionResponse> {
@@ -28254,10 +32981,40 @@ export default class Client extends OpenApi {
 
   async startDBInstanceWithOptions(request: StartDBInstanceRequest, runtime: $Util.RuntimeOptions): Promise<StartDBInstanceResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["RegionId"] = request.regionId;
+    query["DedicatedHostGroupId"] = request.dedicatedHostGroupId;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["TargetDedicatedHostIdForMaster"] = request.targetDedicatedHostIdForMaster;
+    query["TargetDedicatedHostIdForSlave"] = request.targetDedicatedHostIdForSlave;
+    query["TargetDedicatedHostIdForLog"] = request.targetDedicatedHostIdForLog;
+    query["EffectiveTime"] = request.effectiveTime;
+    query["SpecifiedTime"] = request.specifiedTime;
+    query["TargetDBInstanceClass"] = request.targetDBInstanceClass;
+    query["EngineVersion"] = request.engineVersion;
+    query["DBInstanceTransType"] = request.DBInstanceTransType;
+    query["Storage"] = request.storage;
+    query["VSwitchId"] = request.vSwitchId;
+    query["ZoneId"] = request.zoneId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<StartDBInstanceResponse>(await this.doRPCRequest("StartDBInstance", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new StartDBInstanceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "StartDBInstance",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<StartDBInstanceResponse>(await this.callApi(params, req, runtime), new StartDBInstanceResponse({}));
   }
 
   async startDBInstance(request: StartDBInstanceRequest): Promise<StartDBInstanceResponse> {
@@ -28267,10 +33024,28 @@ export default class Client extends OpenApi {
 
   async stopDBInstanceWithOptions(request: StopDBInstanceRequest, runtime: $Util.RuntimeOptions): Promise<StopDBInstanceResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<StopDBInstanceResponse>(await this.doRPCRequest("StopDBInstance", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new StopDBInstanceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "StopDBInstance",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<StopDBInstanceResponse>(await this.callApi(params, req, runtime), new StopDBInstanceResponse({}));
   }
 
   async stopDBInstance(request: StopDBInstanceRequest): Promise<StopDBInstanceResponse> {
@@ -28280,10 +33055,31 @@ export default class Client extends OpenApi {
 
   async switchDBInstanceHAWithOptions(request: SwitchDBInstanceHARequest, runtime: $Util.RuntimeOptions): Promise<SwitchDBInstanceHAResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["NodeId"] = request.nodeId;
+    query["Force"] = request.force;
+    query["OwnerAccount"] = request.ownerAccount;
+    query["EffectiveTime"] = request.effectiveTime;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<SwitchDBInstanceHAResponse>(await this.doRPCRequest("SwitchDBInstanceHA", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new SwitchDBInstanceHAResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SwitchDBInstanceHA",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<SwitchDBInstanceHAResponse>(await this.callApi(params, req, runtime), new SwitchDBInstanceHAResponse({}));
   }
 
   async switchDBInstanceHA(request: SwitchDBInstanceHARequest): Promise<SwitchDBInstanceHAResponse> {
@@ -28293,10 +33089,32 @@ export default class Client extends OpenApi {
 
   async switchDBInstanceNetTypeWithOptions(request: SwitchDBInstanceNetTypeRequest, runtime: $Util.RuntimeOptions): Promise<SwitchDBInstanceNetTypeResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["ClientToken"] = request.clientToken;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["ConnectionStringPrefix"] = request.connectionStringPrefix;
+    query["Port"] = request.port;
+    query["ConnectionStringType"] = request.connectionStringType;
+    query["OwnerAccount"] = request.ownerAccount;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<SwitchDBInstanceNetTypeResponse>(await this.doRPCRequest("SwitchDBInstanceNetType", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new SwitchDBInstanceNetTypeResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SwitchDBInstanceNetType",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<SwitchDBInstanceNetTypeResponse>(await this.callApi(params, req, runtime), new SwitchDBInstanceNetTypeResponse({}));
   }
 
   async switchDBInstanceNetType(request: SwitchDBInstanceNetTypeRequest): Promise<SwitchDBInstanceNetTypeResponse> {
@@ -28306,10 +33124,28 @@ export default class Client extends OpenApi {
 
   async switchDBInstanceVpcWithOptions(request: SwitchDBInstanceVpcRequest, runtime: $Util.RuntimeOptions): Promise<SwitchDBInstanceVpcResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["VPCId"] = request.VPCId;
+    query["VSwitchId"] = request.vSwitchId;
+    query["PrivateIpAddress"] = request.privateIpAddress;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<SwitchDBInstanceVpcResponse>(await this.doRPCRequest("SwitchDBInstanceVpc", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new SwitchDBInstanceVpcResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SwitchDBInstanceVpc",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<SwitchDBInstanceVpcResponse>(await this.callApi(params, req, runtime), new SwitchDBInstanceVpcResponse({}));
   }
 
   async switchDBInstanceVpc(request: SwitchDBInstanceVpcRequest): Promise<SwitchDBInstanceVpcResponse> {
@@ -28319,10 +33155,30 @@ export default class Client extends OpenApi {
 
   async tagResourcesWithOptions(request: TagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["RegionId"] = request.regionId;
+    query["ResourceType"] = request.resourceType;
+    query["ResourceId"] = request.resourceId;
+    query["Tag"] = request.tag;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<TagResourcesResponse>(await this.doRPCRequest("TagResources", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new TagResourcesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "TagResources",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
   }
 
   async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
@@ -28332,10 +33188,28 @@ export default class Client extends OpenApi {
 
   async terminateMigrateTaskWithOptions(request: TerminateMigrateTaskRequest, runtime: $Util.RuntimeOptions): Promise<TerminateMigrateTaskResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["MigrateTaskId"] = request.migrateTaskId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<TerminateMigrateTaskResponse>(await this.doRPCRequest("TerminateMigrateTask", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new TerminateMigrateTaskResponse({}));
+    let params = new $OpenApi.Params({
+      action: "TerminateMigrateTask",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<TerminateMigrateTaskResponse>(await this.callApi(params, req, runtime), new TerminateMigrateTaskResponse({}));
   }
 
   async terminateMigrateTask(request: TerminateMigrateTaskRequest): Promise<TerminateMigrateTaskResponse> {
@@ -28345,10 +33219,33 @@ export default class Client extends OpenApi {
 
   async transformDBInstancePayTypeWithOptions(request: TransformDBInstancePayTypeRequest, runtime: $Util.RuntimeOptions): Promise<TransformDBInstancePayTypeResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["ClientToken"] = request.clientToken;
+    query["OwnerAccount"] = request.ownerAccount;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["UsedTime"] = request.usedTime;
+    query["PayType"] = request.payType;
+    query["Period"] = request.period;
+    query["BusinessInfo"] = request.businessInfo;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<TransformDBInstancePayTypeResponse>(await this.doRPCRequest("TransformDBInstancePayType", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new TransformDBInstancePayTypeResponse({}));
+    let params = new $OpenApi.Params({
+      action: "TransformDBInstancePayType",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<TransformDBInstancePayTypeResponse>(await this.callApi(params, req, runtime), new TransformDBInstancePayTypeResponse({}));
   }
 
   async transformDBInstancePayType(request: TransformDBInstancePayTypeRequest): Promise<TransformDBInstancePayTypeResponse> {
@@ -28358,10 +33255,28 @@ export default class Client extends OpenApi {
 
   async unlockAccountWithOptions(request: UnlockAccountRequest, runtime: $Util.RuntimeOptions): Promise<UnlockAccountResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["AccountName"] = request.accountName;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<UnlockAccountResponse>(await this.doRPCRequest("UnlockAccount", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new UnlockAccountResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UnlockAccount",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UnlockAccountResponse>(await this.callApi(params, req, runtime), new UnlockAccountResponse({}));
   }
 
   async unlockAccount(request: UnlockAccountRequest): Promise<UnlockAccountResponse> {
@@ -28371,10 +33286,31 @@ export default class Client extends OpenApi {
 
   async untagResourcesWithOptions(request: UntagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<UntagResourcesResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["RegionId"] = request.regionId;
+    query["ResourceType"] = request.resourceType;
+    query["All"] = request.all;
+    query["ResourceId"] = request.resourceId;
+    query["TagKey"] = request.tagKey;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<UntagResourcesResponse>(await this.doRPCRequest("UntagResources", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new UntagResourcesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UntagResources",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
   }
 
   async untagResources(request: UntagResourcesRequest): Promise<UntagResourcesResponse> {
@@ -28384,10 +33320,30 @@ export default class Client extends OpenApi {
 
   async updateUserBackupFileWithOptions(request: UpdateUserBackupFileRequest, runtime: $Util.RuntimeOptions): Promise<UpdateUserBackupFileResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["BackupId"] = request.backupId;
+    query["RegionId"] = request.regionId;
+    query["Comment"] = request.comment;
+    query["Retention"] = request.retention;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<UpdateUserBackupFileResponse>(await this.doRPCRequest("UpdateUserBackupFile", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateUserBackupFileResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateUserBackupFile",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateUserBackupFileResponse>(await this.callApi(params, req, runtime), new UpdateUserBackupFileResponse({}));
   }
 
   async updateUserBackupFile(request: UpdateUserBackupFileRequest): Promise<UpdateUserBackupFileResponse> {
@@ -28397,10 +33353,31 @@ export default class Client extends OpenApi {
 
   async upgradeDBInstanceEngineVersionWithOptions(request: UpgradeDBInstanceEngineVersionRequest, runtime: $Util.RuntimeOptions): Promise<UpgradeDBInstanceEngineVersionResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["ClientToken"] = request.clientToken;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["EngineVersion"] = request.engineVersion;
+    query["OwnerAccount"] = request.ownerAccount;
+    query["EffectiveTime"] = request.effectiveTime;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<UpgradeDBInstanceEngineVersionResponse>(await this.doRPCRequest("UpgradeDBInstanceEngineVersion", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new UpgradeDBInstanceEngineVersionResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpgradeDBInstanceEngineVersion",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpgradeDBInstanceEngineVersionResponse>(await this.callApi(params, req, runtime), new UpgradeDBInstanceEngineVersionResponse({}));
   }
 
   async upgradeDBInstanceEngineVersion(request: UpgradeDBInstanceEngineVersionRequest): Promise<UpgradeDBInstanceEngineVersionResponse> {
@@ -28410,10 +33387,30 @@ export default class Client extends OpenApi {
 
   async upgradeDBInstanceKernelVersionWithOptions(request: UpgradeDBInstanceKernelVersionRequest, runtime: $Util.RuntimeOptions): Promise<UpgradeDBInstanceKernelVersionResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["UpgradeTime"] = request.upgradeTime;
+    query["SwitchTime"] = request.switchTime;
+    query["TargetMinorVersion"] = request.targetMinorVersion;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<UpgradeDBInstanceKernelVersionResponse>(await this.doRPCRequest("UpgradeDBInstanceKernelVersion", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new UpgradeDBInstanceKernelVersionResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpgradeDBInstanceKernelVersion",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpgradeDBInstanceKernelVersionResponse>(await this.callApi(params, req, runtime), new UpgradeDBInstanceKernelVersionResponse({}));
   }
 
   async upgradeDBInstanceKernelVersion(request: UpgradeDBInstanceKernelVersionRequest): Promise<UpgradeDBInstanceKernelVersionResponse> {
@@ -28423,10 +33420,29 @@ export default class Client extends OpenApi {
 
   async upgradeDBProxyInstanceKernelVersionWithOptions(request: UpgradeDBProxyInstanceKernelVersionRequest, runtime: $Util.RuntimeOptions): Promise<UpgradeDBProxyInstanceKernelVersionResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["DBInstanceId"] = request.DBInstanceId;
+    query["UpgradeTime"] = request.upgradeTime;
+    query["SwitchTime"] = request.switchTime;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<UpgradeDBProxyInstanceKernelVersionResponse>(await this.doRPCRequest("UpgradeDBProxyInstanceKernelVersion", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new UpgradeDBProxyInstanceKernelVersionResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpgradeDBProxyInstanceKernelVersion",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpgradeDBProxyInstanceKernelVersionResponse>(await this.callApi(params, req, runtime), new UpgradeDBProxyInstanceKernelVersionResponse({}));
   }
 
   async upgradeDBProxyInstanceKernelVersion(request: UpgradeDBProxyInstanceKernelVersionRequest): Promise<UpgradeDBProxyInstanceKernelVersionResponse> {
