@@ -1516,6 +1516,84 @@ export class ExecuteCallTaskResponse extends $tea.Model {
   }
 }
 
+export class GetHotlineQualificationByOrderRequest extends $tea.Model {
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  orderId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      orderId: 'OrderId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      orderId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetHotlineQualificationByOrderResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  requestId?: string;
+  data?: GetHotlineQualificationByOrderResponseBodyData;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+      data: GetHotlineQualificationByOrderResponseBodyData,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetHotlineQualificationByOrderResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetHotlineQualificationByOrderResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetHotlineQualificationByOrderResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetRtcTokenRequest extends $tea.Model {
   ownerId?: number;
   resourceOwnerAccount?: string;
@@ -1987,6 +2065,180 @@ export class ListCallTaskDetailResponse extends $tea.Model {
   }
 }
 
+export class ListHotlineTransferNumberRequest extends $tea.Model {
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  qualificationId?: string;
+  pageNo?: number;
+  pageSize?: number;
+  hotlineNumber?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      qualificationId: 'QualificationId',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      hotlineNumber: 'HotlineNumber',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      qualificationId: 'string',
+      pageNo: 'number',
+      pageSize: 'number',
+      hotlineNumber: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListHotlineTransferNumberResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  requestId?: string;
+  data?: ListHotlineTransferNumberResponseBodyData;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+      data: ListHotlineTransferNumberResponseBodyData,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListHotlineTransferNumberResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListHotlineTransferNumberResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListHotlineTransferNumberResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListHotlineTransferRegisterFileRequest extends $tea.Model {
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  qualificationId?: string;
+  pageNo?: number;
+  pageSize?: number;
+  hotlineNumber?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      qualificationId: 'QualificationId',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      hotlineNumber: 'HotlineNumber',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      qualificationId: 'string',
+      pageNo: 'number',
+      pageSize: 'number',
+      hotlineNumber: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListHotlineTransferRegisterFileResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  requestId?: string;
+  data?: ListHotlineTransferRegisterFileResponseBodyData;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+      data: ListHotlineTransferRegisterFileResponseBodyData,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListHotlineTransferRegisterFileResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListHotlineTransferRegisterFileResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListHotlineTransferRegisterFileResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListOrderedNumbersRequest extends $tea.Model {
   ownerId?: number;
   resourceOwnerAccount?: string;
@@ -2423,6 +2675,174 @@ export class QueryCallDetailByTaskIdResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: QueryCallDetailByTaskIdResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryCallInPoolTransferConfigRequest extends $tea.Model {
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  phoneNumber?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      phoneNumber: 'PhoneNumber',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      phoneNumber: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryCallInPoolTransferConfigResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  requestId?: string;
+  data?: QueryCallInPoolTransferConfigResponseBodyData;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+      data: QueryCallInPoolTransferConfigResponseBodyData,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryCallInPoolTransferConfigResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: QueryCallInPoolTransferConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: QueryCallInPoolTransferConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryCallInTransferRecordRequest extends $tea.Model {
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  phoneNumber?: string;
+  callInCaller?: string;
+  queryDate?: string;
+  pageNo?: number;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      phoneNumber: 'PhoneNumber',
+      callInCaller: 'CallInCaller',
+      queryDate: 'QueryDate',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      phoneNumber: 'string',
+      callInCaller: 'string',
+      queryDate: 'string',
+      pageNo: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryCallInTransferRecordResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  requestId?: string;
+  data?: QueryCallInTransferRecordResponseBodyData;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+      data: QueryCallInTransferRecordResponseBodyData,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryCallInTransferRecordResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: QueryCallInTransferRecordResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: QueryCallInTransferRecordResponseBody,
     };
   }
 
@@ -3379,6 +3799,177 @@ export class ReportVoipProblemsResponse extends $tea.Model {
   }
 }
 
+export class SendVerificationRequest extends $tea.Model {
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  verifyType?: string;
+  bizType?: string;
+  target?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      verifyType: 'VerifyType',
+      bizType: 'BizType',
+      target: 'Target',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      verifyType: 'string',
+      bizType: 'string',
+      target: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendVerificationResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  data?: boolean;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      data: 'boolean',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendVerificationResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: SendVerificationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: SendVerificationResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetTransferCalleePoolConfigRequest extends $tea.Model {
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  phoneNumber?: string;
+  qualificationId?: string;
+  calledRouteMode?: string;
+  details?: SetTransferCalleePoolConfigRequestDetails[];
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      phoneNumber: 'PhoneNumber',
+      qualificationId: 'QualificationId',
+      calledRouteMode: 'CalledRouteMode',
+      details: 'Details',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      phoneNumber: 'string',
+      qualificationId: 'string',
+      calledRouteMode: 'string',
+      details: { 'type': 'array', 'itemType': SetTransferCalleePoolConfigRequestDetails },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetTransferCalleePoolConfigResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  data?: boolean;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      data: 'boolean',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetTransferCalleePoolConfigResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: SetTransferCalleePoolConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: SetTransferCalleePoolConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SingleCallByTtsRequest extends $tea.Model {
   ownerId?: number;
   resourceOwnerAccount?: string;
@@ -4063,6 +4654,111 @@ export class StopRobotTaskResponse extends $tea.Model {
   }
 }
 
+export class SubmitHotlineTransferRegisterRequest extends $tea.Model {
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  qualificationId?: string;
+  operatorName?: string;
+  operatorMail?: string;
+  operatorMailVerifyCode?: string;
+  operatorMobile?: string;
+  operatorMobileVerifyCode?: string;
+  operatorIdentityCard?: string;
+  agreement?: string;
+  hotlineNumber?: string;
+  transferPhoneNumberInfos?: SubmitHotlineTransferRegisterRequestTransferPhoneNumberInfos[];
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      qualificationId: 'QualificationId',
+      operatorName: 'OperatorName',
+      operatorMail: 'OperatorMail',
+      operatorMailVerifyCode: 'OperatorMailVerifyCode',
+      operatorMobile: 'OperatorMobile',
+      operatorMobileVerifyCode: 'OperatorMobileVerifyCode',
+      operatorIdentityCard: 'OperatorIdentityCard',
+      agreement: 'Agreement',
+      hotlineNumber: 'HotlineNumber',
+      transferPhoneNumberInfos: 'TransferPhoneNumberInfos',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      qualificationId: 'string',
+      operatorName: 'string',
+      operatorMail: 'string',
+      operatorMailVerifyCode: 'string',
+      operatorMobile: 'string',
+      operatorMobileVerifyCode: 'string',
+      operatorIdentityCard: 'string',
+      agreement: 'string',
+      hotlineNumber: 'string',
+      transferPhoneNumberInfos: { 'type': 'array', 'itemType': SubmitHotlineTransferRegisterRequestTransferPhoneNumberInfos },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitHotlineTransferRegisterResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  data?: number;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      data: 'number',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitHotlineTransferRegisterResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: SubmitHotlineTransferRegisterResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: SubmitHotlineTransferRegisterResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UnbindNumberAndVoipIdRequest extends $tea.Model {
   ownerId?: number;
   resourceOwnerAccount?: string;
@@ -4496,6 +5192,31 @@ export class CreateSipAccountResponseBodyData extends $tea.Model {
   }
 }
 
+export class GetHotlineQualificationByOrderResponseBodyData extends $tea.Model {
+  status?: string;
+  qualificationId?: string;
+  orderId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      status: 'Status',
+      qualificationId: 'QualificationId',
+      orderId: 'OrderId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      status: 'string',
+      qualificationId: 'string',
+      orderId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class IvrCallRequestMenuKeyMap extends $tea.Model {
   key?: string;
   ttsParams?: string;
@@ -4613,6 +5334,139 @@ export class ListCallTaskDetailResponseBodyData extends $tea.Model {
   }
 }
 
+export class ListHotlineTransferNumberResponseBodyDataValues extends $tea.Model {
+  phoneNumber?: string;
+  numberOwnerName?: string;
+  qualificationId?: string;
+  hotlineNumber?: string;
+  identityCard?: string;
+  resUniqueCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      phoneNumber: 'PhoneNumber',
+      numberOwnerName: 'NumberOwnerName',
+      qualificationId: 'QualificationId',
+      hotlineNumber: 'HotlineNumber',
+      identityCard: 'IdentityCard',
+      resUniqueCode: 'ResUniqueCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      phoneNumber: 'string',
+      numberOwnerName: 'string',
+      qualificationId: 'string',
+      hotlineNumber: 'string',
+      identityCard: 'string',
+      resUniqueCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListHotlineTransferNumberResponseBodyData extends $tea.Model {
+  pageNo?: number;
+  pageSize?: number;
+  total?: number;
+  values?: ListHotlineTransferNumberResponseBodyDataValues[];
+  static names(): { [key: string]: string } {
+    return {
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      total: 'Total',
+      values: 'Values',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNo: 'number',
+      pageSize: 'number',
+      total: 'number',
+      values: { 'type': 'array', 'itemType': ListHotlineTransferNumberResponseBodyDataValues },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListHotlineTransferRegisterFileResponseBodyDataValues extends $tea.Model {
+  mngOpMail?: string;
+  mngOpName?: string;
+  corpName?: string;
+  agree?: string;
+  mngOpMobile?: string;
+  mngOpIdentityCard?: string;
+  hotlineNumber?: string;
+  qualificationId?: string;
+  resUniqueCode?: number;
+  static names(): { [key: string]: string } {
+    return {
+      mngOpMail: 'MngOpMail',
+      mngOpName: 'MngOpName',
+      corpName: 'CorpName',
+      agree: 'Agree',
+      mngOpMobile: 'MngOpMobile',
+      mngOpIdentityCard: 'MngOpIdentityCard',
+      hotlineNumber: 'HotlineNumber',
+      qualificationId: 'QualificationId',
+      resUniqueCode: 'ResUniqueCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mngOpMail: 'string',
+      mngOpName: 'string',
+      corpName: 'string',
+      agree: 'string',
+      mngOpMobile: 'string',
+      mngOpIdentityCard: 'string',
+      hotlineNumber: 'string',
+      qualificationId: 'string',
+      resUniqueCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListHotlineTransferRegisterFileResponseBodyData extends $tea.Model {
+  pageNo?: number;
+  pageSize?: number;
+  total?: number;
+  values?: ListHotlineTransferRegisterFileResponseBodyDataValues[];
+  static names(): { [key: string]: string } {
+    return {
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      total: 'Total',
+      values: 'Values',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNo: 'number',
+      pageSize: 'number',
+      total: 'number',
+      values: { 'type': 'array', 'itemType': ListHotlineTransferRegisterFileResponseBodyDataValues },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListOutboundStrategiesResponseBodyOutboundStrategies extends $tea.Model {
   status?: number;
   successRate?: number;
@@ -4687,6 +5541,162 @@ export class ListOutboundStrategiesResponseBodyOutboundStrategies extends $tea.M
       name: 'string',
       gmtCreateStr: 'string',
       id: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryCallInPoolTransferConfigResponseBodyDataDetails extends $tea.Model {
+  called?: string;
+  static names(): { [key: string]: string } {
+    return {
+      called: 'Called',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      called: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryCallInPoolTransferConfigResponseBodyData extends $tea.Model {
+  gmtCreate?: number;
+  calledRouteMode?: string;
+  transferTimeout?: string;
+  details?: QueryCallInPoolTransferConfigResponseBodyDataDetails[];
+  static names(): { [key: string]: string } {
+    return {
+      gmtCreate: 'GmtCreate',
+      calledRouteMode: 'CalledRouteMode',
+      transferTimeout: 'TransferTimeout',
+      details: 'Details',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      gmtCreate: 'number',
+      calledRouteMode: 'string',
+      transferTimeout: 'string',
+      details: { 'type': 'array', 'itemType': QueryCallInPoolTransferConfigResponseBodyDataDetails },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryCallInTransferRecordResponseBodyDataValues extends $tea.Model {
+  callInCalled?: string;
+  transferCalled?: string;
+  recordUrl?: string;
+  transferCaller?: string;
+  gmtCreate?: number;
+  callInCaller?: string;
+  static names(): { [key: string]: string } {
+    return {
+      callInCalled: 'CallInCalled',
+      transferCalled: 'TransferCalled',
+      recordUrl: 'RecordUrl',
+      transferCaller: 'TransferCaller',
+      gmtCreate: 'GmtCreate',
+      callInCaller: 'CallInCaller',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      callInCalled: 'string',
+      transferCalled: 'string',
+      recordUrl: 'string',
+      transferCaller: 'string',
+      gmtCreate: 'number',
+      callInCaller: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryCallInTransferRecordResponseBodyData extends $tea.Model {
+  pageNo?: number;
+  pageSize?: number;
+  total?: number;
+  values?: QueryCallInTransferRecordResponseBodyDataValues[];
+  static names(): { [key: string]: string } {
+    return {
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      total: 'Total',
+      values: 'Values',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNo: 'number',
+      pageSize: 'number',
+      total: 'number',
+      values: { 'type': 'array', 'itemType': QueryCallInTransferRecordResponseBodyDataValues },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetTransferCalleePoolConfigRequestDetails extends $tea.Model {
+  caller?: string;
+  called?: string;
+  static names(): { [key: string]: string } {
+    return {
+      caller: 'Caller',
+      called: 'Called',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      caller: 'string',
+      called: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitHotlineTransferRegisterRequestTransferPhoneNumberInfos extends $tea.Model {
+  phoneNumber?: string;
+  phoneNumberOwnerName?: string;
+  identityCard?: string;
+  static names(): { [key: string]: string } {
+    return {
+      phoneNumber: 'PhoneNumber',
+      phoneNumberOwnerName: 'PhoneNumberOwnerName',
+      identityCard: 'IdentityCard',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      phoneNumber: 'string',
+      phoneNumberOwnerName: 'string',
+      identityCard: 'string',
     };
   }
 
@@ -4939,6 +5949,19 @@ export default class Client extends OpenApi {
     return await this.executeCallTaskWithOptions(request, runtime);
   }
 
+  async getHotlineQualificationByOrderWithOptions(request: GetHotlineQualificationByOrderRequest, runtime: $Util.RuntimeOptions): Promise<GetHotlineQualificationByOrderResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<GetHotlineQualificationByOrderResponse>(await this.doRPCRequest("GetHotlineQualificationByOrder", "2017-05-25", "HTTPS", "POST", "AK", "json", req, runtime), new GetHotlineQualificationByOrderResponse({}));
+  }
+
+  async getHotlineQualificationByOrder(request: GetHotlineQualificationByOrderRequest): Promise<GetHotlineQualificationByOrderResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getHotlineQualificationByOrderWithOptions(request, runtime);
+  }
+
   async getRtcTokenWithOptions(request: GetRtcTokenRequest, runtime: $Util.RuntimeOptions): Promise<GetRtcTokenResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -5004,6 +6027,32 @@ export default class Client extends OpenApi {
     return await this.listCallTaskDetailWithOptions(request, runtime);
   }
 
+  async listHotlineTransferNumberWithOptions(request: ListHotlineTransferNumberRequest, runtime: $Util.RuntimeOptions): Promise<ListHotlineTransferNumberResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<ListHotlineTransferNumberResponse>(await this.doRPCRequest("ListHotlineTransferNumber", "2017-05-25", "HTTPS", "POST", "AK", "json", req, runtime), new ListHotlineTransferNumberResponse({}));
+  }
+
+  async listHotlineTransferNumber(request: ListHotlineTransferNumberRequest): Promise<ListHotlineTransferNumberResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listHotlineTransferNumberWithOptions(request, runtime);
+  }
+
+  async listHotlineTransferRegisterFileWithOptions(request: ListHotlineTransferRegisterFileRequest, runtime: $Util.RuntimeOptions): Promise<ListHotlineTransferRegisterFileResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<ListHotlineTransferRegisterFileResponse>(await this.doRPCRequest("ListHotlineTransferRegisterFile", "2017-05-25", "HTTPS", "POST", "AK", "json", req, runtime), new ListHotlineTransferRegisterFileResponse({}));
+  }
+
+  async listHotlineTransferRegisterFile(request: ListHotlineTransferRegisterFileRequest): Promise<ListHotlineTransferRegisterFileResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listHotlineTransferRegisterFileWithOptions(request, runtime);
+  }
+
   async listOrderedNumbersWithOptions(request: ListOrderedNumbersRequest, runtime: $Util.RuntimeOptions): Promise<ListOrderedNumbersResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -5067,6 +6116,32 @@ export default class Client extends OpenApi {
   async queryCallDetailByTaskId(request: QueryCallDetailByTaskIdRequest): Promise<QueryCallDetailByTaskIdResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryCallDetailByTaskIdWithOptions(request, runtime);
+  }
+
+  async queryCallInPoolTransferConfigWithOptions(request: QueryCallInPoolTransferConfigRequest, runtime: $Util.RuntimeOptions): Promise<QueryCallInPoolTransferConfigResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<QueryCallInPoolTransferConfigResponse>(await this.doRPCRequest("QueryCallInPoolTransferConfig", "2017-05-25", "HTTPS", "POST", "AK", "json", req, runtime), new QueryCallInPoolTransferConfigResponse({}));
+  }
+
+  async queryCallInPoolTransferConfig(request: QueryCallInPoolTransferConfigRequest): Promise<QueryCallInPoolTransferConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryCallInPoolTransferConfigWithOptions(request, runtime);
+  }
+
+  async queryCallInTransferRecordWithOptions(request: QueryCallInTransferRecordRequest, runtime: $Util.RuntimeOptions): Promise<QueryCallInTransferRecordResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<QueryCallInTransferRecordResponse>(await this.doRPCRequest("QueryCallInTransferRecord", "2017-05-25", "HTTPS", "POST", "AK", "json", req, runtime), new QueryCallInTransferRecordResponse({}));
+  }
+
+  async queryCallInTransferRecord(request: QueryCallInTransferRecordRequest): Promise<QueryCallInTransferRecordResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryCallInTransferRecordWithOptions(request, runtime);
   }
 
   async queryRobotInfoListWithOptions(request: QueryRobotInfoListRequest, runtime: $Util.RuntimeOptions): Promise<QueryRobotInfoListResponse> {
@@ -5212,6 +6287,32 @@ export default class Client extends OpenApi {
     return await this.reportVoipProblemsWithOptions(request, runtime);
   }
 
+  async sendVerificationWithOptions(request: SendVerificationRequest, runtime: $Util.RuntimeOptions): Promise<SendVerificationResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<SendVerificationResponse>(await this.doRPCRequest("SendVerification", "2017-05-25", "HTTPS", "POST", "AK", "json", req, runtime), new SendVerificationResponse({}));
+  }
+
+  async sendVerification(request: SendVerificationRequest): Promise<SendVerificationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.sendVerificationWithOptions(request, runtime);
+  }
+
+  async setTransferCalleePoolConfigWithOptions(request: SetTransferCalleePoolConfigRequest, runtime: $Util.RuntimeOptions): Promise<SetTransferCalleePoolConfigResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<SetTransferCalleePoolConfigResponse>(await this.doRPCRequest("SetTransferCalleePoolConfig", "2017-05-25", "HTTPS", "POST", "AK", "json", req, runtime), new SetTransferCalleePoolConfigResponse({}));
+  }
+
+  async setTransferCalleePoolConfig(request: SetTransferCalleePoolConfigRequest): Promise<SetTransferCalleePoolConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.setTransferCalleePoolConfigWithOptions(request, runtime);
+  }
+
   async singleCallByTtsWithOptions(request: SingleCallByTtsRequest, runtime: $Util.RuntimeOptions): Promise<SingleCallByTtsResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -5301,6 +6402,19 @@ export default class Client extends OpenApi {
   async stopRobotTask(request: StopRobotTaskRequest): Promise<StopRobotTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.stopRobotTaskWithOptions(request, runtime);
+  }
+
+  async submitHotlineTransferRegisterWithOptions(request: SubmitHotlineTransferRegisterRequest, runtime: $Util.RuntimeOptions): Promise<SubmitHotlineTransferRegisterResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<SubmitHotlineTransferRegisterResponse>(await this.doRPCRequest("SubmitHotlineTransferRegister", "2017-05-25", "HTTPS", "POST", "AK", "json", req, runtime), new SubmitHotlineTransferRegisterResponse({}));
+  }
+
+  async submitHotlineTransferRegister(request: SubmitHotlineTransferRegisterRequest): Promise<SubmitHotlineTransferRegisterResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.submitHotlineTransferRegisterWithOptions(request, runtime);
   }
 
   async unbindNumberAndVoipIdWithOptions(request: UnbindNumberAndVoipIdRequest, runtime: $Util.RuntimeOptions): Promise<UnbindNumberAndVoipIdResponse> {
