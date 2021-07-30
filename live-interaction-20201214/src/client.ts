@@ -4291,14 +4291,12 @@ export class DestroyRoomResponseBody extends $tea.Model {
   errorCode?: string;
   errorMsg?: string;
   requestId?: string;
-  result?: boolean;
   responseSuccess?: boolean;
   static names(): { [key: string]: string } {
     return {
       errorCode: 'errorCode',
       errorMsg: 'errorMsg',
       requestId: 'RequestId',
-      result: 'result',
       responseSuccess: 'ResponseSuccess',
     };
   }
@@ -4308,7 +4306,6 @@ export class DestroyRoomResponseBody extends $tea.Model {
       errorCode: 'string',
       errorMsg: 'string',
       requestId: 'string',
-      result: 'boolean',
       responseSuccess: 'boolean',
     };
   }
