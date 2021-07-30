@@ -271,6 +271,78 @@ export class CancelPushResponse extends $tea.Model {
   }
 }
 
+export class CheckCertificateRequest extends $tea.Model {
+  appKey?: number;
+  static names(): { [key: string]: string } {
+    return {
+      appKey: 'AppKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appKey: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CheckCertificateResponseBody extends $tea.Model {
+  requestId?: string;
+  android?: boolean;
+  IOS?: boolean;
+  productionCertInfo?: CheckCertificateResponseBodyProductionCertInfo;
+  developmentCertInfo?: CheckCertificateResponseBodyDevelopmentCertInfo;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      android: 'Android',
+      IOS: 'IOS',
+      productionCertInfo: 'ProductionCertInfo',
+      developmentCertInfo: 'DevelopmentCertInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      android: 'boolean',
+      IOS: 'boolean',
+      productionCertInfo: CheckCertificateResponseBodyProductionCertInfo,
+      developmentCertInfo: CheckCertificateResponseBodyDevelopmentCertInfo,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CheckCertificateResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CheckCertificateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CheckCertificateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CheckDeviceRequest extends $tea.Model {
   appKey?: number;
   deviceId?: string;
@@ -294,19 +366,19 @@ export class CheckDeviceRequest extends $tea.Model {
 }
 
 export class CheckDeviceResponseBody extends $tea.Model {
-  requestId?: string;
   available?: boolean;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       available: 'Available',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       available: 'boolean',
+      requestId: 'string',
     };
   }
 
@@ -426,19 +498,19 @@ export class CompleteContinuouslyPushRequest extends $tea.Model {
 }
 
 export class CompleteContinuouslyPushResponseBody extends $tea.Model {
-  requestId?: string;
   messageId?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       messageId: 'MessageId',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       messageId: 'string',
+      requestId: 'string',
     };
   }
 
@@ -498,19 +570,19 @@ export class ContinuouslyPushRequest extends $tea.Model {
 }
 
 export class ContinuouslyPushResponseBody extends $tea.Model {
-  requestId?: string;
   messageId?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       messageId: 'MessageId',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       messageId: 'string',
+      requestId: 'string',
     };
   }
 
@@ -605,19 +677,19 @@ export class ListTagsRequest extends $tea.Model {
 }
 
 export class ListTagsResponseBody extends $tea.Model {
-  tagInfos?: ListTagsResponseBodyTagInfos;
   requestId?: string;
+  tagInfos?: ListTagsResponseBodyTagInfos;
   static names(): { [key: string]: string } {
     return {
-      tagInfos: 'TagInfos',
       requestId: 'RequestId',
+      tagInfos: 'TagInfos',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      tagInfos: ListTagsResponseBodyTagInfos,
       requestId: 'string',
+      tagInfos: ListTagsResponseBodyTagInfos,
     };
   }
 
@@ -764,6 +836,10 @@ export class PushRequest extends $tea.Model {
   androidNotificationHuaweiChannel?: string;
   androidNotificationNotifyId?: number;
   iOSNotificationCollapseId?: string;
+  androidRenderStyle?: number;
+  androidBigTitle?: string;
+  androidBigBody?: string;
+  androidXiaomiBigPictureUrl?: string;
   static names(): { [key: string]: string } {
     return {
       appKey: 'AppKey',
@@ -815,6 +891,10 @@ export class PushRequest extends $tea.Model {
       androidNotificationHuaweiChannel: 'AndroidNotificationHuaweiChannel',
       androidNotificationNotifyId: 'AndroidNotificationNotifyId',
       iOSNotificationCollapseId: 'iOSNotificationCollapseId',
+      androidRenderStyle: 'AndroidRenderStyle',
+      androidBigTitle: 'AndroidBigTitle',
+      androidBigBody: 'AndroidBigBody',
+      androidXiaomiBigPictureUrl: 'AndroidXiaomiBigPictureUrl',
     };
   }
 
@@ -869,6 +949,10 @@ export class PushRequest extends $tea.Model {
       androidNotificationHuaweiChannel: 'string',
       androidNotificationNotifyId: 'number',
       iOSNotificationCollapseId: 'string',
+      androidRenderStyle: 'number',
+      androidBigTitle: 'string',
+      androidBigBody: 'string',
+      androidXiaomiBigPictureUrl: 'string',
     };
   }
 
@@ -878,19 +962,19 @@ export class PushRequest extends $tea.Model {
 }
 
 export class PushResponseBody extends $tea.Model {
-  requestId?: string;
   messageId?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       messageId: 'MessageId',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       messageId: 'string',
+      requestId: 'string',
     };
   }
 
@@ -956,19 +1040,19 @@ export class PushMessageToAndroidRequest extends $tea.Model {
 }
 
 export class PushMessageToAndroidResponseBody extends $tea.Model {
-  requestId?: string;
   messageId?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       messageId: 'MessageId',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       messageId: 'string',
+      requestId: 'string',
     };
   }
 
@@ -1034,19 +1118,19 @@ export class PushMessageToiOSRequest extends $tea.Model {
 }
 
 export class PushMessageToiOSResponseBody extends $tea.Model {
-  requestId?: string;
   messageId?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       messageId: 'MessageId',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       messageId: 'string',
+      requestId: 'string',
     };
   }
 
@@ -1115,19 +1199,19 @@ export class PushNoticeToAndroidRequest extends $tea.Model {
 }
 
 export class PushNoticeToAndroidResponseBody extends $tea.Model {
-  requestId?: string;
   messageId?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       messageId: 'MessageId',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       messageId: 'string',
+      requestId: 'string',
     };
   }
 
@@ -1199,19 +1283,19 @@ export class PushNoticeToiOSRequest extends $tea.Model {
 }
 
 export class PushNoticeToiOSResponseBody extends $tea.Model {
-  requestId?: string;
   messageId?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       messageId: 'MessageId',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       messageId: 'string',
+      requestId: 'string',
     };
   }
 
@@ -1334,19 +1418,19 @@ export class QueryDeviceCountRequest extends $tea.Model {
 }
 
 export class QueryDeviceCountResponseBody extends $tea.Model {
-  requestId?: string;
   deviceCount?: number;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       deviceCount: 'DeviceCount',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       deviceCount: 'number',
+      requestId: 'string',
     };
   }
 
@@ -1466,19 +1550,19 @@ export class QueryDevicesByAccountRequest extends $tea.Model {
 }
 
 export class QueryDevicesByAccountResponseBody extends $tea.Model {
-  deviceIds?: QueryDevicesByAccountResponseBodyDeviceIds;
   requestId?: string;
+  deviceIds?: QueryDevicesByAccountResponseBodyDeviceIds;
   static names(): { [key: string]: string } {
     return {
-      deviceIds: 'DeviceIds',
       requestId: 'RequestId',
+      deviceIds: 'DeviceIds',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      deviceIds: QueryDevicesByAccountResponseBodyDeviceIds,
       requestId: 'string',
+      deviceIds: QueryDevicesByAccountResponseBodyDeviceIds,
     };
   }
 
@@ -1532,19 +1616,19 @@ export class QueryDevicesByAliasRequest extends $tea.Model {
 }
 
 export class QueryDevicesByAliasResponseBody extends $tea.Model {
-  deviceIds?: QueryDevicesByAliasResponseBodyDeviceIds;
   requestId?: string;
+  deviceIds?: QueryDevicesByAliasResponseBodyDeviceIds;
   static names(): { [key: string]: string } {
     return {
-      deviceIds: 'DeviceIds',
       requestId: 'RequestId',
+      deviceIds: 'DeviceIds',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      deviceIds: QueryDevicesByAliasResponseBodyDeviceIds,
       requestId: 'string',
+      deviceIds: QueryDevicesByAliasResponseBodyDeviceIds,
     };
   }
 
@@ -1697,31 +1781,31 @@ export class QueryPushRecordsRequest extends $tea.Model {
 }
 
 export class QueryPushRecordsResponseBody extends $tea.Model {
-  pushInfos?: QueryPushRecordsResponseBodyPushInfos;
   nextToken?: string;
   pageSize?: number;
   requestId?: string;
   total?: number;
   page?: number;
+  pushInfos?: QueryPushRecordsResponseBodyPushInfos;
   static names(): { [key: string]: string } {
     return {
-      pushInfos: 'PushInfos',
       nextToken: 'NextToken',
       pageSize: 'PageSize',
       requestId: 'RequestId',
       total: 'Total',
       page: 'Page',
+      pushInfos: 'PushInfos',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      pushInfos: QueryPushRecordsResponseBodyPushInfos,
       nextToken: 'string',
       pageSize: 'number',
       requestId: 'string',
       total: 'number',
       page: 'number',
+      pushInfos: QueryPushRecordsResponseBodyPushInfos,
     };
   }
 
@@ -1916,19 +2000,19 @@ export class QueryTagsRequest extends $tea.Model {
 }
 
 export class QueryTagsResponseBody extends $tea.Model {
-  tagInfos?: QueryTagsResponseBodyTagInfos;
   requestId?: string;
+  tagInfos?: QueryTagsResponseBodyTagInfos;
   static names(): { [key: string]: string } {
     return {
-      tagInfos: 'TagInfos',
       requestId: 'RequestId',
+      tagInfos: 'TagInfos',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      tagInfos: QueryTagsResponseBodyTagInfos,
       requestId: 'string',
+      tagInfos: QueryTagsResponseBodyTagInfos,
     };
   }
 
@@ -2295,6 +2379,50 @@ export class UnbindTagResponse extends $tea.Model {
   }
 }
 
+export class CheckCertificateResponseBodyProductionCertInfo extends $tea.Model {
+  status?: string;
+  exipreTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      status: 'Status',
+      exipreTime: 'ExipreTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      status: 'string',
+      exipreTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CheckCertificateResponseBodyDevelopmentCertInfo extends $tea.Model {
+  status?: string;
+  exipreTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      status: 'Status',
+      exipreTime: 'ExipreTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      status: 'string',
+      exipreTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CheckDevicesResponseBodyDeviceCheckInfosDeviceCheckInfo extends $tea.Model {
   deviceId?: string;
   available?: boolean;
@@ -2417,11 +2545,12 @@ export class ListTagsResponseBodyTagInfos extends $tea.Model {
 
 export class MassPushRequestPushTask extends $tea.Model {
   jobKey?: string;
-  iOSNotificationCollapseId?: string;
   iOSSilentNotification?: boolean;
+  iOSNotificationCollapseId?: string;
+  androidRenderStyle?: string;
   storeOffline?: boolean;
-  iOSNotificationCategory?: string;
   iOSSubtitle?: string;
+  iOSNotificationCategory?: string;
   androidNotificationChannel?: string;
   androidNotificationHuaweiChannel?: string;
   iOSApnsEnv?: string;
@@ -2433,14 +2562,16 @@ export class MassPushRequestPushTask extends $tea.Model {
   iOSRemindBody?: string;
   androidActivity?: string;
   androidNotifyType?: string;
+  androidBigBody?: string;
   iOSMutableContent?: boolean;
   target?: string;
   androidOpenUrl?: string;
+  androidBigTitle?: string;
   androidNotificationNotifyId?: number;
   expireTime?: string;
   androidNotificationVivoChannel?: string;
-  androidOpenType?: string;
   deviceType?: string;
+  androidOpenType?: string;
   androidPopupActivity?: string;
   androidRemind?: boolean;
   androidPopupBody?: string;
@@ -2450,23 +2581,25 @@ export class MassPushRequestPushTask extends $tea.Model {
   body?: string;
   androidNotificationBarType?: number;
   androidNotificationBarPriority?: number;
+  androidXiaomiBigPictureUrl?: string;
   targetValue?: string;
   iOSMusic?: string;
   iOSRemind?: boolean;
   pushType?: string;
-  iOSBadge?: number;
   sendSpeed?: number;
+  iOSBadge?: number;
   title?: string;
   pushTime?: string;
   androidMusic?: string;
   static names(): { [key: string]: string } {
     return {
       jobKey: 'JobKey',
-      iOSNotificationCollapseId: 'iOSNotificationCollapseId',
       iOSSilentNotification: 'iOSSilentNotification',
+      iOSNotificationCollapseId: 'iOSNotificationCollapseId',
+      androidRenderStyle: 'AndroidRenderStyle',
       storeOffline: 'StoreOffline',
-      iOSNotificationCategory: 'iOSNotificationCategory',
       iOSSubtitle: 'iOSSubtitle',
+      iOSNotificationCategory: 'iOSNotificationCategory',
       androidNotificationChannel: 'AndroidNotificationChannel',
       androidNotificationHuaweiChannel: 'AndroidNotificationHuaweiChannel',
       iOSApnsEnv: 'iOSApnsEnv',
@@ -2478,14 +2611,16 @@ export class MassPushRequestPushTask extends $tea.Model {
       iOSRemindBody: 'iOSRemindBody',
       androidActivity: 'AndroidActivity',
       androidNotifyType: 'AndroidNotifyType',
+      androidBigBody: 'AndroidBigBody',
       iOSMutableContent: 'iOSMutableContent',
       target: 'Target',
       androidOpenUrl: 'AndroidOpenUrl',
+      androidBigTitle: 'AndroidBigTitle',
       androidNotificationNotifyId: 'AndroidNotificationNotifyId',
       expireTime: 'ExpireTime',
       androidNotificationVivoChannel: 'AndroidNotificationVivoChannel',
-      androidOpenType: 'AndroidOpenType',
       deviceType: 'DeviceType',
+      androidOpenType: 'AndroidOpenType',
       androidPopupActivity: 'AndroidPopupActivity',
       androidRemind: 'AndroidRemind',
       androidPopupBody: 'AndroidPopupBody',
@@ -2495,12 +2630,13 @@ export class MassPushRequestPushTask extends $tea.Model {
       body: 'Body',
       androidNotificationBarType: 'AndroidNotificationBarType',
       androidNotificationBarPriority: 'AndroidNotificationBarPriority',
+      androidXiaomiBigPictureUrl: 'AndroidXiaomiBigPictureUrl',
       targetValue: 'TargetValue',
       iOSMusic: 'iOSMusic',
       iOSRemind: 'iOSRemind',
       pushType: 'PushType',
-      iOSBadge: 'iOSBadge',
       sendSpeed: 'SendSpeed',
+      iOSBadge: 'iOSBadge',
       title: 'Title',
       pushTime: 'PushTime',
       androidMusic: 'AndroidMusic',
@@ -2510,11 +2646,12 @@ export class MassPushRequestPushTask extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       jobKey: 'string',
-      iOSNotificationCollapseId: 'string',
       iOSSilentNotification: 'boolean',
+      iOSNotificationCollapseId: 'string',
+      androidRenderStyle: 'string',
       storeOffline: 'boolean',
-      iOSNotificationCategory: 'string',
       iOSSubtitle: 'string',
+      iOSNotificationCategory: 'string',
       androidNotificationChannel: 'string',
       androidNotificationHuaweiChannel: 'string',
       iOSApnsEnv: 'string',
@@ -2526,14 +2663,16 @@ export class MassPushRequestPushTask extends $tea.Model {
       iOSRemindBody: 'string',
       androidActivity: 'string',
       androidNotifyType: 'string',
+      androidBigBody: 'string',
       iOSMutableContent: 'boolean',
       target: 'string',
       androidOpenUrl: 'string',
+      androidBigTitle: 'string',
       androidNotificationNotifyId: 'number',
       expireTime: 'string',
       androidNotificationVivoChannel: 'string',
-      androidOpenType: 'string',
       deviceType: 'string',
+      androidOpenType: 'string',
       androidPopupActivity: 'string',
       androidRemind: 'boolean',
       androidPopupBody: 'string',
@@ -2543,12 +2682,13 @@ export class MassPushRequestPushTask extends $tea.Model {
       body: 'string',
       androidNotificationBarType: 'number',
       androidNotificationBarPriority: 'number',
+      androidXiaomiBigPictureUrl: 'string',
       targetValue: 'string',
       iOSMusic: 'string',
       iOSRemind: 'boolean',
       pushType: 'string',
-      iOSBadge: 'number',
       sendSpeed: 'number',
+      iOSBadge: 'number',
       title: 'string',
       pushTime: 'string',
       androidMusic: 'string',
@@ -3154,6 +3294,19 @@ export default class Client extends OpenApi {
   async cancelPush(request: CancelPushRequest): Promise<CancelPushResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.cancelPushWithOptions(request, runtime);
+  }
+
+  async checkCertificateWithOptions(request: CheckCertificateRequest, runtime: $Util.RuntimeOptions): Promise<CheckCertificateResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<CheckCertificateResponse>(await this.doRPCRequest("CheckCertificate", "2016-08-01", "HTTPS", "POST", "AK", "json", req, runtime), new CheckCertificateResponse({}));
+  }
+
+  async checkCertificate(request: CheckCertificateRequest): Promise<CheckCertificateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.checkCertificateWithOptions(request, runtime);
   }
 
   async checkDeviceWithOptions(request: CheckDeviceRequest, runtime: $Util.RuntimeOptions): Promise<CheckDeviceResponse> {
