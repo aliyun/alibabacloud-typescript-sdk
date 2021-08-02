@@ -14,6 +14,8 @@ export class CreateClientCertificateRequest extends $tea.Model {
   algorithm?: string;
   days?: number;
   parentIdentifier?: string;
+  beforeTime?: number;
+  afterTime?: number;
   static names(): { [key: string]: string } {
     return {
       sanType: 'SanType',
@@ -22,6 +24,8 @@ export class CreateClientCertificateRequest extends $tea.Model {
       algorithm: 'Algorithm',
       days: 'Days',
       parentIdentifier: 'ParentIdentifier',
+      beforeTime: 'BeforeTime',
+      afterTime: 'AfterTime',
     };
   }
 
@@ -33,6 +37,8 @@ export class CreateClientCertificateRequest extends $tea.Model {
       algorithm: 'string',
       days: 'number',
       parentIdentifier: 'string',
+      beforeTime: 'number',
+      afterTime: 'number',
     };
   }
 
@@ -43,11 +49,15 @@ export class CreateClientCertificateRequest extends $tea.Model {
 
 export class CreateClientCertificateResponseBody extends $tea.Model {
   identifier?: string;
+  rootX509Certificate?: string;
+  parentX509Certificate?: string;
   requestId?: string;
   x509Certificate?: string;
   static names(): { [key: string]: string } {
     return {
       identifier: 'Identifier',
+      rootX509Certificate: 'RootX509Certificate',
+      parentX509Certificate: 'ParentX509Certificate',
       requestId: 'RequestId',
       x509Certificate: 'X509Certificate',
     };
@@ -56,6 +66,8 @@ export class CreateClientCertificateResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       identifier: 'string',
+      rootX509Certificate: 'string',
+      parentX509Certificate: 'string',
       requestId: 'string',
       x509Certificate: 'string',
     };
@@ -94,6 +106,8 @@ export class CreateClientCertificateWithCsrRequest extends $tea.Model {
   sanValue?: string;
   days?: number;
   parentIdentifier?: string;
+  beforeTime?: number;
+  afterTime?: number;
   static names(): { [key: string]: string } {
     return {
       csr: 'Csr',
@@ -101,6 +115,8 @@ export class CreateClientCertificateWithCsrRequest extends $tea.Model {
       sanValue: 'SanValue',
       days: 'Days',
       parentIdentifier: 'ParentIdentifier',
+      beforeTime: 'BeforeTime',
+      afterTime: 'AfterTime',
     };
   }
 
@@ -111,6 +127,8 @@ export class CreateClientCertificateWithCsrRequest extends $tea.Model {
       sanValue: 'string',
       days: 'number',
       parentIdentifier: 'string',
+      beforeTime: 'number',
+      afterTime: 'number',
     };
   }
 
@@ -121,11 +139,15 @@ export class CreateClientCertificateWithCsrRequest extends $tea.Model {
 
 export class CreateClientCertificateWithCsrResponseBody extends $tea.Model {
   identifier?: string;
+  rootX509Certificate?: string;
+  parentX509Certificate?: string;
   requestId?: string;
   x509Certificate?: string;
   static names(): { [key: string]: string } {
     return {
       identifier: 'Identifier',
+      rootX509Certificate: 'RootX509Certificate',
+      parentX509Certificate: 'ParentX509Certificate',
       requestId: 'RequestId',
       x509Certificate: 'X509Certificate',
     };
@@ -134,6 +156,8 @@ export class CreateClientCertificateWithCsrResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       identifier: 'string',
+      rootX509Certificate: 'string',
+      parentX509Certificate: 'string',
       requestId: 'string',
       x509Certificate: 'string',
     };
@@ -316,6 +340,8 @@ export class CreateServerCertificateRequest extends $tea.Model {
   algorithm?: string;
   days?: number;
   parentIdentifier?: string;
+  beforeTime?: number;
+  afterTime?: number;
   static names(): { [key: string]: string } {
     return {
       domain: 'Domain',
@@ -323,6 +349,8 @@ export class CreateServerCertificateRequest extends $tea.Model {
       algorithm: 'Algorithm',
       days: 'Days',
       parentIdentifier: 'ParentIdentifier',
+      beforeTime: 'BeforeTime',
+      afterTime: 'AfterTime',
     };
   }
 
@@ -333,6 +361,8 @@ export class CreateServerCertificateRequest extends $tea.Model {
       algorithm: 'string',
       days: 'number',
       parentIdentifier: 'string',
+      beforeTime: 'number',
+      afterTime: 'number',
     };
   }
 
@@ -343,11 +373,15 @@ export class CreateServerCertificateRequest extends $tea.Model {
 
 export class CreateServerCertificateResponseBody extends $tea.Model {
   identifier?: string;
+  rootX509Certificate?: string;
+  parentX509Certificate?: string;
   requestId?: string;
   x509Certificate?: string;
   static names(): { [key: string]: string } {
     return {
       identifier: 'Identifier',
+      rootX509Certificate: 'RootX509Certificate',
+      parentX509Certificate: 'ParentX509Certificate',
       requestId: 'RequestId',
       x509Certificate: 'X509Certificate',
     };
@@ -356,6 +390,8 @@ export class CreateServerCertificateResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       identifier: 'string',
+      rootX509Certificate: 'string',
+      parentX509Certificate: 'string',
       requestId: 'string',
       x509Certificate: 'string',
     };
@@ -393,12 +429,16 @@ export class CreateServerCertificateWithCsrRequest extends $tea.Model {
   domain?: string;
   days?: number;
   parentIdentifier?: string;
+  beforeTime?: number;
+  afterTime?: number;
   static names(): { [key: string]: string } {
     return {
       csr: 'Csr',
       domain: 'Domain',
       days: 'Days',
       parentIdentifier: 'ParentIdentifier',
+      beforeTime: 'BeforeTime',
+      afterTime: 'AfterTime',
     };
   }
 
@@ -408,6 +448,8 @@ export class CreateServerCertificateWithCsrRequest extends $tea.Model {
       domain: 'string',
       days: 'number',
       parentIdentifier: 'string',
+      beforeTime: 'number',
+      afterTime: 'number',
     };
   }
 
@@ -418,11 +460,15 @@ export class CreateServerCertificateWithCsrRequest extends $tea.Model {
 
 export class CreateServerCertificateWithCsrResponseBody extends $tea.Model {
   identifier?: string;
+  rootX509Certificate?: string;
+  parentX509Certificate?: string;
   requestId?: string;
   x509Certificate?: string;
   static names(): { [key: string]: string } {
     return {
       identifier: 'Identifier',
+      rootX509Certificate: 'RootX509Certificate',
+      parentX509Certificate: 'ParentX509Certificate',
       requestId: 'RequestId',
       x509Certificate: 'X509Certificate',
     };
@@ -431,6 +477,8 @@ export class CreateServerCertificateWithCsrResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       identifier: 'string',
+      rootX509Certificate: 'string',
+      parentX509Certificate: 'string',
       requestId: 'string',
       x509Certificate: 'string',
     };
