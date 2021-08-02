@@ -48,13 +48,13 @@ export class QueryTraceMuRequest extends $tea.Model {
 export class QueryTraceMuResponseBody extends $tea.Model {
   data?: QueryTraceMuResponseBodyData[];
   message?: string;
-  requestId?: string;
+  requestID?: string;
   statusCode?: number;
   static names(): { [key: string]: string } {
     return {
       data: 'Data',
       message: 'Message',
-      requestId: 'RequestId',
+      requestID: 'RequestID',
       statusCode: 'StatusCode',
     };
   }
@@ -63,7 +63,7 @@ export class QueryTraceMuResponseBody extends $tea.Model {
     return {
       data: { 'type': 'array', 'itemType': QueryTraceMuResponseBodyData },
       message: 'string',
-      requestId: 'string',
+      requestID: 'string',
       statusCode: 'number',
     };
   }
@@ -126,13 +126,13 @@ export class SubmitImageCopyrightRequest extends $tea.Model {
 export class SubmitImageCopyrightResponseBody extends $tea.Model {
   data?: SubmitImageCopyrightResponseBodyData;
   message?: string;
-  requestId?: string;
+  requestID?: string;
   statusCode?: number;
   static names(): { [key: string]: string } {
     return {
       data: 'Data',
       message: 'Message',
-      requestId: 'RequestId',
+      requestID: 'RequestID',
       statusCode: 'StatusCode',
     };
   }
@@ -141,7 +141,7 @@ export class SubmitImageCopyrightResponseBody extends $tea.Model {
     return {
       data: SubmitImageCopyrightResponseBodyData,
       message: 'string',
-      requestId: 'string',
+      requestID: 'string',
       statusCode: 'number',
     };
   }
@@ -207,13 +207,13 @@ export class QueryImageCopyrightRequest extends $tea.Model {
 export class QueryImageCopyrightResponseBody extends $tea.Model {
   data?: QueryImageCopyrightResponseBodyData[];
   message?: string;
-  requestId?: string;
+  requestID?: string;
   statusCode?: number;
   static names(): { [key: string]: string } {
     return {
       data: 'Data',
       message: 'Message',
-      requestId: 'RequestId',
+      requestID: 'RequestID',
       statusCode: 'StatusCode',
     };
   }
@@ -222,7 +222,7 @@ export class QueryImageCopyrightResponseBody extends $tea.Model {
     return {
       data: { 'type': 'array', 'itemType': QueryImageCopyrightResponseBodyData },
       message: 'string',
-      requestId: 'string',
+      requestID: 'string',
       statusCode: 'number',
     };
   }
@@ -289,12 +289,12 @@ export class QueryCopyrightRequest extends $tea.Model {
 }
 
 export class QueryCopyrightResponseBody extends $tea.Model {
-  requestId?: string;
+  requestID?: string;
   data?: QueryCopyrightResponseBodyData[];
   statusCode?: number;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
+      requestID: 'RequestID',
       data: 'Data',
       statusCode: 'StatusCode',
     };
@@ -302,7 +302,7 @@ export class QueryCopyrightResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
+      requestID: 'string',
       data: { 'type': 'array', 'itemType': QueryCopyrightResponseBodyData },
       statusCode: 'number',
     };
@@ -363,13 +363,13 @@ export class SubmitTracemuRequest extends $tea.Model {
 export class SubmitTracemuResponseBody extends $tea.Model {
   data?: SubmitTracemuResponseBodyData;
   message?: string;
-  requestId?: string;
+  requestID?: string;
   statusCode?: number;
   static names(): { [key: string]: string } {
     return {
       data: 'Data',
       message: 'Message',
-      requestId: 'RequestId',
+      requestID: 'RequestID',
       statusCode: 'StatusCode',
     };
   }
@@ -378,7 +378,7 @@ export class SubmitTracemuResponseBody extends $tea.Model {
     return {
       data: SubmitTracemuResponseBodyData,
       message: 'string',
-      requestId: 'string',
+      requestID: 'string',
       statusCode: 'number',
     };
   }
@@ -435,13 +435,13 @@ export class QueryTraceAbRequest extends $tea.Model {
 export class QueryTraceAbResponseBody extends $tea.Model {
   data?: QueryTraceAbResponseBodyData[];
   message?: string;
-  requestId?: string;
+  requestID?: string;
   statusCode?: number;
   static names(): { [key: string]: string } {
     return {
       data: 'Data',
       message: 'Message',
-      requestId: 'RequestId',
+      requestID: 'RequestID',
       statusCode: 'StatusCode',
     };
   }
@@ -450,7 +450,7 @@ export class QueryTraceAbResponseBody extends $tea.Model {
     return {
       data: { 'type': 'array', 'itemType': QueryTraceAbResponseBodyData },
       message: 'string',
-      requestId: 'string',
+      requestID: 'string',
       statusCode: 'number',
     };
   }
@@ -516,13 +516,13 @@ export class SubmitTraceAbRequest extends $tea.Model {
 export class SubmitTraceAbResponseBody extends $tea.Model {
   data?: SubmitTraceAbResponseBodyData;
   message?: string;
-  requestId?: string;
+  requestID?: string;
   statusCode?: number;
   static names(): { [key: string]: string } {
     return {
       data: 'Data',
       message: 'Message',
-      requestId: 'RequestId',
+      requestID: 'RequestID',
       statusCode: 'StatusCode',
     };
   }
@@ -531,7 +531,7 @@ export class SubmitTraceAbResponseBody extends $tea.Model {
     return {
       data: SubmitTraceAbResponseBodyData,
       message: 'string',
-      requestId: 'string',
+      requestID: 'string',
       statusCode: 'number',
     };
   }
@@ -601,13 +601,13 @@ export class SubmitCopyrightJobRequest extends $tea.Model {
 }
 
 export class SubmitCopyrightJobResponseBody extends $tea.Model {
-  requestId?: string;
+  requestID?: string;
   message?: string;
   data?: SubmitCopyrightJobResponseBodyData;
   statusCode?: number;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
+      requestID: 'RequestID',
       message: 'Message',
       data: 'Data',
       statusCode: 'StatusCode',
@@ -616,7 +616,7 @@ export class SubmitCopyrightJobResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
+      requestID: 'string',
       message: 'string',
       data: SubmitCopyrightJobResponseBodyData,
       statusCode: 'number',
@@ -663,16 +663,16 @@ export class QueryTraceMuResponseBodyData extends $tea.Model {
   userId?: number;
   static names(): { [key: string]: string } {
     return {
-      gmtCreate: 'Gmt_create',
-      gmtModified: 'Gmt_modified',
-      jobId: 'Job_id',
-      mediaId: 'Media_id',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      jobId: 'JobId',
+      mediaId: 'MediaId',
       output: 'Output',
       status: 'Status',
       trace: 'Trace',
-      traceId: 'Trace_id',
-      userData: 'User_data',
-      userId: 'User_id',
+      traceId: 'TraceId',
+      userData: 'UserData',
+      userId: 'UserId',
     };
   }
 
@@ -729,17 +729,17 @@ export class QueryImageCopyrightResponseBodyData extends $tea.Model {
   userId?: number;
   static names(): { [key: string]: string } {
     return {
-      gmtCreate: 'Gmt_create',
-      gmtModified: 'Gmt_modified',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
       input: 'Input',
-      jobId: 'Job_id',
+      jobId: 'JobId',
       level: 'Level',
       message: 'Message',
-      messageId: 'Message_id',
+      messageId: 'MessageId',
       output: 'Output',
       status: 'Status',
-      userData: 'User_data',
-      userId: 'User_id',
+      userData: 'UserData',
+      userId: 'UserId',
     };
   }
 
@@ -780,17 +780,17 @@ export class QueryCopyrightResponseBodyData extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       callback: 'Callback',
-      gmtCreate: 'Gmt_create',
-      gmtModified: 'Gmt_modified',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
       input: 'Input',
-      jobId: 'Job_id',
+      jobId: 'JobId',
       level: 'Level',
       message: 'Message',
-      messageId: 'Message_id',
+      messageId: 'MessageId',
       output: 'Output',
       status: 'Status',
-      userData: 'User_data',
-      userId: 'User_id',
+      userData: 'UserData',
+      userId: 'UserId',
     };
   }
 
@@ -850,16 +850,16 @@ export class QueryTraceAbResponseBodyData extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       callback: 'Callback',
-      gmtCreate: 'Gmt_create',
-      gmtModified: 'Gmt_modified',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
       input: 'Input',
-      jobId: 'Job_id',
+      jobId: 'JobId',
       level: 'Level',
-      mediaId: 'Media_id',
+      mediaId: 'MediaId',
       output: 'Output',
       status: 'Status',
-      userData: 'User_data',
-      userId: 'User_id',
+      userData: 'UserData',
+      userId: 'UserId',
     };
   }
 
