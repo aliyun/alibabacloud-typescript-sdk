@@ -23,6 +23,7 @@ export class SearchByPicRequest extends $tea.Model {
   num?: number;
   fields?: string;
   relationId?: number;
+  pid?: string;
   static names(): { [key: string]: string } {
     return {
       picContent: 'PicContent',
@@ -33,6 +34,7 @@ export class SearchByPicRequest extends $tea.Model {
       num: 'Num',
       fields: 'Fields',
       relationId: 'RelationId',
+      pid: 'Pid',
     };
   }
 
@@ -46,6 +48,7 @@ export class SearchByPicRequest extends $tea.Model {
       num: 'number',
       fields: 'string',
       relationId: 'number',
+      pid: 'string',
     };
   }
 
@@ -63,6 +66,7 @@ export class SearchByPicAdvanceRequest extends $tea.Model {
   num?: number;
   fields?: string;
   relationId?: number;
+  pid?: string;
   static names(): { [key: string]: string } {
     return {
       picContentObject: 'PicContentObject',
@@ -73,6 +77,7 @@ export class SearchByPicAdvanceRequest extends $tea.Model {
       num: 'Num',
       fields: 'Fields',
       relationId: 'RelationId',
+      pid: 'Pid',
     };
   }
 
@@ -86,6 +91,7 @@ export class SearchByPicAdvanceRequest extends $tea.Model {
       num: 'number',
       fields: 'string',
       relationId: 'number',
+      pid: 'string',
     };
   }
 
@@ -159,6 +165,7 @@ export class SearchByUrlRequest extends $tea.Model {
   num?: number;
   fields?: string;
   relationId?: number;
+  pid?: string;
   static names(): { [key: string]: string } {
     return {
       picUrl: 'PicUrl',
@@ -169,6 +176,7 @@ export class SearchByUrlRequest extends $tea.Model {
       num: 'Num',
       fields: 'Fields',
       relationId: 'RelationId',
+      pid: 'Pid',
     };
   }
 
@@ -182,6 +190,7 @@ export class SearchByUrlRequest extends $tea.Model {
       num: 'number',
       fields: 'string',
       relationId: 'number',
+      pid: 'string',
     };
   }
 
@@ -246,53 +255,112 @@ export class SearchByUrlResponse extends $tea.Model {
   }
 }
 
+export class SearchByPicResponseBodyDataAuctionsResultMaxCommission extends $tea.Model {
+  maxCommissionRate?: string;
+  maxCommissionClickUrl?: string;
+  maxCommissionCouponShareUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      maxCommissionRate: 'MaxCommissionRate',
+      maxCommissionClickUrl: 'MaxCommissionClickUrl',
+      maxCommissionCouponShareUrl: 'MaxCommissionCouponShareUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxCommissionRate: 'string',
+      maxCommissionClickUrl: 'string',
+      maxCommissionCouponShareUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SearchByPicResponseBodyDataAuctionsResult extends $tea.Model {
   itemId?: string;
   itemName?: string;
+  title?: string;
   pic?: string;
+  picUrl?: string;
   price?: string;
+  reservePrice?: string;
   promotionPrice?: string;
+  zkFinalPrice?: string;
+  priceAfterCoupon?: string;
   userType?: number;
   provcity?: string;
   sellerNickName?: string;
+  nick?: string;
   sellerId?: string;
   monthSellCount?: number;
+  volume?: number;
   levelOneCategoryName?: string;
   categoryName?: string;
+  couponActivityId?: string;
   couponTotalCount?: string;
+  couponSendCount?: string;
   couponRemainCount?: number;
   couponStartTime?: string;
   couponEndTime?: string;
   couponStartFee?: string;
   couponAmount?: number;
   couponSaleTextInfo?: string;
+  couponInfo?: string;
+  tkMktRate?: number;
+  tkRate?: number;
   commissionRate?: string;
   couponShareUrl?: string;
   clickUrl?: string;
+  url?: string;
+  shortUrl?: string;
+  key?: string;
+  shopTitle?: string;
+  maxCommission?: SearchByPicResponseBodyDataAuctionsResultMaxCommission;
   static names(): { [key: string]: string } {
     return {
       itemId: 'ItemId',
       itemName: 'ItemName',
+      title: 'Title',
       pic: 'Pic',
+      picUrl: 'PicUrl',
       price: 'Price',
+      reservePrice: 'ReservePrice',
       promotionPrice: 'PromotionPrice',
+      zkFinalPrice: 'ZkFinalPrice',
+      priceAfterCoupon: 'PriceAfterCoupon',
       userType: 'UserType',
       provcity: 'Provcity',
       sellerNickName: 'SellerNickName',
+      nick: 'Nick',
       sellerId: 'SellerId',
       monthSellCount: 'MonthSellCount',
+      volume: 'Volume',
       levelOneCategoryName: 'LevelOneCategoryName',
       categoryName: 'CategoryName',
+      couponActivityId: 'CouponActivityId',
       couponTotalCount: 'CouponTotalCount',
+      couponSendCount: 'CouponSendCount',
       couponRemainCount: 'CouponRemainCount',
       couponStartTime: 'CouponStartTime',
       couponEndTime: 'CouponEndTime',
       couponStartFee: 'CouponStartFee',
       couponAmount: 'CouponAmount',
       couponSaleTextInfo: 'CouponSaleTextInfo',
+      couponInfo: 'CouponInfo',
+      tkMktRate: 'TkMktRate',
+      tkRate: 'TkRate',
       commissionRate: 'CommissionRate',
       couponShareUrl: 'CouponShareUrl',
       clickUrl: 'ClickUrl',
+      url: 'Url',
+      shortUrl: 'ShortUrl',
+      key: 'Key',
+      shopTitle: 'ShopTitle',
+      maxCommission: 'MaxCommission',
     };
   }
 
@@ -300,26 +368,43 @@ export class SearchByPicResponseBodyDataAuctionsResult extends $tea.Model {
     return {
       itemId: 'string',
       itemName: 'string',
+      title: 'string',
       pic: 'string',
+      picUrl: 'string',
       price: 'string',
+      reservePrice: 'string',
       promotionPrice: 'string',
+      zkFinalPrice: 'string',
+      priceAfterCoupon: 'string',
       userType: 'number',
       provcity: 'string',
       sellerNickName: 'string',
+      nick: 'string',
       sellerId: 'string',
       monthSellCount: 'number',
+      volume: 'number',
       levelOneCategoryName: 'string',
       categoryName: 'string',
+      couponActivityId: 'string',
       couponTotalCount: 'string',
+      couponSendCount: 'string',
       couponRemainCount: 'number',
       couponStartTime: 'string',
       couponEndTime: 'string',
       couponStartFee: 'string',
       couponAmount: 'number',
       couponSaleTextInfo: 'string',
+      couponInfo: 'string',
+      tkMktRate: 'number',
+      tkRate: 'number',
       commissionRate: 'string',
       couponShareUrl: 'string',
       clickUrl: 'string',
+      url: 'string',
+      shortUrl: 'string',
+      key: 'string',
+      shopTitle: 'string',
+      maxCommission: SearchByPicResponseBodyDataAuctionsResultMaxCommission,
     };
   }
 
@@ -454,53 +539,112 @@ export class SearchByPicResponseBodyPicInfo extends $tea.Model {
   }
 }
 
+export class SearchByUrlResponseBodyDataAuctionsResultMaxCommission extends $tea.Model {
+  maxCommissionRate?: string;
+  maxCommissionClickUrl?: string;
+  maxCommissionCouponShareUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      maxCommissionRate: 'MaxCommissionRate',
+      maxCommissionClickUrl: 'MaxCommissionClickUrl',
+      maxCommissionCouponShareUrl: 'MaxCommissionCouponShareUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxCommissionRate: 'string',
+      maxCommissionClickUrl: 'string',
+      maxCommissionCouponShareUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SearchByUrlResponseBodyDataAuctionsResult extends $tea.Model {
   itemId?: string;
   itemName?: string;
+  title?: string;
   pic?: string;
+  picUrl?: string;
   price?: string;
+  reservePrice?: string;
   promotionPrice?: string;
+  zkFinalPrice?: string;
+  priceAfterCoupon?: string;
   userType?: number;
   provcity?: string;
   sellerNickName?: string;
+  nick?: string;
   sellerId?: string;
   monthSellCount?: number;
+  volume?: number;
   levelOneCategoryName?: string;
   categoryName?: string;
+  couponActivityId?: string;
   couponTotalCount?: string;
+  couponSendCount?: string;
   couponRemainCount?: number;
   couponStartTime?: string;
   couponEndTime?: string;
   couponStartFee?: string;
   couponAmount?: number;
   couponSaleTextInfo?: string;
+  couponInfo?: string;
+  tkMktRate?: number;
+  tkRate?: number;
   commissionRate?: string;
   couponShareUrl?: string;
   clickUrl?: string;
+  url?: string;
+  shortUrl?: string;
+  key?: string;
+  shopTitle?: string;
+  maxCommission?: SearchByUrlResponseBodyDataAuctionsResultMaxCommission;
   static names(): { [key: string]: string } {
     return {
       itemId: 'ItemId',
       itemName: 'ItemName',
+      title: 'Title',
       pic: 'Pic',
+      picUrl: 'PicUrl',
       price: 'Price',
+      reservePrice: 'ReservePrice',
       promotionPrice: 'PromotionPrice',
+      zkFinalPrice: 'ZkFinalPrice',
+      priceAfterCoupon: 'PriceAfterCoupon',
       userType: 'UserType',
       provcity: 'Provcity',
       sellerNickName: 'SellerNickName',
+      nick: 'Nick',
       sellerId: 'SellerId',
       monthSellCount: 'MonthSellCount',
+      volume: 'Volume',
       levelOneCategoryName: 'LevelOneCategoryName',
       categoryName: 'CategoryName',
+      couponActivityId: 'CouponActivityId',
       couponTotalCount: 'CouponTotalCount',
+      couponSendCount: 'CouponSendCount',
       couponRemainCount: 'CouponRemainCount',
       couponStartTime: 'CouponStartTime',
       couponEndTime: 'CouponEndTime',
       couponStartFee: 'CouponStartFee',
       couponAmount: 'CouponAmount',
       couponSaleTextInfo: 'CouponSaleTextInfo',
+      couponInfo: 'CouponInfo',
+      tkMktRate: 'TkMktRate',
+      tkRate: 'TkRate',
       commissionRate: 'CommissionRate',
       couponShareUrl: 'CouponShareUrl',
       clickUrl: 'ClickUrl',
+      url: 'Url',
+      shortUrl: 'ShortUrl',
+      key: 'Key',
+      shopTitle: 'ShopTitle',
+      maxCommission: 'MaxCommission',
     };
   }
 
@@ -508,26 +652,43 @@ export class SearchByUrlResponseBodyDataAuctionsResult extends $tea.Model {
     return {
       itemId: 'string',
       itemName: 'string',
+      title: 'string',
       pic: 'string',
+      picUrl: 'string',
       price: 'string',
+      reservePrice: 'string',
       promotionPrice: 'string',
+      zkFinalPrice: 'string',
+      priceAfterCoupon: 'string',
       userType: 'number',
       provcity: 'string',
       sellerNickName: 'string',
+      nick: 'string',
       sellerId: 'string',
       monthSellCount: 'number',
+      volume: 'number',
       levelOneCategoryName: 'string',
       categoryName: 'string',
+      couponActivityId: 'string',
       couponTotalCount: 'string',
+      couponSendCount: 'string',
       couponRemainCount: 'number',
       couponStartTime: 'string',
       couponEndTime: 'string',
       couponStartFee: 'string',
       couponAmount: 'number',
       couponSaleTextInfo: 'string',
+      couponInfo: 'string',
+      tkMktRate: 'number',
+      tkRate: 'number',
       commissionRate: 'string',
       couponShareUrl: 'string',
       clickUrl: 'string',
+      url: 'string',
+      shortUrl: 'string',
+      key: 'string',
+      shopTitle: 'string',
+      maxCommission: SearchByUrlResponseBodyDataAuctionsResultMaxCommission,
     };
   }
 
