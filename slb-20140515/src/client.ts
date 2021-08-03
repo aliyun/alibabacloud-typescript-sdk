@@ -764,6 +764,7 @@ export class CreateLoadBalancerHTTPListenerRequest extends $tea.Model {
   cookieTimeout?: number;
   cookie?: string;
   healthCheck?: string;
+  healthCheckMethod?: string;
   healthCheckDomain?: string;
   healthCheckURI?: string;
   healthyThreshold?: number;
@@ -803,6 +804,7 @@ export class CreateLoadBalancerHTTPListenerRequest extends $tea.Model {
       cookieTimeout: 'CookieTimeout',
       cookie: 'Cookie',
       healthCheck: 'HealthCheck',
+      healthCheckMethod: 'HealthCheckMethod',
       healthCheckDomain: 'HealthCheckDomain',
       healthCheckURI: 'HealthCheckURI',
       healthyThreshold: 'HealthyThreshold',
@@ -845,6 +847,7 @@ export class CreateLoadBalancerHTTPListenerRequest extends $tea.Model {
       cookieTimeout: 'number',
       cookie: 'string',
       healthCheck: 'string',
+      healthCheckMethod: 'string',
       healthCheckDomain: 'string',
       healthCheckURI: 'string',
       healthyThreshold: 'number',
@@ -932,6 +935,7 @@ export class CreateLoadBalancerHTTPSListenerRequest extends $tea.Model {
   cookieTimeout?: number;
   cookie?: string;
   healthCheck?: string;
+  healthCheckMethod?: string;
   healthCheckDomain?: string;
   healthCheckURI?: string;
   healthyThreshold?: number;
@@ -973,6 +977,7 @@ export class CreateLoadBalancerHTTPSListenerRequest extends $tea.Model {
       cookieTimeout: 'CookieTimeout',
       cookie: 'Cookie',
       healthCheck: 'HealthCheck',
+      healthCheckMethod: 'HealthCheckMethod',
       healthCheckDomain: 'HealthCheckDomain',
       healthCheckURI: 'HealthCheckURI',
       healthyThreshold: 'HealthyThreshold',
@@ -1017,6 +1022,7 @@ export class CreateLoadBalancerHTTPSListenerRequest extends $tea.Model {
       cookieTimeout: 'number',
       cookie: 'string',
       healthCheck: 'string',
+      healthCheckMethod: 'string',
       healthCheckDomain: 'string',
       healthCheckURI: 'string',
       healthyThreshold: 'number',
@@ -2508,8 +2514,8 @@ export class DescribeAccessControlListAttributeResponseBody extends $tea.Model {
   aclId?: string;
   addressIPVersion?: string;
   requestId?: string;
-  aclName?: string;
   resourceGroupId?: string;
+  aclName?: string;
   aclEntrys?: DescribeAccessControlListAttributeResponseBodyAclEntrys;
   relatedListeners?: DescribeAccessControlListAttributeResponseBodyRelatedListeners;
   static names(): { [key: string]: string } {
@@ -2517,8 +2523,8 @@ export class DescribeAccessControlListAttributeResponseBody extends $tea.Model {
       aclId: 'AclId',
       addressIPVersion: 'AddressIPVersion',
       requestId: 'RequestId',
-      aclName: 'AclName',
       resourceGroupId: 'ResourceGroupId',
+      aclName: 'AclName',
       aclEntrys: 'AclEntrys',
       relatedListeners: 'RelatedListeners',
     };
@@ -2529,8 +2535,8 @@ export class DescribeAccessControlListAttributeResponseBody extends $tea.Model {
       aclId: 'string',
       addressIPVersion: 'string',
       requestId: 'string',
-      aclName: 'string',
       resourceGroupId: 'string',
+      aclName: 'string',
       aclEntrys: DescribeAccessControlListAttributeResponseBodyAclEntrys,
       relatedListeners: DescribeAccessControlListAttributeResponseBodyRelatedListeners,
     };
@@ -3417,6 +3423,7 @@ export class DescribeLoadBalancerHTTPListenerAttributeResponseBody extends $tea.
   XForwardedFor_proto?: string;
   XForwardedFor_SLBIP?: string;
   stickySession?: string;
+  healthCheckMethod?: string;
   healthCheck?: string;
   rules?: DescribeLoadBalancerHTTPListenerAttributeResponseBodyRules;
   static names(): { [key: string]: string } {
@@ -3454,6 +3461,7 @@ export class DescribeLoadBalancerHTTPListenerAttributeResponseBody extends $tea.
       XForwardedFor_proto: 'XForwardedFor_proto',
       XForwardedFor_SLBIP: 'XForwardedFor_SLBIP',
       stickySession: 'StickySession',
+      healthCheckMethod: 'HealthCheckMethod',
       healthCheck: 'HealthCheck',
       rules: 'Rules',
     };
@@ -3494,6 +3502,7 @@ export class DescribeLoadBalancerHTTPListenerAttributeResponseBody extends $tea.
       XForwardedFor_proto: 'string',
       XForwardedFor_SLBIP: 'string',
       stickySession: 'string',
+      healthCheckMethod: 'string',
       healthCheck: 'string',
       rules: DescribeLoadBalancerHTTPListenerAttributeResponseBodyRules,
     };
@@ -3581,6 +3590,7 @@ export class DescribeLoadBalancerHTTPSListenerAttributeResponseBody extends $tea
   stickySessionType?: string;
   scheduler?: string;
   XForwardedFor_proto?: string;
+  healthCheckMethod?: string;
   TLSCipherPolicy?: string;
   status?: string;
   VServerGroupId?: string;
@@ -3627,6 +3637,7 @@ export class DescribeLoadBalancerHTTPSListenerAttributeResponseBody extends $tea
       stickySessionType: 'StickySessionType',
       scheduler: 'Scheduler',
       XForwardedFor_proto: 'XForwardedFor_proto',
+      healthCheckMethod: 'HealthCheckMethod',
       TLSCipherPolicy: 'TLSCipherPolicy',
       status: 'Status',
       VServerGroupId: 'VServerGroupId',
@@ -3676,6 +3687,7 @@ export class DescribeLoadBalancerHTTPSListenerAttributeResponseBody extends $tea
       stickySessionType: 'string',
       scheduler: 'string',
       XForwardedFor_proto: 'string',
+      healthCheckMethod: 'string',
       TLSCipherPolicy: 'string',
       status: 'string',
       VServerGroupId: 'string',
@@ -4545,52 +4557,52 @@ export class DescribeRuleAttributeRequest extends $tea.Model {
 }
 
 export class DescribeRuleAttributeResponseBody extends $tea.Model {
-  healthCheckHttpCode?: string;
   VServerGroupId?: string;
-  domain?: string;
   cookie?: string;
   loadBalancerId?: string;
-  listenerPort?: string;
-  healthCheckInterval?: number;
-  url?: string;
-  healthCheckURI?: string;
-  stickySessionType?: string;
-  ruleName?: string;
   ruleId?: string;
-  healthCheckConnectPort?: number;
-  scheduler?: string;
   requestId?: string;
+  healthCheckConnectPort?: number;
   healthCheckTimeout?: number;
-  listenerSync?: string;
-  healthyThreshold?: number;
   cookieTimeout?: number;
   healthCheckDomain?: string;
   unhealthyThreshold?: number;
+  healthCheckHttpCode?: string;
+  domain?: string;
+  listenerPort?: string;
+  url?: string;
+  healthCheckInterval?: number;
+  healthCheckURI?: string;
+  ruleName?: string;
+  stickySessionType?: string;
+  scheduler?: string;
+  listenerSync?: string;
+  healthyThreshold?: number;
   stickySession?: string;
   healthCheck?: string;
   static names(): { [key: string]: string } {
     return {
-      healthCheckHttpCode: 'HealthCheckHttpCode',
       VServerGroupId: 'VServerGroupId',
-      domain: 'Domain',
       cookie: 'Cookie',
       loadBalancerId: 'LoadBalancerId',
-      listenerPort: 'ListenerPort',
-      healthCheckInterval: 'HealthCheckInterval',
-      url: 'Url',
-      healthCheckURI: 'HealthCheckURI',
-      stickySessionType: 'StickySessionType',
-      ruleName: 'RuleName',
       ruleId: 'RuleId',
-      healthCheckConnectPort: 'HealthCheckConnectPort',
-      scheduler: 'Scheduler',
       requestId: 'RequestId',
+      healthCheckConnectPort: 'HealthCheckConnectPort',
       healthCheckTimeout: 'HealthCheckTimeout',
-      listenerSync: 'ListenerSync',
-      healthyThreshold: 'HealthyThreshold',
       cookieTimeout: 'CookieTimeout',
       healthCheckDomain: 'HealthCheckDomain',
       unhealthyThreshold: 'UnhealthyThreshold',
+      healthCheckHttpCode: 'HealthCheckHttpCode',
+      domain: 'Domain',
+      listenerPort: 'ListenerPort',
+      url: 'Url',
+      healthCheckInterval: 'HealthCheckInterval',
+      healthCheckURI: 'HealthCheckURI',
+      ruleName: 'RuleName',
+      stickySessionType: 'StickySessionType',
+      scheduler: 'Scheduler',
+      listenerSync: 'ListenerSync',
+      healthyThreshold: 'HealthyThreshold',
       stickySession: 'StickySession',
       healthCheck: 'HealthCheck',
     };
@@ -4598,27 +4610,27 @@ export class DescribeRuleAttributeResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      healthCheckHttpCode: 'string',
       VServerGroupId: 'string',
-      domain: 'string',
       cookie: 'string',
       loadBalancerId: 'string',
-      listenerPort: 'string',
-      healthCheckInterval: 'number',
-      url: 'string',
-      healthCheckURI: 'string',
-      stickySessionType: 'string',
-      ruleName: 'string',
       ruleId: 'string',
-      healthCheckConnectPort: 'number',
-      scheduler: 'string',
       requestId: 'string',
+      healthCheckConnectPort: 'number',
       healthCheckTimeout: 'number',
-      listenerSync: 'string',
-      healthyThreshold: 'number',
       cookieTimeout: 'number',
       healthCheckDomain: 'string',
       unhealthyThreshold: 'number',
+      healthCheckHttpCode: 'string',
+      domain: 'string',
+      listenerPort: 'string',
+      url: 'string',
+      healthCheckInterval: 'number',
+      healthCheckURI: 'string',
+      ruleName: 'string',
+      stickySessionType: 'string',
+      scheduler: 'string',
+      listenerSync: 'string',
+      healthyThreshold: 'number',
       stickySession: 'string',
       healthCheck: 'string',
     };
@@ -6607,6 +6619,7 @@ export class SetLoadBalancerHTTPListenerAttributeRequest extends $tea.Model {
   cookieTimeout?: number;
   cookie?: string;
   healthCheck?: string;
+  healthCheckMethod?: string;
   healthCheckDomain?: string;
   healthCheckURI?: string;
   healthyThreshold?: number;
@@ -6644,6 +6657,7 @@ export class SetLoadBalancerHTTPListenerAttributeRequest extends $tea.Model {
       cookieTimeout: 'CookieTimeout',
       cookie: 'Cookie',
       healthCheck: 'HealthCheck',
+      healthCheckMethod: 'HealthCheckMethod',
       healthCheckDomain: 'HealthCheckDomain',
       healthCheckURI: 'HealthCheckURI',
       healthyThreshold: 'HealthyThreshold',
@@ -6684,6 +6698,7 @@ export class SetLoadBalancerHTTPListenerAttributeRequest extends $tea.Model {
       cookieTimeout: 'number',
       cookie: 'string',
       healthCheck: 'string',
+      healthCheckMethod: 'string',
       healthCheckDomain: 'string',
       healthCheckURI: 'string',
       healthyThreshold: 'number',
@@ -6769,6 +6784,7 @@ export class SetLoadBalancerHTTPSListenerAttributeRequest extends $tea.Model {
   cookieTimeout?: number;
   cookie?: string;
   healthCheck?: string;
+  healthCheckMethod?: string;
   healthCheckDomain?: string;
   healthCheckURI?: string;
   healthyThreshold?: number;
@@ -6810,6 +6826,7 @@ export class SetLoadBalancerHTTPSListenerAttributeRequest extends $tea.Model {
       cookieTimeout: 'CookieTimeout',
       cookie: 'Cookie',
       healthCheck: 'HealthCheck',
+      healthCheckMethod: 'HealthCheckMethod',
       healthCheckDomain: 'HealthCheckDomain',
       healthCheckURI: 'HealthCheckURI',
       healthyThreshold: 'HealthyThreshold',
@@ -6854,6 +6871,7 @@ export class SetLoadBalancerHTTPSListenerAttributeRequest extends $tea.Model {
       cookieTimeout: 'number',
       cookie: 'string',
       healthCheck: 'string',
+      healthCheckMethod: 'string',
       healthCheckDomain: 'string',
       healthCheckURI: 'string',
       healthyThreshold: 'number',
@@ -9932,21 +9950,21 @@ export class DescribeMasterSlaveServerGroupsResponseBodyMasterSlaveServerGroupsM
 }
 
 export class DescribeMasterSlaveServerGroupsResponseBodyMasterSlaveServerGroupsMasterSlaveServerGroup extends $tea.Model {
-  masterSlaveServerGroupName?: string;
   masterSlaveServerGroupId?: string;
+  masterSlaveServerGroupName?: string;
   associatedObjects?: DescribeMasterSlaveServerGroupsResponseBodyMasterSlaveServerGroupsMasterSlaveServerGroupAssociatedObjects;
   static names(): { [key: string]: string } {
     return {
-      masterSlaveServerGroupName: 'MasterSlaveServerGroupName',
       masterSlaveServerGroupId: 'MasterSlaveServerGroupId',
+      masterSlaveServerGroupName: 'MasterSlaveServerGroupName',
       associatedObjects: 'AssociatedObjects',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      masterSlaveServerGroupName: 'string',
       masterSlaveServerGroupId: 'string',
+      masterSlaveServerGroupName: 'string',
       associatedObjects: DescribeMasterSlaveServerGroupsResponseBodyMasterSlaveServerGroupsMasterSlaveServerGroupAssociatedObjects,
     };
   }
