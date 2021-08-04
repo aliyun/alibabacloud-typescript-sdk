@@ -14,151 +14,6 @@ import EndpointUtil from '@alicloud/endpoint-util';
 import { Readable } from 'stream';
 import * as $tea from '@alicloud/tea-typescript';
 
-export class GetAsyncJobResultRequest extends $tea.Model {
-  jobId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      jobId: 'JobId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      jobId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAsyncJobResultResponseBody extends $tea.Model {
-  requestId?: string;
-  data?: GetAsyncJobResultResponseBodyData;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      data: 'Data',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      data: GetAsyncJobResultResponseBodyData,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAsyncJobResultResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: GetAsyncJobResultResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: GetAsyncJobResultResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectImageElementsRequest extends $tea.Model {
-  url?: string;
-  static names(): { [key: string]: string } {
-    return {
-      url: 'Url',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      url: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectImageElementsAdvanceRequest extends $tea.Model {
-  urlObject: Readable;
-  static names(): { [key: string]: string } {
-    return {
-      urlObject: 'UrlObject',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      urlObject: 'Readable',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectImageElementsResponseBody extends $tea.Model {
-  requestId?: string;
-  data?: DetectImageElementsResponseBodyData;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      data: 'Data',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      data: DetectImageElementsResponseBodyData,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectImageElementsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DetectImageElementsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DetectImageElementsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class RecognizeVehicleTypeRequest extends $tea.Model {
   imageURL?: string;
   static names(): { [key: string]: string } {
@@ -323,88 +178,6 @@ export class RecognizeFoodResponse extends $tea.Model {
   }
 }
 
-export class RecognizeImageStyleRequest extends $tea.Model {
-  url?: string;
-  static names(): { [key: string]: string } {
-    return {
-      url: 'Url',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      url: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeImageStyleAdvanceRequest extends $tea.Model {
-  urlObject: Readable;
-  static names(): { [key: string]: string } {
-    return {
-      urlObject: 'UrlObject',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      urlObject: 'Readable',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeImageStyleResponseBody extends $tea.Model {
-  requestId?: string;
-  data?: RecognizeImageStyleResponseBodyData;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      data: 'Data',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      data: RecognizeImageStyleResponseBodyData,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeImageStyleResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: RecognizeImageStyleResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: RecognizeImageStyleResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class RecognizeSceneRequest extends $tea.Model {
   imageURL?: string;
   static names(): { [key: string]: string } {
@@ -487,88 +260,6 @@ export class RecognizeSceneResponse extends $tea.Model {
   }
 }
 
-export class ClassifyingRubbishRequest extends $tea.Model {
-  imageURL?: string;
-  static names(): { [key: string]: string } {
-    return {
-      imageURL: 'ImageURL',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURL: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ClassifyingRubbishAdvanceRequest extends $tea.Model {
-  imageURLObject: Readable;
-  static names(): { [key: string]: string } {
-    return {
-      imageURLObject: 'ImageURLObject',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURLObject: 'Readable',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ClassifyingRubbishResponseBody extends $tea.Model {
-  requestId?: string;
-  data?: ClassifyingRubbishResponseBodyData;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      data: 'Data',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      data: ClassifyingRubbishResponseBodyData,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ClassifyingRubbishResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ClassifyingRubbishResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ClassifyingRubbishResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DetectFruitsRequest extends $tea.Model {
   imageURL?: string;
   static names(): { [key: string]: string } {
@@ -643,6 +334,548 @@ export class DetectFruitsResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: DetectFruitsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeLogoRequest extends $tea.Model {
+  tasks?: RecognizeLogoRequestTasks[];
+  static names(): { [key: string]: string } {
+    return {
+      tasks: 'Tasks',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tasks: { 'type': 'array', 'itemType': RecognizeLogoRequestTasks },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeLogoResponseBody extends $tea.Model {
+  requestId?: string;
+  data?: RecognizeLogoResponseBodyData;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      data: RecognizeLogoResponseBodyData,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeLogoResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: RecognizeLogoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: RecognizeLogoResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TaggingImageRequest extends $tea.Model {
+  imageURL?: string;
+  static names(): { [key: string]: string } {
+    return {
+      imageURL: 'ImageURL',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageURL: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TaggingImageAdvanceRequest extends $tea.Model {
+  imageURLObject: Readable;
+  static names(): { [key: string]: string } {
+    return {
+      imageURLObject: 'ImageURLObject',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageURLObject: 'Readable',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TaggingImageResponseBody extends $tea.Model {
+  requestId?: string;
+  data?: TaggingImageResponseBodyData;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      data: TaggingImageResponseBodyData,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TaggingImageResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: TaggingImageResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: TaggingImageResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAsyncJobResultRequest extends $tea.Model {
+  jobId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jobId: 'JobId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAsyncJobResultResponseBody extends $tea.Model {
+  requestId?: string;
+  data?: GetAsyncJobResultResponseBodyData;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      data: GetAsyncJobResultResponseBodyData,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAsyncJobResultResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetAsyncJobResultResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetAsyncJobResultResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectImageElementsRequest extends $tea.Model {
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectImageElementsAdvanceRequest extends $tea.Model {
+  urlObject: Readable;
+  static names(): { [key: string]: string } {
+    return {
+      urlObject: 'UrlObject',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      urlObject: 'Readable',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectImageElementsResponseBody extends $tea.Model {
+  requestId?: string;
+  data?: DetectImageElementsResponseBodyData;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      data: DetectImageElementsResponseBodyData,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectImageElementsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DetectImageElementsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DetectImageElementsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeImageStyleRequest extends $tea.Model {
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeImageStyleAdvanceRequest extends $tea.Model {
+  urlObject: Readable;
+  static names(): { [key: string]: string } {
+    return {
+      urlObject: 'UrlObject',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      urlObject: 'Readable',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeImageStyleResponseBody extends $tea.Model {
+  requestId?: string;
+  data?: RecognizeImageStyleResponseBodyData;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      data: RecognizeImageStyleResponseBodyData,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeImageStyleResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: RecognizeImageStyleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: RecognizeImageStyleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TaggingAdImageRequest extends $tea.Model {
+  imageType?: number;
+  imageURL?: string;
+  static names(): { [key: string]: string } {
+    return {
+      imageType: 'ImageType',
+      imageURL: 'ImageURL',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageType: 'number',
+      imageURL: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TaggingAdImageAdvanceRequest extends $tea.Model {
+  imageURLObject: Readable;
+  imageType?: number;
+  static names(): { [key: string]: string } {
+    return {
+      imageURLObject: 'ImageURLObject',
+      imageType: 'ImageType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageURLObject: 'Readable',
+      imageType: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TaggingAdImageResponseBody extends $tea.Model {
+  requestId?: string;
+  data?: TaggingAdImageResponseBodyData;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      data: TaggingAdImageResponseBodyData,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TaggingAdImageResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: TaggingAdImageResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: TaggingAdImageResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ClassifyingRubbishRequest extends $tea.Model {
+  imageURL?: string;
+  static names(): { [key: string]: string } {
+    return {
+      imageURL: 'ImageURL',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageURL: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ClassifyingRubbishAdvanceRequest extends $tea.Model {
+  imageURLObject: Readable;
+  static names(): { [key: string]: string } {
+    return {
+      imageURLObject: 'ImageURLObject',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageURLObject: 'Readable',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ClassifyingRubbishResponseBody extends $tea.Model {
+  requestId?: string;
+  data?: ClassifyingRubbishResponseBodyData;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      data: ClassifyingRubbishResponseBodyData,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ClassifyingRubbishResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ClassifyingRubbishResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ClassifyingRubbishResponseBody,
     };
   }
 
@@ -739,157 +972,6 @@ export class RecognizeImageColorResponse extends $tea.Model {
   }
 }
 
-export class RecognizeLogoRequest extends $tea.Model {
-  tasks?: RecognizeLogoRequestTasks[];
-  static names(): { [key: string]: string } {
-    return {
-      tasks: 'Tasks',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      tasks: { 'type': 'array', 'itemType': RecognizeLogoRequestTasks },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeLogoResponseBody extends $tea.Model {
-  requestId?: string;
-  data?: RecognizeLogoResponseBodyData;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      data: 'Data',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      data: RecognizeLogoResponseBodyData,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeLogoResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: RecognizeLogoResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: RecognizeLogoResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TaggingImageRequest extends $tea.Model {
-  imageURL?: string;
-  mode?: string;
-  static names(): { [key: string]: string } {
-    return {
-      imageURL: 'ImageURL',
-      mode: 'Mode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURL: 'string',
-      mode: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TaggingImageAdvanceRequest extends $tea.Model {
-  imageURLObject: Readable;
-  mode?: string;
-  static names(): { [key: string]: string } {
-    return {
-      imageURLObject: 'ImageURLObject',
-      mode: 'Mode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURLObject: 'Readable',
-      mode: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TaggingImageResponseBody extends $tea.Model {
-  requestId?: string;
-  data?: TaggingImageResponseBodyData;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      data: 'Data',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      data: TaggingImageResponseBodyData,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TaggingImageResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: TaggingImageResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: TaggingImageResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class EvaluateCertificateQualityRequest extends $tea.Model {
   imageURL?: string;
   type?: string;
@@ -970,90 +1052,6 @@ export class EvaluateCertificateQualityResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: EvaluateCertificateQualityResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAsyncJobResultResponseBodyData extends $tea.Model {
-  status?: string;
-  errorMessage?: string;
-  result?: string;
-  errorCode?: string;
-  jobId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      status: 'Status',
-      errorMessage: 'ErrorMessage',
-      result: 'Result',
-      errorCode: 'ErrorCode',
-      jobId: 'JobId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      status: 'string',
-      errorMessage: 'string',
-      result: 'string',
-      errorCode: 'string',
-      jobId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectImageElementsResponseBodyDataElements extends $tea.Model {
-  type?: string;
-  width?: number;
-  height?: number;
-  y?: number;
-  score?: number;
-  x?: number;
-  static names(): { [key: string]: string } {
-    return {
-      type: 'Type',
-      width: 'Width',
-      height: 'Height',
-      y: 'Y',
-      score: 'Score',
-      x: 'X',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      type: 'string',
-      width: 'number',
-      height: 'number',
-      y: 'number',
-      score: 'number',
-      x: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectImageElementsResponseBodyData extends $tea.Model {
-  elements?: DetectImageElementsResponseBodyDataElements[];
-  static names(): { [key: string]: string } {
-    return {
-      elements: 'Elements',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      elements: { 'type': 'array', 'itemType': DetectImageElementsResponseBodyDataElements },
     };
   }
 
@@ -1150,25 +1148,6 @@ export class RecognizeFoodResponseBodyData extends $tea.Model {
   }
 }
 
-export class RecognizeImageStyleResponseBodyData extends $tea.Model {
-  styles?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      styles: 'Styles',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      styles: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class RecognizeSceneResponseBodyDataTags extends $tea.Model {
   value?: string;
   confidence?: number;
@@ -1202,56 +1181,6 @@ export class RecognizeSceneResponseBodyData extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       tags: { 'type': 'array', 'itemType': RecognizeSceneResponseBodyDataTags },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ClassifyingRubbishResponseBodyDataElements extends $tea.Model {
-  categoryScore?: number;
-  rubbish?: string;
-  rubbishScore?: number;
-  category?: string;
-  static names(): { [key: string]: string } {
-    return {
-      categoryScore: 'CategoryScore',
-      rubbish: 'Rubbish',
-      rubbishScore: 'RubbishScore',
-      category: 'Category',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      categoryScore: 'number',
-      rubbish: 'string',
-      rubbishScore: 'number',
-      category: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ClassifyingRubbishResponseBodyData extends $tea.Model {
-  sensitive?: boolean;
-  elements?: ClassifyingRubbishResponseBodyDataElements[];
-  static names(): { [key: string]: string } {
-    return {
-      sensitive: 'Sensitive',
-      elements: 'Elements',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      sensitive: 'boolean',
-      elements: { 'type': 'array', 'itemType': ClassifyingRubbishResponseBodyDataElements },
     };
   }
 
@@ -1296,50 +1225,6 @@ export class DetectFruitsResponseBodyData extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       elements: { 'type': 'array', 'itemType': DetectFruitsResponseBodyDataElements },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeImageColorResponseBodyDataColorTemplateList extends $tea.Model {
-  color?: string;
-  percentage?: number;
-  label?: string;
-  static names(): { [key: string]: string } {
-    return {
-      color: 'Color',
-      percentage: 'Percentage',
-      label: 'Label',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      color: 'string',
-      percentage: 'number',
-      label: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeImageColorResponseBodyData extends $tea.Model {
-  colorTemplateList?: RecognizeImageColorResponseBodyDataColorTemplateList[];
-  static names(): { [key: string]: string } {
-    return {
-      colorTemplateList: 'ColorTemplateList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      colorTemplateList: { 'type': 'array', 'itemType': RecognizeImageColorResponseBodyDataColorTemplateList },
     };
   }
 
@@ -1514,6 +1399,244 @@ export class TaggingImageResponseBodyData extends $tea.Model {
   }
 }
 
+export class GetAsyncJobResultResponseBodyData extends $tea.Model {
+  status?: string;
+  errorMessage?: string;
+  result?: string;
+  errorCode?: string;
+  jobId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      status: 'Status',
+      errorMessage: 'ErrorMessage',
+      result: 'Result',
+      errorCode: 'ErrorCode',
+      jobId: 'JobId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      status: 'string',
+      errorMessage: 'string',
+      result: 'string',
+      errorCode: 'string',
+      jobId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectImageElementsResponseBodyDataElements extends $tea.Model {
+  type?: string;
+  width?: number;
+  height?: number;
+  y?: number;
+  score?: number;
+  x?: number;
+  static names(): { [key: string]: string } {
+    return {
+      type: 'Type',
+      width: 'Width',
+      height: 'Height',
+      y: 'Y',
+      score: 'Score',
+      x: 'X',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      type: 'string',
+      width: 'number',
+      height: 'number',
+      y: 'number',
+      score: 'number',
+      x: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectImageElementsResponseBodyData extends $tea.Model {
+  elements?: DetectImageElementsResponseBodyDataElements[];
+  static names(): { [key: string]: string } {
+    return {
+      elements: 'Elements',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      elements: { 'type': 'array', 'itemType': DetectImageElementsResponseBodyDataElements },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeImageStyleResponseBodyData extends $tea.Model {
+  styles?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      styles: 'Styles',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      styles: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TaggingAdImageResponseBodyDataTags extends $tea.Model {
+  value?: string;
+  confidence?: number;
+  static names(): { [key: string]: string } {
+    return {
+      value: 'Value',
+      confidence: 'Confidence',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      value: 'string',
+      confidence: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TaggingAdImageResponseBodyData extends $tea.Model {
+  tags?: TaggingAdImageResponseBodyDataTags[];
+  static names(): { [key: string]: string } {
+    return {
+      tags: 'Tags',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tags: { 'type': 'array', 'itemType': TaggingAdImageResponseBodyDataTags },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ClassifyingRubbishResponseBodyDataElements extends $tea.Model {
+  categoryScore?: number;
+  rubbish?: string;
+  rubbishScore?: number;
+  category?: string;
+  static names(): { [key: string]: string } {
+    return {
+      categoryScore: 'CategoryScore',
+      rubbish: 'Rubbish',
+      rubbishScore: 'RubbishScore',
+      category: 'Category',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      categoryScore: 'number',
+      rubbish: 'string',
+      rubbishScore: 'number',
+      category: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ClassifyingRubbishResponseBodyData extends $tea.Model {
+  sensitive?: boolean;
+  elements?: ClassifyingRubbishResponseBodyDataElements[];
+  static names(): { [key: string]: string } {
+    return {
+      sensitive: 'Sensitive',
+      elements: 'Elements',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sensitive: 'boolean',
+      elements: { 'type': 'array', 'itemType': ClassifyingRubbishResponseBodyDataElements },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeImageColorResponseBodyDataColorTemplateList extends $tea.Model {
+  color?: string;
+  percentage?: number;
+  label?: string;
+  static names(): { [key: string]: string } {
+    return {
+      color: 'Color',
+      percentage: 'Percentage',
+      label: 'Label',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      color: 'string',
+      percentage: 'number',
+      label: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeImageColorResponseBodyData extends $tea.Model {
+  colorTemplateList?: RecognizeImageColorResponseBodyDataColorTemplateList[];
+  static names(): { [key: string]: string } {
+    return {
+      colorTemplateList: 'ColorTemplateList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      colorTemplateList: { 'type': 'array', 'itemType': RecognizeImageColorResponseBodyDataColorTemplateList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class EvaluateCertificateQualityResponseBodyDataElements extends $tea.Model {
   value?: string;
   pass?: string;
@@ -1579,107 +1702,6 @@ export default class Client extends OpenApi {
     }
 
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
-  }
-
-  async getAsyncJobResultWithOptions(request: GetAsyncJobResultRequest, runtime: $Util.RuntimeOptions): Promise<GetAsyncJobResultResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
-      query: query,
-    });
-    return $tea.cast<GetAsyncJobResultResponse>(await this.doRPCRequest("GetAsyncJobResult", "2019-09-30", "HTTPS", "GET", "AK", "json", req, runtime), new GetAsyncJobResultResponse({}));
-  }
-
-  async getAsyncJobResult(request: GetAsyncJobResultRequest): Promise<GetAsyncJobResultResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getAsyncJobResultWithOptions(request, runtime);
-  }
-
-  async detectImageElementsWithOptions(request: DetectImageElementsRequest, runtime: $Util.RuntimeOptions): Promise<DetectImageElementsResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<DetectImageElementsResponse>(await this.doRPCRequest("DetectImageElements", "2019-09-30", "HTTPS", "POST", "AK", "json", req, runtime), new DetectImageElementsResponse({}));
-  }
-
-  async detectImageElements(request: DetectImageElementsRequest): Promise<DetectImageElementsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.detectImageElementsWithOptions(request, runtime);
-  }
-
-  async detectImageElementsAdvance(request: DetectImageElementsAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<DetectImageElementsResponse> {
-    // Step 0: init client
-    let accessKeyId = await this._credential.getAccessKeyId();
-    let accessKeySecret = await this._credential.getAccessKeySecret();
-    let securityToken = await this._credential.getSecurityToken();
-    let credentialType = this._credential.getType();
-    let openPlatformEndpoint = this._openPlatformEndpoint;
-    if (Util.isUnset(openPlatformEndpoint)) {
-      openPlatformEndpoint = "openplatform.aliyuncs.com";
-    }
-
-    if (Util.isUnset(credentialType)) {
-      credentialType = "access_key";
-    }
-
-    let authConfig = new $RPC.Config({
-      accessKeyId: accessKeyId,
-      accessKeySecret: accessKeySecret,
-      securityToken: securityToken,
-      type: credentialType,
-      endpoint: openPlatformEndpoint,
-      protocol: this._protocol,
-      regionId: this._regionId,
-    });
-    let authClient = new OpenPlatform(authConfig);
-    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
-      product: "imagerecog",
-      regionId: this._regionId,
-    });
-    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
-    let ossConfig = new $OSS.Config({
-      accessKeySecret: accessKeySecret,
-      type: "access_key",
-      protocol: this._protocol,
-      regionId: this._regionId,
-    });
-    let ossClient : OSS = null;
-    let fileObj = new $FileForm.FileField({ });
-    let ossHeader = new $OSS.PostObjectRequestHeader({ });
-    let uploadRequest = new $OSS.PostObjectRequest({ });
-    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
-    OpenApiUtil.convert(runtime, ossRuntime);
-    let detectImageElementsReq = new DetectImageElementsRequest({ });
-    OpenApiUtil.convert(request, detectImageElementsReq);
-    if (!Util.isUnset(request.urlObject)) {
-      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-      ossConfig.accessKeyId = authResponse.accessKeyId;
-      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
-      ossClient = new OSS(ossConfig);
-      fileObj = new $FileForm.FileField({
-        filename: authResponse.objectKey,
-        content: request.urlObject,
-        contentType: "",
-      });
-      ossHeader = new $OSS.PostObjectRequestHeader({
-        accessKeyId: authResponse.accessKeyId,
-        policy: authResponse.encodedPolicy,
-        signature: authResponse.signature,
-        key: authResponse.objectKey,
-        file: fileObj,
-        successActionStatus: "201",
-      });
-      uploadRequest = new $OSS.PostObjectRequest({
-        bucketName: authResponse.bucket,
-        header: ossHeader,
-      });
-      await ossClient.postObject(uploadRequest, ossRuntime);
-      detectImageElementsReq.url = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
-    }
-
-    let detectImageElementsResp = await this.detectImageElementsWithOptions(detectImageElementsReq, runtime);
-    return detectImageElementsResp;
   }
 
   async recognizeVehicleTypeWithOptions(request: RecognizeVehicleTypeRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeVehicleTypeResponse> {
@@ -1856,93 +1878,6 @@ export default class Client extends OpenApi {
     return recognizeFoodResp;
   }
 
-  async recognizeImageStyleWithOptions(request: RecognizeImageStyleRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeImageStyleResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<RecognizeImageStyleResponse>(await this.doRPCRequest("RecognizeImageStyle", "2019-09-30", "HTTPS", "POST", "AK", "json", req, runtime), new RecognizeImageStyleResponse({}));
-  }
-
-  async recognizeImageStyle(request: RecognizeImageStyleRequest): Promise<RecognizeImageStyleResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.recognizeImageStyleWithOptions(request, runtime);
-  }
-
-  async recognizeImageStyleAdvance(request: RecognizeImageStyleAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeImageStyleResponse> {
-    // Step 0: init client
-    let accessKeyId = await this._credential.getAccessKeyId();
-    let accessKeySecret = await this._credential.getAccessKeySecret();
-    let securityToken = await this._credential.getSecurityToken();
-    let credentialType = this._credential.getType();
-    let openPlatformEndpoint = this._openPlatformEndpoint;
-    if (Util.isUnset(openPlatformEndpoint)) {
-      openPlatformEndpoint = "openplatform.aliyuncs.com";
-    }
-
-    if (Util.isUnset(credentialType)) {
-      credentialType = "access_key";
-    }
-
-    let authConfig = new $RPC.Config({
-      accessKeyId: accessKeyId,
-      accessKeySecret: accessKeySecret,
-      securityToken: securityToken,
-      type: credentialType,
-      endpoint: openPlatformEndpoint,
-      protocol: this._protocol,
-      regionId: this._regionId,
-    });
-    let authClient = new OpenPlatform(authConfig);
-    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
-      product: "imagerecog",
-      regionId: this._regionId,
-    });
-    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
-    let ossConfig = new $OSS.Config({
-      accessKeySecret: accessKeySecret,
-      type: "access_key",
-      protocol: this._protocol,
-      regionId: this._regionId,
-    });
-    let ossClient : OSS = null;
-    let fileObj = new $FileForm.FileField({ });
-    let ossHeader = new $OSS.PostObjectRequestHeader({ });
-    let uploadRequest = new $OSS.PostObjectRequest({ });
-    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
-    OpenApiUtil.convert(runtime, ossRuntime);
-    let recognizeImageStyleReq = new RecognizeImageStyleRequest({ });
-    OpenApiUtil.convert(request, recognizeImageStyleReq);
-    if (!Util.isUnset(request.urlObject)) {
-      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-      ossConfig.accessKeyId = authResponse.accessKeyId;
-      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
-      ossClient = new OSS(ossConfig);
-      fileObj = new $FileForm.FileField({
-        filename: authResponse.objectKey,
-        content: request.urlObject,
-        contentType: "",
-      });
-      ossHeader = new $OSS.PostObjectRequestHeader({
-        accessKeyId: authResponse.accessKeyId,
-        policy: authResponse.encodedPolicy,
-        signature: authResponse.signature,
-        key: authResponse.objectKey,
-        file: fileObj,
-        successActionStatus: "201",
-      });
-      uploadRequest = new $OSS.PostObjectRequest({
-        bucketName: authResponse.bucket,
-        header: ossHeader,
-      });
-      await ossClient.postObject(uploadRequest, ossRuntime);
-      recognizeImageStyleReq.url = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
-    }
-
-    let recognizeImageStyleResp = await this.recognizeImageStyleWithOptions(recognizeImageStyleReq, runtime);
-    return recognizeImageStyleResp;
-  }
-
   async recognizeSceneWithOptions(request: RecognizeSceneRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeSceneResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -2030,93 +1965,6 @@ export default class Client extends OpenApi {
     return recognizeSceneResp;
   }
 
-  async classifyingRubbishWithOptions(request: ClassifyingRubbishRequest, runtime: $Util.RuntimeOptions): Promise<ClassifyingRubbishResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<ClassifyingRubbishResponse>(await this.doRPCRequest("ClassifyingRubbish", "2019-09-30", "HTTPS", "POST", "AK", "json", req, runtime), new ClassifyingRubbishResponse({}));
-  }
-
-  async classifyingRubbish(request: ClassifyingRubbishRequest): Promise<ClassifyingRubbishResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.classifyingRubbishWithOptions(request, runtime);
-  }
-
-  async classifyingRubbishAdvance(request: ClassifyingRubbishAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<ClassifyingRubbishResponse> {
-    // Step 0: init client
-    let accessKeyId = await this._credential.getAccessKeyId();
-    let accessKeySecret = await this._credential.getAccessKeySecret();
-    let securityToken = await this._credential.getSecurityToken();
-    let credentialType = this._credential.getType();
-    let openPlatformEndpoint = this._openPlatformEndpoint;
-    if (Util.isUnset(openPlatformEndpoint)) {
-      openPlatformEndpoint = "openplatform.aliyuncs.com";
-    }
-
-    if (Util.isUnset(credentialType)) {
-      credentialType = "access_key";
-    }
-
-    let authConfig = new $RPC.Config({
-      accessKeyId: accessKeyId,
-      accessKeySecret: accessKeySecret,
-      securityToken: securityToken,
-      type: credentialType,
-      endpoint: openPlatformEndpoint,
-      protocol: this._protocol,
-      regionId: this._regionId,
-    });
-    let authClient = new OpenPlatform(authConfig);
-    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
-      product: "imagerecog",
-      regionId: this._regionId,
-    });
-    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
-    let ossConfig = new $OSS.Config({
-      accessKeySecret: accessKeySecret,
-      type: "access_key",
-      protocol: this._protocol,
-      regionId: this._regionId,
-    });
-    let ossClient : OSS = null;
-    let fileObj = new $FileForm.FileField({ });
-    let ossHeader = new $OSS.PostObjectRequestHeader({ });
-    let uploadRequest = new $OSS.PostObjectRequest({ });
-    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
-    OpenApiUtil.convert(runtime, ossRuntime);
-    let classifyingRubbishReq = new ClassifyingRubbishRequest({ });
-    OpenApiUtil.convert(request, classifyingRubbishReq);
-    if (!Util.isUnset(request.imageURLObject)) {
-      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-      ossConfig.accessKeyId = authResponse.accessKeyId;
-      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
-      ossClient = new OSS(ossConfig);
-      fileObj = new $FileForm.FileField({
-        filename: authResponse.objectKey,
-        content: request.imageURLObject,
-        contentType: "",
-      });
-      ossHeader = new $OSS.PostObjectRequestHeader({
-        accessKeyId: authResponse.accessKeyId,
-        policy: authResponse.encodedPolicy,
-        signature: authResponse.signature,
-        key: authResponse.objectKey,
-        file: fileObj,
-        successActionStatus: "201",
-      });
-      uploadRequest = new $OSS.PostObjectRequest({
-        bucketName: authResponse.bucket,
-        header: ossHeader,
-      });
-      await ossClient.postObject(uploadRequest, ossRuntime);
-      classifyingRubbishReq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
-    }
-
-    let classifyingRubbishResp = await this.classifyingRubbishWithOptions(classifyingRubbishReq, runtime);
-    return classifyingRubbishResp;
-  }
-
   async detectFruitsWithOptions(request: DetectFruitsRequest, runtime: $Util.RuntimeOptions): Promise<DetectFruitsResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -2202,93 +2050,6 @@ export default class Client extends OpenApi {
 
     let detectFruitsResp = await this.detectFruitsWithOptions(detectFruitsReq, runtime);
     return detectFruitsResp;
-  }
-
-  async recognizeImageColorWithOptions(request: RecognizeImageColorRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeImageColorResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<RecognizeImageColorResponse>(await this.doRPCRequest("RecognizeImageColor", "2019-09-30", "HTTPS", "POST", "AK", "json", req, runtime), new RecognizeImageColorResponse({}));
-  }
-
-  async recognizeImageColor(request: RecognizeImageColorRequest): Promise<RecognizeImageColorResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.recognizeImageColorWithOptions(request, runtime);
-  }
-
-  async recognizeImageColorAdvance(request: RecognizeImageColorAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeImageColorResponse> {
-    // Step 0: init client
-    let accessKeyId = await this._credential.getAccessKeyId();
-    let accessKeySecret = await this._credential.getAccessKeySecret();
-    let securityToken = await this._credential.getSecurityToken();
-    let credentialType = this._credential.getType();
-    let openPlatformEndpoint = this._openPlatformEndpoint;
-    if (Util.isUnset(openPlatformEndpoint)) {
-      openPlatformEndpoint = "openplatform.aliyuncs.com";
-    }
-
-    if (Util.isUnset(credentialType)) {
-      credentialType = "access_key";
-    }
-
-    let authConfig = new $RPC.Config({
-      accessKeyId: accessKeyId,
-      accessKeySecret: accessKeySecret,
-      securityToken: securityToken,
-      type: credentialType,
-      endpoint: openPlatformEndpoint,
-      protocol: this._protocol,
-      regionId: this._regionId,
-    });
-    let authClient = new OpenPlatform(authConfig);
-    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
-      product: "imagerecog",
-      regionId: this._regionId,
-    });
-    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
-    let ossConfig = new $OSS.Config({
-      accessKeySecret: accessKeySecret,
-      type: "access_key",
-      protocol: this._protocol,
-      regionId: this._regionId,
-    });
-    let ossClient : OSS = null;
-    let fileObj = new $FileForm.FileField({ });
-    let ossHeader = new $OSS.PostObjectRequestHeader({ });
-    let uploadRequest = new $OSS.PostObjectRequest({ });
-    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
-    OpenApiUtil.convert(runtime, ossRuntime);
-    let recognizeImageColorReq = new RecognizeImageColorRequest({ });
-    OpenApiUtil.convert(request, recognizeImageColorReq);
-    if (!Util.isUnset(request.urlObject)) {
-      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-      ossConfig.accessKeyId = authResponse.accessKeyId;
-      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
-      ossClient = new OSS(ossConfig);
-      fileObj = new $FileForm.FileField({
-        filename: authResponse.objectKey,
-        content: request.urlObject,
-        contentType: "",
-      });
-      ossHeader = new $OSS.PostObjectRequestHeader({
-        accessKeyId: authResponse.accessKeyId,
-        policy: authResponse.encodedPolicy,
-        signature: authResponse.signature,
-        key: authResponse.objectKey,
-        file: fileObj,
-        successActionStatus: "201",
-      });
-      uploadRequest = new $OSS.PostObjectRequest({
-        bucketName: authResponse.bucket,
-        header: ossHeader,
-      });
-      await ossClient.postObject(uploadRequest, ossRuntime);
-      recognizeImageColorReq.url = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
-    }
-
-    let recognizeImageColorResp = await this.recognizeImageColorWithOptions(recognizeImageColorReq, runtime);
-    return recognizeImageColorResp;
   }
 
   async recognizeLogoWithOptions(request: RecognizeLogoRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeLogoResponse> {
@@ -2389,6 +2150,455 @@ export default class Client extends OpenApi {
 
     let taggingImageResp = await this.taggingImageWithOptions(taggingImageReq, runtime);
     return taggingImageResp;
+  }
+
+  async getAsyncJobResultWithOptions(request: GetAsyncJobResultRequest, runtime: $Util.RuntimeOptions): Promise<GetAsyncJobResultResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: query,
+    });
+    return $tea.cast<GetAsyncJobResultResponse>(await this.doRPCRequest("GetAsyncJobResult", "2019-09-30", "HTTPS", "GET", "AK", "json", req, runtime), new GetAsyncJobResultResponse({}));
+  }
+
+  async getAsyncJobResult(request: GetAsyncJobResultRequest): Promise<GetAsyncJobResultResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getAsyncJobResultWithOptions(request, runtime);
+  }
+
+  async detectImageElementsWithOptions(request: DetectImageElementsRequest, runtime: $Util.RuntimeOptions): Promise<DetectImageElementsResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DetectImageElementsResponse>(await this.doRPCRequest("DetectImageElements", "2019-09-30", "HTTPS", "POST", "AK", "json", req, runtime), new DetectImageElementsResponse({}));
+  }
+
+  async detectImageElements(request: DetectImageElementsRequest): Promise<DetectImageElementsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.detectImageElementsWithOptions(request, runtime);
+  }
+
+  async detectImageElementsAdvance(request: DetectImageElementsAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<DetectImageElementsResponse> {
+    // Step 0: init client
+    let accessKeyId = await this._credential.getAccessKeyId();
+    let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if (Util.isUnset(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
+    let authConfig = new $RPC.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenPlatform(authConfig);
+    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
+      product: "imagerecog",
+      regionId: this._regionId,
+    });
+    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
+    let ossConfig = new $OSS.Config({
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let ossClient : OSS = null;
+    let fileObj = new $FileForm.FileField({ });
+    let ossHeader = new $OSS.PostObjectRequestHeader({ });
+    let uploadRequest = new $OSS.PostObjectRequest({ });
+    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
+    OpenApiUtil.convert(runtime, ossRuntime);
+    let detectImageElementsReq = new DetectImageElementsRequest({ });
+    OpenApiUtil.convert(request, detectImageElementsReq);
+    if (!Util.isUnset(request.urlObject)) {
+      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+      ossConfig.accessKeyId = authResponse.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+      ossClient = new OSS(ossConfig);
+      fileObj = new $FileForm.FileField({
+        filename: authResponse.objectKey,
+        content: request.urlObject,
+        contentType: "",
+      });
+      ossHeader = new $OSS.PostObjectRequestHeader({
+        accessKeyId: authResponse.accessKeyId,
+        policy: authResponse.encodedPolicy,
+        signature: authResponse.signature,
+        key: authResponse.objectKey,
+        file: fileObj,
+        successActionStatus: "201",
+      });
+      uploadRequest = new $OSS.PostObjectRequest({
+        bucketName: authResponse.bucket,
+        header: ossHeader,
+      });
+      await ossClient.postObject(uploadRequest, ossRuntime);
+      detectImageElementsReq.url = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    }
+
+    let detectImageElementsResp = await this.detectImageElementsWithOptions(detectImageElementsReq, runtime);
+    return detectImageElementsResp;
+  }
+
+  async recognizeImageStyleWithOptions(request: RecognizeImageStyleRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeImageStyleResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<RecognizeImageStyleResponse>(await this.doRPCRequest("RecognizeImageStyle", "2019-09-30", "HTTPS", "POST", "AK", "json", req, runtime), new RecognizeImageStyleResponse({}));
+  }
+
+  async recognizeImageStyle(request: RecognizeImageStyleRequest): Promise<RecognizeImageStyleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.recognizeImageStyleWithOptions(request, runtime);
+  }
+
+  async recognizeImageStyleAdvance(request: RecognizeImageStyleAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeImageStyleResponse> {
+    // Step 0: init client
+    let accessKeyId = await this._credential.getAccessKeyId();
+    let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if (Util.isUnset(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
+    let authConfig = new $RPC.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenPlatform(authConfig);
+    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
+      product: "imagerecog",
+      regionId: this._regionId,
+    });
+    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
+    let ossConfig = new $OSS.Config({
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let ossClient : OSS = null;
+    let fileObj = new $FileForm.FileField({ });
+    let ossHeader = new $OSS.PostObjectRequestHeader({ });
+    let uploadRequest = new $OSS.PostObjectRequest({ });
+    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
+    OpenApiUtil.convert(runtime, ossRuntime);
+    let recognizeImageStyleReq = new RecognizeImageStyleRequest({ });
+    OpenApiUtil.convert(request, recognizeImageStyleReq);
+    if (!Util.isUnset(request.urlObject)) {
+      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+      ossConfig.accessKeyId = authResponse.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+      ossClient = new OSS(ossConfig);
+      fileObj = new $FileForm.FileField({
+        filename: authResponse.objectKey,
+        content: request.urlObject,
+        contentType: "",
+      });
+      ossHeader = new $OSS.PostObjectRequestHeader({
+        accessKeyId: authResponse.accessKeyId,
+        policy: authResponse.encodedPolicy,
+        signature: authResponse.signature,
+        key: authResponse.objectKey,
+        file: fileObj,
+        successActionStatus: "201",
+      });
+      uploadRequest = new $OSS.PostObjectRequest({
+        bucketName: authResponse.bucket,
+        header: ossHeader,
+      });
+      await ossClient.postObject(uploadRequest, ossRuntime);
+      recognizeImageStyleReq.url = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    }
+
+    let recognizeImageStyleResp = await this.recognizeImageStyleWithOptions(recognizeImageStyleReq, runtime);
+    return recognizeImageStyleResp;
+  }
+
+  async taggingAdImageWithOptions(request: TaggingAdImageRequest, runtime: $Util.RuntimeOptions): Promise<TaggingAdImageResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<TaggingAdImageResponse>(await this.doRPCRequest("TaggingAdImage", "2019-09-30", "HTTPS", "POST", "AK", "json", req, runtime), new TaggingAdImageResponse({}));
+  }
+
+  async taggingAdImage(request: TaggingAdImageRequest): Promise<TaggingAdImageResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.taggingAdImageWithOptions(request, runtime);
+  }
+
+  async taggingAdImageAdvance(request: TaggingAdImageAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<TaggingAdImageResponse> {
+    // Step 0: init client
+    let accessKeyId = await this._credential.getAccessKeyId();
+    let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if (Util.isUnset(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
+    let authConfig = new $RPC.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenPlatform(authConfig);
+    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
+      product: "imagerecog",
+      regionId: this._regionId,
+    });
+    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
+    let ossConfig = new $OSS.Config({
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let ossClient : OSS = null;
+    let fileObj = new $FileForm.FileField({ });
+    let ossHeader = new $OSS.PostObjectRequestHeader({ });
+    let uploadRequest = new $OSS.PostObjectRequest({ });
+    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
+    OpenApiUtil.convert(runtime, ossRuntime);
+    let taggingAdImageReq = new TaggingAdImageRequest({ });
+    OpenApiUtil.convert(request, taggingAdImageReq);
+    if (!Util.isUnset(request.imageURLObject)) {
+      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+      ossConfig.accessKeyId = authResponse.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+      ossClient = new OSS(ossConfig);
+      fileObj = new $FileForm.FileField({
+        filename: authResponse.objectKey,
+        content: request.imageURLObject,
+        contentType: "",
+      });
+      ossHeader = new $OSS.PostObjectRequestHeader({
+        accessKeyId: authResponse.accessKeyId,
+        policy: authResponse.encodedPolicy,
+        signature: authResponse.signature,
+        key: authResponse.objectKey,
+        file: fileObj,
+        successActionStatus: "201",
+      });
+      uploadRequest = new $OSS.PostObjectRequest({
+        bucketName: authResponse.bucket,
+        header: ossHeader,
+      });
+      await ossClient.postObject(uploadRequest, ossRuntime);
+      taggingAdImageReq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    }
+
+    let taggingAdImageResp = await this.taggingAdImageWithOptions(taggingAdImageReq, runtime);
+    return taggingAdImageResp;
+  }
+
+  async classifyingRubbishWithOptions(request: ClassifyingRubbishRequest, runtime: $Util.RuntimeOptions): Promise<ClassifyingRubbishResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<ClassifyingRubbishResponse>(await this.doRPCRequest("ClassifyingRubbish", "2019-09-30", "HTTPS", "POST", "AK", "json", req, runtime), new ClassifyingRubbishResponse({}));
+  }
+
+  async classifyingRubbish(request: ClassifyingRubbishRequest): Promise<ClassifyingRubbishResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.classifyingRubbishWithOptions(request, runtime);
+  }
+
+  async classifyingRubbishAdvance(request: ClassifyingRubbishAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<ClassifyingRubbishResponse> {
+    // Step 0: init client
+    let accessKeyId = await this._credential.getAccessKeyId();
+    let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if (Util.isUnset(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
+    let authConfig = new $RPC.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenPlatform(authConfig);
+    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
+      product: "imagerecog",
+      regionId: this._regionId,
+    });
+    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
+    let ossConfig = new $OSS.Config({
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let ossClient : OSS = null;
+    let fileObj = new $FileForm.FileField({ });
+    let ossHeader = new $OSS.PostObjectRequestHeader({ });
+    let uploadRequest = new $OSS.PostObjectRequest({ });
+    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
+    OpenApiUtil.convert(runtime, ossRuntime);
+    let classifyingRubbishReq = new ClassifyingRubbishRequest({ });
+    OpenApiUtil.convert(request, classifyingRubbishReq);
+    if (!Util.isUnset(request.imageURLObject)) {
+      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+      ossConfig.accessKeyId = authResponse.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+      ossClient = new OSS(ossConfig);
+      fileObj = new $FileForm.FileField({
+        filename: authResponse.objectKey,
+        content: request.imageURLObject,
+        contentType: "",
+      });
+      ossHeader = new $OSS.PostObjectRequestHeader({
+        accessKeyId: authResponse.accessKeyId,
+        policy: authResponse.encodedPolicy,
+        signature: authResponse.signature,
+        key: authResponse.objectKey,
+        file: fileObj,
+        successActionStatus: "201",
+      });
+      uploadRequest = new $OSS.PostObjectRequest({
+        bucketName: authResponse.bucket,
+        header: ossHeader,
+      });
+      await ossClient.postObject(uploadRequest, ossRuntime);
+      classifyingRubbishReq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    }
+
+    let classifyingRubbishResp = await this.classifyingRubbishWithOptions(classifyingRubbishReq, runtime);
+    return classifyingRubbishResp;
+  }
+
+  async recognizeImageColorWithOptions(request: RecognizeImageColorRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeImageColorResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<RecognizeImageColorResponse>(await this.doRPCRequest("RecognizeImageColor", "2019-09-30", "HTTPS", "POST", "AK", "json", req, runtime), new RecognizeImageColorResponse({}));
+  }
+
+  async recognizeImageColor(request: RecognizeImageColorRequest): Promise<RecognizeImageColorResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.recognizeImageColorWithOptions(request, runtime);
+  }
+
+  async recognizeImageColorAdvance(request: RecognizeImageColorAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeImageColorResponse> {
+    // Step 0: init client
+    let accessKeyId = await this._credential.getAccessKeyId();
+    let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if (Util.isUnset(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
+    let authConfig = new $RPC.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenPlatform(authConfig);
+    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
+      product: "imagerecog",
+      regionId: this._regionId,
+    });
+    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
+    let ossConfig = new $OSS.Config({
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let ossClient : OSS = null;
+    let fileObj = new $FileForm.FileField({ });
+    let ossHeader = new $OSS.PostObjectRequestHeader({ });
+    let uploadRequest = new $OSS.PostObjectRequest({ });
+    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
+    OpenApiUtil.convert(runtime, ossRuntime);
+    let recognizeImageColorReq = new RecognizeImageColorRequest({ });
+    OpenApiUtil.convert(request, recognizeImageColorReq);
+    if (!Util.isUnset(request.urlObject)) {
+      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+      ossConfig.accessKeyId = authResponse.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+      ossClient = new OSS(ossConfig);
+      fileObj = new $FileForm.FileField({
+        filename: authResponse.objectKey,
+        content: request.urlObject,
+        contentType: "",
+      });
+      ossHeader = new $OSS.PostObjectRequestHeader({
+        accessKeyId: authResponse.accessKeyId,
+        policy: authResponse.encodedPolicy,
+        signature: authResponse.signature,
+        key: authResponse.objectKey,
+        file: fileObj,
+        successActionStatus: "201",
+      });
+      uploadRequest = new $OSS.PostObjectRequest({
+        bucketName: authResponse.bucket,
+        header: ossHeader,
+      });
+      await ossClient.postObject(uploadRequest, ossRuntime);
+      recognizeImageColorReq.url = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    }
+
+    let recognizeImageColorResp = await this.recognizeImageColorWithOptions(recognizeImageColorReq, runtime);
+    return recognizeImageColorResp;
   }
 
   async evaluateCertificateQualityWithOptions(request: EvaluateCertificateQualityRequest, runtime: $Util.RuntimeOptions): Promise<EvaluateCertificateQualityResponse> {
