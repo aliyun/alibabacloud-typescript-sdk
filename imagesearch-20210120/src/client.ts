@@ -117,6 +117,7 @@ export class ImageDuplicationRequest extends $tea.Model {
   picNumList?: string;
   imageHeight?: number;
   imageWidth?: number;
+  outputImageNum?: number;
   static names(): { [key: string]: string } {
     return {
       instanceName: 'InstanceName',
@@ -124,6 +125,7 @@ export class ImageDuplicationRequest extends $tea.Model {
       picNumList: 'PicNumList',
       imageHeight: 'ImageHeight',
       imageWidth: 'ImageWidth',
+      outputImageNum: 'OutputImageNum',
     };
   }
 
@@ -134,6 +136,7 @@ export class ImageDuplicationRequest extends $tea.Model {
       picNumList: 'string',
       imageHeight: 'number',
       imageWidth: 'number',
+      outputImageNum: 'number',
     };
   }
 
