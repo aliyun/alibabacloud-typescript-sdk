@@ -715,18 +715,15 @@ export class RecognizeImageStyleResponse extends $tea.Model {
 }
 
 export class TaggingAdImageRequest extends $tea.Model {
-  imageType?: number;
   imageURL?: string;
   static names(): { [key: string]: string } {
     return {
-      imageType: 'ImageType',
       imageURL: 'ImageURL',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      imageType: 'number',
       imageURL: 'string',
     };
   }
@@ -738,18 +735,15 @@ export class TaggingAdImageRequest extends $tea.Model {
 
 export class TaggingAdImageAdvanceRequest extends $tea.Model {
   imageURLObject: Readable;
-  imageType?: number;
   static names(): { [key: string]: string } {
     return {
       imageURLObject: 'ImageURLObject',
-      imageType: 'ImageType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       imageURLObject: 'Readable',
-      imageType: 'number',
     };
   }
 
