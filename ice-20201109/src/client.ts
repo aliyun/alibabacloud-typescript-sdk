@@ -626,15 +626,18 @@ export class DeleteMediaInfosResponse extends $tea.Model {
 
 export class SetEventCallbackRequest extends $tea.Model {
   callbackQueueName?: string;
+  eventTypeList?: string;
   static names(): { [key: string]: string } {
     return {
       callbackQueueName: 'CallbackQueueName',
+      eventTypeList: 'EventTypeList',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       callbackQueueName: 'string',
+      eventTypeList: 'string',
     };
   }
 
@@ -2999,10 +3002,12 @@ export class SubmitMattingJobResponse extends $tea.Model {
 export class GetEventCallbackResponseBody extends $tea.Model {
   requestId?: string;
   callbackQueueName?: string;
+  eventTypeList?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
       callbackQueueName: 'CallbackQueueName',
+      eventTypeList: 'EventTypeList',
     };
   }
 
@@ -3010,6 +3015,7 @@ export class GetEventCallbackResponseBody extends $tea.Model {
     return {
       requestId: 'string',
       callbackQueueName: 'string',
+      eventTypeList: 'string',
     };
   }
 
@@ -3830,6 +3836,7 @@ export class GetTemplateResponseBodyTemplate extends $tea.Model {
   creationTime?: string;
   modifiedTime?: string;
   coverURL?: string;
+  clipsParam?: string;
   static names(): { [key: string]: string } {
     return {
       templateId: 'TemplateId',
@@ -3844,6 +3851,7 @@ export class GetTemplateResponseBodyTemplate extends $tea.Model {
       creationTime: 'CreationTime',
       modifiedTime: 'ModifiedTime',
       coverURL: 'CoverURL',
+      clipsParam: 'ClipsParam',
     };
   }
 
@@ -3861,6 +3869,7 @@ export class GetTemplateResponseBodyTemplate extends $tea.Model {
       creationTime: 'string',
       modifiedTime: 'string',
       coverURL: 'string',
+      clipsParam: 'string',
     };
   }
 
@@ -4622,6 +4631,7 @@ export class ListTemplatesResponseBodyTemplates extends $tea.Model {
   creationTime?: string;
   modifiedTime?: string;
   coverURL?: string;
+  clipsParam?: string;
   static names(): { [key: string]: string } {
     return {
       templateId: 'TemplateId',
@@ -4636,6 +4646,7 @@ export class ListTemplatesResponseBodyTemplates extends $tea.Model {
       creationTime: 'CreationTime',
       modifiedTime: 'ModifiedTime',
       coverURL: 'CoverURL',
+      clipsParam: 'ClipsParam',
     };
   }
 
@@ -4653,6 +4664,7 @@ export class ListTemplatesResponseBodyTemplates extends $tea.Model {
       creationTime: 'string',
       modifiedTime: 'string',
       coverURL: 'string',
+      clipsParam: 'string',
     };
   }
 
