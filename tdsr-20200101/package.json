@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/tdsr20200101",
-  "version": "2.2.4",
+  "version": "2.2.5",
   "description": "",
   "main": "dist/client.js",
   "scripts": {

@@ -3379,6 +3379,87 @@ export class GetOriginLayoutDataResponse extends $tea.Model {
   }
 }
 
+export class GetHotspotSceneDataRequest extends $tea.Model {
+  previewToken?: string;
+  type?: number;
+  domain?: string;
+  enabled?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      previewToken: 'PreviewToken',
+      type: 'Type',
+      domain: 'Domain',
+      enabled: 'Enabled',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      previewToken: 'string',
+      type: 'number',
+      domain: 'string',
+      enabled: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetHotspotSceneDataResponseBody extends $tea.Model {
+  requestId?: string;
+  code?: number;
+  success?: boolean;
+  message?: string;
+  data?: GetHotspotSceneDataResponseBodyData;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      code: 'Code',
+      success: 'Success',
+      message: 'Message',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      code: 'number',
+      success: 'boolean',
+      message: 'string',
+      data: GetHotspotSceneDataResponseBodyData,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetHotspotSceneDataResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetHotspotSceneDataResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetHotspotSceneDataResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ScenePublishRequest extends $tea.Model {
   sceneId?: string;
   static names(): { [key: string]: string } {
@@ -3823,6 +3904,84 @@ export class GetPolicyResponse extends $tea.Model {
   }
 }
 
+export class GetScenePreviewInfoRequest extends $tea.Model {
+  modelToken?: string;
+  domain?: string;
+  enabled?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      modelToken: 'ModelToken',
+      domain: 'Domain',
+      enabled: 'Enabled',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      modelToken: 'string',
+      domain: 'string',
+      enabled: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetScenePreviewInfoResponseBody extends $tea.Model {
+  requestId?: string;
+  code?: number;
+  success?: boolean;
+  message?: string;
+  data?: GetScenePreviewInfoResponseBodyData;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      code: 'Code',
+      success: 'Success',
+      message: 'Message',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      code: 'number',
+      success: 'boolean',
+      message: 'string',
+      data: GetScenePreviewInfoResponseBodyData,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetScenePreviewInfoResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetScenePreviewInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetScenePreviewInfoResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AddSubSceneRequest extends $tea.Model {
   sceneId?: string;
   name?: string;
@@ -4159,6 +4318,34 @@ export class ListProjectResponseBodyList extends $tea.Model {
   }
 }
 
+export class GetHotspotSceneDataResponseBodyData extends $tea.Model {
+  sceneType?: string;
+  previewToken?: string;
+  previewData?: string;
+  modelToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      sceneType: 'SceneType',
+      previewToken: 'PreviewToken',
+      previewData: 'PreviewData',
+      modelToken: 'ModelToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sceneType: 'string',
+      previewToken: 'string',
+      previewData: 'string',
+      modelToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetSubSceneTaskStatusResponseBodyList extends $tea.Model {
   id?: string;
   sceneId?: string;
@@ -4188,6 +4375,34 @@ export class GetSubSceneTaskStatusResponseBodyList extends $tea.Model {
       type: 'string',
       errorCode: 'string',
       errorMsg: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetScenePreviewInfoResponseBodyData extends $tea.Model {
+  panoList?: string;
+  modelPath?: string;
+  textureModelPath?: string;
+  texturePanoPath?: string;
+  static names(): { [key: string]: string } {
+    return {
+      panoList: 'PanoList',
+      modelPath: 'ModelPath',
+      textureModelPath: 'TextureModelPath',
+      texturePanoPath: 'TexturePanoPath',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      panoList: 'string',
+      modelPath: 'string',
+      textureModelPath: 'string',
+      texturePanoPath: 'string',
     };
   }
 
@@ -4781,6 +4996,19 @@ export default class Client extends OpenApi {
     return await this.getOriginLayoutDataWithOptions(request, runtime);
   }
 
+  async getHotspotSceneDataWithOptions(request: GetHotspotSceneDataRequest, runtime: $Util.RuntimeOptions): Promise<GetHotspotSceneDataResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<GetHotspotSceneDataResponse>(await this.doRPCRequest("GetHotspotSceneData", "2020-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new GetHotspotSceneDataResponse({}));
+  }
+
+  async getHotspotSceneData(request: GetHotspotSceneDataRequest): Promise<GetHotspotSceneDataResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getHotspotSceneDataWithOptions(request, runtime);
+  }
+
   async scenePublishWithOptions(request: ScenePublishRequest, runtime: $Util.RuntimeOptions): Promise<ScenePublishResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -4857,6 +5085,19 @@ export default class Client extends OpenApi {
   async getPolicy(request: GetPolicyRequest): Promise<GetPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getPolicyWithOptions(request, runtime);
+  }
+
+  async getScenePreviewInfoWithOptions(request: GetScenePreviewInfoRequest, runtime: $Util.RuntimeOptions): Promise<GetScenePreviewInfoResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<GetScenePreviewInfoResponse>(await this.doRPCRequest("GetScenePreviewInfo", "2020-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new GetScenePreviewInfoResponse({}));
+  }
+
+  async getScenePreviewInfo(request: GetScenePreviewInfoRequest): Promise<GetScenePreviewInfoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getScenePreviewInfoWithOptions(request, runtime);
   }
 
   async addSubSceneWithOptions(request: AddSubSceneRequest, runtime: $Util.RuntimeOptions): Promise<AddSubSceneResponse> {
