@@ -1496,39 +1496,17 @@ export class RecognizeImageStyleResponseBodyData extends $tea.Model {
   }
 }
 
-export class TaggingAdImageResponseBodyDataTags extends $tea.Model {
-  value?: string;
-  confidence?: number;
-  static names(): { [key: string]: string } {
-    return {
-      value: 'Value',
-      confidence: 'Confidence',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      value: 'string',
-      confidence: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class TaggingAdImageResponseBodyData extends $tea.Model {
-  tags?: TaggingAdImageResponseBodyDataTags[];
+  tagInfo?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
-      tags: 'Tags',
+      tagInfo: 'TagInfo',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      tags: { 'type': 'array', 'itemType': TaggingAdImageResponseBodyDataTags },
+      tagInfo: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
     };
   }
 
