@@ -70,6 +70,69 @@ export class AcceptHandshakeResponse extends $tea.Model {
   }
 }
 
+export class AttachControlPolicyRequest extends $tea.Model {
+  policyId?: string;
+  targetId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      policyId: 'PolicyId',
+      targetId: 'TargetId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policyId: 'string',
+      targetId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AttachControlPolicyResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AttachControlPolicyResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: AttachControlPolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: AttachControlPolicyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AttachPolicyRequest extends $tea.Model {
   resourceGroupId?: string;
   policyType?: string;
@@ -354,19 +417,19 @@ export class CreateCloudAccountRequest extends $tea.Model {
 }
 
 export class CreateCloudAccountResponseBody extends $tea.Model {
-  account?: CreateCloudAccountResponseBodyAccount;
   requestId?: string;
+  account?: CreateCloudAccountResponseBodyAccount;
   static names(): { [key: string]: string } {
     return {
-      account: 'Account',
       requestId: 'RequestId',
+      account: 'Account',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      account: CreateCloudAccountResponseBodyAccount,
       requestId: 'string',
+      account: CreateCloudAccountResponseBodyAccount,
     };
   }
 
@@ -389,6 +452,78 @@ export class CreateCloudAccountResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: CreateCloudAccountResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateControlPolicyRequest extends $tea.Model {
+  policyName?: string;
+  description?: string;
+  effectScope?: string;
+  policyDocument?: string;
+  static names(): { [key: string]: string } {
+    return {
+      policyName: 'PolicyName',
+      description: 'Description',
+      effectScope: 'EffectScope',
+      policyDocument: 'PolicyDocument',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policyName: 'string',
+      description: 'string',
+      effectScope: 'string',
+      policyDocument: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateControlPolicyResponseBody extends $tea.Model {
+  controlPolicy?: CreateControlPolicyResponseBodyControlPolicy;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      controlPolicy: 'ControlPolicy',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      controlPolicy: CreateControlPolicyResponseBodyControlPolicy,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateControlPolicyResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CreateControlPolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CreateControlPolicyResponseBody,
     };
   }
 
@@ -943,6 +1078,66 @@ export class DeclineHandshakeResponse extends $tea.Model {
   }
 }
 
+export class DeleteControlPolicyRequest extends $tea.Model {
+  policyId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      policyId: 'PolicyId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policyId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteControlPolicyResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteControlPolicyResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DeleteControlPolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DeleteControlPolicyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteFolderRequest extends $tea.Model {
   folderId?: string;
   static names(): { [key: string]: string } {
@@ -1312,6 +1507,69 @@ export class DeleteServiceLinkedRoleResponse extends $tea.Model {
   }
 }
 
+export class DeregisterDelegatedAdministratorRequest extends $tea.Model {
+  accountId?: string;
+  servicePrincipal?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'AccountId',
+      servicePrincipal: 'ServicePrincipal',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+      servicePrincipal: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeregisterDelegatedAdministratorResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeregisterDelegatedAdministratorResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DeregisterDelegatedAdministratorResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DeregisterDelegatedAdministratorResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DestroyResourceDirectoryResponseBody extends $tea.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
@@ -1345,6 +1603,69 @@ export class DestroyResourceDirectoryResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: DestroyResourceDirectoryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetachControlPolicyRequest extends $tea.Model {
+  policyId?: string;
+  targetId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      policyId: 'PolicyId',
+      targetId: 'TargetId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policyId: 'string',
+      targetId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetachControlPolicyResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetachControlPolicyResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DetachControlPolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DetachControlPolicyResponseBody,
     };
   }
 
@@ -1425,6 +1746,94 @@ export class DetachPolicyResponse extends $tea.Model {
   }
 }
 
+export class DisableControlPolicyResponseBody extends $tea.Model {
+  enablementStatus?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      enablementStatus: 'EnablementStatus',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enablementStatus: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DisableControlPolicyResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DisableControlPolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DisableControlPolicyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnableControlPolicyResponseBody extends $tea.Model {
+  enablementStatus?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      enablementStatus: 'EnablementStatus',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enablementStatus: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnableControlPolicyResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: EnableControlPolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: EnableControlPolicyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetAccountRequest extends $tea.Model {
   accountId?: string;
   static names(): { [key: string]: string } {
@@ -1480,6 +1889,116 @@ export class GetAccountResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: GetAccountResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetControlPolicyRequest extends $tea.Model {
+  policyId?: string;
+  language?: string;
+  static names(): { [key: string]: string } {
+    return {
+      policyId: 'PolicyId',
+      language: 'Language',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policyId: 'string',
+      language: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetControlPolicyResponseBody extends $tea.Model {
+  controlPolicy?: GetControlPolicyResponseBodyControlPolicy;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      controlPolicy: 'ControlPolicy',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      controlPolicy: GetControlPolicyResponseBodyControlPolicy,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetControlPolicyResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetControlPolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetControlPolicyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetControlPolicyEnablementStatusResponseBody extends $tea.Model {
+  enablementStatus?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      enablementStatus: 'EnablementStatus',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enablementStatus: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetControlPolicyEnablementStatusResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetControlPolicyEnablementStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetControlPolicyEnablementStatusResponseBody,
     };
   }
 
@@ -2389,6 +2908,279 @@ export class ListAncestorsResponse extends $tea.Model {
   }
 }
 
+export class ListControlPoliciesRequest extends $tea.Model {
+  policyType?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  language?: string;
+  static names(): { [key: string]: string } {
+    return {
+      policyType: 'PolicyType',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      language: 'Language',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policyType: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      language: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListControlPoliciesResponseBody extends $tea.Model {
+  totalCount?: number;
+  requestId?: string;
+  pageSize?: number;
+  pageNumber?: number;
+  controlPolicies?: ListControlPoliciesResponseBodyControlPolicies;
+  static names(): { [key: string]: string } {
+    return {
+      totalCount: 'TotalCount',
+      requestId: 'RequestId',
+      pageSize: 'PageSize',
+      pageNumber: 'PageNumber',
+      controlPolicies: 'ControlPolicies',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      totalCount: 'number',
+      requestId: 'string',
+      pageSize: 'number',
+      pageNumber: 'number',
+      controlPolicies: ListControlPoliciesResponseBodyControlPolicies,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListControlPoliciesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListControlPoliciesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListControlPoliciesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListControlPolicyAttachmentsForTargetRequest extends $tea.Model {
+  targetId?: string;
+  language?: string;
+  static names(): { [key: string]: string } {
+    return {
+      targetId: 'TargetId',
+      language: 'Language',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      targetId: 'string',
+      language: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListControlPolicyAttachmentsForTargetResponseBody extends $tea.Model {
+  requestId?: string;
+  controlPolicyAttachments?: ListControlPolicyAttachmentsForTargetResponseBodyControlPolicyAttachments;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      controlPolicyAttachments: 'ControlPolicyAttachments',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      controlPolicyAttachments: ListControlPolicyAttachmentsForTargetResponseBodyControlPolicyAttachments,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListControlPolicyAttachmentsForTargetResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListControlPolicyAttachmentsForTargetResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListControlPolicyAttachmentsForTargetResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDelegatedAdministratorsRequest extends $tea.Model {
+  servicePrincipal?: string;
+  static names(): { [key: string]: string } {
+    return {
+      servicePrincipal: 'ServicePrincipal',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      servicePrincipal: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDelegatedAdministratorsResponseBody extends $tea.Model {
+  requestId?: string;
+  accounts?: ListDelegatedAdministratorsResponseBodyAccounts;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      accounts: 'Accounts',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      accounts: ListDelegatedAdministratorsResponseBodyAccounts,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDelegatedAdministratorsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListDelegatedAdministratorsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListDelegatedAdministratorsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDelegatedServicesForAccountRequest extends $tea.Model {
+  accountId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'AccountId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDelegatedServicesForAccountResponseBody extends $tea.Model {
+  requestId?: string;
+  delegatedServices?: ListDelegatedServicesForAccountResponseBodyDelegatedServices;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      delegatedServices: 'DelegatedServices',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      delegatedServices: ListDelegatedServicesForAccountResponseBodyDelegatedServices,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDelegatedServicesForAccountResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListDelegatedServicesForAccountResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListDelegatedServicesForAccountResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListFoldersForParentRequest extends $tea.Model {
   parentFolderId?: string;
   queryKeyword?: string;
@@ -2946,6 +3738,7 @@ export class ListResourcesRequest extends $tea.Model {
   resourceId?: string;
   pageNumber?: number;
   pageSize?: number;
+  resourceIds?: string;
   static names(): { [key: string]: string } {
     return {
       resourceGroupId: 'ResourceGroupId',
@@ -2955,6 +3748,7 @@ export class ListResourcesRequest extends $tea.Model {
       resourceId: 'ResourceId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      resourceIds: 'ResourceIds',
     };
   }
 
@@ -2967,6 +3761,7 @@ export class ListResourcesRequest extends $tea.Model {
       resourceId: 'string',
       pageNumber: 'number',
       pageSize: 'number',
+      resourceIds: 'string',
     };
   }
 
@@ -3106,11 +3901,13 @@ export class ListRolesResponse extends $tea.Model {
   }
 }
 
-export class ListTrustedServiceStatusRequest extends $tea.Model {
+export class ListTargetAttachmentsForControlPolicyRequest extends $tea.Model {
+  policyId?: string;
   pageNumber?: number;
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
+      policyId: 'PolicyId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
     };
@@ -3118,8 +3915,87 @@ export class ListTrustedServiceStatusRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      policyId: 'string',
       pageNumber: 'number',
       pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTargetAttachmentsForControlPolicyResponseBody extends $tea.Model {
+  totalCount?: number;
+  requestId?: string;
+  pageSize?: number;
+  pageNumber?: number;
+  targetAttachments?: ListTargetAttachmentsForControlPolicyResponseBodyTargetAttachments;
+  static names(): { [key: string]: string } {
+    return {
+      totalCount: 'TotalCount',
+      requestId: 'RequestId',
+      pageSize: 'PageSize',
+      pageNumber: 'PageNumber',
+      targetAttachments: 'TargetAttachments',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      totalCount: 'number',
+      requestId: 'string',
+      pageSize: 'number',
+      pageNumber: 'number',
+      targetAttachments: ListTargetAttachmentsForControlPolicyResponseBodyTargetAttachments,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTargetAttachmentsForControlPolicyResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListTargetAttachmentsForControlPolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListTargetAttachmentsForControlPolicyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTrustedServiceStatusRequest extends $tea.Model {
+  pageNumber?: number;
+  pageSize?: number;
+  adminAccountId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      adminAccountId: 'AdminAccountId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      adminAccountId: 'string',
     };
   }
 
@@ -3267,19 +4143,19 @@ export class PromoteResourceAccountRequest extends $tea.Model {
 }
 
 export class PromoteResourceAccountResponseBody extends $tea.Model {
-  account?: PromoteResourceAccountResponseBodyAccount;
   requestId?: string;
+  account?: PromoteResourceAccountResponseBodyAccount;
   static names(): { [key: string]: string } {
     return {
-      account: 'Account',
       requestId: 'RequestId',
+      account: 'Account',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      account: PromoteResourceAccountResponseBodyAccount,
       requestId: 'string',
+      account: PromoteResourceAccountResponseBodyAccount,
     };
   }
 
@@ -3302,6 +4178,69 @@ export class PromoteResourceAccountResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: PromoteResourceAccountResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RegisterDelegatedAdministratorRequest extends $tea.Model {
+  accountId?: string;
+  servicePrincipal?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'AccountId',
+      servicePrincipal: 'ServicePrincipal',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+      servicePrincipal: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RegisterDelegatedAdministratorResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RegisterDelegatedAdministratorResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: RegisterDelegatedAdministratorResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: RegisterDelegatedAdministratorResponseBody,
     };
   }
 
@@ -3390,19 +4329,19 @@ export class ResendCreateCloudAccountEmailRequest extends $tea.Model {
 }
 
 export class ResendCreateCloudAccountEmailResponseBody extends $tea.Model {
-  account?: ResendCreateCloudAccountEmailResponseBodyAccount;
   requestId?: string;
+  account?: ResendCreateCloudAccountEmailResponseBodyAccount;
   static names(): { [key: string]: string } {
     return {
-      account: 'Account',
       requestId: 'RequestId',
+      account: 'Account',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      account: ResendCreateCloudAccountEmailResponseBodyAccount,
       requestId: 'string',
+      account: ResendCreateCloudAccountEmailResponseBodyAccount,
     };
   }
 
@@ -3453,19 +4392,19 @@ export class ResendPromoteResourceAccountEmailRequest extends $tea.Model {
 }
 
 export class ResendPromoteResourceAccountEmailResponseBody extends $tea.Model {
-  account?: ResendPromoteResourceAccountEmailResponseBodyAccount;
   requestId?: string;
+  account?: ResendPromoteResourceAccountEmailResponseBodyAccount;
   static names(): { [key: string]: string } {
     return {
-      account: 'Account',
       requestId: 'RequestId',
+      account: 'Account',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      account: ResendPromoteResourceAccountEmailResponseBodyAccount,
       requestId: 'string',
+      account: ResendPromoteResourceAccountEmailResponseBodyAccount,
     };
   }
 
@@ -3561,10 +4500,12 @@ export class SetDefaultPolicyVersionResponse extends $tea.Model {
 
 export class UpdateAccountRequest extends $tea.Model {
   newDisplayName?: string;
+  newAccountType?: string;
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
       newDisplayName: 'NewDisplayName',
+      newAccountType: 'NewAccountType',
       accountId: 'AccountId',
     };
   }
@@ -3572,6 +4513,7 @@ export class UpdateAccountRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       newDisplayName: 'string',
+      newAccountType: 'string',
       accountId: 'string',
     };
   }
@@ -3617,6 +4559,78 @@ export class UpdateAccountResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: UpdateAccountResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateControlPolicyRequest extends $tea.Model {
+  policyId?: string;
+  newPolicyName?: string;
+  newDescription?: string;
+  newPolicyDocument?: string;
+  static names(): { [key: string]: string } {
+    return {
+      policyId: 'PolicyId',
+      newPolicyName: 'NewPolicyName',
+      newDescription: 'NewDescription',
+      newPolicyDocument: 'NewPolicyDocument',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policyId: 'string',
+      newPolicyName: 'string',
+      newDescription: 'string',
+      newPolicyDocument: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateControlPolicyResponseBody extends $tea.Model {
+  controlPolicy?: UpdateControlPolicyResponseBodyControlPolicy;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      controlPolicy: 'ControlPolicy',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      controlPolicy: UpdateControlPolicyResponseBodyControlPolicy,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateControlPolicyResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: UpdateControlPolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: UpdateControlPolicyResponseBody,
     };
   }
 
@@ -3761,11 +4775,13 @@ export class UpdateRoleRequest extends $tea.Model {
   roleName?: string;
   newAssumeRolePolicyDocument?: string;
   newMaxSessionDuration?: number;
+  newDescription?: string;
   static names(): { [key: string]: string } {
     return {
       roleName: 'RoleName',
       newAssumeRolePolicyDocument: 'NewAssumeRolePolicyDocument',
       newMaxSessionDuration: 'NewMaxSessionDuration',
+      newDescription: 'NewDescription',
     };
   }
 
@@ -3774,6 +4790,7 @@ export class UpdateRoleRequest extends $tea.Model {
       roleName: 'string',
       newAssumeRolePolicyDocument: 'string',
       newMaxSessionDuration: 'number',
+      newDescription: 'string',
     };
   }
 
@@ -3962,6 +4979,46 @@ export class CreateCloudAccountResponseBodyAccount extends $tea.Model {
       joinMethod: 'string',
       modifyTime: 'string',
       accountName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateControlPolicyResponseBodyControlPolicy extends $tea.Model {
+  updateDate?: string;
+  description?: string;
+  effectScope?: string;
+  attachmentCount?: string;
+  policyName?: string;
+  policyId?: string;
+  createDate?: string;
+  policyType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      updateDate: 'UpdateDate',
+      description: 'Description',
+      effectScope: 'EffectScope',
+      attachmentCount: 'AttachmentCount',
+      policyName: 'PolicyName',
+      policyId: 'PolicyId',
+      createDate: 'CreateDate',
+      policyType: 'PolicyType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      updateDate: 'string',
+      description: 'string',
+      effectScope: 'string',
+      attachmentCount: 'string',
+      policyName: 'string',
+      policyId: 'string',
+      createDate: 'string',
+      policyType: 'string',
     };
   }
 
@@ -4434,6 +5491,49 @@ export class GetAccountResponseBodyAccount extends $tea.Model {
   }
 }
 
+export class GetControlPolicyResponseBodyControlPolicy extends $tea.Model {
+  policyDocument?: string;
+  updateDate?: string;
+  description?: string;
+  effectScope?: string;
+  attachmentCount?: string;
+  policyName?: string;
+  policyId?: string;
+  createDate?: string;
+  policyType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      policyDocument: 'PolicyDocument',
+      updateDate: 'UpdateDate',
+      description: 'Description',
+      effectScope: 'EffectScope',
+      attachmentCount: 'AttachmentCount',
+      policyName: 'PolicyName',
+      policyId: 'PolicyId',
+      createDate: 'CreateDate',
+      policyType: 'PolicyType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policyDocument: 'string',
+      updateDate: 'string',
+      description: 'string',
+      effectScope: 'string',
+      attachmentCount: 'string',
+      policyName: 'string',
+      policyId: 'string',
+      createDate: 'string',
+      policyType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetFolderResponseBodyFolder extends $tea.Model {
   folderId?: string;
   createTime?: string;
@@ -4591,6 +5691,7 @@ export class GetResourceDirectoryResponseBodyResourceDirectory extends $tea.Mode
   createTime?: string;
   masterAccountId?: string;
   masterAccountName?: string;
+  controlPolicyStatus?: string;
   static names(): { [key: string]: string } {
     return {
       rootFolderId: 'RootFolderId',
@@ -4598,6 +5699,7 @@ export class GetResourceDirectoryResponseBodyResourceDirectory extends $tea.Mode
       createTime: 'CreateTime',
       masterAccountId: 'MasterAccountId',
       masterAccountName: 'MasterAccountName',
+      controlPolicyStatus: 'ControlPolicyStatus',
     };
   }
 
@@ -4608,6 +5710,7 @@ export class GetResourceDirectoryResponseBodyResourceDirectory extends $tea.Mode
       createTime: 'string',
       masterAccountId: 'string',
       masterAccountName: 'string',
+      controlPolicyStatus: 'string',
     };
   }
 
@@ -4849,27 +5952,27 @@ export class GetServiceLinkedRoleDeletionStatusResponseBodyReason extends $tea.M
 
 export class InitResourceDirectoryResponseBodyResourceDirectory extends $tea.Model {
   rootFolderId?: string;
-  resourceDirectoryId?: string;
-  createTime?: string;
   masterAccountId?: string;
   masterAccountName?: string;
+  resourceDirectoryId?: string;
+  createTime?: string;
   static names(): { [key: string]: string } {
     return {
       rootFolderId: 'RootFolderId',
-      resourceDirectoryId: 'ResourceDirectoryId',
-      createTime: 'CreateTime',
       masterAccountId: 'MasterAccountId',
       masterAccountName: 'MasterAccountName',
+      resourceDirectoryId: 'ResourceDirectoryId',
+      createTime: 'CreateTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       rootFolderId: 'string',
-      resourceDirectoryId: 'string',
-      createTime: 'string',
       masterAccountId: 'string',
       masterAccountName: 'string',
+      resourceDirectoryId: 'string',
+      createTime: 'string',
     };
   }
 
@@ -5087,6 +6190,209 @@ export class ListAncestorsResponseBodyFolders extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       folder: { 'type': 'array', 'itemType': ListAncestorsResponseBodyFoldersFolder },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListControlPoliciesResponseBodyControlPoliciesControlPolicy extends $tea.Model {
+  updateDate?: string;
+  description?: string;
+  effectScope?: string;
+  attachmentCount?: string;
+  policyName?: string;
+  policyId?: string;
+  createDate?: string;
+  policyType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      updateDate: 'UpdateDate',
+      description: 'Description',
+      effectScope: 'EffectScope',
+      attachmentCount: 'AttachmentCount',
+      policyName: 'PolicyName',
+      policyId: 'PolicyId',
+      createDate: 'CreateDate',
+      policyType: 'PolicyType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      updateDate: 'string',
+      description: 'string',
+      effectScope: 'string',
+      attachmentCount: 'string',
+      policyName: 'string',
+      policyId: 'string',
+      createDate: 'string',
+      policyType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListControlPoliciesResponseBodyControlPolicies extends $tea.Model {
+  controlPolicy?: ListControlPoliciesResponseBodyControlPoliciesControlPolicy[];
+  static names(): { [key: string]: string } {
+    return {
+      controlPolicy: 'ControlPolicy',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      controlPolicy: { 'type': 'array', 'itemType': ListControlPoliciesResponseBodyControlPoliciesControlPolicy },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListControlPolicyAttachmentsForTargetResponseBodyControlPolicyAttachmentsControlPolicyAttachment extends $tea.Model {
+  description?: string;
+  effectScope?: string;
+  policyName?: string;
+  policyId?: string;
+  attachDate?: string;
+  policyType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      effectScope: 'EffectScope',
+      policyName: 'PolicyName',
+      policyId: 'PolicyId',
+      attachDate: 'AttachDate',
+      policyType: 'PolicyType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      effectScope: 'string',
+      policyName: 'string',
+      policyId: 'string',
+      attachDate: 'string',
+      policyType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListControlPolicyAttachmentsForTargetResponseBodyControlPolicyAttachments extends $tea.Model {
+  controlPolicyAttachment?: ListControlPolicyAttachmentsForTargetResponseBodyControlPolicyAttachmentsControlPolicyAttachment[];
+  static names(): { [key: string]: string } {
+    return {
+      controlPolicyAttachment: 'ControlPolicyAttachment',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      controlPolicyAttachment: { 'type': 'array', 'itemType': ListControlPolicyAttachmentsForTargetResponseBodyControlPolicyAttachmentsControlPolicyAttachment },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDelegatedAdministratorsResponseBodyAccountsAccount extends $tea.Model {
+  accountId?: string;
+  displayName?: string;
+  joinMethod?: string;
+  servicePrincipal?: string;
+  delegationEnabledTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'AccountId',
+      displayName: 'DisplayName',
+      joinMethod: 'JoinMethod',
+      servicePrincipal: 'ServicePrincipal',
+      delegationEnabledTime: 'DelegationEnabledTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+      displayName: 'string',
+      joinMethod: 'string',
+      servicePrincipal: 'string',
+      delegationEnabledTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDelegatedAdministratorsResponseBodyAccounts extends $tea.Model {
+  account?: ListDelegatedAdministratorsResponseBodyAccountsAccount[];
+  static names(): { [key: string]: string } {
+    return {
+      account: 'Account',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      account: { 'type': 'array', 'itemType': ListDelegatedAdministratorsResponseBodyAccountsAccount },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDelegatedServicesForAccountResponseBodyDelegatedServicesDelegatedService extends $tea.Model {
+  delegationEnabledTime?: string;
+  servicePrincipal?: string;
+  static names(): { [key: string]: string } {
+    return {
+      delegationEnabledTime: 'DelegationEnabledTime',
+      servicePrincipal: 'ServicePrincipal',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      delegationEnabledTime: 'string',
+      servicePrincipal: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDelegatedServicesForAccountResponseBodyDelegatedServices extends $tea.Model {
+  delegatedService?: ListDelegatedServicesForAccountResponseBodyDelegatedServicesDelegatedService[];
+  static names(): { [key: string]: string } {
+    return {
+      delegatedService: 'DelegatedService',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      delegatedService: { 'type': 'array', 'itemType': ListDelegatedServicesForAccountResponseBodyDelegatedServicesDelegatedService },
     };
   }
 
@@ -5624,6 +6930,53 @@ export class ListRolesResponseBodyRoles extends $tea.Model {
   }
 }
 
+export class ListTargetAttachmentsForControlPolicyResponseBodyTargetAttachmentsTargetAttachment extends $tea.Model {
+  targetId?: string;
+  targetName?: string;
+  attachDate?: string;
+  targetType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      targetId: 'TargetId',
+      targetName: 'TargetName',
+      attachDate: 'AttachDate',
+      targetType: 'TargetType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      targetId: 'string',
+      targetName: 'string',
+      attachDate: 'string',
+      targetType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTargetAttachmentsForControlPolicyResponseBodyTargetAttachments extends $tea.Model {
+  targetAttachment?: ListTargetAttachmentsForControlPolicyResponseBodyTargetAttachmentsTargetAttachment[];
+  static names(): { [key: string]: string } {
+    return {
+      targetAttachment: 'TargetAttachment',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      targetAttachment: { 'type': 'array', 'itemType': ListTargetAttachmentsForControlPolicyResponseBodyTargetAttachmentsTargetAttachment },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListTrustedServiceStatusResponseBodyEnabledServicePrincipalsEnabledServicePrincipal extends $tea.Model {
   servicePrincipal?: string;
   enableTime?: string;
@@ -5858,6 +7211,46 @@ export class UpdateAccountResponseBodyAccount extends $tea.Model {
   }
 }
 
+export class UpdateControlPolicyResponseBodyControlPolicy extends $tea.Model {
+  updateDate?: string;
+  description?: string;
+  effectScope?: string;
+  attachmentCount?: string;
+  policyName?: string;
+  policyId?: string;
+  createDate?: string;
+  policyType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      updateDate: 'UpdateDate',
+      description: 'Description',
+      effectScope: 'EffectScope',
+      attachmentCount: 'AttachmentCount',
+      policyName: 'PolicyName',
+      policyId: 'PolicyId',
+      createDate: 'CreateDate',
+      policyType: 'PolicyType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      updateDate: 'string',
+      description: 'string',
+      effectScope: 'string',
+      attachmentCount: 'string',
+      policyName: 'string',
+      policyId: 'string',
+      createDate: 'string',
+      policyType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateFolderResponseBodyFolder extends $tea.Model {
   folderId?: string;
   createTime?: string;
@@ -5996,6 +7389,19 @@ export default class Client extends OpenApi {
     return await this.acceptHandshakeWithOptions(request, runtime);
   }
 
+  async attachControlPolicyWithOptions(request: AttachControlPolicyRequest, runtime: $Util.RuntimeOptions): Promise<AttachControlPolicyResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<AttachControlPolicyResponse>(await this.doRPCRequest("AttachControlPolicy", "2020-03-31", "HTTPS", "POST", "AK", "json", req, runtime), new AttachControlPolicyResponse({}));
+  }
+
+  async attachControlPolicy(request: AttachControlPolicyRequest): Promise<AttachControlPolicyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.attachControlPolicyWithOptions(request, runtime);
+  }
+
   async attachPolicyWithOptions(request: AttachPolicyRequest, runtime: $Util.RuntimeOptions): Promise<AttachPolicyResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -6059,6 +7465,19 @@ export default class Client extends OpenApi {
   async createCloudAccount(request: CreateCloudAccountRequest): Promise<CreateCloudAccountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createCloudAccountWithOptions(request, runtime);
+  }
+
+  async createControlPolicyWithOptions(request: CreateControlPolicyRequest, runtime: $Util.RuntimeOptions): Promise<CreateControlPolicyResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<CreateControlPolicyResponse>(await this.doRPCRequest("CreateControlPolicy", "2020-03-31", "HTTPS", "POST", "AK", "json", req, runtime), new CreateControlPolicyResponse({}));
+  }
+
+  async createControlPolicy(request: CreateControlPolicyRequest): Promise<CreateControlPolicyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createControlPolicyWithOptions(request, runtime);
   }
 
   async createFolderWithOptions(request: CreateFolderRequest, runtime: $Util.RuntimeOptions): Promise<CreateFolderResponse> {
@@ -6165,6 +7584,19 @@ export default class Client extends OpenApi {
     return await this.declineHandshakeWithOptions(request, runtime);
   }
 
+  async deleteControlPolicyWithOptions(request: DeleteControlPolicyRequest, runtime: $Util.RuntimeOptions): Promise<DeleteControlPolicyResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DeleteControlPolicyResponse>(await this.doRPCRequest("DeleteControlPolicy", "2020-03-31", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteControlPolicyResponse({}));
+  }
+
+  async deleteControlPolicy(request: DeleteControlPolicyRequest): Promise<DeleteControlPolicyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteControlPolicyWithOptions(request, runtime);
+  }
+
   async deleteFolderWithOptions(request: DeleteFolderRequest, runtime: $Util.RuntimeOptions): Promise<DeleteFolderResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -6243,6 +7675,19 @@ export default class Client extends OpenApi {
     return await this.deleteServiceLinkedRoleWithOptions(request, runtime);
   }
 
+  async deregisterDelegatedAdministratorWithOptions(request: DeregisterDelegatedAdministratorRequest, runtime: $Util.RuntimeOptions): Promise<DeregisterDelegatedAdministratorResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DeregisterDelegatedAdministratorResponse>(await this.doRPCRequest("DeregisterDelegatedAdministrator", "2020-03-31", "HTTPS", "POST", "AK", "json", req, runtime), new DeregisterDelegatedAdministratorResponse({}));
+  }
+
+  async deregisterDelegatedAdministrator(request: DeregisterDelegatedAdministratorRequest): Promise<DeregisterDelegatedAdministratorResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deregisterDelegatedAdministratorWithOptions(request, runtime);
+  }
+
   async destroyResourceDirectoryWithOptions(runtime: $Util.RuntimeOptions): Promise<DestroyResourceDirectoryResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     return $tea.cast<DestroyResourceDirectoryResponse>(await this.doRPCRequest("DestroyResourceDirectory", "2020-03-31", "HTTPS", "POST", "AK", "json", req, runtime), new DestroyResourceDirectoryResponse({}));
@@ -6251,6 +7696,19 @@ export default class Client extends OpenApi {
   async destroyResourceDirectory(): Promise<DestroyResourceDirectoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.destroyResourceDirectoryWithOptions(runtime);
+  }
+
+  async detachControlPolicyWithOptions(request: DetachControlPolicyRequest, runtime: $Util.RuntimeOptions): Promise<DetachControlPolicyResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DetachControlPolicyResponse>(await this.doRPCRequest("DetachControlPolicy", "2020-03-31", "HTTPS", "POST", "AK", "json", req, runtime), new DetachControlPolicyResponse({}));
+  }
+
+  async detachControlPolicy(request: DetachControlPolicyRequest): Promise<DetachControlPolicyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.detachControlPolicyWithOptions(request, runtime);
   }
 
   async detachPolicyWithOptions(request: DetachPolicyRequest, runtime: $Util.RuntimeOptions): Promise<DetachPolicyResponse> {
@@ -6266,6 +7724,26 @@ export default class Client extends OpenApi {
     return await this.detachPolicyWithOptions(request, runtime);
   }
 
+  async disableControlPolicyWithOptions(runtime: $Util.RuntimeOptions): Promise<DisableControlPolicyResponse> {
+    let req = new $OpenApi.OpenApiRequest({ });
+    return $tea.cast<DisableControlPolicyResponse>(await this.doRPCRequest("DisableControlPolicy", "2020-03-31", "HTTPS", "POST", "AK", "json", req, runtime), new DisableControlPolicyResponse({}));
+  }
+
+  async disableControlPolicy(): Promise<DisableControlPolicyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.disableControlPolicyWithOptions(runtime);
+  }
+
+  async enableControlPolicyWithOptions(runtime: $Util.RuntimeOptions): Promise<EnableControlPolicyResponse> {
+    let req = new $OpenApi.OpenApiRequest({ });
+    return $tea.cast<EnableControlPolicyResponse>(await this.doRPCRequest("EnableControlPolicy", "2020-03-31", "HTTPS", "POST", "AK", "json", req, runtime), new EnableControlPolicyResponse({}));
+  }
+
+  async enableControlPolicy(): Promise<EnableControlPolicyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.enableControlPolicyWithOptions(runtime);
+  }
+
   async getAccountWithOptions(request: GetAccountRequest, runtime: $Util.RuntimeOptions): Promise<GetAccountResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -6277,6 +7755,29 @@ export default class Client extends OpenApi {
   async getAccount(request: GetAccountRequest): Promise<GetAccountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getAccountWithOptions(request, runtime);
+  }
+
+  async getControlPolicyWithOptions(request: GetControlPolicyRequest, runtime: $Util.RuntimeOptions): Promise<GetControlPolicyResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<GetControlPolicyResponse>(await this.doRPCRequest("GetControlPolicy", "2020-03-31", "HTTPS", "POST", "AK", "json", req, runtime), new GetControlPolicyResponse({}));
+  }
+
+  async getControlPolicy(request: GetControlPolicyRequest): Promise<GetControlPolicyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getControlPolicyWithOptions(request, runtime);
+  }
+
+  async getControlPolicyEnablementStatusWithOptions(runtime: $Util.RuntimeOptions): Promise<GetControlPolicyEnablementStatusResponse> {
+    let req = new $OpenApi.OpenApiRequest({ });
+    return $tea.cast<GetControlPolicyEnablementStatusResponse>(await this.doRPCRequest("GetControlPolicyEnablementStatus", "2020-03-31", "HTTPS", "POST", "AK", "json", req, runtime), new GetControlPolicyEnablementStatusResponse({}));
+  }
+
+  async getControlPolicyEnablementStatus(): Promise<GetControlPolicyEnablementStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getControlPolicyEnablementStatusWithOptions(runtime);
   }
 
   async getFolderWithOptions(request: GetFolderRequest, runtime: $Util.RuntimeOptions): Promise<GetFolderResponse> {
@@ -6455,6 +7956,58 @@ export default class Client extends OpenApi {
     return await this.listAncestorsWithOptions(request, runtime);
   }
 
+  async listControlPoliciesWithOptions(request: ListControlPoliciesRequest, runtime: $Util.RuntimeOptions): Promise<ListControlPoliciesResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<ListControlPoliciesResponse>(await this.doRPCRequest("ListControlPolicies", "2020-03-31", "HTTPS", "POST", "AK", "json", req, runtime), new ListControlPoliciesResponse({}));
+  }
+
+  async listControlPolicies(request: ListControlPoliciesRequest): Promise<ListControlPoliciesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listControlPoliciesWithOptions(request, runtime);
+  }
+
+  async listControlPolicyAttachmentsForTargetWithOptions(request: ListControlPolicyAttachmentsForTargetRequest, runtime: $Util.RuntimeOptions): Promise<ListControlPolicyAttachmentsForTargetResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<ListControlPolicyAttachmentsForTargetResponse>(await this.doRPCRequest("ListControlPolicyAttachmentsForTarget", "2020-03-31", "HTTPS", "POST", "AK", "json", req, runtime), new ListControlPolicyAttachmentsForTargetResponse({}));
+  }
+
+  async listControlPolicyAttachmentsForTarget(request: ListControlPolicyAttachmentsForTargetRequest): Promise<ListControlPolicyAttachmentsForTargetResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listControlPolicyAttachmentsForTargetWithOptions(request, runtime);
+  }
+
+  async listDelegatedAdministratorsWithOptions(request: ListDelegatedAdministratorsRequest, runtime: $Util.RuntimeOptions): Promise<ListDelegatedAdministratorsResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<ListDelegatedAdministratorsResponse>(await this.doRPCRequest("ListDelegatedAdministrators", "2020-03-31", "HTTPS", "POST", "AK", "json", req, runtime), new ListDelegatedAdministratorsResponse({}));
+  }
+
+  async listDelegatedAdministrators(request: ListDelegatedAdministratorsRequest): Promise<ListDelegatedAdministratorsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listDelegatedAdministratorsWithOptions(request, runtime);
+  }
+
+  async listDelegatedServicesForAccountWithOptions(request: ListDelegatedServicesForAccountRequest, runtime: $Util.RuntimeOptions): Promise<ListDelegatedServicesForAccountResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<ListDelegatedServicesForAccountResponse>(await this.doRPCRequest("ListDelegatedServicesForAccount", "2020-03-31", "HTTPS", "POST", "AK", "json", req, runtime), new ListDelegatedServicesForAccountResponse({}));
+  }
+
+  async listDelegatedServicesForAccount(request: ListDelegatedServicesForAccountRequest): Promise<ListDelegatedServicesForAccountResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listDelegatedServicesForAccountWithOptions(request, runtime);
+  }
+
   async listFoldersForParentWithOptions(request: ListFoldersForParentRequest, runtime: $Util.RuntimeOptions): Promise<ListFoldersForParentResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -6572,6 +8125,19 @@ export default class Client extends OpenApi {
     return await this.listRolesWithOptions(request, runtime);
   }
 
+  async listTargetAttachmentsForControlPolicyWithOptions(request: ListTargetAttachmentsForControlPolicyRequest, runtime: $Util.RuntimeOptions): Promise<ListTargetAttachmentsForControlPolicyResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<ListTargetAttachmentsForControlPolicyResponse>(await this.doRPCRequest("ListTargetAttachmentsForControlPolicy", "2020-03-31", "HTTPS", "POST", "AK", "json", req, runtime), new ListTargetAttachmentsForControlPolicyResponse({}));
+  }
+
+  async listTargetAttachmentsForControlPolicy(request: ListTargetAttachmentsForControlPolicyRequest): Promise<ListTargetAttachmentsForControlPolicyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listTargetAttachmentsForControlPolicyWithOptions(request, runtime);
+  }
+
   async listTrustedServiceStatusWithOptions(request: ListTrustedServiceStatusRequest, runtime: $Util.RuntimeOptions): Promise<ListTrustedServiceStatusResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -6609,6 +8175,19 @@ export default class Client extends OpenApi {
   async promoteResourceAccount(request: PromoteResourceAccountRequest): Promise<PromoteResourceAccountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.promoteResourceAccountWithOptions(request, runtime);
+  }
+
+  async registerDelegatedAdministratorWithOptions(request: RegisterDelegatedAdministratorRequest, runtime: $Util.RuntimeOptions): Promise<RegisterDelegatedAdministratorResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<RegisterDelegatedAdministratorResponse>(await this.doRPCRequest("RegisterDelegatedAdministrator", "2020-03-31", "HTTPS", "POST", "AK", "json", req, runtime), new RegisterDelegatedAdministratorResponse({}));
+  }
+
+  async registerDelegatedAdministrator(request: RegisterDelegatedAdministratorRequest): Promise<RegisterDelegatedAdministratorResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.registerDelegatedAdministratorWithOptions(request, runtime);
   }
 
   async removeCloudAccountWithOptions(request: RemoveCloudAccountRequest, runtime: $Util.RuntimeOptions): Promise<RemoveCloudAccountResponse> {
@@ -6674,6 +8253,19 @@ export default class Client extends OpenApi {
   async updateAccount(request: UpdateAccountRequest): Promise<UpdateAccountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateAccountWithOptions(request, runtime);
+  }
+
+  async updateControlPolicyWithOptions(request: UpdateControlPolicyRequest, runtime: $Util.RuntimeOptions): Promise<UpdateControlPolicyResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<UpdateControlPolicyResponse>(await this.doRPCRequest("UpdateControlPolicy", "2020-03-31", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateControlPolicyResponse({}));
+  }
+
+  async updateControlPolicy(request: UpdateControlPolicyRequest): Promise<UpdateControlPolicyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateControlPolicyWithOptions(request, runtime);
   }
 
   async updateFolderWithOptions(request: UpdateFolderRequest, runtime: $Util.RuntimeOptions): Promise<UpdateFolderResponse> {
