@@ -629,6 +629,112 @@ export class GetRoomResponse extends $tea.Model {
   }
 }
 
+export class SendCommentRequest extends $tea.Model {
+  appId?: string;
+  roomId?: string;
+  senderId?: string;
+  content?: string;
+  extension?: { [key: string]: string };
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      roomId: 'RoomId',
+      senderId: 'SenderId',
+      content: 'Content',
+      extension: 'Extension',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      roomId: 'string',
+      senderId: 'string',
+      content: 'string',
+      extension: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendCommentShrinkRequest extends $tea.Model {
+  appId?: string;
+  roomId?: string;
+  senderId?: string;
+  content?: string;
+  extensionShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      roomId: 'RoomId',
+      senderId: 'SenderId',
+      content: 'Content',
+      extensionShrink: 'Extension',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      roomId: 'string',
+      senderId: 'string',
+      content: 'string',
+      extensionShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendCommentResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: SendCommentResponseBodyResult;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: SendCommentResponseBodyResult,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendCommentResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: SendCommentResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: SendCommentResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateAppTemplateRequest extends $tea.Model {
   appTemplateName?: string;
   componentList?: string[];
@@ -772,6 +878,81 @@ export class GetConferenceResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: GetConferenceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BanCommentRequest extends $tea.Model {
+  appId?: string;
+  roomId?: string;
+  userId?: string;
+  banCommentUser?: string;
+  banCommentTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      roomId: 'RoomId',
+      userId: 'UserId',
+      banCommentUser: 'BanCommentUser',
+      banCommentTime: 'BanCommentTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      roomId: 'string',
+      userId: 'string',
+      banCommentUser: 'string',
+      banCommentTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BanCommentResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BanCommentResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: BanCommentResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: BanCommentResponseBody,
     };
   }
 
@@ -978,6 +1159,75 @@ export class AddMemberResponse extends $tea.Model {
   }
 }
 
+export class CancelBanAllCommentRequest extends $tea.Model {
+  appId?: string;
+  roomId?: string;
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      roomId: 'RoomId',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      roomId: 'string',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CancelBanAllCommentResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CancelBanAllCommentResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CancelBanAllCommentResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CancelBanAllCommentResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListRoomsRequest extends $tea.Model {
   appId?: string;
   pageNumber?: number;
@@ -1168,6 +1418,78 @@ export class ListConferenceUsersResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: ListConferenceUsersResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CancelBanCommentRequest extends $tea.Model {
+  appId?: string;
+  roomId?: string;
+  userId?: string;
+  banCommentUser?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      roomId: 'RoomId',
+      userId: 'UserId',
+      banCommentUser: 'BanCommentUser',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      roomId: 'string',
+      userId: 'string',
+      banCommentUser: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CancelBanCommentResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CancelBanCommentResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CancelBanCommentResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CancelBanCommentResponseBody,
     };
   }
 
@@ -2207,6 +2529,75 @@ export class SendCustomMessageToUsersResponse extends $tea.Model {
   }
 }
 
+export class BanAllCommentRequest extends $tea.Model {
+  appId?: string;
+  roomId?: string;
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      roomId: 'RoomId',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      roomId: 'string',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BanAllCommentResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BanAllCommentResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: BanAllCommentResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: BanAllCommentResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetAuthTokenRequest extends $tea.Model {
   appId?: string;
   userId?: string;
@@ -3230,6 +3621,59 @@ export class GetRoomResponseBodyResult extends $tea.Model {
   }
 }
 
+export class SendCommentResponseBodyResultCommentVO extends $tea.Model {
+  commentId?: string;
+  senderId?: string;
+  senderNick?: string;
+  createAt?: number;
+  content?: string;
+  extension?: { [key: string]: string };
+  static names(): { [key: string]: string } {
+    return {
+      commentId: 'CommentId',
+      senderId: 'SenderId',
+      senderNick: 'SenderNick',
+      createAt: 'CreateAt',
+      content: 'Content',
+      extension: 'Extension',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commentId: 'string',
+      senderId: 'string',
+      senderNick: 'string',
+      createAt: 'number',
+      content: 'string',
+      extension: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendCommentResponseBodyResult extends $tea.Model {
+  commentVO?: SendCommentResponseBodyResultCommentVO;
+  static names(): { [key: string]: string } {
+    return {
+      commentVO: 'CommentVO',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commentVO: SendCommentResponseBodyResultCommentVO,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateAppTemplateResponseBodyResult extends $tea.Model {
   appTemplateId?: string;
   static names(): { [key: string]: string } {
@@ -4192,6 +4636,25 @@ export default class Client extends OpenApi {
     return await this.getRoomWithOptions(request, runtime);
   }
 
+  async sendCommentWithOptions(tmpReq: SendCommentRequest, runtime: $Util.RuntimeOptions): Promise<SendCommentResponse> {
+    Util.validateModel(tmpReq);
+    let request = new SendCommentShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.extension)) {
+      request.extensionShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.extension, "Extension", "json");
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<SendCommentResponse>(await this.doRPCRequest("SendComment", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new SendCommentResponse({}));
+  }
+
+  async sendComment(request: SendCommentRequest): Promise<SendCommentResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.sendCommentWithOptions(request, runtime);
+  }
+
   async createAppTemplateWithOptions(tmpReq: CreateAppTemplateRequest, runtime: $Util.RuntimeOptions): Promise<CreateAppTemplateResponse> {
     Util.validateModel(tmpReq);
     let request = new CreateAppTemplateShrinkRequest({ });
@@ -4222,6 +4685,19 @@ export default class Client extends OpenApi {
   async getConference(request: GetConferenceRequest): Promise<GetConferenceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getConferenceWithOptions(request, runtime);
+  }
+
+  async banCommentWithOptions(request: BanCommentRequest, runtime: $Util.RuntimeOptions): Promise<BanCommentResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<BanCommentResponse>(await this.doRPCRequest("BanComment", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new BanCommentResponse({}));
+  }
+
+  async banComment(request: BanCommentRequest): Promise<BanCommentResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.banCommentWithOptions(request, runtime);
   }
 
   async rejectLinkMicWithOptions(request: RejectLinkMicRequest, runtime: $Util.RuntimeOptions): Promise<RejectLinkMicResponse> {
@@ -4263,6 +4739,19 @@ export default class Client extends OpenApi {
     return await this.addMemberWithOptions(request, runtime);
   }
 
+  async cancelBanAllCommentWithOptions(request: CancelBanAllCommentRequest, runtime: $Util.RuntimeOptions): Promise<CancelBanAllCommentResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<CancelBanAllCommentResponse>(await this.doRPCRequest("CancelBanAllComment", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new CancelBanAllCommentResponse({}));
+  }
+
+  async cancelBanAllComment(request: CancelBanAllCommentRequest): Promise<CancelBanAllCommentResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.cancelBanAllCommentWithOptions(request, runtime);
+  }
+
   async listRoomsWithOptions(request: ListRoomsRequest, runtime: $Util.RuntimeOptions): Promise<ListRoomsResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -4300,6 +4789,19 @@ export default class Client extends OpenApi {
   async listConferenceUsers(request: ListConferenceUsersRequest): Promise<ListConferenceUsersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listConferenceUsersWithOptions(request, runtime);
+  }
+
+  async cancelBanCommentWithOptions(request: CancelBanCommentRequest, runtime: $Util.RuntimeOptions): Promise<CancelBanCommentResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<CancelBanCommentResponse>(await this.doRPCRequest("CancelBanComment", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new CancelBanCommentResponse({}));
+  }
+
+  async cancelBanComment(request: CancelBanCommentRequest): Promise<CancelBanCommentResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.cancelBanCommentWithOptions(request, runtime);
   }
 
   async listAppTemplatesWithOptions(request: ListAppTemplatesRequest, runtime: $Util.RuntimeOptions): Promise<ListAppTemplatesResponse> {
@@ -4507,6 +5009,19 @@ export default class Client extends OpenApi {
   async sendCustomMessageToUsers(request: SendCustomMessageToUsersRequest): Promise<SendCustomMessageToUsersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.sendCustomMessageToUsersWithOptions(request, runtime);
+  }
+
+  async banAllCommentWithOptions(request: BanAllCommentRequest, runtime: $Util.RuntimeOptions): Promise<BanAllCommentResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<BanAllCommentResponse>(await this.doRPCRequest("BanAllComment", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new BanAllCommentResponse({}));
+  }
+
+  async banAllComment(request: BanAllCommentRequest): Promise<BanAllCommentResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.banAllCommentWithOptions(request, runtime);
   }
 
   async getAuthTokenWithOptions(request: GetAuthTokenRequest, runtime: $Util.RuntimeOptions): Promise<GetAuthTokenResponse> {
