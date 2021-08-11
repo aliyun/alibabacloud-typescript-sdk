@@ -569,6 +569,8 @@ export class SubmitCopyrightJobRequest extends $tea.Model {
   input?: string;
   level?: number;
   message?: string;
+  startTime?: number;
+  totalTime?: number;
   output?: string;
   userData?: string;
   static names(): { [key: string]: string } {
@@ -578,6 +580,8 @@ export class SubmitCopyrightJobRequest extends $tea.Model {
       input: 'Input',
       level: 'Level',
       message: 'Message',
+      startTime: 'StartTime',
+      totalTime: 'TotalTime',
       output: 'Output',
       userData: 'UserData',
     };
@@ -590,6 +594,8 @@ export class SubmitCopyrightJobRequest extends $tea.Model {
       input: 'string',
       level: 'number',
       message: 'string',
+      startTime: 'number',
+      totalTime: 'number',
       output: 'string',
       userData: 'string',
     };
@@ -1259,6 +1265,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.message)) {
       body["Message"] = request.message;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      body["StartTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.totalTime)) {
+      body["TotalTime"] = request.totalTime;
     }
 
     if (!Util.isUnset(request.output)) {
