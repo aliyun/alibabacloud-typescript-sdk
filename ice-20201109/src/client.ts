@@ -5306,13 +5306,35 @@ export class GetSmartHandleJobResponseBodySmartJobInfoInputConfig extends $tea.M
   }
 }
 
+export class GetSmartHandleJobResponseBodySmartJobInfoOutputConfig extends $tea.Model {
+  bucket?: string;
+  object?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bucket: 'Bucket',
+      object: 'Object',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bucket: 'string',
+      object: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetSmartHandleJobResponseBodySmartJobInfo extends $tea.Model {
   title?: string;
   description?: string;
   userId?: string;
   editingConfig?: string;
   inputConfig?: GetSmartHandleJobResponseBodySmartJobInfoInputConfig;
-  outputConfig?: string;
+  outputConfig?: GetSmartHandleJobResponseBodySmartJobInfoOutputConfig;
   createTime?: string;
   modifiedTime?: string;
   jobType?: string;
@@ -5323,7 +5345,7 @@ export class GetSmartHandleJobResponseBodySmartJobInfo extends $tea.Model {
       userId: 'UserId',
       editingConfig: 'EditingConfig',
       inputConfig: 'InputConfig',
-      outputConfig: 'outputConfig',
+      outputConfig: 'OutputConfig',
       createTime: 'CreateTime',
       modifiedTime: 'ModifiedTime',
       jobType: 'JobType',
@@ -5337,7 +5359,7 @@ export class GetSmartHandleJobResponseBodySmartJobInfo extends $tea.Model {
       userId: 'string',
       editingConfig: 'string',
       inputConfig: GetSmartHandleJobResponseBodySmartJobInfoInputConfig,
-      outputConfig: 'string',
+      outputConfig: GetSmartHandleJobResponseBodySmartJobInfoOutputConfig,
       createTime: 'string',
       modifiedTime: 'string',
       jobType: 'string',
