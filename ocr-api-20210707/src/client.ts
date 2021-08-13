@@ -2294,75 +2294,6 @@ export class RecognizeRussianResponse extends $tea.Model {
   }
 }
 
-export class RecognizeHouseCertificationRequest extends $tea.Model {
-  url?: string;
-  static names(): { [key: string]: string } {
-    return {
-      url: 'Url',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      url: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeHouseCertificationResponseBody extends $tea.Model {
-  requestId?: string;
-  data?: string;
-  code?: string;
-  message?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      data: 'Data',
-      code: 'Code',
-      message: 'Message',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      data: 'string',
-      code: 'string',
-      message: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeHouseCertificationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: RecognizeHouseCertificationResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: RecognizeHouseCertificationResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class RecognizeBasicRequest extends $tea.Model {
   url?: string;
   static names(): { [key: string]: string } {
@@ -2575,14 +2506,12 @@ export class RecognizeEduPaperCutRequest extends $tea.Model {
   cutType?: string;
   imageType?: string;
   subject?: string;
-  outputOricoord?: boolean;
   static names(): { [key: string]: string } {
     return {
       url: 'Url',
       cutType: 'CutType',
       imageType: 'ImageType',
       subject: 'Subject',
-      outputOricoord: 'OutputOricoord',
     };
   }
 
@@ -2592,7 +2521,6 @@ export class RecognizeEduPaperCutRequest extends $tea.Model {
       cutType: 'string',
       imageType: 'string',
       subject: 'string',
-      outputOricoord: 'boolean',
     };
   }
 
@@ -3940,20 +3868,6 @@ export default class Client extends OpenApi {
   async recognizeRussian(request: RecognizeRussianRequest): Promise<RecognizeRussianResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.recognizeRussianWithOptions(request, runtime);
-  }
-
-  async recognizeHouseCertificationWithOptions(request: RecognizeHouseCertificationRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeHouseCertificationResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
-      query: query,
-    });
-    return $tea.cast<RecognizeHouseCertificationResponse>(await this.doRPCRequest("RecognizeHouseCertification", "2021-07-07", "HTTPS", "GET", "AK", "json", req, runtime), new RecognizeHouseCertificationResponse({}));
-  }
-
-  async recognizeHouseCertification(request: RecognizeHouseCertificationRequest): Promise<RecognizeHouseCertificationResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.recognizeHouseCertificationWithOptions(request, runtime);
   }
 
   async recognizeBasicWithOptions(request: RecognizeBasicRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeBasicResponse> {
