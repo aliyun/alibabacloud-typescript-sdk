@@ -2863,87 +2863,6 @@ export class DeleteQosResponse extends $tea.Model {
   }
 }
 
-export class AddSagCidrRequest extends $tea.Model {
-  ownerAccount?: string;
-  ownerId?: number;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  regionId?: string;
-  cidr?: string;
-  smartAGId?: string;
-  enableBackup?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      ownerAccount: 'OwnerAccount',
-      ownerId: 'OwnerId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-      regionId: 'RegionId',
-      cidr: 'Cidr',
-      smartAGId: 'SmartAGId',
-      enableBackup: 'EnableBackup',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ownerAccount: 'string',
-      ownerId: 'number',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-      regionId: 'string',
-      cidr: 'string',
-      smartAGId: 'string',
-      enableBackup: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddSagCidrResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddSagCidrResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: AddSagCidrResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: AddSagCidrResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DeleteSagStaticRouteRequest extends $tea.Model {
   ownerAccount?: string;
   ownerId?: number;
@@ -3513,6 +3432,7 @@ export class DescribeSAGDeviceInfoResponseBody extends $tea.Model {
   vpnState?: string;
   startupTime?: string;
   lastConnectedControllerTime?: string;
+  resettableStatus?: string;
   static names(): { [key: string]: string } {
     return {
       serviceIP: 'ServiceIP',
@@ -3524,6 +3444,7 @@ export class DescribeSAGDeviceInfoResponseBody extends $tea.Model {
       vpnState: 'VpnState',
       startupTime: 'StartupTime',
       lastConnectedControllerTime: 'LastConnectedControllerTime',
+      resettableStatus: 'ResettableStatus',
     };
   }
 
@@ -3538,6 +3459,7 @@ export class DescribeSAGDeviceInfoResponseBody extends $tea.Model {
       vpnState: 'string',
       startupTime: 'string',
       lastConnectedControllerTime: 'string',
+      resettableStatus: 'string',
     };
   }
 
@@ -4631,84 +4553,6 @@ export class AddDnatEntryResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: AddDnatEntryResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteSagCidrRequest extends $tea.Model {
-  ownerAccount?: string;
-  ownerId?: number;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  regionId?: string;
-  cidr?: string;
-  smartAGId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      ownerAccount: 'OwnerAccount',
-      ownerId: 'OwnerId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-      regionId: 'RegionId',
-      cidr: 'Cidr',
-      smartAGId: 'SmartAGId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ownerAccount: 'string',
-      ownerId: 'number',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-      regionId: 'string',
-      cidr: 'string',
-      smartAGId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteSagCidrResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteSagCidrResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DeleteSagCidrResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DeleteSagCidrResponseBody,
     };
   }
 
@@ -19515,19 +19359,6 @@ export default class Client extends OpenApi {
     return await this.deleteQosWithOptions(request, runtime);
   }
 
-  async addSagCidrWithOptions(request: AddSagCidrRequest, runtime: $Util.RuntimeOptions): Promise<AddSagCidrResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<AddSagCidrResponse>(await this.doRPCRequest("AddSagCidr", "2018-03-13", "HTTPS", "POST", "AK", "json", req, runtime), new AddSagCidrResponse({}));
-  }
-
-  async addSagCidr(request: AddSagCidrRequest): Promise<AddSagCidrResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.addSagCidrWithOptions(request, runtime);
-  }
-
   async deleteSagStaticRouteWithOptions(request: DeleteSagStaticRouteRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSagStaticRouteResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -19760,19 +19591,6 @@ export default class Client extends OpenApi {
   async addDnatEntry(request: AddDnatEntryRequest): Promise<AddDnatEntryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addDnatEntryWithOptions(request, runtime);
-  }
-
-  async deleteSagCidrWithOptions(request: DeleteSagCidrRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSagCidrResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<DeleteSagCidrResponse>(await this.doRPCRequest("DeleteSagCidr", "2018-03-13", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteSagCidrResponse({}));
-  }
-
-  async deleteSagCidr(request: DeleteSagCidrRequest): Promise<DeleteSagCidrResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.deleteSagCidrWithOptions(request, runtime);
   }
 
   async describeSagRouteProtocolOspfWithOptions(request: DescribeSagRouteProtocolOspfRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSagRouteProtocolOspfResponse> {
