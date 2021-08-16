@@ -356,6 +356,7 @@ export class ListRoomLivesRequest extends $tea.Model {
   status?: number;
   queryTimestamp?: number;
   size?: number;
+  roomIdList?: string[];
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
@@ -363,6 +364,7 @@ export class ListRoomLivesRequest extends $tea.Model {
       status: 'Status',
       queryTimestamp: 'QueryTimestamp',
       size: 'Size',
+      roomIdList: 'RoomIdList',
     };
   }
 
@@ -373,6 +375,41 @@ export class ListRoomLivesRequest extends $tea.Model {
       status: 'number',
       queryTimestamp: 'number',
       size: 'number',
+      roomIdList: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRoomLivesShrinkRequest extends $tea.Model {
+  appId?: string;
+  roomId?: string;
+  status?: number;
+  queryTimestamp?: number;
+  size?: number;
+  roomIdListShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      roomId: 'RoomId',
+      status: 'Status',
+      queryTimestamp: 'QueryTimestamp',
+      size: 'Size',
+      roomIdListShrink: 'RoomIdList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      roomId: 'string',
+      status: 'number',
+      queryTimestamp: 'number',
+      size: 'number',
+      roomIdListShrink: 'string',
     };
   }
 
@@ -737,10 +774,12 @@ export class SendCommentResponse extends $tea.Model {
 
 export class CreateAppTemplateRequest extends $tea.Model {
   appTemplateName?: string;
+  sence?: string;
   componentList?: string[];
   static names(): { [key: string]: string } {
     return {
       appTemplateName: 'AppTemplateName',
+      sence: 'Sence',
       componentList: 'ComponentList',
     };
   }
@@ -748,6 +787,7 @@ export class CreateAppTemplateRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       appTemplateName: 'string',
+      sence: 'string',
       componentList: { 'type': 'array', 'itemType': 'string' },
     };
   }
@@ -759,10 +799,12 @@ export class CreateAppTemplateRequest extends $tea.Model {
 
 export class CreateAppTemplateShrinkRequest extends $tea.Model {
   appTemplateName?: string;
+  sence?: string;
   componentListShrink?: string;
   static names(): { [key: string]: string } {
     return {
       appTemplateName: 'AppTemplateName',
+      sence: 'Sence',
       componentListShrink: 'ComponentList',
     };
   }
@@ -770,6 +812,7 @@ export class CreateAppTemplateShrinkRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       appTemplateName: 'string',
+      sence: 'string',
       componentListShrink: 'string',
     };
   }
@@ -2174,10 +2217,12 @@ export class DeleteLiveResponse extends $tea.Model {
 export class GetLiveDomainStatusRequest extends $tea.Model {
   appId?: string;
   liveDomainList?: string[];
+  liveDomainType?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
       liveDomainList: 'LiveDomainList',
+      liveDomainType: 'LiveDomainType',
     };
   }
 
@@ -2185,6 +2230,7 @@ export class GetLiveDomainStatusRequest extends $tea.Model {
     return {
       appId: 'string',
       liveDomainList: { 'type': 'array', 'itemType': 'string' },
+      liveDomainType: 'string',
     };
   }
 
@@ -2196,10 +2242,12 @@ export class GetLiveDomainStatusRequest extends $tea.Model {
 export class GetLiveDomainStatusShrinkRequest extends $tea.Model {
   appId?: string;
   liveDomainListShrink?: string;
+  liveDomainType?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
       liveDomainListShrink: 'LiveDomainList',
+      liveDomainType: 'LiveDomainType',
     };
   }
 
@@ -2207,6 +2255,7 @@ export class GetLiveDomainStatusShrinkRequest extends $tea.Model {
     return {
       appId: 'string',
       liveDomainListShrink: 'string',
+      liveDomainType: 'string',
     };
   }
 
@@ -4037,6 +4086,100 @@ export class ListAppTemplatesResponseBodyResult extends $tea.Model {
   }
 }
 
+export class ListComponentsResponseBodyResultConfigGroup extends $tea.Model {
+  key?: string;
+  value?: string;
+  category?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+      category: 'Category',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+      category: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListComponentsResponseBodyResultSceneListComponentCategoryList extends $tea.Model {
+  componentType?: string;
+  componentName?: string;
+  inUse?: string;
+  static names(): { [key: string]: string } {
+    return {
+      componentType: 'ComponentType',
+      componentName: 'ComponentName',
+      inUse: 'InUse',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      componentType: 'string',
+      componentName: 'string',
+      inUse: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListComponentsResponseBodyResultSceneListComponentCategory extends $tea.Model {
+  type?: string;
+  list?: ListComponentsResponseBodyResultSceneListComponentCategoryList[];
+  static names(): { [key: string]: string } {
+    return {
+      type: 'Type',
+      list: 'List',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      type: 'string',
+      list: { 'type': 'array', 'itemType': ListComponentsResponseBodyResultSceneListComponentCategoryList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListComponentsResponseBodyResultSceneList extends $tea.Model {
+  scene?: string;
+  componentCategory?: ListComponentsResponseBodyResultSceneListComponentCategory[];
+  static names(): { [key: string]: string } {
+    return {
+      scene: 'Scene',
+      componentCategory: 'ComponentCategory',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      scene: 'string',
+      componentCategory: { 'type': 'array', 'itemType': ListComponentsResponseBodyResultSceneListComponentCategory },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListComponentsResponseBodyResultComponentCategoryList extends $tea.Model {
   componentType?: string;
   componentName?: string;
@@ -4084,45 +4227,23 @@ export class ListComponentsResponseBodyResultComponentCategory extends $tea.Mode
   }
 }
 
-export class ListComponentsResponseBodyResultConfigGroup extends $tea.Model {
-  key?: string;
-  value?: string;
-  category?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-      category: 'Category',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-      category: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ListComponentsResponseBodyResult extends $tea.Model {
-  componentCategory?: ListComponentsResponseBodyResultComponentCategory[];
   configGroup?: ListComponentsResponseBodyResultConfigGroup[];
+  sceneList?: ListComponentsResponseBodyResultSceneList[];
+  componentCategory?: ListComponentsResponseBodyResultComponentCategory[];
   static names(): { [key: string]: string } {
     return {
-      componentCategory: 'ComponentCategory',
       configGroup: 'ConfigGroup',
+      sceneList: 'SceneList',
+      componentCategory: 'ComponentCategory',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      componentCategory: { 'type': 'array', 'itemType': ListComponentsResponseBodyResultComponentCategory },
       configGroup: { 'type': 'array', 'itemType': ListComponentsResponseBodyResultConfigGroup },
+      sceneList: { 'type': 'array', 'itemType': ListComponentsResponseBodyResultSceneList },
+      componentCategory: { 'type': 'array', 'itemType': ListComponentsResponseBodyResultComponentCategory },
     };
   }
 
@@ -4584,8 +4705,14 @@ export default class Client extends OpenApi {
     return await this.listApplyLinkMicUsersWithOptions(request, runtime);
   }
 
-  async listRoomLivesWithOptions(request: ListRoomLivesRequest, runtime: $Util.RuntimeOptions): Promise<ListRoomLivesResponse> {
-    Util.validateModel(request);
+  async listRoomLivesWithOptions(tmpReq: ListRoomLivesRequest, runtime: $Util.RuntimeOptions): Promise<ListRoomLivesResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ListRoomLivesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.roomIdList)) {
+      request.roomIdListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.roomIdList, "RoomIdList", "json");
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
