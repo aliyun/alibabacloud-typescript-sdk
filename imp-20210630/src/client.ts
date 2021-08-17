@@ -4532,6 +4532,8 @@ export class GetLiveResponseBodyResult extends $tea.Model {
   userId?: string;
   codeLevel?: number;
   playUrlInfoList?: GetLiveResponseBodyResultPlayUrlInfoList[];
+  coverUrl?: string;
+  userDefineField?: string;
   static names(): { [key: string]: string } {
     return {
       anchorId: 'AnchorId',
@@ -4550,6 +4552,8 @@ export class GetLiveResponseBodyResult extends $tea.Model {
       userId: 'UserId',
       codeLevel: 'CodeLevel',
       playUrlInfoList: 'PlayUrlInfoList',
+      coverUrl: 'CoverUrl',
+      userDefineField: 'UserDefineField',
     };
   }
 
@@ -4571,6 +4575,8 @@ export class GetLiveResponseBodyResult extends $tea.Model {
       userId: 'string',
       codeLevel: 'number',
       playUrlInfoList: { 'type': 'array', 'itemType': GetLiveResponseBodyResultPlayUrlInfoList },
+      coverUrl: 'string',
+      userDefineField: 'string',
     };
   }
 
