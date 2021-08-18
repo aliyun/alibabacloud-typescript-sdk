@@ -496,6 +496,40 @@ export class UpdateRoomRequest extends $tea.Model {
   }
 }
 
+export class UpdateRoomShrinkRequest extends $tea.Model {
+  appId?: string;
+  roomId?: string;
+  title?: string;
+  notice?: string;
+  roomOwnerId?: string;
+  extensionShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      roomId: 'RoomId',
+      title: 'Title',
+      notice: 'Notice',
+      roomOwnerId: 'RoomOwnerId',
+      extensionShrink: 'Extension',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      roomId: 'string',
+      title: 'string',
+      notice: 'string',
+      roomOwnerId: 'string',
+      extensionShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateRoomResponseBody extends $tea.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
@@ -4730,8 +4764,14 @@ export default class Client extends OpenApi {
     return await this.listRoomLivesWithOptions(request, runtime);
   }
 
-  async updateRoomWithOptions(request: UpdateRoomRequest, runtime: $Util.RuntimeOptions): Promise<UpdateRoomResponse> {
-    Util.validateModel(request);
+  async updateRoomWithOptions(tmpReq: UpdateRoomRequest, runtime: $Util.RuntimeOptions): Promise<UpdateRoomResponse> {
+    Util.validateModel(tmpReq);
+    let request = new UpdateRoomShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.extension)) {
+      request.extensionShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.extension, "Extension", "json");
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
