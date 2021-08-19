@@ -4838,6 +4838,7 @@ export class CreateDeviceRequest extends $tea.Model {
   loginType?: string;
   loginUsername?: string;
   loginPassword?: string;
+  enablePassword?: string;
   snmpAccountVersion?: string;
   snmpCommunity?: string;
   snmpAccountType?: string;
@@ -4865,6 +4866,7 @@ export class CreateDeviceRequest extends $tea.Model {
       loginType: 'LoginType',
       loginUsername: 'LoginUsername',
       loginPassword: 'LoginPassword',
+      enablePassword: 'EnablePassword',
       snmpAccountVersion: 'SnmpAccountVersion',
       snmpCommunity: 'SnmpCommunity',
       snmpAccountType: 'SnmpAccountType',
@@ -4895,6 +4897,7 @@ export class CreateDeviceRequest extends $tea.Model {
       loginType: 'string',
       loginUsername: 'string',
       loginPassword: 'string',
+      enablePassword: 'string',
       snmpAccountVersion: 'string',
       snmpCommunity: 'string',
       snmpAccountType: 'string',
@@ -5848,6 +5851,7 @@ export class GetAlarmStatusRequest extends $tea.Model {
   dedicatedLineId?: string;
   instanceId?: string;
   portCollectionId?: string;
+  appId?: string;
   static names(): { [key: string]: string } {
     return {
       deviceId: 'DeviceId',
@@ -5857,6 +5861,7 @@ export class GetAlarmStatusRequest extends $tea.Model {
       dedicatedLineId: 'DedicatedLineId',
       instanceId: 'InstanceId',
       portCollectionId: 'PortCollectionId',
+      appId: 'AppId',
     };
   }
 
@@ -5869,6 +5874,7 @@ export class GetAlarmStatusRequest extends $tea.Model {
       dedicatedLineId: 'string',
       instanceId: 'string',
       portCollectionId: 'string',
+      appId: 'string',
     };
   }
 
@@ -6689,6 +6695,7 @@ export class UpdateDevicesRequest extends $tea.Model {
   loginType?: string;
   loginUsername?: string;
   loginPassword?: string;
+  enablePassword?: string;
   snmpAccountVersion?: string;
   snmpCommunity?: string;
   snmpAccountType?: string;
@@ -6699,12 +6706,18 @@ export class UpdateDevicesRequest extends $tea.Model {
   snmpPrivacyPassphase?: string;
   snmpPrivacyProtocol?: string;
   instanceId?: string;
+  physicalSpaceId?: string;
+  physicalSpaceName?: string;
+  serviceStatus?: string;
+  vendor?: string;
+  model?: string;
   static names(): { [key: string]: string } {
     return {
       deviceIds: 'DeviceIds',
       loginType: 'LoginType',
       loginUsername: 'LoginUsername',
       loginPassword: 'LoginPassword',
+      enablePassword: 'EnablePassword',
       snmpAccountVersion: 'SnmpAccountVersion',
       snmpCommunity: 'SnmpCommunity',
       snmpAccountType: 'SnmpAccountType',
@@ -6715,6 +6728,11 @@ export class UpdateDevicesRequest extends $tea.Model {
       snmpPrivacyPassphase: 'SnmpPrivacyPassphase',
       snmpPrivacyProtocol: 'SnmpPrivacyProtocol',
       instanceId: 'InstanceId',
+      physicalSpaceId: 'PhysicalSpaceId',
+      physicalSpaceName: 'PhysicalSpaceName',
+      serviceStatus: 'ServiceStatus',
+      vendor: 'Vendor',
+      model: 'Model',
     };
   }
 
@@ -6724,6 +6742,7 @@ export class UpdateDevicesRequest extends $tea.Model {
       loginType: 'string',
       loginUsername: 'string',
       loginPassword: 'string',
+      enablePassword: 'string',
       snmpAccountVersion: 'string',
       snmpCommunity: 'string',
       snmpAccountType: 'string',
@@ -6734,6 +6753,11 @@ export class UpdateDevicesRequest extends $tea.Model {
       snmpPrivacyPassphase: 'string',
       snmpPrivacyProtocol: 'string',
       instanceId: 'string',
+      physicalSpaceId: 'string',
+      physicalSpaceName: 'string',
+      serviceStatus: 'string',
+      vendor: 'string',
+      model: 'string',
     };
   }
 
@@ -8621,6 +8645,7 @@ export class ListNotificationHistoriesRequest extends $tea.Model {
   aggregateDataId?: string;
   instanceId?: string;
   portCollectionId?: string;
+  appId?: string;
   static names(): { [key: string]: string } {
     return {
       nextToken: 'NextToken',
@@ -8632,6 +8657,7 @@ export class ListNotificationHistoriesRequest extends $tea.Model {
       aggregateDataId: 'AggregateDataId',
       instanceId: 'InstanceId',
       portCollectionId: 'PortCollectionId',
+      appId: 'AppId',
     };
   }
 
@@ -8646,6 +8672,7 @@ export class ListNotificationHistoriesRequest extends $tea.Model {
       aggregateDataId: 'string',
       instanceId: 'string',
       portCollectionId: 'string',
+      appId: 'string',
     };
   }
 
@@ -9433,6 +9460,7 @@ export class ListAlarmStatusHistoriesRequest extends $tea.Model {
   dedicatedLineId?: string;
   instanceId?: string;
   portCollectionId?: string;
+  appId?: string;
   static names(): { [key: string]: string } {
     return {
       start: 'Start',
@@ -9444,6 +9472,7 @@ export class ListAlarmStatusHistoriesRequest extends $tea.Model {
       dedicatedLineId: 'DedicatedLineId',
       instanceId: 'InstanceId',
       portCollectionId: 'PortCollectionId',
+      appId: 'AppId',
     };
   }
 
@@ -9458,6 +9487,7 @@ export class ListAlarmStatusHistoriesRequest extends $tea.Model {
       dedicatedLineId: 'string',
       instanceId: 'string',
       portCollectionId: 'string',
+      appId: 'string',
     };
   }
 
@@ -9753,6 +9783,7 @@ export class ListMonitorDataRequest extends $tea.Model {
   portCollectionId?: string;
   dedicatedLineId?: string;
   instanceId?: string;
+  appId?: string;
   static names(): { [key: string]: string } {
     return {
       start: 'Start',
@@ -9766,6 +9797,7 @@ export class ListMonitorDataRequest extends $tea.Model {
       portCollectionId: 'PortCollectionId',
       dedicatedLineId: 'DedicatedLineId',
       instanceId: 'InstanceId',
+      appId: 'AppId',
     };
   }
 
@@ -9782,6 +9814,7 @@ export class ListMonitorDataRequest extends $tea.Model {
       portCollectionId: 'string',
       dedicatedLineId: 'string',
       instanceId: 'string',
+      appId: 'string',
     };
   }
 
@@ -11737,6 +11770,7 @@ export class UpdateDeviceRequest extends $tea.Model {
   loginType?: string;
   loginUsername?: string;
   loginPassword?: string;
+  enablePassword?: string;
   snmpAccountVersion?: string;
   snmpCommunity?: string;
   snmpAccountType?: string;
@@ -11763,6 +11797,7 @@ export class UpdateDeviceRequest extends $tea.Model {
       loginType: 'LoginType',
       loginUsername: 'LoginUsername',
       loginPassword: 'LoginPassword',
+      enablePassword: 'EnablePassword',
       snmpAccountVersion: 'SnmpAccountVersion',
       snmpCommunity: 'SnmpCommunity',
       snmpAccountType: 'SnmpAccountType',
@@ -11792,6 +11827,7 @@ export class UpdateDeviceRequest extends $tea.Model {
       loginType: 'string',
       loginUsername: 'string',
       loginPassword: 'string',
+      enablePassword: 'string',
       snmpAccountVersion: 'string',
       snmpCommunity: 'string',
       snmpAccountType: 'string',
@@ -12524,6 +12560,7 @@ export class ListAlarmStatusRequest extends $tea.Model {
   type?: string;
   instanceId?: string;
   dedicatedLineName?: string;
+  region?: string;
   static names(): { [key: string]: string } {
     return {
       nextToken: 'NextToken',
@@ -12536,6 +12573,7 @@ export class ListAlarmStatusRequest extends $tea.Model {
       type: 'Type',
       instanceId: 'InstanceId',
       dedicatedLineName: 'DedicatedLineName',
+      region: 'Region',
     };
   }
 
@@ -12551,6 +12589,7 @@ export class ListAlarmStatusRequest extends $tea.Model {
       type: 'string',
       instanceId: 'string',
       dedicatedLineName: 'string',
+      region: 'string',
     };
   }
 
@@ -15011,6 +15050,7 @@ export class GetAlarmStatusResponseBodyAlarmStatusDedicatedLine extends $tea.Mod
   deviceId?: string;
   bandwidth?: string;
   ip?: string;
+  dedicatedLineGateway?: string;
   static names(): { [key: string]: string } {
     return {
       dedicatedLineName: 'DedicatedLineName',
@@ -15019,6 +15059,7 @@ export class GetAlarmStatusResponseBodyAlarmStatusDedicatedLine extends $tea.Mod
       deviceId: 'DeviceId',
       bandwidth: 'Bandwidth',
       ip: 'Ip',
+      dedicatedLineGateway: 'DedicatedLineGateway',
     };
   }
 
@@ -15030,6 +15071,7 @@ export class GetAlarmStatusResponseBodyAlarmStatusDedicatedLine extends $tea.Mod
       deviceId: 'string',
       bandwidth: 'string',
       ip: 'string',
+      dedicatedLineGateway: 'string',
     };
   }
 
@@ -15116,6 +15158,37 @@ export class GetAlarmStatusResponseBodyAlarmStatusPortCollection extends $tea.Mo
   }
 }
 
+export class GetAlarmStatusResponseBodyAlarmStatusResourceApp extends $tea.Model {
+  domain?: string;
+  appId?: string;
+  port?: string;
+  type?: string;
+  securityDomain?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domain: 'Domain',
+      appId: 'AppId',
+      port: 'Port',
+      type: 'Type',
+      securityDomain: 'SecurityDomain',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domain: 'string',
+      appId: 'string',
+      port: 'string',
+      type: 'string',
+      securityDomain: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetAlarmStatusResponseBodyAlarmStatus extends $tea.Model {
   deviceId?: string;
   monitorItemId?: string;
@@ -15137,6 +15210,9 @@ export class GetAlarmStatusResponseBodyAlarmStatus extends $tea.Model {
   dedicatedLine?: GetAlarmStatusResponseBodyAlarmStatusDedicatedLine;
   portCollectionId?: string;
   portCollection?: GetAlarmStatusResponseBodyAlarmStatusPortCollection;
+  agentIp?: string;
+  appId?: string;
+  resourceApp?: GetAlarmStatusResponseBodyAlarmStatusResourceApp;
   static names(): { [key: string]: string } {
     return {
       deviceId: 'DeviceId',
@@ -15159,6 +15235,9 @@ export class GetAlarmStatusResponseBodyAlarmStatus extends $tea.Model {
       dedicatedLine: 'DedicatedLine',
       portCollectionId: 'PortCollectionId',
       portCollection: 'PortCollection',
+      agentIp: 'AgentIp',
+      appId: 'AppId',
+      resourceApp: 'ResourceApp',
     };
   }
 
@@ -15184,6 +15263,9 @@ export class GetAlarmStatusResponseBodyAlarmStatus extends $tea.Model {
       dedicatedLine: GetAlarmStatusResponseBodyAlarmStatusDedicatedLine,
       portCollectionId: 'string',
       portCollection: GetAlarmStatusResponseBodyAlarmStatusPortCollection,
+      agentIp: 'string',
+      appId: 'string',
+      resourceApp: GetAlarmStatusResponseBodyAlarmStatusResourceApp,
     };
   }
 
@@ -15425,6 +15507,7 @@ export class ListDevicesResponseBodyDevices extends $tea.Model {
   loginType?: string;
   loginUsername?: string;
   loginPassword?: string;
+  enablePassword?: string;
   snmpAccountVersion?: string;
   snmpCommunity?: string;
   snmpAccountType?: string;
@@ -15453,6 +15536,7 @@ export class ListDevicesResponseBodyDevices extends $tea.Model {
       loginType: 'LoginType',
       loginUsername: 'LoginUsername',
       loginPassword: 'LoginPassword',
+      enablePassword: 'EnablePassword',
       snmpAccountVersion: 'SnmpAccountVersion',
       snmpCommunity: 'SnmpCommunity',
       snmpAccountType: 'SnmpAccountType',
@@ -15484,6 +15568,7 @@ export class ListDevicesResponseBodyDevices extends $tea.Model {
       loginType: 'string',
       loginUsername: 'string',
       loginPassword: 'string',
+      enablePassword: 'string',
       snmpAccountVersion: 'string',
       snmpCommunity: 'string',
       snmpAccountType: 'string',
@@ -16050,6 +16135,7 @@ export class EnableNotificationRequestList extends $tea.Model {
   aggregateDataId?: string;
   dedicatedLineId?: string;
   portCollectionId?: string;
+  appId?: string;
   static names(): { [key: string]: string } {
     return {
       type: 'Type',
@@ -16058,6 +16144,7 @@ export class EnableNotificationRequestList extends $tea.Model {
       aggregateDataId: 'AggregateDataId',
       dedicatedLineId: 'DedicatedLineId',
       portCollectionId: 'PortCollectionId',
+      appId: 'AppId',
     };
   }
 
@@ -16069,6 +16156,7 @@ export class EnableNotificationRequestList extends $tea.Model {
       aggregateDataId: 'string',
       dedicatedLineId: 'string',
       portCollectionId: 'string',
+      appId: 'string',
     };
   }
 
@@ -16577,7 +16665,7 @@ export class DeleteScheduleDutyRequestTypeWorkerList extends $tea.Model {
 
 export class UploadScheduleDutyRequestScheduleDutyWorker extends $tea.Model {
   workType?: string;
-  workerName?: string;
+  workerName?: string[];
   static names(): { [key: string]: string } {
     return {
       workType: 'WorkType',
@@ -16588,7 +16676,7 @@ export class UploadScheduleDutyRequestScheduleDutyWorker extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       workType: 'string',
-      workerName: 'string',
+      workerName: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -17341,6 +17429,7 @@ export class GetDeviceResponseBodyDevice extends $tea.Model {
   loginType?: string;
   loginUsername?: string;
   loginPassword?: string;
+  enablePassword?: string;
   snmpAccountVersion?: string;
   snmpCommunity?: string;
   snmpAccountType?: string;
@@ -17369,6 +17458,7 @@ export class GetDeviceResponseBodyDevice extends $tea.Model {
       loginType: 'LoginType',
       loginUsername: 'LoginUsername',
       loginPassword: 'LoginPassword',
+      enablePassword: 'EnablePassword',
       snmpAccountVersion: 'SnmpAccountVersion',
       snmpCommunity: 'SnmpCommunity',
       snmpAccountType: 'SnmpAccountType',
@@ -17400,6 +17490,7 @@ export class GetDeviceResponseBodyDevice extends $tea.Model {
       loginType: 'string',
       loginUsername: 'string',
       loginPassword: 'string',
+      enablePassword: 'string',
       snmpAccountVersion: 'string',
       snmpCommunity: 'string',
       snmpAccountType: 'string',
@@ -17475,6 +17566,7 @@ export class DisableNotificationRequestList extends $tea.Model {
   type?: string;
   dedicatedLineId?: string;
   portCollectionId?: string;
+  appId?: string;
   static names(): { [key: string]: string } {
     return {
       deviceId: 'DeviceId',
@@ -17483,6 +17575,7 @@ export class DisableNotificationRequestList extends $tea.Model {
       type: 'Type',
       dedicatedLineId: 'DedicatedLineId',
       portCollectionId: 'PortCollectionId',
+      appId: 'AppId',
     };
   }
 
@@ -17494,6 +17587,7 @@ export class DisableNotificationRequestList extends $tea.Model {
       type: 'string',
       dedicatedLineId: 'string',
       portCollectionId: 'string',
+      appId: 'string',
     };
   }
 
@@ -17675,6 +17769,37 @@ export class ListAlarmStatusResponseBodyAlarmStatusPortCollection extends $tea.M
   }
 }
 
+export class ListAlarmStatusResponseBodyAlarmStatusResourceApp extends $tea.Model {
+  domain?: string;
+  appId?: string;
+  port?: string;
+  type?: string;
+  securityDomain?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domain: 'Domain',
+      appId: 'AppId',
+      port: 'Port',
+      type: 'Type',
+      securityDomain: 'SecurityDomain',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domain: 'string',
+      appId: 'string',
+      port: 'string',
+      type: 'string',
+      securityDomain: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListAlarmStatusResponseBodyAlarmStatus extends $tea.Model {
   deviceId?: string;
   monitorItemId?: string;
@@ -17696,6 +17821,9 @@ export class ListAlarmStatusResponseBodyAlarmStatus extends $tea.Model {
   dedicatedLine?: ListAlarmStatusResponseBodyAlarmStatusDedicatedLine;
   portCollectionId?: string;
   portCollection?: ListAlarmStatusResponseBodyAlarmStatusPortCollection;
+  agentIp?: string;
+  appId?: string;
+  resourceApp?: ListAlarmStatusResponseBodyAlarmStatusResourceApp;
   static names(): { [key: string]: string } {
     return {
       deviceId: 'DeviceId',
@@ -17718,6 +17846,9 @@ export class ListAlarmStatusResponseBodyAlarmStatus extends $tea.Model {
       dedicatedLine: 'DedicatedLine',
       portCollectionId: 'PortCollectionId',
       portCollection: 'PortCollection',
+      agentIp: 'AgentIp',
+      appId: 'AppId',
+      resourceApp: 'ResourceApp',
     };
   }
 
@@ -17743,6 +17874,9 @@ export class ListAlarmStatusResponseBodyAlarmStatus extends $tea.Model {
       dedicatedLine: ListAlarmStatusResponseBodyAlarmStatusDedicatedLine,
       portCollectionId: 'string',
       portCollection: ListAlarmStatusResponseBodyAlarmStatusPortCollection,
+      agentIp: 'string',
+      appId: 'string',
+      resourceApp: ListAlarmStatusResponseBodyAlarmStatusResourceApp,
     };
   }
 
