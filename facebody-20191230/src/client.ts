@@ -1289,16 +1289,10 @@ export class GenRealPersonVerificationTokenRequest extends $tea.Model {
 export class GenRealPersonVerificationTokenResponseBody extends $tea.Model {
   requestId?: string;
   data?: GenRealPersonVerificationTokenResponseBodyData;
-  errorMessage?: string;
-  code?: string;
-  success?: boolean;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
       data: 'Data',
-      errorMessage: 'ErrorMessage',
-      code: 'Code',
-      success: 'Success',
     };
   }
 
@@ -1306,9 +1300,6 @@ export class GenRealPersonVerificationTokenResponseBody extends $tea.Model {
     return {
       requestId: 'string',
       data: GenRealPersonVerificationTokenResponseBodyData,
-      errorMessage: 'string',
-      code: 'string',
-      success: 'boolean',
     };
   }
 
@@ -1707,16 +1698,10 @@ export class GetRealPersonVerificationResultRequest extends $tea.Model {
 export class GetRealPersonVerificationResultResponseBody extends $tea.Model {
   requestId?: string;
   data?: GetRealPersonVerificationResultResponseBodyData;
-  errorMessage?: string;
-  code?: string;
-  success?: boolean;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
       data: 'Data',
-      errorMessage: 'ErrorMessage',
-      code: 'Code',
-      success: 'Success',
     };
   }
 
@@ -1724,9 +1709,6 @@ export class GetRealPersonVerificationResultResponseBody extends $tea.Model {
     return {
       requestId: 'string',
       data: GetRealPersonVerificationResultResponseBodyData,
-      errorMessage: 'string',
-      code: 'string',
-      success: 'boolean',
     };
   }
 
@@ -3146,6 +3128,197 @@ export class DetectPedestrianIntrusionResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: DetectPedestrianIntrusionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BeautifyBodyRequest extends $tea.Model {
+  imageURL?: string;
+  originalWidth?: number;
+  originalHeight?: number;
+  custom?: number;
+  maleLiquifyDegree?: number;
+  femaleLiquifyDegree?: number;
+  lengthenDegree?: number;
+  ageRange?: BeautifyBodyRequestAgeRange;
+  bodyBoxes?: BeautifyBodyRequestBodyBoxes[];
+  faceList?: BeautifyBodyRequestFaceList[];
+  poseList?: BeautifyBodyRequestPoseList[];
+  static names(): { [key: string]: string } {
+    return {
+      imageURL: 'ImageURL',
+      originalWidth: 'OriginalWidth',
+      originalHeight: 'OriginalHeight',
+      custom: 'Custom',
+      maleLiquifyDegree: 'MaleLiquifyDegree',
+      femaleLiquifyDegree: 'FemaleLiquifyDegree',
+      lengthenDegree: 'LengthenDegree',
+      ageRange: 'AgeRange',
+      bodyBoxes: 'BodyBoxes',
+      faceList: 'FaceList',
+      poseList: 'PoseList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageURL: 'string',
+      originalWidth: 'number',
+      originalHeight: 'number',
+      custom: 'number',
+      maleLiquifyDegree: 'number',
+      femaleLiquifyDegree: 'number',
+      lengthenDegree: 'number',
+      ageRange: BeautifyBodyRequestAgeRange,
+      bodyBoxes: { 'type': 'array', 'itemType': BeautifyBodyRequestBodyBoxes },
+      faceList: { 'type': 'array', 'itemType': BeautifyBodyRequestFaceList },
+      poseList: { 'type': 'array', 'itemType': BeautifyBodyRequestPoseList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BeautifyBodyAdvanceRequest extends $tea.Model {
+  imageURLObject: Readable;
+  originalWidth?: number;
+  originalHeight?: number;
+  custom?: number;
+  maleLiquifyDegree?: number;
+  femaleLiquifyDegree?: number;
+  lengthenDegree?: number;
+  ageRange?: BeautifyBodyAdvanceRequestAgeRange;
+  bodyBoxes?: BeautifyBodyAdvanceRequestBodyBoxes[];
+  faceList?: BeautifyBodyAdvanceRequestFaceList[];
+  poseList?: BeautifyBodyAdvanceRequestPoseList[];
+  static names(): { [key: string]: string } {
+    return {
+      imageURLObject: 'ImageURLObject',
+      originalWidth: 'OriginalWidth',
+      originalHeight: 'OriginalHeight',
+      custom: 'Custom',
+      maleLiquifyDegree: 'MaleLiquifyDegree',
+      femaleLiquifyDegree: 'FemaleLiquifyDegree',
+      lengthenDegree: 'LengthenDegree',
+      ageRange: 'AgeRange',
+      bodyBoxes: 'BodyBoxes',
+      faceList: 'FaceList',
+      poseList: 'PoseList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageURLObject: 'Readable',
+      originalWidth: 'number',
+      originalHeight: 'number',
+      custom: 'number',
+      maleLiquifyDegree: 'number',
+      femaleLiquifyDegree: 'number',
+      lengthenDegree: 'number',
+      ageRange: BeautifyBodyAdvanceRequestAgeRange,
+      bodyBoxes: { 'type': 'array', 'itemType': BeautifyBodyAdvanceRequestBodyBoxes },
+      faceList: { 'type': 'array', 'itemType': BeautifyBodyAdvanceRequestFaceList },
+      poseList: { 'type': 'array', 'itemType': BeautifyBodyAdvanceRequestPoseList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BeautifyBodyShrinkRequest extends $tea.Model {
+  imageURL?: string;
+  originalWidth?: number;
+  originalHeight?: number;
+  custom?: number;
+  maleLiquifyDegree?: number;
+  femaleLiquifyDegree?: number;
+  lengthenDegree?: number;
+  ageRangeShrink?: string;
+  bodyBoxesShrink?: string;
+  faceListShrink?: string;
+  poseListShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      imageURL: 'ImageURL',
+      originalWidth: 'OriginalWidth',
+      originalHeight: 'OriginalHeight',
+      custom: 'Custom',
+      maleLiquifyDegree: 'MaleLiquifyDegree',
+      femaleLiquifyDegree: 'FemaleLiquifyDegree',
+      lengthenDegree: 'LengthenDegree',
+      ageRangeShrink: 'AgeRange',
+      bodyBoxesShrink: 'BodyBoxes',
+      faceListShrink: 'FaceList',
+      poseListShrink: 'PoseList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageURL: 'string',
+      originalWidth: 'number',
+      originalHeight: 'number',
+      custom: 'number',
+      maleLiquifyDegree: 'number',
+      femaleLiquifyDegree: 'number',
+      lengthenDegree: 'number',
+      ageRangeShrink: 'string',
+      bodyBoxesShrink: 'string',
+      faceListShrink: 'string',
+      poseListShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BeautifyBodyResponseBody extends $tea.Model {
+  data?: BeautifyBodyResponseBodyData;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: BeautifyBodyResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BeautifyBodyResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: BeautifyBodyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: BeautifyBodyResponseBody,
     };
   }
 
@@ -6936,6 +7109,325 @@ export class DetectPedestrianIntrusionResponseBodyData extends $tea.Model {
   }
 }
 
+export class BeautifyBodyRequestAgeRange extends $tea.Model {
+  ageMinimum?: number;
+  ageMax?: number;
+  static names(): { [key: string]: string } {
+    return {
+      ageMinimum: 'AgeMinimum',
+      ageMax: 'AgeMax',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ageMinimum: 'number',
+      ageMax: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BeautifyBodyRequestBodyBoxes extends $tea.Model {
+  x?: number;
+  y?: number;
+  width?: number;
+  height?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+      width: 'Width',
+      height: 'Height',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+      width: 'number',
+      height: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BeautifyBodyRequestFaceListFaceBox extends $tea.Model {
+  x?: number;
+  y?: number;
+  width?: number;
+  height?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+      width: 'Width',
+      height: 'Height',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+      width: 'number',
+      height: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BeautifyBodyRequestFaceList extends $tea.Model {
+  faceBox?: BeautifyBodyRequestFaceListFaceBox;
+  age?: number;
+  gender?: number;
+  static names(): { [key: string]: string } {
+    return {
+      faceBox: 'FaceBox',
+      age: 'Age',
+      gender: 'Gender',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      faceBox: BeautifyBodyRequestFaceListFaceBox,
+      age: 'number',
+      gender: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BeautifyBodyRequestPoseListPose extends $tea.Model {
+  x?: number;
+  y?: number;
+  score?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+      score: 'Score',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+      score: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BeautifyBodyRequestPoseList extends $tea.Model {
+  pose?: BeautifyBodyRequestPoseListPose[];
+  static names(): { [key: string]: string } {
+    return {
+      pose: 'Pose',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pose: { 'type': 'array', 'itemType': BeautifyBodyRequestPoseListPose },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BeautifyBodyAdvanceRequestAgeRange extends $tea.Model {
+  ageMinimum?: number;
+  ageMax?: number;
+  static names(): { [key: string]: string } {
+    return {
+      ageMinimum: 'AgeMinimum',
+      ageMax: 'AgeMax',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ageMinimum: 'number',
+      ageMax: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BeautifyBodyAdvanceRequestBodyBoxes extends $tea.Model {
+  x?: number;
+  y?: number;
+  width?: number;
+  height?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+      width: 'Width',
+      height: 'Height',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+      width: 'number',
+      height: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BeautifyBodyAdvanceRequestFaceListFaceBox extends $tea.Model {
+  x?: number;
+  y?: number;
+  width?: number;
+  height?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+      width: 'Width',
+      height: 'Height',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+      width: 'number',
+      height: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BeautifyBodyAdvanceRequestFaceList extends $tea.Model {
+  faceBox?: BeautifyBodyAdvanceRequestFaceListFaceBox;
+  age?: number;
+  gender?: number;
+  static names(): { [key: string]: string } {
+    return {
+      faceBox: 'FaceBox',
+      age: 'Age',
+      gender: 'Gender',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      faceBox: BeautifyBodyAdvanceRequestFaceListFaceBox,
+      age: 'number',
+      gender: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BeautifyBodyAdvanceRequestPoseListPose extends $tea.Model {
+  x?: number;
+  y?: number;
+  score?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+      score: 'Score',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+      score: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BeautifyBodyAdvanceRequestPoseList extends $tea.Model {
+  pose?: BeautifyBodyAdvanceRequestPoseListPose[];
+  static names(): { [key: string]: string } {
+    return {
+      pose: 'Pose',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pose: { 'type': 'array', 'itemType': BeautifyBodyAdvanceRequestPoseListPose },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BeautifyBodyResponseBodyData extends $tea.Model {
+  XFlowURL?: string;
+  YFlowURL?: string;
+  action?: string;
+  static names(): { [key: string]: string } {
+    return {
+      XFlowURL: 'XFlowURL',
+      YFlowURL: 'YFlowURL',
+      action: 'Action',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      XFlowURL: 'string',
+      YFlowURL: 'string',
+      action: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class HandPostureResponseBodyDataOutputsResultsHandsKeyPointsPositions extends $tea.Model {
   points?: number[];
   static names(): { [key: string]: string } {
@@ -8045,15 +8537,22 @@ export default class Client extends OpenApi {
     // Step 0: init client
     let accessKeyId = await this._credential.getAccessKeyId();
     let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
     let openPlatformEndpoint = this._openPlatformEndpoint;
     if (Util.isUnset(openPlatformEndpoint)) {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
     let authConfig = new $RPC.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
-      type: "access_key",
+      securityToken: securityToken,
+      type: credentialType,
       endpoint: openPlatformEndpoint,
       protocol: this._protocol,
       regionId: this._regionId,
@@ -8125,15 +8624,22 @@ export default class Client extends OpenApi {
     // Step 0: init client
     let accessKeyId = await this._credential.getAccessKeyId();
     let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
     let openPlatformEndpoint = this._openPlatformEndpoint;
     if (Util.isUnset(openPlatformEndpoint)) {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
     let authConfig = new $RPC.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
-      type: "access_key",
+      securityToken: securityToken,
+      type: credentialType,
       endpoint: openPlatformEndpoint,
       protocol: this._protocol,
       regionId: this._regionId,
@@ -8205,15 +8711,22 @@ export default class Client extends OpenApi {
     // Step 0: init client
     let accessKeyId = await this._credential.getAccessKeyId();
     let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
     let openPlatformEndpoint = this._openPlatformEndpoint;
     if (Util.isUnset(openPlatformEndpoint)) {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
     let authConfig = new $RPC.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
-      type: "access_key",
+      securityToken: securityToken,
+      type: credentialType,
       endpoint: openPlatformEndpoint,
       protocol: this._protocol,
       regionId: this._regionId,
@@ -8285,15 +8798,22 @@ export default class Client extends OpenApi {
     // Step 0: init client
     let accessKeyId = await this._credential.getAccessKeyId();
     let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
     let openPlatformEndpoint = this._openPlatformEndpoint;
     if (Util.isUnset(openPlatformEndpoint)) {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
     let authConfig = new $RPC.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
-      type: "access_key",
+      securityToken: securityToken,
+      type: credentialType,
       endpoint: openPlatformEndpoint,
       protocol: this._protocol,
       regionId: this._regionId,
@@ -8378,15 +8898,22 @@ export default class Client extends OpenApi {
     // Step 0: init client
     let accessKeyId = await this._credential.getAccessKeyId();
     let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
     let openPlatformEndpoint = this._openPlatformEndpoint;
     if (Util.isUnset(openPlatformEndpoint)) {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
     let authConfig = new $RPC.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
-      type: "access_key",
+      securityToken: securityToken,
+      type: credentialType,
       endpoint: openPlatformEndpoint,
       protocol: this._protocol,
       regionId: this._regionId,
@@ -8484,15 +9011,22 @@ export default class Client extends OpenApi {
     // Step 0: init client
     let accessKeyId = await this._credential.getAccessKeyId();
     let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
     let openPlatformEndpoint = this._openPlatformEndpoint;
     if (Util.isUnset(openPlatformEndpoint)) {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
     let authConfig = new $RPC.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
-      type: "access_key",
+      securityToken: securityToken,
+      type: credentialType,
       endpoint: openPlatformEndpoint,
       protocol: this._protocol,
       regionId: this._regionId,
@@ -8564,15 +9098,22 @@ export default class Client extends OpenApi {
     // Step 0: init client
     let accessKeyId = await this._credential.getAccessKeyId();
     let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
     let openPlatformEndpoint = this._openPlatformEndpoint;
     if (Util.isUnset(openPlatformEndpoint)) {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
     let authConfig = new $RPC.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
-      type: "access_key",
+      securityToken: securityToken,
+      type: credentialType,
       endpoint: openPlatformEndpoint,
       protocol: this._protocol,
       regionId: this._regionId,
@@ -8644,15 +9185,22 @@ export default class Client extends OpenApi {
     // Step 0: init client
     let accessKeyId = await this._credential.getAccessKeyId();
     let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
     let openPlatformEndpoint = this._openPlatformEndpoint;
     if (Util.isUnset(openPlatformEndpoint)) {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
     let authConfig = new $RPC.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
-      type: "access_key",
+      securityToken: securityToken,
+      type: credentialType,
       endpoint: openPlatformEndpoint,
       protocol: this._protocol,
       regionId: this._regionId,
@@ -8724,15 +9272,22 @@ export default class Client extends OpenApi {
     // Step 0: init client
     let accessKeyId = await this._credential.getAccessKeyId();
     let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
     let openPlatformEndpoint = this._openPlatformEndpoint;
     if (Util.isUnset(openPlatformEndpoint)) {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
     let authConfig = new $RPC.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
-      type: "access_key",
+      securityToken: securityToken,
+      type: credentialType,
       endpoint: openPlatformEndpoint,
       protocol: this._protocol,
       regionId: this._regionId,
@@ -8818,15 +9373,22 @@ export default class Client extends OpenApi {
     // Step 0: init client
     let accessKeyId = await this._credential.getAccessKeyId();
     let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
     let openPlatformEndpoint = this._openPlatformEndpoint;
     if (Util.isUnset(openPlatformEndpoint)) {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
     let authConfig = new $RPC.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
-      type: "access_key",
+      securityToken: securityToken,
+      type: credentialType,
       endpoint: openPlatformEndpoint,
       protocol: this._protocol,
       regionId: this._regionId,
@@ -8898,15 +9460,22 @@ export default class Client extends OpenApi {
     // Step 0: init client
     let accessKeyId = await this._credential.getAccessKeyId();
     let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
     let openPlatformEndpoint = this._openPlatformEndpoint;
     if (Util.isUnset(openPlatformEndpoint)) {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
     let authConfig = new $RPC.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
-      type: "access_key",
+      securityToken: securityToken,
+      type: credentialType,
       endpoint: openPlatformEndpoint,
       protocol: this._protocol,
       regionId: this._regionId,
@@ -9014,15 +9583,22 @@ export default class Client extends OpenApi {
     // Step 0: init client
     let accessKeyId = await this._credential.getAccessKeyId();
     let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
     let openPlatformEndpoint = this._openPlatformEndpoint;
     if (Util.isUnset(openPlatformEndpoint)) {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
     let authConfig = new $RPC.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
-      type: "access_key",
+      securityToken: securityToken,
+      type: credentialType,
       endpoint: openPlatformEndpoint,
       protocol: this._protocol,
       regionId: this._regionId,
@@ -9107,15 +9683,22 @@ export default class Client extends OpenApi {
     // Step 0: init client
     let accessKeyId = await this._credential.getAccessKeyId();
     let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
     let openPlatformEndpoint = this._openPlatformEndpoint;
     if (Util.isUnset(openPlatformEndpoint)) {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
     let authConfig = new $RPC.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
-      type: "access_key",
+      securityToken: securityToken,
+      type: credentialType,
       endpoint: openPlatformEndpoint,
       protocol: this._protocol,
       regionId: this._regionId,
@@ -9226,15 +9809,22 @@ export default class Client extends OpenApi {
     // Step 0: init client
     let accessKeyId = await this._credential.getAccessKeyId();
     let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
     let openPlatformEndpoint = this._openPlatformEndpoint;
     if (Util.isUnset(openPlatformEndpoint)) {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
     let authConfig = new $RPC.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
-      type: "access_key",
+      securityToken: securityToken,
+      type: credentialType,
       endpoint: openPlatformEndpoint,
       protocol: this._protocol,
       regionId: this._regionId,
@@ -9306,15 +9896,22 @@ export default class Client extends OpenApi {
     // Step 0: init client
     let accessKeyId = await this._credential.getAccessKeyId();
     let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
     let openPlatformEndpoint = this._openPlatformEndpoint;
     if (Util.isUnset(openPlatformEndpoint)) {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
     let authConfig = new $RPC.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
-      type: "access_key",
+      securityToken: securityToken,
+      type: credentialType,
       endpoint: openPlatformEndpoint,
       protocol: this._protocol,
       regionId: this._regionId,
@@ -9386,15 +9983,22 @@ export default class Client extends OpenApi {
     // Step 0: init client
     let accessKeyId = await this._credential.getAccessKeyId();
     let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
     let openPlatformEndpoint = this._openPlatformEndpoint;
     if (Util.isUnset(openPlatformEndpoint)) {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
     let authConfig = new $RPC.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
-      type: "access_key",
+      securityToken: securityToken,
+      type: credentialType,
       endpoint: openPlatformEndpoint,
       protocol: this._protocol,
       regionId: this._regionId,
@@ -9479,15 +10083,22 @@ export default class Client extends OpenApi {
     // Step 0: init client
     let accessKeyId = await this._credential.getAccessKeyId();
     let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
     let openPlatformEndpoint = this._openPlatformEndpoint;
     if (Util.isUnset(openPlatformEndpoint)) {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
     let authConfig = new $RPC.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
-      type: "access_key",
+      securityToken: securityToken,
+      type: credentialType,
       endpoint: openPlatformEndpoint,
       protocol: this._protocol,
       regionId: this._regionId,
@@ -9572,15 +10183,22 @@ export default class Client extends OpenApi {
     // Step 0: init client
     let accessKeyId = await this._credential.getAccessKeyId();
     let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
     let openPlatformEndpoint = this._openPlatformEndpoint;
     if (Util.isUnset(openPlatformEndpoint)) {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
     let authConfig = new $RPC.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
-      type: "access_key",
+      securityToken: securityToken,
+      type: credentialType,
       endpoint: openPlatformEndpoint,
       protocol: this._protocol,
       regionId: this._regionId,
@@ -9665,15 +10283,22 @@ export default class Client extends OpenApi {
     // Step 0: init client
     let accessKeyId = await this._credential.getAccessKeyId();
     let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
     let openPlatformEndpoint = this._openPlatformEndpoint;
     if (Util.isUnset(openPlatformEndpoint)) {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
     let authConfig = new $RPC.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
-      type: "access_key",
+      securityToken: securityToken,
+      type: credentialType,
       endpoint: openPlatformEndpoint,
       protocol: this._protocol,
       regionId: this._regionId,
@@ -9745,15 +10370,22 @@ export default class Client extends OpenApi {
     // Step 0: init client
     let accessKeyId = await this._credential.getAccessKeyId();
     let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
     let openPlatformEndpoint = this._openPlatformEndpoint;
     if (Util.isUnset(openPlatformEndpoint)) {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
     let authConfig = new $RPC.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
-      type: "access_key",
+      securityToken: securityToken,
+      type: credentialType,
       endpoint: openPlatformEndpoint,
       protocol: this._protocol,
       regionId: this._regionId,
@@ -9838,15 +10470,22 @@ export default class Client extends OpenApi {
     // Step 0: init client
     let accessKeyId = await this._credential.getAccessKeyId();
     let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
     let openPlatformEndpoint = this._openPlatformEndpoint;
     if (Util.isUnset(openPlatformEndpoint)) {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
     let authConfig = new $RPC.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
-      type: "access_key",
+      securityToken: securityToken,
+      type: credentialType,
       endpoint: openPlatformEndpoint,
       protocol: this._protocol,
       regionId: this._regionId,
@@ -9918,15 +10557,22 @@ export default class Client extends OpenApi {
     // Step 0: init client
     let accessKeyId = await this._credential.getAccessKeyId();
     let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
     let openPlatformEndpoint = this._openPlatformEndpoint;
     if (Util.isUnset(openPlatformEndpoint)) {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
     let authConfig = new $RPC.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
-      type: "access_key",
+      securityToken: securityToken,
+      type: credentialType,
       endpoint: openPlatformEndpoint,
       protocol: this._protocol,
       regionId: this._regionId,
@@ -10017,15 +10663,22 @@ export default class Client extends OpenApi {
     // Step 0: init client
     let accessKeyId = await this._credential.getAccessKeyId();
     let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
     let openPlatformEndpoint = this._openPlatformEndpoint;
     if (Util.isUnset(openPlatformEndpoint)) {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
     let authConfig = new $RPC.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
-      type: "access_key",
+      securityToken: securityToken,
+      type: credentialType,
       endpoint: openPlatformEndpoint,
       protocol: this._protocol,
       regionId: this._regionId,
@@ -10080,6 +10733,111 @@ export default class Client extends OpenApi {
     return detectPedestrianIntrusionResp;
   }
 
+  async beautifyBodyWithOptions(tmpReq: BeautifyBodyRequest, runtime: $Util.RuntimeOptions): Promise<BeautifyBodyResponse> {
+    Util.validateModel(tmpReq);
+    let request = new BeautifyBodyShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset($tea.toMap(tmpReq.ageRange))) {
+      request.ageRangeShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.ageRange), "AgeRange", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.bodyBoxes)) {
+      request.bodyBoxesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.bodyBoxes, "BodyBoxes", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.faceList)) {
+      request.faceListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.faceList, "FaceList", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.poseList)) {
+      request.poseListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.poseList, "PoseList", "json");
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<BeautifyBodyResponse>(await this.doRPCRequest("BeautifyBody", "2019-12-30", "HTTPS", "POST", "AK", "json", req, runtime), new BeautifyBodyResponse({}));
+  }
+
+  async beautifyBody(request: BeautifyBodyRequest): Promise<BeautifyBodyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.beautifyBodyWithOptions(request, runtime);
+  }
+
+  async beautifyBodyAdvance(request: BeautifyBodyAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<BeautifyBodyResponse> {
+    // Step 0: init client
+    let accessKeyId = await this._credential.getAccessKeyId();
+    let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if (Util.isUnset(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
+    let authConfig = new $RPC.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenPlatform(authConfig);
+    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
+      product: "facebody",
+      regionId: this._regionId,
+    });
+    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
+    let ossConfig = new $OSS.Config({
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let ossClient : OSS = null;
+    let fileObj = new $FileForm.FileField({ });
+    let ossHeader = new $OSS.PostObjectRequestHeader({ });
+    let uploadRequest = new $OSS.PostObjectRequest({ });
+    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
+    OpenApiUtil.convert(runtime, ossRuntime);
+    let beautifyBodyReq = new BeautifyBodyRequest({ });
+    OpenApiUtil.convert(request, beautifyBodyReq);
+    if (!Util.isUnset(request.imageURLObject)) {
+      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+      ossConfig.accessKeyId = authResponse.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+      ossClient = new OSS(ossConfig);
+      fileObj = new $FileForm.FileField({
+        filename: authResponse.objectKey,
+        content: request.imageURLObject,
+        contentType: "",
+      });
+      ossHeader = new $OSS.PostObjectRequestHeader({
+        accessKeyId: authResponse.accessKeyId,
+        policy: authResponse.encodedPolicy,
+        signature: authResponse.signature,
+        key: authResponse.objectKey,
+        file: fileObj,
+        successActionStatus: "201",
+      });
+      uploadRequest = new $OSS.PostObjectRequest({
+        bucketName: authResponse.bucket,
+        header: ossHeader,
+      });
+      await ossClient.postObject(uploadRequest, ossRuntime);
+      beautifyBodyReq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    }
+
+    let beautifyBodyResp = await this.beautifyBodyWithOptions(beautifyBodyReq, runtime);
+    return beautifyBodyResp;
+  }
+
   async handPostureWithOptions(request: HandPostureRequest, runtime: $Util.RuntimeOptions): Promise<HandPostureResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -10097,15 +10855,22 @@ export default class Client extends OpenApi {
     // Step 0: init client
     let accessKeyId = await this._credential.getAccessKeyId();
     let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
     let openPlatformEndpoint = this._openPlatformEndpoint;
     if (Util.isUnset(openPlatformEndpoint)) {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
     let authConfig = new $RPC.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
-      type: "access_key",
+      securityToken: securityToken,
+      type: credentialType,
       endpoint: openPlatformEndpoint,
       protocol: this._protocol,
       regionId: this._regionId,
@@ -10177,15 +10942,22 @@ export default class Client extends OpenApi {
     // Step 0: init client
     let accessKeyId = await this._credential.getAccessKeyId();
     let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
     let openPlatformEndpoint = this._openPlatformEndpoint;
     if (Util.isUnset(openPlatformEndpoint)) {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
     let authConfig = new $RPC.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
-      type: "access_key",
+      securityToken: securityToken,
+      type: credentialType,
       endpoint: openPlatformEndpoint,
       protocol: this._protocol,
       regionId: this._regionId,
@@ -10271,15 +11043,22 @@ export default class Client extends OpenApi {
     // Step 0: init client
     let accessKeyId = await this._credential.getAccessKeyId();
     let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
     let openPlatformEndpoint = this._openPlatformEndpoint;
     if (Util.isUnset(openPlatformEndpoint)) {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
     let authConfig = new $RPC.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
-      type: "access_key",
+      securityToken: securityToken,
+      type: credentialType,
       endpoint: openPlatformEndpoint,
       protocol: this._protocol,
       regionId: this._regionId,
@@ -10482,15 +11261,22 @@ export default class Client extends OpenApi {
     // Step 0: init client
     let accessKeyId = await this._credential.getAccessKeyId();
     let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
     let openPlatformEndpoint = this._openPlatformEndpoint;
     if (Util.isUnset(openPlatformEndpoint)) {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
     let authConfig = new $RPC.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
-      type: "access_key",
+      securityToken: securityToken,
+      type: credentialType,
       endpoint: openPlatformEndpoint,
       protocol: this._protocol,
       regionId: this._regionId,
@@ -10562,15 +11348,22 @@ export default class Client extends OpenApi {
     // Step 0: init client
     let accessKeyId = await this._credential.getAccessKeyId();
     let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
     let openPlatformEndpoint = this._openPlatformEndpoint;
     if (Util.isUnset(openPlatformEndpoint)) {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
     let authConfig = new $RPC.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
-      type: "access_key",
+      securityToken: securityToken,
+      type: credentialType,
       endpoint: openPlatformEndpoint,
       protocol: this._protocol,
       regionId: this._regionId,
@@ -10668,15 +11461,22 @@ export default class Client extends OpenApi {
     // Step 0: init client
     let accessKeyId = await this._credential.getAccessKeyId();
     let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
     let openPlatformEndpoint = this._openPlatformEndpoint;
     if (Util.isUnset(openPlatformEndpoint)) {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
     let authConfig = new $RPC.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
-      type: "access_key",
+      securityToken: securityToken,
+      type: credentialType,
       endpoint: openPlatformEndpoint,
       protocol: this._protocol,
       regionId: this._regionId,
@@ -10748,15 +11548,22 @@ export default class Client extends OpenApi {
     // Step 0: init client
     let accessKeyId = await this._credential.getAccessKeyId();
     let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
     let openPlatformEndpoint = this._openPlatformEndpoint;
     if (Util.isUnset(openPlatformEndpoint)) {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
     let authConfig = new $RPC.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
-      type: "access_key",
+      securityToken: securityToken,
+      type: credentialType,
       endpoint: openPlatformEndpoint,
       protocol: this._protocol,
       regionId: this._regionId,
@@ -10828,15 +11635,22 @@ export default class Client extends OpenApi {
     // Step 0: init client
     let accessKeyId = await this._credential.getAccessKeyId();
     let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
     let openPlatformEndpoint = this._openPlatformEndpoint;
     if (Util.isUnset(openPlatformEndpoint)) {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
     let authConfig = new $RPC.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
-      type: "access_key",
+      securityToken: securityToken,
+      type: credentialType,
       endpoint: openPlatformEndpoint,
       protocol: this._protocol,
       regionId: this._regionId,
