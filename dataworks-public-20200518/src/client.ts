@@ -10,6 +10,1139 @@ import FileForm, * as $FileForm from '@alicloud/tea-fileform';
 import { Readable } from 'stream';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class ListProjectIdsRequest extends $tea.Model {
+  userId: string;
+  static names(): { [key: string]: string } {
+    return {
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProjectIdsResponse extends $tea.Model {
+  requestId: string;
+  projectIds: number[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      projectIds: 'ProjectIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      projectIds: { 'type': 'array', 'itemType': 'number' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TerminateDISyncInstanceRequest extends $tea.Model {
+  projectId: number;
+  taskType: string;
+  fileId: number;
+  static names(): { [key: string]: string } {
+    return {
+      projectId: 'ProjectId',
+      taskType: 'TaskType',
+      fileId: 'FileId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectId: 'number',
+      taskType: 'string',
+      fileId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TerminateDISyncInstanceResponse extends $tea.Model {
+  requestId: string;
+  success: boolean;
+  data: TerminateDISyncInstanceResponseData;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+      data: TerminateDISyncInstanceResponseData,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDISyncTaskRequest extends $tea.Model {
+  projectId: number;
+  taskType: string;
+  fileId: number;
+  static names(): { [key: string]: string } {
+    return {
+      projectId: 'ProjectId',
+      taskType: 'TaskType',
+      fileId: 'FileId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectId: 'number',
+      taskType: 'string',
+      fileId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDISyncTaskResponse extends $tea.Model {
+  requestId: string;
+  success: boolean;
+  data: DeleteDISyncTaskResponseData;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+      data: DeleteDISyncTaskResponseData,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeployDISyncTaskRequest extends $tea.Model {
+  projectId: number;
+  taskType: string;
+  fileId: number;
+  static names(): { [key: string]: string } {
+    return {
+      projectId: 'ProjectId',
+      taskType: 'TaskType',
+      fileId: 'FileId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectId: 'number',
+      taskType: 'string',
+      fileId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeployDISyncTaskResponse extends $tea.Model {
+  requestId: string;
+  success: boolean;
+  data: DeployDISyncTaskResponseData;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+      data: DeployDISyncTaskResponseData,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartDISyncInstanceRequest extends $tea.Model {
+  projectId: number;
+  taskType: string;
+  fileId: number;
+  startParam?: string;
+  static names(): { [key: string]: string } {
+    return {
+      projectId: 'ProjectId',
+      taskType: 'TaskType',
+      fileId: 'FileId',
+      startParam: 'StartParam',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectId: 'number',
+      taskType: 'string',
+      fileId: 'number',
+      startParam: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartDISyncInstanceResponse extends $tea.Model {
+  requestId: string;
+  success: boolean;
+  data: StartDISyncInstanceResponseData;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+      data: StartDISyncInstanceResponseData,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDISyncInstanceInfoRequest extends $tea.Model {
+  projectId: number;
+  taskType: string;
+  fileId: number;
+  static names(): { [key: string]: string } {
+    return {
+      projectId: 'ProjectId',
+      taskType: 'TaskType',
+      fileId: 'FileId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectId: 'number',
+      taskType: 'string',
+      fileId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDISyncInstanceInfoResponse extends $tea.Model {
+  requestId: string;
+  success: boolean;
+  data: GetDISyncInstanceInfoResponseData;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+      data: GetDISyncInstanceInfoResponseData,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopDISyncInstanceRequest extends $tea.Model {
+  projectId: number;
+  taskType: string;
+  fileId: number;
+  static names(): { [key: string]: string } {
+    return {
+      projectId: 'ProjectId',
+      taskType: 'TaskType',
+      fileId: 'FileId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectId: 'number',
+      taskType: 'string',
+      fileId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopDISyncInstanceResponse extends $tea.Model {
+  requestId: string;
+  success: boolean;
+  data: StopDISyncInstanceResponseData;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+      data: StopDISyncInstanceResponseData,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDISyncTaskRequest extends $tea.Model {
+  projectId: number;
+  taskType: string;
+  fileId: number;
+  static names(): { [key: string]: string } {
+    return {
+      projectId: 'ProjectId',
+      taskType: 'TaskType',
+      fileId: 'FileId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectId: 'number',
+      taskType: 'string',
+      fileId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDISyncTaskResponse extends $tea.Model {
+  requestId: string;
+  success: boolean;
+  data: GetDISyncTaskResponseData;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+      data: GetDISyncTaskResponseData,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CheckMetaTableTaskRequest extends $tea.Model {
+  static names(): { [key: string]: string } {
+    return {
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CheckMetaTableTaskResponse extends $tea.Model {
+  requestId: string;
+  data: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      data: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CheckEngineMetaPartitionRequest extends $tea.Model {
+  tableGuid: string;
+  partition: string;
+  dataSourceType: string;
+  static names(): { [key: string]: string } {
+    return {
+      tableGuid: 'TableGuid',
+      partition: 'Partition',
+      dataSourceType: 'DataSourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tableGuid: 'string',
+      partition: 'string',
+      dataSourceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CheckEngineMetaPartitionResponse extends $tea.Model {
+  requestId: string;
+  data: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      data: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CheckEngineMetaTableRequest extends $tea.Model {
+  tableGuid: string;
+  dataSourceType: string;
+  static names(): { [key: string]: string } {
+    return {
+      tableGuid: 'TableGuid',
+      dataSourceType: 'DataSourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tableGuid: 'string',
+      dataSourceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CheckEngineMetaTableResponse extends $tea.Model {
+  requestId: string;
+  data: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      data: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImportDataSourcesRequest extends $tea.Model {
+  projectId: number;
+  dataSources: string;
+  static names(): { [key: string]: string } {
+    return {
+      projectId: 'ProjectId',
+      dataSources: 'DataSources',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectId: 'number',
+      dataSources: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImportDataSourcesResponse extends $tea.Model {
+  requestId: string;
+  success: boolean;
+  data: ImportDataSourcesResponseData;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+      data: ImportDataSourcesResponseData,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExportDataSourcesRequest extends $tea.Model {
+  projectId: number;
+  name?: string;
+  dataSourceType?: string;
+  subType?: string;
+  envType?: number;
+  pageSize?: number;
+  pageNumber?: number;
+  static names(): { [key: string]: string } {
+    return {
+      projectId: 'ProjectId',
+      name: 'Name',
+      dataSourceType: 'DataSourceType',
+      subType: 'SubType',
+      envType: 'EnvType',
+      pageSize: 'PageSize',
+      pageNumber: 'PageNumber',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectId: 'number',
+      name: 'string',
+      dataSourceType: 'string',
+      subType: 'string',
+      envType: 'number',
+      pageSize: 'number',
+      pageNumber: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExportDataSourcesResponse extends $tea.Model {
+  httpStatusCode: number;
+  success: boolean;
+  requestId: string;
+  data: ExportDataSourcesResponseData;
+  static names(): { [key: string]: string } {
+    return {
+      httpStatusCode: 'HttpStatusCode',
+      success: 'Success',
+      requestId: 'RequestId',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      httpStatusCode: 'number',
+      success: 'boolean',
+      requestId: 'string',
+      data: ExportDataSourcesResponseData,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDataSourceMetaRequest extends $tea.Model {
+  projectId: number;
+  datasourceName: string;
+  pageNumber?: number;
+  pageSize?: number;
+  envType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      projectId: 'ProjectId',
+      datasourceName: 'DatasourceName',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      envType: 'EnvType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectId: 'number',
+      datasourceName: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      envType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDataSourceMetaResponse extends $tea.Model {
+  requestId: string;
+  success: boolean;
+  data: GetDataSourceMetaResponseData;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+      data: GetDataSourceMetaResponseData,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetDataSourceShareRequest extends $tea.Model {
+  projectId: number;
+  datasourceName: string;
+  envType?: string;
+  projectPermissions?: string;
+  userPermissions?: string;
+  static names(): { [key: string]: string } {
+    return {
+      projectId: 'ProjectId',
+      datasourceName: 'DatasourceName',
+      envType: 'EnvType',
+      projectPermissions: 'ProjectPermissions',
+      userPermissions: 'UserPermissions',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectId: 'number',
+      datasourceName: 'string',
+      envType: 'string',
+      projectPermissions: 'string',
+      userPermissions: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetDataSourceShareResponse extends $tea.Model {
+  requestId: string;
+  success: boolean;
+  data: SetDataSourceShareResponseData;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+      data: SetDataSourceShareResponseData,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDIProjectConfigRequest extends $tea.Model {
+  projectId: number;
+  destinationType: string;
+  sourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      projectId: 'ProjectId',
+      destinationType: 'DestinationType',
+      sourceType: 'SourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectId: 'number',
+      destinationType: 'string',
+      sourceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDIProjectConfigResponse extends $tea.Model {
+  requestId: string;
+  success: boolean;
+  data: ListDIProjectConfigResponseData;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+      data: ListDIProjectConfigResponseData,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExportConnectionsRequest extends $tea.Model {
+  projectId: number;
+  name?: string;
+  dataSourceType?: string;
+  subType?: string;
+  envType?: number;
+  pageSize?: number;
+  pageNumber?: number;
+  static names(): { [key: string]: string } {
+    return {
+      projectId: 'ProjectId',
+      name: 'Name',
+      dataSourceType: 'DataSourceType',
+      subType: 'SubType',
+      envType: 'EnvType',
+      pageSize: 'PageSize',
+      pageNumber: 'PageNumber',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectId: 'number',
+      name: 'string',
+      dataSourceType: 'string',
+      subType: 'string',
+      envType: 'number',
+      pageSize: 'number',
+      pageNumber: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExportConnectionsResponse extends $tea.Model {
+  httpStatusCode: number;
+  success: boolean;
+  requestId: string;
+  data: ExportConnectionsResponseData;
+  static names(): { [key: string]: string } {
+    return {
+      httpStatusCode: 'HttpStatusCode',
+      success: 'Success',
+      requestId: 'RequestId',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      httpStatusCode: 'number',
+      success: 'boolean',
+      requestId: 'string',
+      data: ExportConnectionsResponseData,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRefDISyncTasksRequest extends $tea.Model {
+  projectId: number;
+  datasourceName: string;
+  taskType: string;
+  refType: string;
+  pageNumber?: number;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      projectId: 'ProjectId',
+      datasourceName: 'DatasourceName',
+      taskType: 'TaskType',
+      refType: 'RefType',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectId: 'number',
+      datasourceName: 'string',
+      taskType: 'string',
+      refType: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRefDISyncTasksResponse extends $tea.Model {
+  requestId: string;
+  success: boolean;
+  data: ListRefDISyncTasksResponseData;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+      data: ListRefDISyncTasksResponseData,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetConnectionShareRequest extends $tea.Model {
+  projectId: number;
+  datasourceName: string;
+  envType?: string;
+  projectPermissions?: string;
+  userPermissions?: string;
+  static names(): { [key: string]: string } {
+    return {
+      projectId: 'ProjectId',
+      datasourceName: 'DatasourceName',
+      envType: 'EnvType',
+      projectPermissions: 'ProjectPermissions',
+      userPermissions: 'UserPermissions',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectId: 'number',
+      datasourceName: 'string',
+      envType: 'string',
+      projectPermissions: 'string',
+      userPermissions: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetConnectionShareResponse extends $tea.Model {
+  requestId: string;
+  success: boolean;
+  data: SetConnectionShareResponseData;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+      data: SetConnectionShareResponseData,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImportConnectionsRequest extends $tea.Model {
+  projectId: number;
+  connections: string;
+  static names(): { [key: string]: string } {
+    return {
+      projectId: 'ProjectId',
+      connections: 'Connections',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectId: 'number',
+      connections: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImportConnectionsResponse extends $tea.Model {
+  requestId: string;
+  success: boolean;
+  data: ImportConnectionsResponseData;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+      data: ImportConnectionsResponseData,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetConnectionMetaRequest extends $tea.Model {
+  projectId: number;
+  datasourceName: string;
+  pageNumber?: number;
+  pageSize?: number;
+  envType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      projectId: 'ProjectId',
+      datasourceName: 'DatasourceName',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      envType: 'EnvType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectId: 'number',
+      datasourceName: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      envType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetConnectionMetaResponse extends $tea.Model {
+  requestId: string;
+  success: boolean;
+  data: GetConnectionMetaResponseData;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+      data: GetConnectionMetaResponseData,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDIProjectConfigRequest extends $tea.Model {
+  projectId: number;
+  destinationType: string;
+  sourceType?: string;
+  projectConfig: string;
+  static names(): { [key: string]: string } {
+    return {
+      projectId: 'ProjectId',
+      destinationType: 'DestinationType',
+      sourceType: 'SourceType',
+      projectConfig: 'ProjectConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectId: 'number',
+      destinationType: 'string',
+      sourceType: 'string',
+      projectConfig: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDIProjectConfigResponse extends $tea.Model {
+  requestId: string;
+  success: boolean;
+  data: UpdateDIProjectConfigResponseData;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+      data: UpdateDIProjectConfigResponseData,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateDISyncTaskRequest extends $tea.Model {
   projectId: number;
   taskType: string;
@@ -74,7 +1207,7 @@ export class UpdateDISyncTaskRequest extends $tea.Model {
   taskType: string;
   taskContent?: string;
   taskParam?: string;
-  fileId: string;
+  fileId: number;
   static names(): { [key: string]: string } {
     return {
       projectId: 'ProjectId',
@@ -91,7 +1224,7 @@ export class UpdateDISyncTaskRequest extends $tea.Model {
       taskType: 'string',
       taskContent: 'string',
       taskParam: 'string',
-      fileId: 'string',
+      fileId: 'number',
     };
   }
 
@@ -1528,18 +2661,15 @@ export class TopTenErrorTimesInstanceResponse extends $tea.Model {
 
 export class TopTenElapsedTimeInstanceRequest extends $tea.Model {
   projectId: number;
-  businessDate: string;
   static names(): { [key: string]: string } {
     return {
       projectId: 'ProjectId',
-      businessDate: 'BusinessDate',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       projectId: 'number',
-      businessDate: 'string',
     };
   }
 
@@ -1846,26 +2976,26 @@ export class RunCycleDagNodesRequest extends $tea.Model {
   startBizDate: string;
   name: string;
   rootNodeId: number;
-  includeNodeIds: string;
   excludeNodeIds?: string;
   bizBeginTime?: string;
   bizEndTime?: string;
   parallelism: boolean;
   endBizDate: string;
   nodeParams?: string;
+  includeNodeIds: string;
   static names(): { [key: string]: string } {
     return {
       projectEnv: 'ProjectEnv',
       startBizDate: 'StartBizDate',
       name: 'Name',
       rootNodeId: 'RootNodeId',
-      includeNodeIds: 'IncludeNodeIds',
       excludeNodeIds: 'ExcludeNodeIds',
       bizBeginTime: 'BizBeginTime',
       bizEndTime: 'BizEndTime',
       parallelism: 'Parallelism',
       endBizDate: 'EndBizDate',
       nodeParams: 'NodeParams',
+      includeNodeIds: 'IncludeNodeIds',
     };
   }
 
@@ -1875,13 +3005,13 @@ export class RunCycleDagNodesRequest extends $tea.Model {
       startBizDate: 'string',
       name: 'string',
       rootNodeId: 'number',
-      includeNodeIds: 'string',
       excludeNodeIds: 'string',
       bizBeginTime: 'string',
       bizEndTime: 'string',
       parallelism: 'boolean',
       endBizDate: 'string',
       nodeParams: 'string',
+      includeNodeIds: 'string',
     };
   }
 
@@ -1931,6 +3061,9 @@ export class RunManualDagNodesRequest extends $tea.Model {
   bizDate: string;
   nodeParameters?: string;
   dagParameters?: string;
+  includeNodeIds?: string;
+  excludeNodeIds?: string;
+  projectId?: number;
   static names(): { [key: string]: string } {
     return {
       projectEnv: 'ProjectEnv',
@@ -1939,6 +3072,9 @@ export class RunManualDagNodesRequest extends $tea.Model {
       bizDate: 'BizDate',
       nodeParameters: 'NodeParameters',
       dagParameters: 'DagParameters',
+      includeNodeIds: 'IncludeNodeIds',
+      excludeNodeIds: 'ExcludeNodeIds',
+      projectId: 'ProjectId',
     };
   }
 
@@ -1950,6 +3086,9 @@ export class RunManualDagNodesRequest extends $tea.Model {
       bizDate: 'string',
       nodeParameters: 'string',
       dagParameters: 'string',
+      includeNodeIds: 'string',
+      excludeNodeIds: 'string',
+      projectId: 'number',
     };
   }
 
@@ -2949,6 +4088,8 @@ export class CreateManualDagRequest extends $tea.Model {
   bizDate: string;
   nodeParameters?: string;
   dagParameters?: string;
+  includeNodeIds?: string;
+  excludeNodeIds?: string;
   static names(): { [key: string]: string } {
     return {
       projectEnv: 'ProjectEnv',
@@ -2957,6 +4098,8 @@ export class CreateManualDagRequest extends $tea.Model {
       bizDate: 'BizDate',
       nodeParameters: 'NodeParameters',
       dagParameters: 'DagParameters',
+      includeNodeIds: 'IncludeNodeIds',
+      excludeNodeIds: 'ExcludeNodeIds',
     };
   }
 
@@ -2968,6 +4111,8 @@ export class CreateManualDagRequest extends $tea.Model {
       bizDate: 'string',
       nodeParameters: 'string',
       dagParameters: 'string',
+      includeNodeIds: 'string',
+      excludeNodeIds: 'string',
     };
   }
 
@@ -7837,6 +8982,7 @@ export class ListFilesRequest extends $tea.Model {
   useType?: string;
   fileTypes?: string;
   owner?: string;
+  nodeId?: number;
   static names(): { [key: string]: string } {
     return {
       fileFolderPath: 'FileFolderPath',
@@ -7848,6 +8994,7 @@ export class ListFilesRequest extends $tea.Model {
       useType: 'UseType',
       fileTypes: 'FileTypes',
       owner: 'Owner',
+      nodeId: 'NodeId',
     };
   }
 
@@ -7862,6 +9009,7 @@ export class ListFilesRequest extends $tea.Model {
       useType: 'string',
       fileTypes: 'string',
       owner: 'string',
+      nodeId: 'number',
     };
   }
 
@@ -7994,6 +9142,7 @@ export class UpdateFileRequest extends $tea.Model {
   connectionName?: string;
   owner?: string;
   autoParsing?: boolean;
+  schedulerType?: string;
   static names(): { [key: string]: string } {
     return {
       fileFolderPath: 'FileFolderPath',
@@ -8020,6 +9169,7 @@ export class UpdateFileRequest extends $tea.Model {
       connectionName: 'ConnectionName',
       owner: 'Owner',
       autoParsing: 'AutoParsing',
+      schedulerType: 'SchedulerType',
     };
   }
 
@@ -8049,6 +9199,7 @@ export class UpdateFileRequest extends $tea.Model {
       connectionName: 'string',
       owner: 'string',
       autoParsing: 'boolean',
+      schedulerType: 'string',
     };
   }
 
@@ -8615,6 +9766,7 @@ export class CreateFileRequest extends $tea.Model {
   resourceGroupId?: number;
   connectionName?: string;
   autoParsing?: boolean;
+  schedulerType?: string;
   static names(): { [key: string]: string } {
     return {
       fileFolderPath: 'FileFolderPath',
@@ -8641,6 +9793,7 @@ export class CreateFileRequest extends $tea.Model {
       resourceGroupId: 'ResourceGroupId',
       connectionName: 'ConnectionName',
       autoParsing: 'AutoParsing',
+      schedulerType: 'SchedulerType',
     };
   }
 
@@ -8670,6 +9823,7 @@ export class CreateFileRequest extends $tea.Model {
       resourceGroupId: 'number',
       connectionName: 'string',
       autoParsing: 'boolean',
+      schedulerType: 'string',
     };
   }
 
@@ -9306,11 +10460,13 @@ export class GetFileRequest extends $tea.Model {
   projectId?: number;
   projectIdentifier?: string;
   fileId?: number;
+  nodeId?: number;
   static names(): { [key: string]: string } {
     return {
       projectId: 'ProjectId',
       projectIdentifier: 'ProjectIdentifier',
       fileId: 'FileId',
+      nodeId: 'NodeId',
     };
   }
 
@@ -9319,6 +10475,7 @@ export class GetFileRequest extends $tea.Model {
       projectId: 'number',
       projectIdentifier: 'string',
       fileId: 'number',
+      nodeId: 'number',
     };
   }
 
@@ -9749,6 +10906,7 @@ export class DeleteFileResponse extends $tea.Model {
   errorCode: string;
   errorMessage: string;
   httpStatusCode: number;
+  deploymentId: number;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
@@ -9756,6 +10914,7 @@ export class DeleteFileResponse extends $tea.Model {
       errorCode: 'ErrorCode',
       errorMessage: 'ErrorMessage',
       httpStatusCode: 'HttpStatusCode',
+      deploymentId: 'DeploymentId',
     };
   }
 
@@ -9766,6 +10925,7 @@ export class DeleteFileResponse extends $tea.Model {
       errorCode: 'string',
       errorMessage: 'string',
       httpStatusCode: 'number',
+      deploymentId: 'number',
     };
   }
 
@@ -9849,7 +11009,7 @@ export class CreateRemindRequest extends $tea.Model {
   alertInterval?: number;
   detail?: string;
   alertUnit: string;
-  alertMethods?: string;
+  alertMethods: string;
   alertTargets?: string;
   robotUrls?: string;
   static names(): { [key: string]: string } {
@@ -12104,17 +13264,20 @@ export class DeleteQualityRelativeNodeResponse extends $tea.Model {
   }
 }
 
-export class CreateDISyncTaskResponseData extends $tea.Model {
-  fileId: number;
+export class TerminateDISyncInstanceResponseData extends $tea.Model {
+  status: string;
+  message: string;
   static names(): { [key: string]: string } {
     return {
-      fileId: 'FileId',
+      status: 'Status',
+      message: 'Message',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      fileId: 'number',
+      status: 'string',
+      message: 'string',
     };
   }
 
@@ -12123,7 +13286,479 @@ export class CreateDISyncTaskResponseData extends $tea.Model {
   }
 }
 
-export class UpdateDISyncTaskResponseData extends $tea.Model {
+export class DeleteDISyncTaskResponseData extends $tea.Model {
+  status: string;
+  message: string;
+  static names(): { [key: string]: string } {
+    return {
+      status: 'Status',
+      message: 'Message',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      status: 'string',
+      message: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeployDISyncTaskResponseData extends $tea.Model {
+  status: string;
+  message: string;
+  static names(): { [key: string]: string } {
+    return {
+      status: 'Status',
+      message: 'Message',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      status: 'string',
+      message: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartDISyncInstanceResponseData extends $tea.Model {
+  status: string;
+  message: string;
+  static names(): { [key: string]: string } {
+    return {
+      status: 'Status',
+      message: 'Message',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      status: 'string',
+      message: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDISyncInstanceInfoResponseData extends $tea.Model {
+  status: string;
+  name: string;
+  message: string;
+  static names(): { [key: string]: string } {
+    return {
+      status: 'Status',
+      name: 'Name',
+      message: 'Message',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      status: 'string',
+      name: 'string',
+      message: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopDISyncInstanceResponseData extends $tea.Model {
+  status: string;
+  message: string;
+  static names(): { [key: string]: string } {
+    return {
+      status: 'Status',
+      message: 'Message',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      status: 'string',
+      message: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDISyncTaskResponseData extends $tea.Model {
+  code: string;
+  status: string;
+  message: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      status: 'Status',
+      message: 'Message',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      status: 'string',
+      message: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImportDataSourcesResponseData extends $tea.Model {
+  status: boolean;
+  message: string;
+  static names(): { [key: string]: string } {
+    return {
+      status: 'Status',
+      message: 'Message',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      status: 'boolean',
+      message: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExportDataSourcesResponseDataDataSources extends $tea.Model {
+  shared: boolean;
+  gmtModified: string;
+  connectStatus: number;
+  bindingCalcEngineId: number;
+  description: string;
+  dataSourceType: string;
+  gmtCreate: string;
+  defaultEngine: boolean;
+  operator: string;
+  sequence: number;
+  envType: number;
+  tenantId: number;
+  name: string;
+  subType: string;
+  id: number;
+  projectId: number;
+  status: number;
+  content: string;
+  static names(): { [key: string]: string } {
+    return {
+      shared: 'Shared',
+      gmtModified: 'GmtModified',
+      connectStatus: 'ConnectStatus',
+      bindingCalcEngineId: 'BindingCalcEngineId',
+      description: 'Description',
+      dataSourceType: 'DataSourceType',
+      gmtCreate: 'GmtCreate',
+      defaultEngine: 'DefaultEngine',
+      operator: 'Operator',
+      sequence: 'Sequence',
+      envType: 'EnvType',
+      tenantId: 'TenantId',
+      name: 'Name',
+      subType: 'SubType',
+      id: 'Id',
+      projectId: 'ProjectId',
+      status: 'Status',
+      content: 'Content',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      shared: 'boolean',
+      gmtModified: 'string',
+      connectStatus: 'number',
+      bindingCalcEngineId: 'number',
+      description: 'string',
+      dataSourceType: 'string',
+      gmtCreate: 'string',
+      defaultEngine: 'boolean',
+      operator: 'string',
+      sequence: 'number',
+      envType: 'number',
+      tenantId: 'number',
+      name: 'string',
+      subType: 'string',
+      id: 'number',
+      projectId: 'number',
+      status: 'number',
+      content: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExportDataSourcesResponseData extends $tea.Model {
+  pageNumber: number;
+  pageSize: number;
+  totalCount: number;
+  dataSources: ExportDataSourcesResponseDataDataSources[];
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+      dataSources: 'DataSources',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
+      dataSources: { 'type': 'array', 'itemType': ExportDataSourcesResponseDataDataSources },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDataSourceMetaResponseData extends $tea.Model {
+  meta: string;
+  status: string;
+  message: string;
+  static names(): { [key: string]: string } {
+    return {
+      meta: 'Meta',
+      status: 'Status',
+      message: 'Message',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      meta: 'string',
+      status: 'string',
+      message: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetDataSourceShareResponseData extends $tea.Model {
+  status: string;
+  message: string;
+  static names(): { [key: string]: string } {
+    return {
+      status: 'Status',
+      message: 'Message',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      status: 'string',
+      message: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDIProjectConfigResponseData extends $tea.Model {
+  config: string;
+  static names(): { [key: string]: string } {
+    return {
+      config: 'Config',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      config: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExportConnectionsResponseDataDataSources extends $tea.Model {
+  shared: boolean;
+  gmtModified: string;
+  connectStatus: number;
+  bindingCalcEngineId: number;
+  description: string;
+  dataSourceType: string;
+  gmtCreate: string;
+  defaultEngine: boolean;
+  operator: string;
+  sequence: number;
+  envType: number;
+  tenantId: number;
+  name: string;
+  subType: string;
+  id: number;
+  projectId: number;
+  status: number;
+  content: string;
+  static names(): { [key: string]: string } {
+    return {
+      shared: 'Shared',
+      gmtModified: 'GmtModified',
+      connectStatus: 'ConnectStatus',
+      bindingCalcEngineId: 'BindingCalcEngineId',
+      description: 'Description',
+      dataSourceType: 'DataSourceType',
+      gmtCreate: 'GmtCreate',
+      defaultEngine: 'DefaultEngine',
+      operator: 'Operator',
+      sequence: 'Sequence',
+      envType: 'EnvType',
+      tenantId: 'TenantId',
+      name: 'Name',
+      subType: 'SubType',
+      id: 'Id',
+      projectId: 'ProjectId',
+      status: 'Status',
+      content: 'Content',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      shared: 'boolean',
+      gmtModified: 'string',
+      connectStatus: 'number',
+      bindingCalcEngineId: 'number',
+      description: 'string',
+      dataSourceType: 'string',
+      gmtCreate: 'string',
+      defaultEngine: 'boolean',
+      operator: 'string',
+      sequence: 'number',
+      envType: 'number',
+      tenantId: 'number',
+      name: 'string',
+      subType: 'string',
+      id: 'number',
+      projectId: 'number',
+      status: 'number',
+      content: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExportConnectionsResponseData extends $tea.Model {
+  pageNumber: number;
+  pageSize: number;
+  totalCount: number;
+  dataSources: ExportConnectionsResponseDataDataSources[];
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+      dataSources: 'DataSources',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
+      dataSources: { 'type': 'array', 'itemType': ExportConnectionsResponseDataDataSources },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRefDISyncTasksResponseDataDISyncTasks extends $tea.Model {
+  nodeName: string;
+  nodeId: number;
+  taskType: string;
+  diDestinationDatasource: string;
+  diSourceDatasource: string;
+  static names(): { [key: string]: string } {
+    return {
+      nodeName: 'NodeName',
+      nodeId: 'NodeId',
+      taskType: 'TaskType',
+      diDestinationDatasource: 'DiDestinationDatasource',
+      diSourceDatasource: 'DiSourceDatasource',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nodeName: 'string',
+      nodeId: 'number',
+      taskType: 'string',
+      diDestinationDatasource: 'string',
+      diSourceDatasource: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRefDISyncTasksResponseData extends $tea.Model {
+  DISyncTasks: ListRefDISyncTasksResponseDataDISyncTasks[];
+  static names(): { [key: string]: string } {
+    return {
+      DISyncTasks: 'DISyncTasks',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DISyncTasks: { 'type': 'array', 'itemType': ListRefDISyncTasksResponseDataDISyncTasks },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetConnectionShareResponseData extends $tea.Model {
   status: string;
   static names(): { [key: string]: string } {
     return {
@@ -12134,6 +13769,113 @@ export class UpdateDISyncTaskResponseData extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImportConnectionsResponseData extends $tea.Model {
+  status: boolean;
+  message: string;
+  static names(): { [key: string]: string } {
+    return {
+      status: 'Status',
+      message: 'Message',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      status: 'boolean',
+      message: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetConnectionMetaResponseData extends $tea.Model {
+  meta: string;
+  static names(): { [key: string]: string } {
+    return {
+      meta: 'Meta',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      meta: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDIProjectConfigResponseData extends $tea.Model {
+  status: string;
+  static names(): { [key: string]: string } {
+    return {
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDISyncTaskResponseData extends $tea.Model {
+  fileId: number;
+  status: string;
+  message: string;
+  static names(): { [key: string]: string } {
+    return {
+      fileId: 'FileId',
+      status: 'Status',
+      message: 'Message',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileId: 'number',
+      status: 'string',
+      message: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDISyncTaskResponseData extends $tea.Model {
+  status: string;
+  message: string;
+  static names(): { [key: string]: string } {
+    return {
+      status: 'Status',
+      message: 'Message',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      status: 'string',
+      message: 'string',
     };
   }
 
@@ -17373,6 +19115,7 @@ export class GetNodeResponseData extends $tea.Model {
   dqcType: number;
   dqcDescription: string;
   relatedFlowId: number;
+  businessId: number;
   static names(): { [key: string]: string } {
     return {
       nodeId: 'NodeId',
@@ -17393,6 +19136,7 @@ export class GetNodeResponseData extends $tea.Model {
       dqcType: 'DqcType',
       dqcDescription: 'DqcDescription',
       relatedFlowId: 'RelatedFlowId',
+      businessId: 'BusinessId',
     };
   }
 
@@ -17416,6 +19160,7 @@ export class GetNodeResponseData extends $tea.Model {
       dqcType: 'number',
       dqcDescription: 'string',
       relatedFlowId: 'number',
+      businessId: 'number',
     };
   }
 
@@ -17443,6 +19188,7 @@ export class ListNodesResponseDataNodes extends $tea.Model {
   dqcType: number;
   dqcDescription: string;
   relatedFlowId: number;
+  businessId: number;
   static names(): { [key: string]: string } {
     return {
       nodeId: 'NodeId',
@@ -17463,6 +19209,7 @@ export class ListNodesResponseDataNodes extends $tea.Model {
       dqcType: 'DqcType',
       dqcDescription: 'DqcDescription',
       relatedFlowId: 'RelatedFlowId',
+      businessId: 'BusinessId',
     };
   }
 
@@ -17486,6 +19233,7 @@ export class ListNodesResponseDataNodes extends $tea.Model {
       dqcType: 'number',
       dqcDescription: 'string',
       relatedFlowId: 'number',
+      businessId: 'number',
     };
   }
 
@@ -17789,6 +19537,7 @@ export class ListInstancesResponseDataInstances extends $tea.Model {
   relatedFlowId: number;
   taskType: string;
   taskRerunTime: number;
+  businessId: number;
   static names(): { [key: string]: string } {
     return {
       nodeId: 'NodeId',
@@ -17817,6 +19566,7 @@ export class ListInstancesResponseDataInstances extends $tea.Model {
       relatedFlowId: 'RelatedFlowId',
       taskType: 'TaskType',
       taskRerunTime: 'TaskRerunTime',
+      businessId: 'BusinessId',
     };
   }
 
@@ -17848,6 +19598,7 @@ export class ListInstancesResponseDataInstances extends $tea.Model {
       relatedFlowId: 'number',
       taskType: 'string',
       taskRerunTime: 'number',
+      businessId: 'number',
     };
   }
 
@@ -18568,6 +20319,7 @@ export class GetInstanceResponseData extends $tea.Model {
   relatedFlowId: number;
   taskType: string;
   taskRerunTime: number;
+  businessId: number;
   static names(): { [key: string]: string } {
     return {
       nodeId: 'NodeId',
@@ -18595,6 +20347,7 @@ export class GetInstanceResponseData extends $tea.Model {
       relatedFlowId: 'RelatedFlowId',
       taskType: 'TaskType',
       taskRerunTime: 'TaskRerunTime',
+      businessId: 'BusinessId',
     };
   }
 
@@ -18625,6 +20378,7 @@ export class GetInstanceResponseData extends $tea.Model {
       relatedFlowId: 'number',
       taskType: 'string',
       taskRerunTime: 'number',
+      businessId: 'number',
     };
   }
 
@@ -18769,6 +20523,7 @@ export class GetFileResponseDataNodeConfiguration extends $tea.Model {
   dependentType: string;
   dependentNodeIdList: string;
   resourceGroupId: number;
+  schedulerType: string;
   inputList: GetFileResponseDataNodeConfigurationInputList[];
   outputList: GetFileResponseDataNodeConfigurationOutputList[];
   static names(): { [key: string]: string } {
@@ -18785,6 +20540,7 @@ export class GetFileResponseDataNodeConfiguration extends $tea.Model {
       dependentType: 'DependentType',
       dependentNodeIdList: 'DependentNodeIdList',
       resourceGroupId: 'ResourceGroupId',
+      schedulerType: 'SchedulerType',
       inputList: 'InputList',
       outputList: 'OutputList',
     };
@@ -18804,6 +20560,7 @@ export class GetFileResponseDataNodeConfiguration extends $tea.Model {
       dependentType: 'string',
       dependentNodeIdList: 'string',
       resourceGroupId: 'number',
+      schedulerType: 'string',
       inputList: { 'type': 'array', 'itemType': GetFileResponseDataNodeConfigurationInputList },
       outputList: { 'type': 'array', 'itemType': GetFileResponseDataNodeConfigurationOutputList },
     };
@@ -19187,6 +20944,7 @@ export class GetDeploymentResponseDataDeployment extends $tea.Model {
   fromEnvironment: number;
   toEnvironment: number;
   errorMessage: string;
+  checkingStatus: number;
   static names(): { [key: string]: string } {
     return {
       name: 'Name',
@@ -19198,6 +20956,7 @@ export class GetDeploymentResponseDataDeployment extends $tea.Model {
       fromEnvironment: 'FromEnvironment',
       toEnvironment: 'ToEnvironment',
       errorMessage: 'ErrorMessage',
+      checkingStatus: 'CheckingStatus',
     };
   }
 
@@ -19212,6 +20971,7 @@ export class GetDeploymentResponseDataDeployment extends $tea.Model {
       fromEnvironment: 'number',
       toEnvironment: 'number',
       errorMessage: 'string',
+      checkingStatus: 'number',
     };
   }
 
@@ -21560,6 +23320,226 @@ export default class Client extends RPC {
     this._endpoint = this.getEndpoint("dataworks-public", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
 
+
+  async listProjectIds(request: ListProjectIdsRequest, runtime: $Util.RuntimeOptions): Promise<ListProjectIdsResponse> {
+    Util.validateModel(request);
+    return $tea.cast<ListProjectIdsResponse>(await this.doRequest("ListProjectIds", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new ListProjectIdsResponse({}));
+  }
+
+  async listProjectIdsSimply(request: ListProjectIdsRequest): Promise<ListProjectIdsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listProjectIds(request, runtime);
+  }
+
+  async terminateDISyncInstance(request: TerminateDISyncInstanceRequest, runtime: $Util.RuntimeOptions): Promise<TerminateDISyncInstanceResponse> {
+    Util.validateModel(request);
+    return $tea.cast<TerminateDISyncInstanceResponse>(await this.doRequest("TerminateDISyncInstance", "HTTPS", "POST", "2020-05-18", "AK,PrivateKey,APP", null, $tea.toMap(request), runtime), new TerminateDISyncInstanceResponse({}));
+  }
+
+  async terminateDISyncInstanceSimply(request: TerminateDISyncInstanceRequest): Promise<TerminateDISyncInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.terminateDISyncInstance(request, runtime);
+  }
+
+  async deleteDISyncTask(request: DeleteDISyncTaskRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDISyncTaskResponse> {
+    Util.validateModel(request);
+    return $tea.cast<DeleteDISyncTaskResponse>(await this.doRequest("DeleteDISyncTask", "HTTPS", "POST", "2020-05-18", "AK,PrivateKey,APP", null, $tea.toMap(request), runtime), new DeleteDISyncTaskResponse({}));
+  }
+
+  async deleteDISyncTaskSimply(request: DeleteDISyncTaskRequest): Promise<DeleteDISyncTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteDISyncTask(request, runtime);
+  }
+
+  async deployDISyncTask(request: DeployDISyncTaskRequest, runtime: $Util.RuntimeOptions): Promise<DeployDISyncTaskResponse> {
+    Util.validateModel(request);
+    return $tea.cast<DeployDISyncTaskResponse>(await this.doRequest("DeployDISyncTask", "HTTPS", "POST", "2020-05-18", "AK,PrivateKey,APP", null, $tea.toMap(request), runtime), new DeployDISyncTaskResponse({}));
+  }
+
+  async deployDISyncTaskSimply(request: DeployDISyncTaskRequest): Promise<DeployDISyncTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deployDISyncTask(request, runtime);
+  }
+
+  async startDISyncInstance(request: StartDISyncInstanceRequest, runtime: $Util.RuntimeOptions): Promise<StartDISyncInstanceResponse> {
+    Util.validateModel(request);
+    return $tea.cast<StartDISyncInstanceResponse>(await this.doRequest("StartDISyncInstance", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new StartDISyncInstanceResponse({}));
+  }
+
+  async startDISyncInstanceSimply(request: StartDISyncInstanceRequest): Promise<StartDISyncInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.startDISyncInstance(request, runtime);
+  }
+
+  async getDISyncInstanceInfo(request: GetDISyncInstanceInfoRequest, runtime: $Util.RuntimeOptions): Promise<GetDISyncInstanceInfoResponse> {
+    Util.validateModel(request);
+    return $tea.cast<GetDISyncInstanceInfoResponse>(await this.doRequest("GetDISyncInstanceInfo", "HTTPS", "POST", "2020-05-18", "AK,PrivateKey,APP", null, $tea.toMap(request), runtime), new GetDISyncInstanceInfoResponse({}));
+  }
+
+  async getDISyncInstanceInfoSimply(request: GetDISyncInstanceInfoRequest): Promise<GetDISyncInstanceInfoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getDISyncInstanceInfo(request, runtime);
+  }
+
+  async stopDISyncInstance(request: StopDISyncInstanceRequest, runtime: $Util.RuntimeOptions): Promise<StopDISyncInstanceResponse> {
+    Util.validateModel(request);
+    return $tea.cast<StopDISyncInstanceResponse>(await this.doRequest("StopDISyncInstance", "HTTPS", "POST", "2020-05-18", "AK,PrivateKey,APP", null, $tea.toMap(request), runtime), new StopDISyncInstanceResponse({}));
+  }
+
+  async stopDISyncInstanceSimply(request: StopDISyncInstanceRequest): Promise<StopDISyncInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.stopDISyncInstance(request, runtime);
+  }
+
+  async getDISyncTask(request: GetDISyncTaskRequest, runtime: $Util.RuntimeOptions): Promise<GetDISyncTaskResponse> {
+    Util.validateModel(request);
+    return $tea.cast<GetDISyncTaskResponse>(await this.doRequest("GetDISyncTask", "HTTPS", "POST", "2020-05-18", "AK,APP,PrivateKey", null, $tea.toMap(request), runtime), new GetDISyncTaskResponse({}));
+  }
+
+  async getDISyncTaskSimply(request: GetDISyncTaskRequest): Promise<GetDISyncTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getDISyncTask(request, runtime);
+  }
+
+  async checkMetaTableTask(request: CheckMetaTableTaskRequest, runtime: $Util.RuntimeOptions): Promise<CheckMetaTableTaskResponse> {
+    Util.validateModel(request);
+    return $tea.cast<CheckMetaTableTaskResponse>(await this.doRequest("CheckMetaTableTask", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new CheckMetaTableTaskResponse({}));
+  }
+
+  async checkMetaTableTaskSimply(request: CheckMetaTableTaskRequest): Promise<CheckMetaTableTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.checkMetaTableTask(request, runtime);
+  }
+
+  async checkEngineMetaPartition(request: CheckEngineMetaPartitionRequest, runtime: $Util.RuntimeOptions): Promise<CheckEngineMetaPartitionResponse> {
+    Util.validateModel(request);
+    return $tea.cast<CheckEngineMetaPartitionResponse>(await this.doRequest("CheckEngineMetaPartition", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new CheckEngineMetaPartitionResponse({}));
+  }
+
+  async checkEngineMetaPartitionSimply(request: CheckEngineMetaPartitionRequest): Promise<CheckEngineMetaPartitionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.checkEngineMetaPartition(request, runtime);
+  }
+
+  async checkEngineMetaTable(request: CheckEngineMetaTableRequest, runtime: $Util.RuntimeOptions): Promise<CheckEngineMetaTableResponse> {
+    Util.validateModel(request);
+    return $tea.cast<CheckEngineMetaTableResponse>(await this.doRequest("CheckEngineMetaTable", "HTTPS", "POST", "2020-05-18", "AK", null, $tea.toMap(request), runtime), new CheckEngineMetaTableResponse({}));
+  }
+
+  async checkEngineMetaTableSimply(request: CheckEngineMetaTableRequest): Promise<CheckEngineMetaTableResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.checkEngineMetaTable(request, runtime);
+  }
+
+  async importDataSources(request: ImportDataSourcesRequest, runtime: $Util.RuntimeOptions): Promise<ImportDataSourcesResponse> {
+    Util.validateModel(request);
+    return $tea.cast<ImportDataSourcesResponse>(await this.doRequest("ImportDataSources", "HTTPS", "POST", "2020-05-18", "AK,APP,PrivateKey", null, $tea.toMap(request), runtime), new ImportDataSourcesResponse({}));
+  }
+
+  async importDataSourcesSimply(request: ImportDataSourcesRequest): Promise<ImportDataSourcesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.importDataSources(request, runtime);
+  }
+
+  async exportDataSources(request: ExportDataSourcesRequest, runtime: $Util.RuntimeOptions): Promise<ExportDataSourcesResponse> {
+    Util.validateModel(request);
+    return $tea.cast<ExportDataSourcesResponse>(await this.doRequest("ExportDataSources", "HTTPS", "GET", "2020-05-18", "AK,APP,PrivateKey", $tea.toMap(request), null, runtime), new ExportDataSourcesResponse({}));
+  }
+
+  async exportDataSourcesSimply(request: ExportDataSourcesRequest): Promise<ExportDataSourcesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.exportDataSources(request, runtime);
+  }
+
+  async getDataSourceMeta(request: GetDataSourceMetaRequest, runtime: $Util.RuntimeOptions): Promise<GetDataSourceMetaResponse> {
+    Util.validateModel(request);
+    return $tea.cast<GetDataSourceMetaResponse>(await this.doRequest("GetDataSourceMeta", "HTTPS", "POST", "2020-05-18", "AK,APP,PrivateKey", null, $tea.toMap(request), runtime), new GetDataSourceMetaResponse({}));
+  }
+
+  async getDataSourceMetaSimply(request: GetDataSourceMetaRequest): Promise<GetDataSourceMetaResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getDataSourceMeta(request, runtime);
+  }
+
+  async setDataSourceShare(request: SetDataSourceShareRequest, runtime: $Util.RuntimeOptions): Promise<SetDataSourceShareResponse> {
+    Util.validateModel(request);
+    return $tea.cast<SetDataSourceShareResponse>(await this.doRequest("SetDataSourceShare", "HTTPS", "POST", "2020-05-18", "AK,PrivateKey,APP", null, $tea.toMap(request), runtime), new SetDataSourceShareResponse({}));
+  }
+
+  async setDataSourceShareSimply(request: SetDataSourceShareRequest): Promise<SetDataSourceShareResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.setDataSourceShare(request, runtime);
+  }
+
+  async listDIProjectConfig(request: ListDIProjectConfigRequest, runtime: $Util.RuntimeOptions): Promise<ListDIProjectConfigResponse> {
+    Util.validateModel(request);
+    return $tea.cast<ListDIProjectConfigResponse>(await this.doRequest("ListDIProjectConfig", "HTTPS", "POST", "2020-05-18", "AK,PrivateKey,APP", null, $tea.toMap(request), runtime), new ListDIProjectConfigResponse({}));
+  }
+
+  async listDIProjectConfigSimply(request: ListDIProjectConfigRequest): Promise<ListDIProjectConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listDIProjectConfig(request, runtime);
+  }
+
+  async exportConnections(request: ExportConnectionsRequest, runtime: $Util.RuntimeOptions): Promise<ExportConnectionsResponse> {
+    Util.validateModel(request);
+    return $tea.cast<ExportConnectionsResponse>(await this.doRequest("ExportConnections", "HTTPS", "GET", "2020-05-18", "AK,APP,PrivateKey", $tea.toMap(request), null, runtime), new ExportConnectionsResponse({}));
+  }
+
+  async exportConnectionsSimply(request: ExportConnectionsRequest): Promise<ExportConnectionsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.exportConnections(request, runtime);
+  }
+
+  async listRefDISyncTasks(request: ListRefDISyncTasksRequest, runtime: $Util.RuntimeOptions): Promise<ListRefDISyncTasksResponse> {
+    Util.validateModel(request);
+    return $tea.cast<ListRefDISyncTasksResponse>(await this.doRequest("ListRefDISyncTasks", "HTTPS", "POST", "2020-05-18", "AK,PrivateKey,APP", null, $tea.toMap(request), runtime), new ListRefDISyncTasksResponse({}));
+  }
+
+  async listRefDISyncTasksSimply(request: ListRefDISyncTasksRequest): Promise<ListRefDISyncTasksResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listRefDISyncTasks(request, runtime);
+  }
+
+  async setConnectionShare(request: SetConnectionShareRequest, runtime: $Util.RuntimeOptions): Promise<SetConnectionShareResponse> {
+    Util.validateModel(request);
+    return $tea.cast<SetConnectionShareResponse>(await this.doRequest("SetConnectionShare", "HTTPS", "POST", "2020-05-18", "AK,PrivateKey,APP", null, $tea.toMap(request), runtime), new SetConnectionShareResponse({}));
+  }
+
+  async setConnectionShareSimply(request: SetConnectionShareRequest): Promise<SetConnectionShareResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.setConnectionShare(request, runtime);
+  }
+
+  async importConnections(request: ImportConnectionsRequest, runtime: $Util.RuntimeOptions): Promise<ImportConnectionsResponse> {
+    Util.validateModel(request);
+    return $tea.cast<ImportConnectionsResponse>(await this.doRequest("ImportConnections", "HTTPS", "POST", "2020-05-18", "AK,APP,PrivateKey", null, $tea.toMap(request), runtime), new ImportConnectionsResponse({}));
+  }
+
+  async importConnectionsSimply(request: ImportConnectionsRequest): Promise<ImportConnectionsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.importConnections(request, runtime);
+  }
+
+  async getConnectionMeta(request: GetConnectionMetaRequest, runtime: $Util.RuntimeOptions): Promise<GetConnectionMetaResponse> {
+    Util.validateModel(request);
+    return $tea.cast<GetConnectionMetaResponse>(await this.doRequest("GetConnectionMeta", "HTTPS", "POST", "2020-05-18", "AK,APP,PrivateKey", null, $tea.toMap(request), runtime), new GetConnectionMetaResponse({}));
+  }
+
+  async getConnectionMetaSimply(request: GetConnectionMetaRequest): Promise<GetConnectionMetaResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getConnectionMeta(request, runtime);
+  }
+
+  async updateDIProjectConfig(request: UpdateDIProjectConfigRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDIProjectConfigResponse> {
+    Util.validateModel(request);
+    return $tea.cast<UpdateDIProjectConfigResponse>(await this.doRequest("UpdateDIProjectConfig", "HTTPS", "POST", "2020-05-18", "AK,APP,PrivateKey", null, $tea.toMap(request), runtime), new UpdateDIProjectConfigResponse({}));
+  }
+
+  async updateDIProjectConfigSimply(request: UpdateDIProjectConfigRequest): Promise<UpdateDIProjectConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateDIProjectConfig(request, runtime);
+  }
 
   async createDISyncTask(request: CreateDISyncTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateDISyncTaskResponse> {
     Util.validateModel(request);
