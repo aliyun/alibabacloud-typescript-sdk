@@ -2085,6 +2085,7 @@ export class DetailSubSceneResponseBody extends $tea.Model {
   status?: number;
   gmtCreate?: number;
   gmtModified?: number;
+  cubemapPath?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
@@ -2099,6 +2100,7 @@ export class DetailSubSceneResponseBody extends $tea.Model {
       status: 'Status',
       gmtCreate: 'GmtCreate',
       gmtModified: 'GmtModified',
+      cubemapPath: 'CubemapPath',
     };
   }
 
@@ -2116,6 +2118,7 @@ export class DetailSubSceneResponseBody extends $tea.Model {
       status: 'number',
       gmtCreate: 'number',
       gmtModified: 'number',
+      cubemapPath: 'string',
     };
   }
 
@@ -2607,15 +2610,24 @@ export class GetWindowConfigResponse extends $tea.Model {
 
 export class GetHotspotConfigRequest extends $tea.Model {
   previewToken?: string;
+  type?: number;
+  enabled?: boolean;
+  domain?: string;
   static names(): { [key: string]: string } {
     return {
       previewToken: 'PreviewToken',
+      type: 'Type',
+      enabled: 'Enabled',
+      domain: 'Domain',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       previewToken: 'string',
+      type: 'number',
+      enabled: 'boolean',
+      domain: 'string',
     };
   }
 
@@ -2626,27 +2638,27 @@ export class GetHotspotConfigRequest extends $tea.Model {
 
 export class GetHotspotConfigResponseBody extends $tea.Model {
   requestId?: string;
-  objectString?: string;
-  data?: string;
-  errMessage?: string;
+  code?: number;
   success?: boolean;
+  message?: string;
+  data?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      objectString: 'ObjectString',
-      data: 'Data',
-      errMessage: 'ErrMessage',
+      code: 'Code',
       success: 'Success',
+      message: 'Message',
+      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      objectString: 'string',
-      data: 'string',
-      errMessage: 'string',
+      code: 'number',
       success: 'boolean',
+      message: 'string',
+      data: 'string',
     };
   }
 
@@ -3074,11 +3086,15 @@ export class GetHotspotTagRequest extends $tea.Model {
   previewToken?: string;
   subSceneUuid?: string;
   type?: string;
+  enabled?: boolean;
+  domain?: string;
   static names(): { [key: string]: string } {
     return {
       previewToken: 'PreviewToken',
       subSceneUuid: 'SubSceneUuid',
       type: 'Type',
+      enabled: 'Enabled',
+      domain: 'Domain',
     };
   }
 
@@ -3087,6 +3103,8 @@ export class GetHotspotTagRequest extends $tea.Model {
       previewToken: 'string',
       subSceneUuid: 'string',
       type: 'string',
+      enabled: 'boolean',
+      domain: 'string',
     };
   }
 
@@ -3097,27 +3115,27 @@ export class GetHotspotTagRequest extends $tea.Model {
 
 export class GetHotspotTagResponseBody extends $tea.Model {
   requestId?: string;
-  objectString?: string;
-  data?: string;
-  errMessage?: string;
+  code?: number;
   success?: boolean;
+  message?: string;
+  data?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      objectString: 'ObjectString',
-      data: 'Data',
-      errMessage: 'ErrMessage',
+      code: 'Code',
       success: 'Success',
+      message: 'Message',
+      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      objectString: 'string',
-      data: 'string',
-      errMessage: 'string',
+      code: 'number',
       success: 'boolean',
+      message: 'string',
+      data: 'string',
     };
   }
 
@@ -4231,6 +4249,8 @@ export class ListSubSceneResponseBodyList extends $tea.Model {
   status?: number;
   gmtCreate?: number;
   gmtModified?: number;
+  resourceName?: string;
+  cubemapPath?: string;
   static names(): { [key: string]: string } {
     return {
       id: 'Id',
@@ -4241,6 +4261,8 @@ export class ListSubSceneResponseBodyList extends $tea.Model {
       status: 'Status',
       gmtCreate: 'GmtCreate',
       gmtModified: 'GmtModified',
+      resourceName: 'ResourceName',
+      cubemapPath: 'CubemapPath',
     };
   }
 
@@ -4254,6 +4276,8 @@ export class ListSubSceneResponseBodyList extends $tea.Model {
       status: 'number',
       gmtCreate: 'number',
       gmtModified: 'number',
+      resourceName: 'string',
+      cubemapPath: 'string',
     };
   }
 
