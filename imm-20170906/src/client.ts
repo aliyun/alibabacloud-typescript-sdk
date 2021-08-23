@@ -4,6 +4,7 @@
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
+import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
@@ -249,22 +250,22 @@ export class CreateGrabFrameTaskRequest extends $tea.Model {
 }
 
 export class CreateGrabFrameTaskResponseBody extends $tea.Model {
-  taskId?: string;
-  requestId?: string;
   taskType?: string;
+  requestId?: string;
+  taskId?: string;
   static names(): { [key: string]: string } {
     return {
-      taskId: 'TaskId',
-      requestId: 'RequestId',
       taskType: 'TaskType',
+      requestId: 'RequestId',
+      taskId: 'TaskId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      taskId: 'string',
-      requestId: 'string',
       taskType: 'string',
+      requestId: 'string',
+      taskId: 'string',
     };
   }
 
@@ -405,22 +406,22 @@ export class CreateImageProcessTaskRequest extends $tea.Model {
 }
 
 export class CreateImageProcessTaskResponseBody extends $tea.Model {
-  taskId?: string;
-  requestId?: string;
   taskType?: string;
+  requestId?: string;
+  taskId?: string;
   static names(): { [key: string]: string } {
     return {
-      taskId: 'TaskId',
-      requestId: 'RequestId',
       taskType: 'TaskType',
+      requestId: 'RequestId',
+      taskId: 'TaskId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      taskId: 'string',
-      requestId: 'string',
       taskType: 'string',
+      requestId: 'string',
+      taskId: 'string',
     };
   }
 
@@ -480,22 +481,22 @@ export class CreateMediaComplexTaskRequest extends $tea.Model {
 }
 
 export class CreateMediaComplexTaskResponseBody extends $tea.Model {
-  taskId?: string;
-  requestId?: string;
   taskType?: string;
+  requestId?: string;
+  taskId?: string;
   static names(): { [key: string]: string } {
     return {
-      taskId: 'TaskId',
-      requestId: 'RequestId',
       taskType: 'TaskType',
+      requestId: 'RequestId',
+      taskId: 'TaskId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      taskId: 'string',
-      requestId: 'string',
       taskType: 'string',
+      requestId: 'string',
+      taskId: 'string',
     };
   }
 
@@ -533,6 +534,7 @@ export class CreateMergeFaceGroupsJobRequest extends $tea.Model {
   notifyEndpoint?: string;
   groupIdFrom?: string;
   groupIdTo?: string;
+  customMessage?: string;
   static names(): { [key: string]: string } {
     return {
       project: 'Project',
@@ -541,6 +543,7 @@ export class CreateMergeFaceGroupsJobRequest extends $tea.Model {
       notifyEndpoint: 'NotifyEndpoint',
       groupIdFrom: 'GroupIdFrom',
       groupIdTo: 'GroupIdTo',
+      customMessage: 'CustomMessage',
     };
   }
 
@@ -552,6 +555,7 @@ export class CreateMergeFaceGroupsJobRequest extends $tea.Model {
       notifyEndpoint: 'string',
       groupIdFrom: 'string',
       groupIdTo: 'string',
+      customMessage: 'string',
     };
   }
 
@@ -641,6 +645,7 @@ export class CreateOfficeConversionTaskRequest extends $tea.Model {
   pdfVector?: boolean;
   hidecomments?: boolean;
   displayDpi?: number;
+  userData?: string;
   static names(): { [key: string]: string } {
     return {
       project: 'Project',
@@ -667,6 +672,7 @@ export class CreateOfficeConversionTaskRequest extends $tea.Model {
       pdfVector: 'PdfVector',
       hidecomments: 'Hidecomments',
       displayDpi: 'DisplayDpi',
+      userData: 'UserData',
     };
   }
 
@@ -696,6 +702,7 @@ export class CreateOfficeConversionTaskRequest extends $tea.Model {
       pdfVector: 'boolean',
       hidecomments: 'boolean',
       displayDpi: 'number',
+      userData: 'string',
     };
   }
 
@@ -786,40 +793,40 @@ export class CreateSetRequest extends $tea.Model {
 }
 
 export class CreateSetResponseBody extends $tea.Model {
-  modifyTime?: string;
   videoCount?: number;
-  imageCount?: number;
   requestId?: string;
   createTime?: string;
-  setName?: string;
-  setId?: string;
   videoLength?: number;
+  setId?: string;
+  imageCount?: number;
   faceCount?: number;
+  setName?: string;
+  modifyTime?: string;
   static names(): { [key: string]: string } {
     return {
-      modifyTime: 'ModifyTime',
       videoCount: 'VideoCount',
-      imageCount: 'ImageCount',
       requestId: 'RequestId',
       createTime: 'CreateTime',
-      setName: 'SetName',
-      setId: 'SetId',
       videoLength: 'VideoLength',
+      setId: 'SetId',
+      imageCount: 'ImageCount',
       faceCount: 'FaceCount',
+      setName: 'SetName',
+      modifyTime: 'ModifyTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      modifyTime: 'string',
       videoCount: 'number',
-      imageCount: 'number',
       requestId: 'string',
       createTime: 'string',
-      setName: 'string',
-      setId: 'string',
       videoLength: 'number',
+      setId: 'string',
+      imageCount: 'number',
       faceCount: 'number',
+      setName: 'string',
+      modifyTime: 'string',
     };
   }
 
@@ -842,99 +849,6 @@ export class CreateSetResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: CreateSetResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateStreamAnalyseTaskRequest extends $tea.Model {
-  project?: string;
-  streamUri?: string;
-  grabType?: string;
-  startTime?: string;
-  endTime?: string;
-  saveType?: boolean;
-  interval?: string;
-  tgtUri?: string;
-  notifyTopicName?: string;
-  notifyEndpoint?: string;
-  static names(): { [key: string]: string } {
-    return {
-      project: 'Project',
-      streamUri: 'StreamUri',
-      grabType: 'GrabType',
-      startTime: 'StartTime',
-      endTime: 'EndTime',
-      saveType: 'SaveType',
-      interval: 'Interval',
-      tgtUri: 'TgtUri',
-      notifyTopicName: 'NotifyTopicName',
-      notifyEndpoint: 'NotifyEndpoint',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      project: 'string',
-      streamUri: 'string',
-      grabType: 'string',
-      startTime: 'string',
-      endTime: 'string',
-      saveType: 'boolean',
-      interval: 'string',
-      tgtUri: 'string',
-      notifyTopicName: 'string',
-      notifyEndpoint: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateStreamAnalyseTaskResponseBody extends $tea.Model {
-  taskId?: string;
-  requestId?: string;
-  taskType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      taskId: 'TaskId',
-      requestId: 'RequestId',
-      taskType: 'TaskType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      taskId: 'string',
-      requestId: 'string',
-      taskType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateStreamAnalyseTaskResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: CreateStreamAnalyseTaskResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: CreateStreamAnalyseTaskResponseBody,
     };
   }
 
@@ -981,22 +895,22 @@ export class CreateVideoAbstractTaskRequest extends $tea.Model {
 }
 
 export class CreateVideoAbstractTaskResponseBody extends $tea.Model {
-  taskId?: string;
-  requestId?: string;
   taskType?: string;
+  requestId?: string;
+  taskId?: string;
   static names(): { [key: string]: string } {
     return {
-      taskId: 'TaskId',
-      requestId: 'RequestId',
       taskType: 'TaskType',
+      requestId: 'RequestId',
+      taskId: 'TaskId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      taskId: 'string',
-      requestId: 'string',
       taskType: 'string',
+      requestId: 'string',
+      taskId: 'string',
     };
   }
 
@@ -1030,11 +944,6 @@ export class CreateVideoAbstractTaskResponse extends $tea.Model {
 export class CreateVideoAnalyseTaskRequest extends $tea.Model {
   project?: string;
   videoUri?: string;
-  grabType?: string;
-  startTime?: string;
-  endTime?: string;
-  saveType?: boolean;
-  interval?: string;
   tgtUri?: string;
   notifyTopicName?: string;
   notifyEndpoint?: string;
@@ -1042,11 +951,6 @@ export class CreateVideoAnalyseTaskRequest extends $tea.Model {
     return {
       project: 'Project',
       videoUri: 'VideoUri',
-      grabType: 'GrabType',
-      startTime: 'StartTime',
-      endTime: 'EndTime',
-      saveType: 'SaveType',
-      interval: 'Interval',
       tgtUri: 'TgtUri',
       notifyTopicName: 'NotifyTopicName',
       notifyEndpoint: 'NotifyEndpoint',
@@ -1057,11 +961,6 @@ export class CreateVideoAnalyseTaskRequest extends $tea.Model {
     return {
       project: 'string',
       videoUri: 'string',
-      grabType: 'string',
-      startTime: 'string',
-      endTime: 'string',
-      saveType: 'boolean',
-      interval: 'string',
       tgtUri: 'string',
       notifyTopicName: 'string',
       notifyEndpoint: 'string',
@@ -1074,22 +973,22 @@ export class CreateVideoAnalyseTaskRequest extends $tea.Model {
 }
 
 export class CreateVideoAnalyseTaskResponseBody extends $tea.Model {
-  taskId?: string;
-  requestId?: string;
   taskType?: string;
+  requestId?: string;
+  taskId?: string;
   static names(): { [key: string]: string } {
     return {
-      taskId: 'TaskId',
-      requestId: 'RequestId',
       taskType: 'TaskType',
+      requestId: 'RequestId',
+      taskId: 'TaskId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      taskId: 'string',
-      requestId: 'string',
       taskType: 'string',
+      requestId: 'string',
+      taskId: 'string',
     };
   }
 
@@ -1128,6 +1027,7 @@ export class CreateVideoCompressTaskRequest extends $tea.Model {
   targetList?: string;
   customMessage?: string;
   targetContainer?: string;
+  targetSegment?: string;
   static names(): { [key: string]: string } {
     return {
       project: 'Project',
@@ -1137,6 +1037,7 @@ export class CreateVideoCompressTaskRequest extends $tea.Model {
       targetList: 'TargetList',
       customMessage: 'CustomMessage',
       targetContainer: 'TargetContainer',
+      targetSegment: 'TargetSegment',
     };
   }
 
@@ -1149,6 +1050,7 @@ export class CreateVideoCompressTaskRequest extends $tea.Model {
       targetList: 'string',
       customMessage: 'string',
       targetContainer: 'string',
+      targetSegment: 'string',
     };
   }
 
@@ -1251,22 +1153,22 @@ export class CreateVideoProduceTaskRequest extends $tea.Model {
 }
 
 export class CreateVideoProduceTaskResponseBody extends $tea.Model {
-  taskId?: string;
-  requestId?: string;
   taskType?: string;
+  requestId?: string;
+  taskId?: string;
   static names(): { [key: string]: string } {
     return {
-      taskId: 'TaskId',
-      requestId: 'RequestId',
       taskType: 'TaskType',
+      requestId: 'RequestId',
+      taskId: 'TaskId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      taskId: 'string',
-      requestId: 'string',
       taskType: 'string',
+      requestId: 'string',
+      taskId: 'string',
     };
   }
 
@@ -1304,7 +1206,6 @@ export class DecodeBlindWatermarkRequest extends $tea.Model {
   targetUri?: string;
   imageQuality?: number;
   model?: string;
-  watermarkType?: string;
   static names(): { [key: string]: string } {
     return {
       project: 'Project',
@@ -1313,7 +1214,6 @@ export class DecodeBlindWatermarkRequest extends $tea.Model {
       targetUri: 'TargetUri',
       imageQuality: 'ImageQuality',
       model: 'Model',
-      watermarkType: 'WatermarkType',
     };
   }
 
@@ -1325,7 +1225,6 @@ export class DecodeBlindWatermarkRequest extends $tea.Model {
       targetUri: 'string',
       imageQuality: 'number',
       model: 'string',
-      watermarkType: 'string',
     };
   }
 
@@ -1336,21 +1235,21 @@ export class DecodeBlindWatermarkRequest extends $tea.Model {
 
 export class DecodeBlindWatermarkResponseBody extends $tea.Model {
   requestId?: string;
-  content?: string;
   targetUri?: string;
+  content?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      content: 'Content',
       targetUri: 'TargetUri',
+      content: 'Content',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      content: 'string',
       targetUri: 'string',
+      content: 'string',
     };
   }
 
@@ -1665,19 +1564,19 @@ export class DeleteSetRequest extends $tea.Model {
 }
 
 export class DeleteSetResponseBody extends $tea.Model {
-  requestId?: string;
   setId?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       setId: 'SetId',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       setId: 'string',
+      requestId: 'string',
     };
   }
 
@@ -1916,22 +1815,22 @@ export class DetectImageBodiesRequest extends $tea.Model {
 }
 
 export class DetectImageBodiesResponseBody extends $tea.Model {
+  imageUri?: string;
   requestId?: string;
   bodies?: DetectImageBodiesResponseBodyBodies[];
-  imageUri?: string;
   static names(): { [key: string]: string } {
     return {
+      imageUri: 'ImageUri',
       requestId: 'RequestId',
       bodies: 'Bodies',
-      imageUri: 'ImageUri',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      imageUri: 'string',
       requestId: 'string',
       bodies: { 'type': 'array', 'itemType': DetectImageBodiesResponseBodyBodies },
-      imageUri: 'string',
     };
   }
 
@@ -1965,12 +1864,10 @@ export class DetectImageBodiesResponse extends $tea.Model {
 export class DetectImageFacesRequest extends $tea.Model {
   project?: string;
   imageUri?: string;
-  realUid?: string;
   static names(): { [key: string]: string } {
     return {
       project: 'Project',
       imageUri: 'ImageUri',
-      realUid: 'RealUid',
     };
   }
 
@@ -1978,7 +1875,6 @@ export class DetectImageFacesRequest extends $tea.Model {
     return {
       project: 'string',
       imageUri: 'string',
-      realUid: 'string',
     };
   }
 
@@ -1988,21 +1884,21 @@ export class DetectImageFacesRequest extends $tea.Model {
 }
 
 export class DetectImageFacesResponseBody extends $tea.Model {
-  requestId?: string;
   imageUri?: string;
+  requestId?: string;
   faces?: DetectImageFacesResponseBodyFaces[];
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       imageUri: 'ImageUri',
+      requestId: 'RequestId',
       faces: 'Faces',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       imageUri: 'string',
+      requestId: 'string',
       faces: { 'type': 'array', 'itemType': DetectImageFacesResponseBodyFaces },
     };
   }
@@ -2057,22 +1953,22 @@ export class DetectImageLogosRequest extends $tea.Model {
 }
 
 export class DetectImageLogosResponseBody extends $tea.Model {
+  imageUri?: string;
   requestId?: string;
   logos?: DetectImageLogosResponseBodyLogos[];
-  imageUri?: string;
   static names(): { [key: string]: string } {
     return {
+      imageUri: 'ImageUri',
       requestId: 'RequestId',
       logos: 'Logos',
-      imageUri: 'ImageUri',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      imageUri: 'string',
       requestId: 'string',
       logos: { 'type': 'array', 'itemType': DetectImageLogosResponseBodyLogos },
-      imageUri: 'string',
     };
   }
 
@@ -2126,21 +2022,21 @@ export class DetectImageQRCodesRequest extends $tea.Model {
 }
 
 export class DetectImageQRCodesResponseBody extends $tea.Model {
-  requestId?: string;
   imageUri?: string;
+  requestId?: string;
   QRCodes?: DetectImageQRCodesResponseBodyQRCodes[];
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       imageUri: 'ImageUri',
+      requestId: 'RequestId',
       QRCodes: 'QRCodes',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       imageUri: 'string',
+      requestId: 'string',
       QRCodes: { 'type': 'array', 'itemType': DetectImageQRCodesResponseBodyQRCodes },
     };
   }
@@ -2175,12 +2071,10 @@ export class DetectImageQRCodesResponse extends $tea.Model {
 export class DetectImageTagsRequest extends $tea.Model {
   project?: string;
   imageUri?: string;
-  realUid?: string;
   static names(): { [key: string]: string } {
     return {
       project: 'Project',
       imageUri: 'ImageUri',
-      realUid: 'RealUid',
     };
   }
 
@@ -2188,7 +2082,6 @@ export class DetectImageTagsRequest extends $tea.Model {
     return {
       project: 'string',
       imageUri: 'string',
-      realUid: 'string',
     };
   }
 
@@ -2198,21 +2091,21 @@ export class DetectImageTagsRequest extends $tea.Model {
 }
 
 export class DetectImageTagsResponseBody extends $tea.Model {
-  requestId?: string;
   imageUri?: string;
+  requestId?: string;
   tags?: DetectImageTagsResponseBodyTags[];
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       imageUri: 'ImageUri',
+      requestId: 'RequestId',
       tags: 'Tags',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       imageUri: 'string',
+      requestId: 'string',
       tags: { 'type': 'array', 'itemType': DetectImageTagsResponseBodyTags },
     };
   }
@@ -2267,21 +2160,21 @@ export class DetectQRCodesRequest extends $tea.Model {
 }
 
 export class DetectQRCodesResponseBody extends $tea.Model {
-  successDetails?: DetectQRCodesResponseBodySuccessDetails[];
   requestId?: string;
+  successDetails?: DetectQRCodesResponseBodySuccessDetails[];
   failDetails?: DetectQRCodesResponseBodyFailDetails[];
   static names(): { [key: string]: string } {
     return {
-      successDetails: 'SuccessDetails',
       requestId: 'RequestId',
+      successDetails: 'SuccessDetails',
       failDetails: 'FailDetails',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      successDetails: { 'type': 'array', 'itemType': DetectQRCodesResponseBodySuccessDetails },
       requestId: 'string',
+      successDetails: { 'type': 'array', 'itemType': DetectQRCodesResponseBodySuccessDetails },
       failDetails: { 'type': 'array', 'itemType': DetectQRCodesResponseBodyFailDetails },
     };
   }
@@ -2322,7 +2215,6 @@ export class EncodeBlindWatermarkRequest extends $tea.Model {
   content?: string;
   targetImageType?: string;
   model?: string;
-  watermarkType?: string;
   static names(): { [key: string]: string } {
     return {
       project: 'Project',
@@ -2333,7 +2225,6 @@ export class EncodeBlindWatermarkRequest extends $tea.Model {
       content: 'Content',
       targetImageType: 'TargetImageType',
       model: 'Model',
-      watermarkType: 'WatermarkType',
     };
   }
 
@@ -2347,7 +2238,6 @@ export class EncodeBlindWatermarkRequest extends $tea.Model {
       content: 'string',
       targetImageType: 'string',
       model: 'string',
-      watermarkType: 'string',
     };
   }
 
@@ -2358,21 +2248,21 @@ export class EncodeBlindWatermarkRequest extends $tea.Model {
 
 export class EncodeBlindWatermarkResponseBody extends $tea.Model {
   requestId?: string;
-  content?: string;
   targetUri?: string;
+  content?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      content: 'Content',
       targetUri: 'TargetUri',
+      content: 'Content',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      content: 'string',
       targetUri: 'string',
+      content: 'string',
     };
   }
 
@@ -2508,24 +2398,24 @@ export class FindImagesRequest extends $tea.Model {
 
 export class FindImagesResponseBody extends $tea.Model {
   requestId?: string;
-  images?: FindImagesResponseBodyImages[];
   nextMarker?: string;
   setId?: string;
+  images?: FindImagesResponseBodyImages[];
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      images: 'Images',
       nextMarker: 'NextMarker',
       setId: 'SetId',
+      images: 'Images',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      images: { 'type': 'array', 'itemType': FindImagesResponseBodyImages },
       nextMarker: 'string',
       setId: 'string',
+      images: { 'type': 'array', 'itemType': FindImagesResponseBodyImages },
     };
   }
 
@@ -3014,21 +2904,21 @@ export class GetImageCroppingSuggestionsRequest extends $tea.Model {
 }
 
 export class GetImageCroppingSuggestionsResponseBody extends $tea.Model {
-  requestId?: string;
   imageUri?: string;
+  requestId?: string;
   croppingSuggestions?: GetImageCroppingSuggestionsResponseBodyCroppingSuggestions[];
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       imageUri: 'ImageUri',
+      requestId: 'RequestId',
       croppingSuggestions: 'CroppingSuggestions',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       imageUri: 'string',
+      requestId: 'string',
       croppingSuggestions: { 'type': 'array', 'itemType': GetImageCroppingSuggestionsResponseBodyCroppingSuggestions },
     };
   }
@@ -3083,22 +2973,22 @@ export class GetImageQualityRequest extends $tea.Model {
 }
 
 export class GetImageQualityResponseBody extends $tea.Model {
-  imageQuality?: GetImageQualityResponseBodyImageQuality;
-  requestId?: string;
   imageUri?: string;
+  requestId?: string;
+  imageQuality?: GetImageQualityResponseBodyImageQuality;
   static names(): { [key: string]: string } {
     return {
-      imageQuality: 'ImageQuality',
-      requestId: 'RequestId',
       imageUri: 'ImageUri',
+      requestId: 'RequestId',
+      imageQuality: 'ImageQuality',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      imageQuality: GetImageQualityResponseBodyImageQuality,
-      requestId: 'string',
       imageUri: 'string',
+      requestId: 'string',
+      imageQuality: GetImageQualityResponseBodyImageQuality,
     };
   }
 
@@ -3222,57 +3112,57 @@ export class GetOfficeConversionTaskRequest extends $tea.Model {
 
 export class GetOfficeConversionTaskResponseBody extends $tea.Model {
   status?: string;
-  failDetail?: GetOfficeConversionTaskResponseBodyFailDetail;
-  tgtType?: string;
-  taskId?: string;
-  requestId?: string;
   percent?: number;
-  createTime?: string;
-  externalID?: string;
-  imageSpec?: string;
-  notifyEndpoint?: string;
-  tgtUri?: string;
   finishTime?: string;
+  createTime?: string;
   pageCount?: number;
   notifyTopicName?: string;
+  requestId?: string;
+  notifyEndpoint?: string;
   srcUri?: string;
+  tgtType?: string;
+  tgtUri?: string;
+  imageSpec?: string;
+  externalID?: string;
+  taskId?: string;
+  failDetail?: GetOfficeConversionTaskResponseBodyFailDetail;
   static names(): { [key: string]: string } {
     return {
       status: 'Status',
-      failDetail: 'FailDetail',
-      tgtType: 'TgtType',
-      taskId: 'TaskId',
-      requestId: 'RequestId',
       percent: 'Percent',
-      createTime: 'CreateTime',
-      externalID: 'ExternalID',
-      imageSpec: 'ImageSpec',
-      notifyEndpoint: 'NotifyEndpoint',
-      tgtUri: 'TgtUri',
       finishTime: 'FinishTime',
+      createTime: 'CreateTime',
       pageCount: 'PageCount',
       notifyTopicName: 'NotifyTopicName',
+      requestId: 'RequestId',
+      notifyEndpoint: 'NotifyEndpoint',
       srcUri: 'SrcUri',
+      tgtType: 'TgtType',
+      tgtUri: 'TgtUri',
+      imageSpec: 'ImageSpec',
+      externalID: 'ExternalID',
+      taskId: 'TaskId',
+      failDetail: 'FailDetail',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       status: 'string',
-      failDetail: GetOfficeConversionTaskResponseBodyFailDetail,
-      tgtType: 'string',
-      taskId: 'string',
-      requestId: 'string',
       percent: 'number',
-      createTime: 'string',
-      externalID: 'string',
-      imageSpec: 'string',
-      notifyEndpoint: 'string',
-      tgtUri: 'string',
       finishTime: 'string',
+      createTime: 'string',
       pageCount: 'number',
       notifyTopicName: 'string',
+      requestId: 'string',
+      notifyEndpoint: 'string',
       srcUri: 'string',
+      tgtType: 'string',
+      tgtUri: 'string',
+      imageSpec: 'string',
+      externalID: 'string',
+      taskId: 'string',
+      failDetail: GetOfficeConversionTaskResponseBodyFailDetail,
     };
   }
 
@@ -3350,31 +3240,31 @@ export class GetOfficeEditURLRequest extends $tea.Model {
 }
 
 export class GetOfficeEditURLResponseBody extends $tea.Model {
-  refreshToken?: string;
   requestId?: string;
+  accessTokenExpiredTime?: string;
   editURL?: string;
   accessToken?: string;
+  refreshToken?: string;
   refreshTokenExpiredTime?: string;
-  accessTokenExpiredTime?: string;
   static names(): { [key: string]: string } {
     return {
-      refreshToken: 'RefreshToken',
       requestId: 'RequestId',
+      accessTokenExpiredTime: 'AccessTokenExpiredTime',
       editURL: 'EditURL',
       accessToken: 'AccessToken',
+      refreshToken: 'RefreshToken',
       refreshTokenExpiredTime: 'RefreshTokenExpiredTime',
-      accessTokenExpiredTime: 'AccessTokenExpiredTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      refreshToken: 'string',
       requestId: 'string',
+      accessTokenExpiredTime: 'string',
       editURL: 'string',
       accessToken: 'string',
+      refreshToken: 'string',
       refreshTokenExpiredTime: 'string',
-      accessTokenExpiredTime: 'string',
     };
   }
 
@@ -3452,31 +3342,31 @@ export class GetOfficePreviewURLRequest extends $tea.Model {
 }
 
 export class GetOfficePreviewURLResponseBody extends $tea.Model {
-  previewURL?: string;
-  refreshToken?: string;
   requestId?: string;
-  accessToken?: string;
-  refreshTokenExpiredTime?: string;
+  previewURL?: string;
   accessTokenExpiredTime?: string;
+  accessToken?: string;
+  refreshToken?: string;
+  refreshTokenExpiredTime?: string;
   static names(): { [key: string]: string } {
     return {
-      previewURL: 'PreviewURL',
-      refreshToken: 'RefreshToken',
       requestId: 'RequestId',
-      accessToken: 'AccessToken',
-      refreshTokenExpiredTime: 'RefreshTokenExpiredTime',
+      previewURL: 'PreviewURL',
       accessTokenExpiredTime: 'AccessTokenExpiredTime',
+      accessToken: 'AccessToken',
+      refreshToken: 'RefreshToken',
+      refreshTokenExpiredTime: 'RefreshTokenExpiredTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      previewURL: 'string',
-      refreshToken: 'string',
       requestId: 'string',
-      accessToken: 'string',
-      refreshTokenExpiredTime: 'string',
+      previewURL: 'string',
       accessTokenExpiredTime: 'string',
+      accessToken: 'string',
+      refreshToken: 'string',
+      refreshTokenExpiredTime: 'string',
     };
   }
 
@@ -3527,43 +3417,43 @@ export class GetProjectRequest extends $tea.Model {
 }
 
 export class GetProjectResponseBody extends $tea.Model {
-  project?: string;
-  modifyTime?: string;
   type?: string;
-  CU?: number;
-  serviceRole?: string;
   requestId?: string;
-  endpoint?: string;
+  CU?: number;
   createTime?: string;
+  endpoint?: string;
+  serviceRole?: string;
+  project?: string;
   regionId?: string;
   billingType?: string;
+  modifyTime?: string;
   static names(): { [key: string]: string } {
     return {
-      project: 'Project',
-      modifyTime: 'ModifyTime',
       type: 'Type',
-      CU: 'CU',
-      serviceRole: 'ServiceRole',
       requestId: 'RequestId',
-      endpoint: 'Endpoint',
+      CU: 'CU',
       createTime: 'CreateTime',
+      endpoint: 'Endpoint',
+      serviceRole: 'ServiceRole',
+      project: 'Project',
       regionId: 'RegionId',
       billingType: 'BillingType',
+      modifyTime: 'ModifyTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      project: 'string',
-      modifyTime: 'string',
       type: 'string',
-      CU: 'number',
-      serviceRole: 'string',
       requestId: 'string',
-      endpoint: 'string',
+      CU: 'number',
       createTime: 'string',
+      endpoint: 'string',
+      serviceRole: 'string',
+      project: 'string',
       regionId: 'string',
       billingType: 'string',
+      modifyTime: 'string',
     };
   }
 
@@ -3617,40 +3507,40 @@ export class GetSetRequest extends $tea.Model {
 }
 
 export class GetSetResponseBody extends $tea.Model {
-  modifyTime?: string;
   videoCount?: number;
-  imageCount?: number;
   requestId?: string;
   createTime?: string;
-  setName?: string;
-  setId?: string;
   videoLength?: number;
+  setId?: string;
+  imageCount?: number;
   faceCount?: number;
+  setName?: string;
+  modifyTime?: string;
   static names(): { [key: string]: string } {
     return {
-      modifyTime: 'ModifyTime',
       videoCount: 'VideoCount',
-      imageCount: 'ImageCount',
       requestId: 'RequestId',
       createTime: 'CreateTime',
-      setName: 'SetName',
-      setId: 'SetId',
       videoLength: 'VideoLength',
+      setId: 'SetId',
+      imageCount: 'ImageCount',
       faceCount: 'FaceCount',
+      setName: 'SetName',
+      modifyTime: 'ModifyTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      modifyTime: 'string',
       videoCount: 'number',
-      imageCount: 'number',
       requestId: 'string',
       createTime: 'string',
-      setName: 'string',
-      setId: 'string',
       videoLength: 'number',
+      setId: 'string',
+      imageCount: 'number',
       faceCount: 'number',
+      setName: 'string',
+      modifyTime: 'string',
     };
   }
 
@@ -3969,6 +3859,8 @@ export class GetWebofficeURLRequest extends $tea.Model {
   file?: string;
   notifyEndpoint?: string;
   notifyTopicName?: string;
+  watermark?: string;
+  hidecmb?: boolean;
   static names(): { [key: string]: string } {
     return {
       project: 'Project',
@@ -3979,6 +3871,8 @@ export class GetWebofficeURLRequest extends $tea.Model {
       file: 'File',
       notifyEndpoint: 'NotifyEndpoint',
       notifyTopicName: 'NotifyTopicName',
+      watermark: 'Watermark',
+      hidecmb: 'Hidecmb',
     };
   }
 
@@ -3992,6 +3886,8 @@ export class GetWebofficeURLRequest extends $tea.Model {
       file: 'string',
       notifyEndpoint: 'string',
       notifyTopicName: 'string',
+      watermark: 'string',
+      hidecmb: 'boolean',
     };
   }
 
@@ -4068,7 +3964,6 @@ export class IndexImageRequest extends $tea.Model {
   remarksC?: string;
   remarksD?: string;
   externalId?: string;
-  realUid?: string;
   notifyEndpoint?: string;
   notifyTopicName?: string;
   remarksArrayA?: string;
@@ -4086,7 +3981,6 @@ export class IndexImageRequest extends $tea.Model {
       remarksC: 'RemarksC',
       remarksD: 'RemarksD',
       externalId: 'ExternalId',
-      realUid: 'RealUid',
       notifyEndpoint: 'NotifyEndpoint',
       notifyTopicName: 'NotifyTopicName',
       remarksArrayA: 'RemarksArrayA',
@@ -4107,7 +4001,6 @@ export class IndexImageRequest extends $tea.Model {
       remarksC: 'string',
       remarksD: 'string',
       externalId: 'string',
-      realUid: 'string',
       notifyEndpoint: 'string',
       notifyTopicName: 'string',
       remarksArrayA: 'string',
@@ -4200,11 +4093,6 @@ export class IndexVideoRequest extends $tea.Model {
   videoUri?: string;
   remarksA?: string;
   remarksB?: string;
-  grabType?: string;
-  startTime?: string;
-  endTime?: string;
-  saveType?: boolean;
-  interval?: string;
   tgtUri?: string;
   remarksC?: string;
   remarksD?: string;
@@ -4218,11 +4106,6 @@ export class IndexVideoRequest extends $tea.Model {
       videoUri: 'VideoUri',
       remarksA: 'RemarksA',
       remarksB: 'RemarksB',
-      grabType: 'GrabType',
-      startTime: 'StartTime',
-      endTime: 'EndTime',
-      saveType: 'SaveType',
-      interval: 'Interval',
       tgtUri: 'TgtUri',
       remarksC: 'RemarksC',
       remarksD: 'RemarksD',
@@ -4239,11 +4122,6 @@ export class IndexVideoRequest extends $tea.Model {
       videoUri: 'string',
       remarksA: 'string',
       remarksB: 'string',
-      grabType: 'string',
-      startTime: 'string',
-      endTime: 'string',
-      saveType: 'boolean',
-      interval: 'string',
       tgtUri: 'string',
       remarksC: 'string',
       remarksD: 'string',
@@ -4461,24 +4339,24 @@ export class ListImagesRequest extends $tea.Model {
 
 export class ListImagesResponseBody extends $tea.Model {
   requestId?: string;
-  images?: ListImagesResponseBodyImages[];
   nextMarker?: string;
   setId?: string;
+  images?: ListImagesResponseBodyImages[];
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      images: 'Images',
       nextMarker: 'NextMarker',
       setId: 'SetId',
+      images: 'Images',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      images: { 'type': 'array', 'itemType': ListImagesResponseBodyImages },
       nextMarker: 'string',
       setId: 'string',
+      images: { 'type': 'array', 'itemType': ListImagesResponseBodyImages },
     };
   }
 
@@ -4535,22 +4413,22 @@ export class ListOfficeConversionTaskRequest extends $tea.Model {
 }
 
 export class ListOfficeConversionTaskResponseBody extends $tea.Model {
-  tasks?: ListOfficeConversionTaskResponseBodyTasks[];
-  requestId?: string;
   nextMarker?: string;
+  requestId?: string;
+  tasks?: ListOfficeConversionTaskResponseBodyTasks[];
   static names(): { [key: string]: string } {
     return {
-      tasks: 'Tasks',
-      requestId: 'RequestId',
       nextMarker: 'NextMarker',
+      requestId: 'RequestId',
+      tasks: 'Tasks',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      tasks: { 'type': 'array', 'itemType': ListOfficeConversionTaskResponseBodyTasks },
-      requestId: 'string',
       nextMarker: 'string',
+      requestId: 'string',
+      tasks: { 'type': 'array', 'itemType': ListOfficeConversionTaskResponseBodyTasks },
     };
   }
 
@@ -4670,22 +4548,22 @@ export class ListProjectsRequest extends $tea.Model {
 }
 
 export class ListProjectsResponseBody extends $tea.Model {
+  nextMarker?: string;
   requestId?: string;
   projects?: ListProjectsResponseBodyProjects[];
-  nextMarker?: string;
   static names(): { [key: string]: string } {
     return {
+      nextMarker: 'NextMarker',
       requestId: 'RequestId',
       projects: 'Projects',
-      nextMarker: 'NextMarker',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      nextMarker: 'string',
       requestId: 'string',
       projects: { 'type': 'array', 'itemType': ListProjectsResponseBodyProjects },
-      nextMarker: 'string',
     };
   }
 
@@ -4739,22 +4617,22 @@ export class ListSetsRequest extends $tea.Model {
 }
 
 export class ListSetsResponseBody extends $tea.Model {
+  nextMarker?: string;
   requestId?: string;
   sets?: ListSetsResponseBodySets[];
-  nextMarker?: string;
   static names(): { [key: string]: string } {
     return {
+      nextMarker: 'NextMarker',
       requestId: 'RequestId',
       sets: 'Sets',
-      nextMarker: 'NextMarker',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      nextMarker: 'string',
       requestId: 'string',
       sets: { 'type': 'array', 'itemType': ListSetsResponseBodySets },
-      nextMarker: 'string',
     };
   }
 
@@ -4808,21 +4686,21 @@ export class ListSetTagsRequest extends $tea.Model {
 }
 
 export class ListSetTagsResponseBody extends $tea.Model {
-  requestId?: string;
   setId?: string;
+  requestId?: string;
   tags?: ListSetTagsResponseBodyTags[];
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       setId: 'SetId',
+      requestId: 'RequestId',
       tags: 'Tags',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       setId: 'string',
+      requestId: 'string',
       tags: { 'type': 'array', 'itemType': ListSetTagsResponseBodyTags },
     };
   }
@@ -4883,28 +4761,28 @@ export class ListVideoAudiosRequest extends $tea.Model {
 }
 
 export class ListVideoAudiosResponseBody extends $tea.Model {
-  requestId?: string;
-  audios?: ListVideoAudiosResponseBodyAudios[];
   videoUri?: string;
+  requestId?: string;
   nextMarker?: string;
   setId?: string;
+  audios?: ListVideoAudiosResponseBodyAudios[];
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
-      audios: 'Audios',
       videoUri: 'VideoUri',
+      requestId: 'RequestId',
       nextMarker: 'NextMarker',
       setId: 'SetId',
+      audios: 'Audios',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
-      audios: { 'type': 'array', 'itemType': ListVideoAudiosResponseBodyAudios },
       videoUri: 'string',
+      requestId: 'string',
       nextMarker: 'string',
       setId: 'string',
+      audios: { 'type': 'array', 'itemType': ListVideoAudiosResponseBodyAudios },
     };
   }
 
@@ -4964,28 +4842,28 @@ export class ListVideoFramesRequest extends $tea.Model {
 }
 
 export class ListVideoFramesResponseBody extends $tea.Model {
-  frames?: ListVideoFramesResponseBodyFrames[];
-  requestId?: string;
   videoUri?: string;
+  requestId?: string;
   nextMarker?: string;
   setId?: string;
+  frames?: ListVideoFramesResponseBodyFrames[];
   static names(): { [key: string]: string } {
     return {
-      frames: 'Frames',
-      requestId: 'RequestId',
       videoUri: 'VideoUri',
+      requestId: 'RequestId',
       nextMarker: 'NextMarker',
       setId: 'SetId',
+      frames: 'Frames',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      frames: { 'type': 'array', 'itemType': ListVideoFramesResponseBodyFrames },
-      requestId: 'string',
       videoUri: 'string',
+      requestId: 'string',
       nextMarker: 'string',
       setId: 'string',
+      frames: { 'type': 'array', 'itemType': ListVideoFramesResponseBodyFrames },
     };
   }
 
@@ -5123,22 +5001,22 @@ export class ListVideoTasksRequest extends $tea.Model {
 }
 
 export class ListVideoTasksResponseBody extends $tea.Model {
-  tasks?: ListVideoTasksResponseBodyTasks[];
-  requestId?: string;
   nextMarker?: string;
+  requestId?: string;
+  tasks?: ListVideoTasksResponseBodyTasks[];
   static names(): { [key: string]: string } {
     return {
-      tasks: 'Tasks',
-      requestId: 'RequestId',
       nextMarker: 'NextMarker',
+      requestId: 'RequestId',
+      tasks: 'Tasks',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      tasks: { 'type': 'array', 'itemType': ListVideoTasksResponseBodyTasks },
-      requestId: 'string',
       nextMarker: 'string',
+      requestId: 'string',
+      tasks: { 'type': 'array', 'itemType': ListVideoTasksResponseBodyTasks },
     };
   }
 
@@ -5189,19 +5067,19 @@ export class OpenImmServiceRequest extends $tea.Model {
 }
 
 export class OpenImmServiceResponseBody extends $tea.Model {
-  requestId?: string;
   orderId?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       orderId: 'OrderId',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       orderId: 'string',
+      requestId: 'string',
     };
   }
 
@@ -5235,16 +5113,10 @@ export class OpenImmServiceResponse extends $tea.Model {
 export class PutProjectRequest extends $tea.Model {
   project?: string;
   serviceRole?: string;
-  CU?: number;
-  type?: string;
-  billingType?: string;
   static names(): { [key: string]: string } {
     return {
       project: 'Project',
       serviceRole: 'ServiceRole',
-      CU: 'CU',
-      type: 'Type',
-      billingType: 'BillingType',
     };
   }
 
@@ -5252,9 +5124,6 @@ export class PutProjectRequest extends $tea.Model {
     return {
       project: 'string',
       serviceRole: 'string',
-      CU: 'number',
-      type: 'string',
-      billingType: 'string',
     };
   }
 
@@ -5357,28 +5226,28 @@ export class RefreshOfficeEditTokenRequest extends $tea.Model {
 }
 
 export class RefreshOfficeEditTokenResponseBody extends $tea.Model {
-  refreshToken?: string;
   requestId?: string;
+  accessTokenExpiredTime?: string;
+  refreshToken?: string;
   accessToken?: string;
   refreshTokenExpiredTime?: string;
-  accessTokenExpiredTime?: string;
   static names(): { [key: string]: string } {
     return {
-      refreshToken: 'RefreshToken',
       requestId: 'RequestId',
+      accessTokenExpiredTime: 'AccessTokenExpiredTime',
+      refreshToken: 'RefreshToken',
       accessToken: 'AccessToken',
       refreshTokenExpiredTime: 'RefreshTokenExpiredTime',
-      accessTokenExpiredTime: 'AccessTokenExpiredTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      refreshToken: 'string',
       requestId: 'string',
+      accessTokenExpiredTime: 'string',
+      refreshToken: 'string',
       accessToken: 'string',
       refreshTokenExpiredTime: 'string',
-      accessTokenExpiredTime: 'string',
     };
   }
 
@@ -5435,28 +5304,28 @@ export class RefreshOfficePreviewTokenRequest extends $tea.Model {
 }
 
 export class RefreshOfficePreviewTokenResponseBody extends $tea.Model {
-  refreshToken?: string;
   requestId?: string;
+  accessTokenExpiredTime?: string;
+  refreshToken?: string;
   accessToken?: string;
   refreshTokenExpiredTime?: string;
-  accessTokenExpiredTime?: string;
   static names(): { [key: string]: string } {
     return {
-      refreshToken: 'RefreshToken',
       requestId: 'RequestId',
+      accessTokenExpiredTime: 'AccessTokenExpiredTime',
+      refreshToken: 'RefreshToken',
       accessToken: 'AccessToken',
       refreshTokenExpiredTime: 'RefreshTokenExpiredTime',
-      accessTokenExpiredTime: 'AccessTokenExpiredTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      refreshToken: 'string',
       requestId: 'string',
+      accessTokenExpiredTime: 'string',
+      refreshToken: 'string',
       accessToken: 'string',
       refreshTokenExpiredTime: 'string',
-      accessTokenExpiredTime: 'string',
     };
   }
 
@@ -5513,28 +5382,28 @@ export class RefreshWebofficeTokenRequest extends $tea.Model {
 }
 
 export class RefreshWebofficeTokenResponseBody extends $tea.Model {
-  refreshToken?: string;
   requestId?: string;
+  accessTokenExpiredTime?: string;
+  refreshToken?: string;
   accessToken?: string;
   refreshTokenExpiredTime?: string;
-  accessTokenExpiredTime?: string;
   static names(): { [key: string]: string } {
     return {
-      refreshToken: 'RefreshToken',
       requestId: 'RequestId',
+      accessTokenExpiredTime: 'AccessTokenExpiredTime',
+      refreshToken: 'RefreshToken',
       accessToken: 'AccessToken',
       refreshTokenExpiredTime: 'RefreshTokenExpiredTime',
-      accessTokenExpiredTime: 'AccessTokenExpiredTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      refreshToken: 'string',
       requestId: 'string',
+      accessTokenExpiredTime: 'string',
+      refreshToken: 'string',
       accessToken: 'string',
       refreshTokenExpiredTime: 'string',
-      accessTokenExpiredTime: 'string',
     };
   }
 
@@ -5578,6 +5447,7 @@ export class UpdateFaceGroupRequest extends $tea.Model {
   remarksArrayA?: string;
   remarksArrayB?: string;
   externalId?: string;
+  resetItems?: string;
   static names(): { [key: string]: string } {
     return {
       project: 'Project',
@@ -5592,6 +5462,7 @@ export class UpdateFaceGroupRequest extends $tea.Model {
       remarksArrayA: 'RemarksArrayA',
       remarksArrayB: 'RemarksArrayB',
       externalId: 'ExternalId',
+      resetItems: 'ResetItems',
     };
   }
 
@@ -5609,6 +5480,7 @@ export class UpdateFaceGroupRequest extends $tea.Model {
       remarksArrayA: 'string',
       remarksArrayB: 'string',
       externalId: 'string',
+      resetItems: 'string',
     };
   }
 
@@ -5619,21 +5491,21 @@ export class UpdateFaceGroupRequest extends $tea.Model {
 
 export class UpdateFaceGroupResponseBody extends $tea.Model {
   requestId?: string;
-  setId?: string;
   groupId?: string;
+  setId?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      setId: 'SetId',
       groupId: 'GroupId',
+      setId: 'SetId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      setId: 'string',
       groupId: 'string',
+      setId: 'string',
     };
   }
 
@@ -5678,6 +5550,7 @@ export class UpdateImageRequest extends $tea.Model {
   externalId?: string;
   remarksArrayA?: string;
   remarksArrayB?: string;
+  faces?: UpdateImageRequestFaces[];
   static names(): { [key: string]: string } {
     return {
       project: 'Project',
@@ -5693,6 +5566,7 @@ export class UpdateImageRequest extends $tea.Model {
       externalId: 'ExternalId',
       remarksArrayA: 'RemarksArrayA',
       remarksArrayB: 'RemarksArrayB',
+      faces: 'Faces',
     };
   }
 
@@ -5711,6 +5585,65 @@ export class UpdateImageRequest extends $tea.Model {
       externalId: 'string',
       remarksArrayA: 'string',
       remarksArrayB: 'string',
+      faces: { 'type': 'array', 'itemType': UpdateImageRequestFaces },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateImageShrinkRequest extends $tea.Model {
+  project?: string;
+  setId?: string;
+  imageUri?: string;
+  remarksA?: string;
+  remarksB?: string;
+  sourceType?: string;
+  sourceUri?: string;
+  sourcePosition?: string;
+  remarksC?: string;
+  remarksD?: string;
+  externalId?: string;
+  remarksArrayA?: string;
+  remarksArrayB?: string;
+  facesShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      project: 'Project',
+      setId: 'SetId',
+      imageUri: 'ImageUri',
+      remarksA: 'RemarksA',
+      remarksB: 'RemarksB',
+      sourceType: 'SourceType',
+      sourceUri: 'SourceUri',
+      sourcePosition: 'SourcePosition',
+      remarksC: 'RemarksC',
+      remarksD: 'RemarksD',
+      externalId: 'ExternalId',
+      remarksArrayA: 'RemarksArrayA',
+      remarksArrayB: 'RemarksArrayB',
+      facesShrink: 'Faces',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      project: 'string',
+      setId: 'string',
+      imageUri: 'string',
+      remarksA: 'string',
+      remarksB: 'string',
+      sourceType: 'string',
+      sourceUri: 'string',
+      sourcePosition: 'string',
+      remarksC: 'string',
+      remarksD: 'string',
+      externalId: 'string',
+      remarksArrayA: 'string',
+      remarksArrayB: 'string',
+      facesShrink: 'string',
     };
   }
 
@@ -5819,37 +5752,37 @@ export class UpdateProjectRequest extends $tea.Model {
 }
 
 export class UpdateProjectResponseBody extends $tea.Model {
-  project?: string;
-  modifyTime?: string;
   type?: string;
-  CU?: number;
-  serviceRole?: string;
   requestId?: string;
+  CU?: number;
   createTime?: string;
+  serviceRole?: string;
+  project?: string;
   regionId?: string;
+  modifyTime?: string;
   static names(): { [key: string]: string } {
     return {
-      project: 'Project',
-      modifyTime: 'ModifyTime',
       type: 'Type',
-      CU: 'CU',
-      serviceRole: 'ServiceRole',
       requestId: 'RequestId',
+      CU: 'CU',
       createTime: 'CreateTime',
+      serviceRole: 'ServiceRole',
+      project: 'Project',
       regionId: 'RegionId',
+      modifyTime: 'ModifyTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      project: 'string',
-      modifyTime: 'string',
       type: 'string',
-      CU: 'number',
-      serviceRole: 'string',
       requestId: 'string',
+      CU: 'number',
       createTime: 'string',
+      serviceRole: 'string',
+      project: 'string',
       regionId: 'string',
+      modifyTime: 'string',
     };
   }
 
@@ -5906,27 +5839,27 @@ export class UpdateSetRequest extends $tea.Model {
 }
 
 export class UpdateSetResponseBody extends $tea.Model {
-  modifyTime?: string;
   requestId?: string;
   createTime?: string;
   setName?: string;
+  modifyTime?: string;
   setId?: string;
   static names(): { [key: string]: string } {
     return {
-      modifyTime: 'ModifyTime',
       requestId: 'RequestId',
       createTime: 'CreateTime',
       setName: 'SetName',
+      modifyTime: 'ModifyTime',
       setId: 'SetId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      modifyTime: 'string',
       requestId: 'string',
       createTime: 'string',
       setName: 'string',
+      modifyTime: 'string',
       setId: 'string',
     };
   }
@@ -5959,25 +5892,25 @@ export class UpdateSetResponse extends $tea.Model {
 }
 
 export class CompareImageFacesResponseBodyFaceAFaceAttributesFaceBoundary extends $tea.Model {
+  left?: number;
   top?: number;
   width?: number;
   height?: number;
-  left?: number;
   static names(): { [key: string]: string } {
     return {
+      left: 'Left',
       top: 'Top',
       width: 'Width',
       height: 'Height',
-      left: 'Left',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      left: 'number',
       top: 'number',
       width: 'number',
       height: 'number',
-      left: 'number',
     };
   }
 
@@ -6028,25 +5961,25 @@ export class CompareImageFacesResponseBodyFaceA extends $tea.Model {
 }
 
 export class CompareImageFacesResponseBodyFaceBFaceAttributesFaceBoundary extends $tea.Model {
+  left?: number;
   top?: number;
   width?: number;
   height?: number;
-  left?: number;
   static names(): { [key: string]: string } {
     return {
+      left: 'Left',
       top: 'Top',
       width: 'Width',
       height: 'Height',
-      left: 'Left',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      left: 'number',
       top: 'number',
       width: 'number',
       height: 'number',
-      left: 'number',
     };
   }
 
@@ -6097,19 +6030,19 @@ export class CompareImageFacesResponseBodyFaceB extends $tea.Model {
 }
 
 export class DescribeRegionsResponseBodyRegionsRegion extends $tea.Model {
-  projectTypes?: string[];
   regionId?: string;
+  projectTypes?: string[];
   static names(): { [key: string]: string } {
     return {
-      projectTypes: 'ProjectTypes',
       regionId: 'RegionId',
+      projectTypes: 'ProjectTypes',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      projectTypes: { 'type': 'array', 'itemType': 'string' },
       regionId: 'string',
+      projectTypes: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -6138,25 +6071,25 @@ export class DescribeRegionsResponseBodyRegions extends $tea.Model {
 }
 
 export class DetectImageBodiesResponseBodyBodiesBodyBoundary extends $tea.Model {
+  left?: number;
   top?: number;
   width?: number;
   height?: number;
-  left?: number;
   static names(): { [key: string]: string } {
     return {
+      left: 'Left',
       top: 'Top',
       width: 'Width',
       height: 'Height',
-      left: 'Left',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      left: 'number',
       top: 'number',
       width: 'number',
       height: 'number',
-      left: 'number',
     };
   }
 
@@ -6188,25 +6121,25 @@ export class DetectImageBodiesResponseBodyBodies extends $tea.Model {
 }
 
 export class DetectImageFacesResponseBodyFacesFaceAttributesFaceBoundary extends $tea.Model {
+  left?: number;
   top?: number;
   width?: number;
   height?: number;
-  left?: number;
   static names(): { [key: string]: string } {
     return {
+      left: 'Left',
       top: 'Top',
       width: 'Width',
       height: 'Height',
-      left: 'Left',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      left: 'number',
       top: 'number',
       width: 'number',
       height: 'number',
-      left: 'number',
     };
   }
 
@@ -6246,9 +6179,9 @@ export class DetectImageFacesResponseBodyFacesFaceAttributes extends $tea.Model 
   mask?: string;
   beardConfidence?: number;
   maskConfidence?: number;
+  beard?: string;
   faceBoundary?: DetectImageFacesResponseBodyFacesFaceAttributesFaceBoundary;
   headPose?: DetectImageFacesResponseBodyFacesFaceAttributesHeadPose;
-  beard?: string;
   static names(): { [key: string]: string } {
     return {
       glassesConfidence: 'GlassesConfidence',
@@ -6256,9 +6189,9 @@ export class DetectImageFacesResponseBodyFacesFaceAttributes extends $tea.Model 
       mask: 'Mask',
       beardConfidence: 'BeardConfidence',
       maskConfidence: 'MaskConfidence',
+      beard: 'Beard',
       faceBoundary: 'FaceBoundary',
       headPose: 'HeadPose',
-      beard: 'Beard',
     };
   }
 
@@ -6269,9 +6202,9 @@ export class DetectImageFacesResponseBodyFacesFaceAttributes extends $tea.Model 
       mask: 'string',
       beardConfidence: 'number',
       maskConfidence: 'number',
+      beard: 'string',
       faceBoundary: DetectImageFacesResponseBodyFacesFaceAttributesFaceBoundary,
       headPose: DetectImageFacesResponseBodyFacesFaceAttributesHeadPose,
-      beard: 'string',
     };
   }
 
@@ -6318,51 +6251,51 @@ export class DetectImageFacesResponseBodyFacesEmotionDetails extends $tea.Model 
 }
 
 export class DetectImageFacesResponseBodyFaces extends $tea.Model {
+  emotionConfidence?: number;
+  attractive?: number;
   attractiveConfidence?: number;
   gender?: string;
+  ageConfidence?: number;
   genderConfidence?: number;
   faceId?: string;
-  faceAttributes?: DetectImageFacesResponseBodyFacesFaceAttributes;
   faceQuality?: number;
   emotion?: string;
   age?: number;
   faceConfidence?: number;
-  emotionConfidence?: number;
-  attractive?: number;
-  ageConfidence?: number;
+  faceAttributes?: DetectImageFacesResponseBodyFacesFaceAttributes;
   emotionDetails?: DetectImageFacesResponseBodyFacesEmotionDetails;
   static names(): { [key: string]: string } {
     return {
+      emotionConfidence: 'EmotionConfidence',
+      attractive: 'Attractive',
       attractiveConfidence: 'AttractiveConfidence',
       gender: 'Gender',
+      ageConfidence: 'AgeConfidence',
       genderConfidence: 'GenderConfidence',
       faceId: 'FaceId',
-      faceAttributes: 'FaceAttributes',
       faceQuality: 'FaceQuality',
       emotion: 'Emotion',
       age: 'Age',
       faceConfidence: 'FaceConfidence',
-      emotionConfidence: 'EmotionConfidence',
-      attractive: 'Attractive',
-      ageConfidence: 'AgeConfidence',
+      faceAttributes: 'FaceAttributes',
       emotionDetails: 'EmotionDetails',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      emotionConfidence: 'number',
+      attractive: 'number',
       attractiveConfidence: 'number',
       gender: 'string',
+      ageConfidence: 'number',
       genderConfidence: 'number',
       faceId: 'string',
-      faceAttributes: DetectImageFacesResponseBodyFacesFaceAttributes,
       faceQuality: 'number',
       emotion: 'string',
       age: 'number',
       faceConfidence: 'number',
-      emotionConfidence: 'number',
-      attractive: 'number',
-      ageConfidence: 'number',
+      faceAttributes: DetectImageFacesResponseBodyFacesFaceAttributes,
       emotionDetails: DetectImageFacesResponseBodyFacesEmotionDetails,
     };
   }
@@ -6373,25 +6306,25 @@ export class DetectImageFacesResponseBodyFaces extends $tea.Model {
 }
 
 export class DetectImageLogosResponseBodyLogosLogoBoundary extends $tea.Model {
+  left?: number;
   top?: number;
   width?: number;
   height?: number;
-  left?: number;
   static names(): { [key: string]: string } {
     return {
+      left: 'Left',
       top: 'Top',
       width: 'Width',
       height: 'Height',
-      left: 'Left',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      left: 'number',
       top: 'number',
       width: 'number',
       height: 'number',
-      left: 'number',
     };
   }
 
@@ -6402,21 +6335,21 @@ export class DetectImageLogosResponseBodyLogosLogoBoundary extends $tea.Model {
 
 export class DetectImageLogosResponseBodyLogos extends $tea.Model {
   logoConfidence?: number;
-  logoBoundary?: DetectImageLogosResponseBodyLogosLogoBoundary;
   logoName?: string;
+  logoBoundary?: DetectImageLogosResponseBodyLogosLogoBoundary;
   static names(): { [key: string]: string } {
     return {
       logoConfidence: 'LogoConfidence',
-      logoBoundary: 'LogoBoundary',
       logoName: 'LogoName',
+      logoBoundary: 'LogoBoundary',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       logoConfidence: 'number',
-      logoBoundary: DetectImageLogosResponseBodyLogosLogoBoundary,
       logoName: 'string',
+      logoBoundary: DetectImageLogosResponseBodyLogosLogoBoundary,
     };
   }
 
@@ -6426,25 +6359,25 @@ export class DetectImageLogosResponseBodyLogos extends $tea.Model {
 }
 
 export class DetectImageQRCodesResponseBodyQRCodesQRCodeBoundary extends $tea.Model {
+  left?: number;
   top?: number;
   width?: number;
   height?: number;
-  left?: number;
   static names(): { [key: string]: string } {
     return {
+      left: 'Left',
       top: 'Top',
       width: 'Width',
       height: 'Height',
-      left: 'Left',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      left: 'number',
       top: 'number',
       width: 'number',
       height: 'number',
-      left: 'number',
     };
   }
 
@@ -6510,25 +6443,25 @@ export class DetectImageTagsResponseBodyTags extends $tea.Model {
 }
 
 export class DetectQRCodesResponseBodySuccessDetailsQRCodesQRCodesRectangle extends $tea.Model {
+  left?: string;
   top?: string;
   width?: string;
   height?: string;
-  left?: string;
   static names(): { [key: string]: string } {
     return {
+      left: 'Left',
       top: 'Top',
       width: 'Width',
       height: 'Height',
-      left: 'Left',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      left: 'string',
       top: 'string',
       width: 'string',
       height: 'string',
-      left: 'string',
     };
   }
 
@@ -6538,19 +6471,19 @@ export class DetectQRCodesResponseBodySuccessDetailsQRCodesQRCodesRectangle exte
 }
 
 export class DetectQRCodesResponseBodySuccessDetailsQRCodes extends $tea.Model {
-  QRCodesRectangle?: DetectQRCodesResponseBodySuccessDetailsQRCodesQRCodesRectangle;
   content?: string;
+  QRCodesRectangle?: DetectQRCodesResponseBodySuccessDetailsQRCodesQRCodesRectangle;
   static names(): { [key: string]: string } {
     return {
-      QRCodesRectangle: 'QRCodesRectangle',
       content: 'Content',
+      QRCodesRectangle: 'QRCodesRectangle',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      QRCodesRectangle: DetectQRCodesResponseBodySuccessDetailsQRCodesQRCodesRectangle,
       content: 'string',
+      QRCodesRectangle: DetectQRCodesResponseBodySuccessDetailsQRCodesQRCodesRectangle,
     };
   }
 
@@ -6606,54 +6539,26 @@ export class DetectQRCodesResponseBodyFailDetails extends $tea.Model {
   }
 }
 
-export class FindImagesResponseBodyImagesTags extends $tea.Model {
-  tagConfidence?: number;
-  tagName?: string;
-  tagLevel?: number;
-  parentTagName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      tagConfidence: 'TagConfidence',
-      tagName: 'TagName',
-      tagLevel: 'TagLevel',
-      parentTagName: 'ParentTagName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      tagConfidence: 'number',
-      tagName: 'string',
-      tagLevel: 'number',
-      parentTagName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class FindImagesResponseBodyImagesOCROCRBoundary extends $tea.Model {
+export class FindImagesResponseBodyImagesCroppingSuggestionCroppingBoundary extends $tea.Model {
+  left?: number;
   top?: number;
   width?: number;
   height?: number;
-  left?: number;
   static names(): { [key: string]: string } {
     return {
+      left: 'Left',
       top: 'Top',
       width: 'Width',
       height: 'Height',
-      left: 'Left',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      left: 'number',
       top: 'number',
       width: 'number',
       height: 'number',
-      left: 'number',
     };
   }
 
@@ -6662,150 +6567,23 @@ export class FindImagesResponseBodyImagesOCROCRBoundary extends $tea.Model {
   }
 }
 
-export class FindImagesResponseBodyImagesOCR extends $tea.Model {
-  OCRConfidence?: number;
-  OCRContents?: string;
-  OCRBoundary?: FindImagesResponseBodyImagesOCROCRBoundary;
+export class FindImagesResponseBodyImagesCroppingSuggestion extends $tea.Model {
+  score?: number;
+  aspectRatio?: string;
+  croppingBoundary?: FindImagesResponseBodyImagesCroppingSuggestionCroppingBoundary;
   static names(): { [key: string]: string } {
     return {
-      OCRConfidence: 'OCRConfidence',
-      OCRContents: 'OCRContents',
-      OCRBoundary: 'OCRBoundary',
+      score: 'Score',
+      aspectRatio: 'AspectRatio',
+      croppingBoundary: 'CroppingBoundary',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      OCRConfidence: 'number',
-      OCRContents: 'string',
-      OCRBoundary: FindImagesResponseBodyImagesOCROCRBoundary,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class FindImagesResponseBodyImagesAddress extends $tea.Model {
-  township?: string;
-  district?: string;
-  addressLine?: string;
-  country?: string;
-  city?: string;
-  province?: string;
-  static names(): { [key: string]: string } {
-    return {
-      township: 'Township',
-      district: 'District',
-      addressLine: 'AddressLine',
-      country: 'Country',
-      city: 'City',
-      province: 'Province',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      township: 'string',
-      district: 'string',
-      addressLine: 'string',
-      country: 'string',
-      city: 'string',
-      province: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class FindImagesResponseBodyImagesFacesFaceAttributesFaceBoundary extends $tea.Model {
-  top?: number;
-  width?: number;
-  height?: number;
-  left?: number;
-  static names(): { [key: string]: string } {
-    return {
-      top: 'Top',
-      width: 'Width',
-      height: 'Height',
-      left: 'Left',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      top: 'number',
-      width: 'number',
-      height: 'number',
-      left: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class FindImagesResponseBodyImagesFacesFaceAttributesHeadPose extends $tea.Model {
-  pitch?: number;
-  roll?: number;
-  yaw?: number;
-  static names(): { [key: string]: string } {
-    return {
-      pitch: 'Pitch',
-      roll: 'Roll',
-      yaw: 'Yaw',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pitch: 'number',
-      roll: 'number',
-      yaw: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class FindImagesResponseBodyImagesFacesFaceAttributes extends $tea.Model {
-  glassesConfidence?: number;
-  glasses?: string;
-  mask?: string;
-  beardConfidence?: number;
-  maskConfidence?: number;
-  faceBoundary?: FindImagesResponseBodyImagesFacesFaceAttributesFaceBoundary;
-  headPose?: FindImagesResponseBodyImagesFacesFaceAttributesHeadPose;
-  beard?: string;
-  static names(): { [key: string]: string } {
-    return {
-      glassesConfidence: 'GlassesConfidence',
-      glasses: 'Glasses',
-      mask: 'Mask',
-      beardConfidence: 'BeardConfidence',
-      maskConfidence: 'MaskConfidence',
-      faceBoundary: 'FaceBoundary',
-      headPose: 'HeadPose',
-      beard: 'Beard',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      glassesConfidence: 'number',
-      glasses: 'string',
-      mask: 'string',
-      beardConfidence: 'number',
-      maskConfidence: 'number',
-      faceBoundary: FindImagesResponseBodyImagesFacesFaceAttributesFaceBoundary,
-      headPose: FindImagesResponseBodyImagesFacesFaceAttributesHeadPose,
-      beard: 'string',
+      score: 'number',
+      aspectRatio: 'string',
+      croppingBoundary: FindImagesResponseBodyImagesCroppingSuggestionCroppingBoundary,
     };
   }
 
@@ -6851,50 +6629,224 @@ export class FindImagesResponseBodyImagesFacesEmotionDetails extends $tea.Model 
   }
 }
 
-export class FindImagesResponseBodyImagesFaces extends $tea.Model {
-  gender?: string;
-  faceId?: string;
-  genderConfidence?: number;
-  faceAttributes?: FindImagesResponseBodyImagesFacesFaceAttributes;
-  faceQuality?: number;
-  emotion?: string;
-  age?: number;
-  faceConfidence?: number;
-  emotionConfidence?: number;
-  attractive?: number;
-  groupId?: string;
-  emotionDetails?: FindImagesResponseBodyImagesFacesEmotionDetails;
+export class FindImagesResponseBodyImagesFacesFaceAttributesFaceBoundary extends $tea.Model {
+  left?: number;
+  top?: number;
+  width?: number;
+  height?: number;
   static names(): { [key: string]: string } {
     return {
-      gender: 'Gender',
-      faceId: 'FaceId',
-      genderConfidence: 'GenderConfidence',
-      faceAttributes: 'FaceAttributes',
-      faceQuality: 'FaceQuality',
-      emotion: 'Emotion',
-      age: 'Age',
-      faceConfidence: 'FaceConfidence',
-      emotionConfidence: 'EmotionConfidence',
-      attractive: 'Attractive',
-      groupId: 'GroupId',
-      emotionDetails: 'EmotionDetails',
+      left: 'Left',
+      top: 'Top',
+      width: 'Width',
+      height: 'Height',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      left: 'number',
+      top: 'number',
+      width: 'number',
+      height: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FindImagesResponseBodyImagesFacesFaceAttributesHeadPose extends $tea.Model {
+  pitch?: number;
+  roll?: number;
+  yaw?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pitch: 'Pitch',
+      roll: 'Roll',
+      yaw: 'Yaw',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pitch: 'number',
+      roll: 'number',
+      yaw: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FindImagesResponseBodyImagesFacesFaceAttributes extends $tea.Model {
+  glassesConfidence?: number;
+  glasses?: string;
+  mask?: string;
+  beardConfidence?: number;
+  maskConfidence?: number;
+  beard?: string;
+  faceBoundary?: FindImagesResponseBodyImagesFacesFaceAttributesFaceBoundary;
+  headPose?: FindImagesResponseBodyImagesFacesFaceAttributesHeadPose;
+  static names(): { [key: string]: string } {
+    return {
+      glassesConfidence: 'GlassesConfidence',
+      glasses: 'Glasses',
+      mask: 'Mask',
+      beardConfidence: 'BeardConfidence',
+      maskConfidence: 'MaskConfidence',
+      beard: 'Beard',
+      faceBoundary: 'FaceBoundary',
+      headPose: 'HeadPose',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      glassesConfidence: 'number',
+      glasses: 'string',
+      mask: 'string',
+      beardConfidence: 'number',
+      maskConfidence: 'number',
+      beard: 'string',
+      faceBoundary: FindImagesResponseBodyImagesFacesFaceAttributesFaceBoundary,
+      headPose: FindImagesResponseBodyImagesFacesFaceAttributesHeadPose,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FindImagesResponseBodyImagesFaces extends $tea.Model {
+  emotionConfidence?: number;
+  attractive?: number;
+  groupId?: string;
+  gender?: string;
+  faceId?: string;
+  genderConfidence?: number;
+  faceQuality?: number;
+  emotion?: string;
+  age?: number;
+  faceConfidence?: number;
+  emotionDetails?: FindImagesResponseBodyImagesFacesEmotionDetails;
+  faceAttributes?: FindImagesResponseBodyImagesFacesFaceAttributes;
+  static names(): { [key: string]: string } {
+    return {
+      emotionConfidence: 'EmotionConfidence',
+      attractive: 'Attractive',
+      groupId: 'GroupId',
+      gender: 'Gender',
+      faceId: 'FaceId',
+      genderConfidence: 'GenderConfidence',
+      faceQuality: 'FaceQuality',
+      emotion: 'Emotion',
+      age: 'Age',
+      faceConfidence: 'FaceConfidence',
+      emotionDetails: 'EmotionDetails',
+      faceAttributes: 'FaceAttributes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      emotionConfidence: 'number',
+      attractive: 'number',
+      groupId: 'string',
       gender: 'string',
       faceId: 'string',
       genderConfidence: 'number',
-      faceAttributes: FindImagesResponseBodyImagesFacesFaceAttributes,
       faceQuality: 'number',
       emotion: 'string',
       age: 'number',
       faceConfidence: 'number',
-      emotionConfidence: 'number',
-      attractive: 'number',
-      groupId: 'string',
       emotionDetails: FindImagesResponseBodyImagesFacesEmotionDetails,
+      faceAttributes: FindImagesResponseBodyImagesFacesFaceAttributes,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FindImagesResponseBodyImagesTags extends $tea.Model {
+  tagLevel?: number;
+  parentTagName?: string;
+  tagConfidence?: number;
+  tagName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagLevel: 'TagLevel',
+      parentTagName: 'ParentTagName',
+      tagConfidence: 'TagConfidence',
+      tagName: 'TagName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagLevel: 'number',
+      parentTagName: 'string',
+      tagConfidence: 'number',
+      tagName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FindImagesResponseBodyImagesOCROCRBoundary extends $tea.Model {
+  left?: number;
+  top?: number;
+  width?: number;
+  height?: number;
+  static names(): { [key: string]: string } {
+    return {
+      left: 'Left',
+      top: 'Top',
+      width: 'Width',
+      height: 'Height',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      left: 'number',
+      top: 'number',
+      width: 'number',
+      height: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FindImagesResponseBodyImagesOCR extends $tea.Model {
+  OCRConfidence?: number;
+  OCRContents?: string;
+  OCRBoundary?: FindImagesResponseBodyImagesOCROCRBoundary;
+  static names(): { [key: string]: string } {
+    return {
+      OCRConfidence: 'OCRConfidence',
+      OCRContents: 'OCRContents',
+      OCRBoundary: 'OCRBoundary',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      OCRConfidence: 'number',
+      OCRContents: 'string',
+      OCRBoundary: FindImagesResponseBodyImagesOCROCRBoundary,
     };
   }
 
@@ -6949,51 +6901,32 @@ export class FindImagesResponseBodyImagesImageQuality extends $tea.Model {
   }
 }
 
-export class FindImagesResponseBodyImagesCroppingSuggestionCroppingBoundary extends $tea.Model {
-  top?: number;
-  width?: number;
-  height?: number;
-  left?: number;
+export class FindImagesResponseBodyImagesAddress extends $tea.Model {
+  township?: string;
+  district?: string;
+  addressLine?: string;
+  country?: string;
+  city?: string;
+  province?: string;
   static names(): { [key: string]: string } {
     return {
-      top: 'Top',
-      width: 'Width',
-      height: 'Height',
-      left: 'Left',
+      township: 'Township',
+      district: 'District',
+      addressLine: 'AddressLine',
+      country: 'Country',
+      city: 'City',
+      province: 'Province',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      top: 'number',
-      width: 'number',
-      height: 'number',
-      left: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class FindImagesResponseBodyImagesCroppingSuggestion extends $tea.Model {
-  score?: number;
-  croppingBoundary?: FindImagesResponseBodyImagesCroppingSuggestionCroppingBoundary;
-  aspectRatio?: string;
-  static names(): { [key: string]: string } {
-    return {
-      score: 'Score',
-      croppingBoundary: 'CroppingBoundary',
-      aspectRatio: 'AspectRatio',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      score: 'number',
-      croppingBoundary: FindImagesResponseBodyImagesCroppingSuggestionCroppingBoundary,
-      aspectRatio: 'string',
+      township: 'string',
+      district: 'string',
+      addressLine: 'string',
+      country: 'string',
+      city: 'string',
+      province: 'string',
     };
   }
 
@@ -7010,32 +6943,26 @@ export class FindImagesResponseBodyImages extends $tea.Model {
   createTime?: string;
   sourceType?: string;
   facesFailReason?: string;
-  tags?: FindImagesResponseBodyImagesTags[];
   facesModifyTime?: string;
   imageTime?: string;
   OCRModifyTime?: string;
   addressModifyTime?: string;
-  OCR?: FindImagesResponseBodyImagesOCR[];
   imageQualityFailReason?: string;
   facesStatus?: string;
-  imageHeight?: number;
   remarksArrayA?: string;
-  address?: FindImagesResponseBodyImagesAddress;
+  imageHeight?: number;
   externalId?: string;
   sourceUri?: string;
-  modifyTime?: string;
   fileSize?: number;
+  modifyTime?: string;
   sourcePosition?: string;
-  faces?: FindImagesResponseBodyImagesFaces[];
   imageQualityStatus?: string;
   OCRFailReason?: string;
   addressFailReason?: string;
-  imageQuality?: FindImagesResponseBodyImagesImageQuality;
   croppingSuggestionModifyTime?: string;
   imageFormat?: string;
   imageWidth?: number;
   remarksArrayB?: string;
-  croppingSuggestion?: FindImagesResponseBodyImagesCroppingSuggestion[];
   orientation?: string;
   remarksD?: string;
   tagsStatus?: string;
@@ -7048,6 +6975,12 @@ export class FindImagesResponseBodyImages extends $tea.Model {
   exif?: string;
   location?: string;
   remarksB?: string;
+  croppingSuggestion?: FindImagesResponseBodyImagesCroppingSuggestion[];
+  faces?: FindImagesResponseBodyImagesFaces[];
+  tags?: FindImagesResponseBodyImagesTags[];
+  OCR?: FindImagesResponseBodyImagesOCR[];
+  imageQuality?: FindImagesResponseBodyImagesImageQuality;
+  address?: FindImagesResponseBodyImagesAddress;
   static names(): { [key: string]: string } {
     return {
       croppingSuggestionStatus: 'CroppingSuggestionStatus',
@@ -7057,32 +6990,26 @@ export class FindImagesResponseBodyImages extends $tea.Model {
       createTime: 'CreateTime',
       sourceType: 'SourceType',
       facesFailReason: 'FacesFailReason',
-      tags: 'Tags',
       facesModifyTime: 'FacesModifyTime',
       imageTime: 'ImageTime',
       OCRModifyTime: 'OCRModifyTime',
       addressModifyTime: 'AddressModifyTime',
-      OCR: 'OCR',
       imageQualityFailReason: 'ImageQualityFailReason',
       facesStatus: 'FacesStatus',
-      imageHeight: 'ImageHeight',
       remarksArrayA: 'RemarksArrayA',
-      address: 'Address',
+      imageHeight: 'ImageHeight',
       externalId: 'ExternalId',
       sourceUri: 'SourceUri',
-      modifyTime: 'ModifyTime',
       fileSize: 'FileSize',
+      modifyTime: 'ModifyTime',
       sourcePosition: 'SourcePosition',
-      faces: 'Faces',
       imageQualityStatus: 'ImageQualityStatus',
       OCRFailReason: 'OCRFailReason',
       addressFailReason: 'AddressFailReason',
-      imageQuality: 'ImageQuality',
       croppingSuggestionModifyTime: 'CroppingSuggestionModifyTime',
       imageFormat: 'ImageFormat',
       imageWidth: 'ImageWidth',
       remarksArrayB: 'RemarksArrayB',
-      croppingSuggestion: 'CroppingSuggestion',
       orientation: 'Orientation',
       remarksD: 'RemarksD',
       tagsStatus: 'TagsStatus',
@@ -7095,6 +7022,12 @@ export class FindImagesResponseBodyImages extends $tea.Model {
       exif: 'Exif',
       location: 'Location',
       remarksB: 'RemarksB',
+      croppingSuggestion: 'CroppingSuggestion',
+      faces: 'Faces',
+      tags: 'Tags',
+      OCR: 'OCR',
+      imageQuality: 'ImageQuality',
+      address: 'Address',
     };
   }
 
@@ -7107,32 +7040,26 @@ export class FindImagesResponseBodyImages extends $tea.Model {
       createTime: 'string',
       sourceType: 'string',
       facesFailReason: 'string',
-      tags: { 'type': 'array', 'itemType': FindImagesResponseBodyImagesTags },
       facesModifyTime: 'string',
       imageTime: 'string',
       OCRModifyTime: 'string',
       addressModifyTime: 'string',
-      OCR: { 'type': 'array', 'itemType': FindImagesResponseBodyImagesOCR },
       imageQualityFailReason: 'string',
       facesStatus: 'string',
-      imageHeight: 'number',
       remarksArrayA: 'string',
-      address: FindImagesResponseBodyImagesAddress,
+      imageHeight: 'number',
       externalId: 'string',
       sourceUri: 'string',
-      modifyTime: 'string',
       fileSize: 'number',
+      modifyTime: 'string',
       sourcePosition: 'string',
-      faces: { 'type': 'array', 'itemType': FindImagesResponseBodyImagesFaces },
       imageQualityStatus: 'string',
       OCRFailReason: 'string',
       addressFailReason: 'string',
-      imageQuality: FindImagesResponseBodyImagesImageQuality,
       croppingSuggestionModifyTime: 'string',
       imageFormat: 'string',
       imageWidth: 'number',
       remarksArrayB: 'string',
-      croppingSuggestion: { 'type': 'array', 'itemType': FindImagesResponseBodyImagesCroppingSuggestion },
       orientation: 'string',
       remarksD: 'string',
       tagsStatus: 'string',
@@ -7145,53 +7072,12 @@ export class FindImagesResponseBodyImages extends $tea.Model {
       exif: 'string',
       location: 'string',
       remarksB: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class FindSimilarFacesResponseBodyFacesFaceAttributesFaceBoundary extends $tea.Model {
-  top?: number;
-  width?: number;
-  height?: number;
-  left?: number;
-  static names(): { [key: string]: string } {
-    return {
-      top: 'Top',
-      width: 'Width',
-      height: 'Height',
-      left: 'Left',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      top: 'number',
-      width: 'number',
-      height: 'number',
-      left: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class FindSimilarFacesResponseBodyFacesFaceAttributes extends $tea.Model {
-  faceBoundary?: FindSimilarFacesResponseBodyFacesFaceAttributesFaceBoundary;
-  static names(): { [key: string]: string } {
-    return {
-      faceBoundary: 'FaceBoundary',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      faceBoundary: FindSimilarFacesResponseBodyFacesFaceAttributesFaceBoundary,
+      croppingSuggestion: { 'type': 'array', 'itemType': FindImagesResponseBodyImagesCroppingSuggestion },
+      faces: { 'type': 'array', 'itemType': FindImagesResponseBodyImagesFaces },
+      tags: { 'type': 'array', 'itemType': FindImagesResponseBodyImagesTags },
+      OCR: { 'type': 'array', 'itemType': FindImagesResponseBodyImagesOCR },
+      imageQuality: FindImagesResponseBodyImagesImageQuality,
+      address: FindImagesResponseBodyImagesAddress,
     };
   }
 
@@ -7201,25 +7087,25 @@ export class FindSimilarFacesResponseBodyFacesFaceAttributes extends $tea.Model 
 }
 
 export class FindSimilarFacesResponseBodyFacesSimilarFacesFaceAttributesFaceBoundary extends $tea.Model {
+  left?: number;
   top?: number;
   width?: number;
   height?: number;
-  left?: number;
   static names(): { [key: string]: string } {
     return {
+      left: 'Left',
       top: 'Top',
       width: 'Width',
       height: 'Height',
-      left: 'Left',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      left: 'number',
       top: 'number',
       width: 'number',
       height: 'number',
-      left: 'number',
     };
   }
 
@@ -7248,28 +7134,75 @@ export class FindSimilarFacesResponseBodyFacesSimilarFacesFaceAttributes extends
 }
 
 export class FindSimilarFacesResponseBodyFacesSimilarFaces extends $tea.Model {
+  externalId?: string;
+  similarity?: number;
   faceId?: string;
   imageUri?: string;
-  externalId?: string;
   faceAttributes?: FindSimilarFacesResponseBodyFacesSimilarFacesFaceAttributes;
-  similarity?: number;
   static names(): { [key: string]: string } {
     return {
+      externalId: 'ExternalId',
+      similarity: 'Similarity',
       faceId: 'FaceId',
       imageUri: 'ImageUri',
-      externalId: 'ExternalId',
       faceAttributes: 'FaceAttributes',
-      similarity: 'Similarity',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      externalId: 'string',
+      similarity: 'number',
       faceId: 'string',
       imageUri: 'string',
-      externalId: 'string',
       faceAttributes: FindSimilarFacesResponseBodyFacesSimilarFacesFaceAttributes,
-      similarity: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FindSimilarFacesResponseBodyFacesFaceAttributesFaceBoundary extends $tea.Model {
+  left?: number;
+  top?: number;
+  width?: number;
+  height?: number;
+  static names(): { [key: string]: string } {
+    return {
+      left: 'Left',
+      top: 'Top',
+      width: 'Width',
+      height: 'Height',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      left: 'number',
+      top: 'number',
+      width: 'number',
+      height: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FindSimilarFacesResponseBodyFacesFaceAttributes extends $tea.Model {
+  faceBoundary?: FindSimilarFacesResponseBodyFacesFaceAttributesFaceBoundary;
+  static names(): { [key: string]: string } {
+    return {
+      faceBoundary: 'FaceBoundary',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      faceBoundary: FindSimilarFacesResponseBodyFacesFaceAttributesFaceBoundary,
     };
   }
 
@@ -7279,31 +7212,31 @@ export class FindSimilarFacesResponseBodyFacesSimilarFaces extends $tea.Model {
 }
 
 export class FindSimilarFacesResponseBodyFaces extends $tea.Model {
+  externalId?: string;
+  similarity?: number;
   faceId?: string;
   imageUri?: string;
-  externalId?: string;
-  faceAttributes?: FindSimilarFacesResponseBodyFacesFaceAttributes;
-  similarity?: number;
   similarFaces?: FindSimilarFacesResponseBodyFacesSimilarFaces[];
+  faceAttributes?: FindSimilarFacesResponseBodyFacesFaceAttributes;
   static names(): { [key: string]: string } {
     return {
+      externalId: 'ExternalId',
+      similarity: 'Similarity',
       faceId: 'FaceId',
       imageUri: 'ImageUri',
-      externalId: 'ExternalId',
-      faceAttributes: 'FaceAttributes',
-      similarity: 'Similarity',
       similarFaces: 'SimilarFaces',
+      faceAttributes: 'FaceAttributes',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      externalId: 'string',
+      similarity: 'number',
       faceId: 'string',
       imageUri: 'string',
-      externalId: 'string',
-      faceAttributes: FindSimilarFacesResponseBodyFacesFaceAttributes,
-      similarity: 'number',
       similarFaces: { 'type': 'array', 'itemType': FindSimilarFacesResponseBodyFacesSimilarFaces },
+      faceAttributes: FindSimilarFacesResponseBodyFacesFaceAttributes,
     };
   }
 
@@ -7709,25 +7642,25 @@ export class GetImageResponseBodyOCR extends $tea.Model {
 }
 
 export class GetImageCroppingSuggestionsResponseBodyCroppingSuggestionsCroppingBoundary extends $tea.Model {
+  left?: number;
   top?: number;
   width?: number;
   height?: number;
-  left?: number;
   static names(): { [key: string]: string } {
     return {
+      left: 'Left',
       top: 'Top',
       width: 'Width',
       height: 'Height',
-      left: 'Left',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      left: 'number',
       top: 'number',
       width: 'number',
       height: 'number',
-      left: 'number',
     };
   }
 
@@ -7738,21 +7671,21 @@ export class GetImageCroppingSuggestionsResponseBodyCroppingSuggestionsCroppingB
 
 export class GetImageCroppingSuggestionsResponseBodyCroppingSuggestions extends $tea.Model {
   score?: number;
-  croppingBoundary?: GetImageCroppingSuggestionsResponseBodyCroppingSuggestionsCroppingBoundary;
   aspectRatio?: string;
+  croppingBoundary?: GetImageCroppingSuggestionsResponseBodyCroppingSuggestionsCroppingBoundary;
   static names(): { [key: string]: string } {
     return {
       score: 'Score',
-      croppingBoundary: 'CroppingBoundary',
       aspectRatio: 'AspectRatio',
+      croppingBoundary: 'CroppingBoundary',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       score: 'number',
-      croppingBoundary: GetImageCroppingSuggestionsResponseBodyCroppingSuggestionsCroppingBoundary,
       aspectRatio: 'string',
+      croppingBoundary: GetImageCroppingSuggestionsResponseBodyCroppingSuggestionsCroppingBoundary,
     };
   }
 
@@ -8227,22 +8160,31 @@ export class ListFaceGroupsResponseBodyFaceGroupsGroupCoverFaceFaceBoundary exte
 }
 
 export class ListFaceGroupsResponseBodyFaceGroupsGroupCoverFace extends $tea.Model {
-  imageUri?: string;
   faceId?: string;
+  imageUri?: string;
   faceBoundary?: ListFaceGroupsResponseBodyFaceGroupsGroupCoverFaceFaceBoundary;
+  externalId?: string;
+  imageHeight?: number;
+  imageWidth?: number;
   static names(): { [key: string]: string } {
     return {
-      imageUri: 'ImageUri',
       faceId: 'FaceId',
+      imageUri: 'ImageUri',
       faceBoundary: 'FaceBoundary',
+      externalId: 'ExternalId',
+      imageHeight: 'ImageHeight',
+      imageWidth: 'ImageWidth',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      imageUri: 'string',
       faceId: 'string',
+      imageUri: 'string',
       faceBoundary: ListFaceGroupsResponseBodyFaceGroupsGroupCoverFaceFaceBoundary,
+      externalId: 'string',
+      imageHeight: 'number',
+      imageWidth: 'number',
     };
   }
 
@@ -8321,54 +8263,26 @@ export class ListFaceGroupsResponseBodyFaceGroups extends $tea.Model {
   }
 }
 
-export class ListImagesResponseBodyImagesTags extends $tea.Model {
-  tagConfidence?: number;
-  tagName?: string;
-  tagLevel?: number;
-  parentTagName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      tagConfidence: 'TagConfidence',
-      tagName: 'TagName',
-      tagLevel: 'TagLevel',
-      parentTagName: 'ParentTagName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      tagConfidence: 'number',
-      tagName: 'string',
-      tagLevel: 'number',
-      parentTagName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListImagesResponseBodyImagesOCROCRBoundary extends $tea.Model {
+export class ListImagesResponseBodyImagesCroppingSuggestionCroppingBoundary extends $tea.Model {
+  left?: number;
   top?: number;
   width?: number;
   height?: number;
-  left?: number;
   static names(): { [key: string]: string } {
     return {
+      left: 'Left',
       top: 'Top',
       width: 'Width',
       height: 'Height',
-      left: 'Left',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      left: 'number',
       top: 'number',
       width: 'number',
       height: 'number',
-      left: 'number',
     };
   }
 
@@ -8377,150 +8291,23 @@ export class ListImagesResponseBodyImagesOCROCRBoundary extends $tea.Model {
   }
 }
 
-export class ListImagesResponseBodyImagesOCR extends $tea.Model {
-  OCRConfidence?: number;
-  OCRContents?: string;
-  OCRBoundary?: ListImagesResponseBodyImagesOCROCRBoundary;
+export class ListImagesResponseBodyImagesCroppingSuggestion extends $tea.Model {
+  score?: number;
+  aspectRatio?: string;
+  croppingBoundary?: ListImagesResponseBodyImagesCroppingSuggestionCroppingBoundary;
   static names(): { [key: string]: string } {
     return {
-      OCRConfidence: 'OCRConfidence',
-      OCRContents: 'OCRContents',
-      OCRBoundary: 'OCRBoundary',
+      score: 'Score',
+      aspectRatio: 'AspectRatio',
+      croppingBoundary: 'CroppingBoundary',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      OCRConfidence: 'number',
-      OCRContents: 'string',
-      OCRBoundary: ListImagesResponseBodyImagesOCROCRBoundary,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListImagesResponseBodyImagesAddress extends $tea.Model {
-  township?: string;
-  district?: string;
-  addressLine?: string;
-  country?: string;
-  city?: string;
-  province?: string;
-  static names(): { [key: string]: string } {
-    return {
-      township: 'Township',
-      district: 'District',
-      addressLine: 'AddressLine',
-      country: 'Country',
-      city: 'City',
-      province: 'Province',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      township: 'string',
-      district: 'string',
-      addressLine: 'string',
-      country: 'string',
-      city: 'string',
-      province: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListImagesResponseBodyImagesFacesFaceAttributesFaceBoundary extends $tea.Model {
-  top?: number;
-  width?: number;
-  height?: number;
-  left?: number;
-  static names(): { [key: string]: string } {
-    return {
-      top: 'Top',
-      width: 'Width',
-      height: 'Height',
-      left: 'Left',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      top: 'number',
-      width: 'number',
-      height: 'number',
-      left: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListImagesResponseBodyImagesFacesFaceAttributesHeadPose extends $tea.Model {
-  pitch?: number;
-  roll?: number;
-  yaw?: number;
-  static names(): { [key: string]: string } {
-    return {
-      pitch: 'Pitch',
-      roll: 'Roll',
-      yaw: 'Yaw',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pitch: 'number',
-      roll: 'number',
-      yaw: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListImagesResponseBodyImagesFacesFaceAttributes extends $tea.Model {
-  glassesConfidence?: number;
-  glasses?: string;
-  mask?: string;
-  beardConfidence?: number;
-  maskConfidence?: number;
-  faceBoundary?: ListImagesResponseBodyImagesFacesFaceAttributesFaceBoundary;
-  headPose?: ListImagesResponseBodyImagesFacesFaceAttributesHeadPose;
-  beard?: string;
-  static names(): { [key: string]: string } {
-    return {
-      glassesConfidence: 'GlassesConfidence',
-      glasses: 'Glasses',
-      mask: 'Mask',
-      beardConfidence: 'BeardConfidence',
-      maskConfidence: 'MaskConfidence',
-      faceBoundary: 'FaceBoundary',
-      headPose: 'HeadPose',
-      beard: 'Beard',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      glassesConfidence: 'number',
-      glasses: 'string',
-      mask: 'string',
-      beardConfidence: 'number',
-      maskConfidence: 'number',
-      faceBoundary: ListImagesResponseBodyImagesFacesFaceAttributesFaceBoundary,
-      headPose: ListImagesResponseBodyImagesFacesFaceAttributesHeadPose,
-      beard: 'string',
+      score: 'number',
+      aspectRatio: 'string',
+      croppingBoundary: ListImagesResponseBodyImagesCroppingSuggestionCroppingBoundary,
     };
   }
 
@@ -8566,50 +8353,224 @@ export class ListImagesResponseBodyImagesFacesEmotionDetails extends $tea.Model 
   }
 }
 
-export class ListImagesResponseBodyImagesFaces extends $tea.Model {
-  gender?: string;
-  faceId?: string;
-  genderConfidence?: number;
-  faceAttributes?: ListImagesResponseBodyImagesFacesFaceAttributes;
-  faceQuality?: number;
-  emotion?: string;
-  age?: number;
-  faceConfidence?: number;
-  emotionConfidence?: number;
-  attractive?: number;
-  groupId?: string;
-  emotionDetails?: ListImagesResponseBodyImagesFacesEmotionDetails;
+export class ListImagesResponseBodyImagesFacesFaceAttributesFaceBoundary extends $tea.Model {
+  left?: number;
+  top?: number;
+  width?: number;
+  height?: number;
   static names(): { [key: string]: string } {
     return {
-      gender: 'Gender',
-      faceId: 'FaceId',
-      genderConfidence: 'GenderConfidence',
-      faceAttributes: 'FaceAttributes',
-      faceQuality: 'FaceQuality',
-      emotion: 'Emotion',
-      age: 'Age',
-      faceConfidence: 'FaceConfidence',
-      emotionConfidence: 'EmotionConfidence',
-      attractive: 'Attractive',
-      groupId: 'GroupId',
-      emotionDetails: 'EmotionDetails',
+      left: 'Left',
+      top: 'Top',
+      width: 'Width',
+      height: 'Height',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      left: 'number',
+      top: 'number',
+      width: 'number',
+      height: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListImagesResponseBodyImagesFacesFaceAttributesHeadPose extends $tea.Model {
+  pitch?: number;
+  roll?: number;
+  yaw?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pitch: 'Pitch',
+      roll: 'Roll',
+      yaw: 'Yaw',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pitch: 'number',
+      roll: 'number',
+      yaw: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListImagesResponseBodyImagesFacesFaceAttributes extends $tea.Model {
+  glassesConfidence?: number;
+  glasses?: string;
+  mask?: string;
+  beardConfidence?: number;
+  maskConfidence?: number;
+  beard?: string;
+  faceBoundary?: ListImagesResponseBodyImagesFacesFaceAttributesFaceBoundary;
+  headPose?: ListImagesResponseBodyImagesFacesFaceAttributesHeadPose;
+  static names(): { [key: string]: string } {
+    return {
+      glassesConfidence: 'GlassesConfidence',
+      glasses: 'Glasses',
+      mask: 'Mask',
+      beardConfidence: 'BeardConfidence',
+      maskConfidence: 'MaskConfidence',
+      beard: 'Beard',
+      faceBoundary: 'FaceBoundary',
+      headPose: 'HeadPose',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      glassesConfidence: 'number',
+      glasses: 'string',
+      mask: 'string',
+      beardConfidence: 'number',
+      maskConfidence: 'number',
+      beard: 'string',
+      faceBoundary: ListImagesResponseBodyImagesFacesFaceAttributesFaceBoundary,
+      headPose: ListImagesResponseBodyImagesFacesFaceAttributesHeadPose,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListImagesResponseBodyImagesFaces extends $tea.Model {
+  emotionConfidence?: number;
+  attractive?: number;
+  groupId?: string;
+  gender?: string;
+  faceId?: string;
+  genderConfidence?: number;
+  faceQuality?: number;
+  emotion?: string;
+  age?: number;
+  faceConfidence?: number;
+  emotionDetails?: ListImagesResponseBodyImagesFacesEmotionDetails;
+  faceAttributes?: ListImagesResponseBodyImagesFacesFaceAttributes;
+  static names(): { [key: string]: string } {
+    return {
+      emotionConfidence: 'EmotionConfidence',
+      attractive: 'Attractive',
+      groupId: 'GroupId',
+      gender: 'Gender',
+      faceId: 'FaceId',
+      genderConfidence: 'GenderConfidence',
+      faceQuality: 'FaceQuality',
+      emotion: 'Emotion',
+      age: 'Age',
+      faceConfidence: 'FaceConfidence',
+      emotionDetails: 'EmotionDetails',
+      faceAttributes: 'FaceAttributes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      emotionConfidence: 'number',
+      attractive: 'number',
+      groupId: 'string',
       gender: 'string',
       faceId: 'string',
       genderConfidence: 'number',
-      faceAttributes: ListImagesResponseBodyImagesFacesFaceAttributes,
       faceQuality: 'number',
       emotion: 'string',
       age: 'number',
       faceConfidence: 'number',
-      emotionConfidence: 'number',
-      attractive: 'number',
-      groupId: 'string',
       emotionDetails: ListImagesResponseBodyImagesFacesEmotionDetails,
+      faceAttributes: ListImagesResponseBodyImagesFacesFaceAttributes,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListImagesResponseBodyImagesTags extends $tea.Model {
+  tagLevel?: number;
+  parentTagName?: string;
+  tagConfidence?: number;
+  tagName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagLevel: 'TagLevel',
+      parentTagName: 'ParentTagName',
+      tagConfidence: 'TagConfidence',
+      tagName: 'TagName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagLevel: 'number',
+      parentTagName: 'string',
+      tagConfidence: 'number',
+      tagName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListImagesResponseBodyImagesOCROCRBoundary extends $tea.Model {
+  left?: number;
+  top?: number;
+  width?: number;
+  height?: number;
+  static names(): { [key: string]: string } {
+    return {
+      left: 'Left',
+      top: 'Top',
+      width: 'Width',
+      height: 'Height',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      left: 'number',
+      top: 'number',
+      width: 'number',
+      height: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListImagesResponseBodyImagesOCR extends $tea.Model {
+  OCRConfidence?: number;
+  OCRContents?: string;
+  OCRBoundary?: ListImagesResponseBodyImagesOCROCRBoundary;
+  static names(): { [key: string]: string } {
+    return {
+      OCRConfidence: 'OCRConfidence',
+      OCRContents: 'OCRContents',
+      OCRBoundary: 'OCRBoundary',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      OCRConfidence: 'number',
+      OCRContents: 'string',
+      OCRBoundary: ListImagesResponseBodyImagesOCROCRBoundary,
     };
   }
 
@@ -8664,51 +8625,32 @@ export class ListImagesResponseBodyImagesImageQuality extends $tea.Model {
   }
 }
 
-export class ListImagesResponseBodyImagesCroppingSuggestionCroppingBoundary extends $tea.Model {
-  top?: number;
-  width?: number;
-  height?: number;
-  left?: number;
+export class ListImagesResponseBodyImagesAddress extends $tea.Model {
+  township?: string;
+  district?: string;
+  addressLine?: string;
+  country?: string;
+  city?: string;
+  province?: string;
   static names(): { [key: string]: string } {
     return {
-      top: 'Top',
-      width: 'Width',
-      height: 'Height',
-      left: 'Left',
+      township: 'Township',
+      district: 'District',
+      addressLine: 'AddressLine',
+      country: 'Country',
+      city: 'City',
+      province: 'Province',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      top: 'number',
-      width: 'number',
-      height: 'number',
-      left: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListImagesResponseBodyImagesCroppingSuggestion extends $tea.Model {
-  score?: number;
-  croppingBoundary?: ListImagesResponseBodyImagesCroppingSuggestionCroppingBoundary;
-  aspectRatio?: string;
-  static names(): { [key: string]: string } {
-    return {
-      score: 'Score',
-      croppingBoundary: 'CroppingBoundary',
-      aspectRatio: 'AspectRatio',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      score: 'number',
-      croppingBoundary: ListImagesResponseBodyImagesCroppingSuggestionCroppingBoundary,
-      aspectRatio: 'string',
+      township: 'string',
+      district: 'string',
+      addressLine: 'string',
+      country: 'string',
+      city: 'string',
+      province: 'string',
     };
   }
 
@@ -8725,32 +8667,26 @@ export class ListImagesResponseBodyImages extends $tea.Model {
   createTime?: string;
   sourceType?: string;
   facesFailReason?: string;
-  tags?: ListImagesResponseBodyImagesTags[];
   facesModifyTime?: string;
   imageTime?: string;
   OCRModifyTime?: string;
   addressModifyTime?: string;
-  OCR?: ListImagesResponseBodyImagesOCR[];
   imageQualityFailReason?: string;
   facesStatus?: string;
-  imageHeight?: number;
   remarksArrayA?: string;
-  address?: ListImagesResponseBodyImagesAddress;
+  imageHeight?: number;
   externalId?: string;
   sourceUri?: string;
-  modifyTime?: string;
   fileSize?: number;
+  modifyTime?: string;
   sourcePosition?: string;
-  faces?: ListImagesResponseBodyImagesFaces[];
   imageQualityStatus?: string;
   OCRFailReason?: string;
   addressFailReason?: string;
-  imageQuality?: ListImagesResponseBodyImagesImageQuality;
   croppingSuggestionModifyTime?: string;
   imageFormat?: string;
   imageWidth?: number;
   remarksArrayB?: string;
-  croppingSuggestion?: ListImagesResponseBodyImagesCroppingSuggestion[];
   orientation?: string;
   remarksD?: string;
   tagsStatus?: string;
@@ -8763,6 +8699,12 @@ export class ListImagesResponseBodyImages extends $tea.Model {
   exif?: string;
   location?: string;
   remarksB?: string;
+  croppingSuggestion?: ListImagesResponseBodyImagesCroppingSuggestion[];
+  faces?: ListImagesResponseBodyImagesFaces[];
+  tags?: ListImagesResponseBodyImagesTags[];
+  OCR?: ListImagesResponseBodyImagesOCR[];
+  imageQuality?: ListImagesResponseBodyImagesImageQuality;
+  address?: ListImagesResponseBodyImagesAddress;
   static names(): { [key: string]: string } {
     return {
       croppingSuggestionStatus: 'CroppingSuggestionStatus',
@@ -8772,32 +8714,26 @@ export class ListImagesResponseBodyImages extends $tea.Model {
       createTime: 'CreateTime',
       sourceType: 'SourceType',
       facesFailReason: 'FacesFailReason',
-      tags: 'Tags',
       facesModifyTime: 'FacesModifyTime',
       imageTime: 'ImageTime',
       OCRModifyTime: 'OCRModifyTime',
       addressModifyTime: 'AddressModifyTime',
-      OCR: 'OCR',
       imageQualityFailReason: 'ImageQualityFailReason',
       facesStatus: 'FacesStatus',
-      imageHeight: 'ImageHeight',
       remarksArrayA: 'RemarksArrayA',
-      address: 'Address',
+      imageHeight: 'ImageHeight',
       externalId: 'ExternalId',
       sourceUri: 'SourceUri',
-      modifyTime: 'ModifyTime',
       fileSize: 'FileSize',
+      modifyTime: 'ModifyTime',
       sourcePosition: 'SourcePosition',
-      faces: 'Faces',
       imageQualityStatus: 'ImageQualityStatus',
       OCRFailReason: 'OCRFailReason',
       addressFailReason: 'AddressFailReason',
-      imageQuality: 'ImageQuality',
       croppingSuggestionModifyTime: 'CroppingSuggestionModifyTime',
       imageFormat: 'ImageFormat',
       imageWidth: 'ImageWidth',
       remarksArrayB: 'RemarksArrayB',
-      croppingSuggestion: 'CroppingSuggestion',
       orientation: 'Orientation',
       remarksD: 'RemarksD',
       tagsStatus: 'TagsStatus',
@@ -8810,6 +8746,12 @@ export class ListImagesResponseBodyImages extends $tea.Model {
       exif: 'Exif',
       location: 'Location',
       remarksB: 'RemarksB',
+      croppingSuggestion: 'CroppingSuggestion',
+      faces: 'Faces',
+      tags: 'Tags',
+      OCR: 'OCR',
+      imageQuality: 'ImageQuality',
+      address: 'Address',
     };
   }
 
@@ -8822,32 +8764,26 @@ export class ListImagesResponseBodyImages extends $tea.Model {
       createTime: 'string',
       sourceType: 'string',
       facesFailReason: 'string',
-      tags: { 'type': 'array', 'itemType': ListImagesResponseBodyImagesTags },
       facesModifyTime: 'string',
       imageTime: 'string',
       OCRModifyTime: 'string',
       addressModifyTime: 'string',
-      OCR: { 'type': 'array', 'itemType': ListImagesResponseBodyImagesOCR },
       imageQualityFailReason: 'string',
       facesStatus: 'string',
-      imageHeight: 'number',
       remarksArrayA: 'string',
-      address: ListImagesResponseBodyImagesAddress,
+      imageHeight: 'number',
       externalId: 'string',
       sourceUri: 'string',
-      modifyTime: 'string',
       fileSize: 'number',
+      modifyTime: 'string',
       sourcePosition: 'string',
-      faces: { 'type': 'array', 'itemType': ListImagesResponseBodyImagesFaces },
       imageQualityStatus: 'string',
       OCRFailReason: 'string',
       addressFailReason: 'string',
-      imageQuality: ListImagesResponseBodyImagesImageQuality,
       croppingSuggestionModifyTime: 'string',
       imageFormat: 'string',
       imageWidth: 'number',
       remarksArrayB: 'string',
-      croppingSuggestion: { 'type': 'array', 'itemType': ListImagesResponseBodyImagesCroppingSuggestion },
       orientation: 'string',
       remarksD: 'string',
       tagsStatus: 'string',
@@ -8860,6 +8796,12 @@ export class ListImagesResponseBodyImages extends $tea.Model {
       exif: 'string',
       location: 'string',
       remarksB: 'string',
+      croppingSuggestion: { 'type': 'array', 'itemType': ListImagesResponseBodyImagesCroppingSuggestion },
+      faces: { 'type': 'array', 'itemType': ListImagesResponseBodyImagesFaces },
+      tags: { 'type': 'array', 'itemType': ListImagesResponseBodyImagesTags },
+      OCR: { 'type': 'array', 'itemType': ListImagesResponseBodyImagesOCR },
+      imageQuality: ListImagesResponseBodyImagesImageQuality,
+      address: ListImagesResponseBodyImagesAddress,
     };
   }
 
@@ -8876,9 +8818,9 @@ export class ListOfficeConversionTaskResponseBodyTasks extends $tea.Model {
   pageCount?: number;
   notifyTopicName?: string;
   notifyEndpoint?: string;
-  tgtUri?: string;
-  tgtType?: string;
   srcUri?: string;
+  tgtType?: string;
+  tgtUri?: string;
   imageSpec?: string;
   externalID?: string;
   taskId?: string;
@@ -8891,9 +8833,9 @@ export class ListOfficeConversionTaskResponseBodyTasks extends $tea.Model {
       pageCount: 'PageCount',
       notifyTopicName: 'NotifyTopicName',
       notifyEndpoint: 'NotifyEndpoint',
-      tgtUri: 'TgtUri',
-      tgtType: 'TgtType',
       srcUri: 'SrcUri',
+      tgtType: 'TgtType',
+      tgtUri: 'TgtUri',
       imageSpec: 'ImageSpec',
       externalID: 'ExternalID',
       taskId: 'TaskId',
@@ -8909,9 +8851,9 @@ export class ListOfficeConversionTaskResponseBodyTasks extends $tea.Model {
       pageCount: 'number',
       notifyTopicName: 'string',
       notifyEndpoint: 'string',
-      tgtUri: 'string',
-      tgtType: 'string',
       srcUri: 'string',
+      tgtType: 'string',
+      tgtUri: 'string',
       imageSpec: 'string',
       externalID: 'string',
       taskId: 'string',
@@ -9007,22 +8949,22 @@ export class ListSetsResponseBodySets extends $tea.Model {
 }
 
 export class ListSetTagsResponseBodyTags extends $tea.Model {
+  tagLevel?: number;
   tagName?: string;
   tagCount?: number;
-  tagLevel?: number;
   static names(): { [key: string]: string } {
     return {
+      tagLevel: 'TagLevel',
       tagName: 'TagName',
       tagCount: 'TagCount',
-      tagLevel: 'TagLevel',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      tagLevel: 'number',
       tagName: 'string',
       tagCount: 'number',
-      tagLevel: 'number',
     };
   }
 
@@ -9079,20 +9021,19 @@ export class ListVideoAudiosResponseBodyAudiosAudioTexts extends $tea.Model {
 
 export class ListVideoAudiosResponseBodyAudios extends $tea.Model {
   sourcePosition?: string;
-  createTime?: string;
   remarksC?: string;
-  audioDuration?: number;
+  createTime?: string;
   sourceType?: string;
+  audioDuration?: number;
   audioTextsStatus?: string;
   audioFormat?: string;
   remarksD?: string;
-  processModifyTime?: string;
   processFailReason?: string;
-  audioUri?: string;
+  processModifyTime?: string;
   audioRate?: number;
+  audioUri?: string;
   audioTextsModifyTime?: string;
   remarksA?: string;
-  audioTexts?: ListVideoAudiosResponseBodyAudiosAudioTexts[];
   externalId?: string;
   sourceUri?: string;
   processStatus?: string;
@@ -9100,23 +9041,23 @@ export class ListVideoAudiosResponseBodyAudios extends $tea.Model {
   remarksB?: string;
   fileSize?: number;
   modifyTime?: string;
+  audioTexts?: ListVideoAudiosResponseBodyAudiosAudioTexts[];
   static names(): { [key: string]: string } {
     return {
       sourcePosition: 'SourcePosition',
-      createTime: 'CreateTime',
       remarksC: 'RemarksC',
-      audioDuration: 'AudioDuration',
+      createTime: 'CreateTime',
       sourceType: 'SourceType',
+      audioDuration: 'AudioDuration',
       audioTextsStatus: 'AudioTextsStatus',
       audioFormat: 'AudioFormat',
       remarksD: 'RemarksD',
-      processModifyTime: 'ProcessModifyTime',
       processFailReason: 'ProcessFailReason',
-      audioUri: 'AudioUri',
+      processModifyTime: 'ProcessModifyTime',
       audioRate: 'AudioRate',
+      audioUri: 'AudioUri',
       audioTextsModifyTime: 'AudioTextsModifyTime',
       remarksA: 'RemarksA',
-      audioTexts: 'AudioTexts',
       externalId: 'ExternalId',
       sourceUri: 'SourceUri',
       processStatus: 'ProcessStatus',
@@ -9124,26 +9065,26 @@ export class ListVideoAudiosResponseBodyAudios extends $tea.Model {
       remarksB: 'RemarksB',
       fileSize: 'FileSize',
       modifyTime: 'ModifyTime',
+      audioTexts: 'AudioTexts',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       sourcePosition: 'string',
-      createTime: 'string',
       remarksC: 'string',
-      audioDuration: 'number',
+      createTime: 'string',
       sourceType: 'string',
+      audioDuration: 'number',
       audioTextsStatus: 'string',
       audioFormat: 'string',
       remarksD: 'string',
-      processModifyTime: 'string',
       processFailReason: 'string',
-      audioUri: 'string',
+      processModifyTime: 'string',
       audioRate: 'number',
+      audioUri: 'string',
       audioTextsModifyTime: 'string',
       remarksA: 'string',
-      audioTexts: { 'type': 'array', 'itemType': ListVideoAudiosResponseBodyAudiosAudioTexts },
       externalId: 'string',
       sourceUri: 'string',
       processStatus: 'string',
@@ -9151,180 +9092,7 @@ export class ListVideoAudiosResponseBodyAudios extends $tea.Model {
       remarksB: 'string',
       fileSize: 'number',
       modifyTime: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListVideoFramesResponseBodyFramesTags extends $tea.Model {
-  tagConfidence?: number;
-  tagName?: string;
-  tagLevel?: number;
-  parentTagName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      tagConfidence: 'TagConfidence',
-      tagName: 'TagName',
-      tagLevel: 'TagLevel',
-      parentTagName: 'ParentTagName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      tagConfidence: 'number',
-      tagName: 'string',
-      tagLevel: 'number',
-      parentTagName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListVideoFramesResponseBodyFramesOCROCRBoundary extends $tea.Model {
-  top?: number;
-  width?: number;
-  height?: number;
-  left?: number;
-  static names(): { [key: string]: string } {
-    return {
-      top: 'Top',
-      width: 'Width',
-      height: 'Height',
-      left: 'Left',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      top: 'number',
-      width: 'number',
-      height: 'number',
-      left: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListVideoFramesResponseBodyFramesOCR extends $tea.Model {
-  OCRConfidence?: number;
-  OCRContents?: string;
-  OCRBoundary?: ListVideoFramesResponseBodyFramesOCROCRBoundary;
-  static names(): { [key: string]: string } {
-    return {
-      OCRConfidence: 'OCRConfidence',
-      OCRContents: 'OCRContents',
-      OCRBoundary: 'OCRBoundary',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      OCRConfidence: 'number',
-      OCRContents: 'string',
-      OCRBoundary: ListVideoFramesResponseBodyFramesOCROCRBoundary,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListVideoFramesResponseBodyFramesFacesFaceAttributesFaceBoundary extends $tea.Model {
-  top?: number;
-  width?: number;
-  height?: number;
-  left?: number;
-  static names(): { [key: string]: string } {
-    return {
-      top: 'Top',
-      width: 'Width',
-      height: 'Height',
-      left: 'Left',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      top: 'number',
-      width: 'number',
-      height: 'number',
-      left: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListVideoFramesResponseBodyFramesFacesFaceAttributesHeadPose extends $tea.Model {
-  pitch?: number;
-  roll?: number;
-  yaw?: number;
-  static names(): { [key: string]: string } {
-    return {
-      pitch: 'Pitch',
-      roll: 'Roll',
-      yaw: 'Yaw',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pitch: 'number',
-      roll: 'number',
-      yaw: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListVideoFramesResponseBodyFramesFacesFaceAttributes extends $tea.Model {
-  glassesConfidence?: number;
-  glasses?: string;
-  mask?: string;
-  beardConfidence?: number;
-  maskConfidence?: number;
-  faceBoundary?: ListVideoFramesResponseBodyFramesFacesFaceAttributesFaceBoundary;
-  headPose?: ListVideoFramesResponseBodyFramesFacesFaceAttributesHeadPose;
-  beard?: string;
-  static names(): { [key: string]: string } {
-    return {
-      glassesConfidence: 'GlassesConfidence',
-      glasses: 'Glasses',
-      mask: 'Mask',
-      beardConfidence: 'BeardConfidence',
-      maskConfidence: 'MaskConfidence',
-      faceBoundary: 'FaceBoundary',
-      headPose: 'HeadPose',
-      beard: 'Beard',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      glassesConfidence: 'number',
-      glasses: 'string',
-      mask: 'string',
-      beardConfidence: 'number',
-      maskConfidence: 'number',
-      faceBoundary: ListVideoFramesResponseBodyFramesFacesFaceAttributesFaceBoundary,
-      headPose: ListVideoFramesResponseBodyFramesFacesFaceAttributesHeadPose,
-      beard: 'string',
+      audioTexts: { 'type': 'array', 'itemType': ListVideoAudiosResponseBodyAudiosAudioTexts },
     };
   }
 
@@ -9370,50 +9138,224 @@ export class ListVideoFramesResponseBodyFramesFacesEmotionDetails extends $tea.M
   }
 }
 
-export class ListVideoFramesResponseBodyFramesFaces extends $tea.Model {
-  gender?: string;
-  faceId?: string;
-  genderConfidence?: number;
-  faceAttributes?: ListVideoFramesResponseBodyFramesFacesFaceAttributes;
-  faceQuality?: number;
-  emotion?: string;
-  age?: number;
-  faceConfidence?: number;
-  emotionConfidence?: number;
-  attractive?: number;
-  groupId?: string;
-  emotionDetails?: ListVideoFramesResponseBodyFramesFacesEmotionDetails;
+export class ListVideoFramesResponseBodyFramesFacesFaceAttributesFaceBoundary extends $tea.Model {
+  left?: number;
+  top?: number;
+  width?: number;
+  height?: number;
   static names(): { [key: string]: string } {
     return {
-      gender: 'Gender',
-      faceId: 'FaceId',
-      genderConfidence: 'GenderConfidence',
-      faceAttributes: 'FaceAttributes',
-      faceQuality: 'FaceQuality',
-      emotion: 'Emotion',
-      age: 'Age',
-      faceConfidence: 'FaceConfidence',
-      emotionConfidence: 'EmotionConfidence',
-      attractive: 'Attractive',
-      groupId: 'GroupId',
-      emotionDetails: 'EmotionDetails',
+      left: 'Left',
+      top: 'Top',
+      width: 'Width',
+      height: 'Height',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      left: 'number',
+      top: 'number',
+      width: 'number',
+      height: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVideoFramesResponseBodyFramesFacesFaceAttributesHeadPose extends $tea.Model {
+  pitch?: number;
+  roll?: number;
+  yaw?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pitch: 'Pitch',
+      roll: 'Roll',
+      yaw: 'Yaw',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pitch: 'number',
+      roll: 'number',
+      yaw: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVideoFramesResponseBodyFramesFacesFaceAttributes extends $tea.Model {
+  glassesConfidence?: number;
+  glasses?: string;
+  mask?: string;
+  beardConfidence?: number;
+  maskConfidence?: number;
+  beard?: string;
+  faceBoundary?: ListVideoFramesResponseBodyFramesFacesFaceAttributesFaceBoundary;
+  headPose?: ListVideoFramesResponseBodyFramesFacesFaceAttributesHeadPose;
+  static names(): { [key: string]: string } {
+    return {
+      glassesConfidence: 'GlassesConfidence',
+      glasses: 'Glasses',
+      mask: 'Mask',
+      beardConfidence: 'BeardConfidence',
+      maskConfidence: 'MaskConfidence',
+      beard: 'Beard',
+      faceBoundary: 'FaceBoundary',
+      headPose: 'HeadPose',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      glassesConfidence: 'number',
+      glasses: 'string',
+      mask: 'string',
+      beardConfidence: 'number',
+      maskConfidence: 'number',
+      beard: 'string',
+      faceBoundary: ListVideoFramesResponseBodyFramesFacesFaceAttributesFaceBoundary,
+      headPose: ListVideoFramesResponseBodyFramesFacesFaceAttributesHeadPose,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVideoFramesResponseBodyFramesFaces extends $tea.Model {
+  emotionConfidence?: number;
+  attractive?: number;
+  groupId?: string;
+  gender?: string;
+  faceId?: string;
+  genderConfidence?: number;
+  faceQuality?: number;
+  emotion?: string;
+  age?: number;
+  faceConfidence?: number;
+  emotionDetails?: ListVideoFramesResponseBodyFramesFacesEmotionDetails;
+  faceAttributes?: ListVideoFramesResponseBodyFramesFacesFaceAttributes;
+  static names(): { [key: string]: string } {
+    return {
+      emotionConfidence: 'EmotionConfidence',
+      attractive: 'Attractive',
+      groupId: 'GroupId',
+      gender: 'Gender',
+      faceId: 'FaceId',
+      genderConfidence: 'GenderConfidence',
+      faceQuality: 'FaceQuality',
+      emotion: 'Emotion',
+      age: 'Age',
+      faceConfidence: 'FaceConfidence',
+      emotionDetails: 'EmotionDetails',
+      faceAttributes: 'FaceAttributes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      emotionConfidence: 'number',
+      attractive: 'number',
+      groupId: 'string',
       gender: 'string',
       faceId: 'string',
       genderConfidence: 'number',
-      faceAttributes: ListVideoFramesResponseBodyFramesFacesFaceAttributes,
       faceQuality: 'number',
       emotion: 'string',
       age: 'number',
       faceConfidence: 'number',
-      emotionConfidence: 'number',
-      attractive: 'number',
-      groupId: 'string',
       emotionDetails: ListVideoFramesResponseBodyFramesFacesEmotionDetails,
+      faceAttributes: ListVideoFramesResponseBodyFramesFacesFaceAttributes,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVideoFramesResponseBodyFramesTags extends $tea.Model {
+  tagLevel?: number;
+  parentTagName?: string;
+  tagConfidence?: number;
+  tagName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagLevel: 'TagLevel',
+      parentTagName: 'ParentTagName',
+      tagConfidence: 'TagConfidence',
+      tagName: 'TagName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagLevel: 'number',
+      parentTagName: 'string',
+      tagConfidence: 'number',
+      tagName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVideoFramesResponseBodyFramesOCROCRBoundary extends $tea.Model {
+  left?: number;
+  top?: number;
+  width?: number;
+  height?: number;
+  static names(): { [key: string]: string } {
+    return {
+      left: 'Left',
+      top: 'Top',
+      width: 'Width',
+      height: 'Height',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      left: 'number',
+      top: 'number',
+      width: 'number',
+      height: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVideoFramesResponseBodyFramesOCR extends $tea.Model {
+  OCRConfidence?: number;
+  OCRContents?: string;
+  OCRBoundary?: ListVideoFramesResponseBodyFramesOCROCRBoundary;
+  static names(): { [key: string]: string } {
+    return {
+      OCRConfidence: 'OCRConfidence',
+      OCRContents: 'OCRContents',
+      OCRBoundary: 'OCRBoundary',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      OCRConfidence: 'number',
+      OCRContents: 'string',
+      OCRBoundary: ListVideoFramesResponseBodyFramesOCROCRBoundary,
     };
   }
 
@@ -9428,19 +9370,16 @@ export class ListVideoFramesResponseBodyFrames extends $tea.Model {
   createTime?: string;
   sourceType?: string;
   facesFailReason?: string;
-  tags?: ListVideoFramesResponseBodyFramesTags[];
   facesModifyTime?: string;
   imageTime?: string;
   OCRModifyTime?: string;
-  OCR?: ListVideoFramesResponseBodyFramesOCR[];
   facesStatus?: string;
   imageHeight?: number;
   externalId?: string;
   sourceUri?: string;
-  fileSize?: number;
   modifyTime?: string;
+  fileSize?: number;
   sourcePosition?: string;
-  faces?: ListVideoFramesResponseBodyFramesFaces[];
   OCRFailReason?: string;
   imageFormat?: string;
   imageWidth?: number;
@@ -9454,6 +9393,9 @@ export class ListVideoFramesResponseBodyFrames extends $tea.Model {
   exif?: string;
   location?: string;
   remarksB?: string;
+  faces?: ListVideoFramesResponseBodyFramesFaces[];
+  tags?: ListVideoFramesResponseBodyFramesTags[];
+  OCR?: ListVideoFramesResponseBodyFramesOCR[];
   static names(): { [key: string]: string } {
     return {
       tagsFailReason: 'TagsFailReason',
@@ -9461,19 +9403,16 @@ export class ListVideoFramesResponseBodyFrames extends $tea.Model {
       createTime: 'CreateTime',
       sourceType: 'SourceType',
       facesFailReason: 'FacesFailReason',
-      tags: 'Tags',
       facesModifyTime: 'FacesModifyTime',
       imageTime: 'ImageTime',
       OCRModifyTime: 'OCRModifyTime',
-      OCR: 'OCR',
       facesStatus: 'FacesStatus',
       imageHeight: 'ImageHeight',
       externalId: 'ExternalId',
       sourceUri: 'SourceUri',
-      fileSize: 'FileSize',
       modifyTime: 'ModifyTime',
+      fileSize: 'FileSize',
       sourcePosition: 'SourcePosition',
-      faces: 'Faces',
       OCRFailReason: 'OCRFailReason',
       imageFormat: 'ImageFormat',
       imageWidth: 'ImageWidth',
@@ -9487,6 +9426,9 @@ export class ListVideoFramesResponseBodyFrames extends $tea.Model {
       exif: 'Exif',
       location: 'Location',
       remarksB: 'RemarksB',
+      faces: 'Faces',
+      tags: 'Tags',
+      OCR: 'OCR',
     };
   }
 
@@ -9497,19 +9439,16 @@ export class ListVideoFramesResponseBodyFrames extends $tea.Model {
       createTime: 'string',
       sourceType: 'string',
       facesFailReason: 'string',
-      tags: { 'type': 'array', 'itemType': ListVideoFramesResponseBodyFramesTags },
       facesModifyTime: 'string',
       imageTime: 'string',
       OCRModifyTime: 'string',
-      OCR: { 'type': 'array', 'itemType': ListVideoFramesResponseBodyFramesOCR },
       facesStatus: 'string',
       imageHeight: 'number',
       externalId: 'string',
       sourceUri: 'string',
-      fileSize: 'number',
       modifyTime: 'string',
+      fileSize: 'number',
       sourcePosition: 'string',
-      faces: { 'type': 'array', 'itemType': ListVideoFramesResponseBodyFramesFaces },
       OCRFailReason: 'string',
       imageFormat: 'string',
       imageWidth: 'number',
@@ -9523,6 +9462,9 @@ export class ListVideoFramesResponseBodyFrames extends $tea.Model {
       exif: 'string',
       location: 'string',
       remarksB: 'string',
+      faces: { 'type': 'array', 'itemType': ListVideoFramesResponseBodyFramesFaces },
+      tags: { 'type': 'array', 'itemType': ListVideoFramesResponseBodyFramesTags },
+      OCR: { 'type': 'array', 'itemType': ListVideoFramesResponseBodyFramesOCR },
     };
   }
 
@@ -9532,25 +9474,25 @@ export class ListVideoFramesResponseBodyFrames extends $tea.Model {
 }
 
 export class ListVideosResponseBodyVideosVideoTags extends $tea.Model {
-  tagName?: string;
-  tagConfidence?: number;
   tagLevel?: number;
   parentTagName?: string;
+  tagName?: string;
+  tagConfidence?: number;
   static names(): { [key: string]: string } {
     return {
-      tagName: 'TagName',
-      tagConfidence: 'TagConfidence',
       tagLevel: 'TagLevel',
       parentTagName: 'ParentTagName',
+      tagName: 'TagName',
+      tagConfidence: 'TagConfidence',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      tagName: 'string',
-      tagConfidence: 'number',
       tagLevel: 'number',
       parentTagName: 'string',
+      tagName: 'string',
+      tagConfidence: 'number',
     };
   }
 
@@ -9565,25 +9507,25 @@ export class ListVideosResponseBodyVideos extends $tea.Model {
   videoTagsFailReason?: string;
   sourceType?: string;
   videoDuration?: number;
-  videoTags?: ListVideosResponseBodyVideosVideoTags[];
   processModifyTime?: string;
   videoFrames?: number;
   videoTagsStatus?: string;
   externalId?: string;
   sourceUri?: string;
-  fileSize?: number;
   modifyTime?: string;
+  fileSize?: number;
   sourcePosition?: string;
   videoWidth?: number;
-  videoFormat?: string;
   videoHeight?: number;
+  videoFormat?: string;
   remarksD?: string;
   videoUri?: string;
-  processFailReason?: string;
   videoTagsModifyTime?: string;
+  processFailReason?: string;
   remarksA?: string;
   processStatus?: string;
   remarksB?: string;
+  videoTags?: ListVideosResponseBodyVideosVideoTags[];
   static names(): { [key: string]: string } {
     return {
       createTime: 'CreateTime',
@@ -9591,25 +9533,25 @@ export class ListVideosResponseBodyVideos extends $tea.Model {
       videoTagsFailReason: 'VideoTagsFailReason',
       sourceType: 'SourceType',
       videoDuration: 'VideoDuration',
-      videoTags: 'VideoTags',
       processModifyTime: 'ProcessModifyTime',
       videoFrames: 'VideoFrames',
       videoTagsStatus: 'VideoTagsStatus',
       externalId: 'ExternalId',
       sourceUri: 'SourceUri',
-      fileSize: 'FileSize',
       modifyTime: 'ModifyTime',
+      fileSize: 'FileSize',
       sourcePosition: 'SourcePosition',
       videoWidth: 'VideoWidth',
-      videoFormat: 'VideoFormat',
       videoHeight: 'VideoHeight',
+      videoFormat: 'VideoFormat',
       remarksD: 'RemarksD',
       videoUri: 'VideoUri',
-      processFailReason: 'ProcessFailReason',
       videoTagsModifyTime: 'VideoTagsModifyTime',
+      processFailReason: 'ProcessFailReason',
       remarksA: 'RemarksA',
       processStatus: 'ProcessStatus',
       remarksB: 'RemarksB',
+      videoTags: 'VideoTags',
     };
   }
 
@@ -9620,25 +9562,25 @@ export class ListVideosResponseBodyVideos extends $tea.Model {
       videoTagsFailReason: 'string',
       sourceType: 'string',
       videoDuration: 'number',
-      videoTags: { 'type': 'array', 'itemType': ListVideosResponseBodyVideosVideoTags },
       processModifyTime: 'string',
       videoFrames: 'number',
       videoTagsStatus: 'string',
       externalId: 'string',
       sourceUri: 'string',
-      fileSize: 'number',
       modifyTime: 'string',
+      fileSize: 'number',
       sourcePosition: 'string',
       videoWidth: 'number',
-      videoFormat: 'string',
       videoHeight: 'number',
+      videoFormat: 'string',
       remarksD: 'string',
       videoUri: 'string',
-      processFailReason: 'string',
       videoTagsModifyTime: 'string',
+      processFailReason: 'string',
       remarksA: 'string',
       processStatus: 'string',
       remarksB: 'string',
+      videoTags: { 'type': 'array', 'itemType': ListVideosResponseBodyVideosVideoTags },
     };
   }
 
@@ -9688,6 +9630,28 @@ export class ListVideoTasksResponseBodyTasks extends $tea.Model {
       result: 'string',
       taskId: 'string',
       notifyTopicName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateImageRequestFaces extends $tea.Model {
+  faceId?: string;
+  groupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      faceId: 'FaceId',
+      groupId: 'GroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      faceId: 'string',
+      groupId: 'string',
     };
   }
 
@@ -9837,19 +9801,6 @@ export default class Client extends OpenApi {
   async createSet(request: CreateSetRequest): Promise<CreateSetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createSetWithOptions(request, runtime);
-  }
-
-  async createStreamAnalyseTaskWithOptions(request: CreateStreamAnalyseTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateStreamAnalyseTaskResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<CreateStreamAnalyseTaskResponse>(await this.doRPCRequest("CreateStreamAnalyseTask", "2017-09-06", "HTTPS", "POST", "AK", "json", req, runtime), new CreateStreamAnalyseTaskResponse({}));
-  }
-
-  async createStreamAnalyseTask(request: CreateStreamAnalyseTaskRequest): Promise<CreateStreamAnalyseTaskResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.createStreamAnalyseTaskWithOptions(request, runtime);
   }
 
   async createVideoAbstractTaskWithOptions(request: CreateVideoAbstractTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateVideoAbstractTaskResponse> {
@@ -10564,8 +10515,14 @@ export default class Client extends OpenApi {
     return await this.updateFaceGroupWithOptions(request, runtime);
   }
 
-  async updateImageWithOptions(request: UpdateImageRequest, runtime: $Util.RuntimeOptions): Promise<UpdateImageResponse> {
-    Util.validateModel(request);
+  async updateImageWithOptions(tmpReq: UpdateImageRequest, runtime: $Util.RuntimeOptions): Promise<UpdateImageResponse> {
+    Util.validateModel(tmpReq);
+    let request = new UpdateImageShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.faces)) {
+      request.facesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.faces, "Faces", "json");
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
