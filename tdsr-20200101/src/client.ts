@@ -3115,27 +3115,27 @@ export class GetHotspotTagRequest extends $tea.Model {
 
 export class GetHotspotTagResponseBody extends $tea.Model {
   requestId?: string;
-  code?: number;
-  success?: boolean;
-  message?: string;
+  objectString?: string;
   data?: string;
+  errMessage?: string;
+  success?: boolean;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      code: 'Code',
-      success: 'Success',
-      message: 'Message',
+      objectString: 'ObjectString',
       data: 'Data',
+      errMessage: 'ErrMessage',
+      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      code: 'number',
-      success: 'boolean',
-      message: 'string',
+      objectString: 'string',
       data: 'string',
+      errMessage: 'string',
+      success: 'boolean',
     };
   }
 
