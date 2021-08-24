@@ -4555,6 +4555,100 @@ export class AddFaceEntityResponse extends $tea.Model {
   }
 }
 
+export class RetouchBodyRequest extends $tea.Model {
+  imageURL?: string;
+  slimDegree?: number;
+  lengthenDegree?: number;
+  static names(): { [key: string]: string } {
+    return {
+      imageURL: 'ImageURL',
+      slimDegree: 'SlimDegree',
+      lengthenDegree: 'LengthenDegree',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageURL: 'string',
+      slimDegree: 'number',
+      lengthenDegree: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RetouchBodyAdvanceRequest extends $tea.Model {
+  imageURLObject: Readable;
+  slimDegree?: number;
+  lengthenDegree?: number;
+  static names(): { [key: string]: string } {
+    return {
+      imageURLObject: 'ImageURLObject',
+      slimDegree: 'SlimDegree',
+      lengthenDegree: 'LengthenDegree',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageURLObject: 'Readable',
+      slimDegree: 'number',
+      lengthenDegree: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RetouchBodyResponseBody extends $tea.Model {
+  data?: RetouchBodyResponseBodyData;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: RetouchBodyResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RetouchBodyResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: RetouchBodyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: RetouchBodyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteFaceEntityRequest extends $tea.Model {
   dbName?: string;
   entityId?: string;
@@ -8183,6 +8277,25 @@ export class CountCrowdResponseBodyData extends $tea.Model {
   }
 }
 
+export class RetouchBodyResponseBodyData extends $tea.Model {
+  imageURL?: string;
+  static names(): { [key: string]: string } {
+    return {
+      imageURL: 'ImageURL',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageURL: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class FaceTidyupResponseBodyData extends $tea.Model {
   imageURL?: string;
   static names(): { [key: string]: string } {
@@ -11429,6 +11542,93 @@ export default class Client extends OpenApi {
   async addFaceEntity(request: AddFaceEntityRequest): Promise<AddFaceEntityResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addFaceEntityWithOptions(request, runtime);
+  }
+
+  async retouchBodyWithOptions(request: RetouchBodyRequest, runtime: $Util.RuntimeOptions): Promise<RetouchBodyResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<RetouchBodyResponse>(await this.doRPCRequest("RetouchBody", "2019-12-30", "HTTPS", "POST", "AK", "json", req, runtime), new RetouchBodyResponse({}));
+  }
+
+  async retouchBody(request: RetouchBodyRequest): Promise<RetouchBodyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.retouchBodyWithOptions(request, runtime);
+  }
+
+  async retouchBodyAdvance(request: RetouchBodyAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<RetouchBodyResponse> {
+    // Step 0: init client
+    let accessKeyId = await this._credential.getAccessKeyId();
+    let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if (Util.isUnset(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
+    let authConfig = new $RPC.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenPlatform(authConfig);
+    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
+      product: "facebody",
+      regionId: this._regionId,
+    });
+    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
+    let ossConfig = new $OSS.Config({
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let ossClient : OSS = null;
+    let fileObj = new $FileForm.FileField({ });
+    let ossHeader = new $OSS.PostObjectRequestHeader({ });
+    let uploadRequest = new $OSS.PostObjectRequest({ });
+    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
+    OpenApiUtil.convert(runtime, ossRuntime);
+    let retouchBodyReq = new RetouchBodyRequest({ });
+    OpenApiUtil.convert(request, retouchBodyReq);
+    if (!Util.isUnset(request.imageURLObject)) {
+      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+      ossConfig.accessKeyId = authResponse.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+      ossClient = new OSS(ossConfig);
+      fileObj = new $FileForm.FileField({
+        filename: authResponse.objectKey,
+        content: request.imageURLObject,
+        contentType: "",
+      });
+      ossHeader = new $OSS.PostObjectRequestHeader({
+        accessKeyId: authResponse.accessKeyId,
+        policy: authResponse.encodedPolicy,
+        signature: authResponse.signature,
+        key: authResponse.objectKey,
+        file: fileObj,
+        successActionStatus: "201",
+      });
+      uploadRequest = new $OSS.PostObjectRequest({
+        bucketName: authResponse.bucket,
+        header: ossHeader,
+      });
+      await ossClient.postObject(uploadRequest, ossRuntime);
+      retouchBodyReq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    }
+
+    let retouchBodyResp = await this.retouchBodyWithOptions(retouchBodyReq, runtime);
+    return retouchBodyResp;
   }
 
   async deleteFaceEntityWithOptions(request: DeleteFaceEntityRequest, runtime: $Util.RuntimeOptions): Promise<DeleteFaceEntityResponse> {
