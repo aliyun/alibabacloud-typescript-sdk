@@ -239,6 +239,84 @@ export class CreateMergeRequestResponse extends $tea.Model {
   }
 }
 
+export class DeleteRepositoryMemberWithExternUidRequest extends $tea.Model {
+  accessToken?: string;
+  organizationId?: string;
+  externUserId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessToken: 'AccessToken',
+      organizationId: 'OrganizationId',
+      externUserId: 'ExternUserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessToken: 'string',
+      organizationId: 'string',
+      externUserId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteRepositoryMemberWithExternUidResponseBody extends $tea.Model {
+  errorMessage?: string;
+  requestId?: string;
+  errorCode?: string;
+  success?: boolean;
+  result?: DeleteRepositoryMemberWithExternUidResponseBodyResult;
+  static names(): { [key: string]: string } {
+    return {
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      errorCode: 'ErrorCode',
+      success: 'Success',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorMessage: 'string',
+      requestId: 'string',
+      errorCode: 'string',
+      success: 'boolean',
+      result: DeleteRepositoryMemberWithExternUidResponseBodyResult,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteRepositoryMemberWithExternUidResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DeleteRepositoryMemberWithExternUidResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DeleteRepositoryMemberWithExternUidResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteRepositoryRequest extends $tea.Model {
   accessToken?: string;
   organizationId?: string;
@@ -5808,6 +5886,43 @@ export class CreateMergeRequestResponseBodyResult extends $tea.Model {
   }
 }
 
+export class DeleteRepositoryMemberWithExternUidResponseBodyResult extends $tea.Model {
+  userId?: number;
+  sourceType?: string;
+  createdAt?: string;
+  accessLevel?: number;
+  updatedAt?: string;
+  sourceId?: number;
+  id?: number;
+  static names(): { [key: string]: string } {
+    return {
+      userId: 'UserId',
+      sourceType: 'SourceType',
+      createdAt: 'CreatedAt',
+      accessLevel: 'AccessLevel',
+      updatedAt: 'UpdatedAt',
+      sourceId: 'SourceId',
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      userId: 'number',
+      sourceType: 'string',
+      createdAt: 'string',
+      accessLevel: 'number',
+      updatedAt: 'string',
+      sourceId: 'number',
+      id: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteRepositoryResponseBodyResult extends $tea.Model {
   result?: boolean;
   static names(): { [key: string]: string } {
@@ -10628,6 +10743,34 @@ export default class Client extends OpenApi {
       query: OpenApiUtil.query(query),
     });
     return $tea.cast<CreateMergeRequestResponse>(await this.doROARequest("CreateMergeRequest", "2020-04-14", "HTTPS", "POST", "AK", `/api/v4/projects/${ProjectId}/merge_requests`, "json", req, runtime), new CreateMergeRequestResponse({}));
+  }
+
+  async deleteRepositoryMemberWithExternUid(ProjectId: string, request: DeleteRepositoryMemberWithExternUidRequest): Promise<DeleteRepositoryMemberWithExternUidResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteRepositoryMemberWithExternUidWithOptions(ProjectId, request, headers, runtime);
+  }
+
+  async deleteRepositoryMemberWithExternUidWithOptions(ProjectId: string, request: DeleteRepositoryMemberWithExternUidRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteRepositoryMemberWithExternUidResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.accessToken)) {
+      query["AccessToken"] = request.accessToken;
+    }
+
+    if (!Util.isUnset(request.organizationId)) {
+      query["OrganizationId"] = request.organizationId;
+    }
+
+    if (!Util.isUnset(request.externUserId)) {
+      query["ExternUserId"] = request.externUserId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    return $tea.cast<DeleteRepositoryMemberWithExternUidResponse>(await this.doROARequest("DeleteRepositoryMemberWithExternUid", "2020-04-14", "HTTPS", "POST", "AK", `/api/v4/projects/${ProjectId}/members/remove`, "json", req, runtime), new DeleteRepositoryMemberWithExternUidResponse({}));
   }
 
   async deleteRepository(ProjectId: string, request: DeleteRepositoryRequest): Promise<DeleteRepositoryResponse> {
