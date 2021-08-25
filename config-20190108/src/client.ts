@@ -1,267 +1,15 @@
 // This file is auto-generated, don't edit it
+/**
+ *
+ */
 import Util, * as $Util from '@alicloud/tea-util';
-import RPC, * as $RPC from '@alicloud/rpc-client';
+import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
+import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
-export class GetResourceComplianceTimelineRequest extends $tea.Model {
-  resourceType: string;
-  resourceId: string;
-  startTime?: number;
-  endTime?: number;
-  limit?: number;
-  multiAccount?: boolean;
-  memberId?: string;
-  region: string;
-  nextToken?: string;
-  static names(): { [key: string]: string } {
-    return {
-      resourceType: 'ResourceType',
-      resourceId: 'ResourceId',
-      startTime: 'StartTime',
-      endTime: 'EndTime',
-      limit: 'Limit',
-      multiAccount: 'MultiAccount',
-      memberId: 'MemberId',
-      region: 'Region',
-      nextToken: 'NextToken',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      resourceType: 'string',
-      resourceId: 'string',
-      startTime: 'number',
-      endTime: 'number',
-      limit: 'number',
-      multiAccount: 'boolean',
-      memberId: 'string',
-      region: 'string',
-      nextToken: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetResourceComplianceTimelineResponse extends $tea.Model {
-  requestId: string;
-  resourceComplianceTimeline: GetResourceComplianceTimelineResponseResourceComplianceTimeline;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      resourceComplianceTimeline: 'ResourceComplianceTimeline',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      resourceComplianceTimeline: GetResourceComplianceTimelineResponseResourceComplianceTimeline,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetResourceConfigurationTimelineRequest extends $tea.Model {
-  resourceId: string;
-  startTime?: number;
-  endTime?: number;
-  limit?: number;
-  resourceType: string;
-  region: string;
-  multiAccount?: boolean;
-  memberId?: number;
-  nextToken?: string;
-  static names(): { [key: string]: string } {
-    return {
-      resourceId: 'ResourceId',
-      startTime: 'StartTime',
-      endTime: 'EndTime',
-      limit: 'Limit',
-      resourceType: 'ResourceType',
-      region: 'Region',
-      multiAccount: 'MultiAccount',
-      memberId: 'MemberId',
-      nextToken: 'NextToken',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      resourceId: 'string',
-      startTime: 'number',
-      endTime: 'number',
-      limit: 'number',
-      resourceType: 'string',
-      region: 'string',
-      multiAccount: 'boolean',
-      memberId: 'number',
-      nextToken: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetResourceConfigurationTimelineResponse extends $tea.Model {
-  requestId: string;
-  resourceConfigurationTimeline: GetResourceConfigurationTimelineResponseResourceConfigurationTimeline;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      resourceConfigurationTimeline: 'ResourceConfigurationTimeline',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      resourceConfigurationTimeline: GetResourceConfigurationTimelineResponseResourceConfigurationTimeline,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDeliveryChannelsRequest extends $tea.Model {
-  deliveryChannelIds?: string;
-  static names(): { [key: string]: string } {
-    return {
-      deliveryChannelIds: 'DeliveryChannelIds',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      deliveryChannelIds: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDeliveryChannelsResponse extends $tea.Model {
-  requestId: string;
-  deliveryChannels: DescribeDeliveryChannelsResponseDeliveryChannels[];
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      deliveryChannels: 'DeliveryChannels',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      deliveryChannels: { 'type': 'array', 'itemType': DescribeDeliveryChannelsResponseDeliveryChannels },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PutConfigurationRecorderRequest extends $tea.Model {
-  resourceTypes: string;
-  static names(): { [key: string]: string } {
-    return {
-      resourceTypes: 'ResourceTypes',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      resourceTypes: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PutConfigurationRecorderResponse extends $tea.Model {
-  requestId: string;
-  configurationRecorder: PutConfigurationRecorderResponseConfigurationRecorder;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      configurationRecorder: 'ConfigurationRecorder',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      configurationRecorder: PutConfigurationRecorderResponseConfigurationRecorder,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDiscoveredResourceSummaryRequest extends $tea.Model {
-  multiAccount?: boolean;
-  memberId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      multiAccount: 'MultiAccount',
-      memberId: 'MemberId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      multiAccount: 'boolean',
-      memberId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDiscoveredResourceSummaryResponse extends $tea.Model {
-  requestId: string;
-  discoveredResourceSummary: GetDiscoveredResourceSummaryResponseDiscoveredResourceSummary;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      discoveredResourceSummary: 'DiscoveredResourceSummary',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      discoveredResourceSummary: GetDiscoveredResourceSummaryResponseDiscoveredResourceSummary,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ActiveConfigRulesRequest extends $tea.Model {
-  configRuleIds: string;
+  configRuleIds?: string;
   static names(): { [key: string]: string } {
     return {
       configRuleIds: 'ConfigRuleIds',
@@ -271,6 +19,28 @@ export class ActiveConfigRulesRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       configRuleIds: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ActiveConfigRulesResponseBody extends $tea.Model {
+  requestId?: string;
+  operateRuleResult?: ActiveConfigRulesResponseBodyOperateRuleResult;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      operateRuleResult: 'OperateRuleResult',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      operateRuleResult: ActiveConfigRulesResponseBodyOperateRuleResult,
     };
   }
 
@@ -280,19 +50,19 @@ export class ActiveConfigRulesRequest extends $tea.Model {
 }
 
 export class ActiveConfigRulesResponse extends $tea.Model {
-  requestId: string;
-  operateRuleResult: ActiveConfigRulesResponseOperateRuleResult;
+  headers: { [key: string]: string };
+  body: ActiveConfigRulesResponseBody;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
-      operateRuleResult: 'OperateRuleResult',
+      headers: 'headers',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
-      operateRuleResult: ActiveConfigRulesResponseOperateRuleResult,
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ActiveConfigRulesResponseBody,
     };
   }
 
@@ -301,8 +71,8 @@ export class ActiveConfigRulesResponse extends $tea.Model {
   }
 }
 
-export class StopConfigRulesRequest extends $tea.Model {
-  configRuleIds: string;
+export class DeleteConfigRulesRequest extends $tea.Model {
+  configRuleIds?: string;
   static names(): { [key: string]: string } {
     return {
       configRuleIds: 'ConfigRuleIds',
@@ -320,9 +90,9 @@ export class StopConfigRulesRequest extends $tea.Model {
   }
 }
 
-export class StopConfigRulesResponse extends $tea.Model {
-  requestId: string;
-  operateRuleResult: StopConfigRulesResponseOperateRuleResult;
+export class DeleteConfigRulesResponseBody extends $tea.Model {
+  requestId?: string;
+  operateRuleResult?: DeleteConfigRulesResponseBodyOperateRuleResult;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
@@ -333,7 +103,107 @@ export class StopConfigRulesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      operateRuleResult: StopConfigRulesResponseOperateRuleResult,
+      operateRuleResult: DeleteConfigRulesResponseBodyOperateRuleResult,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteConfigRulesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DeleteConfigRulesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DeleteConfigRulesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeComplianceRequest extends $tea.Model {
+  resourceType?: string;
+  resourceId?: string;
+  complianceType?: string;
+  configRuleId?: string;
+  multiAccount?: boolean;
+  memberId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      resourceType: 'ResourceType',
+      resourceId: 'ResourceId',
+      complianceType: 'ComplianceType',
+      configRuleId: 'ConfigRuleId',
+      multiAccount: 'MultiAccount',
+      memberId: 'MemberId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceType: 'string',
+      resourceId: 'string',
+      complianceType: 'string',
+      configRuleId: 'string',
+      multiAccount: 'boolean',
+      memberId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeComplianceResponseBody extends $tea.Model {
+  requestId?: string;
+  complianceResult?: DescribeComplianceResponseBodyComplianceResult;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      complianceResult: 'ComplianceResult',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      complianceResult: DescribeComplianceResponseBodyComplianceResult,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeComplianceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeComplianceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeComplianceResponseBody,
     };
   }
 
@@ -364,9 +234,9 @@ export class DescribeComplianceSummaryRequest extends $tea.Model {
   }
 }
 
-export class DescribeComplianceSummaryResponse extends $tea.Model {
-  requestId: string;
-  complianceSummary: DescribeComplianceSummaryResponseComplianceSummary;
+export class DescribeComplianceSummaryResponseBody extends $tea.Model {
+  requestId?: string;
+  complianceSummary?: DescribeComplianceSummaryResponseBodyComplianceSummary;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
@@ -377,7 +247,7 @@ export class DescribeComplianceSummaryResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      complianceSummary: DescribeComplianceSummaryResponseComplianceSummary,
+      complianceSummary: DescribeComplianceSummaryResponseBodyComplianceSummary,
     };
   }
 
@@ -386,38 +256,20 @@ export class DescribeComplianceSummaryResponse extends $tea.Model {
   }
 }
 
-export class ListConfigRulesRequest extends $tea.Model {
-  configRuleState?: string;
-  complianceType?: string;
-  riskLevel?: number;
-  messageType?: string;
-  pageNumber?: number;
-  pageSize?: number;
-  multiAccount?: boolean;
-  memberId?: number;
+export class DescribeComplianceSummaryResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeComplianceSummaryResponseBody;
   static names(): { [key: string]: string } {
     return {
-      configRuleState: 'ConfigRuleState',
-      complianceType: 'ComplianceType',
-      riskLevel: 'RiskLevel',
-      messageType: 'MessageType',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      multiAccount: 'MultiAccount',
-      memberId: 'MemberId',
+      headers: 'headers',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      configRuleState: 'string',
-      complianceType: 'string',
-      riskLevel: 'number',
-      messageType: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      multiAccount: 'boolean',
-      memberId: 'number',
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeComplianceSummaryResponseBody,
     };
   }
 
@@ -426,57 +278,13 @@ export class ListConfigRulesRequest extends $tea.Model {
   }
 }
 
-export class ListConfigRulesResponse extends $tea.Model {
-  requestId: string;
-  configRules: ListConfigRulesResponseConfigRules;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      configRules: 'ConfigRules',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      configRules: ListConfigRulesResponseConfigRules,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PutConfigRuleRequest extends $tea.Model {
+export class DescribeConfigRuleRequest extends $tea.Model {
   configRuleId?: string;
-  configRuleName: string;
-  description?: string;
-  inputParameters?: string;
-  sourceOwner: string;
-  sourceIdentifier: string;
-  sourceDetailMessageType: string;
-  sourceMaximumExecutionFrequency?: string;
-  scopeComplianceResourceId?: string;
-  scopeComplianceResourceTypes: string;
-  riskLevel: number;
-  clientToken?: string;
   multiAccount?: boolean;
   memberId?: number;
   static names(): { [key: string]: string } {
     return {
       configRuleId: 'ConfigRuleId',
-      configRuleName: 'ConfigRuleName',
-      description: 'Description',
-      inputParameters: 'InputParameters',
-      sourceOwner: 'SourceOwner',
-      sourceIdentifier: 'SourceIdentifier',
-      sourceDetailMessageType: 'SourceDetailMessageType',
-      sourceMaximumExecutionFrequency: 'SourceMaximumExecutionFrequency',
-      scopeComplianceResourceId: 'ScopeComplianceResourceId',
-      scopeComplianceResourceTypes: 'ScopeComplianceResourceTypes',
-      riskLevel: 'RiskLevel',
-      clientToken: 'ClientToken',
       multiAccount: 'MultiAccount',
       memberId: 'MemberId',
     };
@@ -485,17 +293,6 @@ export class PutConfigRuleRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       configRuleId: 'string',
-      configRuleName: 'string',
-      description: 'string',
-      inputParameters: 'string',
-      sourceOwner: 'string',
-      sourceIdentifier: 'string',
-      sourceDetailMessageType: 'string',
-      sourceMaximumExecutionFrequency: 'string',
-      scopeComplianceResourceId: 'string',
-      scopeComplianceResourceTypes: 'string',
-      riskLevel: 'number',
-      clientToken: 'string',
       multiAccount: 'boolean',
       memberId: 'number',
     };
@@ -506,20 +303,224 @@ export class PutConfigRuleRequest extends $tea.Model {
   }
 }
 
-export class PutConfigRuleResponse extends $tea.Model {
-  configRuleId: string;
-  requestId: string;
+export class DescribeConfigRuleResponseBody extends $tea.Model {
+  requestId?: string;
+  configRule?: DescribeConfigRuleResponseBodyConfigRule;
   static names(): { [key: string]: string } {
     return {
-      configRuleId: 'ConfigRuleId',
+      requestId: 'RequestId',
+      configRule: 'ConfigRule',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      configRule: DescribeConfigRuleResponseBodyConfigRule,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeConfigRuleResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeConfigRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeConfigRuleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeConfigurationRecorderResponseBody extends $tea.Model {
+  requestId?: string;
+  configurationRecorder?: DescribeConfigurationRecorderResponseBodyConfigurationRecorder;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      configurationRecorder: 'ConfigurationRecorder',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      configurationRecorder: DescribeConfigurationRecorderResponseBodyConfigurationRecorder,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeConfigurationRecorderResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeConfigurationRecorderResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeConfigurationRecorderResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDeliveryChannelsRequest extends $tea.Model {
+  deliveryChannelIds?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deliveryChannelIds: 'DeliveryChannelIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deliveryChannelIds: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDeliveryChannelsResponseBody extends $tea.Model {
+  deliveryChannels?: DescribeDeliveryChannelsResponseBodyDeliveryChannels[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deliveryChannels: 'DeliveryChannels',
       requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      configRuleId: 'string',
+      deliveryChannels: { 'type': 'array', 'itemType': DescribeDeliveryChannelsResponseBodyDeliveryChannels },
       requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDeliveryChannelsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeDeliveryChannelsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeDeliveryChannelsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDiscoveredResourceRequest extends $tea.Model {
+  resourceId?: string;
+  resourceType?: string;
+  region?: string;
+  multiAccount?: boolean;
+  memberId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      region: 'Region',
+      multiAccount: 'MultiAccount',
+      memberId: 'MemberId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceId: 'string',
+      resourceType: 'string',
+      region: 'string',
+      multiAccount: 'boolean',
+      memberId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDiscoveredResourceResponseBody extends $tea.Model {
+  requestId?: string;
+  discoveredResourceDetail?: DescribeDiscoveredResourceResponseBodyDiscoveredResourceDetail;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      discoveredResourceDetail: 'DiscoveredResourceDetail',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      discoveredResourceDetail: DescribeDiscoveredResourceResponseBodyDiscoveredResourceDetail,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDiscoveredResourceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeDiscoveredResourceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeDiscoveredResourceResponseBody,
     };
   }
 
@@ -568,9 +569,9 @@ export class DescribeEvaluationResultsRequest extends $tea.Model {
   }
 }
 
-export class DescribeEvaluationResultsResponse extends $tea.Model {
-  requestId: string;
-  evaluationResults: DescribeEvaluationResultsResponseEvaluationResults;
+export class DescribeEvaluationResultsResponseBody extends $tea.Model {
+  requestId?: string;
+  evaluationResults?: DescribeEvaluationResultsResponseBodyEvaluationResults;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
@@ -581,7 +582,7 @@ export class DescribeEvaluationResultsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      evaluationResults: DescribeEvaluationResultsResponseEvaluationResults,
+      evaluationResults: DescribeEvaluationResultsResponseBodyEvaluationResults,
     };
   }
 
@@ -590,17 +591,20 @@ export class DescribeEvaluationResultsResponse extends $tea.Model {
   }
 }
 
-export class DeleteConfigRulesRequest extends $tea.Model {
-  configRuleIds: string;
+export class DescribeEvaluationResultsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeEvaluationResultsResponseBody;
   static names(): { [key: string]: string } {
     return {
-      configRuleIds: 'ConfigRuleIds',
+      headers: 'headers',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      configRuleIds: 'string',
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeEvaluationResultsResponseBody,
     };
   }
 
@@ -609,54 +613,29 @@ export class DeleteConfigRulesRequest extends $tea.Model {
   }
 }
 
-export class DeleteConfigRulesResponse extends $tea.Model {
-  requestId: string;
-  operateRuleResult: DeleteConfigRulesResponseOperateRuleResult;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      operateRuleResult: 'OperateRuleResult',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      operateRuleResult: DeleteConfigRulesResponseOperateRuleResult,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeComplianceRequest extends $tea.Model {
-  resourceType?: string;
+export class GetAggregateDiscoveredResourceRequest extends $tea.Model {
   resourceId?: string;
-  complianceType?: string;
-  configRuleId?: string;
-  multiAccount?: boolean;
-  memberId?: number;
+  resourceType?: string;
+  region?: string;
+  aggregatorId?: string;
+  resourceOwnerId?: number;
   static names(): { [key: string]: string } {
     return {
-      resourceType: 'ResourceType',
       resourceId: 'ResourceId',
-      complianceType: 'ComplianceType',
-      configRuleId: 'ConfigRuleId',
-      multiAccount: 'MultiAccount',
-      memberId: 'MemberId',
+      resourceType: 'ResourceType',
+      region: 'Region',
+      aggregatorId: 'AggregatorId',
+      resourceOwnerId: 'ResourceOwnerId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      resourceType: 'string',
       resourceId: 'string',
-      complianceType: 'string',
-      configRuleId: 'string',
-      multiAccount: 'boolean',
-      memberId: 'number',
+      resourceType: 'string',
+      region: 'string',
+      aggregatorId: 'string',
+      resourceOwnerId: 'number',
     };
   }
 
@@ -665,20 +644,42 @@ export class DescribeComplianceRequest extends $tea.Model {
   }
 }
 
-export class DescribeComplianceResponse extends $tea.Model {
-  requestId: string;
-  complianceResult: DescribeComplianceResponseComplianceResult;
+export class GetAggregateDiscoveredResourceResponseBody extends $tea.Model {
+  requestId?: string;
+  discoveredResourceDetail?: GetAggregateDiscoveredResourceResponseBodyDiscoveredResourceDetail;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      complianceResult: 'ComplianceResult',
+      discoveredResourceDetail: 'DiscoveredResourceDetail',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      complianceResult: DescribeComplianceResponseComplianceResult,
+      discoveredResourceDetail: GetAggregateDiscoveredResourceResponseBodyDiscoveredResourceDetail,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAggregateDiscoveredResourceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetAggregateDiscoveredResourceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetAggregateDiscoveredResourceResponseBody,
     };
   }
 
@@ -712,9 +713,9 @@ export class GetDiscoveredResourceCountsRequest extends $tea.Model {
   }
 }
 
-export class GetDiscoveredResourceCountsResponse extends $tea.Model {
-  requestId: string;
-  groupedResourceCounts: GetDiscoveredResourceCountsResponseGroupedResourceCounts;
+export class GetDiscoveredResourceCountsResponseBody extends $tea.Model {
+  requestId?: string;
+  groupedResourceCounts?: GetDiscoveredResourceCountsResponseBodyGroupedResourceCounts;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
@@ -725,7 +726,487 @@ export class GetDiscoveredResourceCountsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      groupedResourceCounts: GetDiscoveredResourceCountsResponseGroupedResourceCounts,
+      groupedResourceCounts: GetDiscoveredResourceCountsResponseBodyGroupedResourceCounts,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDiscoveredResourceCountsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetDiscoveredResourceCountsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetDiscoveredResourceCountsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDiscoveredResourceSummaryRequest extends $tea.Model {
+  multiAccount?: boolean;
+  memberId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      multiAccount: 'MultiAccount',
+      memberId: 'MemberId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      multiAccount: 'boolean',
+      memberId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDiscoveredResourceSummaryResponseBody extends $tea.Model {
+  requestId?: string;
+  discoveredResourceSummary?: GetDiscoveredResourceSummaryResponseBodyDiscoveredResourceSummary;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      discoveredResourceSummary: 'DiscoveredResourceSummary',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      discoveredResourceSummary: GetDiscoveredResourceSummaryResponseBodyDiscoveredResourceSummary,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDiscoveredResourceSummaryResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetDiscoveredResourceSummaryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetDiscoveredResourceSummaryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetResourceComplianceTimelineRequest extends $tea.Model {
+  resourceType?: string;
+  resourceId?: string;
+  startTime?: number;
+  endTime?: number;
+  limit?: number;
+  multiAccount?: boolean;
+  memberId?: string;
+  region?: string;
+  nextToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      resourceType: 'ResourceType',
+      resourceId: 'ResourceId',
+      startTime: 'StartTime',
+      endTime: 'EndTime',
+      limit: 'Limit',
+      multiAccount: 'MultiAccount',
+      memberId: 'MemberId',
+      region: 'Region',
+      nextToken: 'NextToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceType: 'string',
+      resourceId: 'string',
+      startTime: 'number',
+      endTime: 'number',
+      limit: 'number',
+      multiAccount: 'boolean',
+      memberId: 'string',
+      region: 'string',
+      nextToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetResourceComplianceTimelineResponseBody extends $tea.Model {
+  requestId?: string;
+  resourceComplianceTimeline?: GetResourceComplianceTimelineResponseBodyResourceComplianceTimeline;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      resourceComplianceTimeline: 'ResourceComplianceTimeline',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      resourceComplianceTimeline: GetResourceComplianceTimelineResponseBodyResourceComplianceTimeline,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetResourceComplianceTimelineResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetResourceComplianceTimelineResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetResourceComplianceTimelineResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetResourceConfigurationTimelineRequest extends $tea.Model {
+  resourceId?: string;
+  startTime?: number;
+  endTime?: number;
+  limit?: number;
+  resourceType?: string;
+  region?: string;
+  multiAccount?: boolean;
+  memberId?: number;
+  nextToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      resourceId: 'ResourceId',
+      startTime: 'StartTime',
+      endTime: 'EndTime',
+      limit: 'Limit',
+      resourceType: 'ResourceType',
+      region: 'Region',
+      multiAccount: 'MultiAccount',
+      memberId: 'MemberId',
+      nextToken: 'NextToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceId: 'string',
+      startTime: 'number',
+      endTime: 'number',
+      limit: 'number',
+      resourceType: 'string',
+      region: 'string',
+      multiAccount: 'boolean',
+      memberId: 'number',
+      nextToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetResourceConfigurationTimelineResponseBody extends $tea.Model {
+  requestId?: string;
+  resourceConfigurationTimeline?: GetResourceConfigurationTimelineResponseBodyResourceConfigurationTimeline;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      resourceConfigurationTimeline: 'ResourceConfigurationTimeline',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      resourceConfigurationTimeline: GetResourceConfigurationTimelineResponseBodyResourceConfigurationTimeline,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetResourceConfigurationTimelineResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetResourceConfigurationTimelineResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetResourceConfigurationTimelineResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSupportedResourceTypesResponseBody extends $tea.Model {
+  requestId?: string;
+  resourceTypes?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      resourceTypes: 'ResourceTypes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      resourceTypes: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSupportedResourceTypesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetSupportedResourceTypesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetSupportedResourceTypesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAggregateDiscoveredResourcesRequest extends $tea.Model {
+  resourceId?: string;
+  resourceDeleted?: number;
+  pageSize?: number;
+  pageNumber?: number;
+  resourceTypes?: string;
+  regions?: string;
+  complianceType?: string;
+  aggregatorId?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      resourceId: 'ResourceId',
+      resourceDeleted: 'ResourceDeleted',
+      pageSize: 'PageSize',
+      pageNumber: 'PageNumber',
+      resourceTypes: 'ResourceTypes',
+      regions: 'Regions',
+      complianceType: 'ComplianceType',
+      aggregatorId: 'AggregatorId',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceId: 'string',
+      resourceDeleted: 'number',
+      pageSize: 'number',
+      pageNumber: 'number',
+      resourceTypes: 'string',
+      regions: 'string',
+      complianceType: 'string',
+      aggregatorId: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAggregateDiscoveredResourcesResponseBody extends $tea.Model {
+  discoveredResourceProfiles?: ListAggregateDiscoveredResourcesResponseBodyDiscoveredResourceProfiles;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      discoveredResourceProfiles: 'DiscoveredResourceProfiles',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      discoveredResourceProfiles: ListAggregateDiscoveredResourcesResponseBodyDiscoveredResourceProfiles,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAggregateDiscoveredResourcesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListAggregateDiscoveredResourcesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListAggregateDiscoveredResourcesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListConfigRulesRequest extends $tea.Model {
+  configRuleState?: string;
+  complianceType?: string;
+  riskLevel?: number;
+  pageNumber?: number;
+  pageSize?: number;
+  multiAccount?: boolean;
+  memberId?: number;
+  configRuleName?: string;
+  compliancePackId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configRuleState: 'ConfigRuleState',
+      complianceType: 'ComplianceType',
+      riskLevel: 'RiskLevel',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      multiAccount: 'MultiAccount',
+      memberId: 'MemberId',
+      configRuleName: 'ConfigRuleName',
+      compliancePackId: 'CompliancePackId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configRuleState: 'string',
+      complianceType: 'string',
+      riskLevel: 'number',
+      pageNumber: 'number',
+      pageSize: 'number',
+      multiAccount: 'boolean',
+      memberId: 'number',
+      configRuleName: 'string',
+      compliancePackId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListConfigRulesResponseBody extends $tea.Model {
+  requestId?: string;
+  configRules?: ListConfigRulesResponseBodyConfigRules;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      configRules: 'ConfigRules',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      configRules: ListConfigRulesResponseBodyConfigRules,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListConfigRulesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListConfigRulesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListConfigRulesResponseBody,
     };
   }
 
@@ -737,8 +1218,8 @@ export class GetDiscoveredResourceCountsResponse extends $tea.Model {
 export class ListDiscoveredResourcesRequest extends $tea.Model {
   resourceId?: string;
   resourceDeleted?: number;
-  pageSize: number;
-  pageNumber: number;
+  pageSize?: number;
+  pageNumber?: number;
   resourceTypes?: string;
   regions?: string;
   complianceType?: string;
@@ -777,9 +1258,9 @@ export class ListDiscoveredResourcesRequest extends $tea.Model {
   }
 }
 
-export class ListDiscoveredResourcesResponse extends $tea.Model {
-  requestId: string;
-  discoveredResourceProfiles: ListDiscoveredResourcesResponseDiscoveredResourceProfiles;
+export class ListDiscoveredResourcesResponseBody extends $tea.Model {
+  requestId?: string;
+  discoveredResourceProfiles?: ListDiscoveredResourcesResponseBodyDiscoveredResourceProfiles;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
@@ -790,7 +1271,7 @@ export class ListDiscoveredResourcesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      discoveredResourceProfiles: ListDiscoveredResourcesResponseDiscoveredResourceProfiles,
+      discoveredResourceProfiles: ListDiscoveredResourcesResponseBodyDiscoveredResourceProfiles,
     };
   }
 
@@ -799,14 +1280,20 @@ export class ListDiscoveredResourcesResponse extends $tea.Model {
   }
 }
 
-export class DescribeConfigurationRecorderRequest extends $tea.Model {
+export class ListDiscoveredResourcesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListDiscoveredResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
+      headers: 'headers',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListDiscoveredResourcesResponseBody,
     };
   }
 
@@ -815,20 +1302,42 @@ export class DescribeConfigurationRecorderRequest extends $tea.Model {
   }
 }
 
-export class DescribeConfigurationRecorderResponse extends $tea.Model {
-  requestId: string;
-  configurationRecorder: DescribeConfigurationRecorderResponseConfigurationRecorder;
+export class ListRemediationTemplatesRequest extends $tea.Model {
+  remediationType?: string;
+  managedRuleIdentifier?: string;
+  static names(): { [key: string]: string } {
+    return {
+      remediationType: 'RemediationType',
+      managedRuleIdentifier: 'ManagedRuleIdentifier',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      remediationType: 'string',
+      managedRuleIdentifier: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRemediationTemplatesResponseBody extends $tea.Model {
+  requestId?: string;
+  remediationTemplates?: ListRemediationTemplatesResponseBodyRemediationTemplates[];
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      configurationRecorder: 'ConfigurationRecorder',
+      remediationTemplates: 'RemediationTemplates',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      configurationRecorder: DescribeConfigurationRecorderResponseConfigurationRecorder,
+      remediationTemplates: { 'type': 'array', 'itemType': ListRemediationTemplatesResponseBodyRemediationTemplates },
     };
   }
 
@@ -837,29 +1346,20 @@ export class DescribeConfigurationRecorderResponse extends $tea.Model {
   }
 }
 
-export class DescribeDiscoveredResourceRequest extends $tea.Model {
-  resourceId: string;
-  resourceType: string;
-  region?: string;
-  multiAccount?: boolean;
-  memberId?: number;
+export class ListRemediationTemplatesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListRemediationTemplatesResponseBody;
   static names(): { [key: string]: string } {
     return {
-      resourceId: 'ResourceId',
-      resourceType: 'ResourceType',
-      region: 'Region',
-      multiAccount: 'MultiAccount',
-      memberId: 'MemberId',
+      headers: 'headers',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      resourceId: 'string',
-      resourceType: 'string',
-      region: 'string',
-      multiAccount: 'boolean',
-      memberId: 'number',
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListRemediationTemplatesResponseBody,
     };
   }
 
@@ -868,76 +1368,35 @@ export class DescribeDiscoveredResourceRequest extends $tea.Model {
   }
 }
 
-export class DescribeDiscoveredResourceResponse extends $tea.Model {
-  requestId: string;
-  discoveredResourceDetail: DescribeDiscoveredResourceResponseDiscoveredResourceDetail;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      discoveredResourceDetail: 'DiscoveredResourceDetail',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      discoveredResourceDetail: DescribeDiscoveredResourceResponseDiscoveredResourceDetail,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StartConfigurationRecorderRequest extends $tea.Model {
-  enterpriseEdition?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      enterpriseEdition: 'EnterpriseEdition',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      enterpriseEdition: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StartConfigurationRecorderResponse extends $tea.Model {
-  requestId: string;
-  configurationRecorder: StartConfigurationRecorderResponseConfigurationRecorder;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      configurationRecorder: 'ConfigurationRecorder',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      configurationRecorder: StartConfigurationRecorderResponseConfigurationRecorder,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeConfigRuleRequest extends $tea.Model {
-  configRuleId: string;
+export class PutConfigRuleRequest extends $tea.Model {
+  configRuleId?: string;
+  configRuleName?: string;
+  description?: string;
+  inputParameters?: string;
+  sourceOwner?: string;
+  sourceIdentifier?: string;
+  sourceDetailMessageType?: string;
+  sourceMaximumExecutionFrequency?: string;
+  scopeComplianceResourceId?: string;
+  scopeComplianceResourceTypes?: string;
+  riskLevel?: number;
+  clientToken?: string;
   multiAccount?: boolean;
   memberId?: number;
   static names(): { [key: string]: string } {
     return {
       configRuleId: 'ConfigRuleId',
+      configRuleName: 'ConfigRuleName',
+      description: 'Description',
+      inputParameters: 'InputParameters',
+      sourceOwner: 'SourceOwner',
+      sourceIdentifier: 'SourceIdentifier',
+      sourceDetailMessageType: 'SourceDetailMessageType',
+      sourceMaximumExecutionFrequency: 'SourceMaximumExecutionFrequency',
+      scopeComplianceResourceId: 'ScopeComplianceResourceId',
+      scopeComplianceResourceTypes: 'ScopeComplianceResourceTypes',
+      riskLevel: 'RiskLevel',
+      clientToken: 'ClientToken',
       multiAccount: 'MultiAccount',
       memberId: 'MemberId',
     };
@@ -946,6 +1405,17 @@ export class DescribeConfigRuleRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       configRuleId: 'string',
+      configRuleName: 'string',
+      description: 'string',
+      inputParameters: 'string',
+      sourceOwner: 'string',
+      sourceIdentifier: 'string',
+      sourceDetailMessageType: 'string',
+      sourceMaximumExecutionFrequency: 'string',
+      scopeComplianceResourceId: 'string',
+      scopeComplianceResourceTypes: 'string',
+      riskLevel: 'number',
+      clientToken: 'string',
       multiAccount: 'boolean',
       memberId: 'number',
     };
@@ -956,20 +1426,20 @@ export class DescribeConfigRuleRequest extends $tea.Model {
   }
 }
 
-export class DescribeConfigRuleResponse extends $tea.Model {
-  requestId: string;
-  configRule: DescribeConfigRuleResponseConfigRule;
+export class PutConfigRuleResponseBody extends $tea.Model {
+  configRuleId?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      configRuleId: 'ConfigRuleId',
       requestId: 'RequestId',
-      configRule: 'ConfigRule',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      configRuleId: 'string',
       requestId: 'string',
-      configRule: DescribeConfigRuleResponseConfigRule,
     };
   }
 
@@ -978,14 +1448,20 @@ export class DescribeConfigRuleResponse extends $tea.Model {
   }
 }
 
-export class GetSupportedResourceTypesRequest extends $tea.Model {
+export class PutConfigRuleResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: PutConfigRuleResponseBody;
   static names(): { [key: string]: string } {
     return {
+      headers: 'headers',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: PutConfigRuleResponseBody,
     };
   }
 
@@ -994,20 +1470,61 @@ export class GetSupportedResourceTypesRequest extends $tea.Model {
   }
 }
 
-export class GetSupportedResourceTypesResponse extends $tea.Model {
-  requestId: string;
-  resourceTypes: string[];
+export class PutConfigurationRecorderRequest extends $tea.Model {
+  resourceTypes?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       resourceTypes: 'ResourceTypes',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      resourceTypes: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PutConfigurationRecorderResponseBody extends $tea.Model {
+  requestId?: string;
+  configurationRecorder?: PutConfigurationRecorderResponseBodyConfigurationRecorder;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      configurationRecorder: 'ConfigurationRecorder',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
       requestId: 'string',
-      resourceTypes: { 'type': 'array', 'itemType': 'string' },
+      configurationRecorder: PutConfigurationRecorderResponseBodyConfigurationRecorder,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PutConfigurationRecorderResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: PutConfigurationRecorderResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: PutConfigurationRecorderResponseBody,
     };
   }
 
@@ -1020,9 +1537,9 @@ export class PutDeliveryChannelRequest extends $tea.Model {
   clientToken?: string;
   deliveryChannelId?: string;
   deliveryChannelName?: string;
-  deliveryChannelType: string;
-  deliveryChannelTargetArn: string;
-  deliveryChannelAssumeRoleArn: string;
+  deliveryChannelType?: string;
+  deliveryChannelTargetArn?: string;
+  deliveryChannelAssumeRoleArn?: string;
   deliveryChannelCondition?: string;
   description?: string;
   status?: number;
@@ -1059,20 +1576,42 @@ export class PutDeliveryChannelRequest extends $tea.Model {
   }
 }
 
-export class PutDeliveryChannelResponse extends $tea.Model {
-  requestId: string;
-  deliveryChannelId: string;
+export class PutDeliveryChannelResponseBody extends $tea.Model {
+  deliveryChannelId?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       deliveryChannelId: 'DeliveryChannelId',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       deliveryChannelId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PutDeliveryChannelResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: PutDeliveryChannelResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: PutDeliveryChannelResponseBody,
     };
   }
 
@@ -1082,7 +1621,7 @@ export class PutDeliveryChannelResponse extends $tea.Model {
 }
 
 export class PutEvaluationsRequest extends $tea.Model {
-  resultToken: string;
+  resultToken?: string;
   evaluations?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1103,20 +1642,42 @@ export class PutEvaluationsRequest extends $tea.Model {
   }
 }
 
-export class PutEvaluationsResponse extends $tea.Model {
-  requestId: string;
-  result: boolean;
+export class PutEvaluationsResponseBody extends $tea.Model {
+  result?: boolean;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       result: 'Result',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       result: 'boolean',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PutEvaluationsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: PutEvaluationsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: PutEvaluationsResponseBody,
     };
   }
 
@@ -1126,22 +1687,38 @@ export class PutEvaluationsResponse extends $tea.Model {
 }
 
 export class StartConfigRuleEvaluationRequest extends $tea.Model {
-  configRuleId: string;
-  multiAccount?: boolean;
-  memberId?: number;
+  configRuleId?: string;
   static names(): { [key: string]: string } {
     return {
       configRuleId: 'ConfigRuleId',
-      multiAccount: 'MultiAccount',
-      memberId: 'MemberId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       configRuleId: 'string',
-      multiAccount: 'boolean',
-      memberId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartConfigRuleEvaluationResponseBody extends $tea.Model {
+  result?: boolean;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      result: 'Result',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      result: 'boolean',
+      requestId: 'string',
     };
   }
 
@@ -1151,19 +1728,60 @@ export class StartConfigRuleEvaluationRequest extends $tea.Model {
 }
 
 export class StartConfigRuleEvaluationResponse extends $tea.Model {
-  requestId: string;
-  result: boolean;
+  headers: { [key: string]: string };
+  body: StartConfigRuleEvaluationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: StartConfigRuleEvaluationResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartConfigurationRecorderRequest extends $tea.Model {
+  enterpriseEdition?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      enterpriseEdition: 'EnterpriseEdition',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enterpriseEdition: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartConfigurationRecorderResponseBody extends $tea.Model {
+  requestId?: string;
+  configurationRecorder?: StartConfigurationRecorderResponseBodyConfigurationRecorder;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      result: 'Result',
+      configurationRecorder: 'ConfigurationRecorder',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      result: 'boolean',
+      configurationRecorder: StartConfigurationRecorderResponseBodyConfigurationRecorder,
     };
   }
 
@@ -1172,50 +1790,20 @@ export class StartConfigRuleEvaluationResponse extends $tea.Model {
   }
 }
 
-export class GetResourceComplianceTimelineResponseResourceComplianceTimelineComplianceList extends $tea.Model {
-  accountId: string;
-  availabilityZone: string;
-  captureTime: number;
-  configuration: string;
-  configurationDiff: string;
-  region: string;
-  resourceCreateTime: number;
-  resourceId: string;
-  resourceName: string;
-  resourceStatus: string;
-  resourceType: string;
-  tags: string;
+export class StartConfigurationRecorderResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: StartConfigurationRecorderResponseBody;
   static names(): { [key: string]: string } {
     return {
-      accountId: 'AccountId',
-      availabilityZone: 'AvailabilityZone',
-      captureTime: 'CaptureTime',
-      configuration: 'Configuration',
-      configurationDiff: 'ConfigurationDiff',
-      region: 'Region',
-      resourceCreateTime: 'ResourceCreateTime',
-      resourceId: 'ResourceId',
-      resourceName: 'ResourceName',
-      resourceStatus: 'ResourceStatus',
-      resourceType: 'ResourceType',
-      tags: 'Tags',
+      headers: 'headers',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      accountId: 'string',
-      availabilityZone: 'string',
-      captureTime: 'number',
-      configuration: 'string',
-      configurationDiff: 'string',
-      region: 'string',
-      resourceCreateTime: 'number',
-      resourceId: 'string',
-      resourceName: 'string',
-      resourceStatus: 'string',
-      resourceType: 'string',
-      tags: 'string',
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: StartConfigurationRecorderResponseBody,
     };
   }
 
@@ -1224,26 +1812,17 @@ export class GetResourceComplianceTimelineResponseResourceComplianceTimelineComp
   }
 }
 
-export class GetResourceComplianceTimelineResponseResourceComplianceTimeline extends $tea.Model {
-  limit: number;
-  totalCount: number;
-  nextToken: string;
-  complianceList: GetResourceComplianceTimelineResponseResourceComplianceTimelineComplianceList[];
+export class StopConfigRulesRequest extends $tea.Model {
+  configRuleIds?: string;
   static names(): { [key: string]: string } {
     return {
-      limit: 'Limit',
-      totalCount: 'TotalCount',
-      nextToken: 'NextToken',
-      complianceList: 'ComplianceList',
+      configRuleIds: 'ConfigRuleIds',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      limit: 'number',
-      totalCount: 'number',
-      nextToken: 'string',
-      complianceList: { 'type': 'array', 'itemType': GetResourceComplianceTimelineResponseResourceComplianceTimelineComplianceList },
+      configRuleIds: 'string',
     };
   }
 
@@ -1252,50 +1831,20 @@ export class GetResourceComplianceTimelineResponseResourceComplianceTimeline ext
   }
 }
 
-export class GetResourceConfigurationTimelineResponseResourceConfigurationTimelineConfigurationList extends $tea.Model {
-  accountId: number;
-  availabilityZone: string;
-  captureTime: string;
-  configurationDiff: string;
-  region: string;
-  relationship: string;
-  relationshipDiff: string;
-  resourceCreateTime: string;
-  resourceId: string;
-  resourceName: string;
-  resourceType: string;
-  tags: string;
+export class StopConfigRulesResponseBody extends $tea.Model {
+  requestId?: string;
+  operateRuleResult?: StopConfigRulesResponseBodyOperateRuleResult;
   static names(): { [key: string]: string } {
     return {
-      accountId: 'AccountId',
-      availabilityZone: 'AvailabilityZone',
-      captureTime: 'CaptureTime',
-      configurationDiff: 'ConfigurationDiff',
-      region: 'Region',
-      relationship: 'Relationship',
-      relationshipDiff: 'RelationshipDiff',
-      resourceCreateTime: 'ResourceCreateTime',
-      resourceId: 'ResourceId',
-      resourceName: 'ResourceName',
-      resourceType: 'ResourceType',
-      tags: 'Tags',
+      requestId: 'RequestId',
+      operateRuleResult: 'OperateRuleResult',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      accountId: 'number',
-      availabilityZone: 'string',
-      captureTime: 'string',
-      configurationDiff: 'string',
-      region: 'string',
-      relationship: 'string',
-      relationshipDiff: 'string',
-      resourceCreateTime: 'string',
-      resourceId: 'string',
-      resourceName: 'string',
-      resourceType: 'string',
-      tags: 'string',
+      requestId: 'string',
+      operateRuleResult: StopConfigRulesResponseBodyOperateRuleResult,
     };
   }
 
@@ -1304,26 +1853,20 @@ export class GetResourceConfigurationTimelineResponseResourceConfigurationTimeli
   }
 }
 
-export class GetResourceConfigurationTimelineResponseResourceConfigurationTimeline extends $tea.Model {
-  nextToken: string;
-  limit: number;
-  totalCount: number;
-  configurationList: GetResourceConfigurationTimelineResponseResourceConfigurationTimelineConfigurationList[];
+export class StopConfigRulesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: StopConfigRulesResponseBody;
   static names(): { [key: string]: string } {
     return {
-      nextToken: 'NextToken',
-      limit: 'Limit',
-      totalCount: 'TotalCount',
-      configurationList: 'ConfigurationList',
+      headers: 'headers',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      nextToken: 'string',
-      limit: 'number',
-      totalCount: 'number',
-      configurationList: { 'type': 'array', 'itemType': GetResourceConfigurationTimelineResponseResourceConfigurationTimelineConfigurationList },
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: StopConfigRulesResponseBody,
     };
   }
 
@@ -1332,106 +1875,10 @@ export class GetResourceConfigurationTimelineResponseResourceConfigurationTimeli
   }
 }
 
-export class DescribeDeliveryChannelsResponseDeliveryChannels extends $tea.Model {
-  deliveryChannelId: string;
-  deliveryChannelName: string;
-  deliveryChannelType: string;
-  deliveryChannelTargetArn: string;
-  deliveryChannelAssumeRoleArn: string;
-  deliveryChannelCondition: string;
-  description: string;
-  status: number;
-  static names(): { [key: string]: string } {
-    return {
-      deliveryChannelId: 'DeliveryChannelId',
-      deliveryChannelName: 'DeliveryChannelName',
-      deliveryChannelType: 'DeliveryChannelType',
-      deliveryChannelTargetArn: 'DeliveryChannelTargetArn',
-      deliveryChannelAssumeRoleArn: 'DeliveryChannelAssumeRoleArn',
-      deliveryChannelCondition: 'DeliveryChannelCondition',
-      description: 'Description',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      deliveryChannelId: 'string',
-      deliveryChannelName: 'string',
-      deliveryChannelType: 'string',
-      deliveryChannelTargetArn: 'string',
-      deliveryChannelAssumeRoleArn: 'string',
-      deliveryChannelCondition: 'string',
-      description: 'string',
-      status: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PutConfigurationRecorderResponseConfigurationRecorder extends $tea.Model {
-  accountId: number;
-  configurationRecorderStatus: string;
-  organizationMasterId: number;
-  organizationEnableStatus: string;
-  resourceTypes: string[];
-  static names(): { [key: string]: string } {
-    return {
-      accountId: 'AccountId',
-      configurationRecorderStatus: 'ConfigurationRecorderStatus',
-      organizationMasterId: 'OrganizationMasterId',
-      organizationEnableStatus: 'OrganizationEnableStatus',
-      resourceTypes: 'ResourceTypes',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accountId: 'number',
-      configurationRecorderStatus: 'string',
-      organizationMasterId: 'number',
-      organizationEnableStatus: 'string',
-      resourceTypes: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDiscoveredResourceSummaryResponseDiscoveredResourceSummary extends $tea.Model {
-  resourceCount: number;
-  resourceTypeCount: number;
-  regionCount: number;
-  static names(): { [key: string]: string } {
-    return {
-      resourceCount: 'ResourceCount',
-      resourceTypeCount: 'ResourceTypeCount',
-      regionCount: 'RegionCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      resourceCount: 'number',
-      resourceTypeCount: 'number',
-      regionCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ActiveConfigRulesResponseOperateRuleResultOperateRuleItemList extends $tea.Model {
-  configRuleId: string;
-  errorCode: string;
-  success: boolean;
+export class ActiveConfigRulesResponseBodyOperateRuleResultOperateRuleItemList extends $tea.Model {
+  configRuleId?: string;
+  errorCode?: string;
+  success?: boolean;
   static names(): { [key: string]: string } {
     return {
       configRuleId: 'ConfigRuleId',
@@ -1453,8 +1900,8 @@ export class ActiveConfigRulesResponseOperateRuleResultOperateRuleItemList exten
   }
 }
 
-export class ActiveConfigRulesResponseOperateRuleResult extends $tea.Model {
-  operateRuleItemList: ActiveConfigRulesResponseOperateRuleResultOperateRuleItemList[];
+export class ActiveConfigRulesResponseBodyOperateRuleResult extends $tea.Model {
+  operateRuleItemList?: ActiveConfigRulesResponseBodyOperateRuleResultOperateRuleItemList[];
   static names(): { [key: string]: string } {
     return {
       operateRuleItemList: 'OperateRuleItemList',
@@ -1463,7 +1910,7 @@ export class ActiveConfigRulesResponseOperateRuleResult extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      operateRuleItemList: { 'type': 'array', 'itemType': ActiveConfigRulesResponseOperateRuleResultOperateRuleItemList },
+      operateRuleItemList: { 'type': 'array', 'itemType': ActiveConfigRulesResponseBodyOperateRuleResultOperateRuleItemList },
     };
   }
 
@@ -1472,10 +1919,10 @@ export class ActiveConfigRulesResponseOperateRuleResult extends $tea.Model {
   }
 }
 
-export class StopConfigRulesResponseOperateRuleResultOperateRuleItemList extends $tea.Model {
-  configRuleId: string;
-  errorCode: string;
-  success: boolean;
+export class DeleteConfigRulesResponseBodyOperateRuleResultOperateRuleItemList extends $tea.Model {
+  configRuleId?: string;
+  errorCode?: string;
+  success?: boolean;
   static names(): { [key: string]: string } {
     return {
       configRuleId: 'ConfigRuleId',
@@ -1497,8 +1944,8 @@ export class StopConfigRulesResponseOperateRuleResultOperateRuleItemList extends
   }
 }
 
-export class StopConfigRulesResponseOperateRuleResult extends $tea.Model {
-  operateRuleItemList: StopConfigRulesResponseOperateRuleResultOperateRuleItemList[];
+export class DeleteConfigRulesResponseBodyOperateRuleResult extends $tea.Model {
+  operateRuleItemList?: DeleteConfigRulesResponseBodyOperateRuleResultOperateRuleItemList[];
   static names(): { [key: string]: string } {
     return {
       operateRuleItemList: 'OperateRuleItemList',
@@ -1507,7 +1954,7 @@ export class StopConfigRulesResponseOperateRuleResult extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      operateRuleItemList: { 'type': 'array', 'itemType': StopConfigRulesResponseOperateRuleResultOperateRuleItemList },
+      operateRuleItemList: { 'type': 'array', 'itemType': DeleteConfigRulesResponseBodyOperateRuleResultOperateRuleItemList },
     };
   }
 
@@ -1516,17 +1963,61 @@ export class StopConfigRulesResponseOperateRuleResult extends $tea.Model {
   }
 }
 
-export class DescribeComplianceSummaryResponseComplianceSummaryComplianceSummaryByConfigRule extends $tea.Model {
-  complianceSummaryTimestamp: number;
-  compliantCount: number;
-  nonCompliantCount: number;
-  totalCount: number;
+export class DescribeComplianceResponseBodyComplianceResultCompliances extends $tea.Model {
+  count?: number;
+  complianceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      count: 'Count',
+      complianceType: 'ComplianceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      count: 'number',
+      complianceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeComplianceResponseBodyComplianceResult extends $tea.Model {
+  totalCount?: number;
+  compliances?: DescribeComplianceResponseBodyComplianceResultCompliances[];
+  static names(): { [key: string]: string } {
+    return {
+      totalCount: 'TotalCount',
+      compliances: 'Compliances',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      totalCount: 'number',
+      compliances: { 'type': 'array', 'itemType': DescribeComplianceResponseBodyComplianceResultCompliances },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeComplianceSummaryResponseBodyComplianceSummaryComplianceSummaryByConfigRule extends $tea.Model {
+  complianceSummaryTimestamp?: number;
+  compliantCount?: number;
+  totalCount?: number;
+  nonCompliantCount?: number;
   static names(): { [key: string]: string } {
     return {
       complianceSummaryTimestamp: 'ComplianceSummaryTimestamp',
       compliantCount: 'CompliantCount',
-      nonCompliantCount: 'NonCompliantCount',
       totalCount: 'TotalCount',
+      nonCompliantCount: 'NonCompliantCount',
     };
   }
 
@@ -1534,8 +2025,8 @@ export class DescribeComplianceSummaryResponseComplianceSummaryComplianceSummary
     return {
       complianceSummaryTimestamp: 'number',
       compliantCount: 'number',
-      nonCompliantCount: 'number',
       totalCount: 'number',
+      nonCompliantCount: 'number',
     };
   }
 
@@ -1544,17 +2035,17 @@ export class DescribeComplianceSummaryResponseComplianceSummaryComplianceSummary
   }
 }
 
-export class DescribeComplianceSummaryResponseComplianceSummaryComplianceSummaryByResource extends $tea.Model {
-  complianceSummaryTimestamp: number;
-  compliantCount: number;
-  nonCompliantCount: number;
-  totalCount: number;
+export class DescribeComplianceSummaryResponseBodyComplianceSummaryComplianceSummaryByResource extends $tea.Model {
+  complianceSummaryTimestamp?: number;
+  compliantCount?: number;
+  totalCount?: number;
+  nonCompliantCount?: number;
   static names(): { [key: string]: string } {
     return {
       complianceSummaryTimestamp: 'ComplianceSummaryTimestamp',
       compliantCount: 'CompliantCount',
-      nonCompliantCount: 'NonCompliantCount',
       totalCount: 'TotalCount',
+      nonCompliantCount: 'NonCompliantCount',
     };
   }
 
@@ -1562,8 +2053,8 @@ export class DescribeComplianceSummaryResponseComplianceSummaryComplianceSummary
     return {
       complianceSummaryTimestamp: 'number',
       compliantCount: 'number',
-      nonCompliantCount: 'number',
       totalCount: 'number',
+      nonCompliantCount: 'number',
     };
   }
 
@@ -1572,9 +2063,9 @@ export class DescribeComplianceSummaryResponseComplianceSummaryComplianceSummary
   }
 }
 
-export class DescribeComplianceSummaryResponseComplianceSummary extends $tea.Model {
-  complianceSummaryByConfigRule: DescribeComplianceSummaryResponseComplianceSummaryComplianceSummaryByConfigRule;
-  complianceSummaryByResource: DescribeComplianceSummaryResponseComplianceSummaryComplianceSummaryByResource;
+export class DescribeComplianceSummaryResponseBodyComplianceSummary extends $tea.Model {
+  complianceSummaryByConfigRule?: DescribeComplianceSummaryResponseBodyComplianceSummaryComplianceSummaryByConfigRule;
+  complianceSummaryByResource?: DescribeComplianceSummaryResponseBodyComplianceSummaryComplianceSummaryByResource;
   static names(): { [key: string]: string } {
     return {
       complianceSummaryByConfigRule: 'ComplianceSummaryByConfigRule',
@@ -1584,8 +2075,8 @@ export class DescribeComplianceSummaryResponseComplianceSummary extends $tea.Mod
 
   static types(): { [key: string]: any } {
     return {
-      complianceSummaryByConfigRule: DescribeComplianceSummaryResponseComplianceSummaryComplianceSummaryByConfigRule,
-      complianceSummaryByResource: DescribeComplianceSummaryResponseComplianceSummaryComplianceSummaryByResource,
+      complianceSummaryByConfigRule: DescribeComplianceSummaryResponseBodyComplianceSummaryComplianceSummaryByConfigRule,
+      complianceSummaryByResource: DescribeComplianceSummaryResponseBodyComplianceSummaryComplianceSummaryByResource,
     };
   }
 
@@ -1594,20 +2085,23 @@ export class DescribeComplianceSummaryResponseComplianceSummary extends $tea.Mod
   }
 }
 
-export class ListConfigRulesResponseConfigRulesConfigRuleListCompliance extends $tea.Model {
-  complianceType: string;
-  count: number;
+export class DescribeConfigRuleResponseBodyConfigRuleSourceSourceDetails extends $tea.Model {
+  messageType?: string;
+  eventSource?: string;
+  maximumExecutionFrequency?: string;
   static names(): { [key: string]: string } {
     return {
-      complianceType: 'ComplianceType',
-      count: 'Count',
+      messageType: 'MessageType',
+      eventSource: 'EventSource',
+      maximumExecutionFrequency: 'MaximumExecutionFrequency',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      complianceType: 'string',
-      count: 'number',
+      messageType: 'string',
+      eventSource: 'string',
+      maximumExecutionFrequency: 'string',
     };
   }
 
@@ -1616,29 +2110,26 @@ export class ListConfigRulesResponseConfigRulesConfigRuleListCompliance extends 
   }
 }
 
-export class ListConfigRulesResponseConfigRulesConfigRuleListCreateBy extends $tea.Model {
-  creatorId: string;
-  creatorName: string;
-  creatorType: string;
-  configRuleSceneId: string;
-  configRuleSceneName: string;
+export class DescribeConfigRuleResponseBodyConfigRuleSourceSourceConditions extends $tea.Model {
+  desiredValue?: string;
+  tips?: string;
+  operator?: string;
+  name?: string;
   static names(): { [key: string]: string } {
     return {
-      creatorId: 'CreatorId',
-      creatorName: 'CreatorName',
-      creatorType: 'CreatorType',
-      configRuleSceneId: 'ConfigRuleSceneId',
-      configRuleSceneName: 'ConfigRuleSceneName',
+      desiredValue: 'DesiredValue',
+      tips: 'Tips',
+      operator: 'Operator',
+      name: 'Name',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      creatorId: 'string',
-      creatorName: 'string',
-      creatorType: 'string',
-      configRuleSceneId: 'string',
-      configRuleSceneName: 'string',
+      desiredValue: 'string',
+      tips: 'string',
+      operator: 'string',
+      name: 'string',
     };
   }
 
@@ -1647,50 +2138,233 @@ export class ListConfigRulesResponseConfigRulesConfigRuleListCreateBy extends $t
   }
 }
 
-export class ListConfigRulesResponseConfigRulesConfigRuleList extends $tea.Model {
-  accountId: number;
-  configRuleArn: string;
-  configRuleId: string;
-  configRuleName: string;
-  configRuleState: string;
-  description: string;
-  riskLevel: number;
-  sourceIdentifier: string;
-  sourceOwner: string;
-  automationType: string;
-  compliance: ListConfigRulesResponseConfigRulesConfigRuleListCompliance;
-  createBy: ListConfigRulesResponseConfigRulesConfigRuleListCreateBy;
+export class DescribeConfigRuleResponseBodyConfigRuleSource extends $tea.Model {
+  sourceDetails?: DescribeConfigRuleResponseBodyConfigRuleSourceSourceDetails[];
+  owner?: string;
+  sourceConditions?: DescribeConfigRuleResponseBodyConfigRuleSourceSourceConditions[];
+  identifier?: string;
+  static names(): { [key: string]: string } {
+    return {
+      sourceDetails: 'SourceDetails',
+      owner: 'Owner',
+      sourceConditions: 'SourceConditions',
+      identifier: 'Identifier',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sourceDetails: { 'type': 'array', 'itemType': DescribeConfigRuleResponseBodyConfigRuleSourceSourceDetails },
+      owner: 'string',
+      sourceConditions: { 'type': 'array', 'itemType': DescribeConfigRuleResponseBodyConfigRuleSourceSourceConditions },
+      identifier: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeConfigRuleResponseBodyConfigRuleManagedRuleSourceDetails extends $tea.Model {
+  messageType?: string;
+  eventSource?: string;
+  maximumExecutionFrequency?: string;
+  static names(): { [key: string]: string } {
+    return {
+      messageType: 'MessageType',
+      eventSource: 'EventSource',
+      maximumExecutionFrequency: 'MaximumExecutionFrequency',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      messageType: 'string',
+      eventSource: 'string',
+      maximumExecutionFrequency: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeConfigRuleResponseBodyConfigRuleManagedRule extends $tea.Model {
+  sourceDetails?: DescribeConfigRuleResponseBodyConfigRuleManagedRuleSourceDetails[];
+  description?: string;
+  labels?: string[];
+  identifier?: string;
+  optionalInputParameterDetails?: { [key: string]: any };
+  managedRuleName?: string;
+  compulsoryInputParameterDetails?: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      sourceDetails: 'SourceDetails',
+      description: 'Description',
+      labels: 'Labels',
+      identifier: 'Identifier',
+      optionalInputParameterDetails: 'OptionalInputParameterDetails',
+      managedRuleName: 'ManagedRuleName',
+      compulsoryInputParameterDetails: 'CompulsoryInputParameterDetails',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sourceDetails: { 'type': 'array', 'itemType': DescribeConfigRuleResponseBodyConfigRuleManagedRuleSourceDetails },
+      description: 'string',
+      labels: { 'type': 'array', 'itemType': 'string' },
+      identifier: 'string',
+      optionalInputParameterDetails: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      managedRuleName: 'string',
+      compulsoryInputParameterDetails: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeConfigRuleResponseBodyConfigRuleScope extends $tea.Model {
+  complianceResourceTypes?: string[];
+  complianceResourceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      complianceResourceTypes: 'ComplianceResourceTypes',
+      complianceResourceId: 'ComplianceResourceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      complianceResourceTypes: { 'type': 'array', 'itemType': 'string' },
+      complianceResourceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeConfigRuleResponseBodyConfigRuleConfigRuleEvaluationStatus extends $tea.Model {
+  lastErrorCode?: string;
+  lastSuccessfulEvaluationTimestamp?: number;
+  firstActivatedTimestamp?: number;
+  firstEvaluationStarted?: boolean;
+  lastSuccessfulInvocationTimestamp?: number;
+  lastErrorMessage?: string;
+  lastFailedEvaluationTimestamp?: number;
+  lastFailedInvocationTimestamp?: number;
+  static names(): { [key: string]: string } {
+    return {
+      lastErrorCode: 'LastErrorCode',
+      lastSuccessfulEvaluationTimestamp: 'LastSuccessfulEvaluationTimestamp',
+      firstActivatedTimestamp: 'FirstActivatedTimestamp',
+      firstEvaluationStarted: 'FirstEvaluationStarted',
+      lastSuccessfulInvocationTimestamp: 'LastSuccessfulInvocationTimestamp',
+      lastErrorMessage: 'LastErrorMessage',
+      lastFailedEvaluationTimestamp: 'LastFailedEvaluationTimestamp',
+      lastFailedInvocationTimestamp: 'LastFailedInvocationTimestamp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      lastErrorCode: 'string',
+      lastSuccessfulEvaluationTimestamp: 'number',
+      firstActivatedTimestamp: 'number',
+      firstEvaluationStarted: 'boolean',
+      lastSuccessfulInvocationTimestamp: 'number',
+      lastErrorMessage: 'string',
+      lastFailedEvaluationTimestamp: 'number',
+      lastFailedInvocationTimestamp: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeConfigRuleResponseBodyConfigRule extends $tea.Model {
+  riskLevel?: number;
+  inputParameters?: { [key: string]: any };
+  source?: DescribeConfigRuleResponseBodyConfigRuleSource;
+  configRuleState?: string;
+  maximumExecutionFrequency?: string;
+  managedRule?: DescribeConfigRuleResponseBodyConfigRuleManagedRule;
+  configRuleArn?: string;
+  description?: string;
+  configRuleName?: string;
+  scope?: DescribeConfigRuleResponseBodyConfigRuleScope;
+  configRuleEvaluationStatus?: DescribeConfigRuleResponseBodyConfigRuleConfigRuleEvaluationStatus;
+  configRuleId?: string;
+  modifiedTimestamp?: number;
+  createTimestamp?: number;
+  static names(): { [key: string]: string } {
+    return {
+      riskLevel: 'RiskLevel',
+      inputParameters: 'InputParameters',
+      source: 'Source',
+      configRuleState: 'ConfigRuleState',
+      maximumExecutionFrequency: 'MaximumExecutionFrequency',
+      managedRule: 'ManagedRule',
+      configRuleArn: 'ConfigRuleArn',
+      description: 'Description',
+      configRuleName: 'ConfigRuleName',
+      scope: 'Scope',
+      configRuleEvaluationStatus: 'ConfigRuleEvaluationStatus',
+      configRuleId: 'ConfigRuleId',
+      modifiedTimestamp: 'ModifiedTimestamp',
+      createTimestamp: 'CreateTimestamp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      riskLevel: 'number',
+      inputParameters: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      source: DescribeConfigRuleResponseBodyConfigRuleSource,
+      configRuleState: 'string',
+      maximumExecutionFrequency: 'string',
+      managedRule: DescribeConfigRuleResponseBodyConfigRuleManagedRule,
+      configRuleArn: 'string',
+      description: 'string',
+      configRuleName: 'string',
+      scope: DescribeConfigRuleResponseBodyConfigRuleScope,
+      configRuleEvaluationStatus: DescribeConfigRuleResponseBodyConfigRuleConfigRuleEvaluationStatus,
+      configRuleId: 'string',
+      modifiedTimestamp: 'number',
+      createTimestamp: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeConfigurationRecorderResponseBodyConfigurationRecorder extends $tea.Model {
+  accountId?: number;
+  configurationRecorderStatus?: string;
+  resourceTypes?: string[];
   static names(): { [key: string]: string } {
     return {
       accountId: 'AccountId',
-      configRuleArn: 'ConfigRuleArn',
-      configRuleId: 'ConfigRuleId',
-      configRuleName: 'ConfigRuleName',
-      configRuleState: 'ConfigRuleState',
-      description: 'Description',
-      riskLevel: 'RiskLevel',
-      sourceIdentifier: 'SourceIdentifier',
-      sourceOwner: 'SourceOwner',
-      automationType: 'AutomationType',
-      compliance: 'Compliance',
-      createBy: 'CreateBy',
+      configurationRecorderStatus: 'ConfigurationRecorderStatus',
+      resourceTypes: 'ResourceTypes',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       accountId: 'number',
-      configRuleArn: 'string',
-      configRuleId: 'string',
-      configRuleName: 'string',
-      configRuleState: 'string',
-      description: 'string',
-      riskLevel: 'number',
-      sourceIdentifier: 'string',
-      sourceOwner: 'string',
-      automationType: 'string',
-      compliance: ListConfigRulesResponseConfigRulesConfigRuleListCompliance,
-      createBy: ListConfigRulesResponseConfigRulesConfigRuleListCreateBy,
+      configurationRecorderStatus: 'string',
+      resourceTypes: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -1699,26 +2373,50 @@ export class ListConfigRulesResponseConfigRulesConfigRuleList extends $tea.Model
   }
 }
 
-export class ListConfigRulesResponseConfigRules extends $tea.Model {
-  pageNumber: number;
-  pageSize: number;
-  totalCount: number;
-  configRuleList: ListConfigRulesResponseConfigRulesConfigRuleList[];
+export class DescribeDeliveryChannelsResponseBodyDeliveryChannels extends $tea.Model {
+  status?: number;
+  deliveryChannelName?: string;
+  deliveryChannelId?: string;
+  deliveryChannelType?: string;
+  deliveryChannelAssumeRoleArn?: string;
+  description?: string;
+  deliveryChannelCondition?: string;
+  deliveryChannelTargetArn?: string;
+  configurationSnapshot?: boolean;
+  configurationItemChangeNotification?: boolean;
+  nonCompliantNotification?: boolean;
+  oversizedDataOSSTargetArn?: string;
   static names(): { [key: string]: string } {
     return {
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      totalCount: 'TotalCount',
-      configRuleList: 'ConfigRuleList',
+      status: 'Status',
+      deliveryChannelName: 'DeliveryChannelName',
+      deliveryChannelId: 'DeliveryChannelId',
+      deliveryChannelType: 'DeliveryChannelType',
+      deliveryChannelAssumeRoleArn: 'DeliveryChannelAssumeRoleArn',
+      description: 'Description',
+      deliveryChannelCondition: 'DeliveryChannelCondition',
+      deliveryChannelTargetArn: 'DeliveryChannelTargetArn',
+      configurationSnapshot: 'ConfigurationSnapshot',
+      configurationItemChangeNotification: 'ConfigurationItemChangeNotification',
+      nonCompliantNotification: 'NonCompliantNotification',
+      oversizedDataOSSTargetArn: 'OversizedDataOSSTargetArn',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      pageNumber: 'number',
-      pageSize: 'number',
-      totalCount: 'number',
-      configRuleList: { 'type': 'array', 'itemType': ListConfigRulesResponseConfigRulesConfigRuleList },
+      status: 'number',
+      deliveryChannelName: 'string',
+      deliveryChannelId: 'string',
+      deliveryChannelType: 'string',
+      deliveryChannelAssumeRoleArn: 'string',
+      description: 'string',
+      deliveryChannelCondition: 'string',
+      deliveryChannelTargetArn: 'string',
+      configurationSnapshot: 'boolean',
+      configurationItemChangeNotification: 'boolean',
+      nonCompliantNotification: 'boolean',
+      oversizedDataOSSTargetArn: 'string',
     };
   }
 
@@ -1727,20 +2425,71 @@ export class ListConfigRulesResponseConfigRules extends $tea.Model {
   }
 }
 
-export class DescribeEvaluationResultsResponseEvaluationResultsEvaluationResultListEvaluationResultIdentifierEvaluationResultQualifier extends $tea.Model {
-  configRuleArn: string;
-  configRuleId: string;
-  configRuleName: string;
-  resourceId: string;
-  resourceType: string;
-  regionId: string;
+export class DescribeDiscoveredResourceResponseBodyDiscoveredResourceDetail extends $tea.Model {
+  availabilityZone?: string;
+  resourceType?: string;
+  configuration?: string;
+  region?: string;
+  resourceCreationTime?: number;
+  tags?: string;
+  accountId?: number;
+  resourceId?: string;
+  resourceDeleted?: number;
+  resourceName?: string;
+  resourceStatus?: string;
+  static names(): { [key: string]: string } {
+    return {
+      availabilityZone: 'AvailabilityZone',
+      resourceType: 'ResourceType',
+      configuration: 'Configuration',
+      region: 'Region',
+      resourceCreationTime: 'ResourceCreationTime',
+      tags: 'Tags',
+      accountId: 'AccountId',
+      resourceId: 'ResourceId',
+      resourceDeleted: 'ResourceDeleted',
+      resourceName: 'ResourceName',
+      resourceStatus: 'ResourceStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      availabilityZone: 'string',
+      resourceType: 'string',
+      configuration: 'string',
+      region: 'string',
+      resourceCreationTime: 'number',
+      tags: 'string',
+      accountId: 'number',
+      resourceId: 'string',
+      resourceDeleted: 'number',
+      resourceName: 'string',
+      resourceStatus: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEvaluationResultsResponseBodyEvaluationResultsEvaluationResultListEvaluationResultIdentifierEvaluationResultQualifier extends $tea.Model {
+  configRuleArn?: string;
+  resourceType?: string;
+  configRuleName?: string;
+  resourceId?: string;
+  configRuleId?: string;
+  resourceName?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       configRuleArn: 'ConfigRuleArn',
-      configRuleId: 'ConfigRuleId',
+      resourceType: 'ResourceType',
       configRuleName: 'ConfigRuleName',
       resourceId: 'ResourceId',
-      resourceType: 'ResourceType',
+      configRuleId: 'ConfigRuleId',
+      resourceName: 'ResourceName',
       regionId: 'RegionId',
     };
   }
@@ -1748,10 +2497,11 @@ export class DescribeEvaluationResultsResponseEvaluationResultsEvaluationResultL
   static types(): { [key: string]: any } {
     return {
       configRuleArn: 'string',
-      configRuleId: 'string',
+      resourceType: 'string',
       configRuleName: 'string',
       resourceId: 'string',
-      resourceType: 'string',
+      configRuleId: 'string',
+      resourceName: 'string',
       regionId: 'string',
     };
   }
@@ -1761,9 +2511,9 @@ export class DescribeEvaluationResultsResponseEvaluationResultsEvaluationResultL
   }
 }
 
-export class DescribeEvaluationResultsResponseEvaluationResultsEvaluationResultListEvaluationResultIdentifier extends $tea.Model {
-  orderingTimestamp: number;
-  evaluationResultQualifier: DescribeEvaluationResultsResponseEvaluationResultsEvaluationResultListEvaluationResultIdentifierEvaluationResultQualifier;
+export class DescribeEvaluationResultsResponseBodyEvaluationResultsEvaluationResultListEvaluationResultIdentifier extends $tea.Model {
+  orderingTimestamp?: number;
+  evaluationResultQualifier?: DescribeEvaluationResultsResponseBodyEvaluationResultsEvaluationResultListEvaluationResultIdentifierEvaluationResultQualifier;
   static names(): { [key: string]: string } {
     return {
       orderingTimestamp: 'OrderingTimestamp',
@@ -1774,7 +2524,7 @@ export class DescribeEvaluationResultsResponseEvaluationResultsEvaluationResultL
   static types(): { [key: string]: any } {
     return {
       orderingTimestamp: 'number',
-      evaluationResultQualifier: DescribeEvaluationResultsResponseEvaluationResultsEvaluationResultListEvaluationResultIdentifierEvaluationResultQualifier,
+      evaluationResultQualifier: DescribeEvaluationResultsResponseBodyEvaluationResultsEvaluationResultListEvaluationResultIdentifierEvaluationResultQualifier,
     };
   }
 
@@ -1783,35 +2533,38 @@ export class DescribeEvaluationResultsResponseEvaluationResultsEvaluationResultL
   }
 }
 
-export class DescribeEvaluationResultsResponseEvaluationResultsEvaluationResultList extends $tea.Model {
-  annotation: string;
-  complianceType: string;
-  configRuleInvokedTimestamp: number;
-  invokingEventMessageType: string;
-  resultRecordedTimestamp: number;
-  riskLevel: number;
-  evaluationResultIdentifier: DescribeEvaluationResultsResponseEvaluationResultsEvaluationResultListEvaluationResultIdentifier;
+export class DescribeEvaluationResultsResponseBodyEvaluationResultsEvaluationResultList extends $tea.Model {
+  riskLevel?: number;
+  complianceType?: string;
+  resultRecordedTimestamp?: number;
+  annotation?: string;
+  configRuleInvokedTimestamp?: number;
+  invokingEventMessageType?: string;
+  remediationEnabled?: boolean;
+  evaluationResultIdentifier?: DescribeEvaluationResultsResponseBodyEvaluationResultsEvaluationResultListEvaluationResultIdentifier;
   static names(): { [key: string]: string } {
     return {
-      annotation: 'Annotation',
+      riskLevel: 'RiskLevel',
       complianceType: 'ComplianceType',
+      resultRecordedTimestamp: 'ResultRecordedTimestamp',
+      annotation: 'Annotation',
       configRuleInvokedTimestamp: 'ConfigRuleInvokedTimestamp',
       invokingEventMessageType: 'InvokingEventMessageType',
-      resultRecordedTimestamp: 'ResultRecordedTimestamp',
-      riskLevel: 'RiskLevel',
+      remediationEnabled: 'RemediationEnabled',
       evaluationResultIdentifier: 'EvaluationResultIdentifier',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      annotation: 'string',
+      riskLevel: 'number',
       complianceType: 'string',
+      resultRecordedTimestamp: 'number',
+      annotation: 'string',
       configRuleInvokedTimestamp: 'number',
       invokingEventMessageType: 'string',
-      resultRecordedTimestamp: 'number',
-      riskLevel: 'number',
-      evaluationResultIdentifier: DescribeEvaluationResultsResponseEvaluationResultsEvaluationResultListEvaluationResultIdentifier,
+      remediationEnabled: 'boolean',
+      evaluationResultIdentifier: DescribeEvaluationResultsResponseBodyEvaluationResultsEvaluationResultListEvaluationResultIdentifier,
     };
   }
 
@@ -1820,11 +2573,11 @@ export class DescribeEvaluationResultsResponseEvaluationResultsEvaluationResultL
   }
 }
 
-export class DescribeEvaluationResultsResponseEvaluationResults extends $tea.Model {
-  pageNumber: number;
-  pageSize: number;
-  totalCount: number;
-  evaluationResultList: DescribeEvaluationResultsResponseEvaluationResultsEvaluationResultList[];
+export class DescribeEvaluationResultsResponseBodyEvaluationResults extends $tea.Model {
+  pageNumber?: number;
+  pageSize?: number;
+  totalCount?: number;
+  evaluationResultList?: DescribeEvaluationResultsResponseBodyEvaluationResultsEvaluationResultList[];
   static names(): { [key: string]: string } {
     return {
       pageNumber: 'PageNumber',
@@ -1839,7 +2592,7 @@ export class DescribeEvaluationResultsResponseEvaluationResults extends $tea.Mod
       pageNumber: 'number',
       pageSize: 'number',
       totalCount: 'number',
-      evaluationResultList: { 'type': 'array', 'itemType': DescribeEvaluationResultsResponseEvaluationResultsEvaluationResultList },
+      evaluationResultList: { 'type': 'array', 'itemType': DescribeEvaluationResultsResponseBodyEvaluationResultsEvaluationResultList },
     };
   }
 
@@ -1848,23 +2601,47 @@ export class DescribeEvaluationResultsResponseEvaluationResults extends $tea.Mod
   }
 }
 
-export class DeleteConfigRulesResponseOperateRuleResultOperateRuleItemList extends $tea.Model {
-  configRuleId: string;
-  errorCode: string;
-  success: boolean;
+export class GetAggregateDiscoveredResourceResponseBodyDiscoveredResourceDetail extends $tea.Model {
+  availabilityZone?: string;
+  resourceType?: string;
+  configuration?: string;
+  region?: string;
+  resourceCreationTime?: number;
+  tags?: string;
+  accountId?: number;
+  resourceId?: string;
+  resourceDeleted?: number;
+  resourceName?: string;
+  resourceStatus?: string;
   static names(): { [key: string]: string } {
     return {
-      configRuleId: 'ConfigRuleId',
-      errorCode: 'ErrorCode',
-      success: 'Success',
+      availabilityZone: 'AvailabilityZone',
+      resourceType: 'ResourceType',
+      configuration: 'Configuration',
+      region: 'Region',
+      resourceCreationTime: 'ResourceCreationTime',
+      tags: 'Tags',
+      accountId: 'AccountId',
+      resourceId: 'ResourceId',
+      resourceDeleted: 'ResourceDeleted',
+      resourceName: 'ResourceName',
+      resourceStatus: 'ResourceStatus',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      configRuleId: 'string',
-      errorCode: 'string',
-      success: 'boolean',
+      availabilityZone: 'string',
+      resourceType: 'string',
+      configuration: 'string',
+      region: 'string',
+      resourceCreationTime: 'number',
+      tags: 'string',
+      accountId: 'number',
+      resourceId: 'string',
+      resourceDeleted: 'number',
+      resourceName: 'string',
+      resourceStatus: 'string',
     };
   }
 
@@ -1873,72 +2650,9 @@ export class DeleteConfigRulesResponseOperateRuleResultOperateRuleItemList exten
   }
 }
 
-export class DeleteConfigRulesResponseOperateRuleResult extends $tea.Model {
-  operateRuleItemList: DeleteConfigRulesResponseOperateRuleResultOperateRuleItemList[];
-  static names(): { [key: string]: string } {
-    return {
-      operateRuleItemList: 'OperateRuleItemList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      operateRuleItemList: { 'type': 'array', 'itemType': DeleteConfigRulesResponseOperateRuleResultOperateRuleItemList },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeComplianceResponseComplianceResultCompliances extends $tea.Model {
-  complianceType: string;
-  count: number;
-  static names(): { [key: string]: string } {
-    return {
-      complianceType: 'ComplianceType',
-      count: 'Count',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      complianceType: 'string',
-      count: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeComplianceResponseComplianceResult extends $tea.Model {
-  totalCount: number;
-  compliances: DescribeComplianceResponseComplianceResultCompliances[];
-  static names(): { [key: string]: string } {
-    return {
-      totalCount: 'TotalCount',
-      compliances: 'Compliances',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      totalCount: 'number',
-      compliances: { 'type': 'array', 'itemType': DescribeComplianceResponseComplianceResultCompliances },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDiscoveredResourceCountsResponseGroupedResourceCountsGroupedResourceCountList extends $tea.Model {
-  groupName: string;
-  resourceCount: number;
+export class GetDiscoveredResourceCountsResponseBodyGroupedResourceCountsGroupedResourceCountList extends $tea.Model {
+  groupName?: string;
+  resourceCount?: number;
   static names(): { [key: string]: string } {
     return {
       groupName: 'GroupName',
@@ -1958,9 +2672,9 @@ export class GetDiscoveredResourceCountsResponseGroupedResourceCountsGroupedReso
   }
 }
 
-export class GetDiscoveredResourceCountsResponseGroupedResourceCounts extends $tea.Model {
-  groupByKey: string;
-  groupedResourceCountList: GetDiscoveredResourceCountsResponseGroupedResourceCountsGroupedResourceCountList[];
+export class GetDiscoveredResourceCountsResponseBodyGroupedResourceCounts extends $tea.Model {
+  groupByKey?: string;
+  groupedResourceCountList?: GetDiscoveredResourceCountsResponseBodyGroupedResourceCountsGroupedResourceCountList[];
   static names(): { [key: string]: string } {
     return {
       groupByKey: 'GroupByKey',
@@ -1971,7 +2685,7 @@ export class GetDiscoveredResourceCountsResponseGroupedResourceCounts extends $t
   static types(): { [key: string]: any } {
     return {
       groupByKey: 'string',
-      groupedResourceCountList: { 'type': 'array', 'itemType': GetDiscoveredResourceCountsResponseGroupedResourceCountsGroupedResourceCountList },
+      groupedResourceCountList: { 'type': 'array', 'itemType': GetDiscoveredResourceCountsResponseBodyGroupedResourceCountsGroupedResourceCountList },
     };
   }
 
@@ -1980,41 +2694,23 @@ export class GetDiscoveredResourceCountsResponseGroupedResourceCounts extends $t
   }
 }
 
-export class ListDiscoveredResourcesResponseDiscoveredResourceProfilesDiscoveredResourceProfileList extends $tea.Model {
-  accountId: number;
-  region: string;
-  resourceCreationTime: number;
-  resourceDeleted: number;
-  resourceId: string;
-  resourceName: string;
-  resourceStatus: string;
-  resourceType: string;
-  tags: string;
+export class GetDiscoveredResourceSummaryResponseBodyDiscoveredResourceSummary extends $tea.Model {
+  resourceTypeCount?: number;
+  regionCount?: number;
+  resourceCount?: number;
   static names(): { [key: string]: string } {
     return {
-      accountId: 'AccountId',
-      region: 'Region',
-      resourceCreationTime: 'ResourceCreationTime',
-      resourceDeleted: 'ResourceDeleted',
-      resourceId: 'ResourceId',
-      resourceName: 'ResourceName',
-      resourceStatus: 'ResourceStatus',
-      resourceType: 'ResourceType',
-      tags: 'Tags',
+      resourceTypeCount: 'ResourceTypeCount',
+      regionCount: 'RegionCount',
+      resourceCount: 'ResourceCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      accountId: 'number',
-      region: 'string',
-      resourceCreationTime: 'number',
-      resourceDeleted: 'number',
-      resourceId: 'string',
-      resourceName: 'string',
-      resourceStatus: 'string',
-      resourceType: 'string',
-      tags: 'string',
+      resourceTypeCount: 'number',
+      regionCount: 'number',
+      resourceCount: 'number',
     };
   }
 
@@ -2023,11 +2719,412 @@ export class ListDiscoveredResourcesResponseDiscoveredResourceProfilesDiscovered
   }
 }
 
-export class ListDiscoveredResourcesResponseDiscoveredResourceProfiles extends $tea.Model {
-  pageNumber: number;
-  pageSize: number;
-  totalCount: number;
-  discoveredResourceProfileList: ListDiscoveredResourcesResponseDiscoveredResourceProfilesDiscoveredResourceProfileList[];
+export class GetResourceComplianceTimelineResponseBodyResourceComplianceTimelineComplianceList extends $tea.Model {
+  accountId?: string;
+  tags?: string;
+  availabilityZone?: string;
+  resourceType?: string;
+  resourceCreateTime?: number;
+  configuration?: string;
+  region?: string;
+  captureTime?: number;
+  configurationDiff?: string;
+  resourceId?: string;
+  resourceName?: string;
+  resourceStatus?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'AccountId',
+      tags: 'Tags',
+      availabilityZone: 'AvailabilityZone',
+      resourceType: 'ResourceType',
+      resourceCreateTime: 'ResourceCreateTime',
+      configuration: 'Configuration',
+      region: 'Region',
+      captureTime: 'CaptureTime',
+      configurationDiff: 'ConfigurationDiff',
+      resourceId: 'ResourceId',
+      resourceName: 'ResourceName',
+      resourceStatus: 'ResourceStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+      tags: 'string',
+      availabilityZone: 'string',
+      resourceType: 'string',
+      resourceCreateTime: 'number',
+      configuration: 'string',
+      region: 'string',
+      captureTime: 'number',
+      configurationDiff: 'string',
+      resourceId: 'string',
+      resourceName: 'string',
+      resourceStatus: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetResourceComplianceTimelineResponseBodyResourceComplianceTimeline extends $tea.Model {
+  nextToken?: string;
+  totalCount?: number;
+  limit?: number;
+  complianceList?: GetResourceComplianceTimelineResponseBodyResourceComplianceTimelineComplianceList[];
+  static names(): { [key: string]: string } {
+    return {
+      nextToken: 'NextToken',
+      totalCount: 'TotalCount',
+      limit: 'Limit',
+      complianceList: 'ComplianceList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nextToken: 'string',
+      totalCount: 'number',
+      limit: 'number',
+      complianceList: { 'type': 'array', 'itemType': GetResourceComplianceTimelineResponseBodyResourceComplianceTimelineComplianceList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetResourceConfigurationTimelineResponseBodyResourceConfigurationTimelineConfigurationList extends $tea.Model {
+  resourceEventType?: string;
+  accountId?: number;
+  tags?: string;
+  availabilityZone?: string;
+  resourceType?: string;
+  resourceCreateTime?: string;
+  region?: string;
+  captureTime?: string;
+  configurationDiff?: string;
+  resourceId?: string;
+  resourceName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      resourceEventType: 'ResourceEventType',
+      accountId: 'AccountId',
+      tags: 'Tags',
+      availabilityZone: 'AvailabilityZone',
+      resourceType: 'ResourceType',
+      resourceCreateTime: 'ResourceCreateTime',
+      region: 'Region',
+      captureTime: 'CaptureTime',
+      configurationDiff: 'ConfigurationDiff',
+      resourceId: 'ResourceId',
+      resourceName: 'ResourceName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceEventType: 'string',
+      accountId: 'number',
+      tags: 'string',
+      availabilityZone: 'string',
+      resourceType: 'string',
+      resourceCreateTime: 'string',
+      region: 'string',
+      captureTime: 'string',
+      configurationDiff: 'string',
+      resourceId: 'string',
+      resourceName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetResourceConfigurationTimelineResponseBodyResourceConfigurationTimeline extends $tea.Model {
+  nextToken?: string;
+  totalCount?: number;
+  limit?: number;
+  configurationList?: GetResourceConfigurationTimelineResponseBodyResourceConfigurationTimelineConfigurationList[];
+  static names(): { [key: string]: string } {
+    return {
+      nextToken: 'NextToken',
+      totalCount: 'TotalCount',
+      limit: 'Limit',
+      configurationList: 'ConfigurationList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nextToken: 'string',
+      totalCount: 'number',
+      limit: 'number',
+      configurationList: { 'type': 'array', 'itemType': GetResourceConfigurationTimelineResponseBodyResourceConfigurationTimelineConfigurationList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAggregateDiscoveredResourcesResponseBodyDiscoveredResourceProfilesDiscoveredResourceProfileList extends $tea.Model {
+  resourceType?: string;
+  region?: string;
+  resourceCreationTime?: number;
+  tags?: string;
+  accountId?: number;
+  resourceId?: string;
+  resourceName?: string;
+  resourceDeleted?: number;
+  resourceStatus?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      resourceType: 'ResourceType',
+      region: 'Region',
+      resourceCreationTime: 'ResourceCreationTime',
+      tags: 'Tags',
+      accountId: 'AccountId',
+      resourceId: 'ResourceId',
+      resourceName: 'ResourceName',
+      resourceDeleted: 'ResourceDeleted',
+      resourceStatus: 'ResourceStatus',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceType: 'string',
+      region: 'string',
+      resourceCreationTime: 'number',
+      tags: 'string',
+      accountId: 'number',
+      resourceId: 'string',
+      resourceName: 'string',
+      resourceDeleted: 'number',
+      resourceStatus: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAggregateDiscoveredResourcesResponseBodyDiscoveredResourceProfiles extends $tea.Model {
+  discoveredResourceProfileList?: ListAggregateDiscoveredResourcesResponseBodyDiscoveredResourceProfilesDiscoveredResourceProfileList[];
+  pageNumber?: number;
+  pageSize?: number;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      discoveredResourceProfileList: 'DiscoveredResourceProfileList',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      discoveredResourceProfileList: { 'type': 'array', 'itemType': ListAggregateDiscoveredResourcesResponseBodyDiscoveredResourceProfilesDiscoveredResourceProfileList },
+      pageNumber: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListConfigRulesResponseBodyConfigRulesConfigRuleListCompliance extends $tea.Model {
+  complianceType?: string;
+  count?: number;
+  static names(): { [key: string]: string } {
+    return {
+      complianceType: 'ComplianceType',
+      count: 'Count',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      complianceType: 'string',
+      count: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListConfigRulesResponseBodyConfigRulesConfigRuleListCreateBy extends $tea.Model {
+  compliancePackId?: string;
+  compliancePackName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      compliancePackId: 'CompliancePackId',
+      compliancePackName: 'CompliancePackName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      compliancePackId: 'string',
+      compliancePackName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListConfigRulesResponseBodyConfigRulesConfigRuleList extends $tea.Model {
+  compliancePackId?: string;
+  riskLevel?: number;
+  sourceOwner?: string;
+  accountId?: number;
+  configRuleState?: string;
+  compliance?: ListConfigRulesResponseBodyConfigRulesConfigRuleListCompliance;
+  sourceIdentifier?: string;
+  configRuleArn?: string;
+  description?: string;
+  createBy?: ListConfigRulesResponseBodyConfigRulesConfigRuleListCreateBy;
+  automationType?: string;
+  configRuleName?: string;
+  configRuleId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      compliancePackId: 'CompliancePackId',
+      riskLevel: 'RiskLevel',
+      sourceOwner: 'SourceOwner',
+      accountId: 'AccountId',
+      configRuleState: 'ConfigRuleState',
+      compliance: 'Compliance',
+      sourceIdentifier: 'SourceIdentifier',
+      configRuleArn: 'ConfigRuleArn',
+      description: 'Description',
+      createBy: 'CreateBy',
+      automationType: 'AutomationType',
+      configRuleName: 'ConfigRuleName',
+      configRuleId: 'ConfigRuleId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      compliancePackId: 'string',
+      riskLevel: 'number',
+      sourceOwner: 'string',
+      accountId: 'number',
+      configRuleState: 'string',
+      compliance: ListConfigRulesResponseBodyConfigRulesConfigRuleListCompliance,
+      sourceIdentifier: 'string',
+      configRuleArn: 'string',
+      description: 'string',
+      createBy: ListConfigRulesResponseBodyConfigRulesConfigRuleListCreateBy,
+      automationType: 'string',
+      configRuleName: 'string',
+      configRuleId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListConfigRulesResponseBodyConfigRules extends $tea.Model {
+  configRuleList?: ListConfigRulesResponseBodyConfigRulesConfigRuleList[];
+  pageNumber?: number;
+  pageSize?: number;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      configRuleList: 'ConfigRuleList',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configRuleList: { 'type': 'array', 'itemType': ListConfigRulesResponseBodyConfigRulesConfigRuleList },
+      pageNumber: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDiscoveredResourcesResponseBodyDiscoveredResourceProfilesDiscoveredResourceProfileList extends $tea.Model {
+  resourceType?: string;
+  region?: string;
+  resourceCreationTime?: number;
+  tags?: string;
+  accountId?: number;
+  resourceId?: string;
+  resourceName?: string;
+  resourceDeleted?: number;
+  resourceStatus?: string;
+  static names(): { [key: string]: string } {
+    return {
+      resourceType: 'ResourceType',
+      region: 'Region',
+      resourceCreationTime: 'ResourceCreationTime',
+      tags: 'Tags',
+      accountId: 'AccountId',
+      resourceId: 'ResourceId',
+      resourceName: 'ResourceName',
+      resourceDeleted: 'ResourceDeleted',
+      resourceStatus: 'ResourceStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceType: 'string',
+      region: 'string',
+      resourceCreationTime: 'number',
+      tags: 'string',
+      accountId: 'number',
+      resourceId: 'string',
+      resourceName: 'string',
+      resourceDeleted: 'number',
+      resourceStatus: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDiscoveredResourcesResponseBodyDiscoveredResourceProfiles extends $tea.Model {
+  pageNumber?: number;
+  pageSize?: number;
+  totalCount?: number;
+  discoveredResourceProfileList?: ListDiscoveredResourcesResponseBodyDiscoveredResourceProfilesDiscoveredResourceProfileList[];
   static names(): { [key: string]: string } {
     return {
       pageNumber: 'PageNumber',
@@ -2042,7 +3139,7 @@ export class ListDiscoveredResourcesResponseDiscoveredResourceProfiles extends $
       pageNumber: 'number',
       pageSize: 'number',
       totalCount: 'number',
-      discoveredResourceProfileList: { 'type': 'array', 'itemType': ListDiscoveredResourcesResponseDiscoveredResourceProfilesDiscoveredResourceProfileList },
+      discoveredResourceProfileList: { 'type': 'array', 'itemType': ListDiscoveredResourcesResponseBodyDiscoveredResourceProfilesDiscoveredResourceProfileList },
     };
   }
 
@@ -2051,18 +3148,42 @@ export class ListDiscoveredResourcesResponseDiscoveredResourceProfiles extends $
   }
 }
 
-export class DescribeConfigurationRecorderResponseConfigurationRecorder extends $tea.Model {
-  accountId: number;
-  configurationRecorderStatus: string;
-  organizationMasterId: number;
-  organizationEnableStatus: string;
-  resourceTypes: string[];
+export class ListRemediationTemplatesResponseBodyRemediationTemplates extends $tea.Model {
+  remediationType?: string;
+  templateIdentifier?: string;
+  templateName?: string;
+  templateDefinition?: string;
+  static names(): { [key: string]: string } {
+    return {
+      remediationType: 'RemediationType',
+      templateIdentifier: 'TemplateIdentifier',
+      templateName: 'TemplateName',
+      templateDefinition: 'TemplateDefinition',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      remediationType: 'string',
+      templateIdentifier: 'string',
+      templateName: 'string',
+      templateDefinition: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PutConfigurationRecorderResponseBodyConfigurationRecorder extends $tea.Model {
+  accountId?: number;
+  configurationRecorderStatus?: string;
+  resourceTypes?: string[];
   static names(): { [key: string]: string } {
     return {
       accountId: 'AccountId',
       configurationRecorderStatus: 'ConfigurationRecorderStatus',
-      organizationMasterId: 'OrganizationMasterId',
-      organizationEnableStatus: 'OrganizationEnableStatus',
       resourceTypes: 'ResourceTypes',
     };
   }
@@ -2071,8 +3192,6 @@ export class DescribeConfigurationRecorderResponseConfigurationRecorder extends 
     return {
       accountId: 'number',
       configurationRecorderStatus: 'string',
-      organizationMasterId: 'number',
-      organizationEnableStatus: 'string',
       resourceTypes: { 'type': 'array', 'itemType': 'string' },
     };
   }
@@ -2082,77 +3201,28 @@ export class DescribeConfigurationRecorderResponseConfigurationRecorder extends 
   }
 }
 
-export class DescribeDiscoveredResourceResponseDiscoveredResourceDetail extends $tea.Model {
-  accountId: number;
-  resourceId: string;
-  resourceType: string;
-  resourceName: string;
-  region: string;
-  availabilityZone: string;
-  resourceCreationTime: number;
-  resourceStatus: string;
-  resourceDeleted: number;
-  tags: string;
-  configuration: string;
+export class StartConfigurationRecorderResponseBodyConfigurationRecorder extends $tea.Model {
+  organizationEnableStatus?: string;
+  configurationRecorderStatus?: string;
+  organizationMasterId?: number;
+  accountId?: number;
+  resourceTypes?: string[];
   static names(): { [key: string]: string } {
     return {
-      accountId: 'AccountId',
-      resourceId: 'ResourceId',
-      resourceType: 'ResourceType',
-      resourceName: 'ResourceName',
-      region: 'Region',
-      availabilityZone: 'AvailabilityZone',
-      resourceCreationTime: 'ResourceCreationTime',
-      resourceStatus: 'ResourceStatus',
-      resourceDeleted: 'ResourceDeleted',
-      tags: 'Tags',
-      configuration: 'Configuration',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accountId: 'number',
-      resourceId: 'string',
-      resourceType: 'string',
-      resourceName: 'string',
-      region: 'string',
-      availabilityZone: 'string',
-      resourceCreationTime: 'number',
-      resourceStatus: 'string',
-      resourceDeleted: 'number',
-      tags: 'string',
-      configuration: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StartConfigurationRecorderResponseConfigurationRecorder extends $tea.Model {
-  accountId: number;
-  configurationRecorderStatus: string;
-  organizationMasterId: number;
-  organizationEnableStatus: string;
-  resourceTypes: string[];
-  static names(): { [key: string]: string } {
-    return {
-      accountId: 'AccountId',
+      organizationEnableStatus: 'OrganizationEnableStatus',
       configurationRecorderStatus: 'ConfigurationRecorderStatus',
       organizationMasterId: 'OrganizationMasterId',
-      organizationEnableStatus: 'OrganizationEnableStatus',
+      accountId: 'AccountId',
       resourceTypes: 'ResourceTypes',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      accountId: 'number',
+      organizationEnableStatus: 'string',
       configurationRecorderStatus: 'string',
       organizationMasterId: 'number',
-      organizationEnableStatus: 'string',
+      accountId: 'number',
       resourceTypes: { 'type': 'array', 'itemType': 'string' },
     };
   }
@@ -2162,304 +3232,42 @@ export class StartConfigurationRecorderResponseConfigurationRecorder extends $te
   }
 }
 
-export class DescribeConfigRuleResponseConfigRuleCreateBy extends $tea.Model {
-  creatorType: string;
-  creatorId: string;
-  creatorName: string;
-  configRuleSceneId: string;
-  configRuleSceneName: string;
+export class StopConfigRulesResponseBodyOperateRuleResultOperateRuleItemList extends $tea.Model {
+  errorCode?: string;
+  success?: boolean;
+  configRuleId?: string;
   static names(): { [key: string]: string } {
     return {
-      creatorType: 'CreatorType',
-      creatorId: 'CreatorId',
-      creatorName: 'CreatorName',
-      configRuleSceneId: 'ConfigRuleSceneId',
-      configRuleSceneName: 'ConfigRuleSceneName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      creatorType: 'string',
-      creatorId: 'string',
-      creatorName: 'string',
-      configRuleSceneId: 'string',
-      configRuleSceneName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeConfigRuleResponseConfigRuleConfigRuleEvaluationStatus extends $tea.Model {
-  firstActivatedTimestamp: number;
-  firstEvaluationStarted: boolean;
-  lastErrorCode: string;
-  lastErrorMessage: string;
-  lastFailedEvaluationTimestamp: number;
-  lastFailedInvocationTimestamp: number;
-  lastSuccessfulEvaluationTimestamp: number;
-  lastSuccessfulInvocationTimestamp: number;
-  static names(): { [key: string]: string } {
-    return {
-      firstActivatedTimestamp: 'FirstActivatedTimestamp',
-      firstEvaluationStarted: 'FirstEvaluationStarted',
-      lastErrorCode: 'LastErrorCode',
-      lastErrorMessage: 'LastErrorMessage',
-      lastFailedEvaluationTimestamp: 'LastFailedEvaluationTimestamp',
-      lastFailedInvocationTimestamp: 'LastFailedInvocationTimestamp',
-      lastSuccessfulEvaluationTimestamp: 'LastSuccessfulEvaluationTimestamp',
-      lastSuccessfulInvocationTimestamp: 'LastSuccessfulInvocationTimestamp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      firstActivatedTimestamp: 'number',
-      firstEvaluationStarted: 'boolean',
-      lastErrorCode: 'string',
-      lastErrorMessage: 'string',
-      lastFailedEvaluationTimestamp: 'number',
-      lastFailedInvocationTimestamp: 'number',
-      lastSuccessfulEvaluationTimestamp: 'number',
-      lastSuccessfulInvocationTimestamp: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeConfigRuleResponseConfigRuleManagedRuleSourceDetails extends $tea.Model {
-  eventSource: string;
-  maximumExecutionFrequency: string;
-  messageType: string;
-  static names(): { [key: string]: string } {
-    return {
-      eventSource: 'EventSource',
-      maximumExecutionFrequency: 'MaximumExecutionFrequency',
-      messageType: 'MessageType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      eventSource: 'string',
-      maximumExecutionFrequency: 'string',
-      messageType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeConfigRuleResponseConfigRuleManagedRule extends $tea.Model {
-  managedRuleName: string;
-  description: string;
-  identifier: string;
-  compulsoryInputParameterDetails: { [key: string]: any };
-  optionalInputParameterDetails: { [key: string]: any };
-  helpUrl: string;
-  sourceDetails: DescribeConfigRuleResponseConfigRuleManagedRuleSourceDetails[];
-  labels: string[];
-  static names(): { [key: string]: string } {
-    return {
-      managedRuleName: 'ManagedRuleName',
-      description: 'Description',
-      identifier: 'Identifier',
-      compulsoryInputParameterDetails: 'CompulsoryInputParameterDetails',
-      optionalInputParameterDetails: 'OptionalInputParameterDetails',
-      helpUrl: 'HelpUrl',
-      sourceDetails: 'SourceDetails',
-      labels: 'Labels',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      managedRuleName: 'string',
-      description: 'string',
-      identifier: 'string',
-      compulsoryInputParameterDetails: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      optionalInputParameterDetails: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      helpUrl: 'string',
-      sourceDetails: { 'type': 'array', 'itemType': DescribeConfigRuleResponseConfigRuleManagedRuleSourceDetails },
-      labels: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeConfigRuleResponseConfigRuleSourceSourceConditions extends $tea.Model {
-  desiredValue: string;
-  name: string;
-  operator: string;
-  required: boolean;
-  selectPath: string;
-  tips: string;
-  static names(): { [key: string]: string } {
-    return {
-      desiredValue: 'DesiredValue',
-      name: 'Name',
-      operator: 'Operator',
-      required: 'Required',
-      selectPath: 'SelectPath',
-      tips: 'Tips',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      desiredValue: 'string',
-      name: 'string',
-      operator: 'string',
-      required: 'boolean',
-      selectPath: 'string',
-      tips: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeConfigRuleResponseConfigRuleSourceSourceDetails extends $tea.Model {
-  eventSource: string;
-  maximumExecutionFrequency: string;
-  messageType: string;
-  static names(): { [key: string]: string } {
-    return {
-      eventSource: 'EventSource',
-      maximumExecutionFrequency: 'MaximumExecutionFrequency',
-      messageType: 'MessageType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      eventSource: 'string',
-      maximumExecutionFrequency: 'string',
-      messageType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeConfigRuleResponseConfigRuleSource extends $tea.Model {
-  identifier: string;
-  owner: string;
-  sourceConditions: DescribeConfigRuleResponseConfigRuleSourceSourceConditions[];
-  sourceDetails: DescribeConfigRuleResponseConfigRuleSourceSourceDetails[];
-  static names(): { [key: string]: string } {
-    return {
-      identifier: 'Identifier',
-      owner: 'Owner',
-      sourceConditions: 'SourceConditions',
-      sourceDetails: 'SourceDetails',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      identifier: 'string',
-      owner: 'string',
-      sourceConditions: { 'type': 'array', 'itemType': DescribeConfigRuleResponseConfigRuleSourceSourceConditions },
-      sourceDetails: { 'type': 'array', 'itemType': DescribeConfigRuleResponseConfigRuleSourceSourceDetails },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeConfigRuleResponseConfigRuleScope extends $tea.Model {
-  complianceResourceId: string;
-  complianceResourceTypes: string[];
-  static names(): { [key: string]: string } {
-    return {
-      complianceResourceId: 'ComplianceResourceId',
-      complianceResourceTypes: 'ComplianceResourceTypes',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      complianceResourceId: 'string',
-      complianceResourceTypes: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeConfigRuleResponseConfigRule extends $tea.Model {
-  configRuleArn: string;
-  configRuleId: string;
-  configRuleName: string;
-  configRuleState: string;
-  createTimestamp: number;
-  description: string;
-  inputParameters: { [key: string]: any };
-  modifiedTimestamp: number;
-  riskLevel: number;
-  maximumExecutionFrequency: string;
-  createBy: DescribeConfigRuleResponseConfigRuleCreateBy;
-  configRuleEvaluationStatus: DescribeConfigRuleResponseConfigRuleConfigRuleEvaluationStatus;
-  managedRule: DescribeConfigRuleResponseConfigRuleManagedRule;
-  source: DescribeConfigRuleResponseConfigRuleSource;
-  scope: DescribeConfigRuleResponseConfigRuleScope;
-  static names(): { [key: string]: string } {
-    return {
-      configRuleArn: 'ConfigRuleArn',
+      errorCode: 'ErrorCode',
+      success: 'Success',
       configRuleId: 'ConfigRuleId',
-      configRuleName: 'ConfigRuleName',
-      configRuleState: 'ConfigRuleState',
-      createTimestamp: 'CreateTimestamp',
-      description: 'Description',
-      inputParameters: 'InputParameters',
-      modifiedTimestamp: 'ModifiedTimestamp',
-      riskLevel: 'RiskLevel',
-      maximumExecutionFrequency: 'MaximumExecutionFrequency',
-      createBy: 'CreateBy',
-      configRuleEvaluationStatus: 'ConfigRuleEvaluationStatus',
-      managedRule: 'ManagedRule',
-      source: 'Source',
-      scope: 'Scope',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      configRuleArn: 'string',
+      errorCode: 'string',
+      success: 'boolean',
       configRuleId: 'string',
-      configRuleName: 'string',
-      configRuleState: 'string',
-      createTimestamp: 'number',
-      description: 'string',
-      inputParameters: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      modifiedTimestamp: 'number',
-      riskLevel: 'number',
-      maximumExecutionFrequency: 'string',
-      createBy: DescribeConfigRuleResponseConfigRuleCreateBy,
-      configRuleEvaluationStatus: DescribeConfigRuleResponseConfigRuleConfigRuleEvaluationStatus,
-      managedRule: DescribeConfigRuleResponseConfigRuleManagedRule,
-      source: DescribeConfigRuleResponseConfigRuleSource,
-      scope: DescribeConfigRuleResponseConfigRuleScope,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopConfigRulesResponseBodyOperateRuleResult extends $tea.Model {
+  operateRuleItemList?: StopConfigRulesResponseBodyOperateRuleResultOperateRuleItemList[];
+  static names(): { [key: string]: string } {
+    return {
+      operateRuleItemList: 'OperateRuleItemList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      operateRuleItemList: { 'type': 'array', 'itemType': StopConfigRulesResponseBodyOperateRuleResultOperateRuleItemList },
     };
   }
 
@@ -2469,9 +3277,9 @@ export class DescribeConfigRuleResponseConfigRule extends $tea.Model {
 }
 
 
-export default class Client extends RPC {
+export default class Client extends OpenApi {
 
-  constructor(config: $RPC.Config) {
+  constructor(config: $OpenApi.Config) {
     super(config);
     this._endpointRule = "central";
     this._endpointMap = {
@@ -2483,236 +3291,6 @@ export default class Client extends RPC {
   }
 
 
-  async getResourceComplianceTimelineWithOptions(request: GetResourceComplianceTimelineRequest, runtime: $Util.RuntimeOptions): Promise<GetResourceComplianceTimelineResponse> {
-    Util.validateModel(request);
-    return $tea.cast<GetResourceComplianceTimelineResponse>(await this.doRequest("GetResourceComplianceTimeline", "HTTPS", "GET", "2019-01-08", "AK", $tea.toMap(request), null, runtime), new GetResourceComplianceTimelineResponse({}));
-  }
-
-  async getResourceComplianceTimeline(request: GetResourceComplianceTimelineRequest): Promise<GetResourceComplianceTimelineResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getResourceComplianceTimelineWithOptions(request, runtime);
-  }
-
-  async getResourceConfigurationTimelineWithOptions(request: GetResourceConfigurationTimelineRequest, runtime: $Util.RuntimeOptions): Promise<GetResourceConfigurationTimelineResponse> {
-    Util.validateModel(request);
-    return $tea.cast<GetResourceConfigurationTimelineResponse>(await this.doRequest("GetResourceConfigurationTimeline", "HTTPS", "GET", "2019-01-08", "AK", $tea.toMap(request), null, runtime), new GetResourceConfigurationTimelineResponse({}));
-  }
-
-  async getResourceConfigurationTimeline(request: GetResourceConfigurationTimelineRequest): Promise<GetResourceConfigurationTimelineResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getResourceConfigurationTimelineWithOptions(request, runtime);
-  }
-
-  async describeDeliveryChannelsWithOptions(request: DescribeDeliveryChannelsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDeliveryChannelsResponse> {
-    Util.validateModel(request);
-    return $tea.cast<DescribeDeliveryChannelsResponse>(await this.doRequest("DescribeDeliveryChannels", "HTTPS", "GET", "2019-01-08", "AK", $tea.toMap(request), null, runtime), new DescribeDeliveryChannelsResponse({}));
-  }
-
-  async describeDeliveryChannels(request: DescribeDeliveryChannelsRequest): Promise<DescribeDeliveryChannelsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeDeliveryChannelsWithOptions(request, runtime);
-  }
-
-  async putConfigurationRecorderWithOptions(request: PutConfigurationRecorderRequest, runtime: $Util.RuntimeOptions): Promise<PutConfigurationRecorderResponse> {
-    Util.validateModel(request);
-    return $tea.cast<PutConfigurationRecorderResponse>(await this.doRequest("PutConfigurationRecorder", "HTTPS", "POST", "2019-01-08", "AK", null, $tea.toMap(request), runtime), new PutConfigurationRecorderResponse({}));
-  }
-
-  async putConfigurationRecorder(request: PutConfigurationRecorderRequest): Promise<PutConfigurationRecorderResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.putConfigurationRecorderWithOptions(request, runtime);
-  }
-
-  async getDiscoveredResourceSummaryWithOptions(request: GetDiscoveredResourceSummaryRequest, runtime: $Util.RuntimeOptions): Promise<GetDiscoveredResourceSummaryResponse> {
-    Util.validateModel(request);
-    return $tea.cast<GetDiscoveredResourceSummaryResponse>(await this.doRequest("GetDiscoveredResourceSummary", "HTTPS", "GET", "2019-01-08", "AK", $tea.toMap(request), null, runtime), new GetDiscoveredResourceSummaryResponse({}));
-  }
-
-  async getDiscoveredResourceSummary(request: GetDiscoveredResourceSummaryRequest): Promise<GetDiscoveredResourceSummaryResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getDiscoveredResourceSummaryWithOptions(request, runtime);
-  }
-
-  async activeConfigRulesWithOptions(request: ActiveConfigRulesRequest, runtime: $Util.RuntimeOptions): Promise<ActiveConfigRulesResponse> {
-    Util.validateModel(request);
-    return $tea.cast<ActiveConfigRulesResponse>(await this.doRequest("ActiveConfigRules", "HTTPS", "POST", "2019-01-08", "AK", null, $tea.toMap(request), runtime), new ActiveConfigRulesResponse({}));
-  }
-
-  async activeConfigRules(request: ActiveConfigRulesRequest): Promise<ActiveConfigRulesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.activeConfigRulesWithOptions(request, runtime);
-  }
-
-  async stopConfigRulesWithOptions(request: StopConfigRulesRequest, runtime: $Util.RuntimeOptions): Promise<StopConfigRulesResponse> {
-    Util.validateModel(request);
-    return $tea.cast<StopConfigRulesResponse>(await this.doRequest("StopConfigRules", "HTTPS", "POST", "2019-01-08", "AK", null, $tea.toMap(request), runtime), new StopConfigRulesResponse({}));
-  }
-
-  async stopConfigRules(request: StopConfigRulesRequest): Promise<StopConfigRulesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.stopConfigRulesWithOptions(request, runtime);
-  }
-
-  async describeComplianceSummaryWithOptions(request: DescribeComplianceSummaryRequest, runtime: $Util.RuntimeOptions): Promise<DescribeComplianceSummaryResponse> {
-    Util.validateModel(request);
-    return $tea.cast<DescribeComplianceSummaryResponse>(await this.doRequest("DescribeComplianceSummary", "HTTPS", "GET", "2019-01-08", "AK", $tea.toMap(request), null, runtime), new DescribeComplianceSummaryResponse({}));
-  }
-
-  async describeComplianceSummary(request: DescribeComplianceSummaryRequest): Promise<DescribeComplianceSummaryResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeComplianceSummaryWithOptions(request, runtime);
-  }
-
-  async listConfigRulesWithOptions(request: ListConfigRulesRequest, runtime: $Util.RuntimeOptions): Promise<ListConfigRulesResponse> {
-    Util.validateModel(request);
-    return $tea.cast<ListConfigRulesResponse>(await this.doRequest("ListConfigRules", "HTTPS", "GET", "2019-01-08", "AK", $tea.toMap(request), null, runtime), new ListConfigRulesResponse({}));
-  }
-
-  async listConfigRules(request: ListConfigRulesRequest): Promise<ListConfigRulesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.listConfigRulesWithOptions(request, runtime);
-  }
-
-  async putConfigRuleWithOptions(request: PutConfigRuleRequest, runtime: $Util.RuntimeOptions): Promise<PutConfigRuleResponse> {
-    Util.validateModel(request);
-    return $tea.cast<PutConfigRuleResponse>(await this.doRequest("PutConfigRule", "HTTPS", "POST", "2019-01-08", "AK", null, $tea.toMap(request), runtime), new PutConfigRuleResponse({}));
-  }
-
-  async putConfigRule(request: PutConfigRuleRequest): Promise<PutConfigRuleResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.putConfigRuleWithOptions(request, runtime);
-  }
-
-  async describeEvaluationResultsWithOptions(request: DescribeEvaluationResultsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEvaluationResultsResponse> {
-    Util.validateModel(request);
-    return $tea.cast<DescribeEvaluationResultsResponse>(await this.doRequest("DescribeEvaluationResults", "HTTPS", "GET", "2019-01-08", "AK", $tea.toMap(request), null, runtime), new DescribeEvaluationResultsResponse({}));
-  }
-
-  async describeEvaluationResults(request: DescribeEvaluationResultsRequest): Promise<DescribeEvaluationResultsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeEvaluationResultsWithOptions(request, runtime);
-  }
-
-  async deleteConfigRulesWithOptions(request: DeleteConfigRulesRequest, runtime: $Util.RuntimeOptions): Promise<DeleteConfigRulesResponse> {
-    Util.validateModel(request);
-    return $tea.cast<DeleteConfigRulesResponse>(await this.doRequest("DeleteConfigRules", "HTTPS", "POST", "2019-01-08", "AK", null, $tea.toMap(request), runtime), new DeleteConfigRulesResponse({}));
-  }
-
-  async deleteConfigRules(request: DeleteConfigRulesRequest): Promise<DeleteConfigRulesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.deleteConfigRulesWithOptions(request, runtime);
-  }
-
-  async describeComplianceWithOptions(request: DescribeComplianceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeComplianceResponse> {
-    Util.validateModel(request);
-    return $tea.cast<DescribeComplianceResponse>(await this.doRequest("DescribeCompliance", "HTTPS", "GET", "2019-01-08", "AK", $tea.toMap(request), null, runtime), new DescribeComplianceResponse({}));
-  }
-
-  async describeCompliance(request: DescribeComplianceRequest): Promise<DescribeComplianceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeComplianceWithOptions(request, runtime);
-  }
-
-  async getDiscoveredResourceCountsWithOptions(request: GetDiscoveredResourceCountsRequest, runtime: $Util.RuntimeOptions): Promise<GetDiscoveredResourceCountsResponse> {
-    Util.validateModel(request);
-    return $tea.cast<GetDiscoveredResourceCountsResponse>(await this.doRequest("GetDiscoveredResourceCounts", "HTTPS", "GET", "2019-01-08", "AK", $tea.toMap(request), null, runtime), new GetDiscoveredResourceCountsResponse({}));
-  }
-
-  async getDiscoveredResourceCounts(request: GetDiscoveredResourceCountsRequest): Promise<GetDiscoveredResourceCountsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getDiscoveredResourceCountsWithOptions(request, runtime);
-  }
-
-  async listDiscoveredResourcesWithOptions(request: ListDiscoveredResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListDiscoveredResourcesResponse> {
-    Util.validateModel(request);
-    return $tea.cast<ListDiscoveredResourcesResponse>(await this.doRequest("ListDiscoveredResources", "HTTPS", "GET", "2019-01-08", "AK", $tea.toMap(request), null, runtime), new ListDiscoveredResourcesResponse({}));
-  }
-
-  async listDiscoveredResources(request: ListDiscoveredResourcesRequest): Promise<ListDiscoveredResourcesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.listDiscoveredResourcesWithOptions(request, runtime);
-  }
-
-  async describeConfigurationRecorderWithOptions(request: DescribeConfigurationRecorderRequest, runtime: $Util.RuntimeOptions): Promise<DescribeConfigurationRecorderResponse> {
-    Util.validateModel(request);
-    return $tea.cast<DescribeConfigurationRecorderResponse>(await this.doRequest("DescribeConfigurationRecorder", "HTTPS", "GET", "2019-01-08", "AK", $tea.toMap(request), null, runtime), new DescribeConfigurationRecorderResponse({}));
-  }
-
-  async describeConfigurationRecorder(request: DescribeConfigurationRecorderRequest): Promise<DescribeConfigurationRecorderResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeConfigurationRecorderWithOptions(request, runtime);
-  }
-
-  async describeDiscoveredResourceWithOptions(request: DescribeDiscoveredResourceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDiscoveredResourceResponse> {
-    Util.validateModel(request);
-    return $tea.cast<DescribeDiscoveredResourceResponse>(await this.doRequest("DescribeDiscoveredResource", "HTTPS", "GET", "2019-01-08", "AK", $tea.toMap(request), null, runtime), new DescribeDiscoveredResourceResponse({}));
-  }
-
-  async describeDiscoveredResource(request: DescribeDiscoveredResourceRequest): Promise<DescribeDiscoveredResourceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeDiscoveredResourceWithOptions(request, runtime);
-  }
-
-  async startConfigurationRecorderWithOptions(request: StartConfigurationRecorderRequest, runtime: $Util.RuntimeOptions): Promise<StartConfigurationRecorderResponse> {
-    Util.validateModel(request);
-    return $tea.cast<StartConfigurationRecorderResponse>(await this.doRequest("StartConfigurationRecorder", "HTTPS", "POST", "2019-01-08", "AK", null, $tea.toMap(request), runtime), new StartConfigurationRecorderResponse({}));
-  }
-
-  async startConfigurationRecorder(request: StartConfigurationRecorderRequest): Promise<StartConfigurationRecorderResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.startConfigurationRecorderWithOptions(request, runtime);
-  }
-
-  async describeConfigRuleWithOptions(request: DescribeConfigRuleRequest, runtime: $Util.RuntimeOptions): Promise<DescribeConfigRuleResponse> {
-    Util.validateModel(request);
-    return $tea.cast<DescribeConfigRuleResponse>(await this.doRequest("DescribeConfigRule", "HTTPS", "GET", "2019-01-08", "AK", $tea.toMap(request), null, runtime), new DescribeConfigRuleResponse({}));
-  }
-
-  async describeConfigRule(request: DescribeConfigRuleRequest): Promise<DescribeConfigRuleResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeConfigRuleWithOptions(request, runtime);
-  }
-
-  async getSupportedResourceTypesWithOptions(request: GetSupportedResourceTypesRequest, runtime: $Util.RuntimeOptions): Promise<GetSupportedResourceTypesResponse> {
-    Util.validateModel(request);
-    return $tea.cast<GetSupportedResourceTypesResponse>(await this.doRequest("GetSupportedResourceTypes", "HTTPS", "GET", "2019-01-08", "AK", $tea.toMap(request), null, runtime), new GetSupportedResourceTypesResponse({}));
-  }
-
-  async getSupportedResourceTypes(request: GetSupportedResourceTypesRequest): Promise<GetSupportedResourceTypesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getSupportedResourceTypesWithOptions(request, runtime);
-  }
-
-  async putDeliveryChannelWithOptions(request: PutDeliveryChannelRequest, runtime: $Util.RuntimeOptions): Promise<PutDeliveryChannelResponse> {
-    Util.validateModel(request);
-    return $tea.cast<PutDeliveryChannelResponse>(await this.doRequest("PutDeliveryChannel", "HTTPS", "POST", "2019-01-08", "AK", null, $tea.toMap(request), runtime), new PutDeliveryChannelResponse({}));
-  }
-
-  async putDeliveryChannel(request: PutDeliveryChannelRequest): Promise<PutDeliveryChannelResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.putDeliveryChannelWithOptions(request, runtime);
-  }
-
-  async putEvaluationsWithOptions(request: PutEvaluationsRequest, runtime: $Util.RuntimeOptions): Promise<PutEvaluationsResponse> {
-    Util.validateModel(request);
-    return $tea.cast<PutEvaluationsResponse>(await this.doRequest("PutEvaluations", "HTTPS", "POST", "2019-01-08", "AK", null, $tea.toMap(request), runtime), new PutEvaluationsResponse({}));
-  }
-
-  async putEvaluations(request: PutEvaluationsRequest): Promise<PutEvaluationsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.putEvaluationsWithOptions(request, runtime);
-  }
-
-  async startConfigRuleEvaluationWithOptions(request: StartConfigRuleEvaluationRequest, runtime: $Util.RuntimeOptions): Promise<StartConfigRuleEvaluationResponse> {
-    Util.validateModel(request);
-    return $tea.cast<StartConfigRuleEvaluationResponse>(await this.doRequest("StartConfigRuleEvaluation", "HTTPS", "POST", "2019-01-08", "AK", null, $tea.toMap(request), runtime), new StartConfigRuleEvaluationResponse({}));
-  }
-
-  async startConfigRuleEvaluation(request: StartConfigRuleEvaluationRequest): Promise<StartConfigRuleEvaluationResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.startConfigRuleEvaluationWithOptions(request, runtime);
-  }
-
   getEndpoint(productId: string, regionId: string, endpointRule: string, network: string, suffix: string, endpointMap: {[key: string ]: string}, endpoint: string): string {
     if (!Util.empty(endpoint)) {
       return endpoint;
@@ -2723,6 +3301,352 @@ export default class Client extends RPC {
     }
 
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+  }
+
+  async activeConfigRulesWithOptions(request: ActiveConfigRulesRequest, runtime: $Util.RuntimeOptions): Promise<ActiveConfigRulesResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<ActiveConfigRulesResponse>(await this.doRPCRequest("ActiveConfigRules", "2019-01-08", "HTTPS", "POST", "AK", "json", req, runtime), new ActiveConfigRulesResponse({}));
+  }
+
+  async activeConfigRules(request: ActiveConfigRulesRequest): Promise<ActiveConfigRulesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.activeConfigRulesWithOptions(request, runtime);
+  }
+
+  async deleteConfigRulesWithOptions(request: DeleteConfigRulesRequest, runtime: $Util.RuntimeOptions): Promise<DeleteConfigRulesResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DeleteConfigRulesResponse>(await this.doRPCRequest("DeleteConfigRules", "2019-01-08", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteConfigRulesResponse({}));
+  }
+
+  async deleteConfigRules(request: DeleteConfigRulesRequest): Promise<DeleteConfigRulesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteConfigRulesWithOptions(request, runtime);
+  }
+
+  async describeComplianceWithOptions(request: DescribeComplianceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeComplianceResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: query,
+    });
+    return $tea.cast<DescribeComplianceResponse>(await this.doRPCRequest("DescribeCompliance", "2019-01-08", "HTTPS", "GET", "AK", "json", req, runtime), new DescribeComplianceResponse({}));
+  }
+
+  async describeCompliance(request: DescribeComplianceRequest): Promise<DescribeComplianceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeComplianceWithOptions(request, runtime);
+  }
+
+  async describeComplianceSummaryWithOptions(request: DescribeComplianceSummaryRequest, runtime: $Util.RuntimeOptions): Promise<DescribeComplianceSummaryResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: query,
+    });
+    return $tea.cast<DescribeComplianceSummaryResponse>(await this.doRPCRequest("DescribeComplianceSummary", "2019-01-08", "HTTPS", "GET", "AK", "json", req, runtime), new DescribeComplianceSummaryResponse({}));
+  }
+
+  async describeComplianceSummary(request: DescribeComplianceSummaryRequest): Promise<DescribeComplianceSummaryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeComplianceSummaryWithOptions(request, runtime);
+  }
+
+  async describeConfigRuleWithOptions(request: DescribeConfigRuleRequest, runtime: $Util.RuntimeOptions): Promise<DescribeConfigRuleResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: query,
+    });
+    return $tea.cast<DescribeConfigRuleResponse>(await this.doRPCRequest("DescribeConfigRule", "2019-01-08", "HTTPS", "GET", "AK", "json", req, runtime), new DescribeConfigRuleResponse({}));
+  }
+
+  async describeConfigRule(request: DescribeConfigRuleRequest): Promise<DescribeConfigRuleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeConfigRuleWithOptions(request, runtime);
+  }
+
+  async describeConfigurationRecorderWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeConfigurationRecorderResponse> {
+    let req = new $OpenApi.OpenApiRequest({ });
+    return $tea.cast<DescribeConfigurationRecorderResponse>(await this.doRPCRequest("DescribeConfigurationRecorder", "2019-01-08", "HTTPS", "GET", "AK", "json", req, runtime), new DescribeConfigurationRecorderResponse({}));
+  }
+
+  async describeConfigurationRecorder(): Promise<DescribeConfigurationRecorderResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeConfigurationRecorderWithOptions(runtime);
+  }
+
+  async describeDeliveryChannelsWithOptions(request: DescribeDeliveryChannelsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDeliveryChannelsResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: query,
+    });
+    return $tea.cast<DescribeDeliveryChannelsResponse>(await this.doRPCRequest("DescribeDeliveryChannels", "2019-01-08", "HTTPS", "GET", "AK", "json", req, runtime), new DescribeDeliveryChannelsResponse({}));
+  }
+
+  async describeDeliveryChannels(request: DescribeDeliveryChannelsRequest): Promise<DescribeDeliveryChannelsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDeliveryChannelsWithOptions(request, runtime);
+  }
+
+  async describeDiscoveredResourceWithOptions(request: DescribeDiscoveredResourceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDiscoveredResourceResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: query,
+    });
+    return $tea.cast<DescribeDiscoveredResourceResponse>(await this.doRPCRequest("DescribeDiscoveredResource", "2019-01-08", "HTTPS", "GET", "AK", "json", req, runtime), new DescribeDiscoveredResourceResponse({}));
+  }
+
+  async describeDiscoveredResource(request: DescribeDiscoveredResourceRequest): Promise<DescribeDiscoveredResourceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDiscoveredResourceWithOptions(request, runtime);
+  }
+
+  async describeEvaluationResultsWithOptions(request: DescribeEvaluationResultsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEvaluationResultsResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: query,
+    });
+    return $tea.cast<DescribeEvaluationResultsResponse>(await this.doRPCRequest("DescribeEvaluationResults", "2019-01-08", "HTTPS", "GET", "AK", "json", req, runtime), new DescribeEvaluationResultsResponse({}));
+  }
+
+  async describeEvaluationResults(request: DescribeEvaluationResultsRequest): Promise<DescribeEvaluationResultsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeEvaluationResultsWithOptions(request, runtime);
+  }
+
+  async getAggregateDiscoveredResourceWithOptions(request: GetAggregateDiscoveredResourceRequest, runtime: $Util.RuntimeOptions): Promise<GetAggregateDiscoveredResourceResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: query,
+    });
+    return $tea.cast<GetAggregateDiscoveredResourceResponse>(await this.doRPCRequest("GetAggregateDiscoveredResource", "2019-01-08", "HTTPS", "GET", "AK", "json", req, runtime), new GetAggregateDiscoveredResourceResponse({}));
+  }
+
+  async getAggregateDiscoveredResource(request: GetAggregateDiscoveredResourceRequest): Promise<GetAggregateDiscoveredResourceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getAggregateDiscoveredResourceWithOptions(request, runtime);
+  }
+
+  async getDiscoveredResourceCountsWithOptions(request: GetDiscoveredResourceCountsRequest, runtime: $Util.RuntimeOptions): Promise<GetDiscoveredResourceCountsResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: query,
+    });
+    return $tea.cast<GetDiscoveredResourceCountsResponse>(await this.doRPCRequest("GetDiscoveredResourceCounts", "2019-01-08", "HTTPS", "GET", "AK", "json", req, runtime), new GetDiscoveredResourceCountsResponse({}));
+  }
+
+  async getDiscoveredResourceCounts(request: GetDiscoveredResourceCountsRequest): Promise<GetDiscoveredResourceCountsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getDiscoveredResourceCountsWithOptions(request, runtime);
+  }
+
+  async getDiscoveredResourceSummaryWithOptions(request: GetDiscoveredResourceSummaryRequest, runtime: $Util.RuntimeOptions): Promise<GetDiscoveredResourceSummaryResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: query,
+    });
+    return $tea.cast<GetDiscoveredResourceSummaryResponse>(await this.doRPCRequest("GetDiscoveredResourceSummary", "2019-01-08", "HTTPS", "GET", "AK", "json", req, runtime), new GetDiscoveredResourceSummaryResponse({}));
+  }
+
+  async getDiscoveredResourceSummary(request: GetDiscoveredResourceSummaryRequest): Promise<GetDiscoveredResourceSummaryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getDiscoveredResourceSummaryWithOptions(request, runtime);
+  }
+
+  async getResourceComplianceTimelineWithOptions(request: GetResourceComplianceTimelineRequest, runtime: $Util.RuntimeOptions): Promise<GetResourceComplianceTimelineResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: query,
+    });
+    return $tea.cast<GetResourceComplianceTimelineResponse>(await this.doRPCRequest("GetResourceComplianceTimeline", "2019-01-08", "HTTPS", "GET", "AK", "json", req, runtime), new GetResourceComplianceTimelineResponse({}));
+  }
+
+  async getResourceComplianceTimeline(request: GetResourceComplianceTimelineRequest): Promise<GetResourceComplianceTimelineResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getResourceComplianceTimelineWithOptions(request, runtime);
+  }
+
+  async getResourceConfigurationTimelineWithOptions(request: GetResourceConfigurationTimelineRequest, runtime: $Util.RuntimeOptions): Promise<GetResourceConfigurationTimelineResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: query,
+    });
+    return $tea.cast<GetResourceConfigurationTimelineResponse>(await this.doRPCRequest("GetResourceConfigurationTimeline", "2019-01-08", "HTTPS", "GET", "AK", "json", req, runtime), new GetResourceConfigurationTimelineResponse({}));
+  }
+
+  async getResourceConfigurationTimeline(request: GetResourceConfigurationTimelineRequest): Promise<GetResourceConfigurationTimelineResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getResourceConfigurationTimelineWithOptions(request, runtime);
+  }
+
+  async getSupportedResourceTypesWithOptions(runtime: $Util.RuntimeOptions): Promise<GetSupportedResourceTypesResponse> {
+    let req = new $OpenApi.OpenApiRequest({ });
+    return $tea.cast<GetSupportedResourceTypesResponse>(await this.doRPCRequest("GetSupportedResourceTypes", "2019-01-08", "HTTPS", "GET", "AK", "json", req, runtime), new GetSupportedResourceTypesResponse({}));
+  }
+
+  async getSupportedResourceTypes(): Promise<GetSupportedResourceTypesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getSupportedResourceTypesWithOptions(runtime);
+  }
+
+  async listAggregateDiscoveredResourcesWithOptions(request: ListAggregateDiscoveredResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListAggregateDiscoveredResourcesResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: query,
+    });
+    return $tea.cast<ListAggregateDiscoveredResourcesResponse>(await this.doRPCRequest("ListAggregateDiscoveredResources", "2019-01-08", "HTTPS", "GET", "AK", "json", req, runtime), new ListAggregateDiscoveredResourcesResponse({}));
+  }
+
+  async listAggregateDiscoveredResources(request: ListAggregateDiscoveredResourcesRequest): Promise<ListAggregateDiscoveredResourcesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listAggregateDiscoveredResourcesWithOptions(request, runtime);
+  }
+
+  async listConfigRulesWithOptions(request: ListConfigRulesRequest, runtime: $Util.RuntimeOptions): Promise<ListConfigRulesResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: query,
+    });
+    return $tea.cast<ListConfigRulesResponse>(await this.doRPCRequest("ListConfigRules", "2019-01-08", "HTTPS", "GET", "AK", "json", req, runtime), new ListConfigRulesResponse({}));
+  }
+
+  async listConfigRules(request: ListConfigRulesRequest): Promise<ListConfigRulesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listConfigRulesWithOptions(request, runtime);
+  }
+
+  async listDiscoveredResourcesWithOptions(request: ListDiscoveredResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListDiscoveredResourcesResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: query,
+    });
+    return $tea.cast<ListDiscoveredResourcesResponse>(await this.doRPCRequest("ListDiscoveredResources", "2019-01-08", "HTTPS", "GET", "AK", "json", req, runtime), new ListDiscoveredResourcesResponse({}));
+  }
+
+  async listDiscoveredResources(request: ListDiscoveredResourcesRequest): Promise<ListDiscoveredResourcesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listDiscoveredResourcesWithOptions(request, runtime);
+  }
+
+  async listRemediationTemplatesWithOptions(request: ListRemediationTemplatesRequest, runtime: $Util.RuntimeOptions): Promise<ListRemediationTemplatesResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<ListRemediationTemplatesResponse>(await this.doRPCRequest("ListRemediationTemplates", "2019-01-08", "HTTPS", "POST", "AK", "json", req, runtime), new ListRemediationTemplatesResponse({}));
+  }
+
+  async listRemediationTemplates(request: ListRemediationTemplatesRequest): Promise<ListRemediationTemplatesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listRemediationTemplatesWithOptions(request, runtime);
+  }
+
+  async putConfigRuleWithOptions(request: PutConfigRuleRequest, runtime: $Util.RuntimeOptions): Promise<PutConfigRuleResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<PutConfigRuleResponse>(await this.doRPCRequest("PutConfigRule", "2019-01-08", "HTTPS", "POST", "AK", "json", req, runtime), new PutConfigRuleResponse({}));
+  }
+
+  async putConfigRule(request: PutConfigRuleRequest): Promise<PutConfigRuleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.putConfigRuleWithOptions(request, runtime);
+  }
+
+  async putConfigurationRecorderWithOptions(request: PutConfigurationRecorderRequest, runtime: $Util.RuntimeOptions): Promise<PutConfigurationRecorderResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<PutConfigurationRecorderResponse>(await this.doRPCRequest("PutConfigurationRecorder", "2019-01-08", "HTTPS", "POST", "AK", "json", req, runtime), new PutConfigurationRecorderResponse({}));
+  }
+
+  async putConfigurationRecorder(request: PutConfigurationRecorderRequest): Promise<PutConfigurationRecorderResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.putConfigurationRecorderWithOptions(request, runtime);
+  }
+
+  async putDeliveryChannelWithOptions(request: PutDeliveryChannelRequest, runtime: $Util.RuntimeOptions): Promise<PutDeliveryChannelResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<PutDeliveryChannelResponse>(await this.doRPCRequest("PutDeliveryChannel", "2019-01-08", "HTTPS", "POST", "AK", "json", req, runtime), new PutDeliveryChannelResponse({}));
+  }
+
+  async putDeliveryChannel(request: PutDeliveryChannelRequest): Promise<PutDeliveryChannelResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.putDeliveryChannelWithOptions(request, runtime);
+  }
+
+  async putEvaluationsWithOptions(request: PutEvaluationsRequest, runtime: $Util.RuntimeOptions): Promise<PutEvaluationsResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<PutEvaluationsResponse>(await this.doRPCRequest("PutEvaluations", "2019-01-08", "HTTPS", "POST", "AK", "json", req, runtime), new PutEvaluationsResponse({}));
+  }
+
+  async putEvaluations(request: PutEvaluationsRequest): Promise<PutEvaluationsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.putEvaluationsWithOptions(request, runtime);
+  }
+
+  async startConfigRuleEvaluationWithOptions(request: StartConfigRuleEvaluationRequest, runtime: $Util.RuntimeOptions): Promise<StartConfigRuleEvaluationResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<StartConfigRuleEvaluationResponse>(await this.doRPCRequest("StartConfigRuleEvaluation", "2019-01-08", "HTTPS", "POST", "AK", "json", req, runtime), new StartConfigRuleEvaluationResponse({}));
+  }
+
+  async startConfigRuleEvaluation(request: StartConfigRuleEvaluationRequest): Promise<StartConfigRuleEvaluationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.startConfigRuleEvaluationWithOptions(request, runtime);
+  }
+
+  async startConfigurationRecorderWithOptions(request: StartConfigurationRecorderRequest, runtime: $Util.RuntimeOptions): Promise<StartConfigurationRecorderResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<StartConfigurationRecorderResponse>(await this.doRPCRequest("StartConfigurationRecorder", "2019-01-08", "HTTPS", "POST", "AK", "json", req, runtime), new StartConfigurationRecorderResponse({}));
+  }
+
+  async startConfigurationRecorder(request: StartConfigurationRecorderRequest): Promise<StartConfigurationRecorderResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.startConfigurationRecorderWithOptions(request, runtime);
+  }
+
+  async stopConfigRulesWithOptions(request: StopConfigRulesRequest, runtime: $Util.RuntimeOptions): Promise<StopConfigRulesResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<StopConfigRulesResponse>(await this.doRPCRequest("StopConfigRules", "2019-01-08", "HTTPS", "POST", "AK", "json", req, runtime), new StopConfigRulesResponse({}));
+  }
+
+  async stopConfigRules(request: StopConfigRulesRequest): Promise<StopConfigRulesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.stopConfigRulesWithOptions(request, runtime);
   }
 
 }
