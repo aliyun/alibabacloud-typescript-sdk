@@ -808,12 +808,12 @@ export class SendCommentResponse extends $tea.Model {
 
 export class CreateAppTemplateRequest extends $tea.Model {
   appTemplateName?: string;
-  sence?: string;
+  scene?: string;
   componentList?: string[];
   static names(): { [key: string]: string } {
     return {
       appTemplateName: 'AppTemplateName',
-      sence: 'Sence',
+      scene: 'Scene',
       componentList: 'ComponentList',
     };
   }
@@ -821,7 +821,7 @@ export class CreateAppTemplateRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       appTemplateName: 'string',
-      sence: 'string',
+      scene: 'string',
       componentList: { 'type': 'array', 'itemType': 'string' },
     };
   }
@@ -833,12 +833,12 @@ export class CreateAppTemplateRequest extends $tea.Model {
 
 export class CreateAppTemplateShrinkRequest extends $tea.Model {
   appTemplateName?: string;
-  sence?: string;
+  scene?: string;
   componentListShrink?: string;
   static names(): { [key: string]: string } {
     return {
       appTemplateName: 'AppTemplateName',
-      sence: 'Sence',
+      scene: 'Scene',
       componentListShrink: 'ComponentList',
     };
   }
@@ -846,7 +846,7 @@ export class CreateAppTemplateShrinkRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       appTemplateName: 'string',
-      sence: 'string',
+      scene: 'string',
       componentListShrink: 'string',
     };
   }
