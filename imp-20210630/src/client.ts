@@ -8,101 +8,29 @@ import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
-export class VerifyDomainOwnerRequest extends $tea.Model {
-  liveDomainName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      liveDomainName: 'LiveDomainName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      liveDomainName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class VerifyDomainOwnerResponseBody extends $tea.Model {
-  requestId?: string;
-  result?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      result: 'Result',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      result: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class VerifyDomainOwnerResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: VerifyDomainOwnerResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: VerifyDomainOwnerResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateLiveRequest extends $tea.Model {
+export class CreateIceProjectRequest extends $tea.Model {
   appId?: string;
-  roomId?: string;
-  userId?: string;
+  urlRegionId?: string;
+  projectTitle?: string;
+  coverURL?: string;
   liveId?: string;
-  title?: string;
-  introduction?: string;
-  anchorId?: string;
-  codeLevel?: number;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
-      roomId: 'RoomId',
-      userId: 'UserId',
+      urlRegionId: 'UrlRegionId',
+      projectTitle: 'ProjectTitle',
+      coverURL: 'CoverURL',
       liveId: 'LiveId',
-      title: 'Title',
-      introduction: 'Introduction',
-      anchorId: 'AnchorId',
-      codeLevel: 'CodeLevel',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       appId: 'string',
-      roomId: 'string',
-      userId: 'string',
+      urlRegionId: 'string',
+      projectTitle: 'string',
+      coverURL: 'string',
       liveId: 'string',
-      title: 'string',
-      introduction: 'string',
-      anchorId: 'string',
-      codeLevel: 'number',
     };
   }
 
@@ -111,9 +39,9 @@ export class CreateLiveRequest extends $tea.Model {
   }
 }
 
-export class CreateLiveResponseBody extends $tea.Model {
+export class CreateIceProjectResponseBody extends $tea.Model {
   requestId?: string;
-  result?: CreateLiveResponseBodyResult;
+  result?: CreateIceProjectResponseBodyResult;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
@@ -124,7 +52,7 @@ export class CreateLiveResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      result: CreateLiveResponseBodyResult,
+      result: CreateIceProjectResponseBodyResult,
     };
   }
 
@@ -133,9 +61,9 @@ export class CreateLiveResponseBody extends $tea.Model {
   }
 }
 
-export class CreateLiveResponse extends $tea.Model {
+export class CreateIceProjectResponse extends $tea.Model {
   headers: { [key: string]: string };
-  body: CreateLiveResponseBody;
+  body: CreateIceProjectResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -146,7 +74,7 @@ export class CreateLiveResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: CreateLiveResponseBody,
+      body: CreateIceProjectResponseBody,
     };
   }
 
@@ -213,66 +141,6 @@ export class RemoveMemberResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: RemoveMemberResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteAppRequest extends $tea.Model {
-  appId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteAppResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteAppResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DeleteAppResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DeleteAppResponseBody,
     };
   }
 
@@ -350,290 +218,6 @@ export class ListApplyLinkMicUsersResponse extends $tea.Model {
   }
 }
 
-export class ListRoomLivesRequest extends $tea.Model {
-  appId?: string;
-  roomId?: string;
-  status?: number;
-  queryTimestamp?: number;
-  size?: number;
-  roomIdList?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      roomId: 'RoomId',
-      status: 'Status',
-      queryTimestamp: 'QueryTimestamp',
-      size: 'Size',
-      roomIdList: 'RoomIdList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      roomId: 'string',
-      status: 'number',
-      queryTimestamp: 'number',
-      size: 'number',
-      roomIdList: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListRoomLivesShrinkRequest extends $tea.Model {
-  appId?: string;
-  roomId?: string;
-  status?: number;
-  queryTimestamp?: number;
-  size?: number;
-  roomIdListShrink?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      roomId: 'RoomId',
-      status: 'Status',
-      queryTimestamp: 'QueryTimestamp',
-      size: 'Size',
-      roomIdListShrink: 'RoomIdList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      roomId: 'string',
-      status: 'number',
-      queryTimestamp: 'number',
-      size: 'number',
-      roomIdListShrink: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListRoomLivesResponseBody extends $tea.Model {
-  requestId?: string;
-  result?: ListRoomLivesResponseBodyResult;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      result: 'Result',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      result: ListRoomLivesResponseBodyResult,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListRoomLivesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ListRoomLivesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListRoomLivesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateRoomRequest extends $tea.Model {
-  appId?: string;
-  roomId?: string;
-  title?: string;
-  notice?: string;
-  roomOwnerId?: string;
-  extension?: { [key: string]: string };
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      roomId: 'RoomId',
-      title: 'Title',
-      notice: 'Notice',
-      roomOwnerId: 'RoomOwnerId',
-      extension: 'Extension',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      roomId: 'string',
-      title: 'string',
-      notice: 'string',
-      roomOwnerId: 'string',
-      extension: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateRoomShrinkRequest extends $tea.Model {
-  appId?: string;
-  roomId?: string;
-  title?: string;
-  notice?: string;
-  roomOwnerId?: string;
-  extensionShrink?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      roomId: 'RoomId',
-      title: 'Title',
-      notice: 'Notice',
-      roomOwnerId: 'RoomOwnerId',
-      extensionShrink: 'Extension',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      roomId: 'string',
-      title: 'string',
-      notice: 'string',
-      roomOwnerId: 'string',
-      extensionShrink: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateRoomResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateRoomResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: UpdateRoomResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: UpdateRoomResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAppTemplateRequest extends $tea.Model {
-  appTemplateId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appTemplateId: 'AppTemplateId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appTemplateId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAppTemplateResponseBody extends $tea.Model {
-  requestId?: string;
-  result?: GetAppTemplateResponseBodyResult;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      result: 'Result',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      result: GetAppTemplateResponseBodyResult,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAppTemplateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: GetAppTemplateResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: GetAppTemplateResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class GetRoomRequest extends $tea.Model {
   appId?: string;
   roomId?: string;
@@ -692,269 +276,6 @@ export class GetRoomResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: GetRoomResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SendCommentRequest extends $tea.Model {
-  appId?: string;
-  roomId?: string;
-  senderId?: string;
-  content?: string;
-  extension?: { [key: string]: string };
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      roomId: 'RoomId',
-      senderId: 'SenderId',
-      content: 'Content',
-      extension: 'Extension',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      roomId: 'string',
-      senderId: 'string',
-      content: 'string',
-      extension: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SendCommentShrinkRequest extends $tea.Model {
-  appId?: string;
-  roomId?: string;
-  senderId?: string;
-  content?: string;
-  extensionShrink?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      roomId: 'RoomId',
-      senderId: 'SenderId',
-      content: 'Content',
-      extensionShrink: 'Extension',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      roomId: 'string',
-      senderId: 'string',
-      content: 'string',
-      extensionShrink: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SendCommentResponseBody extends $tea.Model {
-  requestId?: string;
-  result?: SendCommentResponseBodyResult;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      result: 'Result',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      result: SendCommentResponseBodyResult,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SendCommentResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: SendCommentResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: SendCommentResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateAppTemplateRequest extends $tea.Model {
-  appTemplateName?: string;
-  scene?: string;
-  componentList?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      appTemplateName: 'AppTemplateName',
-      scene: 'Scene',
-      componentList: 'ComponentList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appTemplateName: 'string',
-      scene: 'string',
-      componentList: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateAppTemplateShrinkRequest extends $tea.Model {
-  appTemplateName?: string;
-  scene?: string;
-  componentListShrink?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appTemplateName: 'AppTemplateName',
-      scene: 'Scene',
-      componentListShrink: 'ComponentList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appTemplateName: 'string',
-      scene: 'string',
-      componentListShrink: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateAppTemplateResponseBody extends $tea.Model {
-  requestId?: string;
-  result?: CreateAppTemplateResponseBodyResult;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      result: 'Result',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      result: CreateAppTemplateResponseBodyResult,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateAppTemplateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: CreateAppTemplateResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: CreateAppTemplateResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetConferenceRequest extends $tea.Model {
-  conferenceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      conferenceId: 'ConferenceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      conferenceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetConferenceResponseBody extends $tea.Model {
-  requestId?: string;
-  result?: GetConferenceResponseBodyResult;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      result: 'Result',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      result: GetConferenceResponseBodyResult,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetConferenceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: GetConferenceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: GetConferenceResponseBody,
     };
   }
 
@@ -1038,138 +359,6 @@ export class BanCommentResponse extends $tea.Model {
   }
 }
 
-export class RejectLinkMicRequest extends $tea.Model {
-  conferenceId?: string;
-  toUserId?: string;
-  fromUserId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      conferenceId: 'ConferenceId',
-      toUserId: 'ToUserId',
-      fromUserId: 'FromUserId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      conferenceId: 'string',
-      toUserId: 'string',
-      fromUserId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RejectLinkMicResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RejectLinkMicResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: RejectLinkMicResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: RejectLinkMicResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListAppsRequest extends $tea.Model {
-  pageNumber?: number;
-  pageSize?: number;
-  static names(): { [key: string]: string } {
-    return {
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageNumber: 'number',
-      pageSize: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListAppsResponseBody extends $tea.Model {
-  requestId?: string;
-  result?: ListAppsResponseBodyResult;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      result: 'Result',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      result: ListAppsResponseBodyResult,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListAppsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ListAppsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListAppsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class AddMemberRequest extends $tea.Model {
   conferenceId?: string;
   toUserId?: string;
@@ -1228,75 +417,6 @@ export class AddMemberResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: AddMemberResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CancelBanAllCommentRequest extends $tea.Model {
-  appId?: string;
-  roomId?: string;
-  userId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      roomId: 'RoomId',
-      userId: 'UserId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      roomId: 'string',
-      userId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CancelBanAllCommentResponseBody extends $tea.Model {
-  requestId?: string;
-  result?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      result: 'Result',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      result: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CancelBanAllCommentResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: CancelBanAllCommentResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: CancelBanAllCommentResponseBody,
     };
   }
 
@@ -1434,345 +554,6 @@ export class DeleteAppTemplateResponse extends $tea.Model {
   }
 }
 
-export class ListConferenceUsersRequest extends $tea.Model {
-  conferenceId?: string;
-  pageNumber?: number;
-  pageSize?: number;
-  static names(): { [key: string]: string } {
-    return {
-      conferenceId: 'ConferenceId',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      conferenceId: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListConferenceUsersResponseBody extends $tea.Model {
-  requestId?: string;
-  result?: ListConferenceUsersResponseBodyResult;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      result: 'Result',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      result: ListConferenceUsersResponseBodyResult,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListConferenceUsersResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ListConferenceUsersResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListConferenceUsersResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CancelBanCommentRequest extends $tea.Model {
-  appId?: string;
-  roomId?: string;
-  userId?: string;
-  banCommentUser?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      roomId: 'RoomId',
-      userId: 'UserId',
-      banCommentUser: 'BanCommentUser',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      roomId: 'string',
-      userId: 'string',
-      banCommentUser: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CancelBanCommentResponseBody extends $tea.Model {
-  requestId?: string;
-  result?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      result: 'Result',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      result: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CancelBanCommentResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: CancelBanCommentResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: CancelBanCommentResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListAppTemplatesRequest extends $tea.Model {
-  pageNumber?: string;
-  pageSize?: string;
-  static names(): { [key: string]: string } {
-    return {
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageNumber: 'string',
-      pageSize: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListAppTemplatesResponseBody extends $tea.Model {
-  requestId?: string;
-  result?: ListAppTemplatesResponseBodyResult;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      result: 'Result',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      result: ListAppTemplatesResponseBodyResult,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListAppTemplatesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ListAppTemplatesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListAppTemplatesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListComponentsRequest extends $tea.Model {
-  appId?: string;
-  appTemplateId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      appTemplateId: 'AppTemplateId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      appTemplateId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListComponentsResponseBody extends $tea.Model {
-  requestId?: string;
-  result?: ListComponentsResponseBodyResult;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      result: 'Result',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      result: ListComponentsResponseBodyResult,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListComponentsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ListComponentsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListComponentsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateLiveRequest extends $tea.Model {
-  liveId?: string;
-  title?: string;
-  introduction?: string;
-  static names(): { [key: string]: string } {
-    return {
-      liveId: 'LiveId',
-      title: 'Title',
-      introduction: 'Introduction',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      liveId: 'string',
-      title: 'string',
-      introduction: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateLiveResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateLiveResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: UpdateLiveResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: UpdateLiveResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class UpdateAppTemplateConfigRequest extends $tea.Model {
   appTemplateId?: string;
   configList?: UpdateAppTemplateConfigRequestConfigList[];
@@ -1858,132 +639,6 @@ export class UpdateAppTemplateConfigResponse extends $tea.Model {
   }
 }
 
-export class ApplyLinkMicRequest extends $tea.Model {
-  conferenceId?: string;
-  userId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      conferenceId: 'ConferenceId',
-      userId: 'UserId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      conferenceId: 'string',
-      userId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ApplyLinkMicResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ApplyLinkMicResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ApplyLinkMicResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ApplyLinkMicResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CancelApplyLinkMicRequest extends $tea.Model {
-  conferenceId?: string;
-  userId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      conferenceId: 'ConferenceId',
-      userId: 'UserId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      conferenceId: 'string',
-      userId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CancelApplyLinkMicResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CancelApplyLinkMicResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: CancelApplyLinkMicResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: CancelApplyLinkMicResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class StopLiveRequest extends $tea.Model {
   appId?: string;
   roomId?: string;
@@ -2053,17 +708,44 @@ export class StopLiveResponse extends $tea.Model {
   }
 }
 
-export class GetAppRequest extends $tea.Model {
+export class RegisterIceOssMediaRequest extends $tea.Model {
+  projectId?: string;
   appId?: string;
+  playbackUrlDomain?: string;
+  ossBucket?: string;
+  ossEndpoint?: string;
+  urlRegionId?: string;
+  mediaUrl?: string;
+  fromType?: string;
+  mediaTitle?: string;
+  liveId?: string;
   static names(): { [key: string]: string } {
     return {
+      projectId: 'ProjectId',
       appId: 'AppId',
+      playbackUrlDomain: 'PlaybackUrlDomain',
+      ossBucket: 'OssBucket',
+      ossEndpoint: 'OssEndpoint',
+      urlRegionId: 'UrlRegionId',
+      mediaUrl: 'MediaUrl',
+      fromType: 'FromType',
+      mediaTitle: 'MediaTitle',
+      liveId: 'LiveId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      projectId: 'string',
       appId: 'string',
+      playbackUrlDomain: 'string',
+      ossBucket: 'string',
+      ossEndpoint: 'string',
+      urlRegionId: 'string',
+      mediaUrl: 'string',
+      fromType: 'string',
+      mediaTitle: 'string',
+      liveId: 'string',
     };
   }
 
@@ -2072,9 +754,9 @@ export class GetAppRequest extends $tea.Model {
   }
 }
 
-export class GetAppResponseBody extends $tea.Model {
+export class RegisterIceOssMediaResponseBody extends $tea.Model {
   requestId?: string;
-  result?: GetAppResponseBodyResult;
+  result?: RegisterIceOssMediaResponseBodyResult;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
@@ -2085,7 +767,7 @@ export class GetAppResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      result: GetAppResponseBodyResult,
+      result: RegisterIceOssMediaResponseBodyResult,
     };
   }
 
@@ -2094,9 +776,9 @@ export class GetAppResponseBody extends $tea.Model {
   }
 }
 
-export class GetAppResponse extends $tea.Model {
+export class RegisterIceOssMediaResponse extends $tea.Model {
   headers: { [key: string]: string };
-  body: GetAppResponseBody;
+  body: RegisterIceOssMediaResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2107,7 +789,7 @@ export class GetAppResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: GetAppResponseBody,
+      body: RegisterIceOssMediaResponseBody,
     };
   }
 
@@ -2540,147 +1222,6 @@ export class GetDomainOwnerVerifyContentResponse extends $tea.Model {
   }
 }
 
-export class SendCustomMessageToUsersRequest extends $tea.Model {
-  appId?: string;
-  roomId?: string;
-  body?: string;
-  receiverList?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      roomId: 'RoomId',
-      body: 'Body',
-      receiverList: 'ReceiverList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      roomId: 'string',
-      body: 'string',
-      receiverList: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SendCustomMessageToUsersResponseBody extends $tea.Model {
-  requestId?: string;
-  result?: SendCustomMessageToUsersResponseBodyResult;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      result: 'Result',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      result: SendCustomMessageToUsersResponseBodyResult,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SendCustomMessageToUsersResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: SendCustomMessageToUsersResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: SendCustomMessageToUsersResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BanAllCommentRequest extends $tea.Model {
-  appId?: string;
-  roomId?: string;
-  userId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      roomId: 'RoomId',
-      userId: 'UserId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      roomId: 'string',
-      userId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BanAllCommentResponseBody extends $tea.Model {
-  requestId?: string;
-  result?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      result: 'Result',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      result: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BanAllCommentResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: BanAllCommentResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: BanAllCommentResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class GetAuthTokenRequest extends $tea.Model {
   appId?: string;
   userId?: string;
@@ -2926,69 +1467,6 @@ export class PublishLiveResponse extends $tea.Model {
   }
 }
 
-export class GetLiveRequest extends $tea.Model {
-  liveId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      liveId: 'LiveId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      liveId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetLiveResponseBody extends $tea.Model {
-  requestId?: string;
-  result?: GetLiveResponseBodyResult;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      result: 'Result',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      result: GetLiveResponseBodyResult,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetLiveResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: GetLiveResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: GetLiveResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DeleteRoomRequest extends $tea.Model {
   appId?: string;
   roomId?: string;
@@ -3044,6 +1522,1828 @@ export class DeleteRoomResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: DeleteRoomResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteConferenceRequest extends $tea.Model {
+  appId?: string;
+  roomId?: string;
+  userId?: string;
+  conferenceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      roomId: 'RoomId',
+      userId: 'UserId',
+      conferenceId: 'ConferenceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      roomId: 'string',
+      userId: 'string',
+      conferenceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteConferenceResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteConferenceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DeleteConferenceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DeleteConferenceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAppRequest extends $tea.Model {
+  appId?: string;
+  appName?: string;
+  appStatus?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      appName: 'AppName',
+      appStatus: 'AppStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      appName: 'string',
+      appStatus: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAppResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAppResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: UpdateAppResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: UpdateAppResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VerifyDomainOwnerRequest extends $tea.Model {
+  liveDomainName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      liveDomainName: 'LiveDomainName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      liveDomainName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VerifyDomainOwnerResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VerifyDomainOwnerResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: VerifyDomainOwnerResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: VerifyDomainOwnerResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateLiveRequest extends $tea.Model {
+  appId?: string;
+  roomId?: string;
+  userId?: string;
+  liveId?: string;
+  title?: string;
+  introduction?: string;
+  anchorId?: string;
+  codeLevel?: number;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      roomId: 'RoomId',
+      userId: 'UserId',
+      liveId: 'LiveId',
+      title: 'Title',
+      introduction: 'Introduction',
+      anchorId: 'AnchorId',
+      codeLevel: 'CodeLevel',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      roomId: 'string',
+      userId: 'string',
+      liveId: 'string',
+      title: 'string',
+      introduction: 'string',
+      anchorId: 'string',
+      codeLevel: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateLiveResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: CreateLiveResponseBodyResult;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: CreateLiveResponseBodyResult,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateLiveResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CreateLiveResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CreateLiveResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAppRequest extends $tea.Model {
+  appId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAppResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAppResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DeleteAppResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DeleteAppResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRoomLivesRequest extends $tea.Model {
+  appId?: string;
+  roomId?: string;
+  status?: number;
+  queryTimestamp?: number;
+  size?: number;
+  roomIdList?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      roomId: 'RoomId',
+      status: 'Status',
+      queryTimestamp: 'QueryTimestamp',
+      size: 'Size',
+      roomIdList: 'RoomIdList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      roomId: 'string',
+      status: 'number',
+      queryTimestamp: 'number',
+      size: 'number',
+      roomIdList: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRoomLivesShrinkRequest extends $tea.Model {
+  appId?: string;
+  roomId?: string;
+  status?: number;
+  queryTimestamp?: number;
+  size?: number;
+  roomIdListShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      roomId: 'RoomId',
+      status: 'Status',
+      queryTimestamp: 'QueryTimestamp',
+      size: 'Size',
+      roomIdListShrink: 'RoomIdList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      roomId: 'string',
+      status: 'number',
+      queryTimestamp: 'number',
+      size: 'number',
+      roomIdListShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRoomLivesResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: ListRoomLivesResponseBodyResult;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: ListRoomLivesResponseBodyResult,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRoomLivesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListRoomLivesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListRoomLivesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateRoomRequest extends $tea.Model {
+  appId?: string;
+  roomId?: string;
+  title?: string;
+  notice?: string;
+  roomOwnerId?: string;
+  extension?: { [key: string]: string };
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      roomId: 'RoomId',
+      title: 'Title',
+      notice: 'Notice',
+      roomOwnerId: 'RoomOwnerId',
+      extension: 'Extension',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      roomId: 'string',
+      title: 'string',
+      notice: 'string',
+      roomOwnerId: 'string',
+      extension: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateRoomShrinkRequest extends $tea.Model {
+  appId?: string;
+  roomId?: string;
+  title?: string;
+  notice?: string;
+  roomOwnerId?: string;
+  extensionShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      roomId: 'RoomId',
+      title: 'Title',
+      notice: 'Notice',
+      roomOwnerId: 'RoomOwnerId',
+      extensionShrink: 'Extension',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      roomId: 'string',
+      title: 'string',
+      notice: 'string',
+      roomOwnerId: 'string',
+      extensionShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateRoomResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateRoomResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: UpdateRoomResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: UpdateRoomResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAppTemplateRequest extends $tea.Model {
+  appTemplateId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appTemplateId: 'AppTemplateId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appTemplateId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAppTemplateResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: GetAppTemplateResponseBodyResult;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: GetAppTemplateResponseBodyResult,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAppTemplateResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetAppTemplateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetAppTemplateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendCommentRequest extends $tea.Model {
+  appId?: string;
+  roomId?: string;
+  senderId?: string;
+  content?: string;
+  extension?: { [key: string]: string };
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      roomId: 'RoomId',
+      senderId: 'SenderId',
+      content: 'Content',
+      extension: 'Extension',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      roomId: 'string',
+      senderId: 'string',
+      content: 'string',
+      extension: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendCommentShrinkRequest extends $tea.Model {
+  appId?: string;
+  roomId?: string;
+  senderId?: string;
+  content?: string;
+  extensionShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      roomId: 'RoomId',
+      senderId: 'SenderId',
+      content: 'Content',
+      extensionShrink: 'Extension',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      roomId: 'string',
+      senderId: 'string',
+      content: 'string',
+      extensionShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendCommentResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: SendCommentResponseBodyResult;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: SendCommentResponseBodyResult,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendCommentResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: SendCommentResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: SendCommentResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAppTemplateRequest extends $tea.Model {
+  appTemplateName?: string;
+  scene?: string;
+  componentList?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      appTemplateName: 'AppTemplateName',
+      scene: 'Scene',
+      componentList: 'ComponentList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appTemplateName: 'string',
+      scene: 'string',
+      componentList: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAppTemplateShrinkRequest extends $tea.Model {
+  appTemplateName?: string;
+  scene?: string;
+  componentListShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appTemplateName: 'AppTemplateName',
+      scene: 'Scene',
+      componentListShrink: 'ComponentList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appTemplateName: 'string',
+      scene: 'string',
+      componentListShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAppTemplateResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: CreateAppTemplateResponseBodyResult;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: CreateAppTemplateResponseBodyResult,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAppTemplateResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CreateAppTemplateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CreateAppTemplateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetConferenceRequest extends $tea.Model {
+  conferenceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      conferenceId: 'ConferenceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      conferenceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetConferenceResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: GetConferenceResponseBodyResult;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: GetConferenceResponseBodyResult,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetConferenceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetConferenceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetConferenceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RejectLinkMicRequest extends $tea.Model {
+  conferenceId?: string;
+  toUserId?: string;
+  fromUserId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      conferenceId: 'ConferenceId',
+      toUserId: 'ToUserId',
+      fromUserId: 'FromUserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      conferenceId: 'string',
+      toUserId: 'string',
+      fromUserId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RejectLinkMicResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RejectLinkMicResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: RejectLinkMicResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: RejectLinkMicResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAppsRequest extends $tea.Model {
+  pageNumber?: number;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAppsResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: ListAppsResponseBodyResult;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: ListAppsResponseBodyResult,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAppsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListAppsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListAppsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CancelBanAllCommentRequest extends $tea.Model {
+  appId?: string;
+  roomId?: string;
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      roomId: 'RoomId',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      roomId: 'string',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CancelBanAllCommentResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CancelBanAllCommentResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CancelBanAllCommentResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CancelBanAllCommentResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListConferenceUsersRequest extends $tea.Model {
+  conferenceId?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      conferenceId: 'ConferenceId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      conferenceId: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListConferenceUsersResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: ListConferenceUsersResponseBodyResult;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: ListConferenceUsersResponseBodyResult,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListConferenceUsersResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListConferenceUsersResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListConferenceUsersResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CancelBanCommentRequest extends $tea.Model {
+  appId?: string;
+  roomId?: string;
+  userId?: string;
+  banCommentUser?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      roomId: 'RoomId',
+      userId: 'UserId',
+      banCommentUser: 'BanCommentUser',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      roomId: 'string',
+      userId: 'string',
+      banCommentUser: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CancelBanCommentResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CancelBanCommentResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CancelBanCommentResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CancelBanCommentResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAppTemplatesRequest extends $tea.Model {
+  pageNumber?: string;
+  pageSize?: string;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'string',
+      pageSize: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAppTemplatesResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: ListAppTemplatesResponseBodyResult;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: ListAppTemplatesResponseBodyResult,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAppTemplatesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListAppTemplatesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListAppTemplatesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListComponentsRequest extends $tea.Model {
+  appId?: string;
+  appTemplateId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      appTemplateId: 'AppTemplateId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      appTemplateId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListComponentsResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: ListComponentsResponseBodyResult;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: ListComponentsResponseBodyResult,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListComponentsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListComponentsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListComponentsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateLiveRequest extends $tea.Model {
+  liveId?: string;
+  title?: string;
+  introduction?: string;
+  static names(): { [key: string]: string } {
+    return {
+      liveId: 'LiveId',
+      title: 'Title',
+      introduction: 'Introduction',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      liveId: 'string',
+      title: 'string',
+      introduction: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateLiveResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateLiveResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: UpdateLiveResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: UpdateLiveResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ApplyLinkMicRequest extends $tea.Model {
+  conferenceId?: string;
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      conferenceId: 'ConferenceId',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      conferenceId: 'string',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ApplyLinkMicResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ApplyLinkMicResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ApplyLinkMicResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ApplyLinkMicResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CancelApplyLinkMicRequest extends $tea.Model {
+  conferenceId?: string;
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      conferenceId: 'ConferenceId',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      conferenceId: 'string',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CancelApplyLinkMicResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CancelApplyLinkMicResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CancelApplyLinkMicResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CancelApplyLinkMicResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAppRequest extends $tea.Model {
+  appId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAppResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: GetAppResponseBodyResult;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: GetAppResponseBodyResult,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAppResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetAppResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetAppResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendCustomMessageToUsersRequest extends $tea.Model {
+  appId?: string;
+  roomId?: string;
+  body?: string;
+  receiverList?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      roomId: 'RoomId',
+      body: 'Body',
+      receiverList: 'ReceiverList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      roomId: 'string',
+      body: 'string',
+      receiverList: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendCustomMessageToUsersResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: SendCustomMessageToUsersResponseBodyResult;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: SendCustomMessageToUsersResponseBodyResult,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendCustomMessageToUsersResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: SendCustomMessageToUsersResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: SendCustomMessageToUsersResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BanAllCommentRequest extends $tea.Model {
+  appId?: string;
+  roomId?: string;
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      roomId: 'RoomId',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      roomId: 'string',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BanAllCommentResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BanAllCommentResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: BanAllCommentResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: BanAllCommentResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLiveRequest extends $tea.Model {
+  liveId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      liveId: 'LiveId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      liveId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLiveResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: GetLiveResponseBodyResult;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: GetLiveResponseBodyResult,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLiveResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetLiveResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetLiveResponseBody,
     };
   }
 
@@ -3299,152 +3599,17 @@ export class UpdateConferenceResponse extends $tea.Model {
   }
 }
 
-export class DeleteConferenceRequest extends $tea.Model {
-  appId?: string;
-  roomId?: string;
-  userId?: string;
-  conferenceId?: string;
+export class CreateIceProjectResponseBodyResult extends $tea.Model {
+  projectId?: string;
   static names(): { [key: string]: string } {
     return {
-      appId: 'AppId',
-      roomId: 'RoomId',
-      userId: 'UserId',
-      conferenceId: 'ConferenceId',
+      projectId: 'ProjectId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      appId: 'string',
-      roomId: 'string',
-      userId: 'string',
-      conferenceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteConferenceResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteConferenceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DeleteConferenceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DeleteConferenceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateAppRequest extends $tea.Model {
-  appId?: string;
-  appName?: string;
-  appStatus?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      appName: 'AppName',
-      appStatus: 'AppStatus',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      appName: 'string',
-      appStatus: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateAppResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateAppResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: UpdateAppResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: UpdateAppResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateLiveResponseBodyResult extends $tea.Model {
-  liveId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      liveId: 'LiveId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      liveId: 'string',
+      projectId: 'string',
     };
   }
 
@@ -3473,6 +3638,424 @@ export class ListApplyLinkMicUsersResponseBodyResult extends $tea.Model {
       hasMore: 'boolean',
       totalCount: 'number',
       pageTotal: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRoomResponseBodyResultRoomInfoPluginInstanceInfoList extends $tea.Model {
+  pluginType?: string;
+  pluginId?: string;
+  createTime?: number;
+  extension?: { [key: string]: string };
+  static names(): { [key: string]: string } {
+    return {
+      pluginType: 'PluginType',
+      pluginId: 'PluginId',
+      createTime: 'CreateTime',
+      extension: 'Extension',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pluginType: 'string',
+      pluginId: 'string',
+      createTime: 'number',
+      extension: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRoomResponseBodyResultRoomInfo extends $tea.Model {
+  roomId?: string;
+  title?: string;
+  createTime?: number;
+  notice?: string;
+  roomOwnerId?: string;
+  uv?: number;
+  onlineCount?: number;
+  pluginInstanceInfoList?: GetRoomResponseBodyResultRoomInfoPluginInstanceInfoList[];
+  appId?: string;
+  templateId?: string;
+  extension?: { [key: string]: string };
+  static names(): { [key: string]: string } {
+    return {
+      roomId: 'RoomId',
+      title: 'Title',
+      createTime: 'CreateTime',
+      notice: 'Notice',
+      roomOwnerId: 'RoomOwnerId',
+      uv: 'Uv',
+      onlineCount: 'OnlineCount',
+      pluginInstanceInfoList: 'PluginInstanceInfoList',
+      appId: 'AppId',
+      templateId: 'TemplateId',
+      extension: 'Extension',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      roomId: 'string',
+      title: 'string',
+      createTime: 'number',
+      notice: 'string',
+      roomOwnerId: 'string',
+      uv: 'number',
+      onlineCount: 'number',
+      pluginInstanceInfoList: { 'type': 'array', 'itemType': GetRoomResponseBodyResultRoomInfoPluginInstanceInfoList },
+      appId: 'string',
+      templateId: 'string',
+      extension: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRoomResponseBodyResult extends $tea.Model {
+  roomInfo?: GetRoomResponseBodyResultRoomInfo;
+  static names(): { [key: string]: string } {
+    return {
+      roomInfo: 'RoomInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      roomInfo: GetRoomResponseBodyResultRoomInfo,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRoomsResponseBodyResultRoomInfoListPluginInstanceInfoList extends $tea.Model {
+  pluginType?: string;
+  pluginId?: string;
+  createTime?: number;
+  extension?: { [key: string]: string };
+  static names(): { [key: string]: string } {
+    return {
+      pluginType: 'PluginType',
+      pluginId: 'PluginId',
+      createTime: 'CreateTime',
+      extension: 'Extension',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pluginType: 'string',
+      pluginId: 'string',
+      createTime: 'number',
+      extension: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRoomsResponseBodyResultRoomInfoList extends $tea.Model {
+  roomId?: string;
+  title?: string;
+  roomOwnerId?: string;
+  notice?: string;
+  uv?: number;
+  onlineCount?: number;
+  pluginInstanceInfoList?: ListRoomsResponseBodyResultRoomInfoListPluginInstanceInfoList[];
+  createTime?: string;
+  appId?: string;
+  templateId?: string;
+  extension?: { [key: string]: string };
+  static names(): { [key: string]: string } {
+    return {
+      roomId: 'RoomId',
+      title: 'Title',
+      roomOwnerId: 'RoomOwnerId',
+      notice: 'Notice',
+      uv: 'Uv',
+      onlineCount: 'OnlineCount',
+      pluginInstanceInfoList: 'PluginInstanceInfoList',
+      createTime: 'CreateTime',
+      appId: 'AppId',
+      templateId: 'TemplateId',
+      extension: 'Extension',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      roomId: 'string',
+      title: 'string',
+      roomOwnerId: 'string',
+      notice: 'string',
+      uv: 'number',
+      onlineCount: 'number',
+      pluginInstanceInfoList: { 'type': 'array', 'itemType': ListRoomsResponseBodyResultRoomInfoListPluginInstanceInfoList },
+      createTime: 'string',
+      appId: 'string',
+      templateId: 'string',
+      extension: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRoomsResponseBodyResult extends $tea.Model {
+  totalCount?: number;
+  pageTotal?: number;
+  hasMore?: boolean;
+  roomInfoList?: ListRoomsResponseBodyResultRoomInfoList[];
+  static names(): { [key: string]: string } {
+    return {
+      totalCount: 'TotalCount',
+      pageTotal: 'PageTotal',
+      hasMore: 'HasMore',
+      roomInfoList: 'RoomInfoList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      totalCount: 'number',
+      pageTotal: 'number',
+      hasMore: 'boolean',
+      roomInfoList: { 'type': 'array', 'itemType': ListRoomsResponseBodyResultRoomInfoList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAppTemplateConfigRequestConfigList extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RegisterIceOssMediaResponseBodyResult extends $tea.Model {
+  mediaId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      mediaId: 'MediaId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mediaId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateConferenceResponseBodyResult extends $tea.Model {
+  conferenceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      conferenceId: 'ConferenceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      conferenceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLiveDomainStatusResponseBodyResultLiveDomainInfoList extends $tea.Model {
+  domain?: string;
+  cname?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domain: 'Domain',
+      cname: 'Cname',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domain: 'string',
+      cname: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLiveDomainStatusResponseBodyResult extends $tea.Model {
+  liveDomainInfoList?: GetLiveDomainStatusResponseBodyResultLiveDomainInfoList[];
+  static names(): { [key: string]: string } {
+    return {
+      liveDomainInfoList: 'LiveDomainInfoList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      liveDomainInfoList: { 'type': 'array', 'itemType': GetLiveDomainStatusResponseBodyResultLiveDomainInfoList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendCustomMessageToAllResponseBodyResult extends $tea.Model {
+  messageId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      messageId: 'MessageId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      messageId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDomainOwnerVerifyContentResponseBodyResult extends $tea.Model {
+  content?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAuthTokenResponseBodyResult extends $tea.Model {
+  accessToken?: string;
+  refreshToken?: string;
+  accessTokenExpiredTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      accessToken: 'AccessToken',
+      refreshToken: 'RefreshToken',
+      accessTokenExpiredTime: 'AccessTokenExpiredTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessToken: 'string',
+      refreshToken: 'string',
+      accessTokenExpiredTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PublishLiveResponseBodyResult extends $tea.Model {
+  liveId?: string;
+  anchorId?: string;
+  status?: string;
+  pushUrl?: string;
+  liveUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      liveId: 'LiveId',
+      anchorId: 'AnchorId',
+      status: 'Status',
+      pushUrl: 'PushUrl',
+      liveUrl: 'LiveUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      liveId: 'string',
+      anchorId: 'string',
+      status: 'string',
+      pushUrl: 'string',
+      liveUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateLiveResponseBodyResult extends $tea.Model {
+  liveId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      liveId: 'LiveId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      liveId: 'string',
     };
   }
 
@@ -3600,102 +4183,6 @@ export class GetAppTemplateResponseBodyResult extends $tea.Model {
       createTime: 'string',
       sdkInfo: 'string',
       configList: { 'type': 'array', 'itemType': GetAppTemplateResponseBodyResultConfigList },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetRoomResponseBodyResultRoomInfoPluginInstanceInfoList extends $tea.Model {
-  pluginType?: string;
-  pluginId?: string;
-  createTime?: number;
-  extension?: { [key: string]: string };
-  static names(): { [key: string]: string } {
-    return {
-      pluginType: 'PluginType',
-      pluginId: 'PluginId',
-      createTime: 'CreateTime',
-      extension: 'Extension',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pluginType: 'string',
-      pluginId: 'string',
-      createTime: 'number',
-      extension: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetRoomResponseBodyResultRoomInfo extends $tea.Model {
-  roomId?: string;
-  title?: string;
-  createTime?: number;
-  notice?: string;
-  roomOwnerId?: string;
-  uv?: number;
-  onlineCount?: number;
-  pluginInstanceInfoList?: GetRoomResponseBodyResultRoomInfoPluginInstanceInfoList[];
-  appId?: string;
-  templateId?: string;
-  extension?: { [key: string]: string };
-  static names(): { [key: string]: string } {
-    return {
-      roomId: 'RoomId',
-      title: 'Title',
-      createTime: 'CreateTime',
-      notice: 'Notice',
-      roomOwnerId: 'RoomOwnerId',
-      uv: 'Uv',
-      onlineCount: 'OnlineCount',
-      pluginInstanceInfoList: 'PluginInstanceInfoList',
-      appId: 'AppId',
-      templateId: 'TemplateId',
-      extension: 'Extension',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      roomId: 'string',
-      title: 'string',
-      createTime: 'number',
-      notice: 'string',
-      roomOwnerId: 'string',
-      uv: 'number',
-      onlineCount: 'number',
-      pluginInstanceInfoList: { 'type': 'array', 'itemType': GetRoomResponseBodyResultRoomInfoPluginInstanceInfoList },
-      appId: 'string',
-      templateId: 'string',
-      extension: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetRoomResponseBodyResult extends $tea.Model {
-  roomInfo?: GetRoomResponseBodyResultRoomInfo;
-  static names(): { [key: string]: string } {
-    return {
-      roomInfo: 'RoomInfo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      roomInfo: GetRoomResponseBodyResultRoomInfo,
     };
   }
 
@@ -3870,111 +4357,6 @@ export class ListAppsResponseBodyResult extends $tea.Model {
       totalCount: 'number',
       pageTotal: 'number',
       appInfoList: { 'type': 'array', 'itemType': ListAppsResponseBodyResultAppInfoList },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListRoomsResponseBodyResultRoomInfoListPluginInstanceInfoList extends $tea.Model {
-  pluginType?: string;
-  pluginId?: string;
-  createTime?: number;
-  extension?: { [key: string]: string };
-  static names(): { [key: string]: string } {
-    return {
-      pluginType: 'PluginType',
-      pluginId: 'PluginId',
-      createTime: 'CreateTime',
-      extension: 'Extension',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pluginType: 'string',
-      pluginId: 'string',
-      createTime: 'number',
-      extension: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListRoomsResponseBodyResultRoomInfoList extends $tea.Model {
-  roomId?: string;
-  title?: string;
-  roomOwnerId?: string;
-  notice?: string;
-  uv?: number;
-  onlineCount?: number;
-  pluginInstanceInfoList?: ListRoomsResponseBodyResultRoomInfoListPluginInstanceInfoList[];
-  createTime?: string;
-  appId?: string;
-  templateId?: string;
-  extension?: { [key: string]: string };
-  static names(): { [key: string]: string } {
-    return {
-      roomId: 'RoomId',
-      title: 'Title',
-      roomOwnerId: 'RoomOwnerId',
-      notice: 'Notice',
-      uv: 'Uv',
-      onlineCount: 'OnlineCount',
-      pluginInstanceInfoList: 'PluginInstanceInfoList',
-      createTime: 'CreateTime',
-      appId: 'AppId',
-      templateId: 'TemplateId',
-      extension: 'Extension',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      roomId: 'string',
-      title: 'string',
-      roomOwnerId: 'string',
-      notice: 'string',
-      uv: 'number',
-      onlineCount: 'number',
-      pluginInstanceInfoList: { 'type': 'array', 'itemType': ListRoomsResponseBodyResultRoomInfoListPluginInstanceInfoList },
-      createTime: 'string',
-      appId: 'string',
-      templateId: 'string',
-      extension: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListRoomsResponseBodyResult extends $tea.Model {
-  totalCount?: number;
-  pageTotal?: number;
-  hasMore?: boolean;
-  roomInfoList?: ListRoomsResponseBodyResultRoomInfoList[];
-  static names(): { [key: string]: string } {
-    return {
-      totalCount: 'TotalCount',
-      pageTotal: 'PageTotal',
-      hasMore: 'HasMore',
-      roomInfoList: 'RoomInfoList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      totalCount: 'number',
-      pageTotal: 'number',
-      hasMore: 'boolean',
-      roomInfoList: { 'type': 'array', 'itemType': ListRoomsResponseBodyResultRoomInfoList },
     };
   }
 
@@ -4286,28 +4668,6 @@ export class ListComponentsResponseBodyResult extends $tea.Model {
   }
 }
 
-export class UpdateAppTemplateConfigRequestConfigList extends $tea.Model {
-  key?: string;
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class GetAppResponseBodyResult extends $tea.Model {
   appName?: string;
   appTemplateId?: string;
@@ -4345,107 +4705,6 @@ export class GetAppResponseBodyResult extends $tea.Model {
   }
 }
 
-export class CreateConferenceResponseBodyResult extends $tea.Model {
-  conferenceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      conferenceId: 'ConferenceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      conferenceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetLiveDomainStatusResponseBodyResultLiveDomainInfoList extends $tea.Model {
-  domain?: string;
-  cname?: string;
-  status?: string;
-  static names(): { [key: string]: string } {
-    return {
-      domain: 'Domain',
-      cname: 'Cname',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      domain: 'string',
-      cname: 'string',
-      status: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetLiveDomainStatusResponseBodyResult extends $tea.Model {
-  liveDomainInfoList?: GetLiveDomainStatusResponseBodyResultLiveDomainInfoList[];
-  static names(): { [key: string]: string } {
-    return {
-      liveDomainInfoList: 'LiveDomainInfoList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      liveDomainInfoList: { 'type': 'array', 'itemType': GetLiveDomainStatusResponseBodyResultLiveDomainInfoList },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SendCustomMessageToAllResponseBodyResult extends $tea.Model {
-  messageId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      messageId: 'MessageId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      messageId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDomainOwnerVerifyContentResponseBodyResult extends $tea.Model {
-  content?: string;
-  static names(): { [key: string]: string } {
-    return {
-      content: 'Content',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      content: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class SendCustomMessageToUsersResponseBodyResult extends $tea.Model {
   messageId?: string;
   static names(): { [key: string]: string } {
@@ -4457,62 +4716,6 @@ export class SendCustomMessageToUsersResponseBodyResult extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       messageId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAuthTokenResponseBodyResult extends $tea.Model {
-  accessToken?: string;
-  refreshToken?: string;
-  accessTokenExpiredTime?: number;
-  static names(): { [key: string]: string } {
-    return {
-      accessToken: 'AccessToken',
-      refreshToken: 'RefreshToken',
-      accessTokenExpiredTime: 'AccessTokenExpiredTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accessToken: 'string',
-      refreshToken: 'string',
-      accessTokenExpiredTime: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PublishLiveResponseBodyResult extends $tea.Model {
-  liveId?: string;
-  anchorId?: string;
-  status?: string;
-  pushUrl?: string;
-  liveUrl?: string;
-  static names(): { [key: string]: string } {
-    return {
-      liveId: 'LiveId',
-      anchorId: 'AnchorId',
-      status: 'Status',
-      pushUrl: 'PushUrl',
-      liveUrl: 'LiveUrl',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      liveId: 'string',
-      anchorId: 'string',
-      status: 'string',
-      pushUrl: 'string',
-      liveUrl: 'string',
     };
   }
 
@@ -4680,30 +4883,17 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
-  async verifyDomainOwnerWithOptions(request: VerifyDomainOwnerRequest, runtime: $Util.RuntimeOptions): Promise<VerifyDomainOwnerResponse> {
+  async createIceProjectWithOptions(request: CreateIceProjectRequest, runtime: $Util.RuntimeOptions): Promise<CreateIceProjectResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<VerifyDomainOwnerResponse>(await this.doRPCRequest("VerifyDomainOwner", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new VerifyDomainOwnerResponse({}));
+    return $tea.cast<CreateIceProjectResponse>(await this.doRPCRequest("CreateIceProject", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new CreateIceProjectResponse({}));
   }
 
-  async verifyDomainOwner(request: VerifyDomainOwnerRequest): Promise<VerifyDomainOwnerResponse> {
+  async createIceProject(request: CreateIceProjectRequest): Promise<CreateIceProjectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.verifyDomainOwnerWithOptions(request, runtime);
-  }
-
-  async createLiveWithOptions(request: CreateLiveRequest, runtime: $Util.RuntimeOptions): Promise<CreateLiveResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<CreateLiveResponse>(await this.doRPCRequest("CreateLive", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new CreateLiveResponse({}));
-  }
-
-  async createLive(request: CreateLiveRequest): Promise<CreateLiveResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.createLiveWithOptions(request, runtime);
+    return await this.createIceProjectWithOptions(request, runtime);
   }
 
   async removeMemberWithOptions(request: RemoveMemberRequest, runtime: $Util.RuntimeOptions): Promise<RemoveMemberResponse> {
@@ -4719,19 +4909,6 @@ export default class Client extends OpenApi {
     return await this.removeMemberWithOptions(request, runtime);
   }
 
-  async deleteAppWithOptions(request: DeleteAppRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAppResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<DeleteAppResponse>(await this.doRPCRequest("DeleteApp", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteAppResponse({}));
-  }
-
-  async deleteApp(request: DeleteAppRequest): Promise<DeleteAppResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.deleteAppWithOptions(request, runtime);
-  }
-
   async listApplyLinkMicUsersWithOptions(request: ListApplyLinkMicUsersRequest, runtime: $Util.RuntimeOptions): Promise<ListApplyLinkMicUsersResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -4743,57 +4920,6 @@ export default class Client extends OpenApi {
   async listApplyLinkMicUsers(request: ListApplyLinkMicUsersRequest): Promise<ListApplyLinkMicUsersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listApplyLinkMicUsersWithOptions(request, runtime);
-  }
-
-  async listRoomLivesWithOptions(tmpReq: ListRoomLivesRequest, runtime: $Util.RuntimeOptions): Promise<ListRoomLivesResponse> {
-    Util.validateModel(tmpReq);
-    let request = new ListRoomLivesShrinkRequest({ });
-    OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.roomIdList)) {
-      request.roomIdListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.roomIdList, "RoomIdList", "json");
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<ListRoomLivesResponse>(await this.doRPCRequest("ListRoomLives", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new ListRoomLivesResponse({}));
-  }
-
-  async listRoomLives(request: ListRoomLivesRequest): Promise<ListRoomLivesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.listRoomLivesWithOptions(request, runtime);
-  }
-
-  async updateRoomWithOptions(tmpReq: UpdateRoomRequest, runtime: $Util.RuntimeOptions): Promise<UpdateRoomResponse> {
-    Util.validateModel(tmpReq);
-    let request = new UpdateRoomShrinkRequest({ });
-    OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.extension)) {
-      request.extensionShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.extension, "Extension", "json");
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<UpdateRoomResponse>(await this.doRPCRequest("UpdateRoom", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateRoomResponse({}));
-  }
-
-  async updateRoom(request: UpdateRoomRequest): Promise<UpdateRoomResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.updateRoomWithOptions(request, runtime);
-  }
-
-  async getAppTemplateWithOptions(request: GetAppTemplateRequest, runtime: $Util.RuntimeOptions): Promise<GetAppTemplateResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<GetAppTemplateResponse>(await this.doRPCRequest("GetAppTemplate", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new GetAppTemplateResponse({}));
-  }
-
-  async getAppTemplate(request: GetAppTemplateRequest): Promise<GetAppTemplateResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getAppTemplateWithOptions(request, runtime);
   }
 
   async getRoomWithOptions(request: GetRoomRequest, runtime: $Util.RuntimeOptions): Promise<GetRoomResponse> {
@@ -4809,57 +4935,6 @@ export default class Client extends OpenApi {
     return await this.getRoomWithOptions(request, runtime);
   }
 
-  async sendCommentWithOptions(tmpReq: SendCommentRequest, runtime: $Util.RuntimeOptions): Promise<SendCommentResponse> {
-    Util.validateModel(tmpReq);
-    let request = new SendCommentShrinkRequest({ });
-    OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.extension)) {
-      request.extensionShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.extension, "Extension", "json");
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<SendCommentResponse>(await this.doRPCRequest("SendComment", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new SendCommentResponse({}));
-  }
-
-  async sendComment(request: SendCommentRequest): Promise<SendCommentResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.sendCommentWithOptions(request, runtime);
-  }
-
-  async createAppTemplateWithOptions(tmpReq: CreateAppTemplateRequest, runtime: $Util.RuntimeOptions): Promise<CreateAppTemplateResponse> {
-    Util.validateModel(tmpReq);
-    let request = new CreateAppTemplateShrinkRequest({ });
-    OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.componentList)) {
-      request.componentListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.componentList, "ComponentList", "json");
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<CreateAppTemplateResponse>(await this.doRPCRequest("CreateAppTemplate", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new CreateAppTemplateResponse({}));
-  }
-
-  async createAppTemplate(request: CreateAppTemplateRequest): Promise<CreateAppTemplateResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.createAppTemplateWithOptions(request, runtime);
-  }
-
-  async getConferenceWithOptions(request: GetConferenceRequest, runtime: $Util.RuntimeOptions): Promise<GetConferenceResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<GetConferenceResponse>(await this.doRPCRequest("GetConference", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new GetConferenceResponse({}));
-  }
-
-  async getConference(request: GetConferenceRequest): Promise<GetConferenceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getConferenceWithOptions(request, runtime);
-  }
-
   async banCommentWithOptions(request: BanCommentRequest, runtime: $Util.RuntimeOptions): Promise<BanCommentResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -4873,32 +4948,6 @@ export default class Client extends OpenApi {
     return await this.banCommentWithOptions(request, runtime);
   }
 
-  async rejectLinkMicWithOptions(request: RejectLinkMicRequest, runtime: $Util.RuntimeOptions): Promise<RejectLinkMicResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<RejectLinkMicResponse>(await this.doRPCRequest("RejectLinkMic", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new RejectLinkMicResponse({}));
-  }
-
-  async rejectLinkMic(request: RejectLinkMicRequest): Promise<RejectLinkMicResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.rejectLinkMicWithOptions(request, runtime);
-  }
-
-  async listAppsWithOptions(request: ListAppsRequest, runtime: $Util.RuntimeOptions): Promise<ListAppsResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<ListAppsResponse>(await this.doRPCRequest("ListApps", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new ListAppsResponse({}));
-  }
-
-  async listApps(request: ListAppsRequest): Promise<ListAppsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.listAppsWithOptions(request, runtime);
-  }
-
   async addMemberWithOptions(request: AddMemberRequest, runtime: $Util.RuntimeOptions): Promise<AddMemberResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -4910,19 +4959,6 @@ export default class Client extends OpenApi {
   async addMember(request: AddMemberRequest): Promise<AddMemberResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addMemberWithOptions(request, runtime);
-  }
-
-  async cancelBanAllCommentWithOptions(request: CancelBanAllCommentRequest, runtime: $Util.RuntimeOptions): Promise<CancelBanAllCommentResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<CancelBanAllCommentResponse>(await this.doRPCRequest("CancelBanAllComment", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new CancelBanAllCommentResponse({}));
-  }
-
-  async cancelBanAllComment(request: CancelBanAllCommentRequest): Promise<CancelBanAllCommentResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.cancelBanAllCommentWithOptions(request, runtime);
   }
 
   async listRoomsWithOptions(request: ListRoomsRequest, runtime: $Util.RuntimeOptions): Promise<ListRoomsResponse> {
@@ -4951,71 +4987,6 @@ export default class Client extends OpenApi {
     return await this.deleteAppTemplateWithOptions(request, runtime);
   }
 
-  async listConferenceUsersWithOptions(request: ListConferenceUsersRequest, runtime: $Util.RuntimeOptions): Promise<ListConferenceUsersResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<ListConferenceUsersResponse>(await this.doRPCRequest("ListConferenceUsers", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new ListConferenceUsersResponse({}));
-  }
-
-  async listConferenceUsers(request: ListConferenceUsersRequest): Promise<ListConferenceUsersResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.listConferenceUsersWithOptions(request, runtime);
-  }
-
-  async cancelBanCommentWithOptions(request: CancelBanCommentRequest, runtime: $Util.RuntimeOptions): Promise<CancelBanCommentResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<CancelBanCommentResponse>(await this.doRPCRequest("CancelBanComment", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new CancelBanCommentResponse({}));
-  }
-
-  async cancelBanComment(request: CancelBanCommentRequest): Promise<CancelBanCommentResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.cancelBanCommentWithOptions(request, runtime);
-  }
-
-  async listAppTemplatesWithOptions(request: ListAppTemplatesRequest, runtime: $Util.RuntimeOptions): Promise<ListAppTemplatesResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<ListAppTemplatesResponse>(await this.doRPCRequest("ListAppTemplates", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new ListAppTemplatesResponse({}));
-  }
-
-  async listAppTemplates(request: ListAppTemplatesRequest): Promise<ListAppTemplatesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.listAppTemplatesWithOptions(request, runtime);
-  }
-
-  async listComponentsWithOptions(request: ListComponentsRequest, runtime: $Util.RuntimeOptions): Promise<ListComponentsResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<ListComponentsResponse>(await this.doRPCRequest("ListComponents", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new ListComponentsResponse({}));
-  }
-
-  async listComponents(request: ListComponentsRequest): Promise<ListComponentsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.listComponentsWithOptions(request, runtime);
-  }
-
-  async updateLiveWithOptions(request: UpdateLiveRequest, runtime: $Util.RuntimeOptions): Promise<UpdateLiveResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<UpdateLiveResponse>(await this.doRPCRequest("UpdateLive", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateLiveResponse({}));
-  }
-
-  async updateLive(request: UpdateLiveRequest): Promise<UpdateLiveResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.updateLiveWithOptions(request, runtime);
-  }
-
   async updateAppTemplateConfigWithOptions(tmpReq: UpdateAppTemplateConfigRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAppTemplateConfigResponse> {
     Util.validateModel(tmpReq);
     let request = new UpdateAppTemplateConfigShrinkRequest({ });
@@ -5035,32 +5006,6 @@ export default class Client extends OpenApi {
     return await this.updateAppTemplateConfigWithOptions(request, runtime);
   }
 
-  async applyLinkMicWithOptions(request: ApplyLinkMicRequest, runtime: $Util.RuntimeOptions): Promise<ApplyLinkMicResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<ApplyLinkMicResponse>(await this.doRPCRequest("ApplyLinkMic", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new ApplyLinkMicResponse({}));
-  }
-
-  async applyLinkMic(request: ApplyLinkMicRequest): Promise<ApplyLinkMicResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.applyLinkMicWithOptions(request, runtime);
-  }
-
-  async cancelApplyLinkMicWithOptions(request: CancelApplyLinkMicRequest, runtime: $Util.RuntimeOptions): Promise<CancelApplyLinkMicResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<CancelApplyLinkMicResponse>(await this.doRPCRequest("CancelApplyLinkMic", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new CancelApplyLinkMicResponse({}));
-  }
-
-  async cancelApplyLinkMic(request: CancelApplyLinkMicRequest): Promise<CancelApplyLinkMicResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.cancelApplyLinkMicWithOptions(request, runtime);
-  }
-
   async stopLiveWithOptions(request: StopLiveRequest, runtime: $Util.RuntimeOptions): Promise<StopLiveResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -5074,17 +5019,17 @@ export default class Client extends OpenApi {
     return await this.stopLiveWithOptions(request, runtime);
   }
 
-  async getAppWithOptions(request: GetAppRequest, runtime: $Util.RuntimeOptions): Promise<GetAppResponse> {
+  async registerIceOssMediaWithOptions(request: RegisterIceOssMediaRequest, runtime: $Util.RuntimeOptions): Promise<RegisterIceOssMediaResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<GetAppResponse>(await this.doRPCRequest("GetApp", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new GetAppResponse({}));
+    return $tea.cast<RegisterIceOssMediaResponse>(await this.doRPCRequest("RegisterIceOssMedia", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new RegisterIceOssMediaResponse({}));
   }
 
-  async getApp(request: GetAppRequest): Promise<GetAppResponse> {
+  async registerIceOssMedia(request: RegisterIceOssMediaRequest): Promise<RegisterIceOssMediaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.getAppWithOptions(request, runtime);
+    return await this.registerIceOssMediaWithOptions(request, runtime);
   }
 
   async createConferenceWithOptions(request: CreateConferenceRequest, runtime: $Util.RuntimeOptions): Promise<CreateConferenceResponse> {
@@ -5171,32 +5116,6 @@ export default class Client extends OpenApi {
     return await this.getDomainOwnerVerifyContentWithOptions(request, runtime);
   }
 
-  async sendCustomMessageToUsersWithOptions(request: SendCustomMessageToUsersRequest, runtime: $Util.RuntimeOptions): Promise<SendCustomMessageToUsersResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<SendCustomMessageToUsersResponse>(await this.doRPCRequest("SendCustomMessageToUsers", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new SendCustomMessageToUsersResponse({}));
-  }
-
-  async sendCustomMessageToUsers(request: SendCustomMessageToUsersRequest): Promise<SendCustomMessageToUsersResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.sendCustomMessageToUsersWithOptions(request, runtime);
-  }
-
-  async banAllCommentWithOptions(request: BanAllCommentRequest, runtime: $Util.RuntimeOptions): Promise<BanAllCommentResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<BanAllCommentResponse>(await this.doRPCRequest("BanAllComment", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new BanAllCommentResponse({}));
-  }
-
-  async banAllComment(request: BanAllCommentRequest): Promise<BanAllCommentResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.banAllCommentWithOptions(request, runtime);
-  }
-
   async getAuthTokenWithOptions(request: GetAuthTokenRequest, runtime: $Util.RuntimeOptions): Promise<GetAuthTokenResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -5246,19 +5165,6 @@ export default class Client extends OpenApi {
     return await this.publishLiveWithOptions(request, runtime);
   }
 
-  async getLiveWithOptions(request: GetLiveRequest, runtime: $Util.RuntimeOptions): Promise<GetLiveResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<GetLiveResponse>(await this.doRPCRequest("GetLive", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new GetLiveResponse({}));
-  }
-
-  async getLive(request: GetLiveRequest): Promise<GetLiveResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getLiveWithOptions(request, runtime);
-  }
-
   async deleteRoomWithOptions(request: DeleteRoomRequest, runtime: $Util.RuntimeOptions): Promise<DeleteRoomResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -5270,6 +5176,355 @@ export default class Client extends OpenApi {
   async deleteRoom(request: DeleteRoomRequest): Promise<DeleteRoomResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteRoomWithOptions(request, runtime);
+  }
+
+  async deleteConferenceWithOptions(request: DeleteConferenceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteConferenceResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DeleteConferenceResponse>(await this.doRPCRequest("DeleteConference", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteConferenceResponse({}));
+  }
+
+  async deleteConference(request: DeleteConferenceRequest): Promise<DeleteConferenceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteConferenceWithOptions(request, runtime);
+  }
+
+  async updateAppWithOptions(request: UpdateAppRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAppResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<UpdateAppResponse>(await this.doRPCRequest("UpdateApp", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateAppResponse({}));
+  }
+
+  async updateApp(request: UpdateAppRequest): Promise<UpdateAppResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateAppWithOptions(request, runtime);
+  }
+
+  async verifyDomainOwnerWithOptions(request: VerifyDomainOwnerRequest, runtime: $Util.RuntimeOptions): Promise<VerifyDomainOwnerResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<VerifyDomainOwnerResponse>(await this.doRPCRequest("VerifyDomainOwner", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new VerifyDomainOwnerResponse({}));
+  }
+
+  async verifyDomainOwner(request: VerifyDomainOwnerRequest): Promise<VerifyDomainOwnerResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.verifyDomainOwnerWithOptions(request, runtime);
+  }
+
+  async createLiveWithOptions(request: CreateLiveRequest, runtime: $Util.RuntimeOptions): Promise<CreateLiveResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<CreateLiveResponse>(await this.doRPCRequest("CreateLive", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new CreateLiveResponse({}));
+  }
+
+  async createLive(request: CreateLiveRequest): Promise<CreateLiveResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createLiveWithOptions(request, runtime);
+  }
+
+  async deleteAppWithOptions(request: DeleteAppRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAppResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DeleteAppResponse>(await this.doRPCRequest("DeleteApp", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteAppResponse({}));
+  }
+
+  async deleteApp(request: DeleteAppRequest): Promise<DeleteAppResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteAppWithOptions(request, runtime);
+  }
+
+  async listRoomLivesWithOptions(tmpReq: ListRoomLivesRequest, runtime: $Util.RuntimeOptions): Promise<ListRoomLivesResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ListRoomLivesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.roomIdList)) {
+      request.roomIdListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.roomIdList, "RoomIdList", "json");
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<ListRoomLivesResponse>(await this.doRPCRequest("ListRoomLives", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new ListRoomLivesResponse({}));
+  }
+
+  async listRoomLives(request: ListRoomLivesRequest): Promise<ListRoomLivesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listRoomLivesWithOptions(request, runtime);
+  }
+
+  async updateRoomWithOptions(tmpReq: UpdateRoomRequest, runtime: $Util.RuntimeOptions): Promise<UpdateRoomResponse> {
+    Util.validateModel(tmpReq);
+    let request = new UpdateRoomShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.extension)) {
+      request.extensionShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.extension, "Extension", "json");
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<UpdateRoomResponse>(await this.doRPCRequest("UpdateRoom", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateRoomResponse({}));
+  }
+
+  async updateRoom(request: UpdateRoomRequest): Promise<UpdateRoomResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateRoomWithOptions(request, runtime);
+  }
+
+  async getAppTemplateWithOptions(request: GetAppTemplateRequest, runtime: $Util.RuntimeOptions): Promise<GetAppTemplateResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<GetAppTemplateResponse>(await this.doRPCRequest("GetAppTemplate", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new GetAppTemplateResponse({}));
+  }
+
+  async getAppTemplate(request: GetAppTemplateRequest): Promise<GetAppTemplateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getAppTemplateWithOptions(request, runtime);
+  }
+
+  async sendCommentWithOptions(tmpReq: SendCommentRequest, runtime: $Util.RuntimeOptions): Promise<SendCommentResponse> {
+    Util.validateModel(tmpReq);
+    let request = new SendCommentShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.extension)) {
+      request.extensionShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.extension, "Extension", "json");
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<SendCommentResponse>(await this.doRPCRequest("SendComment", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new SendCommentResponse({}));
+  }
+
+  async sendComment(request: SendCommentRequest): Promise<SendCommentResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.sendCommentWithOptions(request, runtime);
+  }
+
+  async createAppTemplateWithOptions(tmpReq: CreateAppTemplateRequest, runtime: $Util.RuntimeOptions): Promise<CreateAppTemplateResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateAppTemplateShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.componentList)) {
+      request.componentListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.componentList, "ComponentList", "json");
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<CreateAppTemplateResponse>(await this.doRPCRequest("CreateAppTemplate", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new CreateAppTemplateResponse({}));
+  }
+
+  async createAppTemplate(request: CreateAppTemplateRequest): Promise<CreateAppTemplateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createAppTemplateWithOptions(request, runtime);
+  }
+
+  async getConferenceWithOptions(request: GetConferenceRequest, runtime: $Util.RuntimeOptions): Promise<GetConferenceResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<GetConferenceResponse>(await this.doRPCRequest("GetConference", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new GetConferenceResponse({}));
+  }
+
+  async getConference(request: GetConferenceRequest): Promise<GetConferenceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getConferenceWithOptions(request, runtime);
+  }
+
+  async rejectLinkMicWithOptions(request: RejectLinkMicRequest, runtime: $Util.RuntimeOptions): Promise<RejectLinkMicResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<RejectLinkMicResponse>(await this.doRPCRequest("RejectLinkMic", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new RejectLinkMicResponse({}));
+  }
+
+  async rejectLinkMic(request: RejectLinkMicRequest): Promise<RejectLinkMicResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.rejectLinkMicWithOptions(request, runtime);
+  }
+
+  async listAppsWithOptions(request: ListAppsRequest, runtime: $Util.RuntimeOptions): Promise<ListAppsResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<ListAppsResponse>(await this.doRPCRequest("ListApps", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new ListAppsResponse({}));
+  }
+
+  async listApps(request: ListAppsRequest): Promise<ListAppsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listAppsWithOptions(request, runtime);
+  }
+
+  async cancelBanAllCommentWithOptions(request: CancelBanAllCommentRequest, runtime: $Util.RuntimeOptions): Promise<CancelBanAllCommentResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<CancelBanAllCommentResponse>(await this.doRPCRequest("CancelBanAllComment", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new CancelBanAllCommentResponse({}));
+  }
+
+  async cancelBanAllComment(request: CancelBanAllCommentRequest): Promise<CancelBanAllCommentResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.cancelBanAllCommentWithOptions(request, runtime);
+  }
+
+  async listConferenceUsersWithOptions(request: ListConferenceUsersRequest, runtime: $Util.RuntimeOptions): Promise<ListConferenceUsersResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<ListConferenceUsersResponse>(await this.doRPCRequest("ListConferenceUsers", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new ListConferenceUsersResponse({}));
+  }
+
+  async listConferenceUsers(request: ListConferenceUsersRequest): Promise<ListConferenceUsersResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listConferenceUsersWithOptions(request, runtime);
+  }
+
+  async cancelBanCommentWithOptions(request: CancelBanCommentRequest, runtime: $Util.RuntimeOptions): Promise<CancelBanCommentResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<CancelBanCommentResponse>(await this.doRPCRequest("CancelBanComment", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new CancelBanCommentResponse({}));
+  }
+
+  async cancelBanComment(request: CancelBanCommentRequest): Promise<CancelBanCommentResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.cancelBanCommentWithOptions(request, runtime);
+  }
+
+  async listAppTemplatesWithOptions(request: ListAppTemplatesRequest, runtime: $Util.RuntimeOptions): Promise<ListAppTemplatesResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<ListAppTemplatesResponse>(await this.doRPCRequest("ListAppTemplates", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new ListAppTemplatesResponse({}));
+  }
+
+  async listAppTemplates(request: ListAppTemplatesRequest): Promise<ListAppTemplatesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listAppTemplatesWithOptions(request, runtime);
+  }
+
+  async listComponentsWithOptions(request: ListComponentsRequest, runtime: $Util.RuntimeOptions): Promise<ListComponentsResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<ListComponentsResponse>(await this.doRPCRequest("ListComponents", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new ListComponentsResponse({}));
+  }
+
+  async listComponents(request: ListComponentsRequest): Promise<ListComponentsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listComponentsWithOptions(request, runtime);
+  }
+
+  async updateLiveWithOptions(request: UpdateLiveRequest, runtime: $Util.RuntimeOptions): Promise<UpdateLiveResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<UpdateLiveResponse>(await this.doRPCRequest("UpdateLive", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateLiveResponse({}));
+  }
+
+  async updateLive(request: UpdateLiveRequest): Promise<UpdateLiveResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateLiveWithOptions(request, runtime);
+  }
+
+  async applyLinkMicWithOptions(request: ApplyLinkMicRequest, runtime: $Util.RuntimeOptions): Promise<ApplyLinkMicResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<ApplyLinkMicResponse>(await this.doRPCRequest("ApplyLinkMic", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new ApplyLinkMicResponse({}));
+  }
+
+  async applyLinkMic(request: ApplyLinkMicRequest): Promise<ApplyLinkMicResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.applyLinkMicWithOptions(request, runtime);
+  }
+
+  async cancelApplyLinkMicWithOptions(request: CancelApplyLinkMicRequest, runtime: $Util.RuntimeOptions): Promise<CancelApplyLinkMicResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<CancelApplyLinkMicResponse>(await this.doRPCRequest("CancelApplyLinkMic", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new CancelApplyLinkMicResponse({}));
+  }
+
+  async cancelApplyLinkMic(request: CancelApplyLinkMicRequest): Promise<CancelApplyLinkMicResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.cancelApplyLinkMicWithOptions(request, runtime);
+  }
+
+  async getAppWithOptions(request: GetAppRequest, runtime: $Util.RuntimeOptions): Promise<GetAppResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<GetAppResponse>(await this.doRPCRequest("GetApp", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new GetAppResponse({}));
+  }
+
+  async getApp(request: GetAppRequest): Promise<GetAppResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getAppWithOptions(request, runtime);
+  }
+
+  async sendCustomMessageToUsersWithOptions(request: SendCustomMessageToUsersRequest, runtime: $Util.RuntimeOptions): Promise<SendCustomMessageToUsersResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<SendCustomMessageToUsersResponse>(await this.doRPCRequest("SendCustomMessageToUsers", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new SendCustomMessageToUsersResponse({}));
+  }
+
+  async sendCustomMessageToUsers(request: SendCustomMessageToUsersRequest): Promise<SendCustomMessageToUsersResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.sendCustomMessageToUsersWithOptions(request, runtime);
+  }
+
+  async banAllCommentWithOptions(request: BanAllCommentRequest, runtime: $Util.RuntimeOptions): Promise<BanAllCommentResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<BanAllCommentResponse>(await this.doRPCRequest("BanAllComment", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new BanAllCommentResponse({}));
+  }
+
+  async banAllComment(request: BanAllCommentRequest): Promise<BanAllCommentResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.banAllCommentWithOptions(request, runtime);
+  }
+
+  async getLiveWithOptions(request: GetLiveRequest, runtime: $Util.RuntimeOptions): Promise<GetLiveResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<GetLiveResponse>(await this.doRPCRequest("GetLive", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new GetLiveResponse({}));
+  }
+
+  async getLive(request: GetLiveRequest): Promise<GetLiveResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getLiveWithOptions(request, runtime);
   }
 
   async createAppWithOptions(request: CreateAppRequest, runtime: $Util.RuntimeOptions): Promise<CreateAppResponse> {
@@ -5315,32 +5570,6 @@ export default class Client extends OpenApi {
   async updateConference(request: UpdateConferenceRequest): Promise<UpdateConferenceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateConferenceWithOptions(request, runtime);
-  }
-
-  async deleteConferenceWithOptions(request: DeleteConferenceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteConferenceResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<DeleteConferenceResponse>(await this.doRPCRequest("DeleteConference", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteConferenceResponse({}));
-  }
-
-  async deleteConference(request: DeleteConferenceRequest): Promise<DeleteConferenceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.deleteConferenceWithOptions(request, runtime);
-  }
-
-  async updateAppWithOptions(request: UpdateAppRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAppResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<UpdateAppResponse>(await this.doRPCRequest("UpdateApp", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateAppResponse({}));
-  }
-
-  async updateApp(request: UpdateAppRequest): Promise<UpdateAppResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.updateAppWithOptions(request, runtime);
   }
 
 }
