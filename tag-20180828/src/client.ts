@@ -7,6 +7,153 @@ import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class CreateTagsRequest extends $tea.Model {
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  ownerAccount?: string;
+  regionId?: string;
+  tagKeyValueParamList?: CreateTagsRequestTagKeyValueParamList[];
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      ownerAccount: 'OwnerAccount',
+      regionId: 'RegionId',
+      tagKeyValueParamList: 'TagKeyValueParamList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      ownerAccount: 'string',
+      regionId: 'string',
+      tagKeyValueParamList: { 'type': 'array', 'itemType': CreateTagsRequestTagKeyValueParamList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTagsResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTagsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CreateTagsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CreateTagsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteTagRequest extends $tea.Model {
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  ownerAccount?: string;
+  regionId?: string;
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      ownerAccount: 'OwnerAccount',
+      regionId: 'RegionId',
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      ownerAccount: 'string',
+      regionId: 'string',
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteTagResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteTagResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DeleteTagResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DeleteTagResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeRegionsRequest extends $tea.Model {
   ownerId?: number;
   resourceOwnerAccount?: string;
@@ -94,7 +241,7 @@ export class ListTagKeysRequest extends $tea.Model {
   pageSize?: number;
   category?: string;
   resourceType?: string;
-  tagProduct?: string;
+  queryType?: string;
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
@@ -105,7 +252,7 @@ export class ListTagKeysRequest extends $tea.Model {
       pageSize: 'PageSize',
       category: 'Category',
       resourceType: 'ResourceType',
-      tagProduct: 'TagProduct',
+      queryType: 'QueryType',
     };
   }
 
@@ -119,7 +266,7 @@ export class ListTagKeysRequest extends $tea.Model {
       pageSize: 'number',
       category: 'string',
       resourceType: 'string',
-      tagProduct: 'string',
+      queryType: 'string',
     };
   }
 
@@ -180,22 +327,22 @@ export class ListTagResourcesRequest extends $tea.Model {
   resourceOwnerAccount?: string;
   ownerAccount?: string;
   regionId?: string;
+  resourceARN?: string[];
   nextToken?: string;
   pageSize?: number;
   tags?: string;
   category?: string;
-  resourceARN?: string[];
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       ownerAccount: 'OwnerAccount',
       regionId: 'RegionId',
+      resourceARN: 'ResourceARN',
       nextToken: 'NextToken',
       pageSize: 'PageSize',
       tags: 'Tags',
       category: 'Category',
-      resourceARN: 'ResourceARN',
     };
   }
 
@@ -205,11 +352,11 @@ export class ListTagResourcesRequest extends $tea.Model {
       resourceOwnerAccount: 'string',
       ownerAccount: 'string',
       regionId: 'string',
+      resourceARN: { 'type': 'array', 'itemType': 'string' },
       nextToken: 'string',
       pageSize: 'number',
       tags: 'string',
       category: 'string',
-      resourceARN: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -274,7 +421,7 @@ export class ListTagValuesRequest extends $tea.Model {
   nextToken?: string;
   pageSize?: number;
   resourceType?: string;
-  tagProduct?: string;
+  queryType?: string;
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
@@ -285,7 +432,7 @@ export class ListTagValuesRequest extends $tea.Model {
       nextToken: 'NextToken',
       pageSize: 'PageSize',
       resourceType: 'ResourceType',
-      tagProduct: 'TagProduct',
+      queryType: 'QueryType',
     };
   }
 
@@ -299,7 +446,7 @@ export class ListTagValuesRequest extends $tea.Model {
       nextToken: 'string',
       pageSize: 'number',
       resourceType: 'string',
-      tagProduct: 'string',
+      queryType: 'string',
     };
   }
 
@@ -511,22 +658,69 @@ export class UntagResourcesResponse extends $tea.Model {
   }
 }
 
+export class CreateTagsRequestTagKeyValueParamListTagValueParamList extends $tea.Model {
+  value?: string;
+  description?: string;
+  static names(): { [key: string]: string } {
+    return {
+      value: 'Value',
+      description: 'Description',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      value: 'string',
+      description: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTagsRequestTagKeyValueParamList extends $tea.Model {
+  key?: string;
+  tagValueParamList?: CreateTagsRequestTagKeyValueParamListTagValueParamList[];
+  description?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      tagValueParamList: 'TagValueParamList',
+      description: 'Description',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      tagValueParamList: { 'type': 'array', 'itemType': CreateTagsRequestTagKeyValueParamListTagValueParamList },
+      description: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeRegionsResponseBodyRegionsRegion extends $tea.Model {
-  localName?: string;
   regionEndpoint?: string;
+  localName?: string;
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      localName: 'LocalName',
       regionEndpoint: 'RegionEndpoint',
+      localName: 'LocalName',
       regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      localName: 'string',
       regionEndpoint: 'string',
+      localName: 'string',
       regionId: 'string',
     };
   }
@@ -558,10 +752,12 @@ export class DescribeRegionsResponseBodyRegions extends $tea.Model {
 export class ListTagKeysResponseBodyKeysKey extends $tea.Model {
   key?: string;
   category?: string;
+  description?: string;
   static names(): { [key: string]: string } {
     return {
       key: 'Key',
       category: 'Category',
+      description: 'Description',
     };
   }
 
@@ -569,6 +765,7 @@ export class ListTagKeysResponseBodyKeysKey extends $tea.Model {
     return {
       key: 'string',
       category: 'string',
+      description: 'string',
     };
   }
 
@@ -853,6 +1050,32 @@ export default class Client extends OpenApi {
     }
 
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+  }
+
+  async createTagsWithOptions(request: CreateTagsRequest, runtime: $Util.RuntimeOptions): Promise<CreateTagsResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<CreateTagsResponse>(await this.doRPCRequest("CreateTags", "2018-08-28", "HTTPS", "POST", "AK", "json", req, runtime), new CreateTagsResponse({}));
+  }
+
+  async createTags(request: CreateTagsRequest): Promise<CreateTagsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createTagsWithOptions(request, runtime);
+  }
+
+  async deleteTagWithOptions(request: DeleteTagRequest, runtime: $Util.RuntimeOptions): Promise<DeleteTagResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DeleteTagResponse>(await this.doRPCRequest("DeleteTag", "2018-08-28", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteTagResponse({}));
+  }
+
+  async deleteTag(request: DeleteTagRequest): Promise<DeleteTagResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteTagWithOptions(request, runtime);
   }
 
   async describeRegionsWithOptions(request: DescribeRegionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRegionsResponse> {
