@@ -4,8 +4,78 @@
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
+import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
+
+export class CancelArtifactBuildTaskRequest extends $tea.Model {
+  instanceId?: string;
+  buildTaskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      buildTaskId: 'BuildTaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      buildTaskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CancelArtifactBuildTaskResponseBody extends $tea.Model {
+  code?: string;
+  isSuccess?: boolean;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      isSuccess: 'IsSuccess',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      isSuccess: 'boolean',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CancelArtifactBuildTaskResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CancelArtifactBuildTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CancelArtifactBuildTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class CancelRepoBuildRecordRequest extends $tea.Model {
   instanceId?: string;
@@ -33,22 +103,22 @@ export class CancelRepoBuildRecordRequest extends $tea.Model {
 }
 
 export class CancelRepoBuildRecordResponseBody extends $tea.Model {
+  code?: string;
   isSuccess?: boolean;
   requestId?: string;
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       isSuccess: 'IsSuccess',
       requestId: 'RequestId',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
       isSuccess: 'boolean',
       requestId: 'string',
-      code: 'string',
     };
   }
 
@@ -105,25 +175,25 @@ export class CreateBuildRecordByRuleRequest extends $tea.Model {
 }
 
 export class CreateBuildRecordByRuleResponseBody extends $tea.Model {
+  code?: string;
   isSuccess?: boolean;
   requestId?: string;
   buildRecordId?: string;
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       isSuccess: 'IsSuccess',
       requestId: 'RequestId',
       buildRecordId: 'BuildRecordId',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
       isSuccess: 'boolean',
       requestId: 'string',
       buildRecordId: 'string',
-      code: 'string',
     };
   }
 
@@ -183,22 +253,22 @@ export class CreateChartNamespaceRequest extends $tea.Model {
 }
 
 export class CreateChartNamespaceResponseBody extends $tea.Model {
+  code?: string;
   isSuccess?: boolean;
   requestId?: string;
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       isSuccess: 'IsSuccess',
       requestId: 'RequestId',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
       isSuccess: 'boolean',
       requestId: 'string',
-      code: 'string',
     };
   }
 
@@ -261,25 +331,25 @@ export class CreateChartRepositoryRequest extends $tea.Model {
 }
 
 export class CreateChartRepositoryResponseBody extends $tea.Model {
+  code?: string;
+  repoId?: string;
   isSuccess?: boolean;
   requestId?: string;
-  repoId?: string;
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
+      repoId: 'RepoId',
       isSuccess: 'IsSuccess',
       requestId: 'RequestId',
-      repoId: 'RepoId',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
+      repoId: 'string',
       isSuccess: 'boolean',
       requestId: 'string',
-      repoId: 'string',
-      code: 'string',
     };
   }
 
@@ -342,22 +412,22 @@ export class CreateInstanceEndpointAclPolicyRequest extends $tea.Model {
 }
 
 export class CreateInstanceEndpointAclPolicyResponseBody extends $tea.Model {
+  code?: string;
   isSuccess?: boolean;
   requestId?: string;
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       isSuccess: 'IsSuccess',
       requestId: 'RequestId',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
       isSuccess: 'boolean',
       requestId: 'string',
-      code: 'string',
     };
   }
 
@@ -417,22 +487,22 @@ export class CreateInstanceVpcEndpointLinkedVpcRequest extends $tea.Model {
 }
 
 export class CreateInstanceVpcEndpointLinkedVpcResponseBody extends $tea.Model {
+  code?: string;
   isSuccess?: boolean;
   requestId?: string;
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       isSuccess: 'IsSuccess',
       requestId: 'RequestId',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
       isSuccess: 'boolean',
       requestId: 'string',
-      code: 'string',
     };
   }
 
@@ -492,22 +562,22 @@ export class CreateNamespaceRequest extends $tea.Model {
 }
 
 export class CreateNamespaceResponseBody extends $tea.Model {
+  code?: string;
   isSuccess?: boolean;
   requestId?: string;
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       isSuccess: 'IsSuccess',
       requestId: 'RequestId',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
       isSuccess: 'boolean',
       requestId: 'string',
-      code: 'string',
     };
   }
 
@@ -576,25 +646,25 @@ export class CreateRepoBuildRuleRequest extends $tea.Model {
 }
 
 export class CreateRepoBuildRuleResponseBody extends $tea.Model {
-  isSuccess?: boolean;
-  buildRuleId?: string;
-  requestId?: string;
   code?: string;
+  isSuccess?: boolean;
+  requestId?: string;
+  buildRuleId?: string;
   static names(): { [key: string]: string } {
     return {
-      isSuccess: 'IsSuccess',
-      buildRuleId: 'BuildRuleId',
-      requestId: 'RequestId',
       code: 'Code',
+      isSuccess: 'IsSuccess',
+      requestId: 'RequestId',
+      buildRuleId: 'BuildRuleId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      isSuccess: 'boolean',
-      buildRuleId: 'string',
-      requestId: 'string',
       code: 'string',
+      isSuccess: 'boolean',
+      requestId: 'string',
+      buildRuleId: 'string',
     };
   }
 
@@ -663,25 +733,25 @@ export class CreateRepositoryRequest extends $tea.Model {
 }
 
 export class CreateRepositoryResponseBody extends $tea.Model {
+  code?: string;
+  repoId?: string;
   isSuccess?: boolean;
   requestId?: string;
-  repoId?: string;
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
+      repoId: 'RepoId',
       isSuccess: 'IsSuccess',
       requestId: 'RequestId',
-      repoId: 'RepoId',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
+      repoId: 'string',
       isSuccess: 'boolean',
       requestId: 'string',
-      repoId: 'string',
-      code: 'string',
     };
   }
 
@@ -704,6 +774,93 @@ export class CreateRepositoryResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: CreateRepositoryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRepoSourceCodeRepoRequest extends $tea.Model {
+  instanceId?: string;
+  repoId?: string;
+  codeRepoType?: string;
+  codeRepoNamespaceName?: string;
+  codeRepoName?: string;
+  autoBuild?: boolean;
+  overseaBuild?: boolean;
+  disableCacheBuild?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      repoId: 'RepoId',
+      codeRepoType: 'CodeRepoType',
+      codeRepoNamespaceName: 'CodeRepoNamespaceName',
+      codeRepoName: 'CodeRepoName',
+      autoBuild: 'AutoBuild',
+      overseaBuild: 'OverseaBuild',
+      disableCacheBuild: 'DisableCacheBuild',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      repoId: 'string',
+      codeRepoType: 'string',
+      codeRepoNamespaceName: 'string',
+      codeRepoName: 'string',
+      autoBuild: 'boolean',
+      overseaBuild: 'boolean',
+      disableCacheBuild: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRepoSourceCodeRepoResponseBody extends $tea.Model {
+  code?: string;
+  isSuccess?: boolean;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      isSuccess: 'IsSuccess',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      isSuccess: 'boolean',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRepoSourceCodeRepoResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CreateRepoSourceCodeRepoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CreateRepoSourceCodeRepoResponseBody,
     };
   }
 
@@ -762,25 +919,25 @@ export class CreateRepoSyncRuleRequest extends $tea.Model {
 }
 
 export class CreateRepoSyncRuleResponseBody extends $tea.Model {
+  code?: string;
   syncRuleId?: string;
   isSuccess?: boolean;
   requestId?: string;
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       syncRuleId: 'SyncRuleId',
       isSuccess: 'IsSuccess',
       requestId: 'RequestId',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
       syncRuleId: 'string',
       isSuccess: 'boolean',
       requestId: 'string',
-      code: 'string',
     };
   }
 
@@ -840,24 +997,24 @@ export class CreateRepoSyncTaskByRuleRequest extends $tea.Model {
 }
 
 export class CreateRepoSyncTaskByRuleResponseBody extends $tea.Model {
+  code?: string;
   isSuccess?: boolean;
   requestId?: string;
-  code?: string;
   syncTaskId?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       isSuccess: 'IsSuccess',
       requestId: 'RequestId',
-      code: 'Code',
       syncTaskId: 'SyncTaskId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
       isSuccess: 'boolean',
       requestId: 'string',
-      code: 'string',
       syncTaskId: 'string',
     };
   }
@@ -889,15 +1046,97 @@ export class CreateRepoSyncTaskByRuleResponse extends $tea.Model {
   }
 }
 
+export class CreateRepoTagRequest extends $tea.Model {
+  instanceId?: string;
+  namespaceName?: string;
+  repoName?: string;
+  fromTag?: string;
+  toTag?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      namespaceName: 'NamespaceName',
+      repoName: 'RepoName',
+      fromTag: 'FromTag',
+      toTag: 'ToTag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      namespaceName: 'string',
+      repoName: 'string',
+      fromTag: 'string',
+      toTag: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRepoTagResponseBody extends $tea.Model {
+  code?: string;
+  isSuccess?: boolean;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      isSuccess: 'IsSuccess',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      isSuccess: 'boolean',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRepoTagResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CreateRepoTagResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CreateRepoTagResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateRepoTagScanTaskRequest extends $tea.Model {
   instanceId?: string;
   repoId?: string;
   tag?: string;
+  digest?: string;
+  scanService?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
       repoId: 'RepoId',
       tag: 'Tag',
+      digest: 'Digest',
+      scanService: 'ScanService',
     };
   }
 
@@ -906,6 +1145,8 @@ export class CreateRepoTagScanTaskRequest extends $tea.Model {
       instanceId: 'string',
       repoId: 'string',
       tag: 'string',
+      digest: 'string',
+      scanService: 'string',
     };
   }
 
@@ -915,22 +1156,22 @@ export class CreateRepoTagScanTaskRequest extends $tea.Model {
 }
 
 export class CreateRepoTagScanTaskResponseBody extends $tea.Model {
+  code?: string;
   isSuccess?: boolean;
   requestId?: string;
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       isSuccess: 'IsSuccess',
       requestId: 'RequestId',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
       isSuccess: 'boolean',
       requestId: 'string',
-      code: 'string',
     };
   }
 
@@ -996,25 +1237,25 @@ export class CreateRepoTriggerRequest extends $tea.Model {
 }
 
 export class CreateRepoTriggerResponseBody extends $tea.Model {
+  code?: string;
   isSuccess?: boolean;
   requestId?: string;
   triggerId?: string;
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       isSuccess: 'IsSuccess',
       requestId: 'RequestId',
       triggerId: 'TriggerId',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
       isSuccess: 'boolean',
       requestId: 'string',
       triggerId: 'string',
-      code: 'string',
     };
   }
 
@@ -1068,22 +1309,22 @@ export class DeleteChartNamespaceRequest extends $tea.Model {
 }
 
 export class DeleteChartNamespaceResponseBody extends $tea.Model {
+  code?: string;
   isSuccess?: boolean;
   requestId?: string;
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       isSuccess: 'IsSuccess',
       requestId: 'RequestId',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
       isSuccess: 'boolean',
       requestId: 'string',
-      code: 'string',
     };
   }
 
@@ -1146,22 +1387,22 @@ export class DeleteChartReleaseRequest extends $tea.Model {
 }
 
 export class DeleteChartReleaseResponseBody extends $tea.Model {
+  code?: string;
   isSuccess?: boolean;
   requestId?: string;
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       isSuccess: 'IsSuccess',
       requestId: 'RequestId',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
       isSuccess: 'boolean',
       requestId: 'string',
-      code: 'string',
     };
   }
 
@@ -1218,22 +1459,22 @@ export class DeleteChartRepositoryRequest extends $tea.Model {
 }
 
 export class DeleteChartRepositoryResponseBody extends $tea.Model {
+  code?: string;
   isSuccess?: boolean;
   requestId?: string;
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       isSuccess: 'IsSuccess',
       requestId: 'RequestId',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
       isSuccess: 'boolean',
       requestId: 'string',
-      code: 'string',
     };
   }
 
@@ -1293,22 +1534,22 @@ export class DeleteInstanceEndpointAclPolicyRequest extends $tea.Model {
 }
 
 export class DeleteInstanceEndpointAclPolicyResponseBody extends $tea.Model {
+  code?: string;
   isSuccess?: boolean;
   requestId?: string;
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       isSuccess: 'IsSuccess',
       requestId: 'RequestId',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
       isSuccess: 'boolean',
       requestId: 'string',
-      code: 'string',
     };
   }
 
@@ -1368,22 +1609,22 @@ export class DeleteInstanceVpcEndpointLinkedVpcRequest extends $tea.Model {
 }
 
 export class DeleteInstanceVpcEndpointLinkedVpcResponseBody extends $tea.Model {
+  code?: string;
   isSuccess?: boolean;
   requestId?: string;
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       isSuccess: 'IsSuccess',
       requestId: 'RequestId',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
       isSuccess: 'boolean',
       requestId: 'string',
-      code: 'string',
     };
   }
 
@@ -1437,22 +1678,22 @@ export class DeleteNamespaceRequest extends $tea.Model {
 }
 
 export class DeleteNamespaceResponseBody extends $tea.Model {
+  code?: string;
   isSuccess?: boolean;
   requestId?: string;
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       isSuccess: 'IsSuccess',
       requestId: 'RequestId',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
       isSuccess: 'boolean',
       requestId: 'string',
-      code: 'string',
     };
   }
 
@@ -1509,22 +1750,22 @@ export class DeleteRepoBuildRuleRequest extends $tea.Model {
 }
 
 export class DeleteRepoBuildRuleResponseBody extends $tea.Model {
+  code?: string;
   isSuccess?: boolean;
   requestId?: string;
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       isSuccess: 'IsSuccess',
       requestId: 'RequestId',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
       isSuccess: 'boolean',
       requestId: 'string',
-      code: 'string',
     };
   }
 
@@ -1578,22 +1819,22 @@ export class DeleteRepositoryRequest extends $tea.Model {
 }
 
 export class DeleteRepositoryResponseBody extends $tea.Model {
+  code?: string;
   isSuccess?: boolean;
   requestId?: string;
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       isSuccess: 'IsSuccess',
       requestId: 'RequestId',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
       isSuccess: 'boolean',
       requestId: 'string',
-      code: 'string',
     };
   }
 
@@ -1647,22 +1888,22 @@ export class DeleteRepoSyncRuleRequest extends $tea.Model {
 }
 
 export class DeleteRepoSyncRuleResponseBody extends $tea.Model {
+  code?: string;
   isSuccess?: boolean;
   requestId?: string;
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       isSuccess: 'IsSuccess',
       requestId: 'RequestId',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
       isSuccess: 'boolean',
       requestId: 'string',
-      code: 'string',
     };
   }
 
@@ -1719,22 +1960,22 @@ export class DeleteRepoTagRequest extends $tea.Model {
 }
 
 export class DeleteRepoTagResponseBody extends $tea.Model {
+  code?: string;
   isSuccess?: boolean;
   requestId?: string;
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       isSuccess: 'IsSuccess',
       requestId: 'RequestId',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
       isSuccess: 'boolean',
       requestId: 'string',
-      code: 'string',
     };
   }
 
@@ -1791,22 +2032,22 @@ export class DeleteRepoTriggerRequest extends $tea.Model {
 }
 
 export class DeleteRepoTriggerResponseBody extends $tea.Model {
+  code?: string;
   isSuccess?: boolean;
   requestId?: string;
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       isSuccess: 'IsSuccess',
       requestId: 'RequestId',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
       isSuccess: 'boolean',
       requestId: 'string',
-      code: 'string',
     };
   }
 
@@ -1837,6 +2078,99 @@ export class DeleteRepoTriggerResponse extends $tea.Model {
   }
 }
 
+export class GetArtifactBuildTaskRequest extends $tea.Model {
+  instanceId?: string;
+  buildTaskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      buildTaskId: 'BuildTaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      buildTaskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetArtifactBuildTaskResponseBody extends $tea.Model {
+  endTime?: number;
+  startTime?: number;
+  artifactBuildType?: string;
+  requestId?: string;
+  taskStatus?: string;
+  buildTaskId?: string;
+  code?: string;
+  isSuccess?: boolean;
+  instructions?: string[];
+  sourceArtifact?: GetArtifactBuildTaskResponseBodySourceArtifact;
+  targetArtifact?: GetArtifactBuildTaskResponseBodyTargetArtifact;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      startTime: 'StartTime',
+      artifactBuildType: 'ArtifactBuildType',
+      requestId: 'RequestId',
+      taskStatus: 'TaskStatus',
+      buildTaskId: 'BuildTaskId',
+      code: 'Code',
+      isSuccess: 'IsSuccess',
+      instructions: 'Instructions',
+      sourceArtifact: 'SourceArtifact',
+      targetArtifact: 'TargetArtifact',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'number',
+      startTime: 'number',
+      artifactBuildType: 'string',
+      requestId: 'string',
+      taskStatus: 'string',
+      buildTaskId: 'string',
+      code: 'string',
+      isSuccess: 'boolean',
+      instructions: { 'type': 'array', 'itemType': 'string' },
+      sourceArtifact: GetArtifactBuildTaskResponseBodySourceArtifact,
+      targetArtifact: GetArtifactBuildTaskResponseBodyTargetArtifact,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetArtifactBuildTaskResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetArtifactBuildTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetArtifactBuildTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetAuthorizationTokenRequest extends $tea.Model {
   instanceId?: string;
   static names(): { [key: string]: string } {
@@ -1857,31 +2191,31 @@ export class GetAuthorizationTokenRequest extends $tea.Model {
 }
 
 export class GetAuthorizationTokenResponseBody extends $tea.Model {
-  isSuccess?: boolean;
   requestId?: string;
-  tempUsername?: string;
-  authorizationToken?: string;
   expireTime?: number;
   code?: string;
+  isSuccess?: boolean;
+  tempUsername?: string;
+  authorizationToken?: string;
   static names(): { [key: string]: string } {
     return {
-      isSuccess: 'IsSuccess',
       requestId: 'RequestId',
-      tempUsername: 'TempUsername',
-      authorizationToken: 'AuthorizationToken',
       expireTime: 'ExpireTime',
       code: 'Code',
+      isSuccess: 'IsSuccess',
+      tempUsername: 'TempUsername',
+      authorizationToken: 'AuthorizationToken',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      isSuccess: 'boolean',
       requestId: 'string',
-      tempUsername: 'string',
-      authorizationToken: 'string',
       expireTime: 'number',
       code: 'string',
+      isSuccess: 'boolean',
+      tempUsername: 'string',
+      authorizationToken: 'string',
     };
   }
 
@@ -1935,40 +2269,40 @@ export class GetChartNamespaceRequest extends $tea.Model {
 }
 
 export class GetChartNamespaceResponseBody extends $tea.Model {
-  namespaceStatus?: string;
-  isSuccess?: boolean;
-  namespaceName?: string;
   defaultRepoType?: string;
+  namespaceId?: string;
+  namespaceStatus?: string;
   requestId?: string;
+  code?: string;
   instanceId?: string;
   autoCreateRepo?: boolean;
-  namespaceId?: string;
-  code?: string;
+  isSuccess?: boolean;
+  namespaceName?: string;
   static names(): { [key: string]: string } {
     return {
-      namespaceStatus: 'NamespaceStatus',
-      isSuccess: 'IsSuccess',
-      namespaceName: 'NamespaceName',
       defaultRepoType: 'DefaultRepoType',
+      namespaceId: 'NamespaceId',
+      namespaceStatus: 'NamespaceStatus',
       requestId: 'RequestId',
+      code: 'Code',
       instanceId: 'InstanceId',
       autoCreateRepo: 'AutoCreateRepo',
-      namespaceId: 'NamespaceId',
-      code: 'Code',
+      isSuccess: 'IsSuccess',
+      namespaceName: 'NamespaceName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      namespaceStatus: 'string',
-      isSuccess: 'boolean',
-      namespaceName: 'string',
       defaultRepoType: 'string',
+      namespaceId: 'string',
+      namespaceStatus: 'string',
       requestId: 'string',
+      code: 'string',
       instanceId: 'string',
       autoCreateRepo: 'boolean',
-      namespaceId: 'string',
-      code: 'string',
+      isSuccess: 'boolean',
+      namespaceName: 'string',
     };
   }
 
@@ -2025,49 +2359,49 @@ export class GetChartRepositoryRequest extends $tea.Model {
 }
 
 export class GetChartRepositoryResponseBody extends $tea.Model {
+  summary?: string;
+  createTime?: number;
   isSuccess?: boolean;
-  repoNamespaceName?: string;
-  requestId?: string;
+  instanceId?: string;
   repoStatus?: string;
   repoType?: string;
-  modifiedTime?: number;
-  instanceId?: string;
-  createTime?: number;
-  repoName?: string;
-  summary?: string;
+  requestId?: string;
   repoId?: string;
+  modifiedTime?: number;
   code?: string;
+  repoNamespaceName?: string;
+  repoName?: string;
   static names(): { [key: string]: string } {
     return {
+      summary: 'Summary',
+      createTime: 'CreateTime',
       isSuccess: 'IsSuccess',
-      repoNamespaceName: 'RepoNamespaceName',
-      requestId: 'RequestId',
+      instanceId: 'InstanceId',
       repoStatus: 'RepoStatus',
       repoType: 'RepoType',
-      modifiedTime: 'ModifiedTime',
-      instanceId: 'InstanceId',
-      createTime: 'CreateTime',
-      repoName: 'RepoName',
-      summary: 'Summary',
+      requestId: 'RequestId',
       repoId: 'RepoId',
+      modifiedTime: 'ModifiedTime',
       code: 'Code',
+      repoNamespaceName: 'RepoNamespaceName',
+      repoName: 'RepoName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      summary: 'string',
+      createTime: 'number',
       isSuccess: 'boolean',
-      repoNamespaceName: 'string',
-      requestId: 'string',
+      instanceId: 'string',
       repoStatus: 'string',
       repoType: 'string',
-      modifiedTime: 'number',
-      instanceId: 'string',
-      createTime: 'number',
-      repoName: 'string',
-      summary: 'string',
+      requestId: 'string',
       repoId: 'string',
+      modifiedTime: 'number',
       code: 'string',
+      repoNamespaceName: 'string',
+      repoName: 'string',
     };
   }
 
@@ -2118,40 +2452,40 @@ export class GetInstanceRequest extends $tea.Model {
 }
 
 export class GetInstanceResponseBody extends $tea.Model {
-  instanceName?: string;
-  isSuccess?: boolean;
   modifiedTime?: number;
   requestId?: string;
-  instanceSpecification?: string;
-  instanceId?: string;
-  instanceStatus?: string;
   createTime?: number;
+  instanceName?: string;
+  instanceSpecification?: string;
   code?: string;
+  instanceStatus?: string;
+  instanceId?: string;
+  isSuccess?: boolean;
   static names(): { [key: string]: string } {
     return {
-      instanceName: 'InstanceName',
-      isSuccess: 'IsSuccess',
       modifiedTime: 'ModifiedTime',
       requestId: 'RequestId',
-      instanceSpecification: 'InstanceSpecification',
-      instanceId: 'InstanceId',
-      instanceStatus: 'InstanceStatus',
       createTime: 'CreateTime',
+      instanceName: 'InstanceName',
+      instanceSpecification: 'InstanceSpecification',
       code: 'Code',
+      instanceStatus: 'InstanceStatus',
+      instanceId: 'InstanceId',
+      isSuccess: 'IsSuccess',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      instanceName: 'string',
-      isSuccess: 'boolean',
       modifiedTime: 'number',
       requestId: 'string',
-      instanceSpecification: 'string',
-      instanceId: 'string',
-      instanceStatus: 'string',
       createTime: 'number',
+      instanceName: 'string',
+      instanceSpecification: 'string',
       code: 'string',
+      instanceStatus: 'string',
+      instanceId: 'string',
+      isSuccess: 'boolean',
     };
   }
 
@@ -2183,25 +2517,25 @@ export class GetInstanceResponse extends $tea.Model {
 }
 
 export class GetInstanceCountResponseBody extends $tea.Model {
+  code?: string;
   isSuccess?: boolean;
   requestId?: string;
   count?: number;
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       isSuccess: 'IsSuccess',
       requestId: 'RequestId',
       count: 'Count',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
       isSuccess: 'boolean',
       requestId: 'string',
       count: 'number',
-      code: 'string',
     };
   }
 
@@ -2259,36 +2593,36 @@ export class GetInstanceEndpointRequest extends $tea.Model {
 
 export class GetInstanceEndpointResponseBody extends $tea.Model {
   status?: string;
-  domains?: GetInstanceEndpointResponseBodyDomains[];
-  aclEntries?: GetInstanceEndpointResponseBodyAclEntries[];
+  requestId?: string;
+  code?: string;
   isSuccess?: boolean;
   aclEnable?: boolean;
-  requestId?: string;
   enable?: boolean;
-  code?: string;
+  domains?: GetInstanceEndpointResponseBodyDomains[];
+  aclEntries?: GetInstanceEndpointResponseBodyAclEntries[];
   static names(): { [key: string]: string } {
     return {
       status: 'Status',
-      domains: 'Domains',
-      aclEntries: 'AclEntries',
+      requestId: 'RequestId',
+      code: 'Code',
       isSuccess: 'IsSuccess',
       aclEnable: 'AclEnable',
-      requestId: 'RequestId',
       enable: 'Enable',
-      code: 'Code',
+      domains: 'Domains',
+      aclEntries: 'AclEntries',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       status: 'string',
-      domains: { 'type': 'array', 'itemType': GetInstanceEndpointResponseBodyDomains },
-      aclEntries: { 'type': 'array', 'itemType': GetInstanceEndpointResponseBodyAclEntries },
+      requestId: 'string',
+      code: 'string',
       isSuccess: 'boolean',
       aclEnable: 'boolean',
-      requestId: 'string',
       enable: 'boolean',
-      code: 'string',
+      domains: { 'type': 'array', 'itemType': GetInstanceEndpointResponseBodyDomains },
+      aclEntries: { 'type': 'array', 'itemType': GetInstanceEndpointResponseBodyAclEntries },
     };
   }
 
@@ -2339,34 +2673,46 @@ export class GetInstanceUsageRequest extends $tea.Model {
 }
 
 export class GetInstanceUsageResponseBody extends $tea.Model {
-  isSuccess?: boolean;
-  requestId?: string;
+  namespaceUsage?: string;
   repoQuota?: string;
+  requestId?: string;
+  chartNamespaceQuota?: string;
   repoUsage?: string;
   namespaceQuota?: string;
-  namespaceUsage?: string;
   code?: string;
+  isSuccess?: boolean;
+  chartRepoUsage?: string;
+  chartNamespaceUsage?: string;
+  chartRepoQuota?: string;
   static names(): { [key: string]: string } {
     return {
-      isSuccess: 'IsSuccess',
-      requestId: 'RequestId',
+      namespaceUsage: 'NamespaceUsage',
       repoQuota: 'RepoQuota',
+      requestId: 'RequestId',
+      chartNamespaceQuota: 'ChartNamespaceQuota',
       repoUsage: 'RepoUsage',
       namespaceQuota: 'NamespaceQuota',
-      namespaceUsage: 'NamespaceUsage',
       code: 'Code',
+      isSuccess: 'IsSuccess',
+      chartRepoUsage: 'ChartRepoUsage',
+      chartNamespaceUsage: 'ChartNamespaceUsage',
+      chartRepoQuota: 'ChartRepoQuota',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      isSuccess: 'boolean',
-      requestId: 'string',
+      namespaceUsage: 'string',
       repoQuota: 'string',
+      requestId: 'string',
+      chartNamespaceQuota: 'string',
       repoUsage: 'string',
       namespaceQuota: 'string',
-      namespaceUsage: 'string',
       code: 'string',
+      isSuccess: 'boolean',
+      chartRepoUsage: 'string',
+      chartNamespaceUsage: 'string',
+      chartRepoQuota: 'string',
     };
   }
 
@@ -2420,30 +2766,30 @@ export class GetInstanceVpcEndpointRequest extends $tea.Model {
 }
 
 export class GetInstanceVpcEndpointResponseBody extends $tea.Model {
-  domains?: string[];
+  code?: string;
   isSuccess?: boolean;
   requestId?: string;
   enable?: boolean;
-  code?: string;
+  domains?: string[];
   linkedVpcs?: GetInstanceVpcEndpointResponseBodyLinkedVpcs[];
   static names(): { [key: string]: string } {
     return {
-      domains: 'Domains',
+      code: 'Code',
       isSuccess: 'IsSuccess',
       requestId: 'RequestId',
       enable: 'Enable',
-      code: 'Code',
+      domains: 'Domains',
       linkedVpcs: 'LinkedVpcs',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      domains: { 'type': 'array', 'itemType': 'string' },
+      code: 'string',
       isSuccess: 'boolean',
       requestId: 'string',
       enable: 'boolean',
-      code: 'string',
+      domains: { 'type': 'array', 'itemType': 'string' },
       linkedVpcs: { 'type': 'array', 'itemType': GetInstanceVpcEndpointResponseBodyLinkedVpcs },
     };
   }
@@ -2501,40 +2847,40 @@ export class GetNamespaceRequest extends $tea.Model {
 }
 
 export class GetNamespaceResponseBody extends $tea.Model {
-  namespaceStatus?: string;
-  isSuccess?: boolean;
-  namespaceName?: string;
   defaultRepoType?: string;
+  namespaceId?: string;
+  namespaceStatus?: string;
   requestId?: string;
+  code?: string;
   instanceId?: string;
   autoCreateRepo?: boolean;
-  namespaceId?: string;
-  code?: string;
+  isSuccess?: boolean;
+  namespaceName?: string;
   static names(): { [key: string]: string } {
     return {
-      namespaceStatus: 'NamespaceStatus',
-      isSuccess: 'IsSuccess',
-      namespaceName: 'NamespaceName',
       defaultRepoType: 'DefaultRepoType',
+      namespaceId: 'NamespaceId',
+      namespaceStatus: 'NamespaceStatus',
       requestId: 'RequestId',
+      code: 'Code',
       instanceId: 'InstanceId',
       autoCreateRepo: 'AutoCreateRepo',
-      namespaceId: 'NamespaceId',
-      code: 'Code',
+      isSuccess: 'IsSuccess',
+      namespaceName: 'NamespaceName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      namespaceStatus: 'string',
-      isSuccess: 'boolean',
-      namespaceName: 'string',
       defaultRepoType: 'string',
+      namespaceId: 'string',
+      namespaceStatus: 'string',
       requestId: 'string',
+      code: 'string',
       instanceId: 'string',
       autoCreateRepo: 'boolean',
-      namespaceId: 'string',
-      code: 'string',
+      isSuccess: 'boolean',
+      namespaceName: 'string',
     };
   }
 
@@ -2589,36 +2935,36 @@ export class GetRepoBuildRecordRequest extends $tea.Model {
 
 export class GetRepoBuildRecordResponseBody extends $tea.Model {
   status?: string;
-  isSuccess?: boolean;
   endTime?: number;
-  requestId?: string;
   startTime?: number;
+  requestId?: string;
+  code?: string;
+  isSuccess?: boolean;
   buildRecordId?: string;
   image?: GetRepoBuildRecordResponseBodyImage;
-  code?: string;
   static names(): { [key: string]: string } {
     return {
       status: 'Status',
-      isSuccess: 'IsSuccess',
       endTime: 'EndTime',
-      requestId: 'RequestId',
       startTime: 'StartTime',
+      requestId: 'RequestId',
+      code: 'Code',
+      isSuccess: 'IsSuccess',
       buildRecordId: 'BuildRecordId',
       image: 'Image',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       status: 'string',
-      isSuccess: 'boolean',
       endTime: 'number',
-      requestId: 'string',
       startTime: 'number',
+      requestId: 'string',
+      code: 'string',
+      isSuccess: 'boolean',
       buildRecordId: 'string',
       image: GetRepoBuildRecordResponseBodyImage,
-      code: 'string',
     };
   }
 
@@ -2675,25 +3021,25 @@ export class GetRepoBuildRecordStatusRequest extends $tea.Model {
 }
 
 export class GetRepoBuildRecordStatusResponseBody extends $tea.Model {
+  code?: string;
   isSuccess?: boolean;
   requestId?: string;
   buildStatus?: string;
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       isSuccess: 'IsSuccess',
       requestId: 'RequestId',
       buildStatus: 'BuildStatus',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
       isSuccess: 'boolean',
       requestId: 'string',
       buildStatus: 'string',
-      code: 'string',
     };
   }
 
@@ -2753,57 +3099,57 @@ export class GetRepositoryRequest extends $tea.Model {
 }
 
 export class GetRepositoryResponseBody extends $tea.Model {
-  isSuccess?: boolean;
-  repoNamespaceName?: string;
-  requestId?: string;
-  instanceId?: string;
+  summary?: string;
   createTime?: number;
-  repoName?: string;
-  code?: string;
-  tagImmutability?: boolean;
-  repoBuildType?: string;
+  isSuccess?: boolean;
+  instanceId?: string;
   repoStatus?: string;
   repoType?: string;
+  repoBuildType?: string;
   modifiedTime?: number;
-  summary?: string;
+  requestId?: string;
   repoId?: string;
+  code?: string;
+  repoNamespaceName?: string;
+  tagImmutability?: boolean;
+  repoName?: string;
   detail?: string;
   static names(): { [key: string]: string } {
     return {
-      isSuccess: 'IsSuccess',
-      repoNamespaceName: 'RepoNamespaceName',
-      requestId: 'RequestId',
-      instanceId: 'InstanceId',
+      summary: 'Summary',
       createTime: 'CreateTime',
-      repoName: 'RepoName',
-      code: 'Code',
-      tagImmutability: 'TagImmutability',
-      repoBuildType: 'RepoBuildType',
+      isSuccess: 'IsSuccess',
+      instanceId: 'InstanceId',
       repoStatus: 'RepoStatus',
       repoType: 'RepoType',
+      repoBuildType: 'RepoBuildType',
       modifiedTime: 'ModifiedTime',
-      summary: 'Summary',
+      requestId: 'RequestId',
       repoId: 'RepoId',
+      code: 'Code',
+      repoNamespaceName: 'RepoNamespaceName',
+      tagImmutability: 'TagImmutability',
+      repoName: 'RepoName',
       detail: 'Detail',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      isSuccess: 'boolean',
-      repoNamespaceName: 'string',
-      requestId: 'string',
-      instanceId: 'string',
+      summary: 'string',
       createTime: 'number',
-      repoName: 'string',
-      code: 'string',
-      tagImmutability: 'boolean',
-      repoBuildType: 'string',
+      isSuccess: 'boolean',
+      instanceId: 'string',
       repoStatus: 'string',
       repoType: 'string',
+      repoBuildType: 'string',
       modifiedTime: 'number',
-      summary: 'string',
+      requestId: 'string',
       repoId: 'string',
+      code: 'string',
+      repoNamespaceName: 'string',
+      tagImmutability: 'boolean',
+      repoName: 'string',
       detail: 'string',
     };
   }
@@ -2835,6 +3181,99 @@ export class GetRepositoryResponse extends $tea.Model {
   }
 }
 
+export class GetRepoSourceCodeRepoRequest extends $tea.Model {
+  instanceId?: string;
+  repoId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      repoId: 'RepoId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      repoId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRepoSourceCodeRepoResponseBody extends $tea.Model {
+  codeRepoType?: string;
+  repoId?: string;
+  requestId?: string;
+  codeRepoNamespaceName?: string;
+  overseaBuild?: string;
+  code?: string;
+  codeRepoName?: string;
+  autoBuild?: string;
+  isSuccess?: boolean;
+  disableCacheBuild?: string;
+  codeRepoDomain?: string;
+  static names(): { [key: string]: string } {
+    return {
+      codeRepoType: 'CodeRepoType',
+      repoId: 'RepoId',
+      requestId: 'RequestId',
+      codeRepoNamespaceName: 'CodeRepoNamespaceName',
+      overseaBuild: 'OverseaBuild',
+      code: 'Code',
+      codeRepoName: 'CodeRepoName',
+      autoBuild: 'AutoBuild',
+      isSuccess: 'IsSuccess',
+      disableCacheBuild: 'DisableCacheBuild',
+      codeRepoDomain: 'CodeRepoDomain',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      codeRepoType: 'string',
+      repoId: 'string',
+      requestId: 'string',
+      codeRepoNamespaceName: 'string',
+      overseaBuild: 'string',
+      code: 'string',
+      codeRepoName: 'string',
+      autoBuild: 'string',
+      isSuccess: 'boolean',
+      disableCacheBuild: 'string',
+      codeRepoDomain: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRepoSourceCodeRepoResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetRepoSourceCodeRepoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetRepoSourceCodeRepoResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetRepoSyncTaskRequest extends $tea.Model {
   instanceId?: string;
   syncTaskId?: string;
@@ -2858,52 +3297,52 @@ export class GetRepoSyncTaskRequest extends $tea.Model {
 }
 
 export class GetRepoSyncTaskResponseBody extends $tea.Model {
-  isSuccess?: boolean;
+  syncRuleId?: string;
   progress?: number;
   requestId?: string;
-  layerTasks?: GetRepoSyncTaskResponseBodyLayerTasks[];
+  syncedSize?: number;
   taskStatus?: string;
   syncTaskId?: string;
-  code?: string;
-  syncedSize?: number;
-  syncRuleId?: string;
-  imageFrom?: GetRepoSyncTaskResponseBodyImageFrom;
-  taskTrigger?: string;
-  imageTo?: GetRepoSyncTaskResponseBodyImageTo;
   syncBatchTaskId?: string;
+  code?: string;
+  isSuccess?: boolean;
+  taskTrigger?: string;
+  imageFrom?: GetRepoSyncTaskResponseBodyImageFrom;
+  imageTo?: GetRepoSyncTaskResponseBodyImageTo;
+  layerTasks?: GetRepoSyncTaskResponseBodyLayerTasks[];
   static names(): { [key: string]: string } {
     return {
-      isSuccess: 'IsSuccess',
+      syncRuleId: 'SyncRuleId',
       progress: 'Progress',
       requestId: 'RequestId',
-      layerTasks: 'LayerTasks',
+      syncedSize: 'SyncedSize',
       taskStatus: 'TaskStatus',
       syncTaskId: 'SyncTaskId',
-      code: 'Code',
-      syncedSize: 'SyncedSize',
-      syncRuleId: 'SyncRuleId',
-      imageFrom: 'ImageFrom',
-      taskTrigger: 'TaskTrigger',
-      imageTo: 'ImageTo',
       syncBatchTaskId: 'SyncBatchTaskId',
+      code: 'Code',
+      isSuccess: 'IsSuccess',
+      taskTrigger: 'TaskTrigger',
+      imageFrom: 'ImageFrom',
+      imageTo: 'ImageTo',
+      layerTasks: 'LayerTasks',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      isSuccess: 'boolean',
+      syncRuleId: 'string',
       progress: 'number',
       requestId: 'string',
-      layerTasks: { 'type': 'array', 'itemType': GetRepoSyncTaskResponseBodyLayerTasks },
+      syncedSize: 'number',
       taskStatus: 'string',
       syncTaskId: 'string',
-      code: 'string',
-      syncedSize: 'number',
-      syncRuleId: 'string',
-      imageFrom: GetRepoSyncTaskResponseBodyImageFrom,
-      taskTrigger: 'string',
-      imageTo: GetRepoSyncTaskResponseBodyImageTo,
       syncBatchTaskId: 'string',
+      code: 'string',
+      isSuccess: 'boolean',
+      taskTrigger: 'string',
+      imageFrom: GetRepoSyncTaskResponseBodyImageFrom,
+      imageTo: GetRepoSyncTaskResponseBodyImageTo,
+      layerTasks: { 'type': 'array', 'itemType': GetRepoSyncTaskResponseBodyLayerTasks },
     };
   }
 
@@ -2938,11 +3377,13 @@ export class GetRepoTagLayersRequest extends $tea.Model {
   instanceId?: string;
   repoId?: string;
   tag?: string;
+  digest?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
       repoId: 'RepoId',
       tag: 'Tag',
+      digest: 'Digest',
     };
   }
 
@@ -2951,6 +3392,7 @@ export class GetRepoTagLayersRequest extends $tea.Model {
       instanceId: 'string',
       repoId: 'string',
       tag: 'string',
+      digest: 'string',
     };
   }
 
@@ -2960,24 +3402,24 @@ export class GetRepoTagLayersRequest extends $tea.Model {
 }
 
 export class GetRepoTagLayersResponseBody extends $tea.Model {
+  code?: string;
   isSuccess?: boolean;
   requestId?: string;
-  code?: string;
   layers?: GetRepoTagLayersResponseBodyLayers[];
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       isSuccess: 'IsSuccess',
       requestId: 'RequestId',
-      code: 'Code',
       layers: 'Layers',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
       isSuccess: 'boolean',
       requestId: 'string',
-      code: 'string',
       layers: { 'type': 'array', 'itemType': GetRepoTagLayersResponseBodyLayers },
     };
   }
@@ -3038,25 +3480,25 @@ export class GetRepoTagManifestRequest extends $tea.Model {
 }
 
 export class GetRepoTagManifestResponseBody extends $tea.Model {
+  code?: string;
   isSuccess?: boolean;
   requestId?: string;
   manifest?: GetRepoTagManifestResponseBodyManifest;
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       isSuccess: 'IsSuccess',
       requestId: 'RequestId',
       manifest: 'Manifest',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
       isSuccess: 'boolean',
       requestId: 'string',
       manifest: GetRepoTagManifestResponseBodyManifest,
-      code: 'string',
     };
   }
 
@@ -3092,12 +3534,14 @@ export class GetRepoTagScanStatusRequest extends $tea.Model {
   repoId?: string;
   tag?: string;
   scanTaskId?: string;
+  digest?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
       repoId: 'RepoId',
       tag: 'Tag',
       scanTaskId: 'ScanTaskId',
+      digest: 'Digest',
     };
   }
 
@@ -3107,6 +3551,7 @@ export class GetRepoTagScanStatusRequest extends $tea.Model {
       repoId: 'string',
       tag: 'string',
       scanTaskId: 'string',
+      digest: 'string',
     };
   }
 
@@ -3117,24 +3562,27 @@ export class GetRepoTagScanStatusRequest extends $tea.Model {
 
 export class GetRepoTagScanStatusResponseBody extends $tea.Model {
   status?: string;
+  code?: string;
   isSuccess?: boolean;
   requestId?: string;
-  code?: string;
+  scanService?: string;
   static names(): { [key: string]: string } {
     return {
       status: 'Status',
+      code: 'Code',
       isSuccess: 'IsSuccess',
       requestId: 'RequestId',
-      code: 'Code',
+      scanService: 'ScanService',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       status: 'string',
+      code: 'string',
       isSuccess: 'boolean',
       requestId: 'string',
-      code: 'string',
+      scanService: 'string',
     };
   }
 
@@ -3170,12 +3618,14 @@ export class GetRepoTagScanSummaryRequest extends $tea.Model {
   repoId?: string;
   tag?: string;
   scanTaskId?: string;
+  digest?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
       repoId: 'RepoId',
       tag: 'Tag',
       scanTaskId: 'ScanTaskId',
+      digest: 'Digest',
     };
   }
 
@@ -3185,6 +3635,7 @@ export class GetRepoTagScanSummaryRequest extends $tea.Model {
       repoId: 'string',
       tag: 'string',
       scanTaskId: 'string',
+      digest: 'string',
     };
   }
 
@@ -3194,37 +3645,37 @@ export class GetRepoTagScanSummaryRequest extends $tea.Model {
 }
 
 export class GetRepoTagScanSummaryResponseBody extends $tea.Model {
-  isSuccess?: boolean;
-  requestId?: string;
-  lowSeverity?: number;
-  mediumSeverity?: number;
-  highSeverity?: number;
   unknownSeverity?: number;
-  code?: string;
+  requestId?: string;
   totalSeverity?: number;
+  code?: string;
+  mediumSeverity?: number;
+  isSuccess?: boolean;
+  highSeverity?: number;
+  lowSeverity?: number;
   static names(): { [key: string]: string } {
     return {
-      isSuccess: 'IsSuccess',
-      requestId: 'RequestId',
-      lowSeverity: 'LowSeverity',
-      mediumSeverity: 'MediumSeverity',
-      highSeverity: 'HighSeverity',
       unknownSeverity: 'UnknownSeverity',
-      code: 'Code',
+      requestId: 'RequestId',
       totalSeverity: 'TotalSeverity',
+      code: 'Code',
+      mediumSeverity: 'MediumSeverity',
+      isSuccess: 'IsSuccess',
+      highSeverity: 'HighSeverity',
+      lowSeverity: 'LowSeverity',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      isSuccess: 'boolean',
-      requestId: 'string',
-      lowSeverity: 'number',
-      mediumSeverity: 'number',
-      highSeverity: 'number',
       unknownSeverity: 'number',
-      code: 'string',
+      requestId: 'string',
       totalSeverity: 'number',
+      code: 'string',
+      mediumSeverity: 'number',
+      isSuccess: 'boolean',
+      highSeverity: 'number',
+      lowSeverity: 'number',
     };
   }
 
@@ -3247,6 +3698,87 @@ export class GetRepoTagScanSummaryResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: GetRepoTagScanSummaryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListArtifactBuildTaskLogRequest extends $tea.Model {
+  instanceId?: string;
+  buildTaskId?: string;
+  page?: number;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      buildTaskId: 'BuildTaskId',
+      page: 'Page',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      buildTaskId: 'string',
+      page: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListArtifactBuildTaskLogResponseBody extends $tea.Model {
+  code?: string;
+  isSuccess?: boolean;
+  requestId?: string;
+  totalCount?: number;
+  buildTaskLogs?: ListArtifactBuildTaskLogResponseBodyBuildTaskLogs[];
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      isSuccess: 'IsSuccess',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+      buildTaskLogs: 'BuildTaskLogs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      isSuccess: 'boolean',
+      requestId: 'string',
+      totalCount: 'number',
+      buildTaskLogs: { 'type': 'array', 'itemType': ListArtifactBuildTaskLogResponseBodyBuildTaskLogs },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListArtifactBuildTaskLogResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListArtifactBuildTaskLogResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListArtifactBuildTaskLogResponseBody,
     };
   }
 
@@ -3287,34 +3819,34 @@ export class ListChartNamespaceRequest extends $tea.Model {
 }
 
 export class ListChartNamespaceResponseBody extends $tea.Model {
-  isSuccess?: boolean;
-  namespaces?: ListChartNamespaceResponseBodyNamespaces[];
-  totalCount?: string;
   requestId?: string;
-  pageSize?: number;
-  pageNo?: number;
   code?: string;
+  pageNo?: number;
+  isSuccess?: boolean;
+  pageSize?: number;
+  totalCount?: string;
+  namespaces?: ListChartNamespaceResponseBodyNamespaces[];
   static names(): { [key: string]: string } {
     return {
-      isSuccess: 'IsSuccess',
-      namespaces: 'Namespaces',
-      totalCount: 'TotalCount',
       requestId: 'RequestId',
-      pageSize: 'PageSize',
-      pageNo: 'PageNo',
       code: 'Code',
+      pageNo: 'PageNo',
+      isSuccess: 'IsSuccess',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+      namespaces: 'Namespaces',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      isSuccess: 'boolean',
-      namespaces: { 'type': 'array', 'itemType': ListChartNamespaceResponseBodyNamespaces },
-      totalCount: 'string',
       requestId: 'string',
-      pageSize: 'number',
-      pageNo: 'number',
       code: 'string',
+      pageNo: 'number',
+      isSuccess: 'boolean',
+      pageSize: 'number',
+      totalCount: 'string',
+      namespaces: { 'type': 'array', 'itemType': ListChartNamespaceResponseBodyNamespaces },
     };
   }
 
@@ -3380,34 +3912,34 @@ export class ListChartReleaseRequest extends $tea.Model {
 }
 
 export class ListChartReleaseResponseBody extends $tea.Model {
-  isSuccess?: boolean;
-  totalCount?: string;
   requestId?: string;
-  pageSize?: number;
-  chartReleases?: ListChartReleaseResponseBodyChartReleases[];
-  pageNo?: number;
   code?: string;
+  pageNo?: number;
+  isSuccess?: boolean;
+  pageSize?: number;
+  totalCount?: string;
+  chartReleases?: ListChartReleaseResponseBodyChartReleases[];
   static names(): { [key: string]: string } {
     return {
-      isSuccess: 'IsSuccess',
-      totalCount: 'TotalCount',
       requestId: 'RequestId',
-      pageSize: 'PageSize',
-      chartReleases: 'ChartReleases',
-      pageNo: 'PageNo',
       code: 'Code',
+      pageNo: 'PageNo',
+      isSuccess: 'IsSuccess',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+      chartReleases: 'ChartReleases',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      isSuccess: 'boolean',
-      totalCount: 'string',
       requestId: 'string',
-      pageSize: 'number',
-      chartReleases: { 'type': 'array', 'itemType': ListChartReleaseResponseBodyChartReleases },
-      pageNo: 'number',
       code: 'string',
+      pageNo: 'number',
+      isSuccess: 'boolean',
+      pageSize: 'number',
+      totalCount: 'string',
+      chartReleases: { 'type': 'array', 'itemType': ListChartReleaseResponseBodyChartReleases },
     };
   }
 
@@ -3473,34 +4005,34 @@ export class ListChartRepositoryRequest extends $tea.Model {
 }
 
 export class ListChartRepositoryResponseBody extends $tea.Model {
-  repositories?: ListChartRepositoryResponseBodyRepositories[];
-  isSuccess?: boolean;
-  totalCount?: string;
   requestId?: string;
-  pageSize?: number;
-  pageNo?: number;
   code?: string;
+  pageNo?: number;
+  isSuccess?: boolean;
+  pageSize?: number;
+  totalCount?: string;
+  repositories?: ListChartRepositoryResponseBodyRepositories[];
   static names(): { [key: string]: string } {
     return {
-      repositories: 'Repositories',
-      isSuccess: 'IsSuccess',
-      totalCount: 'TotalCount',
       requestId: 'RequestId',
-      pageSize: 'PageSize',
-      pageNo: 'PageNo',
       code: 'Code',
+      pageNo: 'PageNo',
+      isSuccess: 'IsSuccess',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+      repositories: 'Repositories',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      repositories: { 'type': 'array', 'itemType': ListChartRepositoryResponseBodyRepositories },
-      isSuccess: 'boolean',
-      totalCount: 'string',
       requestId: 'string',
-      pageSize: 'number',
-      pageNo: 'number',
       code: 'string',
+      pageNo: 'number',
+      isSuccess: 'boolean',
+      pageSize: 'number',
+      totalCount: 'string',
+      repositories: { 'type': 'array', 'itemType': ListChartRepositoryResponseBodyRepositories },
     };
   }
 
@@ -3560,34 +4092,34 @@ export class ListInstanceRequest extends $tea.Model {
 }
 
 export class ListInstanceResponseBody extends $tea.Model {
-  instances?: ListInstanceResponseBodyInstances[];
-  isSuccess?: boolean;
-  totalCount?: number;
   requestId?: string;
-  pageSize?: number;
-  pageNo?: number;
   code?: string;
+  pageNo?: number;
+  isSuccess?: boolean;
+  pageSize?: number;
+  totalCount?: number;
+  instances?: ListInstanceResponseBodyInstances[];
   static names(): { [key: string]: string } {
     return {
-      instances: 'Instances',
-      isSuccess: 'IsSuccess',
-      totalCount: 'TotalCount',
       requestId: 'RequestId',
-      pageSize: 'PageSize',
-      pageNo: 'PageNo',
       code: 'Code',
+      pageNo: 'PageNo',
+      isSuccess: 'IsSuccess',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+      instances: 'Instances',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      instances: { 'type': 'array', 'itemType': ListInstanceResponseBodyInstances },
-      isSuccess: 'boolean',
-      totalCount: 'number',
       requestId: 'string',
-      pageSize: 'number',
-      pageNo: 'number',
       code: 'string',
+      pageNo: 'number',
+      isSuccess: 'boolean',
+      pageSize: 'number',
+      totalCount: 'number',
+      instances: { 'type': 'array', 'itemType': ListInstanceResponseBodyInstances },
     };
   }
 
@@ -3641,25 +4173,25 @@ export class ListInstanceEndpointRequest extends $tea.Model {
 }
 
 export class ListInstanceEndpointResponseBody extends $tea.Model {
-  endpoints?: ListInstanceEndpointResponseBodyEndpoints[];
+  code?: string;
   isSuccess?: boolean;
   requestId?: string;
-  code?: string;
+  endpoints?: ListInstanceEndpointResponseBodyEndpoints[];
   static names(): { [key: string]: string } {
     return {
-      endpoints: 'Endpoints',
+      code: 'Code',
       isSuccess: 'IsSuccess',
       requestId: 'RequestId',
-      code: 'Code',
+      endpoints: 'Endpoints',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      endpoints: { 'type': 'array', 'itemType': ListInstanceEndpointResponseBodyEndpoints },
+      code: 'string',
       isSuccess: 'boolean',
       requestId: 'string',
-      code: 'string',
+      endpoints: { 'type': 'array', 'itemType': ListInstanceEndpointResponseBodyEndpoints },
     };
   }
 
@@ -3710,25 +4242,25 @@ export class ListInstanceRegionRequest extends $tea.Model {
 }
 
 export class ListInstanceRegionResponseBody extends $tea.Model {
+  code?: string;
   isSuccess?: boolean;
   requestId?: string;
   regions?: ListInstanceRegionResponseBodyRegions[];
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       isSuccess: 'IsSuccess',
       requestId: 'RequestId',
       regions: 'Regions',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
       isSuccess: 'boolean',
       requestId: 'string',
       regions: { 'type': 'array', 'itemType': ListInstanceRegionResponseBodyRegions },
-      code: 'string',
     };
   }
 
@@ -3791,34 +4323,34 @@ export class ListNamespaceRequest extends $tea.Model {
 }
 
 export class ListNamespaceResponseBody extends $tea.Model {
-  isSuccess?: boolean;
-  namespaces?: ListNamespaceResponseBodyNamespaces[];
-  totalCount?: string;
   requestId?: string;
-  pageSize?: number;
-  pageNo?: number;
   code?: string;
+  pageNo?: number;
+  isSuccess?: boolean;
+  pageSize?: number;
+  totalCount?: string;
+  namespaces?: ListNamespaceResponseBodyNamespaces[];
   static names(): { [key: string]: string } {
     return {
-      isSuccess: 'IsSuccess',
-      namespaces: 'Namespaces',
-      totalCount: 'TotalCount',
       requestId: 'RequestId',
-      pageSize: 'PageSize',
-      pageNo: 'PageNo',
       code: 'Code',
+      pageNo: 'PageNo',
+      isSuccess: 'IsSuccess',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+      namespaces: 'Namespaces',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      isSuccess: 'boolean',
-      namespaces: { 'type': 'array', 'itemType': ListNamespaceResponseBodyNamespaces },
-      totalCount: 'string',
       requestId: 'string',
-      pageSize: 'number',
-      pageNo: 'number',
       code: 'string',
+      pageNo: 'number',
+      isSuccess: 'boolean',
+      pageSize: 'number',
+      totalCount: 'string',
+      namespaces: { 'type': 'array', 'itemType': ListNamespaceResponseBodyNamespaces },
     };
   }
 
@@ -3878,34 +4410,34 @@ export class ListRepoBuildRecordRequest extends $tea.Model {
 }
 
 export class ListRepoBuildRecordResponseBody extends $tea.Model {
-  isSuccess?: boolean;
-  buildRecords?: ListRepoBuildRecordResponseBodyBuildRecords[];
-  totalCount?: string;
   requestId?: string;
-  pageSize?: number;
-  pageNo?: number;
   code?: string;
+  pageNo?: number;
+  isSuccess?: boolean;
+  pageSize?: number;
+  totalCount?: string;
+  buildRecords?: ListRepoBuildRecordResponseBodyBuildRecords[];
   static names(): { [key: string]: string } {
     return {
-      isSuccess: 'IsSuccess',
-      buildRecords: 'BuildRecords',
-      totalCount: 'TotalCount',
       requestId: 'RequestId',
-      pageSize: 'PageSize',
-      pageNo: 'PageNo',
       code: 'Code',
+      pageNo: 'PageNo',
+      isSuccess: 'IsSuccess',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+      buildRecords: 'BuildRecords',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      isSuccess: 'boolean',
-      buildRecords: { 'type': 'array', 'itemType': ListRepoBuildRecordResponseBodyBuildRecords },
-      totalCount: 'string',
       requestId: 'string',
-      pageSize: 'number',
-      pageNo: 'number',
       code: 'string',
+      pageNo: 'number',
+      isSuccess: 'boolean',
+      pageSize: 'number',
+      totalCount: 'string',
+      buildRecords: { 'type': 'array', 'itemType': ListRepoBuildRecordResponseBodyBuildRecords },
     };
   }
 
@@ -3965,34 +4497,34 @@ export class ListRepoBuildRecordLogRequest extends $tea.Model {
 }
 
 export class ListRepoBuildRecordLogResponseBody extends $tea.Model {
-  isSuccess?: boolean;
-  buildRecordLogs?: ListRepoBuildRecordLogResponseBodyBuildRecordLogs[];
-  totalCount?: string;
   requestId?: string;
-  pageSize?: number;
-  pageNo?: number;
   code?: string;
+  pageNo?: number;
+  isSuccess?: boolean;
+  pageSize?: number;
+  totalCount?: string;
+  buildRecordLogs?: ListRepoBuildRecordLogResponseBodyBuildRecordLogs[];
   static names(): { [key: string]: string } {
     return {
-      isSuccess: 'IsSuccess',
-      buildRecordLogs: 'BuildRecordLogs',
-      totalCount: 'TotalCount',
       requestId: 'RequestId',
-      pageSize: 'PageSize',
-      pageNo: 'PageNo',
       code: 'Code',
+      pageNo: 'PageNo',
+      isSuccess: 'IsSuccess',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+      buildRecordLogs: 'BuildRecordLogs',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      isSuccess: 'boolean',
-      buildRecordLogs: { 'type': 'array', 'itemType': ListRepoBuildRecordLogResponseBodyBuildRecordLogs },
-      totalCount: 'string',
       requestId: 'string',
-      pageSize: 'number',
-      pageNo: 'number',
       code: 'string',
+      pageNo: 'number',
+      isSuccess: 'boolean',
+      pageSize: 'number',
+      totalCount: 'string',
+      buildRecordLogs: { 'type': 'array', 'itemType': ListRepoBuildRecordLogResponseBodyBuildRecordLogs },
     };
   }
 
@@ -4052,34 +4584,34 @@ export class ListRepoBuildRuleRequest extends $tea.Model {
 }
 
 export class ListRepoBuildRuleResponseBody extends $tea.Model {
-  isSuccess?: boolean;
-  totalCount?: string;
   requestId?: string;
-  pageSize?: number;
-  buildRules?: ListRepoBuildRuleResponseBodyBuildRules[];
-  pageNo?: number;
   code?: string;
+  pageNo?: number;
+  isSuccess?: boolean;
+  pageSize?: number;
+  totalCount?: string;
+  buildRules?: ListRepoBuildRuleResponseBodyBuildRules[];
   static names(): { [key: string]: string } {
     return {
-      isSuccess: 'IsSuccess',
-      totalCount: 'TotalCount',
       requestId: 'RequestId',
-      pageSize: 'PageSize',
-      buildRules: 'BuildRules',
-      pageNo: 'PageNo',
       code: 'Code',
+      pageNo: 'PageNo',
+      isSuccess: 'IsSuccess',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+      buildRules: 'BuildRules',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      isSuccess: 'boolean',
-      totalCount: 'string',
       requestId: 'string',
-      pageSize: 'number',
-      buildRules: { 'type': 'array', 'itemType': ListRepoBuildRuleResponseBodyBuildRules },
-      pageNo: 'number',
       code: 'string',
+      pageNo: 'number',
+      isSuccess: 'boolean',
+      pageSize: 'number',
+      totalCount: 'string',
+      buildRules: { 'type': 'array', 'itemType': ListRepoBuildRuleResponseBodyBuildRules },
     };
   }
 
@@ -4145,34 +4677,34 @@ export class ListRepositoryRequest extends $tea.Model {
 }
 
 export class ListRepositoryResponseBody extends $tea.Model {
-  repositories?: ListRepositoryResponseBodyRepositories[];
-  isSuccess?: boolean;
-  totalCount?: string;
   requestId?: string;
-  pageSize?: number;
-  pageNo?: number;
   code?: string;
+  pageNo?: number;
+  isSuccess?: boolean;
+  pageSize?: number;
+  totalCount?: string;
+  repositories?: ListRepositoryResponseBodyRepositories[];
   static names(): { [key: string]: string } {
     return {
-      repositories: 'Repositories',
-      isSuccess: 'IsSuccess',
-      totalCount: 'TotalCount',
       requestId: 'RequestId',
-      pageSize: 'PageSize',
-      pageNo: 'PageNo',
       code: 'Code',
+      pageNo: 'PageNo',
+      isSuccess: 'IsSuccess',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+      repositories: 'Repositories',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      repositories: { 'type': 'array', 'itemType': ListRepositoryResponseBodyRepositories },
-      isSuccess: 'boolean',
-      totalCount: 'string',
       requestId: 'string',
-      pageSize: 'number',
-      pageNo: 'number',
       code: 'string',
+      pageNo: 'number',
+      isSuccess: 'boolean',
+      pageSize: 'number',
+      totalCount: 'string',
+      repositories: { 'type': 'array', 'itemType': ListRepositoryResponseBodyRepositories },
     };
   }
 
@@ -4241,34 +4773,34 @@ export class ListRepoSyncRuleRequest extends $tea.Model {
 }
 
 export class ListRepoSyncRuleResponseBody extends $tea.Model {
-  isSuccess?: boolean;
-  totalCount?: number;
   requestId?: string;
-  pageSize?: number;
-  syncRules?: ListRepoSyncRuleResponseBodySyncRules[];
-  pageNo?: number;
   code?: string;
+  pageNo?: number;
+  isSuccess?: boolean;
+  pageSize?: number;
+  totalCount?: number;
+  syncRules?: ListRepoSyncRuleResponseBodySyncRules[];
   static names(): { [key: string]: string } {
     return {
-      isSuccess: 'IsSuccess',
-      totalCount: 'TotalCount',
       requestId: 'RequestId',
-      pageSize: 'PageSize',
-      syncRules: 'SyncRules',
-      pageNo: 'PageNo',
       code: 'Code',
+      pageNo: 'PageNo',
+      isSuccess: 'IsSuccess',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+      syncRules: 'SyncRules',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      isSuccess: 'boolean',
-      totalCount: 'number',
       requestId: 'string',
-      pageSize: 'number',
-      syncRules: { 'type': 'array', 'itemType': ListRepoSyncRuleResponseBodySyncRules },
-      pageNo: 'number',
       code: 'string',
+      pageNo: 'number',
+      isSuccess: 'boolean',
+      pageSize: 'number',
+      totalCount: 'number',
+      syncRules: { 'type': 'array', 'itemType': ListRepoSyncRuleResponseBodySyncRules },
     };
   }
 
@@ -4301,12 +4833,18 @@ export class ListRepoSyncRuleResponse extends $tea.Model {
 
 export class ListRepoSyncTaskRequest extends $tea.Model {
   instanceId?: string;
+  repoNamespaceName?: string;
+  repoName?: string;
+  tag?: string;
   pageNo?: number;
   pageSize?: number;
   syncRecordId?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
+      repoNamespaceName: 'RepoNamespaceName',
+      repoName: 'RepoName',
+      tag: 'Tag',
       pageNo: 'PageNo',
       pageSize: 'PageSize',
       syncRecordId: 'SyncRecordId',
@@ -4316,6 +4854,9 @@ export class ListRepoSyncTaskRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
+      repoNamespaceName: 'string',
+      repoName: 'string',
+      tag: 'string',
       pageNo: 'number',
       pageSize: 'number',
       syncRecordId: 'string',
@@ -4328,34 +4869,34 @@ export class ListRepoSyncTaskRequest extends $tea.Model {
 }
 
 export class ListRepoSyncTaskResponseBody extends $tea.Model {
-  isSuccess?: boolean;
-  totalCount?: string;
   requestId?: string;
-  pageSize?: number;
-  pageNo?: number;
-  syncTasks?: ListRepoSyncTaskResponseBodySyncTasks[];
   code?: string;
+  pageNo?: number;
+  isSuccess?: boolean;
+  pageSize?: number;
+  totalCount?: string;
+  syncTasks?: ListRepoSyncTaskResponseBodySyncTasks[];
   static names(): { [key: string]: string } {
     return {
-      isSuccess: 'IsSuccess',
-      totalCount: 'TotalCount',
       requestId: 'RequestId',
-      pageSize: 'PageSize',
-      pageNo: 'PageNo',
-      syncTasks: 'SyncTasks',
       code: 'Code',
+      pageNo: 'PageNo',
+      isSuccess: 'IsSuccess',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+      syncTasks: 'SyncTasks',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      isSuccess: 'boolean',
-      totalCount: 'string',
       requestId: 'string',
-      pageSize: 'number',
-      pageNo: 'number',
-      syncTasks: { 'type': 'array', 'itemType': ListRepoSyncTaskResponseBodySyncTasks },
       code: 'string',
+      pageNo: 'number',
+      isSuccess: 'boolean',
+      pageSize: 'number',
+      totalCount: 'string',
+      syncTasks: { 'type': 'array', 'itemType': ListRepoSyncTaskResponseBodySyncTasks },
     };
   }
 
@@ -4415,34 +4956,34 @@ export class ListRepoTagRequest extends $tea.Model {
 }
 
 export class ListRepoTagResponseBody extends $tea.Model {
-  isSuccess?: boolean;
-  totalCount?: string;
   requestId?: string;
-  pageSize?: number;
-  images?: ListRepoTagResponseBodyImages[];
-  pageNo?: number;
   code?: string;
+  pageNo?: number;
+  isSuccess?: boolean;
+  pageSize?: number;
+  totalCount?: string;
+  images?: ListRepoTagResponseBodyImages[];
   static names(): { [key: string]: string } {
     return {
-      isSuccess: 'IsSuccess',
-      totalCount: 'TotalCount',
       requestId: 'RequestId',
-      pageSize: 'PageSize',
-      images: 'Images',
-      pageNo: 'PageNo',
       code: 'Code',
+      pageNo: 'PageNo',
+      isSuccess: 'IsSuccess',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+      images: 'Images',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      isSuccess: 'boolean',
-      totalCount: 'string',
       requestId: 'string',
-      pageSize: 'number',
-      images: { 'type': 'array', 'itemType': ListRepoTagResponseBodyImages },
-      pageNo: 'number',
       code: 'string',
+      pageNo: 'number',
+      isSuccess: 'boolean',
+      pageSize: 'number',
+      totalCount: 'string',
+      images: { 'type': 'array', 'itemType': ListRepoTagResponseBodyImages },
     };
   }
 
@@ -4481,6 +5022,7 @@ export class ListRepoTagScanResultRequest extends $tea.Model {
   pageNo?: number;
   pageSize?: number;
   severity?: string;
+  digest?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
@@ -4490,6 +5032,7 @@ export class ListRepoTagScanResultRequest extends $tea.Model {
       pageNo: 'PageNo',
       pageSize: 'PageSize',
       severity: 'Severity',
+      digest: 'Digest',
     };
   }
 
@@ -4502,6 +5045,7 @@ export class ListRepoTagScanResultRequest extends $tea.Model {
       pageNo: 'number',
       pageSize: 'number',
       severity: 'string',
+      digest: 'string',
     };
   }
 
@@ -4511,34 +5055,34 @@ export class ListRepoTagScanResultRequest extends $tea.Model {
 }
 
 export class ListRepoTagScanResultResponseBody extends $tea.Model {
-  isSuccess?: boolean;
-  totalCount?: number;
   requestId?: string;
-  pageSize?: number;
-  pageNo?: number;
-  vulnerabilities?: ListRepoTagScanResultResponseBodyVulnerabilities[];
   code?: string;
+  pageNo?: number;
+  isSuccess?: boolean;
+  pageSize?: number;
+  totalCount?: number;
+  vulnerabilities?: ListRepoTagScanResultResponseBodyVulnerabilities[];
   static names(): { [key: string]: string } {
     return {
-      isSuccess: 'IsSuccess',
-      totalCount: 'TotalCount',
       requestId: 'RequestId',
-      pageSize: 'PageSize',
-      pageNo: 'PageNo',
-      vulnerabilities: 'Vulnerabilities',
       code: 'Code',
+      pageNo: 'PageNo',
+      isSuccess: 'IsSuccess',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+      vulnerabilities: 'Vulnerabilities',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      isSuccess: 'boolean',
-      totalCount: 'number',
       requestId: 'string',
-      pageSize: 'number',
-      pageNo: 'number',
-      vulnerabilities: { 'type': 'array', 'itemType': ListRepoTagScanResultResponseBodyVulnerabilities },
       code: 'string',
+      pageNo: 'number',
+      isSuccess: 'boolean',
+      pageSize: 'number',
+      totalCount: 'number',
+      vulnerabilities: { 'type': 'array', 'itemType': ListRepoTagScanResultResponseBodyVulnerabilities },
     };
   }
 
@@ -4592,25 +5136,25 @@ export class ListRepoTriggerRequest extends $tea.Model {
 }
 
 export class ListRepoTriggerResponseBody extends $tea.Model {
+  code?: string;
   isSuccess?: boolean;
   requestId?: string;
   triggers?: ListRepoTriggerResponseBodyTriggers[];
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       isSuccess: 'IsSuccess',
       requestId: 'RequestId',
       triggers: 'Triggers',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
       isSuccess: 'boolean',
       requestId: 'string',
       triggers: { 'type': 'array', 'itemType': ListRepoTriggerResponseBodyTriggers },
-      code: 'string',
     };
   }
 
@@ -4664,25 +5208,25 @@ export class ListRepoTriggerRecordRequest extends $tea.Model {
 }
 
 export class ListRepoTriggerRecordResponseBody extends $tea.Model {
+  code?: string;
   isSuccess?: boolean;
   requestId?: string;
   repoTriggerRecords?: ListRepoTriggerRecordResponseBodyRepoTriggerRecords[];
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       isSuccess: 'IsSuccess',
       requestId: 'RequestId',
       repoTriggerRecords: 'RepoTriggerRecords',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
       isSuccess: 'boolean',
       requestId: 'string',
       repoTriggerRecords: { 'type': 'array', 'itemType': ListRepoTriggerRecordResponseBodyRepoTriggerRecords },
-      code: 'string',
     };
   }
 
@@ -4736,22 +5280,22 @@ export class ResetLoginPasswordRequest extends $tea.Model {
 }
 
 export class ResetLoginPasswordResponseBody extends $tea.Model {
+  code?: string;
   isSuccess?: boolean;
   requestId?: string;
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       isSuccess: 'IsSuccess',
       requestId: 'RequestId',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
       isSuccess: 'boolean',
       requestId: 'string',
-      code: 'string',
     };
   }
 
@@ -4811,22 +5355,22 @@ export class UpdateChartNamespaceRequest extends $tea.Model {
 }
 
 export class UpdateChartNamespaceResponseBody extends $tea.Model {
+  code?: string;
   isSuccess?: boolean;
   requestId?: string;
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       isSuccess: 'IsSuccess',
       requestId: 'RequestId',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
       isSuccess: 'boolean',
       requestId: 'string',
-      code: 'string',
     };
   }
 
@@ -4889,22 +5433,22 @@ export class UpdateChartRepositoryRequest extends $tea.Model {
 }
 
 export class UpdateChartRepositoryResponseBody extends $tea.Model {
+  code?: string;
   isSuccess?: boolean;
   requestId?: string;
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       isSuccess: 'IsSuccess',
       requestId: 'RequestId',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
       isSuccess: 'boolean',
       requestId: 'string',
-      code: 'string',
     };
   }
 
@@ -4964,22 +5508,22 @@ export class UpdateInstanceEndpointStatusRequest extends $tea.Model {
 }
 
 export class UpdateInstanceEndpointStatusResponseBody extends $tea.Model {
+  code?: string;
   isSuccess?: boolean;
   requestId?: string;
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       isSuccess: 'IsSuccess',
       requestId: 'RequestId',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
       isSuccess: 'boolean',
       requestId: 'string',
-      code: 'string',
     };
   }
 
@@ -5039,22 +5583,22 @@ export class UpdateNamespaceRequest extends $tea.Model {
 }
 
 export class UpdateNamespaceResponseBody extends $tea.Model {
+  code?: string;
   isSuccess?: boolean;
   requestId?: string;
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       isSuccess: 'IsSuccess',
       requestId: 'RequestId',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
       isSuccess: 'boolean',
       requestId: 'string',
-      code: 'string',
     };
   }
 
@@ -5094,6 +5638,7 @@ export class UpdateRepoBuildRuleRequest extends $tea.Model {
   pushName?: string;
   imageTag?: string;
   buildRuleId?: string;
+  platforms?: string[];
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
@@ -5104,6 +5649,7 @@ export class UpdateRepoBuildRuleRequest extends $tea.Model {
       pushName: 'PushName',
       imageTag: 'ImageTag',
       buildRuleId: 'BuildRuleId',
+      platforms: 'Platforms',
     };
   }
 
@@ -5117,6 +5663,7 @@ export class UpdateRepoBuildRuleRequest extends $tea.Model {
       pushName: 'string',
       imageTag: 'string',
       buildRuleId: 'string',
+      platforms: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -5126,25 +5673,25 @@ export class UpdateRepoBuildRuleRequest extends $tea.Model {
 }
 
 export class UpdateRepoBuildRuleResponseBody extends $tea.Model {
-  isSuccess?: boolean;
-  buildRuleId?: string;
-  requestId?: string;
   code?: string;
+  isSuccess?: boolean;
+  requestId?: string;
+  buildRuleId?: string;
   static names(): { [key: string]: string } {
     return {
-      isSuccess: 'IsSuccess',
-      buildRuleId: 'BuildRuleId',
-      requestId: 'RequestId',
       code: 'Code',
+      isSuccess: 'IsSuccess',
+      requestId: 'RequestId',
+      buildRuleId: 'BuildRuleId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      isSuccess: 'boolean',
-      buildRuleId: 'string',
-      requestId: 'string',
       code: 'string',
+      isSuccess: 'boolean',
+      requestId: 'string',
+      buildRuleId: 'string',
     };
   }
 
@@ -5210,22 +5757,22 @@ export class UpdateRepositoryRequest extends $tea.Model {
 }
 
 export class UpdateRepositoryResponseBody extends $tea.Model {
+  code?: string;
   isSuccess?: boolean;
   requestId?: string;
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       isSuccess: 'IsSuccess',
       requestId: 'RequestId',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
       isSuccess: 'boolean',
       requestId: 'string',
-      code: 'string',
     };
   }
 
@@ -5248,6 +5795,96 @@ export class UpdateRepositoryResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: UpdateRepositoryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateRepoSourceCodeRepoRequest extends $tea.Model {
+  instanceId?: string;
+  repoId?: string;
+  codeRepoType?: string;
+  codeRepoNamespaceName?: string;
+  codeRepoName?: string;
+  autoBuild?: string;
+  overseaBuild?: string;
+  disableCacheBuild?: string;
+  codeRepoId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      repoId: 'RepoId',
+      codeRepoType: 'CodeRepoType',
+      codeRepoNamespaceName: 'CodeRepoNamespaceName',
+      codeRepoName: 'CodeRepoName',
+      autoBuild: 'AutoBuild',
+      overseaBuild: 'OverseaBuild',
+      disableCacheBuild: 'DisableCacheBuild',
+      codeRepoId: 'CodeRepoId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      repoId: 'string',
+      codeRepoType: 'string',
+      codeRepoNamespaceName: 'string',
+      codeRepoName: 'string',
+      autoBuild: 'string',
+      overseaBuild: 'string',
+      disableCacheBuild: 'string',
+      codeRepoId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateRepoSourceCodeRepoResponseBody extends $tea.Model {
+  code?: string;
+  isSuccess?: boolean;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      isSuccess: 'IsSuccess',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      isSuccess: 'boolean',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateRepoSourceCodeRepoResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: UpdateRepoSourceCodeRepoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: UpdateRepoSourceCodeRepoResponseBody,
     };
   }
 
@@ -5294,22 +5931,22 @@ export class UpdateRepoTriggerRequest extends $tea.Model {
 }
 
 export class UpdateRepoTriggerResponseBody extends $tea.Model {
+  code?: string;
   isSuccess?: boolean;
   requestId?: string;
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       isSuccess: 'IsSuccess',
       requestId: 'RequestId',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
       isSuccess: 'boolean',
       requestId: 'string',
-      code: 'string',
     };
   }
 
@@ -5332,6 +5969,56 @@ export class UpdateRepoTriggerResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: UpdateRepoTriggerResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetArtifactBuildTaskResponseBodySourceArtifact extends $tea.Model {
+  repoId?: string;
+  version?: string;
+  artifactType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      repoId: 'RepoId',
+      version: 'Version',
+      artifactType: 'ArtifactType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      repoId: 'string',
+      version: 'string',
+      artifactType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetArtifactBuildTaskResponseBodyTargetArtifact extends $tea.Model {
+  repoId?: string;
+  version?: string;
+  artifactType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      repoId: 'RepoId',
+      version: 'Version',
+      artifactType: 'ArtifactType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      repoId: 'string',
+      version: 'string',
+      artifactType: 'string',
     };
   }
 
@@ -5387,16 +6074,16 @@ export class GetInstanceEndpointResponseBodyAclEntries extends $tea.Model {
 export class GetInstanceVpcEndpointResponseBodyLinkedVpcs extends $tea.Model {
   status?: string;
   vpcId?: string;
+  ip?: string;
   defaultAccess?: boolean;
   vswitchId?: string;
-  ip?: string;
   static names(): { [key: string]: string } {
     return {
       status: 'Status',
       vpcId: 'VpcId',
+      ip: 'Ip',
       defaultAccess: 'DefaultAccess',
       vswitchId: 'VswitchId',
-      ip: 'Ip',
     };
   }
 
@@ -5404,9 +6091,9 @@ export class GetInstanceVpcEndpointResponseBodyLinkedVpcs extends $tea.Model {
     return {
       status: 'string',
       vpcId: 'string',
+      ip: 'string',
       defaultAccess: 'boolean',
       vswitchId: 'string',
-      ip: 'string',
     };
   }
 
@@ -5432,37 +6119,6 @@ export class GetRepoBuildRecordResponseBodyImage extends $tea.Model {
       repoNamespaceName: 'string',
       imageTag: 'string',
       repoName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetRepoSyncTaskResponseBodyLayerTasks extends $tea.Model {
-  syncedSize?: number;
-  digest?: string;
-  taskStatus?: string;
-  size?: number;
-  syncLayerTaskId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      syncedSize: 'SyncedSize',
-      digest: 'Digest',
-      taskStatus: 'TaskStatus',
-      size: 'Size',
-      syncLayerTaskId: 'SyncLayerTaskId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      syncedSize: 'number',
-      digest: 'string',
-      taskStatus: 'string',
-      size: 'number',
-      syncLayerTaskId: 'string',
     };
   }
 
@@ -5533,6 +6189,40 @@ export class GetRepoSyncTaskResponseBodyImageTo extends $tea.Model {
   }
 }
 
+export class GetRepoSyncTaskResponseBodyLayerTasks extends $tea.Model {
+  taskStatus?: string;
+  digest?: string;
+  syncedSize?: number;
+  size?: number;
+  syncLayerTaskId?: string;
+  artifactDigest?: string;
+  static names(): { [key: string]: string } {
+    return {
+      taskStatus: 'TaskStatus',
+      digest: 'Digest',
+      syncedSize: 'SyncedSize',
+      size: 'Size',
+      syncLayerTaskId: 'SyncLayerTaskId',
+      artifactDigest: 'ArtifactDigest',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskStatus: 'string',
+      digest: 'string',
+      syncedSize: 'number',
+      size: 'number',
+      syncLayerTaskId: 'string',
+      artifactDigest: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetRepoTagLayersResponseBodyLayers extends $tea.Model {
   blobDigest?: string;
   layerIndex?: number;
@@ -5564,50 +6254,6 @@ export class GetRepoTagLayersResponseBodyLayers extends $tea.Model {
   }
 }
 
-export class GetRepoTagManifestResponseBodyManifestHistory extends $tea.Model {
-  v1Compatibility?: { [key: string]: any };
-  static names(): { [key: string]: string } {
-    return {
-      v1Compatibility: 'V1Compatibility',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      v1Compatibility: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetRepoTagManifestResponseBodyManifestLayers extends $tea.Model {
-  digest?: string;
-  size?: number;
-  mediaType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      digest: 'Digest',
-      size: 'Size',
-      mediaType: 'MediaType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      digest: 'string',
-      size: 'number',
-      mediaType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class GetRepoTagManifestResponseBodyManifestFsLayers extends $tea.Model {
   blobSum?: string;
   static names(): { [key: string]: string } {
@@ -5627,23 +6273,67 @@ export class GetRepoTagManifestResponseBodyManifestFsLayers extends $tea.Model {
   }
 }
 
+export class GetRepoTagManifestResponseBodyManifestHistory extends $tea.Model {
+  v1Compatibility?: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      v1Compatibility: 'V1Compatibility',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      v1Compatibility: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetRepoTagManifestResponseBodyManifestSignatures extends $tea.Model {
   signature?: string;
-  protected?: string;
   header?: { [key: string]: any };
+  protected?: string;
   static names(): { [key: string]: string } {
     return {
       signature: 'Signature',
-      protected: 'Protected',
       header: 'Header',
+      protected: 'Protected',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       signature: 'string',
-      protected: 'string',
       header: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      protected: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRepoTagManifestResponseBodyManifestLayers extends $tea.Model {
+  digest?: string;
+  mediaType?: string;
+  size?: number;
+  static names(): { [key: string]: string } {
+    return {
+      digest: 'Digest',
+      mediaType: 'MediaType',
+      size: 'Size',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      digest: 'string',
+      mediaType: 'string',
+      size: 'number',
     };
   }
 
@@ -5654,21 +6344,21 @@ export class GetRepoTagManifestResponseBodyManifestSignatures extends $tea.Model
 
 export class GetRepoTagManifestResponseBodyManifestConfig extends $tea.Model {
   digest?: string;
-  size?: number;
   mediaType?: string;
+  size?: number;
   static names(): { [key: string]: string } {
     return {
       digest: 'Digest',
-      size: 'Size',
       mediaType: 'MediaType',
+      size: 'Size',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       digest: 'string',
-      size: 'number',
       mediaType: 'string',
+      size: 'number',
     };
   }
 
@@ -5678,43 +6368,65 @@ export class GetRepoTagManifestResponseBodyManifestConfig extends $tea.Model {
 }
 
 export class GetRepoTagManifestResponseBodyManifest extends $tea.Model {
-  history?: GetRepoTagManifestResponseBodyManifestHistory[];
-  schemaVersion?: number;
-  layers?: GetRepoTagManifestResponseBodyManifestLayers[];
   tag?: string;
   name?: string;
   mediaType?: string;
-  fsLayers?: GetRepoTagManifestResponseBodyManifestFsLayers[];
-  signatures?: GetRepoTagManifestResponseBodyManifestSignatures[];
-  config?: GetRepoTagManifestResponseBodyManifestConfig;
+  schemaVersion?: number;
   architecture?: string;
+  fsLayers?: GetRepoTagManifestResponseBodyManifestFsLayers[];
+  history?: GetRepoTagManifestResponseBodyManifestHistory[];
+  signatures?: GetRepoTagManifestResponseBodyManifestSignatures[];
+  layers?: GetRepoTagManifestResponseBodyManifestLayers[];
+  config?: GetRepoTagManifestResponseBodyManifestConfig;
   static names(): { [key: string]: string } {
     return {
-      history: 'History',
-      schemaVersion: 'SchemaVersion',
-      layers: 'Layers',
       tag: 'Tag',
       name: 'Name',
       mediaType: 'MediaType',
-      fsLayers: 'FsLayers',
-      signatures: 'Signatures',
-      config: 'Config',
+      schemaVersion: 'SchemaVersion',
       architecture: 'Architecture',
+      fsLayers: 'FsLayers',
+      history: 'History',
+      signatures: 'Signatures',
+      layers: 'Layers',
+      config: 'Config',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      history: { 'type': 'array', 'itemType': GetRepoTagManifestResponseBodyManifestHistory },
-      schemaVersion: 'number',
-      layers: { 'type': 'array', 'itemType': GetRepoTagManifestResponseBodyManifestLayers },
       tag: 'string',
       name: 'string',
       mediaType: 'string',
-      fsLayers: { 'type': 'array', 'itemType': GetRepoTagManifestResponseBodyManifestFsLayers },
-      signatures: { 'type': 'array', 'itemType': GetRepoTagManifestResponseBodyManifestSignatures },
-      config: GetRepoTagManifestResponseBodyManifestConfig,
+      schemaVersion: 'number',
       architecture: 'string',
+      fsLayers: { 'type': 'array', 'itemType': GetRepoTagManifestResponseBodyManifestFsLayers },
+      history: { 'type': 'array', 'itemType': GetRepoTagManifestResponseBodyManifestHistory },
+      signatures: { 'type': 'array', 'itemType': GetRepoTagManifestResponseBodyManifestSignatures },
+      layers: { 'type': 'array', 'itemType': GetRepoTagManifestResponseBodyManifestLayers },
+      config: GetRepoTagManifestResponseBodyManifestConfig,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListArtifactBuildTaskLogResponseBodyBuildTaskLogs extends $tea.Model {
+  message?: string;
+  lineNumber?: number;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      lineNumber: 'LineNumber',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      lineNumber: 'number',
     };
   }
 
@@ -5936,33 +6648,33 @@ export class ListInstanceEndpointResponseBodyEndpointsAclEntries extends $tea.Mo
 
 export class ListInstanceEndpointResponseBodyEndpoints extends $tea.Model {
   status?: string;
-  domains?: ListInstanceEndpointResponseBodyEndpointsDomains[];
   endpointType?: string;
-  linkedVpcs?: ListInstanceEndpointResponseBodyEndpointsLinkedVpcs[];
   aclEnable?: boolean;
-  aclEntries?: ListInstanceEndpointResponseBodyEndpointsAclEntries[];
   enable?: boolean;
+  domains?: ListInstanceEndpointResponseBodyEndpointsDomains[];
+  linkedVpcs?: ListInstanceEndpointResponseBodyEndpointsLinkedVpcs[];
+  aclEntries?: ListInstanceEndpointResponseBodyEndpointsAclEntries[];
   static names(): { [key: string]: string } {
     return {
       status: 'Status',
-      domains: 'Domains',
       endpointType: 'EndpointType',
-      linkedVpcs: 'LinkedVpcs',
       aclEnable: 'AclEnable',
-      aclEntries: 'AclEntries',
       enable: 'Enable',
+      domains: 'Domains',
+      linkedVpcs: 'LinkedVpcs',
+      aclEntries: 'AclEntries',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       status: 'string',
-      domains: { 'type': 'array', 'itemType': ListInstanceEndpointResponseBodyEndpointsDomains },
       endpointType: 'string',
-      linkedVpcs: { 'type': 'array', 'itemType': ListInstanceEndpointResponseBodyEndpointsLinkedVpcs },
       aclEnable: 'boolean',
-      aclEntries: { 'type': 'array', 'itemType': ListInstanceEndpointResponseBodyEndpointsAclEntries },
       enable: 'boolean',
+      domains: { 'type': 'array', 'itemType': ListInstanceEndpointResponseBodyEndpointsDomains },
+      linkedVpcs: { 'type': 'array', 'itemType': ListInstanceEndpointResponseBodyEndpointsLinkedVpcs },
+      aclEntries: { 'type': 'array', 'itemType': ListInstanceEndpointResponseBodyEndpointsAclEntries },
     };
   }
 
@@ -6028,24 +6740,24 @@ export class ListNamespaceResponseBodyNamespaces extends $tea.Model {
 }
 
 export class ListRepoBuildRecordResponseBodyBuildRecordsImage extends $tea.Model {
-  repoId?: string;
   repoNamespaceName?: string;
   imageTag?: string;
+  repoId?: string;
   repoName?: string;
   static names(): { [key: string]: string } {
     return {
-      repoId: 'RepoId',
       repoNamespaceName: 'RepoNamespaceName',
       imageTag: 'ImageTag',
+      repoId: 'RepoId',
       repoName: 'RepoName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      repoId: 'string',
       repoNamespaceName: 'string',
       imageTag: 'string',
+      repoId: 'string',
       repoName: 'string',
     };
   }
@@ -6058,16 +6770,16 @@ export class ListRepoBuildRecordResponseBodyBuildRecordsImage extends $tea.Model
 export class ListRepoBuildRecordResponseBodyBuildRecords extends $tea.Model {
   endTime?: string;
   startTime?: string;
-  image?: ListRepoBuildRecordResponseBodyBuildRecordsImage;
   buildStatus?: string;
   buildRecordId?: string;
+  image?: ListRepoBuildRecordResponseBodyBuildRecordsImage;
   static names(): { [key: string]: string } {
     return {
       endTime: 'EndTime',
       startTime: 'StartTime',
-      image: 'Image',
       buildStatus: 'BuildStatus',
       buildRecordId: 'BuildRecordId',
+      image: 'Image',
     };
   }
 
@@ -6075,9 +6787,9 @@ export class ListRepoBuildRecordResponseBodyBuildRecords extends $tea.Model {
     return {
       endTime: 'string',
       startTime: 'string',
-      image: ListRepoBuildRecordResponseBodyBuildRecordsImage,
       buildStatus: 'string',
       buildRecordId: 'string',
+      image: ListRepoBuildRecordResponseBodyBuildRecordsImage,
     };
   }
 
@@ -6118,6 +6830,8 @@ export class ListRepoBuildRuleResponseBodyBuildRules extends $tea.Model {
   pushName?: string;
   imageTag?: string;
   dockerfileName?: string;
+  platforms?: string[];
+  buildArgs?: string[];
   static names(): { [key: string]: string } {
     return {
       dockerfileLocation: 'DockerfileLocation',
@@ -6126,6 +6840,8 @@ export class ListRepoBuildRuleResponseBodyBuildRules extends $tea.Model {
       pushName: 'PushName',
       imageTag: 'ImageTag',
       dockerfileName: 'DockerfileName',
+      platforms: 'Platforms',
+      buildArgs: 'BuildArgs',
     };
   }
 
@@ -6137,6 +6853,8 @@ export class ListRepoBuildRuleResponseBodyBuildRules extends $tea.Model {
       pushName: 'string',
       imageTag: 'string',
       dockerfileName: 'string',
+      platforms: { 'type': 'array', 'itemType': 'string' },
+      buildArgs: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -6201,8 +6919,8 @@ export class ListRepoSyncRuleResponseBodySyncRules extends $tea.Model {
   syncScope?: string;
   tagFilter?: string;
   targetNamespaceName?: string;
-  targetRepoName?: string;
   targetInstanceId?: string;
+  targetRepoName?: string;
   syncRuleId?: string;
   modifiedTime?: number;
   syncRuleName?: string;
@@ -6219,8 +6937,8 @@ export class ListRepoSyncRuleResponseBodySyncRules extends $tea.Model {
       syncScope: 'SyncScope',
       tagFilter: 'TagFilter',
       targetNamespaceName: 'TargetNamespaceName',
-      targetRepoName: 'TargetRepoName',
       targetInstanceId: 'TargetInstanceId',
+      targetRepoName: 'TargetRepoName',
       syncRuleId: 'SyncRuleId',
       modifiedTime: 'ModifiedTime',
       syncRuleName: 'SyncRuleName',
@@ -6240,8 +6958,8 @@ export class ListRepoSyncRuleResponseBodySyncRules extends $tea.Model {
       syncScope: 'string',
       tagFilter: 'string',
       targetNamespaceName: 'string',
-      targetRepoName: 'string',
       targetInstanceId: 'string',
+      targetRepoName: 'string',
       syncRuleId: 'string',
       modifiedTime: 'number',
       syncRuleName: 'string',
@@ -6250,37 +6968,6 @@ export class ListRepoSyncRuleResponseBodySyncRules extends $tea.Model {
       localNamespaceName: 'string',
       localRepoName: 'string',
       syncDirection: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListRepoSyncTaskResponseBodySyncTasksImageTo extends $tea.Model {
-  repoNamespaceName?: string;
-  instanceId?: string;
-  imageTag?: string;
-  repoName?: string;
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      repoNamespaceName: 'RepoNamespaceName',
-      instanceId: 'InstanceId',
-      imageTag: 'ImageTag',
-      repoName: 'RepoName',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      repoNamespaceName: 'string',
-      instanceId: 'string',
-      imageTag: 'string',
-      repoName: 'string',
-      regionId: 'string',
     };
   }
 
@@ -6320,6 +7007,37 @@ export class ListRepoSyncTaskResponseBodySyncTasksImageFrom extends $tea.Model {
   }
 }
 
+export class ListRepoSyncTaskResponseBodySyncTasksImageTo extends $tea.Model {
+  repoNamespaceName?: string;
+  instanceId?: string;
+  imageTag?: string;
+  repoName?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      repoNamespaceName: 'RepoNamespaceName',
+      instanceId: 'InstanceId',
+      imageTag: 'ImageTag',
+      repoName: 'RepoName',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      repoNamespaceName: 'string',
+      instanceId: 'string',
+      imageTag: 'string',
+      repoName: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListRepoSyncTaskResponseBodySyncTasks extends $tea.Model {
   modifedTime?: number;
   syncRuleId?: string;
@@ -6328,8 +7046,8 @@ export class ListRepoSyncTaskResponseBodySyncTasks extends $tea.Model {
   createTime?: number;
   syncBatchTaskId?: string;
   taskTrigger?: string;
-  imageTo?: ListRepoSyncTaskResponseBodySyncTasksImageTo;
   imageFrom?: ListRepoSyncTaskResponseBodySyncTasksImageFrom;
+  imageTo?: ListRepoSyncTaskResponseBodySyncTasksImageTo;
   static names(): { [key: string]: string } {
     return {
       modifedTime: 'ModifedTime',
@@ -6339,8 +7057,8 @@ export class ListRepoSyncTaskResponseBodySyncTasks extends $tea.Model {
       createTime: 'CreateTime',
       syncBatchTaskId: 'SyncBatchTaskId',
       taskTrigger: 'TaskTrigger',
-      imageTo: 'ImageTo',
       imageFrom: 'ImageFrom',
+      imageTo: 'ImageTo',
     };
   }
 
@@ -6353,8 +7071,8 @@ export class ListRepoSyncTaskResponseBodySyncTasks extends $tea.Model {
       createTime: 'number',
       syncBatchTaskId: 'string',
       taskTrigger: 'string',
-      imageTo: ListRepoSyncTaskResponseBodySyncTasksImageTo,
       imageFrom: ListRepoSyncTaskResponseBodySyncTasksImageFrom,
+      imageTo: ListRepoSyncTaskResponseBodySyncTasksImageTo,
     };
   }
 
@@ -6410,6 +7128,7 @@ export class ListRepoTagScanResultResponseBodyVulnerabilities extends $tea.Model
   versionFormat?: string;
   cveLink?: string;
   versionFixed?: string;
+  fixCmd?: string;
   static names(): { [key: string]: string } {
     return {
       severity: 'Severity',
@@ -6421,6 +7140,7 @@ export class ListRepoTagScanResultResponseBodyVulnerabilities extends $tea.Model
       versionFormat: 'VersionFormat',
       cveLink: 'CveLink',
       versionFixed: 'VersionFixed',
+      fixCmd: 'FixCmd',
     };
   }
 
@@ -6435,6 +7155,7 @@ export class ListRepoTagScanResultResponseBodyVulnerabilities extends $tea.Model
       versionFormat: 'string',
       cveLink: 'string',
       versionFixed: 'string',
+      fixCmd: 'string',
     };
   }
 
@@ -6479,14 +7200,14 @@ export class ListRepoTriggerResponseBodyTriggers extends $tea.Model {
 
 export class ListRepoTriggerRecordResponseBodyRepoTriggerRecords extends $tea.Model {
   requestHeaders?: string;
-  responseHeaders?: string;
   triggerName?: string;
+  responseHeaders?: string;
   triggerLogId?: string;
-  requestBody?: string;
-  triggerUrl?: string;
   responseBody?: string;
-  triggerTag?: string;
+  triggerUrl?: string;
+  requestBody?: string;
   triggerType?: string;
+  triggerTag?: string;
   statusCode?: string;
   repoEvent?: string;
   triggerId?: string;
@@ -6494,14 +7215,14 @@ export class ListRepoTriggerRecordResponseBodyRepoTriggerRecords extends $tea.Mo
   static names(): { [key: string]: string } {
     return {
       requestHeaders: 'RequestHeaders',
-      responseHeaders: 'ResponseHeaders',
       triggerName: 'TriggerName',
+      responseHeaders: 'ResponseHeaders',
       triggerLogId: 'TriggerLogId',
-      requestBody: 'RequestBody',
-      triggerUrl: 'TriggerUrl',
       responseBody: 'ResponseBody',
-      triggerTag: 'TriggerTag',
+      triggerUrl: 'TriggerUrl',
+      requestBody: 'RequestBody',
       triggerType: 'TriggerType',
+      triggerTag: 'TriggerTag',
       statusCode: 'StatusCode',
       repoEvent: 'RepoEvent',
       triggerId: 'TriggerId',
@@ -6512,14 +7233,14 @@ export class ListRepoTriggerRecordResponseBodyRepoTriggerRecords extends $tea.Mo
   static types(): { [key: string]: any } {
     return {
       requestHeaders: 'string',
-      responseHeaders: 'string',
       triggerName: 'string',
+      responseHeaders: 'string',
       triggerLogId: 'string',
-      requestBody: 'string',
-      triggerUrl: 'string',
       responseBody: 'string',
-      triggerTag: 'string',
+      triggerUrl: 'string',
+      requestBody: 'string',
       triggerType: 'string',
+      triggerTag: 'string',
       statusCode: 'string',
       repoEvent: 'string',
       triggerId: 'string',
@@ -6553,6 +7274,19 @@ export default class Client extends OpenApi {
     }
 
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+  }
+
+  async cancelArtifactBuildTaskWithOptions(request: CancelArtifactBuildTaskRequest, runtime: $Util.RuntimeOptions): Promise<CancelArtifactBuildTaskResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<CancelArtifactBuildTaskResponse>(await this.doRPCRequest("CancelArtifactBuildTask", "2018-12-01", "HTTPS", "POST", "AK", "json", req, runtime), new CancelArtifactBuildTaskResponse({}));
+  }
+
+  async cancelArtifactBuildTask(request: CancelArtifactBuildTaskRequest): Promise<CancelArtifactBuildTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.cancelArtifactBuildTaskWithOptions(request, runtime);
   }
 
   async cancelRepoBuildRecordWithOptions(request: CancelRepoBuildRecordRequest, runtime: $Util.RuntimeOptions): Promise<CancelRepoBuildRecordResponse> {
@@ -6672,6 +7406,19 @@ export default class Client extends OpenApi {
     return await this.createRepositoryWithOptions(request, runtime);
   }
 
+  async createRepoSourceCodeRepoWithOptions(request: CreateRepoSourceCodeRepoRequest, runtime: $Util.RuntimeOptions): Promise<CreateRepoSourceCodeRepoResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<CreateRepoSourceCodeRepoResponse>(await this.doRPCRequest("CreateRepoSourceCodeRepo", "2018-12-01", "HTTPS", "POST", "AK", "json", req, runtime), new CreateRepoSourceCodeRepoResponse({}));
+  }
+
+  async createRepoSourceCodeRepo(request: CreateRepoSourceCodeRepoRequest): Promise<CreateRepoSourceCodeRepoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createRepoSourceCodeRepoWithOptions(request, runtime);
+  }
+
   async createRepoSyncRuleWithOptions(request: CreateRepoSyncRuleRequest, runtime: $Util.RuntimeOptions): Promise<CreateRepoSyncRuleResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -6696,6 +7443,19 @@ export default class Client extends OpenApi {
   async createRepoSyncTaskByRule(request: CreateRepoSyncTaskByRuleRequest): Promise<CreateRepoSyncTaskByRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createRepoSyncTaskByRuleWithOptions(request, runtime);
+  }
+
+  async createRepoTagWithOptions(request: CreateRepoTagRequest, runtime: $Util.RuntimeOptions): Promise<CreateRepoTagResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<CreateRepoTagResponse>(await this.doRPCRequest("CreateRepoTag", "2018-12-01", "HTTPS", "POST", "AK", "json", req, runtime), new CreateRepoTagResponse({}));
+  }
+
+  async createRepoTag(request: CreateRepoTagRequest): Promise<CreateRepoTagResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createRepoTagWithOptions(request, runtime);
   }
 
   async createRepoTagScanTaskWithOptions(request: CreateRepoTagScanTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateRepoTagScanTaskResponse> {
@@ -6867,6 +7627,20 @@ export default class Client extends OpenApi {
     return await this.deleteRepoTriggerWithOptions(request, runtime);
   }
 
+  async getArtifactBuildTaskWithOptions(request: GetArtifactBuildTaskRequest, runtime: $Util.RuntimeOptions): Promise<GetArtifactBuildTaskResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: query,
+    });
+    return $tea.cast<GetArtifactBuildTaskResponse>(await this.doRPCRequest("GetArtifactBuildTask", "2018-12-01", "HTTPS", "GET", "AK", "json", req, runtime), new GetArtifactBuildTaskResponse({}));
+  }
+
+  async getArtifactBuildTask(request: GetArtifactBuildTaskRequest): Promise<GetArtifactBuildTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getArtifactBuildTaskWithOptions(request, runtime);
+  }
+
   async getAuthorizationTokenWithOptions(request: GetAuthorizationTokenRequest, runtime: $Util.RuntimeOptions): Promise<GetAuthorizationTokenResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -7020,6 +7794,19 @@ export default class Client extends OpenApi {
     return await this.getRepositoryWithOptions(request, runtime);
   }
 
+  async getRepoSourceCodeRepoWithOptions(request: GetRepoSourceCodeRepoRequest, runtime: $Util.RuntimeOptions): Promise<GetRepoSourceCodeRepoResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<GetRepoSourceCodeRepoResponse>(await this.doRPCRequest("GetRepoSourceCodeRepo", "2018-12-01", "HTTPS", "POST", "AK", "json", req, runtime), new GetRepoSourceCodeRepoResponse({}));
+  }
+
+  async getRepoSourceCodeRepo(request: GetRepoSourceCodeRepoRequest): Promise<GetRepoSourceCodeRepoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getRepoSourceCodeRepoWithOptions(request, runtime);
+  }
+
   async getRepoSyncTaskWithOptions(request: GetRepoSyncTaskRequest, runtime: $Util.RuntimeOptions): Promise<GetRepoSyncTaskResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -7083,6 +7870,20 @@ export default class Client extends OpenApi {
   async getRepoTagScanSummary(request: GetRepoTagScanSummaryRequest): Promise<GetRepoTagScanSummaryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getRepoTagScanSummaryWithOptions(request, runtime);
+  }
+
+  async listArtifactBuildTaskLogWithOptions(request: ListArtifactBuildTaskLogRequest, runtime: $Util.RuntimeOptions): Promise<ListArtifactBuildTaskLogResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: query,
+    });
+    return $tea.cast<ListArtifactBuildTaskLogResponse>(await this.doRPCRequest("ListArtifactBuildTaskLog", "2018-12-01", "HTTPS", "GET", "AK", "json", req, runtime), new ListArtifactBuildTaskLogResponse({}));
+  }
+
+  async listArtifactBuildTaskLog(request: ListArtifactBuildTaskLogRequest): Promise<ListArtifactBuildTaskLogResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listArtifactBuildTaskLogWithOptions(request, runtime);
   }
 
   async listChartNamespaceWithOptions(request: ListChartNamespaceRequest, runtime: $Util.RuntimeOptions): Promise<ListChartNamespaceResponse> {
@@ -7395,6 +8196,19 @@ export default class Client extends OpenApi {
   async updateRepository(request: UpdateRepositoryRequest): Promise<UpdateRepositoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateRepositoryWithOptions(request, runtime);
+  }
+
+  async updateRepoSourceCodeRepoWithOptions(request: UpdateRepoSourceCodeRepoRequest, runtime: $Util.RuntimeOptions): Promise<UpdateRepoSourceCodeRepoResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<UpdateRepoSourceCodeRepoResponse>(await this.doRPCRequest("UpdateRepoSourceCodeRepo", "2018-12-01", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateRepoSourceCodeRepoResponse({}));
+  }
+
+  async updateRepoSourceCodeRepo(request: UpdateRepoSourceCodeRepoRequest): Promise<UpdateRepoSourceCodeRepoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateRepoSourceCodeRepoWithOptions(request, runtime);
   }
 
   async updateRepoTriggerWithOptions(request: UpdateRepoTriggerRequest, runtime: $Util.RuntimeOptions): Promise<UpdateRepoTriggerResponse> {
