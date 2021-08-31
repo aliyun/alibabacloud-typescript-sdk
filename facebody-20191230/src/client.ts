@@ -3148,6 +3148,7 @@ export class BeautifyBodyRequest extends $tea.Model {
   bodyBoxes?: BeautifyBodyRequestBodyBoxes[];
   faceList?: BeautifyBodyRequestFaceList[];
   poseList?: BeautifyBodyRequestPoseList[];
+  isPregnant?: boolean;
   static names(): { [key: string]: string } {
     return {
       imageURL: 'ImageURL',
@@ -3161,6 +3162,7 @@ export class BeautifyBodyRequest extends $tea.Model {
       bodyBoxes: 'BodyBoxes',
       faceList: 'FaceList',
       poseList: 'PoseList',
+      isPregnant: 'IsPregnant',
     };
   }
 
@@ -3177,6 +3179,7 @@ export class BeautifyBodyRequest extends $tea.Model {
       bodyBoxes: { 'type': 'array', 'itemType': BeautifyBodyRequestBodyBoxes },
       faceList: { 'type': 'array', 'itemType': BeautifyBodyRequestFaceList },
       poseList: { 'type': 'array', 'itemType': BeautifyBodyRequestPoseList },
+      isPregnant: 'boolean',
     };
   }
 
@@ -3197,6 +3200,7 @@ export class BeautifyBodyAdvanceRequest extends $tea.Model {
   bodyBoxes?: BeautifyBodyAdvanceRequestBodyBoxes[];
   faceList?: BeautifyBodyAdvanceRequestFaceList[];
   poseList?: BeautifyBodyAdvanceRequestPoseList[];
+  isPregnant?: boolean;
   static names(): { [key: string]: string } {
     return {
       imageURLObject: 'ImageURLObject',
@@ -3210,6 +3214,7 @@ export class BeautifyBodyAdvanceRequest extends $tea.Model {
       bodyBoxes: 'BodyBoxes',
       faceList: 'FaceList',
       poseList: 'PoseList',
+      isPregnant: 'IsPregnant',
     };
   }
 
@@ -3226,6 +3231,7 @@ export class BeautifyBodyAdvanceRequest extends $tea.Model {
       bodyBoxes: { 'type': 'array', 'itemType': BeautifyBodyAdvanceRequestBodyBoxes },
       faceList: { 'type': 'array', 'itemType': BeautifyBodyAdvanceRequestFaceList },
       poseList: { 'type': 'array', 'itemType': BeautifyBodyAdvanceRequestPoseList },
+      isPregnant: 'boolean',
     };
   }
 
@@ -3246,6 +3252,7 @@ export class BeautifyBodyShrinkRequest extends $tea.Model {
   bodyBoxesShrink?: string;
   faceListShrink?: string;
   poseListShrink?: string;
+  isPregnant?: boolean;
   static names(): { [key: string]: string } {
     return {
       imageURL: 'ImageURL',
@@ -3259,6 +3266,7 @@ export class BeautifyBodyShrinkRequest extends $tea.Model {
       bodyBoxesShrink: 'BodyBoxes',
       faceListShrink: 'FaceList',
       poseListShrink: 'PoseList',
+      isPregnant: 'IsPregnant',
     };
   }
 
@@ -3275,6 +3283,7 @@ export class BeautifyBodyShrinkRequest extends $tea.Model {
       bodyBoxesShrink: 'string',
       faceListShrink: 'string',
       poseListShrink: 'string',
+      isPregnant: 'boolean',
     };
   }
 
