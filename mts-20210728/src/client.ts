@@ -100,12 +100,14 @@ export class SubmitImageCopyrightRequest extends $tea.Model {
   level?: number;
   message?: string;
   output?: string;
+  url?: string;
   static names(): { [key: string]: string } {
     return {
       input: 'Input',
       level: 'Level',
       message: 'Message',
       output: 'Output',
+      url: 'Url',
     };
   }
 
@@ -115,6 +117,7 @@ export class SubmitImageCopyrightRequest extends $tea.Model {
       level: 'number',
       message: 'string',
       output: 'string',
+      url: 'string',
     };
   }
 
@@ -488,6 +491,7 @@ export class SubmitTraceAbRequest extends $tea.Model {
   level?: number;
   output?: string;
   userData?: string;
+  url?: string;
   static names(): { [key: string]: string } {
     return {
       callBack: 'CallBack',
@@ -495,6 +499,7 @@ export class SubmitTraceAbRequest extends $tea.Model {
       level: 'Level',
       output: 'Output',
       userData: 'UserData',
+      url: 'Url',
     };
   }
 
@@ -505,6 +510,7 @@ export class SubmitTraceAbRequest extends $tea.Model {
       level: 'number',
       output: 'string',
       userData: 'string',
+      url: 'string',
     };
   }
 
@@ -573,6 +579,7 @@ export class SubmitCopyrightJobRequest extends $tea.Model {
   totalTime?: number;
   output?: string;
   userData?: string;
+  url?: string;
   static names(): { [key: string]: string } {
     return {
       callBack: 'CallBack',
@@ -584,6 +591,7 @@ export class SubmitCopyrightJobRequest extends $tea.Model {
       totalTime: 'TotalTime',
       output: 'Output',
       userData: 'UserData',
+      url: 'Url',
     };
   }
 
@@ -598,6 +606,7 @@ export class SubmitCopyrightJobRequest extends $tea.Model {
       totalTime: 'number',
       output: 'string',
       userData: 'string',
+      url: 'string',
     };
   }
 
@@ -1067,6 +1076,10 @@ export default class Client extends OpenApi {
       body["Output"] = request.output;
     }
 
+    if (!Util.isUnset(request.url)) {
+      body["Url"] = request.url;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
@@ -1231,6 +1244,10 @@ export default class Client extends OpenApi {
       body["UserData"] = request.userData;
     }
 
+    if (!Util.isUnset(request.url)) {
+      body["Url"] = request.url;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
@@ -1281,6 +1298,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.userData)) {
       body["UserData"] = request.userData;
+    }
+
+    if (!Util.isUnset(request.url)) {
+      body["Url"] = request.url;
     }
 
     let req = new $OpenApi.OpenApiRequest({
