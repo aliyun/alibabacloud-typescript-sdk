@@ -37,24 +37,24 @@ export class AddAddressRequest extends $tea.Model {
 }
 
 export class AddAddressResponseBody extends $tea.Model {
+  code?: string;
   message?: string;
   requestId?: string;
-  code?: string;
   addressId?: number;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
-      code: 'Code',
       addressId: 'AddressId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
       message: 'string',
       requestId: 'string',
-      code: 'string',
       addressId: 'number',
     };
   }
@@ -130,28 +130,28 @@ export class AddItemLimitRuleRequest extends $tea.Model {
 }
 
 export class AddItemLimitRuleResponseBody extends $tea.Model {
+  code?: string;
+  model?: number;
   message?: string;
   requestId?: string;
   ruleId?: number;
-  model?: number;
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
+      model: 'Model',
       message: 'Message',
       requestId: 'RequestId',
       ruleId: 'RuleId',
-      model: 'Model',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
+      model: 'number',
       message: 'string',
       requestId: 'string',
       ruleId: 'number',
-      model: 'number',
-      code: 'string',
     };
   }
 
@@ -174,6 +174,109 @@ export class AddItemLimitRuleResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: AddItemLimitRuleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddItemToSubBizsRequest extends $tea.Model {
+  bizId?: string;
+  itemId?: number;
+  lmItemId?: string;
+  subBizIds?: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      bizId: 'BizId',
+      itemId: 'ItemId',
+      lmItemId: 'LmItemId',
+      subBizIds: 'SubBizIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizId: 'string',
+      itemId: 'number',
+      lmItemId: 'string',
+      subBizIds: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddItemToSubBizsShrinkRequest extends $tea.Model {
+  bizId?: string;
+  itemId?: number;
+  lmItemId?: string;
+  subBizIdsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bizId: 'BizId',
+      itemId: 'ItemId',
+      lmItemId: 'LmItemId',
+      subBizIdsShrink: 'SubBizIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizId: 'string',
+      itemId: 'number',
+      lmItemId: 'string',
+      subBizIdsShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddItemToSubBizsResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddItemToSubBizsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: AddItemToSubBizsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: AddItemToSubBizsResponseBody,
     };
   }
 
@@ -205,22 +308,22 @@ export class AddSupplierNewItemsRequest extends $tea.Model {
 }
 
 export class AddSupplierNewItemsResponseBody extends $tea.Model {
+  code?: string;
   message?: string;
   requestId?: string;
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
       message: 'string',
       requestId: 'string',
-      code: 'string',
     };
   }
 
@@ -307,25 +410,25 @@ export class ApplyRefundRequest extends $tea.Model {
 }
 
 export class ApplyRefundResponseBody extends $tea.Model {
-  refundApplicationData?: ApplyRefundResponseBodyRefundApplicationData;
+  code?: string;
   message?: string;
   requestId?: string;
-  code?: string;
+  refundApplicationData?: ApplyRefundResponseBodyRefundApplicationData;
   static names(): { [key: string]: string } {
     return {
-      refundApplicationData: 'RefundApplicationData',
+      code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
-      code: 'Code',
+      refundApplicationData: 'RefundApplicationData',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      refundApplicationData: ApplyRefundResponseBodyRefundApplicationData,
+      code: 'string',
       message: 'string',
       requestId: 'string',
-      code: 'string',
+      refundApplicationData: ApplyRefundResponseBodyRefundApplicationData,
     };
   }
 
@@ -379,25 +482,25 @@ export class BatchRegistAnonymousTbAccountRequest extends $tea.Model {
 }
 
 export class BatchRegistAnonymousTbAccountResponseBody extends $tea.Model {
+  code?: string;
   message?: string;
   requestId?: string;
   batchId?: string;
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
       batchId: 'BatchId',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
       message: 'string',
       requestId: 'string',
       batchId: 'string',
-      code: 'string',
     };
   }
 
@@ -464,33 +567,33 @@ export class CancelOrderRequest extends $tea.Model {
 
 export class CancelOrderResponseBody extends $tea.Model {
   requestId?: string;
-  message?: string;
-  logsId?: string;
-  subMessage?: string;
-  subCode?: string;
-  code?: string;
   success?: boolean;
+  subMessage?: string;
+  code?: string;
+  message?: string;
+  subCode?: string;
+  logsId?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      message: 'Message',
-      logsId: 'LogsId',
-      subMessage: 'SubMessage',
-      subCode: 'SubCode',
-      code: 'Code',
       success: 'Success',
+      subMessage: 'SubMessage',
+      code: 'Code',
+      message: 'Message',
+      subCode: 'SubCode',
+      logsId: 'LogsId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      message: 'string',
-      logsId: 'string',
-      subMessage: 'string',
-      subCode: 'string',
-      code: 'string',
       success: 'boolean',
+      subMessage: 'string',
+      code: 'string',
+      message: 'string',
+      subCode: 'string',
+      logsId: 'string',
     };
   }
 
@@ -559,25 +662,25 @@ export class CancelRefundRequest extends $tea.Model {
 }
 
 export class CancelRefundResponseBody extends $tea.Model {
-  refundApplicationData?: CancelRefundResponseBodyRefundApplicationData;
+  code?: string;
   message?: string;
   requestId?: string;
-  code?: string;
+  refundApplicationData?: CancelRefundResponseBodyRefundApplicationData;
   static names(): { [key: string]: string } {
     return {
-      refundApplicationData: 'RefundApplicationData',
+      code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
-      code: 'Code',
+      refundApplicationData: 'RefundApplicationData',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      refundApplicationData: CancelRefundResponseBodyRefundApplicationData,
+      code: 'string',
       message: 'string',
       requestId: 'string',
-      code: 'string',
+      refundApplicationData: CancelRefundResponseBodyRefundApplicationData,
     };
   }
 
@@ -643,22 +746,22 @@ export class ConfirmDisburseRequest extends $tea.Model {
 }
 
 export class ConfirmDisburseResponseBody extends $tea.Model {
+  code?: string;
   message?: string;
   requestId?: string;
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
       message: 'string',
       requestId: 'string',
-      code: 'string',
     };
   }
 
@@ -721,40 +824,40 @@ export class CreateMovieTicketOrderRequest extends $tea.Model {
 }
 
 export class CreateMovieTicketOrderResponseBody extends $tea.Model {
-  totalCount?: number;
   requestId?: string;
+  success?: boolean;
+  subMessage?: string;
+  code?: string;
   message?: string;
+  subCode?: string;
+  totalCount?: number;
   logsId?: string;
   model?: CreateMovieTicketOrderResponseBodyModel;
-  subMessage?: string;
-  subCode?: string;
-  code?: string;
-  success?: boolean;
   static names(): { [key: string]: string } {
     return {
-      totalCount: 'TotalCount',
       requestId: 'RequestId',
+      success: 'Success',
+      subMessage: 'SubMessage',
+      code: 'Code',
       message: 'Message',
+      subCode: 'SubCode',
+      totalCount: 'TotalCount',
       logsId: 'LogsId',
       model: 'Model',
-      subMessage: 'SubMessage',
-      subCode: 'SubCode',
-      code: 'Code',
-      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      totalCount: 'number',
       requestId: 'string',
+      success: 'boolean',
+      subMessage: 'string',
+      code: 'string',
       message: 'string',
+      subCode: 'string',
+      totalCount: 'number',
       logsId: 'string',
       model: CreateMovieTicketOrderResponseBodyModel,
-      subMessage: 'string',
-      subCode: 'string',
-      code: 'string',
-      success: 'boolean',
     };
   }
 
@@ -799,6 +902,7 @@ export class CreateOrderRequest extends $tea.Model {
   thirdPartyUserId?: string;
   accountType?: string;
   lmItemId?: string;
+  buyerMessageMap?: string;
   itemList?: CreateOrderRequestItemList[];
   static names(): { [key: string]: string } {
     return {
@@ -815,6 +919,7 @@ export class CreateOrderRequest extends $tea.Model {
       thirdPartyUserId: 'ThirdPartyUserId',
       accountType: 'AccountType',
       lmItemId: 'LmItemId',
+      buyerMessageMap: 'BuyerMessageMap',
       itemList: 'ItemList',
     };
   }
@@ -834,6 +939,7 @@ export class CreateOrderRequest extends $tea.Model {
       thirdPartyUserId: 'string',
       accountType: 'string',
       lmItemId: 'string',
+      buyerMessageMap: 'string',
       itemList: { 'type': 'array', 'itemType': CreateOrderRequestItemList },
     };
   }
@@ -844,40 +950,40 @@ export class CreateOrderRequest extends $tea.Model {
 }
 
 export class CreateOrderResponseBody extends $tea.Model {
-  totalCount?: number;
   requestId?: string;
+  success?: boolean;
+  subMessage?: string;
+  code?: string;
   message?: string;
+  subCode?: string;
+  totalCount?: number;
   logsId?: string;
   model?: CreateOrderResponseBodyModel;
-  subMessage?: string;
-  subCode?: string;
-  code?: string;
-  success?: boolean;
   static names(): { [key: string]: string } {
     return {
-      totalCount: 'TotalCount',
       requestId: 'RequestId',
+      success: 'Success',
+      subMessage: 'SubMessage',
+      code: 'Code',
       message: 'Message',
+      subCode: 'SubCode',
+      totalCount: 'TotalCount',
       logsId: 'LogsId',
       model: 'Model',
-      subMessage: 'SubMessage',
-      subCode: 'SubCode',
-      code: 'Code',
-      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      totalCount: 'number',
       requestId: 'string',
+      success: 'boolean',
+      subMessage: 'string',
+      code: 'string',
       message: 'string',
+      subCode: 'string',
+      totalCount: 'number',
       logsId: 'string',
       model: CreateOrderResponseBodyModel,
-      subMessage: 'string',
-      subCode: 'string',
-      code: 'string',
-      success: 'boolean',
     };
   }
 
@@ -922,6 +1028,7 @@ export class CreateOrderV2Request extends $tea.Model {
   thirdPartyUserId?: string;
   accountType?: string;
   lmItemId?: string;
+  buyerMessageMap?: string;
   itemList?: CreateOrderV2RequestItemList[];
   static names(): { [key: string]: string } {
     return {
@@ -938,6 +1045,7 @@ export class CreateOrderV2Request extends $tea.Model {
       thirdPartyUserId: 'ThirdPartyUserId',
       accountType: 'AccountType',
       lmItemId: 'LmItemId',
+      buyerMessageMap: 'BuyerMessageMap',
       itemList: 'ItemList',
     };
   }
@@ -957,6 +1065,7 @@ export class CreateOrderV2Request extends $tea.Model {
       thirdPartyUserId: 'string',
       accountType: 'string',
       lmItemId: 'string',
+      buyerMessageMap: 'string',
       itemList: { 'type': 'array', 'itemType': CreateOrderV2RequestItemList },
     };
   }
@@ -967,40 +1076,40 @@ export class CreateOrderV2Request extends $tea.Model {
 }
 
 export class CreateOrderV2ResponseBody extends $tea.Model {
-  totalCount?: number;
   requestId?: string;
+  success?: boolean;
+  subMessage?: string;
+  code?: string;
   message?: string;
+  subCode?: string;
+  totalCount?: number;
   logsId?: string;
   model?: CreateOrderV2ResponseBodyModel;
-  subMessage?: string;
-  subCode?: string;
-  code?: string;
-  success?: boolean;
   static names(): { [key: string]: string } {
     return {
-      totalCount: 'TotalCount',
       requestId: 'RequestId',
+      success: 'Success',
+      subMessage: 'SubMessage',
+      code: 'Code',
       message: 'Message',
+      subCode: 'SubCode',
+      totalCount: 'TotalCount',
       logsId: 'LogsId',
       model: 'Model',
-      subMessage: 'SubMessage',
-      subCode: 'SubCode',
-      code: 'Code',
-      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      totalCount: 'number',
       requestId: 'string',
+      success: 'boolean',
+      subMessage: 'string',
+      code: 'string',
       message: 'string',
+      subCode: 'string',
+      totalCount: 'number',
       logsId: 'string',
       model: CreateOrderV2ResponseBodyModel,
-      subMessage: 'string',
-      subCode: 'string',
-      code: 'string',
-      success: 'boolean',
     };
   }
 
@@ -1063,28 +1172,28 @@ export class CreatePayUrlRequest extends $tea.Model {
 }
 
 export class CreatePayUrlResponseBody extends $tea.Model {
+  code?: string;
   message?: string;
   requestId?: string;
-  model?: CreatePayUrlResponseBodyModel;
-  code?: string;
   success?: boolean;
+  model?: CreatePayUrlResponseBodyModel;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
-      model: 'Model',
-      code: 'Code',
       success: 'Success',
+      model: 'Model',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
       message: 'string',
       requestId: 'string',
-      model: CreatePayUrlResponseBodyModel,
-      code: 'string',
       success: 'boolean',
+      model: CreatePayUrlResponseBodyModel,
     };
   }
 
@@ -1174,40 +1283,40 @@ export class CreateVirtualProductOrderRequest extends $tea.Model {
 }
 
 export class CreateVirtualProductOrderResponseBody extends $tea.Model {
-  totalCount?: number;
   requestId?: string;
+  success?: boolean;
+  subMessage?: string;
+  code?: string;
   message?: string;
+  subCode?: string;
+  totalCount?: number;
   logsId?: string;
   model?: CreateVirtualProductOrderResponseBodyModel;
-  subMessage?: string;
-  subCode?: string;
-  code?: string;
-  success?: boolean;
   static names(): { [key: string]: string } {
     return {
-      totalCount: 'TotalCount',
       requestId: 'RequestId',
+      success: 'Success',
+      subMessage: 'SubMessage',
+      code: 'Code',
       message: 'Message',
+      subCode: 'SubCode',
+      totalCount: 'TotalCount',
       logsId: 'LogsId',
       model: 'Model',
-      subMessage: 'SubMessage',
-      subCode: 'SubCode',
-      code: 'Code',
-      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      totalCount: 'number',
       requestId: 'string',
+      success: 'boolean',
+      subMessage: 'string',
+      code: 'string',
       message: 'string',
+      subCode: 'string',
+      totalCount: 'number',
       logsId: 'string',
       model: CreateVirtualProductOrderResponseBodyModel,
-      subMessage: 'string',
-      subCode: 'string',
-      code: 'string',
-      success: 'boolean',
     };
   }
 
@@ -1288,25 +1397,25 @@ export class CreateWithholdTradeRequest extends $tea.Model {
 }
 
 export class CreateWithholdTradeResponseBody extends $tea.Model {
+  code?: string;
   message?: string;
   requestId?: string;
   withholdTradeResponse?: CreateWithholdTradeResponseBodyWithholdTradeResponse;
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
       withholdTradeResponse: 'WithholdTradeResponse',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
       message: 'string',
       requestId: 'string',
       withholdTradeResponse: CreateWithholdTradeResponseBodyWithholdTradeResponse,
-      code: 'string',
     };
   }
 
@@ -1363,22 +1472,22 @@ export class DeleteBizItemsRequest extends $tea.Model {
 }
 
 export class DeleteBizItemsResponseBody extends $tea.Model {
+  code?: string;
   message?: string;
   requestId?: string;
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
       message: 'string',
       requestId: 'string',
-      code: 'string',
     };
   }
 
@@ -1444,25 +1553,25 @@ export class DeleteItemLimitRuleRequest extends $tea.Model {
 }
 
 export class DeleteItemLimitRuleResponseBody extends $tea.Model {
+  code?: string;
+  model?: boolean;
   message?: string;
   requestId?: string;
-  model?: boolean;
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
+      model: 'Model',
       message: 'Message',
       requestId: 'RequestId',
-      model: 'Model',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
+      model: 'boolean',
       message: 'string',
       requestId: 'string',
-      model: 'boolean',
-      code: 'string',
     };
   }
 
@@ -1534,40 +1643,40 @@ export class EnableOrderRequest extends $tea.Model {
 }
 
 export class EnableOrderResponseBody extends $tea.Model {
-  totalCount?: number;
   requestId?: string;
+  success?: boolean;
+  subMessage?: string;
+  code?: string;
   message?: string;
+  subCode?: string;
+  totalCount?: number;
   logsId?: string;
   model?: EnableOrderResponseBodyModel;
-  subMessage?: string;
-  subCode?: string;
-  code?: string;
-  success?: boolean;
   static names(): { [key: string]: string } {
     return {
-      totalCount: 'TotalCount',
       requestId: 'RequestId',
+      success: 'Success',
+      subMessage: 'SubMessage',
+      code: 'Code',
       message: 'Message',
+      subCode: 'SubCode',
+      totalCount: 'TotalCount',
       logsId: 'LogsId',
       model: 'Model',
-      subMessage: 'SubMessage',
-      subCode: 'SubCode',
-      code: 'Code',
-      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      totalCount: 'number',
       requestId: 'string',
+      success: 'boolean',
+      subMessage: 'string',
+      code: 'string',
       message: 'string',
+      subCode: 'string',
+      totalCount: 'number',
       logsId: 'string',
       model: EnableOrderResponseBodyModel,
-      subMessage: 'string',
-      subCode: 'string',
-      code: 'string',
-      success: 'boolean',
     };
   }
 
@@ -1590,6 +1699,102 @@ export class EnableOrderResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: EnableOrderResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExecuteNodeRequest extends $tea.Model {
+  processInstanceId?: string;
+  processId?: string;
+  nodeInstanceId?: string;
+  nodeId?: string;
+  requestData?: string;
+  static names(): { [key: string]: string } {
+    return {
+      processInstanceId: 'ProcessInstanceId',
+      processId: 'ProcessId',
+      nodeInstanceId: 'NodeInstanceId',
+      nodeId: 'NodeId',
+      requestData: 'RequestData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      processInstanceId: 'string',
+      processId: 'string',
+      nodeInstanceId: 'string',
+      nodeId: 'string',
+      requestData: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExecuteNodeResponseBody extends $tea.Model {
+  requestId?: string;
+  success?: boolean;
+  subMessage?: string;
+  code?: string;
+  message?: string;
+  subCode?: string;
+  totalCount?: number;
+  logsId?: string;
+  model?: ExecuteNodeResponseBodyModel;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+      subMessage: 'SubMessage',
+      code: 'Code',
+      message: 'Message',
+      subCode: 'SubCode',
+      totalCount: 'TotalCount',
+      logsId: 'LogsId',
+      model: 'Model',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+      subMessage: 'string',
+      code: 'string',
+      message: 'string',
+      subCode: 'string',
+      totalCount: 'number',
+      logsId: 'string',
+      model: ExecuteNodeResponseBodyModel,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExecuteNodeResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ExecuteNodeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ExecuteNodeResponseBody,
     };
   }
 
@@ -1627,25 +1832,25 @@ export class GetCategoryChainRequest extends $tea.Model {
 }
 
 export class GetCategoryChainResponseBody extends $tea.Model {
-  categoryList?: GetCategoryChainResponseBodyCategoryList[];
+  code?: string;
   message?: string;
   requestId?: string;
-  code?: string;
+  categoryList?: GetCategoryChainResponseBodyCategoryList[];
   static names(): { [key: string]: string } {
     return {
-      categoryList: 'CategoryList',
+      code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
-      code: 'Code',
+      categoryList: 'CategoryList',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      categoryList: { 'type': 'array', 'itemType': GetCategoryChainResponseBodyCategoryList },
+      code: 'string',
       message: 'string',
       requestId: 'string',
-      code: 'string',
+      categoryList: { 'type': 'array', 'itemType': GetCategoryChainResponseBodyCategoryList },
     };
   }
 
@@ -1699,25 +1904,25 @@ export class GetCategoryListRequest extends $tea.Model {
 }
 
 export class GetCategoryListResponseBody extends $tea.Model {
-  categoryList?: GetCategoryListResponseBodyCategoryList;
+  code?: string;
   message?: string;
   requestId?: string;
-  code?: string;
+  categoryList?: GetCategoryListResponseBodyCategoryList;
   static names(): { [key: string]: string } {
     return {
-      categoryList: 'CategoryList',
+      code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
-      code: 'Code',
+      categoryList: 'CategoryList',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      categoryList: GetCategoryListResponseBodyCategoryList,
+      code: 'string',
       message: 'string',
       requestId: 'string',
-      code: 'string',
+      categoryList: GetCategoryListResponseBodyCategoryList,
     };
   }
 
@@ -1789,25 +1994,25 @@ export class GetCustomServiceUrlRequest extends $tea.Model {
 }
 
 export class GetCustomServiceUrlResponseBody extends $tea.Model {
+  code?: string;
   message?: string;
   requestId?: string;
   urlData?: GetCustomServiceUrlResponseBodyUrlData;
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
       urlData: 'UrlData',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
       message: 'string',
       requestId: 'string',
       urlData: GetCustomServiceUrlResponseBodyUrlData,
-      code: 'string',
     };
   }
 
@@ -1858,25 +2063,25 @@ export class GetGuidePageRequest extends $tea.Model {
 }
 
 export class GetGuidePageResponseBody extends $tea.Model {
+  code?: string;
   message?: string;
   requestId?: string;
   miniShopInfo?: GetGuidePageResponseBodyMiniShopInfo[];
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
       miniShopInfo: 'MiniShopInfo',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
       message: 'string',
       requestId: 'string',
       miniShopInfo: { 'type': 'array', 'itemType': GetGuidePageResponseBodyMiniShopInfo },
-      code: 'string',
     };
   }
 
@@ -1933,34 +2138,34 @@ export class GetItemPromotionRequest extends $tea.Model {
 }
 
 export class GetItemPromotionResponseBody extends $tea.Model {
-  itemPromotionModel?: GetItemPromotionResponseBodyItemPromotionModel;
   requestId?: string;
-  message?: string;
-  subMessage?: string;
-  subCode?: string;
-  code?: string;
   success?: boolean;
+  subMessage?: string;
+  code?: string;
+  message?: string;
+  subCode?: string;
+  itemPromotionModel?: GetItemPromotionResponseBodyItemPromotionModel;
   static names(): { [key: string]: string } {
     return {
-      itemPromotionModel: 'ItemPromotionModel',
       requestId: 'RequestId',
-      message: 'Message',
-      subMessage: 'SubMessage',
-      subCode: 'SubCode',
-      code: 'Code',
       success: 'Success',
+      subMessage: 'SubMessage',
+      code: 'Code',
+      message: 'Message',
+      subCode: 'SubCode',
+      itemPromotionModel: 'ItemPromotionModel',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      itemPromotionModel: GetItemPromotionResponseBodyItemPromotionModel,
       requestId: 'string',
-      message: 'string',
-      subMessage: 'string',
-      subCode: 'string',
-      code: 'string',
       success: 'boolean',
+      subMessage: 'string',
+      code: 'string',
+      message: 'string',
+      subCode: 'string',
+      itemPromotionModel: GetItemPromotionResponseBodyItemPromotionModel,
     };
   }
 
@@ -2023,25 +2228,25 @@ export class GetLoginPageRequest extends $tea.Model {
 }
 
 export class GetLoginPageResponseBody extends $tea.Model {
+  code?: string;
   message?: string;
   requestId?: string;
   urlData?: GetLoginPageResponseBodyUrlData;
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
       urlData: 'UrlData',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
       message: 'string',
       requestId: 'string',
       urlData: GetLoginPageResponseBodyUrlData,
-      code: 'string',
     };
   }
 
@@ -2104,25 +2309,25 @@ export class GetSwitchUrlRequest extends $tea.Model {
 }
 
 export class GetSwitchUrlResponseBody extends $tea.Model {
-  message?: string;
-  requestId?: string;
   code?: string;
   url?: string;
+  message?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      message: 'Message',
-      requestId: 'RequestId',
       code: 'Code',
       url: 'Url',
+      message: 'Message',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      message: 'string',
-      requestId: 'string',
       code: 'string',
       url: 'string',
+      message: 'string',
+      requestId: 'string',
     };
   }
 
@@ -2182,25 +2387,25 @@ export class GetUserInfoRequest extends $tea.Model {
 }
 
 export class GetUserInfoResponseBody extends $tea.Model {
+  code?: string;
   message?: string;
   requestId?: string;
   loginResult?: GetUserInfoResponseBodyLoginResult;
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
       loginResult: 'LoginResult',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
       message: 'string',
       requestId: 'string',
       loginResult: GetUserInfoResponseBodyLoginResult,
-      code: 'string',
     };
   }
 
@@ -2278,25 +2483,25 @@ export class GetWithholdSignPageUrlRequest extends $tea.Model {
 }
 
 export class GetWithholdSignPageUrlResponseBody extends $tea.Model {
+  code?: string;
   message?: string;
   requestId?: string;
   withholdSignResponse?: GetWithholdSignPageUrlResponseBodyWithholdSignResponse;
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
       withholdSignResponse: 'WithholdSignResponse',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
       message: 'string',
       requestId: 'string',
       withholdSignResponse: GetWithholdSignPageUrlResponseBodyWithholdSignResponse,
-      code: 'string',
     };
   }
 
@@ -2368,28 +2573,28 @@ export class InitApplyRefundRequest extends $tea.Model {
 }
 
 export class InitApplyRefundResponseBody extends $tea.Model {
-  initApplyRefundData?: InitApplyRefundResponseBodyInitApplyRefundData;
-  message?: string;
-  requestId?: string;
-  subLmOrderId?: string;
   code?: string;
+  message?: string;
+  subLmOrderId?: string;
+  requestId?: string;
+  initApplyRefundData?: InitApplyRefundResponseBodyInitApplyRefundData;
   static names(): { [key: string]: string } {
     return {
-      initApplyRefundData: 'InitApplyRefundData',
-      message: 'Message',
-      requestId: 'RequestId',
-      subLmOrderId: 'SubLmOrderId',
       code: 'Code',
+      message: 'Message',
+      subLmOrderId: 'SubLmOrderId',
+      requestId: 'RequestId',
+      initApplyRefundData: 'InitApplyRefundData',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      initApplyRefundData: InitApplyRefundResponseBodyInitApplyRefundData,
-      message: 'string',
-      requestId: 'string',
-      subLmOrderId: 'string',
       code: 'string',
+      message: 'string',
+      subLmOrderId: 'string',
+      requestId: 'string',
+      initApplyRefundData: InitApplyRefundResponseBodyInitApplyRefundData,
     };
   }
 
@@ -2471,25 +2676,25 @@ export class ListItemActivitiesShrinkRequest extends $tea.Model {
 }
 
 export class ListItemActivitiesResponseBody extends $tea.Model {
+  code?: string;
   message?: string;
   requestId?: string;
   lmItemActivityModelList?: ListItemActivitiesResponseBodyLmItemActivityModelList;
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
       lmItemActivityModelList: 'LmItemActivityModelList',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
       message: 'string',
       requestId: 'string',
       lmItemActivityModelList: ListItemActivitiesResponseBodyLmItemActivityModelList,
-      code: 'string',
     };
   }
 
@@ -2546,25 +2751,25 @@ export class ModifyBasicAndBizItemsRequest extends $tea.Model {
 }
 
 export class ModifyBasicAndBizItemsResponseBody extends $tea.Model {
-  failedItemList?: ModifyBasicAndBizItemsResponseBodyFailedItemList;
+  code?: string;
   message?: string;
   requestId?: string;
-  code?: string;
+  failedItemList?: ModifyBasicAndBizItemsResponseBodyFailedItemList;
   static names(): { [key: string]: string } {
     return {
-      failedItemList: 'FailedItemList',
+      code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
-      code: 'Code',
+      failedItemList: 'FailedItemList',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      failedItemList: ModifyBasicAndBizItemsResponseBodyFailedItemList,
+      code: 'string',
       message: 'string',
       requestId: 'string',
-      code: 'string',
+      failedItemList: ModifyBasicAndBizItemsResponseBodyFailedItemList,
     };
   }
 
@@ -2621,34 +2826,34 @@ export class ModifyBizItemsRequest extends $tea.Model {
 }
 
 export class ModifyBizItemsResponseBody extends $tea.Model {
-  failedItemList?: ModifyBizItemsResponseBodyFailedItemList;
-  totalCount?: number;
   requestId?: string;
-  message?: string;
-  pageSize?: number;
-  pageNumber?: number;
   code?: string;
+  message?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  totalCount?: number;
+  failedItemList?: ModifyBizItemsResponseBodyFailedItemList;
   static names(): { [key: string]: string } {
     return {
-      failedItemList: 'FailedItemList',
-      totalCount: 'TotalCount',
       requestId: 'RequestId',
-      message: 'Message',
-      pageSize: 'PageSize',
-      pageNumber: 'PageNumber',
       code: 'Code',
+      message: 'Message',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+      failedItemList: 'FailedItemList',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      failedItemList: ModifyBizItemsResponseBodyFailedItemList,
-      totalCount: 'number',
       requestId: 'string',
-      message: 'string',
-      pageSize: 'number',
-      pageNumber: 'number',
       code: 'string',
+      message: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
+      failedItemList: ModifyBizItemsResponseBodyFailedItemList,
     };
   }
 
@@ -2726,25 +2931,25 @@ export class ModifyItemLimitRuleRequest extends $tea.Model {
 }
 
 export class ModifyItemLimitRuleResponseBody extends $tea.Model {
+  code?: string;
+  model?: boolean;
   message?: string;
   requestId?: string;
-  model?: boolean;
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
+      model: 'Model',
       message: 'Message',
       requestId: 'RequestId',
-      model: 'Model',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
+      model: 'boolean',
       message: 'string',
       requestId: 'string',
-      model: 'boolean',
-      code: 'string',
     };
   }
 
@@ -2807,19 +3012,19 @@ export class NotifyPayOrderStatusRequest extends $tea.Model {
 }
 
 export class NotifyPayOrderStatusResponseBody extends $tea.Model {
-  message?: string;
   code?: string;
+  message?: string;
   static names(): { [key: string]: string } {
     return {
-      message: 'Message',
       code: 'Code',
+      message: 'Message',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      message: 'string',
       code: 'string',
+      message: 'string',
     };
   }
 
@@ -2885,22 +3090,22 @@ export class NotifyWithholdFundRequest extends $tea.Model {
 }
 
 export class NotifyWithholdFundResponseBody extends $tea.Model {
+  code?: string;
   message?: string;
   requestId?: string;
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
       message: 'string',
       requestId: 'string',
-      code: 'string',
     };
   }
 
@@ -2960,34 +3165,34 @@ export class QueryActivityItemsRequest extends $tea.Model {
 }
 
 export class QueryActivityItemsResponseBody extends $tea.Model {
-  totalCount?: number;
   requestId?: string;
-  message?: string;
-  pageSize?: number;
-  pageNumber?: number;
-  lmActivityItemModelList?: QueryActivityItemsResponseBodyLmActivityItemModelList;
   code?: string;
+  message?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  totalCount?: number;
+  lmActivityItemModelList?: QueryActivityItemsResponseBodyLmActivityItemModelList;
   static names(): { [key: string]: string } {
     return {
-      totalCount: 'TotalCount',
       requestId: 'RequestId',
-      message: 'Message',
-      pageSize: 'PageSize',
-      pageNumber: 'PageNumber',
-      lmActivityItemModelList: 'LmActivityItemModelList',
       code: 'Code',
+      message: 'Message',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+      lmActivityItemModelList: 'LmActivityItemModelList',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      totalCount: 'number',
       requestId: 'string',
-      message: 'string',
-      pageSize: 'number',
-      pageNumber: 'number',
-      lmActivityItemModelList: QueryActivityItemsResponseBodyLmActivityItemModelList,
       code: 'string',
+      message: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
+      lmActivityItemModelList: QueryActivityItemsResponseBodyLmActivityItemModelList,
     };
   }
 
@@ -3044,25 +3249,25 @@ export class QueryAddressRequest extends $tea.Model {
 }
 
 export class QueryAddressResponseBody extends $tea.Model {
+  code?: string;
   message?: string;
   requestId?: string;
   divisionAddress?: QueryAddressResponseBodyDivisionAddress;
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
       divisionAddress: 'DivisionAddress',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
       message: 'string',
       requestId: 'string',
       divisionAddress: QueryAddressResponseBodyDivisionAddress,
-      code: 'string',
     };
   }
 
@@ -3122,25 +3327,25 @@ export class QueryAddressDetailRequest extends $tea.Model {
 }
 
 export class QueryAddressDetailResponseBody extends $tea.Model {
+  code?: string;
   message?: string;
   requestId?: string;
   deliveryAddress?: QueryAddressDetailResponseBodyDeliveryAddress;
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
       deliveryAddress: 'DeliveryAddress',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
       message: 'string',
       requestId: 'string',
       deliveryAddress: QueryAddressDetailResponseBodyDeliveryAddress,
-      code: 'string',
     };
   }
 
@@ -3197,25 +3402,25 @@ export class QueryAddressListRequest extends $tea.Model {
 }
 
 export class QueryAddressListResponseBody extends $tea.Model {
+  code?: string;
   message?: string;
   requestId?: string;
   addressList?: QueryAddressListResponseBodyAddressList[];
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
       addressList: 'AddressList',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
       message: 'string',
       requestId: 'string',
       addressList: { 'type': 'array', 'itemType': QueryAddressListResponseBodyAddressList },
-      code: 'string',
     };
   }
 
@@ -3238,6 +3443,111 @@ export class QueryAddressListResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: QueryAddressListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryAdvertisementSettleInfoRequest extends $tea.Model {
+  mediaSettleDetailId?: string;
+  channelId?: string;
+  settleNo?: string;
+  startTime?: string;
+  endTime?: string;
+  pageSize?: number;
+  pageNumber?: number;
+  extInfo?: string;
+  static names(): { [key: string]: string } {
+    return {
+      mediaSettleDetailId: 'MediaSettleDetailId',
+      channelId: 'ChannelId',
+      settleNo: 'SettleNo',
+      startTime: 'StartTime',
+      endTime: 'EndTime',
+      pageSize: 'PageSize',
+      pageNumber: 'PageNumber',
+      extInfo: 'ExtInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mediaSettleDetailId: 'string',
+      channelId: 'string',
+      settleNo: 'string',
+      startTime: 'string',
+      endTime: 'string',
+      pageSize: 'number',
+      pageNumber: 'number',
+      extInfo: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryAdvertisementSettleInfoResponseBody extends $tea.Model {
+  requestId?: string;
+  success?: boolean;
+  subMessage?: string;
+  code?: string;
+  message?: string;
+  subCode?: string;
+  totalCount?: number;
+  logsId?: string;
+  model?: QueryAdvertisementSettleInfoResponseBodyModel;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+      subMessage: 'SubMessage',
+      code: 'Code',
+      message: 'Message',
+      subCode: 'SubCode',
+      totalCount: 'TotalCount',
+      logsId: 'LogsId',
+      model: 'Model',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+      subMessage: 'string',
+      code: 'string',
+      message: 'string',
+      subCode: 'string',
+      totalCount: 'number',
+      logsId: 'string',
+      model: QueryAdvertisementSettleInfoResponseBodyModel,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryAdvertisementSettleInfoResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: QueryAdvertisementSettleInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: QueryAdvertisementSettleInfoResponseBody,
     };
   }
 
@@ -3272,24 +3582,24 @@ export class QueryAgreementRequest extends $tea.Model {
 }
 
 export class QueryAgreementResponseBody extends $tea.Model {
+  code?: string;
   message?: string;
   requestId?: string;
-  code?: string;
   queryAgreementResponse?: QueryAgreementResponseBodyQueryAgreementResponse;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
-      code: 'Code',
       queryAgreementResponse: 'QueryAgreementResponse',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
       message: 'string',
       requestId: 'string',
-      code: 'string',
       queryAgreementResponse: QueryAgreementResponseBodyQueryAgreementResponse,
     };
   }
@@ -3350,39 +3660,39 @@ export class QueryAllCinemasRequest extends $tea.Model {
 }
 
 export class QueryAllCinemasResponseBody extends $tea.Model {
-  totalCount?: number;
   requestId?: string;
-  message?: string;
-  logsId?: string;
-  subMessage?: string;
-  subCode?: string;
-  code?: string;
   success?: boolean;
+  subMessage?: string;
+  code?: string;
+  message?: string;
+  subCode?: string;
+  totalCount?: number;
+  logsId?: string;
   cinemas?: QueryAllCinemasResponseBodyCinemas;
   static names(): { [key: string]: string } {
     return {
-      totalCount: 'TotalCount',
       requestId: 'RequestId',
-      message: 'Message',
-      logsId: 'LogsId',
-      subMessage: 'SubMessage',
-      subCode: 'SubCode',
-      code: 'Code',
       success: 'Success',
+      subMessage: 'SubMessage',
+      code: 'Code',
+      message: 'Message',
+      subCode: 'SubCode',
+      totalCount: 'TotalCount',
+      logsId: 'LogsId',
       cinemas: 'Cinemas',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      totalCount: 'number',
       requestId: 'string',
-      message: 'string',
-      logsId: 'string',
-      subMessage: 'string',
-      subCode: 'string',
-      code: 'string',
       success: 'boolean',
+      subMessage: 'string',
+      code: 'string',
+      message: 'string',
+      subCode: 'string',
+      totalCount: 'number',
+      logsId: 'string',
       cinemas: QueryAllCinemasResponseBodyCinemas,
     };
   }
@@ -3460,36 +3770,36 @@ export class QueryAllCitiesShrinkRequest extends $tea.Model {
 
 export class QueryAllCitiesResponseBody extends $tea.Model {
   requestId?: string;
-  message?: string;
-  logsId?: string;
-  subMessage?: string;
-  cities?: QueryAllCitiesResponseBodyCities;
-  subCode?: string;
-  code?: string;
   success?: boolean;
+  subMessage?: string;
+  code?: string;
+  message?: string;
+  subCode?: string;
+  logsId?: string;
+  cities?: QueryAllCitiesResponseBodyCities;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      message: 'Message',
-      logsId: 'LogsId',
-      subMessage: 'SubMessage',
-      cities: 'Cities',
-      subCode: 'SubCode',
-      code: 'Code',
       success: 'Success',
+      subMessage: 'SubMessage',
+      code: 'Code',
+      message: 'Message',
+      subCode: 'SubCode',
+      logsId: 'LogsId',
+      cities: 'Cities',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      message: 'string',
-      logsId: 'string',
-      subMessage: 'string',
-      cities: QueryAllCitiesResponseBodyCities,
-      subCode: 'string',
-      code: 'string',
       success: 'boolean',
+      subMessage: 'string',
+      code: 'string',
+      message: 'string',
+      subCode: 'string',
+      logsId: 'string',
+      cities: QueryAllCitiesResponseBodyCities,
     };
   }
 
@@ -3544,18 +3854,18 @@ export class QueryBatchRegistAnonymousTbAccountResultRequest extends $tea.Model 
 
 export class QueryBatchRegistAnonymousTbAccountResultResponseBody extends $tea.Model {
   status?: string;
+  code?: string;
   message?: string;
   requestId?: string;
   batchId?: string;
-  code?: string;
   failIds?: QueryBatchRegistAnonymousTbAccountResultResponseBodyFailIds;
   static names(): { [key: string]: string } {
     return {
       status: 'Status',
+      code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
       batchId: 'BatchId',
-      code: 'Code',
       failIds: 'FailIds',
     };
   }
@@ -3563,10 +3873,10 @@ export class QueryBatchRegistAnonymousTbAccountResultResponseBody extends $tea.M
   static types(): { [key: string]: any } {
     return {
       status: 'string',
+      code: 'string',
       message: 'string',
       requestId: 'string',
       batchId: 'string',
-      code: 'string',
       failIds: QueryBatchRegistAnonymousTbAccountResultResponseBodyFailIds,
     };
   }
@@ -3649,24 +3959,24 @@ export class QueryBestSession4ItemsShrinkRequest extends $tea.Model {
 }
 
 export class QueryBestSession4ItemsResponseBody extends $tea.Model {
+  code?: string;
   message?: string;
   requestId?: string;
-  code?: string;
   lmItemActivitySessionModelList?: QueryBestSession4ItemsResponseBodyLmItemActivitySessionModelList;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
-      code: 'Code',
       lmItemActivitySessionModelList: 'LmItemActivitySessionModelList',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
       message: 'string',
       requestId: 'string',
-      code: 'string',
       lmItemActivitySessionModelList: QueryBestSession4ItemsResponseBodyLmItemActivitySessionModelList,
     };
   }
@@ -3779,34 +4089,34 @@ export class QueryBizItemListShrinkRequest extends $tea.Model {
 }
 
 export class QueryBizItemListResponseBody extends $tea.Model {
-  totalCount?: number;
   requestId?: string;
-  message?: string;
-  pageSize?: number;
-  pageNumber?: number;
-  itemList?: QueryBizItemListResponseBodyItemList;
   code?: string;
+  message?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  totalCount?: number;
+  itemList?: QueryBizItemListResponseBodyItemList;
   static names(): { [key: string]: string } {
     return {
-      totalCount: 'TotalCount',
       requestId: 'RequestId',
-      message: 'Message',
-      pageSize: 'PageSize',
-      pageNumber: 'PageNumber',
-      itemList: 'ItemList',
       code: 'Code',
+      message: 'Message',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+      itemList: 'ItemList',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      totalCount: 'number',
       requestId: 'string',
-      message: 'string',
-      pageSize: 'number',
-      pageNumber: 'number',
-      itemList: QueryBizItemListResponseBodyItemList,
       code: 'string',
+      message: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
+      itemList: QueryBizItemListResponseBodyItemList,
     };
   }
 
@@ -3869,34 +4179,34 @@ export class QueryBizItemsRequest extends $tea.Model {
 }
 
 export class QueryBizItemsResponseBody extends $tea.Model {
-  totalCount?: number;
-  requestId?: string;
-  message?: string;
-  pageSize?: number;
-  pageNumber?: number;
   model?: string;
+  requestId?: string;
   code?: string;
+  message?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
-      totalCount: 'TotalCount',
-      requestId: 'RequestId',
-      message: 'Message',
-      pageSize: 'PageSize',
-      pageNumber: 'PageNumber',
       model: 'Model',
+      requestId: 'RequestId',
       code: 'Code',
+      message: 'Message',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      totalCount: 'number',
-      requestId: 'string',
-      message: 'string',
-      pageSize: 'number',
-      pageNumber: 'number',
       model: 'string',
+      requestId: 'string',
       code: 'string',
+      message: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
     };
   }
 
@@ -3978,25 +4288,25 @@ export class QueryBizItemsWithActivityShrinkRequest extends $tea.Model {
 }
 
 export class QueryBizItemsWithActivityResponseBody extends $tea.Model {
+  code?: string;
   message?: string;
   requestId?: string;
   itemList?: QueryBizItemsWithActivityResponseBodyItemList;
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
       itemList: 'ItemList',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
       message: 'string',
       requestId: 'string',
       itemList: QueryBizItemsWithActivityResponseBodyItemList,
-      code: 'string',
     };
   }
 
@@ -4056,34 +4366,34 @@ export class QueryGuideItemGroupRequest extends $tea.Model {
 }
 
 export class QueryGuideItemGroupResponseBody extends $tea.Model {
-  guideItemGroup?: QueryGuideItemGroupResponseBodyGuideItemGroup;
   requestId?: string;
-  message?: string;
-  subMessage?: string;
-  subCode?: string;
-  code?: string;
   success?: boolean;
+  subMessage?: string;
+  code?: string;
+  message?: string;
+  subCode?: string;
+  guideItemGroup?: QueryGuideItemGroupResponseBodyGuideItemGroup;
   static names(): { [key: string]: string } {
     return {
-      guideItemGroup: 'GuideItemGroup',
       requestId: 'RequestId',
-      message: 'Message',
-      subMessage: 'SubMessage',
-      subCode: 'SubCode',
-      code: 'Code',
       success: 'Success',
+      subMessage: 'SubMessage',
+      code: 'Code',
+      message: 'Message',
+      subCode: 'SubCode',
+      guideItemGroup: 'GuideItemGroup',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      guideItemGroup: QueryGuideItemGroupResponseBodyGuideItemGroup,
       requestId: 'string',
-      message: 'string',
-      subMessage: 'string',
-      subCode: 'string',
-      code: 'string',
       success: 'boolean',
+      subMessage: 'string',
+      code: 'string',
+      message: 'string',
+      subCode: 'string',
+      guideItemGroup: QueryGuideItemGroupResponseBodyGuideItemGroup,
     };
   }
 
@@ -4106,6 +4416,93 @@ export class QueryGuideItemGroupResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: QueryGuideItemGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryGuideItemGroupWithOutInventoryRequest extends $tea.Model {
+  groupId?: string;
+  pageSize?: number;
+  pageNumber?: number;
+  bizId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      groupId: 'GroupId',
+      pageSize: 'PageSize',
+      pageNumber: 'PageNumber',
+      bizId: 'BizId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupId: 'string',
+      pageSize: 'number',
+      pageNumber: 'number',
+      bizId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryGuideItemGroupWithOutInventoryResponseBody extends $tea.Model {
+  requestId?: string;
+  code?: string;
+  message?: string;
+  pageSize?: number;
+  pageNumber?: number;
+  totalCount?: number;
+  itemList?: QueryGuideItemGroupWithOutInventoryResponseBodyItemList[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      code: 'Code',
+      message: 'Message',
+      pageSize: 'PageSize',
+      pageNumber: 'PageNumber',
+      totalCount: 'TotalCount',
+      itemList: 'ItemList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      code: 'string',
+      message: 'string',
+      pageSize: 'number',
+      pageNumber: 'number',
+      totalCount: 'number',
+      itemList: { 'type': 'array', 'itemType': QueryGuideItemGroupWithOutInventoryResponseBodyItemList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryGuideItemGroupWithOutInventoryResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: QueryGuideItemGroupWithOutInventoryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: QueryGuideItemGroupWithOutInventoryResponseBody,
     };
   }
 
@@ -4141,36 +4538,36 @@ export class QueryHotMoviesRequest extends $tea.Model {
 
 export class QueryHotMoviesResponseBody extends $tea.Model {
   requestId?: string;
-  message?: string;
-  logsId?: string;
-  subMessage?: string;
-  movies?: QueryHotMoviesResponseBodyMovies;
-  subCode?: string;
-  code?: string;
   success?: boolean;
+  subMessage?: string;
+  code?: string;
+  message?: string;
+  subCode?: string;
+  logsId?: string;
+  movies?: QueryHotMoviesResponseBodyMovies;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      message: 'Message',
-      logsId: 'LogsId',
-      subMessage: 'SubMessage',
-      movies: 'Movies',
-      subCode: 'SubCode',
-      code: 'Code',
       success: 'Success',
+      subMessage: 'SubMessage',
+      code: 'Code',
+      message: 'Message',
+      subCode: 'SubCode',
+      logsId: 'LogsId',
+      movies: 'Movies',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      message: 'string',
-      logsId: 'string',
-      subMessage: 'string',
-      movies: QueryHotMoviesResponseBodyMovies,
-      subCode: 'string',
-      code: 'string',
       success: 'boolean',
+      subMessage: 'string',
+      code: 'string',
+      message: 'string',
+      subCode: 'string',
+      logsId: 'string',
+      movies: QueryHotMoviesResponseBodyMovies,
     };
   }
 
@@ -4193,6 +4590,118 @@ export class QueryHotMoviesResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: QueryHotMoviesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryInventoryOfItemsInBizItemGroupRequest extends $tea.Model {
+  bizId?: string;
+  divisionCode?: string;
+  itemIds?: { [key: string]: any };
+  lmItemIds?: { [key: string]: any };
+  subBizId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bizId: 'BizId',
+      divisionCode: 'DivisionCode',
+      itemIds: 'ItemIds',
+      lmItemIds: 'LmItemIds',
+      subBizId: 'SubBizId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizId: 'string',
+      divisionCode: 'string',
+      itemIds: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      lmItemIds: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      subBizId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryInventoryOfItemsInBizItemGroupShrinkRequest extends $tea.Model {
+  bizId?: string;
+  divisionCode?: string;
+  itemIdsShrink?: string;
+  lmItemIdsShrink?: string;
+  subBizId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bizId: 'BizId',
+      divisionCode: 'DivisionCode',
+      itemIdsShrink: 'ItemIds',
+      lmItemIdsShrink: 'LmItemIds',
+      subBizId: 'SubBizId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizId: 'string',
+      divisionCode: 'string',
+      itemIdsShrink: 'string',
+      lmItemIdsShrink: 'string',
+      subBizId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryInventoryOfItemsInBizItemGroupResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  requestId?: string;
+  itemList?: QueryInventoryOfItemsInBizItemGroupResponseBodyItemList[];
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      itemList: 'ItemList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+      itemList: { 'type': 'array', 'itemType': QueryInventoryOfItemsInBizItemGroupResponseBodyItemList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryInventoryOfItemsInBizItemGroupResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: QueryInventoryOfItemsInBizItemGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: QueryInventoryOfItemsInBizItemGroupResponseBody,
     };
   }
 
@@ -4227,34 +4736,34 @@ export class QueryItemDetailRequest extends $tea.Model {
 }
 
 export class QueryItemDetailResponseBody extends $tea.Model {
-  item?: QueryItemDetailResponseBodyItem;
   requestId?: string;
-  message?: string;
-  subMessage?: string;
-  subCode?: string;
-  code?: string;
   success?: boolean;
+  subMessage?: string;
+  code?: string;
+  message?: string;
+  subCode?: string;
+  item?: QueryItemDetailResponseBodyItem;
   static names(): { [key: string]: string } {
     return {
-      item: 'Item',
       requestId: 'RequestId',
-      message: 'Message',
-      subMessage: 'SubMessage',
-      subCode: 'SubCode',
-      code: 'Code',
       success: 'Success',
+      subMessage: 'SubMessage',
+      code: 'Code',
+      message: 'Message',
+      subCode: 'SubCode',
+      item: 'Item',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      item: QueryItemDetailResponseBodyItem,
       requestId: 'string',
-      message: 'string',
-      subMessage: 'string',
-      subCode: 'string',
-      code: 'string',
       success: 'boolean',
+      subMessage: 'string',
+      code: 'string',
+      message: 'string',
+      subCode: 'string',
+      item: QueryItemDetailResponseBodyItem,
     };
   }
 
@@ -4326,25 +4835,25 @@ export class QueryItemDetailInnerRequest extends $tea.Model {
 }
 
 export class QueryItemDetailInnerResponseBody extends $tea.Model {
-  item?: QueryItemDetailInnerResponseBodyItem;
+  code?: string;
   message?: string;
   requestId?: string;
-  code?: string;
+  item?: QueryItemDetailInnerResponseBodyItem;
   static names(): { [key: string]: string } {
     return {
-      item: 'Item',
+      code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
-      code: 'Code',
+      item: 'Item',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      item: QueryItemDetailInnerResponseBodyItem,
+      code: 'string',
       message: 'string',
       requestId: 'string',
-      code: 'string',
+      item: QueryItemDetailInnerResponseBodyItem,
     };
   }
 
@@ -4367,6 +4876,112 @@ export class QueryItemDetailInnerResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: QueryItemDetailInnerResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryItemInSubBizsRequest extends $tea.Model {
+  bizId?: string;
+  itemId?: number;
+  lmItemId?: string;
+  subBizIds?: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      bizId: 'BizId',
+      itemId: 'ItemId',
+      lmItemId: 'LmItemId',
+      subBizIds: 'SubBizIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizId: 'string',
+      itemId: 'number',
+      lmItemId: 'string',
+      subBizIds: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryItemInSubBizsShrinkRequest extends $tea.Model {
+  bizId?: string;
+  itemId?: number;
+  lmItemId?: string;
+  subBizIdsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bizId: 'BizId',
+      itemId: 'ItemId',
+      lmItemId: 'LmItemId',
+      subBizIdsShrink: 'SubBizIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizId: 'string',
+      itemId: 'number',
+      lmItemId: 'string',
+      subBizIdsShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryItemInSubBizsResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  requestId?: string;
+  itemBizList?: QueryItemInSubBizsResponseBodyItemBizList[];
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      itemBizList: 'ItemBizList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+      itemBizList: { 'type': 'array', 'itemType': QueryItemInSubBizsResponseBodyItemBizList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryItemInSubBizsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: QueryItemInSubBizsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: QueryItemInSubBizsResponseBody,
     };
   }
 
@@ -4405,33 +5020,33 @@ export class QueryItemInventoryRequest extends $tea.Model {
 
 export class QueryItemInventoryResponseBody extends $tea.Model {
   requestId?: string;
-  message?: string;
-  itemList?: QueryItemInventoryResponseBodyItemList;
-  subMessage?: string;
-  subCode?: string;
-  code?: string;
   success?: boolean;
+  subMessage?: string;
+  code?: string;
+  message?: string;
+  subCode?: string;
+  itemList?: QueryItemInventoryResponseBodyItemList;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      message: 'Message',
-      itemList: 'ItemList',
-      subMessage: 'SubMessage',
-      subCode: 'SubCode',
-      code: 'Code',
       success: 'Success',
+      subMessage: 'SubMessage',
+      code: 'Code',
+      message: 'Message',
+      subCode: 'SubCode',
+      itemList: 'ItemList',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      message: 'string',
-      itemList: QueryItemInventoryResponseBodyItemList,
-      subMessage: 'string',
-      subCode: 'string',
-      code: 'string',
       success: 'boolean',
+      subMessage: 'string',
+      code: 'string',
+      message: 'string',
+      subCode: 'string',
+      itemList: QueryItemInventoryResponseBodyItemList,
     };
   }
 
@@ -4497,25 +5112,25 @@ export class QueryLogisticsRequest extends $tea.Model {
 }
 
 export class QueryLogisticsResponseBody extends $tea.Model {
+  code?: string;
   message?: string;
   requestId?: string;
   data?: QueryLogisticsResponseBodyData;
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
       data: 'Data',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
       message: 'string',
       requestId: 'string',
       data: QueryLogisticsResponseBodyData,
-      code: 'string',
     };
   }
 
@@ -4538,6 +5153,111 @@ export class QueryLogisticsResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: QueryLogisticsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryMediaSettleInfoRequest extends $tea.Model {
+  mediaName?: string;
+  channelId?: string;
+  settleNo?: string;
+  startTime?: string;
+  endTime?: string;
+  pageSize?: number;
+  pageNumber?: number;
+  extInfo?: string;
+  static names(): { [key: string]: string } {
+    return {
+      mediaName: 'MediaName',
+      channelId: 'ChannelId',
+      settleNo: 'SettleNo',
+      startTime: 'StartTime',
+      endTime: 'EndTime',
+      pageSize: 'PageSize',
+      pageNumber: 'PageNumber',
+      extInfo: 'ExtInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mediaName: 'string',
+      channelId: 'string',
+      settleNo: 'string',
+      startTime: 'string',
+      endTime: 'string',
+      pageSize: 'number',
+      pageNumber: 'number',
+      extInfo: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryMediaSettleInfoResponseBody extends $tea.Model {
+  requestId?: string;
+  success?: boolean;
+  subMessage?: string;
+  code?: string;
+  message?: string;
+  subCode?: string;
+  totalCount?: number;
+  logsId?: string;
+  model?: QueryMediaSettleInfoResponseBodyModel;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+      subMessage: 'SubMessage',
+      code: 'Code',
+      message: 'Message',
+      subCode: 'SubCode',
+      totalCount: 'TotalCount',
+      logsId: 'LogsId',
+      model: 'Model',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+      subMessage: 'string',
+      code: 'string',
+      message: 'string',
+      subCode: 'string',
+      totalCount: 'number',
+      logsId: 'string',
+      model: QueryMediaSettleInfoResponseBodyModel,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryMediaSettleInfoResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: QueryMediaSettleInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: QueryMediaSettleInfoResponseBody,
     };
   }
 
@@ -4573,22 +5293,22 @@ export class QueryMessagesRequest extends $tea.Model {
 
 export class QueryMessagesResponseBody extends $tea.Model {
   requestId?: string;
+  success?: boolean;
+  subMessage?: string;
+  code?: string;
+  subCode?: string;
   message?: string;
   logsId?: string;
-  subMessage?: string;
-  subCode?: string;
-  code?: string;
-  success?: boolean;
   bizMessages?: QueryMessagesResponseBodyBizMessages;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
+      success: 'Success',
+      subMessage: 'SubMessage',
+      code: 'Code',
+      subCode: 'SubCode',
       message: 'Message',
       logsId: 'LogsId',
-      subMessage: 'SubMessage',
-      subCode: 'SubCode',
-      code: 'Code',
-      success: 'Success',
       bizMessages: 'BizMessages',
     };
   }
@@ -4596,12 +5316,12 @@ export class QueryMessagesResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
+      success: 'boolean',
+      subMessage: 'string',
+      code: 'string',
+      subCode: 'string',
       message: 'string',
       logsId: 'string',
-      subMessage: 'string',
-      subCode: 'string',
-      code: 'string',
-      success: 'boolean',
       bizMessages: QueryMessagesResponseBodyBizMessages,
     };
   }
@@ -4663,39 +5383,39 @@ export class QueryMovieCommentsRequest extends $tea.Model {
 
 export class QueryMovieCommentsResponseBody extends $tea.Model {
   requestId?: string;
-  message?: string;
-  logsId?: string;
-  subMessage?: string;
-  commentList?: QueryMovieCommentsResponseBodyCommentList;
-  count?: number;
-  subCode?: string;
-  code?: string;
   success?: boolean;
+  subMessage?: string;
+  code?: string;
+  message?: string;
+  subCode?: string;
+  logsId?: string;
+  count?: number;
+  commentList?: QueryMovieCommentsResponseBodyCommentList;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      message: 'Message',
-      logsId: 'LogsId',
-      subMessage: 'SubMessage',
-      commentList: 'CommentList',
-      count: 'Count',
-      subCode: 'SubCode',
-      code: 'Code',
       success: 'Success',
+      subMessage: 'SubMessage',
+      code: 'Code',
+      message: 'Message',
+      subCode: 'SubCode',
+      logsId: 'LogsId',
+      count: 'Count',
+      commentList: 'CommentList',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      message: 'string',
-      logsId: 'string',
-      subMessage: 'string',
-      commentList: QueryMovieCommentsResponseBodyCommentList,
-      count: 'number',
-      subCode: 'string',
-      code: 'string',
       success: 'boolean',
+      subMessage: 'string',
+      code: 'string',
+      message: 'string',
+      subCode: 'string',
+      logsId: 'string',
+      count: 'number',
+      commentList: QueryMovieCommentsResponseBodyCommentList,
     };
   }
 
@@ -4752,37 +5472,37 @@ export class QueryMovieSchedulesRequest extends $tea.Model {
 }
 
 export class QueryMovieSchedulesResponseBody extends $tea.Model {
-  schedules?: QueryMovieSchedulesResponseBodySchedules;
   requestId?: string;
-  message?: string;
-  logsId?: string;
-  subMessage?: string;
-  subCode?: string;
-  code?: string;
   success?: boolean;
+  subMessage?: string;
+  code?: string;
+  message?: string;
+  subCode?: string;
+  logsId?: string;
+  schedules?: QueryMovieSchedulesResponseBodySchedules;
   static names(): { [key: string]: string } {
     return {
-      schedules: 'Schedules',
       requestId: 'RequestId',
-      message: 'Message',
-      logsId: 'LogsId',
-      subMessage: 'SubMessage',
-      subCode: 'SubCode',
-      code: 'Code',
       success: 'Success',
+      subMessage: 'SubMessage',
+      code: 'Code',
+      message: 'Message',
+      subCode: 'SubCode',
+      logsId: 'LogsId',
+      schedules: 'Schedules',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      schedules: QueryMovieSchedulesResponseBodySchedules,
       requestId: 'string',
-      message: 'string',
-      logsId: 'string',
-      subMessage: 'string',
-      subCode: 'string',
-      code: 'string',
       success: 'boolean',
+      subMessage: 'string',
+      code: 'string',
+      message: 'string',
+      subCode: 'string',
+      logsId: 'string',
+      schedules: QueryMovieSchedulesResponseBodySchedules,
     };
   }
 
@@ -4840,36 +5560,36 @@ export class QueryMovieSeatsRequest extends $tea.Model {
 
 export class QueryMovieSeatsResponseBody extends $tea.Model {
   requestId?: string;
-  message?: string;
-  logsId?: string;
-  subMessage?: string;
-  subCode?: string;
-  seatMap?: QueryMovieSeatsResponseBodySeatMap;
-  code?: string;
   success?: boolean;
+  subMessage?: string;
+  code?: string;
+  message?: string;
+  subCode?: string;
+  logsId?: string;
+  seatMap?: QueryMovieSeatsResponseBodySeatMap;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      message: 'Message',
-      logsId: 'LogsId',
-      subMessage: 'SubMessage',
-      subCode: 'SubCode',
-      seatMap: 'SeatMap',
-      code: 'Code',
       success: 'Success',
+      subMessage: 'SubMessage',
+      code: 'Code',
+      message: 'Message',
+      subCode: 'SubCode',
+      logsId: 'LogsId',
+      seatMap: 'SeatMap',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      message: 'string',
-      logsId: 'string',
-      subMessage: 'string',
-      subCode: 'string',
-      seatMap: QueryMovieSeatsResponseBodySeatMap,
-      code: 'string',
       success: 'boolean',
+      subMessage: 'string',
+      code: 'string',
+      message: 'string',
+      subCode: 'string',
+      logsId: 'string',
+      seatMap: QueryMovieSeatsResponseBodySeatMap,
     };
   }
 
@@ -4930,36 +5650,36 @@ export class QueryMovieTicketsRequest extends $tea.Model {
 
 export class QueryMovieTicketsResponseBody extends $tea.Model {
   requestId?: string;
+  success?: boolean;
+  subMessage?: string;
+  code?: string;
+  subCode?: string;
   message?: string;
   logsId?: string;
   movieTicket?: QueryMovieTicketsResponseBodyMovieTicket;
-  subMessage?: string;
-  subCode?: string;
-  code?: string;
-  success?: boolean;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
+      success: 'Success',
+      subMessage: 'SubMessage',
+      code: 'Code',
+      subCode: 'SubCode',
       message: 'Message',
       logsId: 'LogsId',
       movieTicket: 'MovieTicket',
-      subMessage: 'SubMessage',
-      subCode: 'SubCode',
-      code: 'Code',
-      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
+      success: 'boolean',
+      subMessage: 'string',
+      code: 'string',
+      subCode: 'string',
       message: 'string',
       logsId: 'string',
       movieTicket: QueryMovieTicketsResponseBodyMovieTicket,
-      subMessage: 'string',
-      subCode: 'string',
-      code: 'string',
-      success: 'boolean',
     };
   }
 
@@ -5031,37 +5751,37 @@ export class QueryOrderAndPaymentListRequest extends $tea.Model {
 }
 
 export class QueryOrderAndPaymentListResponseBody extends $tea.Model {
-  postFee?: QueryOrderAndPaymentListResponseBodyPostFee;
-  totalCount?: number;
   requestId?: string;
+  code?: string;
   message?: string;
   pageSize?: number;
   pageNumber?: number;
+  totalCount?: number;
+  postFee?: QueryOrderAndPaymentListResponseBodyPostFee;
   lmOrderList?: QueryOrderAndPaymentListResponseBodyLmOrderList;
-  code?: string;
   static names(): { [key: string]: string } {
     return {
-      postFee: 'PostFee',
-      totalCount: 'TotalCount',
       requestId: 'RequestId',
+      code: 'Code',
       message: 'Message',
       pageSize: 'PageSize',
       pageNumber: 'PageNumber',
+      totalCount: 'TotalCount',
+      postFee: 'PostFee',
       lmOrderList: 'LmOrderList',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      postFee: QueryOrderAndPaymentListResponseBodyPostFee,
-      totalCount: 'number',
       requestId: 'string',
+      code: 'string',
       message: 'string',
       pageSize: 'number',
       pageNumber: 'number',
+      totalCount: 'number',
+      postFee: QueryOrderAndPaymentListResponseBodyPostFee,
       lmOrderList: QueryOrderAndPaymentListResponseBodyLmOrderList,
-      code: 'string',
     };
   }
 
@@ -5127,25 +5847,25 @@ export class QueryOrderCommissionRateRequest extends $tea.Model {
 }
 
 export class QueryOrderCommissionRateResponseBody extends $tea.Model {
+  code?: string;
   message?: string;
   requestId?: string;
   commissionModels?: QueryOrderCommissionRateResponseBodyCommissionModels[];
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
       commissionModels: 'CommissionModels',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
       message: 'string',
       requestId: 'string',
       commissionModels: { 'type': 'array', 'itemType': QueryOrderCommissionRateResponseBodyCommissionModels },
-      code: 'string',
     };
   }
 
@@ -5208,25 +5928,25 @@ export class QueryOrderDetailInnerRequest extends $tea.Model {
 }
 
 export class QueryOrderDetailInnerResponseBody extends $tea.Model {
+  code?: string;
   message?: string;
   requestId?: string;
   model?: QueryOrderDetailInnerResponseBodyModel;
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
       model: 'Model',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
       message: 'string',
       requestId: 'string',
       model: QueryOrderDetailInnerResponseBodyModel,
-      code: 'string',
     };
   }
 
@@ -5292,25 +6012,25 @@ export class QueryOrderIdByPayIdRequest extends $tea.Model {
 }
 
 export class QueryOrderIdByPayIdResponseBody extends $tea.Model {
+  code?: string;
   message?: string;
   requestId?: string;
   lmOrderIds?: QueryOrderIdByPayIdResponseBodyLmOrderIds;
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
       lmOrderIds: 'LmOrderIds',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
       message: 'string',
       requestId: 'string',
       lmOrderIds: QueryOrderIdByPayIdResponseBodyLmOrderIds,
-      code: 'string',
     };
   }
 
@@ -5376,25 +6096,25 @@ export class QueryOrderInfoAfterSaleRequest extends $tea.Model {
 }
 
 export class QueryOrderInfoAfterSaleResponseBody extends $tea.Model {
+  code?: string;
   message?: string;
   requestId?: string;
   model?: QueryOrderInfoAfterSaleResponseBodyModel;
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
       model: 'Model',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
       message: 'string',
       requestId: 'string',
       model: QueryOrderInfoAfterSaleResponseBodyModel,
-      code: 'string',
     };
   }
 
@@ -5451,25 +6171,25 @@ export class QueryOrderItemInfoByPaymentIdForAiZhanYouRequest extends $tea.Model
 }
 
 export class QueryOrderItemInfoByPaymentIdForAiZhanYouResponseBody extends $tea.Model {
+  code?: string;
   message?: string;
   requestId?: string;
   lmOrderList?: QueryOrderItemInfoByPaymentIdForAiZhanYouResponseBodyLmOrderList;
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
       lmOrderList: 'LmOrderList',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
       message: 'string',
       requestId: 'string',
       lmOrderList: QueryOrderItemInfoByPaymentIdForAiZhanYouResponseBodyLmOrderList,
-      code: 'string',
     };
   }
 
@@ -5541,37 +6261,37 @@ export class QueryOrderListRequest extends $tea.Model {
 }
 
 export class QueryOrderListResponseBody extends $tea.Model {
-  postFee?: QueryOrderListResponseBodyPostFee;
-  totalCount?: number;
   requestId?: string;
+  code?: string;
   message?: string;
   pageSize?: number;
   pageNumber?: number;
+  totalCount?: number;
+  postFee?: QueryOrderListResponseBodyPostFee;
   lmOrderList?: QueryOrderListResponseBodyLmOrderList;
-  code?: string;
   static names(): { [key: string]: string } {
     return {
-      postFee: 'PostFee',
-      totalCount: 'TotalCount',
       requestId: 'RequestId',
+      code: 'Code',
       message: 'Message',
       pageSize: 'PageSize',
       pageNumber: 'PageNumber',
+      totalCount: 'TotalCount',
+      postFee: 'PostFee',
       lmOrderList: 'LmOrderList',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      postFee: QueryOrderListResponseBodyPostFee,
-      totalCount: 'number',
       requestId: 'string',
+      code: 'string',
       message: 'string',
       pageSize: 'number',
       pageNumber: 'number',
+      totalCount: 'number',
+      postFee: QueryOrderListResponseBodyPostFee,
       lmOrderList: QueryOrderListResponseBodyLmOrderList,
-      code: 'string',
     };
   }
 
@@ -5637,24 +6357,24 @@ export class QueryOrderLogisticsRequest extends $tea.Model {
 }
 
 export class QueryOrderLogisticsResponseBody extends $tea.Model {
+  code?: string;
   message?: string;
   requestId?: string;
-  code?: string;
   orderLogistics?: QueryOrderLogisticsResponseBodyOrderLogistics;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
-      code: 'Code',
       orderLogistics: 'OrderLogistics',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
       message: 'string',
       requestId: 'string',
-      code: 'string',
       orderLogistics: QueryOrderLogisticsResponseBodyOrderLogistics,
     };
   }
@@ -5721,25 +6441,25 @@ export class QueryRefundApplicationDetailRequest extends $tea.Model {
 }
 
 export class QueryRefundApplicationDetailResponseBody extends $tea.Model {
+  code?: string;
   message?: string;
   requestId?: string;
   refundApplicationDetail?: QueryRefundApplicationDetailResponseBodyRefundApplicationDetail;
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
       refundApplicationDetail: 'RefundApplicationDetail',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
       message: 'string',
       requestId: 'string',
       refundApplicationDetail: QueryRefundApplicationDetailResponseBodyRefundApplicationDetail,
-      code: 'string',
     };
   }
 
@@ -5762,6 +6482,117 @@ export class QueryRefundApplicationDetailResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: QueryRefundApplicationDetailResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryStatementsRequest extends $tea.Model {
+  tenantId?: string;
+  payeeIds?: string;
+  settleNoes?: string;
+  startTime?: string;
+  endTime?: string;
+  pageSize?: number;
+  pageNumber?: number;
+  settleStatus?: string;
+  settleType?: string;
+  extInfo?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tenantId: 'TenantId',
+      payeeIds: 'PayeeIds',
+      settleNoes: 'SettleNoes',
+      startTime: 'StartTime',
+      endTime: 'EndTime',
+      pageSize: 'PageSize',
+      pageNumber: 'PageNumber',
+      settleStatus: 'SettleStatus',
+      settleType: 'SettleType',
+      extInfo: 'ExtInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tenantId: 'string',
+      payeeIds: 'string',
+      settleNoes: 'string',
+      startTime: 'string',
+      endTime: 'string',
+      pageSize: 'number',
+      pageNumber: 'number',
+      settleStatus: 'string',
+      settleType: 'string',
+      extInfo: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryStatementsResponseBody extends $tea.Model {
+  requestId?: string;
+  success?: boolean;
+  subMessage?: string;
+  code?: string;
+  message?: string;
+  subCode?: string;
+  totalCount?: number;
+  logsId?: string;
+  model?: QueryStatementsResponseBodyModel;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+      subMessage: 'SubMessage',
+      code: 'Code',
+      message: 'Message',
+      subCode: 'SubCode',
+      totalCount: 'TotalCount',
+      logsId: 'LogsId',
+      model: 'Model',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+      subMessage: 'string',
+      code: 'string',
+      message: 'string',
+      subCode: 'string',
+      totalCount: 'number',
+      logsId: 'string',
+      model: QueryStatementsResponseBodyModel,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryStatementsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: QueryStatementsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: QueryStatementsResponseBody,
     };
   }
 
@@ -5796,34 +6627,34 @@ export class QueryUnfinishedActivitiesRequest extends $tea.Model {
 }
 
 export class QueryUnfinishedActivitiesResponseBody extends $tea.Model {
-  totalCount?: number;
   requestId?: string;
+  code?: string;
   message?: string;
   pageSize?: number;
   pageNumber?: number;
+  totalCount?: number;
   lmActivityModelExtList?: QueryUnfinishedActivitiesResponseBodyLmActivityModelExtList;
-  code?: string;
   static names(): { [key: string]: string } {
     return {
-      totalCount: 'TotalCount',
       requestId: 'RequestId',
+      code: 'Code',
       message: 'Message',
       pageSize: 'PageSize',
       pageNumber: 'PageNumber',
+      totalCount: 'TotalCount',
       lmActivityModelExtList: 'LmActivityModelExtList',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      totalCount: 'number',
       requestId: 'string',
+      code: 'string',
       message: 'string',
       pageSize: 'number',
       pageNumber: 'number',
+      totalCount: 'number',
       lmActivityModelExtList: QueryUnfinishedActivitiesResponseBodyLmActivityModelExtList,
-      code: 'string',
     };
   }
 
@@ -5883,34 +6714,34 @@ export class QueryUnfinishedSessionsRequest extends $tea.Model {
 }
 
 export class QueryUnfinishedSessionsResponseBody extends $tea.Model {
+  requestId?: string;
+  code?: string;
+  message?: string;
+  pageNumber?: number;
+  pageSize?: number;
   totalCount?: number;
   lmActivitySessionModelList?: QueryUnfinishedSessionsResponseBodyLmActivitySessionModelList;
-  requestId?: string;
-  message?: string;
-  pageSize?: number;
-  pageNumber?: number;
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      requestId: 'RequestId',
+      code: 'Code',
+      message: 'Message',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
       totalCount: 'TotalCount',
       lmActivitySessionModelList: 'LmActivitySessionModelList',
-      requestId: 'RequestId',
-      message: 'Message',
-      pageSize: 'PageSize',
-      pageNumber: 'PageNumber',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      requestId: 'string',
+      code: 'string',
+      message: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
       totalCount: 'number',
       lmActivitySessionModelList: QueryUnfinishedSessionsResponseBodyLmActivitySessionModelList,
-      requestId: 'string',
-      message: 'string',
-      pageSize: 'number',
-      pageNumber: 'number',
-      code: 'string',
     };
   }
 
@@ -5998,25 +6829,25 @@ export class QueryUnfinishedSessions4ItemsShrinkRequest extends $tea.Model {
 }
 
 export class QueryUnfinishedSessions4ItemsResponseBody extends $tea.Model {
+  code?: string;
   message?: string;
   requestId?: string;
   lmItemActivitySessionModelListList?: QueryUnfinishedSessions4ItemsResponseBodyLmItemActivitySessionModelListList;
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
       lmItemActivitySessionModelListList: 'LmItemActivitySessionModelListList',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
       message: 'string',
       requestId: 'string',
       lmItemActivitySessionModelListList: QueryUnfinishedSessions4ItemsResponseBodyLmItemActivitySessionModelListList,
-      code: 'string',
     };
   }
 
@@ -6098,40 +6929,40 @@ export class QueryUpcomingMoviesShrinkRequest extends $tea.Model {
 }
 
 export class QueryUpcomingMoviesResponseBody extends $tea.Model {
-  totalCount?: number;
   requestId?: string;
-  message?: string;
-  logsId?: string;
-  subMessage?: string;
-  movies?: QueryUpcomingMoviesResponseBodyMovies;
-  subCode?: string;
-  code?: string;
   success?: boolean;
+  subMessage?: string;
+  code?: string;
+  message?: string;
+  subCode?: string;
+  totalCount?: number;
+  logsId?: string;
+  movies?: QueryUpcomingMoviesResponseBodyMovies;
   static names(): { [key: string]: string } {
     return {
-      totalCount: 'TotalCount',
       requestId: 'RequestId',
-      message: 'Message',
-      logsId: 'LogsId',
-      subMessage: 'SubMessage',
-      movies: 'Movies',
-      subCode: 'SubCode',
-      code: 'Code',
       success: 'Success',
+      subMessage: 'SubMessage',
+      code: 'Code',
+      message: 'Message',
+      subCode: 'SubCode',
+      totalCount: 'TotalCount',
+      logsId: 'LogsId',
+      movies: 'Movies',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      totalCount: 'number',
       requestId: 'string',
-      message: 'string',
-      logsId: 'string',
-      subMessage: 'string',
-      movies: QueryUpcomingMoviesResponseBodyMovies,
-      subCode: 'string',
-      code: 'string',
       success: 'boolean',
+      subMessage: 'string',
+      code: 'string',
+      message: 'string',
+      subCode: 'string',
+      totalCount: 'number',
+      logsId: 'string',
+      movies: QueryUpcomingMoviesResponseBodyMovies,
     };
   }
 
@@ -6188,25 +7019,25 @@ export class QueryWithholdTradeRequest extends $tea.Model {
 }
 
 export class QueryWithholdTradeResponseBody extends $tea.Model {
-  queryWithholdTradeResponse?: QueryWithholdTradeResponseBodyQueryWithholdTradeResponse;
+  code?: string;
   message?: string;
   requestId?: string;
-  code?: string;
+  queryWithholdTradeResponse?: QueryWithholdTradeResponseBodyQueryWithholdTradeResponse;
   static names(): { [key: string]: string } {
     return {
-      queryWithholdTradeResponse: 'QueryWithholdTradeResponse',
+      code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
-      code: 'Code',
+      queryWithholdTradeResponse: 'QueryWithholdTradeResponse',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      queryWithholdTradeResponse: QueryWithholdTradeResponseBodyQueryWithholdTradeResponse,
+      code: 'string',
       message: 'string',
       requestId: 'string',
-      code: 'string',
+      queryWithholdTradeResponse: QueryWithholdTradeResponseBodyQueryWithholdTradeResponse,
     };
   }
 
@@ -6278,25 +7109,25 @@ export class RefundOrderRequest extends $tea.Model {
 }
 
 export class RefundOrderResponseBody extends $tea.Model {
+  code?: string;
   message?: string;
   requestId?: string;
   refundResponse?: RefundOrderResponseBodyRefundResponse;
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
       refundResponse: 'RefundResponse',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
       message: 'string',
       requestId: 'string',
       refundResponse: RefundOrderResponseBodyRefundResponse,
-      code: 'string',
     };
   }
 
@@ -6362,22 +7193,22 @@ export class RefundPointRequest extends $tea.Model {
 }
 
 export class RefundPointResponseBody extends $tea.Model {
+  code?: string;
   message?: string;
   requestId?: string;
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
       message: 'string',
       requestId: 'string',
-      code: 'string',
     };
   }
 
@@ -6437,22 +7268,22 @@ export class RefuseMerchantSyncTaskRequest extends $tea.Model {
 }
 
 export class RefuseMerchantSyncTaskResponseBody extends $tea.Model {
+  code?: string;
   message?: string;
   requestId?: string;
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
       message: 'string',
       requestId: 'string',
-      code: 'string',
     };
   }
 
@@ -6506,22 +7337,22 @@ export class RegistAnonymousTbAccountRequest extends $tea.Model {
 }
 
 export class RegistAnonymousTbAccountResponseBody extends $tea.Model {
+  code?: string;
   message?: string;
   requestId?: string;
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
       message: 'string',
       requestId: 'string',
-      code: 'string',
     };
   }
 
@@ -6582,36 +7413,36 @@ export class ReleaseMovieSeatRequest extends $tea.Model {
 
 export class ReleaseMovieSeatResponseBody extends $tea.Model {
   requestId?: string;
-  message?: string;
-  actionResult?: ReleaseMovieSeatResponseBodyActionResult;
-  logsId?: string;
-  subMessage?: string;
-  subCode?: string;
-  code?: string;
   success?: boolean;
+  subMessage?: string;
+  code?: string;
+  message?: string;
+  subCode?: string;
+  logsId?: string;
+  actionResult?: ReleaseMovieSeatResponseBodyActionResult;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      message: 'Message',
-      actionResult: 'ActionResult',
-      logsId: 'LogsId',
-      subMessage: 'SubMessage',
-      subCode: 'SubCode',
-      code: 'Code',
       success: 'Success',
+      subMessage: 'SubMessage',
+      code: 'Code',
+      message: 'Message',
+      subCode: 'SubCode',
+      logsId: 'LogsId',
+      actionResult: 'ActionResult',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      message: 'string',
-      actionResult: ReleaseMovieSeatResponseBodyActionResult,
-      logsId: 'string',
-      subMessage: 'string',
-      subCode: 'string',
-      code: 'string',
       success: 'boolean',
+      subMessage: 'string',
+      code: 'string',
+      message: 'string',
+      subCode: 'string',
+      logsId: 'string',
+      actionResult: ReleaseMovieSeatResponseBodyActionResult,
     };
   }
 
@@ -6671,22 +7502,22 @@ export class RemoveAddressRequest extends $tea.Model {
 }
 
 export class RemoveAddressResponseBody extends $tea.Model {
+  code?: string;
   message?: string;
   requestId?: string;
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
       message: 'string',
       requestId: 'string',
-      code: 'string',
     };
   }
 
@@ -6744,36 +7575,36 @@ export class RemoveMessagesRequest extends $tea.Model {
 
 export class RemoveMessagesResponseBody extends $tea.Model {
   requestId?: string;
-  message?: string;
-  actionResult?: RemoveMessagesResponseBodyActionResult;
-  logsId?: string;
-  subMessage?: string;
-  subCode?: string;
-  code?: string;
   success?: boolean;
+  subMessage?: string;
+  code?: string;
+  subCode?: string;
+  message?: string;
+  logsId?: string;
+  actionResult?: RemoveMessagesResponseBodyActionResult;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      message: 'Message',
-      actionResult: 'ActionResult',
-      logsId: 'LogsId',
-      subMessage: 'SubMessage',
-      subCode: 'SubCode',
-      code: 'Code',
       success: 'Success',
+      subMessage: 'SubMessage',
+      code: 'Code',
+      subCode: 'SubCode',
+      message: 'Message',
+      logsId: 'LogsId',
+      actionResult: 'ActionResult',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      message: 'string',
-      actionResult: RemoveMessagesResponseBodyActionResult,
-      logsId: 'string',
-      subMessage: 'string',
-      subCode: 'string',
-      code: 'string',
       success: 'boolean',
+      subMessage: 'string',
+      code: 'string',
+      subCode: 'string',
+      message: 'string',
+      logsId: 'string',
+      actionResult: RemoveMessagesResponseBodyActionResult,
     };
   }
 
@@ -6839,40 +7670,40 @@ export class RenderH5OrderRequest extends $tea.Model {
 }
 
 export class RenderH5OrderResponseBody extends $tea.Model {
-  totalCount?: number;
   requestId?: string;
+  success?: boolean;
+  subMessage?: string;
+  code?: string;
   message?: string;
+  subCode?: string;
+  totalCount?: number;
   logsId?: string;
   model?: RenderH5OrderResponseBodyModel;
-  subMessage?: string;
-  subCode?: string;
-  code?: string;
-  success?: boolean;
   static names(): { [key: string]: string } {
     return {
-      totalCount: 'TotalCount',
       requestId: 'RequestId',
+      success: 'Success',
+      subMessage: 'SubMessage',
+      code: 'Code',
       message: 'Message',
+      subCode: 'SubCode',
+      totalCount: 'TotalCount',
       logsId: 'LogsId',
       model: 'Model',
-      subMessage: 'SubMessage',
-      subCode: 'SubCode',
-      code: 'Code',
-      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      totalCount: 'number',
       requestId: 'string',
+      success: 'boolean',
+      subMessage: 'string',
+      code: 'string',
       message: 'string',
+      subCode: 'string',
+      totalCount: 'number',
       logsId: 'string',
       model: RenderH5OrderResponseBodyModel,
-      subMessage: 'string',
-      subCode: 'string',
-      code: 'string',
-      success: 'boolean',
     };
   }
 
@@ -6907,23 +7738,23 @@ export class RenderOrderRequest extends $tea.Model {
   bizId?: string;
   bizUid?: string;
   extJson?: string;
-  itemList?: RenderOrderRequestItemList[];
   deliveryAddress?: string;
   useAnonymousTbAccount?: boolean;
   thirdPartyUserId?: string;
   lmItemId?: string;
   accountType?: string;
+  itemList?: RenderOrderRequestItemList[];
   static names(): { [key: string]: string } {
     return {
       bizId: 'BizId',
       bizUid: 'BizUid',
       extJson: 'ExtJson',
-      itemList: 'ItemList',
       deliveryAddress: 'DeliveryAddress',
       useAnonymousTbAccount: 'UseAnonymousTbAccount',
       thirdPartyUserId: 'ThirdPartyUserId',
       lmItemId: 'LmItemId',
       accountType: 'AccountType',
+      itemList: 'ItemList',
     };
   }
 
@@ -6932,12 +7763,12 @@ export class RenderOrderRequest extends $tea.Model {
       bizId: 'string',
       bizUid: 'string',
       extJson: 'string',
-      itemList: { 'type': 'array', 'itemType': RenderOrderRequestItemList },
       deliveryAddress: 'string',
       useAnonymousTbAccount: 'boolean',
       thirdPartyUserId: 'string',
       lmItemId: 'string',
       accountType: 'string',
+      itemList: { 'type': 'array', 'itemType': RenderOrderRequestItemList },
     };
   }
 
@@ -6948,24 +7779,24 @@ export class RenderOrderRequest extends $tea.Model {
 
 export class RenderOrderResponseBody extends $tea.Model {
   requestId?: string;
+  success?: boolean;
+  subMessage?: string;
   code?: string;
   message?: string;
   subCode?: string;
-  subMessage?: string;
-  logsId?: string;
-  success?: boolean;
   totalCount?: number;
+  logsId?: string;
   model?: RenderOrderResponseBodyModel;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
+      success: 'Success',
+      subMessage: 'SubMessage',
       code: 'Code',
       message: 'Message',
       subCode: 'SubCode',
-      subMessage: 'SubMessage',
-      logsId: 'LogsId',
-      success: 'Success',
       totalCount: 'TotalCount',
+      logsId: 'LogsId',
       model: 'Model',
     };
   }
@@ -6973,13 +7804,13 @@ export class RenderOrderResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
+      success: 'boolean',
+      subMessage: 'string',
       code: 'string',
       message: 'string',
       subCode: 'string',
-      subMessage: 'string',
-      logsId: 'string',
-      success: 'boolean',
       totalCount: 'number',
+      logsId: 'string',
       model: RenderOrderResponseBodyModel,
     };
   }
@@ -7043,25 +7874,25 @@ export class RepayForPayUrlRequest extends $tea.Model {
 }
 
 export class RepayForPayUrlResponseBody extends $tea.Model {
+  code?: string;
   message?: string;
   requestId?: string;
   model?: RepayForPayUrlResponseBodyModel;
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
       model: 'Model',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
       message: 'string',
       requestId: 'string',
       model: RepayForPayUrlResponseBodyModel,
-      code: 'string',
     };
   }
 
@@ -7127,22 +7958,22 @@ export class RepayOrderRequest extends $tea.Model {
 }
 
 export class RepayOrderResponseBody extends $tea.Model {
+  code?: string;
   message?: string;
   requestId?: string;
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
       message: 'string',
       requestId: 'string',
-      code: 'string',
     };
   }
 
@@ -7212,36 +8043,36 @@ export class ReserveMovieSeatRequest extends $tea.Model {
 
 export class ReserveMovieSeatResponseBody extends $tea.Model {
   requestId?: string;
-  message?: string;
-  logsId?: string;
-  subMessage?: string;
-  reservedSeat?: ReserveMovieSeatResponseBodyReservedSeat;
-  subCode?: string;
-  code?: string;
   success?: boolean;
+  subMessage?: string;
+  code?: string;
+  message?: string;
+  subCode?: string;
+  logsId?: string;
+  reservedSeat?: ReserveMovieSeatResponseBodyReservedSeat;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      message: 'Message',
-      logsId: 'LogsId',
-      subMessage: 'SubMessage',
-      reservedSeat: 'ReservedSeat',
-      subCode: 'SubCode',
-      code: 'Code',
       success: 'Success',
+      subMessage: 'SubMessage',
+      code: 'Code',
+      message: 'Message',
+      subCode: 'SubCode',
+      logsId: 'LogsId',
+      reservedSeat: 'ReservedSeat',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      message: 'string',
-      logsId: 'string',
-      subMessage: 'string',
-      reservedSeat: ReserveMovieSeatResponseBodyReservedSeat,
-      subCode: 'string',
-      code: 'string',
       success: 'boolean',
+      subMessage: 'string',
+      code: 'string',
+      message: 'string',
+      subCode: 'string',
+      logsId: 'string',
+      reservedSeat: ReserveMovieSeatResponseBodyReservedSeat,
     };
   }
 
@@ -7307,25 +8138,25 @@ export class SettleOrderRequest extends $tea.Model {
 }
 
 export class SettleOrderResponseBody extends $tea.Model {
+  code?: string;
   message?: string;
   requestId?: string;
   tradeOrderSettleResponse?: SettleOrderResponseBodyTradeOrderSettleResponse;
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
       tradeOrderSettleResponse: 'TradeOrderSettleResponse',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
       message: 'string',
       requestId: 'string',
       tradeOrderSettleResponse: SettleOrderResponseBodyTradeOrderSettleResponse,
-      code: 'string',
     };
   }
 
@@ -7400,22 +8231,22 @@ export class SubmitReturnGoodLogisticsRequest extends $tea.Model {
 }
 
 export class SubmitReturnGoodLogisticsResponseBody extends $tea.Model {
+  code?: string;
   message?: string;
   requestId?: string;
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
       message: 'string',
       requestId: 'string',
-      code: 'string',
     };
   }
 
@@ -7478,25 +8309,25 @@ export class SyncMerchantInfoRequest extends $tea.Model {
 }
 
 export class SyncMerchantInfoResponseBody extends $tea.Model {
+  code?: string;
   message?: string;
   requestId?: string;
   model?: SyncMerchantInfoResponseBodyModel;
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
       model: 'Model',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
       message: 'string',
       requestId: 'string',
       model: SyncMerchantInfoResponseBodyModel,
-      code: 'string',
     };
   }
 
@@ -7556,25 +8387,25 @@ export class UnsignWithholdAgreementRequest extends $tea.Model {
 }
 
 export class UnsignWithholdAgreementResponseBody extends $tea.Model {
+  code?: string;
   message?: string;
   requestId?: string;
   withholdSignResponse?: UnsignWithholdAgreementResponseBodyWithholdSignResponse;
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
       withholdSignResponse: 'WithholdSignResponse',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
       message: 'string',
       requestId: 'string',
       withholdSignResponse: UnsignWithholdAgreementResponseBodyWithholdSignResponse,
-      code: 'string',
     };
   }
 
@@ -7634,22 +8465,22 @@ export class UpdateAddressRequest extends $tea.Model {
 }
 
 export class UpdateAddressResponseBody extends $tea.Model {
+  code?: string;
   message?: string;
   requestId?: string;
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
       message: 'string',
       requestId: 'string',
-      code: 'string',
     };
   }
 
@@ -7712,40 +8543,40 @@ export class ValidateTaobaoAccountRequest extends $tea.Model {
 }
 
 export class ValidateTaobaoAccountResponseBody extends $tea.Model {
-  totalCount?: number;
   requestId?: string;
+  success?: boolean;
+  subMessage?: string;
+  code?: string;
   message?: string;
+  subCode?: string;
+  totalCount?: number;
   logsId?: string;
   model?: ValidateTaobaoAccountResponseBodyModel;
-  subMessage?: string;
-  subCode?: string;
-  code?: string;
-  success?: boolean;
   static names(): { [key: string]: string } {
     return {
-      totalCount: 'TotalCount',
       requestId: 'RequestId',
+      success: 'Success',
+      subMessage: 'SubMessage',
+      code: 'Code',
       message: 'Message',
+      subCode: 'SubCode',
+      totalCount: 'TotalCount',
       logsId: 'LogsId',
       model: 'Model',
-      subMessage: 'SubMessage',
-      subCode: 'SubCode',
-      code: 'Code',
-      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      totalCount: 'number',
       requestId: 'string',
+      success: 'boolean',
+      subMessage: 'string',
+      code: 'string',
       message: 'string',
+      subCode: 'string',
+      totalCount: 'number',
       logsId: 'string',
       model: ValidateTaobaoAccountResponseBodyModel,
-      subMessage: 'string',
-      subCode: 'string',
-      code: 'string',
-      success: 'boolean',
     };
   }
 
@@ -7912,21 +8743,21 @@ export class CreateMovieTicketOrderResponseBodyModelOrderIds extends $tea.Model 
 }
 
 export class CreateMovieTicketOrderResponseBodyModel extends $tea.Model {
-  payTradeIds?: CreateMovieTicketOrderResponseBodyModelPayTradeIds;
   redirectUrl?: string;
+  payTradeIds?: CreateMovieTicketOrderResponseBodyModelPayTradeIds;
   orderIds?: CreateMovieTicketOrderResponseBodyModelOrderIds;
   static names(): { [key: string]: string } {
     return {
-      payTradeIds: 'PayTradeIds',
       redirectUrl: 'RedirectUrl',
+      payTradeIds: 'PayTradeIds',
       orderIds: 'OrderIds',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      payTradeIds: CreateMovieTicketOrderResponseBodyModelPayTradeIds,
       redirectUrl: 'string',
+      payTradeIds: CreateMovieTicketOrderResponseBodyModelPayTradeIds,
       orderIds: CreateMovieTicketOrderResponseBodyModelOrderIds,
     };
   }
@@ -7937,14 +8768,14 @@ export class CreateMovieTicketOrderResponseBodyModel extends $tea.Model {
 }
 
 export class CreateOrderRequestItemList extends $tea.Model {
-  lmItemId?: string;
   skuId?: number;
+  lmItemId?: string;
   itemId?: number;
   quantity?: number;
   static names(): { [key: string]: string } {
     return {
-      lmItemId: 'LmItemId',
       skuId: 'SkuId',
+      lmItemId: 'LmItemId',
       itemId: 'ItemId',
       quantity: 'Quantity',
     };
@@ -7952,29 +8783,10 @@ export class CreateOrderRequestItemList extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      lmItemId: 'string',
       skuId: 'number',
+      lmItemId: 'string',
       itemId: 'number',
       quantity: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateOrderResponseBodyModelPayTradeIds extends $tea.Model {
-  payTradeIds?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      payTradeIds: 'PayTradeIds',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      payTradeIds: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -8021,6 +8833,25 @@ export class CreateOrderResponseBodyModelLmOrderList extends $tea.Model {
   }
 }
 
+export class CreateOrderResponseBodyModelPayTradeIds extends $tea.Model {
+  payTradeIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      payTradeIds: 'PayTradeIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      payTradeIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateOrderResponseBodyModelOrderIds extends $tea.Model {
   orderIds?: string[];
   static names(): { [key: string]: string } {
@@ -8041,24 +8872,24 @@ export class CreateOrderResponseBodyModelOrderIds extends $tea.Model {
 }
 
 export class CreateOrderResponseBodyModel extends $tea.Model {
-  payTradeIds?: CreateOrderResponseBodyModelPayTradeIds;
   redirectUrl?: string;
   lmOrderList?: CreateOrderResponseBodyModelLmOrderList;
+  payTradeIds?: CreateOrderResponseBodyModelPayTradeIds;
   orderIds?: CreateOrderResponseBodyModelOrderIds;
   static names(): { [key: string]: string } {
     return {
-      payTradeIds: 'PayTradeIds',
       redirectUrl: 'RedirectUrl',
       lmOrderList: 'LmOrderList',
+      payTradeIds: 'PayTradeIds',
       orderIds: 'OrderIds',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      payTradeIds: CreateOrderResponseBodyModelPayTradeIds,
       redirectUrl: 'string',
       lmOrderList: CreateOrderResponseBodyModelLmOrderList,
+      payTradeIds: CreateOrderResponseBodyModelPayTradeIds,
       orderIds: CreateOrderResponseBodyModelOrderIds,
     };
   }
@@ -8069,14 +8900,14 @@ export class CreateOrderResponseBodyModel extends $tea.Model {
 }
 
 export class CreateOrderV2RequestItemList extends $tea.Model {
-  lmItemId?: string;
   skuId?: number;
+  lmItemId?: string;
   itemId?: number;
   quantity?: number;
   static names(): { [key: string]: string } {
     return {
-      lmItemId: 'LmItemId',
       skuId: 'SkuId',
+      lmItemId: 'LmItemId',
       itemId: 'ItemId',
       quantity: 'Quantity',
     };
@@ -8084,29 +8915,10 @@ export class CreateOrderV2RequestItemList extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      lmItemId: 'string',
       skuId: 'number',
+      lmItemId: 'string',
       itemId: 'number',
       quantity: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateOrderV2ResponseBodyModelPayTradeIds extends $tea.Model {
-  payTradeIds?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      payTradeIds: 'PayTradeIds',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      payTradeIds: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -8153,6 +8965,25 @@ export class CreateOrderV2ResponseBodyModelLmOrderList extends $tea.Model {
   }
 }
 
+export class CreateOrderV2ResponseBodyModelPayTradeIds extends $tea.Model {
+  payTradeIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      payTradeIds: 'PayTradeIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      payTradeIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateOrderV2ResponseBodyModelOrderIds extends $tea.Model {
   orderIds?: string[];
   static names(): { [key: string]: string } {
@@ -8173,24 +9004,24 @@ export class CreateOrderV2ResponseBodyModelOrderIds extends $tea.Model {
 }
 
 export class CreateOrderV2ResponseBodyModel extends $tea.Model {
-  payTradeIds?: CreateOrderV2ResponseBodyModelPayTradeIds;
   redirectUrl?: string;
   lmOrderList?: CreateOrderV2ResponseBodyModelLmOrderList;
+  payTradeIds?: CreateOrderV2ResponseBodyModelPayTradeIds;
   orderIds?: CreateOrderV2ResponseBodyModelOrderIds;
   static names(): { [key: string]: string } {
     return {
-      payTradeIds: 'PayTradeIds',
       redirectUrl: 'RedirectUrl',
       lmOrderList: 'LmOrderList',
+      payTradeIds: 'PayTradeIds',
       orderIds: 'OrderIds',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      payTradeIds: CreateOrderV2ResponseBodyModelPayTradeIds,
       redirectUrl: 'string',
       lmOrderList: CreateOrderV2ResponseBodyModelLmOrderList,
+      payTradeIds: CreateOrderV2ResponseBodyModelPayTradeIds,
       orderIds: CreateOrderV2ResponseBodyModelOrderIds,
     };
   }
@@ -8201,14 +9032,14 @@ export class CreateOrderV2ResponseBodyModel extends $tea.Model {
 }
 
 export class CreatePayUrlResponseBodyModel extends $tea.Model {
-  payTradeIds?: string[];
   redirectUrl?: string;
+  payTradeIds?: string[];
   lmOrderList?: string[];
   orderIds?: string[];
   static names(): { [key: string]: string } {
     return {
-      payTradeIds: 'PayTradeIds',
       redirectUrl: 'RedirectUrl',
+      payTradeIds: 'PayTradeIds',
       lmOrderList: 'LmOrderList',
       orderIds: 'OrderIds',
     };
@@ -8216,8 +9047,8 @@ export class CreatePayUrlResponseBodyModel extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      payTradeIds: { 'type': 'array', 'itemType': 'string' },
       redirectUrl: 'string',
+      payTradeIds: { 'type': 'array', 'itemType': 'string' },
       lmOrderList: { 'type': 'array', 'itemType': 'string' },
       orderIds: { 'type': 'array', 'itemType': 'string' },
     };
@@ -8229,14 +9060,14 @@ export class CreatePayUrlResponseBodyModel extends $tea.Model {
 }
 
 export class CreateVirtualProductOrderRequestItemList extends $tea.Model {
-  lmItemId?: string;
   skuId?: number;
+  lmItemId?: string;
   itemId?: number;
   quantity?: number;
   static names(): { [key: string]: string } {
     return {
-      lmItemId: 'LmItemId',
       skuId: 'SkuId',
+      lmItemId: 'LmItemId',
       itemId: 'ItemId',
       quantity: 'Quantity',
     };
@@ -8244,29 +9075,10 @@ export class CreateVirtualProductOrderRequestItemList extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      lmItemId: 'string',
       skuId: 'number',
+      lmItemId: 'string',
       itemId: 'number',
       quantity: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateVirtualProductOrderResponseBodyModelPayTradeIds extends $tea.Model {
-  payTradeIds?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      payTradeIds: 'PayTradeIds',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      payTradeIds: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -8313,6 +9125,25 @@ export class CreateVirtualProductOrderResponseBodyModelLmOrderList extends $tea.
   }
 }
 
+export class CreateVirtualProductOrderResponseBodyModelPayTradeIds extends $tea.Model {
+  payTradeIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      payTradeIds: 'PayTradeIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      payTradeIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateVirtualProductOrderResponseBodyModelOrderIds extends $tea.Model {
   orderIds?: string[];
   static names(): { [key: string]: string } {
@@ -8333,24 +9164,24 @@ export class CreateVirtualProductOrderResponseBodyModelOrderIds extends $tea.Mod
 }
 
 export class CreateVirtualProductOrderResponseBodyModel extends $tea.Model {
-  payTradeIds?: CreateVirtualProductOrderResponseBodyModelPayTradeIds;
   redirectUrl?: string;
   lmOrderList?: CreateVirtualProductOrderResponseBodyModelLmOrderList;
+  payTradeIds?: CreateVirtualProductOrderResponseBodyModelPayTradeIds;
   orderIds?: CreateVirtualProductOrderResponseBodyModelOrderIds;
   static names(): { [key: string]: string } {
     return {
-      payTradeIds: 'PayTradeIds',
       redirectUrl: 'RedirectUrl',
       lmOrderList: 'LmOrderList',
+      payTradeIds: 'PayTradeIds',
       orderIds: 'OrderIds',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      payTradeIds: CreateVirtualProductOrderResponseBodyModelPayTradeIds,
       redirectUrl: 'string',
       lmOrderList: CreateVirtualProductOrderResponseBodyModelLmOrderList,
+      payTradeIds: CreateVirtualProductOrderResponseBodyModelPayTradeIds,
       orderIds: CreateVirtualProductOrderResponseBodyModelOrderIds,
     };
   }
@@ -8380,25 +9211,6 @@ export class CreateWithholdTradeResponseBodyWithholdTradeResponse extends $tea.M
       tradeNo: 'string',
       outRequestNo: 'string',
       outTradeNo: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class EnableOrderResponseBodyModelPayTradeIds extends $tea.Model {
-  payTradeIds?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      payTradeIds: 'PayTradeIds',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      payTradeIds: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -8445,6 +9257,25 @@ export class EnableOrderResponseBodyModelLmOrderList extends $tea.Model {
   }
 }
 
+export class EnableOrderResponseBodyModelPayTradeIds extends $tea.Model {
+  payTradeIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      payTradeIds: 'PayTradeIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      payTradeIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class EnableOrderResponseBodyModelOrderIds extends $tea.Model {
   orderIds?: string[];
   static names(): { [key: string]: string } {
@@ -8465,24 +9296,24 @@ export class EnableOrderResponseBodyModelOrderIds extends $tea.Model {
 }
 
 export class EnableOrderResponseBodyModel extends $tea.Model {
-  payTradeIds?: EnableOrderResponseBodyModelPayTradeIds;
   redirectUrl?: string;
   lmOrderList?: EnableOrderResponseBodyModelLmOrderList;
+  payTradeIds?: EnableOrderResponseBodyModelPayTradeIds;
   orderIds?: EnableOrderResponseBodyModelOrderIds;
   static names(): { [key: string]: string } {
     return {
-      payTradeIds: 'PayTradeIds',
       redirectUrl: 'RedirectUrl',
       lmOrderList: 'LmOrderList',
+      payTradeIds: 'PayTradeIds',
       orderIds: 'OrderIds',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      payTradeIds: EnableOrderResponseBodyModelPayTradeIds,
       redirectUrl: 'string',
       lmOrderList: EnableOrderResponseBodyModelLmOrderList,
+      payTradeIds: EnableOrderResponseBodyModelPayTradeIds,
       orderIds: EnableOrderResponseBodyModelOrderIds,
     };
   }
@@ -8492,20 +9323,42 @@ export class EnableOrderResponseBodyModel extends $tea.Model {
   }
 }
 
-export class GetCategoryChainResponseBodyCategoryList extends $tea.Model {
-  categoryId?: number;
-  name?: string;
+export class ExecuteNodeResponseBodyModel extends $tea.Model {
+  responseData?: { [key: string]: any };
+  processInstanceId?: string;
   static names(): { [key: string]: string } {
     return {
-      categoryId: 'CategoryId',
-      name: 'Name',
+      responseData: 'ResponseData',
+      processInstanceId: 'ProcessInstanceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      categoryId: 'number',
+      responseData: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      processInstanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCategoryChainResponseBodyCategoryList extends $tea.Model {
+  name?: string;
+  categoryId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      categoryId: 'CategoryId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
       name: 'string',
+      categoryId: 'number',
     };
   }
 
@@ -8515,19 +9368,19 @@ export class GetCategoryChainResponseBodyCategoryList extends $tea.Model {
 }
 
 export class GetCategoryListResponseBodyCategoryListCategory extends $tea.Model {
-  categoryId?: number;
   name?: string;
+  categoryId?: number;
   static names(): { [key: string]: string } {
     return {
-      categoryId: 'CategoryId',
       name: 'Name',
+      categoryId: 'CategoryId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      categoryId: 'number',
       name: 'string',
+      categoryId: 'number',
     };
   }
 
@@ -8672,18 +9525,18 @@ export class GetUserInfoResponseBodyLoginResult extends $tea.Model {
   bizUserName?: string;
   bizUid?: string;
   bizId?: string;
-  subBizId?: string[];
   lmUserId?: number;
   extInfo?: { [key: string]: any };
+  subBizId?: string[];
   static names(): { [key: string]: string } {
     return {
       returnUrl: 'ReturnUrl',
       bizUserName: 'BizUserName',
       bizUid: 'BizUid',
       bizId: 'BizId',
-      subBizId: 'SubBizId',
       lmUserId: 'LmUserId',
       extInfo: 'ExtInfo',
+      subBizId: 'SubBizId',
     };
   }
 
@@ -8693,9 +9546,9 @@ export class GetUserInfoResponseBodyLoginResult extends $tea.Model {
       bizUserName: 'string',
       bizUid: 'string',
       bizId: 'string',
-      subBizId: { 'type': 'array', 'itemType': 'string' },
       lmUserId: 'number',
       extInfo: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      subBizId: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -8718,28 +9571,6 @@ export class GetWithholdSignPageUrlResponseBodyWithholdSignResponse extends $tea
     return {
       pageUrl: 'string',
       outRequestNo: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class InitApplyRefundResponseBodyInitApplyRefundDataMaxRefundFeeData extends $tea.Model {
-  maxRefundFee?: number;
-  minRefundFee?: number;
-  static names(): { [key: string]: string } {
-    return {
-      maxRefundFee: 'MaxRefundFee',
-      minRefundFee: 'MinRefundFee',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      maxRefundFee: 'number',
-      minRefundFee: 'number',
     };
   }
 
@@ -8795,26 +9626,48 @@ export class InitApplyRefundResponseBodyInitApplyRefundDataRefundReasonList exte
   }
 }
 
-export class InitApplyRefundResponseBodyInitApplyRefundData extends $tea.Model {
-  maxRefundFeeData?: InitApplyRefundResponseBodyInitApplyRefundDataMaxRefundFeeData;
-  bizClaimType?: number;
-  mainOrderRefund?: boolean;
-  refundReasonList?: InitApplyRefundResponseBodyInitApplyRefundDataRefundReasonList;
+export class InitApplyRefundResponseBodyInitApplyRefundDataMaxRefundFeeData extends $tea.Model {
+  maxRefundFee?: number;
+  minRefundFee?: number;
   static names(): { [key: string]: string } {
     return {
-      maxRefundFeeData: 'MaxRefundFeeData',
-      bizClaimType: 'BizClaimType',
-      mainOrderRefund: 'MainOrderRefund',
-      refundReasonList: 'RefundReasonList',
+      maxRefundFee: 'MaxRefundFee',
+      minRefundFee: 'MinRefundFee',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      maxRefundFeeData: InitApplyRefundResponseBodyInitApplyRefundDataMaxRefundFeeData,
-      bizClaimType: 'number',
+      maxRefundFee: 'number',
+      minRefundFee: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InitApplyRefundResponseBodyInitApplyRefundData extends $tea.Model {
+  mainOrderRefund?: boolean;
+  bizClaimType?: number;
+  refundReasonList?: InitApplyRefundResponseBodyInitApplyRefundDataRefundReasonList;
+  maxRefundFeeData?: InitApplyRefundResponseBodyInitApplyRefundDataMaxRefundFeeData;
+  static names(): { [key: string]: string } {
+    return {
+      mainOrderRefund: 'MainOrderRefund',
+      bizClaimType: 'BizClaimType',
+      refundReasonList: 'RefundReasonList',
+      maxRefundFeeData: 'MaxRefundFeeData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
       mainOrderRefund: 'boolean',
+      bizClaimType: 'number',
       refundReasonList: InitApplyRefundResponseBodyInitApplyRefundDataRefundReasonList,
+      maxRefundFeeData: InitApplyRefundResponseBodyInitApplyRefundDataMaxRefundFeeData,
     };
   }
 
@@ -8864,22 +9717,22 @@ export class ListItemActivitiesResponseBodyLmItemActivityModelListLmItemActivity
 }
 
 export class ListItemActivitiesResponseBodyLmItemActivityModelListLmItemActivityModel extends $tea.Model {
-  lmActivityPopModel?: ListItemActivitiesResponseBodyLmItemActivityModelListLmItemActivityModelLmActivityPopModel;
   lmItemId?: string;
   itemId?: number;
+  lmActivityPopModel?: ListItemActivitiesResponseBodyLmItemActivityModelListLmItemActivityModelLmActivityPopModel;
   static names(): { [key: string]: string } {
     return {
-      lmActivityPopModel: 'LmActivityPopModel',
       lmItemId: 'LmItemId',
       itemId: 'ItemId',
+      lmActivityPopModel: 'LmActivityPopModel',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      lmActivityPopModel: ListItemActivitiesResponseBodyLmItemActivityModelListLmItemActivityModelLmActivityPopModel,
       lmItemId: 'string',
       itemId: 'number',
+      lmActivityPopModel: ListItemActivitiesResponseBodyLmItemActivityModelListLmItemActivityModelLmActivityPopModel,
     };
   }
 
@@ -9229,58 +10082,58 @@ export class QueryActivityItemsResponseBodyLmActivityItemModelListLmActivityItem
 }
 
 export class QueryActivityItemsResponseBodyLmActivityItemModelListLmActivityItemModel extends $tea.Model {
-  tbSellerId?: number;
   itemTitle?: string;
+  tbSellerId?: number;
   sellableQuantity?: number;
   tbShopId?: number;
-  itemActivityQuantity?: number;
-  tbShopName?: string;
   lmItemId?: string;
+  tbShopName?: string;
+  itemActivityQuantity?: number;
   lmActivityId?: number;
-  itemId?: number;
   canSell?: boolean;
+  itemId?: number;
   mainPicUrl?: string;
   tips?: string;
   lmShopId?: string;
-  skuModelList?: QueryActivityItemsResponseBodyLmActivityItemModelListLmActivityItemModelSkuModelList;
   itemActivityStatus?: string;
+  skuModelList?: QueryActivityItemsResponseBodyLmActivityItemModelListLmActivityItemModelSkuModelList;
   static names(): { [key: string]: string } {
     return {
-      tbSellerId: 'TbSellerId',
       itemTitle: 'ItemTitle',
+      tbSellerId: 'TbSellerId',
       sellableQuantity: 'SellableQuantity',
       tbShopId: 'TbShopId',
-      itemActivityQuantity: 'ItemActivityQuantity',
-      tbShopName: 'TbShopName',
       lmItemId: 'LmItemId',
+      tbShopName: 'TbShopName',
+      itemActivityQuantity: 'ItemActivityQuantity',
       lmActivityId: 'LmActivityId',
-      itemId: 'ItemId',
       canSell: 'CanSell',
+      itemId: 'ItemId',
       mainPicUrl: 'MainPicUrl',
       tips: 'Tips',
       lmShopId: 'LmShopId',
-      skuModelList: 'SkuModelList',
       itemActivityStatus: 'ItemActivityStatus',
+      skuModelList: 'SkuModelList',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      tbSellerId: 'number',
       itemTitle: 'string',
+      tbSellerId: 'number',
       sellableQuantity: 'number',
       tbShopId: 'number',
-      itemActivityQuantity: 'number',
-      tbShopName: 'string',
       lmItemId: 'string',
+      tbShopName: 'string',
+      itemActivityQuantity: 'number',
       lmActivityId: 'number',
-      itemId: 'number',
       canSell: 'boolean',
+      itemId: 'number',
       mainPicUrl: 'string',
       tips: 'string',
       lmShopId: 'string',
-      skuModelList: QueryActivityItemsResponseBodyLmActivityItemModelListLmActivityItemModelSkuModelList,
       itemActivityStatus: 'string',
+      skuModelList: QueryActivityItemsResponseBodyLmActivityItemModelListLmActivityItemModelSkuModelList,
     };
   }
 
@@ -9311,14 +10164,14 @@ export class QueryActivityItemsResponseBodyLmActivityItemModelList extends $tea.
 export class QueryAddressResponseBodyDivisionAddressDivisionAddress extends $tea.Model {
   parentId?: number;
   divisionCode?: number;
-  divisionName?: string;
   divisionLevel?: number;
+  divisionName?: string;
   static names(): { [key: string]: string } {
     return {
       parentId: 'ParentId',
       divisionCode: 'DivisionCode',
-      divisionName: 'DivisionName',
       divisionLevel: 'DivisionLevel',
+      divisionName: 'DivisionName',
     };
   }
 
@@ -9326,8 +10179,8 @@ export class QueryAddressResponseBodyDivisionAddressDivisionAddress extends $tea
     return {
       parentId: 'number',
       divisionCode: 'number',
-      divisionName: 'string',
       divisionLevel: 'number',
+      divisionName: 'string',
     };
   }
 
@@ -9365,8 +10218,8 @@ export class QueryAddressDetailResponseBodyDeliveryAddress extends $tea.Model {
   divisionCode?: string;
   mobile?: string;
   country?: string;
-  townDivisionCode?: string;
   area?: string;
+  townDivisionCode?: string;
   town?: string;
   province?: string;
   static names(): { [key: string]: string } {
@@ -9380,8 +10233,8 @@ export class QueryAddressDetailResponseBodyDeliveryAddress extends $tea.Model {
       divisionCode: 'DivisionCode',
       mobile: 'Mobile',
       country: 'Country',
-      townDivisionCode: 'TownDivisionCode',
       area: 'Area',
+      townDivisionCode: 'TownDivisionCode',
       town: 'Town',
       province: 'Province',
     };
@@ -9398,8 +10251,8 @@ export class QueryAddressDetailResponseBodyDeliveryAddress extends $tea.Model {
       divisionCode: 'string',
       mobile: 'string',
       country: 'string',
-      townDivisionCode: 'string',
       area: 'string',
+      townDivisionCode: 'string',
       town: 'string',
       province: 'string',
     };
@@ -9420,8 +10273,8 @@ export class QueryAddressListResponseBodyAddressList extends $tea.Model {
   divisionCode?: string;
   mobile?: string;
   country?: string;
-  townDivisionCode?: string;
   area?: string;
+  townDivisionCode?: string;
   town?: string;
   province?: string;
   static names(): { [key: string]: string } {
@@ -9435,8 +10288,8 @@ export class QueryAddressListResponseBodyAddressList extends $tea.Model {
       divisionCode: 'DivisionCode',
       mobile: 'Mobile',
       country: 'Country',
-      townDivisionCode: 'TownDivisionCode',
       area: 'Area',
+      townDivisionCode: 'TownDivisionCode',
       town: 'Town',
       province: 'Province',
     };
@@ -9453,10 +10306,90 @@ export class QueryAddressListResponseBodyAddressList extends $tea.Model {
       divisionCode: 'string',
       mobile: 'string',
       country: 'string',
-      townDivisionCode: 'string',
       area: 'string',
+      townDivisionCode: 'string',
       town: 'string',
       province: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryAdvertisementSettleInfoResponseBodyModelAdvertiseSettleInfoList extends $tea.Model {
+  advertiseSettleDetailId?: string;
+  createDate?: string;
+  mediaSettleDetailId?: string;
+  extInfo?: string;
+  endTime?: string;
+  startTime?: string;
+  settleNo?: string;
+  advertiseSettleAmount?: string;
+  settleStatus?: string;
+  advertiseName?: string;
+  channelId?: string;
+  modifiedDate?: string;
+  static names(): { [key: string]: string } {
+    return {
+      advertiseSettleDetailId: 'AdvertiseSettleDetailId',
+      createDate: 'CreateDate',
+      mediaSettleDetailId: 'MediaSettleDetailId',
+      extInfo: 'ExtInfo',
+      endTime: 'EndTime',
+      startTime: 'StartTime',
+      settleNo: 'SettleNo',
+      advertiseSettleAmount: 'AdvertiseSettleAmount',
+      settleStatus: 'SettleStatus',
+      advertiseName: 'AdvertiseName',
+      channelId: 'ChannelId',
+      modifiedDate: 'ModifiedDate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      advertiseSettleDetailId: 'string',
+      createDate: 'string',
+      mediaSettleDetailId: 'string',
+      extInfo: 'string',
+      endTime: 'string',
+      startTime: 'string',
+      settleNo: 'string',
+      advertiseSettleAmount: 'string',
+      settleStatus: 'string',
+      advertiseName: 'string',
+      channelId: 'string',
+      modifiedDate: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryAdvertisementSettleInfoResponseBodyModel extends $tea.Model {
+  pageSize?: number;
+  pageNumber?: number;
+  totalCount?: number;
+  advertiseSettleInfoList?: QueryAdvertisementSettleInfoResponseBodyModelAdvertiseSettleInfoList[];
+  static names(): { [key: string]: string } {
+    return {
+      pageSize: 'PageSize',
+      pageNumber: 'PageNumber',
+      totalCount: 'TotalCount',
+      advertiseSettleInfoList: 'AdvertiseSettleInfoList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageSize: 'number',
+      pageNumber: 'number',
+      totalCount: 'number',
+      advertiseSettleInfoList: { 'type': 'array', 'itemType': QueryAdvertisementSettleInfoResponseBodyModelAdvertiseSettleInfoList },
     };
   }
 
@@ -9680,22 +10613,22 @@ export class QueryBestSession4ItemsResponseBodyLmItemActivitySessionModelListLmI
 }
 
 export class QueryBestSession4ItemsResponseBodyLmItemActivitySessionModelListLmItemActivitySessionModel extends $tea.Model {
-  lmActivitySessionModel?: QueryBestSession4ItemsResponseBodyLmItemActivitySessionModelListLmItemActivitySessionModelLmActivitySessionModel;
   lmItemId?: string;
   itemId?: number;
+  lmActivitySessionModel?: QueryBestSession4ItemsResponseBodyLmItemActivitySessionModelListLmItemActivitySessionModelLmActivitySessionModel;
   static names(): { [key: string]: string } {
     return {
-      lmActivitySessionModel: 'LmActivitySessionModel',
       lmItemId: 'LmItemId',
       itemId: 'ItemId',
+      lmActivitySessionModel: 'LmActivitySessionModel',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      lmActivitySessionModel: QueryBestSession4ItemsResponseBodyLmItemActivitySessionModelListLmItemActivitySessionModelLmActivitySessionModel,
       lmItemId: 'string',
       itemId: 'number',
+      lmActivitySessionModel: QueryBestSession4ItemsResponseBodyLmItemActivitySessionModelListLmItemActivitySessionModelLmActivitySessionModel,
     };
   }
 
@@ -9715,25 +10648,6 @@ export class QueryBestSession4ItemsResponseBodyLmItemActivitySessionModelList ex
   static types(): { [key: string]: any } {
     return {
       lmItemActivitySessionModel: { 'type': 'array', 'itemType': QueryBestSession4ItemsResponseBodyLmItemActivitySessionModelListLmItemActivitySessionModel },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryBizItemListResponseBodyItemListItemSkuListSkuUserLabelList extends $tea.Model {
-  userLabelList?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      userLabelList: 'UserLabelList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      userLabelList: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -9772,8 +10686,8 @@ export class QueryBizItemListResponseBodyItemListItemSkuListSkuGradePriceModelsG
   accessUrl?: string;
   subBizCode?: string;
   characteristicCode?: string;
-  points?: number;
   canBuy?: boolean;
+  points?: number;
   pointsAmount?: number;
   userLabelList?: QueryBizItemListResponseBodyItemListItemSkuListSkuGradePriceModelsGradePriceModelUserLabelList;
   static names(): { [key: string]: string } {
@@ -9788,8 +10702,8 @@ export class QueryBizItemListResponseBodyItemListItemSkuListSkuGradePriceModelsG
       accessUrl: 'AccessUrl',
       subBizCode: 'SubBizCode',
       characteristicCode: 'CharacteristicCode',
-      points: 'Points',
       canBuy: 'CanBuy',
+      points: 'Points',
       pointsAmount: 'PointsAmount',
       userLabelList: 'UserLabelList',
     };
@@ -9807,8 +10721,8 @@ export class QueryBizItemListResponseBodyItemListItemSkuListSkuGradePriceModelsG
       accessUrl: 'string',
       subBizCode: 'string',
       characteristicCode: 'string',
-      points: 'number',
       canBuy: 'boolean',
+      points: 'number',
       pointsAmount: 'number',
       userLabelList: QueryBizItemListResponseBodyItemListItemSkuListSkuGradePriceModelsGradePriceModelUserLabelList,
     };
@@ -9838,31 +10752,52 @@ export class QueryBizItemListResponseBodyItemListItemSkuListSkuGradePriceModels 
   }
 }
 
+export class QueryBizItemListResponseBodyItemListItemSkuListSkuUserLabelList extends $tea.Model {
+  userLabelList?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      userLabelList: 'UserLabelList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      userLabelList: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryBizItemListResponseBodyItemListItemSkuListSku extends $tea.Model {
   priceCent?: number;
   skuId?: number;
+  taoBaoCurrentPrice?: number;
   canSell?: boolean;
   skuPicUrl?: string;
   points?: number;
   skuTitle?: string;
   pointsAmount?: number;
-  userLabelList?: QueryBizItemListResponseBodyItemListItemSkuListSkuUserLabelList;
   benefitId?: string;
-  gradePriceModels?: QueryBizItemListResponseBodyItemListItemSkuListSkuGradePriceModels;
   customizedAttributeMap?: { [key: string]: any };
+  gradePriceModels?: QueryBizItemListResponseBodyItemListItemSkuListSkuGradePriceModels;
+  userLabelList?: QueryBizItemListResponseBodyItemListItemSkuListSkuUserLabelList;
   static names(): { [key: string]: string } {
     return {
       priceCent: 'PriceCent',
       skuId: 'SkuId',
+      taoBaoCurrentPrice: 'TaoBaoCurrentPrice',
       canSell: 'CanSell',
       skuPicUrl: 'SkuPicUrl',
       points: 'Points',
       skuTitle: 'SkuTitle',
       pointsAmount: 'PointsAmount',
-      userLabelList: 'UserLabelList',
       benefitId: 'BenefitId',
-      gradePriceModels: 'GradePriceModels',
       customizedAttributeMap: 'CustomizedAttributeMap',
+      gradePriceModels: 'GradePriceModels',
+      userLabelList: 'UserLabelList',
     };
   }
 
@@ -9870,15 +10805,16 @@ export class QueryBizItemListResponseBodyItemListItemSkuListSku extends $tea.Mod
     return {
       priceCent: 'number',
       skuId: 'number',
+      taoBaoCurrentPrice: 'number',
       canSell: 'boolean',
       skuPicUrl: 'string',
       points: 'number',
       skuTitle: 'string',
       pointsAmount: 'number',
-      userLabelList: QueryBizItemListResponseBodyItemListItemSkuListSkuUserLabelList,
       benefitId: 'string',
-      gradePriceModels: QueryBizItemListResponseBodyItemListItemSkuListSkuGradePriceModels,
       customizedAttributeMap: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      gradePriceModels: QueryBizItemListResponseBodyItemListItemSkuListSkuGradePriceModels,
+      userLabelList: QueryBizItemListResponseBodyItemListItemSkuListSkuUserLabelList,
     };
   }
 
@@ -9907,49 +10843,49 @@ export class QueryBizItemListResponseBodyItemListItemSkuList extends $tea.Model 
 }
 
 export class QueryBizItemListResponseBodyItemListItem extends $tea.Model {
+  extJson?: string;
+  mainPicUrl?: string;
   itemTitle?: string;
   lmItemId?: string;
   sellerId?: number;
-  skuList?: QueryBizItemListResponseBodyItemListItemSkuList;
-  canSell?: boolean;
-  itemId?: number;
-  taobaoShopName?: string;
-  extJson?: string;
-  mainPicUrl?: string;
   categoryId?: number;
+  canSell?: boolean;
   customizedItemName?: string;
+  itemId?: number;
   reservePrice?: number;
+  taobaoShopName?: string;
+  skuList?: QueryBizItemListResponseBodyItemListItemSkuList;
   static names(): { [key: string]: string } {
     return {
+      extJson: 'ExtJson',
+      mainPicUrl: 'MainPicUrl',
       itemTitle: 'ItemTitle',
       lmItemId: 'LmItemId',
       sellerId: 'SellerId',
-      skuList: 'SkuList',
-      canSell: 'CanSell',
-      itemId: 'ItemId',
-      taobaoShopName: 'TaobaoShopName',
-      extJson: 'ExtJson',
-      mainPicUrl: 'MainPicUrl',
       categoryId: 'CategoryId',
+      canSell: 'CanSell',
       customizedItemName: 'CustomizedItemName',
+      itemId: 'ItemId',
       reservePrice: 'ReservePrice',
+      taobaoShopName: 'TaobaoShopName',
+      skuList: 'SkuList',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      extJson: 'string',
+      mainPicUrl: 'string',
       itemTitle: 'string',
       lmItemId: 'string',
       sellerId: 'number',
-      skuList: QueryBizItemListResponseBodyItemListItemSkuList,
-      canSell: 'boolean',
-      itemId: 'number',
-      taobaoShopName: 'string',
-      extJson: 'string',
-      mainPicUrl: 'string',
       categoryId: 'number',
+      canSell: 'boolean',
       customizedItemName: 'string',
+      itemId: 'number',
       reservePrice: 'number',
+      taobaoShopName: 'string',
+      skuList: QueryBizItemListResponseBodyItemListItemSkuList,
     };
   }
 
@@ -10039,20 +10975,135 @@ export class QueryBizItemsWithActivityResponseBodyItemListItemSkuList extends $t
   }
 }
 
-export class QueryBizItemsWithActivityResponseBodyItemListItemActivitiesActivityActivityItemActivityItemSkuListActivityItemSku extends $tea.Model {
+export class QueryBizItemsWithActivityResponseBodyItemListItemActivitiesActivityActivitySessionsActivitySessionActivitySessionItemActivitySessionItemSkuList extends $tea.Model {
   skuId?: number;
-  activityPrice?: number;
+  priceCent?: number;
+  points?: number;
+  pointsAmount?: number;
   static names(): { [key: string]: string } {
     return {
       skuId: 'SkuId',
-      activityPrice: 'ActivityPrice',
+      priceCent: 'PriceCent',
+      points: 'Points',
+      pointsAmount: 'PointsAmount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       skuId: 'number',
+      priceCent: 'number',
+      points: 'number',
+      pointsAmount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryBizItemsWithActivityResponseBodyItemListItemActivitiesActivityActivitySessionsActivitySessionActivitySessionItem extends $tea.Model {
+  sessionQuantity?: number;
+  limitQuantityForPerson?: number;
+  saleableQuantity?: number;
+  activitySessionItemSkuList?: QueryBizItemsWithActivityResponseBodyItemListItemActivitiesActivityActivitySessionsActivitySessionActivitySessionItemActivitySessionItemSkuList;
+  static names(): { [key: string]: string } {
+    return {
+      sessionQuantity: 'SessionQuantity',
+      limitQuantityForPerson: 'LimitQuantityForPerson',
+      saleableQuantity: 'SaleableQuantity',
+      activitySessionItemSkuList: 'ActivitySessionItemSkuList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sessionQuantity: 'number',
+      limitQuantityForPerson: 'number',
+      saleableQuantity: 'number',
+      activitySessionItemSkuList: QueryBizItemsWithActivityResponseBodyItemListItemActivitiesActivityActivitySessionsActivitySessionActivitySessionItemActivitySessionItemSkuList,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryBizItemsWithActivityResponseBodyItemListItemActivitiesActivityActivitySessionsActivitySession extends $tea.Model {
+  subBizCode?: string;
+  endDate?: number;
+  displayDate?: number;
+  lmSessionId?: number;
+  description?: string;
+  startDate?: number;
+  title?: string;
+  activitySessionItem?: QueryBizItemsWithActivityResponseBodyItemListItemActivitiesActivityActivitySessionsActivitySessionActivitySessionItem;
+  static names(): { [key: string]: string } {
+    return {
+      subBizCode: 'SubBizCode',
+      endDate: 'EndDate',
+      displayDate: 'DisplayDate',
+      lmSessionId: 'LmSessionId',
+      description: 'Description',
+      startDate: 'StartDate',
+      title: 'Title',
+      activitySessionItem: 'ActivitySessionItem',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      subBizCode: 'string',
+      endDate: 'number',
+      displayDate: 'number',
+      lmSessionId: 'number',
+      description: 'string',
+      startDate: 'number',
+      title: 'string',
+      activitySessionItem: QueryBizItemsWithActivityResponseBodyItemListItemActivitiesActivityActivitySessionsActivitySessionActivitySessionItem,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryBizItemsWithActivityResponseBodyItemListItemActivitiesActivityActivitySessions extends $tea.Model {
+  activitySession?: QueryBizItemsWithActivityResponseBodyItemListItemActivitiesActivityActivitySessionsActivitySession[];
+  static names(): { [key: string]: string } {
+    return {
+      activitySession: 'ActivitySession',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      activitySession: { 'type': 'array', 'itemType': QueryBizItemsWithActivityResponseBodyItemListItemActivitiesActivityActivitySessionsActivitySession },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryBizItemsWithActivityResponseBodyItemListItemActivitiesActivityActivityItemActivityItemSkuListActivityItemSku extends $tea.Model {
+  activityPrice?: number;
+  skuId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      activityPrice: 'ActivityPrice',
+      skuId: 'SkuId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
       activityPrice: 'number',
+      skuId: 'number',
     };
   }
 
@@ -10081,21 +11132,21 @@ export class QueryBizItemsWithActivityResponseBodyItemListItemActivitiesActivity
 }
 
 export class QueryBizItemsWithActivityResponseBodyItemListItemActivitiesActivityActivityItem extends $tea.Model {
-  limitQuantityForPerson?: number;
   activityQuantity?: number;
+  limitQuantityForPerson?: number;
   activityItemSkuList?: QueryBizItemsWithActivityResponseBodyItemListItemActivitiesActivityActivityItemActivityItemSkuList;
   static names(): { [key: string]: string } {
     return {
-      limitQuantityForPerson: 'LimitQuantityForPerson',
       activityQuantity: 'ActivityQuantity',
+      limitQuantityForPerson: 'LimitQuantityForPerson',
       activityItemSkuList: 'ActivityItemSkuList',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      limitQuantityForPerson: 'number',
       activityQuantity: 'number',
+      limitQuantityForPerson: 'number',
       activityItemSkuList: QueryBizItemsWithActivityResponseBodyItemListItemActivitiesActivityActivityItemActivityItemSkuList,
     };
   }
@@ -10105,150 +11156,35 @@ export class QueryBizItemsWithActivityResponseBodyItemListItemActivitiesActivity
   }
 }
 
-export class QueryBizItemsWithActivityResponseBodyItemListItemActivitiesActivityActivitySessionsActivitySessionActivitySessionItemActivitySessionItemSkuList extends $tea.Model {
-  priceCent?: number;
-  skuId?: number;
-  points?: number;
-  pointsAmount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      priceCent: 'PriceCent',
-      skuId: 'SkuId',
-      points: 'Points',
-      pointsAmount: 'PointsAmount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      priceCent: 'number',
-      skuId: 'number',
-      points: 'number',
-      pointsAmount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryBizItemsWithActivityResponseBodyItemListItemActivitiesActivityActivitySessionsActivitySessionActivitySessionItem extends $tea.Model {
-  limitQuantityForPerson?: number;
-  saleableQuantity?: number;
-  sessionQuantity?: number;
-  activitySessionItemSkuList?: QueryBizItemsWithActivityResponseBodyItemListItemActivitiesActivityActivitySessionsActivitySessionActivitySessionItemActivitySessionItemSkuList;
-  static names(): { [key: string]: string } {
-    return {
-      limitQuantityForPerson: 'LimitQuantityForPerson',
-      saleableQuantity: 'SaleableQuantity',
-      sessionQuantity: 'SessionQuantity',
-      activitySessionItemSkuList: 'ActivitySessionItemSkuList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      limitQuantityForPerson: 'number',
-      saleableQuantity: 'number',
-      sessionQuantity: 'number',
-      activitySessionItemSkuList: QueryBizItemsWithActivityResponseBodyItemListItemActivitiesActivityActivitySessionsActivitySessionActivitySessionItemActivitySessionItemSkuList,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryBizItemsWithActivityResponseBodyItemListItemActivitiesActivityActivitySessionsActivitySession extends $tea.Model {
-  subBizCode?: string;
-  endDate?: number;
-  displayDate?: number;
-  lmSessionId?: number;
-  description?: string;
-  activitySessionItem?: QueryBizItemsWithActivityResponseBodyItemListItemActivitiesActivityActivitySessionsActivitySessionActivitySessionItem;
-  startDate?: number;
-  title?: string;
-  static names(): { [key: string]: string } {
-    return {
-      subBizCode: 'SubBizCode',
-      endDate: 'EndDate',
-      displayDate: 'DisplayDate',
-      lmSessionId: 'LmSessionId',
-      description: 'Description',
-      activitySessionItem: 'ActivitySessionItem',
-      startDate: 'StartDate',
-      title: 'Title',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      subBizCode: 'string',
-      endDate: 'number',
-      displayDate: 'number',
-      lmSessionId: 'number',
-      description: 'string',
-      activitySessionItem: QueryBizItemsWithActivityResponseBodyItemListItemActivitiesActivityActivitySessionsActivitySessionActivitySessionItem,
-      startDate: 'number',
-      title: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryBizItemsWithActivityResponseBodyItemListItemActivitiesActivityActivitySessions extends $tea.Model {
-  activitySession?: QueryBizItemsWithActivityResponseBodyItemListItemActivitiesActivityActivitySessionsActivitySession[];
-  static names(): { [key: string]: string } {
-    return {
-      activitySession: 'ActivitySession',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      activitySession: { 'type': 'array', 'itemType': QueryBizItemsWithActivityResponseBodyItemListItemActivitiesActivityActivitySessionsActivitySession },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class QueryBizItemsWithActivityResponseBodyItemListItemActivitiesActivity extends $tea.Model {
-  activityItem?: QueryBizItemsWithActivityResponseBodyItemListItemActivitiesActivityActivityItem;
-  endDate?: number;
-  description?: string;
-  activitySessions?: QueryBizItemsWithActivityResponseBodyItemListItemActivitiesActivityActivitySessions;
   startDate?: number;
   lmActivityId?: number;
+  endDate?: number;
   title?: string;
+  description?: string;
+  activitySessions?: QueryBizItemsWithActivityResponseBodyItemListItemActivitiesActivityActivitySessions;
+  activityItem?: QueryBizItemsWithActivityResponseBodyItemListItemActivitiesActivityActivityItem;
   static names(): { [key: string]: string } {
     return {
-      activityItem: 'ActivityItem',
-      endDate: 'EndDate',
-      description: 'Description',
-      activitySessions: 'ActivitySessions',
       startDate: 'StartDate',
       lmActivityId: 'LmActivityId',
+      endDate: 'EndDate',
       title: 'Title',
+      description: 'Description',
+      activitySessions: 'ActivitySessions',
+      activityItem: 'ActivityItem',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      activityItem: QueryBizItemsWithActivityResponseBodyItemListItemActivitiesActivityActivityItem,
-      endDate: 'number',
-      description: 'string',
-      activitySessions: QueryBizItemsWithActivityResponseBodyItemListItemActivitiesActivityActivitySessions,
       startDate: 'number',
       lmActivityId: 'number',
+      endDate: 'number',
       title: 'string',
+      description: 'string',
+      activitySessions: QueryBizItemsWithActivityResponseBodyItemListItemActivitiesActivityActivitySessions,
+      activityItem: QueryBizItemsWithActivityResponseBodyItemListItemActivitiesActivityActivityItem,
     };
   }
 
@@ -10278,51 +11214,51 @@ export class QueryBizItemsWithActivityResponseBodyItemListItemActivities extends
 
 export class QueryBizItemsWithActivityResponseBodyItemListItem extends $tea.Model {
   picUrl?: string;
+  totalSoldQuantity?: number;
   itemTitle?: string;
+  maxAllowedCount?: number;
   sellerId?: number;
   lmItemId?: string;
-  skuList?: QueryBizItemsWithActivityResponseBodyItemListItemSkuList;
-  itemId?: number;
-  activities?: QueryBizItemsWithActivityResponseBodyItemListItemActivities;
-  taobaoShopName?: string;
-  totalSoldQuantity?: number;
-  maxAllowedCount?: number;
   categoryId?: number;
+  itemId?: number;
   reservePrice?: number;
   quantity?: number;
+  taobaoShopName?: string;
+  skuList?: QueryBizItemsWithActivityResponseBodyItemListItemSkuList;
+  activities?: QueryBizItemsWithActivityResponseBodyItemListItemActivities;
   static names(): { [key: string]: string } {
     return {
       picUrl: 'PicUrl',
+      totalSoldQuantity: 'TotalSoldQuantity',
       itemTitle: 'ItemTitle',
+      maxAllowedCount: 'MaxAllowedCount',
       sellerId: 'SellerId',
       lmItemId: 'LmItemId',
-      skuList: 'SkuList',
-      itemId: 'ItemId',
-      activities: 'Activities',
-      taobaoShopName: 'TaobaoShopName',
-      totalSoldQuantity: 'TotalSoldQuantity',
-      maxAllowedCount: 'MaxAllowedCount',
       categoryId: 'CategoryId',
+      itemId: 'ItemId',
       reservePrice: 'ReservePrice',
       quantity: 'Quantity',
+      taobaoShopName: 'TaobaoShopName',
+      skuList: 'SkuList',
+      activities: 'Activities',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       picUrl: 'string',
+      totalSoldQuantity: 'number',
       itemTitle: 'string',
+      maxAllowedCount: 'number',
       sellerId: 'number',
       lmItemId: 'string',
-      skuList: QueryBizItemsWithActivityResponseBodyItemListItemSkuList,
-      itemId: 'number',
-      activities: QueryBizItemsWithActivityResponseBodyItemListItemActivities,
-      taobaoShopName: 'string',
-      totalSoldQuantity: 'number',
-      maxAllowedCount: 'number',
       categoryId: 'number',
+      itemId: 'number',
       reservePrice: 'number',
       quantity: 'number',
+      taobaoShopName: 'string',
+      skuList: QueryBizItemsWithActivityResponseBodyItemListItemSkuList,
+      activities: QueryBizItemsWithActivityResponseBodyItemListItemActivities,
     };
   }
 
@@ -10415,6 +11351,61 @@ export class QueryGuideItemGroupResponseBodyGuideItemGroup extends $tea.Model {
   }
 }
 
+export class QueryGuideItemGroupWithOutInventoryResponseBodyItemList extends $tea.Model {
+  itemTitle?: string;
+  priceCent?: number;
+  lmItemId?: string;
+  pointPrice?: number;
+  itemId?: string;
+  whitePicUrl?: string;
+  mainPicUrl?: string;
+  points?: number;
+  itemUrl?: string;
+  pointsAmount?: number;
+  reservePrice?: string;
+  customizedAttributeMap?: { [key: string]: any };
+  tags?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      itemTitle: 'ItemTitle',
+      priceCent: 'PriceCent',
+      lmItemId: 'LmItemId',
+      pointPrice: 'PointPrice',
+      itemId: 'ItemId',
+      whitePicUrl: 'WhitePicUrl',
+      mainPicUrl: 'MainPicUrl',
+      points: 'Points',
+      itemUrl: 'ItemUrl',
+      pointsAmount: 'PointsAmount',
+      reservePrice: 'ReservePrice',
+      customizedAttributeMap: 'CustomizedAttributeMap',
+      tags: 'Tags',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      itemTitle: 'string',
+      priceCent: 'number',
+      lmItemId: 'string',
+      pointPrice: 'number',
+      itemId: 'string',
+      whitePicUrl: 'string',
+      mainPicUrl: 'string',
+      points: 'number',
+      itemUrl: 'string',
+      pointsAmount: 'number',
+      reservePrice: 'string',
+      customizedAttributeMap: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      tags: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryHotMoviesResponseBodyMoviesMovieMovieTypeList extends $tea.Model {
   movieTypeList?: string[];
   static names(): { [key: string]: string } {
@@ -10454,16 +11445,15 @@ export class QueryHotMoviesResponseBodyMoviesMovieTrailerList extends $tea.Model
 }
 
 export class QueryHotMoviesResponseBodyMoviesMovie extends $tea.Model {
-  movieVersion?: string;
   type?: string;
+  movieVersion?: string;
   backgroundPicture?: string;
-  openDay?: string;
   remark?: string;
+  openDay?: string;
   highlight?: string;
-  movieTypeList?: QueryHotMoviesResponseBodyMoviesMovieMovieTypeList;
   language?: string;
-  director?: string;
   openTime?: string;
+  director?: string;
   poster?: string;
   movieName?: string;
   description?: string;
@@ -10472,19 +11462,19 @@ export class QueryHotMoviesResponseBodyMoviesMovie extends $tea.Model {
   movieNameEn?: string;
   leadingRole?: string;
   id?: number;
+  movieTypeList?: QueryHotMoviesResponseBodyMoviesMovieMovieTypeList;
   trailerList?: QueryHotMoviesResponseBodyMoviesMovieTrailerList;
   static names(): { [key: string]: string } {
     return {
-      movieVersion: 'MovieVersion',
       type: 'Type',
+      movieVersion: 'MovieVersion',
       backgroundPicture: 'BackgroundPicture',
-      openDay: 'OpenDay',
       remark: 'Remark',
+      openDay: 'OpenDay',
       highlight: 'Highlight',
-      movieTypeList: 'MovieTypeList',
       language: 'Language',
-      director: 'Director',
       openTime: 'OpenTime',
+      director: 'Director',
       poster: 'Poster',
       movieName: 'MovieName',
       description: 'Description',
@@ -10493,22 +11483,22 @@ export class QueryHotMoviesResponseBodyMoviesMovie extends $tea.Model {
       movieNameEn: 'MovieNameEn',
       leadingRole: 'LeadingRole',
       id: 'Id',
+      movieTypeList: 'MovieTypeList',
       trailerList: 'TrailerList',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      movieVersion: 'string',
       type: 'string',
+      movieVersion: 'string',
       backgroundPicture: 'string',
-      openDay: 'string',
       remark: 'string',
+      openDay: 'string',
       highlight: 'string',
-      movieTypeList: QueryHotMoviesResponseBodyMoviesMovieMovieTypeList,
       language: 'string',
-      director: 'string',
       openTime: 'string',
+      director: 'string',
       poster: 'string',
       movieName: 'string',
       description: 'string',
@@ -10517,6 +11507,7 @@ export class QueryHotMoviesResponseBodyMoviesMovie extends $tea.Model {
       movieNameEn: 'string',
       leadingRole: 'string',
       id: 'number',
+      movieTypeList: QueryHotMoviesResponseBodyMoviesMovieMovieTypeList,
       trailerList: QueryHotMoviesResponseBodyMoviesMovieTrailerList,
     };
   }
@@ -10545,17 +11536,48 @@ export class QueryHotMoviesResponseBodyMovies extends $tea.Model {
   }
 }
 
-export class QueryItemDetailResponseBodyItemItemImages extends $tea.Model {
-  itemImage?: string[];
+export class QueryInventoryOfItemsInBizItemGroupResponseBodyItemListSkuList extends $tea.Model {
+  skuId?: number;
+  quantity?: number;
   static names(): { [key: string]: string } {
     return {
-      itemImage: 'ItemImage',
+      skuId: 'SkuId',
+      quantity: 'Quantity',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      itemImage: { 'type': 'array', 'itemType': 'string' },
+      skuId: 'number',
+      quantity: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryInventoryOfItemsInBizItemGroupResponseBodyItemList extends $tea.Model {
+  lmItemId?: string;
+  itemId?: number;
+  quantity?: number;
+  skuList?: QueryInventoryOfItemsInBizItemGroupResponseBodyItemListSkuList[];
+  static names(): { [key: string]: string } {
+    return {
+      lmItemId: 'LmItemId',
+      itemId: 'ItemId',
+      quantity: 'Quantity',
+      skuList: 'SkuList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      lmItemId: 'string',
+      itemId: 'number',
+      quantity: 'number',
+      skuList: { 'type': 'array', 'itemType': QueryInventoryOfItemsInBizItemGroupResponseBodyItemListSkuList },
     };
   }
 
@@ -10568,8 +11590,8 @@ export class QueryItemDetailResponseBodyItemSkusSku extends $tea.Model {
   priceCent?: number;
   lmItemId?: string;
   pointPrice?: number;
-  itemId?: number;
   canSell?: boolean;
+  itemId?: number;
   skuTitle?: string;
   skuPropertiesJson?: string;
   extJson?: string;
@@ -10586,8 +11608,8 @@ export class QueryItemDetailResponseBodyItemSkusSku extends $tea.Model {
       priceCent: 'PriceCent',
       lmItemId: 'LmItemId',
       pointPrice: 'PointPrice',
-      itemId: 'ItemId',
       canSell: 'CanSell',
+      itemId: 'ItemId',
       skuTitle: 'SkuTitle',
       skuPropertiesJson: 'SkuPropertiesJson',
       extJson: 'ExtJson',
@@ -10607,8 +11629,8 @@ export class QueryItemDetailResponseBodyItemSkusSku extends $tea.Model {
       priceCent: 'number',
       lmItemId: 'string',
       pointPrice: 'number',
-      itemId: 'number',
       canSell: 'boolean',
+      itemId: 'number',
       skuTitle: 'string',
       skuPropertiesJson: 'string',
       extJson: 'string',
@@ -10647,65 +11669,90 @@ export class QueryItemDetailResponseBodyItemSkus extends $tea.Model {
   }
 }
 
+export class QueryItemDetailResponseBodyItemItemImages extends $tea.Model {
+  itemImage?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      itemImage: 'ItemImage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      itemImage: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryItemDetailResponseBodyItem extends $tea.Model {
   itemTitle?: string;
   minPoints?: number;
   descOption?: string;
-  itemImages?: QueryItemDetailResponseBodyItemItemImages;
+  videoPicUrl?: string;
   extJson?: string;
   isSellerPayPostfee?: boolean;
   lmItemCategory?: string;
   sellerPayPostfee?: boolean;
   reservePrice?: number;
   quantity?: number;
+  videoUrl?: string;
   customizedAttributeMap?: { [key: string]: any };
   iforestPropsJson?: string;
   propertiesJson?: string;
   iforestProps?: string;
-  tbShopName?: string;
-  sellerId?: number;
   lmItemId?: string;
-  canSell?: boolean;
+  sellerId?: number;
+  tbShopName?: string;
   itemId?: number;
+  canSell?: boolean;
   centerInventory?: boolean;
+  sellerType?: number;
   totalSoldQuantity?: number;
   mainPicUrl?: string;
   minPrice?: number;
   isCanSell?: boolean;
   categoryId?: number;
-  skus?: QueryItemDetailResponseBodyItemSkus;
   descPath?: string;
   properties?: string;
+  skus?: QueryItemDetailResponseBodyItemSkus;
+  itemImages?: QueryItemDetailResponseBodyItemItemImages;
   static names(): { [key: string]: string } {
     return {
       itemTitle: 'ItemTitle',
       minPoints: 'MinPoints',
       descOption: 'DescOption',
-      itemImages: 'ItemImages',
+      videoPicUrl: 'VideoPicUrl',
       extJson: 'ExtJson',
       isSellerPayPostfee: 'IsSellerPayPostfee',
       lmItemCategory: 'LmItemCategory',
       sellerPayPostfee: 'SellerPayPostfee',
       reservePrice: 'ReservePrice',
       quantity: 'Quantity',
+      videoUrl: 'VideoUrl',
       customizedAttributeMap: 'CustomizedAttributeMap',
       iforestPropsJson: 'IforestPropsJson',
       propertiesJson: 'PropertiesJson',
       iforestProps: 'IforestProps',
-      tbShopName: 'TbShopName',
-      sellerId: 'SellerId',
       lmItemId: 'LmItemId',
-      canSell: 'CanSell',
+      sellerId: 'SellerId',
+      tbShopName: 'TbShopName',
       itemId: 'ItemId',
+      canSell: 'CanSell',
       centerInventory: 'CenterInventory',
+      sellerType: 'SellerType',
       totalSoldQuantity: 'TotalSoldQuantity',
       mainPicUrl: 'MainPicUrl',
       minPrice: 'MinPrice',
       isCanSell: 'IsCanSell',
       categoryId: 'CategoryId',
-      skus: 'Skus',
       descPath: 'DescPath',
       properties: 'Properties',
+      skus: 'Skus',
+      itemImages: 'ItemImages',
     };
   }
 
@@ -10714,78 +11761,34 @@ export class QueryItemDetailResponseBodyItem extends $tea.Model {
       itemTitle: 'string',
       minPoints: 'number',
       descOption: 'string',
-      itemImages: QueryItemDetailResponseBodyItemItemImages,
+      videoPicUrl: 'string',
       extJson: 'string',
       isSellerPayPostfee: 'boolean',
       lmItemCategory: 'string',
       sellerPayPostfee: 'boolean',
       reservePrice: 'number',
       quantity: 'number',
+      videoUrl: 'string',
       customizedAttributeMap: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       iforestPropsJson: 'string',
       propertiesJson: 'string',
       iforestProps: 'string',
-      tbShopName: 'string',
-      sellerId: 'number',
       lmItemId: 'string',
-      canSell: 'boolean',
+      sellerId: 'number',
+      tbShopName: 'string',
       itemId: 'number',
+      canSell: 'boolean',
       centerInventory: 'boolean',
+      sellerType: 'number',
       totalSoldQuantity: 'number',
       mainPicUrl: 'string',
       minPrice: 'number',
       isCanSell: 'boolean',
       categoryId: 'number',
-      skus: QueryItemDetailResponseBodyItemSkus,
       descPath: 'string',
       properties: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryItemDetailInnerResponseBodyItemSkuPropertysValues extends $tea.Model {
-  text?: string;
-  id?: number;
-  static names(): { [key: string]: string } {
-    return {
-      text: 'Text',
-      id: 'Id',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      text: 'string',
-      id: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryItemDetailInnerResponseBodyItemSkuPropertys extends $tea.Model {
-  values?: QueryItemDetailInnerResponseBodyItemSkuPropertysValues[];
-  text?: string;
-  id?: number;
-  static names(): { [key: string]: string } {
-    return {
-      values: 'Values',
-      text: 'Text',
-      id: 'Id',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      values: { 'type': 'array', 'itemType': QueryItemDetailInnerResponseBodyItemSkuPropertysValues },
-      text: 'string',
-      id: 'number',
+      skus: QueryItemDetailResponseBodyItemSkus,
+      itemImages: QueryItemDetailResponseBodyItemItemImages,
     };
   }
 
@@ -10855,67 +11858,114 @@ export class QueryItemDetailInnerResponseBodyItemSkus extends $tea.Model {
   }
 }
 
+export class QueryItemDetailInnerResponseBodyItemSkuPropertysValues extends $tea.Model {
+  text?: string;
+  id?: number;
+  static names(): { [key: string]: string } {
+    return {
+      text: 'Text',
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      text: 'string',
+      id: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryItemDetailInnerResponseBodyItemSkuPropertys extends $tea.Model {
+  text?: string;
+  id?: number;
+  values?: QueryItemDetailInnerResponseBodyItemSkuPropertysValues[];
+  static names(): { [key: string]: string } {
+    return {
+      text: 'Text',
+      id: 'Id',
+      values: 'Values',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      text: 'string',
+      id: 'number',
+      values: { 'type': 'array', 'itemType': QueryItemDetailInnerResponseBodyItemSkuPropertysValues },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryItemDetailInnerResponseBodyItem extends $tea.Model {
   itemTitle?: string;
   city?: string;
   minPoints?: number;
   descOption?: string;
-  itemImages?: string[];
-  skuPropertys?: QueryItemDetailInnerResponseBodyItemSkuPropertys[];
   isSellerPayPostfee?: boolean;
   lmItemCategory?: string;
   sellerPayPostfee?: boolean;
   reservePrice?: number;
   quantity?: number;
-  iforestProps?: { [key: string]: any }[];
-  categoryIds?: number[];
-  tbShopName?: string;
   sellerId?: number;
-  canSell?: boolean;
+  tbShopName?: string;
   itemId?: number;
+  canSell?: boolean;
   centerInventory?: boolean;
   totalSoldQuantity?: number;
   mainPicUrl?: string;
   minPrice?: number;
-  lmShopId?: number;
   isCanSell?: boolean;
+  lmShopId?: number;
   categoryId?: number;
-  skus?: QueryItemDetailInnerResponseBodyItemSkus[];
   sellerNick?: string;
   descPath?: string;
   properties?: { [key: string]: any };
   province?: string;
+  skus?: QueryItemDetailInnerResponseBodyItemSkus[];
+  skuPropertys?: QueryItemDetailInnerResponseBodyItemSkuPropertys[];
+  categoryIds?: number[];
+  iforestProps?: { [key: string]: any }[];
+  itemImages?: string[];
   static names(): { [key: string]: string } {
     return {
       itemTitle: 'ItemTitle',
       city: 'City',
       minPoints: 'MinPoints',
       descOption: 'DescOption',
-      itemImages: 'ItemImages',
-      skuPropertys: 'SkuPropertys',
       isSellerPayPostfee: 'IsSellerPayPostfee',
       lmItemCategory: 'LmItemCategory',
       sellerPayPostfee: 'SellerPayPostfee',
       reservePrice: 'ReservePrice',
       quantity: 'Quantity',
-      iforestProps: 'IforestProps',
-      categoryIds: 'CategoryIds',
-      tbShopName: 'TbShopName',
       sellerId: 'SellerId',
-      canSell: 'CanSell',
+      tbShopName: 'TbShopName',
       itemId: 'ItemId',
+      canSell: 'CanSell',
       centerInventory: 'CenterInventory',
       totalSoldQuantity: 'TotalSoldQuantity',
       mainPicUrl: 'MainPicUrl',
       minPrice: 'MinPrice',
-      lmShopId: 'LmShopId',
       isCanSell: 'IsCanSell',
+      lmShopId: 'LmShopId',
       categoryId: 'CategoryId',
-      skus: 'Skus',
       sellerNick: 'SellerNick',
       descPath: 'DescPath',
       properties: 'Properties',
       province: 'Province',
+      skus: 'Skus',
+      skuPropertys: 'SkuPropertys',
+      categoryIds: 'CategoryIds',
+      iforestProps: 'IforestProps',
+      itemImages: 'ItemImages',
     };
   }
 
@@ -10925,31 +11975,147 @@ export class QueryItemDetailInnerResponseBodyItem extends $tea.Model {
       city: 'string',
       minPoints: 'number',
       descOption: 'string',
-      itemImages: { 'type': 'array', 'itemType': 'string' },
-      skuPropertys: { 'type': 'array', 'itemType': QueryItemDetailInnerResponseBodyItemSkuPropertys },
       isSellerPayPostfee: 'boolean',
       lmItemCategory: 'string',
       sellerPayPostfee: 'boolean',
       reservePrice: 'number',
       quantity: 'number',
-      iforestProps: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
-      categoryIds: { 'type': 'array', 'itemType': 'number' },
-      tbShopName: 'string',
       sellerId: 'number',
-      canSell: 'boolean',
+      tbShopName: 'string',
       itemId: 'number',
+      canSell: 'boolean',
       centerInventory: 'boolean',
       totalSoldQuantity: 'number',
       mainPicUrl: 'string',
       minPrice: 'number',
-      lmShopId: 'number',
       isCanSell: 'boolean',
+      lmShopId: 'number',
       categoryId: 'number',
-      skus: { 'type': 'array', 'itemType': QueryItemDetailInnerResponseBodyItemSkus },
       sellerNick: 'string',
       descPath: 'string',
       properties: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       province: 'string',
+      skus: { 'type': 'array', 'itemType': QueryItemDetailInnerResponseBodyItemSkus },
+      skuPropertys: { 'type': 'array', 'itemType': QueryItemDetailInnerResponseBodyItemSkuPropertys },
+      categoryIds: { 'type': 'array', 'itemType': 'number' },
+      iforestProps: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
+      itemImages: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryItemInSubBizsResponseBodyItemBizListSkuList extends $tea.Model {
+  priceCent?: number;
+  pointPrice?: number;
+  canSell?: boolean;
+  skuTitle?: string;
+  skuPropertiesJson?: string;
+  skuProperties?: string;
+  skuId?: number;
+  skuPicUrl?: string;
+  points?: number;
+  pointsAmount?: number;
+  reservePrice?: number;
+  benefitId?: string;
+  customizedAttributeMap?: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      priceCent: 'PriceCent',
+      pointPrice: 'PointPrice',
+      canSell: 'CanSell',
+      skuTitle: 'SkuTitle',
+      skuPropertiesJson: 'SkuPropertiesJson',
+      skuProperties: 'SkuProperties',
+      skuId: 'SkuId',
+      skuPicUrl: 'SkuPicUrl',
+      points: 'Points',
+      pointsAmount: 'PointsAmount',
+      reservePrice: 'ReservePrice',
+      benefitId: 'BenefitId',
+      customizedAttributeMap: 'CustomizedAttributeMap',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      priceCent: 'number',
+      pointPrice: 'number',
+      canSell: 'boolean',
+      skuTitle: 'string',
+      skuPropertiesJson: 'string',
+      skuProperties: 'string',
+      skuId: 'number',
+      skuPicUrl: 'string',
+      points: 'number',
+      pointsAmount: 'number',
+      reservePrice: 'number',
+      benefitId: 'string',
+      customizedAttributeMap: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryItemInSubBizsResponseBodyItemBizList extends $tea.Model {
+  itemTitle?: string;
+  propertiesJson?: string;
+  lmItemId?: string;
+  sellerId?: number;
+  tbShopName?: string;
+  canSell?: boolean;
+  itemId?: number;
+  descOption?: string;
+  mainPicUrl?: string;
+  categoryId?: number;
+  subBizId?: string;
+  reservePrice?: number;
+  quantity?: number;
+  skuList?: QueryItemInSubBizsResponseBodyItemBizListSkuList[];
+  itemImages?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      itemTitle: 'ItemTitle',
+      propertiesJson: 'PropertiesJson',
+      lmItemId: 'LmItemId',
+      sellerId: 'SellerId',
+      tbShopName: 'TbShopName',
+      canSell: 'CanSell',
+      itemId: 'ItemId',
+      descOption: 'DescOption',
+      mainPicUrl: 'MainPicUrl',
+      categoryId: 'CategoryId',
+      subBizId: 'SubBizId',
+      reservePrice: 'ReservePrice',
+      quantity: 'Quantity',
+      skuList: 'SkuList',
+      itemImages: 'ItemImages',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      itemTitle: 'string',
+      propertiesJson: 'string',
+      lmItemId: 'string',
+      sellerId: 'number',
+      tbShopName: 'string',
+      canSell: 'boolean',
+      itemId: 'number',
+      descOption: 'string',
+      mainPicUrl: 'string',
+      categoryId: 'number',
+      subBizId: 'string',
+      reservePrice: 'number',
+      quantity: 'number',
+      skuList: { 'type': 'array', 'itemType': QueryItemInSubBizsResponseBodyItemBizListSkuList },
+      itemImages: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -11087,6 +12253,47 @@ export class QueryItemInventoryResponseBodyItemList extends $tea.Model {
   }
 }
 
+export class QueryLogisticsResponseBodyDataDataLogisticsDetailListLogisticsDetailList extends $tea.Model {
+  ocurrTimeStr?: string;
+  standerdDesc?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ocurrTimeStr: 'OcurrTimeStr',
+      standerdDesc: 'StanderdDesc',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ocurrTimeStr: 'string',
+      standerdDesc: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryLogisticsResponseBodyDataDataLogisticsDetailList extends $tea.Model {
+  logisticsDetailList?: QueryLogisticsResponseBodyDataDataLogisticsDetailListLogisticsDetailList[];
+  static names(): { [key: string]: string } {
+    return {
+      logisticsDetailList: 'LogisticsDetailList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      logisticsDetailList: { 'type': 'array', 'itemType': QueryLogisticsResponseBodyDataDataLogisticsDetailListLogisticsDetailList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryLogisticsResponseBodyDataDataGoodsGoods extends $tea.Model {
   itemId?: number;
   goodName?: string;
@@ -11131,76 +12338,35 @@ export class QueryLogisticsResponseBodyDataDataGoods extends $tea.Model {
   }
 }
 
-export class QueryLogisticsResponseBodyDataDataLogisticsDetailListLogisticsDetailList extends $tea.Model {
-  standerdDesc?: string;
-  ocurrTimeStr?: string;
-  static names(): { [key: string]: string } {
-    return {
-      standerdDesc: 'StanderdDesc',
-      ocurrTimeStr: 'OcurrTimeStr',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      standerdDesc: 'string',
-      ocurrTimeStr: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryLogisticsResponseBodyDataDataLogisticsDetailList extends $tea.Model {
-  logisticsDetailList?: QueryLogisticsResponseBodyDataDataLogisticsDetailListLogisticsDetailList[];
-  static names(): { [key: string]: string } {
-    return {
-      logisticsDetailList: 'LogisticsDetailList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      logisticsDetailList: { 'type': 'array', 'itemType': QueryLogisticsResponseBodyDataDataLogisticsDetailListLogisticsDetailList },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class QueryLogisticsResponseBodyDataData extends $tea.Model {
-  dataProvider?: string;
-  dataProviderTitle?: string;
-  goods?: QueryLogisticsResponseBodyDataDataGoods;
-  logisticsDetailList?: QueryLogisticsResponseBodyDataDataLogisticsDetailList;
   logisticsCompanyCode?: string;
   mailNo?: string;
   logisticsCompanyName?: string;
+  dataProvider?: string;
+  dataProviderTitle?: string;
+  logisticsDetailList?: QueryLogisticsResponseBodyDataDataLogisticsDetailList;
+  goods?: QueryLogisticsResponseBodyDataDataGoods;
   static names(): { [key: string]: string } {
     return {
-      dataProvider: 'DataProvider',
-      dataProviderTitle: 'DataProviderTitle',
-      goods: 'Goods',
-      logisticsDetailList: 'LogisticsDetailList',
       logisticsCompanyCode: 'LogisticsCompanyCode',
       mailNo: 'MailNo',
       logisticsCompanyName: 'LogisticsCompanyName',
+      dataProvider: 'DataProvider',
+      dataProviderTitle: 'DataProviderTitle',
+      logisticsDetailList: 'LogisticsDetailList',
+      goods: 'Goods',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      dataProvider: 'string',
-      dataProviderTitle: 'string',
-      goods: QueryLogisticsResponseBodyDataDataGoods,
-      logisticsDetailList: QueryLogisticsResponseBodyDataDataLogisticsDetailList,
       logisticsCompanyCode: 'string',
       mailNo: 'string',
       logisticsCompanyName: 'string',
+      dataProvider: 'string',
+      dataProviderTitle: 'string',
+      logisticsDetailList: QueryLogisticsResponseBodyDataDataLogisticsDetailList,
+      goods: QueryLogisticsResponseBodyDataDataGoods,
     };
   }
 
@@ -11228,26 +12394,103 @@ export class QueryLogisticsResponseBodyData extends $tea.Model {
   }
 }
 
-export class QueryMessagesResponseBodyBizMessagesBizMessage extends $tea.Model {
-  pubTime?: string;
-  topic?: string;
-  contentMapJson?: string;
-  dataId?: number;
+export class QueryMediaSettleInfoResponseBodyModelMediaSettleInfoList extends $tea.Model {
+  endTime?: string;
+  startTime?: string;
+  mediaSettleAmount?: string;
+  settleNo?: string;
+  settleStatus?: string;
+  channelId?: string;
+  mediaName?: string;
+  mediaSettleDetailId?: string;
+  modifiedDate?: string;
+  createDate?: string;
+  extInfo?: string;
   static names(): { [key: string]: string } {
     return {
-      pubTime: 'PubTime',
-      topic: 'Topic',
-      contentMapJson: 'ContentMapJson',
-      dataId: 'DataId',
+      endTime: 'EndTime',
+      startTime: 'StartTime',
+      mediaSettleAmount: 'MediaSettleAmount',
+      settleNo: 'SettleNo',
+      settleStatus: 'SettleStatus',
+      channelId: 'ChannelId',
+      mediaName: 'MediaName',
+      mediaSettleDetailId: 'MediaSettleDetailId',
+      modifiedDate: 'ModifiedDate',
+      createDate: 'CreateDate',
+      extInfo: 'ExtInfo',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      pubTime: 'string',
-      topic: 'string',
+      endTime: 'string',
+      startTime: 'string',
+      mediaSettleAmount: 'string',
+      settleNo: 'string',
+      settleStatus: 'string',
+      channelId: 'string',
+      mediaName: 'string',
+      mediaSettleDetailId: 'string',
+      modifiedDate: 'string',
+      createDate: 'string',
+      extInfo: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryMediaSettleInfoResponseBodyModel extends $tea.Model {
+  pageSize?: number;
+  pageNumber?: number;
+  totalCount?: number;
+  mediaSettleInfoList?: QueryMediaSettleInfoResponseBodyModelMediaSettleInfoList[];
+  static names(): { [key: string]: string } {
+    return {
+      pageSize: 'PageSize',
+      pageNumber: 'PageNumber',
+      totalCount: 'TotalCount',
+      mediaSettleInfoList: 'MediaSettleInfoList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageSize: 'number',
+      pageNumber: 'number',
+      totalCount: 'number',
+      mediaSettleInfoList: { 'type': 'array', 'itemType': QueryMediaSettleInfoResponseBodyModelMediaSettleInfoList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryMessagesResponseBodyBizMessagesBizMessage extends $tea.Model {
+  contentMapJson?: string;
+  pubTime?: string;
+  dataId?: number;
+  topic?: string;
+  static names(): { [key: string]: string } {
+    return {
+      contentMapJson: 'ContentMapJson',
+      pubTime: 'PubTime',
+      dataId: 'DataId',
+      topic: 'Topic',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
       contentMapJson: 'string',
+      pubTime: 'string',
       dataId: 'number',
+      topic: 'string',
     };
   }
 
@@ -11335,8 +12578,8 @@ export class QueryMovieCommentsResponseBodyCommentList extends $tea.Model {
 }
 
 export class QueryMovieSchedulesResponseBodySchedulesSchedule extends $tea.Model {
-  sessionEndingTime?: string;
   movieVersion?: string;
+  sessionEndingTime?: string;
   maxCanBuy?: number;
   movieId?: number;
   scheduleArea?: string;
@@ -11344,15 +12587,15 @@ export class QueryMovieSchedulesResponseBodySchedulesSchedule extends $tea.Model
   isExpired?: boolean;
   sessionStartingTime?: string;
   price?: number;
-  releaseDate?: string;
   sectionId?: string;
+  releaseDate?: string;
   cinemaId?: number;
   serviceFee?: number;
   id?: number;
   static names(): { [key: string]: string } {
     return {
-      sessionEndingTime: 'SessionEndingTime',
       movieVersion: 'MovieVersion',
+      sessionEndingTime: 'SessionEndingTime',
       maxCanBuy: 'MaxCanBuy',
       movieId: 'MovieId',
       scheduleArea: 'ScheduleArea',
@@ -11360,8 +12603,8 @@ export class QueryMovieSchedulesResponseBodySchedulesSchedule extends $tea.Model
       isExpired: 'IsExpired',
       sessionStartingTime: 'SessionStartingTime',
       price: 'Price',
-      releaseDate: 'ReleaseDate',
       sectionId: 'SectionId',
+      releaseDate: 'ReleaseDate',
       cinemaId: 'CinemaId',
       serviceFee: 'ServiceFee',
       id: 'Id',
@@ -11370,8 +12613,8 @@ export class QueryMovieSchedulesResponseBodySchedulesSchedule extends $tea.Model
 
   static types(): { [key: string]: any } {
     return {
-      sessionEndingTime: 'string',
       movieVersion: 'string',
+      sessionEndingTime: 'string',
       maxCanBuy: 'number',
       movieId: 'number',
       scheduleArea: 'string',
@@ -11379,8 +12622,8 @@ export class QueryMovieSchedulesResponseBodySchedulesSchedule extends $tea.Model
       isExpired: 'boolean',
       sessionStartingTime: 'string',
       price: 'number',
-      releaseDate: 'string',
       sectionId: 'string',
+      releaseDate: 'string',
       cinemaId: 'number',
       serviceFee: 'number',
       id: 'number',
@@ -11478,57 +12721,57 @@ export class QueryMovieSeatsResponseBodySeatMapSeats extends $tea.Model {
 
 export class QueryMovieSeatsResponseBodySeatMap extends $tea.Model {
   maxCanBuy?: number;
-  maxRow?: number;
   tipMessage?: string;
-  notice?: string;
-  minTopPx?: number;
+  maxRow?: number;
   minColumn?: number;
+  minTopPx?: number;
+  notice?: string;
   maxColumn?: number;
   regular?: boolean;
   maxTopPx?: number;
   maxLeftPx?: number;
-  seats?: QueryMovieSeatsResponseBodySeatMapSeats;
   soldCount?: number;
   minRow?: number;
   seatCount?: number;
   minLeftPx?: number;
+  seats?: QueryMovieSeatsResponseBodySeatMapSeats;
   static names(): { [key: string]: string } {
     return {
       maxCanBuy: 'MaxCanBuy',
-      maxRow: 'MaxRow',
       tipMessage: 'TipMessage',
-      notice: 'Notice',
-      minTopPx: 'MinTopPx',
+      maxRow: 'MaxRow',
       minColumn: 'MinColumn',
+      minTopPx: 'MinTopPx',
+      notice: 'Notice',
       maxColumn: 'MaxColumn',
       regular: 'Regular',
       maxTopPx: 'MaxTopPx',
       maxLeftPx: 'MaxLeftPx',
-      seats: 'Seats',
       soldCount: 'SoldCount',
       minRow: 'MinRow',
       seatCount: 'SeatCount',
       minLeftPx: 'MinLeftPx',
+      seats: 'Seats',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       maxCanBuy: 'number',
-      maxRow: 'number',
       tipMessage: 'string',
-      notice: 'string',
-      minTopPx: 'number',
+      maxRow: 'number',
       minColumn: 'number',
+      minTopPx: 'number',
+      notice: 'string',
       maxColumn: 'number',
       regular: 'boolean',
       maxTopPx: 'number',
       maxLeftPx: 'number',
-      seats: QueryMovieSeatsResponseBodySeatMapSeats,
       soldCount: 'number',
       minRow: 'number',
       seatCount: 'number',
       minLeftPx: 'number',
+      seats: QueryMovieSeatsResponseBodySeatMapSeats,
     };
   }
 
@@ -11539,14 +12782,14 @@ export class QueryMovieSeatsResponseBodySeatMap extends $tea.Model {
 
 export class QueryMovieTicketsResponseBodyMovieTicket extends $tea.Model {
   status?: string;
-  ticketContents?: string;
   tbOrderId?: string;
+  ticketContents?: string;
   returnMessage?: string;
   static names(): { [key: string]: string } {
     return {
       status: 'Status',
-      ticketContents: 'TicketContents',
       tbOrderId: 'TbOrderId',
+      ticketContents: 'TicketContents',
       returnMessage: 'ReturnMessage',
     };
   }
@@ -11554,8 +12797,8 @@ export class QueryMovieTicketsResponseBodyMovieTicket extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       status: 'string',
-      ticketContents: 'string',
       tbOrderId: 'string',
+      ticketContents: 'string',
       returnMessage: 'string',
     };
   }
@@ -11590,7 +12833,7 @@ export class QueryOrderAndPaymentListResponseBodyPostFee extends $tea.Model {
   }
 }
 
-export class QueryOrderAndPaymentListResponseBodyLmOrderListLmOrderListPostFee extends $tea.Model {
+export class QueryOrderAndPaymentListResponseBodyLmOrderListLmOrderListFundStructureModelsFundStructureModels extends $tea.Model {
   fundAmount?: number;
   fundType?: string;
   fundAmountMoney?: number;
@@ -11607,6 +12850,25 @@ export class QueryOrderAndPaymentListResponseBodyLmOrderListLmOrderListPostFee e
       fundAmount: 'number',
       fundType: 'string',
       fundAmountMoney: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryOrderAndPaymentListResponseBodyLmOrderListLmOrderListFundStructureModels extends $tea.Model {
+  fundStructureModels?: QueryOrderAndPaymentListResponseBodyLmOrderListLmOrderListFundStructureModelsFundStructureModels[];
+  static names(): { [key: string]: string } {
+    return {
+      fundStructureModels: 'FundStructureModels',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fundStructureModels: { 'type': 'array', 'itemType': QueryOrderAndPaymentListResponseBodyLmOrderListLmOrderListFundStructureModelsFundStructureModels },
     };
   }
 
@@ -11661,48 +12923,48 @@ export class QueryOrderAndPaymentListResponseBodyLmOrderListLmOrderListSubOrderL
 
 export class QueryOrderAndPaymentListResponseBodyLmOrderListLmOrderListSubOrderListSubOrderList extends $tea.Model {
   lmOrderId?: number;
-  itemTitle?: string;
-  itemPriceList?: QueryOrderAndPaymentListResponseBodyLmOrderListLmOrderListSubOrderListSubOrderListItemPriceList;
-  lmItemId?: string;
-  itemPic?: string;
-  itemId?: number;
   enableStatus?: number;
+  itemTitle?: string;
   orderStatus?: number;
   skuName?: string;
+  lmItemId?: string;
   skuId?: number;
   number?: number;
   tbOrderId?: number;
+  itemPic?: string;
+  itemId?: number;
+  itemPriceList?: QueryOrderAndPaymentListResponseBodyLmOrderListLmOrderListSubOrderListSubOrderListItemPriceList;
   static names(): { [key: string]: string } {
     return {
       lmOrderId: 'LmOrderId',
-      itemTitle: 'ItemTitle',
-      itemPriceList: 'ItemPriceList',
-      lmItemId: 'LmItemId',
-      itemPic: 'ItemPic',
-      itemId: 'ItemId',
       enableStatus: 'EnableStatus',
+      itemTitle: 'ItemTitle',
       orderStatus: 'OrderStatus',
       skuName: 'SkuName',
+      lmItemId: 'LmItemId',
       skuId: 'SkuId',
       number: 'Number',
       tbOrderId: 'TbOrderId',
+      itemPic: 'ItemPic',
+      itemId: 'ItemId',
+      itemPriceList: 'ItemPriceList',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       lmOrderId: 'number',
-      itemTitle: 'string',
-      itemPriceList: QueryOrderAndPaymentListResponseBodyLmOrderListLmOrderListSubOrderListSubOrderListItemPriceList,
-      lmItemId: 'string',
-      itemPic: 'string',
-      itemId: 'number',
       enableStatus: 'number',
+      itemTitle: 'string',
       orderStatus: 'number',
       skuName: 'string',
+      lmItemId: 'string',
       skuId: 'number',
       number: 'number',
       tbOrderId: 'number',
+      itemPic: 'string',
+      itemId: 'number',
+      itemPriceList: QueryOrderAndPaymentListResponseBodyLmOrderListLmOrderListSubOrderListSubOrderListItemPriceList,
     };
   }
 
@@ -11730,7 +12992,7 @@ export class QueryOrderAndPaymentListResponseBodyLmOrderListLmOrderListSubOrderL
   }
 }
 
-export class QueryOrderAndPaymentListResponseBodyLmOrderListLmOrderListFundStructureModelsFundStructureModels extends $tea.Model {
+export class QueryOrderAndPaymentListResponseBodyLmOrderListLmOrderListPostFee extends $tea.Model {
   fundAmount?: number;
   fundType?: string;
   fundAmountMoney?: number;
@@ -11755,72 +13017,53 @@ export class QueryOrderAndPaymentListResponseBodyLmOrderListLmOrderListFundStruc
   }
 }
 
-export class QueryOrderAndPaymentListResponseBodyLmOrderListLmOrderListFundStructureModels extends $tea.Model {
-  fundStructureModels?: QueryOrderAndPaymentListResponseBodyLmOrderListLmOrderListFundStructureModelsFundStructureModels[];
-  static names(): { [key: string]: string } {
-    return {
-      fundStructureModels: 'FundStructureModels',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      fundStructureModels: { 'type': 'array', 'itemType': QueryOrderAndPaymentListResponseBodyLmOrderListLmOrderListFundStructureModelsFundStructureModels },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class QueryOrderAndPaymentListResponseBodyLmOrderListLmOrderList extends $tea.Model {
-  postFee?: QueryOrderAndPaymentListResponseBodyLmOrderListLmOrderListPostFee;
   lmOrderId?: number;
-  lmPaymentId?: string;
-  shopName?: string;
-  orderAmount?: number;
-  createDate?: string;
-  subOrderList?: QueryOrderAndPaymentListResponseBodyLmOrderListLmOrderListSubOrderList;
   enableStatus?: number;
   extJson?: string;
   orderStatus?: number;
+  lmPaymentId?: string;
+  shopName?: string;
   tbOrderId?: number;
-  fundStructureModels?: QueryOrderAndPaymentListResponseBodyLmOrderListLmOrderListFundStructureModels;
+  orderAmount?: number;
   logisticsStatus?: number;
+  createDate?: string;
+  fundStructureModels?: QueryOrderAndPaymentListResponseBodyLmOrderListLmOrderListFundStructureModels;
+  subOrderList?: QueryOrderAndPaymentListResponseBodyLmOrderListLmOrderListSubOrderList;
+  postFee?: QueryOrderAndPaymentListResponseBodyLmOrderListLmOrderListPostFee;
   static names(): { [key: string]: string } {
     return {
-      postFee: 'PostFee',
       lmOrderId: 'LmOrderId',
-      lmPaymentId: 'LmPaymentId',
-      shopName: 'ShopName',
-      orderAmount: 'OrderAmount',
-      createDate: 'CreateDate',
-      subOrderList: 'SubOrderList',
       enableStatus: 'EnableStatus',
       extJson: 'ExtJson',
       orderStatus: 'OrderStatus',
+      lmPaymentId: 'LmPaymentId',
+      shopName: 'ShopName',
       tbOrderId: 'TbOrderId',
-      fundStructureModels: 'FundStructureModels',
+      orderAmount: 'OrderAmount',
       logisticsStatus: 'LogisticsStatus',
+      createDate: 'CreateDate',
+      fundStructureModels: 'FundStructureModels',
+      subOrderList: 'SubOrderList',
+      postFee: 'PostFee',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      postFee: QueryOrderAndPaymentListResponseBodyLmOrderListLmOrderListPostFee,
       lmOrderId: 'number',
-      lmPaymentId: 'string',
-      shopName: 'string',
-      orderAmount: 'number',
-      createDate: 'string',
-      subOrderList: QueryOrderAndPaymentListResponseBodyLmOrderListLmOrderListSubOrderList,
       enableStatus: 'number',
       extJson: 'string',
       orderStatus: 'number',
+      lmPaymentId: 'string',
+      shopName: 'string',
       tbOrderId: 'number',
-      fundStructureModels: QueryOrderAndPaymentListResponseBodyLmOrderListLmOrderListFundStructureModels,
+      orderAmount: 'number',
       logisticsStatus: 'number',
+      createDate: 'string',
+      fundStructureModels: QueryOrderAndPaymentListResponseBodyLmOrderListLmOrderListFundStructureModels,
+      subOrderList: QueryOrderAndPaymentListResponseBodyLmOrderListLmOrderListSubOrderList,
+      postFee: QueryOrderAndPaymentListResponseBodyLmOrderListLmOrderListPostFee,
     };
   }
 
@@ -11849,19 +13092,19 @@ export class QueryOrderAndPaymentListResponseBodyLmOrderList extends $tea.Model 
 }
 
 export class QueryOrderCommissionRateResponseBodyCommissionModelsCommissionInfoRateConfigConfigs extends $tea.Model {
-  value?: number;
   valueUnit?: string;
+  value?: number;
   static names(): { [key: string]: string } {
     return {
-      value: 'Value',
       valueUnit: 'ValueUnit',
+      value: 'Value',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      value: 'number',
       valueUnit: 'string',
+      value: 'number',
     };
   }
 
@@ -11890,19 +13133,19 @@ export class QueryOrderCommissionRateResponseBodyCommissionModelsCommissionInfoR
 }
 
 export class QueryOrderCommissionRateResponseBodyCommissionModelsCommissionInfo extends $tea.Model {
-  rateConfig?: QueryOrderCommissionRateResponseBodyCommissionModelsCommissionInfoRateConfig;
   rateType?: string;
+  rateConfig?: QueryOrderCommissionRateResponseBodyCommissionModelsCommissionInfoRateConfig;
   static names(): { [key: string]: string } {
     return {
-      rateConfig: 'RateConfig',
       rateType: 'RateType',
+      rateConfig: 'RateConfig',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      rateConfig: QueryOrderCommissionRateResponseBodyCommissionModelsCommissionInfoRateConfig,
       rateType: 'string',
+      rateConfig: QueryOrderCommissionRateResponseBodyCommissionModelsCommissionInfoRateConfig,
     };
   }
 
@@ -11933,110 +13176,29 @@ export class QueryOrderCommissionRateResponseBodyCommissionModels extends $tea.M
   }
 }
 
-export class QueryOrderDetailInnerResponseBodyModelOrderPostFee extends $tea.Model {
-  lmOrderId?: number;
-  tbSubOrderId?: number;
-  fundAmount?: number;
-  fundType?: string;
-  fundAmountMoney?: number;
-  static names(): { [key: string]: string } {
-    return {
-      lmOrderId: 'LmOrderId',
-      tbSubOrderId: 'TbSubOrderId',
-      fundAmount: 'FundAmount',
-      fundType: 'FundType',
-      fundAmountMoney: 'FundAmountMoney',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      lmOrderId: 'number',
-      tbSubOrderId: 'number',
-      fundAmount: 'number',
-      fundType: 'string',
-      fundAmountMoney: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryOrderDetailInnerResponseBodyModelOrderFundStructureModelsFundStructure extends $tea.Model {
-  lmOrderId?: number;
-  tbSubOrderId?: number;
-  fundAmount?: number;
-  fundType?: string;
-  fundAmountMoney?: number;
-  static names(): { [key: string]: string } {
-    return {
-      lmOrderId: 'LmOrderId',
-      tbSubOrderId: 'TbSubOrderId',
-      fundAmount: 'FundAmount',
-      fundType: 'FundType',
-      fundAmountMoney: 'FundAmountMoney',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      lmOrderId: 'number',
-      tbSubOrderId: 'number',
-      fundAmount: 'number',
-      fundType: 'string',
-      fundAmountMoney: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryOrderDetailInnerResponseBodyModelOrderFundStructureModels extends $tea.Model {
-  fundStructure?: QueryOrderDetailInnerResponseBodyModelOrderFundStructureModelsFundStructure[];
-  static names(): { [key: string]: string } {
-    return {
-      fundStructure: 'FundStructure',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      fundStructure: { 'type': 'array', 'itemType': QueryOrderDetailInnerResponseBodyModelOrderFundStructureModelsFundStructure },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class QueryOrderDetailInnerResponseBodyModelOrderSubItemOrderListSubItemOrderItemPriceListItemPrice extends $tea.Model {
-  tbSubOrderId?: number;
   fundAmount?: number;
   tbOrderId?: number;
   fundType?: string;
   fundAmountMoney?: number;
+  tbSubOrderId?: number;
   static names(): { [key: string]: string } {
     return {
-      tbSubOrderId: 'TbSubOrderId',
       fundAmount: 'FundAmount',
       tbOrderId: 'TbOrderId',
       fundType: 'FundType',
       fundAmountMoney: 'FundAmountMoney',
+      tbSubOrderId: 'TbSubOrderId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      tbSubOrderId: 'number',
       fundAmount: 'number',
       tbOrderId: 'number',
       fundType: 'string',
       fundAmountMoney: 'number',
+      tbSubOrderId: 'number',
     };
   }
 
@@ -12068,10 +13230,9 @@ export class QueryOrderDetailInnerResponseBodyModelOrderSubItemOrderListSubItemO
   lmOrderId?: number;
   itemPriceInfo?: string;
   itemTitle?: string;
-  itemPriceList?: QueryOrderDetailInnerResponseBodyModelOrderSubItemOrderListSubItemOrderItemPriceList;
   tbSubOrderId?: number;
-  totalPaymentInfo?: string;
   lmItemId?: string;
+  totalPaymentInfo?: string;
   itemPic?: string;
   itemId?: number;
   channelCode?: string;
@@ -12079,15 +13240,15 @@ export class QueryOrderDetailInnerResponseBodyModelOrderSubItemOrderListSubItemO
   skuName?: string;
   number?: number;
   skuId?: number;
+  itemPriceList?: QueryOrderDetailInnerResponseBodyModelOrderSubItemOrderListSubItemOrderItemPriceList;
   static names(): { [key: string]: string } {
     return {
       lmOrderId: 'LmOrderId',
       itemPriceInfo: 'ItemPriceInfo',
       itemTitle: 'ItemTitle',
-      itemPriceList: 'ItemPriceList',
       tbSubOrderId: 'TbSubOrderId',
-      totalPaymentInfo: 'TotalPaymentInfo',
       lmItemId: 'LmItemId',
+      totalPaymentInfo: 'TotalPaymentInfo',
       itemPic: 'ItemPic',
       itemId: 'ItemId',
       channelCode: 'ChannelCode',
@@ -12095,6 +13256,7 @@ export class QueryOrderDetailInnerResponseBodyModelOrderSubItemOrderListSubItemO
       skuName: 'SkuName',
       number: 'Number',
       skuId: 'SkuId',
+      itemPriceList: 'ItemPriceList',
     };
   }
 
@@ -12103,10 +13265,9 @@ export class QueryOrderDetailInnerResponseBodyModelOrderSubItemOrderListSubItemO
       lmOrderId: 'number',
       itemPriceInfo: 'string',
       itemTitle: 'string',
-      itemPriceList: QueryOrderDetailInnerResponseBodyModelOrderSubItemOrderListSubItemOrderItemPriceList,
       tbSubOrderId: 'number',
-      totalPaymentInfo: 'string',
       lmItemId: 'string',
+      totalPaymentInfo: 'string',
       itemPic: 'string',
       itemId: 'number',
       channelCode: 'string',
@@ -12114,6 +13275,7 @@ export class QueryOrderDetailInnerResponseBodyModelOrderSubItemOrderListSubItemO
       skuName: 'string',
       number: 'number',
       skuId: 'number',
+      itemPriceList: QueryOrderDetailInnerResponseBodyModelOrderSubItemOrderListSubItemOrderItemPriceList,
     };
   }
 
@@ -12141,8 +13303,88 @@ export class QueryOrderDetailInnerResponseBodyModelOrderSubItemOrderList extends
   }
 }
 
+export class QueryOrderDetailInnerResponseBodyModelOrderFundStructureModelsFundStructure extends $tea.Model {
+  fundAmount?: number;
+  lmOrderId?: number;
+  fundType?: string;
+  fundAmountMoney?: number;
+  tbSubOrderId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      fundAmount: 'FundAmount',
+      lmOrderId: 'LmOrderId',
+      fundType: 'FundType',
+      fundAmountMoney: 'FundAmountMoney',
+      tbSubOrderId: 'TbSubOrderId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fundAmount: 'number',
+      lmOrderId: 'number',
+      fundType: 'string',
+      fundAmountMoney: 'number',
+      tbSubOrderId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryOrderDetailInnerResponseBodyModelOrderFundStructureModels extends $tea.Model {
+  fundStructure?: QueryOrderDetailInnerResponseBodyModelOrderFundStructureModelsFundStructure[];
+  static names(): { [key: string]: string } {
+    return {
+      fundStructure: 'FundStructure',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fundStructure: { 'type': 'array', 'itemType': QueryOrderDetailInnerResponseBodyModelOrderFundStructureModelsFundStructure },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryOrderDetailInnerResponseBodyModelOrderPostFee extends $tea.Model {
+  fundAmount?: number;
+  lmOrderId?: number;
+  fundType?: string;
+  fundAmountMoney?: number;
+  tbSubOrderId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      fundAmount: 'FundAmount',
+      lmOrderId: 'LmOrderId',
+      fundType: 'FundType',
+      fundAmountMoney: 'FundAmountMoney',
+      tbSubOrderId: 'TbSubOrderId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fundAmount: 'number',
+      lmOrderId: 'number',
+      fundType: 'string',
+      fundAmountMoney: 'number',
+      tbSubOrderId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryOrderDetailInnerResponseBodyModelOrder extends $tea.Model {
-  postFee?: QueryOrderDetailInnerResponseBodyModelOrderPostFee;
   eticket?: boolean;
   createDate?: string;
   logisticsCompName?: string;
@@ -12155,26 +13397,26 @@ export class QueryOrderDetailInnerResponseBodyModelOrder extends $tea.Model {
   orderPayInfo?: string;
   logisticsStatusDesc?: string;
   tbOrderId?: string;
-  fundStructureModels?: QueryOrderDetailInnerResponseBodyModelOrderFundStructureModels;
   logisticsStatus?: number;
   lmOrderId?: number;
-  shopName?: string;
   sellerId?: number;
+  shopName?: string;
   orderAmount?: number;
   extInfo?: { [key: string]: any };
   endTime?: number;
   payStatus?: number;
   logisticsNo?: string;
-  subItemOrderList?: QueryOrderDetailInnerResponseBodyModelOrderSubItemOrderList;
   logisticsUserName?: string;
   logisticsAddress?: string;
   payWaterStatus?: number;
   refundStatus?: number;
   sellerNick?: string;
   channelOrderId?: string;
+  subItemOrderList?: QueryOrderDetailInnerResponseBodyModelOrderSubItemOrderList;
+  fundStructureModels?: QueryOrderDetailInnerResponseBodyModelOrderFundStructureModels;
+  postFee?: QueryOrderDetailInnerResponseBodyModelOrderPostFee;
   static names(): { [key: string]: string } {
     return {
-      postFee: 'PostFee',
       eticket: 'Eticket',
       createDate: 'CreateDate',
       logisticsCompName: 'LogisticsCompName',
@@ -12187,29 +13429,29 @@ export class QueryOrderDetailInnerResponseBodyModelOrder extends $tea.Model {
       orderPayInfo: 'OrderPayInfo',
       logisticsStatusDesc: 'LogisticsStatusDesc',
       tbOrderId: 'TbOrderId',
-      fundStructureModels: 'FundStructureModels',
       logisticsStatus: 'LogisticsStatus',
       lmOrderId: 'LmOrderId',
-      shopName: 'ShopName',
       sellerId: 'SellerId',
+      shopName: 'ShopName',
       orderAmount: 'OrderAmount',
       extInfo: 'ExtInfo',
       endTime: 'EndTime',
       payStatus: 'PayStatus',
       logisticsNo: 'LogisticsNo',
-      subItemOrderList: 'SubItemOrderList',
       logisticsUserName: 'LogisticsUserName',
       logisticsAddress: 'LogisticsAddress',
       payWaterStatus: 'PayWaterStatus',
       refundStatus: 'RefundStatus',
       sellerNick: 'SellerNick',
       channelOrderId: 'ChannelOrderId',
+      subItemOrderList: 'SubItemOrderList',
+      fundStructureModels: 'FundStructureModels',
+      postFee: 'PostFee',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      postFee: QueryOrderDetailInnerResponseBodyModelOrderPostFee,
       eticket: 'boolean',
       createDate: 'string',
       logisticsCompName: 'string',
@@ -12222,23 +13464,24 @@ export class QueryOrderDetailInnerResponseBodyModelOrder extends $tea.Model {
       orderPayInfo: 'string',
       logisticsStatusDesc: 'string',
       tbOrderId: 'string',
-      fundStructureModels: QueryOrderDetailInnerResponseBodyModelOrderFundStructureModels,
       logisticsStatus: 'number',
       lmOrderId: 'number',
-      shopName: 'string',
       sellerId: 'number',
+      shopName: 'string',
       orderAmount: 'number',
       extInfo: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       endTime: 'number',
       payStatus: 'number',
       logisticsNo: 'string',
-      subItemOrderList: QueryOrderDetailInnerResponseBodyModelOrderSubItemOrderList,
       logisticsUserName: 'string',
       logisticsAddress: 'string',
       payWaterStatus: 'number',
       refundStatus: 'number',
       sellerNick: 'string',
       channelOrderId: 'string',
+      subItemOrderList: QueryOrderDetailInnerResponseBodyModelOrderSubItemOrderList,
+      fundStructureModels: QueryOrderDetailInnerResponseBodyModelOrderFundStructureModels,
+      postFee: QueryOrderDetailInnerResponseBodyModelOrderPostFee,
     };
   }
 
@@ -12305,14 +13548,14 @@ export class QueryOrderIdByPayIdResponseBodyLmOrderIds extends $tea.Model {
 }
 
 export class QueryOrderInfoAfterSaleResponseBodyModelLogisticsListLogistics extends $tea.Model {
-  logisticsNo?: string;
   logisticsCompanyCode?: string;
+  logisticsNo?: string;
   logisticsStatus?: string;
   logisticsCompanyName?: string;
   static names(): { [key: string]: string } {
     return {
-      logisticsNo: 'LogisticsNo',
       logisticsCompanyCode: 'LogisticsCompanyCode',
+      logisticsNo: 'LogisticsNo',
       logisticsStatus: 'LogisticsStatus',
       logisticsCompanyName: 'LogisticsCompanyName',
     };
@@ -12320,8 +13563,8 @@ export class QueryOrderInfoAfterSaleResponseBodyModelLogisticsListLogistics exte
 
   static types(): { [key: string]: any } {
     return {
-      logisticsNo: 'string',
       logisticsCompanyCode: 'string',
+      logisticsNo: 'string',
       logisticsStatus: 'string',
       logisticsCompanyName: 'string',
     };
@@ -12354,9 +13597,8 @@ export class QueryOrderInfoAfterSaleResponseBodyModelLogisticsList extends $tea.
 export class QueryOrderInfoAfterSaleResponseBodyModel extends $tea.Model {
   lmOrderId?: number;
   shopServiceTelephone?: string;
-  logisticsList?: QueryOrderInfoAfterSaleResponseBodyModelLogisticsList;
-  xiaomiCode?: string;
   refundAmount?: number;
+  xiaomiCode?: string;
   shopName?: string;
   createDate?: string;
   refundRate?: string;
@@ -12368,13 +13610,13 @@ export class QueryOrderInfoAfterSaleResponseBodyModel extends $tea.Model {
   refundStatus?: string;
   pointsAmount?: number;
   cashAmount?: string;
+  logisticsList?: QueryOrderInfoAfterSaleResponseBodyModelLogisticsList;
   static names(): { [key: string]: string } {
     return {
       lmOrderId: 'LmOrderId',
       shopServiceTelephone: 'ShopServiceTelephone',
-      logisticsList: 'LogisticsList',
-      xiaomiCode: 'XiaomiCode',
       refundAmount: 'RefundAmount',
+      xiaomiCode: 'XiaomiCode',
       shopName: 'ShopName',
       createDate: 'CreateDate',
       refundRate: 'RefundRate',
@@ -12386,6 +13628,7 @@ export class QueryOrderInfoAfterSaleResponseBodyModel extends $tea.Model {
       refundStatus: 'RefundStatus',
       pointsAmount: 'PointsAmount',
       cashAmount: 'CashAmount',
+      logisticsList: 'LogisticsList',
     };
   }
 
@@ -12393,9 +13636,8 @@ export class QueryOrderInfoAfterSaleResponseBodyModel extends $tea.Model {
     return {
       lmOrderId: 'number',
       shopServiceTelephone: 'string',
-      logisticsList: QueryOrderInfoAfterSaleResponseBodyModelLogisticsList,
-      xiaomiCode: 'string',
       refundAmount: 'number',
+      xiaomiCode: 'string',
       shopName: 'string',
       createDate: 'string',
       refundRate: 'string',
@@ -12407,6 +13649,7 @@ export class QueryOrderInfoAfterSaleResponseBodyModel extends $tea.Model {
       refundStatus: 'string',
       pointsAmount: 'number',
       cashAmount: 'string',
+      logisticsList: QueryOrderInfoAfterSaleResponseBodyModelLogisticsList,
     };
   }
 
@@ -12493,7 +13736,7 @@ export class QueryOrderListResponseBodyPostFee extends $tea.Model {
   }
 }
 
-export class QueryOrderListResponseBodyLmOrderListLmOrderListPostFee extends $tea.Model {
+export class QueryOrderListResponseBodyLmOrderListLmOrderListFundStructureModelsFundStructureModels extends $tea.Model {
   fundAmount?: number;
   fundType?: string;
   fundAmountMoney?: number;
@@ -12510,6 +13753,25 @@ export class QueryOrderListResponseBodyLmOrderListLmOrderListPostFee extends $te
       fundAmount: 'number',
       fundType: 'string',
       fundAmountMoney: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryOrderListResponseBodyLmOrderListLmOrderListFundStructureModels extends $tea.Model {
+  fundStructureModels?: QueryOrderListResponseBodyLmOrderListLmOrderListFundStructureModelsFundStructureModels[];
+  static names(): { [key: string]: string } {
+    return {
+      fundStructureModels: 'FundStructureModels',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fundStructureModels: { 'type': 'array', 'itemType': QueryOrderListResponseBodyLmOrderListLmOrderListFundStructureModelsFundStructureModels },
     };
   }
 
@@ -12564,48 +13826,48 @@ export class QueryOrderListResponseBodyLmOrderListLmOrderListSubOrderListSubOrde
 
 export class QueryOrderListResponseBodyLmOrderListLmOrderListSubOrderListSubOrderList extends $tea.Model {
   lmOrderId?: number;
-  itemTitle?: string;
-  itemPriceList?: QueryOrderListResponseBodyLmOrderListLmOrderListSubOrderListSubOrderListItemPriceList;
-  lmItemId?: string;
-  itemPic?: string;
-  itemId?: number;
   enableStatus?: number;
+  itemTitle?: string;
   orderStatus?: number;
   skuName?: string;
+  lmItemId?: string;
   skuId?: number;
   number?: number;
   tbOrderId?: number;
+  itemPic?: string;
+  itemId?: number;
+  itemPriceList?: QueryOrderListResponseBodyLmOrderListLmOrderListSubOrderListSubOrderListItemPriceList;
   static names(): { [key: string]: string } {
     return {
       lmOrderId: 'LmOrderId',
-      itemTitle: 'ItemTitle',
-      itemPriceList: 'ItemPriceList',
-      lmItemId: 'LmItemId',
-      itemPic: 'ItemPic',
-      itemId: 'ItemId',
       enableStatus: 'EnableStatus',
+      itemTitle: 'ItemTitle',
       orderStatus: 'OrderStatus',
       skuName: 'SkuName',
+      lmItemId: 'LmItemId',
       skuId: 'SkuId',
       number: 'Number',
       tbOrderId: 'TbOrderId',
+      itemPic: 'ItemPic',
+      itemId: 'ItemId',
+      itemPriceList: 'ItemPriceList',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       lmOrderId: 'number',
-      itemTitle: 'string',
-      itemPriceList: QueryOrderListResponseBodyLmOrderListLmOrderListSubOrderListSubOrderListItemPriceList,
-      lmItemId: 'string',
-      itemPic: 'string',
-      itemId: 'number',
       enableStatus: 'number',
+      itemTitle: 'string',
       orderStatus: 'number',
       skuName: 'string',
+      lmItemId: 'string',
       skuId: 'number',
       number: 'number',
       tbOrderId: 'number',
+      itemPic: 'string',
+      itemId: 'number',
+      itemPriceList: QueryOrderListResponseBodyLmOrderListLmOrderListSubOrderListSubOrderListItemPriceList,
     };
   }
 
@@ -12633,7 +13895,7 @@ export class QueryOrderListResponseBodyLmOrderListLmOrderListSubOrderList extend
   }
 }
 
-export class QueryOrderListResponseBodyLmOrderListLmOrderListFundStructureModelsFundStructureModels extends $tea.Model {
+export class QueryOrderListResponseBodyLmOrderListLmOrderListPostFee extends $tea.Model {
   fundAmount?: number;
   fundType?: string;
   fundAmountMoney?: number;
@@ -12658,69 +13920,50 @@ export class QueryOrderListResponseBodyLmOrderListLmOrderListFundStructureModels
   }
 }
 
-export class QueryOrderListResponseBodyLmOrderListLmOrderListFundStructureModels extends $tea.Model {
-  fundStructureModels?: QueryOrderListResponseBodyLmOrderListLmOrderListFundStructureModelsFundStructureModels[];
-  static names(): { [key: string]: string } {
-    return {
-      fundStructureModels: 'FundStructureModels',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      fundStructureModels: { 'type': 'array', 'itemType': QueryOrderListResponseBodyLmOrderListLmOrderListFundStructureModelsFundStructureModels },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class QueryOrderListResponseBodyLmOrderListLmOrderList extends $tea.Model {
-  postFee?: QueryOrderListResponseBodyLmOrderListLmOrderListPostFee;
   lmOrderId?: number;
-  shopName?: string;
-  orderAmount?: number;
-  createDate?: string;
-  subOrderList?: QueryOrderListResponseBodyLmOrderListLmOrderListSubOrderList;
   enableStatus?: number;
   extJson?: string;
   orderStatus?: number;
+  shopName?: string;
   tbOrderId?: number;
-  fundStructureModels?: QueryOrderListResponseBodyLmOrderListLmOrderListFundStructureModels;
+  orderAmount?: number;
   logisticsStatus?: number;
+  createDate?: string;
+  fundStructureModels?: QueryOrderListResponseBodyLmOrderListLmOrderListFundStructureModels;
+  subOrderList?: QueryOrderListResponseBodyLmOrderListLmOrderListSubOrderList;
+  postFee?: QueryOrderListResponseBodyLmOrderListLmOrderListPostFee;
   static names(): { [key: string]: string } {
     return {
-      postFee: 'PostFee',
       lmOrderId: 'LmOrderId',
-      shopName: 'ShopName',
-      orderAmount: 'OrderAmount',
-      createDate: 'CreateDate',
-      subOrderList: 'SubOrderList',
       enableStatus: 'EnableStatus',
       extJson: 'ExtJson',
       orderStatus: 'OrderStatus',
+      shopName: 'ShopName',
       tbOrderId: 'TbOrderId',
-      fundStructureModels: 'FundStructureModels',
+      orderAmount: 'OrderAmount',
       logisticsStatus: 'LogisticsStatus',
+      createDate: 'CreateDate',
+      fundStructureModels: 'FundStructureModels',
+      subOrderList: 'SubOrderList',
+      postFee: 'PostFee',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      postFee: QueryOrderListResponseBodyLmOrderListLmOrderListPostFee,
       lmOrderId: 'number',
-      shopName: 'string',
-      orderAmount: 'number',
-      createDate: 'string',
-      subOrderList: QueryOrderListResponseBodyLmOrderListLmOrderListSubOrderList,
       enableStatus: 'number',
       extJson: 'string',
       orderStatus: 'number',
+      shopName: 'string',
       tbOrderId: 'number',
-      fundStructureModels: QueryOrderListResponseBodyLmOrderListLmOrderListFundStructureModels,
+      orderAmount: 'number',
       logisticsStatus: 'number',
+      createDate: 'string',
+      fundStructureModels: QueryOrderListResponseBodyLmOrderListLmOrderListFundStructureModels,
+      subOrderList: QueryOrderListResponseBodyLmOrderListLmOrderListSubOrderList,
+      postFee: QueryOrderListResponseBodyLmOrderListLmOrderListPostFee,
     };
   }
 
@@ -12748,51 +13991,23 @@ export class QueryOrderListResponseBodyLmOrderList extends $tea.Model {
   }
 }
 
-export class QueryOrderLogisticsResponseBodyOrderLogisticsReceiver extends $tea.Model {
-  phoneNumber?: string;
-  zipCode?: string;
-  address?: string;
-  name?: string;
-  static names(): { [key: string]: string } {
-    return {
-      phoneNumber: 'PhoneNumber',
-      zipCode: 'ZipCode',
-      address: 'Address',
-      name: 'Name',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      phoneNumber: 'string',
-      zipCode: 'string',
-      address: 'string',
-      name: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class QueryOrderLogisticsResponseBodyOrderLogisticsLogisticsDetailListLogisticsDetailList extends $tea.Model {
+  ocurrTimeStr?: string;
   standerdDesc?: string;
   statusIcon?: string;
-  ocurrTimeStr?: string;
   static names(): { [key: string]: string } {
     return {
+      ocurrTimeStr: 'OcurrTimeStr',
       standerdDesc: 'StanderdDesc',
       statusIcon: 'StatusIcon',
-      ocurrTimeStr: 'OcurrTimeStr',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      ocurrTimeStr: 'string',
       standerdDesc: 'string',
       statusIcon: 'string',
-      ocurrTimeStr: 'string',
     };
   }
 
@@ -12820,26 +14035,54 @@ export class QueryOrderLogisticsResponseBodyOrderLogisticsLogisticsDetailList ex
   }
 }
 
-export class QueryOrderLogisticsResponseBodyOrderLogisticsFetcher extends $tea.Model {
-  phoneNumber?: string;
-  zipCode?: string;
+export class QueryOrderLogisticsResponseBodyOrderLogisticsReceiver extends $tea.Model {
   address?: string;
   name?: string;
+  phoneNumber?: string;
+  zipCode?: string;
   static names(): { [key: string]: string } {
     return {
-      phoneNumber: 'PhoneNumber',
-      zipCode: 'ZipCode',
       address: 'Address',
       name: 'Name',
+      phoneNumber: 'PhoneNumber',
+      zipCode: 'ZipCode',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      phoneNumber: 'string',
-      zipCode: 'string',
       address: 'string',
       name: 'string',
+      phoneNumber: 'string',
+      zipCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryOrderLogisticsResponseBodyOrderLogisticsFetcher extends $tea.Model {
+  address?: string;
+  name?: string;
+  phoneNumber?: string;
+  zipCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      address: 'Address',
+      name: 'Name',
+      phoneNumber: 'PhoneNumber',
+      zipCode: 'ZipCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      address: 'string',
+      name: 'string',
+      phoneNumber: 'string',
+      zipCode: 'string',
     };
   }
 
@@ -12849,33 +14092,33 @@ export class QueryOrderLogisticsResponseBodyOrderLogisticsFetcher extends $tea.M
 }
 
 export class QueryOrderLogisticsResponseBodyOrderLogistics extends $tea.Model {
-  receiver?: QueryOrderLogisticsResponseBodyOrderLogisticsReceiver;
+  logisticsCompanyCode?: string;
+  logisticsCompanyName?: string;
   dataProvider?: string;
   dataProviderTitle?: string;
   logisticsDetailList?: QueryOrderLogisticsResponseBodyOrderLogisticsLogisticsDetailList;
-  logisticsCompanyCode?: string;
-  logisticsCompanyName?: string;
+  receiver?: QueryOrderLogisticsResponseBodyOrderLogisticsReceiver;
   fetcher?: QueryOrderLogisticsResponseBodyOrderLogisticsFetcher;
   static names(): { [key: string]: string } {
     return {
-      receiver: 'Receiver',
+      logisticsCompanyCode: 'LogisticsCompanyCode',
+      logisticsCompanyName: 'LogisticsCompanyName',
       dataProvider: 'DataProvider',
       dataProviderTitle: 'DataProviderTitle',
       logisticsDetailList: 'LogisticsDetailList',
-      logisticsCompanyCode: 'LogisticsCompanyCode',
-      logisticsCompanyName: 'LogisticsCompanyName',
+      receiver: 'Receiver',
       fetcher: 'Fetcher',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      receiver: QueryOrderLogisticsResponseBodyOrderLogisticsReceiver,
+      logisticsCompanyCode: 'string',
+      logisticsCompanyName: 'string',
       dataProvider: 'string',
       dataProviderTitle: 'string',
       logisticsDetailList: QueryOrderLogisticsResponseBodyOrderLogisticsLogisticsDetailList,
-      logisticsCompanyCode: 'string',
-      logisticsCompanyName: 'string',
+      receiver: QueryOrderLogisticsResponseBodyOrderLogisticsReceiver,
       fetcher: QueryOrderLogisticsResponseBodyOrderLogisticsFetcher,
     };
   }
@@ -12930,85 +14173,177 @@ export class QueryRefundApplicationDetailResponseBodyRefundApplicationDetailAppl
 }
 
 export class QueryRefundApplicationDetailResponseBodyRefundApplicationDetail extends $tea.Model {
+  disputeType?: number;
+  lmOrderId?: string;
   refunderName?: string;
+  sellerAgreeMsg?: string;
   returnGoodLogisticsStatus?: number;
+  disputeDesc?: string;
   refunderAddress?: string;
   returnGoodCount?: number;
+  disputeId?: number;
+  disputeEndTime?: string;
   orderLogisticsStatus?: number;
   bizClaimType?: number;
   realRefundFee?: number;
   refundFee?: number;
   sellerRefuseAgreementMessage?: string;
+  disputeCreateTime?: string;
   refunderTel?: string;
-  subLmOrderId?: string;
   sellerRefuseReason?: string;
+  subLmOrderId?: string;
   applyDisputeDesc?: string;
   disputeStatus?: number;
-  disputeType?: number;
-  lmOrderId?: string;
+  refunderZipCode?: string;
   maxRefundFeeData?: QueryRefundApplicationDetailResponseBodyRefundApplicationDetailMaxRefundFeeData;
   applyReasonText?: QueryRefundApplicationDetailResponseBodyRefundApplicationDetailApplyReasonText;
-  sellerAgreeMsg?: string;
-  disputeDesc?: string;
-  disputeId?: number;
-  disputeEndTime?: string;
-  disputeCreateTime?: string;
-  refunderZipCode?: string;
   static names(): { [key: string]: string } {
     return {
+      disputeType: 'DisputeType',
+      lmOrderId: 'LmOrderId',
       refunderName: 'RefunderName',
+      sellerAgreeMsg: 'SellerAgreeMsg',
       returnGoodLogisticsStatus: 'ReturnGoodLogisticsStatus',
+      disputeDesc: 'DisputeDesc',
       refunderAddress: 'RefunderAddress',
       returnGoodCount: 'ReturnGoodCount',
+      disputeId: 'DisputeId',
+      disputeEndTime: 'DisputeEndTime',
       orderLogisticsStatus: 'OrderLogisticsStatus',
       bizClaimType: 'BizClaimType',
       realRefundFee: 'RealRefundFee',
       refundFee: 'RefundFee',
       sellerRefuseAgreementMessage: 'SellerRefuseAgreementMessage',
+      disputeCreateTime: 'DisputeCreateTime',
       refunderTel: 'RefunderTel',
-      subLmOrderId: 'SubLmOrderId',
       sellerRefuseReason: 'SellerRefuseReason',
+      subLmOrderId: 'SubLmOrderId',
       applyDisputeDesc: 'ApplyDisputeDesc',
       disputeStatus: 'DisputeStatus',
-      disputeType: 'DisputeType',
-      lmOrderId: 'LmOrderId',
+      refunderZipCode: 'RefunderZipCode',
       maxRefundFeeData: 'MaxRefundFeeData',
       applyReasonText: 'ApplyReasonText',
-      sellerAgreeMsg: 'SellerAgreeMsg',
-      disputeDesc: 'DisputeDesc',
-      disputeId: 'DisputeId',
-      disputeEndTime: 'DisputeEndTime',
-      disputeCreateTime: 'DisputeCreateTime',
-      refunderZipCode: 'RefunderZipCode',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      disputeType: 'number',
+      lmOrderId: 'string',
       refunderName: 'string',
+      sellerAgreeMsg: 'string',
       returnGoodLogisticsStatus: 'number',
+      disputeDesc: 'string',
       refunderAddress: 'string',
       returnGoodCount: 'number',
+      disputeId: 'number',
+      disputeEndTime: 'string',
       orderLogisticsStatus: 'number',
       bizClaimType: 'number',
       realRefundFee: 'number',
       refundFee: 'number',
       sellerRefuseAgreementMessage: 'string',
+      disputeCreateTime: 'string',
       refunderTel: 'string',
-      subLmOrderId: 'string',
       sellerRefuseReason: 'string',
+      subLmOrderId: 'string',
       applyDisputeDesc: 'string',
       disputeStatus: 'number',
-      disputeType: 'number',
-      lmOrderId: 'string',
+      refunderZipCode: 'string',
       maxRefundFeeData: QueryRefundApplicationDetailResponseBodyRefundApplicationDetailMaxRefundFeeData,
       applyReasonText: QueryRefundApplicationDetailResponseBodyRefundApplicationDetailApplyReasonText,
-      sellerAgreeMsg: 'string',
-      disputeDesc: 'string',
-      disputeId: 'number',
-      disputeEndTime: 'string',
-      disputeCreateTime: 'string',
-      refunderZipCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryStatementsResponseBodyModelStatementList extends $tea.Model {
+  payeeAccountName?: string;
+  payeeId?: string;
+  payeeAccountNo?: string;
+  createDate?: string;
+  extInfo?: string;
+  endTime?: string;
+  startTime?: string;
+  settleNo?: string;
+  attributes?: string;
+  settleStatus?: string;
+  payeeName?: string;
+  settleAmount?: string;
+  payeeAccountId?: string;
+  modifiedDate?: string;
+  statusMessage?: string;
+  tenantId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      payeeAccountName: 'PayeeAccountName',
+      payeeId: 'PayeeId',
+      payeeAccountNo: 'PayeeAccountNo',
+      createDate: 'CreateDate',
+      extInfo: 'ExtInfo',
+      endTime: 'EndTime',
+      startTime: 'StartTime',
+      settleNo: 'SettleNo',
+      attributes: 'Attributes',
+      settleStatus: 'SettleStatus',
+      payeeName: 'PayeeName',
+      settleAmount: 'SettleAmount',
+      payeeAccountId: 'PayeeAccountId',
+      modifiedDate: 'ModifiedDate',
+      statusMessage: 'StatusMessage',
+      tenantId: 'TenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      payeeAccountName: 'string',
+      payeeId: 'string',
+      payeeAccountNo: 'string',
+      createDate: 'string',
+      extInfo: 'string',
+      endTime: 'string',
+      startTime: 'string',
+      settleNo: 'string',
+      attributes: 'string',
+      settleStatus: 'string',
+      payeeName: 'string',
+      settleAmount: 'string',
+      payeeAccountId: 'string',
+      modifiedDate: 'string',
+      statusMessage: 'string',
+      tenantId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryStatementsResponseBodyModel extends $tea.Model {
+  pageSize?: number;
+  pageNumber?: number;
+  totalCount?: number;
+  statementList?: QueryStatementsResponseBodyModelStatementList[];
+  static names(): { [key: string]: string } {
+    return {
+      pageSize: 'PageSize',
+      pageNumber: 'PageNumber',
+      totalCount: 'TotalCount',
+      statementList: 'StatementList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageSize: 'number',
+      pageNumber: 'number',
+      totalCount: 'number',
+      statementList: { 'type': 'array', 'itemType': QueryStatementsResponseBodyModelStatementList },
     };
   }
 
@@ -13313,16 +14648,16 @@ export class QueryUnfinishedSessions4ItemsResponseBodyLmItemActivitySessionModel
 }
 
 export class QueryUpcomingMoviesResponseBodyMoviesMovie extends $tea.Model {
-  movieVersion?: string;
   type?: string;
+  movieVersion?: string;
   backgroundPicture?: string;
-  openDay?: string;
   remark?: string;
+  openDay?: string;
   highlight?: string;
   movieTypeList?: string;
   language?: string;
-  openTime?: string;
   director?: string;
+  openTime?: string;
   poster?: string;
   movieName?: string;
   description?: string;
@@ -13334,16 +14669,16 @@ export class QueryUpcomingMoviesResponseBodyMoviesMovie extends $tea.Model {
   trailerList?: string;
   static names(): { [key: string]: string } {
     return {
-      movieVersion: 'MovieVersion',
       type: 'Type',
+      movieVersion: 'MovieVersion',
       backgroundPicture: 'BackgroundPicture',
-      openDay: 'OpenDay',
       remark: 'Remark',
+      openDay: 'OpenDay',
       highlight: 'Highlight',
       movieTypeList: 'MovieTypeList',
       language: 'Language',
-      openTime: 'OpenTime',
       director: 'Director',
+      openTime: 'OpenTime',
       poster: 'Poster',
       movieName: 'MovieName',
       description: 'Description',
@@ -13358,16 +14693,16 @@ export class QueryUpcomingMoviesResponseBodyMoviesMovie extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      movieVersion: 'string',
       type: 'string',
+      movieVersion: 'string',
       backgroundPicture: 'string',
-      openDay: 'string',
       remark: 'string',
+      openDay: 'string',
       highlight: 'string',
       movieTypeList: 'string',
       language: 'string',
-      openTime: 'string',
       director: 'string',
+      openTime: 'string',
       poster: 'string',
       movieName: 'string',
       description: 'string',
@@ -13519,20 +14854,68 @@ export class RemoveMessagesResponseBodyActionResult extends $tea.Model {
   }
 }
 
-export class RenderH5OrderResponseBodyModelInvoiceInfo extends $tea.Model {
-  type?: string;
-  desc?: string;
+export class RenderH5OrderResponseBodyModelLmItemInfoList extends $tea.Model {
+  tbShopName?: string;
+  sellerId?: number;
+  lmItemId?: string;
+  message?: string;
+  canSell?: boolean;
+  cash?: number;
+  itemId?: number;
+  virtualItemType?: string;
+  itemName?: string;
+  actualPrice?: number;
+  skuName?: string;
+  skuId?: number;
+  points?: number;
+  itemUrl?: string;
+  sellerNick?: string;
+  quantity?: number;
+  features?: { [key: string]: any };
+  itemPicUrl?: string;
   static names(): { [key: string]: string } {
     return {
-      type: 'Type',
-      desc: 'Desc',
+      tbShopName: 'TbShopName',
+      sellerId: 'SellerId',
+      lmItemId: 'LmItemId',
+      message: 'Message',
+      canSell: 'CanSell',
+      cash: 'Cash',
+      itemId: 'ItemId',
+      virtualItemType: 'VirtualItemType',
+      itemName: 'ItemName',
+      actualPrice: 'ActualPrice',
+      skuName: 'SkuName',
+      skuId: 'SkuId',
+      points: 'Points',
+      itemUrl: 'ItemUrl',
+      sellerNick: 'SellerNick',
+      quantity: 'Quantity',
+      features: 'Features',
+      itemPicUrl: 'ItemPicUrl',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      type: 'string',
-      desc: 'string',
+      tbShopName: 'string',
+      sellerId: 'number',
+      lmItemId: 'string',
+      message: 'string',
+      canSell: 'boolean',
+      cash: 'number',
+      itemId: 'number',
+      virtualItemType: 'string',
+      itemName: 'string',
+      actualPrice: 'number',
+      skuName: 'string',
+      skuId: 'number',
+      points: 'number',
+      itemUrl: 'string',
+      sellerNick: 'string',
+      quantity: 'number',
+      features: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      itemPicUrl: 'string',
     };
   }
 
@@ -13561,76 +14944,6 @@ export class RenderH5OrderResponseBodyModelDeliveryInfoList extends $tea.Model {
       postFee: 'number',
       serviceType: 'number',
       id: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RenderH5OrderResponseBodyModelLmItemInfoList extends $tea.Model {
-  lmItemId?: string;
-  sellerId?: number;
-  tbShopName?: string;
-  message?: string;
-  itemId?: number;
-  cash?: number;
-  canSell?: boolean;
-  virtualItemType?: string;
-  itemName?: string;
-  skuName?: string;
-  actualPrice?: number;
-  skuId?: number;
-  points?: number;
-  itemUrl?: string;
-  sellerNick?: string;
-  quantity?: number;
-  features?: { [key: string]: any };
-  itemPicUrl?: string;
-  static names(): { [key: string]: string } {
-    return {
-      lmItemId: 'LmItemId',
-      sellerId: 'SellerId',
-      tbShopName: 'TbShopName',
-      message: 'Message',
-      itemId: 'ItemId',
-      cash: 'Cash',
-      canSell: 'CanSell',
-      virtualItemType: 'VirtualItemType',
-      itemName: 'ItemName',
-      skuName: 'SkuName',
-      actualPrice: 'ActualPrice',
-      skuId: 'SkuId',
-      points: 'Points',
-      itemUrl: 'ItemUrl',
-      sellerNick: 'SellerNick',
-      quantity: 'Quantity',
-      features: 'Features',
-      itemPicUrl: 'ItemPicUrl',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      lmItemId: 'string',
-      sellerId: 'number',
-      tbShopName: 'string',
-      message: 'string',
-      itemId: 'number',
-      cash: 'number',
-      canSell: 'boolean',
-      virtualItemType: 'string',
-      itemName: 'string',
-      skuName: 'string',
-      actualPrice: 'number',
-      skuId: 'number',
-      points: 'number',
-      itemUrl: 'string',
-      sellerNick: 'string',
-      quantity: 'number',
-      features: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      itemPicUrl: 'string',
     };
   }
 
@@ -13673,32 +14986,54 @@ export class RenderH5OrderResponseBodyModelAddressInfoList extends $tea.Model {
   }
 }
 
-export class RenderH5OrderResponseBodyModel extends $tea.Model {
-  buyerCurrentPoints?: number;
-  invoiceInfo?: RenderH5OrderResponseBodyModelInvoiceInfo;
-  deliveryInfoList?: RenderH5OrderResponseBodyModelDeliveryInfoList[];
-  lmItemInfoList?: RenderH5OrderResponseBodyModelLmItemInfoList[];
-  extInfo?: { [key: string]: any };
-  addressInfoList?: RenderH5OrderResponseBodyModelAddressInfoList[];
+export class RenderH5OrderResponseBodyModelInvoiceInfo extends $tea.Model {
+  type?: string;
+  desc?: string;
   static names(): { [key: string]: string } {
     return {
-      buyerCurrentPoints: 'BuyerCurrentPoints',
-      invoiceInfo: 'InvoiceInfo',
-      deliveryInfoList: 'DeliveryInfoList',
-      lmItemInfoList: 'LmItemInfoList',
-      extInfo: 'ExtInfo',
-      addressInfoList: 'AddressInfoList',
+      type: 'Type',
+      desc: 'Desc',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      buyerCurrentPoints: 'number',
-      invoiceInfo: RenderH5OrderResponseBodyModelInvoiceInfo,
-      deliveryInfoList: { 'type': 'array', 'itemType': RenderH5OrderResponseBodyModelDeliveryInfoList },
-      lmItemInfoList: { 'type': 'array', 'itemType': RenderH5OrderResponseBodyModelLmItemInfoList },
+      type: 'string',
+      desc: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RenderH5OrderResponseBodyModel extends $tea.Model {
+  extInfo?: { [key: string]: any };
+  buyerCurrentPoints?: number;
+  lmItemInfoList?: RenderH5OrderResponseBodyModelLmItemInfoList[];
+  deliveryInfoList?: RenderH5OrderResponseBodyModelDeliveryInfoList[];
+  addressInfoList?: RenderH5OrderResponseBodyModelAddressInfoList[];
+  invoiceInfo?: RenderH5OrderResponseBodyModelInvoiceInfo;
+  static names(): { [key: string]: string } {
+    return {
+      extInfo: 'ExtInfo',
+      buyerCurrentPoints: 'BuyerCurrentPoints',
+      lmItemInfoList: 'LmItemInfoList',
+      deliveryInfoList: 'DeliveryInfoList',
+      addressInfoList: 'AddressInfoList',
+      invoiceInfo: 'InvoiceInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
       extInfo: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      buyerCurrentPoints: 'number',
+      lmItemInfoList: { 'type': 'array', 'itemType': RenderH5OrderResponseBodyModelLmItemInfoList },
+      deliveryInfoList: { 'type': 'array', 'itemType': RenderH5OrderResponseBodyModelDeliveryInfoList },
       addressInfoList: { 'type': 'array', 'itemType': RenderH5OrderResponseBodyModelAddressInfoList },
+      invoiceInfo: RenderH5OrderResponseBodyModelInvoiceInfo,
     };
   }
 
@@ -13708,25 +15043,25 @@ export class RenderH5OrderResponseBodyModel extends $tea.Model {
 }
 
 export class RenderOrderRequestItemList extends $tea.Model {
-  itemId?: number;
   skuId?: number;
-  quantity?: number;
   lmItemId?: string;
+  itemId?: number;
+  quantity?: number;
   static names(): { [key: string]: string } {
     return {
-      itemId: 'ItemId',
       skuId: 'SkuId',
-      quantity: 'Quantity',
       lmItemId: 'LmItemId',
+      itemId: 'ItemId',
+      quantity: 'Quantity',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      itemId: 'number',
       skuId: 'number',
-      quantity: 'number',
       lmItemId: 'string',
+      itemId: 'number',
+      quantity: 'number',
     };
   }
 
@@ -13736,54 +15071,54 @@ export class RenderOrderRequestItemList extends $tea.Model {
 }
 
 export class RenderOrderResponseBodyModelRenderOrderInfosRenderOrderInfosLmItemInfosLmItemInfos extends $tea.Model {
-  itemId?: number;
-  skuId?: number;
-  quantity?: number;
-  canSell?: boolean;
-  message?: string;
-  itemName?: string;
-  skuName?: string;
   lmItemId?: string;
   sellerId?: number;
-  sellerNick?: string;
+  message?: string;
+  itemId?: number;
+  canSell?: boolean;
   cash?: number;
-  points?: number;
+  itemName?: string;
   actualPrice?: number;
+  skuName?: string;
+  skuId?: number;
+  points?: number;
+  sellerNick?: string;
+  quantity?: number;
   itemPicUrl?: string;
   static names(): { [key: string]: string } {
     return {
-      itemId: 'ItemId',
-      skuId: 'SkuId',
-      quantity: 'Quantity',
-      canSell: 'CanSell',
-      message: 'Message',
-      itemName: 'ItemName',
-      skuName: 'SkuName',
       lmItemId: 'LmItemId',
       sellerId: 'SellerId',
-      sellerNick: 'SellerNick',
+      message: 'Message',
+      itemId: 'ItemId',
+      canSell: 'CanSell',
       cash: 'Cash',
-      points: 'Points',
+      itemName: 'ItemName',
       actualPrice: 'ActualPrice',
+      skuName: 'SkuName',
+      skuId: 'SkuId',
+      points: 'Points',
+      sellerNick: 'SellerNick',
+      quantity: 'Quantity',
       itemPicUrl: 'ItemPicUrl',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      itemId: 'number',
-      skuId: 'number',
-      quantity: 'number',
-      canSell: 'boolean',
-      message: 'string',
-      itemName: 'string',
-      skuName: 'string',
       lmItemId: 'string',
       sellerId: 'number',
-      sellerNick: 'string',
+      message: 'string',
+      itemId: 'number',
+      canSell: 'boolean',
       cash: 'number',
-      points: 'number',
+      itemName: 'string',
       actualPrice: 'number',
+      skuName: 'string',
+      skuId: 'number',
+      points: 'number',
+      sellerNick: 'string',
+      quantity: 'number',
       itemPicUrl: 'string',
     };
   }
@@ -13813,25 +15148,25 @@ export class RenderOrderResponseBodyModelRenderOrderInfosRenderOrderInfosLmItemI
 }
 
 export class RenderOrderResponseBodyModelRenderOrderInfosRenderOrderInfosDeliveryInfosDeliveryInfos extends $tea.Model {
-  id?: string;
   displayName?: string;
   postFee?: number;
   serviceType?: number;
+  id?: string;
   static names(): { [key: string]: string } {
     return {
-      id: 'Id',
       displayName: 'DisplayName',
       postFee: 'PostFee',
       serviceType: 'ServiceType',
+      id: 'Id',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      id: 'string',
       displayName: 'string',
       postFee: 'number',
       serviceType: 'number',
+      id: 'string',
     };
   }
 
@@ -13860,7 +15195,7 @@ export class RenderOrderResponseBodyModelRenderOrderInfosRenderOrderInfosDeliver
 }
 
 export class RenderOrderResponseBodyModelRenderOrderInfosRenderOrderInfos extends $tea.Model {
-  extInfo?: { [key: string]: string };
+  extInfo?: { [key: string]: any };
   lmItemInfos?: RenderOrderResponseBodyModelRenderOrderInfosRenderOrderInfosLmItemInfos;
   deliveryInfos?: RenderOrderResponseBodyModelRenderOrderInfosRenderOrderInfosDeliveryInfos;
   static names(): { [key: string]: string } {
@@ -13873,7 +15208,7 @@ export class RenderOrderResponseBodyModelRenderOrderInfosRenderOrderInfos extend
 
   static types(): { [key: string]: any } {
     return {
-      extInfo: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      extInfo: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       lmItemInfos: RenderOrderResponseBodyModelRenderOrderInfosRenderOrderInfosLmItemInfos,
       deliveryInfos: RenderOrderResponseBodyModelRenderOrderInfosRenderOrderInfosDeliveryInfos,
     };
@@ -13944,14 +15279,14 @@ export class RepayForPayUrlResponseBodyModel extends $tea.Model {
 export class ReserveMovieSeatResponseBodyReservedSeat extends $tea.Model {
   status?: string;
   reservedTime?: number;
-  defaultLockSecond?: number;
   applyKey?: string;
+  defaultLockSecond?: number;
   static names(): { [key: string]: string } {
     return {
       status: 'Status',
       reservedTime: 'ReservedTime',
-      defaultLockSecond: 'DefaultLockSecond',
       applyKey: 'ApplyKey',
+      defaultLockSecond: 'DefaultLockSecond',
     };
   }
 
@@ -13959,8 +15294,8 @@ export class ReserveMovieSeatResponseBodyReservedSeat extends $tea.Model {
     return {
       status: 'string',
       reservedTime: 'number',
-      defaultLockSecond: 'number',
       applyKey: 'string',
+      defaultLockSecond: 'number',
     };
   }
 
@@ -14159,6 +15494,25 @@ export default class Client extends OpenApi {
     return await this.addItemLimitRuleWithOptions(request, runtime);
   }
 
+  async addItemToSubBizsWithOptions(tmpReq: AddItemToSubBizsRequest, runtime: $Util.RuntimeOptions): Promise<AddItemToSubBizsResponse> {
+    Util.validateModel(tmpReq);
+    let request = new AddItemToSubBizsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.subBizIds)) {
+      request.subBizIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.subBizIds, "SubBizIds", "json");
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<AddItemToSubBizsResponse>(await this.doRPCRequest("AddItemToSubBizs", "2018-01-16", "HTTPS", "POST", "AK", "json", req, runtime), new AddItemToSubBizsResponse({}));
+  }
+
+  async addItemToSubBizs(request: AddItemToSubBizsRequest): Promise<AddItemToSubBizsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.addItemToSubBizsWithOptions(request, runtime);
+  }
+
   async addSupplierNewItemsWithOptions(request: AddSupplierNewItemsRequest, runtime: $Util.RuntimeOptions): Promise<AddSupplierNewItemsResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -14353,6 +15707,19 @@ export default class Client extends OpenApi {
   async enableOrder(request: EnableOrderRequest): Promise<EnableOrderResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.enableOrderWithOptions(request, runtime);
+  }
+
+  async executeNodeWithOptions(request: ExecuteNodeRequest, runtime: $Util.RuntimeOptions): Promise<ExecuteNodeResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<ExecuteNodeResponse>(await this.doRPCRequest("ExecuteNode", "2018-01-16", "HTTPS", "POST", "AK", "json", req, runtime), new ExecuteNodeResponse({}));
+  }
+
+  async executeNode(request: ExecuteNodeRequest): Promise<ExecuteNodeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.executeNodeWithOptions(request, runtime);
   }
 
   async getCategoryChainWithOptions(request: GetCategoryChainRequest, runtime: $Util.RuntimeOptions): Promise<GetCategoryChainResponse> {
@@ -14626,6 +15993,19 @@ export default class Client extends OpenApi {
     return await this.queryAddressListWithOptions(request, runtime);
   }
 
+  async queryAdvertisementSettleInfoWithOptions(request: QueryAdvertisementSettleInfoRequest, runtime: $Util.RuntimeOptions): Promise<QueryAdvertisementSettleInfoResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<QueryAdvertisementSettleInfoResponse>(await this.doRPCRequest("QueryAdvertisementSettleInfo", "2018-01-16", "HTTPS", "POST", "AK", "json", req, runtime), new QueryAdvertisementSettleInfoResponse({}));
+  }
+
+  async queryAdvertisementSettleInfo(request: QueryAdvertisementSettleInfoRequest): Promise<QueryAdvertisementSettleInfoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryAdvertisementSettleInfoWithOptions(request, runtime);
+  }
+
   async queryAgreementWithOptions(request: QueryAgreementRequest, runtime: $Util.RuntimeOptions): Promise<QueryAgreementResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -14780,6 +16160,20 @@ export default class Client extends OpenApi {
     return await this.queryGuideItemGroupWithOptions(request, runtime);
   }
 
+  async queryGuideItemGroupWithOutInventoryWithOptions(request: QueryGuideItemGroupWithOutInventoryRequest, runtime: $Util.RuntimeOptions): Promise<QueryGuideItemGroupWithOutInventoryResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: query,
+    });
+    return $tea.cast<QueryGuideItemGroupWithOutInventoryResponse>(await this.doRPCRequest("QueryGuideItemGroupWithOutInventory", "2018-01-16", "HTTPS", "GET", "AK", "json", req, runtime), new QueryGuideItemGroupWithOutInventoryResponse({}));
+  }
+
+  async queryGuideItemGroupWithOutInventory(request: QueryGuideItemGroupWithOutInventoryRequest): Promise<QueryGuideItemGroupWithOutInventoryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryGuideItemGroupWithOutInventoryWithOptions(request, runtime);
+  }
+
   async queryHotMoviesWithOptions(request: QueryHotMoviesRequest, runtime: $Util.RuntimeOptions): Promise<QueryHotMoviesResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -14791,6 +16185,30 @@ export default class Client extends OpenApi {
   async queryHotMovies(request: QueryHotMoviesRequest): Promise<QueryHotMoviesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryHotMoviesWithOptions(request, runtime);
+  }
+
+  async queryInventoryOfItemsInBizItemGroupWithOptions(tmpReq: QueryInventoryOfItemsInBizItemGroupRequest, runtime: $Util.RuntimeOptions): Promise<QueryInventoryOfItemsInBizItemGroupResponse> {
+    Util.validateModel(tmpReq);
+    let request = new QueryInventoryOfItemsInBizItemGroupShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.itemIds)) {
+      request.itemIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.itemIds, "ItemIds", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.lmItemIds)) {
+      request.lmItemIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.lmItemIds, "LmItemIds", "json");
+    }
+
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: query,
+    });
+    return $tea.cast<QueryInventoryOfItemsInBizItemGroupResponse>(await this.doRPCRequest("QueryInventoryOfItemsInBizItemGroup", "2018-01-16", "HTTPS", "GET", "AK", "json", req, runtime), new QueryInventoryOfItemsInBizItemGroupResponse({}));
+  }
+
+  async queryInventoryOfItemsInBizItemGroup(request: QueryInventoryOfItemsInBizItemGroupRequest): Promise<QueryInventoryOfItemsInBizItemGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryInventoryOfItemsInBizItemGroupWithOptions(request, runtime);
   }
 
   async queryItemDetailWithOptions(request: QueryItemDetailRequest, runtime: $Util.RuntimeOptions): Promise<QueryItemDetailResponse> {
@@ -14819,6 +16237,26 @@ export default class Client extends OpenApi {
     return await this.queryItemDetailInnerWithOptions(request, runtime);
   }
 
+  async queryItemInSubBizsWithOptions(tmpReq: QueryItemInSubBizsRequest, runtime: $Util.RuntimeOptions): Promise<QueryItemInSubBizsResponse> {
+    Util.validateModel(tmpReq);
+    let request = new QueryItemInSubBizsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.subBizIds)) {
+      request.subBizIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.subBizIds, "SubBizIds", "json");
+    }
+
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: query,
+    });
+    return $tea.cast<QueryItemInSubBizsResponse>(await this.doRPCRequest("QueryItemInSubBizs", "2018-01-16", "HTTPS", "GET", "AK", "json", req, runtime), new QueryItemInSubBizsResponse({}));
+  }
+
+  async queryItemInSubBizs(request: QueryItemInSubBizsRequest): Promise<QueryItemInSubBizsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryItemInSubBizsWithOptions(request, runtime);
+  }
+
   async queryItemInventoryWithOptions(request: QueryItemInventoryRequest, runtime: $Util.RuntimeOptions): Promise<QueryItemInventoryResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -14843,6 +16281,19 @@ export default class Client extends OpenApi {
   async queryLogistics(request: QueryLogisticsRequest): Promise<QueryLogisticsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryLogisticsWithOptions(request, runtime);
+  }
+
+  async queryMediaSettleInfoWithOptions(request: QueryMediaSettleInfoRequest, runtime: $Util.RuntimeOptions): Promise<QueryMediaSettleInfoResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<QueryMediaSettleInfoResponse>(await this.doRPCRequest("QueryMediaSettleInfo", "2018-01-16", "HTTPS", "POST", "AK", "json", req, runtime), new QueryMediaSettleInfoResponse({}));
+  }
+
+  async queryMediaSettleInfo(request: QueryMediaSettleInfoRequest): Promise<QueryMediaSettleInfoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryMediaSettleInfoWithOptions(request, runtime);
   }
 
   async queryMessagesWithOptions(request: QueryMessagesRequest, runtime: $Util.RuntimeOptions): Promise<QueryMessagesResponse> {
@@ -15027,6 +16478,19 @@ export default class Client extends OpenApi {
   async queryRefundApplicationDetail(request: QueryRefundApplicationDetailRequest): Promise<QueryRefundApplicationDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryRefundApplicationDetailWithOptions(request, runtime);
+  }
+
+  async queryStatementsWithOptions(request: QueryStatementsRequest, runtime: $Util.RuntimeOptions): Promise<QueryStatementsResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<QueryStatementsResponse>(await this.doRPCRequest("QueryStatements", "2018-01-16", "HTTPS", "POST", "AK", "json", req, runtime), new QueryStatementsResponse({}));
+  }
+
+  async queryStatements(request: QueryStatementsRequest): Promise<QueryStatementsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryStatementsWithOptions(request, runtime);
   }
 
   async queryUnfinishedActivitiesWithOptions(request: QueryUnfinishedActivitiesRequest, runtime: $Util.RuntimeOptions): Promise<QueryUnfinishedActivitiesResponse> {
