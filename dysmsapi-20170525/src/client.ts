@@ -7,93 +7,6 @@ import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
-export class AddShortUrlRequest extends $tea.Model {
-  ownerId?: number;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  sourceUrl?: string;
-  shortUrlName?: string;
-  effectiveDays?: string;
-  prodCode?: string;
-  static names(): { [key: string]: string } {
-    return {
-      ownerId: 'OwnerId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-      sourceUrl: 'SourceUrl',
-      shortUrlName: 'ShortUrlName',
-      effectiveDays: 'EffectiveDays',
-      prodCode: 'ProdCode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ownerId: 'number',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-      sourceUrl: 'string',
-      shortUrlName: 'string',
-      effectiveDays: 'string',
-      prodCode: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddShortUrlResponseBody extends $tea.Model {
-  message?: string;
-  requestId?: string;
-  data?: AddShortUrlResponseBodyData;
-  code?: string;
-  static names(): { [key: string]: string } {
-    return {
-      message: 'Message',
-      requestId: 'RequestId',
-      data: 'Data',
-      code: 'Code',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      message: 'string',
-      requestId: 'string',
-      data: AddShortUrlResponseBodyData,
-      code: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddShortUrlResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: AddShortUrlResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: AddShortUrlResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class AddSmsSignRequest extends $tea.Model {
   ownerId?: number;
   resourceOwnerAccount?: string;
@@ -132,24 +45,24 @@ export class AddSmsSignRequest extends $tea.Model {
 }
 
 export class AddSmsSignResponseBody extends $tea.Model {
+  code?: string;
   message?: string;
   requestId?: string;
-  code?: string;
   signName?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
-      code: 'Code',
       signName: 'SignName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
       message: 'string',
       requestId: 'string',
-      code: 'string',
       signName: 'string',
     };
   }
@@ -219,25 +132,25 @@ export class AddSmsTemplateRequest extends $tea.Model {
 }
 
 export class AddSmsTemplateResponseBody extends $tea.Model {
-  templateCode?: string;
+  code?: string;
   message?: string;
   requestId?: string;
-  code?: string;
+  templateCode?: string;
   static names(): { [key: string]: string } {
     return {
-      templateCode: 'TemplateCode',
+      code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
-      code: 'Code',
+      templateCode: 'TemplateCode',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      templateCode: 'string',
+      code: 'string',
       message: 'string',
       requestId: 'string',
-      code: 'string',
+      templateCode: 'string',
     };
   }
 
@@ -260,165 +173,6 @@ export class AddSmsTemplateResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: AddSmsTemplateResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateShortParamRequest extends $tea.Model {
-  ownerId?: number;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  phoneNumbers?: string;
-  prodCode?: string;
-  static names(): { [key: string]: string } {
-    return {
-      ownerId: 'OwnerId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-      phoneNumbers: 'PhoneNumbers',
-      prodCode: 'ProdCode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ownerId: 'number',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-      phoneNumbers: 'string',
-      prodCode: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateShortParamResponseBody extends $tea.Model {
-  message?: string;
-  requestId?: string;
-  data?: CreateShortParamResponseBodyData;
-  code?: string;
-  static names(): { [key: string]: string } {
-    return {
-      message: 'Message',
-      requestId: 'RequestId',
-      data: 'Data',
-      code: 'Code',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      message: 'string',
-      requestId: 'string',
-      data: CreateShortParamResponseBodyData,
-      code: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateShortParamResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: CreateShortParamResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: CreateShortParamResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteShortUrlRequest extends $tea.Model {
-  ownerId?: number;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  sourceUrl?: string;
-  prodCode?: string;
-  static names(): { [key: string]: string } {
-    return {
-      ownerId: 'OwnerId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-      sourceUrl: 'SourceUrl',
-      prodCode: 'ProdCode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ownerId: 'number',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-      sourceUrl: 'string',
-      prodCode: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteShortUrlResponseBody extends $tea.Model {
-  message?: string;
-  requestId?: string;
-  code?: string;
-  static names(): { [key: string]: string } {
-    return {
-      message: 'Message',
-      requestId: 'RequestId',
-      code: 'Code',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      message: 'string',
-      requestId: 'string',
-      code: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteShortUrlResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DeleteShortUrlResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DeleteShortUrlResponseBody,
     };
   }
 
@@ -456,24 +210,24 @@ export class DeleteSmsSignRequest extends $tea.Model {
 }
 
 export class DeleteSmsSignResponseBody extends $tea.Model {
+  code?: string;
   message?: string;
   requestId?: string;
-  code?: string;
   signName?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
-      code: 'Code',
       signName: 'SignName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
       message: 'string',
       requestId: 'string',
-      code: 'string',
       signName: 'string',
     };
   }
@@ -534,25 +288,25 @@ export class DeleteSmsTemplateRequest extends $tea.Model {
 }
 
 export class DeleteSmsTemplateResponseBody extends $tea.Model {
-  templateCode?: string;
+  code?: string;
   message?: string;
   requestId?: string;
-  code?: string;
+  templateCode?: string;
   static names(): { [key: string]: string } {
     return {
-      templateCode: 'TemplateCode',
+      code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
-      code: 'Code',
+      templateCode: 'TemplateCode',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      templateCode: 'string',
+      code: 'string',
       message: 'string',
       requestId: 'string',
-      code: 'string',
+      templateCode: 'string',
     };
   }
 
@@ -621,24 +375,24 @@ export class ModifySmsSignRequest extends $tea.Model {
 }
 
 export class ModifySmsSignResponseBody extends $tea.Model {
+  code?: string;
   message?: string;
   requestId?: string;
-  code?: string;
   signName?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
-      code: 'Code',
       signName: 'SignName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
       message: 'string',
       requestId: 'string',
-      code: 'string',
       signName: 'string',
     };
   }
@@ -711,25 +465,25 @@ export class ModifySmsTemplateRequest extends $tea.Model {
 }
 
 export class ModifySmsTemplateResponseBody extends $tea.Model {
-  templateCode?: string;
+  code?: string;
   message?: string;
   requestId?: string;
-  code?: string;
+  templateCode?: string;
   static names(): { [key: string]: string } {
     return {
-      templateCode: 'TemplateCode',
+      code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
-      code: 'Code',
+      templateCode: 'TemplateCode',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      templateCode: 'string',
+      code: 'string',
       message: 'string',
       requestId: 'string',
-      code: 'string',
+      templateCode: 'string',
     };
   }
 
@@ -801,27 +555,27 @@ export class QuerySendDetailsRequest extends $tea.Model {
 }
 
 export class QuerySendDetailsResponseBody extends $tea.Model {
-  totalCount?: string;
+  code?: string;
   message?: string;
   requestId?: string;
-  code?: string;
+  totalCount?: string;
   smsSendDetailDTOs?: QuerySendDetailsResponseBodySmsSendDetailDTOs;
   static names(): { [key: string]: string } {
     return {
-      totalCount: 'TotalCount',
+      code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
-      code: 'Code',
+      totalCount: 'TotalCount',
       smsSendDetailDTOs: 'SmsSendDetailDTOs',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      totalCount: 'string',
+      code: 'string',
       message: 'string',
       requestId: 'string',
-      code: 'string',
+      totalCount: 'string',
       smsSendDetailDTOs: QuerySendDetailsResponseBodySmsSendDetailDTOs,
     };
   }
@@ -845,87 +599,6 @@ export class QuerySendDetailsResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: QuerySendDetailsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryShortUrlRequest extends $tea.Model {
-  ownerId?: number;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  prodCode?: string;
-  shortUrl?: string;
-  static names(): { [key: string]: string } {
-    return {
-      ownerId: 'OwnerId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-      prodCode: 'ProdCode',
-      shortUrl: 'ShortUrl',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ownerId: 'number',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-      prodCode: 'string',
-      shortUrl: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryShortUrlResponseBody extends $tea.Model {
-  message?: string;
-  requestId?: string;
-  data?: QueryShortUrlResponseBodyData;
-  code?: string;
-  static names(): { [key: string]: string } {
-    return {
-      message: 'Message',
-      requestId: 'RequestId',
-      data: 'Data',
-      code: 'Code',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      message: 'string',
-      requestId: 'string',
-      data: QueryShortUrlResponseBodyData,
-      code: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryShortUrlResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: QueryShortUrlResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: QueryShortUrlResponseBody,
     };
   }
 
@@ -964,18 +637,18 @@ export class QuerySmsSignRequest extends $tea.Model {
 
 export class QuerySmsSignResponseBody extends $tea.Model {
   requestId?: string;
-  message?: string;
   signStatus?: number;
   code?: string;
+  message?: string;
   createDate?: string;
   reason?: string;
   signName?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      message: 'Message',
       signStatus: 'SignStatus',
       code: 'Code',
+      message: 'Message',
       createDate: 'CreateDate',
       reason: 'Reason',
       signName: 'SignName',
@@ -985,9 +658,9 @@ export class QuerySmsSignResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      message: 'string',
       signStatus: 'number',
       code: 'string',
+      message: 'string',
       createDate: 'string',
       reason: 'string',
       signName: 'string',
@@ -1050,43 +723,43 @@ export class QuerySmsTemplateRequest extends $tea.Model {
 }
 
 export class QuerySmsTemplateResponseBody extends $tea.Model {
-  templateCode?: string;
-  requestId?: string;
-  message?: string;
   templateContent?: string;
-  templateName?: string;
-  templateType?: number;
+  requestId?: string;
+  templateCode?: string;
+  templateStatus?: number;
   code?: string;
+  templateType?: number;
+  message?: string;
+  templateName?: string;
   createDate?: string;
   reason?: string;
-  templateStatus?: number;
   static names(): { [key: string]: string } {
     return {
-      templateCode: 'TemplateCode',
-      requestId: 'RequestId',
-      message: 'Message',
       templateContent: 'TemplateContent',
-      templateName: 'TemplateName',
-      templateType: 'TemplateType',
+      requestId: 'RequestId',
+      templateCode: 'TemplateCode',
+      templateStatus: 'TemplateStatus',
       code: 'Code',
+      templateType: 'TemplateType',
+      message: 'Message',
+      templateName: 'TemplateName',
       createDate: 'CreateDate',
       reason: 'Reason',
-      templateStatus: 'TemplateStatus',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      templateCode: 'string',
-      requestId: 'string',
-      message: 'string',
       templateContent: 'string',
-      templateName: 'string',
-      templateType: 'number',
+      requestId: 'string',
+      templateCode: 'string',
+      templateStatus: 'number',
       code: 'string',
+      templateType: 'number',
+      message: 'string',
+      templateName: 'string',
       createDate: 'string',
       reason: 'string',
-      templateStatus: 'number',
     };
   }
 
@@ -1134,7 +807,7 @@ export class SendBatchSmsRequest extends $tea.Model {
       phoneNumberJson: 'PhoneNumberJson',
       signNameJson: 'SignNameJson',
       templateCode: 'TemplateCode',
-      templateParamJson: 'templateParamJson',
+      templateParamJson: 'TemplateParamJson',
       smsUpExtendCodeJson: 'SmsUpExtendCodeJson',
     };
   }
@@ -1158,25 +831,25 @@ export class SendBatchSmsRequest extends $tea.Model {
 }
 
 export class SendBatchSmsResponseBody extends $tea.Model {
-  message?: string;
-  requestId?: string;
   code?: string;
+  message?: string;
   bizId?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      message: 'Message',
-      requestId: 'RequestId',
       code: 'Code',
+      message: 'Message',
       bizId: 'BizId',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      message: 'string',
-      requestId: 'string',
       code: 'string',
+      message: 'string',
       bizId: 'string',
+      requestId: 'string',
     };
   }
 
@@ -1199,6 +872,102 @@ export class SendBatchSmsResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: SendBatchSmsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendMessageToGlobeRequest extends $tea.Model {
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  to?: string;
+  from?: string;
+  message?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      to: 'To',
+      from: 'From',
+      message: 'Message',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      to: 'string',
+      from: 'string',
+      message: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendMessageToGlobeResponseBody extends $tea.Model {
+  from?: string;
+  messageId?: string;
+  requestId?: string;
+  segments?: string;
+  code?: string;
+  to?: string;
+  numberDetail?: SendMessageToGlobeResponseBodyNumberDetail;
+  static names(): { [key: string]: string } {
+    return {
+      from: 'From',
+      messageId: 'MessageId',
+      requestId: 'RequestId',
+      segments: 'Segments',
+      code: 'Code',
+      to: 'To',
+      numberDetail: 'NumberDetail',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      from: 'string',
+      messageId: 'string',
+      requestId: 'string',
+      segments: 'string',
+      code: 'string',
+      to: 'string',
+      numberDetail: SendMessageToGlobeResponseBodyNumberDetail,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendMessageToGlobeResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: SendMessageToGlobeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: SendMessageToGlobeResponseBody,
     };
   }
 
@@ -1251,25 +1020,25 @@ export class SendSmsRequest extends $tea.Model {
 }
 
 export class SendSmsResponseBody extends $tea.Model {
-  message?: string;
-  requestId?: string;
   code?: string;
+  message?: string;
   bizId?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      message: 'Message',
-      requestId: 'RequestId',
       code: 'Code',
+      message: 'Message',
       bizId: 'BizId',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      message: 'string',
-      requestId: 'string',
       code: 'string',
+      message: 'string',
       bizId: 'string',
+      requestId: 'string',
     };
   }
 
@@ -1300,31 +1069,6 @@ export class SendSmsResponse extends $tea.Model {
   }
 }
 
-export class AddShortUrlResponseBodyData extends $tea.Model {
-  sourceUrl?: string;
-  expireDate?: string;
-  shortUrl?: string;
-  static names(): { [key: string]: string } {
-    return {
-      sourceUrl: 'SourceUrl',
-      expireDate: 'ExpireDate',
-      shortUrl: 'ShortUrl',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      sourceUrl: 'string',
-      expireDate: 'string',
-      shortUrl: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class AddSmsSignRequestSignFileList extends $tea.Model {
   fileContents?: string;
   fileSuffix?: string;
@@ -1339,31 +1083,6 @@ export class AddSmsSignRequestSignFileList extends $tea.Model {
     return {
       fileContents: 'string',
       fileSuffix: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateShortParamResponseBodyData extends $tea.Model {
-  phoneNumbers?: string;
-  shortParam?: string;
-  paramDetail?: string;
-  static names(): { [key: string]: string } {
-    return {
-      phoneNumbers: 'PhoneNumbers',
-      shortParam: 'ShortParam',
-      paramDetail: 'ParamDetail',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      phoneNumbers: 'string',
-      shortParam: 'string',
-      paramDetail: 'string',
     };
   }
 
@@ -1453,38 +1172,23 @@ export class QuerySendDetailsResponseBodySmsSendDetailDTOs extends $tea.Model {
   }
 }
 
-export class QueryShortUrlResponseBodyData extends $tea.Model {
-  uniqueVisitorCount?: string;
-  sourceUrl?: string;
-  shortUrlStatus?: string;
-  pageViewCount?: string;
-  expireDate?: string;
-  shortUrlName?: string;
-  createDate?: string;
-  shortUrl?: string;
+export class SendMessageToGlobeResponseBodyNumberDetail extends $tea.Model {
+  country?: string;
+  carrier?: string;
+  region?: string;
   static names(): { [key: string]: string } {
     return {
-      uniqueVisitorCount: 'UniqueVisitorCount',
-      sourceUrl: 'SourceUrl',
-      shortUrlStatus: 'ShortUrlStatus',
-      pageViewCount: 'PageViewCount',
-      expireDate: 'ExpireDate',
-      shortUrlName: 'ShortUrlName',
-      createDate: 'CreateDate',
-      shortUrl: 'ShortUrl',
+      country: 'Country',
+      carrier: 'Carrier',
+      region: 'Region',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      uniqueVisitorCount: 'string',
-      sourceUrl: 'string',
-      shortUrlStatus: 'string',
-      pageViewCount: 'string',
-      expireDate: 'string',
-      shortUrlName: 'string',
-      createDate: 'string',
-      shortUrl: 'string',
+      country: 'string',
+      carrier: 'string',
+      region: 'string',
     };
   }
 
@@ -1500,21 +1204,10 @@ export default class Client extends OpenApi {
     super(config);
     this._endpointRule = "central";
     this._endpointMap = {
-      'ap-northeast-1': "dysmsapi.ap-southeast-1.aliyuncs.com",
-      'ap-northeast-2-pop': "dysmsapi.ap-southeast-1.aliyuncs.com",
-      'ap-south-1': "dysmsapi.ap-southeast-1.aliyuncs.com",
       'ap-southeast-1': "dysmsapi.ap-southeast-1.aliyuncs.com",
-      'ap-southeast-2': "dysmsapi.ap-southeast-1.aliyuncs.com",
-      'ap-southeast-3': "dysmsapi.ap-southeast-1.aliyuncs.com",
-      'ap-southeast-5': "dysmsapi.ap-southeast-1.aliyuncs.com",
+      'ap-southeast-5': "dysmsapi-xman.ap-southeast-5.aliyuncs.com",
       'cn-beijing': "dysmsapi-proxy.cn-beijing.aliyuncs.com",
-      'eu-central-1': "dysmsapi.ap-southeast-1.aliyuncs.com",
-      'eu-west-1': "dysmsapi.ap-southeast-1.aliyuncs.com",
-      'eu-west-1-oxs': "dysmsapi.ap-southeast-1.aliyuncs.com",
-      'me-east-1': "dysmsapi.ap-southeast-1.aliyuncs.com",
-      'rus-west-1-pop': "dysmsapi.ap-southeast-1.aliyuncs.com",
-      'us-east-1': "dysmsapi.ap-southeast-1.aliyuncs.com",
-      'us-west-1': "dysmsapi.ap-southeast-1.aliyuncs.com",
+      'cn-hongkong': "dysmsapi-xman.cn-hongkong.aliyuncs.com",
     };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("dysmsapi", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -1531,19 +1224,6 @@ export default class Client extends OpenApi {
     }
 
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
-  }
-
-  async addShortUrlWithOptions(request: AddShortUrlRequest, runtime: $Util.RuntimeOptions): Promise<AddShortUrlResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<AddShortUrlResponse>(await this.doRPCRequest("AddShortUrl", "2017-05-25", "HTTPS", "POST", "AK", "json", req, runtime), new AddShortUrlResponse({}));
-  }
-
-  async addShortUrl(request: AddShortUrlRequest): Promise<AddShortUrlResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.addShortUrlWithOptions(request, runtime);
   }
 
   async addSmsSignWithOptions(request: AddSmsSignRequest, runtime: $Util.RuntimeOptions): Promise<AddSmsSignResponse> {
@@ -1570,32 +1250,6 @@ export default class Client extends OpenApi {
   async addSmsTemplate(request: AddSmsTemplateRequest): Promise<AddSmsTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addSmsTemplateWithOptions(request, runtime);
-  }
-
-  async createShortParamWithOptions(request: CreateShortParamRequest, runtime: $Util.RuntimeOptions): Promise<CreateShortParamResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<CreateShortParamResponse>(await this.doRPCRequest("CreateShortParam", "2017-05-25", "HTTPS", "POST", "AK", "json", req, runtime), new CreateShortParamResponse({}));
-  }
-
-  async createShortParam(request: CreateShortParamRequest): Promise<CreateShortParamResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.createShortParamWithOptions(request, runtime);
-  }
-
-  async deleteShortUrlWithOptions(request: DeleteShortUrlRequest, runtime: $Util.RuntimeOptions): Promise<DeleteShortUrlResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<DeleteShortUrlResponse>(await this.doRPCRequest("DeleteShortUrl", "2017-05-25", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteShortUrlResponse({}));
-  }
-
-  async deleteShortUrl(request: DeleteShortUrlRequest): Promise<DeleteShortUrlResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.deleteShortUrlWithOptions(request, runtime);
   }
 
   async deleteSmsSignWithOptions(request: DeleteSmsSignRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSmsSignResponse> {
@@ -1663,19 +1317,6 @@ export default class Client extends OpenApi {
     return await this.querySendDetailsWithOptions(request, runtime);
   }
 
-  async queryShortUrlWithOptions(request: QueryShortUrlRequest, runtime: $Util.RuntimeOptions): Promise<QueryShortUrlResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<QueryShortUrlResponse>(await this.doRPCRequest("QueryShortUrl", "2017-05-25", "HTTPS", "POST", "AK", "json", req, runtime), new QueryShortUrlResponse({}));
-  }
-
-  async queryShortUrl(request: QueryShortUrlRequest): Promise<QueryShortUrlResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.queryShortUrlWithOptions(request, runtime);
-  }
-
   async querySmsSignWithOptions(request: QuerySmsSignRequest, runtime: $Util.RuntimeOptions): Promise<QuerySmsSignResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -1713,6 +1354,19 @@ export default class Client extends OpenApi {
   async sendBatchSms(request: SendBatchSmsRequest): Promise<SendBatchSmsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.sendBatchSmsWithOptions(request, runtime);
+  }
+
+  async sendMessageToGlobeWithOptions(request: SendMessageToGlobeRequest, runtime: $Util.RuntimeOptions): Promise<SendMessageToGlobeResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<SendMessageToGlobeResponse>(await this.doRPCRequest("SendMessageToGlobe", "2017-05-25", "HTTPS", "POST", "AK", "json", req, runtime), new SendMessageToGlobeResponse({}));
+  }
+
+  async sendMessageToGlobe(request: SendMessageToGlobeRequest): Promise<SendMessageToGlobeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.sendMessageToGlobeWithOptions(request, runtime);
   }
 
   async sendSmsWithOptions(request: SendSmsRequest, runtime: $Util.RuntimeOptions): Promise<SendSmsResponse> {
