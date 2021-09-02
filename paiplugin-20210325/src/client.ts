@@ -138,12 +138,16 @@ export class CreateTemplateRequest extends $tea.Model {
   description?: string;
   name?: string;
   processInstanceID?: string;
+  signatureID?: string;
+  type?: number;
   static names(): { [key: string]: string } {
     return {
       content: 'Content',
       description: 'Description',
       name: 'Name',
       processInstanceID: 'ProcessInstanceID',
+      signatureID: 'SignatureID',
+      type: 'Type',
     };
   }
 
@@ -153,6 +157,8 @@ export class CreateTemplateRequest extends $tea.Model {
       description: 'string',
       name: 'string',
       processInstanceID: 'string',
+      signatureID: 'string',
+      type: 'number',
     };
   }
 
@@ -1198,6 +1204,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.processInstanceID)) {
       body["ProcessInstanceID"] = request.processInstanceID;
+    }
+
+    if (!Util.isUnset(request.signatureID)) {
+      body["SignatureID"] = request.signatureID;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      body["Type"] = request.type;
     }
 
     let req = new $OpenApi.OpenApiRequest({
