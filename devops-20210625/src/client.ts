@@ -671,6 +671,99 @@ export class ResetSshKeyResponse extends $tea.Model {
   }
 }
 
+export class CreateWorkspaceRequest extends $tea.Model {
+  name?: string;
+  workspaceTemplate?: string;
+  codeUrl?: string;
+  codeVersion?: string;
+  filePath?: string;
+  reuse?: boolean;
+  resourceIdentifier?: string;
+  requestFrom?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'name',
+      workspaceTemplate: 'workspaceTemplate',
+      codeUrl: 'codeUrl',
+      codeVersion: 'codeVersion',
+      filePath: 'filePath',
+      reuse: 'reuse',
+      resourceIdentifier: 'resourceIdentifier',
+      requestFrom: 'requestFrom',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      workspaceTemplate: 'string',
+      codeUrl: 'string',
+      codeVersion: 'string',
+      filePath: 'string',
+      reuse: 'boolean',
+      resourceIdentifier: 'string',
+      requestFrom: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateWorkspaceResponseBody extends $tea.Model {
+  workspace?: CreateWorkspaceResponseBodyWorkspace;
+  requestId?: string;
+  success?: boolean;
+  errorCode?: string;
+  errorMessage?: string;
+  static names(): { [key: string]: string } {
+    return {
+      workspace: 'workspace',
+      requestId: 'requestId',
+      success: 'success',
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      workspace: CreateWorkspaceResponseBodyWorkspace,
+      requestId: 'string',
+      success: 'boolean',
+      errorCode: 'string',
+      errorMessage: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateWorkspaceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CreateWorkspaceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CreateWorkspaceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListServiceConnectionsRequest extends $tea.Model {
   sericeConnectionType?: string;
   static names(): { [key: string]: string } {
@@ -1232,6 +1325,124 @@ export class StartPipelineRunResponse extends $tea.Model {
   }
 }
 
+export class ListWorkspacesRequest extends $tea.Model {
+  nextToken?: string;
+  maxResults?: number;
+  statusList?: string[];
+  workspaceTemplateList?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      nextToken: 'nextToken',
+      maxResults: 'maxResults',
+      statusList: 'statusList',
+      workspaceTemplateList: 'workspaceTemplateList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nextToken: 'string',
+      maxResults: 'number',
+      statusList: { 'type': 'array', 'itemType': 'string' },
+      workspaceTemplateList: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWorkspacesShrinkRequest extends $tea.Model {
+  nextToken?: string;
+  maxResults?: number;
+  statusListShrink?: string;
+  workspaceTemplateListShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      nextToken: 'nextToken',
+      maxResults: 'maxResults',
+      statusListShrink: 'statusList',
+      workspaceTemplateListShrink: 'workspaceTemplateList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nextToken: 'string',
+      maxResults: 'number',
+      statusListShrink: 'string',
+      workspaceTemplateListShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWorkspacesResponseBody extends $tea.Model {
+  totalCount?: number;
+  nextToken?: string;
+  maxResults?: number;
+  workspaces?: ListWorkspacesResponseBodyWorkspaces[];
+  requestId?: string;
+  success?: boolean;
+  errorCode?: string;
+  errorMessage?: string;
+  static names(): { [key: string]: string } {
+    return {
+      totalCount: 'totalCount',
+      nextToken: 'nextToken',
+      maxResults: 'maxResults',
+      workspaces: 'workspaces',
+      requestId: 'requestId',
+      success: 'success',
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      totalCount: 'number',
+      nextToken: 'string',
+      maxResults: 'number',
+      workspaces: { 'type': 'array', 'itemType': ListWorkspacesResponseBodyWorkspaces },
+      requestId: 'string',
+      success: 'boolean',
+      errorCode: 'string',
+      errorMessage: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWorkspacesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListWorkspacesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListWorkspacesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetPipelineRunResponseBody extends $tea.Model {
   requestId?: string;
   errorMessage?: string;
@@ -1466,6 +1677,59 @@ export class DeleteVariableGroupResponse extends $tea.Model {
   }
 }
 
+export class GetWorkspaceResponseBody extends $tea.Model {
+  workspace?: GetWorkspaceResponseBodyWorkspace;
+  success?: boolean;
+  errorCode?: string;
+  errorMessage?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      workspace: 'workspace',
+      success: 'success',
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      requestId: 'requestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      workspace: GetWorkspaceResponseBodyWorkspace,
+      success: 'boolean',
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWorkspaceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetWorkspaceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetWorkspaceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateSshKeyResponseBody extends $tea.Model {
   requestId?: string;
   errorMessage?: string;
@@ -1561,6 +1825,56 @@ export class DeleteHostGroupResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: DeleteHostGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReleaseWorkspaceResponseBody extends $tea.Model {
+  requestId?: string;
+  success?: boolean;
+  errorCode?: string;
+  errorMessage?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+      success: 'success',
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+      errorCode: 'string',
+      errorMessage: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReleaseWorkspaceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ReleaseWorkspaceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ReleaseWorkspaceResponseBody,
     };
   }
 
@@ -1698,6 +2012,56 @@ export class DeletePipelineResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: DeletePipelineResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FrozenWorkspaceResponseBody extends $tea.Model {
+  requestId?: string;
+  success?: boolean;
+  errorCode?: string;
+  errorMessage?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+      success: 'success',
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+      errorCode: 'string',
+      errorMessage: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FrozenWorkspaceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: FrozenWorkspaceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: FrozenWorkspaceResponseBody,
     };
   }
 
@@ -2126,6 +2490,40 @@ export class ResetSshKeyResponseBodySshKey extends $tea.Model {
   }
 }
 
+export class CreateWorkspaceResponseBodyWorkspace extends $tea.Model {
+  id?: string;
+  name?: string;
+  status?: string;
+  template?: string;
+  creator?: string;
+  createTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'id',
+      name: 'name',
+      status: 'status',
+      template: 'template',
+      creator: 'creator',
+      createTime: 'createTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      name: 'string',
+      status: 'string',
+      template: 'string',
+      creator: 'string',
+      createTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListServiceConnectionsResponseBodyServiceConnections extends $tea.Model {
   ownerAccountId?: number;
   name?: string;
@@ -2149,6 +2547,49 @@ export class ListServiceConnectionsResponseBodyServiceConnections extends $tea.M
       id: 'number',
       type: 'string',
       createTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWorkspacesResponseBodyWorkspaces extends $tea.Model {
+  codeVersion?: string;
+  codeUrl?: string;
+  name?: string;
+  spec?: string;
+  status?: string;
+  template?: string;
+  id?: string;
+  userId?: string;
+  createTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      codeVersion: 'codeVersion',
+      codeUrl: 'codeUrl',
+      name: 'name',
+      spec: 'spec',
+      status: 'status',
+      template: 'template',
+      id: 'id',
+      userId: 'userId',
+      createTime: 'createTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      codeVersion: 'string',
+      codeUrl: 'string',
+      name: 'string',
+      spec: 'string',
+      status: 'string',
+      template: 'string',
+      id: 'string',
+      userId: 'string',
+      createTime: 'string',
     };
   }
 
@@ -2517,6 +2958,49 @@ export class GetPipelineResponseBodyPipeline extends $tea.Model {
       name: 'string',
       tagList: { 'type': 'array', 'itemType': GetPipelineResponseBodyPipelineTagList },
       pipelineConfig: GetPipelineResponseBodyPipelinePipelineConfig,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWorkspaceResponseBodyWorkspace extends $tea.Model {
+  codeVersion?: string;
+  codeUrl?: string;
+  name?: string;
+  spec?: string;
+  status?: string;
+  template?: string;
+  id?: string;
+  userId?: string;
+  createTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      codeVersion: 'codeVersion',
+      codeUrl: 'codeUrl',
+      name: 'name',
+      spec: 'spec',
+      status: 'status',
+      template: 'template',
+      id: 'id',
+      userId: 'userId',
+      createTime: 'createTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      codeVersion: 'string',
+      codeUrl: 'string',
+      name: 'string',
+      spec: 'string',
+      status: 'string',
+      template: 'string',
+      id: 'string',
+      userId: 'string',
+      createTime: 'string',
     };
   }
 
@@ -2931,6 +3415,54 @@ export default class Client extends OpenApi {
     return $tea.cast<ResetSshKeyResponse>(await this.doROARequest("ResetSshKey", "2021-06-25", "HTTPS", "PUT", "AK", `/organization/${organizationId}/sshKey`, "json", req, runtime), new ResetSshKeyResponse({}));
   }
 
+  async createWorkspace(request: CreateWorkspaceRequest): Promise<CreateWorkspaceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createWorkspaceWithOptions(request, headers, runtime);
+  }
+
+  async createWorkspaceWithOptions(request: CreateWorkspaceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateWorkspaceResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.name)) {
+      body["name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.workspaceTemplate)) {
+      body["workspaceTemplate"] = request.workspaceTemplate;
+    }
+
+    if (!Util.isUnset(request.codeUrl)) {
+      body["codeUrl"] = request.codeUrl;
+    }
+
+    if (!Util.isUnset(request.codeVersion)) {
+      body["codeVersion"] = request.codeVersion;
+    }
+
+    if (!Util.isUnset(request.filePath)) {
+      body["filePath"] = request.filePath;
+    }
+
+    if (!Util.isUnset(request.reuse)) {
+      body["reuse"] = request.reuse;
+    }
+
+    if (!Util.isUnset(request.resourceIdentifier)) {
+      body["resourceIdentifier"] = request.resourceIdentifier;
+    }
+
+    if (!Util.isUnset(request.requestFrom)) {
+      body["requestFrom"] = request.requestFrom;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    return $tea.cast<CreateWorkspaceResponse>(await this.doROARequestWithForm("CreateWorkspace", "2021-06-25", "HTTPS", "POST", "AK", `/api/workspaces`, "json", req, runtime), new CreateWorkspaceResponse({}));
+  }
+
   async listServiceConnections(organizationId: string, request: ListServiceConnectionsRequest): Promise<ListServiceConnectionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -3146,6 +3678,48 @@ export default class Client extends OpenApi {
     return $tea.cast<StartPipelineRunResponse>(await this.doROARequestWithForm("StartPipelineRun", "2021-06-25", "HTTPS", "POST", "AK", `/organizations/${organizationId}/pipelines/${pipelineId}/run`, "json", req, runtime), new StartPipelineRunResponse({}));
   }
 
+  async listWorkspaces(request: ListWorkspacesRequest): Promise<ListWorkspacesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listWorkspacesWithOptions(request, headers, runtime);
+  }
+
+  async listWorkspacesWithOptions(tmpReq: ListWorkspacesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListWorkspacesResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ListWorkspacesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.statusList)) {
+      request.statusListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.statusList, "statusList", "simple");
+    }
+
+    if (!Util.isUnset(tmpReq.workspaceTemplateList)) {
+      request.workspaceTemplateListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.workspaceTemplateList, "workspaceTemplateList", "simple");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.statusListShrink)) {
+      query["statusList"] = request.statusListShrink;
+    }
+
+    if (!Util.isUnset(request.workspaceTemplateListShrink)) {
+      query["workspaceTemplateList"] = request.workspaceTemplateListShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    return $tea.cast<ListWorkspacesResponse>(await this.doROARequest("ListWorkspaces", "2021-06-25", "HTTPS", "GET", "AK", `/api/workspaces`, "json", req, runtime), new ListWorkspacesResponse({}));
+  }
+
   async getPipelineRun(organizationId: string, pipelineId: string, pipelineRunId: string): Promise<GetPipelineRunResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -3213,6 +3787,19 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteVariableGroupResponse>(await this.doROARequest("DeleteVariableGroup", "2021-06-25", "HTTPS", "DELETE", "AK", `/organization/${organizationId}/variableGroups/${id}`, "json", req, runtime), new DeleteVariableGroupResponse({}));
   }
 
+  async getWorkspace(workspaceId: string): Promise<GetWorkspaceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getWorkspaceWithOptions(workspaceId, headers, runtime);
+  }
+
+  async getWorkspaceWithOptions(workspaceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetWorkspaceResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    return $tea.cast<GetWorkspaceResponse>(await this.doROARequest("GetWorkspace", "2021-06-25", "HTTPS", "GET", "AK", `/api/workspaces/${workspaceId}`, "json", req, runtime), new GetWorkspaceResponse({}));
+  }
+
   async createSshKey(organizationId: string): Promise<CreateSshKeyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -3237,6 +3824,19 @@ export default class Client extends OpenApi {
       headers: headers,
     });
     return $tea.cast<DeleteHostGroupResponse>(await this.doROARequest("DeleteHostGroup", "2021-06-25", "HTTPS", "DELETE", "AK", `/organization/${organizationId}/hostGroups/${id}`, "json", req, runtime), new DeleteHostGroupResponse({}));
+  }
+
+  async releaseWorkspace(workspaceId: string): Promise<ReleaseWorkspaceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.releaseWorkspaceWithOptions(workspaceId, headers, runtime);
+  }
+
+  async releaseWorkspaceWithOptions(workspaceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ReleaseWorkspaceResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    return $tea.cast<ReleaseWorkspaceResponse>(await this.doROARequest("ReleaseWorkspace", "2021-06-25", "HTTPS", "DELETE", "AK", `/api/workspaces/${workspaceId}/release`, "json", req, runtime), new ReleaseWorkspaceResponse({}));
   }
 
   async listVariableGroups(organizationId: string, request: ListVariableGroupsRequest): Promise<ListVariableGroupsResponse> {
@@ -3282,6 +3882,19 @@ export default class Client extends OpenApi {
       headers: headers,
     });
     return $tea.cast<DeletePipelineResponse>(await this.doROARequest("DeletePipeline", "2021-06-25", "HTTPS", "DELETE", "AK", `/organization/${organizationId}/pipelines/${pipelineId}`, "json", req, runtime), new DeletePipelineResponse({}));
+  }
+
+  async frozenWorkspace(workspaceId: string): Promise<FrozenWorkspaceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.frozenWorkspaceWithOptions(workspaceId, headers, runtime);
+  }
+
+  async frozenWorkspaceWithOptions(workspaceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<FrozenWorkspaceResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    return $tea.cast<FrozenWorkspaceResponse>(await this.doROARequest("FrozenWorkspace", "2021-06-25", "HTTPS", "PUT", "AK", `/api/workspaces/${workspaceId}/frozen`, "json", req, runtime), new FrozenWorkspaceResponse({}));
   }
 
   async listPipelineRuns(organizationId: string, pipelineId: string, request: ListPipelineRunsRequest): Promise<ListPipelineRunsResponse> {
