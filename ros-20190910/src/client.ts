@@ -427,7 +427,7 @@ export class CreateStackGroupRequest extends $tea.Model {
   parameters?: CreateStackGroupRequestParameters[];
   resourceGroupId?: string;
   permissionModel?: string;
-  autoDeployment?: { [key: string]: any };
+  autoDeployment?: CreateStackGroupRequestAutoDeployment;
   static names(): { [key: string]: string } {
     return {
       regionId: 'RegionId',
@@ -462,7 +462,7 @@ export class CreateStackGroupRequest extends $tea.Model {
       parameters: { 'type': 'array', 'itemType': CreateStackGroupRequestParameters },
       resourceGroupId: 'string',
       permissionModel: 'string',
-      autoDeployment: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      autoDeployment: CreateStackGroupRequestAutoDeployment,
     };
   }
 
@@ -576,15 +576,15 @@ export class CreateStackGroupResponse extends $tea.Model {
 export class CreateStackInstancesRequest extends $tea.Model {
   regionId?: string;
   stackGroupName?: string;
-  accountIds?: { [key: string]: any };
-  regionIds?: { [key: string]: any };
+  accountIds?: string[];
+  regionIds?: string[];
   clientToken?: string;
   operationDescription?: string;
   operationPreferences?: { [key: string]: any };
   timeoutInMinutes?: number;
   disableRollback?: boolean;
   parameterOverrides?: CreateStackInstancesRequestParameterOverrides[];
-  deploymentTargets?: { [key: string]: any };
+  deploymentTargets?: CreateStackInstancesRequestDeploymentTargets;
   static names(): { [key: string]: string } {
     return {
       regionId: 'RegionId',
@@ -605,15 +605,15 @@ export class CreateStackInstancesRequest extends $tea.Model {
     return {
       regionId: 'string',
       stackGroupName: 'string',
-      accountIds: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      regionIds: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      accountIds: { 'type': 'array', 'itemType': 'string' },
+      regionIds: { 'type': 'array', 'itemType': 'string' },
       clientToken: 'string',
       operationDescription: 'string',
       operationPreferences: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       timeoutInMinutes: 'number',
       disableRollback: 'boolean',
       parameterOverrides: { 'type': 'array', 'itemType': CreateStackInstancesRequestParameterOverrides },
-      deploymentTargets: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      deploymentTargets: CreateStackInstancesRequestDeploymentTargets,
     };
   }
 
@@ -991,13 +991,13 @@ export class DeleteStackGroupResponse extends $tea.Model {
 export class DeleteStackInstancesRequest extends $tea.Model {
   regionId?: string;
   stackGroupName?: string;
-  accountIds?: { [key: string]: any };
-  regionIds?: { [key: string]: any };
+  accountIds?: string[];
+  regionIds?: string[];
   retainStacks?: boolean;
   clientToken?: string;
   operationDescription?: string;
   operationPreferences?: { [key: string]: any };
-  deploymentTargets?: { [key: string]: any };
+  deploymentTargets?: DeleteStackInstancesRequestDeploymentTargets;
   static names(): { [key: string]: string } {
     return {
       regionId: 'RegionId',
@@ -1016,13 +1016,13 @@ export class DeleteStackInstancesRequest extends $tea.Model {
     return {
       regionId: 'string',
       stackGroupName: 'string',
-      accountIds: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      regionIds: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      accountIds: { 'type': 'array', 'itemType': 'string' },
+      regionIds: { 'type': 'array', 'itemType': 'string' },
       retainStacks: 'boolean',
       clientToken: 'string',
       operationDescription: 'string',
       operationPreferences: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      deploymentTargets: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      deploymentTargets: DeleteStackInstancesRequestDeploymentTargets,
     };
   }
 
@@ -4857,8 +4857,8 @@ export class UpdateStackGroupRequest extends $tea.Model {
   regionId?: string;
   stackGroupName?: string;
   description?: string;
-  accountIds?: { [key: string]: any };
-  regionIds?: { [key: string]: any };
+  accountIds?: string[];
+  regionIds?: string[];
   templateBody?: string;
   templateURL?: string;
   clientToken?: string;
@@ -4870,8 +4870,8 @@ export class UpdateStackGroupRequest extends $tea.Model {
   templateVersion?: string;
   parameters?: UpdateStackGroupRequestParameters[];
   permissionModel?: string;
-  autoDeployment?: { [key: string]: any };
-  deploymentTargets?: { [key: string]: any };
+  autoDeployment?: UpdateStackGroupRequestAutoDeployment;
+  deploymentTargets?: UpdateStackGroupRequestDeploymentTargets;
   static names(): { [key: string]: string } {
     return {
       regionId: 'RegionId',
@@ -4900,8 +4900,8 @@ export class UpdateStackGroupRequest extends $tea.Model {
       regionId: 'string',
       stackGroupName: 'string',
       description: 'string',
-      accountIds: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      regionIds: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      accountIds: { 'type': 'array', 'itemType': 'string' },
+      regionIds: { 'type': 'array', 'itemType': 'string' },
       templateBody: 'string',
       templateURL: 'string',
       clientToken: 'string',
@@ -4913,8 +4913,8 @@ export class UpdateStackGroupRequest extends $tea.Model {
       templateVersion: 'string',
       parameters: { 'type': 'array', 'itemType': UpdateStackGroupRequestParameters },
       permissionModel: 'string',
-      autoDeployment: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      deploymentTargets: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      autoDeployment: UpdateStackGroupRequestAutoDeployment,
+      deploymentTargets: UpdateStackGroupRequestDeploymentTargets,
     };
   }
 
@@ -5040,14 +5040,14 @@ export class UpdateStackGroupResponse extends $tea.Model {
 export class UpdateStackInstancesRequest extends $tea.Model {
   regionId?: string;
   stackGroupName?: string;
-  accountIds?: { [key: string]: any };
-  regionIds?: { [key: string]: any };
+  accountIds?: string[];
+  regionIds?: string[];
   clientToken?: string;
   operationDescription?: string;
   operationPreferences?: { [key: string]: any };
   timeoutInMinutes?: number;
   parameterOverrides?: UpdateStackInstancesRequestParameterOverrides[];
-  deploymentTargets?: { [key: string]: any };
+  deploymentTargets?: UpdateStackInstancesRequestDeploymentTargets;
   static names(): { [key: string]: string } {
     return {
       regionId: 'RegionId',
@@ -5067,14 +5067,14 @@ export class UpdateStackInstancesRequest extends $tea.Model {
     return {
       regionId: 'string',
       stackGroupName: 'string',
-      accountIds: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      regionIds: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      accountIds: { 'type': 'array', 'itemType': 'string' },
+      regionIds: { 'type': 'array', 'itemType': 'string' },
       clientToken: 'string',
       operationDescription: 'string',
       operationPreferences: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       timeoutInMinutes: 'number',
       parameterOverrides: { 'type': 'array', 'itemType': UpdateStackInstancesRequestParameterOverrides },
-      deploymentTargets: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      deploymentTargets: UpdateStackInstancesRequestDeploymentTargets,
     };
   }
 
@@ -5545,6 +5545,28 @@ export class CreateStackGroupRequestParameters extends $tea.Model {
   }
 }
 
+export class CreateStackGroupRequestAutoDeployment extends $tea.Model {
+  enabled?: boolean;
+  retainStacksOnAccountRemoval?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      enabled: 'Enabled',
+      retainStacksOnAccountRemoval: 'RetainStacksOnAccountRemoval',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enabled: 'boolean',
+      retainStacksOnAccountRemoval: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateStackGroupShrinkRequestParameters extends $tea.Model {
   parameterKey?: string;
   parameterValue?: string;
@@ -5589,6 +5611,25 @@ export class CreateStackInstancesRequestParameterOverrides extends $tea.Model {
   }
 }
 
+export class CreateStackInstancesRequestDeploymentTargets extends $tea.Model {
+  rdFolderIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      rdFolderIds: 'RdFolderIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      rdFolderIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateStackInstancesShrinkRequestParameterOverrides extends $tea.Model {
   parameterKey?: string;
   parameterValue?: string;
@@ -5603,6 +5644,25 @@ export class CreateStackInstancesShrinkRequestParameterOverrides extends $tea.Mo
     return {
       parameterKey: 'string',
       parameterValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteStackInstancesRequestDeploymentTargets extends $tea.Model {
+  rdFolderIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      rdFolderIds: 'RdFolderIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      rdFolderIds: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -7181,6 +7241,50 @@ export class UpdateStackGroupRequestParameters extends $tea.Model {
   }
 }
 
+export class UpdateStackGroupRequestAutoDeployment extends $tea.Model {
+  enabled?: boolean;
+  retainStacksOnAccountRemoval?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      enabled: 'Enabled',
+      retainStacksOnAccountRemoval: 'RetainStacksOnAccountRemoval',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enabled: 'boolean',
+      retainStacksOnAccountRemoval: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateStackGroupRequestDeploymentTargets extends $tea.Model {
+  rdFolderIds?: string[];
+  accountIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      rdFolderIds: 'RdFolderIds',
+      accountIds: 'AccountIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      rdFolderIds: { 'type': 'array', 'itemType': 'string' },
+      accountIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateStackGroupShrinkRequestParameters extends $tea.Model {
   parameterKey?: string;
   parameterValue?: string;
@@ -7217,6 +7321,28 @@ export class UpdateStackInstancesRequestParameterOverrides extends $tea.Model {
     return {
       parameterKey: 'string',
       parameterValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateStackInstancesRequestDeploymentTargets extends $tea.Model {
+  rdFolderIds?: string[];
+  accountIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      rdFolderIds: 'RdFolderIds',
+      accountIds: 'AccountIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      rdFolderIds: { 'type': 'array', 'itemType': 'string' },
+      accountIds: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -7348,8 +7474,8 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new CreateStackGroupShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.autoDeployment)) {
-      request.autoDeploymentShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.autoDeployment, "AutoDeployment", "json");
+    if (!Util.isUnset($tea.toMap(tmpReq.autoDeployment))) {
+      request.autoDeploymentShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.autoDeployment), "AutoDeployment", "json");
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -7379,8 +7505,8 @@ export default class Client extends OpenApi {
       request.operationPreferencesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.operationPreferences, "OperationPreferences", "json");
     }
 
-    if (!Util.isUnset(tmpReq.deploymentTargets)) {
-      request.deploymentTargetsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.deploymentTargets, "DeploymentTargets", "json");
+    if (!Util.isUnset($tea.toMap(tmpReq.deploymentTargets))) {
+      request.deploymentTargetsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.deploymentTargets), "DeploymentTargets", "json");
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -7462,8 +7588,8 @@ export default class Client extends OpenApi {
       request.operationPreferencesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.operationPreferences, "OperationPreferences", "json");
     }
 
-    if (!Util.isUnset(tmpReq.deploymentTargets)) {
-      request.deploymentTargetsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.deploymentTargets, "DeploymentTargets", "json");
+    if (!Util.isUnset($tea.toMap(tmpReq.deploymentTargets))) {
+      request.deploymentTargetsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.deploymentTargets), "DeploymentTargets", "json");
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -8094,12 +8220,12 @@ export default class Client extends OpenApi {
       request.operationPreferencesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.operationPreferences, "OperationPreferences", "json");
     }
 
-    if (!Util.isUnset(tmpReq.autoDeployment)) {
-      request.autoDeploymentShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.autoDeployment, "AutoDeployment", "json");
+    if (!Util.isUnset($tea.toMap(tmpReq.autoDeployment))) {
+      request.autoDeploymentShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.autoDeployment), "AutoDeployment", "json");
     }
 
-    if (!Util.isUnset(tmpReq.deploymentTargets)) {
-      request.deploymentTargetsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.deploymentTargets, "DeploymentTargets", "json");
+    if (!Util.isUnset($tea.toMap(tmpReq.deploymentTargets))) {
+      request.deploymentTargetsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.deploymentTargets), "DeploymentTargets", "json");
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -8129,8 +8255,8 @@ export default class Client extends OpenApi {
       request.operationPreferencesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.operationPreferences, "OperationPreferences", "json");
     }
 
-    if (!Util.isUnset(tmpReq.deploymentTargets)) {
-      request.deploymentTargetsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.deploymentTargets, "DeploymentTargets", "json");
+    if (!Util.isUnset($tea.toMap(tmpReq.deploymentTargets))) {
+      request.deploymentTargetsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.deploymentTargets), "DeploymentTargets", "json");
     }
 
     let req = new $OpenApi.OpenApiRequest({
