@@ -777,6 +777,149 @@ export class File extends $tea.Model {
   }
 }
 
+export class WebofficeUser extends $tea.Model {
+  id?: string;
+  name?: string;
+  avatar?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      name: 'Name',
+      avatar: 'Avatar',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      name: 'string',
+      avatar: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AssumeRoleChain extends $tea.Model {
+  policy?: string;
+  chain?: AssumeRoleChainNode[];
+  static names(): { [key: string]: string } {
+    return {
+      policy: 'Policy',
+      chain: 'Chain',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policy: 'string',
+      chain: { 'type': 'array', 'itemType': AssumeRoleChainNode },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class WebofficeWatermark extends $tea.Model {
+  type?: number;
+  value?: string;
+  rotate?: number;
+  vertical?: number;
+  horizontal?: number;
+  font?: string;
+  fillStyle?: string;
+  static names(): { [key: string]: string } {
+    return {
+      type: 'Type',
+      value: 'Value',
+      rotate: 'Rotate',
+      vertical: 'Vertical',
+      horizontal: 'Horizontal',
+      font: 'Font',
+      fillStyle: 'FillStyle',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      type: 'number',
+      value: 'string',
+      rotate: 'number',
+      vertical: 'number',
+      horizontal: 'number',
+      font: 'string',
+      fillStyle: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AssumeRoleChainNode extends $tea.Model {
+  type?: string;
+  ownerId?: string;
+  role?: string;
+  static names(): { [key: string]: string } {
+    return {
+      type: 'Type',
+      ownerId: 'OwnerId',
+      role: 'Role',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      type: 'string',
+      ownerId: 'string',
+      role: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class WebofficePermission extends $tea.Model {
+  rename?: boolean;
+  readonly?: boolean;
+  history?: boolean;
+  print?: boolean;
+  export?: boolean;
+  copy?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      rename: 'Rename',
+      readonly: 'Readonly',
+      history: 'History',
+      print: 'Print',
+      export: 'Export',
+      copy: 'Copy',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      rename: 'boolean',
+      readonly: 'boolean',
+      history: 'boolean',
+      print: 'boolean',
+      export: 'boolean',
+      copy: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SimpleQuery extends $tea.Model {
   field?: string;
   value?: string;
@@ -2189,6 +2332,178 @@ export class GetProjectResponse extends $tea.Model {
   }
 }
 
+export class GetWebofficeUrlRequest extends $tea.Model {
+  projectName?: string;
+  sourceUri?: string;
+  filename?: string;
+  userData?: string;
+  previewPages?: number;
+  password?: string;
+  externalUploaded?: boolean;
+  notifyEndpoint?: string;
+  notifyTopicName?: string;
+  hidecmb?: boolean;
+  permission?: WebofficePermission;
+  user?: WebofficeUser;
+  watermark?: WebofficeWatermark;
+  assumeRoleChain?: AssumeRoleChain;
+  static names(): { [key: string]: string } {
+    return {
+      projectName: 'ProjectName',
+      sourceUri: 'SourceUri',
+      filename: 'Filename',
+      userData: 'UserData',
+      previewPages: 'PreviewPages',
+      password: 'Password',
+      externalUploaded: 'ExternalUploaded',
+      notifyEndpoint: 'NotifyEndpoint',
+      notifyTopicName: 'NotifyTopicName',
+      hidecmb: 'Hidecmb',
+      permission: 'Permission',
+      user: 'User',
+      watermark: 'Watermark',
+      assumeRoleChain: 'AssumeRoleChain',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectName: 'string',
+      sourceUri: 'string',
+      filename: 'string',
+      userData: 'string',
+      previewPages: 'number',
+      password: 'string',
+      externalUploaded: 'boolean',
+      notifyEndpoint: 'string',
+      notifyTopicName: 'string',
+      hidecmb: 'boolean',
+      permission: WebofficePermission,
+      user: WebofficeUser,
+      watermark: WebofficeWatermark,
+      assumeRoleChain: AssumeRoleChain,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWebofficeUrlShrinkRequest extends $tea.Model {
+  projectName?: string;
+  sourceUri?: string;
+  filename?: string;
+  userData?: string;
+  previewPages?: number;
+  password?: string;
+  externalUploaded?: boolean;
+  notifyEndpoint?: string;
+  notifyTopicName?: string;
+  hidecmb?: boolean;
+  permissionShrink?: string;
+  userShrink?: string;
+  watermarkShrink?: string;
+  assumeRoleChainShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      projectName: 'ProjectName',
+      sourceUri: 'SourceUri',
+      filename: 'Filename',
+      userData: 'UserData',
+      previewPages: 'PreviewPages',
+      password: 'Password',
+      externalUploaded: 'ExternalUploaded',
+      notifyEndpoint: 'NotifyEndpoint',
+      notifyTopicName: 'NotifyTopicName',
+      hidecmb: 'Hidecmb',
+      permissionShrink: 'Permission',
+      userShrink: 'User',
+      watermarkShrink: 'Watermark',
+      assumeRoleChainShrink: 'AssumeRoleChain',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectName: 'string',
+      sourceUri: 'string',
+      filename: 'string',
+      userData: 'string',
+      previewPages: 'number',
+      password: 'string',
+      externalUploaded: 'boolean',
+      notifyEndpoint: 'string',
+      notifyTopicName: 'string',
+      hidecmb: 'boolean',
+      permissionShrink: 'string',
+      userShrink: 'string',
+      watermarkShrink: 'string',
+      assumeRoleChainShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWebofficeUrlResponseBody extends $tea.Model {
+  requestId?: string;
+  webofficeUrl?: string;
+  accessToken?: string;
+  refreshToken?: string;
+  accessTokenExpiredTime?: string;
+  refreshTokenExpiredTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      webofficeUrl: 'WebofficeUrl',
+      accessToken: 'AccessToken',
+      refreshToken: 'RefreshToken',
+      accessTokenExpiredTime: 'AccessTokenExpiredTime',
+      refreshTokenExpiredTime: 'RefreshTokenExpiredTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      webofficeUrl: 'string',
+      accessToken: 'string',
+      refreshToken: 'string',
+      accessTokenExpiredTime: 'string',
+      refreshTokenExpiredTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWebofficeUrlResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetWebofficeUrlResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetWebofficeUrlResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class IndexFileMetaRequest extends $tea.Model {
   projectName?: string;
   datasetName?: string;
@@ -2494,6 +2809,115 @@ export class ListProjectsResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: ListProjectsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RefreshWebofficeTokenRequest extends $tea.Model {
+  projectName?: string;
+  accessToken?: string;
+  refreshToken?: string;
+  assumeRoleChain?: AssumeRoleChain;
+  static names(): { [key: string]: string } {
+    return {
+      projectName: 'ProjectName',
+      accessToken: 'AccessToken',
+      refreshToken: 'RefreshToken',
+      assumeRoleChain: 'AssumeRoleChain',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectName: 'string',
+      accessToken: 'string',
+      refreshToken: 'string',
+      assumeRoleChain: AssumeRoleChain,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RefreshWebofficeTokenShrinkRequest extends $tea.Model {
+  projectName?: string;
+  accessToken?: string;
+  refreshToken?: string;
+  assumeRoleChainShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      projectName: 'ProjectName',
+      accessToken: 'AccessToken',
+      refreshToken: 'RefreshToken',
+      assumeRoleChainShrink: 'AssumeRoleChain',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectName: 'string',
+      accessToken: 'string',
+      refreshToken: 'string',
+      assumeRoleChainShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RefreshWebofficeTokenResponseBody extends $tea.Model {
+  requestId?: string;
+  refreshToken?: string;
+  accessToken?: string;
+  refreshTokenExpiredTime?: string;
+  accessTokenExpiredTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      refreshToken: 'RefreshToken',
+      accessToken: 'AccessToken',
+      refreshTokenExpiredTime: 'RefreshTokenExpiredTime',
+      accessTokenExpiredTime: 'AccessTokenExpiredTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      refreshToken: 'string',
+      accessToken: 'string',
+      refreshTokenExpiredTime: 'string',
+      accessTokenExpiredTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RefreshWebofficeTokenResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: RefreshWebofficeTokenResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: RefreshWebofficeTokenResponseBody,
     };
   }
 
@@ -3741,6 +4165,37 @@ export default class Client extends OpenApi {
     return await this.getProjectWithOptions(request, runtime);
   }
 
+  async getWebofficeUrlWithOptions(tmpReq: GetWebofficeUrlRequest, runtime: $Util.RuntimeOptions): Promise<GetWebofficeUrlResponse> {
+    Util.validateModel(tmpReq);
+    let request = new GetWebofficeUrlShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset($tea.toMap(tmpReq.permission))) {
+      request.permissionShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.permission), "Permission", "json");
+    }
+
+    if (!Util.isUnset($tea.toMap(tmpReq.user))) {
+      request.userShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.user), "User", "json");
+    }
+
+    if (!Util.isUnset($tea.toMap(tmpReq.watermark))) {
+      request.watermarkShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.watermark), "Watermark", "json");
+    }
+
+    if (!Util.isUnset($tea.toMap(tmpReq.assumeRoleChain))) {
+      request.assumeRoleChainShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.assumeRoleChain), "AssumeRoleChain", "json");
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<GetWebofficeUrlResponse>(await this.doRPCRequest("GetWebofficeUrl", "2020-09-30", "HTTPS", "POST", "AK", "json", req, runtime), new GetWebofficeUrlResponse({}));
+  }
+
+  async getWebofficeUrl(request: GetWebofficeUrlRequest): Promise<GetWebofficeUrlResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getWebofficeUrlWithOptions(request, runtime);
+  }
+
   async indexFileMetaWithOptions(tmpReq: IndexFileMetaRequest, runtime: $Util.RuntimeOptions): Promise<IndexFileMetaResponse> {
     Util.validateModel(tmpReq);
     let request = new IndexFileMetaShrinkRequest({ });
@@ -3797,6 +4252,25 @@ export default class Client extends OpenApi {
   async listProjects(request: ListProjectsRequest): Promise<ListProjectsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listProjectsWithOptions(request, runtime);
+  }
+
+  async refreshWebofficeTokenWithOptions(tmpReq: RefreshWebofficeTokenRequest, runtime: $Util.RuntimeOptions): Promise<RefreshWebofficeTokenResponse> {
+    Util.validateModel(tmpReq);
+    let request = new RefreshWebofficeTokenShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset($tea.toMap(tmpReq.assumeRoleChain))) {
+      request.assumeRoleChainShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.assumeRoleChain), "AssumeRoleChain", "json");
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<RefreshWebofficeTokenResponse>(await this.doRPCRequest("RefreshWebofficeToken", "2020-09-30", "HTTPS", "POST", "AK", "json", req, runtime), new RefreshWebofficeTokenResponse({}));
+  }
+
+  async refreshWebofficeToken(request: RefreshWebofficeTokenRequest): Promise<RefreshWebofficeTokenResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.refreshWebofficeTokenWithOptions(request, runtime);
   }
 
   async resumeBindingWithOptions(request: ResumeBindingRequest, runtime: $Util.RuntimeOptions): Promise<ResumeBindingResponse> {
