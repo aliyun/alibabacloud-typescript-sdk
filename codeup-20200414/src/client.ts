@@ -695,6 +695,87 @@ export class UpdateMergeRequestCommentResponse extends $tea.Model {
   }
 }
 
+export class TriggerRepositoryMirrorSyncRequest extends $tea.Model {
+  accessToken?: string;
+  organizationId?: string;
+  account?: string;
+  token?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessToken: 'AccessToken',
+      organizationId: 'OrganizationId',
+      account: 'Account',
+      token: 'Token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessToken: 'string',
+      organizationId: 'string',
+      account: 'string',
+      token: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TriggerRepositoryMirrorSyncResponseBody extends $tea.Model {
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  errorCode?: string;
+  result?: TriggerRepositoryMirrorSyncResponseBodyResult;
+  static names(): { [key: string]: string } {
+    return {
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+      errorCode: 'ErrorCode',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      errorCode: 'string',
+      result: TriggerRepositoryMirrorSyncResponseBodyResult,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TriggerRepositoryMirrorSyncResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: TriggerRepositoryMirrorSyncResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: TriggerRepositoryMirrorSyncResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteBranchRequest extends $tea.Model {
   accessToken?: string;
   branchName?: string;
@@ -5042,6 +5123,81 @@ export class CreateBranchResponse extends $tea.Model {
   }
 }
 
+export class GetOrganizationRepositorySettingRequest extends $tea.Model {
+  accessToken?: string;
+  organizationId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessToken: 'AccessToken',
+      organizationId: 'OrganizationId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessToken: 'string',
+      organizationId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOrganizationRepositorySettingResponseBody extends $tea.Model {
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  errorCode?: string;
+  result?: GetOrganizationRepositorySettingResponseBodyResult;
+  static names(): { [key: string]: string } {
+    return {
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+      errorCode: 'ErrorCode',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      errorCode: 'string',
+      result: GetOrganizationRepositorySettingResponseBodyResult,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOrganizationRepositorySettingResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetOrganizationRepositorySettingResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetOrganizationRepositorySettingResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListGroupRepositoriesRequest extends $tea.Model {
   accessToken?: string;
   organizationId?: string;
@@ -6470,6 +6626,25 @@ export class UpdateRepositoryResponseBodyResult extends $tea.Model {
 }
 
 export class UpdateMergeRequestCommentResponseBodyResult extends $tea.Model {
+  result?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      result: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TriggerRepositoryMirrorSyncResponseBodyResult extends $tea.Model {
   result?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -10374,6 +10549,93 @@ export class CreateBranchResponseBodyResult extends $tea.Model {
   }
 }
 
+export class GetOrganizationRepositorySettingResponseBodyResultOrgCloneDownloadMethodList extends $tea.Model {
+  permissionCode?: string;
+  allowed?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      permissionCode: 'PermissionCode',
+      allowed: 'Allowed',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      permissionCode: 'string',
+      allowed: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOrganizationRepositorySettingResponseBodyResultOrgCloneDownloadRoleList extends $tea.Model {
+  roleCode?: number;
+  allowed?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      roleCode: 'RoleCode',
+      allowed: 'Allowed',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      roleCode: 'number',
+      allowed: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOrganizationRepositorySettingResponseBodyResult extends $tea.Model {
+  groupRequired?: boolean;
+  repoVisibilityLevel?: number[];
+  repoCreatorIdentity?: number[];
+  repoAdminAccessVisibilityLevel?: number[];
+  repoAdminOperation?: number[];
+  openCloneDownloadControl?: boolean;
+  orgCloneDownloadMethodList?: GetOrganizationRepositorySettingResponseBodyResultOrgCloneDownloadMethodList[];
+  orgCloneDownloadRoleList?: GetOrganizationRepositorySettingResponseBodyResultOrgCloneDownloadRoleList[];
+  forcePushForbidden?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      groupRequired: 'GroupRequired',
+      repoVisibilityLevel: 'RepoVisibilityLevel',
+      repoCreatorIdentity: 'RepoCreatorIdentity',
+      repoAdminAccessVisibilityLevel: 'RepoAdminAccessVisibilityLevel',
+      repoAdminOperation: 'RepoAdminOperation',
+      openCloneDownloadControl: 'OpenCloneDownloadControl',
+      orgCloneDownloadMethodList: 'OrgCloneDownloadMethodList',
+      orgCloneDownloadRoleList: 'OrgCloneDownloadRoleList',
+      forcePushForbidden: 'ForcePushForbidden',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupRequired: 'boolean',
+      repoVisibilityLevel: { 'type': 'array', 'itemType': 'number' },
+      repoCreatorIdentity: { 'type': 'array', 'itemType': 'number' },
+      repoAdminAccessVisibilityLevel: { 'type': 'array', 'itemType': 'number' },
+      repoAdminOperation: { 'type': 'array', 'itemType': 'number' },
+      openCloneDownloadControl: 'boolean',
+      orgCloneDownloadMethodList: { 'type': 'array', 'itemType': GetOrganizationRepositorySettingResponseBodyResultOrgCloneDownloadMethodList },
+      orgCloneDownloadRoleList: { 'type': 'array', 'itemType': GetOrganizationRepositorySettingResponseBodyResultOrgCloneDownloadRoleList },
+      forcePushForbidden: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListGroupRepositoriesResponseBodyResult extends $tea.Model {
   lastActivityAt?: string;
   namespaceId?: number;
@@ -10895,6 +11157,38 @@ export default class Client extends OpenApi {
       query: OpenApiUtil.query(query),
     });
     return $tea.cast<UpdateMergeRequestCommentResponse>(await this.doROARequest("UpdateMergeRequestComment", "2020-04-14", "HTTPS", "PUT", "AK", `/api/v3/projects/${ProjectId}/merge_requests/${MergeRequestId}/notes/${NoteId}`, "json", req, runtime), new UpdateMergeRequestCommentResponse({}));
+  }
+
+  async triggerRepositoryMirrorSync(ProjectId: string, request: TriggerRepositoryMirrorSyncRequest): Promise<TriggerRepositoryMirrorSyncResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.triggerRepositoryMirrorSyncWithOptions(ProjectId, request, headers, runtime);
+  }
+
+  async triggerRepositoryMirrorSyncWithOptions(ProjectId: string, request: TriggerRepositoryMirrorSyncRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<TriggerRepositoryMirrorSyncResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.accessToken)) {
+      query["AccessToken"] = request.accessToken;
+    }
+
+    if (!Util.isUnset(request.organizationId)) {
+      query["OrganizationId"] = request.organizationId;
+    }
+
+    if (!Util.isUnset(request.account)) {
+      query["Account"] = request.account;
+    }
+
+    if (!Util.isUnset(request.token)) {
+      query["Token"] = request.token;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    return $tea.cast<TriggerRepositoryMirrorSyncResponse>(await this.doROARequest("TriggerRepositoryMirrorSync", "2020-04-14", "HTTPS", "POST", "AK", `/api/v4/projects/${ProjectId}/mirror`, "json", req, runtime), new TriggerRepositoryMirrorSyncResponse({}));
   }
 
   async deleteBranch(ProjectId: string, request: DeleteBranchRequest): Promise<DeleteBranchResponse> {
@@ -12551,6 +12845,30 @@ export default class Client extends OpenApi {
       query: OpenApiUtil.query(query),
     });
     return $tea.cast<CreateBranchResponse>(await this.doROARequest("CreateBranch", "2020-04-14", "HTTPS", "POST", "AK", `/api/v3/projects/${ProjectId}/repository/branches`, "json", req, runtime), new CreateBranchResponse({}));
+  }
+
+  async getOrganizationRepositorySetting(request: GetOrganizationRepositorySettingRequest): Promise<GetOrganizationRepositorySettingResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getOrganizationRepositorySettingWithOptions(request, headers, runtime);
+  }
+
+  async getOrganizationRepositorySettingWithOptions(request: GetOrganizationRepositorySettingRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetOrganizationRepositorySettingResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.accessToken)) {
+      query["AccessToken"] = request.accessToken;
+    }
+
+    if (!Util.isUnset(request.organizationId)) {
+      query["OrganizationId"] = request.organizationId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    return $tea.cast<GetOrganizationRepositorySettingResponse>(await this.doROARequest("GetOrganizationRepositorySetting", "2020-04-14", "HTTPS", "GET", "AK", `/api/v4/organization/settings/repo`, "json", req, runtime), new GetOrganizationRepositorySettingResponse({}));
   }
 
   async listGroupRepositories(Identity: string, request: ListGroupRepositoriesRequest): Promise<ListGroupRepositoriesResponse> {
