@@ -1961,6 +1961,97 @@ export class GetRoomStatisticsResponse extends $tea.Model {
   }
 }
 
+export class ReadMessageRequest extends $tea.Model {
+  appId?: string;
+  requestParams?: ReadMessageRequestRequestParams;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      requestParams: 'RequestParams',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      requestParams: ReadMessageRequestRequestParams,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReadMessageShrinkRequest extends $tea.Model {
+  appId?: string;
+  requestParamsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      requestParamsShrink: 'RequestParams',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      requestParamsShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReadMessageResponseBody extends $tea.Model {
+  requestId?: string;
+  code?: string;
+  message?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      code: 'Code',
+      message: 'Message',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      code: 'string',
+      message: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReadMessageResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ReadMessageResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ReadMessageResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AddGroupMembersRequest extends $tea.Model {
   appId?: string;
   requestParams?: AddGroupMembersRequestRequestParams;
@@ -4291,12 +4382,14 @@ export class DestroyRoomResponseBody extends $tea.Model {
   errorCode?: string;
   errorMsg?: string;
   requestId?: string;
+  result?: boolean;
   responseSuccess?: boolean;
   static names(): { [key: string]: string } {
     return {
       errorCode: 'errorCode',
       errorMsg: 'errorMsg',
       requestId: 'RequestId',
+      result: 'result',
       responseSuccess: 'ResponseSuccess',
     };
   }
@@ -4306,6 +4399,7 @@ export class DestroyRoomResponseBody extends $tea.Model {
       errorCode: 'string',
       errorMsg: 'string',
       requestId: 'string',
+      result: 'boolean',
       responseSuccess: 'boolean',
     };
   }
@@ -5492,34 +5586,12 @@ export class RemoveSingleChatExtensionByKeysRequestRequestParams extends $tea.Mo
   }
 }
 
-export class ImportMessageRequestRequestParamsMessagesReceiverUsers extends $tea.Model {
-  receiverId?: string;
-  readFlag?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      receiverId: 'ReceiverId',
-      readFlag: 'ReadFlag',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      receiverId: 'string',
-      readFlag: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ImportMessageRequestRequestParamsMessages extends $tea.Model {
   uuid?: string;
   appCid?: string;
   conversationType?: number;
   senderId?: string;
-  receiverUsers?: ImportMessageRequestRequestParamsMessagesReceiverUsers[];
+  receiverIds?: string[];
   contentType?: number;
   content?: string;
   createTime?: number;
@@ -5530,7 +5602,7 @@ export class ImportMessageRequestRequestParamsMessages extends $tea.Model {
       appCid: 'AppCid',
       conversationType: 'ConversationType',
       senderId: 'SenderId',
-      receiverUsers: 'ReceiverUsers',
+      receiverIds: 'ReceiverIds',
       contentType: 'ContentType',
       content: 'Content',
       createTime: 'CreateTime',
@@ -5544,7 +5616,7 @@ export class ImportMessageRequestRequestParamsMessages extends $tea.Model {
       appCid: 'string',
       conversationType: 'number',
       senderId: 'string',
-      receiverUsers: { 'type': 'array', 'itemType': ImportMessageRequestRequestParamsMessagesReceiverUsers },
+      receiverIds: { 'type': 'array', 'itemType': 'string' },
       contentType: 'number',
       content: 'string',
       createTime: 'number',
@@ -6425,6 +6497,28 @@ export class GetRoomStatisticsResponseBodyResult extends $tea.Model {
       onlineCount: 'number',
       UV: 'number',
       PV: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReadMessageRequestRequestParams extends $tea.Model {
+  appUid?: string;
+  msgId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appUid: 'AppUid',
+      msgId: 'MsgId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appUid: 'string',
+      msgId: 'string',
     };
   }
 
@@ -8389,6 +8483,25 @@ export default class Client extends OpenApi {
   async getRoomStatistics(request: GetRoomStatisticsRequest): Promise<GetRoomStatisticsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getRoomStatisticsWithOptions(request, runtime);
+  }
+
+  async readMessageWithOptions(tmpReq: ReadMessageRequest, runtime: $Util.RuntimeOptions): Promise<ReadMessageResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ReadMessageShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset($tea.toMap(tmpReq.requestParams))) {
+      request.requestParamsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.requestParams), "RequestParams", "json");
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<ReadMessageResponse>(await this.doRPCRequest("ReadMessage", "2020-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new ReadMessageResponse({}));
+  }
+
+  async readMessage(request: ReadMessageRequest): Promise<ReadMessageResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.readMessageWithOptions(request, runtime);
   }
 
   async addGroupMembersWithOptions(tmpReq: AddGroupMembersRequest, runtime: $Util.RuntimeOptions): Promise<AddGroupMembersResponse> {
