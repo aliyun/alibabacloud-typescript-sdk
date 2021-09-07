@@ -1812,6 +1812,87 @@ export class CreateLiveResponse extends $tea.Model {
   }
 }
 
+export class GetStandardRoomJumpUrlRequest extends $tea.Model {
+  appId?: string;
+  userId?: string;
+  appKey?: string;
+  platform?: string;
+  bizType?: string;
+  bizId?: string;
+  userNick?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      userId: 'UserId',
+      appKey: 'AppKey',
+      platform: 'Platform',
+      bizType: 'BizType',
+      bizId: 'BizId',
+      userNick: 'UserNick',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      userId: 'string',
+      appKey: 'string',
+      platform: 'string',
+      bizType: 'string',
+      bizId: 'string',
+      userNick: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetStandardRoomJumpUrlResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: GetStandardRoomJumpUrlResponseBodyResult;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: GetStandardRoomJumpUrlResponseBodyResult,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetStandardRoomJumpUrlResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetStandardRoomJumpUrlResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetStandardRoomJumpUrlResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteAppRequest extends $tea.Model {
   appId?: string;
   static names(): { [key: string]: string } {
@@ -4064,6 +4145,25 @@ export class CreateLiveResponseBodyResult extends $tea.Model {
   }
 }
 
+export class GetStandardRoomJumpUrlResponseBodyResult extends $tea.Model {
+  standardRoomJumpUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      standardRoomJumpUrl: 'StandardRoomJumpUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      standardRoomJumpUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListRoomLivesResponseBodyResultLiveList extends $tea.Model {
   roomId?: string;
   title?: string;
@@ -5228,6 +5328,19 @@ export default class Client extends OpenApi {
   async createLive(request: CreateLiveRequest): Promise<CreateLiveResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createLiveWithOptions(request, runtime);
+  }
+
+  async getStandardRoomJumpUrlWithOptions(request: GetStandardRoomJumpUrlRequest, runtime: $Util.RuntimeOptions): Promise<GetStandardRoomJumpUrlResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<GetStandardRoomJumpUrlResponse>(await this.doRPCRequest("GetStandardRoomJumpUrl", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new GetStandardRoomJumpUrlResponse({}));
+  }
+
+  async getStandardRoomJumpUrl(request: GetStandardRoomJumpUrlRequest): Promise<GetStandardRoomJumpUrlResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getStandardRoomJumpUrlWithOptions(request, runtime);
   }
 
   async deleteAppWithOptions(request: DeleteAppRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAppResponse> {
