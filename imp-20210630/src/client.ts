@@ -2346,11 +2346,13 @@ export class SendCommentResponse extends $tea.Model {
 export class CreateAppTemplateRequest extends $tea.Model {
   appTemplateName?: string;
   scene?: string;
+  integrationMode?: string;
   componentList?: string[];
   static names(): { [key: string]: string } {
     return {
       appTemplateName: 'AppTemplateName',
       scene: 'Scene',
+      integrationMode: 'IntegrationMode',
       componentList: 'ComponentList',
     };
   }
@@ -2359,6 +2361,7 @@ export class CreateAppTemplateRequest extends $tea.Model {
     return {
       appTemplateName: 'string',
       scene: 'string',
+      integrationMode: 'string',
       componentList: { 'type': 'array', 'itemType': 'string' },
     };
   }
@@ -2371,11 +2374,13 @@ export class CreateAppTemplateRequest extends $tea.Model {
 export class CreateAppTemplateShrinkRequest extends $tea.Model {
   appTemplateName?: string;
   scene?: string;
+  integrationMode?: string;
   componentListShrink?: string;
   static names(): { [key: string]: string } {
     return {
       appTemplateName: 'AppTemplateName',
       scene: 'Scene',
+      integrationMode: 'IntegrationMode',
       componentListShrink: 'ComponentList',
     };
   }
@@ -2384,6 +2389,7 @@ export class CreateAppTemplateShrinkRequest extends $tea.Model {
     return {
       appTemplateName: 'string',
       scene: 'string',
+      integrationMode: 'string',
       componentListShrink: 'string',
     };
   }
@@ -2569,10 +2575,14 @@ export class RejectLinkMicResponse extends $tea.Model {
 export class ListAppsRequest extends $tea.Model {
   pageNumber?: number;
   pageSize?: number;
+  status?: string;
+  integrationMode?: string;
   static names(): { [key: string]: string } {
     return {
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      status: 'Status',
+      integrationMode: 'IntegrationMode',
     };
   }
 
@@ -2580,6 +2590,8 @@ export class ListAppsRequest extends $tea.Model {
     return {
       pageNumber: 'number',
       pageSize: 'number',
+      status: 'string',
+      integrationMode: 'string',
     };
   }
 
@@ -4262,6 +4274,9 @@ export class GetAppTemplateResponseBodyResult extends $tea.Model {
   createTime?: string;
   sdkInfo?: string;
   configList?: GetAppTemplateResponseBodyResultConfigList[];
+  scene?: string;
+  integrationMode?: string;
+  standardRoomInfo?: string;
   static names(): { [key: string]: string } {
     return {
       appTemplateName: 'AppTemplateName',
@@ -4271,6 +4286,9 @@ export class GetAppTemplateResponseBodyResult extends $tea.Model {
       createTime: 'CreateTime',
       sdkInfo: 'SdkInfo',
       configList: 'ConfigList',
+      scene: 'Scene',
+      integrationMode: 'IntegrationMode',
+      standardRoomInfo: 'StandardRoomInfo',
     };
   }
 
@@ -4283,6 +4301,9 @@ export class GetAppTemplateResponseBodyResult extends $tea.Model {
       createTime: 'string',
       sdkInfo: 'string',
       configList: { 'type': 'array', 'itemType': GetAppTemplateResponseBodyResultConfigList },
+      scene: 'string',
+      integrationMode: 'string',
+      standardRoomInfo: 'string',
     };
   }
 
@@ -4407,7 +4428,10 @@ export class ListAppsResponseBodyResultAppInfoList extends $tea.Model {
   appTemplateName?: string;
   appKey?: string;
   appStatus?: string;
+  appConfigStatus?: string;
   createTime?: string;
+  integrationMode?: string;
+  standardRoomInfo?: string;
   componentList?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -4417,7 +4441,10 @@ export class ListAppsResponseBodyResultAppInfoList extends $tea.Model {
       appTemplateName: 'AppTemplateName',
       appKey: 'AppKey',
       appStatus: 'AppStatus',
+      appConfigStatus: 'AppConfigStatus',
       createTime: 'CreateTime',
+      integrationMode: 'IntegrationMode',
+      standardRoomInfo: 'StandardRoomInfo',
       componentList: 'ComponentList',
     };
   }
@@ -4430,7 +4457,10 @@ export class ListAppsResponseBodyResultAppInfoList extends $tea.Model {
       appTemplateName: 'string',
       appKey: 'string',
       appStatus: 'string',
+      appConfigStatus: 'string',
       createTime: 'string',
+      integrationMode: 'string',
+      standardRoomInfo: 'string',
       componentList: { 'type': 'array', 'itemType': 'string' },
     };
   }
@@ -4546,6 +4576,9 @@ export class ListAppTemplatesResponseBodyResultAppTemplateInfoList extends $tea.
   createTime?: string;
   sdkInfo?: string;
   configList?: ListAppTemplatesResponseBodyResultAppTemplateInfoListConfigList[];
+  scene?: string;
+  integrationMode?: string;
+  standardRoomInfo?: string;
   static names(): { [key: string]: string } {
     return {
       appTemplateId: 'AppTemplateId',
@@ -4556,6 +4589,9 @@ export class ListAppTemplatesResponseBodyResultAppTemplateInfoList extends $tea.
       createTime: 'CreateTime',
       sdkInfo: 'SdkInfo',
       configList: 'ConfigList',
+      scene: 'Scene',
+      integrationMode: 'IntegrationMode',
+      standardRoomInfo: 'StandardRoomInfo',
     };
   }
 
@@ -4569,6 +4605,9 @@ export class ListAppTemplatesResponseBodyResultAppTemplateInfoList extends $tea.
       createTime: 'string',
       sdkInfo: 'string',
       configList: { 'type': 'array', 'itemType': ListAppTemplatesResponseBodyResultAppTemplateInfoListConfigList },
+      scene: 'string',
+      integrationMode: 'string',
+      standardRoomInfo: 'string',
     };
   }
 
@@ -4773,8 +4812,11 @@ export class GetAppResponseBodyResult extends $tea.Model {
   appTemplateId?: string;
   appTemplateName?: string;
   appStatus?: string;
+  appConfigStatus?: string;
   appKey?: string;
   createTime?: string;
+  integrationMode?: string;
+  standardRoomInfo?: string;
   componentList?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -4782,8 +4824,11 @@ export class GetAppResponseBodyResult extends $tea.Model {
       appTemplateId: 'AppTemplateId',
       appTemplateName: 'AppTemplateName',
       appStatus: 'AppStatus',
+      appConfigStatus: 'AppConfigStatus',
       appKey: 'AppKey',
       createTime: 'CreateTime',
+      integrationMode: 'IntegrationMode',
+      standardRoomInfo: 'StandardRoomInfo',
       componentList: 'ComponentList',
     };
   }
@@ -4794,8 +4839,11 @@ export class GetAppResponseBodyResult extends $tea.Model {
       appTemplateId: 'string',
       appTemplateName: 'string',
       appStatus: 'string',
+      appConfigStatus: 'string',
       appKey: 'string',
       createTime: 'string',
+      integrationMode: 'string',
+      standardRoomInfo: 'string',
       componentList: { 'type': 'array', 'itemType': 'string' },
     };
   }
