@@ -1095,6 +1095,69 @@ export class DescribeClientCertificateStatusForSerialNumberResponse extends $tea
   }
 }
 
+export class GetCAInstanceStatusRequest extends $tea.Model {
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCAInstanceStatusResponseBody extends $tea.Model {
+  requestId?: string;
+  instanceStatusList?: GetCAInstanceStatusResponseBodyInstanceStatusList[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      instanceStatusList: 'InstanceStatusList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      instanceStatusList: { 'type': 'array', 'itemType': GetCAInstanceStatusResponseBodyInstanceStatusList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCAInstanceStatusResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetCAInstanceStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetCAInstanceStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListCACertificateLogRequest extends $tea.Model {
   identifier?: string;
   static names(): { [key: string]: string } {
@@ -1749,6 +1812,49 @@ export class DescribeClientCertificateStatusForSerialNumberResponseBodyCertifica
   }
 }
 
+export class GetCAInstanceStatusResponseBodyInstanceStatusList extends $tea.Model {
+  certTotalCount?: number;
+  status?: string;
+  type?: string;
+  certIssuedCount?: number;
+  beforeTime?: number;
+  identifier?: string;
+  afterTime?: number;
+  instanceId?: string;
+  useExpireTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      certTotalCount: 'CertTotalCount',
+      status: 'Status',
+      type: 'Type',
+      certIssuedCount: 'CertIssuedCount',
+      beforeTime: 'BeforeTime',
+      identifier: 'Identifier',
+      afterTime: 'AfterTime',
+      instanceId: 'InstanceId',
+      useExpireTime: 'UseExpireTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      certTotalCount: 'number',
+      status: 'string',
+      type: 'string',
+      certIssuedCount: 'number',
+      beforeTime: 'number',
+      identifier: 'string',
+      afterTime: 'number',
+      instanceId: 'string',
+      useExpireTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListCACertificateLogResponseBodyLogList extends $tea.Model {
   identifier?: string;
   content?: string;
@@ -2193,6 +2299,19 @@ export default class Client extends OpenApi {
   async describeClientCertificateStatusForSerialNumber(request: DescribeClientCertificateStatusForSerialNumberRequest): Promise<DescribeClientCertificateStatusForSerialNumberResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeClientCertificateStatusForSerialNumberWithOptions(request, runtime);
+  }
+
+  async getCAInstanceStatusWithOptions(request: GetCAInstanceStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetCAInstanceStatusResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<GetCAInstanceStatusResponse>(await this.doRPCRequest("GetCAInstanceStatus", "2020-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new GetCAInstanceStatusResponse({}));
+  }
+
+  async getCAInstanceStatus(request: GetCAInstanceStatusRequest): Promise<GetCAInstanceStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getCAInstanceStatusWithOptions(request, runtime);
   }
 
   async listCACertificateLogWithOptions(request: ListCACertificateLogRequest, runtime: $Util.RuntimeOptions): Promise<ListCACertificateLogResponse> {
