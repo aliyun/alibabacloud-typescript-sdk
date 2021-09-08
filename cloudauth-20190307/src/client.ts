@@ -1,14 +1,114 @@
 // This file is auto-generated, don't edit it
+/**
+ *
+ */
 import Util, * as $Util from '@alicloud/tea-util';
-import RPCUtil from '@alicloud/rpc-util';
-import RPC, * as $RPC from '@alicloud/rpc-client';
-import EndpointUtil from '@alicloud/endpoint-util';
 import OSS, * as $OSS from '@alicloud/oss-client';
+import RPC, * as $RPC from '@alicloud/rpc-client';
 import OpenPlatform, * as $OpenPlatform from '@alicloud/openplatform20191219';
 import OSSUtil, * as $OSSUtil from '@alicloud/oss-util';
 import FileForm, * as $FileForm from '@alicloud/tea-fileform';
+import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
+import OpenApiUtil from '@alicloud/openapi-util';
+import EndpointUtil from '@alicloud/endpoint-util';
 import { Readable } from 'stream';
 import * as $tea from '@alicloud/tea-typescript';
+
+export class VerifyMaterialRequest extends $tea.Model {
+  idCardBackImageUrl?: string;
+  faceImageUrl?: string;
+  bizType?: string;
+  bizId?: string;
+  name?: string;
+  idCardNumber?: string;
+  idCardFrontImageUrl?: string;
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      idCardBackImageUrl: 'IdCardBackImageUrl',
+      faceImageUrl: 'FaceImageUrl',
+      bizType: 'BizType',
+      bizId: 'BizId',
+      name: 'Name',
+      idCardNumber: 'IdCardNumber',
+      idCardFrontImageUrl: 'IdCardFrontImageUrl',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      idCardBackImageUrl: 'string',
+      faceImageUrl: 'string',
+      bizType: 'string',
+      bizId: 'string',
+      name: 'string',
+      idCardNumber: 'string',
+      idCardFrontImageUrl: 'string',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VerifyMaterialResponseBody extends $tea.Model {
+  authorityComparisionScore?: number;
+  verifyStatus?: number;
+  requestId?: string;
+  verifyToken?: string;
+  idCardFaceComparisonScore?: number;
+  material?: VerifyMaterialResponseBodyMaterial;
+  static names(): { [key: string]: string } {
+    return {
+      authorityComparisionScore: 'AuthorityComparisionScore',
+      verifyStatus: 'VerifyStatus',
+      requestId: 'RequestId',
+      verifyToken: 'VerifyToken',
+      idCardFaceComparisonScore: 'IdCardFaceComparisonScore',
+      material: 'Material',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authorityComparisionScore: 'number',
+      verifyStatus: 'number',
+      requestId: 'string',
+      verifyToken: 'string',
+      idCardFaceComparisonScore: 'number',
+      material: VerifyMaterialResponseBodyMaterial,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VerifyMaterialResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: VerifyMaterialResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: VerifyMaterialResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class DescribeWhitelistRequest extends $tea.Model {
   sourceIp?: string;
@@ -19,8 +119,8 @@ export class DescribeWhitelistRequest extends $tea.Model {
   validStartDate?: string;
   validEndDate?: string;
   valid?: string;
-  pageSize: number;
-  currentPage: number;
+  pageSize?: number;
+  currentPage?: number;
   static names(): { [key: string]: string } {
     return {
       sourceIp: 'SourceIp',
@@ -56,29 +156,29 @@ export class DescribeWhitelistRequest extends $tea.Model {
   }
 }
 
-export class DescribeWhitelistResponse extends $tea.Model {
-  requestId: string;
-  totalCount: number;
-  currentPage: number;
-  pageSize: number;
-  items: DescribeWhitelistResponseItems[];
+export class DescribeWhitelistResponseBody extends $tea.Model {
+  currentPage?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
+  items?: DescribeWhitelistResponseBodyItems[];
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
       currentPage: 'CurrentPage',
       pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
       items: 'Items',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
-      totalCount: 'number',
       currentPage: 'number',
       pageSize: 'number',
-      items: { 'type': 'array', 'itemType': DescribeWhitelistResponseItems },
+      requestId: 'string',
+      totalCount: 'number',
+      items: { 'type': 'array', 'itemType': DescribeWhitelistResponseBodyItems },
     };
   }
 
@@ -87,15 +187,220 @@ export class DescribeWhitelistResponse extends $tea.Model {
   }
 }
 
-export class DeleteWhitelistRequest extends $tea.Model {
+export class DescribeWhitelistResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeWhitelistResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeWhitelistResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAppPackageRequest extends $tea.Model {
+  id?: number;
+  packageUrl?: string;
+  platform?: string;
+  debug?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      packageUrl: 'PackageUrl',
+      platform: 'Platform',
+      debug: 'Debug',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+      packageUrl: 'string',
+      platform: 'string',
+      debug: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAppPackageResponseBody extends $tea.Model {
+  taskId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      taskId: 'TaskId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAppPackageResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: UpdateAppPackageResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: UpdateAppPackageResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVerifyTokenRequest extends $tea.Model {
+  idCardBackImageUrl?: string;
+  bizType?: string;
+  failedRedirectUrl?: string;
+  faceRetainedImageUrl?: string;
+  callbackSeed?: string;
+  idCardFrontImageUrl?: string;
+  userId?: string;
+  bizId?: string;
+  name?: string;
+  idCardNumber?: string;
+  passedRedirectUrl?: string;
+  callbackUrl?: string;
+  userIp?: string;
+  userPhoneNumber?: string;
+  userRegistTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      idCardBackImageUrl: 'IdCardBackImageUrl',
+      bizType: 'BizType',
+      failedRedirectUrl: 'FailedRedirectUrl',
+      faceRetainedImageUrl: 'FaceRetainedImageUrl',
+      callbackSeed: 'CallbackSeed',
+      idCardFrontImageUrl: 'IdCardFrontImageUrl',
+      userId: 'UserId',
+      bizId: 'BizId',
+      name: 'Name',
+      idCardNumber: 'IdCardNumber',
+      passedRedirectUrl: 'PassedRedirectUrl',
+      callbackUrl: 'CallbackUrl',
+      userIp: 'UserIp',
+      userPhoneNumber: 'UserPhoneNumber',
+      userRegistTime: 'UserRegistTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      idCardBackImageUrl: 'string',
+      bizType: 'string',
+      failedRedirectUrl: 'string',
+      faceRetainedImageUrl: 'string',
+      callbackSeed: 'string',
+      idCardFrontImageUrl: 'string',
+      userId: 'string',
+      bizId: 'string',
+      name: 'string',
+      idCardNumber: 'string',
+      passedRedirectUrl: 'string',
+      callbackUrl: 'string',
+      userIp: 'string',
+      userPhoneNumber: 'string',
+      userRegistTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVerifyTokenResponseBody extends $tea.Model {
+  verifyPageUrl?: string;
+  requestId?: string;
+  verifyToken?: string;
+  ossUploadToken?: DescribeVerifyTokenResponseBodyOssUploadToken;
+  static names(): { [key: string]: string } {
+    return {
+      verifyPageUrl: 'VerifyPageUrl',
+      requestId: 'RequestId',
+      verifyToken: 'VerifyToken',
+      ossUploadToken: 'OssUploadToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      verifyPageUrl: 'string',
+      requestId: 'string',
+      verifyToken: 'string',
+      ossUploadToken: DescribeVerifyTokenResponseBodyOssUploadToken,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVerifyTokenResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeVerifyTokenResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeVerifyTokenResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRPSDKRequest extends $tea.Model {
   sourceIp?: string;
   lang?: string;
-  ids: string;
+  taskId?: string;
   static names(): { [key: string]: string } {
     return {
       sourceIp: 'SourceIp',
       lang: 'Lang',
-      ids: 'Ids',
+      taskId: 'TaskId',
     };
   }
 
@@ -103,7 +408,7 @@ export class DeleteWhitelistRequest extends $tea.Model {
     return {
       sourceIp: 'string',
       lang: 'string',
-      ids: 'string',
+      taskId: 'string',
     };
   }
 
@@ -112,17 +417,246 @@ export class DeleteWhitelistRequest extends $tea.Model {
   }
 }
 
-export class DeleteWhitelistResponse extends $tea.Model {
-  requestId: string;
+export class DescribeRPSDKResponseBody extends $tea.Model {
+  sdkUrl?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      sdkUrl: 'SdkUrl',
       requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      sdkUrl: 'string',
       requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRPSDKResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeRPSDKResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeRPSDKResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeFaceUsageRequest extends $tea.Model {
+  startDate?: string;
+  endDate?: string;
+  static names(): { [key: string]: string } {
+    return {
+      startDate: 'StartDate',
+      endDate: 'EndDate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      startDate: 'string',
+      endDate: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeFaceUsageResponseBody extends $tea.Model {
+  totalCount?: number;
+  requestId?: string;
+  faceUsageList?: DescribeFaceUsageResponseBodyFaceUsageList[];
+  static names(): { [key: string]: string } {
+    return {
+      totalCount: 'TotalCount',
+      requestId: 'RequestId',
+      faceUsageList: 'FaceUsageList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      totalCount: 'number',
+      requestId: 'string',
+      faceUsageList: { 'type': 'array', 'itemType': DescribeFaceUsageResponseBodyFaceUsageList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeFaceUsageResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeFaceUsageResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeFaceUsageResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVerifyUsageRequest extends $tea.Model {
+  bizType?: string;
+  startDate?: string;
+  endDate?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bizType: 'BizType',
+      startDate: 'StartDate',
+      endDate: 'EndDate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizType: 'string',
+      startDate: 'string',
+      endDate: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVerifyUsageResponseBody extends $tea.Model {
+  totalCount?: number;
+  requestId?: string;
+  verifyUsageList?: DescribeVerifyUsageResponseBodyVerifyUsageList[];
+  static names(): { [key: string]: string } {
+    return {
+      totalCount: 'TotalCount',
+      requestId: 'RequestId',
+      verifyUsageList: 'VerifyUsageList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      totalCount: 'number',
+      requestId: 'string',
+      verifyUsageList: { 'type': 'array', 'itemType': DescribeVerifyUsageResponseBodyVerifyUsageList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVerifyUsageResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeVerifyUsageResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeVerifyUsageResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUpdatePackageResultRequest extends $tea.Model {
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUpdatePackageResultResponseBody extends $tea.Model {
+  requestId?: string;
+  appInfo?: DescribeUpdatePackageResultResponseBodyAppInfo;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      appInfo: 'AppInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      appInfo: DescribeUpdatePackageResultResponseBodyAppInfo,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUpdatePackageResultResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeUpdatePackageResultResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeUpdatePackageResultResponseBody,
     };
   }
 
@@ -135,9 +669,9 @@ export class CreateWhitelistRequest extends $tea.Model {
   sourceIp?: string;
   lang?: string;
   bizType?: string;
-  bizId: string;
-  idCardNum: string;
-  validDay: string;
+  bizId?: string;
+  idCardNum?: string;
+  validDay?: string;
   static names(): { [key: string]: string } {
     return {
       sourceIp: 'SourceIp',
@@ -165,8 +699,8 @@ export class CreateWhitelistRequest extends $tea.Model {
   }
 }
 
-export class CreateWhitelistResponse extends $tea.Model {
-  requestId: string;
+export class CreateWhitelistResponseBody extends $tea.Model {
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
@@ -176,6 +710,633 @@ export class CreateWhitelistResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateWhitelistResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CreateWhitelistResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CreateWhitelistResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteWhitelistRequest extends $tea.Model {
+  sourceIp?: string;
+  lang?: string;
+  ids?: string;
+  static names(): { [key: string]: string } {
+    return {
+      sourceIp: 'SourceIp',
+      lang: 'Lang',
+      ids: 'Ids',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sourceIp: 'string',
+      lang: 'string',
+      ids: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteWhitelistResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteWhitelistResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DeleteWhitelistResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DeleteWhitelistResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAuthKeyRequest extends $tea.Model {
+  bizType?: string;
+  userDeviceId?: string;
+  test?: boolean;
+  authYears?: number;
+  static names(): { [key: string]: string } {
+    return {
+      bizType: 'BizType',
+      userDeviceId: 'UserDeviceId',
+      test: 'Test',
+      authYears: 'AuthYears',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizType: 'string',
+      userDeviceId: 'string',
+      test: 'boolean',
+      authYears: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAuthKeyResponseBody extends $tea.Model {
+  authKey?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authKey: 'AuthKey',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authKey: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAuthKeyResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CreateAuthKeyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CreateAuthKeyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUploadInfoRequest extends $tea.Model {
+  biz?: string;
+  static names(): { [key: string]: string } {
+    return {
+      biz: 'Biz',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      biz: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUploadInfoResponseBody extends $tea.Model {
+  signature?: string;
+  host?: string;
+  requestId?: string;
+  policy?: string;
+  accessid?: string;
+  folder?: string;
+  expire?: number;
+  static names(): { [key: string]: string } {
+    return {
+      signature: 'Signature',
+      host: 'Host',
+      requestId: 'RequestId',
+      policy: 'Policy',
+      accessid: 'Accessid',
+      folder: 'Folder',
+      expire: 'Expire',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      signature: 'string',
+      host: 'string',
+      requestId: 'string',
+      policy: 'string',
+      accessid: 'string',
+      folder: 'string',
+      expire: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUploadInfoResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeUploadInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeUploadInfoResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVerifySettingResponseBody extends $tea.Model {
+  requestId?: string;
+  verifySettingList?: DescribeVerifySettingResponseBodyVerifySettingList[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      verifySettingList: 'VerifySettingList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      verifySettingList: { 'type': 'array', 'itemType': DescribeVerifySettingResponseBodyVerifySettingList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVerifySettingResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeVerifySettingResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeVerifySettingResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVerifyRecordsRequest extends $tea.Model {
+  totalCount?: number;
+  pageSize?: number;
+  currentPage?: number;
+  bizType?: string;
+  startDate?: string;
+  endDate?: string;
+  bizId?: string;
+  idCardNum?: string;
+  statusList?: string;
+  queryId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      totalCount: 'TotalCount',
+      pageSize: 'PageSize',
+      currentPage: 'CurrentPage',
+      bizType: 'BizType',
+      startDate: 'StartDate',
+      endDate: 'EndDate',
+      bizId: 'BizId',
+      idCardNum: 'IdCardNum',
+      statusList: 'StatusList',
+      queryId: 'QueryId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      totalCount: 'number',
+      pageSize: 'number',
+      currentPage: 'number',
+      bizType: 'string',
+      startDate: 'string',
+      endDate: 'string',
+      bizId: 'string',
+      idCardNum: 'string',
+      statusList: 'string',
+      queryId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVerifyRecordsResponseBody extends $tea.Model {
+  currentPage?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
+  queryId?: string;
+  recordsList?: DescribeVerifyRecordsResponseBodyRecordsList[];
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+      queryId: 'QueryId',
+      recordsList: 'RecordsList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+      queryId: 'string',
+      recordsList: { 'type': 'array', 'itemType': DescribeVerifyRecordsResponseBodyRecordsList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVerifyRecordsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeVerifyRecordsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeVerifyRecordsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeWhitelistSettingRequest extends $tea.Model {
+  sourceIp?: string;
+  lang?: string;
+  serviceCode?: string;
+  sceneId?: number;
+  certifyId?: string;
+  certNo?: string;
+  validStartDate?: number;
+  validEndDate?: number;
+  status?: string;
+  pageSize?: number;
+  currentPage?: number;
+  static names(): { [key: string]: string } {
+    return {
+      sourceIp: 'SourceIp',
+      lang: 'Lang',
+      serviceCode: 'ServiceCode',
+      sceneId: 'SceneId',
+      certifyId: 'CertifyId',
+      certNo: 'CertNo',
+      validStartDate: 'ValidStartDate',
+      validEndDate: 'ValidEndDate',
+      status: 'Status',
+      pageSize: 'PageSize',
+      currentPage: 'CurrentPage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sourceIp: 'string',
+      lang: 'string',
+      serviceCode: 'string',
+      sceneId: 'number',
+      certifyId: 'string',
+      certNo: 'string',
+      validStartDate: 'number',
+      validEndDate: 'number',
+      status: 'string',
+      pageSize: 'number',
+      currentPage: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeWhitelistSettingResponseBody extends $tea.Model {
+  currentPage?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
+  items?: DescribeWhitelistSettingResponseBodyItems[];
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+      items: 'Items',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+      items: { 'type': 'array', 'itemType': DescribeWhitelistSettingResponseBodyItems },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeWhitelistSettingResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeWhitelistSettingResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeWhitelistSettingResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRPSDKRequest extends $tea.Model {
+  sourceIp?: string;
+  lang?: string;
+  appUrl?: string;
+  platform?: string;
+  static names(): { [key: string]: string } {
+    return {
+      sourceIp: 'SourceIp',
+      lang: 'Lang',
+      appUrl: 'AppUrl',
+      platform: 'Platform',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sourceIp: 'string',
+      lang: 'string',
+      appUrl: 'string',
+      platform: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRPSDKResponseBody extends $tea.Model {
+  taskId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      taskId: 'TaskId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRPSDKResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CreateRPSDKResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CreateRPSDKResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateFaceConfigRequest extends $tea.Model {
+  sourceIp?: string;
+  lang?: string;
+  bizType?: string;
+  bizName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      sourceIp: 'SourceIp',
+      lang: 'Lang',
+      bizType: 'BizType',
+      bizName: 'BizName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sourceIp: 'string',
+      lang: 'string',
+      bizType: 'string',
+      bizName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateFaceConfigResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateFaceConfigResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: UpdateFaceConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: UpdateFaceConfigResponseBody,
     };
   }
 
@@ -206,9 +1367,9 @@ export class DescribeFaceConfigRequest extends $tea.Model {
   }
 }
 
-export class DescribeFaceConfigResponse extends $tea.Model {
-  requestId: string;
-  items: DescribeFaceConfigResponseItems[];
+export class DescribeFaceConfigResponseBody extends $tea.Model {
+  requestId?: string;
+  items?: DescribeFaceConfigResponseBodyItems[];
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
@@ -219,7 +1380,7 @@ export class DescribeFaceConfigResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      items: { 'type': 'array', 'itemType': DescribeFaceConfigResponseItems },
+      items: { 'type': 'array', 'itemType': DescribeFaceConfigResponseBodyItems },
     };
   }
 
@@ -228,92 +1389,20 @@ export class DescribeFaceConfigResponse extends $tea.Model {
   }
 }
 
-export class UpdateFaceConfigRequest extends $tea.Model {
-  sourceIp?: string;
-  lang?: string;
-  bizType: string;
-  bizName: string;
+export class DescribeFaceConfigResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeFaceConfigResponseBody;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
-      lang: 'Lang',
-      bizType: 'BizType',
-      bizName: 'BizName',
+      headers: 'headers',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
-      lang: 'string',
-      bizType: 'string',
-      bizName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateFaceConfigResponse extends $tea.Model {
-  requestId: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateFaceConfigRequest extends $tea.Model {
-  sourceIp?: string;
-  lang?: string;
-  bizType: string;
-  bizName: string;
-  static names(): { [key: string]: string } {
-    return {
-      sourceIp: 'SourceIp',
-      lang: 'Lang',
-      bizType: 'BizType',
-      bizName: 'BizName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      sourceIp: 'string',
-      lang: 'string',
-      bizType: 'string',
-      bizName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateFaceConfigResponse extends $tea.Model {
-  requestId: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeFaceConfigResponseBody,
     };
   }
 
@@ -336,6 +1425,7 @@ export class LivenessFaceVerifyRequest extends $tea.Model {
   ossBucketName?: string;
   ossObjectName?: string;
   model?: string;
+  crop?: string;
   static names(): { [key: string]: string } {
     return {
       sceneId: 'SceneId',
@@ -351,6 +1441,7 @@ export class LivenessFaceVerifyRequest extends $tea.Model {
       ossBucketName: 'OssBucketName',
       ossObjectName: 'OssObjectName',
       model: 'Model',
+      crop: 'Crop',
     };
   }
 
@@ -369,6 +1460,35 @@ export class LivenessFaceVerifyRequest extends $tea.Model {
       ossBucketName: 'string',
       ossObjectName: 'string',
       model: 'string',
+      crop: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class LivenessFaceVerifyResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  requestId?: string;
+  resultObject?: LivenessFaceVerifyResponseBodyResultObject;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      resultObject: 'ResultObject',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+      resultObject: LivenessFaceVerifyResponseBodyResultObject,
     };
   }
 
@@ -378,243 +1498,19 @@ export class LivenessFaceVerifyRequest extends $tea.Model {
 }
 
 export class LivenessFaceVerifyResponse extends $tea.Model {
-  requestId: string;
-  message: string;
-  code: string;
-  resultObject: LivenessFaceVerifyResponseResultObject;
+  headers: { [key: string]: string };
+  body: LivenessFaceVerifyResponseBody;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
-      message: 'Message',
-      code: 'Code',
-      resultObject: 'ResultObject',
+      headers: 'headers',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
-      message: 'string',
-      code: 'string',
-      resultObject: LivenessFaceVerifyResponseResultObject,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CompareFaceVerifyRequest extends $tea.Model {
-  sceneId?: number;
-  outerOrderNo?: string;
-  productCode?: string;
-  sourceFaceContrastPicture?: string;
-  sourceFaceContrastPictureUrl?: string;
-  sourceCertifyId?: string;
-  sourceOssBucketName?: string;
-  sourceOssObjectName?: string;
-  targetFaceContrastPicture?: string;
-  targetFaceContrastPictureUrl?: string;
-  targetCertifyId?: string;
-  targetOssBucketName?: string;
-  targetOssObjectName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      sceneId: 'SceneId',
-      outerOrderNo: 'OuterOrderNo',
-      productCode: 'ProductCode',
-      sourceFaceContrastPicture: 'SourceFaceContrastPicture',
-      sourceFaceContrastPictureUrl: 'SourceFaceContrastPictureUrl',
-      sourceCertifyId: 'SourceCertifyId',
-      sourceOssBucketName: 'SourceOssBucketName',
-      sourceOssObjectName: 'SourceOssObjectName',
-      targetFaceContrastPicture: 'TargetFaceContrastPicture',
-      targetFaceContrastPictureUrl: 'TargetFaceContrastPictureUrl',
-      targetCertifyId: 'TargetCertifyId',
-      targetOssBucketName: 'TargetOssBucketName',
-      targetOssObjectName: 'TargetOssObjectName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      sceneId: 'number',
-      outerOrderNo: 'string',
-      productCode: 'string',
-      sourceFaceContrastPicture: 'string',
-      sourceFaceContrastPictureUrl: 'string',
-      sourceCertifyId: 'string',
-      sourceOssBucketName: 'string',
-      sourceOssObjectName: 'string',
-      targetFaceContrastPicture: 'string',
-      targetFaceContrastPictureUrl: 'string',
-      targetCertifyId: 'string',
-      targetOssBucketName: 'string',
-      targetOssObjectName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CompareFaceVerifyResponse extends $tea.Model {
-  requestId: string;
-  message: string;
-  code: string;
-  resultObject: CompareFaceVerifyResponseResultObject;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      message: 'Message',
-      code: 'Code',
-      resultObject: 'ResultObject',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      message: 'string',
-      code: 'string',
-      resultObject: CompareFaceVerifyResponseResultObject,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSdkUrlRequest extends $tea.Model {
-  id: number;
-  debug?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      id: 'Id',
-      debug: 'Debug',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      id: 'number',
-      debug: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSdkUrlResponse extends $tea.Model {
-  requestId: string;
-  sdkUrl: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      sdkUrl: 'SdkUrl',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      sdkUrl: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeUpdatePackageResultRequest extends $tea.Model {
-  taskId: string;
-  static names(): { [key: string]: string } {
-    return {
-      taskId: 'TaskId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      taskId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeUpdatePackageResultResponse extends $tea.Model {
-  requestId: string;
-  appInfo: DescribeUpdatePackageResultResponseAppInfo;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      appInfo: 'AppInfo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      appInfo: DescribeUpdatePackageResultResponseAppInfo,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateAppPackageRequest extends $tea.Model {
-  id?: number;
-  packageUrl: string;
-  platform?: string;
-  debug?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      id: 'Id',
-      packageUrl: 'PackageUrl',
-      platform: 'Platform',
-      debug: 'Debug',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      id: 'number',
-      packageUrl: 'string',
-      platform: 'string',
-      debug: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateAppPackageResponse extends $tea.Model {
-  requestId: string;
-  taskId: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      taskId: 'TaskId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      taskId: 'string',
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: LivenessFaceVerifyResponseBody,
     };
   }
 
@@ -648,17 +1544,17 @@ export class DescribeAppInfoRequest extends $tea.Model {
   }
 }
 
-export class DescribeAppInfoResponse extends $tea.Model {
-  requestId: string;
-  pageSize: number;
-  currentPage: number;
-  totalCount: number;
-  appInfoList: DescribeAppInfoResponseAppInfoList[];
+export class DescribeAppInfoResponseBody extends $tea.Model {
+  currentPage?: number;
+  requestId?: string;
+  pageSize?: number;
+  totalCount?: number;
+  appInfoList?: DescribeAppInfoResponseBodyAppInfoList[];
   static names(): { [key: string]: string } {
     return {
+      currentPage: 'CurrentPage',
       requestId: 'RequestId',
       pageSize: 'PageSize',
-      currentPage: 'CurrentPage',
       totalCount: 'TotalCount',
       appInfoList: 'AppInfoList',
     };
@@ -666,11 +1562,120 @@ export class DescribeAppInfoResponse extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      currentPage: 'number',
       requestId: 'string',
       pageSize: 'number',
-      currentPage: 'number',
       totalCount: 'number',
-      appInfoList: { 'type': 'array', 'itemType': DescribeAppInfoResponseAppInfoList },
+      appInfoList: { 'type': 'array', 'itemType': DescribeAppInfoResponseBodyAppInfoList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAppInfoResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeAppInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeAppInfoResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDeviceInfoRequest extends $tea.Model {
+  deviceId?: string;
+  userDeviceId?: string;
+  bizType?: string;
+  duration?: string;
+  expiredDay?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deviceId: 'DeviceId',
+      userDeviceId: 'UserDeviceId',
+      bizType: 'BizType',
+      duration: 'Duration',
+      expiredDay: 'ExpiredDay',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceId: 'string',
+      userDeviceId: 'string',
+      bizType: 'string',
+      duration: 'string',
+      expiredDay: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDeviceInfoResponseBody extends $tea.Model {
+  requestId?: string;
+  userDeviceId?: string;
+  deviceId?: string;
+  expiredDay?: string;
+  beginDay?: string;
+  bizType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      userDeviceId: 'UserDeviceId',
+      deviceId: 'DeviceId',
+      expiredDay: 'ExpiredDay',
+      beginDay: 'BeginDay',
+      bizType: 'BizType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      userDeviceId: 'string',
+      deviceId: 'string',
+      expiredDay: 'string',
+      beginDay: 'string',
+      bizType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDeviceInfoResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ModifyDeviceInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ModifyDeviceInfoResponseBody,
     };
   }
 
@@ -697,6 +1702,7 @@ export class ContrastFaceVerifyRequest extends $tea.Model {
   ossObjectName?: string;
   model?: string;
   faceContrastFile?: string;
+  crop?: string;
   static names(): { [key: string]: string } {
     return {
       sceneId: 'SceneId',
@@ -716,6 +1722,7 @@ export class ContrastFaceVerifyRequest extends $tea.Model {
       ossObjectName: 'OssObjectName',
       model: 'Model',
       faceContrastFile: 'FaceContrastFile',
+      crop: 'Crop',
     };
   }
 
@@ -738,34 +1745,7 @@ export class ContrastFaceVerifyRequest extends $tea.Model {
       ossObjectName: 'string',
       model: 'string',
       faceContrastFile: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ContrastFaceVerifyResponse extends $tea.Model {
-  requestId: string;
-  message: string;
-  code: string;
-  resultObject: ContrastFaceVerifyResponseResultObject;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      message: 'Message',
-      code: 'Code',
-      resultObject: 'ResultObject',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      message: 'string',
-      code: 'string',
-      resultObject: ContrastFaceVerifyResponseResultObject,
+      crop: 'string',
     };
   }
 
@@ -792,6 +1772,7 @@ export class ContrastFaceVerifyAdvanceRequest extends $tea.Model {
   ossBucketName?: string;
   ossObjectName?: string;
   model?: string;
+  crop?: string;
   static names(): { [key: string]: string } {
     return {
       faceContrastFileObject: 'FaceContrastFileObject',
@@ -811,6 +1792,7 @@ export class ContrastFaceVerifyAdvanceRequest extends $tea.Model {
       ossBucketName: 'OssBucketName',
       ossObjectName: 'OssObjectName',
       model: 'Model',
+      crop: 'Crop',
     };
   }
 
@@ -833,6 +1815,1112 @@ export class ContrastFaceVerifyAdvanceRequest extends $tea.Model {
       ossBucketName: 'string',
       ossObjectName: 'string',
       model: 'string',
+      crop: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ContrastFaceVerifyResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  requestId?: string;
+  resultObject?: ContrastFaceVerifyResponseBodyResultObject;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      resultObject: 'ResultObject',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+      resultObject: ContrastFaceVerifyResponseBodyResultObject,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ContrastFaceVerifyResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ContrastFaceVerifyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ContrastFaceVerifyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VerifyDeviceRequest extends $tea.Model {
+  certifyId?: string;
+  certifyData?: string;
+  appVersion?: string;
+  extInfo?: string;
+  deviceToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      certifyId: 'CertifyId',
+      certifyData: 'CertifyData',
+      appVersion: 'AppVersion',
+      extInfo: 'ExtInfo',
+      deviceToken: 'DeviceToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      certifyId: 'string',
+      certifyData: 'string',
+      appVersion: 'string',
+      extInfo: 'string',
+      deviceToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VerifyDeviceResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  requestId?: string;
+  resultObject?: VerifyDeviceResponseBodyResultObject;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      resultObject: 'ResultObject',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+      resultObject: VerifyDeviceResponseBodyResultObject,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VerifyDeviceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: VerifyDeviceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: VerifyDeviceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CompareFaceVerifyRequest extends $tea.Model {
+  sceneId?: number;
+  outerOrderNo?: string;
+  productCode?: string;
+  sourceFaceContrastPicture?: string;
+  sourceFaceContrastPictureUrl?: string;
+  sourceCertifyId?: string;
+  sourceOssBucketName?: string;
+  sourceOssObjectName?: string;
+  targetFaceContrastPicture?: string;
+  targetFaceContrastPictureUrl?: string;
+  targetCertifyId?: string;
+  targetOssBucketName?: string;
+  targetOssObjectName?: string;
+  crop?: string;
+  static names(): { [key: string]: string } {
+    return {
+      sceneId: 'SceneId',
+      outerOrderNo: 'OuterOrderNo',
+      productCode: 'ProductCode',
+      sourceFaceContrastPicture: 'SourceFaceContrastPicture',
+      sourceFaceContrastPictureUrl: 'SourceFaceContrastPictureUrl',
+      sourceCertifyId: 'SourceCertifyId',
+      sourceOssBucketName: 'SourceOssBucketName',
+      sourceOssObjectName: 'SourceOssObjectName',
+      targetFaceContrastPicture: 'TargetFaceContrastPicture',
+      targetFaceContrastPictureUrl: 'TargetFaceContrastPictureUrl',
+      targetCertifyId: 'TargetCertifyId',
+      targetOssBucketName: 'TargetOssBucketName',
+      targetOssObjectName: 'TargetOssObjectName',
+      crop: 'Crop',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sceneId: 'number',
+      outerOrderNo: 'string',
+      productCode: 'string',
+      sourceFaceContrastPicture: 'string',
+      sourceFaceContrastPictureUrl: 'string',
+      sourceCertifyId: 'string',
+      sourceOssBucketName: 'string',
+      sourceOssObjectName: 'string',
+      targetFaceContrastPicture: 'string',
+      targetFaceContrastPictureUrl: 'string',
+      targetCertifyId: 'string',
+      targetOssBucketName: 'string',
+      targetOssObjectName: 'string',
+      crop: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CompareFaceVerifyResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  requestId?: string;
+  resultObject?: CompareFaceVerifyResponseBodyResultObject;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      resultObject: 'ResultObject',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+      resultObject: CompareFaceVerifyResponseBodyResultObject,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CompareFaceVerifyResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CompareFaceVerifyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CompareFaceVerifyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVerifySDKRequest extends $tea.Model {
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVerifySDKResponseBody extends $tea.Model {
+  sdkUrl?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      sdkUrl: 'SdkUrl',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sdkUrl: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVerifySDKResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeVerifySDKResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeVerifySDKResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDeviceInfoRequest extends $tea.Model {
+  pageSize?: number;
+  currentPage?: number;
+  deviceId?: string;
+  bizType?: string;
+  userDeviceId?: string;
+  expiredStartDay?: string;
+  expiredEndDay?: string;
+  static names(): { [key: string]: string } {
+    return {
+      pageSize: 'PageSize',
+      currentPage: 'CurrentPage',
+      deviceId: 'DeviceId',
+      bizType: 'BizType',
+      userDeviceId: 'UserDeviceId',
+      expiredStartDay: 'ExpiredStartDay',
+      expiredEndDay: 'ExpiredEndDay',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageSize: 'number',
+      currentPage: 'number',
+      deviceId: 'string',
+      bizType: 'string',
+      userDeviceId: 'string',
+      expiredStartDay: 'string',
+      expiredEndDay: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDeviceInfoResponseBody extends $tea.Model {
+  currentPage?: number;
+  requestId?: string;
+  pageSize?: number;
+  totalCount?: number;
+  deviceInfoList?: DescribeDeviceInfoResponseBodyDeviceInfoList;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      requestId: 'RequestId',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+      deviceInfoList: 'DeviceInfoList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      requestId: 'string',
+      pageSize: 'number',
+      totalCount: 'number',
+      deviceInfoList: DescribeDeviceInfoResponseBodyDeviceInfoList,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDeviceInfoResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeDeviceInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeDeviceInfoResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeFaceVerifyRequest extends $tea.Model {
+  sceneId?: number;
+  certifyId?: string;
+  pictureReturnType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      sceneId: 'SceneId',
+      certifyId: 'CertifyId',
+      pictureReturnType: 'PictureReturnType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sceneId: 'number',
+      certifyId: 'string',
+      pictureReturnType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeFaceVerifyResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  requestId?: string;
+  resultObject?: DescribeFaceVerifyResponseBodyResultObject;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      resultObject: 'ResultObject',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+      resultObject: DescribeFaceVerifyResponseBodyResultObject,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeFaceVerifyResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeFaceVerifyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeFaceVerifyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeOssUploadTokenResponseBody extends $tea.Model {
+  requestId?: string;
+  ossUploadToken?: DescribeOssUploadTokenResponseBodyOssUploadToken;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      ossUploadToken: 'OssUploadToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      ossUploadToken: DescribeOssUploadTokenResponseBodyOssUploadToken,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeOssUploadTokenResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeOssUploadTokenResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeOssUploadTokenResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectFaceAttributesRequest extends $tea.Model {
+  materialValue?: string;
+  bizType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      materialValue: 'MaterialValue',
+      bizType: 'BizType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      materialValue: 'string',
+      bizType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectFaceAttributesResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  data?: DetectFaceAttributesResponseBodyData;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      data: DetectFaceAttributesResponseBodyData,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectFaceAttributesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DetectFaceAttributesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DetectFaceAttributesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSdkUrlRequest extends $tea.Model {
+  id?: number;
+  debug?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      debug: 'Debug',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+      debug: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSdkUrlResponseBody extends $tea.Model {
+  sdkUrl?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      sdkUrl: 'SdkUrl',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sdkUrl: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSdkUrlResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeSdkUrlResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeSdkUrlResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteWhitelistSettingRequest extends $tea.Model {
+  sourceIp?: string;
+  lang?: string;
+  serviceCode?: string;
+  ids?: string;
+  static names(): { [key: string]: string } {
+    return {
+      sourceIp: 'SourceIp',
+      lang: 'Lang',
+      serviceCode: 'ServiceCode',
+      ids: 'Ids',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sourceIp: 'string',
+      lang: 'string',
+      serviceCode: 'string',
+      ids: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteWhitelistSettingResponseBody extends $tea.Model {
+  resultObject?: boolean;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      resultObject: 'ResultObject',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resultObject: 'boolean',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteWhitelistSettingResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DeleteWhitelistSettingResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DeleteWhitelistSettingResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateVerifySettingRequest extends $tea.Model {
+  bizType?: string;
+  bizName?: string;
+  solution?: string;
+  guideStep?: boolean;
+  privacyStep?: boolean;
+  resultStep?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      bizType: 'BizType',
+      bizName: 'BizName',
+      solution: 'Solution',
+      guideStep: 'GuideStep',
+      privacyStep: 'PrivacyStep',
+      resultStep: 'ResultStep',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizType: 'string',
+      bizName: 'string',
+      solution: 'string',
+      guideStep: 'boolean',
+      privacyStep: 'boolean',
+      resultStep: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateVerifySettingResponseBody extends $tea.Model {
+  bizName?: string;
+  requestId?: string;
+  solution?: string;
+  bizType?: string;
+  stepList?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      bizName: 'BizName',
+      requestId: 'RequestId',
+      solution: 'Solution',
+      bizType: 'BizType',
+      stepList: 'StepList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizName: 'string',
+      requestId: 'string',
+      solution: 'string',
+      bizType: 'string',
+      stepList: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateVerifySettingResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: UpdateVerifySettingResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: UpdateVerifySettingResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVerifyResultRequest extends $tea.Model {
+  bizId?: string;
+  bizType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bizId: 'BizId',
+      bizType: 'BizType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizId: 'string',
+      bizType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVerifyResultResponseBody extends $tea.Model {
+  authorityComparisionScore?: number;
+  verifyStatus?: number;
+  requestId?: string;
+  faceComparisonScore?: number;
+  idCardFaceComparisonScore?: number;
+  material?: DescribeVerifyResultResponseBodyMaterial;
+  static names(): { [key: string]: string } {
+    return {
+      authorityComparisionScore: 'AuthorityComparisionScore',
+      verifyStatus: 'VerifyStatus',
+      requestId: 'RequestId',
+      faceComparisonScore: 'FaceComparisonScore',
+      idCardFaceComparisonScore: 'IdCardFaceComparisonScore',
+      material: 'Material',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authorityComparisionScore: 'number',
+      verifyStatus: 'number',
+      requestId: 'string',
+      faceComparisonScore: 'number',
+      idCardFaceComparisonScore: 'number',
+      material: DescribeVerifyResultResponseBodyMaterial,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVerifyResultResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeVerifyResultResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeVerifyResultResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CompareFacesRequest extends $tea.Model {
+  targetImageType?: string;
+  sourceImageType?: string;
+  sourceImageValue?: string;
+  targetImageValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      targetImageType: 'TargetImageType',
+      sourceImageType: 'SourceImageType',
+      sourceImageValue: 'SourceImageValue',
+      targetImageValue: 'TargetImageValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      targetImageType: 'string',
+      sourceImageType: 'string',
+      sourceImageValue: 'string',
+      targetImageValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CompareFacesResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  data?: CompareFacesResponseBodyData;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      data: CompareFacesResponseBodyData,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CompareFacesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CompareFacesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CompareFacesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateFaceConfigRequest extends $tea.Model {
+  sourceIp?: string;
+  lang?: string;
+  bizType?: string;
+  bizName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      sourceIp: 'SourceIp',
+      lang: 'Lang',
+      bizType: 'BizType',
+      bizName: 'BizName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sourceIp: 'string',
+      lang: 'string',
+      bizType: 'string',
+      bizName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateFaceConfigResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateFaceConfigResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CreateFaceConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CreateFaceConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateVerifySDKRequest extends $tea.Model {
+  appUrl?: string;
+  platform?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appUrl: 'AppUrl',
+      platform: 'Platform',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appUrl: 'string',
+      platform: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateVerifySDKResponseBody extends $tea.Model {
+  taskId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      taskId: 'TaskId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateVerifySDKResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CreateVerifySDKResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CreateVerifySDKResponseBody,
     };
   }
 
@@ -896,26 +2984,48 @@ export class InitDeviceRequest extends $tea.Model {
   }
 }
 
+export class InitDeviceResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  requestId?: string;
+  resultObject?: InitDeviceResponseBodyResultObject;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      resultObject: 'ResultObject',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+      resultObject: InitDeviceResponseBodyResultObject,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class InitDeviceResponse extends $tea.Model {
-  requestId: string;
-  message: string;
-  code: string;
-  resultObject: InitDeviceResponseResultObject;
+  headers: { [key: string]: string };
+  body: InitDeviceResponseBody;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
-      message: 'Message',
-      code: 'Code',
-      resultObject: 'ResultObject',
+      headers: 'headers',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
-      message: 'string',
-      code: 'string',
-      resultObject: InitDeviceResponseResultObject,
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: InitDeviceResponseBody,
     };
   }
 
@@ -924,71 +3034,35 @@ export class InitDeviceResponse extends $tea.Model {
   }
 }
 
-export class InitFaceVerifyRequest extends $tea.Model {
+export class CreateWhitelistSettingRequest extends $tea.Model {
+  sourceIp?: string;
+  lang?: string;
+  serviceCode?: string;
   sceneId?: number;
-  outerOrderNo?: string;
-  productCode?: string;
-  certType?: string;
-  certName?: string;
+  certifyId?: string;
   certNo?: string;
-  returnUrl?: string;
-  faceContrastPicture?: string;
-  metaInfo?: string;
-  mobile?: string;
-  ip?: string;
-  userId?: string;
-  faceContrastPictureUrl?: string;
-  certifyId?: string;
-  ossBucketName?: string;
-  ossObjectName?: string;
-  model?: string;
-  callbackUrl?: string;
-  callbackToken?: string;
+  validDay?: number;
   static names(): { [key: string]: string } {
     return {
+      sourceIp: 'SourceIp',
+      lang: 'Lang',
+      serviceCode: 'ServiceCode',
       sceneId: 'SceneId',
-      outerOrderNo: 'OuterOrderNo',
-      productCode: 'ProductCode',
-      certType: 'CertType',
-      certName: 'CertName',
+      certifyId: 'CertifyId',
       certNo: 'CertNo',
-      returnUrl: 'ReturnUrl',
-      faceContrastPicture: 'FaceContrastPicture',
-      metaInfo: 'MetaInfo',
-      mobile: 'Mobile',
-      ip: 'Ip',
-      userId: 'UserId',
-      faceContrastPictureUrl: 'FaceContrastPictureUrl',
-      certifyId: 'CertifyId',
-      ossBucketName: 'OssBucketName',
-      ossObjectName: 'OssObjectName',
-      model: 'Model',
-      callbackUrl: 'CallbackUrl',
-      callbackToken: 'CallbackToken',
+      validDay: 'ValidDay',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      sourceIp: 'string',
+      lang: 'string',
+      serviceCode: 'string',
       sceneId: 'number',
-      outerOrderNo: 'string',
-      productCode: 'string',
-      certType: 'string',
-      certName: 'string',
+      certifyId: 'string',
       certNo: 'string',
-      returnUrl: 'string',
-      faceContrastPicture: 'string',
-      metaInfo: 'string',
-      mobile: 'string',
-      ip: 'string',
-      userId: 'string',
-      faceContrastPictureUrl: 'string',
-      certifyId: 'string',
-      ossBucketName: 'string',
-      ossObjectName: 'string',
-      model: 'string',
-      callbackUrl: 'string',
-      callbackToken: 'string',
+      validDay: 'number',
     };
   }
 
@@ -997,79 +3071,20 @@ export class InitFaceVerifyRequest extends $tea.Model {
   }
 }
 
-export class InitFaceVerifyResponse extends $tea.Model {
-  requestId: string;
-  message: string;
-  code: string;
-  resultObject: InitFaceVerifyResponseResultObject;
+export class CreateWhitelistSettingResponseBody extends $tea.Model {
+  resultObject?: boolean;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
-      message: 'Message',
-      code: 'Code',
       resultObject: 'ResultObject',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      message: 'string',
-      code: 'string',
-      resultObject: InitFaceVerifyResponseResultObject,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeFaceVerifyRequest extends $tea.Model {
-  sceneId?: number;
-  certifyId?: string;
-  pictureReturnType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      sceneId: 'SceneId',
-      certifyId: 'CertifyId',
-      pictureReturnType: 'PictureReturnType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      sceneId: 'number',
-      certifyId: 'string',
-      pictureReturnType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeFaceVerifyResponse extends $tea.Model {
-  requestId: string;
-  message: string;
-  code: string;
-  resultObject: DescribeFaceVerifyResponseResultObject;
-  static names(): { [key: string]: string } {
-    return {
       requestId: 'RequestId',
-      message: 'Message',
-      code: 'Code',
-      resultObject: 'ResultObject',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      resultObject: 'boolean',
       requestId: 'string',
-      message: 'string',
-      code: 'string',
-      resultObject: DescribeFaceVerifyResponseResultObject,
     };
   }
 
@@ -1078,29 +3093,20 @@ export class DescribeFaceVerifyResponse extends $tea.Model {
   }
 }
 
-export class VerifyDeviceRequest extends $tea.Model {
-  certifyId?: string;
-  certifyData?: string;
-  appVersion?: string;
-  extInfo?: string;
-  deviceToken?: string;
+export class CreateWhitelistSettingResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CreateWhitelistSettingResponseBody;
   static names(): { [key: string]: string } {
     return {
-      certifyId: 'CertifyId',
-      certifyData: 'CertifyData',
-      appVersion: 'AppVersion',
-      extInfo: 'ExtInfo',
-      deviceToken: 'DeviceToken',
+      headers: 'headers',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      certifyId: 'string',
-      certifyData: 'string',
-      appVersion: 'string',
-      extInfo: 'string',
-      deviceToken: 'string',
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CreateWhitelistSettingResponseBody,
     };
   }
 
@@ -1109,26 +3115,20 @@ export class VerifyDeviceRequest extends $tea.Model {
   }
 }
 
-export class VerifyDeviceResponse extends $tea.Model {
-  requestId: string;
-  code: string;
-  message: string;
-  resultObject: VerifyDeviceResponseResultObject;
+export class DescribeUserStatusResponseBody extends $tea.Model {
+  enabled?: boolean;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      enabled: 'Enabled',
       requestId: 'RequestId',
-      code: 'Code',
-      message: 'Message',
-      resultObject: 'ResultObject',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      enabled: 'boolean',
       requestId: 'string',
-      code: 'string',
-      message: 'string',
-      resultObject: VerifyDeviceResponseResultObject,
     };
   }
 
@@ -1137,515 +3137,30 @@ export class VerifyDeviceResponse extends $tea.Model {
   }
 }
 
-export class ModifyDeviceInfoRequest extends $tea.Model {
-  deviceId: string;
-  userDeviceId?: string;
+export class DescribeUserStatusResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeUserStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeUserStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateVerifySettingRequest extends $tea.Model {
   bizType?: string;
-  duration?: string;
-  expiredDay?: string;
-  static names(): { [key: string]: string } {
-    return {
-      deviceId: 'DeviceId',
-      userDeviceId: 'UserDeviceId',
-      bizType: 'BizType',
-      duration: 'Duration',
-      expiredDay: 'ExpiredDay',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      deviceId: 'string',
-      userDeviceId: 'string',
-      bizType: 'string',
-      duration: 'string',
-      expiredDay: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyDeviceInfoResponse extends $tea.Model {
-  requestId: string;
-  deviceId: string;
-  userDeviceId: string;
-  bizType: string;
-  beginDay: string;
-  expiredDay: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      deviceId: 'DeviceId',
-      userDeviceId: 'UserDeviceId',
-      bizType: 'BizType',
-      beginDay: 'BeginDay',
-      expiredDay: 'ExpiredDay',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      deviceId: 'string',
-      userDeviceId: 'string',
-      bizType: 'string',
-      beginDay: 'string',
-      expiredDay: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeVerifySDKRequest extends $tea.Model {
-  taskId: string;
-  static names(): { [key: string]: string } {
-    return {
-      taskId: 'TaskId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      taskId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeVerifySDKResponse extends $tea.Model {
-  requestId: string;
-  sdkUrl: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      sdkUrl: 'SdkUrl',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      sdkUrl: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDeviceInfoRequest extends $tea.Model {
-  pageSize?: number;
-  currentPage?: number;
-  deviceId?: string;
-  bizType?: string;
-  userDeviceId?: string;
-  expiredStartDay?: string;
-  expiredEndDay?: string;
-  static names(): { [key: string]: string } {
-    return {
-      pageSize: 'PageSize',
-      currentPage: 'CurrentPage',
-      deviceId: 'DeviceId',
-      bizType: 'BizType',
-      userDeviceId: 'UserDeviceId',
-      expiredStartDay: 'ExpiredStartDay',
-      expiredEndDay: 'ExpiredEndDay',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageSize: 'number',
-      currentPage: 'number',
-      deviceId: 'string',
-      bizType: 'string',
-      userDeviceId: 'string',
-      expiredStartDay: 'string',
-      expiredEndDay: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDeviceInfoResponse extends $tea.Model {
-  requestId: string;
-  pageSize: number;
-  currentPage: number;
-  totalCount: number;
-  deviceInfoList: DescribeDeviceInfoResponseDeviceInfoList;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      pageSize: 'PageSize',
-      currentPage: 'CurrentPage',
-      totalCount: 'TotalCount',
-      deviceInfoList: 'DeviceInfoList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      pageSize: 'number',
-      currentPage: 'number',
-      totalCount: 'number',
-      deviceInfoList: DescribeDeviceInfoResponseDeviceInfoList,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateVerifySDKRequest extends $tea.Model {
-  appUrl: string;
-  platform?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appUrl: 'AppUrl',
-      platform: 'Platform',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appUrl: 'string',
-      platform: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateVerifySDKResponse extends $tea.Model {
-  requestId: string;
-  taskId: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      taskId: 'TaskId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      taskId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateAuthKeyRequest extends $tea.Model {
-  bizType?: string;
-  userDeviceId?: string;
-  test?: boolean;
-  authYears?: number;
-  static names(): { [key: string]: string } {
-    return {
-      bizType: 'BizType',
-      userDeviceId: 'UserDeviceId',
-      test: 'Test',
-      authYears: 'AuthYears',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bizType: 'string',
-      userDeviceId: 'string',
-      test: 'boolean',
-      authYears: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateAuthKeyResponse extends $tea.Model {
-  requestId: string;
-  authKey: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      authKey: 'AuthKey',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      authKey: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectFaceAttributesRequest extends $tea.Model {
-  materialValue: string;
-  bizType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      materialValue: 'MaterialValue',
-      bizType: 'BizType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      materialValue: 'string',
-      bizType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectFaceAttributesResponse extends $tea.Model {
-  requestId: string;
-  success: boolean;
-  code: string;
-  message: string;
-  data: DetectFaceAttributesResponseData;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      success: 'Success',
-      code: 'Code',
-      message: 'Message',
-      data: 'Data',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      success: 'boolean',
-      code: 'string',
-      message: 'string',
-      data: DetectFaceAttributesResponseData,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CompareFacesRequest extends $tea.Model {
-  targetImageType?: string;
-  sourceImageType?: string;
-  sourceImageValue?: string;
-  targetImageValue?: string;
-  static names(): { [key: string]: string } {
-    return {
-      targetImageType: 'TargetImageType',
-      sourceImageType: 'SourceImageType',
-      sourceImageValue: 'SourceImageValue',
-      targetImageValue: 'TargetImageValue',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      targetImageType: 'string',
-      sourceImageType: 'string',
-      sourceImageValue: 'string',
-      targetImageValue: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CompareFacesResponse extends $tea.Model {
-  requestId: string;
-  success: boolean;
-  code: string;
-  message: string;
-  data: CompareFacesResponseData;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      success: 'Success',
-      code: 'Code',
-      message: 'Message',
-      data: 'Data',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      success: 'boolean',
-      code: 'string',
-      message: 'string',
-      data: CompareFacesResponseData,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeFaceUsageRequest extends $tea.Model {
-  startDate: string;
-  endDate: string;
-  static names(): { [key: string]: string } {
-    return {
-      startDate: 'StartDate',
-      endDate: 'EndDate',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      startDate: 'string',
-      endDate: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeFaceUsageResponse extends $tea.Model {
-  requestId: string;
-  totalCount: number;
-  faceUsageList: DescribeFaceUsageResponseFaceUsageList[];
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-      faceUsageList: 'FaceUsageList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      totalCount: 'number',
-      faceUsageList: { 'type': 'array', 'itemType': DescribeFaceUsageResponseFaceUsageList },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeVerifyRecordsRequest extends $tea.Model {
-  totalCount?: number;
-  pageSize: number;
-  currentPage: number;
-  bizType?: string;
-  startDate?: string;
-  endDate?: string;
-  bizId?: string;
-  idCardNum?: string;
-  statusList?: string;
-  queryId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      totalCount: 'TotalCount',
-      pageSize: 'PageSize',
-      currentPage: 'CurrentPage',
-      bizType: 'BizType',
-      startDate: 'StartDate',
-      endDate: 'EndDate',
-      bizId: 'BizId',
-      idCardNum: 'IdCardNum',
-      statusList: 'StatusList',
-      queryId: 'QueryId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      totalCount: 'number',
-      pageSize: 'number',
-      currentPage: 'number',
-      bizType: 'string',
-      startDate: 'string',
-      endDate: 'string',
-      bizId: 'string',
-      idCardNum: 'string',
-      statusList: 'string',
-      queryId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeVerifyRecordsResponse extends $tea.Model {
-  requestId: string;
-  totalCount: number;
-  pageSize: number;
-  currentPage: number;
-  queryId: string;
-  recordsList: DescribeVerifyRecordsResponseRecordsList[];
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-      pageSize: 'PageSize',
-      currentPage: 'CurrentPage',
-      queryId: 'QueryId',
-      recordsList: 'RecordsList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      totalCount: 'number',
-      pageSize: 'number',
-      currentPage: 'number',
-      queryId: 'string',
-      recordsList: { 'type': 'array', 'itemType': DescribeVerifyRecordsResponseRecordsList },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateVerifySettingRequest extends $tea.Model {
-  bizType: string;
   bizName?: string;
   solution?: string;
   guideStep?: boolean;
@@ -1678,63 +3193,29 @@ export class UpdateVerifySettingRequest extends $tea.Model {
   }
 }
 
-export class UpdateVerifySettingResponse extends $tea.Model {
-  requestId: string;
-  bizType: string;
-  bizName: string;
-  solution: string;
-  stepList: string[];
+export class CreateVerifySettingResponseBody extends $tea.Model {
+  bizName?: string;
+  requestId?: string;
+  solution?: string;
+  bizType?: string;
+  stepList?: string[];
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
-      bizType: 'BizType',
       bizName: 'BizName',
+      requestId: 'RequestId',
       solution: 'Solution',
+      bizType: 'BizType',
       stepList: 'StepList',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      bizName: 'string',
       requestId: 'string',
-      bizType: 'string',
-      bizName: 'string',
       solution: 'string',
+      bizType: 'string',
       stepList: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateVerifySettingRequest extends $tea.Model {
-  bizType: string;
-  bizName: string;
-  solution: string;
-  guideStep?: boolean;
-  privacyStep?: boolean;
-  resultStep?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      bizType: 'BizType',
-      bizName: 'BizName',
-      solution: 'Solution',
-      guideStep: 'GuideStep',
-      privacyStep: 'PrivacyStep',
-      resultStep: 'ResultStep',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bizType: 'string',
-      bizName: 'string',
-      solution: 'string',
-      guideStep: 'boolean',
-      privacyStep: 'boolean',
-      resultStep: 'boolean',
     };
   }
 
@@ -1744,27 +3225,472 @@ export class CreateVerifySettingRequest extends $tea.Model {
 }
 
 export class CreateVerifySettingResponse extends $tea.Model {
-  requestId: string;
-  bizType: string;
-  bizName: string;
-  solution: string;
-  stepList: string[];
+  headers: { [key: string]: string };
+  body: CreateVerifySettingResponseBody;
   static names(): { [key: string]: string } {
     return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CreateVerifySettingResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InitFaceVerifyRequest extends $tea.Model {
+  sceneId?: number;
+  outerOrderNo?: string;
+  productCode?: string;
+  certType?: string;
+  certName?: string;
+  certNo?: string;
+  returnUrl?: string;
+  faceContrastPicture?: string;
+  metaInfo?: string;
+  mobile?: string;
+  ip?: string;
+  userId?: string;
+  faceContrastPictureUrl?: string;
+  certifyId?: string;
+  ossBucketName?: string;
+  ossObjectName?: string;
+  model?: string;
+  callbackUrl?: string;
+  callbackToken?: string;
+  crop?: string;
+  static names(): { [key: string]: string } {
+    return {
+      sceneId: 'SceneId',
+      outerOrderNo: 'OuterOrderNo',
+      productCode: 'ProductCode',
+      certType: 'CertType',
+      certName: 'CertName',
+      certNo: 'CertNo',
+      returnUrl: 'ReturnUrl',
+      faceContrastPicture: 'FaceContrastPicture',
+      metaInfo: 'MetaInfo',
+      mobile: 'Mobile',
+      ip: 'Ip',
+      userId: 'UserId',
+      faceContrastPictureUrl: 'FaceContrastPictureUrl',
+      certifyId: 'CertifyId',
+      ossBucketName: 'OssBucketName',
+      ossObjectName: 'OssObjectName',
+      model: 'Model',
+      callbackUrl: 'CallbackUrl',
+      callbackToken: 'CallbackToken',
+      crop: 'Crop',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sceneId: 'number',
+      outerOrderNo: 'string',
+      productCode: 'string',
+      certType: 'string',
+      certName: 'string',
+      certNo: 'string',
+      returnUrl: 'string',
+      faceContrastPicture: 'string',
+      metaInfo: 'string',
+      mobile: 'string',
+      ip: 'string',
+      userId: 'string',
+      faceContrastPictureUrl: 'string',
+      certifyId: 'string',
+      ossBucketName: 'string',
+      ossObjectName: 'string',
+      model: 'string',
+      callbackUrl: 'string',
+      callbackToken: 'string',
+      crop: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InitFaceVerifyResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  requestId?: string;
+  resultObject?: InitFaceVerifyResponseBodyResultObject;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
       requestId: 'RequestId',
+      resultObject: 'ResultObject',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+      resultObject: InitFaceVerifyResponseBodyResultObject,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InitFaceVerifyResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: InitFaceVerifyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: InitFaceVerifyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VerifyMaterialResponseBodyMaterialIdCardInfo extends $tea.Model {
+  endDate?: string;
+  authority?: string;
+  address?: string;
+  number?: string;
+  startDate?: string;
+  backImageUrl?: string;
+  nationality?: string;
+  birth?: string;
+  name?: string;
+  frontImageUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endDate: 'EndDate',
+      authority: 'Authority',
+      address: 'Address',
+      number: 'Number',
+      startDate: 'StartDate',
+      backImageUrl: 'BackImageUrl',
+      nationality: 'Nationality',
+      birth: 'Birth',
+      name: 'Name',
+      frontImageUrl: 'FrontImageUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endDate: 'string',
+      authority: 'string',
+      address: 'string',
+      number: 'string',
+      startDate: 'string',
+      backImageUrl: 'string',
+      nationality: 'string',
+      birth: 'string',
+      name: 'string',
+      frontImageUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VerifyMaterialResponseBodyMaterial extends $tea.Model {
+  idCardNumber?: string;
+  faceGlobalUrl?: string;
+  faceImageUrl?: string;
+  faceMask?: string;
+  idCardName?: string;
+  faceQuality?: string;
+  idCardInfo?: VerifyMaterialResponseBodyMaterialIdCardInfo;
+  static names(): { [key: string]: string } {
+    return {
+      idCardNumber: 'IdCardNumber',
+      faceGlobalUrl: 'FaceGlobalUrl',
+      faceImageUrl: 'FaceImageUrl',
+      faceMask: 'FaceMask',
+      idCardName: 'IdCardName',
+      faceQuality: 'FaceQuality',
+      idCardInfo: 'IdCardInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      idCardNumber: 'string',
+      faceGlobalUrl: 'string',
+      faceImageUrl: 'string',
+      faceMask: 'string',
+      idCardName: 'string',
+      faceQuality: 'string',
+      idCardInfo: VerifyMaterialResponseBodyMaterialIdCardInfo,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeWhitelistResponseBodyItems extends $tea.Model {
+  endDate?: number;
+  gmtCreate?: number;
+  bizId?: string;
+  startDate?: number;
+  idCardNum?: string;
+  gmtModified?: number;
+  valid?: number;
+  id?: number;
+  bizType?: string;
+  uid?: number;
+  static names(): { [key: string]: string } {
+    return {
+      endDate: 'EndDate',
+      gmtCreate: 'GmtCreate',
+      bizId: 'BizId',
+      startDate: 'StartDate',
+      idCardNum: 'IdCardNum',
+      gmtModified: 'GmtModified',
+      valid: 'Valid',
+      id: 'Id',
       bizType: 'BizType',
+      uid: 'Uid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endDate: 'number',
+      gmtCreate: 'number',
+      bizId: 'string',
+      startDate: 'number',
+      idCardNum: 'string',
+      gmtModified: 'number',
+      valid: 'number',
+      id: 'number',
+      bizType: 'string',
+      uid: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVerifyTokenResponseBodyOssUploadToken extends $tea.Model {
+  key?: string;
+  token?: string;
+  secret?: string;
+  expired?: number;
+  path?: string;
+  endPoint?: string;
+  bucket?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      token: 'Token',
+      secret: 'Secret',
+      expired: 'Expired',
+      path: 'Path',
+      endPoint: 'EndPoint',
+      bucket: 'Bucket',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      token: 'string',
+      secret: 'string',
+      expired: 'number',
+      path: 'string',
+      endPoint: 'string',
+      bucket: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeFaceUsageResponseBodyFaceUsageList extends $tea.Model {
+  totalCount?: number;
+  date?: string;
+  static names(): { [key: string]: string } {
+    return {
+      totalCount: 'TotalCount',
+      date: 'Date',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      totalCount: 'number',
+      date: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVerifyUsageResponseBodyVerifyUsageList extends $tea.Model {
+  date?: string;
+  passCount?: number;
+  totalCount?: number;
+  failCount?: number;
+  bizType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      date: 'Date',
+      passCount: 'PassCount',
+      totalCount: 'TotalCount',
+      failCount: 'FailCount',
+      bizType: 'BizType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      date: 'string',
+      passCount: 'number',
+      totalCount: 'number',
+      failCount: 'number',
+      bizType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUpdatePackageResultResponseBodyAppInfoPackageInfo extends $tea.Model {
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      version: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUpdatePackageResultResponseBodyAppInfoDebugPackageInfo extends $tea.Model {
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      version: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUpdatePackageResultResponseBodyAppInfo extends $tea.Model {
+  type?: number;
+  endDate?: string;
+  packageName?: string;
+  icon?: string;
+  startDate?: string;
+  name?: string;
+  id?: number;
+  packageInfo?: DescribeUpdatePackageResultResponseBodyAppInfoPackageInfo;
+  debugPackageInfo?: DescribeUpdatePackageResultResponseBodyAppInfoDebugPackageInfo;
+  static names(): { [key: string]: string } {
+    return {
+      type: 'Type',
+      endDate: 'EndDate',
+      packageName: 'PackageName',
+      icon: 'Icon',
+      startDate: 'StartDate',
+      name: 'Name',
+      id: 'Id',
+      packageInfo: 'PackageInfo',
+      debugPackageInfo: 'DebugPackageInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      type: 'number',
+      endDate: 'string',
+      packageName: 'string',
+      icon: 'string',
+      startDate: 'string',
+      name: 'string',
+      id: 'number',
+      packageInfo: DescribeUpdatePackageResultResponseBodyAppInfoPackageInfo,
+      debugPackageInfo: DescribeUpdatePackageResultResponseBodyAppInfoDebugPackageInfo,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVerifySettingResponseBodyVerifySettingList extends $tea.Model {
+  bizName?: string;
+  solution?: string;
+  bizType?: string;
+  stepList?: string[];
+  static names(): { [key: string]: string } {
+    return {
       bizName: 'BizName',
       solution: 'Solution',
+      bizType: 'BizType',
       stepList: 'StepList',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
-      bizType: 'string',
       bizName: 'string',
       solution: 'string',
+      bizType: 'string',
       stepList: { 'type': 'array', 'itemType': 'string' },
     };
   }
@@ -1774,580 +3700,47 @@ export class CreateVerifySettingResponse extends $tea.Model {
   }
 }
 
-export class DescribeVerifySettingRequest extends $tea.Model {
-  static names(): { [key: string]: string } {
-    return {
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeVerifySettingResponse extends $tea.Model {
-  requestId: string;
-  verifySettingList: DescribeVerifySettingResponseVerifySettingList[];
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      verifySettingList: 'VerifySettingList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      verifySettingList: { 'type': 'array', 'itemType': DescribeVerifySettingResponseVerifySettingList },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeVerifyUsageRequest extends $tea.Model {
-  bizType?: string;
-  startDate: string;
-  endDate: string;
-  static names(): { [key: string]: string } {
-    return {
-      bizType: 'BizType',
-      startDate: 'StartDate',
-      endDate: 'EndDate',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bizType: 'string',
-      startDate: 'string',
-      endDate: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeVerifyUsageResponse extends $tea.Model {
-  requestId: string;
-  totalCount: number;
-  verifyUsageList: DescribeVerifyUsageResponseVerifyUsageList[];
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-      verifyUsageList: 'VerifyUsageList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      totalCount: 'number',
-      verifyUsageList: { 'type': 'array', 'itemType': DescribeVerifyUsageResponseVerifyUsageList },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeUserStatusRequest extends $tea.Model {
-  static names(): { [key: string]: string } {
-    return {
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeUserStatusResponse extends $tea.Model {
-  requestId: string;
-  enabled: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      enabled: 'Enabled',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      enabled: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeUploadInfoRequest extends $tea.Model {
-  biz?: string;
-  static names(): { [key: string]: string } {
-    return {
-      biz: 'Biz',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      biz: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeUploadInfoResponse extends $tea.Model {
-  requestId: string;
-  accessid: string;
-  policy: string;
-  signature: string;
-  folder: string;
-  host: string;
-  expire: number;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      accessid: 'Accessid',
-      policy: 'Policy',
-      signature: 'Signature',
-      folder: 'Folder',
-      host: 'Host',
-      expire: 'Expire',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      accessid: 'string',
-      policy: 'string',
-      signature: 'string',
-      folder: 'string',
-      host: 'string',
-      expire: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeRPSDKRequest extends $tea.Model {
-  sourceIp?: string;
-  lang?: string;
-  taskId: string;
-  static names(): { [key: string]: string } {
-    return {
-      sourceIp: 'SourceIp',
-      lang: 'Lang',
-      taskId: 'TaskId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      sourceIp: 'string',
-      lang: 'string',
-      taskId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeRPSDKResponse extends $tea.Model {
-  requestId: string;
-  sdkUrl: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      sdkUrl: 'SdkUrl',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      sdkUrl: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateRPSDKRequest extends $tea.Model {
-  sourceIp?: string;
-  lang?: string;
-  appUrl: string;
-  platform?: string;
-  static names(): { [key: string]: string } {
-    return {
-      sourceIp: 'SourceIp',
-      lang: 'Lang',
-      appUrl: 'AppUrl',
-      platform: 'Platform',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      sourceIp: 'string',
-      lang: 'string',
-      appUrl: 'string',
-      platform: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateRPSDKResponse extends $tea.Model {
-  requestId: string;
-  taskId: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      taskId: 'TaskId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      taskId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class VerifyMaterialRequest extends $tea.Model {
-  idCardBackImageUrl?: string;
-  faceImageUrl: string;
-  bizType: string;
-  bizId: string;
-  name: string;
-  idCardNumber: string;
-  idCardFrontImageUrl?: string;
-  userId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      idCardBackImageUrl: 'IdCardBackImageUrl',
-      faceImageUrl: 'FaceImageUrl',
-      bizType: 'BizType',
-      bizId: 'BizId',
-      name: 'Name',
-      idCardNumber: 'IdCardNumber',
-      idCardFrontImageUrl: 'IdCardFrontImageUrl',
-      userId: 'UserId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      idCardBackImageUrl: 'string',
-      faceImageUrl: 'string',
-      bizType: 'string',
-      bizId: 'string',
-      name: 'string',
-      idCardNumber: 'string',
-      idCardFrontImageUrl: 'string',
-      userId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class VerifyMaterialResponse extends $tea.Model {
-  requestId: string;
-  verifyToken: string;
-  verifyStatus: number;
-  authorityComparisionScore: number;
-  idCardFaceComparisonScore: number;
-  material: VerifyMaterialResponseMaterial;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      verifyToken: 'VerifyToken',
-      verifyStatus: 'VerifyStatus',
-      authorityComparisionScore: 'AuthorityComparisionScore',
-      idCardFaceComparisonScore: 'IdCardFaceComparisonScore',
-      material: 'Material',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      verifyToken: 'string',
-      verifyStatus: 'number',
-      authorityComparisionScore: 'number',
-      idCardFaceComparisonScore: 'number',
-      material: VerifyMaterialResponseMaterial,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeVerifyResultRequest extends $tea.Model {
-  bizId: string;
-  bizType: string;
-  static names(): { [key: string]: string } {
-    return {
-      bizId: 'BizId',
-      bizType: 'BizType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bizId: 'string',
-      bizType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeVerifyResultResponse extends $tea.Model {
-  requestId: string;
-  verifyStatus: number;
-  authorityComparisionScore: number;
-  faceComparisonScore: number;
-  idCardFaceComparisonScore: number;
-  material: DescribeVerifyResultResponseMaterial;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      verifyStatus: 'VerifyStatus',
-      authorityComparisionScore: 'AuthorityComparisionScore',
-      faceComparisonScore: 'FaceComparisonScore',
-      idCardFaceComparisonScore: 'IdCardFaceComparisonScore',
-      material: 'Material',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      verifyStatus: 'number',
-      authorityComparisionScore: 'number',
-      faceComparisonScore: 'number',
-      idCardFaceComparisonScore: 'number',
-      material: DescribeVerifyResultResponseMaterial,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeOssUploadTokenRequest extends $tea.Model {
-  static names(): { [key: string]: string } {
-    return {
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeOssUploadTokenResponse extends $tea.Model {
-  requestId: string;
-  ossUploadToken: DescribeOssUploadTokenResponseOssUploadToken;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      ossUploadToken: 'OssUploadToken',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      ossUploadToken: DescribeOssUploadTokenResponseOssUploadToken,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeVerifyTokenRequest extends $tea.Model {
-  idCardBackImageUrl?: string;
-  bizType: string;
-  failedRedirectUrl?: string;
-  faceRetainedImageUrl?: string;
-  callbackSeed?: string;
-  idCardFrontImageUrl?: string;
-  userId?: string;
-  bizId: string;
+export class DescribeVerifyRecordsResponseBodyRecordsListMaterialIdCardInfo extends $tea.Model {
+  endDate?: string;
+  sex?: string;
+  authority?: string;
+  address?: string;
+  number?: string;
+  startDate?: string;
+  nationality?: string;
+  backImageUrl?: string;
+  birth?: string;
   name?: string;
-  idCardNumber?: string;
-  passedRedirectUrl?: string;
-  callbackUrl?: string;
-  userIp?: string;
-  userPhoneNumber?: string;
-  userRegistTime?: number;
+  frontImageUrl?: string;
   static names(): { [key: string]: string } {
     return {
-      idCardBackImageUrl: 'IdCardBackImageUrl',
-      bizType: 'BizType',
-      failedRedirectUrl: 'FailedRedirectUrl',
-      faceRetainedImageUrl: 'FaceRetainedImageUrl',
-      callbackSeed: 'CallbackSeed',
-      idCardFrontImageUrl: 'IdCardFrontImageUrl',
-      userId: 'UserId',
-      bizId: 'BizId',
-      name: 'Name',
-      idCardNumber: 'IdCardNumber',
-      passedRedirectUrl: 'PassedRedirectUrl',
-      callbackUrl: 'CallbackUrl',
-      userIp: 'UserIp',
-      userPhoneNumber: 'UserPhoneNumber',
-      userRegistTime: 'UserRegistTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      idCardBackImageUrl: 'string',
-      bizType: 'string',
-      failedRedirectUrl: 'string',
-      faceRetainedImageUrl: 'string',
-      callbackSeed: 'string',
-      idCardFrontImageUrl: 'string',
-      userId: 'string',
-      bizId: 'string',
-      name: 'string',
-      idCardNumber: 'string',
-      passedRedirectUrl: 'string',
-      callbackUrl: 'string',
-      userIp: 'string',
-      userPhoneNumber: 'string',
-      userRegistTime: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeVerifyTokenResponse extends $tea.Model {
-  requestId: string;
-  verifyPageUrl: string;
-  verifyToken: string;
-  ossUploadToken: DescribeVerifyTokenResponseOssUploadToken;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      verifyPageUrl: 'VerifyPageUrl',
-      verifyToken: 'VerifyToken',
-      ossUploadToken: 'OssUploadToken',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      verifyPageUrl: 'string',
-      verifyToken: 'string',
-      ossUploadToken: DescribeVerifyTokenResponseOssUploadToken,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeWhitelistResponseItems extends $tea.Model {
-  id: number;
-  uid: number;
-  bizType: string;
-  startDate: number;
-  endDate: number;
-  idCardNum: string;
-  bizId: string;
-  valid: number;
-  gmtCreate: number;
-  gmtModified: number;
-  static names(): { [key: string]: string } {
-    return {
-      id: 'Id',
-      uid: 'Uid',
-      bizType: 'BizType',
-      startDate: 'StartDate',
       endDate: 'EndDate',
-      idCardNum: 'IdCardNum',
-      bizId: 'BizId',
-      valid: 'Valid',
-      gmtCreate: 'GmtCreate',
-      gmtModified: 'GmtModified',
+      sex: 'Sex',
+      authority: 'Authority',
+      address: 'Address',
+      number: 'Number',
+      startDate: 'StartDate',
+      nationality: 'Nationality',
+      backImageUrl: 'BackImageUrl',
+      birth: 'Birth',
+      name: 'Name',
+      frontImageUrl: 'FrontImageUrl',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      id: 'number',
-      uid: 'number',
-      bizType: 'string',
-      startDate: 'number',
-      endDate: 'number',
-      idCardNum: 'string',
-      bizId: 'string',
-      valid: 'number',
-      gmtCreate: 'number',
-      gmtModified: 'number',
+      endDate: 'string',
+      sex: 'string',
+      authority: 'string',
+      address: 'string',
+      number: 'string',
+      startDate: 'string',
+      nationality: 'string',
+      backImageUrl: 'string',
+      birth: 'string',
+      name: 'string',
+      frontImageUrl: 'string',
     };
   }
 
@@ -2356,22 +3749,136 @@ export class DescribeWhitelistResponseItems extends $tea.Model {
   }
 }
 
-export class DescribeFaceConfigResponseItems extends $tea.Model {
-  bizType: string;
-  bizName: string;
-  gmtUpdated: number;
+export class DescribeVerifyRecordsResponseBodyRecordsListMaterial extends $tea.Model {
+  idCardNumber?: string;
+  faceImageUrl?: string;
+  idCardName?: string;
+  idCardInfo?: DescribeVerifyRecordsResponseBodyRecordsListMaterialIdCardInfo;
   static names(): { [key: string]: string } {
     return {
+      idCardNumber: 'IdCardNumber',
+      faceImageUrl: 'FaceImageUrl',
+      idCardName: 'IdCardName',
+      idCardInfo: 'IdCardInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      idCardNumber: 'string',
+      faceImageUrl: 'string',
+      idCardName: 'string',
+      idCardInfo: DescribeVerifyRecordsResponseBodyRecordsListMaterialIdCardInfo,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVerifyRecordsResponseBodyRecordsList extends $tea.Model {
+  status?: number;
+  finishTime?: number;
+  idCardFaceComparisonScore?: number;
+  bizId?: string;
+  verifyId?: string;
+  authorityComparisonScore?: number;
+  dataStats?: string;
+  bizType?: string;
+  material?: DescribeVerifyRecordsResponseBodyRecordsListMaterial;
+  static names(): { [key: string]: string } {
+    return {
+      status: 'Status',
+      finishTime: 'FinishTime',
+      idCardFaceComparisonScore: 'IdCardFaceComparisonScore',
+      bizId: 'BizId',
+      verifyId: 'VerifyId',
+      authorityComparisonScore: 'AuthorityComparisonScore',
+      dataStats: 'DataStats',
       bizType: 'BizType',
+      material: 'Material',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      status: 'number',
+      finishTime: 'number',
+      idCardFaceComparisonScore: 'number',
+      bizId: 'string',
+      verifyId: 'string',
+      authorityComparisonScore: 'number',
+      dataStats: 'string',
+      bizType: 'string',
+      material: DescribeVerifyRecordsResponseBodyRecordsListMaterial,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeWhitelistSettingResponseBodyItems extends $tea.Model {
+  status?: string;
+  gmtCreate?: string;
+  certifyId?: string;
+  certNo?: string;
+  validStartDate?: string;
+  sceneId?: number;
+  gmtModified?: string;
+  validEndDate?: string;
+  id?: number;
+  static names(): { [key: string]: string } {
+    return {
+      status: 'Status',
+      gmtCreate: 'GmtCreate',
+      certifyId: 'CertifyId',
+      certNo: 'CertNo',
+      validStartDate: 'ValidStartDate',
+      sceneId: 'SceneId',
+      gmtModified: 'GmtModified',
+      validEndDate: 'ValidEndDate',
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      status: 'string',
+      gmtCreate: 'string',
+      certifyId: 'string',
+      certNo: 'string',
+      validStartDate: 'string',
+      sceneId: 'number',
+      gmtModified: 'string',
+      validEndDate: 'string',
+      id: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeFaceConfigResponseBodyItems extends $tea.Model {
+  bizName?: string;
+  bizType?: string;
+  gmtUpdated?: number;
+  static names(): { [key: string]: string } {
+    return {
       bizName: 'BizName',
+      bizType: 'BizType',
       gmtUpdated: 'GmtUpdated',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      bizType: 'string',
       bizName: 'string',
+      bizType: 'string',
       gmtUpdated: 'number',
     };
   }
@@ -2381,51 +3888,26 @@ export class DescribeFaceConfigResponseItems extends $tea.Model {
   }
 }
 
-export class LivenessFaceVerifyResponseResultObject extends $tea.Model {
-  passed: string;
-  materialInfo: string;
-  subCode: string;
-  certifyId: string;
+export class LivenessFaceVerifyResponseBodyResultObject extends $tea.Model {
+  certifyId?: string;
+  subCode?: string;
+  materialInfo?: string;
+  passed?: string;
   static names(): { [key: string]: string } {
     return {
-      passed: 'Passed',
-      materialInfo: 'MaterialInfo',
+      certifyId: 'CertifyId',
       subCode: 'SubCode',
-      certifyId: 'CertifyId',
+      materialInfo: 'MaterialInfo',
+      passed: 'Passed',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      passed: 'string',
-      materialInfo: 'string',
+      certifyId: 'string',
       subCode: 'string',
-      certifyId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CompareFaceVerifyResponseResultObject extends $tea.Model {
-  passed: string;
-  verifyScore: number;
-  certifyId: string;
-  static names(): { [key: string]: string } {
-    return {
-      passed: 'Passed',
-      verifyScore: 'VerifyScore',
-      certifyId: 'CertifyId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
+      materialInfo: 'string',
       passed: 'string',
-      verifyScore: 'number',
-      certifyId: 'string',
     };
   }
 
@@ -2434,8 +3916,8 @@ export class CompareFaceVerifyResponseResultObject extends $tea.Model {
   }
 }
 
-export class DescribeUpdatePackageResultResponseAppInfoPackageInfo extends $tea.Model {
-  version: string;
+export class DescribeAppInfoResponseBodyAppInfoListPackageInfo extends $tea.Model {
+  version?: string;
   static names(): { [key: string]: string } {
     return {
       version: 'Version',
@@ -2453,8 +3935,8 @@ export class DescribeUpdatePackageResultResponseAppInfoPackageInfo extends $tea.
   }
 }
 
-export class DescribeUpdatePackageResultResponseAppInfoDebugPackageInfo extends $tea.Model {
-  version: string;
+export class DescribeAppInfoResponseBodyAppInfoListDebugPackageInfo extends $tea.Model {
+  version?: string;
   static names(): { [key: string]: string } {
     return {
       version: 'Version',
@@ -2472,25 +3954,25 @@ export class DescribeUpdatePackageResultResponseAppInfoDebugPackageInfo extends 
   }
 }
 
-export class DescribeUpdatePackageResultResponseAppInfo extends $tea.Model {
-  id: number;
-  name: string;
-  packageName: string;
-  icon: string;
-  startDate: string;
-  endDate: string;
-  type: number;
-  packageInfo: DescribeUpdatePackageResultResponseAppInfoPackageInfo;
-  debugPackageInfo: DescribeUpdatePackageResultResponseAppInfoDebugPackageInfo;
+export class DescribeAppInfoResponseBodyAppInfoList extends $tea.Model {
+  type?: number;
+  endDate?: string;
+  packageName?: string;
+  icon?: string;
+  startDate?: string;
+  name?: string;
+  id?: number;
+  packageInfo?: DescribeAppInfoResponseBodyAppInfoListPackageInfo;
+  debugPackageInfo?: DescribeAppInfoResponseBodyAppInfoListDebugPackageInfo;
   static names(): { [key: string]: string } {
     return {
-      id: 'Id',
-      name: 'Name',
+      type: 'Type',
+      endDate: 'EndDate',
       packageName: 'PackageName',
       icon: 'Icon',
       startDate: 'StartDate',
-      endDate: 'EndDate',
-      type: 'Type',
+      name: 'Name',
+      id: 'Id',
       packageInfo: 'PackageInfo',
       debugPackageInfo: 'DebugPackageInfo',
     };
@@ -2498,96 +3980,15 @@ export class DescribeUpdatePackageResultResponseAppInfo extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      id: 'number',
-      name: 'string',
+      type: 'number',
+      endDate: 'string',
       packageName: 'string',
       icon: 'string',
       startDate: 'string',
-      endDate: 'string',
-      type: 'number',
-      packageInfo: DescribeUpdatePackageResultResponseAppInfoPackageInfo,
-      debugPackageInfo: DescribeUpdatePackageResultResponseAppInfoDebugPackageInfo,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeAppInfoResponseAppInfoListPackageInfo extends $tea.Model {
-  version: string;
-  static names(): { [key: string]: string } {
-    return {
-      version: 'Version',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      version: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeAppInfoResponseAppInfoListDebugPackageInfo extends $tea.Model {
-  version: string;
-  static names(): { [key: string]: string } {
-    return {
-      version: 'Version',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      version: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeAppInfoResponseAppInfoList extends $tea.Model {
-  id: number;
-  name: string;
-  packageName: string;
-  icon: string;
-  startDate: string;
-  endDate: string;
-  type: number;
-  packageInfo: DescribeAppInfoResponseAppInfoListPackageInfo;
-  debugPackageInfo: DescribeAppInfoResponseAppInfoListDebugPackageInfo;
-  static names(): { [key: string]: string } {
-    return {
-      id: 'Id',
-      name: 'Name',
-      packageName: 'PackageName',
-      icon: 'Icon',
-      startDate: 'StartDate',
-      endDate: 'EndDate',
-      type: 'Type',
-      packageInfo: 'PackageInfo',
-      debugPackageInfo: 'DebugPackageInfo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      id: 'number',
       name: 'string',
-      packageName: 'string',
-      icon: 'string',
-      startDate: 'string',
-      endDate: 'string',
-      type: 'number',
-      packageInfo: DescribeAppInfoResponseAppInfoListPackageInfo,
-      debugPackageInfo: DescribeAppInfoResponseAppInfoListDebugPackageInfo,
+      id: 'number',
+      packageInfo: DescribeAppInfoResponseBodyAppInfoListPackageInfo,
+      debugPackageInfo: DescribeAppInfoResponseBodyAppInfoListDebugPackageInfo,
     };
   }
 
@@ -2596,29 +3997,29 @@ export class DescribeAppInfoResponseAppInfoList extends $tea.Model {
   }
 }
 
-export class ContrastFaceVerifyResponseResultObject extends $tea.Model {
-  passed: string;
-  identityInfo: string;
-  materialInfo: string;
-  subCode: string;
-  certifyId: string;
+export class ContrastFaceVerifyResponseBodyResultObject extends $tea.Model {
+  certifyId?: string;
+  subCode?: string;
+  materialInfo?: string;
+  identityInfo?: string;
+  passed?: string;
   static names(): { [key: string]: string } {
     return {
-      passed: 'Passed',
+      certifyId: 'CertifyId',
+      subCode: 'SubCode',
+      materialInfo: 'MaterialInfo',
       identityInfo: 'IdentityInfo',
-      materialInfo: 'MaterialInfo',
-      subCode: 'SubCode',
-      certifyId: 'CertifyId',
+      passed: 'Passed',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      passed: 'string',
-      identityInfo: 'string',
-      materialInfo: 'string',
-      subCode: 'string',
       certifyId: 'string',
+      subCode: 'string',
+      materialInfo: 'string',
+      identityInfo: 'string',
+      passed: 'string',
     };
   }
 
@@ -2627,146 +4028,32 @@ export class ContrastFaceVerifyResponseResultObject extends $tea.Model {
   }
 }
 
-export class InitDeviceResponseResultObject extends $tea.Model {
-  certifyId: string;
-  protocol: string;
-  extParams: string;
-  retCode: string;
-  retCodeSub: string;
-  retMessageSub: string;
-  message: string;
-  ossEndPoint: string;
-  accessKeyId: string;
-  accessKeySecret: string;
-  securityToken: string;
-  bucketName: string;
-  fileNamePrefix: string;
-  fileName: string;
-  presignedUrl: string;
+export class VerifyDeviceResponseBodyResultObject extends $tea.Model {
+  retCodeSub?: string;
+  productRetCode?: string;
+  hasNext?: string;
+  retMessageSub?: string;
+  extParams?: string;
+  validationRetCode?: string;
   static names(): { [key: string]: string } {
     return {
-      certifyId: 'CertifyId',
-      protocol: 'Protocol',
-      extParams: 'ExtParams',
-      retCode: 'RetCode',
       retCodeSub: 'RetCodeSub',
-      retMessageSub: 'RetMessageSub',
-      message: 'Message',
-      ossEndPoint: 'OssEndPoint',
-      accessKeyId: 'AccessKeyId',
-      accessKeySecret: 'AccessKeySecret',
-      securityToken: 'SecurityToken',
-      bucketName: 'BucketName',
-      fileNamePrefix: 'FileNamePrefix',
-      fileName: 'FileName',
-      presignedUrl: 'PresignedUrl',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      certifyId: 'string',
-      protocol: 'string',
-      extParams: 'string',
-      retCode: 'string',
-      retCodeSub: 'string',
-      retMessageSub: 'string',
-      message: 'string',
-      ossEndPoint: 'string',
-      accessKeyId: 'string',
-      accessKeySecret: 'string',
-      securityToken: 'string',
-      bucketName: 'string',
-      fileNamePrefix: 'string',
-      fileName: 'string',
-      presignedUrl: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class InitFaceVerifyResponseResultObject extends $tea.Model {
-  certifyId: string;
-  certifyUrl: string;
-  static names(): { [key: string]: string } {
-    return {
-      certifyId: 'CertifyId',
-      certifyUrl: 'CertifyUrl',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      certifyId: 'string',
-      certifyUrl: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeFaceVerifyResponseResultObject extends $tea.Model {
-  passed: string;
-  identityInfo: string;
-  materialInfo: string;
-  deviceToken: string;
-  subCode: string;
-  static names(): { [key: string]: string } {
-    return {
-      passed: 'Passed',
-      identityInfo: 'IdentityInfo',
-      materialInfo: 'MaterialInfo',
-      deviceToken: 'DeviceToken',
-      subCode: 'SubCode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      passed: 'string',
-      identityInfo: 'string',
-      materialInfo: 'string',
-      deviceToken: 'string',
-      subCode: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class VerifyDeviceResponseResultObject extends $tea.Model {
-  validationRetCode: string;
-  productRetCode: string;
-  retCodeSub: string;
-  retMessageSub: string;
-  hasNext: string;
-  extParams: string;
-  static names(): { [key: string]: string } {
-    return {
-      validationRetCode: 'ValidationRetCode',
       productRetCode: 'ProductRetCode',
-      retCodeSub: 'RetCodeSub',
-      retMessageSub: 'RetMessageSub',
       hasNext: 'HasNext',
+      retMessageSub: 'RetMessageSub',
       extParams: 'ExtParams',
+      validationRetCode: 'ValidationRetCode',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      validationRetCode: 'string',
-      productRetCode: 'string',
       retCodeSub: 'string',
-      retMessageSub: 'string',
+      productRetCode: 'string',
       hasNext: 'string',
+      retMessageSub: 'string',
       extParams: 'string',
+      validationRetCode: 'string',
     };
   }
 
@@ -2775,29 +4062,23 @@ export class VerifyDeviceResponseResultObject extends $tea.Model {
   }
 }
 
-export class DescribeDeviceInfoResponseDeviceInfoListDeviceInfo extends $tea.Model {
-  deviceId: string;
-  userDeviceId: string;
-  bizType: string;
-  beginDay: string;
-  expiredDay: string;
+export class CompareFaceVerifyResponseBodyResultObject extends $tea.Model {
+  certifyId?: string;
+  verifyScore?: number;
+  passed?: string;
   static names(): { [key: string]: string } {
     return {
-      deviceId: 'DeviceId',
-      userDeviceId: 'UserDeviceId',
-      bizType: 'BizType',
-      beginDay: 'BeginDay',
-      expiredDay: 'ExpiredDay',
+      certifyId: 'CertifyId',
+      verifyScore: 'VerifyScore',
+      passed: 'Passed',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      deviceId: 'string',
-      userDeviceId: 'string',
-      bizType: 'string',
-      beginDay: 'string',
-      expiredDay: 'string',
+      certifyId: 'string',
+      verifyScore: 'number',
+      passed: 'string',
     };
   }
 
@@ -2806,8 +4087,39 @@ export class DescribeDeviceInfoResponseDeviceInfoListDeviceInfo extends $tea.Mod
   }
 }
 
-export class DescribeDeviceInfoResponseDeviceInfoList extends $tea.Model {
-  deviceInfo: DescribeDeviceInfoResponseDeviceInfoListDeviceInfo[];
+export class DescribeDeviceInfoResponseBodyDeviceInfoListDeviceInfo extends $tea.Model {
+  expiredDay?: string;
+  userDeviceId?: string;
+  deviceId?: string;
+  beginDay?: string;
+  bizType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      expiredDay: 'ExpiredDay',
+      userDeviceId: 'UserDeviceId',
+      deviceId: 'DeviceId',
+      beginDay: 'BeginDay',
+      bizType: 'BizType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      expiredDay: 'string',
+      userDeviceId: 'string',
+      deviceId: 'string',
+      beginDay: 'string',
+      bizType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDeviceInfoResponseBodyDeviceInfoList extends $tea.Model {
+  deviceInfo?: DescribeDeviceInfoResponseBodyDeviceInfoListDeviceInfo[];
   static names(): { [key: string]: string } {
     return {
       deviceInfo: 'DeviceInfo',
@@ -2816,7 +4128,7 @@ export class DescribeDeviceInfoResponseDeviceInfoList extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      deviceInfo: { 'type': 'array', 'itemType': DescribeDeviceInfoResponseDeviceInfoListDeviceInfo },
+      deviceInfo: { 'type': 'array', 'itemType': DescribeDeviceInfoResponseBodyDeviceInfoListDeviceInfo },
     };
   }
 
@@ -2825,15 +4137,83 @@ export class DescribeDeviceInfoResponseDeviceInfoList extends $tea.Model {
   }
 }
 
-export class DetectFaceAttributesResponseDataFaceInfosFaceAttributesDetectInfoFaceRect extends $tea.Model {
-  top: number;
-  left: number;
-  width: number;
-  height: number;
+export class DescribeFaceVerifyResponseBodyResultObject extends $tea.Model {
+  subCode?: string;
+  materialInfo?: string;
+  identityInfo?: string;
+  deviceToken?: string;
+  passed?: string;
   static names(): { [key: string]: string } {
     return {
-      top: 'Top',
+      subCode: 'SubCode',
+      materialInfo: 'MaterialInfo',
+      identityInfo: 'IdentityInfo',
+      deviceToken: 'DeviceToken',
+      passed: 'Passed',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      subCode: 'string',
+      materialInfo: 'string',
+      identityInfo: 'string',
+      deviceToken: 'string',
+      passed: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeOssUploadTokenResponseBodyOssUploadToken extends $tea.Model {
+  key?: string;
+  token?: string;
+  secret?: string;
+  expired?: number;
+  path?: string;
+  endPoint?: string;
+  bucket?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      token: 'Token',
+      secret: 'Secret',
+      expired: 'Expired',
+      path: 'Path',
+      endPoint: 'EndPoint',
+      bucket: 'Bucket',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      token: 'string',
+      secret: 'string',
+      expired: 'number',
+      path: 'string',
+      endPoint: 'string',
+      bucket: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectFaceAttributesResponseBodyDataFaceInfosFaceAttributesDetectInfoFaceRect extends $tea.Model {
+  left?: number;
+  top?: number;
+  width?: number;
+  height?: number;
+  static names(): { [key: string]: string } {
+    return {
       left: 'Left',
+      top: 'Top',
       width: 'Width',
       height: 'Height',
     };
@@ -2841,8 +4221,8 @@ export class DetectFaceAttributesResponseDataFaceInfosFaceAttributesDetectInfoFa
 
   static types(): { [key: string]: any } {
     return {
-      top: 'number',
       left: 'number',
+      top: 'number',
       width: 'number',
       height: 'number',
     };
@@ -2853,9 +4233,9 @@ export class DetectFaceAttributesResponseDataFaceInfosFaceAttributesDetectInfoFa
   }
 }
 
-export class DetectFaceAttributesResponseDataFaceInfosFaceAttributesDetectInfoFaceAttributesSmiling extends $tea.Model {
-  value: number;
-  threshold: number;
+export class DetectFaceAttributesResponseBodyDataFaceInfosFaceAttributesDetectInfoFaceAttributesSmiling extends $tea.Model {
+  value?: number;
+  threshold?: number;
   static names(): { [key: string]: string } {
     return {
       value: 'Value',
@@ -2875,10 +4255,10 @@ export class DetectFaceAttributesResponseDataFaceInfosFaceAttributesDetectInfoFa
   }
 }
 
-export class DetectFaceAttributesResponseDataFaceInfosFaceAttributesDetectInfoFaceAttributesHeadpose extends $tea.Model {
-  pitchAngle: number;
-  rollAngle: number;
-  yawAngle: number;
+export class DetectFaceAttributesResponseBodyDataFaceInfosFaceAttributesDetectInfoFaceAttributesHeadpose extends $tea.Model {
+  pitchAngle?: number;
+  rollAngle?: number;
+  yawAngle?: number;
   static names(): { [key: string]: string } {
     return {
       pitchAngle: 'PitchAngle',
@@ -2900,25 +4280,23 @@ export class DetectFaceAttributesResponseDataFaceInfosFaceAttributesDetectInfoFa
   }
 }
 
-export class DetectFaceAttributesResponseDataFaceInfosFaceAttributesDetectInfoFaceAttributes extends $tea.Model {
-  glasses: string;
-  facetype: string;
-  blur: number;
-  facequal: number;
-  integrity: number;
-  respirator: string;
-  appearanceScore: number;
-  smiling: DetectFaceAttributesResponseDataFaceInfosFaceAttributesDetectInfoFaceAttributesSmiling;
-  headpose: DetectFaceAttributesResponseDataFaceInfosFaceAttributesDetectInfoFaceAttributesHeadpose;
+export class DetectFaceAttributesResponseBodyDataFaceInfosFaceAttributesDetectInfoFaceAttributes extends $tea.Model {
+  glasses?: string;
+  facequal?: number;
+  integrity?: number;
+  facetype?: string;
+  respirator?: string;
+  blur?: number;
+  smiling?: DetectFaceAttributesResponseBodyDataFaceInfosFaceAttributesDetectInfoFaceAttributesSmiling;
+  headpose?: DetectFaceAttributesResponseBodyDataFaceInfosFaceAttributesDetectInfoFaceAttributesHeadpose;
   static names(): { [key: string]: string } {
     return {
       glasses: 'Glasses',
-      facetype: 'Facetype',
-      blur: 'Blur',
       facequal: 'Facequal',
       integrity: 'Integrity',
+      facetype: 'Facetype',
       respirator: 'Respirator',
-      appearanceScore: 'AppearanceScore',
+      blur: 'Blur',
       smiling: 'Smiling',
       headpose: 'Headpose',
     };
@@ -2927,14 +4305,13 @@ export class DetectFaceAttributesResponseDataFaceInfosFaceAttributesDetectInfoFa
   static types(): { [key: string]: any } {
     return {
       glasses: 'string',
-      facetype: 'string',
-      blur: 'number',
       facequal: 'number',
       integrity: 'number',
+      facetype: 'string',
       respirator: 'string',
-      appearanceScore: 'number',
-      smiling: DetectFaceAttributesResponseDataFaceInfosFaceAttributesDetectInfoFaceAttributesSmiling,
-      headpose: DetectFaceAttributesResponseDataFaceInfosFaceAttributesDetectInfoFaceAttributesHeadpose,
+      blur: 'number',
+      smiling: DetectFaceAttributesResponseBodyDataFaceInfosFaceAttributesDetectInfoFaceAttributesSmiling,
+      headpose: DetectFaceAttributesResponseBodyDataFaceInfosFaceAttributesDetectInfoFaceAttributesHeadpose,
     };
   }
 
@@ -2943,9 +4320,9 @@ export class DetectFaceAttributesResponseDataFaceInfosFaceAttributesDetectInfoFa
   }
 }
 
-export class DetectFaceAttributesResponseDataFaceInfosFaceAttributesDetectInfo extends $tea.Model {
-  faceRect: DetectFaceAttributesResponseDataFaceInfosFaceAttributesDetectInfoFaceRect;
-  faceAttributes: DetectFaceAttributesResponseDataFaceInfosFaceAttributesDetectInfoFaceAttributes;
+export class DetectFaceAttributesResponseBodyDataFaceInfosFaceAttributesDetectInfo extends $tea.Model {
+  faceRect?: DetectFaceAttributesResponseBodyDataFaceInfosFaceAttributesDetectInfoFaceRect;
+  faceAttributes?: DetectFaceAttributesResponseBodyDataFaceInfosFaceAttributesDetectInfoFaceAttributes;
   static names(): { [key: string]: string } {
     return {
       faceRect: 'FaceRect',
@@ -2955,8 +4332,8 @@ export class DetectFaceAttributesResponseDataFaceInfosFaceAttributesDetectInfo e
 
   static types(): { [key: string]: any } {
     return {
-      faceRect: DetectFaceAttributesResponseDataFaceInfosFaceAttributesDetectInfoFaceRect,
-      faceAttributes: DetectFaceAttributesResponseDataFaceInfosFaceAttributesDetectInfoFaceAttributes,
+      faceRect: DetectFaceAttributesResponseBodyDataFaceInfosFaceAttributesDetectInfoFaceRect,
+      faceAttributes: DetectFaceAttributesResponseBodyDataFaceInfosFaceAttributesDetectInfoFaceAttributes,
     };
   }
 
@@ -2965,8 +4342,8 @@ export class DetectFaceAttributesResponseDataFaceInfosFaceAttributesDetectInfo e
   }
 }
 
-export class DetectFaceAttributesResponseDataFaceInfos extends $tea.Model {
-  faceAttributesDetectInfo: DetectFaceAttributesResponseDataFaceInfosFaceAttributesDetectInfo[];
+export class DetectFaceAttributesResponseBodyDataFaceInfos extends $tea.Model {
+  faceAttributesDetectInfo?: DetectFaceAttributesResponseBodyDataFaceInfosFaceAttributesDetectInfo[];
   static names(): { [key: string]: string } {
     return {
       faceAttributesDetectInfo: 'FaceAttributesDetectInfo',
@@ -2975,7 +4352,7 @@ export class DetectFaceAttributesResponseDataFaceInfos extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      faceAttributesDetectInfo: { 'type': 'array', 'itemType': DetectFaceAttributesResponseDataFaceInfosFaceAttributesDetectInfo },
+      faceAttributesDetectInfo: { 'type': 'array', 'itemType': DetectFaceAttributesResponseBodyDataFaceInfosFaceAttributesDetectInfo },
     };
   }
 
@@ -2984,23 +4361,23 @@ export class DetectFaceAttributesResponseDataFaceInfos extends $tea.Model {
   }
 }
 
-export class DetectFaceAttributesResponseData extends $tea.Model {
-  imgWidth: number;
-  imgHeight: number;
-  faceInfos: DetectFaceAttributesResponseDataFaceInfos;
+export class DetectFaceAttributesResponseBodyData extends $tea.Model {
+  imgHeight?: number;
+  imgWidth?: number;
+  faceInfos?: DetectFaceAttributesResponseBodyDataFaceInfos;
   static names(): { [key: string]: string } {
     return {
-      imgWidth: 'ImgWidth',
       imgHeight: 'ImgHeight',
+      imgWidth: 'ImgWidth',
       faceInfos: 'FaceInfos',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      imgWidth: 'number',
       imgHeight: 'number',
-      faceInfos: DetectFaceAttributesResponseDataFaceInfos,
+      imgWidth: 'number',
+      faceInfos: DetectFaceAttributesResponseBodyDataFaceInfos,
     };
   }
 
@@ -3009,9 +4386,95 @@ export class DetectFaceAttributesResponseData extends $tea.Model {
   }
 }
 
-export class CompareFacesResponseData extends $tea.Model {
-  similarityScore: number;
-  confidenceThresholds: string;
+export class DescribeVerifyResultResponseBodyMaterialIdCardInfo extends $tea.Model {
+  endDate?: string;
+  authority?: string;
+  address?: string;
+  number?: string;
+  startDate?: string;
+  backImageUrl?: string;
+  nationality?: string;
+  birth?: string;
+  name?: string;
+  frontImageUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endDate: 'EndDate',
+      authority: 'Authority',
+      address: 'Address',
+      number: 'Number',
+      startDate: 'StartDate',
+      backImageUrl: 'BackImageUrl',
+      nationality: 'Nationality',
+      birth: 'Birth',
+      name: 'Name',
+      frontImageUrl: 'FrontImageUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endDate: 'string',
+      authority: 'string',
+      address: 'string',
+      number: 'string',
+      startDate: 'string',
+      backImageUrl: 'string',
+      nationality: 'string',
+      birth: 'string',
+      name: 'string',
+      frontImageUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVerifyResultResponseBodyMaterial extends $tea.Model {
+  idCardNumber?: string;
+  faceGlobalUrl?: string;
+  faceImageUrl?: string;
+  faceMask?: boolean;
+  idCardName?: string;
+  faceQuality?: string;
+  videoUrls?: string[];
+  idCardInfo?: DescribeVerifyResultResponseBodyMaterialIdCardInfo;
+  static names(): { [key: string]: string } {
+    return {
+      idCardNumber: 'IdCardNumber',
+      faceGlobalUrl: 'FaceGlobalUrl',
+      faceImageUrl: 'FaceImageUrl',
+      faceMask: 'FaceMask',
+      idCardName: 'IdCardName',
+      faceQuality: 'FaceQuality',
+      videoUrls: 'VideoUrls',
+      idCardInfo: 'IdCardInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      idCardNumber: 'string',
+      faceGlobalUrl: 'string',
+      faceImageUrl: 'string',
+      faceMask: 'boolean',
+      idCardName: 'string',
+      faceQuality: 'string',
+      videoUrls: { 'type': 'array', 'itemType': 'string' },
+      idCardInfo: DescribeVerifyResultResponseBodyMaterialIdCardInfo,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CompareFacesResponseBodyData extends $tea.Model {
+  similarityScore?: number;
+  confidenceThresholds?: string;
   static names(): { [key: string]: string } {
     return {
       similarityScore: 'SimilarityScore',
@@ -3031,20 +4494,59 @@ export class CompareFacesResponseData extends $tea.Model {
   }
 }
 
-export class DescribeFaceUsageResponseFaceUsageList extends $tea.Model {
-  date: string;
-  totalCount: number;
+export class InitDeviceResponseBodyResultObject extends $tea.Model {
+  ossEndPoint?: string;
+  retCodeSub?: string;
+  protocol?: string;
+  certifyId?: string;
+  extParams?: string;
+  message?: string;
+  fileName?: string;
+  accessKeyId?: string;
+  presignedUrl?: string;
+  securityToken?: string;
+  fileNamePrefix?: string;
+  bucketName?: string;
+  accessKeySecret?: string;
+  retMessageSub?: string;
+  retCode?: string;
   static names(): { [key: string]: string } {
     return {
-      date: 'Date',
-      totalCount: 'TotalCount',
+      ossEndPoint: 'OssEndPoint',
+      retCodeSub: 'RetCodeSub',
+      protocol: 'Protocol',
+      certifyId: 'CertifyId',
+      extParams: 'ExtParams',
+      message: 'Message',
+      fileName: 'FileName',
+      accessKeyId: 'AccessKeyId',
+      presignedUrl: 'PresignedUrl',
+      securityToken: 'SecurityToken',
+      fileNamePrefix: 'FileNamePrefix',
+      bucketName: 'BucketName',
+      accessKeySecret: 'AccessKeySecret',
+      retMessageSub: 'RetMessageSub',
+      retCode: 'RetCode',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      date: 'string',
-      totalCount: 'number',
+      ossEndPoint: 'string',
+      retCodeSub: 'string',
+      protocol: 'string',
+      certifyId: 'string',
+      extParams: 'string',
+      message: 'string',
+      fileName: 'string',
+      accessKeyId: 'string',
+      presignedUrl: 'string',
+      securityToken: 'string',
+      fileNamePrefix: 'string',
+      bucketName: 'string',
+      accessKeySecret: 'string',
+      retMessageSub: 'string',
+      retCode: 'string',
     };
   }
 
@@ -3053,420 +4555,20 @@ export class DescribeFaceUsageResponseFaceUsageList extends $tea.Model {
   }
 }
 
-export class DescribeVerifyRecordsResponseRecordsListMaterialIdCardInfo extends $tea.Model {
-  frontImageUrl: string;
-  backImageUrl: string;
-  name: string;
-  number: string;
-  address: string;
-  birth: string;
-  sex: string;
-  nationality: string;
-  authority: string;
-  startDate: string;
-  endDate: string;
+export class InitFaceVerifyResponseBodyResultObject extends $tea.Model {
+  certifyId?: string;
+  certifyUrl?: string;
   static names(): { [key: string]: string } {
     return {
-      frontImageUrl: 'FrontImageUrl',
-      backImageUrl: 'BackImageUrl',
-      name: 'Name',
-      number: 'Number',
-      address: 'Address',
-      birth: 'Birth',
-      sex: 'Sex',
-      nationality: 'Nationality',
-      authority: 'Authority',
-      startDate: 'StartDate',
-      endDate: 'EndDate',
+      certifyId: 'CertifyId',
+      certifyUrl: 'CertifyUrl',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      frontImageUrl: 'string',
-      backImageUrl: 'string',
-      name: 'string',
-      number: 'string',
-      address: 'string',
-      birth: 'string',
-      sex: 'string',
-      nationality: 'string',
-      authority: 'string',
-      startDate: 'string',
-      endDate: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeVerifyRecordsResponseRecordsListMaterial extends $tea.Model {
-  faceImageUrl: string;
-  idCardName: string;
-  idCardNumber: string;
-  idCardInfo: DescribeVerifyRecordsResponseRecordsListMaterialIdCardInfo;
-  static names(): { [key: string]: string } {
-    return {
-      faceImageUrl: 'FaceImageUrl',
-      idCardName: 'IdCardName',
-      idCardNumber: 'IdCardNumber',
-      idCardInfo: 'IdCardInfo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      faceImageUrl: 'string',
-      idCardName: 'string',
-      idCardNumber: 'string',
-      idCardInfo: DescribeVerifyRecordsResponseRecordsListMaterialIdCardInfo,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeVerifyRecordsResponseRecordsList extends $tea.Model {
-  bizType: string;
-  bizId: string;
-  dataStats: string;
-  verifyId: string;
-  finishTime: number;
-  status: number;
-  idCardFaceComparisonScore: number;
-  authorityComparisonScore: number;
-  material: DescribeVerifyRecordsResponseRecordsListMaterial;
-  static names(): { [key: string]: string } {
-    return {
-      bizType: 'BizType',
-      bizId: 'BizId',
-      dataStats: 'DataStats',
-      verifyId: 'VerifyId',
-      finishTime: 'FinishTime',
-      status: 'Status',
-      idCardFaceComparisonScore: 'IdCardFaceComparisonScore',
-      authorityComparisonScore: 'AuthorityComparisonScore',
-      material: 'Material',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bizType: 'string',
-      bizId: 'string',
-      dataStats: 'string',
-      verifyId: 'string',
-      finishTime: 'number',
-      status: 'number',
-      idCardFaceComparisonScore: 'number',
-      authorityComparisonScore: 'number',
-      material: DescribeVerifyRecordsResponseRecordsListMaterial,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeVerifySettingResponseVerifySettingList extends $tea.Model {
-  bizType: string;
-  bizName: string;
-  solution: string;
-  stepList: string[];
-  static names(): { [key: string]: string } {
-    return {
-      bizType: 'BizType',
-      bizName: 'BizName',
-      solution: 'Solution',
-      stepList: 'StepList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bizType: 'string',
-      bizName: 'string',
-      solution: 'string',
-      stepList: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeVerifyUsageResponseVerifyUsageList extends $tea.Model {
-  bizType: string;
-  date: string;
-  totalCount: number;
-  passCount: number;
-  failCount: number;
-  static names(): { [key: string]: string } {
-    return {
-      bizType: 'BizType',
-      date: 'Date',
-      totalCount: 'TotalCount',
-      passCount: 'PassCount',
-      failCount: 'FailCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bizType: 'string',
-      date: 'string',
-      totalCount: 'number',
-      passCount: 'number',
-      failCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class VerifyMaterialResponseMaterialIdCardInfo extends $tea.Model {
-  number: string;
-  address: string;
-  nationality: string;
-  endDate: string;
-  frontImageUrl: string;
-  authority: string;
-  name: string;
-  birth: string;
-  backImageUrl: string;
-  startDate: string;
-  static names(): { [key: string]: string } {
-    return {
-      number: 'Number',
-      address: 'Address',
-      nationality: 'Nationality',
-      endDate: 'EndDate',
-      frontImageUrl: 'FrontImageUrl',
-      authority: 'Authority',
-      name: 'Name',
-      birth: 'Birth',
-      backImageUrl: 'BackImageUrl',
-      startDate: 'StartDate',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      number: 'string',
-      address: 'string',
-      nationality: 'string',
-      endDate: 'string',
-      frontImageUrl: 'string',
-      authority: 'string',
-      name: 'string',
-      birth: 'string',
-      backImageUrl: 'string',
-      startDate: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class VerifyMaterialResponseMaterial extends $tea.Model {
-  faceImageUrl: string;
-  idCardName: string;
-  idCardNumber: string;
-  faceQuality: string;
-  faceGlobalUrl: string;
-  faceMask: string;
-  idCardInfo: VerifyMaterialResponseMaterialIdCardInfo;
-  static names(): { [key: string]: string } {
-    return {
-      faceImageUrl: 'FaceImageUrl',
-      idCardName: 'IdCardName',
-      idCardNumber: 'IdCardNumber',
-      faceQuality: 'FaceQuality',
-      faceGlobalUrl: 'FaceGlobalUrl',
-      faceMask: 'FaceMask',
-      idCardInfo: 'IdCardInfo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      faceImageUrl: 'string',
-      idCardName: 'string',
-      idCardNumber: 'string',
-      faceQuality: 'string',
-      faceGlobalUrl: 'string',
-      faceMask: 'string',
-      idCardInfo: VerifyMaterialResponseMaterialIdCardInfo,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeVerifyResultResponseMaterialIdCardInfo extends $tea.Model {
-  number: string;
-  address: string;
-  nationality: string;
-  endDate: string;
-  frontImageUrl: string;
-  authority: string;
-  name: string;
-  birth: string;
-  backImageUrl: string;
-  startDate: string;
-  static names(): { [key: string]: string } {
-    return {
-      number: 'Number',
-      address: 'Address',
-      nationality: 'Nationality',
-      endDate: 'EndDate',
-      frontImageUrl: 'FrontImageUrl',
-      authority: 'Authority',
-      name: 'Name',
-      birth: 'Birth',
-      backImageUrl: 'BackImageUrl',
-      startDate: 'StartDate',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      number: 'string',
-      address: 'string',
-      nationality: 'string',
-      endDate: 'string',
-      frontImageUrl: 'string',
-      authority: 'string',
-      name: 'string',
-      birth: 'string',
-      backImageUrl: 'string',
-      startDate: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeVerifyResultResponseMaterial extends $tea.Model {
-  faceImageUrl: string;
-  idCardName: string;
-  idCardNumber: string;
-  faceQuality: string;
-  faceGlobalUrl: string;
-  faceMask: boolean;
-  idCardInfo: DescribeVerifyResultResponseMaterialIdCardInfo;
-  videoUrls: string[];
-  static names(): { [key: string]: string } {
-    return {
-      faceImageUrl: 'FaceImageUrl',
-      idCardName: 'IdCardName',
-      idCardNumber: 'IdCardNumber',
-      faceQuality: 'FaceQuality',
-      faceGlobalUrl: 'FaceGlobalUrl',
-      faceMask: 'FaceMask',
-      idCardInfo: 'IdCardInfo',
-      videoUrls: 'VideoUrls',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      faceImageUrl: 'string',
-      idCardName: 'string',
-      idCardNumber: 'string',
-      faceQuality: 'string',
-      faceGlobalUrl: 'string',
-      faceMask: 'boolean',
-      idCardInfo: DescribeVerifyResultResponseMaterialIdCardInfo,
-      videoUrls: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeOssUploadTokenResponseOssUploadToken extends $tea.Model {
-  bucket: string;
-  endPoint: string;
-  path: string;
-  expired: number;
-  secret: string;
-  key: string;
-  token: string;
-  static names(): { [key: string]: string } {
-    return {
-      bucket: 'Bucket',
-      endPoint: 'EndPoint',
-      path: 'Path',
-      expired: 'Expired',
-      secret: 'Secret',
-      key: 'Key',
-      token: 'Token',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bucket: 'string',
-      endPoint: 'string',
-      path: 'string',
-      expired: 'number',
-      secret: 'string',
-      key: 'string',
-      token: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeVerifyTokenResponseOssUploadToken extends $tea.Model {
-  bucket: string;
-  endPoint: string;
-  path: string;
-  expired: number;
-  secret: string;
-  key: string;
-  token: string;
-  static names(): { [key: string]: string } {
-    return {
-      bucket: 'Bucket',
-      endPoint: 'EndPoint',
-      path: 'Path',
-      expired: 'Expired',
-      secret: 'Secret',
-      key: 'Key',
-      token: 'Token',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bucket: 'string',
-      endPoint: 'string',
-      path: 'string',
-      expired: 'number',
-      secret: 'string',
-      key: 'string',
-      token: 'string',
+      certifyId: 'string',
+      certifyUrl: 'string',
     };
   }
 
@@ -3476,9 +4578,9 @@ export class DescribeVerifyTokenResponseOssUploadToken extends $tea.Model {
 }
 
 
-export default class Client extends RPC {
+export default class Client extends OpenApi {
 
-  constructor(config: $RPC.Config) {
+  constructor(config: $OpenApi.Config) {
     super(config);
     this._endpointRule = "central";
     this.checkConfig(config);
@@ -3486,149 +4588,321 @@ export default class Client extends RPC {
   }
 
 
-  async describeWhitelist(request: DescribeWhitelistRequest, runtime: $Util.RuntimeOptions): Promise<DescribeWhitelistResponse> {
+  getEndpoint(productId: string, regionId: string, endpointRule: string, network: string, suffix: string, endpointMap: {[key: string ]: string}, endpoint: string): string {
+    if (!Util.empty(endpoint)) {
+      return endpoint;
+    }
+
+    if (!Util.isUnset(endpointMap) && !Util.empty(endpointMap[regionId])) {
+      return endpointMap[regionId];
+    }
+
+    return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+  }
+
+  async verifyMaterialWithOptions(request: VerifyMaterialRequest, runtime: $Util.RuntimeOptions): Promise<VerifyMaterialResponse> {
     Util.validateModel(request);
-    return $tea.cast<DescribeWhitelistResponse>(await this.doRequest("DescribeWhitelist", "HTTPS", "POST", "2019-03-07", "AK", null, $tea.toMap(request), runtime), new DescribeWhitelistResponse({}));
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<VerifyMaterialResponse>(await this.doRPCRequest("VerifyMaterial", "2019-03-07", "HTTPS", "POST", "AK", "json", req, runtime), new VerifyMaterialResponse({}));
   }
 
-  async describeWhitelistSimply(request: DescribeWhitelistRequest): Promise<DescribeWhitelistResponse> {
+  async verifyMaterial(request: VerifyMaterialRequest): Promise<VerifyMaterialResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeWhitelist(request, runtime);
+    return await this.verifyMaterialWithOptions(request, runtime);
   }
 
-  async deleteWhitelist(request: DeleteWhitelistRequest, runtime: $Util.RuntimeOptions): Promise<DeleteWhitelistResponse> {
+  async describeWhitelistWithOptions(request: DescribeWhitelistRequest, runtime: $Util.RuntimeOptions): Promise<DescribeWhitelistResponse> {
     Util.validateModel(request);
-    return $tea.cast<DeleteWhitelistResponse>(await this.doRequest("DeleteWhitelist", "HTTPS", "POST", "2019-03-07", "AK", null, $tea.toMap(request), runtime), new DeleteWhitelistResponse({}));
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DescribeWhitelistResponse>(await this.doRPCRequest("DescribeWhitelist", "2019-03-07", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeWhitelistResponse({}));
   }
 
-  async deleteWhitelistSimply(request: DeleteWhitelistRequest): Promise<DeleteWhitelistResponse> {
+  async describeWhitelist(request: DescribeWhitelistRequest): Promise<DescribeWhitelistResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.deleteWhitelist(request, runtime);
+    return await this.describeWhitelistWithOptions(request, runtime);
   }
 
-  async createWhitelist(request: CreateWhitelistRequest, runtime: $Util.RuntimeOptions): Promise<CreateWhitelistResponse> {
+  async updateAppPackageWithOptions(request: UpdateAppPackageRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAppPackageResponse> {
     Util.validateModel(request);
-    return $tea.cast<CreateWhitelistResponse>(await this.doRequest("CreateWhitelist", "HTTPS", "POST", "2019-03-07", "AK", null, $tea.toMap(request), runtime), new CreateWhitelistResponse({}));
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<UpdateAppPackageResponse>(await this.doRPCRequest("UpdateAppPackage", "2019-03-07", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateAppPackageResponse({}));
   }
 
-  async createWhitelistSimply(request: CreateWhitelistRequest): Promise<CreateWhitelistResponse> {
+  async updateAppPackage(request: UpdateAppPackageRequest): Promise<UpdateAppPackageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.createWhitelist(request, runtime);
+    return await this.updateAppPackageWithOptions(request, runtime);
   }
 
-  async describeFaceConfig(request: DescribeFaceConfigRequest, runtime: $Util.RuntimeOptions): Promise<DescribeFaceConfigResponse> {
+  async describeVerifyTokenWithOptions(request: DescribeVerifyTokenRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVerifyTokenResponse> {
     Util.validateModel(request);
-    return $tea.cast<DescribeFaceConfigResponse>(await this.doRequest("DescribeFaceConfig", "HTTPS", "POST", "2019-03-07", "AK", null, $tea.toMap(request), runtime), new DescribeFaceConfigResponse({}));
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DescribeVerifyTokenResponse>(await this.doRPCRequest("DescribeVerifyToken", "2019-03-07", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeVerifyTokenResponse({}));
   }
 
-  async describeFaceConfigSimply(request: DescribeFaceConfigRequest): Promise<DescribeFaceConfigResponse> {
+  async describeVerifyToken(request: DescribeVerifyTokenRequest): Promise<DescribeVerifyTokenResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeFaceConfig(request, runtime);
+    return await this.describeVerifyTokenWithOptions(request, runtime);
   }
 
-  async updateFaceConfig(request: UpdateFaceConfigRequest, runtime: $Util.RuntimeOptions): Promise<UpdateFaceConfigResponse> {
+  async describeRPSDKWithOptions(request: DescribeRPSDKRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRPSDKResponse> {
     Util.validateModel(request);
-    return $tea.cast<UpdateFaceConfigResponse>(await this.doRequest("UpdateFaceConfig", "HTTPS", "POST", "2019-03-07", "AK", null, $tea.toMap(request), runtime), new UpdateFaceConfigResponse({}));
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DescribeRPSDKResponse>(await this.doRPCRequest("DescribeRPSDK", "2019-03-07", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeRPSDKResponse({}));
   }
 
-  async updateFaceConfigSimply(request: UpdateFaceConfigRequest): Promise<UpdateFaceConfigResponse> {
+  async describeRPSDK(request: DescribeRPSDKRequest): Promise<DescribeRPSDKResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.updateFaceConfig(request, runtime);
+    return await this.describeRPSDKWithOptions(request, runtime);
   }
 
-  async createFaceConfig(request: CreateFaceConfigRequest, runtime: $Util.RuntimeOptions): Promise<CreateFaceConfigResponse> {
+  async describeFaceUsageWithOptions(request: DescribeFaceUsageRequest, runtime: $Util.RuntimeOptions): Promise<DescribeFaceUsageResponse> {
     Util.validateModel(request);
-    return $tea.cast<CreateFaceConfigResponse>(await this.doRequest("CreateFaceConfig", "HTTPS", "POST", "2019-03-07", "AK", null, $tea.toMap(request), runtime), new CreateFaceConfigResponse({}));
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DescribeFaceUsageResponse>(await this.doRPCRequest("DescribeFaceUsage", "2019-03-07", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeFaceUsageResponse({}));
   }
 
-  async createFaceConfigSimply(request: CreateFaceConfigRequest): Promise<CreateFaceConfigResponse> {
+  async describeFaceUsage(request: DescribeFaceUsageRequest): Promise<DescribeFaceUsageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.createFaceConfig(request, runtime);
+    return await this.describeFaceUsageWithOptions(request, runtime);
   }
 
-  async livenessFaceVerify(request: LivenessFaceVerifyRequest, runtime: $Util.RuntimeOptions): Promise<LivenessFaceVerifyResponse> {
+  async describeVerifyUsageWithOptions(request: DescribeVerifyUsageRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVerifyUsageResponse> {
     Util.validateModel(request);
-    return $tea.cast<LivenessFaceVerifyResponse>(await this.doRequest("LivenessFaceVerify", "HTTPS", "POST", "2019-03-07", "AK", null, $tea.toMap(request), runtime), new LivenessFaceVerifyResponse({}));
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DescribeVerifyUsageResponse>(await this.doRPCRequest("DescribeVerifyUsage", "2019-03-07", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeVerifyUsageResponse({}));
   }
 
-  async livenessFaceVerifySimply(request: LivenessFaceVerifyRequest): Promise<LivenessFaceVerifyResponse> {
+  async describeVerifyUsage(request: DescribeVerifyUsageRequest): Promise<DescribeVerifyUsageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.livenessFaceVerify(request, runtime);
+    return await this.describeVerifyUsageWithOptions(request, runtime);
   }
 
-  async compareFaceVerify(request: CompareFaceVerifyRequest, runtime: $Util.RuntimeOptions): Promise<CompareFaceVerifyResponse> {
+  async describeUpdatePackageResultWithOptions(request: DescribeUpdatePackageResultRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUpdatePackageResultResponse> {
     Util.validateModel(request);
-    return $tea.cast<CompareFaceVerifyResponse>(await this.doRequest("CompareFaceVerify", "HTTPS", "POST", "2019-03-07", "AK", null, $tea.toMap(request), runtime), new CompareFaceVerifyResponse({}));
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DescribeUpdatePackageResultResponse>(await this.doRPCRequest("DescribeUpdatePackageResult", "2019-03-07", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeUpdatePackageResultResponse({}));
   }
 
-  async compareFaceVerifySimply(request: CompareFaceVerifyRequest): Promise<CompareFaceVerifyResponse> {
+  async describeUpdatePackageResult(request: DescribeUpdatePackageResultRequest): Promise<DescribeUpdatePackageResultResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.compareFaceVerify(request, runtime);
+    return await this.describeUpdatePackageResultWithOptions(request, runtime);
   }
 
-  async describeSdkUrl(request: DescribeSdkUrlRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSdkUrlResponse> {
+  async createWhitelistWithOptions(request: CreateWhitelistRequest, runtime: $Util.RuntimeOptions): Promise<CreateWhitelistResponse> {
     Util.validateModel(request);
-    return $tea.cast<DescribeSdkUrlResponse>(await this.doRequest("DescribeSdkUrl", "HTTPS", "POST", "2019-03-07", "AK", null, $tea.toMap(request), runtime), new DescribeSdkUrlResponse({}));
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<CreateWhitelistResponse>(await this.doRPCRequest("CreateWhitelist", "2019-03-07", "HTTPS", "POST", "AK", "json", req, runtime), new CreateWhitelistResponse({}));
   }
 
-  async describeSdkUrlSimply(request: DescribeSdkUrlRequest): Promise<DescribeSdkUrlResponse> {
+  async createWhitelist(request: CreateWhitelistRequest): Promise<CreateWhitelistResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeSdkUrl(request, runtime);
+    return await this.createWhitelistWithOptions(request, runtime);
   }
 
-  async describeUpdatePackageResult(request: DescribeUpdatePackageResultRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUpdatePackageResultResponse> {
+  async deleteWhitelistWithOptions(request: DeleteWhitelistRequest, runtime: $Util.RuntimeOptions): Promise<DeleteWhitelistResponse> {
     Util.validateModel(request);
-    return $tea.cast<DescribeUpdatePackageResultResponse>(await this.doRequest("DescribeUpdatePackageResult", "HTTPS", "POST", "2019-03-07", "AK", null, $tea.toMap(request), runtime), new DescribeUpdatePackageResultResponse({}));
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DeleteWhitelistResponse>(await this.doRPCRequest("DeleteWhitelist", "2019-03-07", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteWhitelistResponse({}));
   }
 
-  async describeUpdatePackageResultSimply(request: DescribeUpdatePackageResultRequest): Promise<DescribeUpdatePackageResultResponse> {
+  async deleteWhitelist(request: DeleteWhitelistRequest): Promise<DeleteWhitelistResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeUpdatePackageResult(request, runtime);
+    return await this.deleteWhitelistWithOptions(request, runtime);
   }
 
-  async updateAppPackage(request: UpdateAppPackageRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAppPackageResponse> {
+  async createAuthKeyWithOptions(request: CreateAuthKeyRequest, runtime: $Util.RuntimeOptions): Promise<CreateAuthKeyResponse> {
     Util.validateModel(request);
-    return $tea.cast<UpdateAppPackageResponse>(await this.doRequest("UpdateAppPackage", "HTTPS", "POST", "2019-03-07", "AK", null, $tea.toMap(request), runtime), new UpdateAppPackageResponse({}));
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<CreateAuthKeyResponse>(await this.doRPCRequest("CreateAuthKey", "2019-03-07", "HTTPS", "POST", "AK", "json", req, runtime), new CreateAuthKeyResponse({}));
   }
 
-  async updateAppPackageSimply(request: UpdateAppPackageRequest): Promise<UpdateAppPackageResponse> {
+  async createAuthKey(request: CreateAuthKeyRequest): Promise<CreateAuthKeyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.updateAppPackage(request, runtime);
+    return await this.createAuthKeyWithOptions(request, runtime);
   }
 
-  async describeAppInfo(request: DescribeAppInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAppInfoResponse> {
+  async describeUploadInfoWithOptions(request: DescribeUploadInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUploadInfoResponse> {
     Util.validateModel(request);
-    return $tea.cast<DescribeAppInfoResponse>(await this.doRequest("DescribeAppInfo", "HTTPS", "POST", "2019-03-07", "AK", null, $tea.toMap(request), runtime), new DescribeAppInfoResponse({}));
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DescribeUploadInfoResponse>(await this.doRPCRequest("DescribeUploadInfo", "2019-03-07", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeUploadInfoResponse({}));
   }
 
-  async describeAppInfoSimply(request: DescribeAppInfoRequest): Promise<DescribeAppInfoResponse> {
+  async describeUploadInfo(request: DescribeUploadInfoRequest): Promise<DescribeUploadInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeAppInfo(request, runtime);
+    return await this.describeUploadInfoWithOptions(request, runtime);
   }
 
-  async contrastFaceVerify(request: ContrastFaceVerifyRequest, runtime: $Util.RuntimeOptions): Promise<ContrastFaceVerifyResponse> {
+  async describeVerifySettingWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeVerifySettingResponse> {
+    let req = new $OpenApi.OpenApiRequest({ });
+    return $tea.cast<DescribeVerifySettingResponse>(await this.doRPCRequest("DescribeVerifySetting", "2019-03-07", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeVerifySettingResponse({}));
+  }
+
+  async describeVerifySetting(): Promise<DescribeVerifySettingResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeVerifySettingWithOptions(runtime);
+  }
+
+  async describeVerifyRecordsWithOptions(request: DescribeVerifyRecordsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVerifyRecordsResponse> {
     Util.validateModel(request);
-    return $tea.cast<ContrastFaceVerifyResponse>(await this.doRequest("ContrastFaceVerify", "HTTPS", "POST", "2019-03-07", "AK", null, $tea.toMap(request), runtime), new ContrastFaceVerifyResponse({}));
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DescribeVerifyRecordsResponse>(await this.doRPCRequest("DescribeVerifyRecords", "2019-03-07", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeVerifyRecordsResponse({}));
   }
 
-  async contrastFaceVerifySimply(request: ContrastFaceVerifyRequest): Promise<ContrastFaceVerifyResponse> {
+  async describeVerifyRecords(request: DescribeVerifyRecordsRequest): Promise<DescribeVerifyRecordsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.contrastFaceVerify(request, runtime);
+    return await this.describeVerifyRecordsWithOptions(request, runtime);
+  }
+
+  async describeWhitelistSettingWithOptions(request: DescribeWhitelistSettingRequest, runtime: $Util.RuntimeOptions): Promise<DescribeWhitelistSettingResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DescribeWhitelistSettingResponse>(await this.doRPCRequest("DescribeWhitelistSetting", "2019-03-07", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeWhitelistSettingResponse({}));
+  }
+
+  async describeWhitelistSetting(request: DescribeWhitelistSettingRequest): Promise<DescribeWhitelistSettingResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeWhitelistSettingWithOptions(request, runtime);
+  }
+
+  async createRPSDKWithOptions(request: CreateRPSDKRequest, runtime: $Util.RuntimeOptions): Promise<CreateRPSDKResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<CreateRPSDKResponse>(await this.doRPCRequest("CreateRPSDK", "2019-03-07", "HTTPS", "POST", "AK", "json", req, runtime), new CreateRPSDKResponse({}));
+  }
+
+  async createRPSDK(request: CreateRPSDKRequest): Promise<CreateRPSDKResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createRPSDKWithOptions(request, runtime);
+  }
+
+  async updateFaceConfigWithOptions(request: UpdateFaceConfigRequest, runtime: $Util.RuntimeOptions): Promise<UpdateFaceConfigResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<UpdateFaceConfigResponse>(await this.doRPCRequest("UpdateFaceConfig", "2019-03-07", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateFaceConfigResponse({}));
+  }
+
+  async updateFaceConfig(request: UpdateFaceConfigRequest): Promise<UpdateFaceConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateFaceConfigWithOptions(request, runtime);
+  }
+
+  async describeFaceConfigWithOptions(request: DescribeFaceConfigRequest, runtime: $Util.RuntimeOptions): Promise<DescribeFaceConfigResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DescribeFaceConfigResponse>(await this.doRPCRequest("DescribeFaceConfig", "2019-03-07", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeFaceConfigResponse({}));
+  }
+
+  async describeFaceConfig(request: DescribeFaceConfigRequest): Promise<DescribeFaceConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeFaceConfigWithOptions(request, runtime);
+  }
+
+  async livenessFaceVerifyWithOptions(request: LivenessFaceVerifyRequest, runtime: $Util.RuntimeOptions): Promise<LivenessFaceVerifyResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<LivenessFaceVerifyResponse>(await this.doRPCRequest("LivenessFaceVerify", "2019-03-07", "HTTPS", "POST", "AK", "json", req, runtime), new LivenessFaceVerifyResponse({}));
+  }
+
+  async livenessFaceVerify(request: LivenessFaceVerifyRequest): Promise<LivenessFaceVerifyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.livenessFaceVerifyWithOptions(request, runtime);
+  }
+
+  async describeAppInfoWithOptions(request: DescribeAppInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAppInfoResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DescribeAppInfoResponse>(await this.doRPCRequest("DescribeAppInfo", "2019-03-07", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeAppInfoResponse({}));
+  }
+
+  async describeAppInfo(request: DescribeAppInfoRequest): Promise<DescribeAppInfoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeAppInfoWithOptions(request, runtime);
+  }
+
+  async modifyDeviceInfoWithOptions(request: ModifyDeviceInfoRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDeviceInfoResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<ModifyDeviceInfoResponse>(await this.doRPCRequest("ModifyDeviceInfo", "2019-03-07", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyDeviceInfoResponse({}));
+  }
+
+  async modifyDeviceInfo(request: ModifyDeviceInfoRequest): Promise<ModifyDeviceInfoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyDeviceInfoWithOptions(request, runtime);
+  }
+
+  async contrastFaceVerifyWithOptions(request: ContrastFaceVerifyRequest, runtime: $Util.RuntimeOptions): Promise<ContrastFaceVerifyResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<ContrastFaceVerifyResponse>(await this.doRPCRequest("ContrastFaceVerify", "2019-03-07", "HTTPS", "POST", "AK", "json", req, runtime), new ContrastFaceVerifyResponse({}));
+  }
+
+  async contrastFaceVerify(request: ContrastFaceVerifyRequest): Promise<ContrastFaceVerifyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.contrastFaceVerifyWithOptions(request, runtime);
   }
 
   async contrastFaceVerifyAdvance(request: ContrastFaceVerifyAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<ContrastFaceVerifyResponse> {
     // Step 0: init client
     let accessKeyId = await this._credential.getAccessKeyId();
     let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
     let openPlatformEndpoint = this._openPlatformEndpoint;
     if (Util.isUnset(openPlatformEndpoint)) {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
     let authConfig = new $RPC.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
-      type: "access_key",
+      securityToken: securityToken,
+      type: credentialType,
       endpoint: openPlatformEndpoint,
       protocol: this._protocol,
       regionId: this._regionId,
@@ -3650,296 +4924,278 @@ export default class Client extends RPC {
     let ossHeader = new $OSS.PostObjectRequestHeader({ });
     let uploadRequest = new $OSS.PostObjectRequest({ });
     let ossRuntime = new $OSSUtil.RuntimeOptions({ });
-    RPCUtil.convert(runtime, ossRuntime);
+    OpenApiUtil.convert(runtime, ossRuntime);
     let contrastFaceVerifyReq = new ContrastFaceVerifyRequest({ });
-    RPCUtil.convert(request, contrastFaceVerifyReq);
-    authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-    ossConfig.accessKeyId = authResponse.accessKeyId;
-    ossConfig.endpoint = RPCUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
-    ossClient = new OSS(ossConfig);
-    fileObj = new $FileForm.FileField({
-      filename: authResponse.objectKey,
-      content: request.faceContrastFileObject,
-      contentType: "",
-    });
-    ossHeader = new $OSS.PostObjectRequestHeader({
-      accessKeyId: authResponse.accessKeyId,
-      policy: authResponse.encodedPolicy,
-      signature: authResponse.signature,
-      key: authResponse.objectKey,
-      file: fileObj,
-      successActionStatus: "201",
-    });
-    uploadRequest = new $OSS.PostObjectRequest({
-      bucketName: authResponse.bucket,
-      header: ossHeader,
-    });
-    await ossClient.postObject(uploadRequest, ossRuntime);
-    contrastFaceVerifyReq.faceContrastFile = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
-    let contrastFaceVerifyResp = await this.contrastFaceVerify(contrastFaceVerifyReq, runtime);
+    OpenApiUtil.convert(request, contrastFaceVerifyReq);
+    if (!Util.isUnset(request.faceContrastFileObject)) {
+      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+      ossConfig.accessKeyId = authResponse.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+      ossClient = new OSS(ossConfig);
+      fileObj = new $FileForm.FileField({
+        filename: authResponse.objectKey,
+        content: request.faceContrastFileObject,
+        contentType: "",
+      });
+      ossHeader = new $OSS.PostObjectRequestHeader({
+        accessKeyId: authResponse.accessKeyId,
+        policy: authResponse.encodedPolicy,
+        signature: authResponse.signature,
+        key: authResponse.objectKey,
+        file: fileObj,
+        successActionStatus: "201",
+      });
+      uploadRequest = new $OSS.PostObjectRequest({
+        bucketName: authResponse.bucket,
+        header: ossHeader,
+      });
+      await ossClient.postObject(uploadRequest, ossRuntime);
+      contrastFaceVerifyReq.faceContrastFile = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    }
+
+    let contrastFaceVerifyResp = await this.contrastFaceVerifyWithOptions(contrastFaceVerifyReq, runtime);
     return contrastFaceVerifyResp;
   }
 
-  async initDevice(request: InitDeviceRequest, runtime: $Util.RuntimeOptions): Promise<InitDeviceResponse> {
+  async verifyDeviceWithOptions(request: VerifyDeviceRequest, runtime: $Util.RuntimeOptions): Promise<VerifyDeviceResponse> {
     Util.validateModel(request);
-    return $tea.cast<InitDeviceResponse>(await this.doRequest("InitDevice", "HTTPS", "POST", "2019-03-07", "AK", null, $tea.toMap(request), runtime), new InitDeviceResponse({}));
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<VerifyDeviceResponse>(await this.doRPCRequest("VerifyDevice", "2019-03-07", "HTTPS", "POST", "AK", "json", req, runtime), new VerifyDeviceResponse({}));
   }
 
-  async initDeviceSimply(request: InitDeviceRequest): Promise<InitDeviceResponse> {
+  async verifyDevice(request: VerifyDeviceRequest): Promise<VerifyDeviceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.initDevice(request, runtime);
+    return await this.verifyDeviceWithOptions(request, runtime);
   }
 
-  async initFaceVerify(request: InitFaceVerifyRequest, runtime: $Util.RuntimeOptions): Promise<InitFaceVerifyResponse> {
+  async compareFaceVerifyWithOptions(request: CompareFaceVerifyRequest, runtime: $Util.RuntimeOptions): Promise<CompareFaceVerifyResponse> {
     Util.validateModel(request);
-    return $tea.cast<InitFaceVerifyResponse>(await this.doRequest("InitFaceVerify", "HTTPS", "POST", "2019-03-07", "AK", null, $tea.toMap(request), runtime), new InitFaceVerifyResponse({}));
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<CompareFaceVerifyResponse>(await this.doRPCRequest("CompareFaceVerify", "2019-03-07", "HTTPS", "POST", "AK", "json", req, runtime), new CompareFaceVerifyResponse({}));
   }
 
-  async initFaceVerifySimply(request: InitFaceVerifyRequest): Promise<InitFaceVerifyResponse> {
+  async compareFaceVerify(request: CompareFaceVerifyRequest): Promise<CompareFaceVerifyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.initFaceVerify(request, runtime);
+    return await this.compareFaceVerifyWithOptions(request, runtime);
   }
 
-  async describeFaceVerify(request: DescribeFaceVerifyRequest, runtime: $Util.RuntimeOptions): Promise<DescribeFaceVerifyResponse> {
+  async describeVerifySDKWithOptions(request: DescribeVerifySDKRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVerifySDKResponse> {
     Util.validateModel(request);
-    return $tea.cast<DescribeFaceVerifyResponse>(await this.doRequest("DescribeFaceVerify", "HTTPS", "POST", "2019-03-07", "AK", null, $tea.toMap(request), runtime), new DescribeFaceVerifyResponse({}));
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DescribeVerifySDKResponse>(await this.doRPCRequest("DescribeVerifySDK", "2019-03-07", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeVerifySDKResponse({}));
   }
 
-  async describeFaceVerifySimply(request: DescribeFaceVerifyRequest): Promise<DescribeFaceVerifyResponse> {
+  async describeVerifySDK(request: DescribeVerifySDKRequest): Promise<DescribeVerifySDKResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeFaceVerify(request, runtime);
+    return await this.describeVerifySDKWithOptions(request, runtime);
   }
 
-  async verifyDevice(request: VerifyDeviceRequest, runtime: $Util.RuntimeOptions): Promise<VerifyDeviceResponse> {
+  async describeDeviceInfoWithOptions(request: DescribeDeviceInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDeviceInfoResponse> {
     Util.validateModel(request);
-    return $tea.cast<VerifyDeviceResponse>(await this.doRequest("VerifyDevice", "HTTPS", "POST", "2019-03-07", "AK", null, $tea.toMap(request), runtime), new VerifyDeviceResponse({}));
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DescribeDeviceInfoResponse>(await this.doRPCRequest("DescribeDeviceInfo", "2019-03-07", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeDeviceInfoResponse({}));
   }
 
-  async verifyDeviceSimply(request: VerifyDeviceRequest): Promise<VerifyDeviceResponse> {
+  async describeDeviceInfo(request: DescribeDeviceInfoRequest): Promise<DescribeDeviceInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.verifyDevice(request, runtime);
+    return await this.describeDeviceInfoWithOptions(request, runtime);
   }
 
-  async modifyDeviceInfo(request: ModifyDeviceInfoRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDeviceInfoResponse> {
+  async describeFaceVerifyWithOptions(request: DescribeFaceVerifyRequest, runtime: $Util.RuntimeOptions): Promise<DescribeFaceVerifyResponse> {
     Util.validateModel(request);
-    return $tea.cast<ModifyDeviceInfoResponse>(await this.doRequest("ModifyDeviceInfo", "HTTPS", "POST", "2019-03-07", "AK", null, $tea.toMap(request), runtime), new ModifyDeviceInfoResponse({}));
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DescribeFaceVerifyResponse>(await this.doRPCRequest("DescribeFaceVerify", "2019-03-07", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeFaceVerifyResponse({}));
   }
 
-  async modifyDeviceInfoSimply(request: ModifyDeviceInfoRequest): Promise<ModifyDeviceInfoResponse> {
+  async describeFaceVerify(request: DescribeFaceVerifyRequest): Promise<DescribeFaceVerifyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.modifyDeviceInfo(request, runtime);
+    return await this.describeFaceVerifyWithOptions(request, runtime);
   }
 
-  async describeVerifySDK(request: DescribeVerifySDKRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVerifySDKResponse> {
+  async describeOssUploadTokenWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeOssUploadTokenResponse> {
+    let req = new $OpenApi.OpenApiRequest({ });
+    return $tea.cast<DescribeOssUploadTokenResponse>(await this.doRPCRequest("DescribeOssUploadToken", "2019-03-07", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeOssUploadTokenResponse({}));
+  }
+
+  async describeOssUploadToken(): Promise<DescribeOssUploadTokenResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeOssUploadTokenWithOptions(runtime);
+  }
+
+  async detectFaceAttributesWithOptions(request: DetectFaceAttributesRequest, runtime: $Util.RuntimeOptions): Promise<DetectFaceAttributesResponse> {
     Util.validateModel(request);
-    return $tea.cast<DescribeVerifySDKResponse>(await this.doRequest("DescribeVerifySDK", "HTTPS", "POST", "2019-03-07", "AK", null, $tea.toMap(request), runtime), new DescribeVerifySDKResponse({}));
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DetectFaceAttributesResponse>(await this.doRPCRequest("DetectFaceAttributes", "2019-03-07", "HTTPS", "POST", "AK", "json", req, runtime), new DetectFaceAttributesResponse({}));
   }
 
-  async describeVerifySDKSimply(request: DescribeVerifySDKRequest): Promise<DescribeVerifySDKResponse> {
+  async detectFaceAttributes(request: DetectFaceAttributesRequest): Promise<DetectFaceAttributesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeVerifySDK(request, runtime);
+    return await this.detectFaceAttributesWithOptions(request, runtime);
   }
 
-  async describeDeviceInfo(request: DescribeDeviceInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDeviceInfoResponse> {
+  async describeSdkUrlWithOptions(request: DescribeSdkUrlRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSdkUrlResponse> {
     Util.validateModel(request);
-    return $tea.cast<DescribeDeviceInfoResponse>(await this.doRequest("DescribeDeviceInfo", "HTTPS", "POST", "2019-03-07", "AK", null, $tea.toMap(request), runtime), new DescribeDeviceInfoResponse({}));
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DescribeSdkUrlResponse>(await this.doRPCRequest("DescribeSdkUrl", "2019-03-07", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeSdkUrlResponse({}));
   }
 
-  async describeDeviceInfoSimply(request: DescribeDeviceInfoRequest): Promise<DescribeDeviceInfoResponse> {
+  async describeSdkUrl(request: DescribeSdkUrlRequest): Promise<DescribeSdkUrlResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeDeviceInfo(request, runtime);
+    return await this.describeSdkUrlWithOptions(request, runtime);
   }
 
-  async createVerifySDK(request: CreateVerifySDKRequest, runtime: $Util.RuntimeOptions): Promise<CreateVerifySDKResponse> {
+  async deleteWhitelistSettingWithOptions(request: DeleteWhitelistSettingRequest, runtime: $Util.RuntimeOptions): Promise<DeleteWhitelistSettingResponse> {
     Util.validateModel(request);
-    return $tea.cast<CreateVerifySDKResponse>(await this.doRequest("CreateVerifySDK", "HTTPS", "POST", "2019-03-07", "AK", null, $tea.toMap(request), runtime), new CreateVerifySDKResponse({}));
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DeleteWhitelistSettingResponse>(await this.doRPCRequest("DeleteWhitelistSetting", "2019-03-07", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteWhitelistSettingResponse({}));
   }
 
-  async createVerifySDKSimply(request: CreateVerifySDKRequest): Promise<CreateVerifySDKResponse> {
+  async deleteWhitelistSetting(request: DeleteWhitelistSettingRequest): Promise<DeleteWhitelistSettingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.createVerifySDK(request, runtime);
+    return await this.deleteWhitelistSettingWithOptions(request, runtime);
   }
 
-  async createAuthKey(request: CreateAuthKeyRequest, runtime: $Util.RuntimeOptions): Promise<CreateAuthKeyResponse> {
+  async updateVerifySettingWithOptions(request: UpdateVerifySettingRequest, runtime: $Util.RuntimeOptions): Promise<UpdateVerifySettingResponse> {
     Util.validateModel(request);
-    return $tea.cast<CreateAuthKeyResponse>(await this.doRequest("CreateAuthKey", "HTTPS", "POST", "2019-03-07", "AK", null, $tea.toMap(request), runtime), new CreateAuthKeyResponse({}));
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<UpdateVerifySettingResponse>(await this.doRPCRequest("UpdateVerifySetting", "2019-03-07", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateVerifySettingResponse({}));
   }
 
-  async createAuthKeySimply(request: CreateAuthKeyRequest): Promise<CreateAuthKeyResponse> {
+  async updateVerifySetting(request: UpdateVerifySettingRequest): Promise<UpdateVerifySettingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.createAuthKey(request, runtime);
+    return await this.updateVerifySettingWithOptions(request, runtime);
   }
 
-  async detectFaceAttributes(request: DetectFaceAttributesRequest, runtime: $Util.RuntimeOptions): Promise<DetectFaceAttributesResponse> {
+  async describeVerifyResultWithOptions(request: DescribeVerifyResultRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVerifyResultResponse> {
     Util.validateModel(request);
-    return $tea.cast<DetectFaceAttributesResponse>(await this.doRequest("DetectFaceAttributes", "HTTPS", "POST", "2019-03-07", "AK", null, $tea.toMap(request), runtime), new DetectFaceAttributesResponse({}));
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DescribeVerifyResultResponse>(await this.doRPCRequest("DescribeVerifyResult", "2019-03-07", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeVerifyResultResponse({}));
   }
 
-  async detectFaceAttributesSimply(request: DetectFaceAttributesRequest): Promise<DetectFaceAttributesResponse> {
+  async describeVerifyResult(request: DescribeVerifyResultRequest): Promise<DescribeVerifyResultResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.detectFaceAttributes(request, runtime);
+    return await this.describeVerifyResultWithOptions(request, runtime);
   }
 
-  async compareFaces(request: CompareFacesRequest, runtime: $Util.RuntimeOptions): Promise<CompareFacesResponse> {
+  async compareFacesWithOptions(request: CompareFacesRequest, runtime: $Util.RuntimeOptions): Promise<CompareFacesResponse> {
     Util.validateModel(request);
-    return $tea.cast<CompareFacesResponse>(await this.doRequest("CompareFaces", "HTTPS", "POST", "2019-03-07", "AK", null, $tea.toMap(request), runtime), new CompareFacesResponse({}));
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<CompareFacesResponse>(await this.doRPCRequest("CompareFaces", "2019-03-07", "HTTPS", "POST", "AK", "json", req, runtime), new CompareFacesResponse({}));
   }
 
-  async compareFacesSimply(request: CompareFacesRequest): Promise<CompareFacesResponse> {
+  async compareFaces(request: CompareFacesRequest): Promise<CompareFacesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.compareFaces(request, runtime);
+    return await this.compareFacesWithOptions(request, runtime);
   }
 
-  async describeFaceUsage(request: DescribeFaceUsageRequest, runtime: $Util.RuntimeOptions): Promise<DescribeFaceUsageResponse> {
+  async createFaceConfigWithOptions(request: CreateFaceConfigRequest, runtime: $Util.RuntimeOptions): Promise<CreateFaceConfigResponse> {
     Util.validateModel(request);
-    return $tea.cast<DescribeFaceUsageResponse>(await this.doRequest("DescribeFaceUsage", "HTTPS", "POST", "2019-03-07", "AK", null, $tea.toMap(request), runtime), new DescribeFaceUsageResponse({}));
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<CreateFaceConfigResponse>(await this.doRPCRequest("CreateFaceConfig", "2019-03-07", "HTTPS", "POST", "AK", "json", req, runtime), new CreateFaceConfigResponse({}));
   }
 
-  async describeFaceUsageSimply(request: DescribeFaceUsageRequest): Promise<DescribeFaceUsageResponse> {
+  async createFaceConfig(request: CreateFaceConfigRequest): Promise<CreateFaceConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeFaceUsage(request, runtime);
+    return await this.createFaceConfigWithOptions(request, runtime);
   }
 
-  async describeVerifyRecords(request: DescribeVerifyRecordsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVerifyRecordsResponse> {
+  async createVerifySDKWithOptions(request: CreateVerifySDKRequest, runtime: $Util.RuntimeOptions): Promise<CreateVerifySDKResponse> {
     Util.validateModel(request);
-    return $tea.cast<DescribeVerifyRecordsResponse>(await this.doRequest("DescribeVerifyRecords", "HTTPS", "POST", "2019-03-07", "AK", null, $tea.toMap(request), runtime), new DescribeVerifyRecordsResponse({}));
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<CreateVerifySDKResponse>(await this.doRPCRequest("CreateVerifySDK", "2019-03-07", "HTTPS", "POST", "AK", "json", req, runtime), new CreateVerifySDKResponse({}));
   }
 
-  async describeVerifyRecordsSimply(request: DescribeVerifyRecordsRequest): Promise<DescribeVerifyRecordsResponse> {
+  async createVerifySDK(request: CreateVerifySDKRequest): Promise<CreateVerifySDKResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeVerifyRecords(request, runtime);
+    return await this.createVerifySDKWithOptions(request, runtime);
   }
 
-  async updateVerifySetting(request: UpdateVerifySettingRequest, runtime: $Util.RuntimeOptions): Promise<UpdateVerifySettingResponse> {
+  async initDeviceWithOptions(request: InitDeviceRequest, runtime: $Util.RuntimeOptions): Promise<InitDeviceResponse> {
     Util.validateModel(request);
-    return $tea.cast<UpdateVerifySettingResponse>(await this.doRequest("UpdateVerifySetting", "HTTPS", "POST", "2019-03-07", "AK", null, $tea.toMap(request), runtime), new UpdateVerifySettingResponse({}));
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<InitDeviceResponse>(await this.doRPCRequest("InitDevice", "2019-03-07", "HTTPS", "POST", "AK", "json", req, runtime), new InitDeviceResponse({}));
   }
 
-  async updateVerifySettingSimply(request: UpdateVerifySettingRequest): Promise<UpdateVerifySettingResponse> {
+  async initDevice(request: InitDeviceRequest): Promise<InitDeviceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.updateVerifySetting(request, runtime);
+    return await this.initDeviceWithOptions(request, runtime);
   }
 
-  async createVerifySetting(request: CreateVerifySettingRequest, runtime: $Util.RuntimeOptions): Promise<CreateVerifySettingResponse> {
+  async createWhitelistSettingWithOptions(request: CreateWhitelistSettingRequest, runtime: $Util.RuntimeOptions): Promise<CreateWhitelistSettingResponse> {
     Util.validateModel(request);
-    return $tea.cast<CreateVerifySettingResponse>(await this.doRequest("CreateVerifySetting", "HTTPS", "POST", "2019-03-07", "AK", null, $tea.toMap(request), runtime), new CreateVerifySettingResponse({}));
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<CreateWhitelistSettingResponse>(await this.doRPCRequest("CreateWhitelistSetting", "2019-03-07", "HTTPS", "POST", "AK", "json", req, runtime), new CreateWhitelistSettingResponse({}));
   }
 
-  async createVerifySettingSimply(request: CreateVerifySettingRequest): Promise<CreateVerifySettingResponse> {
+  async createWhitelistSetting(request: CreateWhitelistSettingRequest): Promise<CreateWhitelistSettingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.createVerifySetting(request, runtime);
+    return await this.createWhitelistSettingWithOptions(request, runtime);
   }
 
-  async describeVerifySetting(request: DescribeVerifySettingRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVerifySettingResponse> {
+  async describeUserStatusWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeUserStatusResponse> {
+    let req = new $OpenApi.OpenApiRequest({ });
+    return $tea.cast<DescribeUserStatusResponse>(await this.doRPCRequest("DescribeUserStatus", "2019-03-07", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeUserStatusResponse({}));
+  }
+
+  async describeUserStatus(): Promise<DescribeUserStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeUserStatusWithOptions(runtime);
+  }
+
+  async createVerifySettingWithOptions(request: CreateVerifySettingRequest, runtime: $Util.RuntimeOptions): Promise<CreateVerifySettingResponse> {
     Util.validateModel(request);
-    return $tea.cast<DescribeVerifySettingResponse>(await this.doRequest("DescribeVerifySetting", "HTTPS", "POST", "2019-03-07", "AK", null, $tea.toMap(request), runtime), new DescribeVerifySettingResponse({}));
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<CreateVerifySettingResponse>(await this.doRPCRequest("CreateVerifySetting", "2019-03-07", "HTTPS", "POST", "AK", "json", req, runtime), new CreateVerifySettingResponse({}));
   }
 
-  async describeVerifySettingSimply(request: DescribeVerifySettingRequest): Promise<DescribeVerifySettingResponse> {
+  async createVerifySetting(request: CreateVerifySettingRequest): Promise<CreateVerifySettingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeVerifySetting(request, runtime);
+    return await this.createVerifySettingWithOptions(request, runtime);
   }
 
-  async describeVerifyUsage(request: DescribeVerifyUsageRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVerifyUsageResponse> {
+  async initFaceVerifyWithOptions(request: InitFaceVerifyRequest, runtime: $Util.RuntimeOptions): Promise<InitFaceVerifyResponse> {
     Util.validateModel(request);
-    return $tea.cast<DescribeVerifyUsageResponse>(await this.doRequest("DescribeVerifyUsage", "HTTPS", "POST", "2019-03-07", "AK", null, $tea.toMap(request), runtime), new DescribeVerifyUsageResponse({}));
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<InitFaceVerifyResponse>(await this.doRPCRequest("InitFaceVerify", "2019-03-07", "HTTPS", "POST", "AK", "json", req, runtime), new InitFaceVerifyResponse({}));
   }
 
-  async describeVerifyUsageSimply(request: DescribeVerifyUsageRequest): Promise<DescribeVerifyUsageResponse> {
+  async initFaceVerify(request: InitFaceVerifyRequest): Promise<InitFaceVerifyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeVerifyUsage(request, runtime);
-  }
-
-  async describeUserStatus(request: DescribeUserStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUserStatusResponse> {
-    Util.validateModel(request);
-    return $tea.cast<DescribeUserStatusResponse>(await this.doRequest("DescribeUserStatus", "HTTPS", "POST", "2019-03-07", "AK", null, $tea.toMap(request), runtime), new DescribeUserStatusResponse({}));
-  }
-
-  async describeUserStatusSimply(request: DescribeUserStatusRequest): Promise<DescribeUserStatusResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeUserStatus(request, runtime);
-  }
-
-  async describeUploadInfo(request: DescribeUploadInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUploadInfoResponse> {
-    Util.validateModel(request);
-    return $tea.cast<DescribeUploadInfoResponse>(await this.doRequest("DescribeUploadInfo", "HTTPS", "POST", "2019-03-07", "AK", null, $tea.toMap(request), runtime), new DescribeUploadInfoResponse({}));
-  }
-
-  async describeUploadInfoSimply(request: DescribeUploadInfoRequest): Promise<DescribeUploadInfoResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeUploadInfo(request, runtime);
-  }
-
-  async describeRPSDK(request: DescribeRPSDKRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRPSDKResponse> {
-    Util.validateModel(request);
-    return $tea.cast<DescribeRPSDKResponse>(await this.doRequest("DescribeRPSDK", "HTTPS", "POST", "2019-03-07", "AK", null, $tea.toMap(request), runtime), new DescribeRPSDKResponse({}));
-  }
-
-  async describeRPSDKSimply(request: DescribeRPSDKRequest): Promise<DescribeRPSDKResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeRPSDK(request, runtime);
-  }
-
-  async createRPSDK(request: CreateRPSDKRequest, runtime: $Util.RuntimeOptions): Promise<CreateRPSDKResponse> {
-    Util.validateModel(request);
-    return $tea.cast<CreateRPSDKResponse>(await this.doRequest("CreateRPSDK", "HTTPS", "POST", "2019-03-07", "AK", null, $tea.toMap(request), runtime), new CreateRPSDKResponse({}));
-  }
-
-  async createRPSDKSimply(request: CreateRPSDKRequest): Promise<CreateRPSDKResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.createRPSDK(request, runtime);
-  }
-
-  async verifyMaterial(request: VerifyMaterialRequest, runtime: $Util.RuntimeOptions): Promise<VerifyMaterialResponse> {
-    Util.validateModel(request);
-    return $tea.cast<VerifyMaterialResponse>(await this.doRequest("VerifyMaterial", "HTTPS", "POST", "2019-03-07", "AK", null, $tea.toMap(request), runtime), new VerifyMaterialResponse({}));
-  }
-
-  async verifyMaterialSimply(request: VerifyMaterialRequest): Promise<VerifyMaterialResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.verifyMaterial(request, runtime);
-  }
-
-  async describeVerifyResult(request: DescribeVerifyResultRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVerifyResultResponse> {
-    Util.validateModel(request);
-    return $tea.cast<DescribeVerifyResultResponse>(await this.doRequest("DescribeVerifyResult", "HTTPS", "POST", "2019-03-07", "AK", null, $tea.toMap(request), runtime), new DescribeVerifyResultResponse({}));
-  }
-
-  async describeVerifyResultSimply(request: DescribeVerifyResultRequest): Promise<DescribeVerifyResultResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeVerifyResult(request, runtime);
-  }
-
-  async describeOssUploadToken(request: DescribeOssUploadTokenRequest, runtime: $Util.RuntimeOptions): Promise<DescribeOssUploadTokenResponse> {
-    Util.validateModel(request);
-    return $tea.cast<DescribeOssUploadTokenResponse>(await this.doRequest("DescribeOssUploadToken", "HTTPS", "POST", "2019-03-07", "AK", null, $tea.toMap(request), runtime), new DescribeOssUploadTokenResponse({}));
-  }
-
-  async describeOssUploadTokenSimply(request: DescribeOssUploadTokenRequest): Promise<DescribeOssUploadTokenResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeOssUploadToken(request, runtime);
-  }
-
-  async describeVerifyToken(request: DescribeVerifyTokenRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVerifyTokenResponse> {
-    Util.validateModel(request);
-    return $tea.cast<DescribeVerifyTokenResponse>(await this.doRequest("DescribeVerifyToken", "HTTPS", "POST", "2019-03-07", "AK", null, $tea.toMap(request), runtime), new DescribeVerifyTokenResponse({}));
-  }
-
-  async describeVerifyTokenSimply(request: DescribeVerifyTokenRequest): Promise<DescribeVerifyTokenResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeVerifyToken(request, runtime);
-  }
-
-  getEndpoint(productId: string, regionId: string, endpointRule: string, network: string, suffix: string, endpointMap: {[key: string ]: string}, endpoint: string): string {
-    if (!Util.empty(endpoint)) {
-      return endpoint;
-    }
-
-    if (!Util.isUnset(endpointMap) && !Util.empty(endpointMap[regionId])) {
-      return endpointMap[regionId];
-    }
-
-    return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+    return await this.initFaceVerifyWithOptions(request, runtime);
   }
 
 }
