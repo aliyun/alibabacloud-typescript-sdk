@@ -19,7 +19,7 @@
     "typescript": "^3.7.5"
   },
   "dependencies": {
-    "@alicloud/tea-typescript": "latest",
+    "@alicloud/tea-typescript": "^1.7.1",
     "@alicloud/tea-util": "^1.4.0",
     "@alicloud/openapi-client": "^0.2.1",
     "@alicloud/openapi-util": "^0.1.3",
