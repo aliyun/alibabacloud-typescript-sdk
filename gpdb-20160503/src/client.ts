@@ -1579,6 +1579,96 @@ export class DescribeDBInstancesResponse extends $tea.Model {
   }
 }
 
+export class DescribeDBInstanceSQLPatternsRequest extends $tea.Model {
+  DBInstanceId?: string;
+  queryKeywords?: string;
+  startTime?: string;
+  database?: string;
+  user?: string;
+  endTime?: string;
+  sourceIP?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceId: 'DBInstanceId',
+      queryKeywords: 'QueryKeywords',
+      startTime: 'StartTime',
+      database: 'Database',
+      user: 'User',
+      endTime: 'EndTime',
+      sourceIP: 'SourceIP',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceId: 'string',
+      queryKeywords: 'string',
+      startTime: 'string',
+      database: 'string',
+      user: 'string',
+      endTime: 'string',
+      sourceIP: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBInstanceSQLPatternsResponseBody extends $tea.Model {
+  endTime?: string;
+  requestId?: string;
+  startTime?: string;
+  DBClusterId?: string;
+  patterns?: DescribeDBInstanceSQLPatternsResponseBodyPatterns[];
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      requestId: 'RequestId',
+      startTime: 'StartTime',
+      DBClusterId: 'DBClusterId',
+      patterns: 'Patterns',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'string',
+      requestId: 'string',
+      startTime: 'string',
+      DBClusterId: 'string',
+      patterns: { 'type': 'array', 'itemType': DescribeDBInstanceSQLPatternsResponseBodyPatterns },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBInstanceSQLPatternsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeDBInstanceSQLPatternsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeDBInstanceSQLPatternsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDBInstanceSSLRequest extends $tea.Model {
   DBInstanceId?: string;
   static names(): { [key: string]: string } {
@@ -2602,6 +2692,8 @@ export class DescribeSQLLogCountRequest extends $tea.Model {
   executeState?: string;
   operationClass?: string;
   operationType?: string;
+  maxExecuteCost?: string;
+  minExecuteCost?: string;
   static names(): { [key: string]: string } {
     return {
       DBInstanceId: 'DBInstanceId',
@@ -2615,6 +2707,8 @@ export class DescribeSQLLogCountRequest extends $tea.Model {
       executeState: 'ExecuteState',
       operationClass: 'OperationClass',
       operationType: 'OperationType',
+      maxExecuteCost: 'MaxExecuteCost',
+      minExecuteCost: 'MinExecuteCost',
     };
   }
 
@@ -2631,6 +2725,8 @@ export class DescribeSQLLogCountRequest extends $tea.Model {
       executeState: 'string',
       operationClass: 'string',
       operationType: 'string',
+      maxExecuteCost: 'string',
+      minExecuteCost: 'string',
     };
   }
 
@@ -2641,15 +2737,15 @@ export class DescribeSQLLogCountRequest extends $tea.Model {
 
 export class DescribeSQLLogCountResponseBody extends $tea.Model {
   endTime?: string;
-  startTime?: string;
   requestId?: string;
+  startTime?: string;
   DBClusterId?: string;
   items?: DescribeSQLLogCountResponseBodyItems[];
   static names(): { [key: string]: string } {
     return {
       endTime: 'EndTime',
-      startTime: 'StartTime',
       requestId: 'RequestId',
+      startTime: 'StartTime',
       DBClusterId: 'DBClusterId',
       items: 'Items',
     };
@@ -2658,8 +2754,8 @@ export class DescribeSQLLogCountResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       endTime: 'string',
-      startTime: 'string',
       requestId: 'string',
+      startTime: 'string',
       DBClusterId: 'string',
       items: { 'type': 'array', 'itemType': DescribeSQLLogCountResponseBodyItems },
     };
@@ -2883,6 +2979,8 @@ export class DescribeSQLLogsRequest extends $tea.Model {
   executeState?: string;
   operationClass?: string;
   operationType?: string;
+  maxExecuteCost?: string;
+  minExecuteCost?: string;
   static names(): { [key: string]: string } {
     return {
       DBInstanceId: 'DBInstanceId',
@@ -2898,6 +2996,8 @@ export class DescribeSQLLogsRequest extends $tea.Model {
       executeState: 'ExecuteState',
       operationClass: 'OperationClass',
       operationType: 'OperationType',
+      maxExecuteCost: 'MaxExecuteCost',
+      minExecuteCost: 'MinExecuteCost',
     };
   }
 
@@ -2916,6 +3016,8 @@ export class DescribeSQLLogsRequest extends $tea.Model {
       executeState: 'string',
       operationClass: 'string',
       operationType: 'string',
+      maxExecuteCost: 'string',
+      minExecuteCost: 'string',
     };
   }
 
@@ -2925,24 +3027,24 @@ export class DescribeSQLLogsRequest extends $tea.Model {
 }
 
 export class DescribeSQLLogsResponseBody extends $tea.Model {
+  pageRecordCount?: number;
   requestId?: string;
   pageNumber?: number;
-  pageRecordCount?: number;
   items?: DescribeSQLLogsResponseBodyItems[];
   static names(): { [key: string]: string } {
     return {
+      pageRecordCount: 'PageRecordCount',
       requestId: 'RequestId',
       pageNumber: 'PageNumber',
-      pageRecordCount: 'PageRecordCount',
       items: 'Items',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      pageRecordCount: 'number',
       requestId: 'string',
       pageNumber: 'number',
-      pageRecordCount: 'number',
       items: { 'type': 'array', 'itemType': DescribeSQLLogsResponseBodyItems },
     };
   }
@@ -2966,6 +3068,96 @@ export class DescribeSQLLogsResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: DescribeSQLLogsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSQLLogsOnSliceRequest extends $tea.Model {
+  pageSize?: number;
+  pageNumber?: number;
+  maxExecuteCost?: string;
+  minExecuteCost?: string;
+  executeState?: string;
+  DBInstanceId?: string;
+  queryId?: string;
+  sliceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      pageSize: 'PageSize',
+      pageNumber: 'PageNumber',
+      maxExecuteCost: 'MaxExecuteCost',
+      minExecuteCost: 'MinExecuteCost',
+      executeState: 'ExecuteState',
+      DBInstanceId: 'DBInstanceId',
+      queryId: 'QueryId',
+      sliceId: 'SliceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageSize: 'number',
+      pageNumber: 'number',
+      maxExecuteCost: 'string',
+      minExecuteCost: 'string',
+      executeState: 'string',
+      DBInstanceId: 'string',
+      queryId: 'string',
+      sliceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSQLLogsOnSliceResponseBody extends $tea.Model {
+  requestId?: string;
+  pageRecordCount?: number;
+  pageNumber?: number;
+  sliceLogItems?: DescribeSQLLogsOnSliceResponseBodySliceLogItems[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      pageRecordCount: 'PageRecordCount',
+      pageNumber: 'PageNumber',
+      sliceLogItems: 'SliceLogItems',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      pageRecordCount: 'number',
+      pageNumber: 'number',
+      sliceLogItems: { 'type': 'array', 'itemType': DescribeSQLLogsOnSliceResponseBodySliceLogItems },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSQLLogsOnSliceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeSQLLogsOnSliceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeSQLLogsOnSliceResponseBody,
     };
   }
 
@@ -5474,6 +5666,28 @@ export class DescribeDBInstancesResponseBodyItems extends $tea.Model {
   }
 }
 
+export class DescribeDBInstanceSQLPatternsResponseBodyPatterns extends $tea.Model {
+  name?: string;
+  values?: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      values: 'Values',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      values: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeLogBackupsResponseBodyItems extends $tea.Model {
   logFileSize?: number;
   logTime?: string;
@@ -6036,6 +6250,7 @@ export class DescribeSQLLogByQueryIdResponseBodyItems extends $tea.Model {
   scanRowCounts?: number;
   accountName?: string;
   queryId?: string;
+  sliceIds?: string[];
   static names(): { [key: string]: string } {
     return {
       operationClass: 'OperationClass',
@@ -6053,6 +6268,7 @@ export class DescribeSQLLogByQueryIdResponseBodyItems extends $tea.Model {
       scanRowCounts: 'ScanRowCounts',
       accountName: 'AccountName',
       queryId: 'QueryId',
+      sliceIds: 'SliceIds',
     };
   }
 
@@ -6073,6 +6289,7 @@ export class DescribeSQLLogByQueryIdResponseBodyItems extends $tea.Model {
       scanRowCounts: 'number',
       accountName: 'string',
       queryId: 'string',
+      sliceIds: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -6120,19 +6337,19 @@ export class DescribeSQLLogCountResponseBodyItemsSeries extends $tea.Model {
 }
 
 export class DescribeSQLLogCountResponseBodyItems extends $tea.Model {
-  name?: string;
   series?: DescribeSQLLogCountResponseBodyItemsSeries[];
+  name?: string;
   static names(): { [key: string]: string } {
     return {
-      name: 'Name',
       series: 'Series',
+      name: 'Name',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      name: 'string',
       series: { 'type': 'array', 'itemType': DescribeSQLLogCountResponseBodyItemsSeries },
+      name: 'string',
     };
   }
 
@@ -6255,14 +6472,14 @@ export class DescribeSQLLogRecordsResponseBodyItems extends $tea.Model {
 
 export class DescribeSQLLogsResponseBodyItems extends $tea.Model {
   operationClass?: string;
-  SQLText?: string;
-  executeCost?: number;
   executeState?: string;
+  executeCost?: number;
+  SQLText?: string;
   sourcePort?: number;
   DBRole?: string;
   operationType?: string;
-  SQLPlan?: string;
   sourceIP?: string;
+  SQLPlan?: string;
   returnRowCounts?: number;
   DBName?: string;
   operationExecuteTime?: string;
@@ -6271,14 +6488,14 @@ export class DescribeSQLLogsResponseBodyItems extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       operationClass: 'OperationClass',
-      SQLText: 'SQLText',
-      executeCost: 'ExecuteCost',
       executeState: 'ExecuteState',
+      executeCost: 'ExecuteCost',
+      SQLText: 'SQLText',
       sourcePort: 'SourcePort',
       DBRole: 'DBRole',
       operationType: 'OperationType',
-      SQLPlan: 'SQLPlan',
       sourceIP: 'SourceIP',
+      SQLPlan: 'SQLPlan',
       returnRowCounts: 'ReturnRowCounts',
       DBName: 'DBName',
       operationExecuteTime: 'OperationExecuteTime',
@@ -6290,19 +6507,59 @@ export class DescribeSQLLogsResponseBodyItems extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       operationClass: 'string',
-      SQLText: 'string',
-      executeCost: 'number',
       executeState: 'string',
+      executeCost: 'number',
+      SQLText: 'string',
       sourcePort: 'number',
       DBRole: 'string',
       operationType: 'string',
-      SQLPlan: 'string',
       sourceIP: 'string',
+      SQLPlan: 'string',
       returnRowCounts: 'number',
       DBName: 'string',
       operationExecuteTime: 'string',
       scanRowCounts: 'number',
       accountName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSQLLogsOnSliceResponseBodySliceLogItems extends $tea.Model {
+  executeStatus?: string;
+  executeCost?: number;
+  returnRowCounts?: number;
+  operationExecuteTime?: string;
+  segmentId?: string;
+  peakMemory?: number;
+  operationExecuteEndTime?: string;
+  segmentName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      executeStatus: 'ExecuteStatus',
+      executeCost: 'ExecuteCost',
+      returnRowCounts: 'ReturnRowCounts',
+      operationExecuteTime: 'OperationExecuteTime',
+      segmentId: 'SegmentId',
+      peakMemory: 'PeakMemory',
+      operationExecuteEndTime: 'OperationExecuteEndTime',
+      segmentName: 'SegmentName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      executeStatus: 'string',
+      executeCost: 'number',
+      returnRowCounts: 'number',
+      operationExecuteTime: 'string',
+      segmentId: 'string',
+      peakMemory: 'number',
+      operationExecuteEndTime: 'string',
+      segmentName: 'string',
     };
   }
 
@@ -6741,6 +6998,19 @@ export default class Client extends OpenApi {
     return await this.describeDBInstancesWithOptions(request, runtime);
   }
 
+  async describeDBInstanceSQLPatternsWithOptions(request: DescribeDBInstanceSQLPatternsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstanceSQLPatternsResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DescribeDBInstanceSQLPatternsResponse>(await this.doRPCRequest("DescribeDBInstanceSQLPatterns", "2016-05-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeDBInstanceSQLPatternsResponse({}));
+  }
+
+  async describeDBInstanceSQLPatterns(request: DescribeDBInstanceSQLPatternsRequest): Promise<DescribeDBInstanceSQLPatternsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDBInstanceSQLPatternsWithOptions(request, runtime);
+  }
+
   async describeDBInstanceSSLWithOptions(request: DescribeDBInstanceSSLRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstanceSSLResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -6960,6 +7230,19 @@ export default class Client extends OpenApi {
   async describeSQLLogs(request: DescribeSQLLogsRequest): Promise<DescribeSQLLogsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSQLLogsWithOptions(request, runtime);
+  }
+
+  async describeSQLLogsOnSliceWithOptions(request: DescribeSQLLogsOnSliceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSQLLogsOnSliceResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DescribeSQLLogsOnSliceResponse>(await this.doRPCRequest("DescribeSQLLogsOnSlice", "2016-05-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeSQLLogsOnSliceResponse({}));
+  }
+
+  async describeSQLLogsOnSlice(request: DescribeSQLLogsOnSliceRequest): Promise<DescribeSQLLogsOnSliceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeSQLLogsOnSliceWithOptions(request, runtime);
   }
 
   async describeTagsWithOptions(request: DescribeTagsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTagsResponse> {
