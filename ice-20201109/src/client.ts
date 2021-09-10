@@ -101,6 +101,69 @@ export class ListSmartJobsResponse extends $tea.Model {
   }
 }
 
+export class GetLiveEditingJobRequest extends $tea.Model {
+  jobId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jobId: 'JobId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLiveEditingJobResponseBody extends $tea.Model {
+  requestId?: string;
+  liveEditingJob?: GetLiveEditingJobResponseBodyLiveEditingJob;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      liveEditingJob: 'LiveEditingJob',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      liveEditingJob: GetLiveEditingJobResponseBodyLiveEditingJob,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLiveEditingJobResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetLiveEditingJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetLiveEditingJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeRelatedAuthorizationStatusResponseBody extends $tea.Model {
   requestId?: string;
   OSSAuthorized?: boolean;
@@ -310,6 +373,7 @@ export class UpdateEditingProjectRequest extends $tea.Model {
   timeline?: string;
   coverURL?: string;
   projectId?: string;
+  businessStatus?: string;
   static names(): { [key: string]: string } {
     return {
       title: 'Title',
@@ -317,6 +381,7 @@ export class UpdateEditingProjectRequest extends $tea.Model {
       timeline: 'Timeline',
       coverURL: 'CoverURL',
       projectId: 'ProjectId',
+      businessStatus: 'BusinessStatus',
     };
   }
 
@@ -327,6 +392,7 @@ export class UpdateEditingProjectRequest extends $tea.Model {
       timeline: 'string',
       coverURL: 'string',
       projectId: 'string',
+      businessStatus: 'string',
     };
   }
 
@@ -462,11 +528,15 @@ export class GetEditingProjectMaterialsResponseBody extends $tea.Model {
   requestId?: string;
   projectId?: string;
   mediaInfos?: GetEditingProjectMaterialsResponseBodyMediaInfos[];
+  liveMaterials?: GetEditingProjectMaterialsResponseBodyLiveMaterials[];
+  projectMaterials?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
       projectId: 'ProjectId',
       mediaInfos: 'MediaInfos',
+      liveMaterials: 'LiveMaterials',
+      projectMaterials: 'ProjectMaterials',
     };
   }
 
@@ -475,6 +545,8 @@ export class GetEditingProjectMaterialsResponseBody extends $tea.Model {
       requestId: 'string',
       projectId: 'string',
       mediaInfos: { 'type': 'array', 'itemType': GetEditingProjectMaterialsResponseBodyMediaInfos },
+      liveMaterials: { 'type': 'array', 'itemType': GetEditingProjectMaterialsResponseBodyLiveMaterials },
+      projectMaterials: 'string',
     };
   }
 
@@ -857,14 +929,18 @@ export class CreateEditingProjectRequest extends $tea.Model {
   description?: string;
   timeline?: string;
   coverURL?: string;
-  FEExtend?: string;
+  materialMaps?: string;
+  businessConfig?: string;
+  projectType?: string;
   static names(): { [key: string]: string } {
     return {
       title: 'Title',
       description: 'Description',
       timeline: 'Timeline',
       coverURL: 'CoverURL',
-      FEExtend: 'FEExtend',
+      materialMaps: 'MaterialMaps',
+      businessConfig: 'BusinessConfig',
+      projectType: 'ProjectType',
     };
   }
 
@@ -874,7 +950,9 @@ export class CreateEditingProjectRequest extends $tea.Model {
       description: 'string',
       timeline: 'string',
       coverURL: 'string',
-      FEExtend: 'string',
+      materialMaps: 'string',
+      businessConfig: 'string',
+      projectType: 'string',
     };
   }
 
@@ -1265,6 +1343,78 @@ export class DescribeIceProductStatusResponse extends $tea.Model {
   }
 }
 
+export class GetLiveEditingIndexFileRequest extends $tea.Model {
+  appName?: string;
+  domainName?: string;
+  streamName?: string;
+  projectId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appName: 'AppName',
+      domainName: 'DomainName',
+      streamName: 'StreamName',
+      projectId: 'ProjectId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appName: 'string',
+      domainName: 'string',
+      streamName: 'string',
+      projectId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLiveEditingIndexFileResponseBody extends $tea.Model {
+  requestId?: string;
+  indexFile?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      indexFile: 'IndexFile',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      indexFile: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLiveEditingIndexFileResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetLiveEditingIndexFileResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetLiveEditingIndexFileResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListMediaBasicInfosRequest extends $tea.Model {
   startTime?: string;
   endTime?: string;
@@ -1561,11 +1711,15 @@ export class AddEditingProjectMaterialsResponseBody extends $tea.Model {
   requestId?: string;
   projectId?: string;
   mediaInfos?: AddEditingProjectMaterialsResponseBodyMediaInfos[];
+  liveMaterials?: AddEditingProjectMaterialsResponseBodyLiveMaterials[];
+  projectMaterials?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
       projectId: 'ProjectId',
       mediaInfos: 'MediaInfos',
+      liveMaterials: 'LiveMaterials',
+      projectMaterials: 'ProjectMaterials',
     };
   }
 
@@ -1574,6 +1728,8 @@ export class AddEditingProjectMaterialsResponseBody extends $tea.Model {
       requestId: 'string',
       projectId: 'string',
       mediaInfos: { 'type': 'array', 'itemType': AddEditingProjectMaterialsResponseBodyMediaInfos },
+      liveMaterials: { 'type': 'array', 'itemType': AddEditingProjectMaterialsResponseBodyLiveMaterials },
+      projectMaterials: 'string',
     };
   }
 
@@ -2048,6 +2204,7 @@ export class SearchEditingProjectRequest extends $tea.Model {
   maxResults?: number;
   createSource?: string;
   templateType?: string;
+  projectType?: string;
   static names(): { [key: string]: string } {
     return {
       startTime: 'StartTime',
@@ -2058,6 +2215,7 @@ export class SearchEditingProjectRequest extends $tea.Model {
       maxResults: 'MaxResults',
       createSource: 'CreateSource',
       templateType: 'TemplateType',
+      projectType: 'ProjectType',
     };
   }
 
@@ -2071,6 +2229,7 @@ export class SearchEditingProjectRequest extends $tea.Model {
       maxResults: 'number',
       createSource: 'string',
       templateType: 'string',
+      projectType: 'string',
     };
   }
 
@@ -2231,18 +2390,15 @@ export class DeleteEditingProjectsRequest extends $tea.Model {
 
 export class DeleteEditingProjectsResponseBody extends $tea.Model {
   requestId?: string;
-  ignoredList?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      ignoredList: 'IgnoredList',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      ignoredList: 'string',
     };
   }
 
@@ -3385,6 +3541,96 @@ export class SubmitH2VJobResponse extends $tea.Model {
   }
 }
 
+export class SubmitLiveEditingJobRequest extends $tea.Model {
+  clips?: string;
+  projectId?: string;
+  liveStreamConfig?: string;
+  outputMediaConfig?: string;
+  mediaProduceConfig?: string;
+  userData?: string;
+  outputMediaTarget?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clips: 'Clips',
+      projectId: 'ProjectId',
+      liveStreamConfig: 'LiveStreamConfig',
+      outputMediaConfig: 'OutputMediaConfig',
+      mediaProduceConfig: 'MediaProduceConfig',
+      userData: 'UserData',
+      outputMediaTarget: 'OutputMediaTarget',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clips: 'string',
+      projectId: 'string',
+      liveStreamConfig: 'string',
+      outputMediaConfig: 'string',
+      mediaProduceConfig: 'string',
+      userData: 'string',
+      outputMediaTarget: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitLiveEditingJobResponseBody extends $tea.Model {
+  requestId?: string;
+  projectId?: string;
+  jobId?: string;
+  mediaId?: string;
+  mediaURL?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      projectId: 'ProjectId',
+      jobId: 'JobId',
+      mediaId: 'MediaId',
+      mediaURL: 'MediaURL',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      projectId: 'string',
+      jobId: 'string',
+      mediaId: 'string',
+      mediaURL: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitLiveEditingJobResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: SubmitLiveEditingJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: SubmitLiveEditingJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SubmitPPTCutJobRequest extends $tea.Model {
   inputFile?: string;
   userData?: string;
@@ -3554,6 +3800,148 @@ export class ListSmartJobsResponseBodySmartJobList extends $tea.Model {
       modifiedTime: 'string',
       inputConfig: ListSmartJobsResponseBodySmartJobListInputConfig,
       outputConfig: ListSmartJobsResponseBodySmartJobListOutputConfig,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLiveEditingJobResponseBodyLiveEditingJobLiveStreamConfig extends $tea.Model {
+  appName?: string;
+  domainName?: string;
+  streamName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appName: 'AppName',
+      domainName: 'DomainName',
+      streamName: 'StreamName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appName: 'string',
+      domainName: 'string',
+      streamName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLiveEditingJobResponseBodyLiveEditingJobMediaProduceConfig extends $tea.Model {
+  mode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      mode: 'Mode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLiveEditingJobResponseBodyLiveEditingJobOutputMediaConfig extends $tea.Model {
+  mediaURL?: string;
+  storageLocation?: string;
+  fileName?: string;
+  width?: number;
+  height?: number;
+  bitrate?: number;
+  vodTemplateGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      mediaURL: 'MediaURL',
+      storageLocation: 'StorageLocation',
+      fileName: 'FileName',
+      width: 'Width',
+      height: 'Height',
+      bitrate: 'Bitrate',
+      vodTemplateGroupId: 'VodTemplateGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mediaURL: 'string',
+      storageLocation: 'string',
+      fileName: 'string',
+      width: 'number',
+      height: 'number',
+      bitrate: 'number',
+      vodTemplateGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLiveEditingJobResponseBodyLiveEditingJob extends $tea.Model {
+  jobId?: string;
+  projectId?: string;
+  status?: string;
+  clips?: string;
+  userData?: string;
+  creationTime?: string;
+  modifiedTime?: string;
+  completeTime?: string;
+  mediaId?: string;
+  mediaURL?: string;
+  code?: string;
+  message?: string;
+  liveStreamConfig?: GetLiveEditingJobResponseBodyLiveEditingJobLiveStreamConfig;
+  mediaProduceConfig?: GetLiveEditingJobResponseBodyLiveEditingJobMediaProduceConfig;
+  outputMediaConfig?: GetLiveEditingJobResponseBodyLiveEditingJobOutputMediaConfig;
+  static names(): { [key: string]: string } {
+    return {
+      jobId: 'JobId',
+      projectId: 'ProjectId',
+      status: 'Status',
+      clips: 'Clips',
+      userData: 'UserData',
+      creationTime: 'CreationTime',
+      modifiedTime: 'ModifiedTime',
+      completeTime: 'CompleteTime',
+      mediaId: 'MediaId',
+      mediaURL: 'MediaURL',
+      code: 'Code',
+      message: 'Message',
+      liveStreamConfig: 'LiveStreamConfig',
+      mediaProduceConfig: 'MediaProduceConfig',
+      outputMediaConfig: 'OutputMediaConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobId: 'string',
+      projectId: 'string',
+      status: 'string',
+      clips: 'string',
+      userData: 'string',
+      creationTime: 'string',
+      modifiedTime: 'string',
+      completeTime: 'string',
+      mediaId: 'string',
+      mediaURL: 'string',
+      code: 'string',
+      message: 'string',
+      liveStreamConfig: GetLiveEditingJobResponseBodyLiveEditingJobLiveStreamConfig,
+      mediaProduceConfig: GetLiveEditingJobResponseBodyLiveEditingJobMediaProduceConfig,
+      outputMediaConfig: GetLiveEditingJobResponseBodyLiveEditingJobOutputMediaConfig,
     };
   }
 
@@ -3823,6 +4211,34 @@ export class GetEditingProjectMaterialsResponseBodyMediaInfos extends $tea.Model
   }
 }
 
+export class GetEditingProjectMaterialsResponseBodyLiveMaterials extends $tea.Model {
+  appName?: string;
+  streamName?: string;
+  domainName?: string;
+  liveUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appName: 'AppName',
+      streamName: 'StreamName',
+      domainName: 'DomainName',
+      liveUrl: 'LiveUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appName: 'string',
+      streamName: 'string',
+      domainName: 'string',
+      liveUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetTemplateResponseBodyTemplate extends $tea.Model {
   templateId?: string;
   name?: string;
@@ -3892,6 +4308,9 @@ export class CreateEditingProjectResponseBodyProject extends $tea.Model {
   createSource?: string;
   modifiedSource?: string;
   templateType?: string;
+  businessConfig?: string;
+  projectType?: string;
+  businessStatus?: string;
   static names(): { [key: string]: string } {
     return {
       projectId: 'ProjectId',
@@ -3907,6 +4326,9 @@ export class CreateEditingProjectResponseBodyProject extends $tea.Model {
       createSource: 'CreateSource',
       modifiedSource: 'ModifiedSource',
       templateType: 'TemplateType',
+      businessConfig: 'BusinessConfig',
+      projectType: 'ProjectType',
+      businessStatus: 'BusinessStatus',
     };
   }
 
@@ -3925,6 +4347,9 @@ export class CreateEditingProjectResponseBodyProject extends $tea.Model {
       createSource: 'string',
       modifiedSource: 'string',
       templateType: 'string',
+      businessConfig: 'string',
+      projectType: 'string',
+      businessStatus: 'string',
     };
   }
 
@@ -4480,6 +4905,34 @@ export class AddEditingProjectMaterialsResponseBodyMediaInfos extends $tea.Model
   }
 }
 
+export class AddEditingProjectMaterialsResponseBodyLiveMaterials extends $tea.Model {
+  appName?: string;
+  streamName?: string;
+  domainName?: string;
+  liveUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appName: 'AppName',
+      streamName: 'StreamName',
+      domainName: 'DomainName',
+      liveUrl: 'LiveUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appName: 'string',
+      streamName: 'string',
+      domainName: 'string',
+      liveUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetEditingProjectResponseBodyProject extends $tea.Model {
   projectId?: string;
   title?: string;
@@ -4493,6 +4946,9 @@ export class GetEditingProjectResponseBodyProject extends $tea.Model {
   createSource?: string;
   templateType?: string;
   modifiedSource?: string;
+  projectType?: string;
+  businessConfig?: string;
+  businessStatus?: string;
   static names(): { [key: string]: string } {
     return {
       projectId: 'ProjectId',
@@ -4507,6 +4963,9 @@ export class GetEditingProjectResponseBodyProject extends $tea.Model {
       createSource: 'CreateSource',
       templateType: 'TemplateType',
       modifiedSource: 'ModifiedSource',
+      projectType: 'ProjectType',
+      businessConfig: 'BusinessConfig',
+      businessStatus: 'BusinessStatus',
     };
   }
 
@@ -4524,6 +4983,9 @@ export class GetEditingProjectResponseBodyProject extends $tea.Model {
       createSource: 'string',
       templateType: 'string',
       modifiedSource: 'string',
+      projectType: 'string',
+      businessConfig: 'string',
+      businessStatus: 'string',
     };
   }
 
@@ -4575,6 +5037,9 @@ export class SearchEditingProjectResponseBodyProjectList extends $tea.Model {
   createSource?: string;
   modifiedSource?: string;
   templateType?: string;
+  projectType?: string;
+  businessConfig?: string;
+  businessStatus?: string;
   static names(): { [key: string]: string } {
     return {
       projectId: 'ProjectId',
@@ -4591,6 +5056,9 @@ export class SearchEditingProjectResponseBodyProjectList extends $tea.Model {
       createSource: 'CreateSource',
       modifiedSource: 'ModifiedSource',
       templateType: 'TemplateType',
+      projectType: 'ProjectType',
+      businessConfig: 'BusinessConfig',
+      businessStatus: 'BusinessStatus',
     };
   }
 
@@ -4610,6 +5078,9 @@ export class SearchEditingProjectResponseBodyProjectList extends $tea.Model {
       createSource: 'string',
       modifiedSource: 'string',
       templateType: 'string',
+      projectType: 'string',
+      businessConfig: 'string',
+      businessStatus: 'string',
     };
   }
 
@@ -5466,6 +5937,19 @@ export default class Client extends OpenApi {
     return await this.listSmartJobsWithOptions(request, runtime);
   }
 
+  async getLiveEditingJobWithOptions(request: GetLiveEditingJobRequest, runtime: $Util.RuntimeOptions): Promise<GetLiveEditingJobResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<GetLiveEditingJobResponse>(await this.doRPCRequest("GetLiveEditingJob", "2020-11-09", "HTTPS", "POST", "AK", "json", req, runtime), new GetLiveEditingJobResponse({}));
+  }
+
+  async getLiveEditingJob(request: GetLiveEditingJobRequest): Promise<GetLiveEditingJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getLiveEditingJobWithOptions(request, runtime);
+  }
+
   async describeRelatedAuthorizationStatusWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeRelatedAuthorizationStatusResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     return $tea.cast<DescribeRelatedAuthorizationStatusResponse>(await this.doRPCRequest("DescribeRelatedAuthorizationStatus", "2020-11-09", "HTTPS", "GET", "AK", "json", req, runtime), new DescribeRelatedAuthorizationStatusResponse({}));
@@ -5491,11 +5975,10 @@ export default class Client extends OpenApi {
 
   async addTemplateWithOptions(request: AddTemplateRequest, runtime: $Util.RuntimeOptions): Promise<AddTemplateResponse> {
     Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
     let req = new $OpenApi.OpenApiRequest({
-      query: query,
+      body: Util.toMap(request),
     });
-    return $tea.cast<AddTemplateResponse>(await this.doRPCRequest("AddTemplate", "2020-11-09", "HTTPS", "GET", "AK", "json", req, runtime), new AddTemplateResponse({}));
+    return $tea.cast<AddTemplateResponse>(await this.doRPCRequest("AddTemplate", "2020-11-09", "HTTPS", "POST", "AK", "json", req, runtime), new AddTemplateResponse({}));
   }
 
   async addTemplate(request: AddTemplateRequest): Promise<AddTemplateResponse> {
@@ -5680,6 +6163,20 @@ export default class Client extends OpenApi {
   async describeIceProductStatus(): Promise<DescribeIceProductStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeIceProductStatusWithOptions(runtime);
+  }
+
+  async getLiveEditingIndexFileWithOptions(request: GetLiveEditingIndexFileRequest, runtime: $Util.RuntimeOptions): Promise<GetLiveEditingIndexFileResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: query,
+    });
+    return $tea.cast<GetLiveEditingIndexFileResponse>(await this.doRPCRequest("GetLiveEditingIndexFile", "2020-11-09", "HTTPS", "GET", "AK", "json", req, runtime), new GetLiveEditingIndexFileResponse({}));
+  }
+
+  async getLiveEditingIndexFile(request: GetLiveEditingIndexFileRequest): Promise<GetLiveEditingIndexFileResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getLiveEditingIndexFileWithOptions(request, runtime);
   }
 
   async listMediaBasicInfosWithOptions(request: ListMediaBasicInfosRequest, runtime: $Util.RuntimeOptions): Promise<ListMediaBasicInfosResponse> {
@@ -5897,11 +6394,10 @@ export default class Client extends OpenApi {
 
   async updateTemplateWithOptions(request: UpdateTemplateRequest, runtime: $Util.RuntimeOptions): Promise<UpdateTemplateResponse> {
     Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
     let req = new $OpenApi.OpenApiRequest({
-      query: query,
+      body: Util.toMap(request),
     });
-    return $tea.cast<UpdateTemplateResponse>(await this.doRPCRequest("UpdateTemplate", "2020-11-09", "HTTPS", "GET", "AK", "json", req, runtime), new UpdateTemplateResponse({}));
+    return $tea.cast<UpdateTemplateResponse>(await this.doRPCRequest("UpdateTemplate", "2020-11-09", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateTemplateResponse({}));
   }
 
   async updateTemplate(request: UpdateTemplateRequest): Promise<UpdateTemplateResponse> {
@@ -6035,6 +6531,19 @@ export default class Client extends OpenApi {
   async submitH2VJob(request: SubmitH2VJobRequest): Promise<SubmitH2VJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.submitH2VJobWithOptions(request, runtime);
+  }
+
+  async submitLiveEditingJobWithOptions(request: SubmitLiveEditingJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitLiveEditingJobResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<SubmitLiveEditingJobResponse>(await this.doRPCRequest("SubmitLiveEditingJob", "2020-11-09", "HTTPS", "POST", "AK", "json", req, runtime), new SubmitLiveEditingJobResponse({}));
+  }
+
+  async submitLiveEditingJob(request: SubmitLiveEditingJobRequest): Promise<SubmitLiveEditingJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.submitLiveEditingJobWithOptions(request, runtime);
   }
 
   async submitPPTCutJobWithOptions(request: SubmitPPTCutJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitPPTCutJobResponse> {
