@@ -3779,6 +3779,7 @@ export class GetRoomResponseBodyResultRoomInfo extends $tea.Model {
   appId?: string;
   templateId?: string;
   extension?: { [key: string]: string };
+  pv?: number;
   static names(): { [key: string]: string } {
     return {
       roomId: 'RoomId',
@@ -3792,6 +3793,7 @@ export class GetRoomResponseBodyResultRoomInfo extends $tea.Model {
       appId: 'AppId',
       templateId: 'TemplateId',
       extension: 'Extension',
+      pv: 'Pv',
     };
   }
 
@@ -3808,6 +3810,7 @@ export class GetRoomResponseBodyResultRoomInfo extends $tea.Model {
       appId: 'string',
       templateId: 'string',
       extension: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      pv: 'number',
     };
   }
 
@@ -4186,6 +4189,8 @@ export class ListRoomLivesResponseBodyResultLiveList extends $tea.Model {
   extension?: { [key: string]: string };
   liveId?: string;
   status?: number;
+  pv?: number;
+  onlineCount?: number;
   static names(): { [key: string]: string } {
     return {
       roomId: 'RoomId',
@@ -4197,6 +4202,8 @@ export class ListRoomLivesResponseBodyResultLiveList extends $tea.Model {
       extension: 'Extension',
       liveId: 'LiveId',
       status: 'Status',
+      pv: 'Pv',
+      onlineCount: 'OnlineCount',
     };
   }
 
@@ -4211,6 +4218,8 @@ export class ListRoomLivesResponseBodyResultLiveList extends $tea.Model {
       extension: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       liveId: 'string',
       status: 'number',
+      pv: 'number',
+      onlineCount: 'number',
     };
   }
 
