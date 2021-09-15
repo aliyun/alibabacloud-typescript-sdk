@@ -366,8 +366,6 @@ export class CreateAssetResponse extends $tea.Model {
 }
 
 export class CreateBackupPolicyRequest extends $tea.Model {
-  sourceIp?: string;
-  resourceOwnerId?: number;
   name?: string;
   policy?: { [key: string]: any };
   policyVersion?: string;
@@ -375,8 +373,6 @@ export class CreateBackupPolicyRequest extends $tea.Model {
   uuidList?: string[];
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
-      resourceOwnerId: 'ResourceOwnerId',
       name: 'Name',
       policy: 'Policy',
       policyVersion: 'PolicyVersion',
@@ -387,8 +383,6 @@ export class CreateBackupPolicyRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
-      resourceOwnerId: 'number',
       name: 'string',
       policy: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       policyVersion: 'string',
@@ -403,8 +397,6 @@ export class CreateBackupPolicyRequest extends $tea.Model {
 }
 
 export class CreateBackupPolicyShrinkRequest extends $tea.Model {
-  sourceIp?: string;
-  resourceOwnerId?: number;
   name?: string;
   policyShrink?: string;
   policyVersion?: string;
@@ -412,8 +404,6 @@ export class CreateBackupPolicyShrinkRequest extends $tea.Model {
   uuidList?: string[];
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
-      resourceOwnerId: 'ResourceOwnerId',
       name: 'Name',
       policyShrink: 'Policy',
       policyVersion: 'PolicyVersion',
@@ -424,8 +414,6 @@ export class CreateBackupPolicyShrinkRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
-      resourceOwnerId: 'number',
       name: 'string',
       policyShrink: 'string',
       policyVersion: 'string',
@@ -550,8 +538,6 @@ export class CreateOrUpdateAssetGroupResponse extends $tea.Model {
 }
 
 export class CreateRestoreJobRequest extends $tea.Model {
-  sourceIp?: string;
-  resourceOwnerId?: number;
   uuid?: string;
   snapshotId?: string;
   snapshotHash?: string;
@@ -562,8 +548,6 @@ export class CreateRestoreJobRequest extends $tea.Model {
   includes?: string;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
-      resourceOwnerId: 'ResourceOwnerId',
       uuid: 'Uuid',
       snapshotId: 'SnapshotId',
       snapshotHash: 'SnapshotHash',
@@ -577,8 +561,6 @@ export class CreateRestoreJobRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
-      resourceOwnerId: 'number',
       uuid: 'string',
       snapshotId: 'string',
       snapshotHash: 'string',
@@ -1156,14 +1138,10 @@ export class DeleteAssetResponse extends $tea.Model {
 }
 
 export class DeleteBackupPolicyRequest extends $tea.Model {
-  sourceIp?: string;
-  resourceOwnerId?: number;
   id?: number;
   policyVersion?: string;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
-      resourceOwnerId: 'ResourceOwnerId',
       id: 'Id',
       policyVersion: 'PolicyVersion',
     };
@@ -1171,8 +1149,6 @@ export class DeleteBackupPolicyRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
-      resourceOwnerId: 'number',
       id: 'number',
       policyVersion: 'string',
     };
@@ -1225,16 +1201,12 @@ export class DeleteBackupPolicyResponse extends $tea.Model {
 }
 
 export class DeleteBackupPolicyMachineRequest extends $tea.Model {
-  sourceIp?: string;
-  resourceOwnerId?: number;
   uuid?: string;
   policyId?: number;
   policyVersion?: string;
   uuidList?: string[];
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
-      resourceOwnerId: 'ResourceOwnerId',
       uuid: 'Uuid',
       policyId: 'PolicyId',
       policyVersion: 'PolicyVersion',
@@ -1244,8 +1216,6 @@ export class DeleteBackupPolicyMachineRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
-      resourceOwnerId: 'number',
       uuid: 'string',
       policyId: 'number',
       policyVersion: 'string',
@@ -2719,16 +2689,12 @@ export class DescribeBackupClientsResponse extends $tea.Model {
 }
 
 export class DescribeBackupDirsRequest extends $tea.Model {
-  sourceIp?: string;
-  resourceOwnerId?: number;
   policyId?: number;
   uuid?: string;
   pageSize?: number;
   currentPage?: number;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
-      resourceOwnerId: 'ResourceOwnerId',
       policyId: 'PolicyId',
       uuid: 'Uuid',
       pageSize: 'PageSize',
@@ -2738,8 +2704,6 @@ export class DescribeBackupDirsRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
-      resourceOwnerId: 'number',
       policyId: 'number',
       uuid: 'string',
       pageSize: 'number',
@@ -2800,8 +2764,6 @@ export class DescribeBackupDirsResponse extends $tea.Model {
 }
 
 export class DescribeBackupFilesRequest extends $tea.Model {
-  sourceIp?: string;
-  resourceOwnerId?: number;
   uuid?: string;
   path?: string;
   snapshotHash?: string;
@@ -2809,8 +2771,6 @@ export class DescribeBackupFilesRequest extends $tea.Model {
   pageSize?: string;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
-      resourceOwnerId: 'ResourceOwnerId',
       uuid: 'Uuid',
       path: 'Path',
       snapshotHash: 'SnapshotHash',
@@ -2821,8 +2781,6 @@ export class DescribeBackupFilesRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
-      resourceOwnerId: 'number',
       uuid: 'string',
       path: 'string',
       snapshotHash: 'string',
@@ -2884,15 +2842,11 @@ export class DescribeBackupFilesResponse extends $tea.Model {
 }
 
 export class DescribeBackupMachineStatusRequest extends $tea.Model {
-  sourceIp?: string;
-  resourceOwnerId?: number;
   policyId?: number;
   uuid?: string;
   policyVersion?: string;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
-      resourceOwnerId: 'ResourceOwnerId',
       policyId: 'PolicyId',
       uuid: 'Uuid',
       policyVersion: 'PolicyVersion',
@@ -2901,8 +2855,6 @@ export class DescribeBackupMachineStatusRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
-      resourceOwnerId: 'number',
       policyId: 'number',
       uuid: 'string',
       policyVersion: 'string',
@@ -2959,8 +2911,6 @@ export class DescribeBackupMachineStatusResponse extends $tea.Model {
 }
 
 export class DescribeBackupPoliciesRequest extends $tea.Model {
-  sourceIp?: string;
-  resourceOwnerId?: number;
   name?: string;
   machineRemark?: string;
   status?: string;
@@ -2968,8 +2918,6 @@ export class DescribeBackupPoliciesRequest extends $tea.Model {
   currentPage?: number;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
-      resourceOwnerId: 'ResourceOwnerId',
       name: 'Name',
       machineRemark: 'MachineRemark',
       status: 'Status',
@@ -2980,8 +2928,6 @@ export class DescribeBackupPoliciesRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
-      resourceOwnerId: 'number',
       name: 'string',
       machineRemark: 'string',
       status: 'string',
@@ -3043,25 +2989,16 @@ export class DescribeBackupPoliciesResponse extends $tea.Model {
 }
 
 export class DescribeBackupPolicyRequest extends $tea.Model {
-  sourceIp?: string;
-  resourceOwnerId?: number;
   id?: number;
-  policyVersion?: string;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
-      resourceOwnerId: 'ResourceOwnerId',
       id: 'Id',
-      policyVersion: 'PolicyVersion',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
-      resourceOwnerId: 'number',
       id: 'number',
-      policyVersion: 'string',
     };
   }
 
@@ -3106,28 +3043,6 @@ export class DescribeBackupPolicyResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: DescribeBackupPolicyResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeBackupRestoreCountRequest extends $tea.Model {
-  sourceIp?: string;
-  resourceOwnerId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      sourceIp: 'SourceIp',
-      resourceOwnerId: 'ResourceOwnerId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      sourceIp: 'string',
-      resourceOwnerId: 'number',
     };
   }
 
@@ -3409,6 +3324,7 @@ export class DescribeCheckWarningsRequest extends $tea.Model {
   riskId?: number;
   pageSize?: number;
   currentPage?: number;
+  checkId?: number;
   static names(): { [key: string]: string } {
     return {
       sourceIp: 'SourceIp',
@@ -3417,6 +3333,7 @@ export class DescribeCheckWarningsRequest extends $tea.Model {
       riskId: 'RiskId',
       pageSize: 'PageSize',
       currentPage: 'CurrentPage',
+      checkId: 'CheckId',
     };
   }
 
@@ -3428,6 +3345,7 @@ export class DescribeCheckWarningsRequest extends $tea.Model {
       riskId: 'number',
       pageSize: 'number',
       currentPage: 'number',
+      checkId: 'number',
     };
   }
 
@@ -3854,10 +3772,12 @@ export class DescribeContainerStatisticsResponse extends $tea.Model {
 export class DescribeCriteriaRequest extends $tea.Model {
   machineTypes?: string;
   value?: string;
+  supportAutoTag?: boolean;
   static names(): { [key: string]: string } {
     return {
       machineTypes: 'MachineTypes',
       value: 'Value',
+      supportAutoTag: 'SupportAutoTag',
     };
   }
 
@@ -3865,6 +3785,7 @@ export class DescribeCriteriaRequest extends $tea.Model {
     return {
       machineTypes: 'string',
       value: 'string',
+      supportAutoTag: 'boolean',
     };
   }
 
@@ -4368,14 +4289,10 @@ export class DescribeEmgVulItemResponse extends $tea.Model {
 }
 
 export class DescribeExcludeSystemPathRequest extends $tea.Model {
-  sourceIp?: string;
-  resourceOwnerId?: number;
   pageSize?: number;
   currentPage?: number;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
-      resourceOwnerId: 'ResourceOwnerId',
       pageSize: 'PageSize',
       currentPage: 'CurrentPage',
     };
@@ -4383,8 +4300,6 @@ export class DescribeExcludeSystemPathRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
-      resourceOwnerId: 'number',
       pageSize: 'number',
       currentPage: 'number',
     };
@@ -7800,16 +7715,12 @@ export class DescribeQuaraFileDownloadInfoResponse extends $tea.Model {
 }
 
 export class DescribeRestoreJobsRequest extends $tea.Model {
-  sourceIp?: string;
-  resourceOwnerId?: number;
   status?: string;
   machineRemark?: string;
   pageSize?: number;
   currentPage?: number;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
-      resourceOwnerId: 'ResourceOwnerId',
       status: 'Status',
       machineRemark: 'MachineRemark',
       pageSize: 'PageSize',
@@ -7819,8 +7730,6 @@ export class DescribeRestoreJobsRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
-      resourceOwnerId: 'number',
       status: 'string',
       machineRemark: 'string',
       pageSize: 'number',
@@ -9062,8 +8971,6 @@ export class DescribeSimilarSecurityEventsResponse extends $tea.Model {
 }
 
 export class DescribeSnapshotsRequest extends $tea.Model {
-  sourceIp?: string;
-  resourceOwnerId?: number;
   uuid?: string;
   machineRegion?: string;
   machineRemark?: string;
@@ -9075,8 +8982,6 @@ export class DescribeSnapshotsRequest extends $tea.Model {
   isAliYunEcs?: string;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
-      resourceOwnerId: 'ResourceOwnerId',
       uuid: 'Uuid',
       machineRegion: 'MachineRegion',
       machineRemark: 'MachineRemark',
@@ -9091,8 +8996,6 @@ export class DescribeSnapshotsRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
-      resourceOwnerId: 'number',
       uuid: 'string',
       machineRegion: 'string',
       machineRemark: 'string',
@@ -9533,28 +9436,6 @@ export class DescribeSummaryInfoResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: DescribeSummaryInfoResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSupportRegionRequest extends $tea.Model {
-  sourceIp?: string;
-  resourceOwnerId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      sourceIp: 'SourceIp',
-      resourceOwnerId: 'ResourceOwnerId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      sourceIp: 'string',
-      resourceOwnerId: 'number',
     };
   }
 
@@ -10383,34 +10264,6 @@ export class DescribeUniSupportRegionResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: DescribeUniSupportRegionResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeUserBackupMachinesRequest extends $tea.Model {
-  sourceIp?: string;
-  resourceOwnerId?: number;
-  pageSize?: number;
-  currentPage?: number;
-  static names(): { [key: string]: string } {
-    return {
-      sourceIp: 'SourceIp',
-      resourceOwnerId: 'ResourceOwnerId',
-      pageSize: 'PageSize',
-      currentPage: 'CurrentPage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      sourceIp: 'string',
-      resourceOwnerId: 'number',
-      pageSize: 'number',
-      currentPage: 'number',
     };
   }
 
@@ -12489,15 +12342,11 @@ export class IgnoreHcCheckWarningsResponse extends $tea.Model {
 }
 
 export class InstallBackupClientRequest extends $tea.Model {
-  sourceIp?: string;
-  resourceOwnerId?: number;
   uuid?: string;
   policyVersion?: string;
   uuidList?: string[];
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
-      resourceOwnerId: 'ResourceOwnerId',
       uuid: 'Uuid',
       policyVersion: 'PolicyVersion',
       uuidList: 'UuidList',
@@ -12506,8 +12355,6 @@ export class InstallBackupClientRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
-      resourceOwnerId: 'number',
       uuid: 'string',
       policyVersion: 'string',
       uuidList: { 'type': 'array', 'itemType': 'string' },
@@ -12777,8 +12624,6 @@ export class ModifyAssetGroupResponse extends $tea.Model {
 }
 
 export class ModifyBackupPolicyRequest extends $tea.Model {
-  sourceIp?: string;
-  resourceOwnerId?: number;
   id?: number;
   name?: string;
   policy?: { [key: string]: any };
@@ -12787,8 +12632,6 @@ export class ModifyBackupPolicyRequest extends $tea.Model {
   uuidList?: string[];
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
-      resourceOwnerId: 'ResourceOwnerId',
       id: 'Id',
       name: 'Name',
       policy: 'Policy',
@@ -12800,8 +12643,6 @@ export class ModifyBackupPolicyRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
-      resourceOwnerId: 'number',
       id: 'number',
       name: 'string',
       policy: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
@@ -12817,8 +12658,6 @@ export class ModifyBackupPolicyRequest extends $tea.Model {
 }
 
 export class ModifyBackupPolicyShrinkRequest extends $tea.Model {
-  sourceIp?: string;
-  resourceOwnerId?: number;
   id?: number;
   name?: string;
   policyShrink?: string;
@@ -12827,8 +12666,6 @@ export class ModifyBackupPolicyShrinkRequest extends $tea.Model {
   uuidList?: string[];
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
-      resourceOwnerId: 'ResourceOwnerId',
       id: 'Id',
       name: 'Name',
       policyShrink: 'Policy',
@@ -12840,8 +12677,6 @@ export class ModifyBackupPolicyShrinkRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
-      resourceOwnerId: 'number',
       id: 'number',
       name: 'string',
       policyShrink: 'string',
@@ -12898,15 +12733,11 @@ export class ModifyBackupPolicyResponse extends $tea.Model {
 }
 
 export class ModifyBackupPolicyStatusRequest extends $tea.Model {
-  sourceIp?: string;
-  resourceOwnerId?: number;
   id?: number;
   status?: string;
   policyVersion?: string;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
-      resourceOwnerId: 'ResourceOwnerId',
       id: 'Id',
       status: 'Status',
       policyVersion: 'PolicyVersion',
@@ -12915,8 +12746,6 @@ export class ModifyBackupPolicyStatusRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
-      resourceOwnerId: 'number',
       id: 'number',
       status: 'string',
       policyVersion: 'string',
@@ -12972,10 +12801,12 @@ export class ModifyBackupPolicyStatusResponse extends $tea.Model {
 export class ModifyCreateVulWhitelistRequest extends $tea.Model {
   whitelist?: string;
   reason?: string;
+  targetInfo?: string;
   static names(): { [key: string]: string } {
     return {
       whitelist: 'Whitelist',
       reason: 'Reason',
+      targetInfo: 'TargetInfo',
     };
   }
 
@@ -12983,6 +12814,7 @@ export class ModifyCreateVulWhitelistRequest extends $tea.Model {
     return {
       whitelist: 'string',
       reason: 'string',
+      targetInfo: 'string',
     };
   }
 
@@ -14878,6 +14710,72 @@ export class ModifyWebLockUpdateConfigResponse extends $tea.Model {
   }
 }
 
+export class OperateAgentClientInstallRequest extends $tea.Model {
+  instanceIds?: string;
+  uuids?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceIds: 'InstanceIds',
+      uuids: 'Uuids',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceIds: 'string',
+      uuids: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OperateAgentClientInstallResponseBody extends $tea.Model {
+  requestId?: string;
+  aegisCelintInstallResposeList?: OperateAgentClientInstallResponseBodyAegisCelintInstallResposeList[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      aegisCelintInstallResposeList: 'AegisCelintInstallResposeList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      aegisCelintInstallResposeList: { 'type': 'array', 'itemType': OperateAgentClientInstallResponseBodyAegisCelintInstallResposeList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OperateAgentClientInstallResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: OperateAgentClientInstallResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: OperateAgentClientInstallResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class OperateSuspiciousTargetConfigRequest extends $tea.Model {
   sourceIp?: string;
   lang?: string;
@@ -14953,16 +14851,12 @@ export class OperateSuspiciousTargetConfigResponse extends $tea.Model {
 export class OperateVulsRequest extends $tea.Model {
   type?: string;
   operateType?: string;
-  reason?: string;
-  precondition?: number;
   vulNames?: string[];
   uuids?: string[];
   static names(): { [key: string]: string } {
     return {
       type: 'Type',
       operateType: 'OperateType',
-      reason: 'Reason',
-      precondition: 'Precondition',
       vulNames: 'VulNames',
       uuids: 'Uuids',
     };
@@ -14972,8 +14866,6 @@ export class OperateVulsRequest extends $tea.Model {
     return {
       type: 'string',
       operateType: 'string',
-      reason: 'string',
-      precondition: 'number',
       vulNames: { 'type': 'array', 'itemType': 'string' },
       uuids: { 'type': 'array', 'itemType': 'string' },
     };
@@ -16001,15 +15893,11 @@ export class UnbindAegisResponse extends $tea.Model {
 }
 
 export class UninstallBackupClientRequest extends $tea.Model {
-  sourceIp?: string;
-  resourceOwnerId?: number;
   uuid?: string;
   policyVersion?: string;
   uuidList?: string[];
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
-      resourceOwnerId: 'ResourceOwnerId',
       uuid: 'Uuid',
       policyVersion: 'PolicyVersion',
       uuidList: 'UuidList',
@@ -16018,8 +15906,6 @@ export class UninstallBackupClientRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
-      resourceOwnerId: 'number',
       uuid: 'string',
       policyVersion: 'string',
       uuidList: { 'type': 'array', 'itemType': 'string' },
@@ -17220,32 +17106,30 @@ export class DescribeBackupMachineStatusResponseBodyBackupMachineStatusErrorList
 
 export class DescribeBackupMachineStatusResponseBodyBackupMachineStatus extends $tea.Model {
   status?: string;
-  vaultId?: string;
-  jobs?: string;
-  instanceId?: string;
-  clientStatus?: string;
-  clientId?: string;
-  regionId?: string;
   uuid?: string;
   requestId?: string;
+  vaultId?: string;
   errorCode?: string;
   savedBackupCount?: number;
+  instanceId?: string;
+  clientStatus?: string;
+  regionId?: string;
   clientVersion?: string;
+  clientId?: string;
   errorList?: DescribeBackupMachineStatusResponseBodyBackupMachineStatusErrorList[];
   static names(): { [key: string]: string } {
     return {
       status: 'Status',
-      vaultId: 'VaultId',
-      jobs: 'Jobs',
-      instanceId: 'InstanceId',
-      clientStatus: 'ClientStatus',
-      clientId: 'ClientId',
-      regionId: 'RegionId',
       uuid: 'Uuid',
       requestId: 'RequestId',
+      vaultId: 'VaultId',
       errorCode: 'ErrorCode',
       savedBackupCount: 'SavedBackupCount',
+      instanceId: 'InstanceId',
+      clientStatus: 'ClientStatus',
+      regionId: 'RegionId',
       clientVersion: 'ClientVersion',
+      clientId: 'ClientId',
       errorList: 'ErrorList',
     };
   }
@@ -17253,17 +17137,16 @@ export class DescribeBackupMachineStatusResponseBodyBackupMachineStatus extends 
   static types(): { [key: string]: any } {
     return {
       status: 'string',
-      vaultId: 'string',
-      jobs: 'string',
-      instanceId: 'string',
-      clientStatus: 'string',
-      clientId: 'string',
-      regionId: 'string',
       uuid: 'string',
       requestId: 'string',
+      vaultId: 'string',
       errorCode: 'string',
       savedBackupCount: 'number',
+      instanceId: 'string',
+      clientStatus: 'string',
+      regionId: 'string',
       clientVersion: 'string',
+      clientId: 'string',
       errorList: { 'type': 'array', 'itemType': DescribeBackupMachineStatusResponseBodyBackupMachineStatusErrorList },
     };
   }
@@ -17573,6 +17456,7 @@ export class DescribeCloudCenterInstancesResponseBodyInstances extends $tea.Mode
   vpcInstanceId?: string;
   tagId?: string;
   flag?: number;
+  lastLoginTimestamp?: number;
   authVersion?: number;
   region?: string;
   instanceName?: string;
@@ -17621,6 +17505,7 @@ export class DescribeCloudCenterInstancesResponseBodyInstances extends $tea.Mode
       vpcInstanceId: 'VpcInstanceId',
       tagId: 'TagId',
       flag: 'Flag',
+      lastLoginTimestamp: 'LastLoginTimestamp',
       authVersion: 'AuthVersion',
       region: 'Region',
       instanceName: 'InstanceName',
@@ -17672,6 +17557,7 @@ export class DescribeCloudCenterInstancesResponseBodyInstances extends $tea.Mode
       vpcInstanceId: 'string',
       tagId: 'string',
       flag: 'number',
+      lastLoginTimestamp: 'number',
       authVersion: 'number',
       region: 'string',
       instanceName: 'string',
@@ -18052,12 +17938,10 @@ export class DescribeExcludeSystemPathResponseBodyPageInfo extends $tea.Model {
 export class DescribeExcludeSystemPathResponseBodyExcludePaths extends $tea.Model {
   path?: string;
   os?: string;
-  id?: number;
   static names(): { [key: string]: string } {
     return {
       path: 'Path',
       os: 'Os',
-      id: 'Id',
     };
   }
 
@@ -18065,7 +17949,6 @@ export class DescribeExcludeSystemPathResponseBodyExcludePaths extends $tea.Mode
     return {
       path: 'string',
       os: 'string',
-      id: 'number',
     };
   }
 
@@ -18399,6 +18282,7 @@ export class DescribeFieldStatisticsResponseBodyGroupedFields extends $tea.Model
   testAssetCount?: number;
   vpcCount?: number;
   instanceCount?: number;
+  pauseInstanceCount?: number;
   idcInstanceCount?: number;
   notRunningStatusCount?: number;
   aliYunInstanceCount?: number;
@@ -18418,6 +18302,7 @@ export class DescribeFieldStatisticsResponseBodyGroupedFields extends $tea.Model
       testAssetCount: 'TestAssetCount',
       vpcCount: 'VpcCount',
       instanceCount: 'InstanceCount',
+      pauseInstanceCount: 'PauseInstanceCount',
       idcInstanceCount: 'IdcInstanceCount',
       notRunningStatusCount: 'NotRunningStatusCount',
       aliYunInstanceCount: 'AliYunInstanceCount',
@@ -18440,6 +18325,7 @@ export class DescribeFieldStatisticsResponseBodyGroupedFields extends $tea.Model
       testAssetCount: 'number',
       vpcCount: 'number',
       instanceCount: 'number',
+      pauseInstanceCount: 'number',
       idcInstanceCount: 'number',
       notRunningStatusCount: 'number',
       aliYunInstanceCount: 'number',
@@ -20248,9 +20134,8 @@ export class DescribeRestoreJobsResponseBodyRestoreJobs extends $tea.Model {
   actualBytes?: number;
   message?: string;
   percentage?: number;
-  gmtModified?: number;
+  gmtModified?: string;
   restoreType?: string;
-  extra?: string;
   exitCode?: string;
   clientId?: string;
   itemsDone?: number;
@@ -20277,7 +20162,6 @@ export class DescribeRestoreJobsResponseBodyRestoreJobs extends $tea.Model {
   duration?: number;
   errorCount?: number;
   itemsTotal?: number;
-  id?: number;
   bytesDone?: number;
   static names(): { [key: string]: string } {
     return {
@@ -20294,7 +20178,6 @@ export class DescribeRestoreJobsResponseBodyRestoreJobs extends $tea.Model {
       percentage: 'Percentage',
       gmtModified: 'GmtModified',
       restoreType: 'RestoreType',
-      extra: 'Extra',
       exitCode: 'ExitCode',
       clientId: 'ClientId',
       itemsDone: 'ItemsDone',
@@ -20321,7 +20204,6 @@ export class DescribeRestoreJobsResponseBodyRestoreJobs extends $tea.Model {
       duration: 'Duration',
       errorCount: 'ErrorCount',
       itemsTotal: 'ItemsTotal',
-      id: 'Id',
       bytesDone: 'BytesDone',
     };
   }
@@ -20339,9 +20221,8 @@ export class DescribeRestoreJobsResponseBodyRestoreJobs extends $tea.Model {
       actualBytes: 'number',
       message: 'string',
       percentage: 'number',
-      gmtModified: 'number',
+      gmtModified: 'string',
       restoreType: 'string',
-      extra: 'string',
       exitCode: 'string',
       clientId: 'string',
       itemsDone: 'number',
@@ -20368,7 +20249,6 @@ export class DescribeRestoreJobsResponseBodyRestoreJobs extends $tea.Model {
       duration: 'number',
       errorCount: 'number',
       itemsTotal: 'number',
-      id: 'number',
       bytesDone: 'number',
     };
   }
@@ -21287,37 +21167,26 @@ export class DescribeSnapshotsResponseBodySnapshots extends $tea.Model {
   errorMessage?: string;
   actualItems?: number;
   vaultId?: string;
-  createTime?: number;
-  backupType?: string;
   actualBytes?: number;
-  prefix?: string;
   sourceType?: string;
-  extra?: string;
-  serverId?: string;
   exitCode?: string;
   clientId?: string;
   itemsDone?: number;
   bytesTotal?: number;
-  completeTime?: number;
   retention?: number;
   errorType?: string;
   createdTime?: number;
-  bucket?: string;
   parentSnapshotHash?: string;
-  machineInfoJson?: string;
   instanceId?: string;
   planId?: string;
   source?: string;
   regionId?: string;
-  fileSystemId?: string;
   parentHash?: string;
-  startTime?: number;
   uuid?: string;
   errorFile?: string;
   snapshotType?: string;
   snapshotName?: string;
   snapshotOption?: string;
-  updatedTime?: number;
   snapshotId?: string;
   jobId?: string;
   size?: number;
@@ -21335,37 +21204,26 @@ export class DescribeSnapshotsResponseBodySnapshots extends $tea.Model {
       errorMessage: 'ErrorMessage',
       actualItems: 'ActualItems',
       vaultId: 'VaultId',
-      createTime: 'CreateTime',
-      backupType: 'BackupType',
       actualBytes: 'ActualBytes',
-      prefix: 'Prefix',
       sourceType: 'SourceType',
-      extra: 'Extra',
-      serverId: 'ServerId',
       exitCode: 'ExitCode',
       clientId: 'ClientId',
       itemsDone: 'ItemsDone',
       bytesTotal: 'BytesTotal',
-      completeTime: 'CompleteTime',
       retention: 'Retention',
       errorType: 'ErrorType',
       createdTime: 'CreatedTime',
-      bucket: 'Bucket',
       parentSnapshotHash: 'ParentSnapshotHash',
-      machineInfoJson: 'MachineInfoJson',
       instanceId: 'InstanceId',
       planId: 'PlanId',
       source: 'Source',
       regionId: 'RegionId',
-      fileSystemId: 'FileSystemId',
       parentHash: 'ParentHash',
-      startTime: 'StartTime',
       uuid: 'Uuid',
       errorFile: 'ErrorFile',
       snapshotType: 'SnapshotType',
       snapshotName: 'SnapshotName',
       snapshotOption: 'SnapshotOption',
-      updatedTime: 'UpdatedTime',
       snapshotId: 'SnapshotId',
       jobId: 'JobId',
       size: 'Size',
@@ -21386,37 +21244,26 @@ export class DescribeSnapshotsResponseBodySnapshots extends $tea.Model {
       errorMessage: 'string',
       actualItems: 'number',
       vaultId: 'string',
-      createTime: 'number',
-      backupType: 'string',
       actualBytes: 'number',
-      prefix: 'string',
       sourceType: 'string',
-      extra: 'string',
-      serverId: 'string',
       exitCode: 'string',
       clientId: 'string',
       itemsDone: 'number',
       bytesTotal: 'number',
-      completeTime: 'number',
       retention: 'number',
       errorType: 'string',
       createdTime: 'number',
-      bucket: 'string',
       parentSnapshotHash: 'string',
-      machineInfoJson: 'string',
       instanceId: 'string',
       planId: 'string',
       source: 'string',
       regionId: 'string',
-      fileSystemId: 'string',
       parentHash: 'string',
-      startTime: 'number',
       uuid: 'string',
       errorFile: 'string',
       snapshotType: 'string',
       snapshotName: 'string',
       snapshotOption: 'string',
-      updatedTime: 'number',
       snapshotId: 'string',
       jobId: 'string',
       size: 'number',
@@ -22727,24 +22574,30 @@ export class DescribeVulListResponseBodyVulRecords extends $tea.Model {
 
 export class DescribeVulWhitelistResponseBodyVulWhitelists extends $tea.Model {
   type?: string;
+  targetInfo?: string;
   aliasName?: string;
   name?: string;
   reason?: string;
+  id?: string;
   static names(): { [key: string]: string } {
     return {
       type: 'Type',
+      targetInfo: 'TargetInfo',
       aliasName: 'AliasName',
       name: 'Name',
       reason: 'Reason',
+      id: 'Id',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       type: 'string',
+      targetInfo: 'string',
       aliasName: 'string',
       name: 'string',
       reason: 'string',
+      id: 'string',
     };
   }
 
@@ -22755,45 +22608,48 @@ export class DescribeVulWhitelistResponseBodyVulWhitelists extends $tea.Model {
 
 export class DescribeWarningMachinesResponseBodyWarningMachines extends $tea.Model {
   status?: number;
-  lowWarningCount?: number;
-  uuid?: string;
-  mediumWarningCount?: number;
-  passCount?: number;
   internetIp?: string;
-  instanceName?: string;
   instanceId?: string;
   highWarningCount?: number;
   intranetIp?: string;
   regionId?: string;
+  lowWarningCount?: number;
+  portOpen?: boolean;
+  uuid?: string;
+  mediumWarningCount?: number;
+  passCount?: number;
+  instanceName?: string;
   static names(): { [key: string]: string } {
     return {
       status: 'Status',
-      lowWarningCount: 'LowWarningCount',
-      uuid: 'Uuid',
-      mediumWarningCount: 'MediumWarningCount',
-      passCount: 'PassCount',
       internetIp: 'InternetIp',
-      instanceName: 'InstanceName',
       instanceId: 'InstanceId',
       highWarningCount: 'HighWarningCount',
       intranetIp: 'IntranetIp',
       regionId: 'RegionId',
+      lowWarningCount: 'LowWarningCount',
+      portOpen: 'PortOpen',
+      uuid: 'Uuid',
+      mediumWarningCount: 'MediumWarningCount',
+      passCount: 'PassCount',
+      instanceName: 'InstanceName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       status: 'number',
-      lowWarningCount: 'number',
-      uuid: 'string',
-      mediumWarningCount: 'number',
-      passCount: 'number',
       internetIp: 'string',
-      instanceName: 'string',
       instanceId: 'string',
       highWarningCount: 'number',
       intranetIp: 'string',
       regionId: 'string',
+      lowWarningCount: 'number',
+      portOpen: 'boolean',
+      uuid: 'string',
+      mediumWarningCount: 'number',
+      passCount: 'number',
+      instanceName: 'string',
     };
   }
 
@@ -23032,6 +22888,31 @@ export class ModifyStrategyResponseBodyResult extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       strategyId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OperateAgentClientInstallResponseBodyAegisCelintInstallResposeList extends $tea.Model {
+  uuid?: string;
+  instanceId?: string;
+  recordId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      uuid: 'Uuid',
+      instanceId: 'InstanceId',
+      recordId: 'RecordId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      uuid: 'string',
+      instanceId: 'string',
+      recordId: 'number',
     };
   }
 
@@ -23659,17 +23540,14 @@ export default class Client extends OpenApi {
     return await this.describeBackupPolicyWithOptions(request, runtime);
   }
 
-  async describeBackupRestoreCountWithOptions(request: DescribeBackupRestoreCountRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBackupRestoreCountResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
+  async describeBackupRestoreCountWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeBackupRestoreCountResponse> {
+    let req = new $OpenApi.OpenApiRequest({ });
     return $tea.cast<DescribeBackupRestoreCountResponse>(await this.doRPCRequest("DescribeBackupRestoreCount", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeBackupRestoreCountResponse({}));
   }
 
-  async describeBackupRestoreCount(request: DescribeBackupRestoreCountRequest): Promise<DescribeBackupRestoreCountResponse> {
+  async describeBackupRestoreCount(): Promise<DescribeBackupRestoreCountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeBackupRestoreCountWithOptions(request, runtime);
+    return await this.describeBackupRestoreCountWithOptions(runtime);
   }
 
   async describeBruteForceSummaryWithOptions(request: DescribeBruteForceSummaryRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBruteForceSummaryResponse> {
@@ -24701,17 +24579,14 @@ export default class Client extends OpenApi {
     return await this.describeSummaryInfoWithOptions(request, runtime);
   }
 
-  async describeSupportRegionWithOptions(request: DescribeSupportRegionRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSupportRegionResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
+  async describeSupportRegionWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeSupportRegionResponse> {
+    let req = new $OpenApi.OpenApiRequest({ });
     return $tea.cast<DescribeSupportRegionResponse>(await this.doRPCRequest("DescribeSupportRegion", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeSupportRegionResponse({}));
   }
 
-  async describeSupportRegion(request: DescribeSupportRegionRequest): Promise<DescribeSupportRegionResponse> {
+  async describeSupportRegion(): Promise<DescribeSupportRegionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeSupportRegionWithOptions(request, runtime);
+    return await this.describeSupportRegionWithOptions(runtime);
   }
 
   async describeSuspEventDetailWithOptions(request: DescribeSuspEventDetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSuspEventDetailResponse> {
@@ -24825,17 +24700,14 @@ export default class Client extends OpenApi {
     return await this.describeUniSupportRegionWithOptions(runtime);
   }
 
-  async describeUserBackupMachinesWithOptions(request: DescribeUserBackupMachinesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUserBackupMachinesResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
+  async describeUserBackupMachinesWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeUserBackupMachinesResponse> {
+    let req = new $OpenApi.OpenApiRequest({ });
     return $tea.cast<DescribeUserBackupMachinesResponse>(await this.doRPCRequest("DescribeUserBackupMachines", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeUserBackupMachinesResponse({}));
   }
 
-  async describeUserBackupMachines(request: DescribeUserBackupMachinesRequest): Promise<DescribeUserBackupMachinesResponse> {
+  async describeUserBackupMachines(): Promise<DescribeUserBackupMachinesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeUserBackupMachinesWithOptions(request, runtime);
+    return await this.describeUserBackupMachinesWithOptions(runtime);
   }
 
   async describeUserBaselineAuthorizationWithOptions(request: DescribeUserBaselineAuthorizationRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUserBaselineAuthorizationResponse> {
@@ -25610,6 +25482,19 @@ export default class Client extends OpenApi {
   async modifyWebLockUpdateConfig(request: ModifyWebLockUpdateConfigRequest): Promise<ModifyWebLockUpdateConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyWebLockUpdateConfigWithOptions(request, runtime);
+  }
+
+  async operateAgentClientInstallWithOptions(request: OperateAgentClientInstallRequest, runtime: $Util.RuntimeOptions): Promise<OperateAgentClientInstallResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<OperateAgentClientInstallResponse>(await this.doRPCRequest("OperateAgentClientInstall", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new OperateAgentClientInstallResponse({}));
+  }
+
+  async operateAgentClientInstall(request: OperateAgentClientInstallRequest): Promise<OperateAgentClientInstallResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.operateAgentClientInstallWithOptions(request, runtime);
   }
 
   async operateSuspiciousTargetConfigWithOptions(request: OperateSuspiciousTargetConfigRequest, runtime: $Util.RuntimeOptions): Promise<OperateSuspiciousTargetConfigResponse> {
