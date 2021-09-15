@@ -471,15 +471,18 @@ export class RectifyImageResponse extends $tea.Model {
 
 export class LabelBuildRequest extends $tea.Model {
   sceneId?: string;
+  mode?: string;
   static names(): { [key: string]: string } {
     return {
       sceneId: 'SceneId',
+      mode: 'Mode',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       sceneId: 'string',
+      mode: 'string',
     };
   }
 
@@ -949,21 +952,21 @@ export class DeleteFileRequest extends $tea.Model {
 
 export class DeleteFileResponseBody extends $tea.Model {
   requestId?: string;
-  errMessage?: string;
   success?: boolean;
+  errMessage?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      errMessage: 'ErrMessage',
       success: 'Success',
+      errMessage: 'ErrMessage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      errMessage: 'string',
       success: 'boolean',
+      errMessage: 'string',
     };
   }
 
@@ -1251,25 +1254,25 @@ export class PublishHotspotRequest extends $tea.Model {
 }
 
 export class PublishHotspotResponseBody extends $tea.Model {
-  requestId?: string;
   data?: { [key: string]: any };
-  errMessage?: string;
+  requestId?: string;
   success?: boolean;
+  errMessage?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       data: 'Data',
-      errMessage: 'ErrMessage',
+      requestId: 'RequestId',
       success: 'Success',
+      errMessage: 'ErrMessage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       data: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      errMessage: 'string',
+      requestId: 'string',
       success: 'boolean',
+      errMessage: 'string',
     };
   }
 
@@ -1468,21 +1471,21 @@ export class SaveHotspotTagRequest extends $tea.Model {
 
 export class SaveHotspotTagResponseBody extends $tea.Model {
   requestId?: string;
-  errMessage?: string;
   success?: boolean;
+  errMessage?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      errMessage: 'ErrMessage',
       success: 'Success',
+      errMessage: 'ErrMessage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      errMessage: 'string',
       success: 'boolean',
+      errMessage: 'string',
     };
   }
 
@@ -2491,21 +2494,21 @@ export class SaveHotspotConfigRequest extends $tea.Model {
 
 export class SaveHotspotConfigResponseBody extends $tea.Model {
   requestId?: string;
-  errMessage?: string;
   success?: boolean;
+  errMessage?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      errMessage: 'ErrMessage',
       success: 'Success',
+      errMessage: 'ErrMessage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      errMessage: 'string',
       success: 'boolean',
+      errMessage: 'string',
     };
   }
 
@@ -2556,28 +2559,28 @@ export class GetWindowConfigRequest extends $tea.Model {
 }
 
 export class GetWindowConfigResponseBody extends $tea.Model {
-  requestId?: string;
-  objectString?: string;
   data?: { [key: string]: any };
-  errMessage?: string;
+  objectString?: string;
+  requestId?: string;
   success?: boolean;
+  errMessage?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
-      objectString: 'ObjectString',
       data: 'Data',
-      errMessage: 'ErrMessage',
+      objectString: 'ObjectString',
+      requestId: 'RequestId',
       success: 'Success',
+      errMessage: 'ErrMessage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
-      objectString: 'string',
       data: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      errMessage: 'string',
+      objectString: 'string',
+      requestId: 'string',
       success: 'boolean',
+      errMessage: 'string',
     };
   }
 
@@ -3847,81 +3850,6 @@ export class PredictionWallLineResponse extends $tea.Model {
   }
 }
 
-export class GetPolicyRequest extends $tea.Model {
-  subSceneUuid?: string;
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      subSceneUuid: 'SubSceneUuid',
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      subSceneUuid: 'string',
-      type: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetPolicyResponseBody extends $tea.Model {
-  requestId?: string;
-  objectString?: string;
-  data?: { [key: string]: any };
-  errMessage?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      objectString: 'ObjectString',
-      data: 'Data',
-      errMessage: 'ErrMessage',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      objectString: 'string',
-      data: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      errMessage: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetPolicyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: GetPolicyResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: GetPolicyResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class GetScenePreviewInfoRequest extends $tea.Model {
   modelToken?: string;
   domain?: string;
@@ -3992,6 +3920,81 @@ export class GetScenePreviewInfoResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: GetScenePreviewInfoResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPolicyRequest extends $tea.Model {
+  subSceneUuid?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      subSceneUuid: 'SubSceneUuid',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      subSceneUuid: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPolicyResponseBody extends $tea.Model {
+  data?: { [key: string]: any };
+  objectString?: string;
+  requestId?: string;
+  success?: boolean;
+  errMessage?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      objectString: 'ObjectString',
+      requestId: 'RequestId',
+      success: 'Success',
+      errMessage: 'ErrMessage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      objectString: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      errMessage: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPolicyResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetPolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetPolicyResponseBody,
     };
   }
 
@@ -5098,19 +5101,6 @@ export default class Client extends OpenApi {
     return await this.predictionWallLineWithOptions(request, runtime);
   }
 
-  async getPolicyWithOptions(request: GetPolicyRequest, runtime: $Util.RuntimeOptions): Promise<GetPolicyResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<GetPolicyResponse>(await this.doRPCRequest("GetPolicy", "2020-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new GetPolicyResponse({}));
-  }
-
-  async getPolicy(request: GetPolicyRequest): Promise<GetPolicyResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getPolicyWithOptions(request, runtime);
-  }
-
   async getScenePreviewInfoWithOptions(request: GetScenePreviewInfoRequest, runtime: $Util.RuntimeOptions): Promise<GetScenePreviewInfoResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -5122,6 +5112,19 @@ export default class Client extends OpenApi {
   async getScenePreviewInfo(request: GetScenePreviewInfoRequest): Promise<GetScenePreviewInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getScenePreviewInfoWithOptions(request, runtime);
+  }
+
+  async getPolicyWithOptions(request: GetPolicyRequest, runtime: $Util.RuntimeOptions): Promise<GetPolicyResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<GetPolicyResponse>(await this.doRPCRequest("GetPolicy", "2020-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new GetPolicyResponse({}));
+  }
+
+  async getPolicy(request: GetPolicyRequest): Promise<GetPolicyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getPolicyWithOptions(request, runtime);
   }
 
   async addSubSceneWithOptions(request: AddSubSceneRequest, runtime: $Util.RuntimeOptions): Promise<AddSubSceneResponse> {
