@@ -2360,12 +2360,14 @@ export class SearchFaceRequest extends $tea.Model {
   imageUrl?: string;
   limit?: number;
   dbNames?: string;
+  qualityScoreThreshold?: number;
   static names(): { [key: string]: string } {
     return {
       dbName: 'DbName',
       imageUrl: 'ImageUrl',
       limit: 'Limit',
       dbNames: 'DbNames',
+      qualityScoreThreshold: 'QualityScoreThreshold',
     };
   }
 
@@ -2375,6 +2377,7 @@ export class SearchFaceRequest extends $tea.Model {
       imageUrl: 'string',
       limit: 'number',
       dbNames: 'string',
+      qualityScoreThreshold: 'number',
     };
   }
 
@@ -2388,12 +2391,14 @@ export class SearchFaceAdvanceRequest extends $tea.Model {
   dbName?: string;
   limit?: number;
   dbNames?: string;
+  qualityScoreThreshold?: number;
   static names(): { [key: string]: string } {
     return {
       imageUrlObject: 'ImageUrlObject',
       dbName: 'DbName',
       limit: 'Limit',
       dbNames: 'DbNames',
+      qualityScoreThreshold: 'QualityScoreThreshold',
     };
   }
 
@@ -2403,6 +2408,7 @@ export class SearchFaceAdvanceRequest extends $tea.Model {
       dbName: 'string',
       limit: 'number',
       dbNames: 'string',
+      qualityScoreThreshold: 'number',
     };
   }
 
@@ -2774,12 +2780,18 @@ export class AddFaceRequest extends $tea.Model {
   imageUrl?: string;
   entityId?: string;
   extraData?: string;
+  qualityScoreThreshold?: number;
+  similarityScoreThresholdInEntity?: number;
+  similarityScoreThresholdBetweenEntity?: number;
   static names(): { [key: string]: string } {
     return {
       dbName: 'DbName',
       imageUrl: 'ImageUrl',
       entityId: 'EntityId',
       extraData: 'ExtraData',
+      qualityScoreThreshold: 'QualityScoreThreshold',
+      similarityScoreThresholdInEntity: 'SimilarityScoreThresholdInEntity',
+      similarityScoreThresholdBetweenEntity: 'SimilarityScoreThresholdBetweenEntity',
     };
   }
 
@@ -2789,6 +2801,9 @@ export class AddFaceRequest extends $tea.Model {
       imageUrl: 'string',
       entityId: 'string',
       extraData: 'string',
+      qualityScoreThreshold: 'number',
+      similarityScoreThresholdInEntity: 'number',
+      similarityScoreThresholdBetweenEntity: 'number',
     };
   }
 
@@ -2802,12 +2817,18 @@ export class AddFaceAdvanceRequest extends $tea.Model {
   dbName?: string;
   entityId?: string;
   extraData?: string;
+  qualityScoreThreshold?: number;
+  similarityScoreThresholdInEntity?: number;
+  similarityScoreThresholdBetweenEntity?: number;
   static names(): { [key: string]: string } {
     return {
       imageUrlObject: 'ImageUrlObject',
       dbName: 'DbName',
       entityId: 'EntityId',
       extraData: 'ExtraData',
+      qualityScoreThreshold: 'QualityScoreThreshold',
+      similarityScoreThresholdInEntity: 'SimilarityScoreThresholdInEntity',
+      similarityScoreThresholdBetweenEntity: 'SimilarityScoreThresholdBetweenEntity',
     };
   }
 
@@ -2817,6 +2838,9 @@ export class AddFaceAdvanceRequest extends $tea.Model {
       dbName: 'string',
       entityId: 'string',
       extraData: 'string',
+      qualityScoreThreshold: 'number',
+      similarityScoreThresholdInEntity: 'number',
+      similarityScoreThresholdBetweenEntity: 'number',
     };
   }
 
@@ -6783,6 +6807,7 @@ export class SearchFaceResponseBodyDataMatchListFaceItems extends $tea.Model {
   score?: number;
   extraData?: string;
   dbName?: string;
+  confidence?: number;
   static names(): { [key: string]: string } {
     return {
       entityId: 'EntityId',
@@ -6790,6 +6815,7 @@ export class SearchFaceResponseBodyDataMatchListFaceItems extends $tea.Model {
       score: 'Score',
       extraData: 'ExtraData',
       dbName: 'DbName',
+      confidence: 'Confidence',
     };
   }
 
@@ -6800,6 +6826,7 @@ export class SearchFaceResponseBodyDataMatchListFaceItems extends $tea.Model {
       score: 'number',
       extraData: 'string',
       dbName: 'string',
+      confidence: 'number',
     };
   }
 
