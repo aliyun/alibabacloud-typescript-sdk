@@ -4514,6 +4514,99 @@ export class DescribeAvailableRecoveryTimeResponse extends $tea.Model {
   }
 }
 
+export class DescribeAvailableResourceRequest extends $tea.Model {
+  resourceOwnerId?: number;
+  regionId?: string;
+  zoneId?: string;
+  instanceChargeType?: string;
+  engine?: string;
+  engineVersion?: string;
+  DBInstanceClass?: string;
+  orderType?: string;
+  DBInstanceStorageType?: string;
+  category?: string;
+  dispenseMode?: number;
+  static names(): { [key: string]: string } {
+    return {
+      resourceOwnerId: 'ResourceOwnerId',
+      regionId: 'RegionId',
+      zoneId: 'ZoneId',
+      instanceChargeType: 'InstanceChargeType',
+      engine: 'Engine',
+      engineVersion: 'EngineVersion',
+      DBInstanceClass: 'DBInstanceClass',
+      orderType: 'OrderType',
+      DBInstanceStorageType: 'DBInstanceStorageType',
+      category: 'Category',
+      dispenseMode: 'DispenseMode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceOwnerId: 'number',
+      regionId: 'string',
+      zoneId: 'string',
+      instanceChargeType: 'string',
+      engine: 'string',
+      engineVersion: 'string',
+      DBInstanceClass: 'string',
+      orderType: 'string',
+      DBInstanceStorageType: 'string',
+      category: 'string',
+      dispenseMode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAvailableResourceResponseBody extends $tea.Model {
+  requestId?: string;
+  availableZones?: DescribeAvailableResourceResponseBodyAvailableZones;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      availableZones: 'AvailableZones',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      availableZones: DescribeAvailableResourceResponseBodyAvailableZones,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAvailableResourceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeAvailableResourceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeAvailableResourceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeAvailableZonesRequest extends $tea.Model {
   resourceOwnerId?: number;
   regionId?: string;
@@ -20297,6 +20390,286 @@ export class DescribeAvailableMetricsResponseBodyItems extends $tea.Model {
   }
 }
 
+export class DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEngineVersionsSupportedEngineVersionSupportedCategorysSupportedCategorySupportedStorageTypesSupportedStorageTypeAvailableResourcesAvailableResourceDBInstanceStorageRange extends $tea.Model {
+  step?: number;
+  max?: number;
+  min?: number;
+  static names(): { [key: string]: string } {
+    return {
+      step: 'Step',
+      max: 'Max',
+      min: 'Min',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      step: 'number',
+      max: 'number',
+      min: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEngineVersionsSupportedEngineVersionSupportedCategorysSupportedCategorySupportedStorageTypesSupportedStorageTypeAvailableResourcesAvailableResource extends $tea.Model {
+  storageRange?: string;
+  DBInstanceClass?: string;
+  DBInstanceStorageRange?: DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEngineVersionsSupportedEngineVersionSupportedCategorysSupportedCategorySupportedStorageTypesSupportedStorageTypeAvailableResourcesAvailableResourceDBInstanceStorageRange;
+  static names(): { [key: string]: string } {
+    return {
+      storageRange: 'StorageRange',
+      DBInstanceClass: 'DBInstanceClass',
+      DBInstanceStorageRange: 'DBInstanceStorageRange',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      storageRange: 'string',
+      DBInstanceClass: 'string',
+      DBInstanceStorageRange: DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEngineVersionsSupportedEngineVersionSupportedCategorysSupportedCategorySupportedStorageTypesSupportedStorageTypeAvailableResourcesAvailableResourceDBInstanceStorageRange,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEngineVersionsSupportedEngineVersionSupportedCategorysSupportedCategorySupportedStorageTypesSupportedStorageTypeAvailableResources extends $tea.Model {
+  availableResource?: DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEngineVersionsSupportedEngineVersionSupportedCategorysSupportedCategorySupportedStorageTypesSupportedStorageTypeAvailableResourcesAvailableResource[];
+  static names(): { [key: string]: string } {
+    return {
+      availableResource: 'AvailableResource',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      availableResource: { 'type': 'array', 'itemType': DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEngineVersionsSupportedEngineVersionSupportedCategorysSupportedCategorySupportedStorageTypesSupportedStorageTypeAvailableResourcesAvailableResource },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEngineVersionsSupportedEngineVersionSupportedCategorysSupportedCategorySupportedStorageTypesSupportedStorageType extends $tea.Model {
+  storageType?: string;
+  availableResources?: DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEngineVersionsSupportedEngineVersionSupportedCategorysSupportedCategorySupportedStorageTypesSupportedStorageTypeAvailableResources;
+  static names(): { [key: string]: string } {
+    return {
+      storageType: 'StorageType',
+      availableResources: 'AvailableResources',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      storageType: 'string',
+      availableResources: DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEngineVersionsSupportedEngineVersionSupportedCategorysSupportedCategorySupportedStorageTypesSupportedStorageTypeAvailableResources,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEngineVersionsSupportedEngineVersionSupportedCategorysSupportedCategorySupportedStorageTypes extends $tea.Model {
+  supportedStorageType?: DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEngineVersionsSupportedEngineVersionSupportedCategorysSupportedCategorySupportedStorageTypesSupportedStorageType[];
+  static names(): { [key: string]: string } {
+    return {
+      supportedStorageType: 'SupportedStorageType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      supportedStorageType: { 'type': 'array', 'itemType': DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEngineVersionsSupportedEngineVersionSupportedCategorysSupportedCategorySupportedStorageTypesSupportedStorageType },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEngineVersionsSupportedEngineVersionSupportedCategorysSupportedCategory extends $tea.Model {
+  category?: string;
+  supportedStorageTypes?: DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEngineVersionsSupportedEngineVersionSupportedCategorysSupportedCategorySupportedStorageTypes;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'Category',
+      supportedStorageTypes: 'SupportedStorageTypes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      supportedStorageTypes: DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEngineVersionsSupportedEngineVersionSupportedCategorysSupportedCategorySupportedStorageTypes,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEngineVersionsSupportedEngineVersionSupportedCategorys extends $tea.Model {
+  supportedCategory?: DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEngineVersionsSupportedEngineVersionSupportedCategorysSupportedCategory[];
+  static names(): { [key: string]: string } {
+    return {
+      supportedCategory: 'SupportedCategory',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      supportedCategory: { 'type': 'array', 'itemType': DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEngineVersionsSupportedEngineVersionSupportedCategorysSupportedCategory },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEngineVersionsSupportedEngineVersion extends $tea.Model {
+  version?: string;
+  supportedCategorys?: DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEngineVersionsSupportedEngineVersionSupportedCategorys;
+  static names(): { [key: string]: string } {
+    return {
+      version: 'Version',
+      supportedCategorys: 'SupportedCategorys',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      version: 'string',
+      supportedCategorys: DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEngineVersionsSupportedEngineVersionSupportedCategorys,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEngineVersions extends $tea.Model {
+  supportedEngineVersion?: DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEngineVersionsSupportedEngineVersion[];
+  static names(): { [key: string]: string } {
+    return {
+      supportedEngineVersion: 'SupportedEngineVersion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      supportedEngineVersion: { 'type': 'array', 'itemType': DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEngineVersionsSupportedEngineVersion },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngine extends $tea.Model {
+  engine?: string;
+  supportedEngineVersions?: DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEngineVersions;
+  static names(): { [key: string]: string } {
+    return {
+      engine: 'Engine',
+      supportedEngineVersions: 'SupportedEngineVersions',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      engine: 'string',
+      supportedEngineVersions: DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEngineVersions,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEngines extends $tea.Model {
+  supportedEngine?: DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngine[];
+  static names(): { [key: string]: string } {
+    return {
+      supportedEngine: 'SupportedEngine',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      supportedEngine: { 'type': 'array', 'itemType': DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngine },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAvailableResourceResponseBodyAvailableZonesAvailableZone extends $tea.Model {
+  zoneId?: string;
+  status?: string;
+  regionId?: string;
+  supportedEngines?: DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEngines;
+  static names(): { [key: string]: string } {
+    return {
+      zoneId: 'ZoneId',
+      status: 'Status',
+      regionId: 'RegionId',
+      supportedEngines: 'SupportedEngines',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      zoneId: 'string',
+      status: 'string',
+      regionId: 'string',
+      supportedEngines: DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEngines,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAvailableResourceResponseBodyAvailableZones extends $tea.Model {
+  availableZone?: DescribeAvailableResourceResponseBodyAvailableZonesAvailableZone[];
+  static names(): { [key: string]: string } {
+    return {
+      availableZone: 'AvailableZone',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      availableZone: { 'type': 'array', 'itemType': DescribeAvailableResourceResponseBodyAvailableZonesAvailableZone },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeAvailableZonesResponseBodyAvailableZonesSupportedEnginesSupportedEngineVersionsSupportedCategorysSupportedStorageTypes extends $tea.Model {
   storageType?: string;
   static names(): { [key: string]: string } {
@@ -26763,6 +27136,19 @@ export default class Client extends OpenApi {
   async describeAvailableRecoveryTime(request: DescribeAvailableRecoveryTimeRequest): Promise<DescribeAvailableRecoveryTimeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAvailableRecoveryTimeWithOptions(request, runtime);
+  }
+
+  async describeAvailableResourceWithOptions(request: DescribeAvailableResourceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAvailableResourceResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DescribeAvailableResourceResponse>(await this.doRPCRequest("DescribeAvailableResource", "2014-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeAvailableResourceResponse({}));
+  }
+
+  async describeAvailableResource(request: DescribeAvailableResourceRequest): Promise<DescribeAvailableResourceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeAvailableResourceWithOptions(request, runtime);
   }
 
   async describeAvailableZonesWithOptions(request: DescribeAvailableZonesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAvailableZonesResponse> {
