@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/rds20140815",
-  "version": "2.0.5",
+  "version": "2.0.6",
   "description": "",
   "main": "dist/client.js",
   "scripts": {
@@ -23,8 +23,8 @@
     "@alicloud/tea-util": "^1.4.0",
     "@alicloud/rpc-client": "^1.3.1",
     "@alicloud/endpoint-util": "^0.0.1",
-    "@alicloud/openapi-client": "^0.3.0",
-    "@alicloud/openapi-util": "^0.2.2"
+    "@alicloud/openapi-client": "^0.3.4",
+    "@alicloud/openapi-util": "^0.2.4"
   },
   "files": [
     "dist",
