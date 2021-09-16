@@ -4,13 +4,210 @@
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
+import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
+
+export class ConfigureDtsJobRequest extends $tea.Model {
+  dtsJobName?: string;
+  sourceEndpointInstanceType?: string;
+  sourceEndpointInstanceID?: string;
+  sourceEndpointEngineName?: string;
+  sourceEndpointRegion?: string;
+  sourceEndpointIP?: string;
+  sourceEndpointPort?: string;
+  sourceEndpointOracleSID?: string;
+  sourceEndpointDatabaseName?: string;
+  sourceEndpointUserName?: string;
+  sourceEndpointPassword?: string;
+  sourceEndpointOwnerID?: string;
+  sourceEndpointRole?: string;
+  destinationEndpointInstanceType?: string;
+  destinationEndpointInstanceID?: string;
+  destinationEndpointEngineName?: string;
+  destinationEndpointRegion?: string;
+  destinationEndpointIP?: string;
+  destinationEndpointPort?: string;
+  destinationEndpointDataBaseName?: string;
+  destinationEndpointUserName?: string;
+  destinationEndpointPassword?: string;
+  structureInitialization?: boolean;
+  dataInitialization?: boolean;
+  dataSynchronization?: boolean;
+  dbList?: string;
+  reserve?: string;
+  checkpoint?: string;
+  ownerId?: string;
+  destinationEndpointOracleSID?: string;
+  jobType?: string;
+  dtsJobId?: string;
+  dtsInstanceId?: string;
+  delayPhone?: string;
+  delayRuleTime?: number;
+  delayNotice?: boolean;
+  errorPhone?: string;
+  errorNotice?: boolean;
+  synchronizationDirection?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dtsJobName: 'DtsJobName',
+      sourceEndpointInstanceType: 'SourceEndpointInstanceType',
+      sourceEndpointInstanceID: 'SourceEndpointInstanceID',
+      sourceEndpointEngineName: 'SourceEndpointEngineName',
+      sourceEndpointRegion: 'SourceEndpointRegion',
+      sourceEndpointIP: 'SourceEndpointIP',
+      sourceEndpointPort: 'SourceEndpointPort',
+      sourceEndpointOracleSID: 'SourceEndpointOracleSID',
+      sourceEndpointDatabaseName: 'SourceEndpointDatabaseName',
+      sourceEndpointUserName: 'SourceEndpointUserName',
+      sourceEndpointPassword: 'SourceEndpointPassword',
+      sourceEndpointOwnerID: 'SourceEndpointOwnerID',
+      sourceEndpointRole: 'SourceEndpointRole',
+      destinationEndpointInstanceType: 'DestinationEndpointInstanceType',
+      destinationEndpointInstanceID: 'DestinationEndpointInstanceID',
+      destinationEndpointEngineName: 'DestinationEndpointEngineName',
+      destinationEndpointRegion: 'DestinationEndpointRegion',
+      destinationEndpointIP: 'DestinationEndpointIP',
+      destinationEndpointPort: 'DestinationEndpointPort',
+      destinationEndpointDataBaseName: 'DestinationEndpointDataBaseName',
+      destinationEndpointUserName: 'DestinationEndpointUserName',
+      destinationEndpointPassword: 'DestinationEndpointPassword',
+      structureInitialization: 'StructureInitialization',
+      dataInitialization: 'DataInitialization',
+      dataSynchronization: 'DataSynchronization',
+      dbList: 'DbList',
+      reserve: 'Reserve',
+      checkpoint: 'Checkpoint',
+      ownerId: 'OwnerId',
+      destinationEndpointOracleSID: 'DestinationEndpointOracleSID',
+      jobType: 'JobType',
+      dtsJobId: 'DtsJobId',
+      dtsInstanceId: 'DtsInstanceId',
+      delayPhone: 'DelayPhone',
+      delayRuleTime: 'DelayRuleTime',
+      delayNotice: 'DelayNotice',
+      errorPhone: 'ErrorPhone',
+      errorNotice: 'ErrorNotice',
+      synchronizationDirection: 'SynchronizationDirection',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dtsJobName: 'string',
+      sourceEndpointInstanceType: 'string',
+      sourceEndpointInstanceID: 'string',
+      sourceEndpointEngineName: 'string',
+      sourceEndpointRegion: 'string',
+      sourceEndpointIP: 'string',
+      sourceEndpointPort: 'string',
+      sourceEndpointOracleSID: 'string',
+      sourceEndpointDatabaseName: 'string',
+      sourceEndpointUserName: 'string',
+      sourceEndpointPassword: 'string',
+      sourceEndpointOwnerID: 'string',
+      sourceEndpointRole: 'string',
+      destinationEndpointInstanceType: 'string',
+      destinationEndpointInstanceID: 'string',
+      destinationEndpointEngineName: 'string',
+      destinationEndpointRegion: 'string',
+      destinationEndpointIP: 'string',
+      destinationEndpointPort: 'string',
+      destinationEndpointDataBaseName: 'string',
+      destinationEndpointUserName: 'string',
+      destinationEndpointPassword: 'string',
+      structureInitialization: 'boolean',
+      dataInitialization: 'boolean',
+      dataSynchronization: 'boolean',
+      dbList: 'string',
+      reserve: 'string',
+      checkpoint: 'string',
+      ownerId: 'string',
+      destinationEndpointOracleSID: 'string',
+      jobType: 'string',
+      dtsJobId: 'string',
+      dtsInstanceId: 'string',
+      delayPhone: 'string',
+      delayRuleTime: 'number',
+      delayNotice: 'boolean',
+      errorPhone: 'string',
+      errorNotice: 'boolean',
+      synchronizationDirection: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ConfigureDtsJobResponseBody extends $tea.Model {
+  httpStatusCode?: string;
+  requestId?: string;
+  errCode?: string;
+  dtsJobId?: string;
+  dtsInstanceId?: string;
+  success?: string;
+  errMessage?: string;
+  static names(): { [key: string]: string } {
+    return {
+      httpStatusCode: 'HttpStatusCode',
+      requestId: 'RequestId',
+      errCode: 'ErrCode',
+      dtsJobId: 'DtsJobId',
+      dtsInstanceId: 'DtsInstanceId',
+      success: 'Success',
+      errMessage: 'ErrMessage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      httpStatusCode: 'string',
+      requestId: 'string',
+      errCode: 'string',
+      dtsJobId: 'string',
+      dtsInstanceId: 'string',
+      success: 'string',
+      errMessage: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ConfigureDtsJobResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ConfigureDtsJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ConfigureDtsJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class ConfigureMigrationJobRequest extends $tea.Model {
   sourceEndpoint?: ConfigureMigrationJobRequestSourceEndpoint;
   destinationEndpoint?: ConfigureMigrationJobRequestDestinationEndpoint;
   migrationMode?: ConfigureMigrationJobRequestMigrationMode;
+  regionId?: string;
   migrationJobId?: string;
   migrationJobName?: string;
   migrationObject?: string;
@@ -23,6 +220,7 @@ export class ConfigureMigrationJobRequest extends $tea.Model {
       sourceEndpoint: 'SourceEndpoint',
       destinationEndpoint: 'DestinationEndpoint',
       migrationMode: 'MigrationMode',
+      regionId: 'RegionId',
       migrationJobId: 'MigrationJobId',
       migrationJobName: 'MigrationJobName',
       migrationObject: 'MigrationObject',
@@ -38,6 +236,7 @@ export class ConfigureMigrationJobRequest extends $tea.Model {
       sourceEndpoint: ConfigureMigrationJobRequestSourceEndpoint,
       destinationEndpoint: ConfigureMigrationJobRequestDestinationEndpoint,
       migrationMode: ConfigureMigrationJobRequestMigrationMode,
+      regionId: 'string',
       migrationJobId: 'string',
       migrationJobName: 'string',
       migrationObject: 'string',
@@ -55,24 +254,24 @@ export class ConfigureMigrationJobRequest extends $tea.Model {
 
 export class ConfigureMigrationJobResponseBody extends $tea.Model {
   requestId?: string;
-  errMessage?: string;
-  success?: string;
   errCode?: string;
+  success?: string;
+  errMessage?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      errMessage: 'ErrMessage',
-      success: 'Success',
       errCode: 'ErrCode',
+      success: 'Success',
+      errMessage: 'ErrMessage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      errMessage: 'string',
-      success: 'string',
       errCode: 'string',
+      success: 'string',
+      errMessage: 'string',
     };
   }
 
@@ -104,6 +303,7 @@ export class ConfigureMigrationJobResponse extends $tea.Model {
 }
 
 export class ConfigureMigrationJobAlertRequest extends $tea.Model {
+  regionId?: string;
   migrationJobId?: string;
   delayAlertStatus?: string;
   delayAlertPhone?: string;
@@ -114,6 +314,7 @@ export class ConfigureMigrationJobAlertRequest extends $tea.Model {
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
+      regionId: 'RegionId',
       migrationJobId: 'MigrationJobId',
       delayAlertStatus: 'DelayAlertStatus',
       delayAlertPhone: 'DelayAlertPhone',
@@ -127,6 +328,7 @@ export class ConfigureMigrationJobAlertRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      regionId: 'string',
       migrationJobId: 'string',
       delayAlertStatus: 'string',
       delayAlertPhone: 'string',
@@ -145,24 +347,24 @@ export class ConfigureMigrationJobAlertRequest extends $tea.Model {
 
 export class ConfigureMigrationJobAlertResponseBody extends $tea.Model {
   requestId?: string;
-  errMessage?: string;
-  success?: string;
   errCode?: string;
+  success?: string;
+  errMessage?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      errMessage: 'ErrMessage',
-      success: 'Success',
       errCode: 'ErrCode',
+      success: 'Success',
+      errMessage: 'ErrMessage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      errMessage: 'string',
-      success: 'string',
       errCode: 'string',
+      success: 'string',
+      errMessage: 'string',
     };
   }
 
@@ -193,10 +395,173 @@ export class ConfigureMigrationJobAlertResponse extends $tea.Model {
   }
 }
 
+export class ConfigureSubscriptionRequest extends $tea.Model {
+  regionId?: string;
+  dtsJobName?: string;
+  dtsInstanceId?: string;
+  dtsJobId?: string;
+  sourceEndpointEngineName?: string;
+  sourceEndpointInstanceType?: string;
+  sourceEndpointRegion?: string;
+  sourceEndpointInstanceID?: string;
+  sourceEndpointIP?: string;
+  sourceEndpointPort?: string;
+  sourceEndpointOracleSID?: string;
+  sourceEndpointDatabaseName?: string;
+  sourceEndpointUserName?: string;
+  sourceEndpointPassword?: string;
+  sourceEndpointOwnerID?: string;
+  sourceEndpointRole?: string;
+  dbList?: string;
+  reserve?: string;
+  checkpoint?: string;
+  subscriptionInstanceNetworkType?: string;
+  subscriptionInstanceVPCId?: string;
+  subscriptionInstanceVSwitchId?: string;
+  subscriptionDataTypeDDL?: boolean;
+  subscriptionDataTypeDML?: boolean;
+  delayPhone?: string;
+  delayRuleTime?: number;
+  delayNotice?: boolean;
+  errorPhone?: string;
+  errorNotice?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+      dtsJobName: 'DtsJobName',
+      dtsInstanceId: 'DtsInstanceId',
+      dtsJobId: 'DtsJobId',
+      sourceEndpointEngineName: 'SourceEndpointEngineName',
+      sourceEndpointInstanceType: 'SourceEndpointInstanceType',
+      sourceEndpointRegion: 'SourceEndpointRegion',
+      sourceEndpointInstanceID: 'SourceEndpointInstanceID',
+      sourceEndpointIP: 'SourceEndpointIP',
+      sourceEndpointPort: 'SourceEndpointPort',
+      sourceEndpointOracleSID: 'SourceEndpointOracleSID',
+      sourceEndpointDatabaseName: 'SourceEndpointDatabaseName',
+      sourceEndpointUserName: 'SourceEndpointUserName',
+      sourceEndpointPassword: 'SourceEndpointPassword',
+      sourceEndpointOwnerID: 'SourceEndpointOwnerID',
+      sourceEndpointRole: 'SourceEndpointRole',
+      dbList: 'DbList',
+      reserve: 'Reserve',
+      checkpoint: 'Checkpoint',
+      subscriptionInstanceNetworkType: 'SubscriptionInstanceNetworkType',
+      subscriptionInstanceVPCId: 'SubscriptionInstanceVPCId',
+      subscriptionInstanceVSwitchId: 'SubscriptionInstanceVSwitchId',
+      subscriptionDataTypeDDL: 'SubscriptionDataTypeDDL',
+      subscriptionDataTypeDML: 'SubscriptionDataTypeDML',
+      delayPhone: 'DelayPhone',
+      delayRuleTime: 'DelayRuleTime',
+      delayNotice: 'DelayNotice',
+      errorPhone: 'ErrorPhone',
+      errorNotice: 'ErrorNotice',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+      dtsJobName: 'string',
+      dtsInstanceId: 'string',
+      dtsJobId: 'string',
+      sourceEndpointEngineName: 'string',
+      sourceEndpointInstanceType: 'string',
+      sourceEndpointRegion: 'string',
+      sourceEndpointInstanceID: 'string',
+      sourceEndpointIP: 'string',
+      sourceEndpointPort: 'string',
+      sourceEndpointOracleSID: 'string',
+      sourceEndpointDatabaseName: 'string',
+      sourceEndpointUserName: 'string',
+      sourceEndpointPassword: 'string',
+      sourceEndpointOwnerID: 'string',
+      sourceEndpointRole: 'string',
+      dbList: 'string',
+      reserve: 'string',
+      checkpoint: 'string',
+      subscriptionInstanceNetworkType: 'string',
+      subscriptionInstanceVPCId: 'string',
+      subscriptionInstanceVSwitchId: 'string',
+      subscriptionDataTypeDDL: 'boolean',
+      subscriptionDataTypeDML: 'boolean',
+      delayPhone: 'string',
+      delayRuleTime: 'number',
+      delayNotice: 'boolean',
+      errorPhone: 'string',
+      errorNotice: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ConfigureSubscriptionResponseBody extends $tea.Model {
+  httpStatusCode?: string;
+  requestId?: string;
+  errCode?: string;
+  dtsJobId?: string;
+  success?: string;
+  dtsInstanceId?: string;
+  errMessage?: string;
+  static names(): { [key: string]: string } {
+    return {
+      httpStatusCode: 'HttpStatusCode',
+      requestId: 'RequestId',
+      errCode: 'ErrCode',
+      dtsJobId: 'DtsJobId',
+      success: 'Success',
+      dtsInstanceId: 'DtsInstanceId',
+      errMessage: 'ErrMessage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      httpStatusCode: 'string',
+      requestId: 'string',
+      errCode: 'string',
+      dtsJobId: 'string',
+      success: 'string',
+      dtsInstanceId: 'string',
+      errMessage: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ConfigureSubscriptionResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ConfigureSubscriptionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ConfigureSubscriptionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ConfigureSubscriptionInstanceRequest extends $tea.Model {
   sourceEndpoint?: ConfigureSubscriptionInstanceRequestSourceEndpoint;
   subscriptionDataType?: ConfigureSubscriptionInstanceRequestSubscriptionDataType;
   subscriptionInstance?: ConfigureSubscriptionInstanceRequestSubscriptionInstance;
+  regionId?: string;
   subscriptionInstanceId?: string;
   subscriptionInstanceName?: string;
   subscriptionObject?: string;
@@ -208,6 +573,7 @@ export class ConfigureSubscriptionInstanceRequest extends $tea.Model {
       sourceEndpoint: 'SourceEndpoint',
       subscriptionDataType: 'SubscriptionDataType',
       subscriptionInstance: 'SubscriptionInstance',
+      regionId: 'RegionId',
       subscriptionInstanceId: 'SubscriptionInstanceId',
       subscriptionInstanceName: 'SubscriptionInstanceName',
       subscriptionObject: 'SubscriptionObject',
@@ -222,6 +588,7 @@ export class ConfigureSubscriptionInstanceRequest extends $tea.Model {
       sourceEndpoint: ConfigureSubscriptionInstanceRequestSourceEndpoint,
       subscriptionDataType: ConfigureSubscriptionInstanceRequestSubscriptionDataType,
       subscriptionInstance: ConfigureSubscriptionInstanceRequestSubscriptionInstance,
+      regionId: 'string',
       subscriptionInstanceId: 'string',
       subscriptionInstanceName: 'string',
       subscriptionObject: 'string',
@@ -238,24 +605,24 @@ export class ConfigureSubscriptionInstanceRequest extends $tea.Model {
 
 export class ConfigureSubscriptionInstanceResponseBody extends $tea.Model {
   requestId?: string;
-  errMessage?: string;
-  success?: string;
   errCode?: string;
+  success?: string;
+  errMessage?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      errMessage: 'ErrMessage',
-      success: 'Success',
       errCode: 'ErrCode',
+      success: 'Success',
+      errMessage: 'ErrMessage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      errMessage: 'string',
-      success: 'string',
       errCode: 'string',
+      success: 'string',
+      errMessage: 'string',
     };
   }
 
@@ -287,6 +654,7 @@ export class ConfigureSubscriptionInstanceResponse extends $tea.Model {
 }
 
 export class ConfigureSubscriptionInstanceAlertRequest extends $tea.Model {
+  regionId?: string;
   subscriptionInstanceId?: string;
   delayAlertStatus?: string;
   delayAlertPhone?: string;
@@ -297,6 +665,7 @@ export class ConfigureSubscriptionInstanceAlertRequest extends $tea.Model {
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
+      regionId: 'RegionId',
       subscriptionInstanceId: 'SubscriptionInstanceId',
       delayAlertStatus: 'DelayAlertStatus',
       delayAlertPhone: 'DelayAlertPhone',
@@ -310,6 +679,7 @@ export class ConfigureSubscriptionInstanceAlertRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      regionId: 'string',
       subscriptionInstanceId: 'string',
       delayAlertStatus: 'string',
       delayAlertPhone: 'string',
@@ -328,24 +698,24 @@ export class ConfigureSubscriptionInstanceAlertRequest extends $tea.Model {
 
 export class ConfigureSubscriptionInstanceAlertResponseBody extends $tea.Model {
   requestId?: string;
-  errMessage?: string;
-  success?: string;
   errCode?: string;
+  success?: string;
+  errMessage?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      errMessage: 'ErrMessage',
-      success: 'Success',
       errCode: 'ErrCode',
+      success: 'Success',
+      errMessage: 'ErrMessage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      errMessage: 'string',
-      success: 'string',
       errCode: 'string',
+      success: 'string',
+      errMessage: 'string',
     };
   }
 
@@ -380,6 +750,7 @@ export class ConfigureSynchronizationJobRequest extends $tea.Model {
   sourceEndpoint?: ConfigureSynchronizationJobRequestSourceEndpoint;
   destinationEndpoint?: ConfigureSynchronizationJobRequestDestinationEndpoint;
   partitionKey?: ConfigureSynchronizationJobRequestPartitionKey;
+  regionId?: string;
   synchronizationJobName?: string;
   synchronizationJobId?: string;
   synchronizationDirection?: string;
@@ -395,6 +766,7 @@ export class ConfigureSynchronizationJobRequest extends $tea.Model {
       sourceEndpoint: 'SourceEndpoint',
       destinationEndpoint: 'DestinationEndpoint',
       partitionKey: 'PartitionKey',
+      regionId: 'RegionId',
       synchronizationJobName: 'SynchronizationJobName',
       synchronizationJobId: 'SynchronizationJobId',
       synchronizationDirection: 'SynchronizationDirection',
@@ -413,6 +785,7 @@ export class ConfigureSynchronizationJobRequest extends $tea.Model {
       sourceEndpoint: ConfigureSynchronizationJobRequestSourceEndpoint,
       destinationEndpoint: ConfigureSynchronizationJobRequestDestinationEndpoint,
       partitionKey: ConfigureSynchronizationJobRequestPartitionKey,
+      regionId: 'string',
       synchronizationJobName: 'string',
       synchronizationJobId: 'string',
       synchronizationDirection: 'string',
@@ -433,24 +806,24 @@ export class ConfigureSynchronizationJobRequest extends $tea.Model {
 
 export class ConfigureSynchronizationJobResponseBody extends $tea.Model {
   requestId?: string;
-  errMessage?: string;
-  success?: string;
   errCode?: string;
+  success?: string;
+  errMessage?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      errMessage: 'ErrMessage',
-      success: 'Success',
       errCode: 'ErrCode',
+      success: 'Success',
+      errMessage: 'ErrMessage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      errMessage: 'string',
-      success: 'string',
       errCode: 'string',
+      success: 'string',
+      errMessage: 'string',
     };
   }
 
@@ -482,6 +855,7 @@ export class ConfigureSynchronizationJobResponse extends $tea.Model {
 }
 
 export class ConfigureSynchronizationJobAlertRequest extends $tea.Model {
+  regionId?: string;
   synchronizationJobId?: string;
   synchronizationDirection?: string;
   delayAlertStatus?: string;
@@ -493,6 +867,7 @@ export class ConfigureSynchronizationJobAlertRequest extends $tea.Model {
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
+      regionId: 'RegionId',
       synchronizationJobId: 'SynchronizationJobId',
       synchronizationDirection: 'SynchronizationDirection',
       delayAlertStatus: 'DelayAlertStatus',
@@ -507,6 +882,7 @@ export class ConfigureSynchronizationJobAlertRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      regionId: 'string',
       synchronizationJobId: 'string',
       synchronizationDirection: 'string',
       delayAlertStatus: 'string',
@@ -526,24 +902,24 @@ export class ConfigureSynchronizationJobAlertRequest extends $tea.Model {
 
 export class ConfigureSynchronizationJobAlertResponseBody extends $tea.Model {
   requestId?: string;
-  errMessage?: string;
-  success?: string;
   errCode?: string;
+  success?: string;
+  errMessage?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      errMessage: 'ErrMessage',
-      success: 'Success',
       errCode: 'ErrCode',
+      success: 'Success',
+      errMessage: 'ErrMessage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      errMessage: 'string',
-      success: 'string',
       errCode: 'string',
+      success: 'string',
+      errMessage: 'string',
     };
   }
 
@@ -575,6 +951,7 @@ export class ConfigureSynchronizationJobAlertResponse extends $tea.Model {
 }
 
 export class ConfigureSynchronizationJobReplicatorCompareRequest extends $tea.Model {
+  regionId?: string;
   synchronizationJobId?: string;
   synchronizationDirection?: string;
   synchronizationReplicatorCompareEnable?: boolean;
@@ -583,6 +960,7 @@ export class ConfigureSynchronizationJobReplicatorCompareRequest extends $tea.Mo
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
+      regionId: 'RegionId',
       synchronizationJobId: 'SynchronizationJobId',
       synchronizationDirection: 'SynchronizationDirection',
       synchronizationReplicatorCompareEnable: 'SynchronizationReplicatorCompareEnable',
@@ -594,6 +972,7 @@ export class ConfigureSynchronizationJobReplicatorCompareRequest extends $tea.Mo
 
   static types(): { [key: string]: any } {
     return {
+      regionId: 'string',
       synchronizationJobId: 'string',
       synchronizationDirection: 'string',
       synchronizationReplicatorCompareEnable: 'boolean',
@@ -610,24 +989,24 @@ export class ConfigureSynchronizationJobReplicatorCompareRequest extends $tea.Mo
 
 export class ConfigureSynchronizationJobReplicatorCompareResponseBody extends $tea.Model {
   requestId?: string;
-  errMessage?: string;
-  success?: string;
   errCode?: string;
+  success?: string;
+  errMessage?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      errMessage: 'ErrMessage',
-      success: 'Success',
       errCode: 'ErrCode',
+      success: 'Success',
+      errMessage: 'ErrMessage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      errMessage: 'string',
-      success: 'string',
       errCode: 'string',
+      success: 'string',
+      errMessage: 'string',
     };
   }
 
@@ -658,7 +1037,98 @@ export class ConfigureSynchronizationJobReplicatorCompareResponse extends $tea.M
   }
 }
 
+export class CreateConsumerChannelRequest extends $tea.Model {
+  regionId?: string;
+  dtsInstanceId?: string;
+  dtsJobId?: string;
+  consumerGroupName?: string;
+  consumerGroupPassword?: string;
+  consumerGroupUserName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+      dtsInstanceId: 'DtsInstanceId',
+      dtsJobId: 'DtsJobId',
+      consumerGroupName: 'ConsumerGroupName',
+      consumerGroupPassword: 'ConsumerGroupPassword',
+      consumerGroupUserName: 'ConsumerGroupUserName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+      dtsInstanceId: 'string',
+      dtsJobId: 'string',
+      consumerGroupName: 'string',
+      consumerGroupPassword: 'string',
+      consumerGroupUserName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateConsumerChannelResponseBody extends $tea.Model {
+  httpStatusCode?: string;
+  requestId?: string;
+  errCode?: string;
+  success?: string;
+  errMessage?: string;
+  consumerGroupID?: string;
+  static names(): { [key: string]: string } {
+    return {
+      httpStatusCode: 'HttpStatusCode',
+      requestId: 'RequestId',
+      errCode: 'ErrCode',
+      success: 'Success',
+      errMessage: 'ErrMessage',
+      consumerGroupID: 'ConsumerGroupID',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      httpStatusCode: 'string',
+      requestId: 'string',
+      errCode: 'string',
+      success: 'string',
+      errMessage: 'string',
+      consumerGroupID: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateConsumerChannelResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CreateConsumerChannelResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CreateConsumerChannelResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateConsumerGroupRequest extends $tea.Model {
+  regionId?: string;
   subscriptionInstanceId?: string;
   consumerGroupName?: string;
   consumerGroupUserName?: string;
@@ -667,6 +1137,7 @@ export class CreateConsumerGroupRequest extends $tea.Model {
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
+      regionId: 'RegionId',
       subscriptionInstanceId: 'SubscriptionInstanceId',
       consumerGroupName: 'ConsumerGroupName',
       consumerGroupUserName: 'ConsumerGroupUserName',
@@ -678,6 +1149,7 @@ export class CreateConsumerGroupRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      regionId: 'string',
       subscriptionInstanceId: 'string',
       consumerGroupName: 'string',
       consumerGroupUserName: 'string',
@@ -695,16 +1167,16 @@ export class CreateConsumerGroupRequest extends $tea.Model {
 export class CreateConsumerGroupResponseBody extends $tea.Model {
   consumerGroupID?: string;
   requestId?: string;
-  errMessage?: string;
-  success?: string;
   errCode?: string;
+  success?: string;
+  errMessage?: string;
   static names(): { [key: string]: string } {
     return {
       consumerGroupID: 'ConsumerGroupID',
       requestId: 'RequestId',
-      errMessage: 'ErrMessage',
-      success: 'Success',
       errCode: 'ErrCode',
+      success: 'Success',
+      errMessage: 'ErrMessage',
     };
   }
 
@@ -712,9 +1184,9 @@ export class CreateConsumerGroupResponseBody extends $tea.Model {
     return {
       consumerGroupID: 'string',
       requestId: 'string',
-      errMessage: 'string',
-      success: 'string',
       errCode: 'string',
+      success: 'string',
+      errMessage: 'string',
     };
   }
 
@@ -745,7 +1217,227 @@ export class CreateConsumerGroupResponse extends $tea.Model {
   }
 }
 
+export class CreateDtsInstanceRequest extends $tea.Model {
+  jobId?: string;
+  instanceClass?: string;
+  payType?: string;
+  period?: string;
+  syncArchitecture?: string;
+  autoStart?: boolean;
+  usedTime?: number;
+  quantity?: number;
+  autoPay?: boolean;
+  type?: string;
+  databaseCount?: number;
+  sourceRegion?: string;
+  destinationRegion?: string;
+  sourceEndpointEngineName?: string;
+  destinationEndpointEngineName?: string;
+  computeUnit?: number;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jobId: 'JobId',
+      instanceClass: 'InstanceClass',
+      payType: 'PayType',
+      period: 'Period',
+      syncArchitecture: 'SyncArchitecture',
+      autoStart: 'AutoStart',
+      usedTime: 'UsedTime',
+      quantity: 'Quantity',
+      autoPay: 'AutoPay',
+      type: 'Type',
+      databaseCount: 'DatabaseCount',
+      sourceRegion: 'SourceRegion',
+      destinationRegion: 'DestinationRegion',
+      sourceEndpointEngineName: 'SourceEndpointEngineName',
+      destinationEndpointEngineName: 'DestinationEndpointEngineName',
+      computeUnit: 'ComputeUnit',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobId: 'string',
+      instanceClass: 'string',
+      payType: 'string',
+      period: 'string',
+      syncArchitecture: 'string',
+      autoStart: 'boolean',
+      usedTime: 'number',
+      quantity: 'number',
+      autoPay: 'boolean',
+      type: 'string',
+      databaseCount: 'number',
+      sourceRegion: 'string',
+      destinationRegion: 'string',
+      sourceEndpointEngineName: 'string',
+      destinationEndpointEngineName: 'string',
+      computeUnit: 'number',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDtsInstanceResponseBody extends $tea.Model {
+  requestId?: string;
+  errCode?: string;
+  success?: string;
+  jobId?: string;
+  errMessage?: string;
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      errCode: 'ErrCode',
+      success: 'Success',
+      jobId: 'JobId',
+      errMessage: 'ErrMessage',
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      errCode: 'string',
+      success: 'string',
+      jobId: 'string',
+      errMessage: 'string',
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDtsInstanceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CreateDtsInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CreateDtsInstanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateJobMonitorRuleRequest extends $tea.Model {
+  dtsJobId?: string;
+  type?: string;
+  state?: string;
+  phone?: string;
+  delayRuleTime?: number;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dtsJobId: 'DtsJobId',
+      type: 'Type',
+      state: 'State',
+      phone: 'Phone',
+      delayRuleTime: 'DelayRuleTime',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dtsJobId: 'string',
+      type: 'string',
+      state: 'string',
+      phone: 'string',
+      delayRuleTime: 'number',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateJobMonitorRuleResponseBody extends $tea.Model {
+  httpStatusCode?: number;
+  requestId?: string;
+  dtsJobId?: string;
+  errCode?: string;
+  success?: boolean;
+  errMessage?: string;
+  code?: string;
+  dynamicMessage?: string;
+  static names(): { [key: string]: string } {
+    return {
+      httpStatusCode: 'HttpStatusCode',
+      requestId: 'RequestId',
+      dtsJobId: 'DtsJobId',
+      errCode: 'ErrCode',
+      success: 'Success',
+      errMessage: 'ErrMessage',
+      code: 'Code',
+      dynamicMessage: 'DynamicMessage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      httpStatusCode: 'number',
+      requestId: 'string',
+      dtsJobId: 'string',
+      errCode: 'string',
+      success: 'boolean',
+      errMessage: 'string',
+      code: 'string',
+      dynamicMessage: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateJobMonitorRuleResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CreateJobMonitorRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CreateJobMonitorRuleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateMigrationJobRequest extends $tea.Model {
+  regionId?: string;
   region?: string;
   migrationJobClass?: string;
   ownerId?: string;
@@ -753,6 +1445,7 @@ export class CreateMigrationJobRequest extends $tea.Model {
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
+      regionId: 'RegionId',
       region: 'Region',
       migrationJobClass: 'MigrationJobClass',
       ownerId: 'OwnerId',
@@ -763,6 +1456,7 @@ export class CreateMigrationJobRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      regionId: 'string',
       region: 'string',
       migrationJobClass: 'string',
       ownerId: 'string',
@@ -778,27 +1472,27 @@ export class CreateMigrationJobRequest extends $tea.Model {
 
 export class CreateMigrationJobResponseBody extends $tea.Model {
   requestId?: string;
-  errMessage?: string;
-  success?: string;
   migrationJobId?: string;
   errCode?: string;
+  success?: string;
+  errMessage?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      errMessage: 'ErrMessage',
-      success: 'Success',
       migrationJobId: 'MigrationJobId',
       errCode: 'ErrCode',
+      success: 'Success',
+      errMessage: 'ErrMessage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      errMessage: 'string',
-      success: 'string',
       migrationJobId: 'string',
       errCode: 'string',
+      success: 'string',
+      errMessage: 'string',
     };
   }
 
@@ -831,6 +1525,7 @@ export class CreateMigrationJobResponse extends $tea.Model {
 
 export class CreateSubscriptionInstanceRequest extends $tea.Model {
   sourceEndpoint?: CreateSubscriptionInstanceRequestSourceEndpoint;
+  regionId?: string;
   region?: string;
   payType?: string;
   period?: string;
@@ -841,6 +1536,7 @@ export class CreateSubscriptionInstanceRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       sourceEndpoint: 'SourceEndpoint',
+      regionId: 'RegionId',
       region: 'Region',
       payType: 'PayType',
       period: 'Period',
@@ -854,6 +1550,7 @@ export class CreateSubscriptionInstanceRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       sourceEndpoint: CreateSubscriptionInstanceRequestSourceEndpoint,
+      regionId: 'string',
       region: 'string',
       payType: 'string',
       period: 'string',
@@ -872,16 +1569,16 @@ export class CreateSubscriptionInstanceRequest extends $tea.Model {
 export class CreateSubscriptionInstanceResponseBody extends $tea.Model {
   requestId?: string;
   subscriptionInstanceId?: string;
-  errMessage?: string;
-  success?: string;
   errCode?: string;
+  success?: string;
+  errMessage?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
       subscriptionInstanceId: 'SubscriptionInstanceId',
-      errMessage: 'ErrMessage',
-      success: 'Success',
       errCode: 'ErrCode',
+      success: 'Success',
+      errMessage: 'ErrMessage',
     };
   }
 
@@ -889,9 +1586,9 @@ export class CreateSubscriptionInstanceResponseBody extends $tea.Model {
     return {
       requestId: 'string',
       subscriptionInstanceId: 'string',
-      errMessage: 'string',
-      success: 'string',
       errCode: 'string',
+      success: 'string',
+      errMessage: 'string',
     };
   }
 
@@ -925,6 +1622,7 @@ export class CreateSubscriptionInstanceResponse extends $tea.Model {
 export class CreateSynchronizationJobRequest extends $tea.Model {
   sourceEndpoint?: CreateSynchronizationJobRequestSourceEndpoint;
   destinationEndpoint?: CreateSynchronizationJobRequestDestinationEndpoint;
+  regionId?: string;
   sourceRegion?: string;
   destRegion?: string;
   topology?: string;
@@ -941,6 +1639,7 @@ export class CreateSynchronizationJobRequest extends $tea.Model {
     return {
       sourceEndpoint: 'SourceEndpoint',
       destinationEndpoint: 'DestinationEndpoint',
+      regionId: 'RegionId',
       sourceRegion: 'SourceRegion',
       destRegion: 'DestRegion',
       topology: 'Topology',
@@ -960,6 +1659,7 @@ export class CreateSynchronizationJobRequest extends $tea.Model {
     return {
       sourceEndpoint: CreateSynchronizationJobRequestSourceEndpoint,
       destinationEndpoint: CreateSynchronizationJobRequestDestinationEndpoint,
+      regionId: 'string',
       sourceRegion: 'string',
       destRegion: 'string',
       topology: 'string',
@@ -981,28 +1681,28 @@ export class CreateSynchronizationJobRequest extends $tea.Model {
 }
 
 export class CreateSynchronizationJobResponseBody extends $tea.Model {
-  synchronizationJobId?: string;
   requestId?: string;
-  errMessage?: string;
-  success?: string;
   errCode?: string;
+  success?: string;
+  synchronizationJobId?: string;
+  errMessage?: string;
   static names(): { [key: string]: string } {
     return {
-      synchronizationJobId: 'SynchronizationJobId',
       requestId: 'RequestId',
-      errMessage: 'ErrMessage',
-      success: 'Success',
       errCode: 'ErrCode',
+      success: 'Success',
+      synchronizationJobId: 'SynchronizationJobId',
+      errMessage: 'ErrMessage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      synchronizationJobId: 'string',
       requestId: 'string',
-      errMessage: 'string',
-      success: 'string',
       errCode: 'string',
+      success: 'string',
+      synchronizationJobId: 'string',
+      errMessage: 'string',
     };
   }
 
@@ -1033,13 +1733,96 @@ export class CreateSynchronizationJobResponse extends $tea.Model {
   }
 }
 
+export class DeleteConsumerChannelRequest extends $tea.Model {
+  regionId?: string;
+  dtsInstanceId?: string;
+  dtsJobId?: string;
+  consumerGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+      dtsInstanceId: 'DtsInstanceId',
+      dtsJobId: 'DtsJobId',
+      consumerGroupId: 'ConsumerGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+      dtsInstanceId: 'string',
+      dtsJobId: 'string',
+      consumerGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteConsumerChannelResponseBody extends $tea.Model {
+  httpStatusCode?: string;
+  requestId?: string;
+  errCode?: string;
+  success?: string;
+  errMessage?: string;
+  static names(): { [key: string]: string } {
+    return {
+      httpStatusCode: 'HttpStatusCode',
+      requestId: 'RequestId',
+      errCode: 'ErrCode',
+      success: 'Success',
+      errMessage: 'ErrMessage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      httpStatusCode: 'string',
+      requestId: 'string',
+      errCode: 'string',
+      success: 'string',
+      errMessage: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteConsumerChannelResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DeleteConsumerChannelResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DeleteConsumerChannelResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteConsumerGroupRequest extends $tea.Model {
+  regionId?: string;
   subscriptionInstanceId?: string;
   consumerGroupID?: string;
   ownerId?: string;
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
+      regionId: 'RegionId',
       subscriptionInstanceId: 'SubscriptionInstanceId',
       consumerGroupID: 'ConsumerGroupID',
       ownerId: 'OwnerId',
@@ -1049,6 +1832,7 @@ export class DeleteConsumerGroupRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      regionId: 'string',
       subscriptionInstanceId: 'string',
       consumerGroupID: 'string',
       ownerId: 'string',
@@ -1063,24 +1847,24 @@ export class DeleteConsumerGroupRequest extends $tea.Model {
 
 export class DeleteConsumerGroupResponseBody extends $tea.Model {
   requestId?: string;
-  errMessage?: string;
-  success?: string;
   errCode?: string;
+  success?: string;
+  errMessage?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      errMessage: 'ErrMessage',
-      success: 'Success',
       errCode: 'ErrCode',
+      success: 'Success',
+      errMessage: 'ErrMessage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      errMessage: 'string',
-      success: 'string',
       errCode: 'string',
+      success: 'string',
+      errMessage: 'string',
     };
   }
 
@@ -1111,12 +1895,101 @@ export class DeleteConsumerGroupResponse extends $tea.Model {
   }
 }
 
+export class DeleteDtsJobRequest extends $tea.Model {
+  dtsJobId?: string;
+  dtsInstanceId?: string;
+  synchronizationDirection?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dtsJobId: 'DtsJobId',
+      dtsInstanceId: 'DtsInstanceId',
+      synchronizationDirection: 'SynchronizationDirection',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dtsJobId: 'string',
+      dtsInstanceId: 'string',
+      synchronizationDirection: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDtsJobResponseBody extends $tea.Model {
+  httpStatusCode?: number;
+  requestId?: string;
+  errCode?: string;
+  success?: boolean;
+  errMessage?: string;
+  dynamicMessage?: string;
+  dynamicCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      httpStatusCode: 'HttpStatusCode',
+      requestId: 'RequestId',
+      errCode: 'ErrCode',
+      success: 'Success',
+      errMessage: 'ErrMessage',
+      dynamicMessage: 'DynamicMessage',
+      dynamicCode: 'DynamicCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      httpStatusCode: 'number',
+      requestId: 'string',
+      errCode: 'string',
+      success: 'boolean',
+      errMessage: 'string',
+      dynamicMessage: 'string',
+      dynamicCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDtsJobResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DeleteDtsJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DeleteDtsJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteMigrationJobRequest extends $tea.Model {
+  regionId?: string;
   migrationJobId?: string;
   ownerId?: string;
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
+      regionId: 'RegionId',
       migrationJobId: 'MigrationJobId',
       ownerId: 'OwnerId',
       accountId: 'AccountId',
@@ -1125,6 +1998,7 @@ export class DeleteMigrationJobRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      regionId: 'string',
       migrationJobId: 'string',
       ownerId: 'string',
       accountId: 'string',
@@ -1138,24 +2012,24 @@ export class DeleteMigrationJobRequest extends $tea.Model {
 
 export class DeleteMigrationJobResponseBody extends $tea.Model {
   requestId?: string;
-  errMessage?: string;
-  success?: string;
   errCode?: string;
+  success?: string;
+  errMessage?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      errMessage: 'ErrMessage',
-      success: 'Success',
       errCode: 'ErrCode',
+      success: 'Success',
+      errMessage: 'ErrMessage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      errMessage: 'string',
-      success: 'string',
       errCode: 'string',
+      success: 'string',
+      errMessage: 'string',
     };
   }
 
@@ -1187,11 +2061,13 @@ export class DeleteMigrationJobResponse extends $tea.Model {
 }
 
 export class DeleteSubscriptionInstanceRequest extends $tea.Model {
+  regionId?: string;
   subscriptionInstanceId?: string;
   ownerId?: string;
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
+      regionId: 'RegionId',
       subscriptionInstanceId: 'SubscriptionInstanceId',
       ownerId: 'OwnerId',
       accountId: 'AccountId',
@@ -1200,6 +2076,7 @@ export class DeleteSubscriptionInstanceRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      regionId: 'string',
       subscriptionInstanceId: 'string',
       ownerId: 'string',
       accountId: 'string',
@@ -1213,24 +2090,24 @@ export class DeleteSubscriptionInstanceRequest extends $tea.Model {
 
 export class DeleteSubscriptionInstanceResponseBody extends $tea.Model {
   requestId?: string;
-  errMessage?: string;
-  success?: string;
   errCode?: string;
+  success?: string;
+  errMessage?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      errMessage: 'ErrMessage',
-      success: 'Success',
       errCode: 'ErrCode',
+      success: 'Success',
+      errMessage: 'ErrMessage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      errMessage: 'string',
-      success: 'string',
       errCode: 'string',
+      success: 'string',
+      errMessage: 'string',
     };
   }
 
@@ -1262,11 +2139,13 @@ export class DeleteSubscriptionInstanceResponse extends $tea.Model {
 }
 
 export class DeleteSynchronizationJobRequest extends $tea.Model {
+  regionId?: string;
   synchronizationJobId?: string;
   ownerId?: string;
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
+      regionId: 'RegionId',
       synchronizationJobId: 'SynchronizationJobId',
       ownerId: 'OwnerId',
       accountId: 'AccountId',
@@ -1275,6 +2154,7 @@ export class DeleteSynchronizationJobRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      regionId: 'string',
       synchronizationJobId: 'string',
       ownerId: 'string',
       accountId: 'string',
@@ -1288,24 +2168,24 @@ export class DeleteSynchronizationJobRequest extends $tea.Model {
 
 export class DeleteSynchronizationJobResponseBody extends $tea.Model {
   requestId?: string;
-  errMessage?: string;
-  success?: string;
   errCode?: string;
+  success?: string;
+  errMessage?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      errMessage: 'ErrMessage',
-      success: 'Success',
       errCode: 'ErrCode',
+      success: 'Success',
+      errMessage: 'ErrMessage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      errMessage: 'string',
-      success: 'string',
       errCode: 'string',
+      success: 'string',
+      errMessage: 'string',
     };
   }
 
@@ -1357,8 +2237,9 @@ export class DescribeConnectionStatusRequest extends $tea.Model {
   destinationEndpointDatabaseName?: string;
   destinationEndpointUserName?: string;
   destinationEndpointPassword?: string;
-  destinationEndpointOracleSID?: boolean;
-  destinationEndpointArchitecture?: boolean;
+  destinationEndpointOracleSID?: string;
+  destinationEndpointArchitecture?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       sourceEndpointArchitecture: 'SourceEndpointArchitecture',
@@ -1383,6 +2264,7 @@ export class DescribeConnectionStatusRequest extends $tea.Model {
       destinationEndpointPassword: 'DestinationEndpointPassword',
       destinationEndpointOracleSID: 'DestinationEndpointOracleSID',
       destinationEndpointArchitecture: 'DestinationEndpointArchitecture',
+      regionId: 'RegionId',
     };
   }
 
@@ -1408,8 +2290,9 @@ export class DescribeConnectionStatusRequest extends $tea.Model {
       destinationEndpointDatabaseName: 'string',
       destinationEndpointUserName: 'string',
       destinationEndpointPassword: 'string',
-      destinationEndpointOracleSID: 'boolean',
-      destinationEndpointArchitecture: 'boolean',
+      destinationEndpointOracleSID: 'string',
+      destinationEndpointArchitecture: 'string',
+      regionId: 'string',
     };
   }
 
@@ -1420,30 +2303,30 @@ export class DescribeConnectionStatusRequest extends $tea.Model {
 
 export class DescribeConnectionStatusResponseBody extends $tea.Model {
   sourceConnectionStatus?: { [key: string]: any };
-  requestId?: string;
   destinationConnectionStatus?: { [key: string]: any };
-  errMessage?: string;
-  success?: string;
+  requestId?: string;
   errCode?: string;
+  success?: string;
+  errMessage?: string;
   static names(): { [key: string]: string } {
     return {
       sourceConnectionStatus: 'SourceConnectionStatus',
-      requestId: 'RequestId',
       destinationConnectionStatus: 'DestinationConnectionStatus',
-      errMessage: 'ErrMessage',
-      success: 'Success',
+      requestId: 'RequestId',
       errCode: 'ErrCode',
+      success: 'Success',
+      errMessage: 'ErrMessage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       sourceConnectionStatus: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      requestId: 'string',
       destinationConnectionStatus: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      errMessage: 'string',
-      success: 'string',
+      requestId: 'string',
       errCode: 'string',
+      success: 'string',
+      errMessage: 'string',
     };
   }
 
@@ -1474,7 +2357,107 @@ export class DescribeConnectionStatusResponse extends $tea.Model {
   }
 }
 
+export class DescribeConsumerChannelRequest extends $tea.Model {
+  regionId?: string;
+  dtsInstanceId?: string;
+  dtsJobId?: string;
+  pageSize?: number;
+  pageNumber?: number;
+  parentChannelId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+      dtsInstanceId: 'DtsInstanceId',
+      dtsJobId: 'DtsJobId',
+      pageSize: 'PageSize',
+      pageNumber: 'PageNumber',
+      parentChannelId: 'ParentChannelId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+      dtsInstanceId: 'string',
+      dtsJobId: 'string',
+      pageSize: 'number',
+      pageNumber: 'number',
+      parentChannelId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeConsumerChannelResponseBody extends $tea.Model {
+  httpStatusCode?: string;
+  requestId?: string;
+  errCode?: string;
+  pageRecordCount?: number;
+  success?: string;
+  totalRecordCount?: number;
+  errMessage?: string;
+  pageNumber?: number;
+  consumerChannels?: DescribeConsumerChannelResponseBodyConsumerChannels[];
+  static names(): { [key: string]: string } {
+    return {
+      httpStatusCode: 'HttpStatusCode',
+      requestId: 'RequestId',
+      errCode: 'ErrCode',
+      pageRecordCount: 'PageRecordCount',
+      success: 'Success',
+      totalRecordCount: 'TotalRecordCount',
+      errMessage: 'ErrMessage',
+      pageNumber: 'PageNumber',
+      consumerChannels: 'ConsumerChannels',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      httpStatusCode: 'string',
+      requestId: 'string',
+      errCode: 'string',
+      pageRecordCount: 'number',
+      success: 'string',
+      totalRecordCount: 'number',
+      errMessage: 'string',
+      pageNumber: 'number',
+      consumerChannels: { 'type': 'array', 'itemType': DescribeConsumerChannelResponseBodyConsumerChannels },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeConsumerChannelResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeConsumerChannelResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeConsumerChannelResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeConsumerGroupRequest extends $tea.Model {
+  regionId?: string;
   pageSize?: number;
   pageNum?: number;
   subscriptionInstanceId?: string;
@@ -1482,6 +2465,7 @@ export class DescribeConsumerGroupRequest extends $tea.Model {
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
+      regionId: 'RegionId',
       pageSize: 'PageSize',
       pageNum: 'PageNum',
       subscriptionInstanceId: 'SubscriptionInstanceId',
@@ -1492,6 +2476,7 @@ export class DescribeConsumerGroupRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      regionId: 'string',
       pageSize: 'number',
       pageNum: 'number',
       subscriptionInstanceId: 'string',
@@ -1506,37 +2491,37 @@ export class DescribeConsumerGroupRequest extends $tea.Model {
 }
 
 export class DescribeConsumerGroupResponseBody extends $tea.Model {
-  totalRecordCount?: number;
-  pageRecordCount?: number;
   requestId?: string;
-  pageNumber?: number;
-  errMessage?: string;
-  consumerChannels?: DescribeConsumerGroupResponseBodyConsumerChannels;
-  success?: string;
   errCode?: string;
+  success?: string;
+  pageRecordCount?: number;
+  totalRecordCount?: number;
+  errMessage?: string;
+  pageNumber?: number;
+  consumerChannels?: DescribeConsumerGroupResponseBodyConsumerChannels;
   static names(): { [key: string]: string } {
     return {
-      totalRecordCount: 'TotalRecordCount',
-      pageRecordCount: 'PageRecordCount',
       requestId: 'RequestId',
-      pageNumber: 'PageNumber',
-      errMessage: 'ErrMessage',
-      consumerChannels: 'ConsumerChannels',
-      success: 'Success',
       errCode: 'ErrCode',
+      success: 'Success',
+      pageRecordCount: 'PageRecordCount',
+      totalRecordCount: 'TotalRecordCount',
+      errMessage: 'ErrMessage',
+      pageNumber: 'PageNumber',
+      consumerChannels: 'ConsumerChannels',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      totalRecordCount: 'number',
-      pageRecordCount: 'number',
       requestId: 'string',
-      pageNumber: 'number',
-      errMessage: 'string',
-      consumerChannels: DescribeConsumerGroupResponseBodyConsumerChannels,
-      success: 'string',
       errCode: 'string',
+      success: 'string',
+      pageRecordCount: 'number',
+      totalRecordCount: 'number',
+      errMessage: 'string',
+      pageNumber: 'number',
+      consumerChannels: DescribeConsumerGroupResponseBodyConsumerChannels,
     };
   }
 
@@ -1568,10 +2553,12 @@ export class DescribeConsumerGroupResponse extends $tea.Model {
 }
 
 export class DescribeDTSIPRequest extends $tea.Model {
+  regionId?: string;
   sourceEndpointRegion?: string;
   destinationEndpointRegion?: string;
   static names(): { [key: string]: string } {
     return {
+      regionId: 'RegionId',
       sourceEndpointRegion: 'SourceEndpointRegion',
       destinationEndpointRegion: 'DestinationEndpointRegion',
     };
@@ -1579,6 +2566,7 @@ export class DescribeDTSIPRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      regionId: 'string',
       sourceEndpointRegion: 'string',
       destinationEndpointRegion: 'string',
     };
@@ -1591,30 +2579,30 @@ export class DescribeDTSIPRequest extends $tea.Model {
 
 export class DescribeDTSIPResponseBody extends $tea.Model {
   requestId?: string;
-  dynamicCode?: string;
-  dynamicMessage?: string;
-  errMessage?: string;
-  success?: string;
   errCode?: string;
+  success?: string;
+  errMessage?: string;
+  dynamicMessage?: string;
+  dynamicCode?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      dynamicCode: 'DynamicCode',
-      dynamicMessage: 'DynamicMessage',
-      errMessage: 'ErrMessage',
-      success: 'Success',
       errCode: 'ErrCode',
+      success: 'Success',
+      errMessage: 'ErrMessage',
+      dynamicMessage: 'DynamicMessage',
+      dynamicCode: 'DynamicCode',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      dynamicCode: 'string',
-      dynamicMessage: 'string',
-      errMessage: 'string',
-      success: 'string',
       errCode: 'string',
+      success: 'string',
+      errMessage: 'string',
+      dynamicMessage: 'string',
+      dynamicCode: 'string',
     };
   }
 
@@ -1645,13 +2633,318 @@ export class DescribeDTSIPResponse extends $tea.Model {
   }
 }
 
+export class DescribeDtsJobDetailRequest extends $tea.Model {
+  dtsJobId?: string;
+  dtsInstanceID?: string;
+  synchronizationDirection?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dtsJobId: 'DtsJobId',
+      dtsInstanceID: 'DtsInstanceID',
+      synchronizationDirection: 'SynchronizationDirection',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dtsJobId: 'string',
+      dtsInstanceID: 'string',
+      synchronizationDirection: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDtsJobDetailResponseBody extends $tea.Model {
+  status?: string;
+  dtsJobName?: string;
+  finishTime?: string;
+  errorMessage?: string;
+  dtsJobId?: string;
+  createTime?: string;
+  payType?: string;
+  reserved?: string;
+  databaseCount?: number;
+  dtsJobClass?: string;
+  endTimestamp?: string;
+  appName?: string;
+  destNetType?: string;
+  subscribeTopic?: string;
+  dtsInstanceID?: string;
+  requestId?: string;
+  code?: number;
+  checkpoint?: number;
+  delay?: number;
+  expireTime?: string;
+  errCode?: string;
+  success?: boolean;
+  errMessage?: string;
+  consumptionClient?: string;
+  dbObject?: string;
+  dynamicMessage?: string;
+  consumptionCheckpoint?: string;
+  etlCalculator?: string;
+  httpStatusCode?: number;
+  beginTimestamp?: string;
+  groupId?: string;
+  synchronizationDirection?: string;
+  dtsJobDirection?: string;
+  sourceEndpoint?: DescribeDtsJobDetailResponseBodySourceEndpoint;
+  destinationEndpoint?: DescribeDtsJobDetailResponseBodyDestinationEndpoint;
+  migrationMode?: DescribeDtsJobDetailResponseBodyMigrationMode;
+  subscriptionHost?: DescribeDtsJobDetailResponseBodySubscriptionHost;
+  subscriptionDataType?: DescribeDtsJobDetailResponseBodySubscriptionDataType;
+  static names(): { [key: string]: string } {
+    return {
+      status: 'Status',
+      dtsJobName: 'DtsJobName',
+      finishTime: 'FinishTime',
+      errorMessage: 'ErrorMessage',
+      dtsJobId: 'DtsJobId',
+      createTime: 'CreateTime',
+      payType: 'PayType',
+      reserved: 'Reserved',
+      databaseCount: 'DatabaseCount',
+      dtsJobClass: 'DtsJobClass',
+      endTimestamp: 'EndTimestamp',
+      appName: 'AppName',
+      destNetType: 'DestNetType',
+      subscribeTopic: 'SubscribeTopic',
+      dtsInstanceID: 'DtsInstanceID',
+      requestId: 'RequestId',
+      code: 'Code',
+      checkpoint: 'Checkpoint',
+      delay: 'Delay',
+      expireTime: 'ExpireTime',
+      errCode: 'ErrCode',
+      success: 'Success',
+      errMessage: 'ErrMessage',
+      consumptionClient: 'ConsumptionClient',
+      dbObject: 'DbObject',
+      dynamicMessage: 'DynamicMessage',
+      consumptionCheckpoint: 'ConsumptionCheckpoint',
+      etlCalculator: 'EtlCalculator',
+      httpStatusCode: 'HttpStatusCode',
+      beginTimestamp: 'BeginTimestamp',
+      groupId: 'GroupId',
+      synchronizationDirection: 'SynchronizationDirection',
+      dtsJobDirection: 'DtsJobDirection',
+      sourceEndpoint: 'SourceEndpoint',
+      destinationEndpoint: 'DestinationEndpoint',
+      migrationMode: 'MigrationMode',
+      subscriptionHost: 'SubscriptionHost',
+      subscriptionDataType: 'SubscriptionDataType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      status: 'string',
+      dtsJobName: 'string',
+      finishTime: 'string',
+      errorMessage: 'string',
+      dtsJobId: 'string',
+      createTime: 'string',
+      payType: 'string',
+      reserved: 'string',
+      databaseCount: 'number',
+      dtsJobClass: 'string',
+      endTimestamp: 'string',
+      appName: 'string',
+      destNetType: 'string',
+      subscribeTopic: 'string',
+      dtsInstanceID: 'string',
+      requestId: 'string',
+      code: 'number',
+      checkpoint: 'number',
+      delay: 'number',
+      expireTime: 'string',
+      errCode: 'string',
+      success: 'boolean',
+      errMessage: 'string',
+      consumptionClient: 'string',
+      dbObject: 'string',
+      dynamicMessage: 'string',
+      consumptionCheckpoint: 'string',
+      etlCalculator: 'string',
+      httpStatusCode: 'number',
+      beginTimestamp: 'string',
+      groupId: 'string',
+      synchronizationDirection: 'string',
+      dtsJobDirection: 'string',
+      sourceEndpoint: DescribeDtsJobDetailResponseBodySourceEndpoint,
+      destinationEndpoint: DescribeDtsJobDetailResponseBodyDestinationEndpoint,
+      migrationMode: DescribeDtsJobDetailResponseBodyMigrationMode,
+      subscriptionHost: DescribeDtsJobDetailResponseBodySubscriptionHost,
+      subscriptionDataType: DescribeDtsJobDetailResponseBodySubscriptionDataType,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDtsJobDetailResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeDtsJobDetailResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeDtsJobDetailResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDtsJobsRequest extends $tea.Model {
+  type?: string;
+  params?: string;
+  region?: string;
+  status?: string;
+  orderDirection?: string;
+  orderColumn?: string;
+  tags?: string;
+  pageSize?: number;
+  pageNumber?: number;
+  jobType?: string;
+  regionId?: string;
+  groupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      type: 'Type',
+      params: 'Params',
+      region: 'Region',
+      status: 'Status',
+      orderDirection: 'OrderDirection',
+      orderColumn: 'OrderColumn',
+      tags: 'Tags',
+      pageSize: 'PageSize',
+      pageNumber: 'PageNumber',
+      jobType: 'JobType',
+      regionId: 'RegionId',
+      groupId: 'GroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      type: 'string',
+      params: 'string',
+      region: 'string',
+      status: 'string',
+      orderDirection: 'string',
+      orderColumn: 'string',
+      tags: 'string',
+      pageSize: 'number',
+      pageNumber: 'number',
+      jobType: 'string',
+      regionId: 'string',
+      groupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDtsJobsResponseBody extends $tea.Model {
+  httpStatusCode?: number;
+  requestId?: string;
+  errCode?: string;
+  success?: boolean;
+  pageRecordCount?: number;
+  totalRecordCount?: number;
+  errMessage?: string;
+  dynamicMessage?: string;
+  pageNumber?: number;
+  dynamicCode?: string;
+  dtsJobList?: DescribeDtsJobsResponseBodyDtsJobList[];
+  static names(): { [key: string]: string } {
+    return {
+      httpStatusCode: 'HttpStatusCode',
+      requestId: 'RequestId',
+      errCode: 'ErrCode',
+      success: 'Success',
+      pageRecordCount: 'PageRecordCount',
+      totalRecordCount: 'TotalRecordCount',
+      errMessage: 'ErrMessage',
+      dynamicMessage: 'DynamicMessage',
+      pageNumber: 'PageNumber',
+      dynamicCode: 'DynamicCode',
+      dtsJobList: 'DtsJobList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      httpStatusCode: 'number',
+      requestId: 'string',
+      errCode: 'string',
+      success: 'boolean',
+      pageRecordCount: 'number',
+      totalRecordCount: 'number',
+      errMessage: 'string',
+      dynamicMessage: 'string',
+      pageNumber: 'number',
+      dynamicCode: 'string',
+      dtsJobList: { 'type': 'array', 'itemType': DescribeDtsJobsResponseBodyDtsJobList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDtsJobsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeDtsJobsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeDtsJobsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeEndpointSwitchStatusRequest extends $tea.Model {
+  regionId?: string;
   taskId?: string;
   clientToken?: string;
   ownerId?: string;
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
+      regionId: 'RegionId',
       taskId: 'TaskId',
       clientToken: 'ClientToken',
       ownerId: 'OwnerId',
@@ -1661,6 +2954,7 @@ export class DescribeEndpointSwitchStatusRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      regionId: 'string',
       taskId: 'string',
       clientToken: 'string',
       ownerId: 'string',
@@ -1675,30 +2969,30 @@ export class DescribeEndpointSwitchStatusRequest extends $tea.Model {
 
 export class DescribeEndpointSwitchStatusResponseBody extends $tea.Model {
   status?: string;
-  requestId?: string;
   errorMessage?: string;
-  errMessage?: string;
-  success?: string;
+  requestId?: string;
   errCode?: string;
+  success?: string;
+  errMessage?: string;
   static names(): { [key: string]: string } {
     return {
       status: 'Status',
-      requestId: 'RequestId',
       errorMessage: 'ErrorMessage',
-      errMessage: 'ErrMessage',
-      success: 'Success',
+      requestId: 'RequestId',
       errCode: 'ErrCode',
+      success: 'Success',
+      errMessage: 'ErrMessage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       status: 'string',
-      requestId: 'string',
       errorMessage: 'string',
-      errMessage: 'string',
-      success: 'string',
+      requestId: 'string',
       errCode: 'string',
+      success: 'string',
+      errMessage: 'string',
     };
   }
 
@@ -1730,6 +3024,7 @@ export class DescribeEndpointSwitchStatusResponse extends $tea.Model {
 }
 
 export class DescribeInitializationStatusRequest extends $tea.Model {
+  regionId?: string;
   synchronizationJobId?: string;
   pageSize?: number;
   pageNum?: number;
@@ -1737,6 +3032,7 @@ export class DescribeInitializationStatusRequest extends $tea.Model {
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
+      regionId: 'RegionId',
       synchronizationJobId: 'SynchronizationJobId',
       pageSize: 'PageSize',
       pageNum: 'PageNum',
@@ -1747,6 +3043,7 @@ export class DescribeInitializationStatusRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      regionId: 'string',
       synchronizationJobId: 'string',
       pageSize: 'number',
       pageNum: 'number',
@@ -1761,34 +3058,34 @@ export class DescribeInitializationStatusRequest extends $tea.Model {
 }
 
 export class DescribeInitializationStatusResponseBody extends $tea.Model {
-  structureInitializationDetails?: DescribeInitializationStatusResponseBodyStructureInitializationDetails[];
   requestId?: string;
-  dataInitializationDetails?: DescribeInitializationStatusResponseBodyDataInitializationDetails[];
-  errMessage?: string;
-  success?: string;
   errCode?: string;
+  success?: string;
+  errMessage?: string;
+  dataInitializationDetails?: DescribeInitializationStatusResponseBodyDataInitializationDetails[];
   dataSynchronizationDetails?: DescribeInitializationStatusResponseBodyDataSynchronizationDetails[];
+  structureInitializationDetails?: DescribeInitializationStatusResponseBodyStructureInitializationDetails[];
   static names(): { [key: string]: string } {
     return {
-      structureInitializationDetails: 'StructureInitializationDetails',
       requestId: 'RequestId',
-      dataInitializationDetails: 'DataInitializationDetails',
-      errMessage: 'ErrMessage',
-      success: 'Success',
       errCode: 'ErrCode',
+      success: 'Success',
+      errMessage: 'ErrMessage',
+      dataInitializationDetails: 'DataInitializationDetails',
       dataSynchronizationDetails: 'DataSynchronizationDetails',
+      structureInitializationDetails: 'StructureInitializationDetails',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      structureInitializationDetails: { 'type': 'array', 'itemType': DescribeInitializationStatusResponseBodyStructureInitializationDetails },
       requestId: 'string',
-      dataInitializationDetails: { 'type': 'array', 'itemType': DescribeInitializationStatusResponseBodyDataInitializationDetails },
-      errMessage: 'string',
-      success: 'string',
       errCode: 'string',
+      success: 'string',
+      errMessage: 'string',
+      dataInitializationDetails: { 'type': 'array', 'itemType': DescribeInitializationStatusResponseBodyDataInitializationDetails },
       dataSynchronizationDetails: { 'type': 'array', 'itemType': DescribeInitializationStatusResponseBodyDataSynchronizationDetails },
+      structureInitializationDetails: { 'type': 'array', 'itemType': DescribeInitializationStatusResponseBodyStructureInitializationDetails },
     };
   }
 
@@ -1819,13 +3116,102 @@ export class DescribeInitializationStatusResponse extends $tea.Model {
   }
 }
 
+export class DescribeJobMonitorRuleRequest extends $tea.Model {
+  dtsJobId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dtsJobId: 'DtsJobId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dtsJobId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeJobMonitorRuleResponseBody extends $tea.Model {
+  httpStatusCode?: number;
+  requestId?: string;
+  dtsJobId?: string;
+  errCode?: string;
+  success?: boolean;
+  errMessage?: string;
+  code?: string;
+  dynamicMessage?: string;
+  monitorRules?: DescribeJobMonitorRuleResponseBodyMonitorRules[];
+  static names(): { [key: string]: string } {
+    return {
+      httpStatusCode: 'HttpStatusCode',
+      requestId: 'RequestId',
+      dtsJobId: 'DtsJobId',
+      errCode: 'ErrCode',
+      success: 'Success',
+      errMessage: 'ErrMessage',
+      code: 'Code',
+      dynamicMessage: 'DynamicMessage',
+      monitorRules: 'MonitorRules',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      httpStatusCode: 'number',
+      requestId: 'string',
+      dtsJobId: 'string',
+      errCode: 'string',
+      success: 'boolean',
+      errMessage: 'string',
+      code: 'string',
+      dynamicMessage: 'string',
+      monitorRules: { 'type': 'array', 'itemType': DescribeJobMonitorRuleResponseBodyMonitorRules },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeJobMonitorRuleResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeJobMonitorRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeJobMonitorRuleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeMigrationJobAlertRequest extends $tea.Model {
+  regionId?: string;
   migrationJobId?: string;
   clientToken?: string;
   ownerId?: string;
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
+      regionId: 'RegionId',
       migrationJobId: 'MigrationJobId',
       clientToken: 'ClientToken',
       ownerId: 'OwnerId',
@@ -1835,6 +3221,7 @@ export class DescribeMigrationJobAlertRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      regionId: 'string',
       migrationJobId: 'string',
       clientToken: 'string',
       ownerId: 'string',
@@ -1848,46 +3235,46 @@ export class DescribeMigrationJobAlertRequest extends $tea.Model {
 }
 
 export class DescribeMigrationJobAlertResponseBody extends $tea.Model {
-  errorAlertPhone?: string;
   requestId?: string;
-  delayAlertPhone?: string;
   migrationJobName?: string;
   errorAlertStatus?: string;
+  errCode?: string;
+  success?: string;
+  errorAlertPhone?: string;
   errMessage?: string;
   delayAlertStatus?: string;
-  success?: string;
-  delayOverSeconds?: string;
-  errCode?: string;
+  delayAlertPhone?: string;
   migrationJobId?: string;
+  delayOverSeconds?: string;
   static names(): { [key: string]: string } {
     return {
-      errorAlertPhone: 'ErrorAlertPhone',
       requestId: 'RequestId',
-      delayAlertPhone: 'DelayAlertPhone',
       migrationJobName: 'MigrationJobName',
       errorAlertStatus: 'ErrorAlertStatus',
+      errCode: 'ErrCode',
+      success: 'Success',
+      errorAlertPhone: 'ErrorAlertPhone',
       errMessage: 'ErrMessage',
       delayAlertStatus: 'DelayAlertStatus',
-      success: 'Success',
-      delayOverSeconds: 'DelayOverSeconds',
-      errCode: 'ErrCode',
+      delayAlertPhone: 'DelayAlertPhone',
       migrationJobId: 'MigrationJobId',
+      delayOverSeconds: 'DelayOverSeconds',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      errorAlertPhone: 'string',
       requestId: 'string',
-      delayAlertPhone: 'string',
       migrationJobName: 'string',
       errorAlertStatus: 'string',
+      errCode: 'string',
+      success: 'string',
+      errorAlertPhone: 'string',
       errMessage: 'string',
       delayAlertStatus: 'string',
-      success: 'string',
-      delayOverSeconds: 'string',
-      errCode: 'string',
+      delayAlertPhone: 'string',
       migrationJobId: 'string',
+      delayOverSeconds: 'string',
     };
   }
 
@@ -1920,6 +3307,7 @@ export class DescribeMigrationJobAlertResponse extends $tea.Model {
 
 export class DescribeMigrationJobDetailRequest extends $tea.Model {
   migrationMode?: DescribeMigrationJobDetailRequestMigrationMode;
+  regionId?: string;
   pageSize?: number;
   pageNum?: number;
   migrationJobId?: string;
@@ -1929,6 +3317,7 @@ export class DescribeMigrationJobDetailRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       migrationMode: 'MigrationMode',
+      regionId: 'RegionId',
       pageSize: 'PageSize',
       pageNum: 'PageNum',
       migrationJobId: 'MigrationJobId',
@@ -1941,6 +3330,7 @@ export class DescribeMigrationJobDetailRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       migrationMode: DescribeMigrationJobDetailRequestMigrationMode,
+      regionId: 'string',
       pageSize: 'number',
       pageNum: 'number',
       migrationJobId: 'string',
@@ -1956,43 +3346,43 @@ export class DescribeMigrationJobDetailRequest extends $tea.Model {
 }
 
 export class DescribeMigrationJobDetailResponseBody extends $tea.Model {
-  totalRecordCount?: number;
-  pageRecordCount?: number;
-  dataSynchronizationDetailList?: DescribeMigrationJobDetailResponseBodyDataSynchronizationDetailList;
   requestId?: string;
+  errCode?: string;
+  pageRecordCount?: number;
+  success?: string;
+  totalRecordCount?: number;
+  errMessage?: string;
   pageNumber?: number;
   dataInitializationDetailList?: DescribeMigrationJobDetailResponseBodyDataInitializationDetailList;
-  errMessage?: string;
-  success?: string;
+  dataSynchronizationDetailList?: DescribeMigrationJobDetailResponseBodyDataSynchronizationDetailList;
   structureInitializationDetailList?: DescribeMigrationJobDetailResponseBodyStructureInitializationDetailList;
-  errCode?: string;
   static names(): { [key: string]: string } {
     return {
-      totalRecordCount: 'TotalRecordCount',
-      pageRecordCount: 'PageRecordCount',
-      dataSynchronizationDetailList: 'DataSynchronizationDetailList',
       requestId: 'RequestId',
+      errCode: 'ErrCode',
+      pageRecordCount: 'PageRecordCount',
+      success: 'Success',
+      totalRecordCount: 'TotalRecordCount',
+      errMessage: 'ErrMessage',
       pageNumber: 'PageNumber',
       dataInitializationDetailList: 'DataInitializationDetailList',
-      errMessage: 'ErrMessage',
-      success: 'Success',
+      dataSynchronizationDetailList: 'DataSynchronizationDetailList',
       structureInitializationDetailList: 'StructureInitializationDetailList',
-      errCode: 'ErrCode',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      totalRecordCount: 'number',
-      pageRecordCount: 'number',
-      dataSynchronizationDetailList: DescribeMigrationJobDetailResponseBodyDataSynchronizationDetailList,
       requestId: 'string',
+      errCode: 'string',
+      pageRecordCount: 'number',
+      success: 'string',
+      totalRecordCount: 'number',
+      errMessage: 'string',
       pageNumber: 'number',
       dataInitializationDetailList: DescribeMigrationJobDetailResponseBodyDataInitializationDetailList,
-      errMessage: 'string',
-      success: 'string',
+      dataSynchronizationDetailList: DescribeMigrationJobDetailResponseBodyDataSynchronizationDetailList,
       structureInitializationDetailList: DescribeMigrationJobDetailResponseBodyStructureInitializationDetailList,
-      errCode: 'string',
     };
   }
 
@@ -2024,6 +3414,7 @@ export class DescribeMigrationJobDetailResponse extends $tea.Model {
 }
 
 export class DescribeMigrationJobsRequest extends $tea.Model {
+  regionId?: string;
   pageSize?: number;
   pageNum?: number;
   migrationJobName?: string;
@@ -2032,6 +3423,7 @@ export class DescribeMigrationJobsRequest extends $tea.Model {
   tag?: DescribeMigrationJobsRequestTag[];
   static names(): { [key: string]: string } {
     return {
+      regionId: 'RegionId',
       pageSize: 'PageSize',
       pageNum: 'PageNum',
       migrationJobName: 'MigrationJobName',
@@ -2043,6 +3435,7 @@ export class DescribeMigrationJobsRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      regionId: 'string',
       pageSize: 'number',
       pageNum: 'number',
       migrationJobName: 'string',
@@ -2058,37 +3451,37 @@ export class DescribeMigrationJobsRequest extends $tea.Model {
 }
 
 export class DescribeMigrationJobsResponseBody extends $tea.Model {
-  totalRecordCount?: number;
-  pageRecordCount?: number;
   requestId?: string;
+  errCode?: string;
+  pageRecordCount?: number;
+  success?: string;
+  totalRecordCount?: number;
+  errMessage?: string;
   pageNumber?: number;
   migrationJobs?: DescribeMigrationJobsResponseBodyMigrationJobs;
-  errMessage?: string;
-  success?: string;
-  errCode?: string;
   static names(): { [key: string]: string } {
     return {
-      totalRecordCount: 'TotalRecordCount',
-      pageRecordCount: 'PageRecordCount',
       requestId: 'RequestId',
+      errCode: 'ErrCode',
+      pageRecordCount: 'PageRecordCount',
+      success: 'Success',
+      totalRecordCount: 'TotalRecordCount',
+      errMessage: 'ErrMessage',
       pageNumber: 'PageNumber',
       migrationJobs: 'MigrationJobs',
-      errMessage: 'ErrMessage',
-      success: 'Success',
-      errCode: 'ErrCode',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      totalRecordCount: 'number',
-      pageRecordCount: 'number',
       requestId: 'string',
+      errCode: 'string',
+      pageRecordCount: 'number',
+      success: 'string',
+      totalRecordCount: 'number',
+      errMessage: 'string',
       pageNumber: 'number',
       migrationJobs: DescribeMigrationJobsResponseBodyMigrationJobs,
-      errMessage: 'string',
-      success: 'string',
-      errCode: 'string',
     };
   }
 
@@ -2120,12 +3513,14 @@ export class DescribeMigrationJobsResponse extends $tea.Model {
 }
 
 export class DescribeMigrationJobStatusRequest extends $tea.Model {
+  regionId?: string;
   migrationJobId?: string;
   clientToken?: string;
   ownerId?: string;
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
+      regionId: 'RegionId',
       migrationJobId: 'MigrationJobId',
       clientToken: 'ClientToken',
       ownerId: 'OwnerId',
@@ -2135,6 +3530,7 @@ export class DescribeMigrationJobStatusRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      regionId: 'string',
       migrationJobId: 'string',
       clientToken: 'string',
       ownerId: 'string',
@@ -2148,64 +3544,67 @@ export class DescribeMigrationJobStatusRequest extends $tea.Model {
 }
 
 export class DescribeMigrationJobStatusResponseBody extends $tea.Model {
-  dataInitializationStatus?: DescribeMigrationJobStatusResponseBodyDataInitializationStatus;
   requestId?: string;
   migrationJobName?: string;
+  migrationJobStatus?: string;
+  errCode?: string;
+  success?: string;
   payType?: string;
   errMessage?: string;
-  migrationJobStatus?: string;
-  success?: string;
-  migrationMode?: DescribeMigrationJobStatusResponseBodyMigrationMode;
-  errCode?: string;
-  migrationJobId?: string;
-  precheckStatus?: DescribeMigrationJobStatusResponseBodyPrecheckStatus;
   migrationObject?: string;
-  destinationEndpoint?: DescribeMigrationJobStatusResponseBodyDestinationEndpoint;
+  migrationJobId?: string;
+  taskId?: string;
   migrationJobClass?: string;
+  dataInitializationStatus?: DescribeMigrationJobStatusResponseBodyDataInitializationStatus;
+  dataSynchronizationStatus?: DescribeMigrationJobStatusResponseBodyDataSynchronizationStatus;
+  destinationEndpoint?: DescribeMigrationJobStatusResponseBodyDestinationEndpoint;
+  migrationMode?: DescribeMigrationJobStatusResponseBodyMigrationMode;
+  precheckStatus?: DescribeMigrationJobStatusResponseBodyPrecheckStatus;
   sourceEndpoint?: DescribeMigrationJobStatusResponseBodySourceEndpoint;
   structureInitializationStatus?: DescribeMigrationJobStatusResponseBodyStructureInitializationStatus;
-  dataSynchronizationStatus?: DescribeMigrationJobStatusResponseBodyDataSynchronizationStatus;
   static names(): { [key: string]: string } {
     return {
-      dataInitializationStatus: 'DataInitializationStatus',
       requestId: 'RequestId',
       migrationJobName: 'MigrationJobName',
+      migrationJobStatus: 'MigrationJobStatus',
+      errCode: 'ErrCode',
+      success: 'Success',
       payType: 'PayType',
       errMessage: 'ErrMessage',
-      migrationJobStatus: 'MigrationJobStatus',
-      success: 'Success',
-      migrationMode: 'MigrationMode',
-      errCode: 'ErrCode',
-      migrationJobId: 'MigrationJobId',
-      precheckStatus: 'PrecheckStatus',
       migrationObject: 'MigrationObject',
-      destinationEndpoint: 'DestinationEndpoint',
+      migrationJobId: 'MigrationJobId',
+      taskId: 'TaskId',
       migrationJobClass: 'MigrationJobClass',
+      dataInitializationStatus: 'DataInitializationStatus',
+      dataSynchronizationStatus: 'DataSynchronizationStatus',
+      destinationEndpoint: 'DestinationEndpoint',
+      migrationMode: 'MigrationMode',
+      precheckStatus: 'PrecheckStatus',
       sourceEndpoint: 'SourceEndpoint',
       structureInitializationStatus: 'StructureInitializationStatus',
-      dataSynchronizationStatus: 'DataSynchronizationStatus',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      dataInitializationStatus: DescribeMigrationJobStatusResponseBodyDataInitializationStatus,
       requestId: 'string',
       migrationJobName: 'string',
+      migrationJobStatus: 'string',
+      errCode: 'string',
+      success: 'string',
       payType: 'string',
       errMessage: 'string',
-      migrationJobStatus: 'string',
-      success: 'string',
-      migrationMode: DescribeMigrationJobStatusResponseBodyMigrationMode,
-      errCode: 'string',
-      migrationJobId: 'string',
-      precheckStatus: DescribeMigrationJobStatusResponseBodyPrecheckStatus,
       migrationObject: 'string',
-      destinationEndpoint: DescribeMigrationJobStatusResponseBodyDestinationEndpoint,
+      migrationJobId: 'string',
+      taskId: 'string',
       migrationJobClass: 'string',
+      dataInitializationStatus: DescribeMigrationJobStatusResponseBodyDataInitializationStatus,
+      dataSynchronizationStatus: DescribeMigrationJobStatusResponseBodyDataSynchronizationStatus,
+      destinationEndpoint: DescribeMigrationJobStatusResponseBodyDestinationEndpoint,
+      migrationMode: DescribeMigrationJobStatusResponseBodyMigrationMode,
+      precheckStatus: DescribeMigrationJobStatusResponseBodyPrecheckStatus,
       sourceEndpoint: DescribeMigrationJobStatusResponseBodySourceEndpoint,
       structureInitializationStatus: DescribeMigrationJobStatusResponseBodyStructureInitializationStatus,
-      dataSynchronizationStatus: DescribeMigrationJobStatusResponseBodyDataSynchronizationStatus,
     };
   }
 
@@ -2236,13 +3635,135 @@ export class DescribeMigrationJobStatusResponse extends $tea.Model {
   }
 }
 
+export class DescribePreCheckStatusRequest extends $tea.Model {
+  dtsJobId?: string;
+  pageNo?: string;
+  pageSize?: string;
+  jobCode?: string;
+  structType?: string;
+  regionId?: string;
+  structPhase?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dtsJobId: 'DtsJobId',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      jobCode: 'JobCode',
+      structType: 'StructType',
+      regionId: 'RegionId',
+      structPhase: 'StructPhase',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dtsJobId: 'string',
+      pageNo: 'string',
+      pageSize: 'string',
+      jobCode: 'string',
+      structType: 'string',
+      regionId: 'string',
+      structPhase: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePreCheckStatusResponseBody extends $tea.Model {
+  state?: string;
+  success?: boolean;
+  pageRecordCount?: number;
+  total?: number;
+  httpStatusCode?: number;
+  requestId?: string;
+  jobName?: string;
+  jobId?: string;
+  errorItem?: number;
+  totalRecordCount?: number;
+  code?: string;
+  pageNumber?: number;
+  jobProgress?: DescribePreCheckStatusResponseBodyJobProgress[];
+  subDistributedJobStatus?: DescribePreCheckStatusResponseBodySubDistributedJobStatus[];
+  static names(): { [key: string]: string } {
+    return {
+      state: 'State',
+      success: 'Success',
+      pageRecordCount: 'PageRecordCount',
+      total: 'Total',
+      httpStatusCode: 'HttpStatusCode',
+      requestId: 'RequestId',
+      jobName: 'JobName',
+      jobId: 'JobId',
+      errorItem: 'ErrorItem',
+      totalRecordCount: 'TotalRecordCount',
+      code: 'Code',
+      pageNumber: 'PageNumber',
+      jobProgress: 'JobProgress',
+      subDistributedJobStatus: 'SubDistributedJobStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      state: 'string',
+      success: 'boolean',
+      pageRecordCount: 'number',
+      total: 'number',
+      httpStatusCode: 'number',
+      requestId: 'string',
+      jobName: 'string',
+      jobId: 'string',
+      errorItem: 'number',
+      totalRecordCount: 'number',
+      code: 'string',
+      pageNumber: 'number',
+      jobProgress: { 'type': 'array', 'itemType': DescribePreCheckStatusResponseBodyJobProgress },
+      subDistributedJobStatus: { 'type': 'array', 'itemType': DescribePreCheckStatusResponseBodySubDistributedJobStatus },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePreCheckStatusResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribePreCheckStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribePreCheckStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeSubscriptionInstanceAlertRequest extends $tea.Model {
+  regionId?: string;
   subscriptionInstanceId?: string;
   clientToken?: string;
   ownerId?: string;
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
+      regionId: 'RegionId',
       subscriptionInstanceId: 'SubscriptionInstanceId',
       clientToken: 'ClientToken',
       ownerId: 'OwnerId',
@@ -2252,6 +3773,7 @@ export class DescribeSubscriptionInstanceAlertRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      regionId: 'string',
       subscriptionInstanceId: 'string',
       clientToken: 'string',
       ownerId: 'string',
@@ -2265,46 +3787,46 @@ export class DescribeSubscriptionInstanceAlertRequest extends $tea.Model {
 }
 
 export class DescribeSubscriptionInstanceAlertResponseBody extends $tea.Model {
-  errorAlertPhone?: string;
-  subscriptionInstanceName?: string;
   requestId?: string;
-  delayAlertPhone?: string;
   errorAlertStatus?: string;
-  errMessage?: string;
-  subscriptionInstanceID?: string;
-  delayAlertStatus?: string;
-  success?: string;
-  delayOverSeconds?: string;
   errCode?: string;
+  success?: string;
+  errorAlertPhone?: string;
+  errMessage?: string;
+  delayAlertStatus?: string;
+  subscriptionInstanceName?: string;
+  delayAlertPhone?: string;
+  subscriptionInstanceID?: string;
+  delayOverSeconds?: string;
   static names(): { [key: string]: string } {
     return {
-      errorAlertPhone: 'ErrorAlertPhone',
-      subscriptionInstanceName: 'SubscriptionInstanceName',
       requestId: 'RequestId',
-      delayAlertPhone: 'DelayAlertPhone',
       errorAlertStatus: 'ErrorAlertStatus',
-      errMessage: 'ErrMessage',
-      subscriptionInstanceID: 'SubscriptionInstanceID',
-      delayAlertStatus: 'DelayAlertStatus',
-      success: 'Success',
-      delayOverSeconds: 'DelayOverSeconds',
       errCode: 'ErrCode',
+      success: 'Success',
+      errorAlertPhone: 'ErrorAlertPhone',
+      errMessage: 'ErrMessage',
+      delayAlertStatus: 'DelayAlertStatus',
+      subscriptionInstanceName: 'SubscriptionInstanceName',
+      delayAlertPhone: 'DelayAlertPhone',
+      subscriptionInstanceID: 'SubscriptionInstanceID',
+      delayOverSeconds: 'DelayOverSeconds',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      errorAlertPhone: 'string',
-      subscriptionInstanceName: 'string',
       requestId: 'string',
-      delayAlertPhone: 'string',
       errorAlertStatus: 'string',
-      errMessage: 'string',
-      subscriptionInstanceID: 'string',
-      delayAlertStatus: 'string',
-      success: 'string',
-      delayOverSeconds: 'string',
       errCode: 'string',
+      success: 'string',
+      errorAlertPhone: 'string',
+      errMessage: 'string',
+      delayAlertStatus: 'string',
+      subscriptionInstanceName: 'string',
+      delayAlertPhone: 'string',
+      subscriptionInstanceID: 'string',
+      delayOverSeconds: 'string',
     };
   }
 
@@ -2336,6 +3858,7 @@ export class DescribeSubscriptionInstanceAlertResponse extends $tea.Model {
 }
 
 export class DescribeSubscriptionInstancesRequest extends $tea.Model {
+  regionId?: string;
   pageSize?: number;
   pageNum?: number;
   subscriptionInstanceName?: string;
@@ -2345,6 +3868,7 @@ export class DescribeSubscriptionInstancesRequest extends $tea.Model {
   tag?: DescribeSubscriptionInstancesRequestTag[];
   static names(): { [key: string]: string } {
     return {
+      regionId: 'RegionId',
       pageSize: 'PageSize',
       pageNum: 'PageNum',
       subscriptionInstanceName: 'SubscriptionInstanceName',
@@ -2357,6 +3881,7 @@ export class DescribeSubscriptionInstancesRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      regionId: 'string',
       pageSize: 'number',
       pageNum: 'number',
       subscriptionInstanceName: 'string',
@@ -2373,37 +3898,37 @@ export class DescribeSubscriptionInstancesRequest extends $tea.Model {
 }
 
 export class DescribeSubscriptionInstancesResponseBody extends $tea.Model {
-  totalRecordCount?: number;
-  pageRecordCount?: number;
   requestId?: string;
-  pageNumber?: number;
-  errMessage?: string;
-  success?: string;
-  subscriptionInstances?: DescribeSubscriptionInstancesResponseBodySubscriptionInstances;
   errCode?: string;
+  pageRecordCount?: number;
+  success?: string;
+  totalRecordCount?: number;
+  errMessage?: string;
+  pageNumber?: number;
+  subscriptionInstances?: DescribeSubscriptionInstancesResponseBodySubscriptionInstances;
   static names(): { [key: string]: string } {
     return {
-      totalRecordCount: 'TotalRecordCount',
-      pageRecordCount: 'PageRecordCount',
       requestId: 'RequestId',
-      pageNumber: 'PageNumber',
-      errMessage: 'ErrMessage',
-      success: 'Success',
-      subscriptionInstances: 'SubscriptionInstances',
       errCode: 'ErrCode',
+      pageRecordCount: 'PageRecordCount',
+      success: 'Success',
+      totalRecordCount: 'TotalRecordCount',
+      errMessage: 'ErrMessage',
+      pageNumber: 'PageNumber',
+      subscriptionInstances: 'SubscriptionInstances',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      totalRecordCount: 'number',
-      pageRecordCount: 'number',
       requestId: 'string',
-      pageNumber: 'number',
-      errMessage: 'string',
-      success: 'string',
-      subscriptionInstances: DescribeSubscriptionInstancesResponseBodySubscriptionInstances,
       errCode: 'string',
+      pageRecordCount: 'number',
+      success: 'string',
+      totalRecordCount: 'number',
+      errMessage: 'string',
+      pageNumber: 'number',
+      subscriptionInstances: DescribeSubscriptionInstancesResponseBodySubscriptionInstances,
     };
   }
 
@@ -2435,11 +3960,13 @@ export class DescribeSubscriptionInstancesResponse extends $tea.Model {
 }
 
 export class DescribeSubscriptionInstanceStatusRequest extends $tea.Model {
+  regionId?: string;
   subscriptionInstanceId?: string;
   ownerId?: string;
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
+      regionId: 'RegionId',
       subscriptionInstanceId: 'SubscriptionInstanceId',
       ownerId: 'OwnerId',
       accountId: 'AccountId',
@@ -2448,6 +3975,7 @@ export class DescribeSubscriptionInstanceStatusRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      regionId: 'string',
       subscriptionInstanceId: 'string',
       ownerId: 'string',
       accountId: 'string',
@@ -2460,67 +3988,70 @@ export class DescribeSubscriptionInstanceStatusRequest extends $tea.Model {
 }
 
 export class DescribeSubscriptionInstanceStatusResponseBody extends $tea.Model {
-  beginTimestamp?: string;
-  consumptionCheckpoint?: string;
-  consumptionClient?: string;
-  endTimestamp?: string;
-  errMessage?: string;
-  payType?: string;
-  requestId?: string;
   status?: string;
-  subscribeTopic?: string;
-  subscriptionInstanceID?: string;
-  subscriptionInstanceName?: string;
+  errorMessage?: string;
   errCode?: string;
   success?: string;
-  errorMessage?: string;
-  subscriptionObject?: DescribeSubscriptionInstanceStatusResponseBodySubscriptionObject;
+  errMessage?: string;
+  payType?: string;
+  consumptionClient?: string;
+  consumptionCheckpoint?: string;
+  endTimestamp?: string;
+  beginTimestamp?: string;
+  requestId?: string;
+  subscribeTopic?: string;
+  subscriptionInstanceName?: string;
+  subscriptionInstanceID?: string;
+  taskId?: string;
   sourceEndpoint?: DescribeSubscriptionInstanceStatusResponseBodySourceEndpoint;
   subscriptionDataType?: DescribeSubscriptionInstanceStatusResponseBodySubscriptionDataType;
   subscriptionHost?: DescribeSubscriptionInstanceStatusResponseBodySubscriptionHost;
+  subscriptionObject?: DescribeSubscriptionInstanceStatusResponseBodySubscriptionObject;
   static names(): { [key: string]: string } {
     return {
-      beginTimestamp: 'BeginTimestamp',
-      consumptionCheckpoint: 'ConsumptionCheckpoint',
-      consumptionClient: 'ConsumptionClient',
-      endTimestamp: 'EndTimestamp',
-      errMessage: 'ErrMessage',
-      payType: 'PayType',
-      requestId: 'RequestId',
       status: 'Status',
-      subscribeTopic: 'SubscribeTopic',
-      subscriptionInstanceID: 'SubscriptionInstanceID',
-      subscriptionInstanceName: 'SubscriptionInstanceName',
+      errorMessage: 'ErrorMessage',
       errCode: 'ErrCode',
       success: 'Success',
-      errorMessage: 'ErrorMessage',
-      subscriptionObject: 'SubscriptionObject',
+      errMessage: 'ErrMessage',
+      payType: 'PayType',
+      consumptionClient: 'ConsumptionClient',
+      consumptionCheckpoint: 'ConsumptionCheckpoint',
+      endTimestamp: 'EndTimestamp',
+      beginTimestamp: 'BeginTimestamp',
+      requestId: 'RequestId',
+      subscribeTopic: 'SubscribeTopic',
+      subscriptionInstanceName: 'SubscriptionInstanceName',
+      subscriptionInstanceID: 'SubscriptionInstanceID',
+      taskId: 'TaskId',
       sourceEndpoint: 'SourceEndpoint',
       subscriptionDataType: 'SubscriptionDataType',
       subscriptionHost: 'SubscriptionHost',
+      subscriptionObject: 'SubscriptionObject',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      beginTimestamp: 'string',
-      consumptionCheckpoint: 'string',
-      consumptionClient: 'string',
-      endTimestamp: 'string',
-      errMessage: 'string',
-      payType: 'string',
-      requestId: 'string',
       status: 'string',
-      subscribeTopic: 'string',
-      subscriptionInstanceID: 'string',
-      subscriptionInstanceName: 'string',
+      errorMessage: 'string',
       errCode: 'string',
       success: 'string',
-      errorMessage: 'string',
-      subscriptionObject: DescribeSubscriptionInstanceStatusResponseBodySubscriptionObject,
+      errMessage: 'string',
+      payType: 'string',
+      consumptionClient: 'string',
+      consumptionCheckpoint: 'string',
+      endTimestamp: 'string',
+      beginTimestamp: 'string',
+      requestId: 'string',
+      subscribeTopic: 'string',
+      subscriptionInstanceName: 'string',
+      subscriptionInstanceID: 'string',
+      taskId: 'string',
       sourceEndpoint: DescribeSubscriptionInstanceStatusResponseBodySourceEndpoint,
       subscriptionDataType: DescribeSubscriptionInstanceStatusResponseBodySubscriptionDataType,
       subscriptionHost: DescribeSubscriptionInstanceStatusResponseBodySubscriptionHost,
+      subscriptionObject: DescribeSubscriptionInstanceStatusResponseBodySubscriptionObject,
     };
   }
 
@@ -2551,7 +4082,126 @@ export class DescribeSubscriptionInstanceStatusResponse extends $tea.Model {
   }
 }
 
+export class DescribeSubscriptionMetaRequest extends $tea.Model {
+  sid?: string;
+  dtsInstanceId?: string;
+  subMigrationJobIds?: { [key: string]: any };
+  topics?: { [key: string]: any };
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      sid: 'Sid',
+      dtsInstanceId: 'DtsInstanceId',
+      subMigrationJobIds: 'SubMigrationJobIds',
+      topics: 'Topics',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sid: 'string',
+      dtsInstanceId: 'string',
+      subMigrationJobIds: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      topics: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSubscriptionMetaShrinkRequest extends $tea.Model {
+  sid?: string;
+  dtsInstanceId?: string;
+  subMigrationJobIdsShrink?: string;
+  topicsShrink?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      sid: 'Sid',
+      dtsInstanceId: 'DtsInstanceId',
+      subMigrationJobIdsShrink: 'SubMigrationJobIds',
+      topicsShrink: 'Topics',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sid: 'string',
+      dtsInstanceId: 'string',
+      subMigrationJobIdsShrink: 'string',
+      topicsShrink: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSubscriptionMetaResponseBody extends $tea.Model {
+  httpStatusCode?: string;
+  requestId?: string;
+  errCode?: string;
+  success?: string;
+  errMessage?: string;
+  subscriptionMetaList?: DescribeSubscriptionMetaResponseBodySubscriptionMetaList[];
+  static names(): { [key: string]: string } {
+    return {
+      httpStatusCode: 'HttpStatusCode',
+      requestId: 'RequestId',
+      errCode: 'ErrCode',
+      success: 'Success',
+      errMessage: 'ErrMessage',
+      subscriptionMetaList: 'SubscriptionMetaList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      httpStatusCode: 'string',
+      requestId: 'string',
+      errCode: 'string',
+      success: 'string',
+      errMessage: 'string',
+      subscriptionMetaList: { 'type': 'array', 'itemType': DescribeSubscriptionMetaResponseBodySubscriptionMetaList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSubscriptionMetaResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeSubscriptionMetaResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeSubscriptionMetaResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeSynchronizationJobAlertRequest extends $tea.Model {
+  regionId?: string;
   synchronizationJobId?: string;
   synchronizationDirection?: string;
   clientToken?: string;
@@ -2559,6 +4209,7 @@ export class DescribeSynchronizationJobAlertRequest extends $tea.Model {
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
+      regionId: 'RegionId',
       synchronizationJobId: 'SynchronizationJobId',
       synchronizationDirection: 'SynchronizationDirection',
       clientToken: 'ClientToken',
@@ -2569,6 +4220,7 @@ export class DescribeSynchronizationJobAlertRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      regionId: 'string',
       synchronizationJobId: 'string',
       synchronizationDirection: 'string',
       clientToken: 'string',
@@ -2583,49 +4235,49 @@ export class DescribeSynchronizationJobAlertRequest extends $tea.Model {
 }
 
 export class DescribeSynchronizationJobAlertResponseBody extends $tea.Model {
-  errorAlertPhone?: string;
-  synchronizationJobId?: string;
   synchronizationJobName?: string;
-  requestId?: string;
-  delayAlertPhone?: string;
   errorAlertStatus?: string;
+  errCode?: string;
+  success?: string;
+  errorAlertPhone?: string;
   errMessage?: string;
   delayAlertStatus?: string;
-  success?: string;
+  delayAlertPhone?: string;
   delayOverSeconds?: string;
+  requestId?: string;
+  synchronizationJobId?: string;
   synchronizationDirection?: string;
-  errCode?: string;
   static names(): { [key: string]: string } {
     return {
-      errorAlertPhone: 'ErrorAlertPhone',
-      synchronizationJobId: 'SynchronizationJobId',
       synchronizationJobName: 'SynchronizationJobName',
-      requestId: 'RequestId',
-      delayAlertPhone: 'DelayAlertPhone',
       errorAlertStatus: 'ErrorAlertStatus',
+      errCode: 'ErrCode',
+      success: 'Success',
+      errorAlertPhone: 'ErrorAlertPhone',
       errMessage: 'ErrMessage',
       delayAlertStatus: 'DelayAlertStatus',
-      success: 'Success',
+      delayAlertPhone: 'DelayAlertPhone',
       delayOverSeconds: 'DelayOverSeconds',
+      requestId: 'RequestId',
+      synchronizationJobId: 'SynchronizationJobId',
       synchronizationDirection: 'SynchronizationDirection',
-      errCode: 'ErrCode',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      errorAlertPhone: 'string',
-      synchronizationJobId: 'string',
       synchronizationJobName: 'string',
-      requestId: 'string',
-      delayAlertPhone: 'string',
       errorAlertStatus: 'string',
+      errCode: 'string',
+      success: 'string',
+      errorAlertPhone: 'string',
       errMessage: 'string',
       delayAlertStatus: 'string',
-      success: 'string',
+      delayAlertPhone: 'string',
       delayOverSeconds: 'string',
+      requestId: 'string',
+      synchronizationJobId: 'string',
       synchronizationDirection: 'string',
-      errCode: 'string',
     };
   }
 
@@ -2657,6 +4309,7 @@ export class DescribeSynchronizationJobAlertResponse extends $tea.Model {
 }
 
 export class DescribeSynchronizationJobReplicatorCompareRequest extends $tea.Model {
+  regionId?: string;
   synchronizationJobId?: string;
   synchronizationDirection?: string;
   clientToken?: string;
@@ -2664,6 +4317,7 @@ export class DescribeSynchronizationJobReplicatorCompareRequest extends $tea.Mod
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
+      regionId: 'RegionId',
       synchronizationJobId: 'SynchronizationJobId',
       synchronizationDirection: 'SynchronizationDirection',
       clientToken: 'ClientToken',
@@ -2674,6 +4328,7 @@ export class DescribeSynchronizationJobReplicatorCompareRequest extends $tea.Mod
 
   static types(): { [key: string]: any } {
     return {
+      regionId: 'string',
       synchronizationJobId: 'string',
       synchronizationDirection: 'string',
       clientToken: 'string',
@@ -2688,28 +4343,28 @@ export class DescribeSynchronizationJobReplicatorCompareRequest extends $tea.Mod
 }
 
 export class DescribeSynchronizationJobReplicatorCompareResponseBody extends $tea.Model {
-  requestId?: string;
   synchronizationReplicatorCompareEnable?: boolean;
-  errMessage?: string;
-  success?: string;
+  requestId?: string;
   errCode?: string;
+  success?: string;
+  errMessage?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       synchronizationReplicatorCompareEnable: 'SynchronizationReplicatorCompareEnable',
-      errMessage: 'ErrMessage',
-      success: 'Success',
+      requestId: 'RequestId',
       errCode: 'ErrCode',
+      success: 'Success',
+      errMessage: 'ErrMessage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       synchronizationReplicatorCompareEnable: 'boolean',
-      errMessage: 'string',
-      success: 'string',
+      requestId: 'string',
       errCode: 'string',
+      success: 'string',
+      errMessage: 'string',
     };
   }
 
@@ -2741,6 +4396,7 @@ export class DescribeSynchronizationJobReplicatorCompareResponse extends $tea.Mo
 }
 
 export class DescribeSynchronizationJobsRequest extends $tea.Model {
+  regionId?: string;
   pageSize?: number;
   pageNum?: number;
   synchronizationJobName?: string;
@@ -2750,6 +4406,7 @@ export class DescribeSynchronizationJobsRequest extends $tea.Model {
   tag?: DescribeSynchronizationJobsRequestTag[];
   static names(): { [key: string]: string } {
     return {
+      regionId: 'RegionId',
       pageSize: 'PageSize',
       pageNum: 'PageNum',
       synchronizationJobName: 'SynchronizationJobName',
@@ -2762,6 +4419,7 @@ export class DescribeSynchronizationJobsRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      regionId: 'string',
       pageSize: 'number',
       pageNum: 'number',
       synchronizationJobName: 'string',
@@ -2778,28 +4436,28 @@ export class DescribeSynchronizationJobsRequest extends $tea.Model {
 }
 
 export class DescribeSynchronizationJobsResponseBody extends $tea.Model {
+  pageNumber?: number;
+  requestId?: string;
+  pageRecordCount?: number;
   totalRecordCount?: number;
   synchronizationInstances?: DescribeSynchronizationJobsResponseBodySynchronizationInstances[];
-  pageRecordCount?: number;
-  requestId?: string;
-  pageNumber?: number;
   static names(): { [key: string]: string } {
     return {
+      pageNumber: 'PageNumber',
+      requestId: 'RequestId',
+      pageRecordCount: 'PageRecordCount',
       totalRecordCount: 'TotalRecordCount',
       synchronizationInstances: 'SynchronizationInstances',
-      pageRecordCount: 'PageRecordCount',
-      requestId: 'RequestId',
-      pageNumber: 'PageNumber',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      pageNumber: 'number',
+      requestId: 'string',
+      pageRecordCount: 'number',
       totalRecordCount: 'number',
       synchronizationInstances: { 'type': 'array', 'itemType': DescribeSynchronizationJobsResponseBodySynchronizationInstances },
-      pageRecordCount: 'number',
-      requestId: 'string',
-      pageNumber: 'number',
     };
   }
 
@@ -2831,6 +4489,7 @@ export class DescribeSynchronizationJobsResponse extends $tea.Model {
 }
 
 export class DescribeSynchronizationJobStatusRequest extends $tea.Model {
+  regionId?: string;
   synchronizationJobId?: string;
   synchronizationDirection?: string;
   clientToken?: string;
@@ -2838,6 +4497,7 @@ export class DescribeSynchronizationJobStatusRequest extends $tea.Model {
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
+      regionId: 'RegionId',
       synchronizationJobId: 'SynchronizationJobId',
       synchronizationDirection: 'SynchronizationDirection',
       clientToken: 'ClientToken',
@@ -2848,6 +4508,7 @@ export class DescribeSynchronizationJobStatusRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      regionId: 'string',
       synchronizationJobId: 'string',
       synchronizationDirection: 'string',
       clientToken: 'string',
@@ -2862,88 +4523,91 @@ export class DescribeSynchronizationJobStatusRequest extends $tea.Model {
 }
 
 export class DescribeSynchronizationJobStatusResponseBody extends $tea.Model {
-  dataInitializationStatus?: DescribeSynchronizationJobStatusResponseBodyDataInitializationStatus;
-  synchronizationObjects?: DescribeSynchronizationJobStatusResponseBodySynchronizationObjects[];
-  delay?: string;
-  success?: string;
-  delayMillis?: number;
-  dataInitialization?: string;
-  synchronizationJobClass?: string;
-  dataSynchronizationStatus?: DescribeSynchronizationJobStatusResponseBodyDataSynchronizationStatus;
-  status?: string;
   synchronizationJobName?: string;
-  requestId?: string;
-  payType?: string;
-  errMessage?: string;
-  errCode?: string;
-  precheckStatus?: DescribeSynchronizationJobStatusResponseBodyPrecheckStatus;
-  synchronizationJobId?: string;
-  checkpoint?: string;
-  destinationEndpoint?: DescribeSynchronizationJobStatusResponseBodyDestinationEndpoint;
-  sourceEndpoint?: DescribeSynchronizationJobStatusResponseBodySourceEndpoint;
-  structureInitialization?: string;
+  status?: string;
+  dataInitialization?: string;
+  delay?: string;
   errorMessage?: string;
   expireTime?: string;
-  performance?: DescribeSynchronizationJobStatusResponseBodyPerformance;
+  errCode?: string;
+  success?: string;
+  structureInitialization?: string;
+  payType?: string;
+  errMessage?: string;
+  synchronizationJobClass?: string;
+  requestId?: string;
+  synchronizationJobId?: string;
+  delayMillis?: number;
   synchronizationDirection?: string;
+  taskId?: string;
+  checkpoint?: string;
+  dataInitializationStatus?: DescribeSynchronizationJobStatusResponseBodyDataInitializationStatus;
+  dataSynchronizationStatus?: DescribeSynchronizationJobStatusResponseBodyDataSynchronizationStatus;
+  destinationEndpoint?: DescribeSynchronizationJobStatusResponseBodyDestinationEndpoint;
+  performance?: DescribeSynchronizationJobStatusResponseBodyPerformance;
+  precheckStatus?: DescribeSynchronizationJobStatusResponseBodyPrecheckStatus;
+  sourceEndpoint?: DescribeSynchronizationJobStatusResponseBodySourceEndpoint;
   structureInitializationStatus?: DescribeSynchronizationJobStatusResponseBodyStructureInitializationStatus;
+  synchronizationObjects?: DescribeSynchronizationJobStatusResponseBodySynchronizationObjects[];
   static names(): { [key: string]: string } {
     return {
-      dataInitializationStatus: 'DataInitializationStatus',
-      synchronizationObjects: 'SynchronizationObjects',
-      delay: 'Delay',
-      success: 'Success',
-      delayMillis: 'DelayMillis',
-      dataInitialization: 'DataInitialization',
-      synchronizationJobClass: 'SynchronizationJobClass',
-      dataSynchronizationStatus: 'DataSynchronizationStatus',
-      status: 'Status',
       synchronizationJobName: 'SynchronizationJobName',
-      requestId: 'RequestId',
-      payType: 'PayType',
-      errMessage: 'ErrMessage',
-      errCode: 'ErrCode',
-      precheckStatus: 'PrecheckStatus',
-      synchronizationJobId: 'SynchronizationJobId',
-      checkpoint: 'Checkpoint',
-      destinationEndpoint: 'DestinationEndpoint',
-      sourceEndpoint: 'SourceEndpoint',
-      structureInitialization: 'StructureInitialization',
+      status: 'Status',
+      dataInitialization: 'DataInitialization',
+      delay: 'Delay',
       errorMessage: 'ErrorMessage',
       expireTime: 'ExpireTime',
-      performance: 'Performance',
+      errCode: 'ErrCode',
+      success: 'Success',
+      structureInitialization: 'StructureInitialization',
+      payType: 'PayType',
+      errMessage: 'ErrMessage',
+      synchronizationJobClass: 'SynchronizationJobClass',
+      requestId: 'RequestId',
+      synchronizationJobId: 'SynchronizationJobId',
+      delayMillis: 'DelayMillis',
       synchronizationDirection: 'SynchronizationDirection',
+      taskId: 'TaskId',
+      checkpoint: 'Checkpoint',
+      dataInitializationStatus: 'DataInitializationStatus',
+      dataSynchronizationStatus: 'DataSynchronizationStatus',
+      destinationEndpoint: 'DestinationEndpoint',
+      performance: 'Performance',
+      precheckStatus: 'PrecheckStatus',
+      sourceEndpoint: 'SourceEndpoint',
       structureInitializationStatus: 'StructureInitializationStatus',
+      synchronizationObjects: 'SynchronizationObjects',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      dataInitializationStatus: DescribeSynchronizationJobStatusResponseBodyDataInitializationStatus,
-      synchronizationObjects: { 'type': 'array', 'itemType': DescribeSynchronizationJobStatusResponseBodySynchronizationObjects },
-      delay: 'string',
-      success: 'string',
-      delayMillis: 'number',
-      dataInitialization: 'string',
-      synchronizationJobClass: 'string',
-      dataSynchronizationStatus: DescribeSynchronizationJobStatusResponseBodyDataSynchronizationStatus,
-      status: 'string',
       synchronizationJobName: 'string',
-      requestId: 'string',
-      payType: 'string',
-      errMessage: 'string',
-      errCode: 'string',
-      precheckStatus: DescribeSynchronizationJobStatusResponseBodyPrecheckStatus,
-      synchronizationJobId: 'string',
-      checkpoint: 'string',
-      destinationEndpoint: DescribeSynchronizationJobStatusResponseBodyDestinationEndpoint,
-      sourceEndpoint: DescribeSynchronizationJobStatusResponseBodySourceEndpoint,
-      structureInitialization: 'string',
+      status: 'string',
+      dataInitialization: 'string',
+      delay: 'string',
       errorMessage: 'string',
       expireTime: 'string',
-      performance: DescribeSynchronizationJobStatusResponseBodyPerformance,
+      errCode: 'string',
+      success: 'string',
+      structureInitialization: 'string',
+      payType: 'string',
+      errMessage: 'string',
+      synchronizationJobClass: 'string',
+      requestId: 'string',
+      synchronizationJobId: 'string',
+      delayMillis: 'number',
       synchronizationDirection: 'string',
+      taskId: 'string',
+      checkpoint: 'string',
+      dataInitializationStatus: DescribeSynchronizationJobStatusResponseBodyDataInitializationStatus,
+      dataSynchronizationStatus: DescribeSynchronizationJobStatusResponseBodyDataSynchronizationStatus,
+      destinationEndpoint: DescribeSynchronizationJobStatusResponseBodyDestinationEndpoint,
+      performance: DescribeSynchronizationJobStatusResponseBodyPerformance,
+      precheckStatus: DescribeSynchronizationJobStatusResponseBodyPrecheckStatus,
+      sourceEndpoint: DescribeSynchronizationJobStatusResponseBodySourceEndpoint,
       structureInitializationStatus: DescribeSynchronizationJobStatusResponseBodyStructureInitializationStatus,
+      synchronizationObjects: { 'type': 'array', 'itemType': DescribeSynchronizationJobStatusResponseBodySynchronizationObjects },
     };
   }
 
@@ -2975,12 +4639,14 @@ export class DescribeSynchronizationJobStatusResponse extends $tea.Model {
 }
 
 export class DescribeSynchronizationJobStatusListRequest extends $tea.Model {
+  regionId?: string;
   synchronizationJobIdListJsonStr?: string;
   clientToken?: string;
   ownerId?: string;
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
+      regionId: 'RegionId',
       synchronizationJobIdListJsonStr: 'SynchronizationJobIdListJsonStr',
       clientToken: 'ClientToken',
       ownerId: 'OwnerId',
@@ -2990,6 +4656,7 @@ export class DescribeSynchronizationJobStatusListRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      regionId: 'string',
       synchronizationJobIdListJsonStr: 'string',
       clientToken: 'string',
       ownerId: 'string',
@@ -3003,37 +4670,37 @@ export class DescribeSynchronizationJobStatusListRequest extends $tea.Model {
 }
 
 export class DescribeSynchronizationJobStatusListResponseBody extends $tea.Model {
-  totalRecordCount?: number;
-  pageRecordCount?: number;
   requestId?: string;
-  pageNumber?: number;
-  errMessage?: string;
-  synchronizationJobListStatusList?: DescribeSynchronizationJobStatusListResponseBodySynchronizationJobListStatusList[];
-  success?: string;
   errCode?: string;
+  pageRecordCount?: number;
+  success?: string;
+  totalRecordCount?: number;
+  errMessage?: string;
+  pageNumber?: number;
+  synchronizationJobListStatusList?: DescribeSynchronizationJobStatusListResponseBodySynchronizationJobListStatusList[];
   static names(): { [key: string]: string } {
     return {
-      totalRecordCount: 'TotalRecordCount',
-      pageRecordCount: 'PageRecordCount',
       requestId: 'RequestId',
-      pageNumber: 'PageNumber',
-      errMessage: 'ErrMessage',
-      synchronizationJobListStatusList: 'SynchronizationJobListStatusList',
-      success: 'Success',
       errCode: 'ErrCode',
+      pageRecordCount: 'PageRecordCount',
+      success: 'Success',
+      totalRecordCount: 'TotalRecordCount',
+      errMessage: 'ErrMessage',
+      pageNumber: 'PageNumber',
+      synchronizationJobListStatusList: 'SynchronizationJobListStatusList',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      totalRecordCount: 'number',
-      pageRecordCount: 'number',
       requestId: 'string',
-      pageNumber: 'number',
-      errMessage: 'string',
-      synchronizationJobListStatusList: { 'type': 'array', 'itemType': DescribeSynchronizationJobStatusListResponseBodySynchronizationJobListStatusList },
-      success: 'string',
       errCode: 'string',
+      pageRecordCount: 'number',
+      success: 'string',
+      totalRecordCount: 'number',
+      errMessage: 'string',
+      pageNumber: 'number',
+      synchronizationJobListStatusList: { 'type': 'array', 'itemType': DescribeSynchronizationJobStatusListResponseBodySynchronizationJobListStatusList },
     };
   }
 
@@ -3065,12 +4732,14 @@ export class DescribeSynchronizationJobStatusListResponse extends $tea.Model {
 }
 
 export class DescribeSynchronizationObjectModifyStatusRequest extends $tea.Model {
+  regionId?: string;
   taskId?: string;
   clientToken?: string;
   ownerId?: string;
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
+      regionId: 'RegionId',
       taskId: 'TaskId',
       clientToken: 'ClientToken',
       ownerId: 'OwnerId',
@@ -3080,6 +4749,7 @@ export class DescribeSynchronizationObjectModifyStatusRequest extends $tea.Model
 
   static types(): { [key: string]: any } {
     return {
+      regionId: 'string',
       taskId: 'string',
       clientToken: 'string',
       ownerId: 'string',
@@ -3094,42 +4764,42 @@ export class DescribeSynchronizationObjectModifyStatusRequest extends $tea.Model
 
 export class DescribeSynchronizationObjectModifyStatusResponseBody extends $tea.Model {
   status?: string;
-  precheckStatus?: DescribeSynchronizationObjectModifyStatusResponseBodyPrecheckStatus;
-  dataInitializationStatus?: DescribeSynchronizationObjectModifyStatusResponseBodyDataInitializationStatus;
-  requestId?: string;
   errorMessage?: string;
-  errMessage?: string;
-  success?: string;
+  requestId?: string;
   errCode?: string;
-  structureInitializationStatus?: DescribeSynchronizationObjectModifyStatusResponseBodyStructureInitializationStatus;
+  success?: string;
+  errMessage?: string;
+  dataInitializationStatus?: DescribeSynchronizationObjectModifyStatusResponseBodyDataInitializationStatus;
   dataSynchronizationStatus?: DescribeSynchronizationObjectModifyStatusResponseBodyDataSynchronizationStatus;
+  precheckStatus?: DescribeSynchronizationObjectModifyStatusResponseBodyPrecheckStatus;
+  structureInitializationStatus?: DescribeSynchronizationObjectModifyStatusResponseBodyStructureInitializationStatus;
   static names(): { [key: string]: string } {
     return {
       status: 'Status',
-      precheckStatus: 'PrecheckStatus',
-      dataInitializationStatus: 'DataInitializationStatus',
-      requestId: 'RequestId',
       errorMessage: 'ErrorMessage',
-      errMessage: 'ErrMessage',
-      success: 'Success',
+      requestId: 'RequestId',
       errCode: 'ErrCode',
-      structureInitializationStatus: 'StructureInitializationStatus',
+      success: 'Success',
+      errMessage: 'ErrMessage',
+      dataInitializationStatus: 'DataInitializationStatus',
       dataSynchronizationStatus: 'DataSynchronizationStatus',
+      precheckStatus: 'PrecheckStatus',
+      structureInitializationStatus: 'StructureInitializationStatus',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       status: 'string',
-      precheckStatus: DescribeSynchronizationObjectModifyStatusResponseBodyPrecheckStatus,
-      dataInitializationStatus: DescribeSynchronizationObjectModifyStatusResponseBodyDataInitializationStatus,
-      requestId: 'string',
       errorMessage: 'string',
-      errMessage: 'string',
-      success: 'string',
+      requestId: 'string',
       errCode: 'string',
-      structureInitializationStatus: DescribeSynchronizationObjectModifyStatusResponseBodyStructureInitializationStatus,
+      success: 'string',
+      errMessage: 'string',
+      dataInitializationStatus: DescribeSynchronizationObjectModifyStatusResponseBodyDataInitializationStatus,
       dataSynchronizationStatus: DescribeSynchronizationObjectModifyStatusResponseBodyDataSynchronizationStatus,
+      precheckStatus: DescribeSynchronizationObjectModifyStatusResponseBodyPrecheckStatus,
+      structureInitializationStatus: DescribeSynchronizationObjectModifyStatusResponseBodyStructureInitializationStatus,
     };
   }
 
@@ -3152,6 +4822,180 @@ export class DescribeSynchronizationObjectModifyStatusResponse extends $tea.Mode
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: DescribeSynchronizationObjectModifyStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class IgnoreJobDetailRequest extends $tea.Model {
+  dtsJobId?: string;
+  jobCode?: string;
+  id?: string;
+  regionId?: string;
+  synchronizationDirection?: string;
+  dtsInstanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dtsJobId: 'DtsJobId',
+      jobCode: 'JobCode',
+      id: 'Id',
+      regionId: 'RegionId',
+      synchronizationDirection: 'SynchronizationDirection',
+      dtsInstanceId: 'DtsInstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dtsJobId: 'string',
+      jobCode: 'string',
+      id: 'string',
+      regionId: 'string',
+      synchronizationDirection: 'string',
+      dtsInstanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class IgnoreJobDetailResponseBody extends $tea.Model {
+  code?: string;
+  httpStatusCode?: number;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      httpStatusCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class IgnoreJobDetailResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: IgnoreJobDetailResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: IgnoreJobDetailResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InitDtsRdsInstanceRequest extends $tea.Model {
+  regionId?: string;
+  endpointInstanceType?: string;
+  endpointRegion?: string;
+  endpointInstanceId?: string;
+  endpointCenId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+      endpointInstanceType: 'EndpointInstanceType',
+      endpointRegion: 'EndpointRegion',
+      endpointInstanceId: 'EndpointInstanceId',
+      endpointCenId: 'EndpointCenId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+      endpointInstanceType: 'string',
+      endpointRegion: 'string',
+      endpointInstanceId: 'string',
+      endpointCenId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InitDtsRdsInstanceResponseBody extends $tea.Model {
+  httpStatusCode?: string;
+  requestId?: string;
+  errCode?: string;
+  success?: string;
+  errMessage?: string;
+  adminAccount?: string;
+  adminPassword?: string;
+  static names(): { [key: string]: string } {
+    return {
+      httpStatusCode: 'HttpStatusCode',
+      requestId: 'RequestId',
+      errCode: 'ErrCode',
+      success: 'Success',
+      errMessage: 'ErrMessage',
+      adminAccount: 'AdminAccount',
+      adminPassword: 'AdminPassword',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      httpStatusCode: 'string',
+      requestId: 'string',
+      errCode: 'string',
+      success: 'string',
+      errMessage: 'string',
+      adminAccount: 'string',
+      adminPassword: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InitDtsRdsInstanceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: InitDtsRdsInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: InitDtsRdsInstanceResponseBody,
     };
   }
 
@@ -3194,18 +5038,18 @@ export class ListTagResourcesRequest extends $tea.Model {
 export class ListTagResourcesResponseBody extends $tea.Model {
   nextToken?: string;
   requestId?: string;
-  tagResources?: ListTagResourcesResponseBodyTagResources;
-  errMessage?: string;
-  success?: boolean;
   errCode?: string;
+  success?: boolean;
+  errMessage?: string;
+  tagResources?: ListTagResourcesResponseBodyTagResources;
   static names(): { [key: string]: string } {
     return {
       nextToken: 'NextToken',
       requestId: 'RequestId',
-      tagResources: 'TagResources',
-      errMessage: 'ErrMessage',
-      success: 'Success',
       errCode: 'ErrCode',
+      success: 'Success',
+      errMessage: 'ErrMessage',
+      tagResources: 'TagResources',
     };
   }
 
@@ -3213,10 +5057,10 @@ export class ListTagResourcesResponseBody extends $tea.Model {
     return {
       nextToken: 'string',
       requestId: 'string',
-      tagResources: ListTagResourcesResponseBodyTagResources,
-      errMessage: 'string',
-      success: 'boolean',
       errCode: 'string',
+      success: 'boolean',
+      errMessage: 'string',
+      tagResources: ListTagResourcesResponseBodyTagResources,
     };
   }
 
@@ -3247,7 +5091,98 @@ export class ListTagResourcesResponse extends $tea.Model {
   }
 }
 
+export class ModifyConsumerChannelRequest extends $tea.Model {
+  regionId?: string;
+  dtsInstanceId?: string;
+  dtsJobId?: string;
+  consumerGroupId?: string;
+  consumerGroupPassword?: string;
+  consumerGroupUserName?: string;
+  consumerGroupName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+      dtsInstanceId: 'DtsInstanceId',
+      dtsJobId: 'DtsJobId',
+      consumerGroupId: 'ConsumerGroupId',
+      consumerGroupPassword: 'ConsumerGroupPassword',
+      consumerGroupUserName: 'ConsumerGroupUserName',
+      consumerGroupName: 'ConsumerGroupName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+      dtsInstanceId: 'string',
+      dtsJobId: 'string',
+      consumerGroupId: 'string',
+      consumerGroupPassword: 'string',
+      consumerGroupUserName: 'string',
+      consumerGroupName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyConsumerChannelResponseBody extends $tea.Model {
+  httpStatusCode?: string;
+  requestId?: string;
+  errCode?: string;
+  success?: string;
+  errMessage?: string;
+  static names(): { [key: string]: string } {
+    return {
+      httpStatusCode: 'HttpStatusCode',
+      requestId: 'RequestId',
+      errCode: 'ErrCode',
+      success: 'Success',
+      errMessage: 'ErrMessage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      httpStatusCode: 'string',
+      requestId: 'string',
+      errCode: 'string',
+      success: 'string',
+      errMessage: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyConsumerChannelResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ModifyConsumerChannelResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ModifyConsumerChannelResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyConsumerGroupPasswordRequest extends $tea.Model {
+  regionId?: string;
   subscriptionInstanceId?: string;
   consumerGroupID?: string;
   consumerGroupName?: string;
@@ -3258,6 +5193,7 @@ export class ModifyConsumerGroupPasswordRequest extends $tea.Model {
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
+      regionId: 'RegionId',
       subscriptionInstanceId: 'SubscriptionInstanceId',
       consumerGroupID: 'ConsumerGroupID',
       consumerGroupName: 'ConsumerGroupName',
@@ -3271,6 +5207,7 @@ export class ModifyConsumerGroupPasswordRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      regionId: 'string',
       subscriptionInstanceId: 'string',
       consumerGroupID: 'string',
       consumerGroupName: 'string',
@@ -3289,24 +5226,24 @@ export class ModifyConsumerGroupPasswordRequest extends $tea.Model {
 
 export class ModifyConsumerGroupPasswordResponseBody extends $tea.Model {
   requestId?: string;
-  errMessage?: string;
-  success?: string;
   errCode?: string;
+  success?: string;
+  errMessage?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      errMessage: 'ErrMessage',
-      success: 'Success',
       errCode: 'ErrCode',
+      success: 'Success',
+      errMessage: 'ErrMessage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      errMessage: 'string',
-      success: 'string',
       errCode: 'string',
+      success: 'string',
+      errMessage: 'string',
     };
   }
 
@@ -3338,12 +5275,14 @@ export class ModifyConsumerGroupPasswordResponse extends $tea.Model {
 }
 
 export class ModifyConsumptionTimestampRequest extends $tea.Model {
+  regionId?: string;
   subscriptionInstanceId?: string;
   consumptionTimestamp?: string;
   ownerId?: string;
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
+      regionId: 'RegionId',
       subscriptionInstanceId: 'SubscriptionInstanceId',
       consumptionTimestamp: 'ConsumptionTimestamp',
       ownerId: 'OwnerId',
@@ -3353,6 +5292,7 @@ export class ModifyConsumptionTimestampRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      regionId: 'string',
       subscriptionInstanceId: 'string',
       consumptionTimestamp: 'string',
       ownerId: 'string',
@@ -3367,24 +5307,24 @@ export class ModifyConsumptionTimestampRequest extends $tea.Model {
 
 export class ModifyConsumptionTimestampResponseBody extends $tea.Model {
   requestId?: string;
-  errMessage?: string;
-  success?: string;
   errCode?: string;
+  success?: string;
+  errMessage?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      errMessage: 'ErrMessage',
-      success: 'Success',
       errCode: 'ErrCode',
+      success: 'Success',
+      errMessage: 'ErrMessage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      errMessage: 'string',
-      success: 'string',
       errCode: 'string',
+      success: 'string',
+      errMessage: 'string',
     };
   }
 
@@ -3415,13 +5355,400 @@ export class ModifyConsumptionTimestampResponse extends $tea.Model {
   }
 }
 
+export class ModifyDtsJobRequest extends $tea.Model {
+  regionId?: string;
+  dtsInstanceId?: string;
+  synchronizationDirection?: string;
+  clientToken?: string;
+  dbList?: { [key: string]: any };
+  etlOperatorColumnReference?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+      dtsInstanceId: 'DtsInstanceId',
+      synchronizationDirection: 'SynchronizationDirection',
+      clientToken: 'ClientToken',
+      dbList: 'DbList',
+      etlOperatorColumnReference: 'EtlOperatorColumnReference',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+      dtsInstanceId: 'string',
+      synchronizationDirection: 'string',
+      clientToken: 'string',
+      dbList: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      etlOperatorColumnReference: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDtsJobShrinkRequest extends $tea.Model {
+  regionId?: string;
+  dtsInstanceId?: string;
+  synchronizationDirection?: string;
+  clientToken?: string;
+  dbListShrink?: string;
+  etlOperatorColumnReference?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+      dtsInstanceId: 'DtsInstanceId',
+      synchronizationDirection: 'SynchronizationDirection',
+      clientToken: 'ClientToken',
+      dbListShrink: 'DbList',
+      etlOperatorColumnReference: 'EtlOperatorColumnReference',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+      dtsInstanceId: 'string',
+      synchronizationDirection: 'string',
+      clientToken: 'string',
+      dbListShrink: 'string',
+      etlOperatorColumnReference: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDtsJobResponseBody extends $tea.Model {
+  status?: string;
+  requestId?: string;
+  dtsJobId?: string;
+  errCode?: string;
+  success?: boolean;
+  errMessage?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      status: 'Status',
+      requestId: 'RequestId',
+      dtsJobId: 'DtsJobId',
+      errCode: 'ErrCode',
+      success: 'Success',
+      errMessage: 'ErrMessage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      status: 'string',
+      requestId: 'string',
+      dtsJobId: 'string',
+      errCode: 'string',
+      success: 'boolean',
+      errMessage: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDtsJobResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ModifyDtsJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ModifyDtsJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDtsJobNameRequest extends $tea.Model {
+  dtsJobId?: string;
+  dtsJobName?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dtsJobId: 'DtsJobId',
+      dtsJobName: 'DtsJobName',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dtsJobId: 'string',
+      dtsJobName: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDtsJobNameResponseBody extends $tea.Model {
+  httpStatusCode?: number;
+  requestId?: string;
+  errCode?: string;
+  success?: boolean;
+  errMessage?: string;
+  code?: string;
+  dynamicMessage?: string;
+  static names(): { [key: string]: string } {
+    return {
+      httpStatusCode: 'HttpStatusCode',
+      requestId: 'RequestId',
+      errCode: 'ErrCode',
+      success: 'Success',
+      errMessage: 'ErrMessage',
+      code: 'Code',
+      dynamicMessage: 'DynamicMessage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      httpStatusCode: 'number',
+      requestId: 'string',
+      errCode: 'string',
+      success: 'boolean',
+      errMessage: 'string',
+      code: 'string',
+      dynamicMessage: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDtsJobNameResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ModifyDtsJobNameResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ModifyDtsJobNameResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDtsJobPasswordRequest extends $tea.Model {
+  dtsJobId?: string;
+  userName?: string;
+  password?: string;
+  endpoint?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dtsJobId: 'DtsJobId',
+      userName: 'UserName',
+      password: 'Password',
+      endpoint: 'Endpoint',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dtsJobId: 'string',
+      userName: 'string',
+      password: 'string',
+      endpoint: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDtsJobPasswordResponseBody extends $tea.Model {
+  httpStatusCode?: number;
+  requestId?: string;
+  errCode?: string;
+  success?: boolean;
+  errMessage?: string;
+  code?: string;
+  dynamicMessage?: string;
+  static names(): { [key: string]: string } {
+    return {
+      httpStatusCode: 'HttpStatusCode',
+      requestId: 'RequestId',
+      errCode: 'ErrCode',
+      success: 'Success',
+      errMessage: 'ErrMessage',
+      code: 'Code',
+      dynamicMessage: 'DynamicMessage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      httpStatusCode: 'number',
+      requestId: 'string',
+      errCode: 'string',
+      success: 'boolean',
+      errMessage: 'string',
+      code: 'string',
+      dynamicMessage: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDtsJobPasswordResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ModifyDtsJobPasswordResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ModifyDtsJobPasswordResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifySubscriptionRequest extends $tea.Model {
+  regionId?: string;
+  dtsInstanceId?: string;
+  dbList?: string;
+  dtsJobId?: string;
+  subscriptionDataTypeDDL?: boolean;
+  subscriptionDataTypeDML?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+      dtsInstanceId: 'DtsInstanceId',
+      dbList: 'DbList',
+      dtsJobId: 'DtsJobId',
+      subscriptionDataTypeDDL: 'SubscriptionDataTypeDDL',
+      subscriptionDataTypeDML: 'SubscriptionDataTypeDML',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+      dtsInstanceId: 'string',
+      dbList: 'string',
+      dtsJobId: 'string',
+      subscriptionDataTypeDDL: 'boolean',
+      subscriptionDataTypeDML: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifySubscriptionResponseBody extends $tea.Model {
+  httpStatusCode?: string;
+  requestId?: string;
+  errCode?: string;
+  success?: string;
+  errMessage?: string;
+  static names(): { [key: string]: string } {
+    return {
+      httpStatusCode: 'HttpStatusCode',
+      requestId: 'RequestId',
+      errCode: 'ErrCode',
+      success: 'Success',
+      errMessage: 'ErrMessage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      httpStatusCode: 'string',
+      requestId: 'string',
+      errCode: 'string',
+      success: 'string',
+      errMessage: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifySubscriptionResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ModifySubscriptionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ModifySubscriptionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifySubscriptionObjectRequest extends $tea.Model {
+  regionId?: string;
   subscriptionInstanceId?: string;
   subscriptionObject?: string;
   ownerId?: string;
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
+      regionId: 'RegionId',
       subscriptionInstanceId: 'SubscriptionInstanceId',
       subscriptionObject: 'SubscriptionObject',
       ownerId: 'OwnerId',
@@ -3431,6 +5758,7 @@ export class ModifySubscriptionObjectRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      regionId: 'string',
       subscriptionInstanceId: 'string',
       subscriptionObject: 'string',
       ownerId: 'string',
@@ -3445,24 +5773,24 @@ export class ModifySubscriptionObjectRequest extends $tea.Model {
 
 export class ModifySubscriptionObjectResponseBody extends $tea.Model {
   requestId?: string;
-  errMessage?: string;
-  success?: string;
   errCode?: string;
+  success?: string;
+  errMessage?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      errMessage: 'ErrMessage',
-      success: 'Success',
       errCode: 'ErrCode',
+      success: 'Success',
+      errMessage: 'ErrMessage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      errMessage: 'string',
-      success: 'string',
       errCode: 'string',
+      success: 'string',
+      errMessage: 'string',
     };
   }
 
@@ -3494,6 +5822,7 @@ export class ModifySubscriptionObjectResponse extends $tea.Model {
 }
 
 export class ModifySynchronizationObjectRequest extends $tea.Model {
+  regionId?: string;
   synchronizationJobId?: string;
   synchronizationObjects?: string;
   synchronizationDirection?: string;
@@ -3501,6 +5830,7 @@ export class ModifySynchronizationObjectRequest extends $tea.Model {
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
+      regionId: 'RegionId',
       synchronizationJobId: 'SynchronizationJobId',
       synchronizationObjects: 'SynchronizationObjects',
       synchronizationDirection: 'SynchronizationDirection',
@@ -3511,6 +5841,7 @@ export class ModifySynchronizationObjectRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      regionId: 'string',
       synchronizationJobId: 'string',
       synchronizationObjects: 'string',
       synchronizationDirection: 'string',
@@ -3525,28 +5856,28 @@ export class ModifySynchronizationObjectRequest extends $tea.Model {
 }
 
 export class ModifySynchronizationObjectResponseBody extends $tea.Model {
-  taskId?: string;
   requestId?: string;
-  errMessage?: string;
-  success?: string;
   errCode?: string;
+  taskId?: string;
+  success?: string;
+  errMessage?: string;
   static names(): { [key: string]: string } {
     return {
-      taskId: 'TaskId',
       requestId: 'RequestId',
-      errMessage: 'ErrMessage',
-      success: 'Success',
       errCode: 'ErrCode',
+      taskId: 'TaskId',
+      success: 'Success',
+      errMessage: 'ErrMessage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      taskId: 'string',
       requestId: 'string',
-      errMessage: 'string',
-      success: 'string',
       errCode: 'string',
+      taskId: 'string',
+      success: 'string',
+      errMessage: 'string',
     };
   }
 
@@ -3577,13 +5908,204 @@ export class ModifySynchronizationObjectResponse extends $tea.Model {
   }
 }
 
+export class RenewInstanceRequest extends $tea.Model {
+  dtsJobId?: string;
+  chargeType?: string;
+  period?: string;
+  buyCount?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dtsJobId: 'DtsJobId',
+      chargeType: 'ChargeType',
+      period: 'Period',
+      buyCount: 'BuyCount',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dtsJobId: 'string',
+      chargeType: 'string',
+      period: 'string',
+      buyCount: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RenewInstanceResponseBody extends $tea.Model {
+  httpStatusCode?: number;
+  endTime?: string;
+  requestId?: string;
+  errCode?: string;
+  dtsJobId?: string;
+  success?: boolean;
+  errMessage?: string;
+  chargeType?: string;
+  code?: string;
+  dynamicMessage?: string;
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      httpStatusCode: 'HttpStatusCode',
+      endTime: 'EndTime',
+      requestId: 'RequestId',
+      errCode: 'ErrCode',
+      dtsJobId: 'DtsJobId',
+      success: 'Success',
+      errMessage: 'ErrMessage',
+      chargeType: 'ChargeType',
+      code: 'Code',
+      dynamicMessage: 'DynamicMessage',
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      httpStatusCode: 'number',
+      endTime: 'string',
+      requestId: 'string',
+      errCode: 'string',
+      dtsJobId: 'string',
+      success: 'boolean',
+      errMessage: 'string',
+      chargeType: 'string',
+      code: 'string',
+      dynamicMessage: 'string',
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RenewInstanceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: RenewInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: RenewInstanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ResetDtsJobRequest extends $tea.Model {
+  dtsJobId?: string;
+  dtsInstanceId?: string;
+  synchronizationDirection?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dtsJobId: 'DtsJobId',
+      dtsInstanceId: 'DtsInstanceId',
+      synchronizationDirection: 'SynchronizationDirection',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dtsJobId: 'string',
+      dtsInstanceId: 'string',
+      synchronizationDirection: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ResetDtsJobResponseBody extends $tea.Model {
+  httpStatusCode?: number;
+  requestId?: string;
+  errCode?: string;
+  success?: boolean;
+  errMessage?: string;
+  dynamicMessage?: string;
+  dynamicCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      httpStatusCode: 'HttpStatusCode',
+      requestId: 'RequestId',
+      errCode: 'ErrCode',
+      success: 'Success',
+      errMessage: 'ErrMessage',
+      dynamicMessage: 'DynamicMessage',
+      dynamicCode: 'DynamicCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      httpStatusCode: 'number',
+      requestId: 'string',
+      errCode: 'string',
+      success: 'boolean',
+      errMessage: 'string',
+      dynamicMessage: 'string',
+      dynamicCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ResetDtsJobResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ResetDtsJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ResetDtsJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ResetSynchronizationJobRequest extends $tea.Model {
+  regionId?: string;
   synchronizationJobId?: string;
   synchronizationDirection?: string;
   ownerId?: string;
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
+      regionId: 'RegionId',
       synchronizationJobId: 'SynchronizationJobId',
       synchronizationDirection: 'SynchronizationDirection',
       ownerId: 'OwnerId',
@@ -3593,6 +6115,7 @@ export class ResetSynchronizationJobRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      regionId: 'string',
       synchronizationJobId: 'string',
       synchronizationDirection: 'string',
       ownerId: 'string',
@@ -3607,24 +6130,24 @@ export class ResetSynchronizationJobRequest extends $tea.Model {
 
 export class ResetSynchronizationJobResponseBody extends $tea.Model {
   requestId?: string;
-  errMessage?: string;
-  success?: string;
   errCode?: string;
+  success?: string;
+  errMessage?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      errMessage: 'ErrMessage',
-      success: 'Success',
       errCode: 'ErrCode',
+      success: 'Success',
+      errMessage: 'ErrMessage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      errMessage: 'string',
-      success: 'string',
       errCode: 'string',
+      success: 'string',
+      errMessage: 'string',
     };
   }
 
@@ -3656,10 +6179,12 @@ export class ResetSynchronizationJobResponse extends $tea.Model {
 }
 
 export class ShieldPrecheckRequest extends $tea.Model {
+  regionId?: string;
   dtsInstanceId?: string;
   precheckItems?: string;
   static names(): { [key: string]: string } {
     return {
+      regionId: 'RegionId',
       dtsInstanceId: 'DtsInstanceId',
       precheckItems: 'PrecheckItems',
     };
@@ -3667,6 +6192,7 @@ export class ShieldPrecheckRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      regionId: 'string',
       dtsInstanceId: 'string',
       precheckItems: 'string',
     };
@@ -3679,24 +6205,24 @@ export class ShieldPrecheckRequest extends $tea.Model {
 
 export class ShieldPrecheckResponseBody extends $tea.Model {
   requestId?: string;
-  errMessage?: string;
-  success?: boolean;
   errCode?: string;
+  success?: boolean;
+  errMessage?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      errMessage: 'ErrMessage',
-      success: 'Success',
       errCode: 'ErrCode',
+      success: 'Success',
+      errMessage: 'ErrMessage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      errMessage: 'string',
-      success: 'boolean',
       errCode: 'string',
+      success: 'boolean',
+      errMessage: 'string',
     };
   }
 
@@ -3727,12 +6253,206 @@ export class ShieldPrecheckResponse extends $tea.Model {
   }
 }
 
+export class SkipPreCheckRequest extends $tea.Model {
+  jobId?: string;
+  skip?: boolean;
+  skipPreCheckItems?: string;
+  skipPreCheckNames?: string;
+  dtsJobId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jobId: 'JobId',
+      skip: 'Skip',
+      skipPreCheckItems: 'SkipPreCheckItems',
+      skipPreCheckNames: 'SkipPreCheckNames',
+      dtsJobId: 'DtsJobId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobId: 'string',
+      skip: 'boolean',
+      skipPreCheckItems: 'string',
+      skipPreCheckNames: 'string',
+      dtsJobId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SkipPreCheckResponseBody extends $tea.Model {
+  httpStatusCode?: number;
+  requestId?: string;
+  errCode?: string;
+  success?: boolean;
+  errMessage?: string;
+  skipNames?: string;
+  code?: string;
+  scheduleJobId?: string;
+  dynamicMessage?: string;
+  migrationJobId?: string;
+  skipItems?: string;
+  static names(): { [key: string]: string } {
+    return {
+      httpStatusCode: 'HttpStatusCode',
+      requestId: 'RequestId',
+      errCode: 'ErrCode',
+      success: 'Success',
+      errMessage: 'ErrMessage',
+      skipNames: 'SkipNames',
+      code: 'Code',
+      scheduleJobId: 'ScheduleJobId',
+      dynamicMessage: 'DynamicMessage',
+      migrationJobId: 'MigrationJobId',
+      skipItems: 'SkipItems',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      httpStatusCode: 'number',
+      requestId: 'string',
+      errCode: 'string',
+      success: 'boolean',
+      errMessage: 'string',
+      skipNames: 'string',
+      code: 'string',
+      scheduleJobId: 'string',
+      dynamicMessage: 'string',
+      migrationJobId: 'string',
+      skipItems: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SkipPreCheckResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: SkipPreCheckResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: SkipPreCheckResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartDtsJobRequest extends $tea.Model {
+  dtsJobId?: string;
+  dtsInstanceId?: string;
+  synchronizationDirection?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dtsJobId: 'DtsJobId',
+      dtsInstanceId: 'DtsInstanceId',
+      synchronizationDirection: 'SynchronizationDirection',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dtsJobId: 'string',
+      dtsInstanceId: 'string',
+      synchronizationDirection: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartDtsJobResponseBody extends $tea.Model {
+  httpStatusCode?: number;
+  requestId?: string;
+  errCode?: string;
+  success?: boolean;
+  errMessage?: string;
+  dynamicMessage?: string;
+  dynamicCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      httpStatusCode: 'HttpStatusCode',
+      requestId: 'RequestId',
+      errCode: 'ErrCode',
+      success: 'Success',
+      errMessage: 'ErrMessage',
+      dynamicMessage: 'DynamicMessage',
+      dynamicCode: 'DynamicCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      httpStatusCode: 'number',
+      requestId: 'string',
+      errCode: 'string',
+      success: 'boolean',
+      errMessage: 'string',
+      dynamicMessage: 'string',
+      dynamicCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartDtsJobResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: StartDtsJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: StartDtsJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class StartMigrationJobRequest extends $tea.Model {
+  regionId?: string;
   migrationJobId?: string;
   ownerId?: string;
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
+      regionId: 'RegionId',
       migrationJobId: 'MigrationJobId',
       ownerId: 'OwnerId',
       accountId: 'AccountId',
@@ -3741,6 +6461,7 @@ export class StartMigrationJobRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      regionId: 'string',
       migrationJobId: 'string',
       ownerId: 'string',
       accountId: 'string',
@@ -3754,24 +6475,24 @@ export class StartMigrationJobRequest extends $tea.Model {
 
 export class StartMigrationJobResponseBody extends $tea.Model {
   requestId?: string;
-  errMessage?: string;
-  success?: string;
   errCode?: string;
+  success?: string;
+  errMessage?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      errMessage: 'ErrMessage',
-      success: 'Success',
       errCode: 'ErrCode',
+      success: 'Success',
+      errMessage: 'ErrMessage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      errMessage: 'string',
-      success: 'string',
       errCode: 'string',
+      success: 'string',
+      errMessage: 'string',
     };
   }
 
@@ -3803,11 +6524,13 @@ export class StartMigrationJobResponse extends $tea.Model {
 }
 
 export class StartSubscriptionInstanceRequest extends $tea.Model {
+  regionId?: string;
   subscriptionInstanceId?: string;
   ownerId?: string;
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
+      regionId: 'RegionId',
       subscriptionInstanceId: 'SubscriptionInstanceId',
       ownerId: 'OwnerId',
       accountId: 'AccountId',
@@ -3816,6 +6539,7 @@ export class StartSubscriptionInstanceRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      regionId: 'string',
       subscriptionInstanceId: 'string',
       ownerId: 'string',
       accountId: 'string',
@@ -3828,28 +6552,28 @@ export class StartSubscriptionInstanceRequest extends $tea.Model {
 }
 
 export class StartSubscriptionInstanceResponseBody extends $tea.Model {
-  taskId?: string;
   requestId?: string;
-  errMessage?: string;
-  success?: string;
   errCode?: string;
+  taskId?: string;
+  success?: string;
+  errMessage?: string;
   static names(): { [key: string]: string } {
     return {
-      taskId: 'TaskId',
       requestId: 'RequestId',
-      errMessage: 'ErrMessage',
-      success: 'Success',
       errCode: 'ErrCode',
+      taskId: 'TaskId',
+      success: 'Success',
+      errMessage: 'ErrMessage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      taskId: 'string',
       requestId: 'string',
-      errMessage: 'string',
-      success: 'string',
       errCode: 'string',
+      taskId: 'string',
+      success: 'string',
+      errMessage: 'string',
     };
   }
 
@@ -3881,12 +6605,14 @@ export class StartSubscriptionInstanceResponse extends $tea.Model {
 }
 
 export class StartSynchronizationJobRequest extends $tea.Model {
+  regionId?: string;
   synchronizationJobId?: string;
   synchronizationDirection?: string;
   ownerId?: string;
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
+      regionId: 'RegionId',
       synchronizationJobId: 'SynchronizationJobId',
       synchronizationDirection: 'SynchronizationDirection',
       ownerId: 'OwnerId',
@@ -3896,6 +6622,7 @@ export class StartSynchronizationJobRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      regionId: 'string',
       synchronizationJobId: 'string',
       synchronizationDirection: 'string',
       ownerId: 'string',
@@ -3910,24 +6637,24 @@ export class StartSynchronizationJobRequest extends $tea.Model {
 
 export class StartSynchronizationJobResponseBody extends $tea.Model {
   requestId?: string;
-  errMessage?: string;
-  success?: string;
   errCode?: string;
+  success?: string;
+  errMessage?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      errMessage: 'ErrMessage',
-      success: 'Success',
       errCode: 'ErrCode',
+      success: 'Success',
+      errMessage: 'ErrMessage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      errMessage: 'string',
-      success: 'string',
       errCode: 'string',
+      success: 'string',
+      errMessage: 'string',
     };
   }
 
@@ -3958,13 +6685,102 @@ export class StartSynchronizationJobResponse extends $tea.Model {
   }
 }
 
+export class StopDtsJobRequest extends $tea.Model {
+  dtsJobId?: string;
+  dtsInstanceId?: string;
+  synchronizationDirection?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dtsJobId: 'DtsJobId',
+      dtsInstanceId: 'DtsInstanceId',
+      synchronizationDirection: 'SynchronizationDirection',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dtsJobId: 'string',
+      dtsInstanceId: 'string',
+      synchronizationDirection: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopDtsJobResponseBody extends $tea.Model {
+  httpStatusCode?: number;
+  requestId?: string;
+  errCode?: string;
+  success?: boolean;
+  errMessage?: string;
+  dynamicMessage?: string;
+  dynamicCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      httpStatusCode: 'HttpStatusCode',
+      requestId: 'RequestId',
+      errCode: 'ErrCode',
+      success: 'Success',
+      errMessage: 'ErrMessage',
+      dynamicMessage: 'DynamicMessage',
+      dynamicCode: 'DynamicCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      httpStatusCode: 'number',
+      requestId: 'string',
+      errCode: 'string',
+      success: 'boolean',
+      errMessage: 'string',
+      dynamicMessage: 'string',
+      dynamicCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopDtsJobResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: StopDtsJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: StopDtsJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class StopMigrationJobRequest extends $tea.Model {
+  regionId?: string;
   migrationJobId?: string;
   clientToken?: string;
   ownerId?: string;
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
+      regionId: 'RegionId',
       migrationJobId: 'MigrationJobId',
       clientToken: 'ClientToken',
       ownerId: 'OwnerId',
@@ -3974,6 +6790,7 @@ export class StopMigrationJobRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      regionId: 'string',
       migrationJobId: 'string',
       clientToken: 'string',
       ownerId: 'string',
@@ -3988,24 +6805,24 @@ export class StopMigrationJobRequest extends $tea.Model {
 
 export class StopMigrationJobResponseBody extends $tea.Model {
   requestId?: string;
-  errMessage?: string;
-  success?: string;
   errCode?: string;
+  success?: string;
+  errMessage?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      errMessage: 'ErrMessage',
-      success: 'Success',
       errCode: 'ErrCode',
+      success: 'Success',
+      errMessage: 'ErrMessage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      errMessage: 'string',
-      success: 'string',
       errCode: 'string',
+      success: 'string',
+      errMessage: 'string',
     };
   }
 
@@ -4036,13 +6853,189 @@ export class StopMigrationJobResponse extends $tea.Model {
   }
 }
 
+export class SummaryJobDetailRequest extends $tea.Model {
+  dtsJobId?: string;
+  jobCode?: string;
+  synchronizationDirection?: string;
+  regionId?: string;
+  dtsInstanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dtsJobId: 'DtsJobId',
+      jobCode: 'JobCode',
+      synchronizationDirection: 'SynchronizationDirection',
+      regionId: 'RegionId',
+      dtsInstanceId: 'DtsInstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dtsJobId: 'string',
+      jobCode: 'string',
+      synchronizationDirection: 'string',
+      regionId: 'string',
+      dtsInstanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SummaryJobDetailResponseBody extends $tea.Model {
+  httpStatusCode?: number;
+  code?: string;
+  requestId?: string;
+  success?: boolean;
+  jobId?: string;
+  progressSummaryDetails?: SummaryJobDetailResponseBodyProgressSummaryDetails[];
+  static names(): { [key: string]: string } {
+    return {
+      httpStatusCode: 'HttpStatusCode',
+      code: 'Code',
+      requestId: 'RequestId',
+      success: 'Success',
+      jobId: 'JobId',
+      progressSummaryDetails: 'ProgressSummaryDetails',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      httpStatusCode: 'number',
+      code: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      jobId: 'string',
+      progressSummaryDetails: { 'type': 'array', 'itemType': SummaryJobDetailResponseBodyProgressSummaryDetails },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SummaryJobDetailResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: SummaryJobDetailResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: SummaryJobDetailResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SuspendDtsJobRequest extends $tea.Model {
+  dtsJobId?: string;
+  dtsInstanceId?: string;
+  synchronizationDirection?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dtsJobId: 'DtsJobId',
+      dtsInstanceId: 'DtsInstanceId',
+      synchronizationDirection: 'SynchronizationDirection',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dtsJobId: 'string',
+      dtsInstanceId: 'string',
+      synchronizationDirection: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SuspendDtsJobResponseBody extends $tea.Model {
+  httpStatusCode?: number;
+  requestId?: string;
+  errCode?: string;
+  success?: boolean;
+  errMessage?: string;
+  dynamicMessage?: string;
+  dynamicCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      httpStatusCode: 'HttpStatusCode',
+      requestId: 'RequestId',
+      errCode: 'ErrCode',
+      success: 'Success',
+      errMessage: 'ErrMessage',
+      dynamicMessage: 'DynamicMessage',
+      dynamicCode: 'DynamicCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      httpStatusCode: 'number',
+      requestId: 'string',
+      errCode: 'string',
+      success: 'boolean',
+      errMessage: 'string',
+      dynamicMessage: 'string',
+      dynamicCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SuspendDtsJobResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: SuspendDtsJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: SuspendDtsJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SuspendMigrationJobRequest extends $tea.Model {
+  regionId?: string;
   migrationJobId?: string;
   clientToken?: string;
   ownerId?: string;
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
+      regionId: 'RegionId',
       migrationJobId: 'MigrationJobId',
       clientToken: 'ClientToken',
       ownerId: 'OwnerId',
@@ -4052,6 +7045,7 @@ export class SuspendMigrationJobRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      regionId: 'string',
       migrationJobId: 'string',
       clientToken: 'string',
       ownerId: 'string',
@@ -4066,24 +7060,24 @@ export class SuspendMigrationJobRequest extends $tea.Model {
 
 export class SuspendMigrationJobResponseBody extends $tea.Model {
   requestId?: string;
-  errMessage?: string;
-  success?: string;
   errCode?: string;
+  success?: string;
+  errMessage?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      errMessage: 'ErrMessage',
-      success: 'Success',
       errCode: 'ErrCode',
+      success: 'Success',
+      errMessage: 'ErrMessage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      errMessage: 'string',
-      success: 'string',
       errCode: 'string',
+      success: 'string',
+      errMessage: 'string',
     };
   }
 
@@ -4115,12 +7109,14 @@ export class SuspendMigrationJobResponse extends $tea.Model {
 }
 
 export class SuspendSynchronizationJobRequest extends $tea.Model {
+  regionId?: string;
   synchronizationJobId?: string;
   synchronizationDirection?: string;
   ownerId?: string;
   accountId?: string;
   static names(): { [key: string]: string } {
     return {
+      regionId: 'RegionId',
       synchronizationJobId: 'SynchronizationJobId',
       synchronizationDirection: 'SynchronizationDirection',
       ownerId: 'OwnerId',
@@ -4130,6 +7126,7 @@ export class SuspendSynchronizationJobRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      regionId: 'string',
       synchronizationJobId: 'string',
       synchronizationDirection: 'string',
       ownerId: 'string',
@@ -4144,24 +7141,24 @@ export class SuspendSynchronizationJobRequest extends $tea.Model {
 
 export class SuspendSynchronizationJobResponseBody extends $tea.Model {
   requestId?: string;
-  errMessage?: string;
-  success?: string;
   errCode?: string;
+  success?: string;
+  errMessage?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      errMessage: 'ErrMessage',
-      success: 'Success',
       errCode: 'ErrCode',
+      success: 'Success',
+      errMessage: 'ErrMessage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      errMessage: 'string',
-      success: 'string',
       errCode: 'string',
+      success: 'string',
+      errMessage: 'string',
     };
   }
 
@@ -4195,6 +7192,7 @@ export class SuspendSynchronizationJobResponse extends $tea.Model {
 export class SwitchSynchronizationEndpointRequest extends $tea.Model {
   endpoint?: SwitchSynchronizationEndpointRequestEndpoint;
   sourceEndpoint?: SwitchSynchronizationEndpointRequestSourceEndpoint;
+  regionId?: string;
   synchronizationJobId?: string;
   synchronizationDirection?: string;
   ownerId?: string;
@@ -4203,6 +7201,7 @@ export class SwitchSynchronizationEndpointRequest extends $tea.Model {
     return {
       endpoint: 'Endpoint',
       sourceEndpoint: 'SourceEndpoint',
+      regionId: 'RegionId',
       synchronizationJobId: 'SynchronizationJobId',
       synchronizationDirection: 'SynchronizationDirection',
       ownerId: 'OwnerId',
@@ -4214,6 +7213,7 @@ export class SwitchSynchronizationEndpointRequest extends $tea.Model {
     return {
       endpoint: SwitchSynchronizationEndpointRequestEndpoint,
       sourceEndpoint: SwitchSynchronizationEndpointRequestSourceEndpoint,
+      regionId: 'string',
       synchronizationJobId: 'string',
       synchronizationDirection: 'string',
       ownerId: 'string',
@@ -4227,28 +7227,28 @@ export class SwitchSynchronizationEndpointRequest extends $tea.Model {
 }
 
 export class SwitchSynchronizationEndpointResponseBody extends $tea.Model {
-  taskId?: string;
   requestId?: string;
-  errMessage?: string;
-  success?: string;
   errCode?: string;
+  taskId?: string;
+  success?: string;
+  errMessage?: string;
   static names(): { [key: string]: string } {
     return {
-      taskId: 'TaskId',
       requestId: 'RequestId',
-      errMessage: 'ErrMessage',
-      success: 'Success',
       errCode: 'ErrCode',
+      taskId: 'TaskId',
+      success: 'Success',
+      errMessage: 'ErrMessage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      taskId: 'string',
       requestId: 'string',
-      errMessage: 'string',
-      success: 'string',
       errCode: 'string',
+      taskId: 'string',
+      success: 'string',
+      errMessage: 'string',
     };
   }
 
@@ -4309,24 +7309,24 @@ export class TagResourcesRequest extends $tea.Model {
 
 export class TagResourcesResponseBody extends $tea.Model {
   requestId?: string;
-  errMessage?: string;
-  success?: boolean;
   errCode?: string;
+  success?: boolean;
+  errMessage?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      errMessage: 'ErrMessage',
-      success: 'Success',
       errCode: 'ErrCode',
+      success: 'Success',
+      errMessage: 'ErrMessage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      errMessage: 'string',
-      success: 'boolean',
       errCode: 'string',
+      success: 'boolean',
+      errMessage: 'string',
     };
   }
 
@@ -4349,6 +7349,207 @@ export class TagResourcesResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: TagResourcesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TransferInstanceClassRequest extends $tea.Model {
+  orderType?: string;
+  instanceClass?: string;
+  regionId?: string;
+  dtsJobId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      orderType: 'OrderType',
+      instanceClass: 'InstanceClass',
+      regionId: 'RegionId',
+      dtsJobId: 'DtsJobId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      orderType: 'string',
+      instanceClass: 'string',
+      regionId: 'string',
+      dtsJobId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TransferInstanceClassResponseBody extends $tea.Model {
+  endTime?: string;
+  httpStatusCode?: number;
+  requestId?: string;
+  dtsJobId?: string;
+  errCode?: string;
+  success?: boolean;
+  chargeType?: string;
+  errMessage?: string;
+  code?: string;
+  dynamicMessage?: string;
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      httpStatusCode: 'HttpStatusCode',
+      requestId: 'RequestId',
+      dtsJobId: 'DtsJobId',
+      errCode: 'ErrCode',
+      success: 'Success',
+      chargeType: 'ChargeType',
+      errMessage: 'ErrMessage',
+      code: 'Code',
+      dynamicMessage: 'DynamicMessage',
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'string',
+      httpStatusCode: 'number',
+      requestId: 'string',
+      dtsJobId: 'string',
+      errCode: 'string',
+      success: 'boolean',
+      chargeType: 'string',
+      errMessage: 'string',
+      code: 'string',
+      dynamicMessage: 'string',
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TransferInstanceClassResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: TransferInstanceClassResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: TransferInstanceClassResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TransferPayTypeRequest extends $tea.Model {
+  dtsJobId?: string;
+  chargeType?: string;
+  period?: string;
+  buyCount?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dtsJobId: 'DtsJobId',
+      chargeType: 'ChargeType',
+      period: 'Period',
+      buyCount: 'BuyCount',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dtsJobId: 'string',
+      chargeType: 'string',
+      period: 'string',
+      buyCount: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TransferPayTypeResponseBody extends $tea.Model {
+  endTime?: string;
+  httpStatusCode?: number;
+  requestId?: string;
+  dtsJobId?: string;
+  errCode?: string;
+  success?: boolean;
+  chargeType?: string;
+  errMessage?: string;
+  code?: string;
+  dynamicMessage?: string;
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      httpStatusCode: 'HttpStatusCode',
+      requestId: 'RequestId',
+      dtsJobId: 'DtsJobId',
+      errCode: 'ErrCode',
+      success: 'Success',
+      chargeType: 'ChargeType',
+      errMessage: 'ErrMessage',
+      code: 'Code',
+      dynamicMessage: 'DynamicMessage',
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'string',
+      httpStatusCode: 'number',
+      requestId: 'string',
+      dtsJobId: 'string',
+      errCode: 'string',
+      success: 'boolean',
+      chargeType: 'string',
+      errMessage: 'string',
+      code: 'string',
+      dynamicMessage: 'string',
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TransferPayTypeResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: TransferPayTypeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: TransferPayTypeResponseBody,
     };
   }
 
@@ -4390,24 +7591,24 @@ export class UntagResourcesRequest extends $tea.Model {
 
 export class UntagResourcesResponseBody extends $tea.Model {
   requestId?: string;
-  errMessage?: string;
-  success?: boolean;
   errCode?: string;
+  success?: boolean;
+  errMessage?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      errMessage: 'ErrMessage',
-      success: 'Success',
       errCode: 'ErrCode',
+      success: 'Success',
+      errMessage: 'ErrMessage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      errMessage: 'string',
-      success: 'boolean',
       errCode: 'string',
+      success: 'boolean',
+      errMessage: 'string',
     };
   }
 
@@ -4430,6 +7631,180 @@ export class UntagResourcesResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: UntagResourcesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpgradeTwoWayRequest extends $tea.Model {
+  instanceId?: string;
+  instanceClass?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      instanceClass: 'InstanceClass',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      instanceClass: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpgradeTwoWayResponseBody extends $tea.Model {
+  httpStatusCode?: number;
+  requestId?: string;
+  errCode?: string;
+  success?: boolean;
+  errMessage?: string;
+  dynamicMessage?: string;
+  dynamicCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      httpStatusCode: 'HttpStatusCode',
+      requestId: 'RequestId',
+      errCode: 'ErrCode',
+      success: 'Success',
+      errMessage: 'ErrMessage',
+      dynamicMessage: 'DynamicMessage',
+      dynamicCode: 'DynamicCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      httpStatusCode: 'number',
+      requestId: 'string',
+      errCode: 'string',
+      success: 'boolean',
+      errMessage: 'string',
+      dynamicMessage: 'string',
+      dynamicCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpgradeTwoWayResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: UpgradeTwoWayResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: UpgradeTwoWayResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class WhiteIpListRequest extends $tea.Model {
+  type?: string;
+  region?: string;
+  destinationRegion?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      type: 'Type',
+      region: 'Region',
+      destinationRegion: 'DestinationRegion',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      type: 'string',
+      region: 'string',
+      destinationRegion: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class WhiteIpListResponseBody extends $tea.Model {
+  httpStatusCode?: number;
+  requestId?: string;
+  errCode?: string;
+  success?: boolean;
+  errMessage?: string;
+  ipList?: string;
+  dynamicMessage?: string;
+  dynamicCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      httpStatusCode: 'HttpStatusCode',
+      requestId: 'RequestId',
+      errCode: 'ErrCode',
+      success: 'Success',
+      errMessage: 'ErrMessage',
+      ipList: 'IpList',
+      dynamicMessage: 'DynamicMessage',
+      dynamicCode: 'DynamicCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      httpStatusCode: 'number',
+      requestId: 'string',
+      errCode: 'string',
+      success: 'boolean',
+      errMessage: 'string',
+      ipList: 'string',
+      dynamicMessage: 'string',
+      dynamicCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class WhiteIpListResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: WhiteIpListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: WhiteIpListResponseBody,
     };
   }
 
@@ -4819,6 +8194,40 @@ export class CreateSynchronizationJobRequestDestinationEndpoint extends $tea.Mod
   }
 }
 
+export class DescribeConsumerChannelResponseBodyConsumerChannels extends $tea.Model {
+  consumerGroupUserName?: string;
+  consumerGroupId?: string;
+  messageDelay?: number;
+  consumerGroupName?: string;
+  consumptionCheckpoint?: string;
+  unconsumedData?: number;
+  static names(): { [key: string]: string } {
+    return {
+      consumerGroupUserName: 'ConsumerGroupUserName',
+      consumerGroupId: 'ConsumerGroupId',
+      messageDelay: 'MessageDelay',
+      consumerGroupName: 'ConsumerGroupName',
+      consumptionCheckpoint: 'ConsumptionCheckpoint',
+      unconsumedData: 'UnconsumedData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      consumerGroupUserName: 'string',
+      consumerGroupId: 'string',
+      messageDelay: 'number',
+      consumerGroupName: 'string',
+      consumptionCheckpoint: 'string',
+      unconsumedData: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeConsumerGroupResponseBodyConsumerChannelsDescribeConsumerChannel extends $tea.Model {
   consumerGroupUserName?: string;
   consumerGroupID?: string;
@@ -4872,35 +8281,50 @@ export class DescribeConsumerGroupResponseBodyConsumerChannels extends $tea.Mode
   }
 }
 
-export class DescribeInitializationStatusResponseBodyStructureInitializationDetailsConstraints extends $tea.Model {
-  status?: string;
-  sourceOwnerDBName?: string;
-  objectDefinition?: string;
-  objectType?: string;
-  errorMessage?: string;
-  destinationOwnerDBName?: string;
-  objectName?: string;
+export class DescribeDtsJobDetailResponseBodySourceEndpoint extends $tea.Model {
+  oracleSID?: string;
+  sslSolutionEnum?: string;
+  ip?: string;
+  instanceID?: string;
+  roleName?: string;
+  instanceType?: string;
+  port?: string;
+  engineName?: string;
+  region?: string;
+  databaseName?: string;
+  aliyunUid?: string;
+  userName?: string;
   static names(): { [key: string]: string } {
     return {
-      status: 'Status',
-      sourceOwnerDBName: 'SourceOwnerDBName',
-      objectDefinition: 'ObjectDefinition',
-      objectType: 'ObjectType',
-      errorMessage: 'ErrorMessage',
-      destinationOwnerDBName: 'DestinationOwnerDBName',
-      objectName: 'ObjectName',
+      oracleSID: 'OracleSID',
+      sslSolutionEnum: 'SslSolutionEnum',
+      ip: 'Ip',
+      instanceID: 'InstanceID',
+      roleName: 'RoleName',
+      instanceType: 'InstanceType',
+      port: 'Port',
+      engineName: 'EngineName',
+      region: 'Region',
+      databaseName: 'DatabaseName',
+      aliyunUid: 'AliyunUid',
+      userName: 'UserName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      status: 'string',
-      sourceOwnerDBName: 'string',
-      objectDefinition: 'string',
-      objectType: 'string',
-      errorMessage: 'string',
-      destinationOwnerDBName: 'string',
-      objectName: 'string',
+      oracleSID: 'string',
+      sslSolutionEnum: 'string',
+      ip: 'string',
+      instanceID: 'string',
+      roleName: 'string',
+      instanceType: 'string',
+      port: 'string',
+      engineName: 'string',
+      region: 'string',
+      databaseName: 'string',
+      aliyunUid: 'string',
+      userName: 'string',
     };
   }
 
@@ -4909,38 +8333,961 @@ export class DescribeInitializationStatusResponseBodyStructureInitializationDeta
   }
 }
 
-export class DescribeInitializationStatusResponseBodyStructureInitializationDetails extends $tea.Model {
+export class DescribeDtsJobDetailResponseBodyDestinationEndpoint extends $tea.Model {
+  sslSolutionEnum?: string;
+  oracleSID?: string;
+  databaseName?: string;
+  region?: string;
+  ip?: string;
+  instanceID?: string;
+  port?: string;
+  instanceType?: string;
+  userName?: string;
+  engineName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      sslSolutionEnum: 'SslSolutionEnum',
+      oracleSID: 'OracleSID',
+      databaseName: 'DatabaseName',
+      region: 'Region',
+      ip: 'Ip',
+      instanceID: 'InstanceID',
+      port: 'Port',
+      instanceType: 'InstanceType',
+      userName: 'UserName',
+      engineName: 'EngineName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sslSolutionEnum: 'string',
+      oracleSID: 'string',
+      databaseName: 'string',
+      region: 'string',
+      ip: 'string',
+      instanceID: 'string',
+      port: 'string',
+      instanceType: 'string',
+      userName: 'string',
+      engineName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDtsJobDetailResponseBodyMigrationMode extends $tea.Model {
+  dataExtractTransformLoad?: boolean;
+  dataInitialization?: boolean;
+  dataSynchronization?: boolean;
+  structureInitialization?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      dataExtractTransformLoad: 'DataExtractTransformLoad',
+      dataInitialization: 'DataInitialization',
+      dataSynchronization: 'DataSynchronization',
+      structureInitialization: 'StructureInitialization',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataExtractTransformLoad: 'boolean',
+      dataInitialization: 'boolean',
+      dataSynchronization: 'boolean',
+      structureInitialization: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDtsJobDetailResponseBodySubscriptionHost extends $tea.Model {
+  vpcHost?: string;
+  publicHost?: string;
+  privateHost?: string;
+  static names(): { [key: string]: string } {
+    return {
+      vpcHost: 'VpcHost',
+      publicHost: 'PublicHost',
+      privateHost: 'PrivateHost',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      vpcHost: 'string',
+      publicHost: 'string',
+      privateHost: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDtsJobDetailResponseBodySubscriptionDataType extends $tea.Model {
+  dml?: boolean;
+  ddl?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      dml: 'Dml',
+      ddl: 'Ddl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dml: 'boolean',
+      ddl: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDtsJobsResponseBodyDtsJobListTagList extends $tea.Model {
+  tagValue?: string;
+  tagKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagValue: 'TagValue',
+      tagKey: 'TagKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagValue: 'string',
+      tagKey: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDtsJobsResponseBodyDtsJobListDataInitializationStatus extends $tea.Model {
   status?: string;
-  sourceOwnerDBName?: string;
-  objectDefinition?: string;
-  objectType?: string;
+  percent?: string;
   errorMessage?: string;
-  constraints?: DescribeInitializationStatusResponseBodyStructureInitializationDetailsConstraints[];
-  destinationOwnerDBName?: string;
-  objectName?: string;
+  progress?: string;
   static names(): { [key: string]: string } {
     return {
       status: 'Status',
-      sourceOwnerDBName: 'SourceOwnerDBName',
-      objectDefinition: 'ObjectDefinition',
-      objectType: 'ObjectType',
+      percent: 'Percent',
       errorMessage: 'ErrorMessage',
-      constraints: 'Constraints',
-      destinationOwnerDBName: 'DestinationOwnerDBName',
-      objectName: 'ObjectName',
+      progress: 'Progress',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       status: 'string',
-      sourceOwnerDBName: 'string',
-      objectDefinition: 'string',
-      objectType: 'string',
+      percent: 'string',
       errorMessage: 'string',
-      constraints: { 'type': 'array', 'itemType': DescribeInitializationStatusResponseBodyStructureInitializationDetailsConstraints },
-      destinationOwnerDBName: 'string',
-      objectName: 'string',
+      progress: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDtsJobsResponseBodyDtsJobListDataSynchronizationStatus extends $tea.Model {
+  status?: string;
+  needUpgrade?: boolean;
+  percent?: string;
+  progress?: string;
+  errorMessage?: string;
+  static names(): { [key: string]: string } {
+    return {
+      status: 'Status',
+      needUpgrade: 'NeedUpgrade',
+      percent: 'Percent',
+      progress: 'Progress',
+      errorMessage: 'ErrorMessage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      status: 'string',
+      needUpgrade: 'boolean',
+      percent: 'string',
+      progress: 'string',
+      errorMessage: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDtsJobsResponseBodyDtsJobListDataEtlStatus extends $tea.Model {
+  status?: string;
+  percent?: string;
+  errorMessage?: string;
+  progress?: string;
+  static names(): { [key: string]: string } {
+    return {
+      status: 'Status',
+      percent: 'Percent',
+      errorMessage: 'ErrorMessage',
+      progress: 'Progress',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      status: 'string',
+      percent: 'string',
+      errorMessage: 'string',
+      progress: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDtsJobsResponseBodyDtsJobListDestinationEndpoint extends $tea.Model {
+  sslSolutionEnum?: string;
+  oracleSID?: string;
+  region?: string;
+  databaseName?: string;
+  ip?: string;
+  instanceID?: string;
+  port?: string;
+  instanceType?: string;
+  userName?: string;
+  engineName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      sslSolutionEnum: 'SslSolutionEnum',
+      oracleSID: 'OracleSID',
+      region: 'Region',
+      databaseName: 'DatabaseName',
+      ip: 'Ip',
+      instanceID: 'InstanceID',
+      port: 'Port',
+      instanceType: 'InstanceType',
+      userName: 'UserName',
+      engineName: 'EngineName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sslSolutionEnum: 'string',
+      oracleSID: 'string',
+      region: 'string',
+      databaseName: 'string',
+      ip: 'string',
+      instanceID: 'string',
+      port: 'string',
+      instanceType: 'string',
+      userName: 'string',
+      engineName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDtsJobsResponseBodyDtsJobListMigrationMode extends $tea.Model {
+  dataInitialization?: boolean;
+  dataSynchronization?: boolean;
+  structureInitialization?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      dataInitialization: 'DataInitialization',
+      dataSynchronization: 'DataSynchronization',
+      structureInitialization: 'StructureInitialization',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataInitialization: 'boolean',
+      dataSynchronization: 'boolean',
+      structureInitialization: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDtsJobsResponseBodyDtsJobListPerformance extends $tea.Model {
+  rps?: string;
+  flow?: string;
+  static names(): { [key: string]: string } {
+    return {
+      rps: 'Rps',
+      flow: 'Flow',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      rps: 'string',
+      flow: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDtsJobsResponseBodyDtsJobListPrecheckStatusDetail extends $tea.Model {
+  checkResult?: string;
+  checkItemDescription?: string;
+  checkItem?: string;
+  repairMethod?: string;
+  failedReason?: string;
+  static names(): { [key: string]: string } {
+    return {
+      checkResult: 'CheckResult',
+      checkItemDescription: 'CheckItemDescription',
+      checkItem: 'CheckItem',
+      repairMethod: 'RepairMethod',
+      failedReason: 'FailedReason',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      checkResult: 'string',
+      checkItemDescription: 'string',
+      checkItem: 'string',
+      repairMethod: 'string',
+      failedReason: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDtsJobsResponseBodyDtsJobListPrecheckStatus extends $tea.Model {
+  status?: string;
+  percent?: string;
+  errorMessage?: string;
+  detail?: DescribeDtsJobsResponseBodyDtsJobListPrecheckStatusDetail[];
+  static names(): { [key: string]: string } {
+    return {
+      status: 'Status',
+      percent: 'Percent',
+      errorMessage: 'ErrorMessage',
+      detail: 'Detail',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      status: 'string',
+      percent: 'string',
+      errorMessage: 'string',
+      detail: { 'type': 'array', 'itemType': DescribeDtsJobsResponseBodyDtsJobListPrecheckStatusDetail },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDtsJobsResponseBodyDtsJobListReverseJobDataInitializationStatus extends $tea.Model {
+  status?: string;
+  percent?: string;
+  errorMessage?: string;
+  progress?: string;
+  static names(): { [key: string]: string } {
+    return {
+      status: 'Status',
+      percent: 'Percent',
+      errorMessage: 'ErrorMessage',
+      progress: 'Progress',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      status: 'string',
+      percent: 'string',
+      errorMessage: 'string',
+      progress: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDtsJobsResponseBodyDtsJobListReverseJobDataSynchronizationStatus extends $tea.Model {
+  status?: string;
+  needUpgrade?: boolean;
+  percent?: string;
+  progress?: string;
+  errorMessage?: string;
+  static names(): { [key: string]: string } {
+    return {
+      status: 'Status',
+      needUpgrade: 'NeedUpgrade',
+      percent: 'Percent',
+      progress: 'Progress',
+      errorMessage: 'ErrorMessage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      status: 'string',
+      needUpgrade: 'boolean',
+      percent: 'string',
+      progress: 'string',
+      errorMessage: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDtsJobsResponseBodyDtsJobListReverseJobDestinationEndpoint extends $tea.Model {
+  sslSolutionEnum?: string;
+  oracleSID?: string;
+  region?: string;
+  databaseName?: string;
+  ip?: string;
+  instanceID?: string;
+  port?: string;
+  instanceType?: string;
+  userName?: string;
+  engineName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      sslSolutionEnum: 'SslSolutionEnum',
+      oracleSID: 'OracleSID',
+      region: 'Region',
+      databaseName: 'DatabaseName',
+      ip: 'Ip',
+      instanceID: 'InstanceID',
+      port: 'Port',
+      instanceType: 'InstanceType',
+      userName: 'UserName',
+      engineName: 'EngineName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sslSolutionEnum: 'string',
+      oracleSID: 'string',
+      region: 'string',
+      databaseName: 'string',
+      ip: 'string',
+      instanceID: 'string',
+      port: 'string',
+      instanceType: 'string',
+      userName: 'string',
+      engineName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDtsJobsResponseBodyDtsJobListReverseJobMigrationMode extends $tea.Model {
+  dataInitialization?: boolean;
+  dataSynchronization?: boolean;
+  structureInitialization?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      dataInitialization: 'DataInitialization',
+      dataSynchronization: 'DataSynchronization',
+      structureInitialization: 'StructureInitialization',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataInitialization: 'boolean',
+      dataSynchronization: 'boolean',
+      structureInitialization: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDtsJobsResponseBodyDtsJobListReverseJobPerformance extends $tea.Model {
+  rps?: string;
+  flow?: string;
+  static names(): { [key: string]: string } {
+    return {
+      rps: 'Rps',
+      flow: 'Flow',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      rps: 'string',
+      flow: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDtsJobsResponseBodyDtsJobListReverseJobPrecheckStatusDetail extends $tea.Model {
+  checkResult?: string;
+  checkItemDescription?: string;
+  checkItem?: string;
+  repairMethod?: string;
+  failedReason?: string;
+  static names(): { [key: string]: string } {
+    return {
+      checkResult: 'CheckResult',
+      checkItemDescription: 'CheckItemDescription',
+      checkItem: 'CheckItem',
+      repairMethod: 'RepairMethod',
+      failedReason: 'FailedReason',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      checkResult: 'string',
+      checkItemDescription: 'string',
+      checkItem: 'string',
+      repairMethod: 'string',
+      failedReason: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDtsJobsResponseBodyDtsJobListReverseJobPrecheckStatus extends $tea.Model {
+  status?: string;
+  percent?: string;
+  errorMessage?: string;
+  detail?: DescribeDtsJobsResponseBodyDtsJobListReverseJobPrecheckStatusDetail[];
+  static names(): { [key: string]: string } {
+    return {
+      status: 'Status',
+      percent: 'Percent',
+      errorMessage: 'ErrorMessage',
+      detail: 'Detail',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      status: 'string',
+      percent: 'string',
+      errorMessage: 'string',
+      detail: { 'type': 'array', 'itemType': DescribeDtsJobsResponseBodyDtsJobListReverseJobPrecheckStatusDetail },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDtsJobsResponseBodyDtsJobListReverseJobSourceEndpoint extends $tea.Model {
+  sslSolutionEnum?: string;
+  oracleSID?: string;
+  region?: string;
+  databaseName?: string;
+  ip?: string;
+  instanceID?: string;
+  port?: string;
+  instanceType?: string;
+  userName?: string;
+  engineName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      sslSolutionEnum: 'SslSolutionEnum',
+      oracleSID: 'OracleSID',
+      region: 'Region',
+      databaseName: 'DatabaseName',
+      ip: 'Ip',
+      instanceID: 'InstanceID',
+      port: 'Port',
+      instanceType: 'InstanceType',
+      userName: 'UserName',
+      engineName: 'EngineName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sslSolutionEnum: 'string',
+      oracleSID: 'string',
+      region: 'string',
+      databaseName: 'string',
+      ip: 'string',
+      instanceID: 'string',
+      port: 'string',
+      instanceType: 'string',
+      userName: 'string',
+      engineName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDtsJobsResponseBodyDtsJobListReverseJobStructureInitializationStatus extends $tea.Model {
+  status?: string;
+  percent?: string;
+  errorMessage?: string;
+  progress?: string;
+  static names(): { [key: string]: string } {
+    return {
+      status: 'Status',
+      percent: 'Percent',
+      errorMessage: 'ErrorMessage',
+      progress: 'Progress',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      status: 'string',
+      percent: 'string',
+      errorMessage: 'string',
+      progress: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDtsJobsResponseBodyDtsJobListReverseJob extends $tea.Model {
+  status?: string;
+  dtsJobName?: string;
+  delay?: number;
+  errorMessage?: string;
+  dtsJobId?: string;
+  expireTime?: string;
+  createTime?: string;
+  payType?: string;
+  reserved?: string;
+  dbObject?: string;
+  dtsJobClass?: string;
+  dtsInstanceID?: string;
+  dtsJobDirection?: string;
+  checkpoint?: string;
+  dataInitializationStatus?: DescribeDtsJobsResponseBodyDtsJobListReverseJobDataInitializationStatus;
+  dataSynchronizationStatus?: DescribeDtsJobsResponseBodyDtsJobListReverseJobDataSynchronizationStatus;
+  destinationEndpoint?: DescribeDtsJobsResponseBodyDtsJobListReverseJobDestinationEndpoint;
+  migrationMode?: DescribeDtsJobsResponseBodyDtsJobListReverseJobMigrationMode;
+  performance?: DescribeDtsJobsResponseBodyDtsJobListReverseJobPerformance;
+  precheckStatus?: DescribeDtsJobsResponseBodyDtsJobListReverseJobPrecheckStatus;
+  sourceEndpoint?: DescribeDtsJobsResponseBodyDtsJobListReverseJobSourceEndpoint;
+  structureInitializationStatus?: DescribeDtsJobsResponseBodyDtsJobListReverseJobStructureInitializationStatus;
+  static names(): { [key: string]: string } {
+    return {
+      status: 'Status',
+      dtsJobName: 'DtsJobName',
+      delay: 'Delay',
+      errorMessage: 'ErrorMessage',
+      dtsJobId: 'DtsJobId',
+      expireTime: 'ExpireTime',
+      createTime: 'CreateTime',
+      payType: 'PayType',
+      reserved: 'Reserved',
+      dbObject: 'DbObject',
+      dtsJobClass: 'DtsJobClass',
+      dtsInstanceID: 'DtsInstanceID',
+      dtsJobDirection: 'DtsJobDirection',
+      checkpoint: 'Checkpoint',
+      dataInitializationStatus: 'DataInitializationStatus',
+      dataSynchronizationStatus: 'DataSynchronizationStatus',
+      destinationEndpoint: 'DestinationEndpoint',
+      migrationMode: 'MigrationMode',
+      performance: 'Performance',
+      precheckStatus: 'PrecheckStatus',
+      sourceEndpoint: 'SourceEndpoint',
+      structureInitializationStatus: 'StructureInitializationStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      status: 'string',
+      dtsJobName: 'string',
+      delay: 'number',
+      errorMessage: 'string',
+      dtsJobId: 'string',
+      expireTime: 'string',
+      createTime: 'string',
+      payType: 'string',
+      reserved: 'string',
+      dbObject: 'string',
+      dtsJobClass: 'string',
+      dtsInstanceID: 'string',
+      dtsJobDirection: 'string',
+      checkpoint: 'string',
+      dataInitializationStatus: DescribeDtsJobsResponseBodyDtsJobListReverseJobDataInitializationStatus,
+      dataSynchronizationStatus: DescribeDtsJobsResponseBodyDtsJobListReverseJobDataSynchronizationStatus,
+      destinationEndpoint: DescribeDtsJobsResponseBodyDtsJobListReverseJobDestinationEndpoint,
+      migrationMode: DescribeDtsJobsResponseBodyDtsJobListReverseJobMigrationMode,
+      performance: DescribeDtsJobsResponseBodyDtsJobListReverseJobPerformance,
+      precheckStatus: DescribeDtsJobsResponseBodyDtsJobListReverseJobPrecheckStatus,
+      sourceEndpoint: DescribeDtsJobsResponseBodyDtsJobListReverseJobSourceEndpoint,
+      structureInitializationStatus: DescribeDtsJobsResponseBodyDtsJobListReverseJobStructureInitializationStatus,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDtsJobsResponseBodyDtsJobListSourceEndpoint extends $tea.Model {
+  sslSolutionEnum?: string;
+  oracleSID?: string;
+  region?: string;
+  databaseName?: string;
+  ip?: string;
+  instanceID?: string;
+  port?: string;
+  instanceType?: string;
+  userName?: string;
+  engineName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      sslSolutionEnum: 'SslSolutionEnum',
+      oracleSID: 'OracleSID',
+      region: 'Region',
+      databaseName: 'DatabaseName',
+      ip: 'Ip',
+      instanceID: 'InstanceID',
+      port: 'Port',
+      instanceType: 'InstanceType',
+      userName: 'UserName',
+      engineName: 'EngineName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sslSolutionEnum: 'string',
+      oracleSID: 'string',
+      region: 'string',
+      databaseName: 'string',
+      ip: 'string',
+      instanceID: 'string',
+      port: 'string',
+      instanceType: 'string',
+      userName: 'string',
+      engineName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDtsJobsResponseBodyDtsJobListStructureInitializationStatus extends $tea.Model {
+  status?: string;
+  percent?: string;
+  errorMessage?: string;
+  progress?: string;
+  static names(): { [key: string]: string } {
+    return {
+      status: 'Status',
+      percent: 'Percent',
+      errorMessage: 'ErrorMessage',
+      progress: 'Progress',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      status: 'string',
+      percent: 'string',
+      errorMessage: 'string',
+      progress: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDtsJobsResponseBodyDtsJobListRetryState extends $tea.Model {
+  retryCount?: number;
+  maxRetryTime?: number;
+  errMessage?: string;
+  retryTarget?: string;
+  retryTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      retryCount: 'RetryCount',
+      maxRetryTime: 'MaxRetryTime',
+      errMessage: 'ErrMessage',
+      retryTarget: 'RetryTarget',
+      retryTime: 'RetryTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      retryCount: 'number',
+      maxRetryTime: 'number',
+      errMessage: 'string',
+      retryTarget: 'string',
+      retryTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDtsJobsResponseBodyDtsJobList extends $tea.Model {
+  status?: string;
+  dtsJobName?: string;
+  delay?: number;
+  errorMessage?: string;
+  expireTime?: string;
+  dtsJobId?: string;
+  createTime?: string;
+  payType?: string;
+  reserved?: string;
+  consumptionClient?: string;
+  dbObject?: string;
+  dtsJobClass?: string;
+  consumptionCheckpoint?: string;
+  endTimestamp?: string;
+  appName?: string;
+  beginTimestamp?: string;
+  dtsInstanceID?: string;
+  dtsJobDirection?: string;
+  checkpoint?: string;
+  tagList?: DescribeDtsJobsResponseBodyDtsJobListTagList[];
+  dataInitializationStatus?: DescribeDtsJobsResponseBodyDtsJobListDataInitializationStatus;
+  dataSynchronizationStatus?: DescribeDtsJobsResponseBodyDtsJobListDataSynchronizationStatus;
+  dataEtlStatus?: DescribeDtsJobsResponseBodyDtsJobListDataEtlStatus;
+  destinationEndpoint?: DescribeDtsJobsResponseBodyDtsJobListDestinationEndpoint;
+  migrationMode?: DescribeDtsJobsResponseBodyDtsJobListMigrationMode;
+  performance?: DescribeDtsJobsResponseBodyDtsJobListPerformance;
+  precheckStatus?: DescribeDtsJobsResponseBodyDtsJobListPrecheckStatus;
+  reverseJob?: DescribeDtsJobsResponseBodyDtsJobListReverseJob;
+  sourceEndpoint?: DescribeDtsJobsResponseBodyDtsJobListSourceEndpoint;
+  structureInitializationStatus?: DescribeDtsJobsResponseBodyDtsJobListStructureInitializationStatus;
+  retryState?: DescribeDtsJobsResponseBodyDtsJobListRetryState;
+  static names(): { [key: string]: string } {
+    return {
+      status: 'Status',
+      dtsJobName: 'DtsJobName',
+      delay: 'Delay',
+      errorMessage: 'ErrorMessage',
+      expireTime: 'ExpireTime',
+      dtsJobId: 'DtsJobId',
+      createTime: 'CreateTime',
+      payType: 'PayType',
+      reserved: 'Reserved',
+      consumptionClient: 'ConsumptionClient',
+      dbObject: 'DbObject',
+      dtsJobClass: 'DtsJobClass',
+      consumptionCheckpoint: 'ConsumptionCheckpoint',
+      endTimestamp: 'EndTimestamp',
+      appName: 'AppName',
+      beginTimestamp: 'BeginTimestamp',
+      dtsInstanceID: 'DtsInstanceID',
+      dtsJobDirection: 'DtsJobDirection',
+      checkpoint: 'Checkpoint',
+      tagList: 'TagList',
+      dataInitializationStatus: 'DataInitializationStatus',
+      dataSynchronizationStatus: 'DataSynchronizationStatus',
+      dataEtlStatus: 'DataEtlStatus',
+      destinationEndpoint: 'DestinationEndpoint',
+      migrationMode: 'MigrationMode',
+      performance: 'Performance',
+      precheckStatus: 'PrecheckStatus',
+      reverseJob: 'ReverseJob',
+      sourceEndpoint: 'SourceEndpoint',
+      structureInitializationStatus: 'StructureInitializationStatus',
+      retryState: 'RetryState',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      status: 'string',
+      dtsJobName: 'string',
+      delay: 'number',
+      errorMessage: 'string',
+      expireTime: 'string',
+      dtsJobId: 'string',
+      createTime: 'string',
+      payType: 'string',
+      reserved: 'string',
+      consumptionClient: 'string',
+      dbObject: 'string',
+      dtsJobClass: 'string',
+      consumptionCheckpoint: 'string',
+      endTimestamp: 'string',
+      appName: 'string',
+      beginTimestamp: 'string',
+      dtsInstanceID: 'string',
+      dtsJobDirection: 'string',
+      checkpoint: 'string',
+      tagList: { 'type': 'array', 'itemType': DescribeDtsJobsResponseBodyDtsJobListTagList },
+      dataInitializationStatus: DescribeDtsJobsResponseBodyDtsJobListDataInitializationStatus,
+      dataSynchronizationStatus: DescribeDtsJobsResponseBodyDtsJobListDataSynchronizationStatus,
+      dataEtlStatus: DescribeDtsJobsResponseBodyDtsJobListDataEtlStatus,
+      destinationEndpoint: DescribeDtsJobsResponseBodyDtsJobListDestinationEndpoint,
+      migrationMode: DescribeDtsJobsResponseBodyDtsJobListMigrationMode,
+      performance: DescribeDtsJobsResponseBodyDtsJobListPerformance,
+      precheckStatus: DescribeDtsJobsResponseBodyDtsJobListPrecheckStatus,
+      reverseJob: DescribeDtsJobsResponseBodyDtsJobListReverseJob,
+      sourceEndpoint: DescribeDtsJobsResponseBodyDtsJobListSourceEndpoint,
+      structureInitializationStatus: DescribeDtsJobsResponseBodyDtsJobListStructureInitializationStatus,
+      retryState: DescribeDtsJobsResponseBodyDtsJobListRetryState,
     };
   }
 
@@ -5020,6 +9367,111 @@ export class DescribeInitializationStatusResponseBodyDataSynchronizationDetails 
   }
 }
 
+export class DescribeInitializationStatusResponseBodyStructureInitializationDetailsConstraints extends $tea.Model {
+  status?: string;
+  sourceOwnerDBName?: string;
+  objectDefinition?: string;
+  objectType?: string;
+  errorMessage?: string;
+  destinationOwnerDBName?: string;
+  objectName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      status: 'Status',
+      sourceOwnerDBName: 'SourceOwnerDBName',
+      objectDefinition: 'ObjectDefinition',
+      objectType: 'ObjectType',
+      errorMessage: 'ErrorMessage',
+      destinationOwnerDBName: 'DestinationOwnerDBName',
+      objectName: 'ObjectName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      status: 'string',
+      sourceOwnerDBName: 'string',
+      objectDefinition: 'string',
+      objectType: 'string',
+      errorMessage: 'string',
+      destinationOwnerDBName: 'string',
+      objectName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInitializationStatusResponseBodyStructureInitializationDetails extends $tea.Model {
+  status?: string;
+  sourceOwnerDBName?: string;
+  objectDefinition?: string;
+  objectType?: string;
+  errorMessage?: string;
+  destinationOwnerDBName?: string;
+  objectName?: string;
+  constraints?: DescribeInitializationStatusResponseBodyStructureInitializationDetailsConstraints[];
+  static names(): { [key: string]: string } {
+    return {
+      status: 'Status',
+      sourceOwnerDBName: 'SourceOwnerDBName',
+      objectDefinition: 'ObjectDefinition',
+      objectType: 'ObjectType',
+      errorMessage: 'ErrorMessage',
+      destinationOwnerDBName: 'DestinationOwnerDBName',
+      objectName: 'ObjectName',
+      constraints: 'Constraints',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      status: 'string',
+      sourceOwnerDBName: 'string',
+      objectDefinition: 'string',
+      objectType: 'string',
+      errorMessage: 'string',
+      destinationOwnerDBName: 'string',
+      objectName: 'string',
+      constraints: { 'type': 'array', 'itemType': DescribeInitializationStatusResponseBodyStructureInitializationDetailsConstraints },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeJobMonitorRuleResponseBodyMonitorRules extends $tea.Model {
+  type?: string;
+  delayRuleTime?: number;
+  state?: string;
+  phone?: string;
+  static names(): { [key: string]: string } {
+    return {
+      type: 'Type',
+      delayRuleTime: 'DelayRuleTime',
+      state: 'State',
+      phone: 'Phone',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      type: 'string',
+      delayRuleTime: 'number',
+      state: 'string',
+      phone: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeMigrationJobDetailRequestMigrationMode extends $tea.Model {
   structureInitialization?: boolean;
   dataInitialization?: boolean;
@@ -5037,56 +9489,6 @@ export class DescribeMigrationJobDetailRequestMigrationMode extends $tea.Model {
       structureInitialization: 'boolean',
       dataInitialization: 'boolean',
       dataSynchronization: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeMigrationJobDetailResponseBodyDataSynchronizationDetailListDataSynchronizationDetail extends $tea.Model {
-  status?: string;
-  sourceOwnerDBName?: string;
-  tableName?: string;
-  errorMessage?: string;
-  destinationOwnerDBName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      status: 'Status',
-      sourceOwnerDBName: 'SourceOwnerDBName',
-      tableName: 'TableName',
-      errorMessage: 'ErrorMessage',
-      destinationOwnerDBName: 'DestinationOwnerDBName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      status: 'string',
-      sourceOwnerDBName: 'string',
-      tableName: 'string',
-      errorMessage: 'string',
-      destinationOwnerDBName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeMigrationJobDetailResponseBodyDataSynchronizationDetailList extends $tea.Model {
-  dataSynchronizationDetail?: DescribeMigrationJobDetailResponseBodyDataSynchronizationDetailListDataSynchronizationDetail[];
-  static names(): { [key: string]: string } {
-    return {
-      dataSynchronizationDetail: 'DataSynchronizationDetail',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dataSynchronizationDetail: { 'type': 'array', 'itemType': DescribeMigrationJobDetailResponseBodyDataSynchronizationDetailListDataSynchronizationDetail },
     };
   }
 
@@ -5154,6 +9556,56 @@ export class DescribeMigrationJobDetailResponseBodyDataInitializationDetailList 
   }
 }
 
+export class DescribeMigrationJobDetailResponseBodyDataSynchronizationDetailListDataSynchronizationDetail extends $tea.Model {
+  status?: string;
+  sourceOwnerDBName?: string;
+  tableName?: string;
+  errorMessage?: string;
+  destinationOwnerDBName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      status: 'Status',
+      sourceOwnerDBName: 'SourceOwnerDBName',
+      tableName: 'TableName',
+      errorMessage: 'ErrorMessage',
+      destinationOwnerDBName: 'DestinationOwnerDBName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      status: 'string',
+      sourceOwnerDBName: 'string',
+      tableName: 'string',
+      errorMessage: 'string',
+      destinationOwnerDBName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeMigrationJobDetailResponseBodyDataSynchronizationDetailList extends $tea.Model {
+  dataSynchronizationDetail?: DescribeMigrationJobDetailResponseBodyDataSynchronizationDetailListDataSynchronizationDetail[];
+  static names(): { [key: string]: string } {
+    return {
+      dataSynchronizationDetail: 'DataSynchronizationDetail',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataSynchronizationDetail: { 'type': 'array', 'itemType': DescribeMigrationJobDetailResponseBodyDataSynchronizationDetailListDataSynchronizationDetail },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeMigrationJobDetailResponseBodyStructureInitializationDetailListStructureInitializationDetailConstraintListStructureInitializationDetail extends $tea.Model {
   status?: string;
   sourceOwnerDBName?: string;
@@ -5213,22 +9665,22 @@ export class DescribeMigrationJobDetailResponseBodyStructureInitializationDetail
 export class DescribeMigrationJobDetailResponseBodyStructureInitializationDetailListStructureInitializationDetail extends $tea.Model {
   status?: string;
   sourceOwnerDBName?: string;
-  constraintList?: DescribeMigrationJobDetailResponseBodyStructureInitializationDetailListStructureInitializationDetailConstraintList;
   objectDefinition?: string;
   objectType?: string;
   errorMessage?: string;
   destinationOwnerDBName?: string;
   objectName?: string;
+  constraintList?: DescribeMigrationJobDetailResponseBodyStructureInitializationDetailListStructureInitializationDetailConstraintList;
   static names(): { [key: string]: string } {
     return {
       status: 'Status',
       sourceOwnerDBName: 'SourceOwnerDBName',
-      constraintList: 'ConstraintList',
       objectDefinition: 'ObjectDefinition',
       objectType: 'ObjectType',
       errorMessage: 'ErrorMessage',
       destinationOwnerDBName: 'DestinationOwnerDBName',
       objectName: 'ObjectName',
+      constraintList: 'ConstraintList',
     };
   }
 
@@ -5236,12 +9688,12 @@ export class DescribeMigrationJobDetailResponseBodyStructureInitializationDetail
     return {
       status: 'string',
       sourceOwnerDBName: 'string',
-      constraintList: DescribeMigrationJobDetailResponseBodyStructureInitializationDetailListStructureInitializationDetailConstraintList,
       objectDefinition: 'string',
       objectType: 'string',
       errorMessage: 'string',
       destinationOwnerDBName: 'string',
       objectName: 'string',
+      constraintList: DescribeMigrationJobDetailResponseBodyStructureInitializationDetailListStructureInitializationDetailConstraintList,
     };
   }
 
@@ -5291,26 +9743,17 @@ export class DescribeMigrationJobsRequestTag extends $tea.Model {
   }
 }
 
-export class DescribeMigrationJobsResponseBodyMigrationJobsMigrationJobDataInitialization extends $tea.Model {
-  percent?: string;
-  errorMessage?: string;
-  progress?: string;
-  status?: string;
+export class DescribeMigrationJobsResponseBodyMigrationJobsMigrationJobMigrationObjectSynchronousObjectTableList extends $tea.Model {
+  table?: string[];
   static names(): { [key: string]: string } {
     return {
-      percent: 'Percent',
-      errorMessage: 'ErrorMessage',
-      progress: 'Progress',
-      status: 'status',
+      table: 'Table',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      percent: 'string',
-      errorMessage: 'string',
-      progress: 'string',
-      status: 'string',
+      table: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -5319,20 +9762,23 @@ export class DescribeMigrationJobsResponseBodyMigrationJobsMigrationJobDataIniti
   }
 }
 
-export class DescribeMigrationJobsResponseBodyMigrationJobsMigrationJobPrecheck extends $tea.Model {
-  status?: string;
-  percent?: string;
+export class DescribeMigrationJobsResponseBodyMigrationJobsMigrationJobMigrationObjectSynchronousObject extends $tea.Model {
+  databaseName?: string;
+  wholeDatabase?: string;
+  tableList?: DescribeMigrationJobsResponseBodyMigrationJobsMigrationJobMigrationObjectSynchronousObjectTableList;
   static names(): { [key: string]: string } {
     return {
-      status: 'Status',
-      percent: 'Percent',
+      databaseName: 'DatabaseName',
+      wholeDatabase: 'WholeDatabase',
+      tableList: 'TableList',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      status: 'string',
-      percent: 'string',
+      databaseName: 'string',
+      wholeDatabase: 'string',
+      tableList: DescribeMigrationJobsResponseBodyMigrationJobsMigrationJobMigrationObjectSynchronousObjectTableList,
     };
   }
 
@@ -5341,26 +9787,17 @@ export class DescribeMigrationJobsResponseBodyMigrationJobsMigrationJobPrecheck 
   }
 }
 
-export class DescribeMigrationJobsResponseBodyMigrationJobsMigrationJobStructureInitialization extends $tea.Model {
-  percent?: string;
-  errorMessage?: string;
-  progress?: string;
-  status?: string;
+export class DescribeMigrationJobsResponseBodyMigrationJobsMigrationJobMigrationObject extends $tea.Model {
+  synchronousObject?: DescribeMigrationJobsResponseBodyMigrationJobsMigrationJobMigrationObjectSynchronousObject[];
   static names(): { [key: string]: string } {
     return {
-      percent: 'Percent',
-      errorMessage: 'ErrorMessage',
-      progress: 'Progress',
-      status: 'status',
+      synchronousObject: 'SynchronousObject',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      percent: 'string',
-      errorMessage: 'string',
-      progress: 'string',
-      status: 'string',
+      synchronousObject: { 'type': 'array', 'itemType': DescribeMigrationJobsResponseBodyMigrationJobsMigrationJobMigrationObjectSynchronousObject },
     };
   }
 
@@ -5410,61 +9847,26 @@ export class DescribeMigrationJobsResponseBodyMigrationJobsMigrationJobTags exte
   }
 }
 
-export class DescribeMigrationJobsResponseBodyMigrationJobsMigrationJobMigrationObjectSynchronousObjectTableList extends $tea.Model {
-  table?: string[];
+export class DescribeMigrationJobsResponseBodyMigrationJobsMigrationJobDataInitialization extends $tea.Model {
+  percent?: string;
+  status?: string;
+  errorMessage?: string;
+  progress?: string;
   static names(): { [key: string]: string } {
     return {
-      table: 'Table',
+      percent: 'Percent',
+      status: 'status',
+      errorMessage: 'ErrorMessage',
+      progress: 'Progress',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      table: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeMigrationJobsResponseBodyMigrationJobsMigrationJobMigrationObjectSynchronousObject extends $tea.Model {
-  wholeDatabase?: string;
-  databaseName?: string;
-  tableList?: DescribeMigrationJobsResponseBodyMigrationJobsMigrationJobMigrationObjectSynchronousObjectTableList;
-  static names(): { [key: string]: string } {
-    return {
-      wholeDatabase: 'WholeDatabase',
-      databaseName: 'DatabaseName',
-      tableList: 'TableList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      wholeDatabase: 'string',
-      databaseName: 'string',
-      tableList: DescribeMigrationJobsResponseBodyMigrationJobsMigrationJobMigrationObjectSynchronousObjectTableList,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeMigrationJobsResponseBodyMigrationJobsMigrationJobMigrationObject extends $tea.Model {
-  synchronousObject?: DescribeMigrationJobsResponseBodyMigrationJobsMigrationJobMigrationObjectSynchronousObject[];
-  static names(): { [key: string]: string } {
-    return {
-      synchronousObject: 'SynchronousObject',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      synchronousObject: { 'type': 'array', 'itemType': DescribeMigrationJobsResponseBodyMigrationJobsMigrationJobMigrationObjectSynchronousObject },
+      percent: 'string',
+      status: 'string',
+      errorMessage: 'string',
+      progress: 'string',
     };
   }
 
@@ -5476,14 +9878,14 @@ export class DescribeMigrationJobsResponseBodyMigrationJobsMigrationJobMigration
 export class DescribeMigrationJobsResponseBodyMigrationJobsMigrationJobDataSynchronization extends $tea.Model {
   delay?: string;
   percent?: string;
-  errorMessage?: string;
   status?: string;
+  errorMessage?: string;
   static names(): { [key: string]: string } {
     return {
       delay: 'Delay',
       percent: 'Percent',
-      errorMessage: 'ErrorMessage',
       status: 'status',
+      errorMessage: 'ErrorMessage',
     };
   }
 
@@ -5491,8 +9893,8 @@ export class DescribeMigrationJobsResponseBodyMigrationJobsMigrationJobDataSynch
     return {
       delay: 'string',
       percent: 'string',
-      errorMessage: 'string',
       status: 'string',
+      errorMessage: 'string',
     };
   }
 
@@ -5502,46 +9904,6 @@ export class DescribeMigrationJobsResponseBodyMigrationJobsMigrationJobDataSynch
 }
 
 export class DescribeMigrationJobsResponseBodyMigrationJobsMigrationJobDestinationEndpoint extends $tea.Model {
-  oracleSID?: string;
-  databaseName?: string;
-  instanceID?: string;
-  port?: string;
-  IP?: string;
-  instanceType?: string;
-  userName?: string;
-  engineName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      oracleSID: 'OracleSID',
-      databaseName: 'DatabaseName',
-      instanceID: 'InstanceID',
-      port: 'Port',
-      IP: 'IP',
-      instanceType: 'InstanceType',
-      userName: 'UserName',
-      engineName: 'EngineName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      oracleSID: 'string',
-      databaseName: 'string',
-      instanceID: 'string',
-      port: 'string',
-      IP: 'string',
-      instanceType: 'string',
-      userName: 'string',
-      engineName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeMigrationJobsResponseBodyMigrationJobsMigrationJobSourceEndpoint extends $tea.Model {
   oracleSID?: string;
   databaseName?: string;
   instanceID?: string;
@@ -5606,56 +9968,152 @@ export class DescribeMigrationJobsResponseBodyMigrationJobsMigrationJobMigration
   }
 }
 
-export class DescribeMigrationJobsResponseBodyMigrationJobsMigrationJob extends $tea.Model {
-  dataInitialization?: DescribeMigrationJobsResponseBodyMigrationJobsMigrationJobDataInitialization;
-  precheck?: DescribeMigrationJobsResponseBodyMigrationJobsMigrationJobPrecheck;
-  migrationJobName?: string;
-  structureInitialization?: DescribeMigrationJobsResponseBodyMigrationJobsMigrationJobStructureInitialization;
-  payType?: string;
-  tags?: DescribeMigrationJobsResponseBodyMigrationJobsMigrationJobTags;
-  migrationObject?: DescribeMigrationJobsResponseBodyMigrationJobsMigrationJobMigrationObject;
-  dataSynchronization?: DescribeMigrationJobsResponseBodyMigrationJobsMigrationJobDataSynchronization;
-  destinationEndpoint?: DescribeMigrationJobsResponseBodyMigrationJobsMigrationJobDestinationEndpoint;
-  migrationJobStatus?: string;
-  sourceEndpoint?: DescribeMigrationJobsResponseBodyMigrationJobsMigrationJobSourceEndpoint;
-  migrationMode?: DescribeMigrationJobsResponseBodyMigrationJobsMigrationJobMigrationMode;
-  migrationJobClass?: string;
-  migrationJobID?: string;
+export class DescribeMigrationJobsResponseBodyMigrationJobsMigrationJobPrecheck extends $tea.Model {
+  status?: string;
+  percent?: string;
   static names(): { [key: string]: string } {
     return {
-      dataInitialization: 'DataInitialization',
-      precheck: 'Precheck',
-      migrationJobName: 'MigrationJobName',
-      structureInitialization: 'StructureInitialization',
-      payType: 'PayType',
-      tags: 'Tags',
-      migrationObject: 'MigrationObject',
-      dataSynchronization: 'DataSynchronization',
-      destinationEndpoint: 'DestinationEndpoint',
-      migrationJobStatus: 'MigrationJobStatus',
-      sourceEndpoint: 'SourceEndpoint',
-      migrationMode: 'MigrationMode',
-      migrationJobClass: 'MigrationJobClass',
-      migrationJobID: 'MigrationJobID',
+      status: 'Status',
+      percent: 'Percent',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      dataInitialization: DescribeMigrationJobsResponseBodyMigrationJobsMigrationJobDataInitialization,
-      precheck: DescribeMigrationJobsResponseBodyMigrationJobsMigrationJobPrecheck,
+      status: 'string',
+      percent: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeMigrationJobsResponseBodyMigrationJobsMigrationJobSourceEndpoint extends $tea.Model {
+  oracleSID?: string;
+  databaseName?: string;
+  instanceID?: string;
+  port?: string;
+  IP?: string;
+  instanceType?: string;
+  userName?: string;
+  engineName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      oracleSID: 'OracleSID',
+      databaseName: 'DatabaseName',
+      instanceID: 'InstanceID',
+      port: 'Port',
+      IP: 'IP',
+      instanceType: 'InstanceType',
+      userName: 'UserName',
+      engineName: 'EngineName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      oracleSID: 'string',
+      databaseName: 'string',
+      instanceID: 'string',
+      port: 'string',
+      IP: 'string',
+      instanceType: 'string',
+      userName: 'string',
+      engineName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeMigrationJobsResponseBodyMigrationJobsMigrationJobStructureInitialization extends $tea.Model {
+  percent?: string;
+  status?: string;
+  errorMessage?: string;
+  progress?: string;
+  static names(): { [key: string]: string } {
+    return {
+      percent: 'Percent',
+      status: 'status',
+      errorMessage: 'ErrorMessage',
+      progress: 'Progress',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      percent: 'string',
+      status: 'string',
+      errorMessage: 'string',
+      progress: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeMigrationJobsResponseBodyMigrationJobsMigrationJob extends $tea.Model {
+  migrationJobName?: string;
+  migrationJobStatus?: string;
+  payType?: string;
+  migrationJobClass?: string;
+  instanceCreateTime?: string;
+  migrationJobID?: string;
+  jobCreateTime?: string;
+  migrationObject?: DescribeMigrationJobsResponseBodyMigrationJobsMigrationJobMigrationObject;
+  tags?: DescribeMigrationJobsResponseBodyMigrationJobsMigrationJobTags;
+  dataInitialization?: DescribeMigrationJobsResponseBodyMigrationJobsMigrationJobDataInitialization;
+  dataSynchronization?: DescribeMigrationJobsResponseBodyMigrationJobsMigrationJobDataSynchronization;
+  destinationEndpoint?: DescribeMigrationJobsResponseBodyMigrationJobsMigrationJobDestinationEndpoint;
+  migrationMode?: DescribeMigrationJobsResponseBodyMigrationJobsMigrationJobMigrationMode;
+  precheck?: DescribeMigrationJobsResponseBodyMigrationJobsMigrationJobPrecheck;
+  sourceEndpoint?: DescribeMigrationJobsResponseBodyMigrationJobsMigrationJobSourceEndpoint;
+  structureInitialization?: DescribeMigrationJobsResponseBodyMigrationJobsMigrationJobStructureInitialization;
+  static names(): { [key: string]: string } {
+    return {
+      migrationJobName: 'MigrationJobName',
+      migrationJobStatus: 'MigrationJobStatus',
+      payType: 'PayType',
+      migrationJobClass: 'MigrationJobClass',
+      instanceCreateTime: 'InstanceCreateTime',
+      migrationJobID: 'MigrationJobID',
+      jobCreateTime: 'JobCreateTime',
+      migrationObject: 'MigrationObject',
+      tags: 'Tags',
+      dataInitialization: 'DataInitialization',
+      dataSynchronization: 'DataSynchronization',
+      destinationEndpoint: 'DestinationEndpoint',
+      migrationMode: 'MigrationMode',
+      precheck: 'Precheck',
+      sourceEndpoint: 'SourceEndpoint',
+      structureInitialization: 'StructureInitialization',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
       migrationJobName: 'string',
-      structureInitialization: DescribeMigrationJobsResponseBodyMigrationJobsMigrationJobStructureInitialization,
+      migrationJobStatus: 'string',
       payType: 'string',
-      tags: DescribeMigrationJobsResponseBodyMigrationJobsMigrationJobTags,
+      migrationJobClass: 'string',
+      instanceCreateTime: 'string',
+      migrationJobID: 'string',
+      jobCreateTime: 'string',
       migrationObject: DescribeMigrationJobsResponseBodyMigrationJobsMigrationJobMigrationObject,
+      tags: DescribeMigrationJobsResponseBodyMigrationJobsMigrationJobTags,
+      dataInitialization: DescribeMigrationJobsResponseBodyMigrationJobsMigrationJobDataInitialization,
       dataSynchronization: DescribeMigrationJobsResponseBodyMigrationJobsMigrationJobDataSynchronization,
       destinationEndpoint: DescribeMigrationJobsResponseBodyMigrationJobsMigrationJobDestinationEndpoint,
-      migrationJobStatus: 'string',
-      sourceEndpoint: DescribeMigrationJobsResponseBodyMigrationJobsMigrationJobSourceEndpoint,
       migrationMode: DescribeMigrationJobsResponseBodyMigrationJobsMigrationJobMigrationMode,
-      migrationJobClass: 'string',
-      migrationJobID: 'string',
+      precheck: DescribeMigrationJobsResponseBodyMigrationJobsMigrationJobPrecheck,
+      sourceEndpoint: DescribeMigrationJobsResponseBodyMigrationJobsMigrationJobSourceEndpoint,
+      structureInitialization: DescribeMigrationJobsResponseBodyMigrationJobsMigrationJobStructureInitialization,
     };
   }
 
@@ -5711,23 +10169,94 @@ export class DescribeMigrationJobStatusResponseBodyDataInitializationStatus exte
   }
 }
 
+export class DescribeMigrationJobStatusResponseBodyDataSynchronizationStatus extends $tea.Model {
+  status?: string;
+  percent?: string;
+  delay?: string;
+  errorMessage?: string;
+  checkpoint?: string;
+  static names(): { [key: string]: string } {
+    return {
+      status: 'Status',
+      percent: 'Percent',
+      delay: 'Delay',
+      errorMessage: 'ErrorMessage',
+      checkpoint: 'Checkpoint',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      status: 'string',
+      percent: 'string',
+      delay: 'string',
+      errorMessage: 'string',
+      checkpoint: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeMigrationJobStatusResponseBodyDestinationEndpoint extends $tea.Model {
+  databaseName?: string;
+  instanceId?: string;
+  IP?: string;
+  instanceType?: string;
+  port?: string;
+  userName?: string;
+  oracleSID?: string;
+  engineName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      databaseName: 'DatabaseName',
+      instanceId: 'InstanceId',
+      IP: 'IP',
+      instanceType: 'InstanceType',
+      port: 'Port',
+      userName: 'UserName',
+      oracleSID: 'oracleSID',
+      engineName: 'EngineName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      databaseName: 'string',
+      instanceId: 'string',
+      IP: 'string',
+      instanceType: 'string',
+      port: 'string',
+      userName: 'string',
+      oracleSID: 'string',
+      engineName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeMigrationJobStatusResponseBodyMigrationMode extends $tea.Model {
   dataInitialization?: boolean;
-  structureInitialization?: boolean;
   dataSynchronization?: boolean;
+  structureInitialization?: boolean;
   static names(): { [key: string]: string } {
     return {
       dataInitialization: 'dataInitialization',
-      structureInitialization: 'structureInitialization',
       dataSynchronization: 'dataSynchronization',
+      structureInitialization: 'structureInitialization',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       dataInitialization: 'boolean',
-      structureInitialization: 'boolean',
       dataSynchronization: 'boolean',
+      structureInitialization: 'boolean',
     };
   }
 
@@ -5808,46 +10337,6 @@ export class DescribeMigrationJobStatusResponseBodyPrecheckStatus extends $tea.M
   }
 }
 
-export class DescribeMigrationJobStatusResponseBodyDestinationEndpoint extends $tea.Model {
-  databaseName?: string;
-  instanceId?: string;
-  IP?: string;
-  instanceType?: string;
-  port?: string;
-  userName?: string;
-  oracleSID?: string;
-  engineName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      databaseName: 'DatabaseName',
-      instanceId: 'InstanceId',
-      IP: 'IP',
-      instanceType: 'InstanceType',
-      port: 'Port',
-      userName: 'UserName',
-      oracleSID: 'oracleSID',
-      engineName: 'EngineName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      databaseName: 'string',
-      instanceId: 'string',
-      IP: 'string',
-      instanceType: 'string',
-      port: 'string',
-      userName: 'string',
-      oracleSID: 'string',
-      engineName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeMigrationJobStatusResponseBodySourceEndpoint extends $tea.Model {
   databaseName?: string;
   instanceId?: string;
@@ -5916,29 +10405,267 @@ export class DescribeMigrationJobStatusResponseBodyStructureInitializationStatus
   }
 }
 
-export class DescribeMigrationJobStatusResponseBodyDataSynchronizationStatus extends $tea.Model {
-  status?: string;
-  percent?: string;
-  delay?: string;
-  errorMessage?: string;
-  checkpoint?: string;
+export class DescribePreCheckStatusResponseBodyJobProgressLogs extends $tea.Model {
+  errData?: string;
+  errMsg?: string;
+  logLevel?: string;
+  errType?: string;
   static names(): { [key: string]: string } {
     return {
-      status: 'Status',
-      percent: 'Percent',
-      delay: 'Delay',
-      errorMessage: 'ErrorMessage',
-      checkpoint: 'Checkpoint',
+      errData: 'ErrData',
+      errMsg: 'ErrMsg',
+      logLevel: 'LogLevel',
+      errType: 'ErrType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      status: 'string',
-      percent: 'string',
-      delay: 'string',
-      errorMessage: 'string',
-      checkpoint: 'string',
+      errData: 'string',
+      errMsg: 'string',
+      logLevel: 'string',
+      errType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePreCheckStatusResponseBodyJobProgress extends $tea.Model {
+  skip?: boolean;
+  finishTime?: string;
+  ignoreFlag?: string;
+  delaySeconds?: number;
+  ddlSql?: string;
+  state?: string;
+  bootTime?: string;
+  item?: string;
+  sub?: string;
+  total?: number;
+  targetNames?: string;
+  canSkip?: boolean;
+  names?: string;
+  errDetail?: string;
+  diffRow?: number;
+  jobId?: string;
+  sourceSchema?: string;
+  destSchema?: string;
+  parentObj?: string;
+  errMsg?: string;
+  orderNum?: number;
+  repairMethod?: string;
+  id?: string;
+  logs?: DescribePreCheckStatusResponseBodyJobProgressLogs[];
+  static names(): { [key: string]: string } {
+    return {
+      skip: 'Skip',
+      finishTime: 'FinishTime',
+      ignoreFlag: 'IgnoreFlag',
+      delaySeconds: 'DelaySeconds',
+      ddlSql: 'DdlSql',
+      state: 'State',
+      bootTime: 'BootTime',
+      item: 'Item',
+      sub: 'Sub',
+      total: 'Total',
+      targetNames: 'TargetNames',
+      canSkip: 'CanSkip',
+      names: 'Names',
+      errDetail: 'ErrDetail',
+      diffRow: 'DiffRow',
+      jobId: 'JobId',
+      sourceSchema: 'SourceSchema',
+      destSchema: 'DestSchema',
+      parentObj: 'ParentObj',
+      errMsg: 'ErrMsg',
+      orderNum: 'OrderNum',
+      repairMethod: 'RepairMethod',
+      id: 'Id',
+      logs: 'Logs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      skip: 'boolean',
+      finishTime: 'string',
+      ignoreFlag: 'string',
+      delaySeconds: 'number',
+      ddlSql: 'string',
+      state: 'string',
+      bootTime: 'string',
+      item: 'string',
+      sub: 'string',
+      total: 'number',
+      targetNames: 'string',
+      canSkip: 'boolean',
+      names: 'string',
+      errDetail: 'string',
+      diffRow: 'number',
+      jobId: 'string',
+      sourceSchema: 'string',
+      destSchema: 'string',
+      parentObj: 'string',
+      errMsg: 'string',
+      orderNum: 'number',
+      repairMethod: 'string',
+      id: 'string',
+      logs: { 'type': 'array', 'itemType': DescribePreCheckStatusResponseBodyJobProgressLogs },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePreCheckStatusResponseBodySubDistributedJobStatusJobProgressLogs extends $tea.Model {
+  errData?: string;
+  errMsg?: string;
+  logLevel?: string;
+  errType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errData: 'ErrData',
+      errMsg: 'ErrMsg',
+      logLevel: 'LogLevel',
+      errType: 'ErrType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errData: 'string',
+      errMsg: 'string',
+      logLevel: 'string',
+      errType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePreCheckStatusResponseBodySubDistributedJobStatusJobProgress extends $tea.Model {
+  skip?: boolean;
+  finishTime?: string;
+  ignoreFlag?: string;
+  delaySeconds?: number;
+  ddlSql?: string;
+  state?: string;
+  bootTime?: string;
+  item?: string;
+  sub?: string;
+  total?: number;
+  targetNames?: string;
+  canSkip?: boolean;
+  names?: string;
+  errDetail?: string;
+  diffRow?: number;
+  jobId?: string;
+  sourceSchema?: string;
+  destSchema?: string;
+  parentObj?: string;
+  errMsg?: string;
+  orderNum?: number;
+  repairMethod?: string;
+  id?: string;
+  logs?: DescribePreCheckStatusResponseBodySubDistributedJobStatusJobProgressLogs[];
+  static names(): { [key: string]: string } {
+    return {
+      skip: 'Skip',
+      finishTime: 'FinishTime',
+      ignoreFlag: 'IgnoreFlag',
+      delaySeconds: 'DelaySeconds',
+      ddlSql: 'DdlSql',
+      state: 'State',
+      bootTime: 'BootTime',
+      item: 'Item',
+      sub: 'Sub',
+      total: 'Total',
+      targetNames: 'TargetNames',
+      canSkip: 'CanSkip',
+      names: 'Names',
+      errDetail: 'ErrDetail',
+      diffRow: 'DiffRow',
+      jobId: 'JobId',
+      sourceSchema: 'SourceSchema',
+      destSchema: 'DestSchema',
+      parentObj: 'ParentObj',
+      errMsg: 'ErrMsg',
+      orderNum: 'OrderNum',
+      repairMethod: 'RepairMethod',
+      id: 'Id',
+      logs: 'Logs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      skip: 'boolean',
+      finishTime: 'string',
+      ignoreFlag: 'string',
+      delaySeconds: 'number',
+      ddlSql: 'string',
+      state: 'string',
+      bootTime: 'string',
+      item: 'string',
+      sub: 'string',
+      total: 'number',
+      targetNames: 'string',
+      canSkip: 'boolean',
+      names: 'string',
+      errDetail: 'string',
+      diffRow: 'number',
+      jobId: 'string',
+      sourceSchema: 'string',
+      destSchema: 'string',
+      parentObj: 'string',
+      errMsg: 'string',
+      orderNum: 'number',
+      repairMethod: 'string',
+      id: 'string',
+      logs: { 'type': 'array', 'itemType': DescribePreCheckStatusResponseBodySubDistributedJobStatusJobProgressLogs },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePreCheckStatusResponseBodySubDistributedJobStatus extends $tea.Model {
+  jobName?: string;
+  state?: string;
+  jobId?: string;
+  errorItem?: number;
+  code?: string;
+  total?: number;
+  jobProgress?: DescribePreCheckStatusResponseBodySubDistributedJobStatusJobProgress[];
+  static names(): { [key: string]: string } {
+    return {
+      jobName: 'JobName',
+      state: 'State',
+      jobId: 'JobId',
+      errorItem: 'ErrorItem',
+      code: 'Code',
+      total: 'Total',
+      jobProgress: 'JobProgress',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobName: 'string',
+      state: 'string',
+      jobId: 'string',
+      errorItem: 'number',
+      code: 'string',
+      total: 'number',
+      jobProgress: { 'type': 'array', 'itemType': DescribePreCheckStatusResponseBodySubDistributedJobStatusJobProgress },
     };
   }
 
@@ -5961,6 +10688,69 @@ export class DescribeSubscriptionInstancesRequestTag extends $tea.Model {
     return {
       key: 'string',
       value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSubscriptionInstancesResponseBodySubscriptionInstancesSubscriptionInstanceSubscriptionObjectSynchronousObjectTableList extends $tea.Model {
+  table?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      table: 'Table',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      table: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSubscriptionInstancesResponseBodySubscriptionInstancesSubscriptionInstanceSubscriptionObjectSynchronousObject extends $tea.Model {
+  databaseName?: string;
+  wholeDatabase?: string;
+  tableList?: DescribeSubscriptionInstancesResponseBodySubscriptionInstancesSubscriptionInstanceSubscriptionObjectSynchronousObjectTableList;
+  static names(): { [key: string]: string } {
+    return {
+      databaseName: 'DatabaseName',
+      wholeDatabase: 'WholeDatabase',
+      tableList: 'TableList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      databaseName: 'string',
+      wholeDatabase: 'string',
+      tableList: DescribeSubscriptionInstancesResponseBodySubscriptionInstancesSubscriptionInstanceSubscriptionObjectSynchronousObjectTableList,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSubscriptionInstancesResponseBodySubscriptionInstancesSubscriptionInstanceSubscriptionObject extends $tea.Model {
+  synchronousObject?: DescribeSubscriptionInstancesResponseBodySubscriptionInstancesSubscriptionInstanceSubscriptionObjectSynchronousObject[];
+  static names(): { [key: string]: string } {
+    return {
+      synchronousObject: 'SynchronousObject',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      synchronousObject: { 'type': 'array', 'itemType': DescribeSubscriptionInstancesResponseBodySubscriptionInstancesSubscriptionInstanceSubscriptionObjectSynchronousObject },
     };
   }
 
@@ -6010,108 +10800,20 @@ export class DescribeSubscriptionInstancesResponseBodySubscriptionInstancesSubsc
   }
 }
 
-export class DescribeSubscriptionInstancesResponseBodySubscriptionInstancesSubscriptionInstanceSubscriptionObjectSynchronousObjectTableList extends $tea.Model {
-  table?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      table: 'Table',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      table: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSubscriptionInstancesResponseBodySubscriptionInstancesSubscriptionInstanceSubscriptionObjectSynchronousObject extends $tea.Model {
-  wholeDatabase?: string;
-  databaseName?: string;
-  tableList?: DescribeSubscriptionInstancesResponseBodySubscriptionInstancesSubscriptionInstanceSubscriptionObjectSynchronousObjectTableList;
-  static names(): { [key: string]: string } {
-    return {
-      wholeDatabase: 'WholeDatabase',
-      databaseName: 'DatabaseName',
-      tableList: 'TableList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      wholeDatabase: 'string',
-      databaseName: 'string',
-      tableList: DescribeSubscriptionInstancesResponseBodySubscriptionInstancesSubscriptionInstanceSubscriptionObjectSynchronousObjectTableList,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSubscriptionInstancesResponseBodySubscriptionInstancesSubscriptionInstanceSubscriptionObject extends $tea.Model {
-  synchronousObject?: DescribeSubscriptionInstancesResponseBodySubscriptionInstancesSubscriptionInstanceSubscriptionObjectSynchronousObject[];
-  static names(): { [key: string]: string } {
-    return {
-      synchronousObject: 'SynchronousObject',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      synchronousObject: { 'type': 'array', 'itemType': DescribeSubscriptionInstancesResponseBodySubscriptionInstancesSubscriptionInstanceSubscriptionObjectSynchronousObject },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSubscriptionInstancesResponseBodySubscriptionInstancesSubscriptionInstanceSubscriptionHost extends $tea.Model {
-  privateHost?: string;
-  VPCHost?: string;
-  publicHost?: string;
-  static names(): { [key: string]: string } {
-    return {
-      privateHost: 'PrivateHost',
-      VPCHost: 'VPCHost',
-      publicHost: 'PublicHost',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      privateHost: 'string',
-      VPCHost: 'string',
-      publicHost: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeSubscriptionInstancesResponseBodySubscriptionInstancesSubscriptionInstanceSourceEndpoint extends $tea.Model {
-  instanceID?: string;
   instanceType?: string;
+  instanceID?: string;
   static names(): { [key: string]: string } {
     return {
-      instanceID: 'InstanceID',
       instanceType: 'InstanceType',
+      instanceID: 'InstanceID',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      instanceID: 'string',
       instanceType: 'string',
+      instanceID: 'string',
     };
   }
 
@@ -6142,39 +10844,68 @@ export class DescribeSubscriptionInstancesResponseBodySubscriptionInstancesSubsc
   }
 }
 
+export class DescribeSubscriptionInstancesResponseBodySubscriptionInstancesSubscriptionInstanceSubscriptionHost extends $tea.Model {
+  VPCHost?: string;
+  publicHost?: string;
+  privateHost?: string;
+  static names(): { [key: string]: string } {
+    return {
+      VPCHost: 'VPCHost',
+      publicHost: 'PublicHost',
+      privateHost: 'PrivateHost',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      VPCHost: 'string',
+      publicHost: 'string',
+      privateHost: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeSubscriptionInstancesResponseBodySubscriptionInstancesSubscriptionInstance extends $tea.Model {
   status?: string;
   errorMessage?: string;
   payType?: string;
-  tags?: DescribeSubscriptionInstancesResponseBodySubscriptionInstancesSubscriptionInstanceTags;
   consumptionClient?: string;
-  subscriptionObject?: DescribeSubscriptionInstancesResponseBodySubscriptionInstancesSubscriptionInstanceSubscriptionObject;
-  subscriptionHost?: DescribeSubscriptionInstancesResponseBodySubscriptionInstancesSubscriptionInstanceSubscriptionHost;
-  endTimestamp?: string;
   consumptionCheckpoint?: string;
-  subscribeTopic?: string;
+  endTimestamp?: string;
+  instanceCreateTime?: string;
   beginTimestamp?: string;
-  sourceEndpoint?: DescribeSubscriptionInstancesResponseBodySubscriptionInstancesSubscriptionInstanceSourceEndpoint;
-  subscriptionDataType?: DescribeSubscriptionInstancesResponseBodySubscriptionInstancesSubscriptionInstanceSubscriptionDataType;
+  subscribeTopic?: string;
   subscriptionInstanceName?: string;
   subscriptionInstanceID?: string;
+  jobCreateTime?: string;
+  subscriptionObject?: DescribeSubscriptionInstancesResponseBodySubscriptionInstancesSubscriptionInstanceSubscriptionObject;
+  tags?: DescribeSubscriptionInstancesResponseBodySubscriptionInstancesSubscriptionInstanceTags;
+  sourceEndpoint?: DescribeSubscriptionInstancesResponseBodySubscriptionInstancesSubscriptionInstanceSourceEndpoint;
+  subscriptionDataType?: DescribeSubscriptionInstancesResponseBodySubscriptionInstancesSubscriptionInstanceSubscriptionDataType;
+  subscriptionHost?: DescribeSubscriptionInstancesResponseBodySubscriptionInstancesSubscriptionInstanceSubscriptionHost;
   static names(): { [key: string]: string } {
     return {
       status: 'Status',
       errorMessage: 'ErrorMessage',
       payType: 'PayType',
-      tags: 'Tags',
       consumptionClient: 'ConsumptionClient',
-      subscriptionObject: 'SubscriptionObject',
-      subscriptionHost: 'SubscriptionHost',
-      endTimestamp: 'EndTimestamp',
       consumptionCheckpoint: 'ConsumptionCheckpoint',
-      subscribeTopic: 'SubscribeTopic',
+      endTimestamp: 'EndTimestamp',
+      instanceCreateTime: 'InstanceCreateTime',
       beginTimestamp: 'BeginTimestamp',
-      sourceEndpoint: 'SourceEndpoint',
-      subscriptionDataType: 'SubscriptionDataType',
+      subscribeTopic: 'SubscribeTopic',
       subscriptionInstanceName: 'SubscriptionInstanceName',
       subscriptionInstanceID: 'SubscriptionInstanceID',
+      jobCreateTime: 'JobCreateTime',
+      subscriptionObject: 'SubscriptionObject',
+      tags: 'Tags',
+      sourceEndpoint: 'SourceEndpoint',
+      subscriptionDataType: 'SubscriptionDataType',
+      subscriptionHost: 'SubscriptionHost',
     };
   }
 
@@ -6183,18 +10914,20 @@ export class DescribeSubscriptionInstancesResponseBodySubscriptionInstancesSubsc
       status: 'string',
       errorMessage: 'string',
       payType: 'string',
-      tags: DescribeSubscriptionInstancesResponseBodySubscriptionInstancesSubscriptionInstanceTags,
       consumptionClient: 'string',
-      subscriptionObject: DescribeSubscriptionInstancesResponseBodySubscriptionInstancesSubscriptionInstanceSubscriptionObject,
-      subscriptionHost: DescribeSubscriptionInstancesResponseBodySubscriptionInstancesSubscriptionInstanceSubscriptionHost,
-      endTimestamp: 'string',
       consumptionCheckpoint: 'string',
-      subscribeTopic: 'string',
+      endTimestamp: 'string',
+      instanceCreateTime: 'string',
       beginTimestamp: 'string',
-      sourceEndpoint: DescribeSubscriptionInstancesResponseBodySubscriptionInstancesSubscriptionInstanceSourceEndpoint,
-      subscriptionDataType: DescribeSubscriptionInstancesResponseBodySubscriptionInstancesSubscriptionInstanceSubscriptionDataType,
+      subscribeTopic: 'string',
       subscriptionInstanceName: 'string',
       subscriptionInstanceID: 'string',
+      jobCreateTime: 'string',
+      subscriptionObject: DescribeSubscriptionInstancesResponseBodySubscriptionInstancesSubscriptionInstanceSubscriptionObject,
+      tags: DescribeSubscriptionInstancesResponseBodySubscriptionInstancesSubscriptionInstanceTags,
+      sourceEndpoint: DescribeSubscriptionInstancesResponseBodySubscriptionInstancesSubscriptionInstanceSourceEndpoint,
+      subscriptionDataType: DescribeSubscriptionInstancesResponseBodySubscriptionInstancesSubscriptionInstanceSubscriptionDataType,
+      subscriptionHost: DescribeSubscriptionInstancesResponseBodySubscriptionInstancesSubscriptionInstanceSubscriptionHost,
     };
   }
 
@@ -6214,6 +10947,75 @@ export class DescribeSubscriptionInstancesResponseBodySubscriptionInstances exte
   static types(): { [key: string]: any } {
     return {
       subscriptionInstance: { 'type': 'array', 'itemType': DescribeSubscriptionInstancesResponseBodySubscriptionInstancesSubscriptionInstance },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSubscriptionInstanceStatusResponseBodySourceEndpoint extends $tea.Model {
+  instanceType?: string;
+  instanceID?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceType: 'InstanceType',
+      instanceID: 'InstanceID',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceType: 'string',
+      instanceID: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSubscriptionInstanceStatusResponseBodySubscriptionDataType extends $tea.Model {
+  DML?: boolean;
+  DDL?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      DML: 'DML',
+      DDL: 'DDL',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DML: 'boolean',
+      DDL: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSubscriptionInstanceStatusResponseBodySubscriptionHost extends $tea.Model {
+  VPCHost?: string;
+  publicHost?: string;
+  privateHost?: string;
+  static names(): { [key: string]: string } {
+    return {
+      VPCHost: 'VPCHost',
+      publicHost: 'PublicHost',
+      privateHost: 'PrivateHost',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      VPCHost: 'string',
+      publicHost: 'string',
+      privateHost: 'string',
     };
   }
 
@@ -6285,67 +11087,29 @@ export class DescribeSubscriptionInstanceStatusResponseBodySubscriptionObject ex
   }
 }
 
-export class DescribeSubscriptionInstanceStatusResponseBodySourceEndpoint extends $tea.Model {
-  instanceID?: string;
-  instanceType?: string;
+export class DescribeSubscriptionMetaResponseBodySubscriptionMetaList extends $tea.Model {
+  sid?: string;
+  checkpoint?: number;
+  DProxyUrl?: string;
+  DBList?: string;
+  topic?: string;
   static names(): { [key: string]: string } {
     return {
-      instanceID: 'InstanceID',
-      instanceType: 'InstanceType',
+      sid: 'Sid',
+      checkpoint: 'Checkpoint',
+      DProxyUrl: 'DProxyUrl',
+      DBList: 'DBList',
+      topic: 'Topic',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      instanceID: 'string',
-      instanceType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSubscriptionInstanceStatusResponseBodySubscriptionDataType extends $tea.Model {
-  DDL?: boolean;
-  DML?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      DDL: 'DDL',
-      DML: 'DML',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DDL: 'boolean',
-      DML: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSubscriptionInstanceStatusResponseBodySubscriptionHost extends $tea.Model {
-  privateHost?: string;
-  publicHost?: string;
-  VPCHost?: string;
-  static names(): { [key: string]: string } {
-    return {
-      privateHost: 'PrivateHost',
-      publicHost: 'PublicHost',
-      VPCHost: 'VPCHost',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      privateHost: 'string',
-      publicHost: 'string',
-      VPCHost: 'string',
+      sid: 'string',
+      checkpoint: 'number',
+      DProxyUrl: 'string',
+      DBList: 'string',
+      topic: 'string',
     };
   }
 
@@ -6376,20 +11140,198 @@ export class DescribeSynchronizationJobsRequestTag extends $tea.Model {
   }
 }
 
-export class DescribeSynchronizationJobsResponseBodySynchronizationInstancesPerformance extends $tea.Model {
-  FLOW?: string;
-  RPS?: string;
+export class DescribeSynchronizationJobsResponseBodySynchronizationInstancesTags extends $tea.Model {
+  key?: string;
+  value?: string;
   static names(): { [key: string]: string } {
     return {
-      FLOW: 'FLOW',
-      RPS: 'RPS',
+      key: 'Key',
+      value: 'Value',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      FLOW: 'string',
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSynchronizationJobsResponseBodySynchronizationInstancesSynchronizationObjectsTableExcludes extends $tea.Model {
+  tableName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tableName: 'TableName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tableName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSynchronizationJobsResponseBodySynchronizationInstancesSynchronizationObjectsTableIncludes extends $tea.Model {
+  tableName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tableName: 'TableName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tableName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSynchronizationJobsResponseBodySynchronizationInstancesSynchronizationObjects extends $tea.Model {
+  newSchemaName?: string;
+  schemaName?: string;
+  tableExcludes?: DescribeSynchronizationJobsResponseBodySynchronizationInstancesSynchronizationObjectsTableExcludes[];
+  tableIncludes?: DescribeSynchronizationJobsResponseBodySynchronizationInstancesSynchronizationObjectsTableIncludes[];
+  static names(): { [key: string]: string } {
+    return {
+      newSchemaName: 'NewSchemaName',
+      schemaName: 'SchemaName',
+      tableExcludes: 'TableExcludes',
+      tableIncludes: 'TableIncludes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      newSchemaName: 'string',
+      schemaName: 'string',
+      tableExcludes: { 'type': 'array', 'itemType': DescribeSynchronizationJobsResponseBodySynchronizationInstancesSynchronizationObjectsTableExcludes },
+      tableIncludes: { 'type': 'array', 'itemType': DescribeSynchronizationJobsResponseBodySynchronizationInstancesSynchronizationObjectsTableIncludes },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSynchronizationJobsResponseBodySynchronizationInstancesDataInitializationStatus extends $tea.Model {
+  status?: string;
+  percent?: string;
+  errorMessage?: string;
+  progress?: string;
+  static names(): { [key: string]: string } {
+    return {
+      status: 'Status',
+      percent: 'Percent',
+      errorMessage: 'ErrorMessage',
+      progress: 'Progress',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      status: 'string',
+      percent: 'string',
+      errorMessage: 'string',
+      progress: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSynchronizationJobsResponseBodySynchronizationInstancesDataSynchronizationStatus extends $tea.Model {
+  status?: string;
+  delay?: string;
+  percent?: string;
+  errorMessage?: string;
+  static names(): { [key: string]: string } {
+    return {
+      status: 'Status',
+      delay: 'Delay',
+      percent: 'Percent',
+      errorMessage: 'ErrorMessage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      status: 'string',
+      delay: 'string',
+      percent: 'string',
+      errorMessage: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSynchronizationJobsResponseBodySynchronizationInstancesDestinationEndpoint extends $tea.Model {
+  instanceId?: string;
+  IP?: string;
+  instanceType?: string;
+  port?: string;
+  userName?: string;
+  engineName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      IP: 'IP',
+      instanceType: 'InstanceType',
+      port: 'Port',
+      userName: 'UserName',
+      engineName: 'EngineName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      IP: 'string',
+      instanceType: 'string',
+      port: 'string',
+      userName: 'string',
+      engineName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSynchronizationJobsResponseBodySynchronizationInstancesPerformance extends $tea.Model {
+  RPS?: string;
+  FLOW?: string;
+  static names(): { [key: string]: string } {
+    return {
+      RPS: 'RPS',
+      FLOW: 'FLOW',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
       RPS: 'string',
+      FLOW: 'string',
     };
   }
 
@@ -6451,212 +11393,6 @@ export class DescribeSynchronizationJobsResponseBodySynchronizationInstancesPrec
   }
 }
 
-export class DescribeSynchronizationJobsResponseBodySynchronizationInstancesStructureInitializationStatus extends $tea.Model {
-  status?: string;
-  percent?: string;
-  errorMessage?: string;
-  progress?: string;
-  static names(): { [key: string]: string } {
-    return {
-      status: 'Status',
-      percent: 'Percent',
-      errorMessage: 'ErrorMessage',
-      progress: 'Progress',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      status: 'string',
-      percent: 'string',
-      errorMessage: 'string',
-      progress: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSynchronizationJobsResponseBodySynchronizationInstancesSynchronizationObjectsTableIncludes extends $tea.Model {
-  tableName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      tableName: 'TableName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      tableName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSynchronizationJobsResponseBodySynchronizationInstancesSynchronizationObjectsTableExcludes extends $tea.Model {
-  tableName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      tableName: 'TableName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      tableName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSynchronizationJobsResponseBodySynchronizationInstancesSynchronizationObjects extends $tea.Model {
-  newSchemaName?: string;
-  tableIncludes?: DescribeSynchronizationJobsResponseBodySynchronizationInstancesSynchronizationObjectsTableIncludes[];
-  tableExcludes?: DescribeSynchronizationJobsResponseBodySynchronizationInstancesSynchronizationObjectsTableExcludes[];
-  schemaName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      newSchemaName: 'NewSchemaName',
-      tableIncludes: 'TableIncludes',
-      tableExcludes: 'TableExcludes',
-      schemaName: 'SchemaName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      newSchemaName: 'string',
-      tableIncludes: { 'type': 'array', 'itemType': DescribeSynchronizationJobsResponseBodySynchronizationInstancesSynchronizationObjectsTableIncludes },
-      tableExcludes: { 'type': 'array', 'itemType': DescribeSynchronizationJobsResponseBodySynchronizationInstancesSynchronizationObjectsTableExcludes },
-      schemaName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSynchronizationJobsResponseBodySynchronizationInstancesTags extends $tea.Model {
-  key?: string;
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSynchronizationJobsResponseBodySynchronizationInstancesDataInitializationStatus extends $tea.Model {
-  status?: string;
-  percent?: string;
-  errorMessage?: string;
-  progress?: string;
-  static names(): { [key: string]: string } {
-    return {
-      status: 'Status',
-      percent: 'Percent',
-      errorMessage: 'ErrorMessage',
-      progress: 'Progress',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      status: 'string',
-      percent: 'string',
-      errorMessage: 'string',
-      progress: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSynchronizationJobsResponseBodySynchronizationInstancesDestinationEndpoint extends $tea.Model {
-  instanceId?: string;
-  IP?: string;
-  instanceType?: string;
-  port?: string;
-  userName?: string;
-  engineName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceId: 'InstanceId',
-      IP: 'IP',
-      instanceType: 'InstanceType',
-      port: 'Port',
-      userName: 'UserName',
-      engineName: 'EngineName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceId: 'string',
-      IP: 'string',
-      instanceType: 'string',
-      port: 'string',
-      userName: 'string',
-      engineName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSynchronizationJobsResponseBodySynchronizationInstancesDataSynchronizationStatus extends $tea.Model {
-  status?: string;
-  delay?: string;
-  percent?: string;
-  errorMessage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      status: 'Status',
-      delay: 'Delay',
-      percent: 'Percent',
-      errorMessage: 'ErrorMessage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      status: 'string',
-      delay: 'string',
-      percent: 'string',
-      errorMessage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeSynchronizationJobsResponseBodySynchronizationInstancesSourceEndpoint extends $tea.Model {
   instanceId?: string;
   IP?: string;
@@ -6691,77 +11427,111 @@ export class DescribeSynchronizationJobsResponseBodySynchronizationInstancesSour
   }
 }
 
-export class DescribeSynchronizationJobsResponseBodySynchronizationInstances extends $tea.Model {
-  synchronizationJobName?: string;
+export class DescribeSynchronizationJobsResponseBodySynchronizationInstancesStructureInitializationStatus extends $tea.Model {
   status?: string;
-  dataInitialization?: string;
-  performance?: DescribeSynchronizationJobsResponseBodySynchronizationInstancesPerformance;
-  delay?: string;
-  precheckStatus?: DescribeSynchronizationJobsResponseBodySynchronizationInstancesPrecheckStatus;
-  structureInitializationStatus?: DescribeSynchronizationJobsResponseBodySynchronizationInstancesStructureInitializationStatus;
+  percent?: string;
   errorMessage?: string;
-  expireTime?: string;
-  synchronizationObjects?: DescribeSynchronizationJobsResponseBodySynchronizationInstancesSynchronizationObjects[];
-  createTime?: string;
-  payType?: string;
-  structureInitialization?: string;
-  synchronizationJobClass?: string;
-  tags?: DescribeSynchronizationJobsResponseBodySynchronizationInstancesTags[];
-  dataInitializationStatus?: DescribeSynchronizationJobsResponseBodySynchronizationInstancesDataInitializationStatus;
-  destinationEndpoint?: DescribeSynchronizationJobsResponseBodySynchronizationInstancesDestinationEndpoint;
-  dataSynchronizationStatus?: DescribeSynchronizationJobsResponseBodySynchronizationInstancesDataSynchronizationStatus;
-  sourceEndpoint?: DescribeSynchronizationJobsResponseBodySynchronizationInstancesSourceEndpoint;
-  synchronizationJobId?: string;
-  synchronizationDirection?: string;
+  progress?: string;
   static names(): { [key: string]: string } {
     return {
-      synchronizationJobName: 'SynchronizationJobName',
       status: 'Status',
-      dataInitialization: 'DataInitialization',
-      performance: 'Performance',
-      delay: 'Delay',
-      precheckStatus: 'PrecheckStatus',
-      structureInitializationStatus: 'StructureInitializationStatus',
+      percent: 'Percent',
       errorMessage: 'ErrorMessage',
-      expireTime: 'ExpireTime',
-      synchronizationObjects: 'SynchronizationObjects',
-      createTime: 'CreateTime',
-      payType: 'PayType',
-      structureInitialization: 'StructureInitialization',
-      synchronizationJobClass: 'SynchronizationJobClass',
-      tags: 'Tags',
-      dataInitializationStatus: 'DataInitializationStatus',
-      destinationEndpoint: 'DestinationEndpoint',
-      dataSynchronizationStatus: 'DataSynchronizationStatus',
-      sourceEndpoint: 'SourceEndpoint',
-      synchronizationJobId: 'SynchronizationJobId',
-      synchronizationDirection: 'SynchronizationDirection',
+      progress: 'Progress',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      synchronizationJobName: 'string',
       status: 'string',
+      percent: 'string',
+      errorMessage: 'string',
+      progress: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSynchronizationJobsResponseBodySynchronizationInstances extends $tea.Model {
+  dataInitialization?: string;
+  status?: string;
+  synchronizationJobName?: string;
+  delay?: string;
+  errorMessage?: string;
+  expireTime?: string;
+  createTime?: string;
+  payType?: string;
+  structureInitialization?: string;
+  synchronizationJobClass?: string;
+  instanceCreateTime?: string;
+  synchronizationJobId?: string;
+  synchronizationDirection?: string;
+  jobCreateTime?: string;
+  tags?: DescribeSynchronizationJobsResponseBodySynchronizationInstancesTags[];
+  synchronizationObjects?: DescribeSynchronizationJobsResponseBodySynchronizationInstancesSynchronizationObjects[];
+  dataInitializationStatus?: DescribeSynchronizationJobsResponseBodySynchronizationInstancesDataInitializationStatus;
+  dataSynchronizationStatus?: DescribeSynchronizationJobsResponseBodySynchronizationInstancesDataSynchronizationStatus;
+  destinationEndpoint?: DescribeSynchronizationJobsResponseBodySynchronizationInstancesDestinationEndpoint;
+  performance?: DescribeSynchronizationJobsResponseBodySynchronizationInstancesPerformance;
+  precheckStatus?: DescribeSynchronizationJobsResponseBodySynchronizationInstancesPrecheckStatus;
+  sourceEndpoint?: DescribeSynchronizationJobsResponseBodySynchronizationInstancesSourceEndpoint;
+  structureInitializationStatus?: DescribeSynchronizationJobsResponseBodySynchronizationInstancesStructureInitializationStatus;
+  static names(): { [key: string]: string } {
+    return {
+      dataInitialization: 'DataInitialization',
+      status: 'Status',
+      synchronizationJobName: 'SynchronizationJobName',
+      delay: 'Delay',
+      errorMessage: 'ErrorMessage',
+      expireTime: 'ExpireTime',
+      createTime: 'CreateTime',
+      payType: 'PayType',
+      structureInitialization: 'StructureInitialization',
+      synchronizationJobClass: 'SynchronizationJobClass',
+      instanceCreateTime: 'InstanceCreateTime',
+      synchronizationJobId: 'SynchronizationJobId',
+      synchronizationDirection: 'SynchronizationDirection',
+      jobCreateTime: 'JobCreateTime',
+      tags: 'Tags',
+      synchronizationObjects: 'SynchronizationObjects',
+      dataInitializationStatus: 'DataInitializationStatus',
+      dataSynchronizationStatus: 'DataSynchronizationStatus',
+      destinationEndpoint: 'DestinationEndpoint',
+      performance: 'Performance',
+      precheckStatus: 'PrecheckStatus',
+      sourceEndpoint: 'SourceEndpoint',
+      structureInitializationStatus: 'StructureInitializationStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
       dataInitialization: 'string',
-      performance: DescribeSynchronizationJobsResponseBodySynchronizationInstancesPerformance,
+      status: 'string',
+      synchronizationJobName: 'string',
       delay: 'string',
-      precheckStatus: DescribeSynchronizationJobsResponseBodySynchronizationInstancesPrecheckStatus,
-      structureInitializationStatus: DescribeSynchronizationJobsResponseBodySynchronizationInstancesStructureInitializationStatus,
       errorMessage: 'string',
       expireTime: 'string',
-      synchronizationObjects: { 'type': 'array', 'itemType': DescribeSynchronizationJobsResponseBodySynchronizationInstancesSynchronizationObjects },
       createTime: 'string',
       payType: 'string',
       structureInitialization: 'string',
       synchronizationJobClass: 'string',
-      tags: { 'type': 'array', 'itemType': DescribeSynchronizationJobsResponseBodySynchronizationInstancesTags },
-      dataInitializationStatus: DescribeSynchronizationJobsResponseBodySynchronizationInstancesDataInitializationStatus,
-      destinationEndpoint: DescribeSynchronizationJobsResponseBodySynchronizationInstancesDestinationEndpoint,
-      dataSynchronizationStatus: DescribeSynchronizationJobsResponseBodySynchronizationInstancesDataSynchronizationStatus,
-      sourceEndpoint: DescribeSynchronizationJobsResponseBodySynchronizationInstancesSourceEndpoint,
+      instanceCreateTime: 'string',
       synchronizationJobId: 'string',
       synchronizationDirection: 'string',
+      jobCreateTime: 'string',
+      tags: { 'type': 'array', 'itemType': DescribeSynchronizationJobsResponseBodySynchronizationInstancesTags },
+      synchronizationObjects: { 'type': 'array', 'itemType': DescribeSynchronizationJobsResponseBodySynchronizationInstancesSynchronizationObjects },
+      dataInitializationStatus: DescribeSynchronizationJobsResponseBodySynchronizationInstancesDataInitializationStatus,
+      dataSynchronizationStatus: DescribeSynchronizationJobsResponseBodySynchronizationInstancesDataSynchronizationStatus,
+      destinationEndpoint: DescribeSynchronizationJobsResponseBodySynchronizationInstancesDestinationEndpoint,
+      performance: DescribeSynchronizationJobsResponseBodySynchronizationInstancesPerformance,
+      precheckStatus: DescribeSynchronizationJobsResponseBodySynchronizationInstancesPrecheckStatus,
+      sourceEndpoint: DescribeSynchronizationJobsResponseBodySynchronizationInstancesSourceEndpoint,
+      structureInitializationStatus: DescribeSynchronizationJobsResponseBodySynchronizationInstancesStructureInitializationStatus,
     };
   }
 
@@ -6798,72 +11568,6 @@ export class DescribeSynchronizationJobStatusResponseBodyDataInitializationStatu
   }
 }
 
-export class DescribeSynchronizationJobStatusResponseBodySynchronizationObjectsTableIncludes extends $tea.Model {
-  tableName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      tableName: 'TableName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      tableName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSynchronizationJobStatusResponseBodySynchronizationObjectsTableExcludes extends $tea.Model {
-  tableName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      tableName: 'TableName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      tableName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSynchronizationJobStatusResponseBodySynchronizationObjects extends $tea.Model {
-  newSchemaName?: string;
-  tableIncludes?: DescribeSynchronizationJobStatusResponseBodySynchronizationObjectsTableIncludes[];
-  tableExcludes?: DescribeSynchronizationJobStatusResponseBodySynchronizationObjectsTableExcludes[];
-  schemaName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      newSchemaName: 'NewSchemaName',
-      tableIncludes: 'TableIncludes',
-      tableExcludes: 'TableExcludes',
-      schemaName: 'SchemaName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      newSchemaName: 'string',
-      tableIncludes: { 'type': 'array', 'itemType': DescribeSynchronizationJobStatusResponseBodySynchronizationObjectsTableIncludes },
-      tableExcludes: { 'type': 'array', 'itemType': DescribeSynchronizationJobStatusResponseBodySynchronizationObjectsTableExcludes },
-      schemaName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeSynchronizationJobStatusResponseBodyDataSynchronizationStatus extends $tea.Model {
   status?: string;
   delay?: string;
@@ -6890,6 +11594,62 @@ export class DescribeSynchronizationJobStatusResponseBodyDataSynchronizationStat
       errorMessage: 'string',
       delayMillis: 'number',
       checkpoint: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSynchronizationJobStatusResponseBodyDestinationEndpoint extends $tea.Model {
+  instanceId?: string;
+  IP?: string;
+  instanceType?: string;
+  port?: string;
+  userName?: string;
+  engineName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      IP: 'IP',
+      instanceType: 'InstanceType',
+      port: 'Port',
+      userName: 'UserName',
+      engineName: 'EngineName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      IP: 'string',
+      instanceType: 'string',
+      port: 'string',
+      userName: 'string',
+      engineName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSynchronizationJobStatusResponseBodyPerformance extends $tea.Model {
+  RPS?: string;
+  FLOW?: string;
+  static names(): { [key: string]: string } {
+    return {
+      RPS: 'RPS',
+      FLOW: 'FLOW',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      RPS: 'string',
+      FLOW: 'string',
     };
   }
 
@@ -6951,40 +11711,6 @@ export class DescribeSynchronizationJobStatusResponseBodyPrecheckStatus extends 
   }
 }
 
-export class DescribeSynchronizationJobStatusResponseBodyDestinationEndpoint extends $tea.Model {
-  instanceId?: string;
-  IP?: string;
-  instanceType?: string;
-  port?: string;
-  userName?: string;
-  engineName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceId: 'InstanceId',
-      IP: 'IP',
-      instanceType: 'InstanceType',
-      port: 'Port',
-      userName: 'UserName',
-      engineName: 'EngineName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceId: 'string',
-      IP: 'string',
-      instanceType: 'string',
-      port: 'string',
-      userName: 'string',
-      engineName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeSynchronizationJobStatusResponseBodySourceEndpoint extends $tea.Model {
   instanceId?: string;
   IP?: string;
@@ -7019,28 +11745,6 @@ export class DescribeSynchronizationJobStatusResponseBodySourceEndpoint extends 
   }
 }
 
-export class DescribeSynchronizationJobStatusResponseBodyPerformance extends $tea.Model {
-  FLOW?: string;
-  RPS?: string;
-  static names(): { [key: string]: string } {
-    return {
-      FLOW: 'FLOW',
-      RPS: 'RPS',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      FLOW: 'string',
-      RPS: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeSynchronizationJobStatusResponseBodyStructureInitializationStatus extends $tea.Model {
   status?: string;
   percent?: string;
@@ -7061,6 +11765,72 @@ export class DescribeSynchronizationJobStatusResponseBodyStructureInitialization
       percent: 'string',
       errorMessage: 'string',
       progress: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSynchronizationJobStatusResponseBodySynchronizationObjectsTableExcludes extends $tea.Model {
+  tableName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tableName: 'TableName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tableName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSynchronizationJobStatusResponseBodySynchronizationObjectsTableIncludes extends $tea.Model {
+  tableName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tableName: 'TableName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tableName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSynchronizationJobStatusResponseBodySynchronizationObjects extends $tea.Model {
+  newSchemaName?: string;
+  schemaName?: string;
+  tableExcludes?: DescribeSynchronizationJobStatusResponseBodySynchronizationObjectsTableExcludes[];
+  tableIncludes?: DescribeSynchronizationJobStatusResponseBodySynchronizationObjectsTableIncludes[];
+  static names(): { [key: string]: string } {
+    return {
+      newSchemaName: 'NewSchemaName',
+      schemaName: 'SchemaName',
+      tableExcludes: 'TableExcludes',
+      tableIncludes: 'TableIncludes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      newSchemaName: 'string',
+      schemaName: 'string',
+      tableExcludes: { 'type': 'array', 'itemType': DescribeSynchronizationJobStatusResponseBodySynchronizationObjectsTableExcludes },
+      tableIncludes: { 'type': 'array', 'itemType': DescribeSynchronizationJobStatusResponseBodySynchronizationObjectsTableIncludes },
     };
   }
 
@@ -7108,6 +11878,62 @@ export class DescribeSynchronizationJobStatusListResponseBodySynchronizationJobL
     return {
       synchronizationJobId: 'string',
       synchronizationDirectionInfoList: { 'type': 'array', 'itemType': DescribeSynchronizationJobStatusListResponseBodySynchronizationJobListStatusListSynchronizationDirectionInfoList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSynchronizationObjectModifyStatusResponseBodyDataInitializationStatus extends $tea.Model {
+  status?: string;
+  percent?: string;
+  errorMessage?: string;
+  progress?: string;
+  static names(): { [key: string]: string } {
+    return {
+      status: 'Status',
+      percent: 'Percent',
+      errorMessage: 'ErrorMessage',
+      progress: 'Progress',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      status: 'string',
+      percent: 'string',
+      errorMessage: 'string',
+      progress: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSynchronizationObjectModifyStatusResponseBodyDataSynchronizationStatus extends $tea.Model {
+  status?: string;
+  delay?: string;
+  percent?: string;
+  errorMessage?: string;
+  static names(): { [key: string]: string } {
+    return {
+      status: 'Status',
+      delay: 'Delay',
+      percent: 'Percent',
+      errorMessage: 'ErrorMessage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      status: 'string',
+      delay: 'string',
+      percent: 'string',
+      errorMessage: 'string',
     };
   }
 
@@ -7169,34 +11995,6 @@ export class DescribeSynchronizationObjectModifyStatusResponseBodyPrecheckStatus
   }
 }
 
-export class DescribeSynchronizationObjectModifyStatusResponseBodyDataInitializationStatus extends $tea.Model {
-  status?: string;
-  percent?: string;
-  errorMessage?: string;
-  progress?: string;
-  static names(): { [key: string]: string } {
-    return {
-      status: 'Status',
-      percent: 'Percent',
-      errorMessage: 'ErrorMessage',
-      progress: 'Progress',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      status: 'string',
-      percent: 'string',
-      errorMessage: 'string',
-      progress: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeSynchronizationObjectModifyStatusResponseBodyStructureInitializationStatus extends $tea.Model {
   status?: string;
   percent?: string;
@@ -7217,34 +12015,6 @@ export class DescribeSynchronizationObjectModifyStatusResponseBodyStructureIniti
       percent: 'string',
       errorMessage: 'string',
       progress: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSynchronizationObjectModifyStatusResponseBodyDataSynchronizationStatus extends $tea.Model {
-  status?: string;
-  delay?: string;
-  percent?: string;
-  errorMessage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      status: 'Status',
-      delay: 'Delay',
-      percent: 'Percent',
-      errorMessage: 'ErrorMessage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      status: 'string',
-      delay: 'string',
-      percent: 'string',
-      errorMessage: 'string',
     };
   }
 
@@ -7276,14 +12046,14 @@ export class ListTagResourcesRequestTag extends $tea.Model {
 }
 
 export class ListTagResourcesResponseBodyTagResourcesTagResource extends $tea.Model {
-  resourceType?: string;
   tagValue?: string;
+  resourceType?: string;
   resourceId?: string;
   tagKey?: string;
   static names(): { [key: string]: string } {
     return {
-      resourceType: 'ResourceType',
       tagValue: 'TagValue',
+      resourceType: 'ResourceType',
       resourceId: 'ResourceId',
       tagKey: 'TagKey',
     };
@@ -7291,8 +12061,8 @@ export class ListTagResourcesResponseBodyTagResourcesTagResource extends $tea.Mo
 
   static types(): { [key: string]: any } {
     return {
-      resourceType: 'string',
       tagValue: 'string',
+      resourceType: 'string',
       resourceId: 'string',
       tagKey: 'string',
     };
@@ -7314,6 +12084,31 @@ export class ListTagResourcesResponseBodyTagResources extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       tagResource: { 'type': 'array', 'itemType': ListTagResourcesResponseBodyTagResourcesTagResource },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SummaryJobDetailResponseBodyProgressSummaryDetails extends $tea.Model {
+  key?: string;
+  totalCount?: number;
+  state?: number;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      totalCount: 'TotalCount',
+      state: 'State',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      totalCount: 'number',
+      state: 'number',
     };
   }
 
@@ -7477,6 +12272,19 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  async configureDtsJobWithOptions(request: ConfigureDtsJobRequest, runtime: $Util.RuntimeOptions): Promise<ConfigureDtsJobResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<ConfigureDtsJobResponse>(await this.doRPCRequest("ConfigureDtsJob", "2020-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new ConfigureDtsJobResponse({}));
+  }
+
+  async configureDtsJob(request: ConfigureDtsJobRequest): Promise<ConfigureDtsJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.configureDtsJobWithOptions(request, runtime);
+  }
+
   async configureMigrationJobWithOptions(request: ConfigureMigrationJobRequest, runtime: $Util.RuntimeOptions): Promise<ConfigureMigrationJobResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -7501,6 +12309,19 @@ export default class Client extends OpenApi {
   async configureMigrationJobAlert(request: ConfigureMigrationJobAlertRequest): Promise<ConfigureMigrationJobAlertResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.configureMigrationJobAlertWithOptions(request, runtime);
+  }
+
+  async configureSubscriptionWithOptions(request: ConfigureSubscriptionRequest, runtime: $Util.RuntimeOptions): Promise<ConfigureSubscriptionResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<ConfigureSubscriptionResponse>(await this.doRPCRequest("ConfigureSubscription", "2020-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new ConfigureSubscriptionResponse({}));
+  }
+
+  async configureSubscription(request: ConfigureSubscriptionRequest): Promise<ConfigureSubscriptionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.configureSubscriptionWithOptions(request, runtime);
   }
 
   async configureSubscriptionInstanceWithOptions(request: ConfigureSubscriptionInstanceRequest, runtime: $Util.RuntimeOptions): Promise<ConfigureSubscriptionInstanceResponse> {
@@ -7568,6 +12389,19 @@ export default class Client extends OpenApi {
     return await this.configureSynchronizationJobReplicatorCompareWithOptions(request, runtime);
   }
 
+  async createConsumerChannelWithOptions(request: CreateConsumerChannelRequest, runtime: $Util.RuntimeOptions): Promise<CreateConsumerChannelResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<CreateConsumerChannelResponse>(await this.doRPCRequest("CreateConsumerChannel", "2020-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new CreateConsumerChannelResponse({}));
+  }
+
+  async createConsumerChannel(request: CreateConsumerChannelRequest): Promise<CreateConsumerChannelResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createConsumerChannelWithOptions(request, runtime);
+  }
+
   async createConsumerGroupWithOptions(request: CreateConsumerGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateConsumerGroupResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -7579,6 +12413,32 @@ export default class Client extends OpenApi {
   async createConsumerGroup(request: CreateConsumerGroupRequest): Promise<CreateConsumerGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createConsumerGroupWithOptions(request, runtime);
+  }
+
+  async createDtsInstanceWithOptions(request: CreateDtsInstanceRequest, runtime: $Util.RuntimeOptions): Promise<CreateDtsInstanceResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<CreateDtsInstanceResponse>(await this.doRPCRequest("CreateDtsInstance", "2020-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new CreateDtsInstanceResponse({}));
+  }
+
+  async createDtsInstance(request: CreateDtsInstanceRequest): Promise<CreateDtsInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createDtsInstanceWithOptions(request, runtime);
+  }
+
+  async createJobMonitorRuleWithOptions(request: CreateJobMonitorRuleRequest, runtime: $Util.RuntimeOptions): Promise<CreateJobMonitorRuleResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<CreateJobMonitorRuleResponse>(await this.doRPCRequest("CreateJobMonitorRule", "2020-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new CreateJobMonitorRuleResponse({}));
+  }
+
+  async createJobMonitorRule(request: CreateJobMonitorRuleRequest): Promise<CreateJobMonitorRuleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createJobMonitorRuleWithOptions(request, runtime);
   }
 
   async createMigrationJobWithOptions(request: CreateMigrationJobRequest, runtime: $Util.RuntimeOptions): Promise<CreateMigrationJobResponse> {
@@ -7620,6 +12480,19 @@ export default class Client extends OpenApi {
     return await this.createSynchronizationJobWithOptions(request, runtime);
   }
 
+  async deleteConsumerChannelWithOptions(request: DeleteConsumerChannelRequest, runtime: $Util.RuntimeOptions): Promise<DeleteConsumerChannelResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DeleteConsumerChannelResponse>(await this.doRPCRequest("DeleteConsumerChannel", "2020-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteConsumerChannelResponse({}));
+  }
+
+  async deleteConsumerChannel(request: DeleteConsumerChannelRequest): Promise<DeleteConsumerChannelResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteConsumerChannelWithOptions(request, runtime);
+  }
+
   async deleteConsumerGroupWithOptions(request: DeleteConsumerGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteConsumerGroupResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -7631,6 +12504,19 @@ export default class Client extends OpenApi {
   async deleteConsumerGroup(request: DeleteConsumerGroupRequest): Promise<DeleteConsumerGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteConsumerGroupWithOptions(request, runtime);
+  }
+
+  async deleteDtsJobWithOptions(request: DeleteDtsJobRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDtsJobResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DeleteDtsJobResponse>(await this.doRPCRequest("DeleteDtsJob", "2020-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteDtsJobResponse({}));
+  }
+
+  async deleteDtsJob(request: DeleteDtsJobRequest): Promise<DeleteDtsJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteDtsJobWithOptions(request, runtime);
   }
 
   async deleteMigrationJobWithOptions(request: DeleteMigrationJobRequest, runtime: $Util.RuntimeOptions): Promise<DeleteMigrationJobResponse> {
@@ -7685,6 +12571,19 @@ export default class Client extends OpenApi {
     return await this.describeConnectionStatusWithOptions(request, runtime);
   }
 
+  async describeConsumerChannelWithOptions(request: DescribeConsumerChannelRequest, runtime: $Util.RuntimeOptions): Promise<DescribeConsumerChannelResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DescribeConsumerChannelResponse>(await this.doRPCRequest("DescribeConsumerChannel", "2020-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeConsumerChannelResponse({}));
+  }
+
+  async describeConsumerChannel(request: DescribeConsumerChannelRequest): Promise<DescribeConsumerChannelResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeConsumerChannelWithOptions(request, runtime);
+  }
+
   async describeConsumerGroupWithOptions(request: DescribeConsumerGroupRequest, runtime: $Util.RuntimeOptions): Promise<DescribeConsumerGroupResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -7711,6 +12610,32 @@ export default class Client extends OpenApi {
     return await this.describeDTSIPWithOptions(request, runtime);
   }
 
+  async describeDtsJobDetailWithOptions(request: DescribeDtsJobDetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDtsJobDetailResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DescribeDtsJobDetailResponse>(await this.doRPCRequest("DescribeDtsJobDetail", "2020-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeDtsJobDetailResponse({}));
+  }
+
+  async describeDtsJobDetail(request: DescribeDtsJobDetailRequest): Promise<DescribeDtsJobDetailResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDtsJobDetailWithOptions(request, runtime);
+  }
+
+  async describeDtsJobsWithOptions(request: DescribeDtsJobsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDtsJobsResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DescribeDtsJobsResponse>(await this.doRPCRequest("DescribeDtsJobs", "2020-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeDtsJobsResponse({}));
+  }
+
+  async describeDtsJobs(request: DescribeDtsJobsRequest): Promise<DescribeDtsJobsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDtsJobsWithOptions(request, runtime);
+  }
+
   async describeEndpointSwitchStatusWithOptions(request: DescribeEndpointSwitchStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEndpointSwitchStatusResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -7735,6 +12660,19 @@ export default class Client extends OpenApi {
   async describeInitializationStatus(request: DescribeInitializationStatusRequest): Promise<DescribeInitializationStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeInitializationStatusWithOptions(request, runtime);
+  }
+
+  async describeJobMonitorRuleWithOptions(request: DescribeJobMonitorRuleRequest, runtime: $Util.RuntimeOptions): Promise<DescribeJobMonitorRuleResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DescribeJobMonitorRuleResponse>(await this.doRPCRequest("DescribeJobMonitorRule", "2020-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeJobMonitorRuleResponse({}));
+  }
+
+  async describeJobMonitorRule(request: DescribeJobMonitorRuleRequest): Promise<DescribeJobMonitorRuleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeJobMonitorRuleWithOptions(request, runtime);
   }
 
   async describeMigrationJobAlertWithOptions(request: DescribeMigrationJobAlertRequest, runtime: $Util.RuntimeOptions): Promise<DescribeMigrationJobAlertResponse> {
@@ -7789,6 +12727,19 @@ export default class Client extends OpenApi {
     return await this.describeMigrationJobStatusWithOptions(request, runtime);
   }
 
+  async describePreCheckStatusWithOptions(request: DescribePreCheckStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribePreCheckStatusResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DescribePreCheckStatusResponse>(await this.doRPCRequest("DescribePreCheckStatus", "2020-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new DescribePreCheckStatusResponse({}));
+  }
+
+  async describePreCheckStatus(request: DescribePreCheckStatusRequest): Promise<DescribePreCheckStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describePreCheckStatusWithOptions(request, runtime);
+  }
+
   async describeSubscriptionInstanceAlertWithOptions(request: DescribeSubscriptionInstanceAlertRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSubscriptionInstanceAlertResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -7826,6 +12777,29 @@ export default class Client extends OpenApi {
   async describeSubscriptionInstanceStatus(request: DescribeSubscriptionInstanceStatusRequest): Promise<DescribeSubscriptionInstanceStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSubscriptionInstanceStatusWithOptions(request, runtime);
+  }
+
+  async describeSubscriptionMetaWithOptions(tmpReq: DescribeSubscriptionMetaRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSubscriptionMetaResponse> {
+    Util.validateModel(tmpReq);
+    let request = new DescribeSubscriptionMetaShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.subMigrationJobIds)) {
+      request.subMigrationJobIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.subMigrationJobIds, "SubMigrationJobIds", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.topics)) {
+      request.topicsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.topics, "Topics", "json");
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DescribeSubscriptionMetaResponse>(await this.doRPCRequest("DescribeSubscriptionMeta", "2020-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeSubscriptionMetaResponse({}));
+  }
+
+  async describeSubscriptionMeta(request: DescribeSubscriptionMetaRequest): Promise<DescribeSubscriptionMetaResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeSubscriptionMetaWithOptions(request, runtime);
   }
 
   async describeSynchronizationJobAlertWithOptions(request: DescribeSynchronizationJobAlertRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSynchronizationJobAlertResponse> {
@@ -7906,6 +12880,32 @@ export default class Client extends OpenApi {
     return await this.describeSynchronizationObjectModifyStatusWithOptions(request, runtime);
   }
 
+  async ignoreJobDetailWithOptions(request: IgnoreJobDetailRequest, runtime: $Util.RuntimeOptions): Promise<IgnoreJobDetailResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<IgnoreJobDetailResponse>(await this.doRPCRequest("IgnoreJobDetail", "2020-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new IgnoreJobDetailResponse({}));
+  }
+
+  async ignoreJobDetail(request: IgnoreJobDetailRequest): Promise<IgnoreJobDetailResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.ignoreJobDetailWithOptions(request, runtime);
+  }
+
+  async initDtsRdsInstanceWithOptions(request: InitDtsRdsInstanceRequest, runtime: $Util.RuntimeOptions): Promise<InitDtsRdsInstanceResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<InitDtsRdsInstanceResponse>(await this.doRPCRequest("InitDtsRdsInstance", "2020-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new InitDtsRdsInstanceResponse({}));
+  }
+
+  async initDtsRdsInstance(request: InitDtsRdsInstanceRequest): Promise<InitDtsRdsInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.initDtsRdsInstanceWithOptions(request, runtime);
+  }
+
   async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -7917,6 +12917,19 @@ export default class Client extends OpenApi {
   async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listTagResourcesWithOptions(request, runtime);
+  }
+
+  async modifyConsumerChannelWithOptions(request: ModifyConsumerChannelRequest, runtime: $Util.RuntimeOptions): Promise<ModifyConsumerChannelResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<ModifyConsumerChannelResponse>(await this.doRPCRequest("ModifyConsumerChannel", "2020-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyConsumerChannelResponse({}));
+  }
+
+  async modifyConsumerChannel(request: ModifyConsumerChannelRequest): Promise<ModifyConsumerChannelResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyConsumerChannelWithOptions(request, runtime);
   }
 
   async modifyConsumerGroupPasswordWithOptions(request: ModifyConsumerGroupPasswordRequest, runtime: $Util.RuntimeOptions): Promise<ModifyConsumerGroupPasswordResponse> {
@@ -7945,6 +12958,64 @@ export default class Client extends OpenApi {
     return await this.modifyConsumptionTimestampWithOptions(request, runtime);
   }
 
+  async modifyDtsJobWithOptions(tmpReq: ModifyDtsJobRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDtsJobResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ModifyDtsJobShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.dbList)) {
+      request.dbListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.dbList, "DbList", "json");
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<ModifyDtsJobResponse>(await this.doRPCRequest("ModifyDtsJob", "2020-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyDtsJobResponse({}));
+  }
+
+  async modifyDtsJob(request: ModifyDtsJobRequest): Promise<ModifyDtsJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyDtsJobWithOptions(request, runtime);
+  }
+
+  async modifyDtsJobNameWithOptions(request: ModifyDtsJobNameRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDtsJobNameResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<ModifyDtsJobNameResponse>(await this.doRPCRequest("ModifyDtsJobName", "2020-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyDtsJobNameResponse({}));
+  }
+
+  async modifyDtsJobName(request: ModifyDtsJobNameRequest): Promise<ModifyDtsJobNameResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyDtsJobNameWithOptions(request, runtime);
+  }
+
+  async modifyDtsJobPasswordWithOptions(request: ModifyDtsJobPasswordRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDtsJobPasswordResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<ModifyDtsJobPasswordResponse>(await this.doRPCRequest("ModifyDtsJobPassword", "2020-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyDtsJobPasswordResponse({}));
+  }
+
+  async modifyDtsJobPassword(request: ModifyDtsJobPasswordRequest): Promise<ModifyDtsJobPasswordResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyDtsJobPasswordWithOptions(request, runtime);
+  }
+
+  async modifySubscriptionWithOptions(request: ModifySubscriptionRequest, runtime: $Util.RuntimeOptions): Promise<ModifySubscriptionResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<ModifySubscriptionResponse>(await this.doRPCRequest("ModifySubscription", "2020-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new ModifySubscriptionResponse({}));
+  }
+
+  async modifySubscription(request: ModifySubscriptionRequest): Promise<ModifySubscriptionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifySubscriptionWithOptions(request, runtime);
+  }
+
   async modifySubscriptionObjectWithOptions(request: ModifySubscriptionObjectRequest, runtime: $Util.RuntimeOptions): Promise<ModifySubscriptionObjectResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -7971,6 +13042,32 @@ export default class Client extends OpenApi {
     return await this.modifySynchronizationObjectWithOptions(request, runtime);
   }
 
+  async renewInstanceWithOptions(request: RenewInstanceRequest, runtime: $Util.RuntimeOptions): Promise<RenewInstanceResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<RenewInstanceResponse>(await this.doRPCRequest("RenewInstance", "2020-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new RenewInstanceResponse({}));
+  }
+
+  async renewInstance(request: RenewInstanceRequest): Promise<RenewInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.renewInstanceWithOptions(request, runtime);
+  }
+
+  async resetDtsJobWithOptions(request: ResetDtsJobRequest, runtime: $Util.RuntimeOptions): Promise<ResetDtsJobResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<ResetDtsJobResponse>(await this.doRPCRequest("ResetDtsJob", "2020-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new ResetDtsJobResponse({}));
+  }
+
+  async resetDtsJob(request: ResetDtsJobRequest): Promise<ResetDtsJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.resetDtsJobWithOptions(request, runtime);
+  }
+
   async resetSynchronizationJobWithOptions(request: ResetSynchronizationJobRequest, runtime: $Util.RuntimeOptions): Promise<ResetSynchronizationJobResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -7995,6 +13092,32 @@ export default class Client extends OpenApi {
   async shieldPrecheck(request: ShieldPrecheckRequest): Promise<ShieldPrecheckResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.shieldPrecheckWithOptions(request, runtime);
+  }
+
+  async skipPreCheckWithOptions(request: SkipPreCheckRequest, runtime: $Util.RuntimeOptions): Promise<SkipPreCheckResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<SkipPreCheckResponse>(await this.doRPCRequest("SkipPreCheck", "2020-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new SkipPreCheckResponse({}));
+  }
+
+  async skipPreCheck(request: SkipPreCheckRequest): Promise<SkipPreCheckResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.skipPreCheckWithOptions(request, runtime);
+  }
+
+  async startDtsJobWithOptions(request: StartDtsJobRequest, runtime: $Util.RuntimeOptions): Promise<StartDtsJobResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<StartDtsJobResponse>(await this.doRPCRequest("StartDtsJob", "2020-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new StartDtsJobResponse({}));
+  }
+
+  async startDtsJob(request: StartDtsJobRequest): Promise<StartDtsJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.startDtsJobWithOptions(request, runtime);
   }
 
   async startMigrationJobWithOptions(request: StartMigrationJobRequest, runtime: $Util.RuntimeOptions): Promise<StartMigrationJobResponse> {
@@ -8036,6 +13159,19 @@ export default class Client extends OpenApi {
     return await this.startSynchronizationJobWithOptions(request, runtime);
   }
 
+  async stopDtsJobWithOptions(request: StopDtsJobRequest, runtime: $Util.RuntimeOptions): Promise<StopDtsJobResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<StopDtsJobResponse>(await this.doRPCRequest("StopDtsJob", "2020-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new StopDtsJobResponse({}));
+  }
+
+  async stopDtsJob(request: StopDtsJobRequest): Promise<StopDtsJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.stopDtsJobWithOptions(request, runtime);
+  }
+
   async stopMigrationJobWithOptions(request: StopMigrationJobRequest, runtime: $Util.RuntimeOptions): Promise<StopMigrationJobResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -8047,6 +13183,32 @@ export default class Client extends OpenApi {
   async stopMigrationJob(request: StopMigrationJobRequest): Promise<StopMigrationJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.stopMigrationJobWithOptions(request, runtime);
+  }
+
+  async summaryJobDetailWithOptions(request: SummaryJobDetailRequest, runtime: $Util.RuntimeOptions): Promise<SummaryJobDetailResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<SummaryJobDetailResponse>(await this.doRPCRequest("SummaryJobDetail", "2020-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new SummaryJobDetailResponse({}));
+  }
+
+  async summaryJobDetail(request: SummaryJobDetailRequest): Promise<SummaryJobDetailResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.summaryJobDetailWithOptions(request, runtime);
+  }
+
+  async suspendDtsJobWithOptions(request: SuspendDtsJobRequest, runtime: $Util.RuntimeOptions): Promise<SuspendDtsJobResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<SuspendDtsJobResponse>(await this.doRPCRequest("SuspendDtsJob", "2020-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new SuspendDtsJobResponse({}));
+  }
+
+  async suspendDtsJob(request: SuspendDtsJobRequest): Promise<SuspendDtsJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.suspendDtsJobWithOptions(request, runtime);
   }
 
   async suspendMigrationJobWithOptions(request: SuspendMigrationJobRequest, runtime: $Util.RuntimeOptions): Promise<SuspendMigrationJobResponse> {
@@ -8101,6 +13263,32 @@ export default class Client extends OpenApi {
     return await this.tagResourcesWithOptions(request, runtime);
   }
 
+  async transferInstanceClassWithOptions(request: TransferInstanceClassRequest, runtime: $Util.RuntimeOptions): Promise<TransferInstanceClassResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<TransferInstanceClassResponse>(await this.doRPCRequest("TransferInstanceClass", "2020-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new TransferInstanceClassResponse({}));
+  }
+
+  async transferInstanceClass(request: TransferInstanceClassRequest): Promise<TransferInstanceClassResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.transferInstanceClassWithOptions(request, runtime);
+  }
+
+  async transferPayTypeWithOptions(request: TransferPayTypeRequest, runtime: $Util.RuntimeOptions): Promise<TransferPayTypeResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<TransferPayTypeResponse>(await this.doRPCRequest("TransferPayType", "2020-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new TransferPayTypeResponse({}));
+  }
+
+  async transferPayType(request: TransferPayTypeRequest): Promise<TransferPayTypeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.transferPayTypeWithOptions(request, runtime);
+  }
+
   async untagResourcesWithOptions(request: UntagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<UntagResourcesResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -8112,6 +13300,32 @@ export default class Client extends OpenApi {
   async untagResources(request: UntagResourcesRequest): Promise<UntagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.untagResourcesWithOptions(request, runtime);
+  }
+
+  async upgradeTwoWayWithOptions(request: UpgradeTwoWayRequest, runtime: $Util.RuntimeOptions): Promise<UpgradeTwoWayResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<UpgradeTwoWayResponse>(await this.doRPCRequest("UpgradeTwoWay", "2020-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new UpgradeTwoWayResponse({}));
+  }
+
+  async upgradeTwoWay(request: UpgradeTwoWayRequest): Promise<UpgradeTwoWayResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.upgradeTwoWayWithOptions(request, runtime);
+  }
+
+  async whiteIpListWithOptions(request: WhiteIpListRequest, runtime: $Util.RuntimeOptions): Promise<WhiteIpListResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<WhiteIpListResponse>(await this.doRPCRequest("WhiteIpList", "2020-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new WhiteIpListResponse({}));
+  }
+
+  async whiteIpList(request: WhiteIpListRequest): Promise<WhiteIpListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.whiteIpListWithOptions(request, runtime);
   }
 
 }
