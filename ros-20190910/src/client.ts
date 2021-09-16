@@ -6150,7 +6150,7 @@ export class GetStackGroupOperationResponseBodyStackGroupOperation extends $tea.
   operationPreferences?: GetStackGroupOperationResponseBodyStackGroupOperationOperationPreferences;
   endTime?: string;
   executionRoleName?: string;
-  administratorRoleName?: string;
+  administrationRoleName?: string;
   deploymentTargets?: GetStackGroupOperationResponseBodyStackGroupOperationDeploymentTargets;
   static names(): { [key: string]: string } {
     return {
@@ -6166,7 +6166,7 @@ export class GetStackGroupOperationResponseBodyStackGroupOperation extends $tea.
       operationPreferences: 'OperationPreferences',
       endTime: 'EndTime',
       executionRoleName: 'ExecutionRoleName',
-      administratorRoleName: 'AdministratorRoleName',
+      administrationRoleName: 'AdministrationRoleName',
       deploymentTargets: 'DeploymentTargets',
     };
   }
@@ -6185,7 +6185,7 @@ export class GetStackGroupOperationResponseBodyStackGroupOperation extends $tea.
       operationPreferences: GetStackGroupOperationResponseBodyStackGroupOperationOperationPreferences,
       endTime: 'string',
       executionRoleName: 'string',
-      administratorRoleName: 'string',
+      administrationRoleName: 'string',
       deploymentTargets: GetStackGroupOperationResponseBodyStackGroupOperationDeploymentTargets,
     };
   }
