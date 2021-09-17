@@ -1171,6 +1171,87 @@ export class SetAppStatusResponse extends $tea.Model {
   }
 }
 
+export class DescribeWhiteBoardRecordingsRequest extends $tea.Model {
+  appID?: string;
+  docKey?: string;
+  pageNum?: number;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      appID: 'AppID',
+      docKey: 'DocKey',
+      pageNum: 'PageNum',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appID: 'string',
+      docKey: 'string',
+      pageNum: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeWhiteBoardRecordingsResponseBody extends $tea.Model {
+  requestId?: string;
+  responseSuccess?: boolean;
+  errorCode?: string;
+  errorMsg?: string;
+  result?: DescribeWhiteBoardRecordingsResponseBodyResult;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      responseSuccess: 'ResponseSuccess',
+      errorCode: 'ErrorCode',
+      errorMsg: 'ErrorMsg',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      responseSuccess: 'boolean',
+      errorCode: 'string',
+      errorMsg: 'string',
+      result: DescribeWhiteBoardRecordingsResponseBodyResult,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeWhiteBoardRecordingsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeWhiteBoardRecordingsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeWhiteBoardRecordingsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class StopWhiteBoardRecordingRequest extends $tea.Model {
   appID?: string;
   userId?: string;
@@ -1546,6 +1627,62 @@ export class CreateWhiteBoardResponseBodyResult extends $tea.Model {
   }
 }
 
+export class DescribeWhiteBoardRecordingsResponseBodyResultRecordingList extends $tea.Model {
+  appID?: string;
+  docKey?: string;
+  recordId?: string;
+  userId?: string;
+  operateList?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      appID: 'AppID',
+      docKey: 'DocKey',
+      recordId: 'RecordId',
+      userId: 'UserId',
+      operateList: 'OperateList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appID: 'string',
+      docKey: 'string',
+      recordId: 'string',
+      userId: 'string',
+      operateList: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeWhiteBoardRecordingsResponseBodyResult extends $tea.Model {
+  totalNum?: number;
+  totalPage?: number;
+  recordingList?: DescribeWhiteBoardRecordingsResponseBodyResultRecordingList[];
+  static names(): { [key: string]: string } {
+    return {
+      totalNum: 'TotalNum',
+      totalPage: 'TotalPage',
+      recordingList: 'RecordingList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      totalNum: 'number',
+      totalPage: 'number',
+      recordingList: { 'type': 'array', 'itemType': DescribeWhiteBoardRecordingsResponseBodyResultRecordingList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class StopWhiteBoardRecordingResponseBodyResult extends $tea.Model {
   stopTime?: number;
   static names(): { [key: string]: string } {
@@ -1781,6 +1918,19 @@ export default class Client extends OpenApi {
   async setAppStatus(request: SetAppStatusRequest): Promise<SetAppStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setAppStatusWithOptions(request, runtime);
+  }
+
+  async describeWhiteBoardRecordingsWithOptions(request: DescribeWhiteBoardRecordingsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeWhiteBoardRecordingsResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DescribeWhiteBoardRecordingsResponse>(await this.doRPCRequest("DescribeWhiteBoardRecordings", "2020-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeWhiteBoardRecordingsResponse({}));
+  }
+
+  async describeWhiteBoardRecordings(request: DescribeWhiteBoardRecordingsRequest): Promise<DescribeWhiteBoardRecordingsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeWhiteBoardRecordingsWithOptions(request, runtime);
   }
 
   async stopWhiteBoardRecordingWithOptions(request: StopWhiteBoardRecordingRequest, runtime: $Util.RuntimeOptions): Promise<StopWhiteBoardRecordingResponse> {
