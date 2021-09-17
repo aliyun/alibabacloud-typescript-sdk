@@ -4,6 +4,7 @@
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
+import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
@@ -3127,81 +3128,6 @@ export class AttachLogStoreToEndpointGroupResponse extends $tea.Model {
   }
 }
 
-export class UpdateCrossBorderPackageComplianceStatusRequest extends $tea.Model {
-  regionId?: string;
-  clientToken?: string;
-  dryRun?: boolean;
-  complianceStatus?: string;
-  instanceId?: string;
-  description?: string;
-  static names(): { [key: string]: string } {
-    return {
-      regionId: 'RegionId',
-      clientToken: 'ClientToken',
-      dryRun: 'DryRun',
-      complianceStatus: 'ComplianceStatus',
-      instanceId: 'InstanceId',
-      description: 'Description',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      regionId: 'string',
-      clientToken: 'string',
-      dryRun: 'boolean',
-      complianceStatus: 'string',
-      instanceId: 'string',
-      description: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateCrossBorderPackageComplianceStatusResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateCrossBorderPackageComplianceStatusResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: UpdateCrossBorderPackageComplianceStatusResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: UpdateCrossBorderPackageComplianceStatusResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class UpdateBandwidthPackageRequest extends $tea.Model {
   regionId?: string;
   bandwidthPackageId?: string;
@@ -3907,96 +3833,6 @@ export class DissociateAclsFromListenerResponse extends $tea.Model {
   }
 }
 
-export class ListCrossBorderPackageForComplianceRequest extends $tea.Model {
-  regionId?: string;
-  clientToken?: string;
-  dryRun?: boolean;
-  resourceUid?: number;
-  isBinded?: boolean;
-  nextToken?: string;
-  maxResult?: number;
-  static names(): { [key: string]: string } {
-    return {
-      regionId: 'RegionId',
-      clientToken: 'ClientToken',
-      dryRun: 'DryRun',
-      resourceUid: 'ResourceUid',
-      isBinded: 'IsBinded',
-      nextToken: 'NextToken',
-      maxResult: 'MaxResult',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      regionId: 'string',
-      clientToken: 'string',
-      dryRun: 'boolean',
-      resourceUid: 'number',
-      isBinded: 'boolean',
-      nextToken: 'string',
-      maxResult: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListCrossBorderPackageForComplianceResponseBody extends $tea.Model {
-  requestId?: string;
-  totalCount?: number;
-  nextToken?: string;
-  maxResults?: number;
-  bandwidthPackages?: ListCrossBorderPackageForComplianceResponseBodyBandwidthPackages[];
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-      nextToken: 'NextToken',
-      maxResults: 'MaxResults',
-      bandwidthPackages: 'BandwidthPackages',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      totalCount: 'number',
-      nextToken: 'string',
-      maxResults: 'number',
-      bandwidthPackages: { 'type': 'array', 'itemType': ListCrossBorderPackageForComplianceResponseBodyBandwidthPackages },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListCrossBorderPackageForComplianceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ListCrossBorderPackageForComplianceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListCrossBorderPackageForComplianceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ListAccelerateAreasRequest extends $tea.Model {
   regionId?: string;
   static names(): { [key: string]: string } {
@@ -4062,16 +3898,16 @@ export class ListAccelerateAreasResponse extends $tea.Model {
 
 export class ListListenerCertificatesRequest extends $tea.Model {
   regionId?: string;
-  clientToken?: string;
   acceleratorId?: string;
+  role?: string;
   listenerId?: string;
   nextToken?: string;
   maxResults?: number;
   static names(): { [key: string]: string } {
     return {
       regionId: 'RegionId',
-      clientToken: 'ClientToken',
       acceleratorId: 'AcceleratorId',
+      role: 'Role',
       listenerId: 'ListenerId',
       nextToken: 'NextToken',
       maxResults: 'MaxResults',
@@ -4081,8 +3917,8 @@ export class ListListenerCertificatesRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       regionId: 'string',
-      clientToken: 'string',
       acceleratorId: 'string',
+      role: 'string',
       listenerId: 'string',
       nextToken: 'string',
       maxResults: 'number',
@@ -6150,13 +5986,11 @@ export class CreateIpSetsResponseBodyIpSets extends $tea.Model {
   accelerateRegionId?: string;
   bandwidth?: number;
   ipSetId?: string;
-  ipList?: string[];
   static names(): { [key: string]: string } {
     return {
       accelerateRegionId: 'AccelerateRegionId',
       bandwidth: 'Bandwidth',
       ipSetId: 'IpSetId',
-      ipList: 'IpList',
     };
   }
 
@@ -6165,7 +5999,6 @@ export class CreateIpSetsResponseBodyIpSets extends $tea.Model {
       accelerateRegionId: 'string',
       bandwidth: 'number',
       ipSetId: 'string',
-      ipList: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -7051,49 +6884,6 @@ export class DeleteForwardingRulesResponseBodyForwardingRules extends $tea.Model
   }
 }
 
-export class ListCrossBorderPackageForComplianceResponseBodyBandwidthPackages extends $tea.Model {
-  isBinded?: boolean;
-  createTime?: number;
-  cbnGeographicRegionIdA?: string;
-  bandwidthPackageId?: string;
-  bandwidth?: number;
-  expiredTime?: number;
-  cbnGeographicRegionIdB?: string;
-  aliUid?: number;
-  bindTime?: number;
-  static names(): { [key: string]: string } {
-    return {
-      isBinded: 'IsBinded',
-      createTime: 'CreateTime',
-      cbnGeographicRegionIdA: 'CbnGeographicRegionIdA',
-      bandwidthPackageId: 'BandwidthPackageId',
-      bandwidth: 'Bandwidth',
-      expiredTime: 'ExpiredTime',
-      cbnGeographicRegionIdB: 'CbnGeographicRegionIdB',
-      aliUid: 'AliUid',
-      bindTime: 'BindTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      isBinded: 'boolean',
-      createTime: 'number',
-      cbnGeographicRegionIdA: 'string',
-      bandwidthPackageId: 'string',
-      bandwidth: 'number',
-      expiredTime: 'number',
-      cbnGeographicRegionIdB: 'string',
-      aliUid: 'number',
-      bindTime: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ListAccelerateAreasResponseBodyAreasRegionList extends $tea.Model {
   localName?: string;
   regionId?: string;
@@ -7143,13 +6933,11 @@ export class ListAccelerateAreasResponseBodyAreas extends $tea.Model {
 
 export class ListListenerCertificatesResponseBodyCertificates extends $tea.Model {
   certificateId?: string;
-  type?: string;
   isDefault?: boolean;
   domain?: string;
   static names(): { [key: string]: string } {
     return {
       certificateId: 'CertificateId',
-      type: 'Type',
       isDefault: 'IsDefault',
       domain: 'Domain',
     };
@@ -7158,7 +6946,6 @@ export class ListListenerCertificatesResponseBodyCertificates extends $tea.Model
   static types(): { [key: string]: any } {
     return {
       certificateId: 'string',
-      type: 'string',
       isDefault: 'boolean',
       domain: 'string',
     };
@@ -7719,10 +7506,25 @@ export default class Client extends OpenApi {
 
   async describeIpSetWithOptions(request: DescribeIpSetRequest, runtime: $Util.RuntimeOptions): Promise<DescribeIpSetResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["RegionId"] = request.regionId;
+    query["IpSetId"] = request.ipSetId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeIpSetResponse>(await this.doRPCRequest("DescribeIpSet", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeIpSetResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeIpSet",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeIpSetResponse>(await this.callApi(params, req, runtime), new DescribeIpSetResponse({}));
   }
 
   async describeIpSet(request: DescribeIpSetRequest): Promise<DescribeIpSetResponse> {
@@ -7732,10 +7534,29 @@ export default class Client extends OpenApi {
 
   async listAclsWithOptions(request: ListAclsRequest, runtime: $Util.RuntimeOptions): Promise<ListAclsResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["RegionId"] = request.regionId;
+    query["ClientToken"] = request.clientToken;
+    query["AclIds"] = request.aclIds;
+    query["AclName"] = request.aclName;
+    query["NextToken"] = request.nextToken;
+    query["MaxResults"] = request.maxResults;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ListAclsResponse>(await this.doRPCRequest("ListAcls", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new ListAclsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListAcls",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListAclsResponse>(await this.callApi(params, req, runtime), new ListAclsResponse({}));
   }
 
   async listAcls(request: ListAclsRequest): Promise<ListAclsResponse> {
@@ -7745,10 +7566,31 @@ export default class Client extends OpenApi {
 
   async createAcceleratorWithOptions(request: CreateAcceleratorRequest, runtime: $Util.RuntimeOptions): Promise<CreateAcceleratorResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["RegionId"] = request.regionId;
+    query["ClientToken"] = request.clientToken;
+    query["Name"] = request.name;
+    query["Duration"] = request.duration;
+    query["PricingCycle"] = request.pricingCycle;
+    query["Spec"] = request.spec;
+    query["AutoPay"] = request.autoPay;
+    query["AutoUseCoupon"] = request.autoUseCoupon;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<CreateAcceleratorResponse>(await this.doRPCRequest("CreateAccelerator", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new CreateAcceleratorResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateAccelerator",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateAcceleratorResponse>(await this.callApi(params, req, runtime), new CreateAcceleratorResponse({}));
   }
 
   async createAccelerator(request: CreateAcceleratorRequest): Promise<CreateAcceleratorResponse> {
@@ -7758,10 +7600,25 @@ export default class Client extends OpenApi {
 
   async describeListenerWithOptions(request: DescribeListenerRequest, runtime: $Util.RuntimeOptions): Promise<DescribeListenerResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["RegionId"] = request.regionId;
+    query["ListenerId"] = request.listenerId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeListenerResponse>(await this.doRPCRequest("DescribeListener", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeListenerResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeListener",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeListenerResponse>(await this.callApi(params, req, runtime), new DescribeListenerResponse({}));
   }
 
   async describeListener(request: DescribeListenerRequest): Promise<DescribeListenerResponse> {
@@ -7771,10 +7628,28 @@ export default class Client extends OpenApi {
 
   async deleteSpareIpsWithOptions(request: DeleteSpareIpsRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSpareIpsResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["RegionId"] = request.regionId;
+    query["ClientToken"] = request.clientToken;
+    query["DryRun"] = request.dryRun;
+    query["AcceleratorId"] = request.acceleratorId;
+    query["SpareIps"] = request.spareIps;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DeleteSpareIpsResponse>(await this.doRPCRequest("DeleteSpareIps", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteSpareIpsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteSpareIps",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteSpareIpsResponse>(await this.callApi(params, req, runtime), new DeleteSpareIpsResponse({}));
   }
 
   async deleteSpareIps(request: DeleteSpareIpsRequest): Promise<DeleteSpareIpsResponse> {
@@ -7784,10 +7659,25 @@ export default class Client extends OpenApi {
 
   async updateIpSetsWithOptions(request: UpdateIpSetsRequest, runtime: $Util.RuntimeOptions): Promise<UpdateIpSetsResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["RegionId"] = request.regionId;
+    query["IpSets"] = request.ipSets;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<UpdateIpSetsResponse>(await this.doRPCRequest("UpdateIpSets", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateIpSetsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateIpSets",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateIpSetsResponse>(await this.callApi(params, req, runtime), new UpdateIpSetsResponse({}));
   }
 
   async updateIpSets(request: UpdateIpSetsRequest): Promise<UpdateIpSetsResponse> {
@@ -7797,10 +7687,31 @@ export default class Client extends OpenApi {
 
   async configEndpointProbeWithOptions(request: ConfigEndpointProbeRequest, runtime: $Util.RuntimeOptions): Promise<ConfigEndpointProbeResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["RegionId"] = request.regionId;
+    query["ClientToken"] = request.clientToken;
+    query["EndpointGroupId"] = request.endpointGroupId;
+    query["EndpointType"] = request.endpointType;
+    query["Endpoint"] = request.endpoint;
+    query["ProbeProtocol"] = request.probeProtocol;
+    query["ProbePort"] = request.probePort;
+    query["Enable"] = request.enable;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ConfigEndpointProbeResponse>(await this.doRPCRequest("ConfigEndpointProbe", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new ConfigEndpointProbeResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ConfigEndpointProbe",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ConfigEndpointProbeResponse>(await this.callApi(params, req, runtime), new ConfigEndpointProbeResponse({}));
   }
 
   async configEndpointProbe(request: ConfigEndpointProbeRequest): Promise<ConfigEndpointProbeResponse> {
@@ -7810,10 +7721,28 @@ export default class Client extends OpenApi {
 
   async removeEntriesFromAclWithOptions(request: RemoveEntriesFromAclRequest, runtime: $Util.RuntimeOptions): Promise<RemoveEntriesFromAclResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["RegionId"] = request.regionId;
+    query["AclId"] = request.aclId;
+    query["AclEntries"] = request.aclEntries;
+    query["ClientToken"] = request.clientToken;
+    query["DryRun"] = request.dryRun;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<RemoveEntriesFromAclResponse>(await this.doRPCRequest("RemoveEntriesFromAcl", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new RemoveEntriesFromAclResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RemoveEntriesFromAcl",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<RemoveEntriesFromAclResponse>(await this.callApi(params, req, runtime), new RemoveEntriesFromAclResponse({}));
   }
 
   async removeEntriesFromAcl(request: RemoveEntriesFromAclRequest): Promise<RemoveEntriesFromAclResponse> {
@@ -7823,10 +7752,25 @@ export default class Client extends OpenApi {
 
   async describeBandwidthPackageWithOptions(request: DescribeBandwidthPackageRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBandwidthPackageResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["RegionId"] = request.regionId;
+    query["BandwidthPackageId"] = request.bandwidthPackageId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeBandwidthPackageResponse>(await this.doRPCRequest("DescribeBandwidthPackage", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeBandwidthPackageResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeBandwidthPackage",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeBandwidthPackageResponse>(await this.callApi(params, req, runtime), new DescribeBandwidthPackageResponse({}));
   }
 
   async describeBandwidthPackage(request: DescribeBandwidthPackageRequest): Promise<DescribeBandwidthPackageResponse> {
@@ -7836,10 +7780,29 @@ export default class Client extends OpenApi {
 
   async listBandwidthPackagesWithOptions(request: ListBandwidthPackagesRequest, runtime: $Util.RuntimeOptions): Promise<ListBandwidthPackagesResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["RegionId"] = request.regionId;
+    query["PageNumber"] = request.pageNumber;
+    query["PageSize"] = request.pageSize;
+    query["State"] = request.state;
+    query["Type"] = request.type;
+    query["BandwidthPackageId"] = request.bandwidthPackageId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ListBandwidthPackagesResponse>(await this.doRPCRequest("ListBandwidthPackages", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new ListBandwidthPackagesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListBandwidthPackages",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListBandwidthPackagesResponse>(await this.callApi(params, req, runtime), new ListBandwidthPackagesResponse({}));
   }
 
   async listBandwidthPackages(request: ListBandwidthPackagesRequest): Promise<ListBandwidthPackagesResponse> {
@@ -7849,10 +7812,39 @@ export default class Client extends OpenApi {
 
   async updateEndpointGroupWithOptions(request: UpdateEndpointGroupRequest, runtime: $Util.RuntimeOptions): Promise<UpdateEndpointGroupResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["RegionId"] = request.regionId;
+    query["ClientToken"] = request.clientToken;
+    query["EndpointGroupId"] = request.endpointGroupId;
+    query["Name"] = request.name;
+    query["Description"] = request.description;
+    query["EndpointGroupRegion"] = request.endpointGroupRegion;
+    query["TrafficPercentage"] = request.trafficPercentage;
+    query["HealthCheckIntervalSeconds"] = request.healthCheckIntervalSeconds;
+    query["HealthCheckPath"] = request.healthCheckPath;
+    query["HealthCheckPort"] = request.healthCheckPort;
+    query["HealthCheckProtocol"] = request.healthCheckProtocol;
+    query["ThresholdCount"] = request.thresholdCount;
+    query["EndpointConfigurations"] = request.endpointConfigurations;
+    query["EndpointRequestProtocol"] = request.endpointRequestProtocol;
+    query["PortOverrides"] = request.portOverrides;
+    query["HealthCheckEnabled"] = request.healthCheckEnabled;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<UpdateEndpointGroupResponse>(await this.doRPCRequest("UpdateEndpointGroup", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateEndpointGroupResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateEndpointGroup",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateEndpointGroupResponse>(await this.callApi(params, req, runtime), new UpdateEndpointGroupResponse({}));
   }
 
   async updateEndpointGroup(request: UpdateEndpointGroupRequest): Promise<UpdateEndpointGroupResponse> {
@@ -7862,10 +7854,27 @@ export default class Client extends OpenApi {
 
   async attachDdosToAcceleratorWithOptions(request: AttachDdosToAcceleratorRequest, runtime: $Util.RuntimeOptions): Promise<AttachDdosToAcceleratorResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["AcceleratorId"] = request.acceleratorId;
+    query["DdosId"] = request.ddosId;
+    query["DdosRegionId"] = request.ddosRegionId;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<AttachDdosToAcceleratorResponse>(await this.doRPCRequest("AttachDdosToAccelerator", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new AttachDdosToAcceleratorResponse({}));
+    let params = new $OpenApi.Params({
+      action: "AttachDdosToAccelerator",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<AttachDdosToAcceleratorResponse>(await this.callApi(params, req, runtime), new AttachDdosToAcceleratorResponse({}));
   }
 
   async attachDdosToAccelerator(request: AttachDdosToAcceleratorRequest): Promise<AttachDdosToAcceleratorResponse> {
@@ -7875,10 +7884,25 @@ export default class Client extends OpenApi {
 
   async getAclWithOptions(request: GetAclRequest, runtime: $Util.RuntimeOptions): Promise<GetAclResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["RegionId"] = request.regionId;
+    query["AclId"] = request.aclId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<GetAclResponse>(await this.doRPCRequest("GetAcl", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new GetAclResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetAcl",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetAclResponse>(await this.callApi(params, req, runtime), new GetAclResponse({}));
   }
 
   async getAcl(request: GetAclRequest): Promise<GetAclResponse> {
@@ -7888,10 +7912,29 @@ export default class Client extends OpenApi {
 
   async associateAclsWithListenerWithOptions(request: AssociateAclsWithListenerRequest, runtime: $Util.RuntimeOptions): Promise<AssociateAclsWithListenerResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["RegionId"] = request.regionId;
+    query["AclIds"] = request.aclIds;
+    query["ListenerId"] = request.listenerId;
+    query["AclType"] = request.aclType;
+    query["ClientToken"] = request.clientToken;
+    query["DryRun"] = request.dryRun;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<AssociateAclsWithListenerResponse>(await this.doRPCRequest("AssociateAclsWithListener", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new AssociateAclsWithListenerResponse({}));
+    let params = new $OpenApi.Params({
+      action: "AssociateAclsWithListener",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<AssociateAclsWithListenerResponse>(await this.callApi(params, req, runtime), new AssociateAclsWithListenerResponse({}));
   }
 
   async associateAclsWithListener(request: AssociateAclsWithListenerRequest): Promise<AssociateAclsWithListenerResponse> {
@@ -7901,10 +7944,30 @@ export default class Client extends OpenApi {
 
   async listForwardingRulesWithOptions(request: ListForwardingRulesRequest, runtime: $Util.RuntimeOptions): Promise<ListForwardingRulesResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["RegionId"] = request.regionId;
+    query["ClientToken"] = request.clientToken;
+    query["ListenerId"] = request.listenerId;
+    query["AcceleratorId"] = request.acceleratorId;
+    query["ForwardingRuleId"] = request.forwardingRuleId;
+    query["NextToken"] = request.nextToken;
+    query["MaxResults"] = request.maxResults;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ListForwardingRulesResponse>(await this.doRPCRequest("ListForwardingRules", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new ListForwardingRulesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListForwardingRules",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListForwardingRulesResponse>(await this.callApi(params, req, runtime), new ListForwardingRulesResponse({}));
   }
 
   async listForwardingRules(request: ListForwardingRulesRequest): Promise<ListForwardingRulesResponse> {
@@ -7914,10 +7977,37 @@ export default class Client extends OpenApi {
 
   async createBandwidthPackageWithOptions(request: CreateBandwidthPackageRequest, runtime: $Util.RuntimeOptions): Promise<CreateBandwidthPackageResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["RegionId"] = request.regionId;
+    query["Bandwidth"] = request.bandwidth;
+    query["Duration"] = request.duration;
+    query["PricingCycle"] = request.pricingCycle;
+    query["AutoPay"] = request.autoPay;
+    query["ClientToken"] = request.clientToken;
+    query["Type"] = request.type;
+    query["BandwidthType"] = request.bandwidthType;
+    query["AutoUseCoupon"] = request.autoUseCoupon;
+    query["Ratio"] = request.ratio;
+    query["BillingType"] = request.billingType;
+    query["ChargeType"] = request.chargeType;
+    query["CbnGeographicRegionIdA"] = request.cbnGeographicRegionIdA;
+    query["CbnGeographicRegionIdB"] = request.cbnGeographicRegionIdB;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<CreateBandwidthPackageResponse>(await this.doRPCRequest("CreateBandwidthPackage", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new CreateBandwidthPackageResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateBandwidthPackage",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateBandwidthPackageResponse>(await this.callApi(params, req, runtime), new CreateBandwidthPackageResponse({}));
   }
 
   async createBandwidthPackage(request: CreateBandwidthPackageRequest): Promise<CreateBandwidthPackageResponse> {
@@ -7927,10 +8017,26 @@ export default class Client extends OpenApi {
 
   async listBandwidthackagesWithOptions(request: ListBandwidthackagesRequest, runtime: $Util.RuntimeOptions): Promise<ListBandwidthackagesResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["RegionId"] = request.regionId;
+    query["PageNumber"] = request.pageNumber;
+    query["PageSize"] = request.pageSize;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ListBandwidthackagesResponse>(await this.doRPCRequest("ListBandwidthackages", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new ListBandwidthackagesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListBandwidthackages",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListBandwidthackagesResponse>(await this.callApi(params, req, runtime), new ListBandwidthackagesResponse({}));
   }
 
   async listBandwidthackages(request: ListBandwidthackagesRequest): Promise<ListBandwidthackagesResponse> {
@@ -7940,10 +8046,26 @@ export default class Client extends OpenApi {
 
   async deleteBandwidthPackageWithOptions(request: DeleteBandwidthPackageRequest, runtime: $Util.RuntimeOptions): Promise<DeleteBandwidthPackageResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["RegionId"] = request.regionId;
+    query["BandwidthPackageId"] = request.bandwidthPackageId;
+    query["ClientToken"] = request.clientToken;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DeleteBandwidthPackageResponse>(await this.doRPCRequest("DeleteBandwidthPackage", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteBandwidthPackageResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteBandwidthPackage",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteBandwidthPackageResponse>(await this.callApi(params, req, runtime), new DeleteBandwidthPackageResponse({}));
   }
 
   async deleteBandwidthPackage(request: DeleteBandwidthPackageRequest): Promise<DeleteBandwidthPackageResponse> {
@@ -7953,10 +8075,28 @@ export default class Client extends OpenApi {
 
   async getHealthStatusWithOptions(request: GetHealthStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetHealthStatusResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["RegionId"] = request.regionId;
+    query["ClientToken"] = request.clientToken;
+    query["DryRun"] = request.dryRun;
+    query["AcceleratorId"] = request.acceleratorId;
+    query["ListenerId"] = request.listenerId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<GetHealthStatusResponse>(await this.doRPCRequest("GetHealthStatus", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new GetHealthStatusResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetHealthStatus",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetHealthStatusResponse>(await this.callApi(params, req, runtime), new GetHealthStatusResponse({}));
   }
 
   async getHealthStatus(request: GetHealthStatusRequest): Promise<GetHealthStatusResponse> {
@@ -7966,10 +8106,25 @@ export default class Client extends OpenApi {
 
   async describeAcceleratorWithOptions(request: DescribeAcceleratorRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAcceleratorResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["RegionId"] = request.regionId;
+    query["AcceleratorId"] = request.acceleratorId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeAcceleratorResponse>(await this.doRPCRequest("DescribeAccelerator", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeAcceleratorResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeAccelerator",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeAcceleratorResponse>(await this.callApi(params, req, runtime), new DescribeAcceleratorResponse({}));
   }
 
   async describeAccelerator(request: DescribeAcceleratorRequest): Promise<DescribeAcceleratorResponse> {
@@ -7979,10 +8134,28 @@ export default class Client extends OpenApi {
 
   async detachLogStoreFromEndpointGroupWithOptions(request: DetachLogStoreFromEndpointGroupRequest, runtime: $Util.RuntimeOptions): Promise<DetachLogStoreFromEndpointGroupResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["RegionId"] = request.regionId;
+    query["AcceleratorId"] = request.acceleratorId;
+    query["ListenerId"] = request.listenerId;
+    query["EndpointGroupIds"] = request.endpointGroupIds;
+    query["ClientToken"] = request.clientToken;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DetachLogStoreFromEndpointGroupResponse>(await this.doRPCRequest("DetachLogStoreFromEndpointGroup", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new DetachLogStoreFromEndpointGroupResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DetachLogStoreFromEndpointGroup",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DetachLogStoreFromEndpointGroupResponse>(await this.callApi(params, req, runtime), new DetachLogStoreFromEndpointGroupResponse({}));
   }
 
   async detachLogStoreFromEndpointGroup(request: DetachLogStoreFromEndpointGroupRequest): Promise<DetachLogStoreFromEndpointGroupResponse> {
@@ -7992,10 +8165,27 @@ export default class Client extends OpenApi {
 
   async createIpSetsWithOptions(request: CreateIpSetsRequest, runtime: $Util.RuntimeOptions): Promise<CreateIpSetsResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["RegionId"] = request.regionId;
+    query["ClientToken"] = request.clientToken;
+    query["AcceleratorId"] = request.acceleratorId;
+    query["AccelerateRegion"] = request.accelerateRegion;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<CreateIpSetsResponse>(await this.doRPCRequest("CreateIpSets", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new CreateIpSetsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateIpSets",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateIpSetsResponse>(await this.callApi(params, req, runtime), new CreateIpSetsResponse({}));
   }
 
   async createIpSets(request: CreateIpSetsRequest): Promise<CreateIpSetsResponse> {
@@ -8005,10 +8195,28 @@ export default class Client extends OpenApi {
 
   async createForwardingRulesWithOptions(request: CreateForwardingRulesRequest, runtime: $Util.RuntimeOptions): Promise<CreateForwardingRulesResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["RegionId"] = request.regionId;
+    query["ClientToken"] = request.clientToken;
+    query["AcceleratorId"] = request.acceleratorId;
+    query["ListenerId"] = request.listenerId;
+    query["ForwardingRules"] = request.forwardingRules;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<CreateForwardingRulesResponse>(await this.doRPCRequest("CreateForwardingRules", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new CreateForwardingRulesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateForwardingRules",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateForwardingRulesResponse>(await this.callApi(params, req, runtime), new CreateForwardingRulesResponse({}));
   }
 
   async createForwardingRules(request: CreateForwardingRulesRequest): Promise<CreateForwardingRulesResponse> {
@@ -8018,10 +8226,25 @@ export default class Client extends OpenApi {
 
   async listAvailableAccelerateAreasWithOptions(request: ListAvailableAccelerateAreasRequest, runtime: $Util.RuntimeOptions): Promise<ListAvailableAccelerateAreasResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["RegionId"] = request.regionId;
+    query["AcceleratorId"] = request.acceleratorId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ListAvailableAccelerateAreasResponse>(await this.doRPCRequest("ListAvailableAccelerateAreas", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new ListAvailableAccelerateAreasResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListAvailableAccelerateAreas",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListAvailableAccelerateAreasResponse>(await this.callApi(params, req, runtime), new ListAvailableAccelerateAreasResponse({}));
   }
 
   async listAvailableAccelerateAreas(request: ListAvailableAccelerateAreasRequest): Promise<ListAvailableAccelerateAreasResponse> {
@@ -8031,10 +8254,27 @@ export default class Client extends OpenApi {
 
   async deleteAclWithOptions(request: DeleteAclRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAclResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["RegionId"] = request.regionId;
+    query["AclId"] = request.aclId;
+    query["ClientToken"] = request.clientToken;
+    query["DryRun"] = request.dryRun;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DeleteAclResponse>(await this.doRPCRequest("DeleteAcl", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteAclResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteAcl",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteAclResponse>(await this.callApi(params, req, runtime), new DeleteAclResponse({}));
   }
 
   async deleteAcl(request: DeleteAclRequest): Promise<DeleteAclResponse> {
@@ -8044,10 +8284,28 @@ export default class Client extends OpenApi {
 
   async addEntriesToAclWithOptions(request: AddEntriesToAclRequest, runtime: $Util.RuntimeOptions): Promise<AddEntriesToAclResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["RegionId"] = request.regionId;
+    query["AclId"] = request.aclId;
+    query["AclEntries"] = request.aclEntries;
+    query["ClientToken"] = request.clientToken;
+    query["DryRun"] = request.dryRun;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<AddEntriesToAclResponse>(await this.doRPCRequest("AddEntriesToAcl", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new AddEntriesToAclResponse({}));
+    let params = new $OpenApi.Params({
+      action: "AddEntriesToAcl",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<AddEntriesToAclResponse>(await this.callApi(params, req, runtime), new AddEntriesToAclResponse({}));
   }
 
   async addEntriesToAcl(request: AddEntriesToAclRequest): Promise<AddEntriesToAclResponse> {
@@ -8057,10 +8315,28 @@ export default class Client extends OpenApi {
 
   async createSpareIpsWithOptions(request: CreateSpareIpsRequest, runtime: $Util.RuntimeOptions): Promise<CreateSpareIpsResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["RegionId"] = request.regionId;
+    query["ClientToken"] = request.clientToken;
+    query["DryRun"] = request.dryRun;
+    query["AcceleratorId"] = request.acceleratorId;
+    query["SpareIps"] = request.spareIps;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<CreateSpareIpsResponse>(await this.doRPCRequest("CreateSpareIps", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new CreateSpareIpsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateSpareIps",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateSpareIpsResponse>(await this.callApi(params, req, runtime), new CreateSpareIpsResponse({}));
   }
 
   async createSpareIps(request: CreateSpareIpsRequest): Promise<CreateSpareIpsResponse> {
@@ -8070,10 +8346,28 @@ export default class Client extends OpenApi {
 
   async dissociateAdditionalCertificatesFromListenerWithOptions(request: DissociateAdditionalCertificatesFromListenerRequest, runtime: $Util.RuntimeOptions): Promise<DissociateAdditionalCertificatesFromListenerResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["RegionId"] = request.regionId;
+    query["ClientToken"] = request.clientToken;
+    query["AcceleratorId"] = request.acceleratorId;
+    query["ListenerId"] = request.listenerId;
+    query["Domains"] = request.domains;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DissociateAdditionalCertificatesFromListenerResponse>(await this.doRPCRequest("DissociateAdditionalCertificatesFromListener", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new DissociateAdditionalCertificatesFromListenerResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DissociateAdditionalCertificatesFromListener",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DissociateAdditionalCertificatesFromListenerResponse>(await this.callApi(params, req, runtime), new DissociateAdditionalCertificatesFromListenerResponse({}));
   }
 
   async dissociateAdditionalCertificatesFromListener(request: DissociateAdditionalCertificatesFromListenerRequest): Promise<DissociateAdditionalCertificatesFromListenerResponse> {
@@ -8083,10 +8377,31 @@ export default class Client extends OpenApi {
 
   async listEndpointGroupsWithOptions(request: ListEndpointGroupsRequest, runtime: $Util.RuntimeOptions): Promise<ListEndpointGroupsResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["RegionId"] = request.regionId;
+    query["PageNumber"] = request.pageNumber;
+    query["PageSize"] = request.pageSize;
+    query["AcceleratorId"] = request.acceleratorId;
+    query["ListenerId"] = request.listenerId;
+    query["EndpointGroupType"] = request.endpointGroupType;
+    query["AccessLogSwitch"] = request.accessLogSwitch;
+    query["EndpointGroupId"] = request.endpointGroupId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ListEndpointGroupsResponse>(await this.doRPCRequest("ListEndpointGroups", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new ListEndpointGroupsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListEndpointGroups",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListEndpointGroupsResponse>(await this.callApi(params, req, runtime), new ListEndpointGroupsResponse({}));
   }
 
   async listEndpointGroups(request: ListEndpointGroupsRequest): Promise<ListEndpointGroupsResponse> {
@@ -8096,10 +8411,24 @@ export default class Client extends OpenApi {
 
   async listBusiRegionsWithOptions(request: ListBusiRegionsRequest, runtime: $Util.RuntimeOptions): Promise<ListBusiRegionsResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ListBusiRegionsResponse>(await this.doRPCRequest("ListBusiRegions", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new ListBusiRegionsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListBusiRegions",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListBusiRegionsResponse>(await this.callApi(params, req, runtime), new ListBusiRegionsResponse({}));
   }
 
   async listBusiRegions(request: ListBusiRegionsRequest): Promise<ListBusiRegionsResponse> {
@@ -8109,10 +8438,26 @@ export default class Client extends OpenApi {
 
   async replaceBandwidthPackageWithOptions(request: ReplaceBandwidthPackageRequest, runtime: $Util.RuntimeOptions): Promise<ReplaceBandwidthPackageResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["RegionId"] = request.regionId;
+    query["BandwidthPackageId"] = request.bandwidthPackageId;
+    query["TargetBandwidthPackageId"] = request.targetBandwidthPackageId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ReplaceBandwidthPackageResponse>(await this.doRPCRequest("ReplaceBandwidthPackage", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new ReplaceBandwidthPackageResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ReplaceBandwidthPackage",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ReplaceBandwidthPackageResponse>(await this.callApi(params, req, runtime), new ReplaceBandwidthPackageResponse({}));
   }
 
   async replaceBandwidthPackage(request: ReplaceBandwidthPackageRequest): Promise<ReplaceBandwidthPackageResponse> {
@@ -8122,10 +8467,28 @@ export default class Client extends OpenApi {
 
   async updateEndpointGroupAttributeWithOptions(request: UpdateEndpointGroupAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateEndpointGroupAttributeResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["RegionId"] = request.regionId;
+    query["ClientToken"] = request.clientToken;
+    query["EndpointGroupId"] = request.endpointGroupId;
+    query["Name"] = request.name;
+    query["Description"] = request.description;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<UpdateEndpointGroupAttributeResponse>(await this.doRPCRequest("UpdateEndpointGroupAttribute", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateEndpointGroupAttributeResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateEndpointGroupAttribute",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateEndpointGroupAttributeResponse>(await this.callApi(params, req, runtime), new UpdateEndpointGroupAttributeResponse({}));
   }
 
   async updateEndpointGroupAttribute(request: UpdateEndpointGroupAttributeRequest): Promise<UpdateEndpointGroupAttributeResponse> {
@@ -8135,10 +8498,28 @@ export default class Client extends OpenApi {
 
   async updateForwardingRulesWithOptions(request: UpdateForwardingRulesRequest, runtime: $Util.RuntimeOptions): Promise<UpdateForwardingRulesResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["RegionId"] = request.regionId;
+    query["ClientToken"] = request.clientToken;
+    query["AcceleratorId"] = request.acceleratorId;
+    query["ListenerId"] = request.listenerId;
+    query["ForwardingRules"] = request.forwardingRules;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<UpdateForwardingRulesResponse>(await this.doRPCRequest("UpdateForwardingRules", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateForwardingRulesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateForwardingRules",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateForwardingRulesResponse>(await this.callApi(params, req, runtime), new UpdateForwardingRulesResponse({}));
   }
 
   async updateForwardingRules(request: UpdateForwardingRulesRequest): Promise<UpdateForwardingRulesResponse> {
@@ -8148,10 +8529,27 @@ export default class Client extends OpenApi {
 
   async listListenersWithOptions(request: ListListenersRequest, runtime: $Util.RuntimeOptions): Promise<ListListenersResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["RegionId"] = request.regionId;
+    query["PageNumber"] = request.pageNumber;
+    query["PageSize"] = request.pageSize;
+    query["AcceleratorId"] = request.acceleratorId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ListListenersResponse>(await this.doRPCRequest("ListListeners", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new ListListenersResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListListeners",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListListenersResponse>(await this.callApi(params, req, runtime), new ListListenersResponse({}));
   }
 
   async listListeners(request: ListListenersRequest): Promise<ListListenersResponse> {
@@ -8161,10 +8559,25 @@ export default class Client extends OpenApi {
 
   async describeEndpointGroupWithOptions(request: DescribeEndpointGroupRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEndpointGroupResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["RegionId"] = request.regionId;
+    query["EndpointGroupId"] = request.endpointGroupId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeEndpointGroupResponse>(await this.doRPCRequest("DescribeEndpointGroup", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeEndpointGroupResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeEndpointGroup",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeEndpointGroupResponse>(await this.callApi(params, req, runtime), new DescribeEndpointGroupResponse({}));
   }
 
   async describeEndpointGroup(request: DescribeEndpointGroupRequest): Promise<DescribeEndpointGroupResponse> {
@@ -8174,10 +8587,26 @@ export default class Client extends OpenApi {
 
   async deleteListenerWithOptions(request: DeleteListenerRequest, runtime: $Util.RuntimeOptions): Promise<DeleteListenerResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["ClientToken"] = request.clientToken;
+    query["AcceleratorId"] = request.acceleratorId;
+    query["ListenerId"] = request.listenerId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DeleteListenerResponse>(await this.doRPCRequest("DeleteListener", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteListenerResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteListener",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteListenerResponse>(await this.callApi(params, req, runtime), new DeleteListenerResponse({}));
   }
 
   async deleteListener(request: DeleteListenerRequest): Promise<DeleteListenerResponse> {
@@ -8187,10 +8616,28 @@ export default class Client extends OpenApi {
 
   async associateAdditionalCertificatesWithListenerWithOptions(request: AssociateAdditionalCertificatesWithListenerRequest, runtime: $Util.RuntimeOptions): Promise<AssociateAdditionalCertificatesWithListenerResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["RegionId"] = request.regionId;
+    query["ClientToken"] = request.clientToken;
+    query["AcceleratorId"] = request.acceleratorId;
+    query["ListenerId"] = request.listenerId;
+    query["Certificates"] = request.certificates;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<AssociateAdditionalCertificatesWithListenerResponse>(await this.doRPCRequest("AssociateAdditionalCertificatesWithListener", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new AssociateAdditionalCertificatesWithListenerResponse({}));
+    let params = new $OpenApi.Params({
+      action: "AssociateAdditionalCertificatesWithListener",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<AssociateAdditionalCertificatesWithListenerResponse>(await this.callApi(params, req, runtime), new AssociateAdditionalCertificatesWithListenerResponse({}));
   }
 
   async associateAdditionalCertificatesWithListener(request: AssociateAdditionalCertificatesWithListenerRequest): Promise<AssociateAdditionalCertificatesWithListenerResponse> {
@@ -8200,10 +8647,31 @@ export default class Client extends OpenApi {
 
   async attachLogStoreToEndpointGroupWithOptions(request: AttachLogStoreToEndpointGroupRequest, runtime: $Util.RuntimeOptions): Promise<AttachLogStoreToEndpointGroupResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["RegionId"] = request.regionId;
+    query["SlsProjectName"] = request.slsProjectName;
+    query["SlsLogStoreName"] = request.slsLogStoreName;
+    query["AcceleratorId"] = request.acceleratorId;
+    query["ListenerId"] = request.listenerId;
+    query["SlsRegionId"] = request.slsRegionId;
+    query["EndpointGroupIds"] = request.endpointGroupIds;
+    query["ClientToken"] = request.clientToken;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<AttachLogStoreToEndpointGroupResponse>(await this.doRPCRequest("AttachLogStoreToEndpointGroup", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new AttachLogStoreToEndpointGroupResponse({}));
+    let params = new $OpenApi.Params({
+      action: "AttachLogStoreToEndpointGroup",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<AttachLogStoreToEndpointGroupResponse>(await this.callApi(params, req, runtime), new AttachLogStoreToEndpointGroupResponse({}));
   }
 
   async attachLogStoreToEndpointGroup(request: AttachLogStoreToEndpointGroupRequest): Promise<AttachLogStoreToEndpointGroupResponse> {
@@ -8211,25 +8679,33 @@ export default class Client extends OpenApi {
     return await this.attachLogStoreToEndpointGroupWithOptions(request, runtime);
   }
 
-  async updateCrossBorderPackageComplianceStatusWithOptions(request: UpdateCrossBorderPackageComplianceStatusRequest, runtime: $Util.RuntimeOptions): Promise<UpdateCrossBorderPackageComplianceStatusResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<UpdateCrossBorderPackageComplianceStatusResponse>(await this.doRPCRequest("UpdateCrossBorderPackageComplianceStatus", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateCrossBorderPackageComplianceStatusResponse({}));
-  }
-
-  async updateCrossBorderPackageComplianceStatus(request: UpdateCrossBorderPackageComplianceStatusRequest): Promise<UpdateCrossBorderPackageComplianceStatusResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.updateCrossBorderPackageComplianceStatusWithOptions(request, runtime);
-  }
-
   async updateBandwidthPackageWithOptions(request: UpdateBandwidthPackageRequest, runtime: $Util.RuntimeOptions): Promise<UpdateBandwidthPackageResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["RegionId"] = request.regionId;
+    query["BandwidthPackageId"] = request.bandwidthPackageId;
+    query["Name"] = request.name;
+    query["Description"] = request.description;
+    query["Bandwidth"] = request.bandwidth;
+    query["BandwidthType"] = request.bandwidthType;
+    query["AutoPay"] = request.autoPay;
+    query["AutoUseCoupon"] = request.autoUseCoupon;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<UpdateBandwidthPackageResponse>(await this.doRPCRequest("UpdateBandwidthPackage", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateBandwidthPackageResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateBandwidthPackage",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateBandwidthPackageResponse>(await this.callApi(params, req, runtime), new UpdateBandwidthPackageResponse({}));
   }
 
   async updateBandwidthPackage(request: UpdateBandwidthPackageRequest): Promise<UpdateBandwidthPackageResponse> {
@@ -8239,10 +8715,25 @@ export default class Client extends OpenApi {
 
   async deleteAcceleratorWithOptions(request: DeleteAcceleratorRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAcceleratorResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["RegionId"] = request.regionId;
+    query["AcceleratorId"] = request.acceleratorId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DeleteAcceleratorResponse>(await this.doRPCRequest("DeleteAccelerator", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteAcceleratorResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteAccelerator",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteAcceleratorResponse>(await this.callApi(params, req, runtime), new DeleteAcceleratorResponse({}));
   }
 
   async deleteAccelerator(request: DeleteAcceleratorRequest): Promise<DeleteAcceleratorResponse> {
@@ -8252,10 +8743,41 @@ export default class Client extends OpenApi {
 
   async createEndpointGroupWithOptions(request: CreateEndpointGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateEndpointGroupResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["RegionId"] = request.regionId;
+    query["ClientToken"] = request.clientToken;
+    query["AcceleratorId"] = request.acceleratorId;
+    query["Name"] = request.name;
+    query["Description"] = request.description;
+    query["EndpointGroupRegion"] = request.endpointGroupRegion;
+    query["ListenerId"] = request.listenerId;
+    query["TrafficPercentage"] = request.trafficPercentage;
+    query["HealthCheckIntervalSeconds"] = request.healthCheckIntervalSeconds;
+    query["HealthCheckPath"] = request.healthCheckPath;
+    query["HealthCheckPort"] = request.healthCheckPort;
+    query["HealthCheckProtocol"] = request.healthCheckProtocol;
+    query["ThresholdCount"] = request.thresholdCount;
+    query["EndpointConfigurations"] = request.endpointConfigurations;
+    query["EndpointRequestProtocol"] = request.endpointRequestProtocol;
+    query["EndpointGroupType"] = request.endpointGroupType;
+    query["PortOverrides"] = request.portOverrides;
+    query["HealthCheckEnabled"] = request.healthCheckEnabled;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<CreateEndpointGroupResponse>(await this.doRPCRequest("CreateEndpointGroup", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new CreateEndpointGroupResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateEndpointGroup",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateEndpointGroupResponse>(await this.callApi(params, req, runtime), new CreateEndpointGroupResponse({}));
   }
 
   async createEndpointGroup(request: CreateEndpointGroupRequest): Promise<CreateEndpointGroupResponse> {
@@ -8265,10 +8787,26 @@ export default class Client extends OpenApi {
 
   async deleteEndpointGroupWithOptions(request: DeleteEndpointGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteEndpointGroupResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["ClientToken"] = request.clientToken;
+    query["AcceleratorId"] = request.acceleratorId;
+    query["EndpointGroupId"] = request.endpointGroupId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DeleteEndpointGroupResponse>(await this.doRPCRequest("DeleteEndpointGroup", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteEndpointGroupResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteEndpointGroup",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteEndpointGroupResponse>(await this.callApi(params, req, runtime), new DeleteEndpointGroupResponse({}));
   }
 
   async deleteEndpointGroup(request: DeleteEndpointGroupRequest): Promise<DeleteEndpointGroupResponse> {
@@ -8278,10 +8816,27 @@ export default class Client extends OpenApi {
 
   async listIpSetsWithOptions(request: ListIpSetsRequest, runtime: $Util.RuntimeOptions): Promise<ListIpSetsResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["RegionId"] = request.regionId;
+    query["PageNumber"] = request.pageNumber;
+    query["PageSize"] = request.pageSize;
+    query["AcceleratorId"] = request.acceleratorId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ListIpSetsResponse>(await this.doRPCRequest("ListIpSets", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new ListIpSetsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListIpSets",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListIpSetsResponse>(await this.callApi(params, req, runtime), new ListIpSetsResponse({}));
   }
 
   async listIpSets(request: ListIpSetsRequest): Promise<ListIpSetsResponse> {
@@ -8291,10 +8846,25 @@ export default class Client extends OpenApi {
 
   async updateAcceleratorConfirmWithOptions(request: UpdateAcceleratorConfirmRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAcceleratorConfirmResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["RegionId"] = request.regionId;
+    query["AcceleratorId"] = request.acceleratorId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<UpdateAcceleratorConfirmResponse>(await this.doRPCRequest("UpdateAcceleratorConfirm", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateAcceleratorConfirmResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateAcceleratorConfirm",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateAcceleratorConfirmResponse>(await this.callApi(params, req, runtime), new UpdateAcceleratorConfirmResponse({}));
   }
 
   async updateAcceleratorConfirm(request: UpdateAcceleratorConfirmRequest): Promise<UpdateAcceleratorConfirmResponse> {
@@ -8304,10 +8874,26 @@ export default class Client extends OpenApi {
 
   async bandwidthPackageRemoveAcceleratorWithOptions(request: BandwidthPackageRemoveAcceleratorRequest, runtime: $Util.RuntimeOptions): Promise<BandwidthPackageRemoveAcceleratorResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["RegionId"] = request.regionId;
+    query["BandwidthPackageId"] = request.bandwidthPackageId;
+    query["AcceleratorId"] = request.acceleratorId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<BandwidthPackageRemoveAcceleratorResponse>(await this.doRPCRequest("BandwidthPackageRemoveAccelerator", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new BandwidthPackageRemoveAcceleratorResponse({}));
+    let params = new $OpenApi.Params({
+      action: "BandwidthPackageRemoveAccelerator",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<BandwidthPackageRemoveAcceleratorResponse>(await this.callApi(params, req, runtime), new BandwidthPackageRemoveAcceleratorResponse({}));
   }
 
   async bandwidthPackageRemoveAccelerator(request: BandwidthPackageRemoveAcceleratorRequest): Promise<BandwidthPackageRemoveAcceleratorResponse> {
@@ -8317,10 +8903,28 @@ export default class Client extends OpenApi {
 
   async deleteForwardingRulesWithOptions(request: DeleteForwardingRulesRequest, runtime: $Util.RuntimeOptions): Promise<DeleteForwardingRulesResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["RegionId"] = request.regionId;
+    query["ClientToken"] = request.clientToken;
+    query["ForwardingRuleIds"] = request.forwardingRuleIds;
+    query["AcceleratorId"] = request.acceleratorId;
+    query["ListenerId"] = request.listenerId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DeleteForwardingRulesResponse>(await this.doRPCRequest("DeleteForwardingRules", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteForwardingRulesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteForwardingRules",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteForwardingRulesResponse>(await this.callApi(params, req, runtime), new DeleteForwardingRulesResponse({}));
   }
 
   async deleteForwardingRules(request: DeleteForwardingRulesRequest): Promise<DeleteForwardingRulesResponse> {
@@ -8330,10 +8934,28 @@ export default class Client extends OpenApi {
 
   async dissociateAclsFromListenerWithOptions(request: DissociateAclsFromListenerRequest, runtime: $Util.RuntimeOptions): Promise<DissociateAclsFromListenerResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["RegionId"] = request.regionId;
+    query["AclIds"] = request.aclIds;
+    query["ListenerId"] = request.listenerId;
+    query["ClientToken"] = request.clientToken;
+    query["DryRun"] = request.dryRun;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DissociateAclsFromListenerResponse>(await this.doRPCRequest("DissociateAclsFromListener", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new DissociateAclsFromListenerResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DissociateAclsFromListener",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DissociateAclsFromListenerResponse>(await this.callApi(params, req, runtime), new DissociateAclsFromListenerResponse({}));
   }
 
   async dissociateAclsFromListener(request: DissociateAclsFromListenerRequest): Promise<DissociateAclsFromListenerResponse> {
@@ -8341,25 +8963,26 @@ export default class Client extends OpenApi {
     return await this.dissociateAclsFromListenerWithOptions(request, runtime);
   }
 
-  async listCrossBorderPackageForComplianceWithOptions(request: ListCrossBorderPackageForComplianceRequest, runtime: $Util.RuntimeOptions): Promise<ListCrossBorderPackageForComplianceResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<ListCrossBorderPackageForComplianceResponse>(await this.doRPCRequest("ListCrossBorderPackageForCompliance", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new ListCrossBorderPackageForComplianceResponse({}));
-  }
-
-  async listCrossBorderPackageForCompliance(request: ListCrossBorderPackageForComplianceRequest): Promise<ListCrossBorderPackageForComplianceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.listCrossBorderPackageForComplianceWithOptions(request, runtime);
-  }
-
   async listAccelerateAreasWithOptions(request: ListAccelerateAreasRequest, runtime: $Util.RuntimeOptions): Promise<ListAccelerateAreasResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ListAccelerateAreasResponse>(await this.doRPCRequest("ListAccelerateAreas", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new ListAccelerateAreasResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListAccelerateAreas",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListAccelerateAreasResponse>(await this.callApi(params, req, runtime), new ListAccelerateAreasResponse({}));
   }
 
   async listAccelerateAreas(request: ListAccelerateAreasRequest): Promise<ListAccelerateAreasResponse> {
@@ -8369,10 +8992,29 @@ export default class Client extends OpenApi {
 
   async listListenerCertificatesWithOptions(request: ListListenerCertificatesRequest, runtime: $Util.RuntimeOptions): Promise<ListListenerCertificatesResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["RegionId"] = request.regionId;
+    query["AcceleratorId"] = request.acceleratorId;
+    query["Role"] = request.role;
+    query["ListenerId"] = request.listenerId;
+    query["NextToken"] = request.nextToken;
+    query["MaxResults"] = request.maxResults;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ListListenerCertificatesResponse>(await this.doRPCRequest("ListListenerCertificates", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new ListListenerCertificatesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListListenerCertificates",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListListenerCertificatesResponse>(await this.callApi(params, req, runtime), new ListListenerCertificatesResponse({}));
   }
 
   async listListenerCertificates(request: ListListenerCertificatesRequest): Promise<ListListenerCertificatesResponse> {
@@ -8382,10 +9024,27 @@ export default class Client extends OpenApi {
 
   async updateIpSetWithOptions(request: UpdateIpSetRequest, runtime: $Util.RuntimeOptions): Promise<UpdateIpSetResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["RegionId"] = request.regionId;
+    query["ClientToken"] = request.clientToken;
+    query["IpSetId"] = request.ipSetId;
+    query["Bandwidth"] = request.bandwidth;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<UpdateIpSetResponse>(await this.doRPCRequest("UpdateIpSet", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateIpSetResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateIpSet",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateIpSetResponse>(await this.callApi(params, req, runtime), new UpdateIpSetResponse({}));
   }
 
   async updateIpSet(request: UpdateIpSetRequest): Promise<UpdateIpSetResponse> {
@@ -8395,10 +9054,29 @@ export default class Client extends OpenApi {
 
   async createAclWithOptions(request: CreateAclRequest, runtime: $Util.RuntimeOptions): Promise<CreateAclResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["RegionId"] = request.regionId;
+    query["AclName"] = request.aclName;
+    query["AddressIPVersion"] = request.addressIPVersion;
+    query["AclEntries"] = request.aclEntries;
+    query["ClientToken"] = request.clientToken;
+    query["DryRun"] = request.dryRun;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<CreateAclResponse>(await this.doRPCRequest("CreateAcl", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new CreateAclResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateAcl",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateAclResponse>(await this.callApi(params, req, runtime), new CreateAclResponse({}));
   }
 
   async createAcl(request: CreateAclRequest): Promise<CreateAclResponse> {
@@ -8408,10 +9086,24 @@ export default class Client extends OpenApi {
 
   async describeRegionsWithOptions(request: DescribeRegionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRegionsResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeRegionsResponse>(await this.doRPCRequest("DescribeRegions", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeRegionsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeRegions",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeRegionsResponse>(await this.callApi(params, req, runtime), new DescribeRegionsResponse({}));
   }
 
   async describeRegions(request: DescribeRegionsRequest): Promise<DescribeRegionsResponse> {
@@ -8421,10 +9113,34 @@ export default class Client extends OpenApi {
 
   async updateListenerWithOptions(request: UpdateListenerRequest, runtime: $Util.RuntimeOptions): Promise<UpdateListenerResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["RegionId"] = request.regionId;
+    query["ClientToken"] = request.clientToken;
+    query["Name"] = request.name;
+    query["Description"] = request.description;
+    query["ClientAffinity"] = request.clientAffinity;
+    query["Protocol"] = request.protocol;
+    query["ListenerId"] = request.listenerId;
+    query["ProxyProtocol"] = request.proxyProtocol;
+    query["PortRanges"] = request.portRanges;
+    query["Certificates"] = request.certificates;
+    query["BackendPorts"] = request.backendPorts;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<UpdateListenerResponse>(await this.doRPCRequest("UpdateListener", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateListenerResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateListener",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateListenerResponse>(await this.callApi(params, req, runtime), new UpdateListenerResponse({}));
   }
 
   async updateListener(request: UpdateListenerRequest): Promise<UpdateListenerResponse> {
@@ -8434,10 +9150,25 @@ export default class Client extends OpenApi {
 
   async listAvailableBusiRegionsWithOptions(request: ListAvailableBusiRegionsRequest, runtime: $Util.RuntimeOptions): Promise<ListAvailableBusiRegionsResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["RegionId"] = request.regionId;
+    query["AcceleratorId"] = request.acceleratorId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ListAvailableBusiRegionsResponse>(await this.doRPCRequest("ListAvailableBusiRegions", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new ListAvailableBusiRegionsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListAvailableBusiRegions",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListAvailableBusiRegionsResponse>(await this.callApi(params, req, runtime), new ListAvailableBusiRegionsResponse({}));
   }
 
   async listAvailableBusiRegions(request: ListAvailableBusiRegionsRequest): Promise<ListAvailableBusiRegionsResponse> {
@@ -8447,10 +9178,31 @@ export default class Client extends OpenApi {
 
   async updateAcceleratorWithOptions(request: UpdateAcceleratorRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAcceleratorResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["RegionId"] = request.regionId;
+    query["ClientToken"] = request.clientToken;
+    query["Name"] = request.name;
+    query["Description"] = request.description;
+    query["AcceleratorId"] = request.acceleratorId;
+    query["Spec"] = request.spec;
+    query["AutoPay"] = request.autoPay;
+    query["AutoUseCoupon"] = request.autoUseCoupon;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<UpdateAcceleratorResponse>(await this.doRPCRequest("UpdateAccelerator", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateAcceleratorResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateAccelerator",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateAcceleratorResponse>(await this.callApi(params, req, runtime), new UpdateAcceleratorResponse({}));
   }
 
   async updateAccelerator(request: UpdateAcceleratorRequest): Promise<UpdateAcceleratorResponse> {
@@ -8460,10 +9212,27 @@ export default class Client extends OpenApi {
 
   async deleteEndpointGroupsWithOptions(request: DeleteEndpointGroupsRequest, runtime: $Util.RuntimeOptions): Promise<DeleteEndpointGroupsResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["RegionId"] = request.regionId;
+    query["ClientToken"] = request.clientToken;
+    query["DryRun"] = request.dryRun;
+    query["EndpointGroupIds"] = request.endpointGroupIds;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DeleteEndpointGroupsResponse>(await this.doRPCRequest("DeleteEndpointGroups", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteEndpointGroupsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteEndpointGroups",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteEndpointGroupsResponse>(await this.callApi(params, req, runtime), new DeleteEndpointGroupsResponse({}));
   }
 
   async deleteEndpointGroups(request: DeleteEndpointGroupsRequest): Promise<DeleteEndpointGroupsResponse> {
@@ -8473,10 +9242,27 @@ export default class Client extends OpenApi {
 
   async deleteIpSetWithOptions(request: DeleteIpSetRequest, runtime: $Util.RuntimeOptions): Promise<DeleteIpSetResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["RegionId"] = request.regionId;
+    query["ClientToken"] = request.clientToken;
+    query["AcceleratorId"] = request.acceleratorId;
+    query["IpSetId"] = request.ipSetId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DeleteIpSetResponse>(await this.doRPCRequest("DeleteIpSet", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteIpSetResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteIpSet",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteIpSetResponse>(await this.callApi(params, req, runtime), new DeleteIpSetResponse({}));
   }
 
   async deleteIpSet(request: DeleteIpSetRequest): Promise<DeleteIpSetResponse> {
@@ -8486,10 +9272,28 @@ export default class Client extends OpenApi {
 
   async updateEndpointGroupsWithOptions(request: UpdateEndpointGroupsRequest, runtime: $Util.RuntimeOptions): Promise<UpdateEndpointGroupsResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["RegionId"] = request.regionId;
+    query["ClientToken"] = request.clientToken;
+    query["DryRun"] = request.dryRun;
+    query["EndpointGroupConfigurations"] = request.endpointGroupConfigurations;
+    query["ListenerId"] = request.listenerId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<UpdateEndpointGroupsResponse>(await this.doRPCRequest("UpdateEndpointGroups", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateEndpointGroupsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateEndpointGroups",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateEndpointGroupsResponse>(await this.callApi(params, req, runtime), new UpdateEndpointGroupsResponse({}));
   }
 
   async updateEndpointGroups(request: UpdateEndpointGroupsRequest): Promise<UpdateEndpointGroupsResponse> {
@@ -8499,10 +9303,25 @@ export default class Client extends OpenApi {
 
   async deleteIpSetsWithOptions(request: DeleteIpSetsRequest, runtime: $Util.RuntimeOptions): Promise<DeleteIpSetsResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["RegionId"] = request.regionId;
+    query["IpSetIds"] = request.ipSetIds;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DeleteIpSetsResponse>(await this.doRPCRequest("DeleteIpSets", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteIpSetsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteIpSets",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteIpSetsResponse>(await this.callApi(params, req, runtime), new DeleteIpSetsResponse({}));
   }
 
   async deleteIpSets(request: DeleteIpSetsRequest): Promise<DeleteIpSetsResponse> {
@@ -8512,10 +9331,26 @@ export default class Client extends OpenApi {
 
   async bandwidthPackageAddAcceleratorWithOptions(request: BandwidthPackageAddAcceleratorRequest, runtime: $Util.RuntimeOptions): Promise<BandwidthPackageAddAcceleratorResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["RegionId"] = request.regionId;
+    query["BandwidthPackageId"] = request.bandwidthPackageId;
+    query["AcceleratorId"] = request.acceleratorId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<BandwidthPackageAddAcceleratorResponse>(await this.doRPCRequest("BandwidthPackageAddAccelerator", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new BandwidthPackageAddAcceleratorResponse({}));
+    let params = new $OpenApi.Params({
+      action: "BandwidthPackageAddAccelerator",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<BandwidthPackageAddAcceleratorResponse>(await this.callApi(params, req, runtime), new BandwidthPackageAddAcceleratorResponse({}));
   }
 
   async bandwidthPackageAddAccelerator(request: BandwidthPackageAddAcceleratorRequest): Promise<BandwidthPackageAddAcceleratorResponse> {
@@ -8525,10 +9360,28 @@ export default class Client extends OpenApi {
 
   async updateAclAttributeWithOptions(request: UpdateAclAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAclAttributeResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["RegionId"] = request.regionId;
+    query["AclId"] = request.aclId;
+    query["AclName"] = request.aclName;
+    query["ClientToken"] = request.clientToken;
+    query["DryRun"] = request.dryRun;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<UpdateAclAttributeResponse>(await this.doRPCRequest("UpdateAclAttribute", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateAclAttributeResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateAclAttribute",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateAclAttributeResponse>(await this.callApi(params, req, runtime), new UpdateAclAttributeResponse({}));
   }
 
   async updateAclAttribute(request: UpdateAclAttributeRequest): Promise<UpdateAclAttributeResponse> {
@@ -8538,10 +9391,28 @@ export default class Client extends OpenApi {
 
   async listAcceleratorsWithOptions(request: ListAcceleratorsRequest, runtime: $Util.RuntimeOptions): Promise<ListAcceleratorsResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["RegionId"] = request.regionId;
+    query["PageNumber"] = request.pageNumber;
+    query["PageSize"] = request.pageSize;
+    query["AcceleratorId"] = request.acceleratorId;
+    query["State"] = request.state;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ListAcceleratorsResponse>(await this.doRPCRequest("ListAccelerators", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new ListAcceleratorsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListAccelerators",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListAcceleratorsResponse>(await this.callApi(params, req, runtime), new ListAcceleratorsResponse({}));
   }
 
   async listAccelerators(request: ListAcceleratorsRequest): Promise<ListAcceleratorsResponse> {
@@ -8551,10 +9422,33 @@ export default class Client extends OpenApi {
 
   async createListenerWithOptions(request: CreateListenerRequest, runtime: $Util.RuntimeOptions): Promise<CreateListenerResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["RegionId"] = request.regionId;
+    query["ClientToken"] = request.clientToken;
+    query["AcceleratorId"] = request.acceleratorId;
+    query["Name"] = request.name;
+    query["Description"] = request.description;
+    query["ClientAffinity"] = request.clientAffinity;
+    query["Protocol"] = request.protocol;
+    query["ProxyProtocol"] = request.proxyProtocol;
+    query["PortRanges"] = request.portRanges;
+    query["Certificates"] = request.certificates;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<CreateListenerResponse>(await this.doRPCRequest("CreateListener", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new CreateListenerResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateListener",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateListenerResponse>(await this.callApi(params, req, runtime), new CreateListenerResponse({}));
   }
 
   async createListener(request: CreateListenerRequest): Promise<CreateListenerResponse> {
@@ -8564,10 +9458,27 @@ export default class Client extends OpenApi {
 
   async listSpareIpsWithOptions(request: ListSpareIpsRequest, runtime: $Util.RuntimeOptions): Promise<ListSpareIpsResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["RegionId"] = request.regionId;
+    query["ClientToken"] = request.clientToken;
+    query["DryRun"] = request.dryRun;
+    query["AcceleratorId"] = request.acceleratorId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ListSpareIpsResponse>(await this.doRPCRequest("ListSpareIps", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new ListSpareIpsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListSpareIps",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListSpareIpsResponse>(await this.callApi(params, req, runtime), new ListSpareIpsResponse({}));
   }
 
   async listSpareIps(request: ListSpareIpsRequest): Promise<ListSpareIpsResponse> {
@@ -8577,10 +9488,29 @@ export default class Client extends OpenApi {
 
   async createEndpointGroupsWithOptions(request: CreateEndpointGroupsRequest, runtime: $Util.RuntimeOptions): Promise<CreateEndpointGroupsResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["RegionId"] = request.regionId;
+    query["ClientToken"] = request.clientToken;
+    query["DryRun"] = request.dryRun;
+    query["AcceleratorId"] = request.acceleratorId;
+    query["ListenerId"] = request.listenerId;
+    query["EndpointGroupConfigurations"] = request.endpointGroupConfigurations;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<CreateEndpointGroupsResponse>(await this.doRPCRequest("CreateEndpointGroups", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new CreateEndpointGroupsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateEndpointGroups",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateEndpointGroupsResponse>(await this.callApi(params, req, runtime), new CreateEndpointGroupsResponse({}));
   }
 
   async createEndpointGroups(request: CreateEndpointGroupsRequest): Promise<CreateEndpointGroupsResponse> {
@@ -8590,10 +9520,25 @@ export default class Client extends OpenApi {
 
   async detachDdosFromAcceleratorWithOptions(request: DetachDdosFromAcceleratorRequest, runtime: $Util.RuntimeOptions): Promise<DetachDdosFromAcceleratorResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["AcceleratorId"] = request.acceleratorId;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DetachDdosFromAcceleratorResponse>(await this.doRPCRequest("DetachDdosFromAccelerator", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new DetachDdosFromAcceleratorResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DetachDdosFromAccelerator",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DetachDdosFromAcceleratorResponse>(await this.callApi(params, req, runtime), new DetachDdosFromAcceleratorResponse({}));
   }
 
   async detachDdosFromAccelerator(request: DetachDdosFromAcceleratorRequest): Promise<DetachDdosFromAcceleratorResponse> {
@@ -8603,10 +9548,28 @@ export default class Client extends OpenApi {
 
   async getSpareIpWithOptions(request: GetSpareIpRequest, runtime: $Util.RuntimeOptions): Promise<GetSpareIpResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["RegionId"] = request.regionId;
+    query["ClientToken"] = request.clientToken;
+    query["DryRun"] = request.dryRun;
+    query["AcceleratorId"] = request.acceleratorId;
+    query["SpareIp"] = request.spareIp;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<GetSpareIpResponse>(await this.doRPCRequest("GetSpareIp", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new GetSpareIpResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetSpareIp",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetSpareIpResponse>(await this.callApi(params, req, runtime), new GetSpareIpResponse({}));
   }
 
   async getSpareIp(request: GetSpareIpRequest): Promise<GetSpareIpResponse> {
