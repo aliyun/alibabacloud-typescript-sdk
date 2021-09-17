@@ -9064,11 +9064,13 @@ export class DescribeStrategyRequest extends $tea.Model {
   sourceIp?: string;
   lang?: string;
   strategyIds?: string;
+  customType?: string;
   static names(): { [key: string]: string } {
     return {
       sourceIp: 'SourceIp',
       lang: 'Lang',
       strategyIds: 'StrategyIds',
+      customType: 'CustomType',
     };
   }
 
@@ -9077,6 +9079,7 @@ export class DescribeStrategyRequest extends $tea.Model {
       sourceIp: 'string',
       lang: 'string',
       strategyIds: 'string',
+      customType: 'string',
     };
   }
 
@@ -13750,6 +13753,8 @@ export class ModifyStrategyRequest extends $tea.Model {
   cycleStartTime?: string;
   riskSubTypeName?: string;
   id?: string;
+  riskCustomParams?: string;
+  customType?: string;
   static names(): { [key: string]: string } {
     return {
       sourceIp: 'SourceIp',
@@ -13758,6 +13763,8 @@ export class ModifyStrategyRequest extends $tea.Model {
       cycleStartTime: 'CycleStartTime',
       riskSubTypeName: 'RiskSubTypeName',
       id: 'Id',
+      riskCustomParams: 'RiskCustomParams',
+      customType: 'CustomType',
     };
   }
 
@@ -13769,6 +13776,8 @@ export class ModifyStrategyRequest extends $tea.Model {
       cycleStartTime: 'string',
       riskSubTypeName: 'string',
       id: 'string',
+      riskCustomParams: 'string',
+      customType: 'string',
     };
   }
 
@@ -16024,6 +16033,66 @@ export class UninstallUniBackupAgentResponse extends $tea.Model {
   }
 }
 
+export class UpgradeBackupPolicyVersionRequest extends $tea.Model {
+  id?: number;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpgradeBackupPolicyVersionResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpgradeBackupPolicyVersionResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: UpgradeBackupPolicyVersionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: UpgradeBackupPolicyVersionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ValidateHcWarningsRequest extends $tea.Model {
   sourceIp?: string;
   riskIds?: string;
@@ -17189,6 +17258,7 @@ export class DescribeBackupPoliciesResponseBodyPolicies extends $tea.Model {
   status?: string;
   policyVersion?: string;
   policy?: string;
+  upgradeStatus?: string;
   serviceErrorCount?: number;
   policyRegionId?: string;
   clientStatus?: string;
@@ -17206,6 +17276,7 @@ export class DescribeBackupPoliciesResponseBodyPolicies extends $tea.Model {
       status: 'Status',
       policyVersion: 'PolicyVersion',
       policy: 'Policy',
+      upgradeStatus: 'UpgradeStatus',
       serviceErrorCount: 'ServiceErrorCount',
       policyRegionId: 'PolicyRegionId',
       clientStatus: 'ClientStatus',
@@ -17226,6 +17297,7 @@ export class DescribeBackupPoliciesResponseBodyPolicies extends $tea.Model {
       status: 'string',
       policyVersion: 'string',
       policy: 'string',
+      upgradeStatus: 'string',
       serviceErrorCount: 'number',
       policyRegionId: 'string',
       clientStatus: 'string',
@@ -19425,6 +19497,7 @@ export class DescribePropertyPortDetailResponseBodyPageInfo extends $tea.Model {
 export class DescribePropertyPortDetailResponseBodyPropertys extends $tea.Model {
   create?: string;
   internetIp?: string;
+  pid?: string;
   bindIp?: string;
   ip?: string;
   procName?: string;
@@ -19439,6 +19512,7 @@ export class DescribePropertyPortDetailResponseBodyPropertys extends $tea.Model 
     return {
       create: 'Create',
       internetIp: 'InternetIp',
+      pid: 'Pid',
       bindIp: 'BindIp',
       ip: 'Ip',
       procName: 'ProcName',
@@ -19456,6 +19530,7 @@ export class DescribePropertyPortDetailResponseBodyPropertys extends $tea.Model 
     return {
       create: 'string',
       internetIp: 'string',
+      pid: 'string',
       bindIp: 'string',
       ip: 'string',
       procName: 'string',
@@ -21307,28 +21382,30 @@ export class DescribeStrategyResponseBodyStrategiesConfigTargets extends $tea.Mo
 }
 
 export class DescribeStrategyResponseBodyStrategies extends $tea.Model {
-  execStatus?: number;
   type?: number;
+  execStatus?: number;
+  passRate?: number;
   cycleStartTime?: number;
+  customType?: string;
   ecsCount?: number;
   processRate?: number;
   cycleDays?: number;
   riskCount?: number;
   name?: string;
-  passRate?: number;
   id?: number;
   configTargets?: DescribeStrategyResponseBodyStrategiesConfigTargets[];
   static names(): { [key: string]: string } {
     return {
-      execStatus: 'ExecStatus',
       type: 'Type',
+      execStatus: 'ExecStatus',
+      passRate: 'PassRate',
       cycleStartTime: 'CycleStartTime',
+      customType: 'CustomType',
       ecsCount: 'EcsCount',
       processRate: 'ProcessRate',
       cycleDays: 'CycleDays',
       riskCount: 'RiskCount',
       name: 'Name',
-      passRate: 'PassRate',
       id: 'Id',
       configTargets: 'ConfigTargets',
     };
@@ -21336,15 +21413,16 @@ export class DescribeStrategyResponseBodyStrategies extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      execStatus: 'number',
       type: 'number',
+      execStatus: 'number',
+      passRate: 'number',
       cycleStartTime: 'number',
+      customType: 'string',
       ecsCount: 'number',
       processRate: 'number',
       cycleDays: 'number',
       riskCount: 'number',
       name: 'string',
-      passRate: 'number',
       id: 'number',
       configTargets: { 'type': 'array', 'itemType': DescribeStrategyResponseBodyStrategiesConfigTargets },
     };
@@ -25729,6 +25807,19 @@ export default class Client extends OpenApi {
   async uninstallUniBackupAgent(request: UninstallUniBackupAgentRequest): Promise<UninstallUniBackupAgentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.uninstallUniBackupAgentWithOptions(request, runtime);
+  }
+
+  async upgradeBackupPolicyVersionWithOptions(request: UpgradeBackupPolicyVersionRequest, runtime: $Util.RuntimeOptions): Promise<UpgradeBackupPolicyVersionResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<UpgradeBackupPolicyVersionResponse>(await this.doRPCRequest("UpgradeBackupPolicyVersion", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new UpgradeBackupPolicyVersionResponse({}));
+  }
+
+  async upgradeBackupPolicyVersion(request: UpgradeBackupPolicyVersionRequest): Promise<UpgradeBackupPolicyVersionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.upgradeBackupPolicyVersionWithOptions(request, runtime);
   }
 
   async validateHcWarningsWithOptions(request: ValidateHcWarningsRequest, runtime: $Util.RuntimeOptions): Promise<ValidateHcWarningsResponse> {
