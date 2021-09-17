@@ -840,6 +840,14 @@ export class PushRequest extends $tea.Model {
   androidBigTitle?: string;
   androidBigBody?: string;
   androidXiaomiBigPictureUrl?: string;
+  iOSNotificationThreadId?: string;
+  androidBigPictureUrl?: string;
+  androidInboxBody?: string;
+  androidImageUrl?: string;
+  androidXiaomiImageUrl?: string;
+  androidMessageHuaweiUrgency?: string;
+  androidMessageHuaweiCategory?: string;
+  sendChannels?: string;
   static names(): { [key: string]: string } {
     return {
       appKey: 'AppKey',
@@ -895,6 +903,14 @@ export class PushRequest extends $tea.Model {
       androidBigTitle: 'AndroidBigTitle',
       androidBigBody: 'AndroidBigBody',
       androidXiaomiBigPictureUrl: 'AndroidXiaomiBigPictureUrl',
+      iOSNotificationThreadId: 'iOSNotificationThreadId',
+      androidBigPictureUrl: 'AndroidBigPictureUrl',
+      androidInboxBody: 'AndroidInboxBody',
+      androidImageUrl: 'AndroidImageUrl',
+      androidXiaomiImageUrl: 'AndroidXiaomiImageUrl',
+      androidMessageHuaweiUrgency: 'AndroidMessageHuaweiUrgency',
+      androidMessageHuaweiCategory: 'AndroidMessageHuaweiCategory',
+      sendChannels: 'SendChannels',
     };
   }
 
@@ -953,6 +969,14 @@ export class PushRequest extends $tea.Model {
       androidBigTitle: 'string',
       androidBigBody: 'string',
       androidXiaomiBigPictureUrl: 'string',
+      iOSNotificationThreadId: 'string',
+      androidBigPictureUrl: 'string',
+      androidInboxBody: 'string',
+      androidImageUrl: 'string',
+      androidXiaomiImageUrl: 'string',
+      androidMessageHuaweiUrgency: 'string',
+      androidMessageHuaweiCategory: 'string',
+      sendChannels: 'string',
     };
   }
 
@@ -2546,13 +2570,10 @@ export class ListTagsResponseBodyTagInfos extends $tea.Model {
 export class MassPushRequestPushTask extends $tea.Model {
   jobKey?: string;
   iOSSilentNotification?: boolean;
-  iOSNotificationCollapseId?: string;
-  androidRenderStyle?: string;
   storeOffline?: boolean;
   iOSSubtitle?: string;
-  iOSNotificationCategory?: string;
-  androidNotificationChannel?: string;
   androidNotificationHuaweiChannel?: string;
+  androidNotificationChannel?: string;
   iOSApnsEnv?: string;
   iOSBadgeAutoIncrement?: boolean;
   androidXiaoMiNotifyTitle?: string;
@@ -2560,48 +2581,56 @@ export class MassPushRequestPushTask extends $tea.Model {
   androidXiaoMiActivity?: string;
   androidPopupTitle?: string;
   iOSRemindBody?: string;
-  androidActivity?: string;
   androidNotifyType?: string;
-  androidBigBody?: string;
-  iOSMutableContent?: boolean;
-  target?: string;
   androidOpenUrl?: string;
   androidBigTitle?: string;
-  androidNotificationNotifyId?: number;
   expireTime?: string;
-  androidNotificationVivoChannel?: string;
-  deviceType?: string;
   androidOpenType?: string;
-  androidPopupActivity?: string;
-  androidRemind?: boolean;
-  androidPopupBody?: string;
   androidExtParameters?: string;
-  iOSExtParameters?: string;
   androidXiaoMiNotifyBody?: string;
-  body?: string;
-  androidNotificationBarType?: number;
-  androidNotificationBarPriority?: number;
   androidXiaomiBigPictureUrl?: string;
   targetValue?: string;
   iOSMusic?: string;
   iOSRemind?: boolean;
-  pushType?: string;
-  sendSpeed?: number;
   iOSBadge?: number;
   title?: string;
-  pushTime?: string;
   androidMusic?: string;
+  iOSNotificationCollapseId?: string;
+  androidRenderStyle?: string;
+  iOSNotificationCategory?: string;
+  iOSNotificationThreadId?: string;
+  androidActivity?: string;
+  androidBigBody?: string;
+  iOSMutableContent?: boolean;
+  target?: string;
+  androidNotificationNotifyId?: number;
+  androidNotificationVivoChannel?: string;
+  androidPopupActivity?: string;
+  deviceType?: string;
+  androidRemind?: boolean;
+  androidPopupBody?: string;
+  iOSExtParameters?: string;
+  body?: string;
+  androidNotificationBarPriority?: number;
+  androidNotificationBarType?: number;
+  pushType?: string;
+  sendSpeed?: number;
+  pushTime?: string;
+  androidBigPictureUrl?: string;
+  androidInboxBody?: string;
+  androidImageUrl?: string;
+  androidXiaomiImageUrl?: string;
+  androidMessageHuaweiUrgency?: string;
+  androidMessageHuaweiCategory?: string;
+  sendChannels?: string;
   static names(): { [key: string]: string } {
     return {
       jobKey: 'JobKey',
       iOSSilentNotification: 'iOSSilentNotification',
-      iOSNotificationCollapseId: 'iOSNotificationCollapseId',
-      androidRenderStyle: 'AndroidRenderStyle',
       storeOffline: 'StoreOffline',
       iOSSubtitle: 'iOSSubtitle',
-      iOSNotificationCategory: 'iOSNotificationCategory',
-      androidNotificationChannel: 'AndroidNotificationChannel',
       androidNotificationHuaweiChannel: 'AndroidNotificationHuaweiChannel',
+      androidNotificationChannel: 'AndroidNotificationChannel',
       iOSApnsEnv: 'iOSApnsEnv',
       iOSBadgeAutoIncrement: 'iOSBadgeAutoIncrement',
       androidXiaoMiNotifyTitle: 'AndroidXiaoMiNotifyTitle',
@@ -2609,37 +2638,48 @@ export class MassPushRequestPushTask extends $tea.Model {
       androidXiaoMiActivity: 'AndroidXiaoMiActivity',
       androidPopupTitle: 'AndroidPopupTitle',
       iOSRemindBody: 'iOSRemindBody',
-      androidActivity: 'AndroidActivity',
       androidNotifyType: 'AndroidNotifyType',
-      androidBigBody: 'AndroidBigBody',
-      iOSMutableContent: 'iOSMutableContent',
-      target: 'Target',
       androidOpenUrl: 'AndroidOpenUrl',
       androidBigTitle: 'AndroidBigTitle',
-      androidNotificationNotifyId: 'AndroidNotificationNotifyId',
       expireTime: 'ExpireTime',
-      androidNotificationVivoChannel: 'AndroidNotificationVivoChannel',
-      deviceType: 'DeviceType',
       androidOpenType: 'AndroidOpenType',
-      androidPopupActivity: 'AndroidPopupActivity',
-      androidRemind: 'AndroidRemind',
-      androidPopupBody: 'AndroidPopupBody',
       androidExtParameters: 'AndroidExtParameters',
-      iOSExtParameters: 'iOSExtParameters',
       androidXiaoMiNotifyBody: 'AndroidXiaoMiNotifyBody',
-      body: 'Body',
-      androidNotificationBarType: 'AndroidNotificationBarType',
-      androidNotificationBarPriority: 'AndroidNotificationBarPriority',
       androidXiaomiBigPictureUrl: 'AndroidXiaomiBigPictureUrl',
       targetValue: 'TargetValue',
       iOSMusic: 'iOSMusic',
       iOSRemind: 'iOSRemind',
-      pushType: 'PushType',
-      sendSpeed: 'SendSpeed',
       iOSBadge: 'iOSBadge',
       title: 'Title',
-      pushTime: 'PushTime',
       androidMusic: 'AndroidMusic',
+      iOSNotificationCollapseId: 'iOSNotificationCollapseId',
+      androidRenderStyle: 'AndroidRenderStyle',
+      iOSNotificationCategory: 'iOSNotificationCategory',
+      iOSNotificationThreadId: 'iOSNotificationThreadId',
+      androidActivity: 'AndroidActivity',
+      androidBigBody: 'AndroidBigBody',
+      iOSMutableContent: 'iOSMutableContent',
+      target: 'Target',
+      androidNotificationNotifyId: 'AndroidNotificationNotifyId',
+      androidNotificationVivoChannel: 'AndroidNotificationVivoChannel',
+      androidPopupActivity: 'AndroidPopupActivity',
+      deviceType: 'DeviceType',
+      androidRemind: 'AndroidRemind',
+      androidPopupBody: 'AndroidPopupBody',
+      iOSExtParameters: 'iOSExtParameters',
+      body: 'Body',
+      androidNotificationBarPriority: 'AndroidNotificationBarPriority',
+      androidNotificationBarType: 'AndroidNotificationBarType',
+      pushType: 'PushType',
+      sendSpeed: 'SendSpeed',
+      pushTime: 'PushTime',
+      androidBigPictureUrl: 'AndroidBigPictureUrl',
+      androidInboxBody: 'AndroidInboxBody',
+      androidImageUrl: 'AndroidImageUrl',
+      androidXiaomiImageUrl: 'AndroidXiaomiImageUrl',
+      androidMessageHuaweiUrgency: 'AndroidMessageHuaweiUrgency',
+      androidMessageHuaweiCategory: 'AndroidMessageHuaweiCategory',
+      sendChannels: 'SendChannels',
     };
   }
 
@@ -2647,13 +2687,10 @@ export class MassPushRequestPushTask extends $tea.Model {
     return {
       jobKey: 'string',
       iOSSilentNotification: 'boolean',
-      iOSNotificationCollapseId: 'string',
-      androidRenderStyle: 'string',
       storeOffline: 'boolean',
       iOSSubtitle: 'string',
-      iOSNotificationCategory: 'string',
-      androidNotificationChannel: 'string',
       androidNotificationHuaweiChannel: 'string',
+      androidNotificationChannel: 'string',
       iOSApnsEnv: 'string',
       iOSBadgeAutoIncrement: 'boolean',
       androidXiaoMiNotifyTitle: 'string',
@@ -2661,37 +2698,48 @@ export class MassPushRequestPushTask extends $tea.Model {
       androidXiaoMiActivity: 'string',
       androidPopupTitle: 'string',
       iOSRemindBody: 'string',
-      androidActivity: 'string',
       androidNotifyType: 'string',
-      androidBigBody: 'string',
-      iOSMutableContent: 'boolean',
-      target: 'string',
       androidOpenUrl: 'string',
       androidBigTitle: 'string',
-      androidNotificationNotifyId: 'number',
       expireTime: 'string',
-      androidNotificationVivoChannel: 'string',
-      deviceType: 'string',
       androidOpenType: 'string',
-      androidPopupActivity: 'string',
-      androidRemind: 'boolean',
-      androidPopupBody: 'string',
       androidExtParameters: 'string',
-      iOSExtParameters: 'string',
       androidXiaoMiNotifyBody: 'string',
-      body: 'string',
-      androidNotificationBarType: 'number',
-      androidNotificationBarPriority: 'number',
       androidXiaomiBigPictureUrl: 'string',
       targetValue: 'string',
       iOSMusic: 'string',
       iOSRemind: 'boolean',
-      pushType: 'string',
-      sendSpeed: 'number',
       iOSBadge: 'number',
       title: 'string',
-      pushTime: 'string',
       androidMusic: 'string',
+      iOSNotificationCollapseId: 'string',
+      androidRenderStyle: 'string',
+      iOSNotificationCategory: 'string',
+      iOSNotificationThreadId: 'string',
+      androidActivity: 'string',
+      androidBigBody: 'string',
+      iOSMutableContent: 'boolean',
+      target: 'string',
+      androidNotificationNotifyId: 'number',
+      androidNotificationVivoChannel: 'string',
+      androidPopupActivity: 'string',
+      deviceType: 'string',
+      androidRemind: 'boolean',
+      androidPopupBody: 'string',
+      iOSExtParameters: 'string',
+      body: 'string',
+      androidNotificationBarPriority: 'number',
+      androidNotificationBarType: 'number',
+      pushType: 'string',
+      sendSpeed: 'number',
+      pushTime: 'string',
+      androidBigPictureUrl: 'string',
+      androidInboxBody: 'string',
+      androidImageUrl: 'string',
+      androidXiaomiImageUrl: 'string',
+      androidMessageHuaweiUrgency: 'string',
+      androidMessageHuaweiCategory: 'string',
+      sendChannels: 'string',
     };
   }
 
