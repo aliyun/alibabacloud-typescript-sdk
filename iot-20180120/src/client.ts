@@ -8,6 +8,84 @@ import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class AddDataForApiSourceRequest extends $tea.Model {
+  iotInstanceId?: string;
+  apiId?: string;
+  content?: string;
+  static names(): { [key: string]: string } {
+    return {
+      iotInstanceId: 'IotInstanceId',
+      apiId: 'ApiId',
+      content: 'Content',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      iotInstanceId: 'string',
+      apiId: 'string',
+      content: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddDataForApiSourceResponseBody extends $tea.Model {
+  requestId?: string;
+  success?: boolean;
+  code?: string;
+  errorMessage?: string;
+  data?: number;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+      code: 'string',
+      errorMessage: 'string',
+      data: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddDataForApiSourceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: AddDataForApiSourceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: AddDataForApiSourceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class BatchAddDeviceGroupRelationsRequest extends $tea.Model {
   iotInstanceId?: string;
   groupId?: string;
@@ -33596,6 +33674,19 @@ export default class Client extends OpenApi {
     }
 
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+  }
+
+  async addDataForApiSourceWithOptions(request: AddDataForApiSourceRequest, runtime: $Util.RuntimeOptions): Promise<AddDataForApiSourceResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<AddDataForApiSourceResponse>(await this.doRPCRequest("AddDataForApiSource", "2018-01-20", "HTTPS", "POST", "AK", "json", req, runtime), new AddDataForApiSourceResponse({}));
+  }
+
+  async addDataForApiSource(request: AddDataForApiSourceRequest): Promise<AddDataForApiSourceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.addDataForApiSourceWithOptions(request, runtime);
   }
 
   async batchAddDeviceGroupRelationsWithOptions(request: BatchAddDeviceGroupRelationsRequest, runtime: $Util.RuntimeOptions): Promise<BatchAddDeviceGroupRelationsResponse> {
