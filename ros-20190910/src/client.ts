@@ -86,6 +86,7 @@ export class ContinueCreateStackRequest extends $tea.Model {
   templateVersion?: string;
   recreatingResources?: string[];
   parameters?: ContinueCreateStackRequestParameters[];
+  parallelism?: number;
   static names(): { [key: string]: string } {
     return {
       stackId: 'StackId',
@@ -99,6 +100,7 @@ export class ContinueCreateStackRequest extends $tea.Model {
       templateVersion: 'TemplateVersion',
       recreatingResources: 'RecreatingResources',
       parameters: 'Parameters',
+      parallelism: 'Parallelism',
     };
   }
 
@@ -115,6 +117,7 @@ export class ContinueCreateStackRequest extends $tea.Model {
       templateVersion: 'string',
       recreatingResources: { 'type': 'array', 'itemType': 'string' },
       parameters: { 'type': 'array', 'itemType': ContinueCreateStackRequestParameters },
+      parallelism: 'number',
     };
   }
 
@@ -318,6 +321,7 @@ export class CreateStackRequest extends $tea.Model {
   notificationURLs?: string[];
   tags?: CreateStackRequestTags[];
   resourceGroupId?: string;
+  parallelism?: number;
   static names(): { [key: string]: string } {
     return {
       disableRollback: 'DisableRollback',
@@ -338,6 +342,7 @@ export class CreateStackRequest extends $tea.Model {
       notificationURLs: 'NotificationURLs',
       tags: 'Tags',
       resourceGroupId: 'ResourceGroupId',
+      parallelism: 'Parallelism',
     };
   }
 
@@ -361,6 +366,7 @@ export class CreateStackRequest extends $tea.Model {
       notificationURLs: { 'type': 'array', 'itemType': 'string' },
       tags: { 'type': 'array', 'itemType': CreateStackRequestTags },
       resourceGroupId: 'string',
+      parallelism: 'number',
     };
   }
 
@@ -4170,6 +4176,7 @@ export class PreviewStackRequest extends $tea.Model {
   templateId?: string;
   templateVersion?: string;
   parameters?: PreviewStackRequestParameters[];
+  parallelism?: number;
   static names(): { [key: string]: string } {
     return {
       disableRollback: 'DisableRollback',
@@ -4184,6 +4191,7 @@ export class PreviewStackRequest extends $tea.Model {
       templateId: 'TemplateId',
       templateVersion: 'TemplateVersion',
       parameters: 'Parameters',
+      parallelism: 'Parallelism',
     };
   }
 
@@ -4201,6 +4209,7 @@ export class PreviewStackRequest extends $tea.Model {
       templateId: 'string',
       templateVersion: 'string',
       parameters: { 'type': 'array', 'itemType': PreviewStackRequestParameters },
+      parallelism: 'number',
     };
   }
 
@@ -4758,6 +4767,7 @@ export class UpdateStackRequest extends $tea.Model {
   templateVersion?: string;
   parameters?: UpdateStackRequestParameters[];
   tags?: UpdateStackRequestTags[];
+  parallelism?: number;
   static names(): { [key: string]: string } {
     return {
       stackId: 'StackId',
@@ -4778,6 +4788,7 @@ export class UpdateStackRequest extends $tea.Model {
       templateVersion: 'TemplateVersion',
       parameters: 'Parameters',
       tags: 'Tags',
+      parallelism: 'Parallelism',
     };
   }
 
@@ -4801,6 +4812,7 @@ export class UpdateStackRequest extends $tea.Model {
       templateVersion: 'string',
       parameters: { 'type': 'array', 'itemType': UpdateStackRequestParameters },
       tags: { 'type': 'array', 'itemType': UpdateStackRequestTags },
+      parallelism: 'number',
     };
   }
 
