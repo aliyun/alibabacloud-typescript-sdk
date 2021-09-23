@@ -8,23 +8,26 @@ import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
-export class CroppingSuggestion extends $tea.Model {
-  aspectRatio?: string;
-  confidence?: number;
-  boundary?: Boundary;
+export class SimpleQuery extends $tea.Model {
+  field?: string;
+  value?: string;
+  operation?: string;
+  subQueries?: SimpleQuery[];
   static names(): { [key: string]: string } {
     return {
-      aspectRatio: 'AspectRatio',
-      confidence: 'Confidence',
-      boundary: 'Boundary',
+      field: 'Field',
+      value: 'Value',
+      operation: 'Operation',
+      subQueries: 'SubQueries',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      aspectRatio: 'string',
-      confidence: 'number',
-      boundary: Boundary,
+      field: 'string',
+      value: 'string',
+      operation: 'string',
+      subQueries: { 'type': 'array', 'itemType': SimpleQuery },
     };
   }
 
@@ -95,23 +98,23 @@ export class SubtitleStream extends $tea.Model {
   }
 }
 
-export class HeadPose extends $tea.Model {
-  pitch?: number;
-  roll?: number;
-  yaw?: number;
+export class AssumeRoleChainNode extends $tea.Model {
+  type?: string;
+  ownerId?: string;
+  role?: string;
   static names(): { [key: string]: string } {
     return {
-      pitch: 'Pitch',
-      roll: 'Roll',
-      yaw: 'Yaw',
+      type: 'Type',
+      ownerId: 'OwnerId',
+      role: 'Role',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      pitch: 'number',
-      roll: 'number',
-      yaw: 'number',
+      type: 'string',
+      ownerId: 'string',
+      role: 'string',
     };
   }
 
@@ -148,80 +151,23 @@ export class Label extends $tea.Model {
   }
 }
 
-export class VideoStream extends $tea.Model {
-  index?: number;
-  language?: string;
-  codecName?: string;
-  codecLongName?: string;
-  profile?: string;
-  codecTimeBase?: string;
-  codecTagString?: string;
-  codecTag?: string;
-  width?: number;
-  height?: number;
-  hasBFrames?: string;
-  sampleAspectRatio?: string;
-  displayAspectRatio?: string;
-  pixelFormat?: string;
-  level?: number;
-  frameRate?: number;
-  averageFrameRate?: number;
-  timeBase?: string;
-  startTime?: number;
-  duration?: number;
-  bitrate?: number;
-  frameCount?: number;
+export class WebofficeUser extends $tea.Model {
+  id?: string;
+  name?: string;
+  avatar?: string;
   static names(): { [key: string]: string } {
     return {
-      index: 'Index',
-      language: 'Language',
-      codecName: 'CodecName',
-      codecLongName: 'CodecLongName',
-      profile: 'Profile',
-      codecTimeBase: 'CodecTimeBase',
-      codecTagString: 'CodecTagString',
-      codecTag: 'CodecTag',
-      width: 'Width',
-      height: 'Height',
-      hasBFrames: 'HasBFrames',
-      sampleAspectRatio: 'SampleAspectRatio',
-      displayAspectRatio: 'DisplayAspectRatio',
-      pixelFormat: 'PixelFormat',
-      level: 'Level',
-      frameRate: 'FrameRate',
-      averageFrameRate: 'AverageFrameRate',
-      timeBase: 'TimeBase',
-      startTime: 'StartTime',
-      duration: 'Duration',
-      bitrate: 'Bitrate',
-      frameCount: 'FrameCount',
+      id: 'Id',
+      name: 'Name',
+      avatar: 'Avatar',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      index: 'number',
-      language: 'string',
-      codecName: 'string',
-      codecLongName: 'string',
-      profile: 'string',
-      codecTimeBase: 'string',
-      codecTagString: 'string',
-      codecTag: 'string',
-      width: 'number',
-      height: 'number',
-      hasBFrames: 'string',
-      sampleAspectRatio: 'string',
-      displayAspectRatio: 'string',
-      pixelFormat: 'string',
-      level: 'number',
-      frameRate: 'number',
-      averageFrameRate: 'number',
-      timeBase: 'string',
-      startTime: 'number',
-      duration: 'number',
-      bitrate: 'number',
-      frameCount: 'number',
+      id: 'string',
+      name: 'string',
+      avatar: 'string',
     };
   }
 
@@ -356,45 +302,20 @@ export class AudioStream extends $tea.Model {
   }
 }
 
-export class ImageScore extends $tea.Model {
-  overallQualityScore?: number;
+export class AssumeRoleChain extends $tea.Model {
+  policy?: string;
+  chain?: AssumeRoleChainNode[];
   static names(): { [key: string]: string } {
     return {
-      overallQualityScore: 'OverallQualityScore',
+      policy: 'Policy',
+      chain: 'Chain',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      overallQualityScore: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OCRContents extends $tea.Model {
-  language?: string;
-  contents?: string;
-  confidence?: number;
-  boundary?: Boundary;
-  static names(): { [key: string]: string } {
-    return {
-      language: 'Language',
-      contents: 'Contents',
-      confidence: 'Confidence',
-      boundary: 'Boundary',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      language: 'string',
-      contents: 'string',
-      confidence: 'number',
-      boundary: Boundary,
+      policy: 'string',
+      chain: { 'type': 'array', 'itemType': AssumeRoleChainNode },
     };
   }
 
@@ -498,6 +419,524 @@ export class Face extends $tea.Model {
       boundary: Boundary,
       embeddingsFloat32: { 'type': 'array', 'itemType': 'number' },
       embeddingsInt8: { 'type': 'array', 'itemType': 'number' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class Binding extends $tea.Model {
+  projectName?: string;
+  datasetName?: string;
+  URI?: string;
+  state?: string;
+  phase?: string;
+  detail?: string;
+  createTime?: string;
+  updateTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      projectName: 'ProjectName',
+      datasetName: 'DatasetName',
+      URI: 'URI',
+      state: 'State',
+      phase: 'Phase',
+      detail: 'Detail',
+      createTime: 'CreateTime',
+      updateTime: 'UpdateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectName: 'string',
+      datasetName: 'string',
+      URI: 'string',
+      state: 'string',
+      phase: 'string',
+      detail: 'string',
+      createTime: 'string',
+      updateTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CroppingSuggestion extends $tea.Model {
+  aspectRatio?: string;
+  confidence?: number;
+  boundary?: Boundary;
+  static names(): { [key: string]: string } {
+    return {
+      aspectRatio: 'AspectRatio',
+      confidence: 'Confidence',
+      boundary: 'Boundary',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aspectRatio: 'string',
+      confidence: 'number',
+      boundary: Boundary,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class KeyValuePair extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HeadPose extends $tea.Model {
+  pitch?: number;
+  roll?: number;
+  yaw?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pitch: 'Pitch',
+      roll: 'Roll',
+      yaw: 'Yaw',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pitch: 'number',
+      roll: 'number',
+      yaw: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class Dataset extends $tea.Model {
+  projectName?: string;
+  datasetName?: string;
+  createTime?: string;
+  updateTime?: string;
+  description?: string;
+  datasetMaxBindCount?: number;
+  datasetMaxFileCount?: number;
+  datasetMaxEntityCount?: number;
+  datasetMaxRelationCount?: number;
+  datasetMaxTotalFileSize?: number;
+  bindCount?: number;
+  fileCount?: number;
+  totalFileSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      projectName: 'ProjectName',
+      datasetName: 'DatasetName',
+      createTime: 'CreateTime',
+      updateTime: 'UpdateTime',
+      description: 'Description',
+      datasetMaxBindCount: 'DatasetMaxBindCount',
+      datasetMaxFileCount: 'DatasetMaxFileCount',
+      datasetMaxEntityCount: 'DatasetMaxEntityCount',
+      datasetMaxRelationCount: 'DatasetMaxRelationCount',
+      datasetMaxTotalFileSize: 'DatasetMaxTotalFileSize',
+      bindCount: 'BindCount',
+      fileCount: 'FileCount',
+      totalFileSize: 'TotalFileSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectName: 'string',
+      datasetName: 'string',
+      createTime: 'string',
+      updateTime: 'string',
+      description: 'string',
+      datasetMaxBindCount: 'number',
+      datasetMaxFileCount: 'number',
+      datasetMaxEntityCount: 'number',
+      datasetMaxRelationCount: 'number',
+      datasetMaxTotalFileSize: 'number',
+      bindCount: 'number',
+      fileCount: 'number',
+      totalFileSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VideoStream extends $tea.Model {
+  index?: number;
+  language?: string;
+  codecName?: string;
+  codecLongName?: string;
+  profile?: string;
+  codecTimeBase?: string;
+  codecTagString?: string;
+  codecTag?: string;
+  width?: number;
+  height?: number;
+  hasBFrames?: string;
+  sampleAspectRatio?: string;
+  displayAspectRatio?: string;
+  pixelFormat?: string;
+  level?: number;
+  frameRate?: number;
+  averageFrameRate?: number;
+  timeBase?: string;
+  startTime?: number;
+  duration?: number;
+  bitrate?: number;
+  frameCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      index: 'Index',
+      language: 'Language',
+      codecName: 'CodecName',
+      codecLongName: 'CodecLongName',
+      profile: 'Profile',
+      codecTimeBase: 'CodecTimeBase',
+      codecTagString: 'CodecTagString',
+      codecTag: 'CodecTag',
+      width: 'Width',
+      height: 'Height',
+      hasBFrames: 'HasBFrames',
+      sampleAspectRatio: 'SampleAspectRatio',
+      displayAspectRatio: 'DisplayAspectRatio',
+      pixelFormat: 'PixelFormat',
+      level: 'Level',
+      frameRate: 'FrameRate',
+      averageFrameRate: 'AverageFrameRate',
+      timeBase: 'TimeBase',
+      startTime: 'StartTime',
+      duration: 'Duration',
+      bitrate: 'Bitrate',
+      frameCount: 'FrameCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      index: 'number',
+      language: 'string',
+      codecName: 'string',
+      codecLongName: 'string',
+      profile: 'string',
+      codecTimeBase: 'string',
+      codecTagString: 'string',
+      codecTag: 'string',
+      width: 'number',
+      height: 'number',
+      hasBFrames: 'string',
+      sampleAspectRatio: 'string',
+      displayAspectRatio: 'string',
+      pixelFormat: 'string',
+      level: 'number',
+      frameRate: 'number',
+      averageFrameRate: 'number',
+      timeBase: 'string',
+      startTime: 'number',
+      duration: 'number',
+      bitrate: 'number',
+      frameCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OfficeConversionTask extends $tea.Model {
+  taskId?: string;
+  status?: string;
+  reason?: string;
+  userData?: string;
+  createTime?: string;
+  startTime?: string;
+  endTime?: string;
+  totalPages?: number;
+  static names(): { [key: string]: string } {
+    return {
+      taskId: 'TaskId',
+      status: 'Status',
+      reason: 'Reason',
+      userData: 'UserData',
+      createTime: 'CreateTime',
+      startTime: 'StartTime',
+      endTime: 'EndTime',
+      totalPages: 'TotalPages',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskId: 'string',
+      status: 'string',
+      reason: 'string',
+      userData: 'string',
+      createTime: 'string',
+      startTime: 'string',
+      endTime: 'string',
+      totalPages: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FileForReq extends $tea.Model {
+  URI?: string;
+  customId?: string;
+  customLabels?: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      URI: 'URI',
+      customId: 'CustomId',
+      customLabels: 'CustomLabels',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      URI: 'string',
+      customId: 'string',
+      customLabels: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class Project extends $tea.Model {
+  projectName?: string;
+  serviceRole?: string;
+  createTime?: string;
+  updateTime?: string;
+  description?: string;
+  projectQueriesPerSecond?: number;
+  engineConcurrency?: number;
+  projectMaxDatasetCount?: number;
+  datasetMaxBindCount?: number;
+  datasetMaxFileCount?: number;
+  datasetMaxEntityCount?: number;
+  datasetMaxRelationCount?: number;
+  datasetMaxTotalFileSize?: number;
+  datasetCount?: number;
+  fileCount?: number;
+  totalFileSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      projectName: 'ProjectName',
+      serviceRole: 'ServiceRole',
+      createTime: 'CreateTime',
+      updateTime: 'UpdateTime',
+      description: 'Description',
+      projectQueriesPerSecond: 'ProjectQueriesPerSecond',
+      engineConcurrency: 'EngineConcurrency',
+      projectMaxDatasetCount: 'ProjectMaxDatasetCount',
+      datasetMaxBindCount: 'DatasetMaxBindCount',
+      datasetMaxFileCount: 'DatasetMaxFileCount',
+      datasetMaxEntityCount: 'DatasetMaxEntityCount',
+      datasetMaxRelationCount: 'DatasetMaxRelationCount',
+      datasetMaxTotalFileSize: 'DatasetMaxTotalFileSize',
+      datasetCount: 'DatasetCount',
+      fileCount: 'FileCount',
+      totalFileSize: 'TotalFileSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectName: 'string',
+      serviceRole: 'string',
+      createTime: 'string',
+      updateTime: 'string',
+      description: 'string',
+      projectQueriesPerSecond: 'number',
+      engineConcurrency: 'number',
+      projectMaxDatasetCount: 'number',
+      datasetMaxBindCount: 'number',
+      datasetMaxFileCount: 'number',
+      datasetMaxEntityCount: 'number',
+      datasetMaxRelationCount: 'number',
+      datasetMaxTotalFileSize: 'number',
+      datasetCount: 'number',
+      fileCount: 'number',
+      totalFileSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class WebofficeWatermark extends $tea.Model {
+  type?: number;
+  value?: string;
+  rotate?: number;
+  vertical?: number;
+  horizontal?: number;
+  font?: string;
+  fillStyle?: string;
+  static names(): { [key: string]: string } {
+    return {
+      type: 'Type',
+      value: 'Value',
+      rotate: 'Rotate',
+      vertical: 'Vertical',
+      horizontal: 'Horizontal',
+      font: 'Font',
+      fillStyle: 'FillStyle',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      type: 'number',
+      value: 'string',
+      rotate: 'number',
+      vertical: 'number',
+      horizontal: 'number',
+      font: 'string',
+      fillStyle: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImageScore extends $tea.Model {
+  overallQualityScore?: number;
+  static names(): { [key: string]: string } {
+    return {
+      overallQualityScore: 'OverallQualityScore',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      overallQualityScore: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class WebofficePermission extends $tea.Model {
+  rename?: boolean;
+  readonly?: boolean;
+  history?: boolean;
+  print?: boolean;
+  export?: boolean;
+  copy?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      rename: 'Rename',
+      readonly: 'Readonly',
+      history: 'History',
+      print: 'Print',
+      export: 'Export',
+      copy: 'Copy',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      rename: 'boolean',
+      readonly: 'boolean',
+      history: 'boolean',
+      print: 'boolean',
+      export: 'boolean',
+      copy: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OCRContents extends $tea.Model {
+  language?: string;
+  contents?: string;
+  confidence?: number;
+  boundary?: Boundary;
+  static names(): { [key: string]: string } {
+    return {
+      language: 'Language',
+      contents: 'Contents',
+      confidence: 'Confidence',
+      boundary: 'Boundary',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      language: 'string',
+      contents: 'string',
+      confidence: 'number',
+      boundary: Boundary,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class Row extends $tea.Model {
+  URI?: string;
+  customLabels?: KeyValuePair[];
+  static names(): { [key: string]: string } {
+    return {
+      URI: 'URI',
+      customLabels: 'CustomLabels',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      URI: 'string',
+      customLabels: { 'type': 'array', 'itemType': KeyValuePair },
     };
   }
 
@@ -777,23 +1216,26 @@ export class File extends $tea.Model {
   }
 }
 
-export class WebofficeUser extends $tea.Model {
-  id?: string;
-  name?: string;
-  avatar?: string;
+export class ListBindingsRequest extends $tea.Model {
+  projectName?: string;
+  datasetName?: string;
+  maxResults?: number;
+  nextToken?: string;
   static names(): { [key: string]: string } {
     return {
-      id: 'Id',
-      name: 'Name',
-      avatar: 'Avatar',
+      projectName: 'ProjectName',
+      datasetName: 'DatasetName',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      id: 'string',
-      name: 'string',
-      avatar: 'string',
+      projectName: 'string',
+      datasetName: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
     };
   }
 
@@ -802,20 +1244,23 @@ export class WebofficeUser extends $tea.Model {
   }
 }
 
-export class AssumeRoleChain extends $tea.Model {
-  policy?: string;
-  chain?: AssumeRoleChainNode[];
+export class ListBindingsResponseBody extends $tea.Model {
+  requestId?: string;
+  nextToken?: string;
+  bindings?: Binding[];
   static names(): { [key: string]: string } {
     return {
-      policy: 'Policy',
-      chain: 'Chain',
+      requestId: 'RequestId',
+      nextToken: 'NextToken',
+      bindings: 'Bindings',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      policy: 'string',
-      chain: { 'type': 'array', 'itemType': AssumeRoleChainNode },
+      requestId: 'string',
+      nextToken: 'string',
+      bindings: { 'type': 'array', 'itemType': Binding },
     };
   }
 
@@ -824,35 +1269,20 @@ export class AssumeRoleChain extends $tea.Model {
   }
 }
 
-export class WebofficeWatermark extends $tea.Model {
-  type?: number;
-  value?: string;
-  rotate?: number;
-  vertical?: number;
-  horizontal?: number;
-  font?: string;
-  fillStyle?: string;
+export class ListBindingsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListBindingsResponseBody;
   static names(): { [key: string]: string } {
     return {
-      type: 'Type',
-      value: 'Value',
-      rotate: 'Rotate',
-      vertical: 'Vertical',
-      horizontal: 'Horizontal',
-      font: 'Font',
-      fillStyle: 'FillStyle',
+      headers: 'headers',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      type: 'number',
-      value: 'string',
-      rotate: 'number',
-      vertical: 'number',
-      horizontal: 'number',
-      font: 'string',
-      fillStyle: 'string',
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListBindingsResponseBody,
     };
   }
 
@@ -861,23 +1291,23 @@ export class WebofficeWatermark extends $tea.Model {
   }
 }
 
-export class AssumeRoleChainNode extends $tea.Model {
-  type?: string;
-  ownerId?: string;
-  role?: string;
+export class DeleteFileMetaRequest extends $tea.Model {
+  projectName?: string;
+  datasetName?: string;
+  URI?: string;
   static names(): { [key: string]: string } {
     return {
-      type: 'Type',
-      ownerId: 'OwnerId',
-      role: 'Role',
+      projectName: 'ProjectName',
+      datasetName: 'DatasetName',
+      URI: 'URI',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      type: 'string',
-      ownerId: 'string',
-      role: 'string',
+      projectName: 'string',
+      datasetName: 'string',
+      URI: 'string',
     };
   }
 
@@ -886,32 +1316,17 @@ export class AssumeRoleChainNode extends $tea.Model {
   }
 }
 
-export class WebofficePermission extends $tea.Model {
-  rename?: boolean;
-  readonly?: boolean;
-  history?: boolean;
-  print?: boolean;
-  export?: boolean;
-  copy?: boolean;
+export class DeleteFileMetaResponseBody extends $tea.Model {
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      rename: 'Rename',
-      readonly: 'Readonly',
-      history: 'History',
-      print: 'Print',
-      export: 'Export',
-      copy: 'Copy',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      rename: 'boolean',
-      readonly: 'boolean',
-      history: 'boolean',
-      print: 'boolean',
-      export: 'boolean',
-      copy: 'boolean',
+      requestId: 'string',
     };
   }
 
@@ -920,26 +1335,1453 @@ export class WebofficePermission extends $tea.Model {
   }
 }
 
-export class SimpleQuery extends $tea.Model {
-  field?: string;
-  value?: string;
-  operation?: string;
-  subQueries?: SimpleQuery[];
+export class DeleteFileMetaResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DeleteFileMetaResponseBody;
   static names(): { [key: string]: string } {
     return {
-      field: 'Field',
-      value: 'Value',
-      operation: 'Operation',
-      subQueries: 'SubQueries',
+      headers: 'headers',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      field: 'string',
-      value: 'string',
-      operation: 'string',
-      subQueries: { 'type': 'array', 'itemType': SimpleQuery },
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DeleteFileMetaResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchIndexFileMetaRequest extends $tea.Model {
+  projectName?: string;
+  datasetName?: string;
+  files?: FileForReq[];
+  static names(): { [key: string]: string } {
+    return {
+      projectName: 'ProjectName',
+      datasetName: 'DatasetName',
+      files: 'Files',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectName: 'string',
+      datasetName: 'string',
+      files: { 'type': 'array', 'itemType': FileForReq },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchIndexFileMetaShrinkRequest extends $tea.Model {
+  projectName?: string;
+  datasetName?: string;
+  filesShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      projectName: 'ProjectName',
+      datasetName: 'DatasetName',
+      filesShrink: 'Files',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectName: 'string',
+      datasetName: 'string',
+      filesShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchIndexFileMetaResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchIndexFileMetaResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: BatchIndexFileMetaResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: BatchIndexFileMetaResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SimpleQueryRequest extends $tea.Model {
+  nextToken?: string;
+  maxResults?: number;
+  projectName?: string;
+  datasetName?: string;
+  query?: SimpleQuery;
+  sort?: string;
+  order?: string;
+  aggregations?: SimpleQueryRequestAggregations[];
+  static names(): { [key: string]: string } {
+    return {
+      nextToken: 'NextToken',
+      maxResults: 'MaxResults',
+      projectName: 'ProjectName',
+      datasetName: 'DatasetName',
+      query: 'Query',
+      sort: 'Sort',
+      order: 'Order',
+      aggregations: 'Aggregations',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nextToken: 'string',
+      maxResults: 'number',
+      projectName: 'string',
+      datasetName: 'string',
+      query: SimpleQuery,
+      sort: 'string',
+      order: 'string',
+      aggregations: { 'type': 'array', 'itemType': SimpleQueryRequestAggregations },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SimpleQueryShrinkRequest extends $tea.Model {
+  nextToken?: string;
+  maxResults?: number;
+  projectName?: string;
+  datasetName?: string;
+  queryShrink?: string;
+  sort?: string;
+  order?: string;
+  aggregationsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      nextToken: 'NextToken',
+      maxResults: 'MaxResults',
+      projectName: 'ProjectName',
+      datasetName: 'DatasetName',
+      queryShrink: 'Query',
+      sort: 'Sort',
+      order: 'Order',
+      aggregationsShrink: 'Aggregations',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nextToken: 'string',
+      maxResults: 'number',
+      projectName: 'string',
+      datasetName: 'string',
+      queryShrink: 'string',
+      sort: 'string',
+      order: 'string',
+      aggregationsShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SimpleQueryResponseBody extends $tea.Model {
+  nextToken?: string;
+  requestId?: string;
+  files?: File[];
+  aggregations?: SimpleQueryResponseBodyAggregations[];
+  static names(): { [key: string]: string } {
+    return {
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      files: 'Files',
+      aggregations: 'Aggregations',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nextToken: 'string',
+      requestId: 'string',
+      files: { 'type': 'array', 'itemType': File },
+      aggregations: { 'type': 'array', 'itemType': SimpleQueryResponseBodyAggregations },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SimpleQueryResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: SimpleQueryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: SimpleQueryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBindingRequest extends $tea.Model {
+  projectName?: string;
+  datasetName?: string;
+  URI?: string;
+  static names(): { [key: string]: string } {
+    return {
+      projectName: 'ProjectName',
+      datasetName: 'DatasetName',
+      URI: 'URI',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectName: 'string',
+      datasetName: 'string',
+      URI: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBindingResponseBody extends $tea.Model {
+  requestId?: string;
+  binding?: Binding;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      binding: 'Binding',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      binding: Binding,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBindingResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetBindingResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetBindingResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProjectsRequest extends $tea.Model {
+  maxResults?: number;
+  nextToken?: string;
+  prefix?: string;
+  static names(): { [key: string]: string } {
+    return {
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      prefix: 'Prefix',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxResults: 'number',
+      nextToken: 'string',
+      prefix: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProjectsResponseBody extends $tea.Model {
+  nextToken?: string;
+  projects?: Project[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      nextToken: 'NextToken',
+      projects: 'Projects',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nextToken: 'string',
+      projects: { 'type': 'array', 'itemType': Project },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProjectsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListProjectsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListProjectsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDatasetRequest extends $tea.Model {
+  projectName?: string;
+  datasetName?: string;
+  withStatistics?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      projectName: 'ProjectName',
+      datasetName: 'DatasetName',
+      withStatistics: 'WithStatistics',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectName: 'string',
+      datasetName: 'string',
+      withStatistics: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDatasetResponseBody extends $tea.Model {
+  requestId?: string;
+  dataset?: Dataset;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      dataset: 'Dataset',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      dataset: Dataset,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDatasetResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetDatasetResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetDatasetResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchUpdateFileMetaRequest extends $tea.Model {
+  projectName?: string;
+  datasetName?: string;
+  files?: FileForReq[];
+  static names(): { [key: string]: string } {
+    return {
+      projectName: 'ProjectName',
+      datasetName: 'DatasetName',
+      files: 'Files',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectName: 'string',
+      datasetName: 'string',
+      files: { 'type': 'array', 'itemType': FileForReq },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchUpdateFileMetaShrinkRequest extends $tea.Model {
+  projectName?: string;
+  datasetName?: string;
+  filesShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      projectName: 'ProjectName',
+      datasetName: 'DatasetName',
+      filesShrink: 'Files',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectName: 'string',
+      datasetName: 'string',
+      filesShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchUpdateFileMetaResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchUpdateFileMetaResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: BatchUpdateFileMetaResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: BatchUpdateFileMetaResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateOfficeConversionTaskRequest extends $tea.Model {
+  projectName?: string;
+  sourceUri?: string;
+  sourceType?: string;
+  targetUri?: string;
+  targetType?: string;
+  password?: string;
+  sheetCount?: string;
+  startPage?: string;
+  endPage?: string;
+  scale?: number;
+  quality?: number;
+  sheetIndex?: number;
+  fitToWidth?: boolean;
+  fitToHeight?: boolean;
+  paperSize?: string;
+  isHorizontal?: boolean;
+  firstPage?: boolean;
+  longPic?: boolean;
+  showComments?: boolean;
+  notifyEndpoint?: string;
+  notifyTopicName?: string;
+  userData?: string;
+  static names(): { [key: string]: string } {
+    return {
+      projectName: 'ProjectName',
+      sourceUri: 'SourceUri',
+      sourceType: 'SourceType',
+      targetUri: 'TargetUri',
+      targetType: 'TargetType',
+      password: 'Password',
+      sheetCount: 'SheetCount',
+      startPage: 'StartPage',
+      endPage: 'EndPage',
+      scale: 'Scale',
+      quality: 'Quality',
+      sheetIndex: 'SheetIndex',
+      fitToWidth: 'FitToWidth',
+      fitToHeight: 'FitToHeight',
+      paperSize: 'PaperSize',
+      isHorizontal: 'IsHorizontal',
+      firstPage: 'FirstPage',
+      longPic: 'LongPic',
+      showComments: 'ShowComments',
+      notifyEndpoint: 'NotifyEndpoint',
+      notifyTopicName: 'NotifyTopicName',
+      userData: 'UserData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectName: 'string',
+      sourceUri: 'string',
+      sourceType: 'string',
+      targetUri: 'string',
+      targetType: 'string',
+      password: 'string',
+      sheetCount: 'string',
+      startPage: 'string',
+      endPage: 'string',
+      scale: 'number',
+      quality: 'number',
+      sheetIndex: 'number',
+      fitToWidth: 'boolean',
+      fitToHeight: 'boolean',
+      paperSize: 'string',
+      isHorizontal: 'boolean',
+      firstPage: 'boolean',
+      longPic: 'boolean',
+      showComments: 'boolean',
+      notifyEndpoint: 'string',
+      notifyTopicName: 'string',
+      userData: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateOfficeConversionTaskResponseBody extends $tea.Model {
+  requestId?: string;
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateOfficeConversionTaskResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CreateOfficeConversionTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CreateOfficeConversionTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWebofficeURLRequest extends $tea.Model {
+  projectName?: string;
+  sourceURI?: string;
+  filename?: string;
+  userData?: string;
+  previewPages?: number;
+  password?: string;
+  externalUploaded?: boolean;
+  notifyEndpoint?: string;
+  notifyTopicName?: string;
+  hidecmb?: boolean;
+  permission?: WebofficePermission;
+  user?: WebofficeUser;
+  watermark?: WebofficeWatermark;
+  assumeRoleChain?: AssumeRoleChain;
+  static names(): { [key: string]: string } {
+    return {
+      projectName: 'ProjectName',
+      sourceURI: 'SourceURI',
+      filename: 'Filename',
+      userData: 'UserData',
+      previewPages: 'PreviewPages',
+      password: 'Password',
+      externalUploaded: 'ExternalUploaded',
+      notifyEndpoint: 'NotifyEndpoint',
+      notifyTopicName: 'NotifyTopicName',
+      hidecmb: 'Hidecmb',
+      permission: 'Permission',
+      user: 'User',
+      watermark: 'Watermark',
+      assumeRoleChain: 'AssumeRoleChain',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectName: 'string',
+      sourceURI: 'string',
+      filename: 'string',
+      userData: 'string',
+      previewPages: 'number',
+      password: 'string',
+      externalUploaded: 'boolean',
+      notifyEndpoint: 'string',
+      notifyTopicName: 'string',
+      hidecmb: 'boolean',
+      permission: WebofficePermission,
+      user: WebofficeUser,
+      watermark: WebofficeWatermark,
+      assumeRoleChain: AssumeRoleChain,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWebofficeURLShrinkRequest extends $tea.Model {
+  projectName?: string;
+  sourceURI?: string;
+  filename?: string;
+  userData?: string;
+  previewPages?: number;
+  password?: string;
+  externalUploaded?: boolean;
+  notifyEndpoint?: string;
+  notifyTopicName?: string;
+  hidecmb?: boolean;
+  permissionShrink?: string;
+  userShrink?: string;
+  watermarkShrink?: string;
+  assumeRoleChainShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      projectName: 'ProjectName',
+      sourceURI: 'SourceURI',
+      filename: 'Filename',
+      userData: 'UserData',
+      previewPages: 'PreviewPages',
+      password: 'Password',
+      externalUploaded: 'ExternalUploaded',
+      notifyEndpoint: 'NotifyEndpoint',
+      notifyTopicName: 'NotifyTopicName',
+      hidecmb: 'Hidecmb',
+      permissionShrink: 'Permission',
+      userShrink: 'User',
+      watermarkShrink: 'Watermark',
+      assumeRoleChainShrink: 'AssumeRoleChain',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectName: 'string',
+      sourceURI: 'string',
+      filename: 'string',
+      userData: 'string',
+      previewPages: 'number',
+      password: 'string',
+      externalUploaded: 'boolean',
+      notifyEndpoint: 'string',
+      notifyTopicName: 'string',
+      hidecmb: 'boolean',
+      permissionShrink: 'string',
+      userShrink: 'string',
+      watermarkShrink: 'string',
+      assumeRoleChainShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWebofficeURLResponseBody extends $tea.Model {
+  requestId?: string;
+  webofficeURL?: string;
+  accessToken?: string;
+  refreshToken?: string;
+  accessTokenExpiredTime?: string;
+  refreshTokenExpiredTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      webofficeURL: 'WebofficeURL',
+      accessToken: 'AccessToken',
+      refreshToken: 'RefreshToken',
+      accessTokenExpiredTime: 'AccessTokenExpiredTime',
+      refreshTokenExpiredTime: 'RefreshTokenExpiredTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      webofficeURL: 'string',
+      accessToken: 'string',
+      refreshToken: 'string',
+      accessTokenExpiredTime: 'string',
+      refreshTokenExpiredTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWebofficeURLResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetWebofficeURLResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetWebofficeURLResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateProjectRequest extends $tea.Model {
+  projectName?: string;
+  description?: string;
+  serviceRole?: string;
+  templateId?: string;
+  projectQueriesPerSecond?: number;
+  engineConcurrency?: number;
+  projectMaxDatasetCount?: number;
+  datasetMaxBindCount?: number;
+  datasetMaxFileCount?: number;
+  datasetMaxEntityCount?: number;
+  datasetMaxRelationCount?: number;
+  datasetMaxTotalFileSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      projectName: 'ProjectName',
+      description: 'Description',
+      serviceRole: 'ServiceRole',
+      templateId: 'TemplateId',
+      projectQueriesPerSecond: 'ProjectQueriesPerSecond',
+      engineConcurrency: 'EngineConcurrency',
+      projectMaxDatasetCount: 'ProjectMaxDatasetCount',
+      datasetMaxBindCount: 'DatasetMaxBindCount',
+      datasetMaxFileCount: 'DatasetMaxFileCount',
+      datasetMaxEntityCount: 'DatasetMaxEntityCount',
+      datasetMaxRelationCount: 'DatasetMaxRelationCount',
+      datasetMaxTotalFileSize: 'DatasetMaxTotalFileSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectName: 'string',
+      description: 'string',
+      serviceRole: 'string',
+      templateId: 'string',
+      projectQueriesPerSecond: 'number',
+      engineConcurrency: 'number',
+      projectMaxDatasetCount: 'number',
+      datasetMaxBindCount: 'number',
+      datasetMaxFileCount: 'number',
+      datasetMaxEntityCount: 'number',
+      datasetMaxRelationCount: 'number',
+      datasetMaxTotalFileSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateProjectResponseBody extends $tea.Model {
+  requestId?: string;
+  project?: Project;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      project: 'Project',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      project: Project,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateProjectResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CreateProjectResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CreateProjectResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDatasetsRequest extends $tea.Model {
+  projectName?: string;
+  maxResults?: number;
+  nextToken?: string;
+  prefix?: string;
+  static names(): { [key: string]: string } {
+    return {
+      projectName: 'ProjectName',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      prefix: 'Prefix',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectName: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+      prefix: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDatasetsResponseBody extends $tea.Model {
+  requestId?: string;
+  nextToken?: string;
+  datasets?: Dataset[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      nextToken: 'NextToken',
+      datasets: 'Datasets',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      nextToken: 'string',
+      datasets: { 'type': 'array', 'itemType': Dataset },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDatasetsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListDatasetsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListDatasetsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteBindingRequest extends $tea.Model {
+  projectName?: string;
+  datasetName?: string;
+  URI?: string;
+  static names(): { [key: string]: string } {
+    return {
+      projectName: 'ProjectName',
+      datasetName: 'DatasetName',
+      URI: 'URI',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectName: 'string',
+      datasetName: 'string',
+      URI: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteBindingResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteBindingResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DeleteBindingResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DeleteBindingResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RefreshWebofficeTokenRequest extends $tea.Model {
+  projectName?: string;
+  accessToken?: string;
+  refreshToken?: string;
+  assumeRoleChain?: AssumeRoleChain;
+  static names(): { [key: string]: string } {
+    return {
+      projectName: 'ProjectName',
+      accessToken: 'AccessToken',
+      refreshToken: 'RefreshToken',
+      assumeRoleChain: 'AssumeRoleChain',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectName: 'string',
+      accessToken: 'string',
+      refreshToken: 'string',
+      assumeRoleChain: AssumeRoleChain,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RefreshWebofficeTokenShrinkRequest extends $tea.Model {
+  projectName?: string;
+  accessToken?: string;
+  refreshToken?: string;
+  assumeRoleChainShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      projectName: 'ProjectName',
+      accessToken: 'AccessToken',
+      refreshToken: 'RefreshToken',
+      assumeRoleChainShrink: 'AssumeRoleChain',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectName: 'string',
+      accessToken: 'string',
+      refreshToken: 'string',
+      assumeRoleChainShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RefreshWebofficeTokenResponseBody extends $tea.Model {
+  requestId?: string;
+  refreshToken?: string;
+  accessToken?: string;
+  refreshTokenExpiredTime?: string;
+  accessTokenExpiredTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      refreshToken: 'RefreshToken',
+      accessToken: 'AccessToken',
+      refreshTokenExpiredTime: 'RefreshTokenExpiredTime',
+      accessTokenExpiredTime: 'AccessTokenExpiredTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      refreshToken: 'string',
+      accessToken: 'string',
+      refreshTokenExpiredTime: 'string',
+      accessTokenExpiredTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RefreshWebofficeTokenResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: RefreshWebofficeTokenResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: RefreshWebofficeTokenResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateBindingRequest extends $tea.Model {
+  projectName?: string;
+  datasetName?: string;
+  URI?: string;
+  static names(): { [key: string]: string } {
+    return {
+      projectName: 'ProjectName',
+      datasetName: 'DatasetName',
+      URI: 'URI',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectName: 'string',
+      datasetName: 'string',
+      URI: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateBindingResponseBody extends $tea.Model {
+  requestId?: string;
+  binding?: Binding;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      binding: 'Binding',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      binding: Binding,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateBindingResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CreateBindingResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CreateBindingResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDatasetRequest extends $tea.Model {
+  projectName?: string;
+  datasetName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      projectName: 'ProjectName',
+      datasetName: 'DatasetName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectName: 'string',
+      datasetName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDatasetResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDatasetResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DeleteDatasetResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DeleteDatasetResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOfficeConversionTaskRequest extends $tea.Model {
+  projectName?: string;
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      projectName: 'ProjectName',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectName: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOfficeConversionTaskResponseBody extends $tea.Model {
+  requestId?: string;
+  officeConversionTask?: OfficeConversionTask;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      officeConversionTask: 'OfficeConversionTask',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      officeConversionTask: OfficeConversionTask,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOfficeConversionTaskResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetOfficeConversionTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetOfficeConversionTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFileMetaRequest extends $tea.Model {
+  projectName?: string;
+  datasetName?: string;
+  URI?: string;
+  static names(): { [key: string]: string } {
+    return {
+      projectName: 'ProjectName',
+      datasetName: 'DatasetName',
+      URI: 'URI',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectName: 'string',
+      datasetName: 'string',
+      URI: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFileMetaResponseBody extends $tea.Model {
+  requestId?: string;
+  files?: File[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      files: 'Files',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      files: { 'type': 'array', 'itemType': File },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFileMetaResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetFileMetaResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetFileMetaResponseBody,
     };
   }
 
@@ -1133,15 +2975,17 @@ export class BatchGetFileMetaResponse extends $tea.Model {
   }
 }
 
-export class BatchIndexFileMetaRequest extends $tea.Model {
+export class StopBindingRequest extends $tea.Model {
   projectName?: string;
   datasetName?: string;
-  files?: BatchIndexFileMetaRequestFiles[];
+  URI?: string;
+  reason?: string;
   static names(): { [key: string]: string } {
     return {
       projectName: 'ProjectName',
       datasetName: 'DatasetName',
-      files: 'Files',
+      URI: 'URI',
+      reason: 'Reason',
     };
   }
 
@@ -1149,7 +2993,8 @@ export class BatchIndexFileMetaRequest extends $tea.Model {
     return {
       projectName: 'string',
       datasetName: 'string',
-      files: { 'type': 'array', 'itemType': BatchIndexFileMetaRequestFiles },
+      URI: 'string',
+      reason: 'string',
     };
   }
 
@@ -1158,32 +3003,7 @@ export class BatchIndexFileMetaRequest extends $tea.Model {
   }
 }
 
-export class BatchIndexFileMetaShrinkRequest extends $tea.Model {
-  projectName?: string;
-  datasetName?: string;
-  filesShrink?: string;
-  static names(): { [key: string]: string } {
-    return {
-      projectName: 'ProjectName',
-      datasetName: 'DatasetName',
-      filesShrink: 'Files',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      projectName: 'string',
-      datasetName: 'string',
-      filesShrink: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BatchIndexFileMetaResponseBody extends $tea.Model {
+export class StopBindingResponseBody extends $tea.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1202,9 +3022,9 @@ export class BatchIndexFileMetaResponseBody extends $tea.Model {
   }
 }
 
-export class BatchIndexFileMetaResponse extends $tea.Model {
+export class StopBindingResponse extends $tea.Model {
   headers: { [key: string]: string };
-  body: BatchIndexFileMetaResponseBody;
+  body: StopBindingResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1215,7 +3035,7 @@ export class BatchIndexFileMetaResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: BatchIndexFileMetaResponseBody,
+      body: StopBindingResponseBody,
     };
   }
 
@@ -1224,98 +3044,7 @@ export class BatchIndexFileMetaResponse extends $tea.Model {
   }
 }
 
-export class BatchUpdateFileMetaRequest extends $tea.Model {
-  projectName?: string;
-  datasetName?: string;
-  files?: BatchUpdateFileMetaRequestFiles[];
-  static names(): { [key: string]: string } {
-    return {
-      projectName: 'ProjectName',
-      datasetName: 'DatasetName',
-      files: 'Files',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      projectName: 'string',
-      datasetName: 'string',
-      files: { 'type': 'array', 'itemType': BatchUpdateFileMetaRequestFiles },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BatchUpdateFileMetaShrinkRequest extends $tea.Model {
-  projectName?: string;
-  datasetName?: string;
-  filesShrink?: string;
-  static names(): { [key: string]: string } {
-    return {
-      projectName: 'ProjectName',
-      datasetName: 'DatasetName',
-      filesShrink: 'Files',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      projectName: 'string',
-      datasetName: 'string',
-      filesShrink: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BatchUpdateFileMetaResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BatchUpdateFileMetaResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: BatchUpdateFileMetaResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: BatchUpdateFileMetaResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateBindingRequest extends $tea.Model {
+export class ResumeBindingRequest extends $tea.Model {
   projectName?: string;
   datasetName?: string;
   URI?: string;
@@ -1340,7 +3069,7 @@ export class CreateBindingRequest extends $tea.Model {
   }
 }
 
-export class CreateBindingResponseBody extends $tea.Model {
+export class ResumeBindingResponseBody extends $tea.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1359,9 +3088,9 @@ export class CreateBindingResponseBody extends $tea.Model {
   }
 }
 
-export class CreateBindingResponse extends $tea.Model {
+export class ResumeBindingResponse extends $tea.Model {
   headers: { [key: string]: string };
-  body: CreateBindingResponseBody;
+  body: ResumeBindingResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1372,7 +3101,324 @@ export class CreateBindingResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: CreateBindingResponseBody,
+      body: ResumeBindingResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateFileMetaRequest extends $tea.Model {
+  projectName?: string;
+  datasetName?: string;
+  file?: FileForReq;
+  static names(): { [key: string]: string } {
+    return {
+      projectName: 'ProjectName',
+      datasetName: 'DatasetName',
+      file: 'File',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectName: 'string',
+      datasetName: 'string',
+      file: FileForReq,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateFileMetaShrinkRequest extends $tea.Model {
+  projectName?: string;
+  datasetName?: string;
+  fileShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      projectName: 'ProjectName',
+      datasetName: 'DatasetName',
+      fileShrink: 'File',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectName: 'string',
+      datasetName: 'string',
+      fileShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateFileMetaResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateFileMetaResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: UpdateFileMetaResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: UpdateFileMetaResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class IndexFileMetaRequest extends $tea.Model {
+  projectName?: string;
+  datasetName?: string;
+  file?: FileForReq;
+  static names(): { [key: string]: string } {
+    return {
+      projectName: 'ProjectName',
+      datasetName: 'DatasetName',
+      file: 'File',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectName: 'string',
+      datasetName: 'string',
+      file: FileForReq,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class IndexFileMetaShrinkRequest extends $tea.Model {
+  projectName?: string;
+  datasetName?: string;
+  fileShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      projectName: 'ProjectName',
+      datasetName: 'DatasetName',
+      fileShrink: 'File',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectName: 'string',
+      datasetName: 'string',
+      fileShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class IndexFileMetaResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class IndexFileMetaResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: IndexFileMetaResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: IndexFileMetaResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectImageLabelsRequest extends $tea.Model {
+  projectName?: string;
+  sourceURI?: string;
+  threshold?: number;
+  static names(): { [key: string]: string } {
+    return {
+      projectName: 'ProjectName',
+      sourceURI: 'SourceURI',
+      threshold: 'Threshold',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectName: 'string',
+      sourceURI: 'string',
+      threshold: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectImageLabelsResponseBody extends $tea.Model {
+  labels?: Label[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      labels: 'Labels',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      labels: { 'type': 'array', 'itemType': Label },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectImageLabelsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DetectImageLabelsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DetectImageLabelsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetProjectRequest extends $tea.Model {
+  projectName?: string;
+  withStatistics?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      projectName: 'ProjectName',
+      withStatistics: 'WithStatistics',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectName: 'string',
+      withStatistics: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetProjectResponseBody extends $tea.Model {
+  requestId?: string;
+  project?: Project;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      project: 'Project',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      project: Project,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetProjectResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetProjectResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetProjectResponseBody,
     };
   }
 
@@ -1386,7 +3432,7 @@ export class CreateDatasetRequest extends $tea.Model {
   datasetName?: string;
   description?: string;
   templateId?: string;
-  datasetMaxOSSBindCount?: number;
+  datasetMaxBindCount?: number;
   datasetMaxFileCount?: number;
   datasetMaxEntityCount?: number;
   datasetMaxRelationCount?: number;
@@ -1397,7 +3443,7 @@ export class CreateDatasetRequest extends $tea.Model {
       datasetName: 'DatasetName',
       description: 'Description',
       templateId: 'TemplateId',
-      datasetMaxOSSBindCount: 'DatasetMaxOSSBindCount',
+      datasetMaxBindCount: 'DatasetMaxBindCount',
       datasetMaxFileCount: 'DatasetMaxFileCount',
       datasetMaxEntityCount: 'DatasetMaxEntityCount',
       datasetMaxRelationCount: 'DatasetMaxRelationCount',
@@ -1411,7 +3457,7 @@ export class CreateDatasetRequest extends $tea.Model {
       datasetName: 'string',
       description: 'string',
       templateId: 'string',
-      datasetMaxOSSBindCount: 'number',
+      datasetMaxBindCount: 'number',
       datasetMaxFileCount: 'number',
       datasetMaxEntityCount: 'number',
       datasetMaxRelationCount: 'number',
@@ -1426,27 +3472,18 @@ export class CreateDatasetRequest extends $tea.Model {
 
 export class CreateDatasetResponseBody extends $tea.Model {
   requestId?: string;
-  projectName?: string;
-  datasetName?: string;
-  createTime?: number;
-  description?: string;
+  dataset?: Dataset;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      projectName: 'ProjectName',
-      datasetName: 'DatasetName',
-      createTime: 'CreateTime',
-      description: 'Description',
+      dataset: 'Dataset',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      projectName: 'string',
-      datasetName: 'string',
-      createTime: 'number',
-      description: 'string',
+      dataset: Dataset,
     };
   }
 
@@ -1469,303 +3506,6 @@ export class CreateDatasetResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: CreateDatasetResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateProjectRequest extends $tea.Model {
-  projectName?: string;
-  description?: string;
-  serviceRole?: string;
-  templateId?: string;
-  projectQPS?: number;
-  projectTPS?: number;
-  projectMaxDatasetCount?: number;
-  datasetMaxOSSBindCount?: number;
-  datasetMaxFileCount?: number;
-  datasetMaxEntityCount?: number;
-  datasetMaxRelationCount?: number;
-  datasetMaxTotalFileSize?: number;
-  static names(): { [key: string]: string } {
-    return {
-      projectName: 'ProjectName',
-      description: 'Description',
-      serviceRole: 'ServiceRole',
-      templateId: 'TemplateId',
-      projectQPS: 'ProjectQPS',
-      projectTPS: 'ProjectTPS',
-      projectMaxDatasetCount: 'ProjectMaxDatasetCount',
-      datasetMaxOSSBindCount: 'DatasetMaxOSSBindCount',
-      datasetMaxFileCount: 'DatasetMaxFileCount',
-      datasetMaxEntityCount: 'DatasetMaxEntityCount',
-      datasetMaxRelationCount: 'DatasetMaxRelationCount',
-      datasetMaxTotalFileSize: 'DatasetMaxTotalFileSize',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      projectName: 'string',
-      description: 'string',
-      serviceRole: 'string',
-      templateId: 'string',
-      projectQPS: 'number',
-      projectTPS: 'number',
-      projectMaxDatasetCount: 'number',
-      datasetMaxOSSBindCount: 'number',
-      datasetMaxFileCount: 'number',
-      datasetMaxEntityCount: 'number',
-      datasetMaxRelationCount: 'number',
-      datasetMaxTotalFileSize: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateProjectResponseBody extends $tea.Model {
-  projectName?: string;
-  createTime?: number;
-  requestId?: string;
-  description?: string;
-  static names(): { [key: string]: string } {
-    return {
-      projectName: 'ProjectName',
-      createTime: 'CreateTime',
-      requestId: 'RequestId',
-      description: 'Description',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      projectName: 'string',
-      createTime: 'number',
-      requestId: 'string',
-      description: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateProjectResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: CreateProjectResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: CreateProjectResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteBindingRequest extends $tea.Model {
-  projectName?: string;
-  datasetName?: string;
-  URI?: string;
-  static names(): { [key: string]: string } {
-    return {
-      projectName: 'ProjectName',
-      datasetName: 'DatasetName',
-      URI: 'URI',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      projectName: 'string',
-      datasetName: 'string',
-      URI: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteBindingResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteBindingResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DeleteBindingResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DeleteBindingResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteDatasetRequest extends $tea.Model {
-  projectName?: string;
-  datasetName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      projectName: 'ProjectName',
-      datasetName: 'DatasetName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      projectName: 'string',
-      datasetName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteDatasetResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteDatasetResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DeleteDatasetResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DeleteDatasetResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteFileMetaRequest extends $tea.Model {
-  projectName?: string;
-  datasetName?: string;
-  URI?: string;
-  static names(): { [key: string]: string } {
-    return {
-      projectName: 'ProjectName',
-      datasetName: 'DatasetName',
-      URI: 'URI',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      projectName: 'string',
-      datasetName: 'string',
-      URI: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteFileMetaResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteFileMetaResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DeleteFileMetaResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DeleteFileMetaResponseBody,
     };
   }
 
@@ -1826,6 +3566,255 @@ export class DeleteProjectResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: DeleteProjectResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFileSignedURIRequest extends $tea.Model {
+  projectName?: string;
+  URI?: string;
+  static names(): { [key: string]: string } {
+    return {
+      projectName: 'ProjectName',
+      URI: 'URI',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectName: 'string',
+      URI: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFileSignedURIResponseBody extends $tea.Model {
+  requestId?: string;
+  URI?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      URI: 'URI',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      URI: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFileSignedURIResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetFileSignedURIResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetFileSignedURIResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateProjectRequest extends $tea.Model {
+  projectName?: string;
+  serviceRole?: string;
+  description?: string;
+  templateId?: string;
+  projectQueriesPerSecond?: number;
+  engineConcurrency?: number;
+  projectMaxDatasetCount?: number;
+  datasetMaxBindCount?: number;
+  datasetMaxFileCount?: number;
+  datasetMaxEntityCount?: number;
+  datasetMaxRelationCount?: number;
+  datasetMaxTotalFileSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      projectName: 'ProjectName',
+      serviceRole: 'ServiceRole',
+      description: 'Description',
+      templateId: 'TemplateId',
+      projectQueriesPerSecond: 'ProjectQueriesPerSecond',
+      engineConcurrency: 'EngineConcurrency',
+      projectMaxDatasetCount: 'ProjectMaxDatasetCount',
+      datasetMaxBindCount: 'DatasetMaxBindCount',
+      datasetMaxFileCount: 'DatasetMaxFileCount',
+      datasetMaxEntityCount: 'DatasetMaxEntityCount',
+      datasetMaxRelationCount: 'DatasetMaxRelationCount',
+      datasetMaxTotalFileSize: 'DatasetMaxTotalFileSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectName: 'string',
+      serviceRole: 'string',
+      description: 'string',
+      templateId: 'string',
+      projectQueriesPerSecond: 'number',
+      engineConcurrency: 'number',
+      projectMaxDatasetCount: 'number',
+      datasetMaxBindCount: 'number',
+      datasetMaxFileCount: 'number',
+      datasetMaxEntityCount: 'number',
+      datasetMaxRelationCount: 'number',
+      datasetMaxTotalFileSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateProjectResponseBody extends $tea.Model {
+  requestId?: string;
+  project?: Project;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      project: 'Project',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      project: Project,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateProjectResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: UpdateProjectResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: UpdateProjectResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDatasetRequest extends $tea.Model {
+  projectName?: string;
+  datasetName?: string;
+  description?: string;
+  templateId?: string;
+  datasetMaxBindCount?: number;
+  datasetMaxFileCount?: number;
+  datasetMaxEntityCount?: number;
+  datasetMaxRelationCount?: number;
+  datasetMaxTotalFileSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      projectName: 'ProjectName',
+      datasetName: 'DatasetName',
+      description: 'Description',
+      templateId: 'TemplateId',
+      datasetMaxBindCount: 'DatasetMaxBindCount',
+      datasetMaxFileCount: 'DatasetMaxFileCount',
+      datasetMaxEntityCount: 'DatasetMaxEntityCount',
+      datasetMaxRelationCount: 'DatasetMaxRelationCount',
+      datasetMaxTotalFileSize: 'DatasetMaxTotalFileSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectName: 'string',
+      datasetName: 'string',
+      description: 'string',
+      templateId: 'string',
+      datasetMaxBindCount: 'number',
+      datasetMaxFileCount: 'number',
+      datasetMaxEntityCount: 'number',
+      datasetMaxRelationCount: 'number',
+      datasetMaxTotalFileSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDatasetResponseBody extends $tea.Model {
+  requestId?: string;
+  dataset?: Dataset;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      dataset: 'Dataset',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      dataset: Dataset,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDatasetResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: UpdateDatasetResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: UpdateDatasetResponseBody,
     };
   }
 
@@ -1912,771 +3901,7 @@ export class FuzzyQueryResponse extends $tea.Model {
   }
 }
 
-export class GetBindingRequest extends $tea.Model {
-  projectName?: string;
-  datasetName?: string;
-  URI?: string;
-  static names(): { [key: string]: string } {
-    return {
-      projectName: 'ProjectName',
-      datasetName: 'DatasetName',
-      URI: 'URI',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      projectName: 'string',
-      datasetName: 'string',
-      URI: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetBindingResponseBody extends $tea.Model {
-  requestId?: string;
-  binding?: GetBindingResponseBodyBinding;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      binding: 'Binding',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      binding: GetBindingResponseBodyBinding,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetBindingResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: GetBindingResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: GetBindingResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDatasetRequest extends $tea.Model {
-  projectName?: string;
-  datasetName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      projectName: 'ProjectName',
-      datasetName: 'DatasetName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      projectName: 'string',
-      datasetName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDatasetResponseBody extends $tea.Model {
-  requestId?: string;
-  projectName?: string;
-  datasetName?: string;
-  templateId?: string;
-  createTime?: number;
-  updateTime?: number;
-  description?: string;
-  datasetMaxOSSBindCount?: number;
-  datasetMaxFileCount?: number;
-  datasetMaxEntityCount?: number;
-  datasetMaxRelationCount?: number;
-  datasetMaxTotalFileSize?: number;
-  bindCount?: number;
-  fileCount?: number;
-  totalFileSize?: number;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      projectName: 'ProjectName',
-      datasetName: 'DatasetName',
-      templateId: 'TemplateId',
-      createTime: 'CreateTime',
-      updateTime: 'UpdateTime',
-      description: 'Description',
-      datasetMaxOSSBindCount: 'DatasetMaxOSSBindCount',
-      datasetMaxFileCount: 'DatasetMaxFileCount',
-      datasetMaxEntityCount: 'DatasetMaxEntityCount',
-      datasetMaxRelationCount: 'DatasetMaxRelationCount',
-      datasetMaxTotalFileSize: 'DatasetMaxTotalFileSize',
-      bindCount: 'BindCount',
-      fileCount: 'FileCount',
-      totalFileSize: 'TotalFileSize',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      projectName: 'string',
-      datasetName: 'string',
-      templateId: 'string',
-      createTime: 'number',
-      updateTime: 'number',
-      description: 'string',
-      datasetMaxOSSBindCount: 'number',
-      datasetMaxFileCount: 'number',
-      datasetMaxEntityCount: 'number',
-      datasetMaxRelationCount: 'number',
-      datasetMaxTotalFileSize: 'number',
-      bindCount: 'number',
-      fileCount: 'number',
-      totalFileSize: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDatasetResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: GetDatasetResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: GetDatasetResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetFileMetaRequest extends $tea.Model {
-  projectName?: string;
-  datasetName?: string;
-  URI?: string;
-  static names(): { [key: string]: string } {
-    return {
-      projectName: 'ProjectName',
-      datasetName: 'DatasetName',
-      URI: 'URI',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      projectName: 'string',
-      datasetName: 'string',
-      URI: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetFileMetaResponseBody extends $tea.Model {
-  requestId?: string;
-  files?: File[];
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      files: 'Files',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      files: { 'type': 'array', 'itemType': File },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetFileMetaResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: GetFileMetaResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: GetFileMetaResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetFileSignedURIRequest extends $tea.Model {
-  projectName?: string;
-  URI?: string;
-  static names(): { [key: string]: string } {
-    return {
-      projectName: 'ProjectName',
-      URI: 'URI',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      projectName: 'string',
-      URI: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetFileSignedURIResponseBody extends $tea.Model {
-  requestId?: string;
-  URI?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      URI: 'URI',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      URI: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetFileSignedURIResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: GetFileSignedURIResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: GetFileSignedURIResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetProjectRequest extends $tea.Model {
-  projectName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      projectName: 'ProjectName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      projectName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetProjectResponseBody extends $tea.Model {
-  projectName?: string;
-  description?: string;
-  serviceRole?: string;
-  templateId?: string;
-  createTime?: number;
-  updateTime?: number;
-  projectQPS?: number;
-  projectTPS?: number;
-  projectMaxDatasetCount?: number;
-  datasetMaxOSSBindCount?: number;
-  datasetMaxFileCount?: number;
-  datasetMaxEntityCount?: number;
-  datasetMaxRelationCount?: number;
-  datasetMaxTotalFileSize?: number;
-  datasetCount?: number;
-  fileCount?: number;
-  totalFileSize?: number;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      projectName: 'ProjectName',
-      description: 'Description',
-      serviceRole: 'ServiceRole',
-      templateId: 'TemplateId',
-      createTime: 'CreateTime',
-      updateTime: 'UpdateTime',
-      projectQPS: 'ProjectQPS',
-      projectTPS: 'ProjectTPS',
-      projectMaxDatasetCount: 'ProjectMaxDatasetCount',
-      datasetMaxOSSBindCount: 'DatasetMaxOSSBindCount',
-      datasetMaxFileCount: 'DatasetMaxFileCount',
-      datasetMaxEntityCount: 'DatasetMaxEntityCount',
-      datasetMaxRelationCount: 'DatasetMaxRelationCount',
-      datasetMaxTotalFileSize: 'DatasetMaxTotalFileSize',
-      datasetCount: 'DatasetCount',
-      fileCount: 'FileCount',
-      totalFileSize: 'TotalFileSize',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      projectName: 'string',
-      description: 'string',
-      serviceRole: 'string',
-      templateId: 'string',
-      createTime: 'number',
-      updateTime: 'number',
-      projectQPS: 'number',
-      projectTPS: 'number',
-      projectMaxDatasetCount: 'number',
-      datasetMaxOSSBindCount: 'number',
-      datasetMaxFileCount: 'number',
-      datasetMaxEntityCount: 'number',
-      datasetMaxRelationCount: 'number',
-      datasetMaxTotalFileSize: 'number',
-      datasetCount: 'number',
-      fileCount: 'number',
-      totalFileSize: 'number',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetProjectResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: GetProjectResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: GetProjectResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetWebofficeUrlRequest extends $tea.Model {
-  projectName?: string;
-  sourceUri?: string;
-  filename?: string;
-  userData?: string;
-  previewPages?: number;
-  password?: string;
-  externalUploaded?: boolean;
-  notifyEndpoint?: string;
-  notifyTopicName?: string;
-  hidecmb?: boolean;
-  permission?: WebofficePermission;
-  user?: WebofficeUser;
-  watermark?: WebofficeWatermark;
-  assumeRoleChain?: AssumeRoleChain;
-  static names(): { [key: string]: string } {
-    return {
-      projectName: 'ProjectName',
-      sourceUri: 'SourceUri',
-      filename: 'Filename',
-      userData: 'UserData',
-      previewPages: 'PreviewPages',
-      password: 'Password',
-      externalUploaded: 'ExternalUploaded',
-      notifyEndpoint: 'NotifyEndpoint',
-      notifyTopicName: 'NotifyTopicName',
-      hidecmb: 'Hidecmb',
-      permission: 'Permission',
-      user: 'User',
-      watermark: 'Watermark',
-      assumeRoleChain: 'AssumeRoleChain',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      projectName: 'string',
-      sourceUri: 'string',
-      filename: 'string',
-      userData: 'string',
-      previewPages: 'number',
-      password: 'string',
-      externalUploaded: 'boolean',
-      notifyEndpoint: 'string',
-      notifyTopicName: 'string',
-      hidecmb: 'boolean',
-      permission: WebofficePermission,
-      user: WebofficeUser,
-      watermark: WebofficeWatermark,
-      assumeRoleChain: AssumeRoleChain,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetWebofficeUrlShrinkRequest extends $tea.Model {
-  projectName?: string;
-  sourceUri?: string;
-  filename?: string;
-  userData?: string;
-  previewPages?: number;
-  password?: string;
-  externalUploaded?: boolean;
-  notifyEndpoint?: string;
-  notifyTopicName?: string;
-  hidecmb?: boolean;
-  permissionShrink?: string;
-  userShrink?: string;
-  watermarkShrink?: string;
-  assumeRoleChainShrink?: string;
-  static names(): { [key: string]: string } {
-    return {
-      projectName: 'ProjectName',
-      sourceUri: 'SourceUri',
-      filename: 'Filename',
-      userData: 'UserData',
-      previewPages: 'PreviewPages',
-      password: 'Password',
-      externalUploaded: 'ExternalUploaded',
-      notifyEndpoint: 'NotifyEndpoint',
-      notifyTopicName: 'NotifyTopicName',
-      hidecmb: 'Hidecmb',
-      permissionShrink: 'Permission',
-      userShrink: 'User',
-      watermarkShrink: 'Watermark',
-      assumeRoleChainShrink: 'AssumeRoleChain',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      projectName: 'string',
-      sourceUri: 'string',
-      filename: 'string',
-      userData: 'string',
-      previewPages: 'number',
-      password: 'string',
-      externalUploaded: 'boolean',
-      notifyEndpoint: 'string',
-      notifyTopicName: 'string',
-      hidecmb: 'boolean',
-      permissionShrink: 'string',
-      userShrink: 'string',
-      watermarkShrink: 'string',
-      assumeRoleChainShrink: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetWebofficeUrlResponseBody extends $tea.Model {
-  requestId?: string;
-  webofficeUrl?: string;
-  accessToken?: string;
-  refreshToken?: string;
-  accessTokenExpiredTime?: string;
-  refreshTokenExpiredTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      webofficeUrl: 'WebofficeUrl',
-      accessToken: 'AccessToken',
-      refreshToken: 'RefreshToken',
-      accessTokenExpiredTime: 'AccessTokenExpiredTime',
-      refreshTokenExpiredTime: 'RefreshTokenExpiredTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      webofficeUrl: 'string',
-      accessToken: 'string',
-      refreshToken: 'string',
-      accessTokenExpiredTime: 'string',
-      refreshTokenExpiredTime: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetWebofficeUrlResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: GetWebofficeUrlResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: GetWebofficeUrlResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class IndexFileMetaRequest extends $tea.Model {
-  projectName?: string;
-  datasetName?: string;
-  URI?: string;
-  customLabels?: { [key: string]: any };
-  static names(): { [key: string]: string } {
-    return {
-      projectName: 'ProjectName',
-      datasetName: 'DatasetName',
-      URI: 'URI',
-      customLabels: 'CustomLabels',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      projectName: 'string',
-      datasetName: 'string',
-      URI: 'string',
-      customLabels: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class IndexFileMetaShrinkRequest extends $tea.Model {
-  projectName?: string;
-  datasetName?: string;
-  URI?: string;
-  customLabelsShrink?: string;
-  static names(): { [key: string]: string } {
-    return {
-      projectName: 'ProjectName',
-      datasetName: 'DatasetName',
-      URI: 'URI',
-      customLabelsShrink: 'CustomLabels',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      projectName: 'string',
-      datasetName: 'string',
-      URI: 'string',
-      customLabelsShrink: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class IndexFileMetaResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class IndexFileMetaResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: IndexFileMetaResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: IndexFileMetaResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListBindingsRequest extends $tea.Model {
-  projectName?: string;
-  datasetName?: string;
-  maxResults?: number;
-  nextToken?: string;
-  static names(): { [key: string]: string } {
-    return {
-      projectName: 'ProjectName',
-      datasetName: 'DatasetName',
-      maxResults: 'MaxResults',
-      nextToken: 'NextToken',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      projectName: 'string',
-      datasetName: 'string',
-      maxResults: 'number',
-      nextToken: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListBindingsResponseBody extends $tea.Model {
-  requestId?: string;
-  nextToken?: string;
-  bindings?: ListBindingsResponseBodyBindings[];
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      nextToken: 'NextToken',
-      bindings: 'Bindings',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      nextToken: 'string',
-      bindings: { 'type': 'array', 'itemType': ListBindingsResponseBodyBindings },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListBindingsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ListBindingsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListBindingsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListDatasetsRequest extends $tea.Model {
+export class ListOfficeConversionTaskRequest extends $tea.Model {
   projectName?: string;
   maxResults?: number;
   nextToken?: string;
@@ -2701,83 +3926,14 @@ export class ListDatasetsRequest extends $tea.Model {
   }
 }
 
-export class ListDatasetsResponseBody extends $tea.Model {
-  requestId?: string;
+export class ListOfficeConversionTaskResponseBody extends $tea.Model {
   nextToken?: string;
-  datasets?: ListDatasetsResponseBodyDatasets[];
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      nextToken: 'NextToken',
-      datasets: 'Datasets',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      nextToken: 'string',
-      datasets: { 'type': 'array', 'itemType': ListDatasetsResponseBodyDatasets },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListDatasetsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ListDatasetsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListDatasetsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListProjectsRequest extends $tea.Model {
-  maxResults?: number;
-  nextToken?: string;
-  static names(): { [key: string]: string } {
-    return {
-      maxResults: 'MaxResults',
-      nextToken: 'NextToken',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      maxResults: 'number',
-      nextToken: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListProjectsResponseBody extends $tea.Model {
-  nextToken?: string;
-  projects?: ListProjectsResponseBodyProjects[];
+  officeConversionTasks?: OfficeConversionTask[];
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
       nextToken: 'NextToken',
-      projects: 'Projects',
+      officeConversionTasks: 'OfficeConversionTasks',
       requestId: 'RequestId',
     };
   }
@@ -2785,7 +3941,7 @@ export class ListProjectsResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       nextToken: 'string',
-      projects: { 'type': 'array', 'itemType': ListProjectsResponseBodyProjects },
+      officeConversionTasks: { 'type': 'array', 'itemType': OfficeConversionTask },
       requestId: 'string',
     };
   }
@@ -2795,9 +3951,9 @@ export class ListProjectsResponseBody extends $tea.Model {
   }
 }
 
-export class ListProjectsResponse extends $tea.Model {
+export class ListOfficeConversionTaskResponse extends $tea.Model {
   headers: { [key: string]: string };
-  body: ListProjectsResponseBody;
+  body: ListOfficeConversionTaskResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2808,1012 +3964,7 @@ export class ListProjectsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListProjectsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RefreshWebofficeTokenRequest extends $tea.Model {
-  projectName?: string;
-  accessToken?: string;
-  refreshToken?: string;
-  assumeRoleChain?: AssumeRoleChain;
-  static names(): { [key: string]: string } {
-    return {
-      projectName: 'ProjectName',
-      accessToken: 'AccessToken',
-      refreshToken: 'RefreshToken',
-      assumeRoleChain: 'AssumeRoleChain',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      projectName: 'string',
-      accessToken: 'string',
-      refreshToken: 'string',
-      assumeRoleChain: AssumeRoleChain,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RefreshWebofficeTokenShrinkRequest extends $tea.Model {
-  projectName?: string;
-  accessToken?: string;
-  refreshToken?: string;
-  assumeRoleChainShrink?: string;
-  static names(): { [key: string]: string } {
-    return {
-      projectName: 'ProjectName',
-      accessToken: 'AccessToken',
-      refreshToken: 'RefreshToken',
-      assumeRoleChainShrink: 'AssumeRoleChain',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      projectName: 'string',
-      accessToken: 'string',
-      refreshToken: 'string',
-      assumeRoleChainShrink: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RefreshWebofficeTokenResponseBody extends $tea.Model {
-  requestId?: string;
-  refreshToken?: string;
-  accessToken?: string;
-  refreshTokenExpiredTime?: string;
-  accessTokenExpiredTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      refreshToken: 'RefreshToken',
-      accessToken: 'AccessToken',
-      refreshTokenExpiredTime: 'RefreshTokenExpiredTime',
-      accessTokenExpiredTime: 'AccessTokenExpiredTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      refreshToken: 'string',
-      accessToken: 'string',
-      refreshTokenExpiredTime: 'string',
-      accessTokenExpiredTime: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RefreshWebofficeTokenResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: RefreshWebofficeTokenResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: RefreshWebofficeTokenResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ResumeBindingRequest extends $tea.Model {
-  projectName?: string;
-  datasetName?: string;
-  URI?: string;
-  static names(): { [key: string]: string } {
-    return {
-      projectName: 'ProjectName',
-      datasetName: 'DatasetName',
-      URI: 'URI',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      projectName: 'string',
-      datasetName: 'string',
-      URI: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ResumeBindingResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ResumeBindingResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ResumeBindingResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ResumeBindingResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SimpleQueryRequest extends $tea.Model {
-  nextToken?: string;
-  maxResults?: number;
-  projectName?: string;
-  datasetName?: string;
-  query?: SimpleQuery;
-  sort?: string;
-  order?: string;
-  aggregations?: SimpleQueryRequestAggregations[];
-  static names(): { [key: string]: string } {
-    return {
-      nextToken: 'NextToken',
-      maxResults: 'MaxResults',
-      projectName: 'ProjectName',
-      datasetName: 'DatasetName',
-      query: 'Query',
-      sort: 'Sort',
-      order: 'Order',
-      aggregations: 'Aggregations',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      nextToken: 'string',
-      maxResults: 'number',
-      projectName: 'string',
-      datasetName: 'string',
-      query: SimpleQuery,
-      sort: 'string',
-      order: 'string',
-      aggregations: { 'type': 'array', 'itemType': SimpleQueryRequestAggregations },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SimpleQueryShrinkRequest extends $tea.Model {
-  nextToken?: string;
-  maxResults?: number;
-  projectName?: string;
-  datasetName?: string;
-  queryShrink?: string;
-  sort?: string;
-  order?: string;
-  aggregationsShrink?: string;
-  static names(): { [key: string]: string } {
-    return {
-      nextToken: 'NextToken',
-      maxResults: 'MaxResults',
-      projectName: 'ProjectName',
-      datasetName: 'DatasetName',
-      queryShrink: 'Query',
-      sort: 'Sort',
-      order: 'Order',
-      aggregationsShrink: 'Aggregations',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      nextToken: 'string',
-      maxResults: 'number',
-      projectName: 'string',
-      datasetName: 'string',
-      queryShrink: 'string',
-      sort: 'string',
-      order: 'string',
-      aggregationsShrink: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SimpleQueryResponseBody extends $tea.Model {
-  nextToken?: string;
-  requestId?: string;
-  files?: File[];
-  aggregations?: SimpleQueryResponseBodyAggregations[];
-  static names(): { [key: string]: string } {
-    return {
-      nextToken: 'NextToken',
-      requestId: 'RequestId',
-      files: 'Files',
-      aggregations: 'Aggregations',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      nextToken: 'string',
-      requestId: 'string',
-      files: { 'type': 'array', 'itemType': File },
-      aggregations: { 'type': 'array', 'itemType': SimpleQueryResponseBodyAggregations },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SimpleQueryResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: SimpleQueryResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: SimpleQueryResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StopBindingRequest extends $tea.Model {
-  projectName?: string;
-  datasetName?: string;
-  URI?: string;
-  reason?: string;
-  static names(): { [key: string]: string } {
-    return {
-      projectName: 'ProjectName',
-      datasetName: 'DatasetName',
-      URI: 'URI',
-      reason: 'Reason',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      projectName: 'string',
-      datasetName: 'string',
-      URI: 'string',
-      reason: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StopBindingResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StopBindingResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: StopBindingResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: StopBindingResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateDatasetRequest extends $tea.Model {
-  projectName?: string;
-  datasetName?: string;
-  description?: string;
-  templateId?: string;
-  datasetMaxOSSBindCount?: number;
-  datasetMaxFileCount?: number;
-  datasetMaxEntityCount?: number;
-  datasetMaxRelationCount?: number;
-  datasetMaxTotalFileSize?: number;
-  resetItems?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      projectName: 'ProjectName',
-      datasetName: 'DatasetName',
-      description: 'Description',
-      templateId: 'TemplateId',
-      datasetMaxOSSBindCount: 'DatasetMaxOSSBindCount',
-      datasetMaxFileCount: 'DatasetMaxFileCount',
-      datasetMaxEntityCount: 'DatasetMaxEntityCount',
-      datasetMaxRelationCount: 'DatasetMaxRelationCount',
-      datasetMaxTotalFileSize: 'DatasetMaxTotalFileSize',
-      resetItems: 'ResetItems',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      projectName: 'string',
-      datasetName: 'string',
-      description: 'string',
-      templateId: 'string',
-      datasetMaxOSSBindCount: 'number',
-      datasetMaxFileCount: 'number',
-      datasetMaxEntityCount: 'number',
-      datasetMaxRelationCount: 'number',
-      datasetMaxTotalFileSize: 'number',
-      resetItems: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateDatasetShrinkRequest extends $tea.Model {
-  projectName?: string;
-  datasetName?: string;
-  description?: string;
-  templateId?: string;
-  datasetMaxOSSBindCount?: number;
-  datasetMaxFileCount?: number;
-  datasetMaxEntityCount?: number;
-  datasetMaxRelationCount?: number;
-  datasetMaxTotalFileSize?: number;
-  resetItemsShrink?: string;
-  static names(): { [key: string]: string } {
-    return {
-      projectName: 'ProjectName',
-      datasetName: 'DatasetName',
-      description: 'Description',
-      templateId: 'TemplateId',
-      datasetMaxOSSBindCount: 'DatasetMaxOSSBindCount',
-      datasetMaxFileCount: 'DatasetMaxFileCount',
-      datasetMaxEntityCount: 'DatasetMaxEntityCount',
-      datasetMaxRelationCount: 'DatasetMaxRelationCount',
-      datasetMaxTotalFileSize: 'DatasetMaxTotalFileSize',
-      resetItemsShrink: 'ResetItems',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      projectName: 'string',
-      datasetName: 'string',
-      description: 'string',
-      templateId: 'string',
-      datasetMaxOSSBindCount: 'number',
-      datasetMaxFileCount: 'number',
-      datasetMaxEntityCount: 'number',
-      datasetMaxRelationCount: 'number',
-      datasetMaxTotalFileSize: 'number',
-      resetItemsShrink: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateDatasetResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateDatasetResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: UpdateDatasetResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: UpdateDatasetResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateFileMetaRequest extends $tea.Model {
-  projectName?: string;
-  datasetName?: string;
-  URI?: string;
-  customLabels?: { [key: string]: any };
-  static names(): { [key: string]: string } {
-    return {
-      projectName: 'ProjectName',
-      datasetName: 'DatasetName',
-      URI: 'URI',
-      customLabels: 'CustomLabels',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      projectName: 'string',
-      datasetName: 'string',
-      URI: 'string',
-      customLabels: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateFileMetaShrinkRequest extends $tea.Model {
-  projectName?: string;
-  datasetName?: string;
-  URI?: string;
-  customLabelsShrink?: string;
-  static names(): { [key: string]: string } {
-    return {
-      projectName: 'ProjectName',
-      datasetName: 'DatasetName',
-      URI: 'URI',
-      customLabelsShrink: 'CustomLabels',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      projectName: 'string',
-      datasetName: 'string',
-      URI: 'string',
-      customLabelsShrink: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateFileMetaResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateFileMetaResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: UpdateFileMetaResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: UpdateFileMetaResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateProjectRequest extends $tea.Model {
-  projectName?: string;
-  serviceRole?: string;
-  description?: string;
-  templateId?: string;
-  projectQPS?: number;
-  projectTPS?: number;
-  projectMaxDatasetCount?: number;
-  datasetMaxOSSBindCount?: number;
-  datasetMaxFileCount?: number;
-  datasetMaxEntityCount?: number;
-  datasetMaxRelationCount?: number;
-  resetItems?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      projectName: 'ProjectName',
-      serviceRole: 'ServiceRole',
-      description: 'Description',
-      templateId: 'TemplateId',
-      projectQPS: 'ProjectQPS',
-      projectTPS: 'ProjectTPS',
-      projectMaxDatasetCount: 'ProjectMaxDatasetCount',
-      datasetMaxOSSBindCount: 'DatasetMaxOSSBindCount',
-      datasetMaxFileCount: 'DatasetMaxFileCount',
-      datasetMaxEntityCount: 'DatasetMaxEntityCount',
-      datasetMaxRelationCount: 'DatasetMaxRelationCount',
-      resetItems: 'ResetItems',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      projectName: 'string',
-      serviceRole: 'string',
-      description: 'string',
-      templateId: 'string',
-      projectQPS: 'number',
-      projectTPS: 'number',
-      projectMaxDatasetCount: 'number',
-      datasetMaxOSSBindCount: 'number',
-      datasetMaxFileCount: 'number',
-      datasetMaxEntityCount: 'number',
-      datasetMaxRelationCount: 'number',
-      resetItems: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateProjectShrinkRequest extends $tea.Model {
-  projectName?: string;
-  serviceRole?: string;
-  description?: string;
-  templateId?: string;
-  projectQPS?: number;
-  projectTPS?: number;
-  projectMaxDatasetCount?: number;
-  datasetMaxOSSBindCount?: number;
-  datasetMaxFileCount?: number;
-  datasetMaxEntityCount?: number;
-  datasetMaxRelationCount?: number;
-  resetItemsShrink?: string;
-  static names(): { [key: string]: string } {
-    return {
-      projectName: 'ProjectName',
-      serviceRole: 'ServiceRole',
-      description: 'Description',
-      templateId: 'TemplateId',
-      projectQPS: 'ProjectQPS',
-      projectTPS: 'ProjectTPS',
-      projectMaxDatasetCount: 'ProjectMaxDatasetCount',
-      datasetMaxOSSBindCount: 'DatasetMaxOSSBindCount',
-      datasetMaxFileCount: 'DatasetMaxFileCount',
-      datasetMaxEntityCount: 'DatasetMaxEntityCount',
-      datasetMaxRelationCount: 'DatasetMaxRelationCount',
-      resetItemsShrink: 'ResetItems',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      projectName: 'string',
-      serviceRole: 'string',
-      description: 'string',
-      templateId: 'string',
-      projectQPS: 'number',
-      projectTPS: 'number',
-      projectMaxDatasetCount: 'number',
-      datasetMaxOSSBindCount: 'number',
-      datasetMaxFileCount: 'number',
-      datasetMaxEntityCount: 'number',
-      datasetMaxRelationCount: 'number',
-      resetItemsShrink: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateProjectResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateProjectResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: UpdateProjectResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: UpdateProjectResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BatchIndexFileMetaRequestFiles extends $tea.Model {
-  URI?: string;
-  customLabels?: { [key: string]: any };
-  static names(): { [key: string]: string } {
-    return {
-      URI: 'URI',
-      customLabels: 'CustomLabels',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      URI: 'string',
-      customLabels: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BatchUpdateFileMetaRequestFiles extends $tea.Model {
-  URI?: string;
-  customLabels?: { [key: string]: any };
-  static names(): { [key: string]: string } {
-    return {
-      URI: 'URI',
-      customLabels: 'CustomLabels',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      URI: 'string',
-      customLabels: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetBindingResponseBodyBinding extends $tea.Model {
-  projectName?: string;
-  datasetName?: string;
-  URI?: string;
-  state?: string;
-  phase?: string;
-  reason?: string;
-  createTime?: number;
-  updateTime?: number;
-  static names(): { [key: string]: string } {
-    return {
-      projectName: 'ProjectName',
-      datasetName: 'DatasetName',
-      URI: 'URI',
-      state: 'State',
-      phase: 'Phase',
-      reason: 'Reason',
-      createTime: 'CreateTime',
-      updateTime: 'UpdateTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      projectName: 'string',
-      datasetName: 'string',
-      URI: 'string',
-      state: 'string',
-      phase: 'string',
-      reason: 'string',
-      createTime: 'number',
-      updateTime: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListBindingsResponseBodyBindingsBinding extends $tea.Model {
-  projectName?: string;
-  datasetName?: string;
-  URI?: string;
-  state?: string;
-  phase?: string;
-  reason?: string;
-  createTime?: number;
-  updateTime?: number;
-  static names(): { [key: string]: string } {
-    return {
-      projectName: 'ProjectName',
-      datasetName: 'DatasetName',
-      URI: 'URI',
-      state: 'State',
-      phase: 'Phase',
-      reason: 'Reason',
-      createTime: 'CreateTime',
-      updateTime: 'UpdateTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      projectName: 'string',
-      datasetName: 'string',
-      URI: 'string',
-      state: 'string',
-      phase: 'string',
-      reason: 'string',
-      createTime: 'number',
-      updateTime: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListBindingsResponseBodyBindings extends $tea.Model {
-  binding?: ListBindingsResponseBodyBindingsBinding;
-  static names(): { [key: string]: string } {
-    return {
-      binding: 'Binding',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      binding: ListBindingsResponseBodyBindingsBinding,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListDatasetsResponseBodyDatasets extends $tea.Model {
-  projectName?: string;
-  datasetName?: string;
-  workflow?: string;
-  createTime?: number;
-  updateTime?: number;
-  description?: string;
-  datasetMaxOSSBindCount?: number;
-  datasetMaxFileCount?: number;
-  datasetMaxEntityCount?: number;
-  datasetMaxRelationCount?: number;
-  datasetMaxTotalFileSize?: number;
-  bindCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      projectName: 'ProjectName',
-      datasetName: 'DatasetName',
-      workflow: 'Workflow',
-      createTime: 'CreateTime',
-      updateTime: 'UpdateTime',
-      description: 'Description',
-      datasetMaxOSSBindCount: 'DatasetMaxOSSBindCount',
-      datasetMaxFileCount: 'DatasetMaxFileCount',
-      datasetMaxEntityCount: 'DatasetMaxEntityCount',
-      datasetMaxRelationCount: 'DatasetMaxRelationCount',
-      datasetMaxTotalFileSize: 'DatasetMaxTotalFileSize',
-      bindCount: 'BindCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      projectName: 'string',
-      datasetName: 'string',
-      workflow: 'string',
-      createTime: 'number',
-      updateTime: 'number',
-      description: 'string',
-      datasetMaxOSSBindCount: 'number',
-      datasetMaxFileCount: 'number',
-      datasetMaxEntityCount: 'number',
-      datasetMaxRelationCount: 'number',
-      datasetMaxTotalFileSize: 'number',
-      bindCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListProjectsResponseBodyProjects extends $tea.Model {
-  projectName?: string;
-  serviceRole?: string;
-  workflow?: string;
-  description?: string;
-  createTime?: number;
-  updateTime?: number;
-  projectQPS?: number;
-  projectTPS?: number;
-  projectMaxDatasetCount?: number;
-  datasetMaxOSSBindCount?: number;
-  datasetMaxFileCount?: number;
-  datasetMaxEntityCount?: number;
-  datasetMaxRelationCount?: number;
-  datasetMaxTotalFileSize?: number;
-  datasetCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      projectName: 'ProjectName',
-      serviceRole: 'ServiceRole',
-      workflow: 'Workflow',
-      description: 'Description',
-      createTime: 'CreateTime',
-      updateTime: 'UpdateTime',
-      projectQPS: 'ProjectQPS',
-      projectTPS: 'ProjectTPS',
-      projectMaxDatasetCount: 'ProjectMaxDatasetCount',
-      datasetMaxOSSBindCount: 'DatasetMaxOSSBindCount',
-      datasetMaxFileCount: 'DatasetMaxFileCount',
-      datasetMaxEntityCount: 'DatasetMaxEntityCount',
-      datasetMaxRelationCount: 'DatasetMaxRelationCount',
-      datasetMaxTotalFileSize: 'DatasetMaxTotalFileSize',
-      datasetCount: 'DatasetCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      projectName: 'string',
-      serviceRole: 'string',
-      workflow: 'string',
-      description: 'string',
-      createTime: 'number',
-      updateTime: 'number',
-      projectQPS: 'number',
-      projectTPS: 'number',
-      projectMaxDatasetCount: 'number',
-      datasetMaxOSSBindCount: 'number',
-      datasetMaxFileCount: 'number',
-      datasetMaxEntityCount: 'number',
-      datasetMaxRelationCount: 'number',
-      datasetMaxTotalFileSize: 'number',
-      datasetCount: 'number',
+      body: ListOfficeConversionTaskResponseBody,
     };
   }
 
@@ -3920,6 +4071,286 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  async listBindingsWithOptions(request: ListBindingsRequest, runtime: $Util.RuntimeOptions): Promise<ListBindingsResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<ListBindingsResponse>(await this.doRPCRequest("ListBindings", "2020-09-30", "HTTPS", "POST", "AK", "json", req, runtime), new ListBindingsResponse({}));
+  }
+
+  async listBindings(request: ListBindingsRequest): Promise<ListBindingsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listBindingsWithOptions(request, runtime);
+  }
+
+  async deleteFileMetaWithOptions(request: DeleteFileMetaRequest, runtime: $Util.RuntimeOptions): Promise<DeleteFileMetaResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DeleteFileMetaResponse>(await this.doRPCRequest("DeleteFileMeta", "2020-09-30", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteFileMetaResponse({}));
+  }
+
+  async deleteFileMeta(request: DeleteFileMetaRequest): Promise<DeleteFileMetaResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteFileMetaWithOptions(request, runtime);
+  }
+
+  async batchIndexFileMetaWithOptions(tmpReq: BatchIndexFileMetaRequest, runtime: $Util.RuntimeOptions): Promise<BatchIndexFileMetaResponse> {
+    Util.validateModel(tmpReq);
+    let request = new BatchIndexFileMetaShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.files)) {
+      request.filesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.files, "Files", "json");
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<BatchIndexFileMetaResponse>(await this.doRPCRequest("BatchIndexFileMeta", "2020-09-30", "HTTPS", "POST", "AK", "json", req, runtime), new BatchIndexFileMetaResponse({}));
+  }
+
+  async batchIndexFileMeta(request: BatchIndexFileMetaRequest): Promise<BatchIndexFileMetaResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.batchIndexFileMetaWithOptions(request, runtime);
+  }
+
+  async simpleQueryWithOptions(tmpReq: SimpleQueryRequest, runtime: $Util.RuntimeOptions): Promise<SimpleQueryResponse> {
+    Util.validateModel(tmpReq);
+    let request = new SimpleQueryShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset($tea.toMap(tmpReq.query))) {
+      request.queryShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.query), "Query", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.aggregations)) {
+      request.aggregationsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.aggregations, "Aggregations", "json");
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<SimpleQueryResponse>(await this.doRPCRequest("SimpleQuery", "2020-09-30", "HTTPS", "POST", "AK", "json", req, runtime), new SimpleQueryResponse({}));
+  }
+
+  async simpleQuery(request: SimpleQueryRequest): Promise<SimpleQueryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.simpleQueryWithOptions(request, runtime);
+  }
+
+  async getBindingWithOptions(request: GetBindingRequest, runtime: $Util.RuntimeOptions): Promise<GetBindingResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<GetBindingResponse>(await this.doRPCRequest("GetBinding", "2020-09-30", "HTTPS", "POST", "AK", "json", req, runtime), new GetBindingResponse({}));
+  }
+
+  async getBinding(request: GetBindingRequest): Promise<GetBindingResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getBindingWithOptions(request, runtime);
+  }
+
+  async listProjectsWithOptions(request: ListProjectsRequest, runtime: $Util.RuntimeOptions): Promise<ListProjectsResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<ListProjectsResponse>(await this.doRPCRequest("ListProjects", "2020-09-30", "HTTPS", "POST", "AK", "json", req, runtime), new ListProjectsResponse({}));
+  }
+
+  async listProjects(request: ListProjectsRequest): Promise<ListProjectsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listProjectsWithOptions(request, runtime);
+  }
+
+  async getDatasetWithOptions(request: GetDatasetRequest, runtime: $Util.RuntimeOptions): Promise<GetDatasetResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<GetDatasetResponse>(await this.doRPCRequest("GetDataset", "2020-09-30", "HTTPS", "POST", "AK", "json", req, runtime), new GetDatasetResponse({}));
+  }
+
+  async getDataset(request: GetDatasetRequest): Promise<GetDatasetResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getDatasetWithOptions(request, runtime);
+  }
+
+  async batchUpdateFileMetaWithOptions(tmpReq: BatchUpdateFileMetaRequest, runtime: $Util.RuntimeOptions): Promise<BatchUpdateFileMetaResponse> {
+    Util.validateModel(tmpReq);
+    let request = new BatchUpdateFileMetaShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.files)) {
+      request.filesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.files, "Files", "json");
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<BatchUpdateFileMetaResponse>(await this.doRPCRequest("BatchUpdateFileMeta", "2020-09-30", "HTTPS", "POST", "AK", "json", req, runtime), new BatchUpdateFileMetaResponse({}));
+  }
+
+  async batchUpdateFileMeta(request: BatchUpdateFileMetaRequest): Promise<BatchUpdateFileMetaResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.batchUpdateFileMetaWithOptions(request, runtime);
+  }
+
+  async createOfficeConversionTaskWithOptions(request: CreateOfficeConversionTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateOfficeConversionTaskResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<CreateOfficeConversionTaskResponse>(await this.doRPCRequest("CreateOfficeConversionTask", "2020-09-30", "HTTPS", "POST", "AK", "json", req, runtime), new CreateOfficeConversionTaskResponse({}));
+  }
+
+  async createOfficeConversionTask(request: CreateOfficeConversionTaskRequest): Promise<CreateOfficeConversionTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createOfficeConversionTaskWithOptions(request, runtime);
+  }
+
+  async getWebofficeURLWithOptions(tmpReq: GetWebofficeURLRequest, runtime: $Util.RuntimeOptions): Promise<GetWebofficeURLResponse> {
+    Util.validateModel(tmpReq);
+    let request = new GetWebofficeURLShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset($tea.toMap(tmpReq.permission))) {
+      request.permissionShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.permission), "Permission", "json");
+    }
+
+    if (!Util.isUnset($tea.toMap(tmpReq.user))) {
+      request.userShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.user), "User", "json");
+    }
+
+    if (!Util.isUnset($tea.toMap(tmpReq.watermark))) {
+      request.watermarkShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.watermark), "Watermark", "json");
+    }
+
+    if (!Util.isUnset($tea.toMap(tmpReq.assumeRoleChain))) {
+      request.assumeRoleChainShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.assumeRoleChain), "AssumeRoleChain", "json");
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<GetWebofficeURLResponse>(await this.doRPCRequest("GetWebofficeURL", "2020-09-30", "HTTPS", "POST", "AK", "json", req, runtime), new GetWebofficeURLResponse({}));
+  }
+
+  async getWebofficeURL(request: GetWebofficeURLRequest): Promise<GetWebofficeURLResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getWebofficeURLWithOptions(request, runtime);
+  }
+
+  async createProjectWithOptions(request: CreateProjectRequest, runtime: $Util.RuntimeOptions): Promise<CreateProjectResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<CreateProjectResponse>(await this.doRPCRequest("CreateProject", "2020-09-30", "HTTPS", "POST", "AK", "json", req, runtime), new CreateProjectResponse({}));
+  }
+
+  async createProject(request: CreateProjectRequest): Promise<CreateProjectResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createProjectWithOptions(request, runtime);
+  }
+
+  async listDatasetsWithOptions(request: ListDatasetsRequest, runtime: $Util.RuntimeOptions): Promise<ListDatasetsResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<ListDatasetsResponse>(await this.doRPCRequest("ListDatasets", "2020-09-30", "HTTPS", "POST", "AK", "json", req, runtime), new ListDatasetsResponse({}));
+  }
+
+  async listDatasets(request: ListDatasetsRequest): Promise<ListDatasetsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listDatasetsWithOptions(request, runtime);
+  }
+
+  async deleteBindingWithOptions(request: DeleteBindingRequest, runtime: $Util.RuntimeOptions): Promise<DeleteBindingResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DeleteBindingResponse>(await this.doRPCRequest("DeleteBinding", "2020-09-30", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteBindingResponse({}));
+  }
+
+  async deleteBinding(request: DeleteBindingRequest): Promise<DeleteBindingResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteBindingWithOptions(request, runtime);
+  }
+
+  async refreshWebofficeTokenWithOptions(tmpReq: RefreshWebofficeTokenRequest, runtime: $Util.RuntimeOptions): Promise<RefreshWebofficeTokenResponse> {
+    Util.validateModel(tmpReq);
+    let request = new RefreshWebofficeTokenShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset($tea.toMap(tmpReq.assumeRoleChain))) {
+      request.assumeRoleChainShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.assumeRoleChain), "AssumeRoleChain", "json");
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<RefreshWebofficeTokenResponse>(await this.doRPCRequest("RefreshWebofficeToken", "2020-09-30", "HTTPS", "POST", "AK", "json", req, runtime), new RefreshWebofficeTokenResponse({}));
+  }
+
+  async refreshWebofficeToken(request: RefreshWebofficeTokenRequest): Promise<RefreshWebofficeTokenResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.refreshWebofficeTokenWithOptions(request, runtime);
+  }
+
+  async createBindingWithOptions(request: CreateBindingRequest, runtime: $Util.RuntimeOptions): Promise<CreateBindingResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<CreateBindingResponse>(await this.doRPCRequest("CreateBinding", "2020-09-30", "HTTPS", "POST", "AK", "json", req, runtime), new CreateBindingResponse({}));
+  }
+
+  async createBinding(request: CreateBindingRequest): Promise<CreateBindingResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createBindingWithOptions(request, runtime);
+  }
+
+  async deleteDatasetWithOptions(request: DeleteDatasetRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDatasetResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DeleteDatasetResponse>(await this.doRPCRequest("DeleteDataset", "2020-09-30", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteDatasetResponse({}));
+  }
+
+  async deleteDataset(request: DeleteDatasetRequest): Promise<DeleteDatasetResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteDatasetWithOptions(request, runtime);
+  }
+
+  async getOfficeConversionTaskWithOptions(request: GetOfficeConversionTaskRequest, runtime: $Util.RuntimeOptions): Promise<GetOfficeConversionTaskResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<GetOfficeConversionTaskResponse>(await this.doRPCRequest("GetOfficeConversionTask", "2020-09-30", "HTTPS", "POST", "AK", "json", req, runtime), new GetOfficeConversionTaskResponse({}));
+  }
+
+  async getOfficeConversionTask(request: GetOfficeConversionTaskRequest): Promise<GetOfficeConversionTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getOfficeConversionTaskWithOptions(request, runtime);
+  }
+
+  async getFileMetaWithOptions(request: GetFileMetaRequest, runtime: $Util.RuntimeOptions): Promise<GetFileMetaResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<GetFileMetaResponse>(await this.doRPCRequest("GetFileMeta", "2020-09-30", "HTTPS", "POST", "AK", "json", req, runtime), new GetFileMetaResponse({}));
+  }
+
+  async getFileMeta(request: GetFileMetaRequest): Promise<GetFileMetaResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getFileMetaWithOptions(request, runtime);
+  }
+
   async batchDeleteFileMetaWithOptions(tmpReq: BatchDeleteFileMetaRequest, runtime: $Util.RuntimeOptions): Promise<BatchDeleteFileMetaResponse> {
     Util.validateModel(tmpReq);
     let request = new BatchDeleteFileMetaShrinkRequest({ });
@@ -3958,319 +4389,17 @@ export default class Client extends OpenApi {
     return await this.batchGetFileMetaWithOptions(request, runtime);
   }
 
-  async batchIndexFileMetaWithOptions(tmpReq: BatchIndexFileMetaRequest, runtime: $Util.RuntimeOptions): Promise<BatchIndexFileMetaResponse> {
-    Util.validateModel(tmpReq);
-    let request = new BatchIndexFileMetaShrinkRequest({ });
-    OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.files)) {
-      request.filesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.files, "Files", "json");
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<BatchIndexFileMetaResponse>(await this.doRPCRequest("BatchIndexFileMeta", "2020-09-30", "HTTPS", "POST", "AK", "json", req, runtime), new BatchIndexFileMetaResponse({}));
-  }
-
-  async batchIndexFileMeta(request: BatchIndexFileMetaRequest): Promise<BatchIndexFileMetaResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.batchIndexFileMetaWithOptions(request, runtime);
-  }
-
-  async batchUpdateFileMetaWithOptions(tmpReq: BatchUpdateFileMetaRequest, runtime: $Util.RuntimeOptions): Promise<BatchUpdateFileMetaResponse> {
-    Util.validateModel(tmpReq);
-    let request = new BatchUpdateFileMetaShrinkRequest({ });
-    OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.files)) {
-      request.filesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.files, "Files", "json");
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<BatchUpdateFileMetaResponse>(await this.doRPCRequest("BatchUpdateFileMeta", "2020-09-30", "HTTPS", "POST", "AK", "json", req, runtime), new BatchUpdateFileMetaResponse({}));
-  }
-
-  async batchUpdateFileMeta(request: BatchUpdateFileMetaRequest): Promise<BatchUpdateFileMetaResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.batchUpdateFileMetaWithOptions(request, runtime);
-  }
-
-  async createBindingWithOptions(request: CreateBindingRequest, runtime: $Util.RuntimeOptions): Promise<CreateBindingResponse> {
+  async stopBindingWithOptions(request: StopBindingRequest, runtime: $Util.RuntimeOptions): Promise<StopBindingResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<CreateBindingResponse>(await this.doRPCRequest("CreateBinding", "2020-09-30", "HTTPS", "POST", "AK", "json", req, runtime), new CreateBindingResponse({}));
+    return $tea.cast<StopBindingResponse>(await this.doRPCRequest("StopBinding", "2020-09-30", "HTTPS", "POST", "AK", "json", req, runtime), new StopBindingResponse({}));
   }
 
-  async createBinding(request: CreateBindingRequest): Promise<CreateBindingResponse> {
+  async stopBinding(request: StopBindingRequest): Promise<StopBindingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.createBindingWithOptions(request, runtime);
-  }
-
-  async createDatasetWithOptions(request: CreateDatasetRequest, runtime: $Util.RuntimeOptions): Promise<CreateDatasetResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<CreateDatasetResponse>(await this.doRPCRequest("CreateDataset", "2020-09-30", "HTTPS", "POST", "AK", "json", req, runtime), new CreateDatasetResponse({}));
-  }
-
-  async createDataset(request: CreateDatasetRequest): Promise<CreateDatasetResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.createDatasetWithOptions(request, runtime);
-  }
-
-  async createProjectWithOptions(request: CreateProjectRequest, runtime: $Util.RuntimeOptions): Promise<CreateProjectResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<CreateProjectResponse>(await this.doRPCRequest("CreateProject", "2020-09-30", "HTTPS", "POST", "AK", "json", req, runtime), new CreateProjectResponse({}));
-  }
-
-  async createProject(request: CreateProjectRequest): Promise<CreateProjectResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.createProjectWithOptions(request, runtime);
-  }
-
-  async deleteBindingWithOptions(request: DeleteBindingRequest, runtime: $Util.RuntimeOptions): Promise<DeleteBindingResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<DeleteBindingResponse>(await this.doRPCRequest("DeleteBinding", "2020-09-30", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteBindingResponse({}));
-  }
-
-  async deleteBinding(request: DeleteBindingRequest): Promise<DeleteBindingResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.deleteBindingWithOptions(request, runtime);
-  }
-
-  async deleteDatasetWithOptions(request: DeleteDatasetRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDatasetResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<DeleteDatasetResponse>(await this.doRPCRequest("DeleteDataset", "2020-09-30", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteDatasetResponse({}));
-  }
-
-  async deleteDataset(request: DeleteDatasetRequest): Promise<DeleteDatasetResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.deleteDatasetWithOptions(request, runtime);
-  }
-
-  async deleteFileMetaWithOptions(request: DeleteFileMetaRequest, runtime: $Util.RuntimeOptions): Promise<DeleteFileMetaResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<DeleteFileMetaResponse>(await this.doRPCRequest("DeleteFileMeta", "2020-09-30", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteFileMetaResponse({}));
-  }
-
-  async deleteFileMeta(request: DeleteFileMetaRequest): Promise<DeleteFileMetaResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.deleteFileMetaWithOptions(request, runtime);
-  }
-
-  async deleteProjectWithOptions(request: DeleteProjectRequest, runtime: $Util.RuntimeOptions): Promise<DeleteProjectResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<DeleteProjectResponse>(await this.doRPCRequest("DeleteProject", "2020-09-30", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteProjectResponse({}));
-  }
-
-  async deleteProject(request: DeleteProjectRequest): Promise<DeleteProjectResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.deleteProjectWithOptions(request, runtime);
-  }
-
-  async fuzzyQueryWithOptions(request: FuzzyQueryRequest, runtime: $Util.RuntimeOptions): Promise<FuzzyQueryResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<FuzzyQueryResponse>(await this.doRPCRequest("FuzzyQuery", "2020-09-30", "HTTPS", "POST", "AK", "json", req, runtime), new FuzzyQueryResponse({}));
-  }
-
-  async fuzzyQuery(request: FuzzyQueryRequest): Promise<FuzzyQueryResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.fuzzyQueryWithOptions(request, runtime);
-  }
-
-  async getBindingWithOptions(request: GetBindingRequest, runtime: $Util.RuntimeOptions): Promise<GetBindingResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<GetBindingResponse>(await this.doRPCRequest("GetBinding", "2020-09-30", "HTTPS", "POST", "AK", "json", req, runtime), new GetBindingResponse({}));
-  }
-
-  async getBinding(request: GetBindingRequest): Promise<GetBindingResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getBindingWithOptions(request, runtime);
-  }
-
-  async getDatasetWithOptions(request: GetDatasetRequest, runtime: $Util.RuntimeOptions): Promise<GetDatasetResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<GetDatasetResponse>(await this.doRPCRequest("GetDataset", "2020-09-30", "HTTPS", "POST", "AK", "json", req, runtime), new GetDatasetResponse({}));
-  }
-
-  async getDataset(request: GetDatasetRequest): Promise<GetDatasetResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getDatasetWithOptions(request, runtime);
-  }
-
-  async getFileMetaWithOptions(request: GetFileMetaRequest, runtime: $Util.RuntimeOptions): Promise<GetFileMetaResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<GetFileMetaResponse>(await this.doRPCRequest("GetFileMeta", "2020-09-30", "HTTPS", "POST", "AK", "json", req, runtime), new GetFileMetaResponse({}));
-  }
-
-  async getFileMeta(request: GetFileMetaRequest): Promise<GetFileMetaResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getFileMetaWithOptions(request, runtime);
-  }
-
-  async getFileSignedURIWithOptions(request: GetFileSignedURIRequest, runtime: $Util.RuntimeOptions): Promise<GetFileSignedURIResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<GetFileSignedURIResponse>(await this.doRPCRequest("GetFileSignedURI", "2020-09-30", "HTTPS", "POST", "AK", "json", req, runtime), new GetFileSignedURIResponse({}));
-  }
-
-  async getFileSignedURI(request: GetFileSignedURIRequest): Promise<GetFileSignedURIResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getFileSignedURIWithOptions(request, runtime);
-  }
-
-  async getProjectWithOptions(request: GetProjectRequest, runtime: $Util.RuntimeOptions): Promise<GetProjectResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<GetProjectResponse>(await this.doRPCRequest("GetProject", "2020-09-30", "HTTPS", "POST", "AK", "json", req, runtime), new GetProjectResponse({}));
-  }
-
-  async getProject(request: GetProjectRequest): Promise<GetProjectResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getProjectWithOptions(request, runtime);
-  }
-
-  async getWebofficeUrlWithOptions(tmpReq: GetWebofficeUrlRequest, runtime: $Util.RuntimeOptions): Promise<GetWebofficeUrlResponse> {
-    Util.validateModel(tmpReq);
-    let request = new GetWebofficeUrlShrinkRequest({ });
-    OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.permission))) {
-      request.permissionShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.permission), "Permission", "json");
-    }
-
-    if (!Util.isUnset($tea.toMap(tmpReq.user))) {
-      request.userShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.user), "User", "json");
-    }
-
-    if (!Util.isUnset($tea.toMap(tmpReq.watermark))) {
-      request.watermarkShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.watermark), "Watermark", "json");
-    }
-
-    if (!Util.isUnset($tea.toMap(tmpReq.assumeRoleChain))) {
-      request.assumeRoleChainShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.assumeRoleChain), "AssumeRoleChain", "json");
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<GetWebofficeUrlResponse>(await this.doRPCRequest("GetWebofficeUrl", "2020-09-30", "HTTPS", "POST", "AK", "json", req, runtime), new GetWebofficeUrlResponse({}));
-  }
-
-  async getWebofficeUrl(request: GetWebofficeUrlRequest): Promise<GetWebofficeUrlResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getWebofficeUrlWithOptions(request, runtime);
-  }
-
-  async indexFileMetaWithOptions(tmpReq: IndexFileMetaRequest, runtime: $Util.RuntimeOptions): Promise<IndexFileMetaResponse> {
-    Util.validateModel(tmpReq);
-    let request = new IndexFileMetaShrinkRequest({ });
-    OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.customLabels)) {
-      request.customLabelsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.customLabels, "CustomLabels", "json");
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<IndexFileMetaResponse>(await this.doRPCRequest("IndexFileMeta", "2020-09-30", "HTTPS", "POST", "AK", "json", req, runtime), new IndexFileMetaResponse({}));
-  }
-
-  async indexFileMeta(request: IndexFileMetaRequest): Promise<IndexFileMetaResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.indexFileMetaWithOptions(request, runtime);
-  }
-
-  async listBindingsWithOptions(request: ListBindingsRequest, runtime: $Util.RuntimeOptions): Promise<ListBindingsResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<ListBindingsResponse>(await this.doRPCRequest("ListBindings", "2020-09-30", "HTTPS", "POST", "AK", "json", req, runtime), new ListBindingsResponse({}));
-  }
-
-  async listBindings(request: ListBindingsRequest): Promise<ListBindingsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.listBindingsWithOptions(request, runtime);
-  }
-
-  async listDatasetsWithOptions(request: ListDatasetsRequest, runtime: $Util.RuntimeOptions): Promise<ListDatasetsResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<ListDatasetsResponse>(await this.doRPCRequest("ListDatasets", "2020-09-30", "HTTPS", "POST", "AK", "json", req, runtime), new ListDatasetsResponse({}));
-  }
-
-  async listDatasets(request: ListDatasetsRequest): Promise<ListDatasetsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.listDatasetsWithOptions(request, runtime);
-  }
-
-  async listProjectsWithOptions(request: ListProjectsRequest, runtime: $Util.RuntimeOptions): Promise<ListProjectsResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<ListProjectsResponse>(await this.doRPCRequest("ListProjects", "2020-09-30", "HTTPS", "POST", "AK", "json", req, runtime), new ListProjectsResponse({}));
-  }
-
-  async listProjects(request: ListProjectsRequest): Promise<ListProjectsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.listProjectsWithOptions(request, runtime);
-  }
-
-  async refreshWebofficeTokenWithOptions(tmpReq: RefreshWebofficeTokenRequest, runtime: $Util.RuntimeOptions): Promise<RefreshWebofficeTokenResponse> {
-    Util.validateModel(tmpReq);
-    let request = new RefreshWebofficeTokenShrinkRequest({ });
-    OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.assumeRoleChain))) {
-      request.assumeRoleChainShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.assumeRoleChain), "AssumeRoleChain", "json");
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<RefreshWebofficeTokenResponse>(await this.doRPCRequest("RefreshWebofficeToken", "2020-09-30", "HTTPS", "POST", "AK", "json", req, runtime), new RefreshWebofficeTokenResponse({}));
-  }
-
-  async refreshWebofficeToken(request: RefreshWebofficeTokenRequest): Promise<RefreshWebofficeTokenResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.refreshWebofficeTokenWithOptions(request, runtime);
+    return await this.stopBindingWithOptions(request, runtime);
   }
 
   async resumeBindingWithOptions(request: ResumeBindingRequest, runtime: $Util.RuntimeOptions): Promise<ResumeBindingResponse> {
@@ -4286,67 +4415,12 @@ export default class Client extends OpenApi {
     return await this.resumeBindingWithOptions(request, runtime);
   }
 
-  async simpleQueryWithOptions(tmpReq: SimpleQueryRequest, runtime: $Util.RuntimeOptions): Promise<SimpleQueryResponse> {
-    Util.validateModel(tmpReq);
-    let request = new SimpleQueryShrinkRequest({ });
-    OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset($tea.toMap(tmpReq.query))) {
-      request.queryShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.query), "Query", "json");
-    }
-
-    if (!Util.isUnset(tmpReq.aggregations)) {
-      request.aggregationsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.aggregations, "Aggregations", "json");
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<SimpleQueryResponse>(await this.doRPCRequest("SimpleQuery", "2020-09-30", "HTTPS", "POST", "AK", "json", req, runtime), new SimpleQueryResponse({}));
-  }
-
-  async simpleQuery(request: SimpleQueryRequest): Promise<SimpleQueryResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.simpleQueryWithOptions(request, runtime);
-  }
-
-  async stopBindingWithOptions(request: StopBindingRequest, runtime: $Util.RuntimeOptions): Promise<StopBindingResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<StopBindingResponse>(await this.doRPCRequest("StopBinding", "2020-09-30", "HTTPS", "POST", "AK", "json", req, runtime), new StopBindingResponse({}));
-  }
-
-  async stopBinding(request: StopBindingRequest): Promise<StopBindingResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.stopBindingWithOptions(request, runtime);
-  }
-
-  async updateDatasetWithOptions(tmpReq: UpdateDatasetRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDatasetResponse> {
-    Util.validateModel(tmpReq);
-    let request = new UpdateDatasetShrinkRequest({ });
-    OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.resetItems)) {
-      request.resetItemsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.resetItems, "ResetItems", "json");
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<UpdateDatasetResponse>(await this.doRPCRequest("UpdateDataset", "2020-09-30", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateDatasetResponse({}));
-  }
-
-  async updateDataset(request: UpdateDatasetRequest): Promise<UpdateDatasetResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.updateDatasetWithOptions(request, runtime);
-  }
-
   async updateFileMetaWithOptions(tmpReq: UpdateFileMetaRequest, runtime: $Util.RuntimeOptions): Promise<UpdateFileMetaResponse> {
     Util.validateModel(tmpReq);
     let request = new UpdateFileMetaShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.customLabels)) {
-      request.customLabelsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.customLabels, "CustomLabels", "json");
+    if (!Util.isUnset($tea.toMap(tmpReq.file))) {
+      request.fileShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.file), "File", "json");
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -4360,14 +4434,92 @@ export default class Client extends OpenApi {
     return await this.updateFileMetaWithOptions(request, runtime);
   }
 
-  async updateProjectWithOptions(tmpReq: UpdateProjectRequest, runtime: $Util.RuntimeOptions): Promise<UpdateProjectResponse> {
+  async indexFileMetaWithOptions(tmpReq: IndexFileMetaRequest, runtime: $Util.RuntimeOptions): Promise<IndexFileMetaResponse> {
     Util.validateModel(tmpReq);
-    let request = new UpdateProjectShrinkRequest({ });
+    let request = new IndexFileMetaShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.resetItems)) {
-      request.resetItemsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.resetItems, "ResetItems", "json");
+    if (!Util.isUnset($tea.toMap(tmpReq.file))) {
+      request.fileShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.file), "File", "json");
     }
 
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<IndexFileMetaResponse>(await this.doRPCRequest("IndexFileMeta", "2020-09-30", "HTTPS", "POST", "AK", "json", req, runtime), new IndexFileMetaResponse({}));
+  }
+
+  async indexFileMeta(request: IndexFileMetaRequest): Promise<IndexFileMetaResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.indexFileMetaWithOptions(request, runtime);
+  }
+
+  async detectImageLabelsWithOptions(request: DetectImageLabelsRequest, runtime: $Util.RuntimeOptions): Promise<DetectImageLabelsResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DetectImageLabelsResponse>(await this.doRPCRequest("DetectImageLabels", "2020-09-30", "HTTPS", "POST", "AK", "json", req, runtime), new DetectImageLabelsResponse({}));
+  }
+
+  async detectImageLabels(request: DetectImageLabelsRequest): Promise<DetectImageLabelsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.detectImageLabelsWithOptions(request, runtime);
+  }
+
+  async getProjectWithOptions(request: GetProjectRequest, runtime: $Util.RuntimeOptions): Promise<GetProjectResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<GetProjectResponse>(await this.doRPCRequest("GetProject", "2020-09-30", "HTTPS", "POST", "AK", "json", req, runtime), new GetProjectResponse({}));
+  }
+
+  async getProject(request: GetProjectRequest): Promise<GetProjectResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getProjectWithOptions(request, runtime);
+  }
+
+  async createDatasetWithOptions(request: CreateDatasetRequest, runtime: $Util.RuntimeOptions): Promise<CreateDatasetResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<CreateDatasetResponse>(await this.doRPCRequest("CreateDataset", "2020-09-30", "HTTPS", "POST", "AK", "json", req, runtime), new CreateDatasetResponse({}));
+  }
+
+  async createDataset(request: CreateDatasetRequest): Promise<CreateDatasetResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createDatasetWithOptions(request, runtime);
+  }
+
+  async deleteProjectWithOptions(request: DeleteProjectRequest, runtime: $Util.RuntimeOptions): Promise<DeleteProjectResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DeleteProjectResponse>(await this.doRPCRequest("DeleteProject", "2020-09-30", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteProjectResponse({}));
+  }
+
+  async deleteProject(request: DeleteProjectRequest): Promise<DeleteProjectResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteProjectWithOptions(request, runtime);
+  }
+
+  async getFileSignedURIWithOptions(request: GetFileSignedURIRequest, runtime: $Util.RuntimeOptions): Promise<GetFileSignedURIResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<GetFileSignedURIResponse>(await this.doRPCRequest("GetFileSignedURI", "2020-09-30", "HTTPS", "POST", "AK", "json", req, runtime), new GetFileSignedURIResponse({}));
+  }
+
+  async getFileSignedURI(request: GetFileSignedURIRequest): Promise<GetFileSignedURIResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getFileSignedURIWithOptions(request, runtime);
+  }
+
+  async updateProjectWithOptions(request: UpdateProjectRequest, runtime: $Util.RuntimeOptions): Promise<UpdateProjectResponse> {
+    Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
@@ -4377,6 +4529,45 @@ export default class Client extends OpenApi {
   async updateProject(request: UpdateProjectRequest): Promise<UpdateProjectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateProjectWithOptions(request, runtime);
+  }
+
+  async updateDatasetWithOptions(request: UpdateDatasetRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDatasetResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<UpdateDatasetResponse>(await this.doRPCRequest("UpdateDataset", "2020-09-30", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateDatasetResponse({}));
+  }
+
+  async updateDataset(request: UpdateDatasetRequest): Promise<UpdateDatasetResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateDatasetWithOptions(request, runtime);
+  }
+
+  async fuzzyQueryWithOptions(request: FuzzyQueryRequest, runtime: $Util.RuntimeOptions): Promise<FuzzyQueryResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<FuzzyQueryResponse>(await this.doRPCRequest("FuzzyQuery", "2020-09-30", "HTTPS", "POST", "AK", "json", req, runtime), new FuzzyQueryResponse({}));
+  }
+
+  async fuzzyQuery(request: FuzzyQueryRequest): Promise<FuzzyQueryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.fuzzyQueryWithOptions(request, runtime);
+  }
+
+  async listOfficeConversionTaskWithOptions(request: ListOfficeConversionTaskRequest, runtime: $Util.RuntimeOptions): Promise<ListOfficeConversionTaskResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<ListOfficeConversionTaskResponse>(await this.doRPCRequest("ListOfficeConversionTask", "2020-09-30", "HTTPS", "POST", "AK", "json", req, runtime), new ListOfficeConversionTaskResponse({}));
+  }
+
+  async listOfficeConversionTask(request: ListOfficeConversionTaskRequest): Promise<ListOfficeConversionTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listOfficeConversionTaskWithOptions(request, runtime);
   }
 
 }
