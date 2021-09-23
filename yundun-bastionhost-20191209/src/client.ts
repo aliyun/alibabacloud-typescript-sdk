@@ -8,14 +8,12 @@ import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
 export class AddHostsToGroupRequest extends $tea.Model {
-  sourceIp?: string;
   instanceId?: string;
   regionId?: string;
   hostGroupId?: string;
   hostIds?: string;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
       instanceId: 'InstanceId',
       regionId: 'RegionId',
       hostGroupId: 'HostGroupId',
@@ -25,7 +23,6 @@ export class AddHostsToGroupRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
       instanceId: 'string',
       regionId: 'string',
       hostGroupId: 'string',
@@ -83,14 +80,12 @@ export class AddHostsToGroupResponse extends $tea.Model {
 }
 
 export class AddUsersToGroupRequest extends $tea.Model {
-  sourceIp?: string;
   instanceId?: string;
   regionId?: string;
   userGroupId?: string;
   userIds?: string;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
       instanceId: 'InstanceId',
       regionId: 'RegionId',
       userGroupId: 'UserGroupId',
@@ -100,7 +95,6 @@ export class AddUsersToGroupRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
       instanceId: 'string',
       regionId: 'string',
       userGroupId: 'string',
@@ -158,14 +152,12 @@ export class AddUsersToGroupResponse extends $tea.Model {
 }
 
 export class AttachHostAccountsToUserRequest extends $tea.Model {
-  sourceIp?: string;
   instanceId?: string;
   regionId?: string;
   userId?: string;
   hosts?: string;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
       instanceId: 'InstanceId',
       regionId: 'RegionId',
       userId: 'UserId',
@@ -175,7 +167,6 @@ export class AttachHostAccountsToUserRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
       instanceId: 'string',
       regionId: 'string',
       userId: 'string',
@@ -233,14 +224,12 @@ export class AttachHostAccountsToUserResponse extends $tea.Model {
 }
 
 export class AttachHostAccountsToUserGroupRequest extends $tea.Model {
-  sourceIp?: string;
   instanceId?: string;
   regionId?: string;
   userGroupId?: string;
   hosts?: string;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
       instanceId: 'InstanceId',
       regionId: 'RegionId',
       userGroupId: 'UserGroupId',
@@ -250,7 +239,6 @@ export class AttachHostAccountsToUserGroupRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
       instanceId: 'string',
       regionId: 'string',
       userGroupId: 'string',
@@ -308,14 +296,12 @@ export class AttachHostAccountsToUserGroupResponse extends $tea.Model {
 }
 
 export class AttachHostGroupAccountsToUserRequest extends $tea.Model {
-  sourceIp?: string;
   instanceId?: string;
   regionId?: string;
   userId?: string;
   hostGroups?: string;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
       instanceId: 'InstanceId',
       regionId: 'RegionId',
       userId: 'UserId',
@@ -325,7 +311,6 @@ export class AttachHostGroupAccountsToUserRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
       instanceId: 'string',
       regionId: 'string',
       userId: 'string',
@@ -383,14 +368,12 @@ export class AttachHostGroupAccountsToUserResponse extends $tea.Model {
 }
 
 export class AttachHostGroupAccountsToUserGroupRequest extends $tea.Model {
-  sourceIp?: string;
   instanceId?: string;
   regionId?: string;
   userGroupId?: string;
   hostGroups?: string;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
       instanceId: 'InstanceId',
       regionId: 'RegionId',
       userGroupId: 'UserGroupId',
@@ -400,7 +383,6 @@ export class AttachHostGroupAccountsToUserGroupRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
       instanceId: 'string',
       regionId: 'string',
       userGroupId: 'string',
@@ -458,28 +440,25 @@ export class AttachHostGroupAccountsToUserGroupResponse extends $tea.Model {
 }
 
 export class ConfigInstanceSecurityGroupsRequest extends $tea.Model {
-  sourceIp?: string;
   lang?: string;
-  authorizedSecurityGroups?: string[];
   instanceId?: string;
   regionId?: string;
+  authorizedSecurityGroups?: string[];
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
       lang: 'Lang',
-      authorizedSecurityGroups: 'AuthorizedSecurityGroups',
       instanceId: 'InstanceId',
       regionId: 'RegionId',
+      authorizedSecurityGroups: 'AuthorizedSecurityGroups',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
       lang: 'string',
-      authorizedSecurityGroups: { 'type': 'array', 'itemType': 'string' },
       instanceId: 'string',
       regionId: 'string',
+      authorizedSecurityGroups: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -489,19 +468,19 @@ export class ConfigInstanceSecurityGroupsRequest extends $tea.Model {
 }
 
 export class ConfigInstanceSecurityGroupsResponseBody extends $tea.Model {
-  requestId?: string;
   instanceId?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       instanceId: 'InstanceId',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       instanceId: 'string',
+      requestId: 'string',
     };
   }
 
@@ -533,15 +512,11 @@ export class ConfigInstanceSecurityGroupsResponse extends $tea.Model {
 }
 
 export class ConfigInstanceWhiteListRequest extends $tea.Model {
-  sourceIp?: string;
-  lang?: string;
   instanceId?: string;
   regionId?: string;
   whiteList?: string[];
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
-      lang: 'Lang',
       instanceId: 'InstanceId',
       regionId: 'RegionId',
       whiteList: 'WhiteList',
@@ -550,8 +525,6 @@ export class ConfigInstanceWhiteListRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
-      lang: 'string',
       instanceId: 'string',
       regionId: 'string',
       whiteList: { 'type': 'array', 'itemType': 'string' },
@@ -564,19 +537,19 @@ export class ConfigInstanceWhiteListRequest extends $tea.Model {
 }
 
 export class ConfigInstanceWhiteListResponseBody extends $tea.Model {
-  requestId?: string;
   instanceId?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       instanceId: 'InstanceId',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       instanceId: 'string',
+      requestId: 'string',
     };
   }
 
@@ -608,7 +581,6 @@ export class ConfigInstanceWhiteListResponse extends $tea.Model {
 }
 
 export class CreateHostRequest extends $tea.Model {
-  sourceIp?: string;
   instanceId?: string;
   regionId?: string;
   hostPrivateAddress?: string;
@@ -622,7 +594,6 @@ export class CreateHostRequest extends $tea.Model {
   instanceRegionId?: string;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
       instanceId: 'InstanceId',
       regionId: 'RegionId',
       hostPrivateAddress: 'HostPrivateAddress',
@@ -639,7 +610,6 @@ export class CreateHostRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
       instanceId: 'string',
       regionId: 'string',
       hostPrivateAddress: 'string',
@@ -660,19 +630,19 @@ export class CreateHostRequest extends $tea.Model {
 }
 
 export class CreateHostResponseBody extends $tea.Model {
-  requestId?: string;
   hostId?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       hostId: 'HostId',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       hostId: 'string',
+      requestId: 'string',
     };
   }
 
@@ -704,7 +674,6 @@ export class CreateHostResponse extends $tea.Model {
 }
 
 export class CreateHostAccountRequest extends $tea.Model {
-  sourceIp?: string;
   instanceId?: string;
   regionId?: string;
   hostId?: string;
@@ -715,7 +684,6 @@ export class CreateHostAccountRequest extends $tea.Model {
   passPhrase?: string;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
       instanceId: 'InstanceId',
       regionId: 'RegionId',
       hostId: 'HostId',
@@ -729,7 +697,6 @@ export class CreateHostAccountRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
       instanceId: 'string',
       regionId: 'string',
       hostId: 'string',
@@ -747,19 +714,19 @@ export class CreateHostAccountRequest extends $tea.Model {
 }
 
 export class CreateHostAccountResponseBody extends $tea.Model {
-  requestId?: string;
   hostAccountId?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       hostAccountId: 'HostAccountId',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       hostAccountId: 'string',
+      requestId: 'string',
     };
   }
 
@@ -791,14 +758,12 @@ export class CreateHostAccountResponse extends $tea.Model {
 }
 
 export class CreateHostGroupRequest extends $tea.Model {
-  sourceIp?: string;
   instanceId?: string;
   regionId?: string;
   hostGroupName?: string;
   comment?: string;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
       instanceId: 'InstanceId',
       regionId: 'RegionId',
       hostGroupName: 'HostGroupName',
@@ -808,7 +773,6 @@ export class CreateHostGroupRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
       instanceId: 'string',
       regionId: 'string',
       hostGroupName: 'string',
@@ -866,7 +830,6 @@ export class CreateHostGroupResponse extends $tea.Model {
 }
 
 export class CreateUserRequest extends $tea.Model {
-  sourceIp?: string;
   instanceId?: string;
   regionId?: string;
   source?: string;
@@ -880,7 +843,6 @@ export class CreateUserRequest extends $tea.Model {
   mobileCountryCode?: string;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
       instanceId: 'InstanceId',
       regionId: 'RegionId',
       source: 'Source',
@@ -897,7 +859,6 @@ export class CreateUserRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
       instanceId: 'string',
       regionId: 'string',
       source: 'string',
@@ -918,19 +879,19 @@ export class CreateUserRequest extends $tea.Model {
 }
 
 export class CreateUserResponseBody extends $tea.Model {
-  requestId?: string;
   userId?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       userId: 'UserId',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       userId: 'string',
+      requestId: 'string',
     };
   }
 
@@ -962,14 +923,12 @@ export class CreateUserResponse extends $tea.Model {
 }
 
 export class CreateUserGroupRequest extends $tea.Model {
-  sourceIp?: string;
   instanceId?: string;
   regionId?: string;
   userGroupName?: string;
   comment?: string;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
       instanceId: 'InstanceId',
       regionId: 'RegionId',
       userGroupName: 'UserGroupName',
@@ -979,7 +938,6 @@ export class CreateUserGroupRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
       instanceId: 'string',
       regionId: 'string',
       userGroupName: 'string',
@@ -993,19 +951,19 @@ export class CreateUserGroupRequest extends $tea.Model {
 }
 
 export class CreateUserGroupResponseBody extends $tea.Model {
-  requestId?: string;
   userGroupId?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       userGroupId: 'UserGroupId',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       userGroupId: 'string',
+      requestId: 'string',
     };
   }
 
@@ -1037,13 +995,11 @@ export class CreateUserGroupResponse extends $tea.Model {
 }
 
 export class DeleteHostRequest extends $tea.Model {
-  sourceIp?: string;
   instanceId?: string;
   regionId?: string;
   hostId?: string;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
       instanceId: 'InstanceId',
       regionId: 'RegionId',
       hostId: 'HostId',
@@ -1052,7 +1008,6 @@ export class DeleteHostRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
       instanceId: 'string',
       regionId: 'string',
       hostId: 'string',
@@ -1106,13 +1061,11 @@ export class DeleteHostResponse extends $tea.Model {
 }
 
 export class DeleteHostAccountRequest extends $tea.Model {
-  sourceIp?: string;
   instanceId?: string;
   regionId?: string;
   hostAccountId?: string;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
       instanceId: 'InstanceId',
       regionId: 'RegionId',
       hostAccountId: 'HostAccountId',
@@ -1121,7 +1074,6 @@ export class DeleteHostAccountRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
       instanceId: 'string',
       regionId: 'string',
       hostAccountId: 'string',
@@ -1175,13 +1127,11 @@ export class DeleteHostAccountResponse extends $tea.Model {
 }
 
 export class DeleteHostGroupRequest extends $tea.Model {
-  sourceIp?: string;
   instanceId?: string;
   regionId?: string;
   hostGroupId?: string;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
       instanceId: 'InstanceId',
       regionId: 'RegionId',
       hostGroupId: 'HostGroupId',
@@ -1190,7 +1140,6 @@ export class DeleteHostGroupRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
       instanceId: 'string',
       regionId: 'string',
       hostGroupId: 'string',
@@ -1244,13 +1193,11 @@ export class DeleteHostGroupResponse extends $tea.Model {
 }
 
 export class DeleteUserRequest extends $tea.Model {
-  sourceIp?: string;
   instanceId?: string;
   regionId?: string;
   userId?: string;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
       instanceId: 'InstanceId',
       regionId: 'RegionId',
       userId: 'UserId',
@@ -1259,7 +1206,6 @@ export class DeleteUserRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
       instanceId: 'string',
       regionId: 'string',
       userId: 'string',
@@ -1313,13 +1259,11 @@ export class DeleteUserResponse extends $tea.Model {
 }
 
 export class DeleteUserGroupRequest extends $tea.Model {
-  sourceIp?: string;
   instanceId?: string;
   regionId?: string;
   userGroupId?: string;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
       instanceId: 'InstanceId',
       regionId: 'RegionId',
       userGroupId: 'UserGroupId',
@@ -1328,7 +1272,6 @@ export class DeleteUserGroupRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
       instanceId: 'string',
       regionId: 'string',
       userGroupId: 'string',
@@ -1382,14 +1325,10 @@ export class DeleteUserGroupResponse extends $tea.Model {
 }
 
 export class DescribeInstanceAttributeRequest extends $tea.Model {
-  sourceIp?: string;
-  lang?: string;
   regionId?: string;
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
-      lang: 'Lang',
       regionId: 'RegionId',
       instanceId: 'InstanceId',
     };
@@ -1397,8 +1336,6 @@ export class DescribeInstanceAttributeRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
-      lang: 'string',
       regionId: 'string',
       instanceId: 'string',
     };
@@ -1454,8 +1391,6 @@ export class DescribeInstanceAttributeResponse extends $tea.Model {
 }
 
 export class DescribeInstancesRequest extends $tea.Model {
-  sourceIp?: string;
-  lang?: string;
   pageNumber?: number;
   pageSize?: number;
   regionId?: string;
@@ -1465,8 +1400,6 @@ export class DescribeInstancesRequest extends $tea.Model {
   tag?: DescribeInstancesRequestTag[];
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
-      lang: 'Lang',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       regionId: 'RegionId',
@@ -1479,8 +1412,6 @@ export class DescribeInstancesRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
-      lang: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       regionId: 'string',
@@ -1497,22 +1428,22 @@ export class DescribeInstancesRequest extends $tea.Model {
 }
 
 export class DescribeInstancesResponseBody extends $tea.Model {
-  instances?: DescribeInstancesResponseBodyInstances[];
   totalCount?: number;
   requestId?: string;
+  instances?: DescribeInstancesResponseBodyInstances[];
   static names(): { [key: string]: string } {
     return {
-      instances: 'Instances',
       totalCount: 'TotalCount',
       requestId: 'RequestId',
+      instances: 'Instances',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      instances: { 'type': 'array', 'itemType': DescribeInstancesResponseBodyInstances },
       totalCount: 'number',
       requestId: 'string',
+      instances: { 'type': 'array', 'itemType': DescribeInstancesResponseBodyInstances },
     };
   }
 
@@ -1544,21 +1475,15 @@ export class DescribeInstancesResponse extends $tea.Model {
 }
 
 export class DescribeRegionsRequest extends $tea.Model {
-  sourceIp?: string;
-  lang?: string;
   acceptLanguage?: string;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
-      lang: 'Lang',
       acceptLanguage: 'AcceptLanguage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
-      lang: 'string',
       acceptLanguage: 'string',
     };
   }
@@ -1613,14 +1538,12 @@ export class DescribeRegionsResponse extends $tea.Model {
 }
 
 export class DetachHostAccountsFromUserRequest extends $tea.Model {
-  sourceIp?: string;
   instanceId?: string;
   regionId?: string;
   userId?: string;
   hosts?: string;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
       instanceId: 'InstanceId',
       regionId: 'RegionId',
       userId: 'UserId',
@@ -1630,7 +1553,6 @@ export class DetachHostAccountsFromUserRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
       instanceId: 'string',
       regionId: 'string',
       userId: 'string',
@@ -1688,14 +1610,12 @@ export class DetachHostAccountsFromUserResponse extends $tea.Model {
 }
 
 export class DetachHostAccountsFromUserGroupRequest extends $tea.Model {
-  sourceIp?: string;
   instanceId?: string;
   regionId?: string;
   userGroupId?: string;
   hosts?: string;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
       instanceId: 'InstanceId',
       regionId: 'RegionId',
       userGroupId: 'UserGroupId',
@@ -1705,7 +1625,6 @@ export class DetachHostAccountsFromUserGroupRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
       instanceId: 'string',
       regionId: 'string',
       userGroupId: 'string',
@@ -1763,14 +1682,12 @@ export class DetachHostAccountsFromUserGroupResponse extends $tea.Model {
 }
 
 export class DetachHostGroupAccountsFromUserRequest extends $tea.Model {
-  sourceIp?: string;
   instanceId?: string;
   regionId?: string;
   userId?: string;
   hostGroups?: string;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
       instanceId: 'InstanceId',
       regionId: 'RegionId',
       userId: 'UserId',
@@ -1780,7 +1697,6 @@ export class DetachHostGroupAccountsFromUserRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
       instanceId: 'string',
       regionId: 'string',
       userId: 'string',
@@ -1838,14 +1754,12 @@ export class DetachHostGroupAccountsFromUserResponse extends $tea.Model {
 }
 
 export class DetachHostGroupAccountsFromUserGroupRequest extends $tea.Model {
-  sourceIp?: string;
   instanceId?: string;
   regionId?: string;
   userGroupId?: string;
   hostGroups?: string;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
       instanceId: 'InstanceId',
       regionId: 'RegionId',
       userGroupId: 'UserGroupId',
@@ -1855,7 +1769,6 @@ export class DetachHostGroupAccountsFromUserGroupRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
       instanceId: 'string',
       regionId: 'string',
       userGroupId: 'string',
@@ -1913,14 +1826,10 @@ export class DetachHostGroupAccountsFromUserGroupResponse extends $tea.Model {
 }
 
 export class DisableInstancePublicAccessRequest extends $tea.Model {
-  sourceIp?: string;
-  lang?: string;
   instanceId?: string;
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
-      lang: 'Lang',
       instanceId: 'InstanceId',
       regionId: 'RegionId',
     };
@@ -1928,8 +1837,6 @@ export class DisableInstancePublicAccessRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
-      lang: 'string',
       instanceId: 'string',
       regionId: 'string',
     };
@@ -1941,19 +1848,19 @@ export class DisableInstancePublicAccessRequest extends $tea.Model {
 }
 
 export class DisableInstancePublicAccessResponseBody extends $tea.Model {
-  requestId?: string;
   instanceId?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       instanceId: 'InstanceId',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       instanceId: 'string',
+      requestId: 'string',
     };
   }
 
@@ -1985,14 +1892,10 @@ export class DisableInstancePublicAccessResponse extends $tea.Model {
 }
 
 export class EnableInstancePublicAccessRequest extends $tea.Model {
-  sourceIp?: string;
-  lang?: string;
   instanceId?: string;
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
-      lang: 'Lang',
       instanceId: 'InstanceId',
       regionId: 'RegionId',
     };
@@ -2000,8 +1903,6 @@ export class EnableInstancePublicAccessRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
-      lang: 'string',
       instanceId: 'string',
       regionId: 'string',
     };
@@ -2013,19 +1914,19 @@ export class EnableInstancePublicAccessRequest extends $tea.Model {
 }
 
 export class EnableInstancePublicAccessResponseBody extends $tea.Model {
-  requestId?: string;
   instanceId?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       instanceId: 'InstanceId',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       instanceId: 'string',
+      requestId: 'string',
     };
   }
 
@@ -2057,13 +1958,11 @@ export class EnableInstancePublicAccessResponse extends $tea.Model {
 }
 
 export class GetHostRequest extends $tea.Model {
-  sourceIp?: string;
   instanceId?: string;
   regionId?: string;
   hostId?: string;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
       instanceId: 'InstanceId',
       regionId: 'RegionId',
       hostId: 'HostId',
@@ -2072,7 +1971,6 @@ export class GetHostRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
       instanceId: 'string',
       regionId: 'string',
       hostId: 'string',
@@ -2129,13 +2027,11 @@ export class GetHostResponse extends $tea.Model {
 }
 
 export class GetHostAccountRequest extends $tea.Model {
-  sourceIp?: string;
   instanceId?: string;
   regionId?: string;
   hostAccountId?: string;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
       instanceId: 'InstanceId',
       regionId: 'RegionId',
       hostAccountId: 'HostAccountId',
@@ -2144,7 +2040,6 @@ export class GetHostAccountRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
       instanceId: 'string',
       regionId: 'string',
       hostAccountId: 'string',
@@ -2201,13 +2096,11 @@ export class GetHostAccountResponse extends $tea.Model {
 }
 
 export class GetHostGroupRequest extends $tea.Model {
-  sourceIp?: string;
   instanceId?: string;
   regionId?: string;
   hostGroupId?: string;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
       instanceId: 'InstanceId',
       regionId: 'RegionId',
       hostGroupId: 'HostGroupId',
@@ -2216,7 +2109,6 @@ export class GetHostGroupRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
       instanceId: 'string',
       regionId: 'string',
       hostGroupId: 'string',
@@ -2272,14 +2164,81 @@ export class GetHostGroupResponse extends $tea.Model {
   }
 }
 
+export class GetInstanceUpgradeInfoRequest extends $tea.Model {
+  lang?: string;
+  instanceId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      lang: 'Lang',
+      instanceId: 'InstanceId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      lang: 'string',
+      instanceId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstanceUpgradeInfoResponseBody extends $tea.Model {
+  requestId?: string;
+  instanceUpgradeInfo?: GetInstanceUpgradeInfoResponseBodyInstanceUpgradeInfo;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      instanceUpgradeInfo: 'InstanceUpgradeInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      instanceUpgradeInfo: GetInstanceUpgradeInfoResponseBodyInstanceUpgradeInfo,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstanceUpgradeInfoResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetInstanceUpgradeInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetInstanceUpgradeInfoResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetUserRequest extends $tea.Model {
-  sourceIp?: string;
   instanceId?: string;
   regionId?: string;
   userId?: string;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
       instanceId: 'InstanceId',
       regionId: 'RegionId',
       userId: 'UserId',
@@ -2288,7 +2247,6 @@ export class GetUserRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
       instanceId: 'string',
       regionId: 'string',
       userId: 'string',
@@ -2301,19 +2259,19 @@ export class GetUserRequest extends $tea.Model {
 }
 
 export class GetUserResponseBody extends $tea.Model {
-  user?: GetUserResponseBodyUser;
   requestId?: string;
+  user?: GetUserResponseBodyUser;
   static names(): { [key: string]: string } {
     return {
-      user: 'User',
       requestId: 'RequestId',
+      user: 'User',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      user: GetUserResponseBodyUser,
       requestId: 'string',
+      user: GetUserResponseBodyUser,
     };
   }
 
@@ -2345,13 +2303,11 @@ export class GetUserResponse extends $tea.Model {
 }
 
 export class GetUserGroupRequest extends $tea.Model {
-  sourceIp?: string;
   instanceId?: string;
   regionId?: string;
   userGroupId?: string;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
       instanceId: 'InstanceId',
       regionId: 'RegionId',
       userGroupId: 'UserGroupId',
@@ -2360,7 +2316,6 @@ export class GetUserGroupRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
       instanceId: 'string',
       regionId: 'string',
       userGroupId: 'string',
@@ -2417,7 +2372,6 @@ export class GetUserGroupResponse extends $tea.Model {
 }
 
 export class ListHostAccountsRequest extends $tea.Model {
-  sourceIp?: string;
   instanceId?: string;
   regionId?: string;
   hostId?: string;
@@ -2427,7 +2381,6 @@ export class ListHostAccountsRequest extends $tea.Model {
   protocolName?: string;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
       instanceId: 'InstanceId',
       regionId: 'RegionId',
       hostId: 'HostId',
@@ -2440,7 +2393,6 @@ export class ListHostAccountsRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
       instanceId: 'string',
       regionId: 'string',
       hostId: 'string',
@@ -2504,7 +2456,6 @@ export class ListHostAccountsResponse extends $tea.Model {
 }
 
 export class ListHostAccountsForUserRequest extends $tea.Model {
-  sourceIp?: string;
   instanceId?: string;
   regionId?: string;
   userId?: string;
@@ -2514,7 +2465,6 @@ export class ListHostAccountsForUserRequest extends $tea.Model {
   hostAccountName?: string;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
       instanceId: 'InstanceId',
       regionId: 'RegionId',
       userId: 'UserId',
@@ -2527,7 +2477,6 @@ export class ListHostAccountsForUserRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
       instanceId: 'string',
       regionId: 'string',
       userId: 'string',
@@ -2591,7 +2540,6 @@ export class ListHostAccountsForUserResponse extends $tea.Model {
 }
 
 export class ListHostAccountsForUserGroupRequest extends $tea.Model {
-  sourceIp?: string;
   instanceId?: string;
   regionId?: string;
   userGroupId?: string;
@@ -2601,7 +2549,6 @@ export class ListHostAccountsForUserGroupRequest extends $tea.Model {
   hostAccountName?: string;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
       instanceId: 'InstanceId',
       regionId: 'RegionId',
       userGroupId: 'UserGroupId',
@@ -2614,7 +2561,6 @@ export class ListHostAccountsForUserGroupRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
       instanceId: 'string',
       regionId: 'string',
       userGroupId: 'string',
@@ -2678,14 +2624,12 @@ export class ListHostAccountsForUserGroupResponse extends $tea.Model {
 }
 
 export class ListHostGroupAccountNamesForUserRequest extends $tea.Model {
-  sourceIp?: string;
   instanceId?: string;
   regionId?: string;
   userId?: string;
   hostGroupId?: string;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
       instanceId: 'InstanceId',
       regionId: 'RegionId',
       userId: 'UserId',
@@ -2695,7 +2639,6 @@ export class ListHostGroupAccountNamesForUserRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
       instanceId: 'string',
       regionId: 'string',
       userId: 'string',
@@ -2753,14 +2696,12 @@ export class ListHostGroupAccountNamesForUserResponse extends $tea.Model {
 }
 
 export class ListHostGroupAccountNamesForUserGroupRequest extends $tea.Model {
-  sourceIp?: string;
   instanceId?: string;
   regionId?: string;
   userGroupId?: string;
   hostGroupId?: string;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
       instanceId: 'InstanceId',
       regionId: 'RegionId',
       userGroupId: 'UserGroupId',
@@ -2770,7 +2711,6 @@ export class ListHostGroupAccountNamesForUserGroupRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
       instanceId: 'string',
       regionId: 'string',
       userGroupId: 'string',
@@ -2828,7 +2768,6 @@ export class ListHostGroupAccountNamesForUserGroupResponse extends $tea.Model {
 }
 
 export class ListHostGroupsRequest extends $tea.Model {
-  sourceIp?: string;
   instanceId?: string;
   regionId?: string;
   pageNumber?: string;
@@ -2836,7 +2775,6 @@ export class ListHostGroupsRequest extends $tea.Model {
   hostGroupName?: string;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
       instanceId: 'InstanceId',
       regionId: 'RegionId',
       pageNumber: 'PageNumber',
@@ -2847,7 +2785,6 @@ export class ListHostGroupsRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
       instanceId: 'string',
       regionId: 'string',
       pageNumber: 'string',
@@ -2909,7 +2846,6 @@ export class ListHostGroupsResponse extends $tea.Model {
 }
 
 export class ListHostGroupsForUserRequest extends $tea.Model {
-  sourceIp?: string;
   instanceId?: string;
   regionId?: string;
   mode?: string;
@@ -2919,7 +2855,6 @@ export class ListHostGroupsForUserRequest extends $tea.Model {
   hostGroupName?: string;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
       instanceId: 'InstanceId',
       regionId: 'RegionId',
       mode: 'Mode',
@@ -2932,7 +2867,6 @@ export class ListHostGroupsForUserRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
       instanceId: 'string',
       regionId: 'string',
       mode: 'string',
@@ -2996,7 +2930,6 @@ export class ListHostGroupsForUserResponse extends $tea.Model {
 }
 
 export class ListHostGroupsForUserGroupRequest extends $tea.Model {
-  sourceIp?: string;
   instanceId?: string;
   regionId?: string;
   mode?: string;
@@ -3006,7 +2939,6 @@ export class ListHostGroupsForUserGroupRequest extends $tea.Model {
   hostGroupName?: string;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
       instanceId: 'InstanceId',
       regionId: 'RegionId',
       mode: 'Mode',
@@ -3019,7 +2951,6 @@ export class ListHostGroupsForUserGroupRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
       instanceId: 'string',
       regionId: 'string',
       mode: 'string',
@@ -3083,7 +3014,6 @@ export class ListHostGroupsForUserGroupResponse extends $tea.Model {
 }
 
 export class ListHostsRequest extends $tea.Model {
-  sourceIp?: string;
   instanceId?: string;
   regionId?: string;
   pageNumber?: string;
@@ -3097,7 +3027,6 @@ export class ListHostsRequest extends $tea.Model {
   hostGroupId?: string;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
       instanceId: 'InstanceId',
       regionId: 'RegionId',
       pageNumber: 'PageNumber',
@@ -3114,7 +3043,6 @@ export class ListHostsRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
       instanceId: 'string',
       regionId: 'string',
       pageNumber: 'string',
@@ -3135,22 +3063,22 @@ export class ListHostsRequest extends $tea.Model {
 }
 
 export class ListHostsResponseBody extends $tea.Model {
-  hosts?: ListHostsResponseBodyHosts[];
   totalCount?: number;
   requestId?: string;
+  hosts?: ListHostsResponseBodyHosts[];
   static names(): { [key: string]: string } {
     return {
-      hosts: 'Hosts',
       totalCount: 'TotalCount',
       requestId: 'RequestId',
+      hosts: 'Hosts',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      hosts: { 'type': 'array', 'itemType': ListHostsResponseBodyHosts },
       totalCount: 'number',
       requestId: 'string',
+      hosts: { 'type': 'array', 'itemType': ListHostsResponseBodyHosts },
     };
   }
 
@@ -3182,7 +3110,6 @@ export class ListHostsResponse extends $tea.Model {
 }
 
 export class ListHostsForUserRequest extends $tea.Model {
-  sourceIp?: string;
   instanceId?: string;
   regionId?: string;
   mode?: string;
@@ -3194,7 +3121,6 @@ export class ListHostsForUserRequest extends $tea.Model {
   OSType?: string;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
       instanceId: 'InstanceId',
       regionId: 'RegionId',
       mode: 'Mode',
@@ -3209,7 +3135,6 @@ export class ListHostsForUserRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
       instanceId: 'string',
       regionId: 'string',
       mode: 'string',
@@ -3228,22 +3153,22 @@ export class ListHostsForUserRequest extends $tea.Model {
 }
 
 export class ListHostsForUserResponseBody extends $tea.Model {
-  hosts?: ListHostsForUserResponseBodyHosts[];
   totalCount?: number;
   requestId?: string;
+  hosts?: ListHostsForUserResponseBodyHosts[];
   static names(): { [key: string]: string } {
     return {
-      hosts: 'Hosts',
       totalCount: 'TotalCount',
       requestId: 'RequestId',
+      hosts: 'Hosts',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      hosts: { 'type': 'array', 'itemType': ListHostsForUserResponseBodyHosts },
       totalCount: 'number',
       requestId: 'string',
+      hosts: { 'type': 'array', 'itemType': ListHostsForUserResponseBodyHosts },
     };
   }
 
@@ -3275,7 +3200,6 @@ export class ListHostsForUserResponse extends $tea.Model {
 }
 
 export class ListHostsForUserGroupRequest extends $tea.Model {
-  sourceIp?: string;
   instanceId?: string;
   regionId?: string;
   mode?: string;
@@ -3287,7 +3211,6 @@ export class ListHostsForUserGroupRequest extends $tea.Model {
   OSType?: string;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
       instanceId: 'InstanceId',
       regionId: 'RegionId',
       mode: 'Mode',
@@ -3302,7 +3225,6 @@ export class ListHostsForUserGroupRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
       instanceId: 'string',
       regionId: 'string',
       mode: 'string',
@@ -3321,22 +3243,22 @@ export class ListHostsForUserGroupRequest extends $tea.Model {
 }
 
 export class ListHostsForUserGroupResponseBody extends $tea.Model {
-  hosts?: ListHostsForUserGroupResponseBodyHosts[];
   totalCount?: number;
   requestId?: string;
+  hosts?: ListHostsForUserGroupResponseBodyHosts[];
   static names(): { [key: string]: string } {
     return {
-      hosts: 'Hosts',
       totalCount: 'TotalCount',
       requestId: 'RequestId',
+      hosts: 'Hosts',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      hosts: { 'type': 'array', 'itemType': ListHostsForUserGroupResponseBodyHosts },
       totalCount: 'number',
       requestId: 'string',
+      hosts: { 'type': 'array', 'itemType': ListHostsForUserGroupResponseBodyHosts },
     };
   }
 
@@ -3368,16 +3290,12 @@ export class ListHostsForUserGroupResponse extends $tea.Model {
 }
 
 export class ListTagKeysRequest extends $tea.Model {
-  sourceIp?: string;
-  lang?: string;
   regionId?: string;
   resourceType?: string;
   pageSize?: number;
   pageNumber?: number;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
-      lang: 'Lang',
       regionId: 'RegionId',
       resourceType: 'ResourceType',
       pageSize: 'PageSize',
@@ -3387,8 +3305,6 @@ export class ListTagKeysRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
-      lang: 'string',
       regionId: 'string',
       resourceType: 'string',
       pageSize: 'number',
@@ -3402,27 +3318,27 @@ export class ListTagKeysRequest extends $tea.Model {
 }
 
 export class ListTagKeysResponseBody extends $tea.Model {
-  totalCount?: number;
   requestId?: string;
-  pageSize?: number;
   pageNumber?: number;
+  pageSize?: number;
+  totalCount?: number;
   tagKeys?: ListTagKeysResponseBodyTagKeys[];
   static names(): { [key: string]: string } {
     return {
-      totalCount: 'TotalCount',
       requestId: 'RequestId',
-      pageSize: 'PageSize',
       pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
       tagKeys: 'TagKeys',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      totalCount: 'number',
       requestId: 'string',
-      pageSize: 'number',
       pageNumber: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
       tagKeys: { 'type': 'array', 'itemType': ListTagKeysResponseBodyTagKeys },
     };
   }
@@ -3455,8 +3371,6 @@ export class ListTagKeysResponse extends $tea.Model {
 }
 
 export class ListTagResourcesRequest extends $tea.Model {
-  sourceIp?: string;
-  lang?: string;
   regionId?: string;
   resourceType?: string;
   nextToken?: string;
@@ -3464,8 +3378,6 @@ export class ListTagResourcesRequest extends $tea.Model {
   tag?: ListTagResourcesRequestTag[];
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
-      lang: 'Lang',
       regionId: 'RegionId',
       resourceType: 'ResourceType',
       nextToken: 'NextToken',
@@ -3476,8 +3388,6 @@ export class ListTagResourcesRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
-      lang: 'string',
       regionId: 'string',
       resourceType: 'string',
       nextToken: 'string',
@@ -3539,7 +3449,6 @@ export class ListTagResourcesResponse extends $tea.Model {
 }
 
 export class ListUserGroupsRequest extends $tea.Model {
-  sourceIp?: string;
   instanceId?: string;
   regionId?: string;
   pageNumber?: string;
@@ -3547,7 +3456,6 @@ export class ListUserGroupsRequest extends $tea.Model {
   userGroupName?: string;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
       instanceId: 'InstanceId',
       regionId: 'RegionId',
       pageNumber: 'PageNumber',
@@ -3558,7 +3466,6 @@ export class ListUserGroupsRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
       instanceId: 'string',
       regionId: 'string',
       pageNumber: 'string',
@@ -3620,7 +3527,6 @@ export class ListUserGroupsResponse extends $tea.Model {
 }
 
 export class ListUsersRequest extends $tea.Model {
-  sourceIp?: string;
   instanceId?: string;
   regionId?: string;
   pageNumber?: string;
@@ -3634,7 +3540,6 @@ export class ListUsersRequest extends $tea.Model {
   userGroupId?: string;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
       instanceId: 'InstanceId',
       regionId: 'RegionId',
       pageNumber: 'PageNumber',
@@ -3651,7 +3556,6 @@ export class ListUsersRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
       instanceId: 'string',
       regionId: 'string',
       pageNumber: 'string',
@@ -3719,13 +3623,11 @@ export class ListUsersResponse extends $tea.Model {
 }
 
 export class LockUsersRequest extends $tea.Model {
-  sourceIp?: string;
   instanceId?: string;
   regionId?: string;
   userIds?: string;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
       instanceId: 'InstanceId',
       regionId: 'RegionId',
       userIds: 'UserIds',
@@ -3734,7 +3636,6 @@ export class LockUsersRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
       instanceId: 'string',
       regionId: 'string',
       userIds: 'string',
@@ -3791,7 +3692,6 @@ export class LockUsersResponse extends $tea.Model {
 }
 
 export class ModifyHostRequest extends $tea.Model {
-  sourceIp?: string;
   instanceId?: string;
   regionId?: string;
   hostId?: string;
@@ -3802,7 +3702,6 @@ export class ModifyHostRequest extends $tea.Model {
   comment?: string;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
       instanceId: 'InstanceId',
       regionId: 'RegionId',
       hostId: 'HostId',
@@ -3816,7 +3715,6 @@ export class ModifyHostRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
       instanceId: 'string',
       regionId: 'string',
       hostId: 'string',
@@ -3875,7 +3773,6 @@ export class ModifyHostResponse extends $tea.Model {
 }
 
 export class ModifyHostAccountRequest extends $tea.Model {
-  sourceIp?: string;
   instanceId?: string;
   regionId?: string;
   hostAccountId?: string;
@@ -3885,7 +3782,6 @@ export class ModifyHostAccountRequest extends $tea.Model {
   passPhrase?: string;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
       instanceId: 'InstanceId',
       regionId: 'RegionId',
       hostAccountId: 'HostAccountId',
@@ -3898,7 +3794,6 @@ export class ModifyHostAccountRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
       instanceId: 'string',
       regionId: 'string',
       hostAccountId: 'string',
@@ -3956,7 +3851,6 @@ export class ModifyHostAccountResponse extends $tea.Model {
 }
 
 export class ModifyHostGroupRequest extends $tea.Model {
-  sourceIp?: string;
   instanceId?: string;
   regionId?: string;
   hostGroupId?: string;
@@ -3964,7 +3858,6 @@ export class ModifyHostGroupRequest extends $tea.Model {
   comment?: string;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
       instanceId: 'InstanceId',
       regionId: 'RegionId',
       hostGroupId: 'HostGroupId',
@@ -3975,7 +3868,6 @@ export class ModifyHostGroupRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
       instanceId: 'string',
       regionId: 'string',
       hostGroupId: 'string',
@@ -4031,14 +3923,12 @@ export class ModifyHostGroupResponse extends $tea.Model {
 }
 
 export class ModifyHostsActiveAddressTypeRequest extends $tea.Model {
-  sourceIp?: string;
   instanceId?: string;
   regionId?: string;
   hostIds?: string;
   activeAddressType?: string;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
       instanceId: 'InstanceId',
       regionId: 'RegionId',
       hostIds: 'HostIds',
@@ -4048,7 +3938,6 @@ export class ModifyHostsActiveAddressTypeRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
       instanceId: 'string',
       regionId: 'string',
       hostIds: 'string',
@@ -4106,7 +3995,6 @@ export class ModifyHostsActiveAddressTypeResponse extends $tea.Model {
 }
 
 export class ModifyHostsPortRequest extends $tea.Model {
-  sourceIp?: string;
   instanceId?: string;
   regionId?: string;
   hostIds?: string;
@@ -4114,7 +4002,6 @@ export class ModifyHostsPortRequest extends $tea.Model {
   port?: string;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
       instanceId: 'InstanceId',
       regionId: 'RegionId',
       hostIds: 'HostIds',
@@ -4125,7 +4012,6 @@ export class ModifyHostsPortRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
       instanceId: 'string',
       regionId: 'string',
       hostIds: 'string',
@@ -4184,15 +4070,11 @@ export class ModifyHostsPortResponse extends $tea.Model {
 }
 
 export class ModifyInstanceAttributeRequest extends $tea.Model {
-  sourceIp?: string;
-  lang?: string;
   instanceId?: string;
   description?: string;
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
-      lang: 'Lang',
       instanceId: 'InstanceId',
       description: 'Description',
       regionId: 'RegionId',
@@ -4201,8 +4083,6 @@ export class ModifyInstanceAttributeRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
-      lang: 'string',
       instanceId: 'string',
       description: 'string',
       regionId: 'string',
@@ -4255,8 +4135,79 @@ export class ModifyInstanceAttributeResponse extends $tea.Model {
   }
 }
 
+export class ModifyInstanceUpgradePeriodRequest extends $tea.Model {
+  lang?: string;
+  instanceId?: string;
+  regionId?: string;
+  upgradeStartTime?: string;
+  upgradeMode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      lang: 'Lang',
+      instanceId: 'InstanceId',
+      regionId: 'RegionId',
+      upgradeStartTime: 'UpgradeStartTime',
+      upgradeMode: 'UpgradeMode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      lang: 'string',
+      instanceId: 'string',
+      regionId: 'string',
+      upgradeStartTime: 'string',
+      upgradeMode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyInstanceUpgradePeriodResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyInstanceUpgradePeriodResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ModifyInstanceUpgradePeriodResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ModifyInstanceUpgradePeriodResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyUserRequest extends $tea.Model {
-  sourceIp?: string;
   instanceId?: string;
   regionId?: string;
   userId?: string;
@@ -4268,7 +4219,6 @@ export class ModifyUserRequest extends $tea.Model {
   mobileCountryCode?: string;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
       instanceId: 'InstanceId',
       regionId: 'RegionId',
       userId: 'UserId',
@@ -4283,7 +4233,6 @@ export class ModifyUserRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
       instanceId: 'string',
       regionId: 'string',
       userId: 'string',
@@ -4343,7 +4292,6 @@ export class ModifyUserResponse extends $tea.Model {
 }
 
 export class ModifyUserGroupRequest extends $tea.Model {
-  sourceIp?: string;
   instanceId?: string;
   regionId?: string;
   userGroupId?: string;
@@ -4351,7 +4299,6 @@ export class ModifyUserGroupRequest extends $tea.Model {
   comment?: string;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
       instanceId: 'InstanceId',
       regionId: 'RegionId',
       userGroupId: 'UserGroupId',
@@ -4362,7 +4309,6 @@ export class ModifyUserGroupRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
       instanceId: 'string',
       regionId: 'string',
       userGroupId: 'string',
@@ -4418,16 +4364,12 @@ export class ModifyUserGroupResponse extends $tea.Model {
 }
 
 export class MoveResourceGroupRequest extends $tea.Model {
-  sourceIp?: string;
-  lang?: string;
   resourceId?: string;
   resourceGroupId?: string;
   resourceType?: string;
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
-      lang: 'Lang',
       resourceId: 'ResourceId',
       resourceGroupId: 'ResourceGroupId',
       resourceType: 'ResourceType',
@@ -4437,8 +4379,6 @@ export class MoveResourceGroupRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
-      lang: 'string',
       resourceId: 'string',
       resourceGroupId: 'string',
       resourceType: 'string',
@@ -4493,14 +4433,12 @@ export class MoveResourceGroupResponse extends $tea.Model {
 }
 
 export class RemoveHostsFromGroupRequest extends $tea.Model {
-  sourceIp?: string;
   instanceId?: string;
   regionId?: string;
   hostGroupId?: string;
   hostIds?: string;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
       instanceId: 'InstanceId',
       regionId: 'RegionId',
       hostGroupId: 'HostGroupId',
@@ -4510,7 +4448,6 @@ export class RemoveHostsFromGroupRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
       instanceId: 'string',
       regionId: 'string',
       hostGroupId: 'string',
@@ -4568,14 +4505,12 @@ export class RemoveHostsFromGroupResponse extends $tea.Model {
 }
 
 export class RemoveUsersFromGroupRequest extends $tea.Model {
-  sourceIp?: string;
   instanceId?: string;
   regionId?: string;
   userGroupId?: string;
   userIds?: string;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
       instanceId: 'InstanceId',
       regionId: 'RegionId',
       userGroupId: 'UserGroupId',
@@ -4585,7 +4520,6 @@ export class RemoveUsersFromGroupRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
       instanceId: 'string',
       regionId: 'string',
       userGroupId: 'string',
@@ -4643,14 +4577,12 @@ export class RemoveUsersFromGroupResponse extends $tea.Model {
 }
 
 export class ResetHostAccountCredentialRequest extends $tea.Model {
-  sourceIp?: string;
   instanceId?: string;
   regionId?: string;
   hostAccountId?: string;
   credentialType?: string;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
       instanceId: 'InstanceId',
       regionId: 'RegionId',
       hostAccountId: 'HostAccountId',
@@ -4660,7 +4592,6 @@ export class ResetHostAccountCredentialRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
       instanceId: 'string',
       regionId: 'string',
       hostAccountId: 'string',
@@ -4715,33 +4646,24 @@ export class ResetHostAccountCredentialResponse extends $tea.Model {
 }
 
 export class StartInstanceRequest extends $tea.Model {
-  sourceIp?: string;
-  lang?: string;
   instanceId?: string;
   vswitchId?: string;
   regionId?: string;
-  instanceSecurityGroups?: string[];
   securityGroupIds?: string[];
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
-      lang: 'Lang',
       instanceId: 'InstanceId',
       vswitchId: 'VswitchId',
       regionId: 'RegionId',
-      instanceSecurityGroups: 'InstanceSecurityGroups',
       securityGroupIds: 'SecurityGroupIds',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
-      lang: 'string',
       instanceId: 'string',
       vswitchId: 'string',
       regionId: 'string',
-      instanceSecurityGroups: { 'type': 'array', 'itemType': 'string' },
       securityGroupIds: { 'type': 'array', 'itemType': 'string' },
     };
   }
@@ -4752,19 +4674,19 @@ export class StartInstanceRequest extends $tea.Model {
 }
 
 export class StartInstanceResponseBody extends $tea.Model {
-  requestId?: string;
   instanceId?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       instanceId: 'InstanceId',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       instanceId: 'string',
+      requestId: 'string',
     };
   }
 
@@ -4796,16 +4718,12 @@ export class StartInstanceResponse extends $tea.Model {
 }
 
 export class TagResourcesRequest extends $tea.Model {
-  sourceIp?: string;
-  lang?: string;
   regionId?: string;
   resourceType?: string;
   resourceId?: string[];
   tag?: TagResourcesRequestTag[];
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
-      lang: 'Lang',
       regionId: 'RegionId',
       resourceType: 'ResourceType',
       resourceId: 'ResourceId',
@@ -4815,8 +4733,6 @@ export class TagResourcesRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
-      lang: 'string',
       regionId: 'string',
       resourceType: 'string',
       resourceId: { 'type': 'array', 'itemType': 'string' },
@@ -4871,13 +4787,11 @@ export class TagResourcesResponse extends $tea.Model {
 }
 
 export class UnlockUsersRequest extends $tea.Model {
-  sourceIp?: string;
   instanceId?: string;
   regionId?: string;
   userIds?: string;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
       instanceId: 'InstanceId',
       regionId: 'RegionId',
       userIds: 'UserIds',
@@ -4886,7 +4800,6 @@ export class UnlockUsersRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
       instanceId: 'string',
       regionId: 'string',
       userIds: 'string',
@@ -4943,8 +4856,6 @@ export class UnlockUsersResponse extends $tea.Model {
 }
 
 export class UntagResourcesRequest extends $tea.Model {
-  sourceIp?: string;
-  lang?: string;
   regionId?: string;
   resourceType?: string;
   all?: boolean;
@@ -4952,8 +4863,6 @@ export class UntagResourcesRequest extends $tea.Model {
   tagKey?: string[];
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
-      lang: 'Lang',
       regionId: 'RegionId',
       resourceType: 'ResourceType',
       all: 'All',
@@ -4964,8 +4873,6 @@ export class UntagResourcesRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
-      lang: 'string',
       regionId: 'string',
       resourceType: 'string',
       all: 'boolean',
@@ -5020,6 +4927,72 @@ export class UntagResourcesResponse extends $tea.Model {
   }
 }
 
+export class UpgradeInstanceImageVersionRequest extends $tea.Model {
+  lang?: string;
+  instanceId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      lang: 'Lang',
+      instanceId: 'InstanceId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      lang: 'string',
+      instanceId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpgradeInstanceImageVersionResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpgradeInstanceImageVersionResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: UpgradeInstanceImageVersionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: UpgradeInstanceImageVersionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AddHostsToGroupResponseBodyResults extends $tea.Model {
   code?: string;
   message?: string;
@@ -5049,25 +5022,25 @@ export class AddHostsToGroupResponseBodyResults extends $tea.Model {
 }
 
 export class AddUsersToGroupResponseBodyResults extends $tea.Model {
-  userGroupId?: string;
-  userId?: string;
   code?: string;
   message?: string;
+  userGroupId?: string;
+  userId?: string;
   static names(): { [key: string]: string } {
     return {
-      userGroupId: 'UserGroupId',
-      userId: 'UserId',
       code: 'Code',
       message: 'Message',
+      userGroupId: 'UserGroupId',
+      userId: 'UserId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      userGroupId: 'string',
-      userId: 'string',
       code: 'string',
       message: 'string',
+      userGroupId: 'string',
+      userId: 'string',
     };
   }
 
@@ -5102,28 +5075,28 @@ export class AttachHostAccountsToUserResponseBodyResultsHostAccounts extends $te
 }
 
 export class AttachHostAccountsToUserResponseBodyResults extends $tea.Model {
-  hostAccounts?: AttachHostAccountsToUserResponseBodyResultsHostAccounts[];
-  userId?: string;
   code?: string;
   message?: string;
   hostId?: string;
+  userId?: string;
+  hostAccounts?: AttachHostAccountsToUserResponseBodyResultsHostAccounts[];
   static names(): { [key: string]: string } {
     return {
-      hostAccounts: 'HostAccounts',
-      userId: 'UserId',
       code: 'Code',
       message: 'Message',
       hostId: 'HostId',
+      userId: 'UserId',
+      hostAccounts: 'HostAccounts',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      hostAccounts: { 'type': 'array', 'itemType': AttachHostAccountsToUserResponseBodyResultsHostAccounts },
-      userId: 'string',
       code: 'string',
       message: 'string',
       hostId: 'string',
+      userId: 'string',
+      hostAccounts: { 'type': 'array', 'itemType': AttachHostAccountsToUserResponseBodyResultsHostAccounts },
     };
   }
 
@@ -5158,28 +5131,28 @@ export class AttachHostAccountsToUserGroupResponseBodyResultsHostAccounts extend
 }
 
 export class AttachHostAccountsToUserGroupResponseBodyResults extends $tea.Model {
-  userGroupId?: string;
-  hostAccounts?: AttachHostAccountsToUserGroupResponseBodyResultsHostAccounts[];
   code?: string;
   message?: string;
   hostId?: string;
+  userGroupId?: string;
+  hostAccounts?: AttachHostAccountsToUserGroupResponseBodyResultsHostAccounts[];
   static names(): { [key: string]: string } {
     return {
-      userGroupId: 'UserGroupId',
-      hostAccounts: 'HostAccounts',
       code: 'Code',
       message: 'Message',
       hostId: 'HostId',
+      userGroupId: 'UserGroupId',
+      hostAccounts: 'HostAccounts',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      userGroupId: 'string',
-      hostAccounts: { 'type': 'array', 'itemType': AttachHostAccountsToUserGroupResponseBodyResultsHostAccounts },
       code: 'string',
       message: 'string',
       hostId: 'string',
+      userGroupId: 'string',
+      hostAccounts: { 'type': 'array', 'itemType': AttachHostAccountsToUserGroupResponseBodyResultsHostAccounts },
     };
   }
 
@@ -5214,28 +5187,28 @@ export class AttachHostGroupAccountsToUserResponseBodyResultsHostAccountNames ex
 }
 
 export class AttachHostGroupAccountsToUserResponseBodyResults extends $tea.Model {
-  hostAccountNames?: AttachHostGroupAccountsToUserResponseBodyResultsHostAccountNames[];
-  userId?: string;
   code?: string;
   message?: string;
   hostGroupId?: string;
+  userId?: string;
+  hostAccountNames?: AttachHostGroupAccountsToUserResponseBodyResultsHostAccountNames[];
   static names(): { [key: string]: string } {
     return {
-      hostAccountNames: 'HostAccountNames',
-      userId: 'UserId',
       code: 'Code',
       message: 'Message',
       hostGroupId: 'HostGroupId',
+      userId: 'UserId',
+      hostAccountNames: 'HostAccountNames',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      hostAccountNames: { 'type': 'array', 'itemType': AttachHostGroupAccountsToUserResponseBodyResultsHostAccountNames },
-      userId: 'string',
       code: 'string',
       message: 'string',
       hostGroupId: 'string',
+      userId: 'string',
+      hostAccountNames: { 'type': 'array', 'itemType': AttachHostGroupAccountsToUserResponseBodyResultsHostAccountNames },
     };
   }
 
@@ -5270,28 +5243,28 @@ export class AttachHostGroupAccountsToUserGroupResponseBodyResultsHostAccountNam
 }
 
 export class AttachHostGroupAccountsToUserGroupResponseBodyResults extends $tea.Model {
-  hostAccountNames?: AttachHostGroupAccountsToUserGroupResponseBodyResultsHostAccountNames[];
-  userGroupId?: string;
   code?: string;
   message?: string;
   hostGroupId?: string;
+  userGroupId?: string;
+  hostAccountNames?: AttachHostGroupAccountsToUserGroupResponseBodyResultsHostAccountNames[];
   static names(): { [key: string]: string } {
     return {
-      hostAccountNames: 'HostAccountNames',
-      userGroupId: 'UserGroupId',
       code: 'Code',
       message: 'Message',
       hostGroupId: 'HostGroupId',
+      userGroupId: 'UserGroupId',
+      hostAccountNames: 'HostAccountNames',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      hostAccountNames: { 'type': 'array', 'itemType': AttachHostGroupAccountsToUserGroupResponseBodyResultsHostAccountNames },
-      userGroupId: 'string',
       code: 'string',
       message: 'string',
       hostGroupId: 'string',
+      userGroupId: 'string',
+      hostAccountNames: { 'type': 'array', 'itemType': AttachHostGroupAccountsToUserGroupResponseBodyResultsHostAccountNames },
     };
   }
 
@@ -5325,54 +5298,58 @@ export class DescribeInstanceAttributeResponseBodyInstanceAttributePorts extends
 export class DescribeInstanceAttributeResponseBodyInstanceAttribute extends $tea.Model {
   vpcId?: string;
   vswitchId?: string;
-  ports?: DescribeInstanceAttributeResponseBodyInstanceAttributePorts[];
-  authorizedSecurityGroups?: string[];
   description?: string;
-  privateExportIps?: string[];
-  privateWhiteList?: string[];
   expireTime?: number;
-  eniInstanceId?: string;
   modifyPasswordModule?: string;
-  internetEndpoint?: string;
+  eniInstanceId?: string;
   instanceId?: string;
-  securityGroupIds?: string[];
+  internetEndpoint?: string;
   regionId?: string;
   intranetEndpoint?: string;
-  publicExportIps?: string[];
   startTime?: number;
-  publicWhiteList?: string[];
+  resourceGroupId?: string;
+  networkProxyModule?: string;
   webTerminalModule?: string;
   instanceStatus?: string;
   licenseCode?: string;
-  publicIps?: string[];
   publicNetworkAccess?: boolean;
   storage?: number;
+  ports?: DescribeInstanceAttributeResponseBodyInstanceAttributePorts[];
+  publicExportIps?: string[];
+  publicWhiteList?: string[];
+  authorizedSecurityGroups?: string[];
+  privateExportIps?: string[];
+  publicIps?: string[];
+  securityGroupIds?: string[];
+  privateWhiteList?: string[];
   static names(): { [key: string]: string } {
     return {
       vpcId: 'VpcId',
       vswitchId: 'VswitchId',
-      ports: 'Ports',
-      authorizedSecurityGroups: 'AuthorizedSecurityGroups',
       description: 'Description',
-      privateExportIps: 'PrivateExportIps',
-      privateWhiteList: 'PrivateWhiteList',
       expireTime: 'ExpireTime',
-      eniInstanceId: 'EniInstanceId',
       modifyPasswordModule: 'ModifyPasswordModule',
-      internetEndpoint: 'InternetEndpoint',
+      eniInstanceId: 'EniInstanceId',
       instanceId: 'InstanceId',
-      securityGroupIds: 'SecurityGroupIds',
+      internetEndpoint: 'InternetEndpoint',
       regionId: 'RegionId',
       intranetEndpoint: 'IntranetEndpoint',
-      publicExportIps: 'PublicExportIps',
       startTime: 'StartTime',
-      publicWhiteList: 'PublicWhiteList',
+      resourceGroupId: 'ResourceGroupId',
+      networkProxyModule: 'NetworkProxyModule',
       webTerminalModule: 'WebTerminalModule',
       instanceStatus: 'InstanceStatus',
       licenseCode: 'LicenseCode',
-      publicIps: 'PublicIps',
       publicNetworkAccess: 'PublicNetworkAccess',
       storage: 'Storage',
+      ports: 'Ports',
+      publicExportIps: 'PublicExportIps',
+      publicWhiteList: 'PublicWhiteList',
+      authorizedSecurityGroups: 'AuthorizedSecurityGroups',
+      privateExportIps: 'PrivateExportIps',
+      publicIps: 'PublicIps',
+      securityGroupIds: 'SecurityGroupIds',
+      privateWhiteList: 'PrivateWhiteList',
     };
   }
 
@@ -5380,28 +5357,30 @@ export class DescribeInstanceAttributeResponseBodyInstanceAttribute extends $tea
     return {
       vpcId: 'string',
       vswitchId: 'string',
-      ports: { 'type': 'array', 'itemType': DescribeInstanceAttributeResponseBodyInstanceAttributePorts },
-      authorizedSecurityGroups: { 'type': 'array', 'itemType': 'string' },
       description: 'string',
-      privateExportIps: { 'type': 'array', 'itemType': 'string' },
-      privateWhiteList: { 'type': 'array', 'itemType': 'string' },
       expireTime: 'number',
-      eniInstanceId: 'string',
       modifyPasswordModule: 'string',
-      internetEndpoint: 'string',
+      eniInstanceId: 'string',
       instanceId: 'string',
-      securityGroupIds: { 'type': 'array', 'itemType': 'string' },
+      internetEndpoint: 'string',
       regionId: 'string',
       intranetEndpoint: 'string',
-      publicExportIps: { 'type': 'array', 'itemType': 'string' },
       startTime: 'number',
-      publicWhiteList: { 'type': 'array', 'itemType': 'string' },
+      resourceGroupId: 'string',
+      networkProxyModule: 'string',
       webTerminalModule: 'string',
       instanceStatus: 'string',
       licenseCode: 'string',
-      publicIps: { 'type': 'array', 'itemType': 'string' },
       publicNetworkAccess: 'boolean',
       storage: 'number',
+      ports: { 'type': 'array', 'itemType': DescribeInstanceAttributeResponseBodyInstanceAttributePorts },
+      publicExportIps: { 'type': 'array', 'itemType': 'string' },
+      publicWhiteList: { 'type': 'array', 'itemType': 'string' },
+      authorizedSecurityGroups: { 'type': 'array', 'itemType': 'string' },
+      privateExportIps: { 'type': 'array', 'itemType': 'string' },
+      publicIps: { 'type': 'array', 'itemType': 'string' },
+      securityGroupIds: { 'type': 'array', 'itemType': 'string' },
+      privateWhiteList: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -5440,11 +5419,12 @@ export class DescribeInstancesResponseBodyInstances extends $tea.Model {
   description?: string;
   expireTime?: number;
   legacy?: boolean;
-  internetEndpoint?: string;
   instanceId?: string;
+  internetEndpoint?: string;
   regionId?: string;
   intranetEndpoint?: string;
   startTime?: number;
+  resourceGroupId?: string;
   instanceStatus?: string;
   licenseCode?: string;
   publicNetworkAccess?: boolean;
@@ -5457,11 +5437,12 @@ export class DescribeInstancesResponseBodyInstances extends $tea.Model {
       description: 'Description',
       expireTime: 'ExpireTime',
       legacy: 'Legacy',
-      internetEndpoint: 'InternetEndpoint',
       instanceId: 'InstanceId',
+      internetEndpoint: 'InternetEndpoint',
       regionId: 'RegionId',
       intranetEndpoint: 'IntranetEndpoint',
       startTime: 'StartTime',
+      resourceGroupId: 'ResourceGroupId',
       instanceStatus: 'InstanceStatus',
       licenseCode: 'LicenseCode',
       publicNetworkAccess: 'PublicNetworkAccess',
@@ -5477,11 +5458,12 @@ export class DescribeInstancesResponseBodyInstances extends $tea.Model {
       description: 'string',
       expireTime: 'number',
       legacy: 'boolean',
-      internetEndpoint: 'string',
       instanceId: 'string',
+      internetEndpoint: 'string',
       regionId: 'string',
       intranetEndpoint: 'string',
       startTime: 'number',
+      resourceGroupId: 'string',
       instanceStatus: 'string',
       licenseCode: 'string',
       publicNetworkAccess: 'boolean',
@@ -5494,21 +5476,21 @@ export class DescribeInstancesResponseBodyInstances extends $tea.Model {
 }
 
 export class DescribeRegionsResponseBodyRegions extends $tea.Model {
-  localName?: string;
   regionEndpoint?: string;
+  localName?: string;
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      localName: 'LocalName',
       regionEndpoint: 'RegionEndpoint',
+      localName: 'LocalName',
       regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      localName: 'string',
       regionEndpoint: 'string',
+      localName: 'string',
       regionId: 'string',
     };
   }
@@ -5544,28 +5526,28 @@ export class DetachHostAccountsFromUserResponseBodyResultsHostAccounts extends $
 }
 
 export class DetachHostAccountsFromUserResponseBodyResults extends $tea.Model {
-  hostAccounts?: DetachHostAccountsFromUserResponseBodyResultsHostAccounts[];
-  userId?: string;
   code?: string;
   message?: string;
   hostId?: string;
+  userId?: string;
+  hostAccounts?: DetachHostAccountsFromUserResponseBodyResultsHostAccounts[];
   static names(): { [key: string]: string } {
     return {
-      hostAccounts: 'HostAccounts',
-      userId: 'UserId',
       code: 'Code',
       message: 'Message',
       hostId: 'HostId',
+      userId: 'UserId',
+      hostAccounts: 'HostAccounts',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      hostAccounts: { 'type': 'array', 'itemType': DetachHostAccountsFromUserResponseBodyResultsHostAccounts },
-      userId: 'string',
       code: 'string',
       message: 'string',
       hostId: 'string',
+      userId: 'string',
+      hostAccounts: { 'type': 'array', 'itemType': DetachHostAccountsFromUserResponseBodyResultsHostAccounts },
     };
   }
 
@@ -5600,28 +5582,28 @@ export class DetachHostAccountsFromUserGroupResponseBodyResultsHostAccounts exte
 }
 
 export class DetachHostAccountsFromUserGroupResponseBodyResults extends $tea.Model {
-  userGroupId?: string;
-  hostAccounts?: DetachHostAccountsFromUserGroupResponseBodyResultsHostAccounts[];
   code?: string;
   message?: string;
   hostId?: string;
+  userGroupId?: string;
+  hostAccounts?: DetachHostAccountsFromUserGroupResponseBodyResultsHostAccounts[];
   static names(): { [key: string]: string } {
     return {
-      userGroupId: 'UserGroupId',
-      hostAccounts: 'HostAccounts',
       code: 'Code',
       message: 'Message',
       hostId: 'HostId',
+      userGroupId: 'UserGroupId',
+      hostAccounts: 'HostAccounts',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      userGroupId: 'string',
-      hostAccounts: { 'type': 'array', 'itemType': DetachHostAccountsFromUserGroupResponseBodyResultsHostAccounts },
       code: 'string',
       message: 'string',
       hostId: 'string',
+      userGroupId: 'string',
+      hostAccounts: { 'type': 'array', 'itemType': DetachHostAccountsFromUserGroupResponseBodyResultsHostAccounts },
     };
   }
 
@@ -5656,28 +5638,28 @@ export class DetachHostGroupAccountsFromUserResponseBodyResultsHostAccountNames 
 }
 
 export class DetachHostGroupAccountsFromUserResponseBodyResults extends $tea.Model {
-  hostAccountNames?: DetachHostGroupAccountsFromUserResponseBodyResultsHostAccountNames[];
-  userId?: string;
   code?: string;
   message?: string;
   hostGroupId?: string;
+  userId?: string;
+  hostAccountNames?: DetachHostGroupAccountsFromUserResponseBodyResultsHostAccountNames[];
   static names(): { [key: string]: string } {
     return {
-      hostAccountNames: 'HostAccountNames',
-      userId: 'UserId',
       code: 'Code',
       message: 'Message',
       hostGroupId: 'HostGroupId',
+      userId: 'UserId',
+      hostAccountNames: 'HostAccountNames',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      hostAccountNames: { 'type': 'array', 'itemType': DetachHostGroupAccountsFromUserResponseBodyResultsHostAccountNames },
-      userId: 'string',
       code: 'string',
       message: 'string',
       hostGroupId: 'string',
+      userId: 'string',
+      hostAccountNames: { 'type': 'array', 'itemType': DetachHostGroupAccountsFromUserResponseBodyResultsHostAccountNames },
     };
   }
 
@@ -5712,28 +5694,28 @@ export class DetachHostGroupAccountsFromUserGroupResponseBodyResultsHostAccountN
 }
 
 export class DetachHostGroupAccountsFromUserGroupResponseBodyResults extends $tea.Model {
-  hostAccountNames?: DetachHostGroupAccountsFromUserGroupResponseBodyResultsHostAccountNames[];
-  userGroupId?: string;
   code?: string;
   message?: string;
   hostGroupId?: string;
+  userGroupId?: string;
+  hostAccountNames?: DetachHostGroupAccountsFromUserGroupResponseBodyResultsHostAccountNames[];
   static names(): { [key: string]: string } {
     return {
-      hostAccountNames: 'HostAccountNames',
-      userGroupId: 'UserGroupId',
       code: 'Code',
       message: 'Message',
       hostGroupId: 'HostGroupId',
+      userGroupId: 'UserGroupId',
+      hostAccountNames: 'HostAccountNames',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      hostAccountNames: { 'type': 'array', 'itemType': DetachHostGroupAccountsFromUserGroupResponseBodyResultsHostAccountNames },
-      userGroupId: 'string',
       code: 'string',
       message: 'string',
       hostGroupId: 'string',
+      userGroupId: 'string',
+      hostAccountNames: { 'type': 'array', 'itemType': DetachHostGroupAccountsFromUserGroupResponseBodyResultsHostAccountNames },
     };
   }
 
@@ -5743,22 +5725,22 @@ export class DetachHostGroupAccountsFromUserGroupResponseBodyResults extends $te
 }
 
 export class GetHostResponseBodyHostProtocols extends $tea.Model {
-  protocolName?: string;
   hostFingerPrint?: string;
   port?: number;
+  protocolName?: string;
   static names(): { [key: string]: string } {
     return {
-      protocolName: 'ProtocolName',
       hostFingerPrint: 'HostFingerPrint',
       port: 'Port',
+      protocolName: 'ProtocolName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      protocolName: 'string',
       hostFingerPrint: 'string',
       port: 'number',
+      protocolName: 'string',
     };
   }
 
@@ -5771,7 +5753,6 @@ export class GetHostResponseBodyHost extends $tea.Model {
   comment?: string;
   activeAddressType?: string;
   hostPublicAddress?: string;
-  protocols?: GetHostResponseBodyHostProtocols[];
   hostName?: string;
   source?: string;
   hostPrivateAddress?: string;
@@ -5779,12 +5760,12 @@ export class GetHostResponseBodyHost extends $tea.Model {
   hostId?: string;
   sourceInstanceState?: string;
   sourceInstanceId?: string;
+  protocols?: GetHostResponseBodyHostProtocols[];
   static names(): { [key: string]: string } {
     return {
       comment: 'Comment',
       activeAddressType: 'ActiveAddressType',
       hostPublicAddress: 'HostPublicAddress',
-      protocols: 'Protocols',
       hostName: 'HostName',
       source: 'Source',
       hostPrivateAddress: 'HostPrivateAddress',
@@ -5792,6 +5773,7 @@ export class GetHostResponseBodyHost extends $tea.Model {
       hostId: 'HostId',
       sourceInstanceState: 'SourceInstanceState',
       sourceInstanceId: 'SourceInstanceId',
+      protocols: 'Protocols',
     };
   }
 
@@ -5800,7 +5782,6 @@ export class GetHostResponseBodyHost extends $tea.Model {
       comment: 'string',
       activeAddressType: 'string',
       hostPublicAddress: 'string',
-      protocols: { 'type': 'array', 'itemType': GetHostResponseBodyHostProtocols },
       hostName: 'string',
       source: 'string',
       hostPrivateAddress: 'string',
@@ -5808,6 +5789,7 @@ export class GetHostResponseBodyHost extends $tea.Model {
       hostId: 'string',
       sourceInstanceState: 'string',
       sourceInstanceId: 'string',
+      protocols: { 'type': 'array', 'itemType': GetHostResponseBodyHostProtocols },
     };
   }
 
@@ -5851,22 +5833,115 @@ export class GetHostAccountResponseBodyHostAccount extends $tea.Model {
 }
 
 export class GetHostGroupResponseBodyHostGroup extends $tea.Model {
-  comment?: string;
   hostGroupId?: string;
+  comment?: string;
   hostGroupName?: string;
   static names(): { [key: string]: string } {
     return {
-      comment: 'Comment',
       hostGroupId: 'HostGroupId',
+      comment: 'Comment',
       hostGroupName: 'HostGroupName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      comment: 'string',
       hostGroupId: 'string',
+      comment: 'string',
       hostGroupName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstanceUpgradeInfoResponseBodyInstanceUpgradeInfoCandidatePeriodList extends $tea.Model {
+  candidateStartTime?: number;
+  candidateEndTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      candidateStartTime: 'CandidateStartTime',
+      candidateEndTime: 'CandidateEndTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      candidateStartTime: 'number',
+      candidateEndTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstanceUpgradeInfoResponseBodyInstanceUpgradeInfoInvalidPeriodList extends $tea.Model {
+  invalidEndTime?: number;
+  invalidStartTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      invalidEndTime: 'InvalidEndTime',
+      invalidStartTime: 'InvalidStartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      invalidEndTime: 'number',
+      invalidStartTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstanceUpgradeInfoResponseBodyInstanceUpgradeInfo extends $tea.Model {
+  upgradeMode?: string;
+  operable?: boolean;
+  aliUid?: number;
+  latestStartTime?: number;
+  imageVersion?: string;
+  instanceId?: string;
+  periodInterval?: number;
+  upgradeStartTime?: number;
+  upgradeEndTime?: number;
+  candidatePeriodList?: GetInstanceUpgradeInfoResponseBodyInstanceUpgradeInfoCandidatePeriodList[];
+  invalidPeriodList?: GetInstanceUpgradeInfoResponseBodyInstanceUpgradeInfoInvalidPeriodList[];
+  static names(): { [key: string]: string } {
+    return {
+      upgradeMode: 'UpgradeMode',
+      operable: 'Operable',
+      aliUid: 'AliUid',
+      latestStartTime: 'LatestStartTime',
+      imageVersion: 'ImageVersion',
+      instanceId: 'InstanceId',
+      periodInterval: 'PeriodInterval',
+      upgradeStartTime: 'UpgradeStartTime',
+      upgradeEndTime: 'UpgradeEndTime',
+      candidatePeriodList: 'CandidatePeriodList',
+      invalidPeriodList: 'InvalidPeriodList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      upgradeMode: 'string',
+      operable: 'boolean',
+      aliUid: 'number',
+      latestStartTime: 'number',
+      imageVersion: 'string',
+      instanceId: 'string',
+      periodInterval: 'number',
+      upgradeStartTime: 'number',
+      upgradeEndTime: 'number',
+      candidatePeriodList: { 'type': 'array', 'itemType': GetInstanceUpgradeInfoResponseBodyInstanceUpgradeInfoCandidatePeriodList },
+      invalidPeriodList: { 'type': 'array', 'itemType': GetInstanceUpgradeInfoResponseBodyInstanceUpgradeInfoInvalidPeriodList },
     };
   }
 
@@ -5884,8 +5959,8 @@ export class GetUserResponseBodyUser extends $tea.Model {
   userId?: string;
   source?: string;
   userName?: string;
-  userState?: string[];
   sourceUserId?: string;
+  userState?: string[];
   static names(): { [key: string]: string } {
     return {
       displayName: 'DisplayName',
@@ -5896,8 +5971,8 @@ export class GetUserResponseBodyUser extends $tea.Model {
       userId: 'UserId',
       source: 'Source',
       userName: 'UserName',
-      userState: 'UserState',
       sourceUserId: 'SourceUserId',
+      userState: 'UserState',
     };
   }
 
@@ -5911,8 +5986,8 @@ export class GetUserResponseBodyUser extends $tea.Model {
       userId: 'string',
       source: 'string',
       userName: 'string',
-      userState: { 'type': 'array', 'itemType': 'string' },
       sourceUserId: 'string',
+      userState: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -5922,22 +5997,22 @@ export class GetUserResponseBodyUser extends $tea.Model {
 }
 
 export class GetUserGroupResponseBodyUserGroup extends $tea.Model {
+  userGroupName?: string;
   comment?: string;
   userGroupId?: string;
-  userGroupName?: string;
   static names(): { [key: string]: string } {
     return {
+      userGroupName: 'UserGroupName',
       comment: 'Comment',
       userGroupId: 'UserGroupId',
-      userGroupName: 'UserGroupName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      userGroupName: 'string',
       comment: 'string',
       userGroupId: 'string',
-      userGroupName: 'string',
     };
   }
 
@@ -5981,27 +6056,27 @@ export class ListHostAccountsResponseBodyHostAccounts extends $tea.Model {
 }
 
 export class ListHostAccountsForUserResponseBodyHostAccounts extends $tea.Model {
-  isAuthorized?: boolean;
-  protocolName?: string;
   hostAccountName?: string;
   hostAccountId?: string;
+  isAuthorized?: boolean;
+  protocolName?: string;
   hostId?: string;
   static names(): { [key: string]: string } {
     return {
-      isAuthorized: 'IsAuthorized',
-      protocolName: 'ProtocolName',
       hostAccountName: 'HostAccountName',
       hostAccountId: 'HostAccountId',
+      isAuthorized: 'IsAuthorized',
+      protocolName: 'ProtocolName',
       hostId: 'HostId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      isAuthorized: 'boolean',
-      protocolName: 'string',
       hostAccountName: 'string',
       hostAccountId: 'string',
+      isAuthorized: 'boolean',
+      protocolName: 'string',
       hostId: 'string',
     };
   }
@@ -6012,27 +6087,27 @@ export class ListHostAccountsForUserResponseBodyHostAccounts extends $tea.Model 
 }
 
 export class ListHostAccountsForUserGroupResponseBodyHostAccounts extends $tea.Model {
-  isAuthorized?: boolean;
-  protocolName?: string;
   hostAccountName?: string;
   hostAccountId?: string;
+  isAuthorized?: boolean;
+  protocolName?: string;
   hostId?: string;
   static names(): { [key: string]: string } {
     return {
-      isAuthorized: 'IsAuthorized',
-      protocolName: 'ProtocolName',
       hostAccountName: 'HostAccountName',
       hostAccountId: 'HostAccountId',
+      isAuthorized: 'IsAuthorized',
+      protocolName: 'ProtocolName',
       hostId: 'HostId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      isAuthorized: 'boolean',
-      protocolName: 'string',
       hostAccountName: 'string',
       hostAccountId: 'string',
+      isAuthorized: 'boolean',
+      protocolName: 'string',
       hostId: 'string',
     };
   }
@@ -6044,14 +6119,14 @@ export class ListHostAccountsForUserGroupResponseBodyHostAccounts extends $tea.M
 
 export class ListHostGroupsResponseBodyHostGroups extends $tea.Model {
   memberCount?: number;
-  comment?: string;
   hostGroupId?: string;
+  comment?: string;
   hostGroupName?: string;
   static names(): { [key: string]: string } {
     return {
       memberCount: 'MemberCount',
-      comment: 'Comment',
       hostGroupId: 'HostGroupId',
+      comment: 'Comment',
       hostGroupName: 'HostGroupName',
     };
   }
@@ -6059,8 +6134,8 @@ export class ListHostGroupsResponseBodyHostGroups extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       memberCount: 'number',
-      comment: 'string',
       hostGroupId: 'string',
+      comment: 'string',
       hostGroupName: 'string',
     };
   }
@@ -6071,21 +6146,21 @@ export class ListHostGroupsResponseBodyHostGroups extends $tea.Model {
 }
 
 export class ListHostGroupsForUserResponseBodyHostGroups extends $tea.Model {
-  comment?: string;
   hostGroupId?: string;
+  comment?: string;
   hostGroupName?: string;
   static names(): { [key: string]: string } {
     return {
-      comment: 'Comment',
       hostGroupId: 'HostGroupId',
+      comment: 'Comment',
       hostGroupName: 'HostGroupName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      comment: 'string',
       hostGroupId: 'string',
+      comment: 'string',
       hostGroupName: 'string',
     };
   }
@@ -6096,21 +6171,21 @@ export class ListHostGroupsForUserResponseBodyHostGroups extends $tea.Model {
 }
 
 export class ListHostGroupsForUserGroupResponseBodyHostGroups extends $tea.Model {
-  comment?: string;
   hostGroupId?: string;
+  comment?: string;
   hostGroupName?: string;
   static names(): { [key: string]: string } {
     return {
-      comment: 'Comment',
       hostGroupId: 'HostGroupId',
+      comment: 'Comment',
       hostGroupName: 'HostGroupName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      comment: 'string',
       hostGroupId: 'string',
+      comment: 'string',
       hostGroupName: 'string',
     };
   }
@@ -6288,14 +6363,14 @@ export class ListTagResourcesRequestTag extends $tea.Model {
 }
 
 export class ListTagResourcesResponseBodyTagResources extends $tea.Model {
-  resourceType?: string;
   tagValue?: string;
+  resourceType?: string;
   resourceId?: string;
   tagKey?: string;
   static names(): { [key: string]: string } {
     return {
-      resourceType: 'ResourceType',
       tagValue: 'TagValue',
+      resourceType: 'ResourceType',
       resourceId: 'ResourceId',
       tagKey: 'TagKey',
     };
@@ -6303,8 +6378,8 @@ export class ListTagResourcesResponseBodyTagResources extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      resourceType: 'string',
       tagValue: 'string',
+      resourceType: 'string',
       resourceId: 'string',
       tagKey: 'string',
     };
@@ -6316,25 +6391,25 @@ export class ListTagResourcesResponseBodyTagResources extends $tea.Model {
 }
 
 export class ListUserGroupsResponseBodyUserGroups extends $tea.Model {
+  userGroupName?: string;
   memberCount?: number;
   comment?: string;
   userGroupId?: string;
-  userGroupName?: string;
   static names(): { [key: string]: string } {
     return {
+      userGroupName: 'UserGroupName',
       memberCount: 'MemberCount',
       comment: 'Comment',
       userGroupId: 'UserGroupId',
-      userGroupName: 'UserGroupName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      userGroupName: 'string',
       memberCount: 'number',
       comment: 'string',
       userGroupId: 'string',
-      userGroupName: 'string',
     };
   }
 
@@ -6352,8 +6427,8 @@ export class ListUsersResponseBodyUsers extends $tea.Model {
   userId?: string;
   source?: string;
   userName?: string;
-  userState?: string[];
   sourceUserId?: string;
+  userState?: string[];
   static names(): { [key: string]: string } {
     return {
       displayName: 'DisplayName',
@@ -6364,8 +6439,8 @@ export class ListUsersResponseBodyUsers extends $tea.Model {
       userId: 'UserId',
       source: 'Source',
       userName: 'UserName',
-      userState: 'UserState',
       sourceUserId: 'SourceUserId',
+      userState: 'UserState',
     };
   }
 
@@ -6379,8 +6454,8 @@ export class ListUsersResponseBodyUsers extends $tea.Model {
       userId: 'string',
       source: 'string',
       userName: 'string',
-      userState: { 'type': 'array', 'itemType': 'string' },
       sourceUserId: 'string',
+      userState: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -6390,22 +6465,22 @@ export class ListUsersResponseBodyUsers extends $tea.Model {
 }
 
 export class LockUsersResponseBodyResults extends $tea.Model {
-  userId?: string;
   code?: string;
   message?: string;
+  userId?: string;
   static names(): { [key: string]: string } {
     return {
-      userId: 'UserId',
       code: 'Code',
       message: 'Message',
+      userId: 'UserId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      userId: 'string',
       code: 'string',
       message: 'string',
+      userId: 'string',
     };
   }
 
@@ -6493,25 +6568,25 @@ export class RemoveHostsFromGroupResponseBodyResults extends $tea.Model {
 }
 
 export class RemoveUsersFromGroupResponseBodyResults extends $tea.Model {
-  userGroupId?: string;
-  userId?: string;
   code?: string;
   message?: string;
+  userGroupId?: string;
+  userId?: string;
   static names(): { [key: string]: string } {
     return {
-      userGroupId: 'UserGroupId',
-      userId: 'UserId',
       code: 'Code',
       message: 'Message',
+      userGroupId: 'UserGroupId',
+      userId: 'UserId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      userGroupId: 'string',
-      userId: 'string',
       code: 'string',
       message: 'string',
+      userGroupId: 'string',
+      userId: 'string',
     };
   }
 
@@ -6543,22 +6618,22 @@ export class TagResourcesRequestTag extends $tea.Model {
 }
 
 export class UnlockUsersResponseBodyResults extends $tea.Model {
-  userId?: string;
   code?: string;
   message?: string;
+  userId?: string;
   static names(): { [key: string]: string } {
     return {
-      userId: 'UserId',
       code: 'Code',
       message: 'Message',
+      userId: 'UserId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      userId: 'string',
       code: 'string',
       message: 'string',
+      userId: 'string',
     };
   }
 
@@ -6980,6 +7055,19 @@ export default class Client extends OpenApi {
     return await this.getHostGroupWithOptions(request, runtime);
   }
 
+  async getInstanceUpgradeInfoWithOptions(request: GetInstanceUpgradeInfoRequest, runtime: $Util.RuntimeOptions): Promise<GetInstanceUpgradeInfoResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<GetInstanceUpgradeInfoResponse>(await this.doRPCRequest("GetInstanceUpgradeInfo", "2019-12-09", "HTTPS", "POST", "AK", "json", req, runtime), new GetInstanceUpgradeInfoResponse({}));
+  }
+
+  async getInstanceUpgradeInfo(request: GetInstanceUpgradeInfoRequest): Promise<GetInstanceUpgradeInfoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getInstanceUpgradeInfoWithOptions(request, runtime);
+  }
+
   async getUserWithOptions(request: GetUserRequest, runtime: $Util.RuntimeOptions): Promise<GetUserResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -7292,6 +7380,19 @@ export default class Client extends OpenApi {
     return await this.modifyInstanceAttributeWithOptions(request, runtime);
   }
 
+  async modifyInstanceUpgradePeriodWithOptions(request: ModifyInstanceUpgradePeriodRequest, runtime: $Util.RuntimeOptions): Promise<ModifyInstanceUpgradePeriodResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<ModifyInstanceUpgradePeriodResponse>(await this.doRPCRequest("ModifyInstanceUpgradePeriod", "2019-12-09", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyInstanceUpgradePeriodResponse({}));
+  }
+
+  async modifyInstanceUpgradePeriod(request: ModifyInstanceUpgradePeriodRequest): Promise<ModifyInstanceUpgradePeriodResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyInstanceUpgradePeriodWithOptions(request, runtime);
+  }
+
   async modifyUserWithOptions(request: ModifyUserRequest, runtime: $Util.RuntimeOptions): Promise<ModifyUserResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -7420,6 +7521,19 @@ export default class Client extends OpenApi {
   async untagResources(request: UntagResourcesRequest): Promise<UntagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.untagResourcesWithOptions(request, runtime);
+  }
+
+  async upgradeInstanceImageVersionWithOptions(request: UpgradeInstanceImageVersionRequest, runtime: $Util.RuntimeOptions): Promise<UpgradeInstanceImageVersionResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<UpgradeInstanceImageVersionResponse>(await this.doRPCRequest("UpgradeInstanceImageVersion", "2019-12-09", "HTTPS", "POST", "AK", "json", req, runtime), new UpgradeInstanceImageVersionResponse({}));
+  }
+
+  async upgradeInstanceImageVersion(request: UpgradeInstanceImageVersionRequest): Promise<UpgradeInstanceImageVersionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.upgradeInstanceImageVersionWithOptions(request, runtime);
   }
 
 }
