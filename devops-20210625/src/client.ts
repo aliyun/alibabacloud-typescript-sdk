@@ -1203,6 +1203,59 @@ export class SkipPipelineJobRunResponse extends $tea.Model {
   }
 }
 
+export class GetOrganizationMemberResponseBody extends $tea.Model {
+  requestId?: string;
+  errorMessage?: string;
+  member?: GetOrganizationMemberResponseBodyMember;
+  errorCode?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+      errorMessage: 'errorMessage',
+      member: 'member',
+      errorCode: 'errorCode',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      errorMessage: 'string',
+      member: GetOrganizationMemberResponseBodyMember,
+      errorCode: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOrganizationMemberResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetOrganizationMemberResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetOrganizationMemberResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class StopPipelineJobRunResponseBody extends $tea.Model {
   requestId?: string;
   errorMessage?: string;
@@ -1883,6 +1936,105 @@ export class ReleaseWorkspaceResponse extends $tea.Model {
   }
 }
 
+export class ListOrganizationMembersRequest extends $tea.Model {
+  organizationMemberName?: string;
+  provider?: string;
+  externUid?: string;
+  state?: string;
+  nextToken?: string;
+  maxResults?: number;
+  joinTimeFrom?: number;
+  joinTimeTo?: number;
+  static names(): { [key: string]: string } {
+    return {
+      organizationMemberName: 'organizationMemberName',
+      provider: 'provider',
+      externUid: 'externUid',
+      state: 'state',
+      nextToken: 'nextToken',
+      maxResults: 'maxResults',
+      joinTimeFrom: 'joinTimeFrom',
+      joinTimeTo: 'joinTimeTo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      organizationMemberName: 'string',
+      provider: 'string',
+      externUid: 'string',
+      state: 'string',
+      nextToken: 'string',
+      maxResults: 'number',
+      joinTimeFrom: 'number',
+      joinTimeTo: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListOrganizationMembersResponseBody extends $tea.Model {
+  requestId?: string;
+  errorMessage?: string;
+  success?: boolean;
+  errorCode?: string;
+  nextToken?: string;
+  totalCount?: number;
+  members?: ListOrganizationMembersResponseBodyMembers[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+      errorMessage: 'errorMessage',
+      success: 'success',
+      errorCode: 'errorCode',
+      nextToken: 'nextToken',
+      totalCount: 'totalCount',
+      members: 'members',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      errorMessage: 'string',
+      success: 'boolean',
+      errorCode: 'string',
+      nextToken: 'string',
+      totalCount: 'number',
+      members: { 'type': 'array', 'itemType': ListOrganizationMembersResponseBodyMembers },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListOrganizationMembersResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListOrganizationMembersResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListOrganizationMembersResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListVariableGroupsRequest extends $tea.Model {
   pageSort?: string;
   pageOrder?: string;
@@ -2555,6 +2707,80 @@ export class ListServiceConnectionsResponseBodyServiceConnections extends $tea.M
   }
 }
 
+export class GetOrganizationMemberResponseBodyMemberIdentities extends $tea.Model {
+  externUid?: string;
+  provider?: string;
+  static names(): { [key: string]: string } {
+    return {
+      externUid: 'externUid',
+      provider: 'provider',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      externUid: 'string',
+      provider: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOrganizationMemberResponseBodyMember extends $tea.Model {
+  accountId?: string;
+  birthday?: number;
+  deptLists?: string[];
+  email?: string;
+  hiredDate?: number;
+  identities?: GetOrganizationMemberResponseBodyMemberIdentities;
+  joinTime?: number;
+  lastVisitTime?: number;
+  mobile?: string;
+  organizationMemberName?: string;
+  organizationRole?: string;
+  state?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'accountId',
+      birthday: 'birthday',
+      deptLists: 'deptLists',
+      email: 'email',
+      hiredDate: 'hiredDate',
+      identities: 'identities',
+      joinTime: 'joinTime',
+      lastVisitTime: 'lastVisitTime',
+      mobile: 'mobile',
+      organizationMemberName: 'organizationMemberName',
+      organizationRole: 'organizationRole',
+      state: 'state',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+      birthday: 'number',
+      deptLists: { 'type': 'array', 'itemType': 'string' },
+      email: 'string',
+      hiredDate: 'number',
+      identities: GetOrganizationMemberResponseBodyMemberIdentities,
+      joinTime: 'number',
+      lastVisitTime: 'number',
+      mobile: 'string',
+      organizationMemberName: 'string',
+      organizationRole: 'string',
+      state: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListWorkspacesResponseBodyWorkspaces extends $tea.Model {
   codeVersion?: string;
   codeUrl?: string;
@@ -3031,6 +3257,80 @@ export class CreateSshKeyResponseBodySshKey extends $tea.Model {
   }
 }
 
+export class ListOrganizationMembersResponseBodyMembersIdentities extends $tea.Model {
+  externUid?: string;
+  provider?: string;
+  static names(): { [key: string]: string } {
+    return {
+      externUid: 'externUid',
+      provider: 'provider',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      externUid: 'string',
+      provider: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListOrganizationMembersResponseBodyMembers extends $tea.Model {
+  accountId?: string;
+  birthday?: number;
+  deptLists?: string[];
+  email?: string;
+  hiredDate?: number;
+  identities?: ListOrganizationMembersResponseBodyMembersIdentities;
+  joinTime?: number;
+  lastVisitTime?: number;
+  mobile?: string;
+  organizationMemberName?: string;
+  organizationRole?: string;
+  state?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'accountId',
+      birthday: 'birthday',
+      deptLists: 'deptLists',
+      email: 'email',
+      hiredDate: 'hiredDate',
+      identities: 'identities',
+      joinTime: 'joinTime',
+      lastVisitTime: 'lastVisitTime',
+      mobile: 'mobile',
+      organizationMemberName: 'organizationMemberName',
+      organizationRole: 'organizationRole',
+      state: 'state',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+      birthday: 'number',
+      deptLists: { 'type': 'array', 'itemType': 'string' },
+      email: 'string',
+      hiredDate: 'number',
+      identities: ListOrganizationMembersResponseBodyMembersIdentities,
+      joinTime: 'number',
+      lastVisitTime: 'number',
+      mobile: 'string',
+      organizationMemberName: 'string',
+      organizationRole: 'string',
+      state: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListVariableGroupsResponseBodyVariableGroupsRelatedPipelines extends $tea.Model {
   id?: number;
   name?: string;
@@ -3188,6 +3488,10 @@ export default class Client extends OpenApi {
   }
 
   async retryPipelineJobRunWithOptions(organizationId: string, pipelineId: string, pipelineRunId: string, jobId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RetryPipelineJobRunResponse> {
+    organizationId = OpenApiUtil.getEncodeParam(organizationId);
+    pipelineId = OpenApiUtil.getEncodeParam(pipelineId);
+    pipelineRunId = OpenApiUtil.getEncodeParam(pipelineRunId);
+    jobId = OpenApiUtil.getEncodeParam(jobId);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -3201,6 +3505,9 @@ export default class Client extends OpenApi {
   }
 
   async listResourceMembersWithOptions(organizationId: string, resourceType: string, resourceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListResourceMembersResponse> {
+    organizationId = OpenApiUtil.getEncodeParam(organizationId);
+    resourceType = OpenApiUtil.getEncodeParam(resourceType);
+    resourceId = OpenApiUtil.getEncodeParam(resourceId);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -3214,6 +3521,8 @@ export default class Client extends OpenApi {
   }
 
   async getHostGroupWithOptions(organizationId: string, id: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetHostGroupResponse> {
+    organizationId = OpenApiUtil.getEncodeParam(organizationId);
+    id = OpenApiUtil.getEncodeParam(id);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -3227,6 +3536,8 @@ export default class Client extends OpenApi {
   }
 
   async getVariableGroupWithOptions(organizationId: string, id: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetVariableGroupResponse> {
+    organizationId = OpenApiUtil.getEncodeParam(organizationId);
+    id = OpenApiUtil.getEncodeParam(id);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -3241,6 +3552,7 @@ export default class Client extends OpenApi {
 
   async listPipelinesWithOptions(organizationId: string, request: ListPipelinesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListPipelinesResponse> {
     Util.validateModel(request);
+    organizationId = OpenApiUtil.getEncodeParam(organizationId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.pipelineName)) {
       query["pipelineName"] = request.pipelineName;
@@ -3297,6 +3609,10 @@ export default class Client extends OpenApi {
 
   async updateResourceMemberWithOptions(organizationId: string, resourceType: string, resourceId: string, accountId: string, request: UpdateResourceMemberRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateResourceMemberResponse> {
     Util.validateModel(request);
+    organizationId = OpenApiUtil.getEncodeParam(organizationId);
+    resourceType = OpenApiUtil.getEncodeParam(resourceType);
+    resourceId = OpenApiUtil.getEncodeParam(resourceId);
+    accountId = OpenApiUtil.getEncodeParam(accountId);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.roleName)) {
       body["roleName"] = request.roleName;
@@ -3317,6 +3633,8 @@ export default class Client extends OpenApi {
 
   async updateVariableGroupWithOptions(organizationId: string, id: string, request: UpdateVariableGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateVariableGroupResponse> {
     Util.validateModel(request);
+    organizationId = OpenApiUtil.getEncodeParam(organizationId);
+    id = OpenApiUtil.getEncodeParam(id);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.name)) {
       body["name"] = request.name;
@@ -3344,6 +3662,10 @@ export default class Client extends OpenApi {
   }
 
   async deleteResourceMemberWithOptions(organizationId: string, resourceType: string, resourceId: string, accountId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteResourceMemberResponse> {
+    organizationId = OpenApiUtil.getEncodeParam(organizationId);
+    resourceType = OpenApiUtil.getEncodeParam(resourceType);
+    resourceId = OpenApiUtil.getEncodeParam(resourceId);
+    accountId = OpenApiUtil.getEncodeParam(accountId);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -3358,6 +3680,7 @@ export default class Client extends OpenApi {
 
   async listHostGroupsWithOptions(organizationId: string, request: ListHostGroupsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListHostGroupsResponse> {
     Util.validateModel(request);
+    organizationId = OpenApiUtil.getEncodeParam(organizationId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.ids)) {
       query["ids"] = request.ids;
@@ -3409,6 +3732,7 @@ export default class Client extends OpenApi {
   }
 
   async resetSshKeyWithOptions(organizationId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ResetSshKeyResponse> {
+    organizationId = OpenApiUtil.getEncodeParam(organizationId);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -3471,6 +3795,7 @@ export default class Client extends OpenApi {
 
   async listServiceConnectionsWithOptions(organizationId: string, request: ListServiceConnectionsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListServiceConnectionsResponse> {
     Util.validateModel(request);
+    organizationId = OpenApiUtil.getEncodeParam(organizationId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.sericeConnectionType)) {
       query["sericeConnectionType"] = request.sericeConnectionType;
@@ -3491,6 +3816,7 @@ export default class Client extends OpenApi {
 
   async createHostGroupWithOptions(organizationId: string, request: CreateHostGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateHostGroupResponse> {
     Util.validateModel(request);
+    organizationId = OpenApiUtil.getEncodeParam(organizationId);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.type)) {
       body["type"] = request.type;
@@ -3546,6 +3872,9 @@ export default class Client extends OpenApi {
   }
 
   async stopPipelineRunWithOptions(organizationId: string, pipelineId: string, pipelineRunId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StopPipelineRunResponse> {
+    organizationId = OpenApiUtil.getEncodeParam(organizationId);
+    pipelineId = OpenApiUtil.getEncodeParam(pipelineId);
+    pipelineRunId = OpenApiUtil.getEncodeParam(pipelineRunId);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -3560,6 +3889,8 @@ export default class Client extends OpenApi {
 
   async updateHostGroupWithOptions(organizationId: string, id: string, request: UpdateHostGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateHostGroupResponse> {
     Util.validateModel(request);
+    organizationId = OpenApiUtil.getEncodeParam(organizationId);
+    id = OpenApiUtil.getEncodeParam(id);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.type)) {
       body["type"] = request.type;
@@ -3616,6 +3947,9 @@ export default class Client extends OpenApi {
 
   async createResourceMemberWithOptions(organizationId: string, resourceType: string, resourceId: string, request: CreateResourceMemberRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateResourceMemberResponse> {
     Util.validateModel(request);
+    organizationId = OpenApiUtil.getEncodeParam(organizationId);
+    resourceType = OpenApiUtil.getEncodeParam(resourceType);
+    resourceId = OpenApiUtil.getEncodeParam(resourceId);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.accountId)) {
       body["accountId"] = request.accountId;
@@ -3639,10 +3973,29 @@ export default class Client extends OpenApi {
   }
 
   async skipPipelineJobRunWithOptions(organizationId: string, pipelineId: string, pipelineRunId: string, jobId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<SkipPipelineJobRunResponse> {
+    organizationId = OpenApiUtil.getEncodeParam(organizationId);
+    pipelineId = OpenApiUtil.getEncodeParam(pipelineId);
+    pipelineRunId = OpenApiUtil.getEncodeParam(pipelineRunId);
+    jobId = OpenApiUtil.getEncodeParam(jobId);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
     return $tea.cast<SkipPipelineJobRunResponse>(await this.doROARequest("SkipPipelineJobRun", "2021-06-25", "HTTPS", "PUT", "AK", `/organization/${organizationId}/pipelines/${pipelineId}/pipelineRuns/${pipelineRunId}/jobs/${jobId}/skip`, "json", req, runtime), new SkipPipelineJobRunResponse({}));
+  }
+
+  async getOrganizationMember(organizationId: string, accountId: string): Promise<GetOrganizationMemberResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getOrganizationMemberWithOptions(organizationId, accountId, headers, runtime);
+  }
+
+  async getOrganizationMemberWithOptions(organizationId: string, accountId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetOrganizationMemberResponse> {
+    organizationId = OpenApiUtil.getEncodeParam(organizationId);
+    accountId = OpenApiUtil.getEncodeParam(accountId);
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    return $tea.cast<GetOrganizationMemberResponse>(await this.doROARequest("GetOrganizationMember", "2021-06-25", "HTTPS", "GET", "AK", `/organization/${organizationId}/members/${accountId}`, "json", req, runtime), new GetOrganizationMemberResponse({}));
   }
 
   async stopPipelineJobRun(organizationId: string, pipelineId: string, pipelineRunId: string, jobId: string): Promise<StopPipelineJobRunResponse> {
@@ -3652,6 +4005,10 @@ export default class Client extends OpenApi {
   }
 
   async stopPipelineJobRunWithOptions(organizationId: string, pipelineId: string, pipelineRunId: string, jobId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StopPipelineJobRunResponse> {
+    organizationId = OpenApiUtil.getEncodeParam(organizationId);
+    pipelineId = OpenApiUtil.getEncodeParam(pipelineId);
+    pipelineRunId = OpenApiUtil.getEncodeParam(pipelineRunId);
+    jobId = OpenApiUtil.getEncodeParam(jobId);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -3666,6 +4023,8 @@ export default class Client extends OpenApi {
 
   async startPipelineRunWithOptions(organizationId: string, pipelineId: string, request: StartPipelineRunRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StartPipelineRunResponse> {
     Util.validateModel(request);
+    organizationId = OpenApiUtil.getEncodeParam(organizationId);
+    pipelineId = OpenApiUtil.getEncodeParam(pipelineId);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.params)) {
       body["params"] = request.params;
@@ -3727,6 +4086,9 @@ export default class Client extends OpenApi {
   }
 
   async getPipelineRunWithOptions(organizationId: string, pipelineId: string, pipelineRunId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetPipelineRunResponse> {
+    organizationId = OpenApiUtil.getEncodeParam(organizationId);
+    pipelineId = OpenApiUtil.getEncodeParam(pipelineId);
+    pipelineRunId = OpenApiUtil.getEncodeParam(pipelineRunId);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -3740,6 +4102,8 @@ export default class Client extends OpenApi {
   }
 
   async getPipelineWithOptions(organizationId: string, pipelineId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetPipelineResponse> {
+    organizationId = OpenApiUtil.getEncodeParam(organizationId);
+    pipelineId = OpenApiUtil.getEncodeParam(pipelineId);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -3754,6 +4118,7 @@ export default class Client extends OpenApi {
 
   async createVariableGroupWithOptions(organizationId: string, request: CreateVariableGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateVariableGroupResponse> {
     Util.validateModel(request);
+    organizationId = OpenApiUtil.getEncodeParam(organizationId);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.name)) {
       body["name"] = request.name;
@@ -3781,6 +4146,8 @@ export default class Client extends OpenApi {
   }
 
   async deleteVariableGroupWithOptions(organizationId: string, id: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteVariableGroupResponse> {
+    organizationId = OpenApiUtil.getEncodeParam(organizationId);
+    id = OpenApiUtil.getEncodeParam(id);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -3794,6 +4161,7 @@ export default class Client extends OpenApi {
   }
 
   async getWorkspaceWithOptions(workspaceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetWorkspaceResponse> {
+    workspaceId = OpenApiUtil.getEncodeParam(workspaceId);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -3807,6 +4175,7 @@ export default class Client extends OpenApi {
   }
 
   async createSshKeyWithOptions(organizationId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateSshKeyResponse> {
+    organizationId = OpenApiUtil.getEncodeParam(organizationId);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -3820,6 +4189,8 @@ export default class Client extends OpenApi {
   }
 
   async deleteHostGroupWithOptions(organizationId: string, id: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteHostGroupResponse> {
+    organizationId = OpenApiUtil.getEncodeParam(organizationId);
+    id = OpenApiUtil.getEncodeParam(id);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -3833,10 +4204,60 @@ export default class Client extends OpenApi {
   }
 
   async releaseWorkspaceWithOptions(workspaceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ReleaseWorkspaceResponse> {
+    workspaceId = OpenApiUtil.getEncodeParam(workspaceId);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
     return $tea.cast<ReleaseWorkspaceResponse>(await this.doROARequest("ReleaseWorkspace", "2021-06-25", "HTTPS", "DELETE", "AK", `/api/workspaces/${workspaceId}/release`, "json", req, runtime), new ReleaseWorkspaceResponse({}));
+  }
+
+  async listOrganizationMembers(organizationId: string, request: ListOrganizationMembersRequest): Promise<ListOrganizationMembersResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listOrganizationMembersWithOptions(organizationId, request, headers, runtime);
+  }
+
+  async listOrganizationMembersWithOptions(organizationId: string, request: ListOrganizationMembersRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListOrganizationMembersResponse> {
+    Util.validateModel(request);
+    organizationId = OpenApiUtil.getEncodeParam(organizationId);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.organizationMemberName)) {
+      query["organizationMemberName"] = request.organizationMemberName;
+    }
+
+    if (!Util.isUnset(request.provider)) {
+      query["provider"] = request.provider;
+    }
+
+    if (!Util.isUnset(request.externUid)) {
+      query["externUid"] = request.externUid;
+    }
+
+    if (!Util.isUnset(request.state)) {
+      query["state"] = request.state;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.joinTimeFrom)) {
+      query["joinTimeFrom"] = request.joinTimeFrom;
+    }
+
+    if (!Util.isUnset(request.joinTimeTo)) {
+      query["joinTimeTo"] = request.joinTimeTo;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    return $tea.cast<ListOrganizationMembersResponse>(await this.doROARequest("ListOrganizationMembers", "2021-06-25", "HTTPS", "GET", "AK", `/organization/${organizationId}/members`, "json", req, runtime), new ListOrganizationMembersResponse({}));
   }
 
   async listVariableGroups(organizationId: string, request: ListVariableGroupsRequest): Promise<ListVariableGroupsResponse> {
@@ -3847,6 +4268,7 @@ export default class Client extends OpenApi {
 
   async listVariableGroupsWithOptions(organizationId: string, request: ListVariableGroupsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListVariableGroupsResponse> {
     Util.validateModel(request);
+    organizationId = OpenApiUtil.getEncodeParam(organizationId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.pageSort)) {
       query["pageSort"] = request.pageSort;
@@ -3878,6 +4300,8 @@ export default class Client extends OpenApi {
   }
 
   async deletePipelineWithOptions(organizationId: string, pipelineId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeletePipelineResponse> {
+    organizationId = OpenApiUtil.getEncodeParam(organizationId);
+    pipelineId = OpenApiUtil.getEncodeParam(pipelineId);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -3891,6 +4315,7 @@ export default class Client extends OpenApi {
   }
 
   async frozenWorkspaceWithOptions(workspaceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<FrozenWorkspaceResponse> {
+    workspaceId = OpenApiUtil.getEncodeParam(workspaceId);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -3905,6 +4330,8 @@ export default class Client extends OpenApi {
 
   async listPipelineRunsWithOptions(organizationId: string, pipelineId: string, request: ListPipelineRunsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListPipelineRunsResponse> {
     Util.validateModel(request);
+    organizationId = OpenApiUtil.getEncodeParam(organizationId);
+    pipelineId = OpenApiUtil.getEncodeParam(pipelineId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.startTime)) {
       query["startTime"] = request.startTime;

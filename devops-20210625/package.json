@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/devops20210625",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "",
   "main": "dist/client.js",
   "scripts": {
@@ -21,8 +21,8 @@
   "dependencies": {
     "@alicloud/tea-typescript": "^1.7.1",
     "@alicloud/tea-util": "^1.4.0",
-    "@alicloud/openapi-client": "^0.3.0",
-    "@alicloud/openapi-util": "^0.2.2",
+    "@alicloud/openapi-client": "^0.3.5",
+    "@alicloud/openapi-util": "^0.2.4",
     "@alicloud/endpoint-util": "^0.0.1"
   },
   "files": [
