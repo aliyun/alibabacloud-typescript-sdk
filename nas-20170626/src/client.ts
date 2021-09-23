@@ -292,19 +292,19 @@ export class CancelDirQuotaRequest extends $tea.Model {
 }
 
 export class CancelDirQuotaResponseBody extends $tea.Model {
-  requestId?: string;
   success?: boolean;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       success: 'Success',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       success: 'boolean',
+      requestId: 'string',
     };
   }
 
@@ -327,6 +327,126 @@ export class CancelDirQuotaResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: CancelDirQuotaResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CancelLifecycleRetrieveJobRequest extends $tea.Model {
+  jobId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jobId: 'JobId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CancelLifecycleRetrieveJobResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CancelLifecycleRetrieveJobResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CancelLifecycleRetrieveJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CancelLifecycleRetrieveJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CancelRecycleBinJobRequest extends $tea.Model {
+  jobId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jobId: 'JobId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CancelRecycleBinJobResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CancelRecycleBinJobResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CancelRecycleBinJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CancelRecycleBinJobResponseBody,
     };
   }
 
@@ -364,19 +484,19 @@ export class CreateAccessGroupRequest extends $tea.Model {
 }
 
 export class CreateAccessGroupResponseBody extends $tea.Model {
-  requestId?: string;
   accessGroupName?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       accessGroupName: 'AccessGroupName',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       accessGroupName: 'string',
+      requestId: 'string',
     };
   }
 
@@ -445,19 +565,19 @@ export class CreateAccessRuleRequest extends $tea.Model {
 }
 
 export class CreateAccessRuleResponseBody extends $tea.Model {
-  requestId?: string;
   accessRuleId?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       accessRuleId: 'AccessRuleId',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       accessRuleId: 'string',
+      requestId: 'string',
     };
   }
 
@@ -520,19 +640,19 @@ export class CreateAutoSnapshotPolicyRequest extends $tea.Model {
 }
 
 export class CreateAutoSnapshotPolicyResponseBody extends $tea.Model {
-  requestId?: string;
   autoSnapshotPolicyId?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       autoSnapshotPolicyId: 'AutoSnapshotPolicyId',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       autoSnapshotPolicyId: 'string',
+      requestId: 'string',
     };
   }
 
@@ -746,6 +866,7 @@ export class CreateLifecyclePolicyRequest extends $tea.Model {
   path?: string;
   lifecycleRuleName?: string;
   storageType?: string;
+  paths?: string[];
   static names(): { [key: string]: string } {
     return {
       fileSystemId: 'FileSystemId',
@@ -753,6 +874,7 @@ export class CreateLifecyclePolicyRequest extends $tea.Model {
       path: 'Path',
       lifecycleRuleName: 'LifecycleRuleName',
       storageType: 'StorageType',
+      paths: 'Paths',
     };
   }
 
@@ -763,6 +885,7 @@ export class CreateLifecyclePolicyRequest extends $tea.Model {
       path: 'string',
       lifecycleRuleName: 'string',
       storageType: 'string',
+      paths: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -807,6 +930,72 @@ export class CreateLifecyclePolicyResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: CreateLifecyclePolicyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateLifecycleRetrieveJobRequest extends $tea.Model {
+  fileSystemId?: string;
+  paths?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      fileSystemId: 'FileSystemId',
+      paths: 'Paths',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileSystemId: 'string',
+      paths: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateLifecycleRetrieveJobResponseBody extends $tea.Model {
+  requestId?: string;
+  jobId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      jobId: 'JobId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      jobId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateLifecycleRetrieveJobResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CreateLifecycleRetrieveJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CreateLifecycleRetrieveJobResponseBody,
     };
   }
 
@@ -894,6 +1083,147 @@ export class CreateMountTargetResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: CreateMountTargetResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRecycleBinDeleteJobRequest extends $tea.Model {
+  fileSystemId?: string;
+  fileId?: string;
+  clientToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fileSystemId: 'FileSystemId',
+      fileId: 'FileId',
+      clientToken: 'ClientToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileSystemId: 'string',
+      fileId: 'string',
+      clientToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRecycleBinDeleteJobResponseBody extends $tea.Model {
+  requestId?: string;
+  jobId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      jobId: 'JobId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      jobId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRecycleBinDeleteJobResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CreateRecycleBinDeleteJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CreateRecycleBinDeleteJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRecycleBinRestoreJobRequest extends $tea.Model {
+  fileSystemId?: string;
+  fileId?: string;
+  targetFileId?: string;
+  clientToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fileSystemId: 'FileSystemId',
+      fileId: 'FileId',
+      targetFileId: 'TargetFileId',
+      clientToken: 'ClientToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileSystemId: 'string',
+      fileId: 'string',
+      targetFileId: 'string',
+      clientToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRecycleBinRestoreJobResponseBody extends $tea.Model {
+  requestId?: string;
+  jobId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      jobId: 'JobId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      jobId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRecycleBinRestoreJobResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CreateRecycleBinRestoreJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CreateRecycleBinRestoreJobResponseBody,
     };
   }
 
@@ -1306,19 +1636,19 @@ export class DeleteLifecyclePolicyRequest extends $tea.Model {
 }
 
 export class DeleteLifecyclePolicyResponseBody extends $tea.Model {
-  requestId?: string;
   success?: boolean;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       success: 'Success',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       success: 'boolean',
+      requestId: 'string',
     };
   }
 
@@ -1504,28 +1834,28 @@ export class DescribeAccessGroupsRequest extends $tea.Model {
 }
 
 export class DescribeAccessGroupsResponseBody extends $tea.Model {
-  accessGroups?: DescribeAccessGroupsResponseBodyAccessGroups;
-  totalCount?: number;
+  pageNumber?: number;
   requestId?: string;
   pageSize?: number;
-  pageNumber?: number;
+  totalCount?: number;
+  accessGroups?: DescribeAccessGroupsResponseBodyAccessGroups;
   static names(): { [key: string]: string } {
     return {
-      accessGroups: 'AccessGroups',
-      totalCount: 'TotalCount',
+      pageNumber: 'PageNumber',
       requestId: 'RequestId',
       pageSize: 'PageSize',
-      pageNumber: 'PageNumber',
+      totalCount: 'TotalCount',
+      accessGroups: 'AccessGroups',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      accessGroups: DescribeAccessGroupsResponseBodyAccessGroups,
-      totalCount: 'number',
+      pageNumber: 'number',
       requestId: 'string',
       pageSize: 'number',
-      pageNumber: 'number',
+      totalCount: 'number',
+      accessGroups: DescribeAccessGroupsResponseBodyAccessGroups,
     };
   }
 
@@ -1559,20 +1889,16 @@ export class DescribeAccessGroupsResponse extends $tea.Model {
 export class DescribeAccessRulesRequest extends $tea.Model {
   accessGroupName?: string;
   accessRuleId?: string;
-  sourceCidrIp?: string;
   pageSize?: number;
   pageNumber?: number;
   fileSystemType?: string;
-  sourceCidrIpFilter?: string;
   static names(): { [key: string]: string } {
     return {
       accessGroupName: 'AccessGroupName',
       accessRuleId: 'AccessRuleId',
-      sourceCidrIp: 'SourceCidrIp',
       pageSize: 'PageSize',
       pageNumber: 'PageNumber',
       fileSystemType: 'FileSystemType',
-      sourceCidrIpFilter: 'SourceCidrIpFilter',
     };
   }
 
@@ -1580,11 +1906,9 @@ export class DescribeAccessRulesRequest extends $tea.Model {
     return {
       accessGroupName: 'string',
       accessRuleId: 'string',
-      sourceCidrIp: 'string',
       pageSize: 'number',
       pageNumber: 'number',
       fileSystemType: 'string',
-      sourceCidrIpFilter: 'string',
     };
   }
 
@@ -1594,27 +1918,27 @@ export class DescribeAccessRulesRequest extends $tea.Model {
 }
 
 export class DescribeAccessRulesResponseBody extends $tea.Model {
-  totalCount?: number;
+  pageNumber?: number;
   requestId?: string;
   pageSize?: number;
-  pageNumber?: number;
+  totalCount?: number;
   accessRules?: DescribeAccessRulesResponseBodyAccessRules;
   static names(): { [key: string]: string } {
     return {
-      totalCount: 'TotalCount',
+      pageNumber: 'PageNumber',
       requestId: 'RequestId',
       pageSize: 'PageSize',
-      pageNumber: 'PageNumber',
+      totalCount: 'TotalCount',
       accessRules: 'AccessRules',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      totalCount: 'number',
+      pageNumber: 'number',
       requestId: 'string',
       pageSize: 'number',
-      pageNumber: 'number',
+      totalCount: 'number',
       accessRules: DescribeAccessRulesResponseBodyAccessRules,
     };
   }
@@ -1675,27 +1999,27 @@ export class DescribeAutoSnapshotPoliciesRequest extends $tea.Model {
 }
 
 export class DescribeAutoSnapshotPoliciesResponseBody extends $tea.Model {
-  totalCount?: number;
+  pageNumber?: number;
   requestId?: string;
   pageSize?: number;
-  pageNumber?: number;
+  totalCount?: number;
   autoSnapshotPolicies?: DescribeAutoSnapshotPoliciesResponseBodyAutoSnapshotPolicies;
   static names(): { [key: string]: string } {
     return {
-      totalCount: 'TotalCount',
+      pageNumber: 'PageNumber',
       requestId: 'RequestId',
       pageSize: 'PageSize',
-      pageNumber: 'PageNumber',
+      totalCount: 'TotalCount',
       autoSnapshotPolicies: 'AutoSnapshotPolicies',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      totalCount: 'number',
+      pageNumber: 'number',
       requestId: 'string',
       pageSize: 'number',
-      pageNumber: 'number',
+      totalCount: 'number',
       autoSnapshotPolicies: DescribeAutoSnapshotPoliciesResponseBodyAutoSnapshotPolicies,
     };
   }
@@ -1759,27 +2083,27 @@ export class DescribeAutoSnapshotTasksRequest extends $tea.Model {
 }
 
 export class DescribeAutoSnapshotTasksResponseBody extends $tea.Model {
-  totalCount?: number;
+  pageNumber?: number;
   requestId?: string;
   pageSize?: number;
-  pageNumber?: number;
+  totalCount?: number;
   autoSnapshotTasks?: DescribeAutoSnapshotTasksResponseBodyAutoSnapshotTasks;
   static names(): { [key: string]: string } {
     return {
-      totalCount: 'TotalCount',
+      pageNumber: 'PageNumber',
       requestId: 'RequestId',
       pageSize: 'PageSize',
-      pageNumber: 'PageNumber',
+      totalCount: 'TotalCount',
       autoSnapshotTasks: 'AutoSnapshotTasks',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      totalCount: 'number',
+      pageNumber: 'number',
       requestId: 'string',
       pageSize: 'number',
-      pageNumber: 'number',
+      totalCount: 'number',
       autoSnapshotTasks: DescribeAutoSnapshotTasksResponseBodyAutoSnapshotTasks,
     };
   }
@@ -1837,19 +2161,19 @@ export class DescribeBlackListClientsRequest extends $tea.Model {
 }
 
 export class DescribeBlackListClientsResponseBody extends $tea.Model {
-  requestId?: string;
   clients?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       clients: 'Clients',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       clients: 'string',
+      requestId: 'string',
     };
   }
 
@@ -1909,28 +2233,28 @@ export class DescribeDirQuotasRequest extends $tea.Model {
 }
 
 export class DescribeDirQuotasResponseBody extends $tea.Model {
-  totalCount?: number;
-  dirQuotaInfos?: DescribeDirQuotasResponseBodyDirQuotaInfos[];
+  pageNumber?: number;
   requestId?: string;
   pageSize?: number;
-  pageNumber?: number;
+  totalCount?: number;
+  dirQuotaInfos?: DescribeDirQuotasResponseBodyDirQuotaInfos[];
   static names(): { [key: string]: string } {
     return {
-      totalCount: 'TotalCount',
-      dirQuotaInfos: 'DirQuotaInfos',
+      pageNumber: 'PageNumber',
       requestId: 'RequestId',
       pageSize: 'PageSize',
-      pageNumber: 'PageNumber',
+      totalCount: 'TotalCount',
+      dirQuotaInfos: 'DirQuotaInfos',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      totalCount: 'number',
-      dirQuotaInfos: { 'type': 'array', 'itemType': DescribeDirQuotasResponseBodyDirQuotaInfos },
+      pageNumber: 'number',
       requestId: 'string',
       pageSize: 'number',
-      pageNumber: 'number',
+      totalCount: 'number',
+      dirQuotaInfos: { 'type': 'array', 'itemType': DescribeDirQuotasResponseBodyDirQuotaInfos },
     };
   }
 
@@ -1963,32 +2287,18 @@ export class DescribeDirQuotasResponse extends $tea.Model {
 
 export class DescribeFileSystemsRequest extends $tea.Model {
   fileSystemId?: string;
-  description?: string;
   fileSystemType?: string;
   vpcId?: string;
   pageSize?: number;
   pageNumber?: number;
-  useUTCDateTime?: boolean;
-  storageType?: string;
-  packageIds?: string;
-  fileSystemIds?: string;
-  orderByField?: string;
-  sortOrder?: string;
   tag?: DescribeFileSystemsRequestTag[];
   static names(): { [key: string]: string } {
     return {
       fileSystemId: 'FileSystemId',
-      description: 'Description',
       fileSystemType: 'FileSystemType',
       vpcId: 'VpcId',
       pageSize: 'PageSize',
       pageNumber: 'PageNumber',
-      useUTCDateTime: 'UseUTCDateTime',
-      storageType: 'StorageType',
-      packageIds: 'PackageIds',
-      fileSystemIds: 'FileSystemIds',
-      orderByField: 'OrderByField',
-      sortOrder: 'SortOrder',
       tag: 'Tag',
     };
   }
@@ -1996,17 +2306,10 @@ export class DescribeFileSystemsRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       fileSystemId: 'string',
-      description: 'string',
       fileSystemType: 'string',
       vpcId: 'string',
       pageSize: 'number',
       pageNumber: 'number',
-      useUTCDateTime: 'boolean',
-      storageType: 'string',
-      packageIds: 'string',
-      fileSystemIds: 'string',
-      orderByField: 'string',
-      sortOrder: 'string',
       tag: { 'type': 'array', 'itemType': DescribeFileSystemsRequestTag },
     };
   }
@@ -2017,28 +2320,28 @@ export class DescribeFileSystemsRequest extends $tea.Model {
 }
 
 export class DescribeFileSystemsResponseBody extends $tea.Model {
-  fileSystems?: DescribeFileSystemsResponseBodyFileSystems;
-  totalCount?: number;
+  pageNumber?: number;
   requestId?: string;
   pageSize?: number;
-  pageNumber?: number;
+  totalCount?: number;
+  fileSystems?: DescribeFileSystemsResponseBodyFileSystems;
   static names(): { [key: string]: string } {
     return {
-      fileSystems: 'FileSystems',
-      totalCount: 'TotalCount',
+      pageNumber: 'PageNumber',
       requestId: 'RequestId',
       pageSize: 'PageSize',
-      pageNumber: 'PageNumber',
+      totalCount: 'TotalCount',
+      fileSystems: 'FileSystems',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      fileSystems: DescribeFileSystemsResponseBodyFileSystems,
-      totalCount: 'number',
+      pageNumber: 'number',
       requestId: 'string',
       pageSize: 'number',
-      pageNumber: 'number',
+      totalCount: 'number',
+      fileSystems: DescribeFileSystemsResponseBodyFileSystems,
     };
   }
 
@@ -2092,28 +2395,31 @@ export class DescribeFileSystemStatisticsRequest extends $tea.Model {
 }
 
 export class DescribeFileSystemStatisticsResponseBody extends $tea.Model {
-  totalCount?: number;
   requestId?: string;
   pageSize?: number;
   pageNumber?: number;
+  totalCount?: number;
   fileSystemStatistics?: DescribeFileSystemStatisticsResponseBodyFileSystemStatistics;
+  fileSystems?: DescribeFileSystemStatisticsResponseBodyFileSystems;
   static names(): { [key: string]: string } {
     return {
-      totalCount: 'TotalCount',
       requestId: 'RequestId',
       pageSize: 'PageSize',
       pageNumber: 'PageNumber',
+      totalCount: 'TotalCount',
       fileSystemStatistics: 'FileSystemStatistics',
+      fileSystems: 'FileSystems',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      totalCount: 'number',
       requestId: 'string',
       pageSize: 'number',
       pageNumber: 'number',
+      totalCount: 'number',
       fileSystemStatistics: DescribeFileSystemStatisticsResponseBodyFileSystemStatistics,
+      fileSystems: DescribeFileSystemStatisticsResponseBodyFileSystems,
     };
   }
 
@@ -2164,19 +2470,19 @@ export class DescribeLDAPConfigRequest extends $tea.Model {
 }
 
 export class DescribeLDAPConfigResponseBody extends $tea.Model {
-  ldap?: DescribeLDAPConfigResponseBodyLdap;
   requestId?: string;
+  ldap?: DescribeLDAPConfigResponseBodyLdap;
   static names(): { [key: string]: string } {
     return {
-      ldap: 'Ldap',
       requestId: 'RequestId',
+      ldap: 'Ldap',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      ldap: DescribeLDAPConfigResponseBodyLdap,
       requestId: 'string',
+      ldap: DescribeLDAPConfigResponseBodyLdap,
     };
   }
 
@@ -2311,31 +2617,31 @@ export class DescribeLogAnalysisRequest extends $tea.Model {
 }
 
 export class DescribeLogAnalysisResponseBody extends $tea.Model {
-  totalCount?: number;
+  code?: string;
+  pageNumber?: number;
   pageSize?: number;
   requestId?: string;
-  pageNumber?: number;
+  totalCount?: number;
   analyses?: DescribeLogAnalysisResponseBodyAnalyses;
-  code?: string;
   static names(): { [key: string]: string } {
     return {
-      totalCount: 'TotalCount',
+      code: 'Code',
+      pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       requestId: 'RequestId',
-      pageNumber: 'PageNumber',
+      totalCount: 'TotalCount',
       analyses: 'Analyses',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      totalCount: 'number',
+      code: 'string',
+      pageNumber: 'number',
       pageSize: 'number',
       requestId: 'string',
-      pageNumber: 'number',
+      totalCount: 'number',
       analyses: DescribeLogAnalysisResponseBodyAnalyses,
-      code: 'string',
     };
   }
 
@@ -2401,27 +2707,27 @@ export class DescribeMountedClientsRequest extends $tea.Model {
 }
 
 export class DescribeMountedClientsResponseBody extends $tea.Model {
-  totalCount?: number;
+  pageNumber?: number;
   requestId?: string;
   pageSize?: number;
-  pageNumber?: number;
+  totalCount?: number;
   clients?: DescribeMountedClientsResponseBodyClients;
   static names(): { [key: string]: string } {
     return {
-      totalCount: 'TotalCount',
+      pageNumber: 'PageNumber',
       requestId: 'RequestId',
       pageSize: 'PageSize',
-      pageNumber: 'PageNumber',
+      totalCount: 'TotalCount',
       clients: 'Clients',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      totalCount: 'number',
+      pageNumber: 'number',
       requestId: 'string',
       pageSize: 'number',
-      pageNumber: 'number',
+      totalCount: 'number',
       clients: DescribeMountedClientsResponseBodyClients,
     };
   }
@@ -2485,27 +2791,27 @@ export class DescribeMountTargetsRequest extends $tea.Model {
 }
 
 export class DescribeMountTargetsResponseBody extends $tea.Model {
-  totalCount?: number;
+  pageNumber?: number;
   requestId?: string;
   pageSize?: number;
-  pageNumber?: number;
+  totalCount?: number;
   mountTargets?: DescribeMountTargetsResponseBodyMountTargets;
   static names(): { [key: string]: string } {
     return {
-      totalCount: 'TotalCount',
+      pageNumber: 'PageNumber',
       requestId: 'RequestId',
       pageSize: 'PageSize',
-      pageNumber: 'PageNumber',
+      totalCount: 'TotalCount',
       mountTargets: 'MountTargets',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      totalCount: 'number',
+      pageNumber: 'number',
       requestId: 'string',
       pageSize: 'number',
-      pageNumber: 'number',
+      totalCount: 'number',
       mountTargets: DescribeMountTargetsResponseBodyMountTargets,
     };
   }
@@ -2563,27 +2869,27 @@ export class DescribeRegionsRequest extends $tea.Model {
 }
 
 export class DescribeRegionsResponseBody extends $tea.Model {
-  totalCount?: number;
+  pageNumber?: number;
   requestId?: string;
   pageSize?: number;
-  pageNumber?: number;
+  totalCount?: number;
   regions?: DescribeRegionsResponseBodyRegions;
   static names(): { [key: string]: string } {
     return {
-      totalCount: 'TotalCount',
+      pageNumber: 'PageNumber',
       requestId: 'RequestId',
       pageSize: 'PageSize',
-      pageNumber: 'PageNumber',
+      totalCount: 'TotalCount',
       regions: 'Regions',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      totalCount: 'number',
+      pageNumber: 'number',
       requestId: 'string',
       pageSize: 'number',
-      pageNumber: 'number',
+      totalCount: 'number',
       regions: DescribeRegionsResponseBodyRegions,
     };
   }
@@ -2656,27 +2962,27 @@ export class DescribeSnapshotsRequest extends $tea.Model {
 }
 
 export class DescribeSnapshotsResponseBody extends $tea.Model {
-  totalCount?: number;
+  pageNumber?: number;
   requestId?: string;
   pageSize?: number;
-  pageNumber?: number;
+  totalCount?: number;
   snapshots?: DescribeSnapshotsResponseBodySnapshots;
   static names(): { [key: string]: string } {
     return {
-      totalCount: 'TotalCount',
+      pageNumber: 'PageNumber',
       requestId: 'RequestId',
       pageSize: 'PageSize',
-      pageNumber: 'PageNumber',
+      totalCount: 'TotalCount',
       snapshots: 'Snapshots',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      totalCount: 'number',
+      pageNumber: 'number',
       requestId: 'string',
       pageSize: 'number',
-      pageNumber: 'number',
+      totalCount: 'number',
       snapshots: DescribeSnapshotsResponseBodySnapshots,
     };
   }
@@ -2737,27 +3043,27 @@ export class DescribeStoragePackagesRequest extends $tea.Model {
 }
 
 export class DescribeStoragePackagesResponseBody extends $tea.Model {
-  totalCount?: number;
+  pageNumber?: number;
   requestId?: string;
   pageSize?: number;
-  pageNumber?: number;
+  totalCount?: number;
   packages?: DescribeStoragePackagesResponseBodyPackages;
   static names(): { [key: string]: string } {
     return {
-      totalCount: 'TotalCount',
+      pageNumber: 'PageNumber',
       requestId: 'RequestId',
       pageSize: 'PageSize',
-      pageNumber: 'PageNumber',
+      totalCount: 'TotalCount',
       packages: 'Packages',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      totalCount: 'number',
+      pageNumber: 'number',
       requestId: 'string',
       pageSize: 'number',
-      pageNumber: 'number',
+      totalCount: 'number',
       packages: DescribeStoragePackagesResponseBodyPackages,
     };
   }
@@ -2818,27 +3124,27 @@ export class DescribeTagsRequest extends $tea.Model {
 }
 
 export class DescribeTagsResponseBody extends $tea.Model {
-  totalCount?: number;
+  pageNumber?: number;
   requestId?: string;
   pageSize?: number;
-  pageNumber?: number;
+  totalCount?: number;
   tags?: DescribeTagsResponseBodyTags;
   static names(): { [key: string]: string } {
     return {
-      totalCount: 'TotalCount',
+      pageNumber: 'PageNumber',
       requestId: 'RequestId',
       pageSize: 'PageSize',
-      pageNumber: 'PageNumber',
+      totalCount: 'TotalCount',
       tags: 'Tags',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      totalCount: 'number',
+      pageNumber: 'number',
       requestId: 'string',
       pageSize: 'number',
-      pageNumber: 'number',
+      totalCount: 'number',
       tags: DescribeTagsResponseBodyTags,
     };
   }
@@ -2872,15 +3178,18 @@ export class DescribeTagsResponse extends $tea.Model {
 
 export class DescribeZonesRequest extends $tea.Model {
   regionId?: string;
+  fileSystemType?: string;
   static names(): { [key: string]: string } {
     return {
       regionId: 'RegionId',
+      fileSystemType: 'FileSystemType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       regionId: 'string',
+      fileSystemType: 'string',
     };
   }
 
@@ -2925,6 +3234,651 @@ export class DescribeZonesResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: DescribeZonesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DisableAndCleanRecycleBinRequest extends $tea.Model {
+  fileSystemId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fileSystemId: 'FileSystemId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileSystemId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DisableAndCleanRecycleBinResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DisableAndCleanRecycleBinResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DisableAndCleanRecycleBinResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DisableAndCleanRecycleBinResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnableRecycleBinRequest extends $tea.Model {
+  fileSystemId?: string;
+  reservedDays?: number;
+  static names(): { [key: string]: string } {
+    return {
+      fileSystemId: 'FileSystemId',
+      reservedDays: 'ReservedDays',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileSystemId: 'string',
+      reservedDays: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnableRecycleBinResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnableRecycleBinResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: EnableRecycleBinResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: EnableRecycleBinResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDirectoryOrFilePropertiesRequest extends $tea.Model {
+  fileSystemId?: string;
+  path?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fileSystemId: 'FileSystemId',
+      path: 'Path',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileSystemId: 'string',
+      path: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDirectoryOrFilePropertiesResponseBody extends $tea.Model {
+  entry?: GetDirectoryOrFilePropertiesResponseBodyEntry;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      entry: 'Entry',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      entry: GetDirectoryOrFilePropertiesResponseBodyEntry,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDirectoryOrFilePropertiesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetDirectoryOrFilePropertiesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetDirectoryOrFilePropertiesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRecycleBinAttributeRequest extends $tea.Model {
+  fileSystemId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fileSystemId: 'FileSystemId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileSystemId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRecycleBinAttributeResponseBody extends $tea.Model {
+  requestId?: string;
+  recycleBinAttribute?: GetRecycleBinAttributeResponseBodyRecycleBinAttribute;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      recycleBinAttribute: 'RecycleBinAttribute',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      recycleBinAttribute: GetRecycleBinAttributeResponseBodyRecycleBinAttribute,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRecycleBinAttributeResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetRecycleBinAttributeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetRecycleBinAttributeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDirectoriesAndFilesRequest extends $tea.Model {
+  fileSystemId?: string;
+  path?: string;
+  nextToken?: string;
+  storageType?: string;
+  directoryOnly?: boolean;
+  maxResults?: number;
+  static names(): { [key: string]: string } {
+    return {
+      fileSystemId: 'FileSystemId',
+      path: 'Path',
+      nextToken: 'NextToken',
+      storageType: 'StorageType',
+      directoryOnly: 'DirectoryOnly',
+      maxResults: 'MaxResults',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileSystemId: 'string',
+      path: 'string',
+      nextToken: 'string',
+      storageType: 'string',
+      directoryOnly: 'boolean',
+      maxResults: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDirectoriesAndFilesResponseBody extends $tea.Model {
+  nextToken?: string;
+  requestId?: string;
+  entries?: ListDirectoriesAndFilesResponseBodyEntries[];
+  static names(): { [key: string]: string } {
+    return {
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      entries: 'Entries',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nextToken: 'string',
+      requestId: 'string',
+      entries: { 'type': 'array', 'itemType': ListDirectoriesAndFilesResponseBodyEntries },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDirectoriesAndFilesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListDirectoriesAndFilesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListDirectoriesAndFilesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListLifecycleRetrieveJobsRequest extends $tea.Model {
+  pageSize?: number;
+  pageNumber?: number;
+  fileSystemId?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      pageSize: 'PageSize',
+      pageNumber: 'PageNumber',
+      fileSystemId: 'FileSystemId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageSize: 'number',
+      pageNumber: 'number',
+      fileSystemId: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListLifecycleRetrieveJobsResponseBody extends $tea.Model {
+  totalCount?: number;
+  requestId?: string;
+  pageSize?: number;
+  pageNumber?: number;
+  lifecycleRetrieveJobs?: ListLifecycleRetrieveJobsResponseBodyLifecycleRetrieveJobs[];
+  static names(): { [key: string]: string } {
+    return {
+      totalCount: 'TotalCount',
+      requestId: 'RequestId',
+      pageSize: 'PageSize',
+      pageNumber: 'PageNumber',
+      lifecycleRetrieveJobs: 'LifecycleRetrieveJobs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      totalCount: 'number',
+      requestId: 'string',
+      pageSize: 'number',
+      pageNumber: 'number',
+      lifecycleRetrieveJobs: { 'type': 'array', 'itemType': ListLifecycleRetrieveJobsResponseBodyLifecycleRetrieveJobs },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListLifecycleRetrieveJobsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListLifecycleRetrieveJobsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListLifecycleRetrieveJobsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRecentlyRecycledDirectoriesRequest extends $tea.Model {
+  fileSystemId?: string;
+  nextToken?: string;
+  maxResults?: number;
+  static names(): { [key: string]: string } {
+    return {
+      fileSystemId: 'FileSystemId',
+      nextToken: 'NextToken',
+      maxResults: 'MaxResults',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileSystemId: 'string',
+      nextToken: 'string',
+      maxResults: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRecentlyRecycledDirectoriesResponseBody extends $tea.Model {
+  requestId?: string;
+  nextToken?: string;
+  entries?: ListRecentlyRecycledDirectoriesResponseBodyEntries[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      nextToken: 'NextToken',
+      entries: 'Entries',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      nextToken: 'string',
+      entries: { 'type': 'array', 'itemType': ListRecentlyRecycledDirectoriesResponseBodyEntries },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRecentlyRecycledDirectoriesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListRecentlyRecycledDirectoriesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListRecentlyRecycledDirectoriesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRecycleBinJobsRequest extends $tea.Model {
+  fileSystemId?: string;
+  jobId?: string;
+  pageSize?: number;
+  pageNumber?: number;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fileSystemId: 'FileSystemId',
+      jobId: 'JobId',
+      pageSize: 'PageSize',
+      pageNumber: 'PageNumber',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileSystemId: 'string',
+      jobId: 'string',
+      pageSize: 'number',
+      pageNumber: 'number',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRecycleBinJobsResponseBody extends $tea.Model {
+  requestId?: string;
+  totalCount?: number;
+  pageNumber?: number;
+  pageSize?: number;
+  jobs?: ListRecycleBinJobsResponseBodyJobs[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      jobs: 'Jobs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      totalCount: 'number',
+      pageNumber: 'number',
+      pageSize: 'number',
+      jobs: { 'type': 'array', 'itemType': ListRecycleBinJobsResponseBodyJobs },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRecycleBinJobsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListRecycleBinJobsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListRecycleBinJobsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRecycledDirectoriesAndFilesRequest extends $tea.Model {
+  fileSystemId?: string;
+  fileId?: string;
+  nextToken?: string;
+  maxResults?: number;
+  static names(): { [key: string]: string } {
+    return {
+      fileSystemId: 'FileSystemId',
+      fileId: 'FileId',
+      nextToken: 'NextToken',
+      maxResults: 'MaxResults',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileSystemId: 'string',
+      fileId: 'string',
+      nextToken: 'string',
+      maxResults: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRecycledDirectoriesAndFilesResponseBody extends $tea.Model {
+  requestId?: string;
+  nextToken?: string;
+  entries?: ListRecycledDirectoriesAndFilesResponseBodyEntries[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      nextToken: 'NextToken',
+      entries: 'Entries',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      nextToken: 'string',
+      entries: { 'type': 'array', 'itemType': ListRecycledDirectoriesAndFilesResponseBodyEntries },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRecycledDirectoriesAndFilesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListRecycledDirectoriesAndFilesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListRecycledDirectoriesAndFilesResponseBody,
     };
   }
 
@@ -3507,19 +4461,19 @@ export class ModifyMountTargetResponse extends $tea.Model {
 }
 
 export class OpenNASServiceResponseBody extends $tea.Model {
-  requestId?: string;
   orderId?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       orderId: 'OrderId',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       orderId: 'string',
+      requestId: 'string',
     };
   }
 
@@ -3745,6 +4699,66 @@ export class ResetFileSystemResponse extends $tea.Model {
   }
 }
 
+export class RetryLifecycleRetrieveJobRequest extends $tea.Model {
+  jobId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jobId: 'JobId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RetryLifecycleRetrieveJobResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RetryLifecycleRetrieveJobResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: RetryLifecycleRetrieveJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: RetryLifecycleRetrieveJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SetDirQuotaRequest extends $tea.Model {
   fileSystemId?: string;
   path?: string;
@@ -3783,19 +4797,19 @@ export class SetDirQuotaRequest extends $tea.Model {
 }
 
 export class SetDirQuotaResponseBody extends $tea.Model {
-  requestId?: string;
   success?: boolean;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       success: 'Success',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       success: 'boolean',
+      requestId: 'string',
     };
   }
 
@@ -3953,6 +4967,69 @@ export class UntagResourcesResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: UntagResourcesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateRecycleBinAttributeRequest extends $tea.Model {
+  fileSystemId?: string;
+  reservedDays?: number;
+  static names(): { [key: string]: string } {
+    return {
+      fileSystemId: 'FileSystemId',
+      reservedDays: 'ReservedDays',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileSystemId: 'string',
+      reservedDays: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateRecycleBinAttributeResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateRecycleBinAttributeResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: UpdateRecycleBinAttributeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: UpdateRecycleBinAttributeResponseBody,
     };
   }
 
@@ -4237,19 +5314,19 @@ export class DescribeAutoSnapshotPoliciesResponseBodyAutoSnapshotPolicies extend
 }
 
 export class DescribeAutoSnapshotTasksResponseBodyAutoSnapshotTasksAutoSnapshotTask extends $tea.Model {
-  sourceFileSystemId?: string;
   autoSnapshotPolicyId?: string;
+  sourceFileSystemId?: string;
   static names(): { [key: string]: string } {
     return {
-      sourceFileSystemId: 'SourceFileSystemId',
       autoSnapshotPolicyId: 'AutoSnapshotPolicyId',
+      sourceFileSystemId: 'SourceFileSystemId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      sourceFileSystemId: 'string',
       autoSnapshotPolicyId: 'string',
+      sourceFileSystemId: 'string',
     };
   }
 
@@ -4315,14 +5392,14 @@ export class DescribeDirQuotasResponseBodyDirQuotaInfosUserQuotaInfos extends $t
 }
 
 export class DescribeDirQuotasResponseBodyDirQuotaInfos extends $tea.Model {
-  status?: string;
   path?: string;
+  status?: string;
   dirInode?: string;
   userQuotaInfos?: DescribeDirQuotasResponseBodyDirQuotaInfosUserQuotaInfos[];
   static names(): { [key: string]: string } {
     return {
-      status: 'Status',
       path: 'Path',
+      status: 'Status',
       dirInode: 'DirInode',
       userQuotaInfos: 'UserQuotaInfos',
     };
@@ -4330,8 +5407,8 @@ export class DescribeDirQuotasResponseBodyDirQuotaInfos extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      status: 'string',
       path: 'string',
+      status: 'string',
       dirInode: 'string',
       userQuotaInfos: { 'type': 'array', 'itemType': DescribeDirQuotasResponseBodyDirQuotaInfosUserQuotaInfos },
     };
@@ -4364,83 +5441,23 @@ export class DescribeFileSystemsRequestTag extends $tea.Model {
   }
 }
 
-export class DescribeFileSystemsResponseBodyFileSystemsFileSystemTagsTag extends $tea.Model {
-  key?: string;
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeFileSystemsResponseBodyFileSystemsFileSystemTags extends $tea.Model {
-  tag?: DescribeFileSystemsResponseBodyFileSystemsFileSystemTagsTag[];
-  static names(): { [key: string]: string } {
-    return {
-      tag: 'Tag',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      tag: { 'type': 'array', 'itemType': DescribeFileSystemsResponseBodyFileSystemsFileSystemTagsTag },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeFileSystemsResponseBodyFileSystemsFileSystemSupportedFeatures extends $tea.Model {
-  supportedFeature?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      supportedFeature: 'SupportedFeature',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      supportedFeature: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeFileSystemsResponseBodyFileSystemsFileSystemMountTargetsMountTargetClientMasterNodesClientMasterNode extends $tea.Model {
+  ecsIp?: string;
   ecsId?: string;
   defaultPasswd?: string;
-  ecsIp?: string;
   static names(): { [key: string]: string } {
     return {
+      ecsIp: 'EcsIp',
       ecsId: 'EcsId',
       defaultPasswd: 'DefaultPasswd',
-      ecsIp: 'EcsIp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      ecsIp: 'string',
       ecsId: 'string',
       defaultPasswd: 'string',
-      ecsIp: 'string',
     };
   }
 
@@ -4512,24 +5529,24 @@ export class DescribeFileSystemsResponseBodyFileSystemsFileSystemMountTargetsMou
 export class DescribeFileSystemsResponseBodyFileSystemsFileSystemMountTargetsMountTarget extends $tea.Model {
   vpcId?: string;
   status?: string;
-  clientMasterNodes?: DescribeFileSystemsResponseBodyFileSystemsFileSystemMountTargetsMountTargetClientMasterNodes;
   mountTargetDomain?: string;
   accessGroupName?: string;
   dualStackMountTargetDomain?: string;
   vswId?: string;
-  tags?: DescribeFileSystemsResponseBodyFileSystemsFileSystemMountTargetsMountTargetTags;
   networkType?: string;
+  clientMasterNodes?: DescribeFileSystemsResponseBodyFileSystemsFileSystemMountTargetsMountTargetClientMasterNodes;
+  tags?: DescribeFileSystemsResponseBodyFileSystemsFileSystemMountTargetsMountTargetTags;
   static names(): { [key: string]: string } {
     return {
       vpcId: 'VpcId',
       status: 'Status',
-      clientMasterNodes: 'ClientMasterNodes',
       mountTargetDomain: 'MountTargetDomain',
       accessGroupName: 'AccessGroupName',
       dualStackMountTargetDomain: 'DualStackMountTargetDomain',
       vswId: 'VswId',
-      tags: 'Tags',
       networkType: 'NetworkType',
+      clientMasterNodes: 'ClientMasterNodes',
+      tags: 'Tags',
     };
   }
 
@@ -4537,13 +5554,13 @@ export class DescribeFileSystemsResponseBodyFileSystemsFileSystemMountTargetsMou
     return {
       vpcId: 'string',
       status: 'string',
-      clientMasterNodes: DescribeFileSystemsResponseBodyFileSystemsFileSystemMountTargetsMountTargetClientMasterNodes,
       mountTargetDomain: 'string',
       accessGroupName: 'string',
       dualStackMountTargetDomain: 'string',
       vswId: 'string',
-      tags: DescribeFileSystemsResponseBodyFileSystemsFileSystemMountTargetsMountTargetTags,
       networkType: 'string',
+      clientMasterNodes: DescribeFileSystemsResponseBodyFileSystemsFileSystemMountTargetsMountTargetClientMasterNodes,
+      tags: DescribeFileSystemsResponseBodyFileSystemsFileSystemMountTargetsMountTargetTags,
     };
   }
 
@@ -4571,43 +5588,18 @@ export class DescribeFileSystemsResponseBodyFileSystemsFileSystemMountTargets ex
   }
 }
 
-export class DescribeFileSystemsResponseBodyFileSystemsFileSystemLdap extends $tea.Model {
-  bindDN?: string;
-  searchBase?: string;
-  URI?: string;
-  static names(): { [key: string]: string } {
-    return {
-      bindDN: 'BindDN',
-      searchBase: 'SearchBase',
-      URI: 'URI',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bindDN: 'string',
-      searchBase: 'string',
-      URI: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeFileSystemsResponseBodyFileSystemsFileSystemPackagesPackage extends $tea.Model {
   startTime?: string;
+  packageId?: string;
   expiredTime?: string;
   size?: number;
-  packageId?: string;
   packageType?: string;
   static names(): { [key: string]: string } {
     return {
       startTime: 'StartTime',
+      packageId: 'PackageId',
       expiredTime: 'ExpiredTime',
       size: 'Size',
-      packageId: 'PackageId',
       packageType: 'PackageType',
     };
   }
@@ -4615,9 +5607,9 @@ export class DescribeFileSystemsResponseBodyFileSystemsFileSystemPackagesPackage
   static types(): { [key: string]: any } {
     return {
       startTime: 'string',
+      packageId: 'string',
       expiredTime: 'string',
       size: 'number',
-      packageId: 'string',
       packageType: 'string',
     };
   }
@@ -4646,83 +5638,168 @@ export class DescribeFileSystemsResponseBodyFileSystemsFileSystemPackages extend
   }
 }
 
+export class DescribeFileSystemsResponseBodyFileSystemsFileSystemTagsTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeFileSystemsResponseBodyFileSystemsFileSystemTags extends $tea.Model {
+  tag?: DescribeFileSystemsResponseBodyFileSystemsFileSystemTagsTag[];
+  static names(): { [key: string]: string } {
+    return {
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tag: { 'type': 'array', 'itemType': DescribeFileSystemsResponseBodyFileSystemsFileSystemTagsTag },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeFileSystemsResponseBodyFileSystemsFileSystemSupportedFeatures extends $tea.Model {
+  supportedFeature?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      supportedFeature: 'SupportedFeature',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      supportedFeature: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeFileSystemsResponseBodyFileSystemsFileSystemLdap extends $tea.Model {
+  searchBase?: string;
+  URI?: string;
+  bindDN?: string;
+  static names(): { [key: string]: string } {
+    return {
+      searchBase: 'SearchBase',
+      URI: 'URI',
+      bindDN: 'BindDN',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      searchBase: 'string',
+      URI: 'string',
+      bindDN: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeFileSystemsResponseBodyFileSystemsFileSystem extends $tea.Model {
   status?: string;
-  meteredIASize?: number;
   capacity?: number;
+  meteredIASize?: number;
   createTime?: string;
   chargeType?: string;
-  tags?: DescribeFileSystemsResponseBodyFileSystemsFileSystemTags;
   storageType?: string;
-  meteredSize?: number;
-  description?: string;
-  bandwidth?: number;
-  supportedFeatures?: DescribeFileSystemsResponseBodyFileSystemsFileSystemSupportedFeatures;
-  version?: string;
-  protocolType?: string;
-  mountTargets?: DescribeFileSystemsResponseBodyFileSystemsFileSystemMountTargets;
-  KMSKeyId?: string;
   regionId?: string;
   fileSystemType?: string;
   fileSystemId?: string;
+  meteredSize?: number;
   encryptType?: number;
-  ldap?: DescribeFileSystemsResponseBodyFileSystemsFileSystemLdap;
+  bandwidth?: number;
+  description?: string;
+  version?: string;
   expiredTime?: string;
   zoneId?: string;
+  protocolType?: string;
+  KMSKeyId?: string;
+  mountTargets?: DescribeFileSystemsResponseBodyFileSystemsFileSystemMountTargets;
   packages?: DescribeFileSystemsResponseBodyFileSystemsFileSystemPackages;
+  tags?: DescribeFileSystemsResponseBodyFileSystemsFileSystemTags;
+  supportedFeatures?: DescribeFileSystemsResponseBodyFileSystemsFileSystemSupportedFeatures;
+  ldap?: DescribeFileSystemsResponseBodyFileSystemsFileSystemLdap;
   static names(): { [key: string]: string } {
     return {
       status: 'Status',
-      meteredIASize: 'MeteredIASize',
       capacity: 'Capacity',
+      meteredIASize: 'MeteredIASize',
       createTime: 'CreateTime',
       chargeType: 'ChargeType',
-      tags: 'Tags',
       storageType: 'StorageType',
-      meteredSize: 'MeteredSize',
-      description: 'Description',
-      bandwidth: 'Bandwidth',
-      supportedFeatures: 'SupportedFeatures',
-      version: 'Version',
-      protocolType: 'ProtocolType',
-      mountTargets: 'MountTargets',
-      KMSKeyId: 'KMSKeyId',
       regionId: 'RegionId',
       fileSystemType: 'FileSystemType',
       fileSystemId: 'FileSystemId',
+      meteredSize: 'MeteredSize',
       encryptType: 'EncryptType',
-      ldap: 'Ldap',
+      bandwidth: 'Bandwidth',
+      description: 'Description',
+      version: 'Version',
       expiredTime: 'ExpiredTime',
       zoneId: 'ZoneId',
+      protocolType: 'ProtocolType',
+      KMSKeyId: 'KMSKeyId',
+      mountTargets: 'MountTargets',
       packages: 'Packages',
+      tags: 'Tags',
+      supportedFeatures: 'SupportedFeatures',
+      ldap: 'Ldap',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       status: 'string',
-      meteredIASize: 'number',
       capacity: 'number',
+      meteredIASize: 'number',
       createTime: 'string',
       chargeType: 'string',
-      tags: DescribeFileSystemsResponseBodyFileSystemsFileSystemTags,
       storageType: 'string',
-      meteredSize: 'number',
-      description: 'string',
-      bandwidth: 'number',
-      supportedFeatures: DescribeFileSystemsResponseBodyFileSystemsFileSystemSupportedFeatures,
-      version: 'string',
-      protocolType: 'string',
-      mountTargets: DescribeFileSystemsResponseBodyFileSystemsFileSystemMountTargets,
-      KMSKeyId: 'string',
       regionId: 'string',
       fileSystemType: 'string',
       fileSystemId: 'string',
+      meteredSize: 'number',
       encryptType: 'number',
-      ldap: DescribeFileSystemsResponseBodyFileSystemsFileSystemLdap,
+      bandwidth: 'number',
+      description: 'string',
+      version: 'string',
       expiredTime: 'string',
       zoneId: 'string',
+      protocolType: 'string',
+      KMSKeyId: 'string',
+      mountTargets: DescribeFileSystemsResponseBodyFileSystemsFileSystemMountTargets,
       packages: DescribeFileSystemsResponseBodyFileSystemsFileSystemPackages,
+      tags: DescribeFileSystemsResponseBodyFileSystemsFileSystemTags,
+      supportedFeatures: DescribeFileSystemsResponseBodyFileSystemsFileSystemSupportedFeatures,
+      ldap: DescribeFileSystemsResponseBodyFileSystemsFileSystemLdap,
     };
   }
 
@@ -4751,16 +5828,16 @@ export class DescribeFileSystemsResponseBodyFileSystems extends $tea.Model {
 }
 
 export class DescribeFileSystemStatisticsResponseBodyFileSystemStatisticsFileSystemStatistic extends $tea.Model {
+  expiringCount?: number;
   fileSystemType?: string;
   meteredSize?: number;
-  expiringCount?: number;
   totalCount?: number;
   expiredCount?: number;
   static names(): { [key: string]: string } {
     return {
+      expiringCount: 'ExpiringCount',
       fileSystemType: 'FileSystemType',
       meteredSize: 'MeteredSize',
-      expiringCount: 'ExpiringCount',
       totalCount: 'TotalCount',
       expiredCount: 'ExpiredCount',
     };
@@ -4768,9 +5845,9 @@ export class DescribeFileSystemStatisticsResponseBodyFileSystemStatisticsFileSys
 
   static types(): { [key: string]: any } {
     return {
+      expiringCount: 'number',
       fileSystemType: 'string',
       meteredSize: 'number',
-      expiringCount: 'number',
       totalCount: 'number',
       expiredCount: 'number',
     };
@@ -4800,23 +5877,150 @@ export class DescribeFileSystemStatisticsResponseBodyFileSystemStatistics extend
   }
 }
 
-export class DescribeLDAPConfigResponseBodyLdap extends $tea.Model {
-  bindDN?: string;
-  searchBase?: string;
-  URI?: string;
+export class DescribeFileSystemStatisticsResponseBodyFileSystemsFileSystemPackagesPackage extends $tea.Model {
+  startTime?: string;
+  packageId?: string;
+  expiredTime?: string;
+  size?: number;
   static names(): { [key: string]: string } {
     return {
-      bindDN: 'BindDN',
-      searchBase: 'SearchBase',
-      URI: 'URI',
+      startTime: 'StartTime',
+      packageId: 'PackageId',
+      expiredTime: 'ExpiredTime',
+      size: 'Size',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      bindDN: 'string',
+      startTime: 'string',
+      packageId: 'string',
+      expiredTime: 'string',
+      size: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeFileSystemStatisticsResponseBodyFileSystemsFileSystemPackages extends $tea.Model {
+  package?: DescribeFileSystemStatisticsResponseBodyFileSystemsFileSystemPackagesPackage[];
+  static names(): { [key: string]: string } {
+    return {
+      package: 'Package',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      package: { 'type': 'array', 'itemType': DescribeFileSystemStatisticsResponseBodyFileSystemsFileSystemPackagesPackage },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeFileSystemStatisticsResponseBodyFileSystemsFileSystem extends $tea.Model {
+  status?: string;
+  meteredIASize?: number;
+  capacity?: number;
+  createTime?: string;
+  chargeType?: string;
+  storageType?: string;
+  regionId?: string;
+  fileSystemId?: string;
+  fileSystemType?: string;
+  meteredSize?: number;
+  description?: string;
+  expiredTime?: string;
+  zoneId?: string;
+  protocolType?: string;
+  packages?: DescribeFileSystemStatisticsResponseBodyFileSystemsFileSystemPackages;
+  static names(): { [key: string]: string } {
+    return {
+      status: 'Status',
+      meteredIASize: 'MeteredIASize',
+      capacity: 'Capacity',
+      createTime: 'CreateTime',
+      chargeType: 'ChargeType',
+      storageType: 'StorageType',
+      regionId: 'RegionId',
+      fileSystemId: 'FileSystemId',
+      fileSystemType: 'FileSystemType',
+      meteredSize: 'MeteredSize',
+      description: 'Description',
+      expiredTime: 'ExpiredTime',
+      zoneId: 'ZoneId',
+      protocolType: 'ProtocolType',
+      packages: 'Packages',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      status: 'string',
+      meteredIASize: 'number',
+      capacity: 'number',
+      createTime: 'string',
+      chargeType: 'string',
+      storageType: 'string',
+      regionId: 'string',
+      fileSystemId: 'string',
+      fileSystemType: 'string',
+      meteredSize: 'number',
+      description: 'string',
+      expiredTime: 'string',
+      zoneId: 'string',
+      protocolType: 'string',
+      packages: DescribeFileSystemStatisticsResponseBodyFileSystemsFileSystemPackages,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeFileSystemStatisticsResponseBodyFileSystems extends $tea.Model {
+  fileSystem?: DescribeFileSystemStatisticsResponseBodyFileSystemsFileSystem[];
+  static names(): { [key: string]: string } {
+    return {
+      fileSystem: 'FileSystem',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileSystem: { 'type': 'array', 'itemType': DescribeFileSystemStatisticsResponseBodyFileSystemsFileSystem },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLDAPConfigResponseBodyLdap extends $tea.Model {
+  searchBase?: string;
+  URI?: string;
+  bindDN?: string;
+  static names(): { [key: string]: string } {
+    return {
+      searchBase: 'SearchBase',
+      URI: 'URI',
+      bindDN: 'BindDN',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
       searchBase: 'string',
       URI: 'string',
+      bindDN: 'string',
     };
   }
 
@@ -4832,6 +6036,7 @@ export class DescribeLifecyclePoliciesResponseBodyLifecyclePolicies extends $tea
   path?: string;
   storageType?: string;
   lifecyclePolicyName?: string;
+  paths?: string[];
   static names(): { [key: string]: string } {
     return {
       fileSystemId: 'FileSystemId',
@@ -4840,6 +6045,7 @@ export class DescribeLifecyclePoliciesResponseBodyLifecyclePolicies extends $tea
       path: 'Path',
       storageType: 'StorageType',
       lifecyclePolicyName: 'LifecyclePolicyName',
+      paths: 'Paths',
     };
   }
 
@@ -4851,6 +6057,7 @@ export class DescribeLifecyclePoliciesResponseBodyLifecyclePolicies extends $tea
       path: 'string',
       storageType: 'string',
       lifecyclePolicyName: 'string',
+      paths: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -4860,25 +6067,25 @@ export class DescribeLifecyclePoliciesResponseBodyLifecyclePolicies extends $tea
 }
 
 export class DescribeLogAnalysisResponseBodyAnalysesAnalysisMetaValue extends $tea.Model {
-  roleArn?: string;
-  region?: string;
   logstore?: string;
+  roleArn?: string;
   project?: string;
+  region?: string;
   static names(): { [key: string]: string } {
     return {
-      roleArn: 'RoleArn',
-      region: 'Region',
       logstore: 'Logstore',
+      roleArn: 'RoleArn',
       project: 'Project',
+      region: 'Region',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      roleArn: 'string',
-      region: 'string',
       logstore: 'string',
+      roleArn: 'string',
       project: 'string',
+      region: 'string',
     };
   }
 
@@ -4967,22 +6174,22 @@ export class DescribeMountedClientsResponseBodyClients extends $tea.Model {
 }
 
 export class DescribeMountTargetsResponseBodyMountTargetsMountTargetClientMasterNodesClientMasterNode extends $tea.Model {
+  ecsIp?: string;
   ecsId?: string;
   defaultPasswd?: string;
-  ecsIp?: string;
   static names(): { [key: string]: string } {
     return {
+      ecsIp: 'EcsIp',
       ecsId: 'EcsId',
       defaultPasswd: 'DefaultPasswd',
-      ecsIp: 'EcsIp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      ecsIp: 'string',
       ecsId: 'string',
       defaultPasswd: 'string',
-      ecsIp: 'string',
     };
   }
 
@@ -5013,22 +6220,22 @@ export class DescribeMountTargetsResponseBodyMountTargetsMountTargetClientMaster
 export class DescribeMountTargetsResponseBodyMountTargetsMountTarget extends $tea.Model {
   vpcId?: string;
   status?: string;
-  clientMasterNodes?: DescribeMountTargetsResponseBodyMountTargetsMountTargetClientMasterNodes;
   mountTargetDomain?: string;
   accessGroup?: string;
   dualStackMountTargetDomain?: string;
   vswId?: string;
   networkType?: string;
+  clientMasterNodes?: DescribeMountTargetsResponseBodyMountTargetsMountTargetClientMasterNodes;
   static names(): { [key: string]: string } {
     return {
       vpcId: 'VpcId',
       status: 'Status',
-      clientMasterNodes: 'ClientMasterNodes',
       mountTargetDomain: 'MountTargetDomain',
       accessGroup: 'AccessGroup',
       dualStackMountTargetDomain: 'DualStackMountTargetDomain',
       vswId: 'VswId',
       networkType: 'NetworkType',
+      clientMasterNodes: 'ClientMasterNodes',
     };
   }
 
@@ -5036,12 +6243,12 @@ export class DescribeMountTargetsResponseBodyMountTargetsMountTarget extends $te
     return {
       vpcId: 'string',
       status: 'string',
-      clientMasterNodes: DescribeMountTargetsResponseBodyMountTargetsMountTargetClientMasterNodes,
       mountTargetDomain: 'string',
       accessGroup: 'string',
       dualStackMountTargetDomain: 'string',
       vswId: 'string',
       networkType: 'string',
+      clientMasterNodes: DescribeMountTargetsResponseBodyMountTargetsMountTargetClientMasterNodes,
     };
   }
 
@@ -5070,21 +6277,21 @@ export class DescribeMountTargetsResponseBodyMountTargets extends $tea.Model {
 }
 
 export class DescribeRegionsResponseBodyRegionsRegion extends $tea.Model {
-  localName?: string;
   regionEndpoint?: string;
+  localName?: string;
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      localName: 'LocalName',
       regionEndpoint: 'RegionEndpoint',
+      localName: 'LocalName',
       regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      localName: 'string',
       regionEndpoint: 'string',
+      localName: 'string',
       regionId: 'string',
     };
   }
@@ -5118,11 +6325,11 @@ export class DescribeSnapshotsResponseBodySnapshotsSnapshot extends $tea.Model {
   progress?: string;
   createTime?: string;
   sourceFileSystemId?: string;
-  retentionDays?: number;
   remainTime?: number;
+  retentionDays?: number;
   sourceFileSystemSize?: number;
-  sourceFileSystemVersion?: string;
   snapshotName?: string;
+  sourceFileSystemVersion?: string;
   encryptType?: number;
   description?: string;
   snapshotId?: string;
@@ -5132,11 +6339,11 @@ export class DescribeSnapshotsResponseBodySnapshotsSnapshot extends $tea.Model {
       progress: 'Progress',
       createTime: 'CreateTime',
       sourceFileSystemId: 'SourceFileSystemId',
-      retentionDays: 'RetentionDays',
       remainTime: 'RemainTime',
+      retentionDays: 'RetentionDays',
       sourceFileSystemSize: 'SourceFileSystemSize',
-      sourceFileSystemVersion: 'SourceFileSystemVersion',
       snapshotName: 'SnapshotName',
+      sourceFileSystemVersion: 'SourceFileSystemVersion',
       encryptType: 'EncryptType',
       description: 'Description',
       snapshotId: 'SnapshotId',
@@ -5149,11 +6356,11 @@ export class DescribeSnapshotsResponseBodySnapshotsSnapshot extends $tea.Model {
       progress: 'string',
       createTime: 'string',
       sourceFileSystemId: 'string',
-      retentionDays: 'number',
       remainTime: 'number',
+      retentionDays: 'number',
       sourceFileSystemSize: 'number',
-      sourceFileSystemVersion: 'string',
       snapshotName: 'string',
+      sourceFileSystemVersion: 'string',
       encryptType: 'number',
       description: 'string',
       snapshotId: 'string',
@@ -5363,15 +6570,58 @@ export class DescribeZonesResponseBodyZonesZoneCapacity extends $tea.Model {
   }
 }
 
+export class DescribeZonesResponseBodyZonesZoneInstanceTypesInstanceType extends $tea.Model {
+  storageType?: string;
+  protocolType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      storageType: 'StorageType',
+      protocolType: 'ProtocolType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      storageType: 'string',
+      protocolType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeZonesResponseBodyZonesZoneInstanceTypes extends $tea.Model {
+  instanceType?: DescribeZonesResponseBodyZonesZoneInstanceTypesInstanceType[];
+  static names(): { [key: string]: string } {
+    return {
+      instanceType: 'InstanceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceType: { 'type': 'array', 'itemType': DescribeZonesResponseBodyZonesZoneInstanceTypesInstanceType },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeZonesResponseBodyZonesZone extends $tea.Model {
   performance?: DescribeZonesResponseBodyZonesZonePerformance;
   capacity?: DescribeZonesResponseBodyZonesZoneCapacity;
   zoneId?: string;
+  instanceTypes?: DescribeZonesResponseBodyZonesZoneInstanceTypes;
   static names(): { [key: string]: string } {
     return {
       performance: 'Performance',
       capacity: 'Capacity',
       zoneId: 'ZoneId',
+      instanceTypes: 'InstanceTypes',
     };
   }
 
@@ -5380,6 +6630,7 @@ export class DescribeZonesResponseBodyZonesZone extends $tea.Model {
       performance: DescribeZonesResponseBodyZonesZonePerformance,
       capacity: DescribeZonesResponseBodyZonesZoneCapacity,
       zoneId: 'string',
+      instanceTypes: DescribeZonesResponseBodyZonesZoneInstanceTypes,
     };
   }
 
@@ -5399,6 +6650,283 @@ export class DescribeZonesResponseBodyZones extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       zone: { 'type': 'array', 'itemType': DescribeZonesResponseBodyZonesZone },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDirectoryOrFilePropertiesResponseBodyEntry extends $tea.Model {
+  type?: string;
+  hasInfrequentAccessFile?: boolean;
+  MTime?: string;
+  ATime?: string;
+  size?: number;
+  CTime?: string;
+  storageType?: string;
+  name?: string;
+  retrieveTime?: string;
+  inode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      type: 'Type',
+      hasInfrequentAccessFile: 'HasInfrequentAccessFile',
+      MTime: 'MTime',
+      ATime: 'ATime',
+      size: 'Size',
+      CTime: 'CTime',
+      storageType: 'StorageType',
+      name: 'Name',
+      retrieveTime: 'RetrieveTime',
+      inode: 'Inode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      type: 'string',
+      hasInfrequentAccessFile: 'boolean',
+      MTime: 'string',
+      ATime: 'string',
+      size: 'number',
+      CTime: 'string',
+      storageType: 'string',
+      name: 'string',
+      retrieveTime: 'string',
+      inode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRecycleBinAttributeResponseBodyRecycleBinAttribute extends $tea.Model {
+  size?: number;
+  status?: string;
+  reservedDays?: number;
+  enableTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      size: 'Size',
+      status: 'Status',
+      reservedDays: 'ReservedDays',
+      enableTime: 'EnableTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      size: 'number',
+      status: 'string',
+      reservedDays: 'number',
+      enableTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDirectoriesAndFilesResponseBodyEntries extends $tea.Model {
+  type?: string;
+  hasInfrequentAccessFile?: boolean;
+  ctime?: string;
+  mtime?: string;
+  size?: number;
+  storageType?: string;
+  atime?: string;
+  name?: string;
+  retrieveTime?: string;
+  inode?: string;
+  fileId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      type: 'Type',
+      hasInfrequentAccessFile: 'HasInfrequentAccessFile',
+      ctime: 'Ctime',
+      mtime: 'Mtime',
+      size: 'Size',
+      storageType: 'StorageType',
+      atime: 'Atime',
+      name: 'Name',
+      retrieveTime: 'RetrieveTime',
+      inode: 'Inode',
+      fileId: 'FileId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      type: 'string',
+      hasInfrequentAccessFile: 'boolean',
+      ctime: 'string',
+      mtime: 'string',
+      size: 'number',
+      storageType: 'string',
+      atime: 'string',
+      name: 'string',
+      retrieveTime: 'string',
+      inode: 'string',
+      fileId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListLifecycleRetrieveJobsResponseBodyLifecycleRetrieveJobs extends $tea.Model {
+  fileSystemId?: string;
+  status?: string;
+  discoveredFileCount?: number;
+  updateTime?: string;
+  paths?: string[];
+  retrievedFileCount?: number;
+  jobId?: string;
+  createTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fileSystemId: 'FileSystemId',
+      status: 'Status',
+      discoveredFileCount: 'DiscoveredFileCount',
+      updateTime: 'UpdateTime',
+      paths: 'Paths',
+      retrievedFileCount: 'RetrievedFileCount',
+      jobId: 'JobId',
+      createTime: 'CreateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileSystemId: 'string',
+      status: 'string',
+      discoveredFileCount: 'number',
+      updateTime: 'string',
+      paths: { 'type': 'array', 'itemType': 'string' },
+      retrievedFileCount: 'number',
+      jobId: 'string',
+      createTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRecentlyRecycledDirectoriesResponseBodyEntries extends $tea.Model {
+  fileId?: string;
+  path?: string;
+  name?: string;
+  lastDeleteTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fileId: 'FileId',
+      path: 'Path',
+      name: 'Name',
+      lastDeleteTime: 'LastDeleteTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileId: 'string',
+      path: 'string',
+      name: 'string',
+      lastDeleteTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRecycleBinJobsResponseBodyJobs extends $tea.Model {
+  id?: string;
+  type?: string;
+  fileId?: string;
+  status?: string;
+  errorCode?: string;
+  progress?: string;
+  createTime?: string;
+  fileName?: string;
+  errorMessage?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      type: 'Type',
+      fileId: 'FileId',
+      status: 'Status',
+      errorCode: 'ErrorCode',
+      progress: 'Progress',
+      createTime: 'CreateTime',
+      fileName: 'FileName',
+      errorMessage: 'ErrorMessage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      type: 'string',
+      fileId: 'string',
+      status: 'string',
+      errorCode: 'string',
+      progress: 'string',
+      createTime: 'string',
+      fileName: 'string',
+      errorMessage: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRecycledDirectoriesAndFilesResponseBodyEntries extends $tea.Model {
+  fileId?: string;
+  type?: string;
+  name?: string;
+  deleteTime?: string;
+  inode?: string;
+  ATime?: string;
+  MTime?: string;
+  CTime?: string;
+  size?: number;
+  static names(): { [key: string]: string } {
+    return {
+      fileId: 'FileId',
+      type: 'Type',
+      name: 'Name',
+      deleteTime: 'DeleteTime',
+      inode: 'Inode',
+      ATime: 'ATime',
+      MTime: 'MTime',
+      CTime: 'CTime',
+      size: 'Size',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileId: 'string',
+      type: 'string',
+      name: 'string',
+      deleteTime: 'string',
+      inode: 'string',
+      ATime: 'string',
+      MTime: 'string',
+      CTime: 'string',
+      size: 'number',
     };
   }
 
@@ -5430,14 +6958,14 @@ export class ListTagResourcesRequestTag extends $tea.Model {
 }
 
 export class ListTagResourcesResponseBodyTagResourcesTagResource extends $tea.Model {
-  resourceType?: string;
   tagValue?: string;
+  resourceType?: string;
   resourceId?: string;
   tagKey?: string;
   static names(): { [key: string]: string } {
     return {
-      resourceType: 'ResourceType',
       tagValue: 'TagValue',
+      resourceType: 'ResourceType',
       resourceId: 'ResourceId',
       tagKey: 'TagKey',
     };
@@ -5445,8 +6973,8 @@ export class ListTagResourcesResponseBodyTagResourcesTagResource extends $tea.Mo
 
   static types(): { [key: string]: any } {
     return {
-      resourceType: 'string',
       tagValue: 'string',
+      resourceType: 'string',
       resourceId: 'string',
       tagKey: 'string',
     };
@@ -5613,6 +7141,33 @@ export default class Client extends OpenApi {
     return await this.cancelDirQuotaWithOptions(request, runtime);
   }
 
+  async cancelLifecycleRetrieveJobWithOptions(request: CancelLifecycleRetrieveJobRequest, runtime: $Util.RuntimeOptions): Promise<CancelLifecycleRetrieveJobResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<CancelLifecycleRetrieveJobResponse>(await this.doRPCRequest("CancelLifecycleRetrieveJob", "2017-06-26", "HTTPS", "POST", "AK", "json", req, runtime), new CancelLifecycleRetrieveJobResponse({}));
+  }
+
+  async cancelLifecycleRetrieveJob(request: CancelLifecycleRetrieveJobRequest): Promise<CancelLifecycleRetrieveJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.cancelLifecycleRetrieveJobWithOptions(request, runtime);
+  }
+
+  async cancelRecycleBinJobWithOptions(request: CancelRecycleBinJobRequest, runtime: $Util.RuntimeOptions): Promise<CancelRecycleBinJobResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: query,
+    });
+    return $tea.cast<CancelRecycleBinJobResponse>(await this.doRPCRequest("CancelRecycleBinJob", "2017-06-26", "HTTPS", "GET", "AK", "json", req, runtime), new CancelRecycleBinJobResponse({}));
+  }
+
+  async cancelRecycleBinJob(request: CancelRecycleBinJobRequest): Promise<CancelRecycleBinJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.cancelRecycleBinJobWithOptions(request, runtime);
+  }
+
   async createAccessGroupWithOptions(request: CreateAccessGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateAccessGroupResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -5691,6 +7246,19 @@ export default class Client extends OpenApi {
     return await this.createLifecyclePolicyWithOptions(request, runtime);
   }
 
+  async createLifecycleRetrieveJobWithOptions(request: CreateLifecycleRetrieveJobRequest, runtime: $Util.RuntimeOptions): Promise<CreateLifecycleRetrieveJobResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<CreateLifecycleRetrieveJobResponse>(await this.doRPCRequest("CreateLifecycleRetrieveJob", "2017-06-26", "HTTPS", "POST", "AK", "json", req, runtime), new CreateLifecycleRetrieveJobResponse({}));
+  }
+
+  async createLifecycleRetrieveJob(request: CreateLifecycleRetrieveJobRequest): Promise<CreateLifecycleRetrieveJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createLifecycleRetrieveJobWithOptions(request, runtime);
+  }
+
   async createMountTargetWithOptions(request: CreateMountTargetRequest, runtime: $Util.RuntimeOptions): Promise<CreateMountTargetResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -5702,6 +7270,34 @@ export default class Client extends OpenApi {
   async createMountTarget(request: CreateMountTargetRequest): Promise<CreateMountTargetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createMountTargetWithOptions(request, runtime);
+  }
+
+  async createRecycleBinDeleteJobWithOptions(request: CreateRecycleBinDeleteJobRequest, runtime: $Util.RuntimeOptions): Promise<CreateRecycleBinDeleteJobResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: query,
+    });
+    return $tea.cast<CreateRecycleBinDeleteJobResponse>(await this.doRPCRequest("CreateRecycleBinDeleteJob", "2017-06-26", "HTTPS", "GET", "AK", "json", req, runtime), new CreateRecycleBinDeleteJobResponse({}));
+  }
+
+  async createRecycleBinDeleteJob(request: CreateRecycleBinDeleteJobRequest): Promise<CreateRecycleBinDeleteJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createRecycleBinDeleteJobWithOptions(request, runtime);
+  }
+
+  async createRecycleBinRestoreJobWithOptions(request: CreateRecycleBinRestoreJobRequest, runtime: $Util.RuntimeOptions): Promise<CreateRecycleBinRestoreJobResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: query,
+    });
+    return $tea.cast<CreateRecycleBinRestoreJobResponse>(await this.doRPCRequest("CreateRecycleBinRestoreJob", "2017-06-26", "HTTPS", "GET", "AK", "json", req, runtime), new CreateRecycleBinRestoreJobResponse({}));
+  }
+
+  async createRecycleBinRestoreJob(request: CreateRecycleBinRestoreJobRequest): Promise<CreateRecycleBinRestoreJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createRecycleBinRestoreJobWithOptions(request, runtime);
   }
 
   async createSnapshotWithOptions(request: CreateSnapshotRequest, runtime: $Util.RuntimeOptions): Promise<CreateSnapshotResponse> {
@@ -6056,6 +7652,128 @@ export default class Client extends OpenApi {
     return await this.describeZonesWithOptions(request, runtime);
   }
 
+  async disableAndCleanRecycleBinWithOptions(request: DisableAndCleanRecycleBinRequest, runtime: $Util.RuntimeOptions): Promise<DisableAndCleanRecycleBinResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: query,
+    });
+    return $tea.cast<DisableAndCleanRecycleBinResponse>(await this.doRPCRequest("DisableAndCleanRecycleBin", "2017-06-26", "HTTPS", "GET", "AK", "json", req, runtime), new DisableAndCleanRecycleBinResponse({}));
+  }
+
+  async disableAndCleanRecycleBin(request: DisableAndCleanRecycleBinRequest): Promise<DisableAndCleanRecycleBinResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.disableAndCleanRecycleBinWithOptions(request, runtime);
+  }
+
+  async enableRecycleBinWithOptions(request: EnableRecycleBinRequest, runtime: $Util.RuntimeOptions): Promise<EnableRecycleBinResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<EnableRecycleBinResponse>(await this.doRPCRequest("EnableRecycleBin", "2017-06-26", "HTTPS", "POST", "AK", "json", req, runtime), new EnableRecycleBinResponse({}));
+  }
+
+  async enableRecycleBin(request: EnableRecycleBinRequest): Promise<EnableRecycleBinResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.enableRecycleBinWithOptions(request, runtime);
+  }
+
+  async getDirectoryOrFilePropertiesWithOptions(request: GetDirectoryOrFilePropertiesRequest, runtime: $Util.RuntimeOptions): Promise<GetDirectoryOrFilePropertiesResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<GetDirectoryOrFilePropertiesResponse>(await this.doRPCRequest("GetDirectoryOrFileProperties", "2017-06-26", "HTTPS", "POST", "AK", "json", req, runtime), new GetDirectoryOrFilePropertiesResponse({}));
+  }
+
+  async getDirectoryOrFileProperties(request: GetDirectoryOrFilePropertiesRequest): Promise<GetDirectoryOrFilePropertiesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getDirectoryOrFilePropertiesWithOptions(request, runtime);
+  }
+
+  async getRecycleBinAttributeWithOptions(request: GetRecycleBinAttributeRequest, runtime: $Util.RuntimeOptions): Promise<GetRecycleBinAttributeResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: query,
+    });
+    return $tea.cast<GetRecycleBinAttributeResponse>(await this.doRPCRequest("GetRecycleBinAttribute", "2017-06-26", "HTTPS", "GET", "AK", "json", req, runtime), new GetRecycleBinAttributeResponse({}));
+  }
+
+  async getRecycleBinAttribute(request: GetRecycleBinAttributeRequest): Promise<GetRecycleBinAttributeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getRecycleBinAttributeWithOptions(request, runtime);
+  }
+
+  async listDirectoriesAndFilesWithOptions(request: ListDirectoriesAndFilesRequest, runtime: $Util.RuntimeOptions): Promise<ListDirectoriesAndFilesResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<ListDirectoriesAndFilesResponse>(await this.doRPCRequest("ListDirectoriesAndFiles", "2017-06-26", "HTTPS", "POST", "AK", "json", req, runtime), new ListDirectoriesAndFilesResponse({}));
+  }
+
+  async listDirectoriesAndFiles(request: ListDirectoriesAndFilesRequest): Promise<ListDirectoriesAndFilesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listDirectoriesAndFilesWithOptions(request, runtime);
+  }
+
+  async listLifecycleRetrieveJobsWithOptions(request: ListLifecycleRetrieveJobsRequest, runtime: $Util.RuntimeOptions): Promise<ListLifecycleRetrieveJobsResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<ListLifecycleRetrieveJobsResponse>(await this.doRPCRequest("ListLifecycleRetrieveJobs", "2017-06-26", "HTTPS", "POST", "AK", "json", req, runtime), new ListLifecycleRetrieveJobsResponse({}));
+  }
+
+  async listLifecycleRetrieveJobs(request: ListLifecycleRetrieveJobsRequest): Promise<ListLifecycleRetrieveJobsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listLifecycleRetrieveJobsWithOptions(request, runtime);
+  }
+
+  async listRecentlyRecycledDirectoriesWithOptions(request: ListRecentlyRecycledDirectoriesRequest, runtime: $Util.RuntimeOptions): Promise<ListRecentlyRecycledDirectoriesResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: query,
+    });
+    return $tea.cast<ListRecentlyRecycledDirectoriesResponse>(await this.doRPCRequest("ListRecentlyRecycledDirectories", "2017-06-26", "HTTPS", "GET", "AK", "json", req, runtime), new ListRecentlyRecycledDirectoriesResponse({}));
+  }
+
+  async listRecentlyRecycledDirectories(request: ListRecentlyRecycledDirectoriesRequest): Promise<ListRecentlyRecycledDirectoriesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listRecentlyRecycledDirectoriesWithOptions(request, runtime);
+  }
+
+  async listRecycleBinJobsWithOptions(request: ListRecycleBinJobsRequest, runtime: $Util.RuntimeOptions): Promise<ListRecycleBinJobsResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: query,
+    });
+    return $tea.cast<ListRecycleBinJobsResponse>(await this.doRPCRequest("ListRecycleBinJobs", "2017-06-26", "HTTPS", "GET", "AK", "json", req, runtime), new ListRecycleBinJobsResponse({}));
+  }
+
+  async listRecycleBinJobs(request: ListRecycleBinJobsRequest): Promise<ListRecycleBinJobsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listRecycleBinJobsWithOptions(request, runtime);
+  }
+
+  async listRecycledDirectoriesAndFilesWithOptions(request: ListRecycledDirectoriesAndFilesRequest, runtime: $Util.RuntimeOptions): Promise<ListRecycledDirectoriesAndFilesResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: query,
+    });
+    return $tea.cast<ListRecycledDirectoriesAndFilesResponse>(await this.doRPCRequest("ListRecycledDirectoriesAndFiles", "2017-06-26", "HTTPS", "GET", "AK", "json", req, runtime), new ListRecycledDirectoriesAndFilesResponse({}));
+  }
+
+  async listRecycledDirectoriesAndFiles(request: ListRecycledDirectoriesAndFilesRequest): Promise<ListRecycledDirectoriesAndFilesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listRecycledDirectoriesAndFilesWithOptions(request, runtime);
+  }
+
   async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -6209,6 +7927,19 @@ export default class Client extends OpenApi {
     return await this.resetFileSystemWithOptions(request, runtime);
   }
 
+  async retryLifecycleRetrieveJobWithOptions(request: RetryLifecycleRetrieveJobRequest, runtime: $Util.RuntimeOptions): Promise<RetryLifecycleRetrieveJobResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<RetryLifecycleRetrieveJobResponse>(await this.doRPCRequest("RetryLifecycleRetrieveJob", "2017-06-26", "HTTPS", "POST", "AK", "json", req, runtime), new RetryLifecycleRetrieveJobResponse({}));
+  }
+
+  async retryLifecycleRetrieveJob(request: RetryLifecycleRetrieveJobRequest): Promise<RetryLifecycleRetrieveJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.retryLifecycleRetrieveJobWithOptions(request, runtime);
+  }
+
   async setDirQuotaWithOptions(request: SetDirQuotaRequest, runtime: $Util.RuntimeOptions): Promise<SetDirQuotaResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -6246,6 +7977,20 @@ export default class Client extends OpenApi {
   async untagResources(request: UntagResourcesRequest): Promise<UntagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.untagResourcesWithOptions(request, runtime);
+  }
+
+  async updateRecycleBinAttributeWithOptions(request: UpdateRecycleBinAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateRecycleBinAttributeResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: query,
+    });
+    return $tea.cast<UpdateRecycleBinAttributeResponse>(await this.doRPCRequest("UpdateRecycleBinAttribute", "2017-06-26", "HTTPS", "GET", "AK", "json", req, runtime), new UpdateRecycleBinAttributeResponse({}));
+  }
+
+  async updateRecycleBinAttribute(request: UpdateRecycleBinAttributeRequest): Promise<UpdateRecycleBinAttributeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateRecycleBinAttributeWithOptions(request, runtime);
   }
 
   async upgradeFileSystemWithOptions(request: UpgradeFileSystemRequest, runtime: $Util.RuntimeOptions): Promise<UpgradeFileSystemResponse> {
