@@ -5342,6 +5342,159 @@ export class ExportDISyncTasksResponse extends $tea.Model {
   }
 }
 
+export class GenerateDISyncTaskConfigForCreatingRequest extends $tea.Model {
+  projectId?: number;
+  taskType?: string;
+  taskParam?: string;
+  clientToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      projectId: 'ProjectId',
+      taskType: 'TaskType',
+      taskParam: 'TaskParam',
+      clientToken: 'ClientToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectId: 'number',
+      taskType: 'string',
+      taskParam: 'string',
+      clientToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateDISyncTaskConfigForCreatingResponseBody extends $tea.Model {
+  success?: boolean;
+  requestId?: string;
+  data?: GenerateDISyncTaskConfigForCreatingResponseBodyData;
+  static names(): { [key: string]: string } {
+    return {
+      success: 'Success',
+      requestId: 'RequestId',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      success: 'boolean',
+      requestId: 'string',
+      data: GenerateDISyncTaskConfigForCreatingResponseBodyData,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateDISyncTaskConfigForCreatingResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GenerateDISyncTaskConfigForCreatingResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GenerateDISyncTaskConfigForCreatingResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateDISyncTaskConfigForUpdatingRequest extends $tea.Model {
+  projectId?: number;
+  taskType?: string;
+  taskParam?: string;
+  clientToken?: string;
+  taskId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      projectId: 'ProjectId',
+      taskType: 'TaskType',
+      taskParam: 'TaskParam',
+      clientToken: 'ClientToken',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectId: 'number',
+      taskType: 'string',
+      taskParam: 'string',
+      clientToken: 'string',
+      taskId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateDISyncTaskConfigForUpdatingResponseBody extends $tea.Model {
+  success?: boolean;
+  requestId?: string;
+  data?: GenerateDISyncTaskConfigForUpdatingResponseBodyData;
+  static names(): { [key: string]: string } {
+    return {
+      success: 'Success',
+      requestId: 'RequestId',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      success: 'boolean',
+      requestId: 'string',
+      data: GenerateDISyncTaskConfigForUpdatingResponseBodyData,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateDISyncTaskConfigForUpdatingResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GenerateDISyncTaskConfigForUpdatingResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GenerateDISyncTaskConfigForUpdatingResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetBaselineConfigRequest extends $tea.Model {
   baselineId?: number;
   static names(): { [key: string]: string } {
@@ -14177,6 +14330,78 @@ export class PublishDataServiceApiResponse extends $tea.Model {
   }
 }
 
+export class QueryDISyncTaskConfigProcessResultRequest extends $tea.Model {
+  projectId?: number;
+  taskType?: string;
+  asyncProcessId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      projectId: 'ProjectId',
+      taskType: 'TaskType',
+      asyncProcessId: 'AsyncProcessId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectId: 'number',
+      taskType: 'string',
+      asyncProcessId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDISyncTaskConfigProcessResultResponseBody extends $tea.Model {
+  success?: boolean;
+  requestId?: string;
+  data?: QueryDISyncTaskConfigProcessResultResponseBodyData;
+  static names(): { [key: string]: string } {
+    return {
+      success: 'Success',
+      requestId: 'RequestId',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      success: 'boolean',
+      requestId: 'string',
+      data: QueryDISyncTaskConfigProcessResultResponseBodyData,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDISyncTaskConfigProcessResultResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: QueryDISyncTaskConfigProcessResultResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: QueryDISyncTaskConfigProcessResultResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryPublicModelEngineRequest extends $tea.Model {
   text?: string;
   projectId?: string;
@@ -18698,6 +18923,56 @@ export class ExportDISyncTasksResponseBodyTaskDetail extends $tea.Model {
   }
 }
 
+export class GenerateDISyncTaskConfigForCreatingResponseBodyData extends $tea.Model {
+  status?: string;
+  processId?: number;
+  message?: string;
+  static names(): { [key: string]: string } {
+    return {
+      status: 'Status',
+      processId: 'ProcessId',
+      message: 'Message',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      status: 'string',
+      processId: 'number',
+      message: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateDISyncTaskConfigForUpdatingResponseBodyData extends $tea.Model {
+  status?: string;
+  processId?: number;
+  message?: string;
+  static names(): { [key: string]: string } {
+    return {
+      status: 'Status',
+      processId: 'ProcessId',
+      message: 'Message',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      status: 'string',
+      processId: 'number',
+      message: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetBaselineConfigResponseBodyData extends $tea.Model {
   hourSlaDetail?: string;
   isDefault?: boolean;
@@ -20310,15 +20585,70 @@ export class GetDeploymentResponseBodyData extends $tea.Model {
   }
 }
 
+export class GetDISyncInstanceInfoResponseBodyDataSolutionInfoStepDetail extends $tea.Model {
+  status?: string;
+  stepId?: number;
+  stepName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      status: 'Status',
+      stepId: 'StepId',
+      stepName: 'StepName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      status: 'string',
+      stepId: 'number',
+      stepName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDISyncInstanceInfoResponseBodyDataSolutionInfo extends $tea.Model {
+  status?: string;
+  id?: number;
+  creatorName?: string;
+  stepDetail?: GetDISyncInstanceInfoResponseBodyDataSolutionInfoStepDetail[];
+  static names(): { [key: string]: string } {
+    return {
+      status: 'Status',
+      id: 'Id',
+      creatorName: 'CreatorName',
+      stepDetail: 'StepDetail',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      status: 'string',
+      id: 'number',
+      creatorName: 'string',
+      stepDetail: { 'type': 'array', 'itemType': GetDISyncInstanceInfoResponseBodyDataSolutionInfoStepDetail },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetDISyncInstanceInfoResponseBodyData extends $tea.Model {
   status?: string;
   message?: string;
   name?: string;
+  solutionInfo?: GetDISyncInstanceInfoResponseBodyDataSolutionInfo;
   static names(): { [key: string]: string } {
     return {
       status: 'Status',
       message: 'Message',
       name: 'Name',
+      solutionInfo: 'SolutionInfo',
     };
   }
 
@@ -20327,6 +20657,56 @@ export class GetDISyncInstanceInfoResponseBodyData extends $tea.Model {
       status: 'string',
       message: 'string',
       name: 'string',
+      solutionInfo: GetDISyncInstanceInfoResponseBodyDataSolutionInfo,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDISyncTaskResponseBodyDataSolutionDetail extends $tea.Model {
+  status?: string;
+  type?: string;
+  startTime?: string;
+  creatorName?: string;
+  projectId?: number;
+  sourceType?: string;
+  processContent?: string;
+  name?: string;
+  processExtra?: string;
+  submitTime?: string;
+  id?: number;
+  static names(): { [key: string]: string } {
+    return {
+      status: 'Status',
+      type: 'Type',
+      startTime: 'StartTime',
+      creatorName: 'CreatorName',
+      projectId: 'ProjectId',
+      sourceType: 'SourceType',
+      processContent: 'ProcessContent',
+      name: 'Name',
+      processExtra: 'ProcessExtra',
+      submitTime: 'SubmitTime',
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      status: 'string',
+      type: 'string',
+      startTime: 'string',
+      creatorName: 'string',
+      projectId: 'number',
+      sourceType: 'string',
+      processContent: 'string',
+      name: 'string',
+      processExtra: 'string',
+      submitTime: 'string',
+      id: 'number',
     };
   }
 
@@ -20339,11 +20719,13 @@ export class GetDISyncTaskResponseBodyData extends $tea.Model {
   code?: string;
   status?: string;
   message?: string;
+  solutionDetail?: GetDISyncTaskResponseBodyDataSolutionDetail;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
       status: 'Status',
       message: 'Message',
+      solutionDetail: 'SolutionDetail',
     };
   }
 
@@ -20352,6 +20734,7 @@ export class GetDISyncTaskResponseBodyData extends $tea.Model {
       code: 'string',
       status: 'string',
       message: 'string',
+      solutionDetail: GetDISyncTaskResponseBodyDataSolutionDetail,
     };
   }
 
@@ -27676,6 +28059,31 @@ export class ListTopicsResponseBodyData extends $tea.Model {
   }
 }
 
+export class QueryDISyncTaskConfigProcessResultResponseBodyData extends $tea.Model {
+  status?: string;
+  message?: string;
+  taskContent?: string;
+  static names(): { [key: string]: string } {
+    return {
+      status: 'Status',
+      message: 'Message',
+      taskContent: 'TaskContent',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      status: 'string',
+      message: 'string',
+      taskContent: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SearchMetaTablesResponseBodyDataDataEntityList extends $tea.Model {
   tableName?: string;
   databaseName?: string;
@@ -29134,6 +29542,32 @@ export default class Client extends OpenApi {
     return await this.exportDISyncTasksWithOptions(request, runtime);
   }
 
+  async generateDISyncTaskConfigForCreatingWithOptions(request: GenerateDISyncTaskConfigForCreatingRequest, runtime: $Util.RuntimeOptions): Promise<GenerateDISyncTaskConfigForCreatingResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<GenerateDISyncTaskConfigForCreatingResponse>(await this.doRPCRequest("GenerateDISyncTaskConfigForCreating", "2020-05-18", "HTTPS", "POST", "AK", "json", req, runtime), new GenerateDISyncTaskConfigForCreatingResponse({}));
+  }
+
+  async generateDISyncTaskConfigForCreating(request: GenerateDISyncTaskConfigForCreatingRequest): Promise<GenerateDISyncTaskConfigForCreatingResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.generateDISyncTaskConfigForCreatingWithOptions(request, runtime);
+  }
+
+  async generateDISyncTaskConfigForUpdatingWithOptions(request: GenerateDISyncTaskConfigForUpdatingRequest, runtime: $Util.RuntimeOptions): Promise<GenerateDISyncTaskConfigForUpdatingResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<GenerateDISyncTaskConfigForUpdatingResponse>(await this.doRPCRequest("GenerateDISyncTaskConfigForUpdating", "2020-05-18", "HTTPS", "POST", "AK", "json", req, runtime), new GenerateDISyncTaskConfigForUpdatingResponse({}));
+  }
+
+  async generateDISyncTaskConfigForUpdating(request: GenerateDISyncTaskConfigForUpdatingRequest): Promise<GenerateDISyncTaskConfigForUpdatingResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.generateDISyncTaskConfigForUpdatingWithOptions(request, runtime);
+  }
+
   async getBaselineConfigWithOptions(request: GetBaselineConfigRequest, runtime: $Util.RuntimeOptions): Promise<GetBaselineConfigResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -30590,6 +31024,19 @@ export default class Client extends OpenApi {
   async publishDataServiceApi(request: PublishDataServiceApiRequest): Promise<PublishDataServiceApiResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.publishDataServiceApiWithOptions(request, runtime);
+  }
+
+  async queryDISyncTaskConfigProcessResultWithOptions(request: QueryDISyncTaskConfigProcessResultRequest, runtime: $Util.RuntimeOptions): Promise<QueryDISyncTaskConfigProcessResultResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<QueryDISyncTaskConfigProcessResultResponse>(await this.doRPCRequest("QueryDISyncTaskConfigProcessResult", "2020-05-18", "HTTPS", "POST", "AK", "json", req, runtime), new QueryDISyncTaskConfigProcessResultResponse({}));
+  }
+
+  async queryDISyncTaskConfigProcessResult(request: QueryDISyncTaskConfigProcessResultRequest): Promise<QueryDISyncTaskConfigProcessResultResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryDISyncTaskConfigProcessResultWithOptions(request, runtime);
   }
 
   async queryPublicModelEngineWithOptions(request: QueryPublicModelEngineRequest, runtime: $Util.RuntimeOptions): Promise<QueryPublicModelEngineResponse> {
