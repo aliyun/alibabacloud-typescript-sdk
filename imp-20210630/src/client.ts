@@ -4401,6 +4401,7 @@ export class GetConferenceResponseBodyResult extends $tea.Model {
   userId?: string;
   appId?: string;
   createTime?: number;
+  playbackUrl?: string;
   static names(): { [key: string]: string } {
     return {
       conferenceId: 'ConferenceId',
@@ -4410,6 +4411,7 @@ export class GetConferenceResponseBodyResult extends $tea.Model {
       userId: 'UserId',
       appId: 'AppId',
       createTime: 'CreateTime',
+      playbackUrl: 'PlaybackUrl',
     };
   }
 
@@ -4422,6 +4424,7 @@ export class GetConferenceResponseBodyResult extends $tea.Model {
       userId: 'string',
       appId: 'string',
       createTime: 'number',
+      playbackUrl: 'string',
     };
   }
 
