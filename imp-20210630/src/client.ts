@@ -284,6 +284,78 @@ export class GetRoomResponse extends $tea.Model {
   }
 }
 
+export class GetLiveRoomUserStatisticsRequest extends $tea.Model {
+  appId?: string;
+  liveId?: string;
+  pageNumber?: string;
+  pageSize?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      liveId: 'LiveId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      liveId: 'string',
+      pageNumber: 'string',
+      pageSize: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLiveRoomUserStatisticsResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: GetLiveRoomUserStatisticsResponseBodyResult;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: GetLiveRoomUserStatisticsResponseBodyResult,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLiveRoomUserStatisticsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetLiveRoomUserStatisticsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetLiveRoomUserStatisticsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class BanCommentRequest extends $tea.Model {
   appId?: string;
   roomId?: string;
@@ -3052,6 +3124,124 @@ export class UpdateLiveResponse extends $tea.Model {
   }
 }
 
+export class CreateLiveRoomRequest extends $tea.Model {
+  appId?: string;
+  title?: string;
+  notice?: string;
+  coverUrl?: string;
+  extension?: { [key: string]: string };
+  anchorId?: string;
+  anchorNick?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      title: 'Title',
+      notice: 'Notice',
+      coverUrl: 'CoverUrl',
+      extension: 'Extension',
+      anchorId: 'AnchorId',
+      anchorNick: 'AnchorNick',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      title: 'string',
+      notice: 'string',
+      coverUrl: 'string',
+      extension: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      anchorId: 'string',
+      anchorNick: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateLiveRoomShrinkRequest extends $tea.Model {
+  appId?: string;
+  title?: string;
+  notice?: string;
+  coverUrl?: string;
+  extensionShrink?: string;
+  anchorId?: string;
+  anchorNick?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      title: 'Title',
+      notice: 'Notice',
+      coverUrl: 'CoverUrl',
+      extensionShrink: 'Extension',
+      anchorId: 'AnchorId',
+      anchorNick: 'AnchorNick',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      title: 'string',
+      notice: 'string',
+      coverUrl: 'string',
+      extensionShrink: 'string',
+      anchorId: 'string',
+      anchorNick: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateLiveRoomResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: CreateLiveRoomResponseBodyResult;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: CreateLiveRoomResponseBodyResult,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateLiveRoomResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CreateLiveRoomResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CreateLiveRoomResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ApplyLinkMicRequest extends $tea.Model {
   conferenceId?: string;
   userId?: string;
@@ -3233,6 +3423,210 @@ export class GetAppResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: GetAppResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListLiveRoomsRequest extends $tea.Model {
+  appId?: string;
+  status?: number;
+  pageNumber?: number;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      status: 'Status',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      status: 'number',
+      pageNumber: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListLiveRoomsResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: ListLiveRoomsResponseBodyResult;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: ListLiveRoomsResponseBodyResult,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListLiveRoomsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListLiveRoomsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListLiveRoomsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopLiveRoomRequest extends $tea.Model {
+  appId?: string;
+  liveId?: string;
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      liveId: 'LiveId',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      liveId: 'string',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopLiveRoomResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopLiveRoomResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: StopLiveRoomResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: StopLiveRoomResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLiveRoomStatisticsRequest extends $tea.Model {
+  appId?: string;
+  liveId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      liveId: 'LiveId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      liveId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLiveRoomStatisticsResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: GetLiveRoomStatisticsResponseBodyResult;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: GetLiveRoomStatisticsResponseBodyResult,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLiveRoomStatisticsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetLiveRoomStatisticsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetLiveRoomStatisticsResponseBody,
     };
   }
 
@@ -3692,6 +4086,72 @@ export class UpdateConferenceResponse extends $tea.Model {
   }
 }
 
+export class GetLiveRoomRequest extends $tea.Model {
+  appId?: string;
+  liveId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      liveId: 'LiveId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      liveId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLiveRoomResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: GetLiveRoomResponseBodyResult;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: GetLiveRoomResponseBodyResult,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLiveRoomResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetLiveRoomResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetLiveRoomResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateIceProjectResponseBodyResult extends $tea.Model {
   projectId?: string;
   static names(): { [key: string]: string } {
@@ -3830,6 +4290,59 @@ export class GetRoomResponseBodyResult extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       roomInfo: GetRoomResponseBodyResultRoomInfo,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLiveRoomUserStatisticsResponseBodyResultUserStatisticsList extends $tea.Model {
+  userId?: string;
+  watchLiveTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      userId: 'UserId',
+      watchLiveTime: 'WatchLiveTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      userId: 'string',
+      watchLiveTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLiveRoomUserStatisticsResponseBodyResult extends $tea.Model {
+  liveId?: string;
+  totalCount?: number;
+  pageTotal?: number;
+  hasMore?: boolean;
+  userStatisticsList?: GetLiveRoomUserStatisticsResponseBodyResultUserStatisticsList[];
+  static names(): { [key: string]: string } {
+    return {
+      liveId: 'LiveId',
+      totalCount: 'TotalCount',
+      pageTotal: 'PageTotal',
+      hasMore: 'HasMore',
+      userStatisticsList: 'UserStatisticsList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      liveId: 'string',
+      totalCount: 'number',
+      pageTotal: 'number',
+      hasMore: 'boolean',
+      userStatisticsList: { 'type': 'array', 'itemType': GetLiveRoomUserStatisticsResponseBodyResultUserStatisticsList },
     };
   }
 
@@ -4819,6 +5332,92 @@ export class ListComponentsResponseBodyResult extends $tea.Model {
   }
 }
 
+export class CreateLiveRoomResponseBodyResultPluginInstanceInfoList extends $tea.Model {
+  pluginType?: string;
+  pluginId?: string;
+  createTime?: number;
+  extension?: { [key: string]: string };
+  static names(): { [key: string]: string } {
+    return {
+      pluginType: 'PluginType',
+      pluginId: 'PluginId',
+      createTime: 'CreateTime',
+      extension: 'Extension',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pluginType: 'string',
+      pluginId: 'string',
+      createTime: 'number',
+      extension: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateLiveRoomResponseBodyResult extends $tea.Model {
+  appId?: string;
+  roomId?: string;
+  liveId?: string;
+  chatId?: string;
+  title?: string;
+  notice?: string;
+  coverUrl?: string;
+  anchorId?: string;
+  playbackUrl?: string;
+  pushUrl?: string;
+  liveUrl?: string;
+  pluginInstanceInfoList?: CreateLiveRoomResponseBodyResultPluginInstanceInfoList[];
+  extension?: { [key: string]: string };
+  anchorNick?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      roomId: 'RoomId',
+      liveId: 'LiveId',
+      chatId: 'ChatId',
+      title: 'Title',
+      notice: 'Notice',
+      coverUrl: 'CoverUrl',
+      anchorId: 'AnchorId',
+      playbackUrl: 'PlaybackUrl',
+      pushUrl: 'PushUrl',
+      liveUrl: 'LiveUrl',
+      pluginInstanceInfoList: 'PluginInstanceInfoList',
+      extension: 'Extension',
+      anchorNick: 'AnchorNick',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      roomId: 'string',
+      liveId: 'string',
+      chatId: 'string',
+      title: 'string',
+      notice: 'string',
+      coverUrl: 'string',
+      anchorId: 'string',
+      playbackUrl: 'string',
+      pushUrl: 'string',
+      liveUrl: 'string',
+      pluginInstanceInfoList: { 'type': 'array', 'itemType': CreateLiveRoomResponseBodyResultPluginInstanceInfoList },
+      extension: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      anchorNick: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetAppResponseBodyResult extends $tea.Model {
   appName?: string;
   appTemplateId?: string;
@@ -4857,6 +5456,126 @@ export class GetAppResponseBodyResult extends $tea.Model {
       integrationMode: 'string',
       standardRoomInfo: 'string',
       componentList: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListLiveRoomsResponseBodyResultLiveList extends $tea.Model {
+  appId?: string;
+  liveId?: string;
+  status?: number;
+  roomId?: string;
+  chatId?: string;
+  title?: string;
+  notice?: string;
+  coverUrl?: string;
+  anchorId?: string;
+  uv?: number;
+  extension?: { [key: string]: string };
+  anchorNick?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      liveId: 'LiveId',
+      status: 'Status',
+      roomId: 'RoomId',
+      chatId: 'ChatId',
+      title: 'Title',
+      notice: 'Notice',
+      coverUrl: 'CoverUrl',
+      anchorId: 'AnchorId',
+      uv: 'Uv',
+      extension: 'Extension',
+      anchorNick: 'AnchorNick',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      liveId: 'string',
+      status: 'number',
+      roomId: 'string',
+      chatId: 'string',
+      title: 'string',
+      notice: 'string',
+      coverUrl: 'string',
+      anchorId: 'string',
+      uv: 'number',
+      extension: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      anchorNick: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListLiveRoomsResponseBodyResult extends $tea.Model {
+  totalCount?: number;
+  pageTotal?: number;
+  hasMore?: boolean;
+  liveList?: ListLiveRoomsResponseBodyResultLiveList[];
+  static names(): { [key: string]: string } {
+    return {
+      totalCount: 'TotalCount',
+      pageTotal: 'PageTotal',
+      hasMore: 'HasMore',
+      liveList: 'LiveList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      totalCount: 'number',
+      pageTotal: 'number',
+      hasMore: 'boolean',
+      liveList: { 'type': 'array', 'itemType': ListLiveRoomsResponseBodyResultLiveList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLiveRoomStatisticsResponseBodyResult extends $tea.Model {
+  liveId?: string;
+  status?: number;
+  uv?: number;
+  pv?: number;
+  messageCount?: number;
+  startTime?: number;
+  endTime?: number;
+  watchLiveTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      liveId: 'LiveId',
+      status: 'Status',
+      uv: 'Uv',
+      pv: 'Pv',
+      messageCount: 'MessageCount',
+      startTime: 'StartTime',
+      endTime: 'EndTime',
+      watchLiveTime: 'WatchLiveTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      liveId: 'string',
+      status: 'number',
+      uv: 'number',
+      pv: 'number',
+      messageCount: 'number',
+      startTime: 'number',
+      endTime: 'number',
+      watchLiveTime: 'number',
     };
   }
 
@@ -5020,6 +5739,110 @@ export class CreateRoomResponseBodyResult extends $tea.Model {
   }
 }
 
+export class GetLiveRoomResponseBodyResultPluginInstanceInfoList extends $tea.Model {
+  pluginType?: string;
+  pluginId?: string;
+  createTime?: number;
+  extension?: { [key: string]: string };
+  static names(): { [key: string]: string } {
+    return {
+      pluginType: 'PluginType',
+      pluginId: 'PluginId',
+      createTime: 'CreateTime',
+      extension: 'Extension',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pluginType: 'string',
+      pluginId: 'string',
+      createTime: 'number',
+      extension: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLiveRoomResponseBodyResult extends $tea.Model {
+  appId?: string;
+  liveId?: string;
+  status?: number;
+  roomId?: string;
+  chatId?: string;
+  title?: string;
+  notice?: string;
+  coverUrl?: string;
+  anchorId?: string;
+  uv?: number;
+  onlineCount?: number;
+  playbackUrl?: string;
+  createTime?: number;
+  endTime?: number;
+  pushUrl?: string;
+  liveUrl?: string;
+  pluginInstanceInfoList?: GetLiveRoomResponseBodyResultPluginInstanceInfoList[];
+  extension?: { [key: string]: string };
+  pv?: number;
+  anchorNick?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      liveId: 'LiveId',
+      status: 'Status',
+      roomId: 'RoomId',
+      chatId: 'ChatId',
+      title: 'Title',
+      notice: 'Notice',
+      coverUrl: 'CoverUrl',
+      anchorId: 'AnchorId',
+      uv: 'Uv',
+      onlineCount: 'OnlineCount',
+      playbackUrl: 'PlaybackUrl',
+      createTime: 'CreateTime',
+      endTime: 'EndTime',
+      pushUrl: 'PushUrl',
+      liveUrl: 'LiveUrl',
+      pluginInstanceInfoList: 'PluginInstanceInfoList',
+      extension: 'Extension',
+      pv: 'Pv',
+      anchorNick: 'AnchorNick',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      liveId: 'string',
+      status: 'number',
+      roomId: 'string',
+      chatId: 'string',
+      title: 'string',
+      notice: 'string',
+      coverUrl: 'string',
+      anchorId: 'string',
+      uv: 'number',
+      onlineCount: 'number',
+      playbackUrl: 'string',
+      createTime: 'number',
+      endTime: 'number',
+      pushUrl: 'string',
+      liveUrl: 'string',
+      pluginInstanceInfoList: { 'type': 'array', 'itemType': GetLiveRoomResponseBodyResultPluginInstanceInfoList },
+      extension: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      pv: 'number',
+      anchorNick: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 
 export default class Client extends OpenApi {
 
@@ -5093,6 +5916,19 @@ export default class Client extends OpenApi {
   async getRoom(request: GetRoomRequest): Promise<GetRoomResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getRoomWithOptions(request, runtime);
+  }
+
+  async getLiveRoomUserStatisticsWithOptions(request: GetLiveRoomUserStatisticsRequest, runtime: $Util.RuntimeOptions): Promise<GetLiveRoomUserStatisticsResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<GetLiveRoomUserStatisticsResponse>(await this.doRPCRequest("GetLiveRoomUserStatistics", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new GetLiveRoomUserStatisticsResponse({}));
+  }
+
+  async getLiveRoomUserStatistics(request: GetLiveRoomUserStatisticsRequest): Promise<GetLiveRoomUserStatisticsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getLiveRoomUserStatisticsWithOptions(request, runtime);
   }
 
   async banCommentWithOptions(request: BanCommentRequest, runtime: $Util.RuntimeOptions): Promise<BanCommentResponse> {
@@ -5622,6 +6458,25 @@ export default class Client extends OpenApi {
     return await this.updateLiveWithOptions(request, runtime);
   }
 
+  async createLiveRoomWithOptions(tmpReq: CreateLiveRoomRequest, runtime: $Util.RuntimeOptions): Promise<CreateLiveRoomResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateLiveRoomShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.extension)) {
+      request.extensionShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.extension, "Extension", "json");
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<CreateLiveRoomResponse>(await this.doRPCRequest("CreateLiveRoom", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new CreateLiveRoomResponse({}));
+  }
+
+  async createLiveRoom(request: CreateLiveRoomRequest): Promise<CreateLiveRoomResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createLiveRoomWithOptions(request, runtime);
+  }
+
   async applyLinkMicWithOptions(request: ApplyLinkMicRequest, runtime: $Util.RuntimeOptions): Promise<ApplyLinkMicResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -5659,6 +6514,45 @@ export default class Client extends OpenApi {
   async getApp(request: GetAppRequest): Promise<GetAppResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getAppWithOptions(request, runtime);
+  }
+
+  async listLiveRoomsWithOptions(request: ListLiveRoomsRequest, runtime: $Util.RuntimeOptions): Promise<ListLiveRoomsResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<ListLiveRoomsResponse>(await this.doRPCRequest("ListLiveRooms", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new ListLiveRoomsResponse({}));
+  }
+
+  async listLiveRooms(request: ListLiveRoomsRequest): Promise<ListLiveRoomsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listLiveRoomsWithOptions(request, runtime);
+  }
+
+  async stopLiveRoomWithOptions(request: StopLiveRoomRequest, runtime: $Util.RuntimeOptions): Promise<StopLiveRoomResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<StopLiveRoomResponse>(await this.doRPCRequest("StopLiveRoom", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new StopLiveRoomResponse({}));
+  }
+
+  async stopLiveRoom(request: StopLiveRoomRequest): Promise<StopLiveRoomResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.stopLiveRoomWithOptions(request, runtime);
+  }
+
+  async getLiveRoomStatisticsWithOptions(request: GetLiveRoomStatisticsRequest, runtime: $Util.RuntimeOptions): Promise<GetLiveRoomStatisticsResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<GetLiveRoomStatisticsResponse>(await this.doRPCRequest("GetLiveRoomStatistics", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new GetLiveRoomStatisticsResponse({}));
+  }
+
+  async getLiveRoomStatistics(request: GetLiveRoomStatisticsRequest): Promise<GetLiveRoomStatisticsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getLiveRoomStatisticsWithOptions(request, runtime);
   }
 
   async sendCustomMessageToUsersWithOptions(request: SendCustomMessageToUsersRequest, runtime: $Util.RuntimeOptions): Promise<SendCustomMessageToUsersResponse> {
@@ -5743,6 +6637,19 @@ export default class Client extends OpenApi {
   async updateConference(request: UpdateConferenceRequest): Promise<UpdateConferenceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateConferenceWithOptions(request, runtime);
+  }
+
+  async getLiveRoomWithOptions(request: GetLiveRoomRequest, runtime: $Util.RuntimeOptions): Promise<GetLiveRoomResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<GetLiveRoomResponse>(await this.doRPCRequest("GetLiveRoom", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new GetLiveRoomResponse({}));
+  }
+
+  async getLiveRoom(request: GetLiveRoomRequest): Promise<GetLiveRoomResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getLiveRoomWithOptions(request, runtime);
   }
 
 }
