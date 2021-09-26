@@ -586,7 +586,6 @@ export class RecolorHDImageRequest extends $tea.Model {
   refUrl?: string;
   colorCount?: number;
   degree?: string;
-  async?: boolean;
   colorTemplate?: RecolorHDImageRequestColorTemplate[];
   static names(): { [key: string]: string } {
     return {
@@ -595,7 +594,6 @@ export class RecolorHDImageRequest extends $tea.Model {
       refUrl: 'RefUrl',
       colorCount: 'ColorCount',
       degree: 'Degree',
-      async: 'Async',
       colorTemplate: 'ColorTemplate',
     };
   }
@@ -607,7 +605,6 @@ export class RecolorHDImageRequest extends $tea.Model {
       refUrl: 'string',
       colorCount: 'number',
       degree: 'string',
-      async: 'boolean',
       colorTemplate: { 'type': 'array', 'itemType': RecolorHDImageRequestColorTemplate },
     };
   }
@@ -623,7 +620,6 @@ export class RecolorHDImageAdvanceRequest extends $tea.Model {
   refUrl?: string;
   colorCount?: number;
   degree?: string;
-  async?: boolean;
   colorTemplate?: RecolorHDImageAdvanceRequestColorTemplate[];
   static names(): { [key: string]: string } {
     return {
@@ -632,7 +628,6 @@ export class RecolorHDImageAdvanceRequest extends $tea.Model {
       refUrl: 'RefUrl',
       colorCount: 'ColorCount',
       degree: 'Degree',
-      async: 'Async',
       colorTemplate: 'ColorTemplate',
     };
   }
@@ -644,7 +639,6 @@ export class RecolorHDImageAdvanceRequest extends $tea.Model {
       refUrl: 'string',
       colorCount: 'number',
       degree: 'string',
-      async: 'boolean',
       colorTemplate: { 'type': 'array', 'itemType': RecolorHDImageAdvanceRequestColorTemplate },
     };
   }
@@ -1108,18 +1102,15 @@ export class ErasePersonResponse extends $tea.Model {
 }
 
 export class GetAsyncJobResultRequest extends $tea.Model {
-  async?: boolean;
   jobId?: string;
   static names(): { [key: string]: string } {
     return {
-      async: 'Async',
       jobId: 'JobId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      async: 'boolean',
       jobId: 'string',
     };
   }
@@ -2267,11 +2258,23 @@ export default class Client extends OpenApi {
     // Step 0: init client
     let accessKeyId = await this._credential.getAccessKeyId();
     let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if (Util.isUnset(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
     let authConfig = new $RPC.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
-      type: "access_key",
-      endpoint: "openplatform.aliyuncs.com",
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
       protocol: this._protocol,
       regionId: this._regionId,
     });
@@ -2295,29 +2298,32 @@ export default class Client extends OpenApi {
     OpenApiUtil.convert(runtime, ossRuntime);
     let imageBlindCharacterWatermarkReq = new ImageBlindCharacterWatermarkRequest({ });
     OpenApiUtil.convert(request, imageBlindCharacterWatermarkReq);
-    authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-    ossConfig.accessKeyId = authResponse.accessKeyId;
-    ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
-    ossClient = new OSS(ossConfig);
-    fileObj = new $FileForm.FileField({
-      filename: authResponse.objectKey,
-      content: request.originImageURLObject,
-      contentType: "",
-    });
-    ossHeader = new $OSS.PostObjectRequestHeader({
-      accessKeyId: authResponse.accessKeyId,
-      policy: authResponse.encodedPolicy,
-      signature: authResponse.signature,
-      key: authResponse.objectKey,
-      file: fileObj,
-      successActionStatus: "201",
-    });
-    uploadRequest = new $OSS.PostObjectRequest({
-      bucketName: authResponse.bucket,
-      header: ossHeader,
-    });
-    await ossClient.postObject(uploadRequest, ossRuntime);
-    imageBlindCharacterWatermarkReq.originImageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    if (!Util.isUnset(request.originImageURLObject)) {
+      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+      ossConfig.accessKeyId = authResponse.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+      ossClient = new OSS(ossConfig);
+      fileObj = new $FileForm.FileField({
+        filename: authResponse.objectKey,
+        content: request.originImageURLObject,
+        contentType: "",
+      });
+      ossHeader = new $OSS.PostObjectRequestHeader({
+        accessKeyId: authResponse.accessKeyId,
+        policy: authResponse.encodedPolicy,
+        signature: authResponse.signature,
+        key: authResponse.objectKey,
+        file: fileObj,
+        successActionStatus: "201",
+      });
+      uploadRequest = new $OSS.PostObjectRequest({
+        bucketName: authResponse.bucket,
+        header: ossHeader,
+      });
+      await ossClient.postObject(uploadRequest, ossRuntime);
+      imageBlindCharacterWatermarkReq.originImageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    }
+
     let imageBlindCharacterWatermarkResp = await this.imageBlindCharacterWatermarkWithOptions(imageBlindCharacterWatermarkReq, runtime);
     return imageBlindCharacterWatermarkResp;
   }
@@ -2339,11 +2345,23 @@ export default class Client extends OpenApi {
     // Step 0: init client
     let accessKeyId = await this._credential.getAccessKeyId();
     let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if (Util.isUnset(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
     let authConfig = new $RPC.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
-      type: "access_key",
-      endpoint: "openplatform.aliyuncs.com",
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
       protocol: this._protocol,
       regionId: this._regionId,
     });
@@ -2367,29 +2385,32 @@ export default class Client extends OpenApi {
     OpenApiUtil.convert(runtime, ossRuntime);
     let removeImageWatermarkReq = new RemoveImageWatermarkRequest({ });
     OpenApiUtil.convert(request, removeImageWatermarkReq);
-    authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-    ossConfig.accessKeyId = authResponse.accessKeyId;
-    ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
-    ossClient = new OSS(ossConfig);
-    fileObj = new $FileForm.FileField({
-      filename: authResponse.objectKey,
-      content: request.imageURLObject,
-      contentType: "",
-    });
-    ossHeader = new $OSS.PostObjectRequestHeader({
-      accessKeyId: authResponse.accessKeyId,
-      policy: authResponse.encodedPolicy,
-      signature: authResponse.signature,
-      key: authResponse.objectKey,
-      file: fileObj,
-      successActionStatus: "201",
-    });
-    uploadRequest = new $OSS.PostObjectRequest({
-      bucketName: authResponse.bucket,
-      header: ossHeader,
-    });
-    await ossClient.postObject(uploadRequest, ossRuntime);
-    removeImageWatermarkReq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    if (!Util.isUnset(request.imageURLObject)) {
+      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+      ossConfig.accessKeyId = authResponse.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+      ossClient = new OSS(ossConfig);
+      fileObj = new $FileForm.FileField({
+        filename: authResponse.objectKey,
+        content: request.imageURLObject,
+        contentType: "",
+      });
+      ossHeader = new $OSS.PostObjectRequestHeader({
+        accessKeyId: authResponse.accessKeyId,
+        policy: authResponse.encodedPolicy,
+        signature: authResponse.signature,
+        key: authResponse.objectKey,
+        file: fileObj,
+        successActionStatus: "201",
+      });
+      uploadRequest = new $OSS.PostObjectRequest({
+        bucketName: authResponse.bucket,
+        header: ossHeader,
+      });
+      await ossClient.postObject(uploadRequest, ossRuntime);
+      removeImageWatermarkReq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    }
+
     let removeImageWatermarkResp = await this.removeImageWatermarkWithOptions(removeImageWatermarkReq, runtime);
     return removeImageWatermarkResp;
   }
@@ -2411,11 +2432,23 @@ export default class Client extends OpenApi {
     // Step 0: init client
     let accessKeyId = await this._credential.getAccessKeyId();
     let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if (Util.isUnset(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
     let authConfig = new $RPC.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
-      type: "access_key",
-      endpoint: "openplatform.aliyuncs.com",
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
       protocol: this._protocol,
       regionId: this._regionId,
     });
@@ -2439,29 +2472,32 @@ export default class Client extends OpenApi {
     OpenApiUtil.convert(runtime, ossRuntime);
     let generateDynamicImageReq = new GenerateDynamicImageRequest({ });
     OpenApiUtil.convert(request, generateDynamicImageReq);
-    authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-    ossConfig.accessKeyId = authResponse.accessKeyId;
-    ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
-    ossClient = new OSS(ossConfig);
-    fileObj = new $FileForm.FileField({
-      filename: authResponse.objectKey,
-      content: request.urlObject,
-      contentType: "",
-    });
-    ossHeader = new $OSS.PostObjectRequestHeader({
-      accessKeyId: authResponse.accessKeyId,
-      policy: authResponse.encodedPolicy,
-      signature: authResponse.signature,
-      key: authResponse.objectKey,
-      file: fileObj,
-      successActionStatus: "201",
-    });
-    uploadRequest = new $OSS.PostObjectRequest({
-      bucketName: authResponse.bucket,
-      header: ossHeader,
-    });
-    await ossClient.postObject(uploadRequest, ossRuntime);
-    generateDynamicImageReq.url = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    if (!Util.isUnset(request.urlObject)) {
+      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+      ossConfig.accessKeyId = authResponse.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+      ossClient = new OSS(ossConfig);
+      fileObj = new $FileForm.FileField({
+        filename: authResponse.objectKey,
+        content: request.urlObject,
+        contentType: "",
+      });
+      ossHeader = new $OSS.PostObjectRequestHeader({
+        accessKeyId: authResponse.accessKeyId,
+        policy: authResponse.encodedPolicy,
+        signature: authResponse.signature,
+        key: authResponse.objectKey,
+        file: fileObj,
+        successActionStatus: "201",
+      });
+      uploadRequest = new $OSS.PostObjectRequest({
+        bucketName: authResponse.bucket,
+        header: ossHeader,
+      });
+      await ossClient.postObject(uploadRequest, ossRuntime);
+      generateDynamicImageReq.url = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    }
+
     let generateDynamicImageResp = await this.generateDynamicImageWithOptions(generateDynamicImageReq, runtime);
     return generateDynamicImageResp;
   }
@@ -2483,11 +2519,23 @@ export default class Client extends OpenApi {
     // Step 0: init client
     let accessKeyId = await this._credential.getAccessKeyId();
     let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if (Util.isUnset(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
     let authConfig = new $RPC.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
-      type: "access_key",
-      endpoint: "openplatform.aliyuncs.com",
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
       protocol: this._protocol,
       regionId: this._regionId,
     });
@@ -2511,29 +2559,32 @@ export default class Client extends OpenApi {
     OpenApiUtil.convert(runtime, ossRuntime);
     let imageBlindPicWatermarkReq = new ImageBlindPicWatermarkRequest({ });
     OpenApiUtil.convert(request, imageBlindPicWatermarkReq);
-    authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-    ossConfig.accessKeyId = authResponse.accessKeyId;
-    ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
-    ossClient = new OSS(ossConfig);
-    fileObj = new $FileForm.FileField({
-      filename: authResponse.objectKey,
-      content: request.originImageURLObject,
-      contentType: "",
-    });
-    ossHeader = new $OSS.PostObjectRequestHeader({
-      accessKeyId: authResponse.accessKeyId,
-      policy: authResponse.encodedPolicy,
-      signature: authResponse.signature,
-      key: authResponse.objectKey,
-      file: fileObj,
-      successActionStatus: "201",
-    });
-    uploadRequest = new $OSS.PostObjectRequest({
-      bucketName: authResponse.bucket,
-      header: ossHeader,
-    });
-    await ossClient.postObject(uploadRequest, ossRuntime);
-    imageBlindPicWatermarkReq.originImageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    if (!Util.isUnset(request.originImageURLObject)) {
+      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+      ossConfig.accessKeyId = authResponse.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+      ossClient = new OSS(ossConfig);
+      fileObj = new $FileForm.FileField({
+        filename: authResponse.objectKey,
+        content: request.originImageURLObject,
+        contentType: "",
+      });
+      ossHeader = new $OSS.PostObjectRequestHeader({
+        accessKeyId: authResponse.accessKeyId,
+        policy: authResponse.encodedPolicy,
+        signature: authResponse.signature,
+        key: authResponse.objectKey,
+        file: fileObj,
+        successActionStatus: "201",
+      });
+      uploadRequest = new $OSS.PostObjectRequest({
+        bucketName: authResponse.bucket,
+        header: ossHeader,
+      });
+      await ossClient.postObject(uploadRequest, ossRuntime);
+      imageBlindPicWatermarkReq.originImageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    }
+
     let imageBlindPicWatermarkResp = await this.imageBlindPicWatermarkWithOptions(imageBlindPicWatermarkReq, runtime);
     return imageBlindPicWatermarkResp;
   }
@@ -2555,11 +2606,23 @@ export default class Client extends OpenApi {
     // Step 0: init client
     let accessKeyId = await this._credential.getAccessKeyId();
     let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if (Util.isUnset(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
     let authConfig = new $RPC.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
-      type: "access_key",
-      endpoint: "openplatform.aliyuncs.com",
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
       protocol: this._protocol,
       regionId: this._regionId,
     });
@@ -2583,29 +2646,32 @@ export default class Client extends OpenApi {
     OpenApiUtil.convert(runtime, ossRuntime);
     let removeImageSubtitlesReq = new RemoveImageSubtitlesRequest({ });
     OpenApiUtil.convert(request, removeImageSubtitlesReq);
-    authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-    ossConfig.accessKeyId = authResponse.accessKeyId;
-    ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
-    ossClient = new OSS(ossConfig);
-    fileObj = new $FileForm.FileField({
-      filename: authResponse.objectKey,
-      content: request.imageURLObject,
-      contentType: "",
-    });
-    ossHeader = new $OSS.PostObjectRequestHeader({
-      accessKeyId: authResponse.accessKeyId,
-      policy: authResponse.encodedPolicy,
-      signature: authResponse.signature,
-      key: authResponse.objectKey,
-      file: fileObj,
-      successActionStatus: "201",
-    });
-    uploadRequest = new $OSS.PostObjectRequest({
-      bucketName: authResponse.bucket,
-      header: ossHeader,
-    });
-    await ossClient.postObject(uploadRequest, ossRuntime);
-    removeImageSubtitlesReq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    if (!Util.isUnset(request.imageURLObject)) {
+      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+      ossConfig.accessKeyId = authResponse.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+      ossClient = new OSS(ossConfig);
+      fileObj = new $FileForm.FileField({
+        filename: authResponse.objectKey,
+        content: request.imageURLObject,
+        contentType: "",
+      });
+      ossHeader = new $OSS.PostObjectRequestHeader({
+        accessKeyId: authResponse.accessKeyId,
+        policy: authResponse.encodedPolicy,
+        signature: authResponse.signature,
+        key: authResponse.objectKey,
+        file: fileObj,
+        successActionStatus: "201",
+      });
+      uploadRequest = new $OSS.PostObjectRequest({
+        bucketName: authResponse.bucket,
+        header: ossHeader,
+      });
+      await ossClient.postObject(uploadRequest, ossRuntime);
+      removeImageSubtitlesReq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    }
+
     let removeImageSubtitlesResp = await this.removeImageSubtitlesWithOptions(removeImageSubtitlesReq, runtime);
     return removeImageSubtitlesResp;
   }
@@ -2627,11 +2693,23 @@ export default class Client extends OpenApi {
     // Step 0: init client
     let accessKeyId = await this._credential.getAccessKeyId();
     let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if (Util.isUnset(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
     let authConfig = new $RPC.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
-      type: "access_key",
-      endpoint: "openplatform.aliyuncs.com",
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
       protocol: this._protocol,
       regionId: this._regionId,
     });
@@ -2655,29 +2733,32 @@ export default class Client extends OpenApi {
     OpenApiUtil.convert(runtime, ossRuntime);
     let recolorHDImageReq = new RecolorHDImageRequest({ });
     OpenApiUtil.convert(request, recolorHDImageReq);
-    authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-    ossConfig.accessKeyId = authResponse.accessKeyId;
-    ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
-    ossClient = new OSS(ossConfig);
-    fileObj = new $FileForm.FileField({
-      filename: authResponse.objectKey,
-      content: request.urlObject,
-      contentType: "",
-    });
-    ossHeader = new $OSS.PostObjectRequestHeader({
-      accessKeyId: authResponse.accessKeyId,
-      policy: authResponse.encodedPolicy,
-      signature: authResponse.signature,
-      key: authResponse.objectKey,
-      file: fileObj,
-      successActionStatus: "201",
-    });
-    uploadRequest = new $OSS.PostObjectRequest({
-      bucketName: authResponse.bucket,
-      header: ossHeader,
-    });
-    await ossClient.postObject(uploadRequest, ossRuntime);
-    recolorHDImageReq.url = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    if (!Util.isUnset(request.urlObject)) {
+      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+      ossConfig.accessKeyId = authResponse.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+      ossClient = new OSS(ossConfig);
+      fileObj = new $FileForm.FileField({
+        filename: authResponse.objectKey,
+        content: request.urlObject,
+        contentType: "",
+      });
+      ossHeader = new $OSS.PostObjectRequestHeader({
+        accessKeyId: authResponse.accessKeyId,
+        policy: authResponse.encodedPolicy,
+        signature: authResponse.signature,
+        key: authResponse.objectKey,
+        file: fileObj,
+        successActionStatus: "201",
+      });
+      uploadRequest = new $OSS.PostObjectRequest({
+        bucketName: authResponse.bucket,
+        header: ossHeader,
+      });
+      await ossClient.postObject(uploadRequest, ossRuntime);
+      recolorHDImageReq.url = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    }
+
     let recolorHDImageResp = await this.recolorHDImageWithOptions(recolorHDImageReq, runtime);
     return recolorHDImageResp;
   }
@@ -2699,11 +2780,23 @@ export default class Client extends OpenApi {
     // Step 0: init client
     let accessKeyId = await this._credential.getAccessKeyId();
     let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if (Util.isUnset(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
     let authConfig = new $RPC.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
-      type: "access_key",
-      endpoint: "openplatform.aliyuncs.com",
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
       protocol: this._protocol,
       regionId: this._regionId,
     });
@@ -2727,29 +2820,32 @@ export default class Client extends OpenApi {
     OpenApiUtil.convert(runtime, ossRuntime);
     let colorizeImageReq = new ColorizeImageRequest({ });
     OpenApiUtil.convert(request, colorizeImageReq);
-    authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-    ossConfig.accessKeyId = authResponse.accessKeyId;
-    ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
-    ossClient = new OSS(ossConfig);
-    fileObj = new $FileForm.FileField({
-      filename: authResponse.objectKey,
-      content: request.imageURLObject,
-      contentType: "",
-    });
-    ossHeader = new $OSS.PostObjectRequestHeader({
-      accessKeyId: authResponse.accessKeyId,
-      policy: authResponse.encodedPolicy,
-      signature: authResponse.signature,
-      key: authResponse.objectKey,
-      file: fileObj,
-      successActionStatus: "201",
-    });
-    uploadRequest = new $OSS.PostObjectRequest({
-      bucketName: authResponse.bucket,
-      header: ossHeader,
-    });
-    await ossClient.postObject(uploadRequest, ossRuntime);
-    colorizeImageReq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    if (!Util.isUnset(request.imageURLObject)) {
+      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+      ossConfig.accessKeyId = authResponse.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+      ossClient = new OSS(ossConfig);
+      fileObj = new $FileForm.FileField({
+        filename: authResponse.objectKey,
+        content: request.imageURLObject,
+        contentType: "",
+      });
+      ossHeader = new $OSS.PostObjectRequestHeader({
+        accessKeyId: authResponse.accessKeyId,
+        policy: authResponse.encodedPolicy,
+        signature: authResponse.signature,
+        key: authResponse.objectKey,
+        file: fileObj,
+        successActionStatus: "201",
+      });
+      uploadRequest = new $OSS.PostObjectRequest({
+        bucketName: authResponse.bucket,
+        header: ossHeader,
+      });
+      await ossClient.postObject(uploadRequest, ossRuntime);
+      colorizeImageReq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    }
+
     let colorizeImageResp = await this.colorizeImageWithOptions(colorizeImageReq, runtime);
     return colorizeImageResp;
   }
@@ -2784,11 +2880,23 @@ export default class Client extends OpenApi {
     // Step 0: init client
     let accessKeyId = await this._credential.getAccessKeyId();
     let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if (Util.isUnset(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
     let authConfig = new $RPC.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
-      type: "access_key",
-      endpoint: "openplatform.aliyuncs.com",
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
       protocol: this._protocol,
       regionId: this._regionId,
     });
@@ -2812,29 +2920,32 @@ export default class Client extends OpenApi {
     OpenApiUtil.convert(runtime, ossRuntime);
     let assessCompositionReq = new AssessCompositionRequest({ });
     OpenApiUtil.convert(request, assessCompositionReq);
-    authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-    ossConfig.accessKeyId = authResponse.accessKeyId;
-    ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
-    ossClient = new OSS(ossConfig);
-    fileObj = new $FileForm.FileField({
-      filename: authResponse.objectKey,
-      content: request.imageURLObject,
-      contentType: "",
-    });
-    ossHeader = new $OSS.PostObjectRequestHeader({
-      accessKeyId: authResponse.accessKeyId,
-      policy: authResponse.encodedPolicy,
-      signature: authResponse.signature,
-      key: authResponse.objectKey,
-      file: fileObj,
-      successActionStatus: "201",
-    });
-    uploadRequest = new $OSS.PostObjectRequest({
-      bucketName: authResponse.bucket,
-      header: ossHeader,
-    });
-    await ossClient.postObject(uploadRequest, ossRuntime);
-    assessCompositionReq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    if (!Util.isUnset(request.imageURLObject)) {
+      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+      ossConfig.accessKeyId = authResponse.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+      ossClient = new OSS(ossConfig);
+      fileObj = new $FileForm.FileField({
+        filename: authResponse.objectKey,
+        content: request.imageURLObject,
+        contentType: "",
+      });
+      ossHeader = new $OSS.PostObjectRequestHeader({
+        accessKeyId: authResponse.accessKeyId,
+        policy: authResponse.encodedPolicy,
+        signature: authResponse.signature,
+        key: authResponse.objectKey,
+        file: fileObj,
+        successActionStatus: "201",
+      });
+      uploadRequest = new $OSS.PostObjectRequest({
+        bucketName: authResponse.bucket,
+        header: ossHeader,
+      });
+      await ossClient.postObject(uploadRequest, ossRuntime);
+      assessCompositionReq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    }
+
     let assessCompositionResp = await this.assessCompositionWithOptions(assessCompositionReq, runtime);
     return assessCompositionResp;
   }
@@ -2856,11 +2967,23 @@ export default class Client extends OpenApi {
     // Step 0: init client
     let accessKeyId = await this._credential.getAccessKeyId();
     let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if (Util.isUnset(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
     let authConfig = new $RPC.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
-      type: "access_key",
-      endpoint: "openplatform.aliyuncs.com",
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
       protocol: this._protocol,
       regionId: this._regionId,
     });
@@ -2884,29 +3007,32 @@ export default class Client extends OpenApi {
     OpenApiUtil.convert(runtime, ossRuntime);
     let assessSharpnessReq = new AssessSharpnessRequest({ });
     OpenApiUtil.convert(request, assessSharpnessReq);
-    authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-    ossConfig.accessKeyId = authResponse.accessKeyId;
-    ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
-    ossClient = new OSS(ossConfig);
-    fileObj = new $FileForm.FileField({
-      filename: authResponse.objectKey,
-      content: request.imageURLObject,
-      contentType: "",
-    });
-    ossHeader = new $OSS.PostObjectRequestHeader({
-      accessKeyId: authResponse.accessKeyId,
-      policy: authResponse.encodedPolicy,
-      signature: authResponse.signature,
-      key: authResponse.objectKey,
-      file: fileObj,
-      successActionStatus: "201",
-    });
-    uploadRequest = new $OSS.PostObjectRequest({
-      bucketName: authResponse.bucket,
-      header: ossHeader,
-    });
-    await ossClient.postObject(uploadRequest, ossRuntime);
-    assessSharpnessReq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    if (!Util.isUnset(request.imageURLObject)) {
+      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+      ossConfig.accessKeyId = authResponse.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+      ossClient = new OSS(ossConfig);
+      fileObj = new $FileForm.FileField({
+        filename: authResponse.objectKey,
+        content: request.imageURLObject,
+        contentType: "",
+      });
+      ossHeader = new $OSS.PostObjectRequestHeader({
+        accessKeyId: authResponse.accessKeyId,
+        policy: authResponse.encodedPolicy,
+        signature: authResponse.signature,
+        key: authResponse.objectKey,
+        file: fileObj,
+        successActionStatus: "201",
+      });
+      uploadRequest = new $OSS.PostObjectRequest({
+        bucketName: authResponse.bucket,
+        header: ossHeader,
+      });
+      await ossClient.postObject(uploadRequest, ossRuntime);
+      assessSharpnessReq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    }
+
     let assessSharpnessResp = await this.assessSharpnessWithOptions(assessSharpnessReq, runtime);
     return assessSharpnessResp;
   }
@@ -2928,11 +3054,23 @@ export default class Client extends OpenApi {
     // Step 0: init client
     let accessKeyId = await this._credential.getAccessKeyId();
     let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if (Util.isUnset(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
     let authConfig = new $RPC.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
-      type: "access_key",
-      endpoint: "openplatform.aliyuncs.com",
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
       protocol: this._protocol,
       regionId: this._regionId,
     });
@@ -2956,29 +3094,32 @@ export default class Client extends OpenApi {
     OpenApiUtil.convert(runtime, ossRuntime);
     let erasePersonReq = new ErasePersonRequest({ });
     OpenApiUtil.convert(request, erasePersonReq);
-    authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-    ossConfig.accessKeyId = authResponse.accessKeyId;
-    ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
-    ossClient = new OSS(ossConfig);
-    fileObj = new $FileForm.FileField({
-      filename: authResponse.objectKey,
-      content: request.imageURLObject,
-      contentType: "",
-    });
-    ossHeader = new $OSS.PostObjectRequestHeader({
-      accessKeyId: authResponse.accessKeyId,
-      policy: authResponse.encodedPolicy,
-      signature: authResponse.signature,
-      key: authResponse.objectKey,
-      file: fileObj,
-      successActionStatus: "201",
-    });
-    uploadRequest = new $OSS.PostObjectRequest({
-      bucketName: authResponse.bucket,
-      header: ossHeader,
-    });
-    await ossClient.postObject(uploadRequest, ossRuntime);
-    erasePersonReq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    if (!Util.isUnset(request.imageURLObject)) {
+      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+      ossConfig.accessKeyId = authResponse.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+      ossClient = new OSS(ossConfig);
+      fileObj = new $FileForm.FileField({
+        filename: authResponse.objectKey,
+        content: request.imageURLObject,
+        contentType: "",
+      });
+      ossHeader = new $OSS.PostObjectRequestHeader({
+        accessKeyId: authResponse.accessKeyId,
+        policy: authResponse.encodedPolicy,
+        signature: authResponse.signature,
+        key: authResponse.objectKey,
+        file: fileObj,
+        successActionStatus: "201",
+      });
+      uploadRequest = new $OSS.PostObjectRequest({
+        bucketName: authResponse.bucket,
+        header: ossHeader,
+      });
+      await ossClient.postObject(uploadRequest, ossRuntime);
+      erasePersonReq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    }
+
     let erasePersonResp = await this.erasePersonWithOptions(erasePersonReq, runtime);
     return erasePersonResp;
   }
@@ -3013,11 +3154,23 @@ export default class Client extends OpenApi {
     // Step 0: init client
     let accessKeyId = await this._credential.getAccessKeyId();
     let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if (Util.isUnset(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
     let authConfig = new $RPC.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
-      type: "access_key",
-      endpoint: "openplatform.aliyuncs.com",
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
       protocol: this._protocol,
       regionId: this._regionId,
     });
@@ -3041,29 +3194,32 @@ export default class Client extends OpenApi {
     OpenApiUtil.convert(runtime, ossRuntime);
     let imitatePhotoStyleReq = new ImitatePhotoStyleRequest({ });
     OpenApiUtil.convert(request, imitatePhotoStyleReq);
-    authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-    ossConfig.accessKeyId = authResponse.accessKeyId;
-    ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
-    ossClient = new OSS(ossConfig);
-    fileObj = new $FileForm.FileField({
-      filename: authResponse.objectKey,
-      content: request.imageURLObject,
-      contentType: "",
-    });
-    ossHeader = new $OSS.PostObjectRequestHeader({
-      accessKeyId: authResponse.accessKeyId,
-      policy: authResponse.encodedPolicy,
-      signature: authResponse.signature,
-      key: authResponse.objectKey,
-      file: fileObj,
-      successActionStatus: "201",
-    });
-    uploadRequest = new $OSS.PostObjectRequest({
-      bucketName: authResponse.bucket,
-      header: ossHeader,
-    });
-    await ossClient.postObject(uploadRequest, ossRuntime);
-    imitatePhotoStyleReq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    if (!Util.isUnset(request.imageURLObject)) {
+      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+      ossConfig.accessKeyId = authResponse.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+      ossClient = new OSS(ossConfig);
+      fileObj = new $FileForm.FileField({
+        filename: authResponse.objectKey,
+        content: request.imageURLObject,
+        contentType: "",
+      });
+      ossHeader = new $OSS.PostObjectRequestHeader({
+        accessKeyId: authResponse.accessKeyId,
+        policy: authResponse.encodedPolicy,
+        signature: authResponse.signature,
+        key: authResponse.objectKey,
+        file: fileObj,
+        successActionStatus: "201",
+      });
+      uploadRequest = new $OSS.PostObjectRequest({
+        bucketName: authResponse.bucket,
+        header: ossHeader,
+      });
+      await ossClient.postObject(uploadRequest, ossRuntime);
+      imitatePhotoStyleReq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    }
+
     let imitatePhotoStyleResp = await this.imitatePhotoStyleWithOptions(imitatePhotoStyleReq, runtime);
     return imitatePhotoStyleResp;
   }
@@ -3085,11 +3241,23 @@ export default class Client extends OpenApi {
     // Step 0: init client
     let accessKeyId = await this._credential.getAccessKeyId();
     let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if (Util.isUnset(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
     let authConfig = new $RPC.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
-      type: "access_key",
-      endpoint: "openplatform.aliyuncs.com",
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
       protocol: this._protocol,
       regionId: this._regionId,
     });
@@ -3113,29 +3281,32 @@ export default class Client extends OpenApi {
     OpenApiUtil.convert(runtime, ossRuntime);
     let changeImageSizeReq = new ChangeImageSizeRequest({ });
     OpenApiUtil.convert(request, changeImageSizeReq);
-    authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-    ossConfig.accessKeyId = authResponse.accessKeyId;
-    ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
-    ossClient = new OSS(ossConfig);
-    fileObj = new $FileForm.FileField({
-      filename: authResponse.objectKey,
-      content: request.urlObject,
-      contentType: "",
-    });
-    ossHeader = new $OSS.PostObjectRequestHeader({
-      accessKeyId: authResponse.accessKeyId,
-      policy: authResponse.encodedPolicy,
-      signature: authResponse.signature,
-      key: authResponse.objectKey,
-      file: fileObj,
-      successActionStatus: "201",
-    });
-    uploadRequest = new $OSS.PostObjectRequest({
-      bucketName: authResponse.bucket,
-      header: ossHeader,
-    });
-    await ossClient.postObject(uploadRequest, ossRuntime);
-    changeImageSizeReq.url = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    if (!Util.isUnset(request.urlObject)) {
+      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+      ossConfig.accessKeyId = authResponse.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+      ossClient = new OSS(ossConfig);
+      fileObj = new $FileForm.FileField({
+        filename: authResponse.objectKey,
+        content: request.urlObject,
+        contentType: "",
+      });
+      ossHeader = new $OSS.PostObjectRequestHeader({
+        accessKeyId: authResponse.accessKeyId,
+        policy: authResponse.encodedPolicy,
+        signature: authResponse.signature,
+        key: authResponse.objectKey,
+        file: fileObj,
+        successActionStatus: "201",
+      });
+      uploadRequest = new $OSS.PostObjectRequest({
+        bucketName: authResponse.bucket,
+        header: ossHeader,
+      });
+      await ossClient.postObject(uploadRequest, ossRuntime);
+      changeImageSizeReq.url = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    }
+
     let changeImageSizeResp = await this.changeImageSizeWithOptions(changeImageSizeReq, runtime);
     return changeImageSizeResp;
   }
@@ -3157,11 +3328,23 @@ export default class Client extends OpenApi {
     // Step 0: init client
     let accessKeyId = await this._credential.getAccessKeyId();
     let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if (Util.isUnset(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
     let authConfig = new $RPC.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
-      type: "access_key",
-      endpoint: "openplatform.aliyuncs.com",
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
       protocol: this._protocol,
       regionId: this._regionId,
     });
@@ -3185,29 +3368,32 @@ export default class Client extends OpenApi {
     OpenApiUtil.convert(runtime, ossRuntime);
     let enhanceImageColorReq = new EnhanceImageColorRequest({ });
     OpenApiUtil.convert(request, enhanceImageColorReq);
-    authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-    ossConfig.accessKeyId = authResponse.accessKeyId;
-    ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
-    ossClient = new OSS(ossConfig);
-    fileObj = new $FileForm.FileField({
-      filename: authResponse.objectKey,
-      content: request.imageURLObject,
-      contentType: "",
-    });
-    ossHeader = new $OSS.PostObjectRequestHeader({
-      accessKeyId: authResponse.accessKeyId,
-      policy: authResponse.encodedPolicy,
-      signature: authResponse.signature,
-      key: authResponse.objectKey,
-      file: fileObj,
-      successActionStatus: "201",
-    });
-    uploadRequest = new $OSS.PostObjectRequest({
-      bucketName: authResponse.bucket,
-      header: ossHeader,
-    });
-    await ossClient.postObject(uploadRequest, ossRuntime);
-    enhanceImageColorReq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    if (!Util.isUnset(request.imageURLObject)) {
+      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+      ossConfig.accessKeyId = authResponse.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+      ossClient = new OSS(ossConfig);
+      fileObj = new $FileForm.FileField({
+        filename: authResponse.objectKey,
+        content: request.imageURLObject,
+        contentType: "",
+      });
+      ossHeader = new $OSS.PostObjectRequestHeader({
+        accessKeyId: authResponse.accessKeyId,
+        policy: authResponse.encodedPolicy,
+        signature: authResponse.signature,
+        key: authResponse.objectKey,
+        file: fileObj,
+        successActionStatus: "201",
+      });
+      uploadRequest = new $OSS.PostObjectRequest({
+        bucketName: authResponse.bucket,
+        header: ossHeader,
+      });
+      await ossClient.postObject(uploadRequest, ossRuntime);
+      enhanceImageColorReq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    }
+
     let enhanceImageColorResp = await this.enhanceImageColorWithOptions(enhanceImageColorReq, runtime);
     return enhanceImageColorResp;
   }
@@ -3229,11 +3415,23 @@ export default class Client extends OpenApi {
     // Step 0: init client
     let accessKeyId = await this._credential.getAccessKeyId();
     let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if (Util.isUnset(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
     let authConfig = new $RPC.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
-      type: "access_key",
-      endpoint: "openplatform.aliyuncs.com",
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
       protocol: this._protocol,
       regionId: this._regionId,
     });
@@ -3257,29 +3455,32 @@ export default class Client extends OpenApi {
     OpenApiUtil.convert(runtime, ossRuntime);
     let assessExposureReq = new AssessExposureRequest({ });
     OpenApiUtil.convert(request, assessExposureReq);
-    authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-    ossConfig.accessKeyId = authResponse.accessKeyId;
-    ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
-    ossClient = new OSS(ossConfig);
-    fileObj = new $FileForm.FileField({
-      filename: authResponse.objectKey,
-      content: request.imageURLObject,
-      contentType: "",
-    });
-    ossHeader = new $OSS.PostObjectRequestHeader({
-      accessKeyId: authResponse.accessKeyId,
-      policy: authResponse.encodedPolicy,
-      signature: authResponse.signature,
-      key: authResponse.objectKey,
-      file: fileObj,
-      successActionStatus: "201",
-    });
-    uploadRequest = new $OSS.PostObjectRequest({
-      bucketName: authResponse.bucket,
-      header: ossHeader,
-    });
-    await ossClient.postObject(uploadRequest, ossRuntime);
-    assessExposureReq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    if (!Util.isUnset(request.imageURLObject)) {
+      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+      ossConfig.accessKeyId = authResponse.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+      ossClient = new OSS(ossConfig);
+      fileObj = new $FileForm.FileField({
+        filename: authResponse.objectKey,
+        content: request.imageURLObject,
+        contentType: "",
+      });
+      ossHeader = new $OSS.PostObjectRequestHeader({
+        accessKeyId: authResponse.accessKeyId,
+        policy: authResponse.encodedPolicy,
+        signature: authResponse.signature,
+        key: authResponse.objectKey,
+        file: fileObj,
+        successActionStatus: "201",
+      });
+      uploadRequest = new $OSS.PostObjectRequest({
+        bucketName: authResponse.bucket,
+        header: ossHeader,
+      });
+      await ossClient.postObject(uploadRequest, ossRuntime);
+      assessExposureReq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    }
+
     let assessExposureResp = await this.assessExposureWithOptions(assessExposureReq, runtime);
     return assessExposureResp;
   }
@@ -3301,11 +3502,23 @@ export default class Client extends OpenApi {
     // Step 0: init client
     let accessKeyId = await this._credential.getAccessKeyId();
     let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if (Util.isUnset(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
     let authConfig = new $RPC.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
-      type: "access_key",
-      endpoint: "openplatform.aliyuncs.com",
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
       protocol: this._protocol,
       regionId: this._regionId,
     });
@@ -3329,29 +3542,32 @@ export default class Client extends OpenApi {
     OpenApiUtil.convert(runtime, ossRuntime);
     let makeSuperResolutionImageReq = new MakeSuperResolutionImageRequest({ });
     OpenApiUtil.convert(request, makeSuperResolutionImageReq);
-    authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-    ossConfig.accessKeyId = authResponse.accessKeyId;
-    ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
-    ossClient = new OSS(ossConfig);
-    fileObj = new $FileForm.FileField({
-      filename: authResponse.objectKey,
-      content: request.urlObject,
-      contentType: "",
-    });
-    ossHeader = new $OSS.PostObjectRequestHeader({
-      accessKeyId: authResponse.accessKeyId,
-      policy: authResponse.encodedPolicy,
-      signature: authResponse.signature,
-      key: authResponse.objectKey,
-      file: fileObj,
-      successActionStatus: "201",
-    });
-    uploadRequest = new $OSS.PostObjectRequest({
-      bucketName: authResponse.bucket,
-      header: ossHeader,
-    });
-    await ossClient.postObject(uploadRequest, ossRuntime);
-    makeSuperResolutionImageReq.url = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    if (!Util.isUnset(request.urlObject)) {
+      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+      ossConfig.accessKeyId = authResponse.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+      ossClient = new OSS(ossConfig);
+      fileObj = new $FileForm.FileField({
+        filename: authResponse.objectKey,
+        content: request.urlObject,
+        contentType: "",
+      });
+      ossHeader = new $OSS.PostObjectRequestHeader({
+        accessKeyId: authResponse.accessKeyId,
+        policy: authResponse.encodedPolicy,
+        signature: authResponse.signature,
+        key: authResponse.objectKey,
+        file: fileObj,
+        successActionStatus: "201",
+      });
+      uploadRequest = new $OSS.PostObjectRequest({
+        bucketName: authResponse.bucket,
+        header: ossHeader,
+      });
+      await ossClient.postObject(uploadRequest, ossRuntime);
+      makeSuperResolutionImageReq.url = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    }
+
     let makeSuperResolutionImageResp = await this.makeSuperResolutionImageWithOptions(makeSuperResolutionImageReq, runtime);
     return makeSuperResolutionImageResp;
   }
@@ -3373,11 +3589,23 @@ export default class Client extends OpenApi {
     // Step 0: init client
     let accessKeyId = await this._credential.getAccessKeyId();
     let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if (Util.isUnset(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
     let authConfig = new $RPC.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
-      type: "access_key",
-      endpoint: "openplatform.aliyuncs.com",
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
       protocol: this._protocol,
       regionId: this._regionId,
     });
@@ -3401,29 +3629,32 @@ export default class Client extends OpenApi {
     OpenApiUtil.convert(runtime, ossRuntime);
     let intelligentCompositionReq = new IntelligentCompositionRequest({ });
     OpenApiUtil.convert(request, intelligentCompositionReq);
-    authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-    ossConfig.accessKeyId = authResponse.accessKeyId;
-    ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
-    ossClient = new OSS(ossConfig);
-    fileObj = new $FileForm.FileField({
-      filename: authResponse.objectKey,
-      content: request.imageURLObject,
-      contentType: "",
-    });
-    ossHeader = new $OSS.PostObjectRequestHeader({
-      accessKeyId: authResponse.accessKeyId,
-      policy: authResponse.encodedPolicy,
-      signature: authResponse.signature,
-      key: authResponse.objectKey,
-      file: fileObj,
-      successActionStatus: "201",
-    });
-    uploadRequest = new $OSS.PostObjectRequest({
-      bucketName: authResponse.bucket,
-      header: ossHeader,
-    });
-    await ossClient.postObject(uploadRequest, ossRuntime);
-    intelligentCompositionReq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    if (!Util.isUnset(request.imageURLObject)) {
+      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+      ossConfig.accessKeyId = authResponse.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+      ossClient = new OSS(ossConfig);
+      fileObj = new $FileForm.FileField({
+        filename: authResponse.objectKey,
+        content: request.imageURLObject,
+        contentType: "",
+      });
+      ossHeader = new $OSS.PostObjectRequestHeader({
+        accessKeyId: authResponse.accessKeyId,
+        policy: authResponse.encodedPolicy,
+        signature: authResponse.signature,
+        key: authResponse.objectKey,
+        file: fileObj,
+        successActionStatus: "201",
+      });
+      uploadRequest = new $OSS.PostObjectRequest({
+        bucketName: authResponse.bucket,
+        header: ossHeader,
+      });
+      await ossClient.postObject(uploadRequest, ossRuntime);
+      intelligentCompositionReq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    }
+
     let intelligentCompositionResp = await this.intelligentCompositionWithOptions(intelligentCompositionReq, runtime);
     return intelligentCompositionResp;
   }
