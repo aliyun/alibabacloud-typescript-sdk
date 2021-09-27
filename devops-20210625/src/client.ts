@@ -2740,7 +2740,8 @@ export class GetOrganizationMemberResponseBodyMember extends $tea.Model {
   lastVisitTime?: number;
   mobile?: string;
   organizationMemberName?: string;
-  organizationRole?: string;
+  organizationRoleName?: string;
+  organizationRoleId?: string;
   state?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2754,7 +2755,8 @@ export class GetOrganizationMemberResponseBodyMember extends $tea.Model {
       lastVisitTime: 'lastVisitTime',
       mobile: 'mobile',
       organizationMemberName: 'organizationMemberName',
-      organizationRole: 'organizationRole',
+      organizationRoleName: 'organizationRoleName',
+      organizationRoleId: 'organizationRoleId',
       state: 'state',
     };
   }
@@ -2771,7 +2773,8 @@ export class GetOrganizationMemberResponseBodyMember extends $tea.Model {
       lastVisitTime: 'number',
       mobile: 'string',
       organizationMemberName: 'string',
-      organizationRole: 'string',
+      organizationRoleName: 'string',
+      organizationRoleId: 'string',
       state: 'string',
     };
   }
@@ -3290,7 +3293,8 @@ export class ListOrganizationMembersResponseBodyMembers extends $tea.Model {
   lastVisitTime?: number;
   mobile?: string;
   organizationMemberName?: string;
-  organizationRole?: string;
+  organizationRoleName?: string;
+  organizationRoleId?: string;
   state?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3304,7 +3308,8 @@ export class ListOrganizationMembersResponseBodyMembers extends $tea.Model {
       lastVisitTime: 'lastVisitTime',
       mobile: 'mobile',
       organizationMemberName: 'organizationMemberName',
-      organizationRole: 'organizationRole',
+      organizationRoleName: 'organizationRoleName',
+      organizationRoleId: 'organizationRoleId',
       state: 'state',
     };
   }
@@ -3321,7 +3326,8 @@ export class ListOrganizationMembersResponseBodyMembers extends $tea.Model {
       lastVisitTime: 'number',
       mobile: 'string',
       organizationMemberName: 'string',
-      organizationRole: 'string',
+      organizationRoleName: 'string',
+      organizationRoleId: 'string',
       state: 'string',
     };
   }
