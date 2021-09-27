@@ -1629,7 +1629,7 @@ export default class Client extends OpenApi {
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<UploadMediaByURLResponse>(await this.doROARequest("UploadMediaByURL", "2021-03-25", "HTTPS", "POST", "AK", `/api/v1/media/api/v1/video/upload`, "json", req, runtime), new UploadMediaByURLResponse({}));
+    return $tea.cast<UploadMediaByURLResponse>(await this.doROARequest("UploadMediaByURL", "2021-03-25", "HTTPS", "POST", "AK", `/media/api/v1/video/upload`, "json", req, runtime), new UploadMediaByURLResponse({}));
   }
 
   async deleteSignature(ID: string): Promise<DeleteSignatureResponse> {
