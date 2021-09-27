@@ -676,6 +676,75 @@ export class ListSchedulesResponse extends $tea.Model {
   }
 }
 
+export class UploadMediaByURLRequest extends $tea.Model {
+  uploadMetadatas?: UploadMediaByURLRequestUploadMetadatas[];
+  uploadURLs?: string;
+  userData?: UploadMediaByURLRequestUserData;
+  static names(): { [key: string]: string } {
+    return {
+      uploadMetadatas: 'UploadMetadatas',
+      uploadURLs: 'UploadURLs',
+      userData: 'UserData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      uploadMetadatas: { 'type': 'array', 'itemType': UploadMediaByURLRequestUploadMetadatas },
+      uploadURLs: 'string',
+      userData: UploadMediaByURLRequestUserData,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UploadMediaByURLResponseBody extends $tea.Model {
+  requestId?: string;
+  uploadJobs?: UploadMediaByURLResponseBodyUploadJobs[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      uploadJobs: 'UploadJobs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      uploadJobs: { 'type': 'array', 'itemType': UploadMediaByURLResponseBodyUploadJobs },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UploadMediaByURLResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: UploadMediaByURLResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: UploadMediaByURLResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteSignatureResponseBody extends $tea.Model {
   data?: string;
   errorCode?: number;
@@ -1109,6 +1178,121 @@ export class ListSchedulesResponseBodyData extends $tea.Model {
   }
 }
 
+export class UploadMediaByURLRequestUploadMetadatasS3UploadInfo extends $tea.Model {
+  s3AccessKey?: string;
+  s3Bucket?: string;
+  s3Endpoint?: string;
+  s3FileKey?: string;
+  s3Provider?: string;
+  s3SecretKey?: string;
+  s3Token?: string;
+  id?: number;
+  jobId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      s3AccessKey: 'S3AccessKey',
+      s3Bucket: 'S3Bucket',
+      s3Endpoint: 'S3Endpoint',
+      s3FileKey: 'S3FileKey',
+      s3Provider: 'S3Provider',
+      s3SecretKey: 'S3SecretKey',
+      s3Token: 'S3Token',
+      id: 'id',
+      jobId: 'jobId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      s3AccessKey: 'string',
+      s3Bucket: 'string',
+      s3Endpoint: 'string',
+      s3FileKey: 'string',
+      s3Provider: 'string',
+      s3SecretKey: 'string',
+      s3Token: 'string',
+      id: 'number',
+      jobId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UploadMediaByURLRequestUploadMetadatas extends $tea.Model {
+  fileExtension?: string;
+  s3UploadInfo?: UploadMediaByURLRequestUploadMetadatasS3UploadInfo;
+  sourceURL?: string;
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fileExtension: 'FileExtension',
+      s3UploadInfo: 'S3UploadInfo',
+      sourceURL: 'SourceURL',
+      title: 'Title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileExtension: 'string',
+      s3UploadInfo: UploadMediaByURLRequestUploadMetadatasS3UploadInfo,
+      sourceURL: 'string',
+      title: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UploadMediaByURLRequestUserData extends $tea.Model {
+  extend?: { [key: string]: any };
+  messageCallback?: string;
+  static names(): { [key: string]: string } {
+    return {
+      extend: 'Extend',
+      messageCallback: 'MessageCallback',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      extend: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      messageCallback: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UploadMediaByURLResponseBodyUploadJobs extends $tea.Model {
+  jobId?: string;
+  sourceURL?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jobId: 'JobId',
+      sourceURL: 'SourceURL',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobId: 'string',
+      sourceURL: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 
 export default class Client extends OpenApi {
 
@@ -1175,6 +1359,7 @@ export default class Client extends OpenApi {
   }
 
   async deleteTemplateWithOptions(ID: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteTemplateResponse> {
+    ID = OpenApiUtil.getEncodeParam(ID);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -1260,6 +1445,7 @@ export default class Client extends OpenApi {
   }
 
   async deleteScheduleWithOptions(ID: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteScheduleResponse> {
+    ID = OpenApiUtil.getEncodeParam(ID);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -1273,6 +1459,7 @@ export default class Client extends OpenApi {
   }
 
   async getTemplateWithOptions(ID: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetTemplateResponse> {
+    ID = OpenApiUtil.getEncodeParam(ID);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -1318,6 +1505,7 @@ export default class Client extends OpenApi {
   }
 
   async getSignatureWithOptions(ID: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetSignatureResponse> {
+    ID = OpenApiUtil.getEncodeParam(ID);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
@@ -1416,6 +1604,34 @@ export default class Client extends OpenApi {
     return $tea.cast<ListSchedulesResponse>(await this.doROARequest("ListSchedules", "2021-03-25", "HTTPS", "GET", "AK", `/api/v1/schedules`, "json", req, runtime), new ListSchedulesResponse({}));
   }
 
+  async uploadMediaByURL(request: UploadMediaByURLRequest): Promise<UploadMediaByURLResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.uploadMediaByURLWithOptions(request, headers, runtime);
+  }
+
+  async uploadMediaByURLWithOptions(request: UploadMediaByURLRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UploadMediaByURLResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.uploadMetadatas)) {
+      body["UploadMetadatas"] = request.uploadMetadatas;
+    }
+
+    if (!Util.isUnset(request.uploadURLs)) {
+      body["UploadURLs"] = request.uploadURLs;
+    }
+
+    if (!Util.isUnset($tea.toMap(request.userData))) {
+      body["UserData"] = request.userData;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    return $tea.cast<UploadMediaByURLResponse>(await this.doROARequest("UploadMediaByURL", "2021-03-25", "HTTPS", "POST", "AK", `/api/v1/media/api/v1/video/upload`, "json", req, runtime), new UploadMediaByURLResponse({}));
+  }
+
   async deleteSignature(ID: string): Promise<DeleteSignatureResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -1423,6 +1639,7 @@ export default class Client extends OpenApi {
   }
 
   async deleteSignatureWithOptions(ID: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteSignatureResponse> {
+    ID = OpenApiUtil.getEncodeParam(ID);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
