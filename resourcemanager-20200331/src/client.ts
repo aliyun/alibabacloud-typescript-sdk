@@ -417,19 +417,19 @@ export class CreateCloudAccountRequest extends $tea.Model {
 }
 
 export class CreateCloudAccountResponseBody extends $tea.Model {
-  requestId?: string;
   account?: CreateCloudAccountResponseBodyAccount;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       account: 'Account',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       account: CreateCloudAccountResponseBodyAccount,
+      requestId: 'string',
     };
   }
 
@@ -1070,6 +1070,66 @@ export class DeclineHandshakeResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: DeclineHandshakeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAccountRequest extends $tea.Model {
+  accountId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'AccountId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAccountResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAccountResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DeleteAccountResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DeleteAccountResponseBody,
     };
   }
 
@@ -3738,7 +3798,6 @@ export class ListResourcesRequest extends $tea.Model {
   resourceId?: string;
   pageNumber?: number;
   pageSize?: number;
-  resourceIds?: string;
   static names(): { [key: string]: string } {
     return {
       resourceGroupId: 'ResourceGroupId',
@@ -3748,7 +3807,6 @@ export class ListResourcesRequest extends $tea.Model {
       resourceId: 'ResourceId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
-      resourceIds: 'ResourceIds',
     };
   }
 
@@ -3761,7 +3819,6 @@ export class ListResourcesRequest extends $tea.Model {
       resourceId: 'string',
       pageNumber: 'number',
       pageSize: 'number',
-      resourceIds: 'string',
     };
   }
 
@@ -4120,6 +4177,72 @@ export class MoveAccountResponse extends $tea.Model {
   }
 }
 
+export class MoveResourcesRequest extends $tea.Model {
+  resourceGroupId?: string;
+  resources?: MoveResourcesRequestResources[];
+  static names(): { [key: string]: string } {
+    return {
+      resourceGroupId: 'ResourceGroupId',
+      resources: 'Resources',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceGroupId: 'string',
+      resources: { 'type': 'array', 'itemType': MoveResourcesRequestResources },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MoveResourcesResponseBody extends $tea.Model {
+  requestId?: string;
+  responses?: MoveResourcesResponseBodyResponses[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      responses: 'Responses',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      responses: { 'type': 'array', 'itemType': MoveResourcesResponseBodyResponses },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MoveResourcesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: MoveResourcesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: MoveResourcesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class PromoteResourceAccountRequest extends $tea.Model {
   accountId?: string;
   email?: string;
@@ -4143,19 +4266,19 @@ export class PromoteResourceAccountRequest extends $tea.Model {
 }
 
 export class PromoteResourceAccountResponseBody extends $tea.Model {
-  requestId?: string;
   account?: PromoteResourceAccountResponseBodyAccount;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       account: 'Account',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       account: PromoteResourceAccountResponseBodyAccount,
+      requestId: 'string',
     };
   }
 
@@ -4329,19 +4452,19 @@ export class ResendCreateCloudAccountEmailRequest extends $tea.Model {
 }
 
 export class ResendCreateCloudAccountEmailResponseBody extends $tea.Model {
-  requestId?: string;
   account?: ResendCreateCloudAccountEmailResponseBodyAccount;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       account: 'Account',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       account: ResendCreateCloudAccountEmailResponseBodyAccount,
+      requestId: 'string',
     };
   }
 
@@ -4392,19 +4515,19 @@ export class ResendPromoteResourceAccountEmailRequest extends $tea.Model {
 }
 
 export class ResendPromoteResourceAccountEmailResponseBody extends $tea.Model {
-  requestId?: string;
   account?: ResendPromoteResourceAccountEmailResponseBodyAccount;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       account: 'Account',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       account: ResendPromoteResourceAccountEmailResponseBodyAccount,
+      requestId: 'string',
     };
   }
 
@@ -5454,6 +5577,7 @@ export class GetAccountResponseBodyAccount extends $tea.Model {
   joinMethod?: string;
   modifyTime?: string;
   accountName?: string;
+  resourceDirectoryPath?: string;
   static names(): { [key: string]: string } {
     return {
       status: 'Status',
@@ -5467,6 +5591,7 @@ export class GetAccountResponseBodyAccount extends $tea.Model {
       joinMethod: 'JoinMethod',
       modifyTime: 'ModifyTime',
       accountName: 'AccountName',
+      resourceDirectoryPath: 'ResourceDirectoryPath',
     };
   }
 
@@ -5483,6 +5608,7 @@ export class GetAccountResponseBodyAccount extends $tea.Model {
       joinMethod: 'string',
       modifyTime: 'string',
       accountName: 'string',
+      resourceDirectoryPath: 'string',
     };
   }
 
@@ -5537,14 +5663,16 @@ export class GetControlPolicyResponseBodyControlPolicy extends $tea.Model {
 export class GetFolderResponseBodyFolder extends $tea.Model {
   folderId?: string;
   createTime?: string;
-  folderName?: string;
   parentFolderId?: string;
+  folderName?: string;
+  resourceDirectoryPath?: string;
   static names(): { [key: string]: string } {
     return {
       folderId: 'FolderId',
       createTime: 'CreateTime',
-      folderName: 'FolderName',
       parentFolderId: 'ParentFolderId',
+      folderName: 'FolderName',
+      resourceDirectoryPath: 'ResourceDirectoryPath',
     };
   }
 
@@ -5552,8 +5680,9 @@ export class GetFolderResponseBodyFolder extends $tea.Model {
     return {
       folderId: 'string',
       createTime: 'string',
-      folderName: 'string',
       parentFolderId: 'string',
+      folderName: 'string',
+      resourceDirectoryPath: 'string',
     };
   }
 
@@ -5692,6 +5821,7 @@ export class GetResourceDirectoryResponseBodyResourceDirectory extends $tea.Mode
   masterAccountId?: string;
   masterAccountName?: string;
   controlPolicyStatus?: string;
+  memberDeletionStatus?: string;
   static names(): { [key: string]: string } {
     return {
       rootFolderId: 'RootFolderId',
@@ -5700,6 +5830,7 @@ export class GetResourceDirectoryResponseBodyResourceDirectory extends $tea.Mode
       masterAccountId: 'MasterAccountId',
       masterAccountName: 'MasterAccountName',
       controlPolicyStatus: 'ControlPolicyStatus',
+      memberDeletionStatus: 'MemberDeletionStatus',
     };
   }
 
@@ -5711,6 +5842,7 @@ export class GetResourceDirectoryResponseBodyResourceDirectory extends $tea.Mode
       masterAccountId: 'string',
       masterAccountName: 'string',
       controlPolicyStatus: 'string',
+      memberDeletionStatus: 'string',
     };
   }
 
@@ -5952,27 +6084,27 @@ export class GetServiceLinkedRoleDeletionStatusResponseBodyReason extends $tea.M
 
 export class InitResourceDirectoryResponseBodyResourceDirectory extends $tea.Model {
   rootFolderId?: string;
-  masterAccountId?: string;
-  masterAccountName?: string;
   resourceDirectoryId?: string;
   createTime?: string;
+  masterAccountId?: string;
+  masterAccountName?: string;
   static names(): { [key: string]: string } {
     return {
       rootFolderId: 'RootFolderId',
-      masterAccountId: 'MasterAccountId',
-      masterAccountName: 'MasterAccountName',
       resourceDirectoryId: 'ResourceDirectoryId',
       createTime: 'CreateTime',
+      masterAccountId: 'MasterAccountId',
+      masterAccountName: 'MasterAccountName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       rootFolderId: 'string',
-      masterAccountId: 'string',
-      masterAccountName: 'string',
       resourceDirectoryId: 'string',
       createTime: 'string',
+      masterAccountId: 'string',
+      masterAccountName: 'string',
     };
   }
 
@@ -7018,6 +7150,74 @@ export class ListTrustedServiceStatusResponseBodyEnabledServicePrincipals extend
   }
 }
 
+export class MoveResourcesRequestResources extends $tea.Model {
+  resourceId?: string;
+  resourceType?: string;
+  regionId?: string;
+  service?: string;
+  static names(): { [key: string]: string } {
+    return {
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      regionId: 'RegionId',
+      service: 'Service',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceId: 'string',
+      resourceType: 'string',
+      regionId: 'string',
+      service: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MoveResourcesResponseBodyResponses extends $tea.Model {
+  service?: string;
+  resourceId?: string;
+  resourceType?: string;
+  requestId?: string;
+  status?: string;
+  errorCode?: string;
+  errorMsg?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      service: 'Service',
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      requestId: 'RequestId',
+      status: 'Status',
+      errorCode: 'ErrorCode',
+      errorMsg: 'ErrorMsg',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      service: 'string',
+      resourceId: 'string',
+      resourceType: 'string',
+      requestId: 'string',
+      status: 'string',
+      errorCode: 'string',
+      errorMsg: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class PromoteResourceAccountResponseBodyAccount extends $tea.Model {
   status?: string;
   type?: string;
@@ -7582,6 +7782,19 @@ export default class Client extends OpenApi {
   async declineHandshake(request: DeclineHandshakeRequest): Promise<DeclineHandshakeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.declineHandshakeWithOptions(request, runtime);
+  }
+
+  async deleteAccountWithOptions(request: DeleteAccountRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAccountResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DeleteAccountResponse>(await this.doRPCRequest("DeleteAccount", "2020-03-31", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteAccountResponse({}));
+  }
+
+  async deleteAccount(request: DeleteAccountRequest): Promise<DeleteAccountResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteAccountWithOptions(request, runtime);
   }
 
   async deleteControlPolicyWithOptions(request: DeleteControlPolicyRequest, runtime: $Util.RuntimeOptions): Promise<DeleteControlPolicyResponse> {
@@ -8162,6 +8375,19 @@ export default class Client extends OpenApi {
   async moveAccount(request: MoveAccountRequest): Promise<MoveAccountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.moveAccountWithOptions(request, runtime);
+  }
+
+  async moveResourcesWithOptions(request: MoveResourcesRequest, runtime: $Util.RuntimeOptions): Promise<MoveResourcesResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<MoveResourcesResponse>(await this.doRPCRequest("MoveResources", "2020-03-31", "HTTPS", "POST", "AK", "json", req, runtime), new MoveResourcesResponse({}));
+  }
+
+  async moveResources(request: MoveResourcesRequest): Promise<MoveResourcesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.moveResourcesWithOptions(request, runtime);
   }
 
   async promoteResourceAccountWithOptions(request: PromoteResourceAccountRequest, runtime: $Util.RuntimeOptions): Promise<PromoteResourceAccountResponse> {
