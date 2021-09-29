@@ -167,11 +167,13 @@ export class LinkImageRequest extends $tea.Model {
   subSceneId?: string;
   fileName?: string;
   cameraHeight?: number;
+  platform?: string;
   static names(): { [key: string]: string } {
     return {
       subSceneId: 'SubSceneId',
       fileName: 'FileName',
       cameraHeight: 'CameraHeight',
+      platform: 'Platform',
     };
   }
 
@@ -180,6 +182,7 @@ export class LinkImageRequest extends $tea.Model {
       subSceneId: 'string',
       fileName: 'string',
       cameraHeight: 'number',
+      platform: 'string',
     };
   }
 
@@ -2854,6 +2857,81 @@ export class TempPreviewResponse extends $tea.Model {
   }
 }
 
+export class PublishSceneRequest extends $tea.Model {
+  sceneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      sceneId: 'SceneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sceneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PublishSceneResponseBody extends $tea.Model {
+  requestId?: string;
+  code?: number;
+  success?: boolean;
+  message?: string;
+  previewUrl?: string;
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      code: 'Code',
+      success: 'Success',
+      message: 'Message',
+      previewUrl: 'PreviewUrl',
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      code: 'number',
+      success: 'boolean',
+      message: 'string',
+      previewUrl: 'string',
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PublishSceneResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: PublishSceneResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: PublishSceneResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DetailProjectRequest extends $tea.Model {
   id?: string;
   static names(): { [key: string]: string } {
@@ -4254,6 +4332,8 @@ export class ListSubSceneResponseBodyList extends $tea.Model {
   gmtModified?: number;
   resourceName?: string;
   cubemapPath?: string;
+  deleted?: boolean;
+  originUrl?: string;
   static names(): { [key: string]: string } {
     return {
       id: 'Id',
@@ -4266,6 +4346,8 @@ export class ListSubSceneResponseBodyList extends $tea.Model {
       gmtModified: 'GmtModified',
       resourceName: 'ResourceName',
       cubemapPath: 'CubemapPath',
+      deleted: 'Deleted',
+      originUrl: 'OriginUrl',
     };
   }
 
@@ -4281,6 +4363,8 @@ export class ListSubSceneResponseBodyList extends $tea.Model {
       gmtModified: 'number',
       resourceName: 'string',
       cubemapPath: 'string',
+      deleted: 'boolean',
+      originUrl: 'string',
     };
   }
 
@@ -4930,6 +5014,19 @@ export default class Client extends OpenApi {
   async tempPreview(request: TempPreviewRequest): Promise<TempPreviewResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.tempPreviewWithOptions(request, runtime);
+  }
+
+  async publishSceneWithOptions(request: PublishSceneRequest, runtime: $Util.RuntimeOptions): Promise<PublishSceneResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<PublishSceneResponse>(await this.doRPCRequest("PublishScene", "2020-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new PublishSceneResponse({}));
+  }
+
+  async publishScene(request: PublishSceneRequest): Promise<PublishSceneResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.publishSceneWithOptions(request, runtime);
   }
 
   async detailProjectWithOptions(request: DetailProjectRequest, runtime: $Util.RuntimeOptions): Promise<DetailProjectResponse> {
