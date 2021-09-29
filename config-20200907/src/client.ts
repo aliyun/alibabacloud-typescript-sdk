@@ -6345,10 +6345,18 @@ export class UpdateAggregateCompliancePackRequestConfigRulesConfigRuleParameters
 export class UpdateAggregateCompliancePackRequestConfigRules extends $tea.Model {
   managedRuleIdentifier?: string;
   configRuleParameters?: UpdateAggregateCompliancePackRequestConfigRulesConfigRuleParameters[];
+  configRuleId?: string;
+  configRuleName?: string;
+  description?: string;
+  riskLevel?: number;
   static names(): { [key: string]: string } {
     return {
       managedRuleIdentifier: 'ManagedRuleIdentifier',
       configRuleParameters: 'ConfigRuleParameters',
+      configRuleId: 'ConfigRuleId',
+      configRuleName: 'ConfigRuleName',
+      description: 'Description',
+      riskLevel: 'RiskLevel',
     };
   }
 
@@ -6356,6 +6364,10 @@ export class UpdateAggregateCompliancePackRequestConfigRules extends $tea.Model 
     return {
       managedRuleIdentifier: 'string',
       configRuleParameters: { 'type': 'array', 'itemType': UpdateAggregateCompliancePackRequestConfigRulesConfigRuleParameters },
+      configRuleId: 'string',
+      configRuleName: 'string',
+      description: 'string',
+      riskLevel: 'number',
     };
   }
 
@@ -6394,12 +6406,16 @@ export class GetAggregateCompliancePackResponseBodyCompliancePackConfigRules ext
   configRuleName?: string;
   configRuleId?: string;
   configRuleParameters?: GetAggregateCompliancePackResponseBodyCompliancePackConfigRulesConfigRuleParameters[];
+  description?: string;
+  riskLevel?: number;
   static names(): { [key: string]: string } {
     return {
       managedRuleIdentifier: 'ManagedRuleIdentifier',
       configRuleName: 'ConfigRuleName',
       configRuleId: 'ConfigRuleId',
       configRuleParameters: 'ConfigRuleParameters',
+      description: 'Description',
+      riskLevel: 'RiskLevel',
     };
   }
 
@@ -6409,6 +6425,8 @@ export class GetAggregateCompliancePackResponseBodyCompliancePackConfigRules ext
       configRuleName: 'string',
       configRuleId: 'string',
       configRuleParameters: { 'type': 'array', 'itemType': GetAggregateCompliancePackResponseBodyCompliancePackConfigRulesConfigRuleParameters },
+      description: 'string',
+      riskLevel: 'number',
     };
   }
 
@@ -7013,12 +7031,16 @@ export class GetCompliancePackResponseBodyCompliancePackConfigRules extends $tea
   configRuleName?: string;
   configRuleId?: string;
   configRuleParameters?: GetCompliancePackResponseBodyCompliancePackConfigRulesConfigRuleParameters[];
+  description?: string;
+  riskLevel?: number;
   static names(): { [key: string]: string } {
     return {
       managedRuleIdentifier: 'ManagedRuleIdentifier',
       configRuleName: 'ConfigRuleName',
       configRuleId: 'ConfigRuleId',
       configRuleParameters: 'ConfigRuleParameters',
+      description: 'Description',
+      riskLevel: 'RiskLevel',
     };
   }
 
@@ -7028,6 +7050,8 @@ export class GetCompliancePackResponseBodyCompliancePackConfigRules extends $tea
       configRuleName: 'string',
       configRuleId: 'string',
       configRuleParameters: { 'type': 'array', 'itemType': GetCompliancePackResponseBodyCompliancePackConfigRulesConfigRuleParameters },
+      description: 'string',
+      riskLevel: 'number',
     };
   }
 
@@ -7597,10 +7621,18 @@ export class UpdateCompliancePackRequestConfigRulesConfigRuleParameters extends 
 export class UpdateCompliancePackRequestConfigRules extends $tea.Model {
   managedRuleIdentifier?: string;
   configRuleParameters?: UpdateCompliancePackRequestConfigRulesConfigRuleParameters[];
+  configRuleId?: string;
+  configRuleName?: string;
+  description?: string;
+  riskLevel?: number;
   static names(): { [key: string]: string } {
     return {
       managedRuleIdentifier: 'ManagedRuleIdentifier',
       configRuleParameters: 'ConfigRuleParameters',
+      configRuleId: 'ConfigRuleId',
+      configRuleName: 'ConfigRuleName',
+      description: 'Description',
+      riskLevel: 'RiskLevel',
     };
   }
 
@@ -7608,6 +7640,10 @@ export class UpdateCompliancePackRequestConfigRules extends $tea.Model {
     return {
       managedRuleIdentifier: 'string',
       configRuleParameters: { 'type': 'array', 'itemType': UpdateCompliancePackRequestConfigRulesConfigRuleParameters },
+      configRuleId: 'string',
+      configRuleName: 'string',
+      description: 'string',
+      riskLevel: 'number',
     };
   }
 
@@ -7765,44 +7801,14 @@ export class GetConfigRuleResponseBodyConfigRuleSourceSourceDetails extends $tea
   }
 }
 
-export class GetConfigRuleResponseBodyConfigRuleSourceSourceConditions extends $tea.Model {
-  desiredValue?: string;
-  tips?: string;
-  operator?: string;
-  name?: string;
-  static names(): { [key: string]: string } {
-    return {
-      desiredValue: 'DesiredValue',
-      tips: 'Tips',
-      operator: 'Operator',
-      name: 'Name',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      desiredValue: 'string',
-      tips: 'string',
-      operator: 'string',
-      name: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class GetConfigRuleResponseBodyConfigRuleSource extends $tea.Model {
   sourceDetails?: GetConfigRuleResponseBodyConfigRuleSourceSourceDetails[];
   owner?: string;
-  sourceConditions?: GetConfigRuleResponseBodyConfigRuleSourceSourceConditions[];
   identifier?: string;
   static names(): { [key: string]: string } {
     return {
       sourceDetails: 'SourceDetails',
       owner: 'Owner',
-      sourceConditions: 'SourceConditions',
       identifier: 'Identifier',
     };
   }
@@ -7811,7 +7817,6 @@ export class GetConfigRuleResponseBodyConfigRuleSource extends $tea.Model {
     return {
       sourceDetails: { 'type': 'array', 'itemType': GetConfigRuleResponseBodyConfigRuleSourceSourceDetails },
       owner: 'string',
-      sourceConditions: { 'type': 'array', 'itemType': GetConfigRuleResponseBodyConfigRuleSourceSourceConditions },
       identifier: 'string',
     };
   }
@@ -8100,11 +8105,17 @@ export class CreateCompliancePackRequestConfigRules extends $tea.Model {
   managedRuleIdentifier?: string;
   configRuleName?: string;
   configRuleParameters?: CreateCompliancePackRequestConfigRulesConfigRuleParameters[];
+  configRuleId?: string;
+  description?: string;
+  riskLevel?: number;
   static names(): { [key: string]: string } {
     return {
       managedRuleIdentifier: 'ManagedRuleIdentifier',
       configRuleName: 'ConfigRuleName',
       configRuleParameters: 'ConfigRuleParameters',
+      configRuleId: 'ConfigRuleId',
+      description: 'Description',
+      riskLevel: 'RiskLevel',
     };
   }
 
@@ -8113,6 +8124,9 @@ export class CreateCompliancePackRequestConfigRules extends $tea.Model {
       managedRuleIdentifier: 'string',
       configRuleName: 'string',
       configRuleParameters: { 'type': 'array', 'itemType': CreateCompliancePackRequestConfigRulesConfigRuleParameters },
+      configRuleId: 'string',
+      description: 'string',
+      riskLevel: 'number',
     };
   }
 
@@ -8427,11 +8441,17 @@ export class CreateAggregateCompliancePackRequestConfigRules extends $tea.Model 
   managedRuleIdentifier?: string;
   configRuleName?: string;
   configRuleParameters?: CreateAggregateCompliancePackRequestConfigRulesConfigRuleParameters[];
+  configRuleId?: string;
+  description?: string;
+  riskLevel?: number;
   static names(): { [key: string]: string } {
     return {
       managedRuleIdentifier: 'ManagedRuleIdentifier',
       configRuleName: 'ConfigRuleName',
       configRuleParameters: 'ConfigRuleParameters',
+      configRuleId: 'ConfigRuleId',
+      description: 'Description',
+      riskLevel: 'RiskLevel',
     };
   }
 
@@ -8440,6 +8460,9 @@ export class CreateAggregateCompliancePackRequestConfigRules extends $tea.Model 
       managedRuleIdentifier: 'string',
       configRuleName: 'string',
       configRuleParameters: { 'type': 'array', 'itemType': CreateAggregateCompliancePackRequestConfigRulesConfigRuleParameters },
+      configRuleId: 'string',
+      description: 'string',
+      riskLevel: 'number',
     };
   }
 
@@ -8495,44 +8518,14 @@ export class GetAggregateConfigRuleResponseBodyConfigRuleSourceSourceDetails ext
   }
 }
 
-export class GetAggregateConfigRuleResponseBodyConfigRuleSourceSourceConditions extends $tea.Model {
-  desiredValue?: string;
-  tips?: string;
-  operator?: string;
-  name?: string;
-  static names(): { [key: string]: string } {
-    return {
-      desiredValue: 'DesiredValue',
-      tips: 'Tips',
-      operator: 'Operator',
-      name: 'Name',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      desiredValue: 'string',
-      tips: 'string',
-      operator: 'string',
-      name: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class GetAggregateConfigRuleResponseBodyConfigRuleSource extends $tea.Model {
   sourceDetails?: GetAggregateConfigRuleResponseBodyConfigRuleSourceSourceDetails[];
   owner?: string;
-  sourceConditions?: GetAggregateConfigRuleResponseBodyConfigRuleSourceSourceConditions[];
   identifier?: string;
   static names(): { [key: string]: string } {
     return {
       sourceDetails: 'SourceDetails',
       owner: 'Owner',
-      sourceConditions: 'SourceConditions',
       identifier: 'Identifier',
     };
   }
@@ -8541,7 +8534,6 @@ export class GetAggregateConfigRuleResponseBodyConfigRuleSource extends $tea.Mod
     return {
       sourceDetails: { 'type': 'array', 'itemType': GetAggregateConfigRuleResponseBodyConfigRuleSourceSourceDetails },
       owner: 'string',
-      sourceConditions: { 'type': 'array', 'itemType': GetAggregateConfigRuleResponseBodyConfigRuleSourceSourceConditions },
       identifier: 'string',
     };
   }
@@ -9660,11 +9652,10 @@ export default class Client extends OpenApi {
 
   async getConfigRuleWithOptions(request: GetConfigRuleRequest, runtime: $Util.RuntimeOptions): Promise<GetConfigRuleResponse> {
     Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
     let req = new $OpenApi.OpenApiRequest({
-      query: query,
+      body: Util.toMap(request),
     });
-    return $tea.cast<GetConfigRuleResponse>(await this.doRPCRequest("GetConfigRule", "2020-09-07", "HTTPS", "GET", "AK", "json", req, runtime), new GetConfigRuleResponse({}));
+    return $tea.cast<GetConfigRuleResponse>(await this.doRPCRequest("GetConfigRule", "2020-09-07", "HTTPS", "POST", "AK", "json", req, runtime), new GetConfigRuleResponse({}));
   }
 
   async getConfigRule(request: GetConfigRuleRequest): Promise<GetConfigRuleResponse> {
@@ -9882,11 +9873,10 @@ export default class Client extends OpenApi {
 
   async getAggregateConfigRuleWithOptions(request: GetAggregateConfigRuleRequest, runtime: $Util.RuntimeOptions): Promise<GetAggregateConfigRuleResponse> {
     Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
     let req = new $OpenApi.OpenApiRequest({
-      query: query,
+      body: Util.toMap(request),
     });
-    return $tea.cast<GetAggregateConfigRuleResponse>(await this.doRPCRequest("GetAggregateConfigRule", "2020-09-07", "HTTPS", "GET", "AK", "json", req, runtime), new GetAggregateConfigRuleResponse({}));
+    return $tea.cast<GetAggregateConfigRuleResponse>(await this.doRPCRequest("GetAggregateConfigRule", "2020-09-07", "HTTPS", "POST", "AK", "json", req, runtime), new GetAggregateConfigRuleResponse({}));
   }
 
   async getAggregateConfigRule(request: GetAggregateConfigRuleRequest): Promise<GetAggregateConfigRuleResponse> {
