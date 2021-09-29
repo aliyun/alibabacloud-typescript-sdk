@@ -4,6 +4,7 @@
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
+import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
@@ -2111,10 +2112,31 @@ export default class Client extends OpenApi {
 
   async createClientCertificateWithOptions(request: CreateClientCertificateRequest, runtime: $Util.RuntimeOptions): Promise<CreateClientCertificateResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["SanType"] = request.sanType;
+    query["SanValue"] = request.sanValue;
+    query["CommonName"] = request.commonName;
+    query["Algorithm"] = request.algorithm;
+    query["Days"] = request.days;
+    query["ParentIdentifier"] = request.parentIdentifier;
+    query["BeforeTime"] = request.beforeTime;
+    query["AfterTime"] = request.afterTime;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<CreateClientCertificateResponse>(await this.doRPCRequest("CreateClientCertificate", "2020-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new CreateClientCertificateResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateClientCertificate",
+      version: "2020-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateClientCertificateResponse>(await this.callApi(params, req, runtime), new CreateClientCertificateResponse({}));
   }
 
   async createClientCertificate(request: CreateClientCertificateRequest): Promise<CreateClientCertificateResponse> {
@@ -2124,10 +2146,30 @@ export default class Client extends OpenApi {
 
   async createClientCertificateWithCsrWithOptions(request: CreateClientCertificateWithCsrRequest, runtime: $Util.RuntimeOptions): Promise<CreateClientCertificateWithCsrResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["Csr"] = request.csr;
+    query["SanType"] = request.sanType;
+    query["SanValue"] = request.sanValue;
+    query["Days"] = request.days;
+    query["ParentIdentifier"] = request.parentIdentifier;
+    query["BeforeTime"] = request.beforeTime;
+    query["AfterTime"] = request.afterTime;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<CreateClientCertificateWithCsrResponse>(await this.doRPCRequest("CreateClientCertificateWithCsr", "2020-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new CreateClientCertificateWithCsrResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateClientCertificateWithCsr",
+      version: "2020-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateClientCertificateWithCsrResponse>(await this.callApi(params, req, runtime), new CreateClientCertificateWithCsrResponse({}));
   }
 
   async createClientCertificateWithCsr(request: CreateClientCertificateWithCsrRequest): Promise<CreateClientCertificateWithCsrResponse> {
@@ -2137,10 +2179,24 @@ export default class Client extends OpenApi {
 
   async createRevokeClientCertificateWithOptions(request: CreateRevokeClientCertificateRequest, runtime: $Util.RuntimeOptions): Promise<CreateRevokeClientCertificateResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["Identifier"] = request.identifier;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<CreateRevokeClientCertificateResponse>(await this.doRPCRequest("CreateRevokeClientCertificate", "2020-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new CreateRevokeClientCertificateResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateRevokeClientCertificate",
+      version: "2020-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateRevokeClientCertificateResponse>(await this.callApi(params, req, runtime), new CreateRevokeClientCertificateResponse({}));
   }
 
   async createRevokeClientCertificate(request: CreateRevokeClientCertificateRequest): Promise<CreateRevokeClientCertificateResponse> {
@@ -2150,10 +2206,31 @@ export default class Client extends OpenApi {
 
   async createRootCACertificateWithOptions(request: CreateRootCACertificateRequest, runtime: $Util.RuntimeOptions): Promise<CreateRootCACertificateResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["Organization"] = request.organization;
+    query["OrganizationUnit"] = request.organizationUnit;
+    query["CountryCode"] = request.countryCode;
+    query["State"] = request.state;
+    query["Locality"] = request.locality;
+    query["CommonName"] = request.commonName;
+    query["Algorithm"] = request.algorithm;
+    query["Years"] = request.years;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<CreateRootCACertificateResponse>(await this.doRPCRequest("CreateRootCACertificate", "2020-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new CreateRootCACertificateResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateRootCACertificate",
+      version: "2020-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateRootCACertificateResponse>(await this.callApi(params, req, runtime), new CreateRootCACertificateResponse({}));
   }
 
   async createRootCACertificate(request: CreateRootCACertificateRequest): Promise<CreateRootCACertificateResponse> {
@@ -2163,10 +2240,30 @@ export default class Client extends OpenApi {
 
   async createServerCertificateWithOptions(request: CreateServerCertificateRequest, runtime: $Util.RuntimeOptions): Promise<CreateServerCertificateResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["Domain"] = request.domain;
+    query["CommonName"] = request.commonName;
+    query["Algorithm"] = request.algorithm;
+    query["Days"] = request.days;
+    query["ParentIdentifier"] = request.parentIdentifier;
+    query["BeforeTime"] = request.beforeTime;
+    query["AfterTime"] = request.afterTime;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<CreateServerCertificateResponse>(await this.doRPCRequest("CreateServerCertificate", "2020-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new CreateServerCertificateResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateServerCertificate",
+      version: "2020-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateServerCertificateResponse>(await this.callApi(params, req, runtime), new CreateServerCertificateResponse({}));
   }
 
   async createServerCertificate(request: CreateServerCertificateRequest): Promise<CreateServerCertificateResponse> {
@@ -2176,10 +2273,29 @@ export default class Client extends OpenApi {
 
   async createServerCertificateWithCsrWithOptions(request: CreateServerCertificateWithCsrRequest, runtime: $Util.RuntimeOptions): Promise<CreateServerCertificateWithCsrResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["Csr"] = request.csr;
+    query["Domain"] = request.domain;
+    query["Days"] = request.days;
+    query["ParentIdentifier"] = request.parentIdentifier;
+    query["BeforeTime"] = request.beforeTime;
+    query["AfterTime"] = request.afterTime;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<CreateServerCertificateWithCsrResponse>(await this.doRPCRequest("CreateServerCertificateWithCsr", "2020-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new CreateServerCertificateWithCsrResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateServerCertificateWithCsr",
+      version: "2020-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateServerCertificateWithCsrResponse>(await this.callApi(params, req, runtime), new CreateServerCertificateWithCsrResponse({}));
   }
 
   async createServerCertificateWithCsr(request: CreateServerCertificateWithCsrRequest): Promise<CreateServerCertificateWithCsrResponse> {
@@ -2189,10 +2305,32 @@ export default class Client extends OpenApi {
 
   async createSubCACertificateWithOptions(request: CreateSubCACertificateRequest, runtime: $Util.RuntimeOptions): Promise<CreateSubCACertificateResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["ParentIdentifier"] = request.parentIdentifier;
+    query["Organization"] = request.organization;
+    query["OrganizationUnit"] = request.organizationUnit;
+    query["CountryCode"] = request.countryCode;
+    query["State"] = request.state;
+    query["Locality"] = request.locality;
+    query["CommonName"] = request.commonName;
+    query["Algorithm"] = request.algorithm;
+    query["Years"] = request.years;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<CreateSubCACertificateResponse>(await this.doRPCRequest("CreateSubCACertificate", "2020-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new CreateSubCACertificateResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateSubCACertificate",
+      version: "2020-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateSubCACertificateResponse>(await this.callApi(params, req, runtime), new CreateSubCACertificateResponse({}));
   }
 
   async createSubCACertificate(request: CreateSubCACertificateRequest): Promise<CreateSubCACertificateResponse> {
@@ -2202,10 +2340,24 @@ export default class Client extends OpenApi {
 
   async deleteClientCertificateWithOptions(request: DeleteClientCertificateRequest, runtime: $Util.RuntimeOptions): Promise<DeleteClientCertificateResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["Identifier"] = request.identifier;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DeleteClientCertificateResponse>(await this.doRPCRequest("DeleteClientCertificate", "2020-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteClientCertificateResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteClientCertificate",
+      version: "2020-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteClientCertificateResponse>(await this.callApi(params, req, runtime), new DeleteClientCertificateResponse({}));
   }
 
   async deleteClientCertificate(request: DeleteClientCertificateRequest): Promise<DeleteClientCertificateResponse> {
@@ -2215,10 +2367,24 @@ export default class Client extends OpenApi {
 
   async describeCACertificateWithOptions(request: DescribeCACertificateRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCACertificateResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["Identifier"] = request.identifier;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeCACertificateResponse>(await this.doRPCRequest("DescribeCACertificate", "2020-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeCACertificateResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeCACertificate",
+      version: "2020-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeCACertificateResponse>(await this.callApi(params, req, runtime), new DescribeCACertificateResponse({}));
   }
 
   async describeCACertificate(request: DescribeCACertificateRequest): Promise<DescribeCACertificateResponse> {
@@ -2228,7 +2394,18 @@ export default class Client extends OpenApi {
 
   async describeCACertificateCountWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeCACertificateCountResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
-    return $tea.cast<DescribeCACertificateCountResponse>(await this.doRPCRequest("DescribeCACertificateCount", "2020-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeCACertificateCountResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeCACertificateCount",
+      version: "2020-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeCACertificateCountResponse>(await this.callApi(params, req, runtime), new DescribeCACertificateCountResponse({}));
   }
 
   async describeCACertificateCount(): Promise<DescribeCACertificateCountResponse> {
@@ -2238,10 +2415,25 @@ export default class Client extends OpenApi {
 
   async describeCACertificateListWithOptions(request: DescribeCACertificateListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCACertificateListResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["CurrentPage"] = request.currentPage;
+    query["ShowSize"] = request.showSize;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeCACertificateListResponse>(await this.doRPCRequest("DescribeCACertificateList", "2020-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeCACertificateListResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeCACertificateList",
+      version: "2020-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeCACertificateListResponse>(await this.callApi(params, req, runtime), new DescribeCACertificateListResponse({}));
   }
 
   async describeCACertificateList(request: DescribeCACertificateListRequest): Promise<DescribeCACertificateListResponse> {
@@ -2251,10 +2443,24 @@ export default class Client extends OpenApi {
 
   async describeClientCertificateWithOptions(request: DescribeClientCertificateRequest, runtime: $Util.RuntimeOptions): Promise<DescribeClientCertificateResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["Identifier"] = request.identifier;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeClientCertificateResponse>(await this.doRPCRequest("DescribeClientCertificate", "2020-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeClientCertificateResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeClientCertificate",
+      version: "2020-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeClientCertificateResponse>(await this.callApi(params, req, runtime), new DescribeClientCertificateResponse({}));
   }
 
   async describeClientCertificate(request: DescribeClientCertificateRequest): Promise<DescribeClientCertificateResponse> {
@@ -2264,10 +2470,24 @@ export default class Client extends OpenApi {
 
   async describeClientCertificateForSerialNumberWithOptions(request: DescribeClientCertificateForSerialNumberRequest, runtime: $Util.RuntimeOptions): Promise<DescribeClientCertificateForSerialNumberResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["SerialNumber"] = request.serialNumber;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeClientCertificateForSerialNumberResponse>(await this.doRPCRequest("DescribeClientCertificateForSerialNumber", "2020-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeClientCertificateForSerialNumberResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeClientCertificateForSerialNumber",
+      version: "2020-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeClientCertificateForSerialNumberResponse>(await this.callApi(params, req, runtime), new DescribeClientCertificateForSerialNumberResponse({}));
   }
 
   async describeClientCertificateForSerialNumber(request: DescribeClientCertificateForSerialNumberRequest): Promise<DescribeClientCertificateForSerialNumberResponse> {
@@ -2277,10 +2497,24 @@ export default class Client extends OpenApi {
 
   async describeClientCertificateStatusWithOptions(request: DescribeClientCertificateStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeClientCertificateStatusResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["Identifier"] = request.identifier;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeClientCertificateStatusResponse>(await this.doRPCRequest("DescribeClientCertificateStatus", "2020-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeClientCertificateStatusResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeClientCertificateStatus",
+      version: "2020-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeClientCertificateStatusResponse>(await this.callApi(params, req, runtime), new DescribeClientCertificateStatusResponse({}));
   }
 
   async describeClientCertificateStatus(request: DescribeClientCertificateStatusRequest): Promise<DescribeClientCertificateStatusResponse> {
@@ -2290,10 +2524,24 @@ export default class Client extends OpenApi {
 
   async describeClientCertificateStatusForSerialNumberWithOptions(request: DescribeClientCertificateStatusForSerialNumberRequest, runtime: $Util.RuntimeOptions): Promise<DescribeClientCertificateStatusForSerialNumberResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["SerialNumber"] = request.serialNumber;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeClientCertificateStatusForSerialNumberResponse>(await this.doRPCRequest("DescribeClientCertificateStatusForSerialNumber", "2020-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeClientCertificateStatusForSerialNumberResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeClientCertificateStatusForSerialNumber",
+      version: "2020-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeClientCertificateStatusForSerialNumberResponse>(await this.callApi(params, req, runtime), new DescribeClientCertificateStatusForSerialNumberResponse({}));
   }
 
   async describeClientCertificateStatusForSerialNumber(request: DescribeClientCertificateStatusForSerialNumberRequest): Promise<DescribeClientCertificateStatusForSerialNumberResponse> {
@@ -2303,10 +2551,24 @@ export default class Client extends OpenApi {
 
   async getCAInstanceStatusWithOptions(request: GetCAInstanceStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetCAInstanceStatusResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["InstanceId"] = request.instanceId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<GetCAInstanceStatusResponse>(await this.doRPCRequest("GetCAInstanceStatus", "2020-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new GetCAInstanceStatusResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetCAInstanceStatus",
+      version: "2020-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetCAInstanceStatusResponse>(await this.callApi(params, req, runtime), new GetCAInstanceStatusResponse({}));
   }
 
   async getCAInstanceStatus(request: GetCAInstanceStatusRequest): Promise<GetCAInstanceStatusResponse> {
@@ -2316,10 +2578,24 @@ export default class Client extends OpenApi {
 
   async listCACertificateLogWithOptions(request: ListCACertificateLogRequest, runtime: $Util.RuntimeOptions): Promise<ListCACertificateLogResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["Identifier"] = request.identifier;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ListCACertificateLogResponse>(await this.doRPCRequest("ListCACertificateLog", "2020-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new ListCACertificateLogResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListCACertificateLog",
+      version: "2020-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListCACertificateLogResponse>(await this.callApi(params, req, runtime), new ListCACertificateLogResponse({}));
   }
 
   async listCACertificateLog(request: ListCACertificateLogRequest): Promise<ListCACertificateLogResponse> {
@@ -2329,10 +2605,25 @@ export default class Client extends OpenApi {
 
   async listClientCertificateWithOptions(request: ListClientCertificateRequest, runtime: $Util.RuntimeOptions): Promise<ListClientCertificateResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["CurrentPage"] = request.currentPage;
+    query["ShowSize"] = request.showSize;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ListClientCertificateResponse>(await this.doRPCRequest("ListClientCertificate", "2020-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new ListClientCertificateResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListClientCertificate",
+      version: "2020-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListClientCertificateResponse>(await this.callApi(params, req, runtime), new ListClientCertificateResponse({}));
   }
 
   async listClientCertificate(request: ListClientCertificateRequest): Promise<ListClientCertificateResponse> {
@@ -2342,10 +2633,25 @@ export default class Client extends OpenApi {
 
   async listRevokeCertificateWithOptions(request: ListRevokeCertificateRequest, runtime: $Util.RuntimeOptions): Promise<ListRevokeCertificateResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["CurrentPage"] = request.currentPage;
+    query["ShowSize"] = request.showSize;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ListRevokeCertificateResponse>(await this.doRPCRequest("ListRevokeCertificate", "2020-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new ListRevokeCertificateResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListRevokeCertificate",
+      version: "2020-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListRevokeCertificateResponse>(await this.callApi(params, req, runtime), new ListRevokeCertificateResponse({}));
   }
 
   async listRevokeCertificate(request: ListRevokeCertificateRequest): Promise<ListRevokeCertificateResponse> {
@@ -2355,10 +2661,25 @@ export default class Client extends OpenApi {
 
   async updateCACertificateStatusWithOptions(request: UpdateCACertificateStatusRequest, runtime: $Util.RuntimeOptions): Promise<UpdateCACertificateStatusResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["Identifier"] = request.identifier;
+    query["Status"] = request.status;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<UpdateCACertificateStatusResponse>(await this.doRPCRequest("UpdateCACertificateStatus", "2020-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateCACertificateStatusResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateCACertificateStatus",
+      version: "2020-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateCACertificateStatusResponse>(await this.callApi(params, req, runtime), new UpdateCACertificateStatusResponse({}));
   }
 
   async updateCACertificateStatus(request: UpdateCACertificateStatusRequest): Promise<UpdateCACertificateStatusResponse> {
