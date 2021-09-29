@@ -82,6 +82,90 @@ export class AssumeRoleResponse extends $tea.Model {
   }
 }
 
+export class AssumeRoleWithOIDCRequest extends $tea.Model {
+  OIDCProviderArn?: string;
+  roleArn?: string;
+  OIDCToken?: string;
+  policy?: string;
+  durationSeconds?: number;
+  roleSessionName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      OIDCProviderArn: 'OIDCProviderArn',
+      roleArn: 'RoleArn',
+      OIDCToken: 'OIDCToken',
+      policy: 'Policy',
+      durationSeconds: 'DurationSeconds',
+      roleSessionName: 'RoleSessionName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      OIDCProviderArn: 'string',
+      roleArn: 'string',
+      OIDCToken: 'string',
+      policy: 'string',
+      durationSeconds: 'number',
+      roleSessionName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AssumeRoleWithOIDCResponseBody extends $tea.Model {
+  requestId?: string;
+  OIDCTokenInfo?: AssumeRoleWithOIDCResponseBodyOIDCTokenInfo;
+  assumedRoleUser?: AssumeRoleWithOIDCResponseBodyAssumedRoleUser;
+  credentials?: AssumeRoleWithOIDCResponseBodyCredentials;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      OIDCTokenInfo: 'OIDCTokenInfo',
+      assumedRoleUser: 'AssumedRoleUser',
+      credentials: 'Credentials',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      OIDCTokenInfo: AssumeRoleWithOIDCResponseBodyOIDCTokenInfo,
+      assumedRoleUser: AssumeRoleWithOIDCResponseBodyAssumedRoleUser,
+      credentials: AssumeRoleWithOIDCResponseBodyCredentials,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AssumeRoleWithOIDCResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: AssumeRoleWithOIDCResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: AssumeRoleWithOIDCResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AssumeRoleWithSAMLRequest extends $tea.Model {
   SAMLProviderArn?: string;
   roleArn?: string;
@@ -272,6 +356,81 @@ export class AssumeRoleResponseBodyCredentials extends $tea.Model {
   }
 }
 
+export class AssumeRoleWithOIDCResponseBodyOIDCTokenInfo extends $tea.Model {
+  subject?: string;
+  issuer?: string;
+  clientIds?: string;
+  static names(): { [key: string]: string } {
+    return {
+      subject: 'Subject',
+      issuer: 'Issuer',
+      clientIds: 'ClientIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      subject: 'string',
+      issuer: 'string',
+      clientIds: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AssumeRoleWithOIDCResponseBodyAssumedRoleUser extends $tea.Model {
+  assumedRoleId?: string;
+  arn?: string;
+  static names(): { [key: string]: string } {
+    return {
+      assumedRoleId: 'AssumedRoleId',
+      arn: 'Arn',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      assumedRoleId: 'string',
+      arn: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AssumeRoleWithOIDCResponseBodyCredentials extends $tea.Model {
+  securityToken?: string;
+  expiration?: string;
+  accessKeySecret?: string;
+  accessKeyId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      securityToken: 'SecurityToken',
+      expiration: 'Expiration',
+      accessKeySecret: 'AccessKeySecret',
+      accessKeyId: 'AccessKeyId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      securityToken: 'string',
+      expiration: 'string',
+      accessKeySecret: 'string',
+      accessKeyId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AssumeRoleWithSAMLResponseBodySAMLAssertionInfo extends $tea.Model {
   subjectType?: string;
   subject?: string;
@@ -380,12 +539,13 @@ export default class Client extends OpenApi {
       'cn-shanghai-et2-b01': "sts.aliyuncs.com",
       'cn-shanghai-inner': "sts.aliyuncs.com",
       'cn-shanghai-internal-test-1': "sts.aliyuncs.com",
-      'cn-shenzhen-finance-1': "sts.aliyuncs.com",
+      'cn-shenzhen-finance-1': "sts-vpc.cn-shenzhen-finance-1.aliyuncs.com",
       'cn-shenzhen-inner': "sts.aliyuncs.com",
       'cn-shenzhen-st4-d01': "sts.aliyuncs.com",
       'cn-shenzhen-su18-b01': "sts.aliyuncs.com",
       'cn-wuhan': "sts.aliyuncs.com",
       'cn-yushanfang': "sts.aliyuncs.com",
+      'cn-zhangbei': "sts.aliyuncs.com",
       'cn-zhangbei-na61-b01': "sts.aliyuncs.com",
       'cn-zhangjiakou-na62-a01': "sts.aliyuncs.com",
       'cn-zhengzhou-nebula-1': "sts.aliyuncs.com",
@@ -420,6 +580,19 @@ export default class Client extends OpenApi {
   async assumeRole(request: AssumeRoleRequest): Promise<AssumeRoleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.assumeRoleWithOptions(request, runtime);
+  }
+
+  async assumeRoleWithOIDCWithOptions(request: AssumeRoleWithOIDCRequest, runtime: $Util.RuntimeOptions): Promise<AssumeRoleWithOIDCResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<AssumeRoleWithOIDCResponse>(await this.doRPCRequest("AssumeRoleWithOIDC", "2015-04-01", "HTTPS", "POST", "AK", "json", req, runtime), new AssumeRoleWithOIDCResponse({}));
+  }
+
+  async assumeRoleWithOIDC(request: AssumeRoleWithOIDCRequest): Promise<AssumeRoleWithOIDCResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.assumeRoleWithOIDCWithOptions(request, runtime);
   }
 
   async assumeRoleWithSAMLWithOptions(request: AssumeRoleWithSAMLRequest, runtime: $Util.RuntimeOptions): Promise<AssumeRoleWithSAMLResponse> {
