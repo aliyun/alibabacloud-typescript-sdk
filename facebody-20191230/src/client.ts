@@ -1193,15 +1193,27 @@ export class QueryFaceImageTemplateResponse extends $tea.Model {
 
 export class DetectFaceRequest extends $tea.Model {
   imageURL?: string;
+  landmark?: boolean;
+  quality?: boolean;
+  pose?: boolean;
+  maxFaceNumber?: number;
   static names(): { [key: string]: string } {
     return {
       imageURL: 'ImageURL',
+      landmark: 'Landmark',
+      quality: 'Quality',
+      pose: 'Pose',
+      maxFaceNumber: 'MaxFaceNumber',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       imageURL: 'string',
+      landmark: 'boolean',
+      quality: 'boolean',
+      pose: 'boolean',
+      maxFaceNumber: 'number',
     };
   }
 
@@ -1212,15 +1224,27 @@ export class DetectFaceRequest extends $tea.Model {
 
 export class DetectFaceAdvanceRequest extends $tea.Model {
   imageURLObject: Readable;
+  landmark?: boolean;
+  quality?: boolean;
+  pose?: boolean;
+  maxFaceNumber?: number;
   static names(): { [key: string]: string } {
     return {
       imageURLObject: 'ImageURLObject',
+      landmark: 'Landmark',
+      quality: 'Quality',
+      pose: 'Pose',
+      maxFaceNumber: 'MaxFaceNumber',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       imageURLObject: 'Readable',
+      landmark: 'boolean',
+      quality: 'boolean',
+      pose: 'boolean',
+      maxFaceNumber: 'number',
     };
   }
 
@@ -2543,6 +2567,7 @@ export class SearchFaceRequest extends $tea.Model {
   limit?: number;
   dbNames?: string;
   qualityScoreThreshold?: number;
+  maxFaceNum?: number;
   static names(): { [key: string]: string } {
     return {
       dbName: 'DbName',
@@ -2550,6 +2575,7 @@ export class SearchFaceRequest extends $tea.Model {
       limit: 'Limit',
       dbNames: 'DbNames',
       qualityScoreThreshold: 'QualityScoreThreshold',
+      maxFaceNum: 'MaxFaceNum',
     };
   }
 
@@ -2560,6 +2586,7 @@ export class SearchFaceRequest extends $tea.Model {
       limit: 'number',
       dbNames: 'string',
       qualityScoreThreshold: 'number',
+      maxFaceNum: 'number',
     };
   }
 
@@ -2574,6 +2601,7 @@ export class SearchFaceAdvanceRequest extends $tea.Model {
   limit?: number;
   dbNames?: string;
   qualityScoreThreshold?: number;
+  maxFaceNum?: number;
   static names(): { [key: string]: string } {
     return {
       imageUrlObject: 'ImageUrlObject',
@@ -2581,6 +2609,7 @@ export class SearchFaceAdvanceRequest extends $tea.Model {
       limit: 'Limit',
       dbNames: 'DbNames',
       qualityScoreThreshold: 'QualityScoreThreshold',
+      maxFaceNum: 'MaxFaceNum',
     };
   }
 
@@ -2591,6 +2620,7 @@ export class SearchFaceAdvanceRequest extends $tea.Model {
       limit: 'number',
       dbNames: 'string',
       qualityScoreThreshold: 'number',
+      maxFaceNum: 'number',
     };
   }
 
@@ -5246,6 +5276,118 @@ export class CreateBodyDbResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: CreateBodyDbResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchAddFacesRequest extends $tea.Model {
+  dbName?: string;
+  entityId?: string;
+  similarityScoreThresholdInEntity?: number;
+  similarityScoreThresholdBetweenEntity?: number;
+  faces?: BatchAddFacesRequestFaces[];
+  qualityScoreThreshold?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dbName: 'DbName',
+      entityId: 'EntityId',
+      similarityScoreThresholdInEntity: 'SimilarityScoreThresholdInEntity',
+      similarityScoreThresholdBetweenEntity: 'SimilarityScoreThresholdBetweenEntity',
+      faces: 'Faces',
+      qualityScoreThreshold: 'QualityScoreThreshold',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dbName: 'string',
+      entityId: 'string',
+      similarityScoreThresholdInEntity: 'number',
+      similarityScoreThresholdBetweenEntity: 'number',
+      faces: { 'type': 'array', 'itemType': BatchAddFacesRequestFaces },
+      qualityScoreThreshold: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchAddFacesShrinkRequest extends $tea.Model {
+  dbName?: string;
+  entityId?: string;
+  similarityScoreThresholdInEntity?: number;
+  similarityScoreThresholdBetweenEntity?: number;
+  facesShrink?: string;
+  qualityScoreThreshold?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dbName: 'DbName',
+      entityId: 'EntityId',
+      similarityScoreThresholdInEntity: 'SimilarityScoreThresholdInEntity',
+      similarityScoreThresholdBetweenEntity: 'SimilarityScoreThresholdBetweenEntity',
+      facesShrink: 'Faces',
+      qualityScoreThreshold: 'QualityScoreThreshold',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dbName: 'string',
+      entityId: 'string',
+      similarityScoreThresholdInEntity: 'number',
+      similarityScoreThresholdBetweenEntity: 'number',
+      facesShrink: 'string',
+      qualityScoreThreshold: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchAddFacesResponseBody extends $tea.Model {
+  requestId?: string;
+  data?: BatchAddFacesResponseBodyData;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      data: BatchAddFacesResponseBodyData,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchAddFacesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: BatchAddFacesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: BatchAddFacesResponseBody,
     };
   }
 
@@ -8866,6 +9008,97 @@ export class CreateBodyDbResponseBodyData extends $tea.Model {
   }
 }
 
+export class BatchAddFacesRequestFaces extends $tea.Model {
+  extraData?: string;
+  imageURL?: string;
+  static names(): { [key: string]: string } {
+    return {
+      extraData: 'ExtraData',
+      imageURL: 'ImageURL',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      extraData: 'string',
+      imageURL: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchAddFacesResponseBodyDataInsertedFaces extends $tea.Model {
+  imageURL?: string;
+  faceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      imageURL: 'ImageURL',
+      faceId: 'FaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageURL: 'string',
+      faceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchAddFacesResponseBodyDataFailedFaces extends $tea.Model {
+  imageURL?: string;
+  code?: string;
+  message?: string;
+  static names(): { [key: string]: string } {
+    return {
+      imageURL: 'ImageURL',
+      code: 'Code',
+      message: 'Message',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageURL: 'string',
+      code: 'string',
+      message: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchAddFacesResponseBodyData extends $tea.Model {
+  insertedFaces?: BatchAddFacesResponseBodyDataInsertedFaces[];
+  failedFaces?: BatchAddFacesResponseBodyDataFailedFaces[];
+  static names(): { [key: string]: string } {
+    return {
+      insertedFaces: 'InsertedFaces',
+      failedFaces: 'FailedFaces',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      insertedFaces: { 'type': 'array', 'itemType': BatchAddFacesResponseBodyDataInsertedFaces },
+      failedFaces: { 'type': 'array', 'itemType': BatchAddFacesResponseBodyDataFailedFaces },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 
 export default class Client extends OpenApi {
 
@@ -12346,6 +12579,25 @@ export default class Client extends OpenApi {
   async createBodyDb(request: CreateBodyDbRequest): Promise<CreateBodyDbResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createBodyDbWithOptions(request, runtime);
+  }
+
+  async batchAddFacesWithOptions(tmpReq: BatchAddFacesRequest, runtime: $Util.RuntimeOptions): Promise<BatchAddFacesResponse> {
+    Util.validateModel(tmpReq);
+    let request = new BatchAddFacesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.faces)) {
+      request.facesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.faces, "Faces", "json");
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<BatchAddFacesResponse>(await this.doRPCRequest("BatchAddFaces", "2019-12-30", "HTTPS", "POST", "AK", "json", req, runtime), new BatchAddFacesResponse({}));
+  }
+
+  async batchAddFaces(request: BatchAddFacesRequest): Promise<BatchAddFacesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.batchAddFacesWithOptions(request, runtime);
   }
 
 }
