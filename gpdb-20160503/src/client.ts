@@ -4,6 +4,7 @@
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
+import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
@@ -443,6 +444,7 @@ export class CreateECSDBInstanceRequest extends $tea.Model {
   masterNodeNum?: number;
   srcDbInstanceName?: string;
   backupId?: string;
+  DBInstanceCategory?: string;
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
@@ -469,6 +471,7 @@ export class CreateECSDBInstanceRequest extends $tea.Model {
       masterNodeNum: 'MasterNodeNum',
       srcDbInstanceName: 'SrcDbInstanceName',
       backupId: 'BackupId',
+      DBInstanceCategory: 'DBInstanceCategory',
     };
   }
 
@@ -498,6 +501,7 @@ export class CreateECSDBInstanceRequest extends $tea.Model {
       masterNodeNum: 'number',
       srcDbInstanceName: 'string',
       backupId: 'string',
+      DBInstanceCategory: 'string',
     };
   }
 
@@ -1495,6 +1499,9 @@ export class DescribeDBInstancesRequest extends $tea.Model {
   pageSize?: number;
   pageNumber?: number;
   tag?: DescribeDBInstancesRequestTag[];
+  instanceDeployTypes?: string[];
+  DBInstanceStatuses?: string[];
+  DBInstanceCategories?: string[];
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
@@ -1505,6 +1512,9 @@ export class DescribeDBInstancesRequest extends $tea.Model {
       pageSize: 'PageSize',
       pageNumber: 'PageNumber',
       tag: 'Tag',
+      instanceDeployTypes: 'InstanceDeployTypes',
+      DBInstanceStatuses: 'DBInstanceStatuses',
+      DBInstanceCategories: 'DBInstanceCategories',
     };
   }
 
@@ -1518,6 +1528,58 @@ export class DescribeDBInstancesRequest extends $tea.Model {
       pageSize: 'number',
       pageNumber: 'number',
       tag: { 'type': 'array', 'itemType': DescribeDBInstancesRequestTag },
+      instanceDeployTypes: { 'type': 'array', 'itemType': 'string' },
+      DBInstanceStatuses: { 'type': 'array', 'itemType': 'string' },
+      DBInstanceCategories: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBInstancesShrinkRequest extends $tea.Model {
+  ownerId?: number;
+  regionId?: string;
+  DBInstanceDescription?: string;
+  instanceNetworkType?: string;
+  DBInstanceIds?: string;
+  pageSize?: number;
+  pageNumber?: number;
+  tag?: DescribeDBInstancesShrinkRequestTag[];
+  instanceDeployTypesShrink?: string;
+  DBInstanceStatusesShrink?: string;
+  DBInstanceCategoriesShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      DBInstanceDescription: 'DBInstanceDescription',
+      instanceNetworkType: 'InstanceNetworkType',
+      DBInstanceIds: 'DBInstanceIds',
+      pageSize: 'PageSize',
+      pageNumber: 'PageNumber',
+      tag: 'Tag',
+      instanceDeployTypesShrink: 'InstanceDeployTypes',
+      DBInstanceStatusesShrink: 'DBInstanceStatuses',
+      DBInstanceCategoriesShrink: 'DBInstanceCategories',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      regionId: 'string',
+      DBInstanceDescription: 'string',
+      instanceNetworkType: 'string',
+      DBInstanceIds: 'string',
+      pageSize: 'number',
+      pageNumber: 'number',
+      tag: { 'type': 'array', 'itemType': DescribeDBInstancesShrinkRequestTag },
+      instanceDeployTypesShrink: 'string',
+      DBInstanceStatusesShrink: 'string',
+      DBInstanceCategoriesShrink: 'string',
     };
   }
 
@@ -5084,12 +5146,13 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
   DBInstanceMemory?: number;
   hostType?: string;
   payType?: string;
+  tags?: DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttributeTags;
   storageType?: string;
-  cpuCoresPerNode?: number;
   availabilityValue?: string;
   readDelayTime?: string;
-  connectionMode?: string;
+  cpuCoresPerNode?: number;
   port?: string;
+  connectionMode?: string;
   lockMode?: string;
   engineVersion?: string;
   storageUnit?: string;
@@ -5115,7 +5178,7 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
   DBInstanceId?: string;
   DBInstanceClass?: string;
   engine?: string;
-  tags?: DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttributeTags;
+  DBInstanceCategory?: string;
   static names(): { [key: string]: string } {
     return {
       vpcId: 'VpcId',
@@ -5126,12 +5189,13 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
       DBInstanceMemory: 'DBInstanceMemory',
       hostType: 'HostType',
       payType: 'PayType',
+      tags: 'Tags',
       storageType: 'StorageType',
-      cpuCoresPerNode: 'CpuCoresPerNode',
       availabilityValue: 'AvailabilityValue',
       readDelayTime: 'ReadDelayTime',
-      connectionMode: 'ConnectionMode',
+      cpuCoresPerNode: 'CpuCoresPerNode',
       port: 'Port',
+      connectionMode: 'ConnectionMode',
       lockMode: 'LockMode',
       engineVersion: 'EngineVersion',
       storageUnit: 'StorageUnit',
@@ -5157,7 +5221,7 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
       DBInstanceId: 'DBInstanceId',
       DBInstanceClass: 'DBInstanceClass',
       engine: 'Engine',
-      tags: 'Tags',
+      DBInstanceCategory: 'DBInstanceCategory',
     };
   }
 
@@ -5171,12 +5235,13 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
       DBInstanceMemory: 'number',
       hostType: 'string',
       payType: 'string',
+      tags: DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttributeTags,
       storageType: 'string',
-      cpuCoresPerNode: 'number',
       availabilityValue: 'string',
       readDelayTime: 'string',
-      connectionMode: 'string',
+      cpuCoresPerNode: 'number',
       port: 'string',
+      connectionMode: 'string',
       lockMode: 'string',
       engineVersion: 'string',
       storageUnit: 'string',
@@ -5202,7 +5267,7 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
       DBInstanceId: 'string',
       DBInstanceClass: 'string',
       engine: 'string',
-      tags: DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttributeTags,
+      DBInstanceCategory: 'string',
     };
   }
 
@@ -5405,6 +5470,7 @@ export class DescribeDBInstanceOnECSAttributeResponseBodyItemsDBInstanceAttribut
   supportRestore?: boolean;
   minorVersion?: string;
   masterNodeNum?: number;
+  DBInstanceCategory?: string;
   static names(): { [key: string]: string } {
     return {
       creationTime: 'CreationTime',
@@ -5437,6 +5503,7 @@ export class DescribeDBInstanceOnECSAttributeResponseBodyItemsDBInstanceAttribut
       supportRestore: 'SupportRestore',
       minorVersion: 'MinorVersion',
       masterNodeNum: 'MasterNodeNum',
+      DBInstanceCategory: 'DBInstanceCategory',
     };
   }
 
@@ -5472,6 +5539,7 @@ export class DescribeDBInstanceOnECSAttributeResponseBodyItemsDBInstanceAttribut
       supportRestore: 'boolean',
       minorVersion: 'string',
       masterNodeNum: 'number',
+      DBInstanceCategory: 'string',
     };
   }
 
@@ -5500,6 +5568,28 @@ export class DescribeDBInstanceOnECSAttributeResponseBodyItems extends $tea.Mode
 }
 
 export class DescribeDBInstancesRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBInstancesShrinkRequestTag extends $tea.Model {
   key?: string;
   value?: string;
   static names(): { [key: string]: string } {
@@ -5586,6 +5676,7 @@ export class DescribeDBInstancesResponseBodyItemsDBInstance extends $tea.Model {
   segNodeNum?: string;
   storageSize?: string;
   masterNodeNum?: number;
+  DBInstanceCategory?: string;
   static names(): { [key: string]: string } {
     return {
       vpcId: 'VpcId',
@@ -5611,6 +5702,7 @@ export class DescribeDBInstancesResponseBodyItemsDBInstance extends $tea.Model {
       segNodeNum: 'SegNodeNum',
       storageSize: 'StorageSize',
       masterNodeNum: 'MasterNodeNum',
+      DBInstanceCategory: 'DBInstanceCategory',
     };
   }
 
@@ -5639,6 +5731,7 @@ export class DescribeDBInstancesResponseBodyItemsDBInstance extends $tea.Model {
       segNodeNum: 'string',
       storageSize: 'string',
       masterNodeNum: 'number',
+      DBInstanceCategory: 'string',
     };
   }
 
@@ -6985,8 +7078,22 @@ export default class Client extends OpenApi {
     return await this.describeDBInstancePerformanceWithOptions(request, runtime);
   }
 
-  async describeDBInstancesWithOptions(request: DescribeDBInstancesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstancesResponse> {
-    Util.validateModel(request);
+  async describeDBInstancesWithOptions(tmpReq: DescribeDBInstancesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstancesResponse> {
+    Util.validateModel(tmpReq);
+    let request = new DescribeDBInstancesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.instanceDeployTypes)) {
+      request.instanceDeployTypesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.instanceDeployTypes, "InstanceDeployTypes", "simple");
+    }
+
+    if (!Util.isUnset(tmpReq.DBInstanceStatuses)) {
+      request.DBInstanceStatusesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.DBInstanceStatuses, "DBInstanceStatuses", "simple");
+    }
+
+    if (!Util.isUnset(tmpReq.DBInstanceCategories)) {
+      request.DBInstanceCategoriesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.DBInstanceCategories, "DBInstanceCategories", "simple");
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
