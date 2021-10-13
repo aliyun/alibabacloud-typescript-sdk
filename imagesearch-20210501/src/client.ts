@@ -14,41 +14,122 @@ import EndpointUtil from '@alicloud/endpoint-util';
 import { Readable } from 'stream';
 import * as $tea from '@alicloud/tea-typescript';
 
-export class SearchByPicRequest extends $tea.Model {
-  picContent?: string;
-  categoryId?: number;
-  crop?: boolean;
-  region?: string;
-  start?: number;
-  num?: number;
+export class GetProductInfoByIdsRequest extends $tea.Model {
   fields?: string;
-  relationId?: number;
+  itemIds?: string;
   pid?: string;
   static names(): { [key: string]: string } {
     return {
-      picContent: 'PicContent',
-      categoryId: 'CategoryId',
-      crop: 'Crop',
-      region: 'Region',
-      start: 'Start',
-      num: 'Num',
       fields: 'Fields',
-      relationId: 'RelationId',
+      itemIds: 'ItemIds',
       pid: 'Pid',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      picContent: 'string',
+      fields: 'string',
+      itemIds: 'string',
+      pid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetProductInfoByIdsResponseBody extends $tea.Model {
+  code?: number;
+  data?: GetProductInfoByIdsResponseBodyData;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: GetProductInfoByIdsResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetProductInfoByIdsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetProductInfoByIdsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetProductInfoByIdsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchByPicRequest extends $tea.Model {
+  categoryId?: number;
+  crop?: boolean;
+  fields?: string;
+  num?: number;
+  picContent?: string;
+  pid?: string;
+  region?: string;
+  relationId?: number;
+  start?: number;
+  userType?: number;
+  static names(): { [key: string]: string } {
+    return {
+      categoryId: 'CategoryId',
+      crop: 'Crop',
+      fields: 'Fields',
+      num: 'Num',
+      picContent: 'PicContent',
+      pid: 'Pid',
+      region: 'Region',
+      relationId: 'RelationId',
+      start: 'Start',
+      userType: 'UserType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
       categoryId: 'number',
       crop: 'boolean',
-      region: 'string',
-      start: 'number',
-      num: 'number',
       fields: 'string',
-      relationId: 'number',
+      num: 'number',
+      picContent: 'string',
       pid: 'string',
+      region: 'string',
+      relationId: 'number',
+      start: 'number',
+      userType: 'number',
     };
   }
 
@@ -61,23 +142,25 @@ export class SearchByPicAdvanceRequest extends $tea.Model {
   picContentObject: Readable;
   categoryId?: number;
   crop?: boolean;
-  region?: string;
-  start?: number;
-  num?: number;
   fields?: string;
-  relationId?: number;
+  num?: number;
   pid?: string;
+  region?: string;
+  relationId?: number;
+  start?: number;
+  userType?: number;
   static names(): { [key: string]: string } {
     return {
       picContentObject: 'PicContentObject',
       categoryId: 'CategoryId',
       crop: 'Crop',
-      region: 'Region',
-      start: 'Start',
-      num: 'Num',
       fields: 'Fields',
-      relationId: 'RelationId',
+      num: 'Num',
       pid: 'Pid',
+      region: 'Region',
+      relationId: 'RelationId',
+      start: 'Start',
+      userType: 'UserType',
     };
   }
 
@@ -86,12 +169,13 @@ export class SearchByPicAdvanceRequest extends $tea.Model {
       picContentObject: 'Readable',
       categoryId: 'number',
       crop: 'boolean',
-      region: 'string',
-      start: 'number',
-      num: 'number',
       fields: 'string',
-      relationId: 'number',
+      num: 'number',
       pid: 'string',
+      region: 'string',
+      relationId: 'number',
+      start: 'number',
+      userType: 'number',
     };
   }
 
@@ -101,31 +185,31 @@ export class SearchByPicAdvanceRequest extends $tea.Model {
 }
 
 export class SearchByPicResponseBody extends $tea.Model {
-  success?: boolean;
   code?: number;
-  message?: string;
   data?: SearchByPicResponseBodyData;
-  requestId?: string;
+  message?: string;
   picInfo?: SearchByPicResponseBodyPicInfo;
+  requestId?: string;
+  success?: boolean;
   static names(): { [key: string]: string } {
     return {
-      success: 'Success',
       code: 'Code',
-      message: 'Message',
       data: 'Data',
-      requestId: 'RequestId',
+      message: 'Message',
       picInfo: 'PicInfo',
+      requestId: 'RequestId',
+      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      success: 'boolean',
       code: 'number',
-      message: 'string',
       data: SearchByPicResponseBodyData,
-      requestId: 'string',
+      message: 'string',
       picInfo: SearchByPicResponseBodyPicInfo,
+      requestId: 'string',
+      success: 'boolean',
     };
   }
 
@@ -157,40 +241,43 @@ export class SearchByPicResponse extends $tea.Model {
 }
 
 export class SearchByUrlRequest extends $tea.Model {
-  picUrl?: string;
   categoryId?: number;
   crop?: boolean;
-  region?: string;
-  start?: number;
-  num?: number;
   fields?: string;
-  relationId?: number;
+  num?: number;
+  picUrl?: string;
   pid?: string;
+  region?: string;
+  relationId?: number;
+  start?: number;
+  userType?: number;
   static names(): { [key: string]: string } {
     return {
-      picUrl: 'PicUrl',
       categoryId: 'CategoryId',
       crop: 'Crop',
-      region: 'Region',
-      start: 'Start',
-      num: 'Num',
       fields: 'Fields',
-      relationId: 'RelationId',
+      num: 'Num',
+      picUrl: 'PicUrl',
       pid: 'Pid',
+      region: 'Region',
+      relationId: 'RelationId',
+      start: 'Start',
+      userType: 'UserType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      picUrl: 'string',
       categoryId: 'number',
       crop: 'boolean',
-      region: 'string',
-      start: 'number',
-      num: 'number',
       fields: 'string',
-      relationId: 'number',
+      num: 'number',
+      picUrl: 'string',
       pid: 'string',
+      region: 'string',
+      relationId: 'number',
+      start: 'number',
+      userType: 'number',
     };
   }
 
@@ -200,31 +287,31 @@ export class SearchByUrlRequest extends $tea.Model {
 }
 
 export class SearchByUrlResponseBody extends $tea.Model {
-  success?: boolean;
   code?: number;
-  message?: string;
   data?: SearchByUrlResponseBodyData;
-  requestId?: string;
+  message?: string;
   picInfo?: SearchByUrlResponseBodyPicInfo;
+  requestId?: string;
+  success?: boolean;
   static names(): { [key: string]: string } {
     return {
-      success: 'Success',
       code: 'Code',
-      message: 'Message',
       data: 'Data',
-      requestId: 'RequestId',
+      message: 'Message',
       picInfo: 'PicInfo',
+      requestId: 'RequestId',
+      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      success: 'boolean',
       code: 'number',
-      message: 'string',
       data: SearchByUrlResponseBodyData,
-      requestId: 'string',
+      message: 'string',
       picInfo: SearchByUrlResponseBodyPicInfo,
+      requestId: 'string',
+      success: 'boolean',
     };
   }
 
@@ -247,6 +334,175 @@ export class SearchByUrlResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: SearchByUrlResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetProductInfoByIdsResponseBodyDataAuctionsResultMaxCommission extends $tea.Model {
+  maxCommissionRate?: string;
+  maxCommissionClickUrl?: string;
+  maxCommissionCouponShareUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      maxCommissionRate: 'MaxCommissionRate',
+      maxCommissionClickUrl: 'MaxCommissionClickUrl',
+      maxCommissionCouponShareUrl: 'MaxCommissionCouponShareUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxCommissionRate: 'string',
+      maxCommissionClickUrl: 'string',
+      maxCommissionCouponShareUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetProductInfoByIdsResponseBodyDataAuctionsResult extends $tea.Model {
+  itemId?: string;
+  title?: string;
+  shortTitle?: string;
+  subTitle?: string;
+  picUrl?: string;
+  reservePrice?: string;
+  zkFinalPrice?: string;
+  priceAfterCoupon?: string;
+  userType?: number;
+  provcity?: string;
+  nick?: string;
+  sellerId?: string;
+  volume?: number;
+  levelOneCategoryName?: string;
+  categoryName?: string;
+  couponTotalCount?: string;
+  couponRemainCount?: number;
+  couponStartTime?: string;
+  couponEndTime?: string;
+  couponStartFee?: string;
+  couponAmount?: number;
+  couponInfo?: string;
+  commissionRate?: string;
+  couponShareUrl?: string;
+  deeplinkCouponShareUrl?: string;
+  url?: string;
+  deeplinkUrl?: string;
+  shopTitle?: string;
+  maxCommission?: GetProductInfoByIdsResponseBodyDataAuctionsResultMaxCommission;
+  static names(): { [key: string]: string } {
+    return {
+      itemId: 'ItemId',
+      title: 'Title',
+      shortTitle: 'ShortTitle',
+      subTitle: 'SubTitle',
+      picUrl: 'PicUrl',
+      reservePrice: 'ReservePrice',
+      zkFinalPrice: 'ZkFinalPrice',
+      priceAfterCoupon: 'PriceAfterCoupon',
+      userType: 'UserType',
+      provcity: 'Provcity',
+      nick: 'Nick',
+      sellerId: 'SellerId',
+      volume: 'Volume',
+      levelOneCategoryName: 'LevelOneCategoryName',
+      categoryName: 'CategoryName',
+      couponTotalCount: 'CouponTotalCount',
+      couponRemainCount: 'CouponRemainCount',
+      couponStartTime: 'CouponStartTime',
+      couponEndTime: 'CouponEndTime',
+      couponStartFee: 'CouponStartFee',
+      couponAmount: 'CouponAmount',
+      couponInfo: 'CouponInfo',
+      commissionRate: 'CommissionRate',
+      couponShareUrl: 'CouponShareUrl',
+      deeplinkCouponShareUrl: 'DeeplinkCouponShareUrl',
+      url: 'Url',
+      deeplinkUrl: 'DeeplinkUrl',
+      shopTitle: 'ShopTitle',
+      maxCommission: 'MaxCommission',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      itemId: 'string',
+      title: 'string',
+      shortTitle: 'string',
+      subTitle: 'string',
+      picUrl: 'string',
+      reservePrice: 'string',
+      zkFinalPrice: 'string',
+      priceAfterCoupon: 'string',
+      userType: 'number',
+      provcity: 'string',
+      nick: 'string',
+      sellerId: 'string',
+      volume: 'number',
+      levelOneCategoryName: 'string',
+      categoryName: 'string',
+      couponTotalCount: 'string',
+      couponRemainCount: 'number',
+      couponStartTime: 'string',
+      couponEndTime: 'string',
+      couponStartFee: 'string',
+      couponAmount: 'number',
+      couponInfo: 'string',
+      commissionRate: 'string',
+      couponShareUrl: 'string',
+      deeplinkCouponShareUrl: 'string',
+      url: 'string',
+      deeplinkUrl: 'string',
+      shopTitle: 'string',
+      maxCommission: GetProductInfoByIdsResponseBodyDataAuctionsResultMaxCommission,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetProductInfoByIdsResponseBodyDataAuctions extends $tea.Model {
+  result?: GetProductInfoByIdsResponseBodyDataAuctionsResult;
+  rankScore?: number;
+  static names(): { [key: string]: string } {
+    return {
+      result: 'Result',
+      rankScore: 'RankScore',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      result: GetProductInfoByIdsResponseBodyDataAuctionsResult,
+      rankScore: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetProductInfoByIdsResponseBodyData extends $tea.Model {
+  auctions?: GetProductInfoByIdsResponseBodyDataAuctions[];
+  static names(): { [key: string]: string } {
+    return {
+      auctions: 'Auctions',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      auctions: { 'type': 'array', 'itemType': GetProductInfoByIdsResponseBodyDataAuctions },
     };
   }
 
@@ -282,83 +538,63 @@ export class SearchByPicResponseBodyDataAuctionsResultMaxCommission extends $tea
 
 export class SearchByPicResponseBodyDataAuctionsResult extends $tea.Model {
   itemId?: string;
-  itemName?: string;
   title?: string;
-  pic?: string;
+  shortTitle?: string;
+  subTitle?: string;
   picUrl?: string;
-  price?: string;
   reservePrice?: string;
-  promotionPrice?: string;
   zkFinalPrice?: string;
   priceAfterCoupon?: string;
   userType?: number;
   provcity?: string;
-  sellerNickName?: string;
   nick?: string;
   sellerId?: string;
-  monthSellCount?: number;
   volume?: number;
   levelOneCategoryName?: string;
   categoryName?: string;
-  couponActivityId?: string;
   couponTotalCount?: string;
-  couponSendCount?: string;
   couponRemainCount?: number;
   couponStartTime?: string;
   couponEndTime?: string;
   couponStartFee?: string;
   couponAmount?: number;
-  couponSaleTextInfo?: string;
   couponInfo?: string;
-  tkMktRate?: number;
-  tkRate?: number;
   commissionRate?: string;
   couponShareUrl?: string;
-  clickUrl?: string;
+  deeplinkCouponShareUrl?: string;
   url?: string;
-  shortUrl?: string;
-  key?: string;
+  deeplinkUrl?: string;
   shopTitle?: string;
   maxCommission?: SearchByPicResponseBodyDataAuctionsResultMaxCommission;
   static names(): { [key: string]: string } {
     return {
       itemId: 'ItemId',
-      itemName: 'ItemName',
       title: 'Title',
-      pic: 'Pic',
+      shortTitle: 'ShortTitle',
+      subTitle: 'SubTitle',
       picUrl: 'PicUrl',
-      price: 'Price',
       reservePrice: 'ReservePrice',
-      promotionPrice: 'PromotionPrice',
       zkFinalPrice: 'ZkFinalPrice',
       priceAfterCoupon: 'PriceAfterCoupon',
       userType: 'UserType',
       provcity: 'Provcity',
-      sellerNickName: 'SellerNickName',
       nick: 'Nick',
       sellerId: 'SellerId',
-      monthSellCount: 'MonthSellCount',
       volume: 'Volume',
       levelOneCategoryName: 'LevelOneCategoryName',
       categoryName: 'CategoryName',
-      couponActivityId: 'CouponActivityId',
       couponTotalCount: 'CouponTotalCount',
-      couponSendCount: 'CouponSendCount',
       couponRemainCount: 'CouponRemainCount',
       couponStartTime: 'CouponStartTime',
       couponEndTime: 'CouponEndTime',
       couponStartFee: 'CouponStartFee',
       couponAmount: 'CouponAmount',
-      couponSaleTextInfo: 'CouponSaleTextInfo',
       couponInfo: 'CouponInfo',
-      tkMktRate: 'TkMktRate',
-      tkRate: 'TkRate',
       commissionRate: 'CommissionRate',
       couponShareUrl: 'CouponShareUrl',
-      clickUrl: 'ClickUrl',
+      deeplinkCouponShareUrl: 'DeeplinkCouponShareUrl',
       url: 'Url',
-      shortUrl: 'ShortUrl',
-      key: 'Key',
+      deeplinkUrl: 'DeeplinkUrl',
       shopTitle: 'ShopTitle',
       maxCommission: 'MaxCommission',
     };
@@ -367,42 +603,32 @@ export class SearchByPicResponseBodyDataAuctionsResult extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       itemId: 'string',
-      itemName: 'string',
       title: 'string',
-      pic: 'string',
+      shortTitle: 'string',
+      subTitle: 'string',
       picUrl: 'string',
-      price: 'string',
       reservePrice: 'string',
-      promotionPrice: 'string',
       zkFinalPrice: 'string',
       priceAfterCoupon: 'string',
       userType: 'number',
       provcity: 'string',
-      sellerNickName: 'string',
       nick: 'string',
       sellerId: 'string',
-      monthSellCount: 'number',
       volume: 'number',
       levelOneCategoryName: 'string',
       categoryName: 'string',
-      couponActivityId: 'string',
       couponTotalCount: 'string',
-      couponSendCount: 'string',
       couponRemainCount: 'number',
       couponStartTime: 'string',
       couponEndTime: 'string',
       couponStartFee: 'string',
       couponAmount: 'number',
-      couponSaleTextInfo: 'string',
       couponInfo: 'string',
-      tkMktRate: 'number',
-      tkRate: 'number',
       commissionRate: 'string',
       couponShareUrl: 'string',
-      clickUrl: 'string',
+      deeplinkCouponShareUrl: 'string',
       url: 'string',
-      shortUrl: 'string',
-      key: 'string',
+      deeplinkUrl: 'string',
       shopTitle: 'string',
       maxCommission: SearchByPicResponseBodyDataAuctionsResultMaxCommission,
     };
@@ -477,19 +703,19 @@ export class SearchByPicResponseBodyPicInfoMainRegionMultiCategoryId extends $te
 }
 
 export class SearchByPicResponseBodyPicInfoMainRegion extends $tea.Model {
-  region?: string;
   multiCategoryId?: SearchByPicResponseBodyPicInfoMainRegionMultiCategoryId[];
+  region?: string;
   static names(): { [key: string]: string } {
     return {
-      region: 'Region',
       multiCategoryId: 'MultiCategoryId',
+      region: 'Region',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      region: 'string',
       multiCategoryId: { 'type': 'array', 'itemType': SearchByPicResponseBodyPicInfoMainRegionMultiCategoryId },
+      region: 'string',
     };
   }
 
@@ -566,83 +792,63 @@ export class SearchByUrlResponseBodyDataAuctionsResultMaxCommission extends $tea
 
 export class SearchByUrlResponseBodyDataAuctionsResult extends $tea.Model {
   itemId?: string;
-  itemName?: string;
   title?: string;
-  pic?: string;
+  shortTitle?: string;
+  subTitle?: string;
   picUrl?: string;
-  price?: string;
   reservePrice?: string;
-  promotionPrice?: string;
   zkFinalPrice?: string;
   priceAfterCoupon?: string;
   userType?: number;
   provcity?: string;
-  sellerNickName?: string;
   nick?: string;
   sellerId?: string;
-  monthSellCount?: number;
   volume?: number;
   levelOneCategoryName?: string;
   categoryName?: string;
-  couponActivityId?: string;
   couponTotalCount?: string;
-  couponSendCount?: string;
   couponRemainCount?: number;
   couponStartTime?: string;
   couponEndTime?: string;
   couponStartFee?: string;
   couponAmount?: number;
-  couponSaleTextInfo?: string;
   couponInfo?: string;
-  tkMktRate?: number;
-  tkRate?: number;
   commissionRate?: string;
   couponShareUrl?: string;
-  clickUrl?: string;
+  deeplinkCouponShareUrl?: string;
   url?: string;
-  shortUrl?: string;
-  key?: string;
+  deeplinkUrl?: string;
   shopTitle?: string;
   maxCommission?: SearchByUrlResponseBodyDataAuctionsResultMaxCommission;
   static names(): { [key: string]: string } {
     return {
       itemId: 'ItemId',
-      itemName: 'ItemName',
       title: 'Title',
-      pic: 'Pic',
+      shortTitle: 'ShortTitle',
+      subTitle: 'SubTitle',
       picUrl: 'PicUrl',
-      price: 'Price',
       reservePrice: 'ReservePrice',
-      promotionPrice: 'PromotionPrice',
       zkFinalPrice: 'ZkFinalPrice',
       priceAfterCoupon: 'PriceAfterCoupon',
       userType: 'UserType',
       provcity: 'Provcity',
-      sellerNickName: 'SellerNickName',
       nick: 'Nick',
       sellerId: 'SellerId',
-      monthSellCount: 'MonthSellCount',
       volume: 'Volume',
       levelOneCategoryName: 'LevelOneCategoryName',
       categoryName: 'CategoryName',
-      couponActivityId: 'CouponActivityId',
       couponTotalCount: 'CouponTotalCount',
-      couponSendCount: 'CouponSendCount',
       couponRemainCount: 'CouponRemainCount',
       couponStartTime: 'CouponStartTime',
       couponEndTime: 'CouponEndTime',
       couponStartFee: 'CouponStartFee',
       couponAmount: 'CouponAmount',
-      couponSaleTextInfo: 'CouponSaleTextInfo',
       couponInfo: 'CouponInfo',
-      tkMktRate: 'TkMktRate',
-      tkRate: 'TkRate',
       commissionRate: 'CommissionRate',
       couponShareUrl: 'CouponShareUrl',
-      clickUrl: 'ClickUrl',
+      deeplinkCouponShareUrl: 'DeeplinkCouponShareUrl',
       url: 'Url',
-      shortUrl: 'ShortUrl',
-      key: 'Key',
+      deeplinkUrl: 'DeeplinkUrl',
       shopTitle: 'ShopTitle',
       maxCommission: 'MaxCommission',
     };
@@ -651,42 +857,32 @@ export class SearchByUrlResponseBodyDataAuctionsResult extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       itemId: 'string',
-      itemName: 'string',
       title: 'string',
-      pic: 'string',
+      shortTitle: 'string',
+      subTitle: 'string',
       picUrl: 'string',
-      price: 'string',
       reservePrice: 'string',
-      promotionPrice: 'string',
       zkFinalPrice: 'string',
       priceAfterCoupon: 'string',
       userType: 'number',
       provcity: 'string',
-      sellerNickName: 'string',
       nick: 'string',
       sellerId: 'string',
-      monthSellCount: 'number',
       volume: 'number',
       levelOneCategoryName: 'string',
       categoryName: 'string',
-      couponActivityId: 'string',
       couponTotalCount: 'string',
-      couponSendCount: 'string',
       couponRemainCount: 'number',
       couponStartTime: 'string',
       couponEndTime: 'string',
       couponStartFee: 'string',
       couponAmount: 'number',
-      couponSaleTextInfo: 'string',
       couponInfo: 'string',
-      tkMktRate: 'number',
-      tkRate: 'number',
       commissionRate: 'string',
       couponShareUrl: 'string',
-      clickUrl: 'string',
+      deeplinkCouponShareUrl: 'string',
       url: 'string',
-      shortUrl: 'string',
-      key: 'string',
+      deeplinkUrl: 'string',
       shopTitle: 'string',
       maxCommission: SearchByUrlResponseBodyDataAuctionsResultMaxCommission,
     };
@@ -761,19 +957,19 @@ export class SearchByUrlResponseBodyPicInfoMainRegionMultiCategoryId extends $te
 }
 
 export class SearchByUrlResponseBodyPicInfoMainRegion extends $tea.Model {
-  region?: string;
   multiCategoryId?: SearchByUrlResponseBodyPicInfoMainRegionMultiCategoryId[];
+  region?: string;
   static names(): { [key: string]: string } {
     return {
-      region: 'Region',
       multiCategoryId: 'MultiCategoryId',
+      region: 'Region',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      region: 'string',
       multiCategoryId: { 'type': 'array', 'itemType': SearchByUrlResponseBodyPicInfoMainRegionMultiCategoryId },
+      region: 'string',
     };
   }
 
@@ -846,12 +1042,50 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
-  async searchByPicWithOptions(request: SearchByPicRequest, runtime: $Util.RuntimeOptions): Promise<SearchByPicResponse> {
+  async getProductInfoByIdsWithOptions(request: GetProductInfoByIdsRequest, runtime: $Util.RuntimeOptions): Promise<GetProductInfoByIdsResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<SearchByPicResponse>(await this.doRPCRequest("SearchByPic", "2021-05-01", "HTTPS", "POST", "AK", "json", req, runtime), new SearchByPicResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetProductInfoByIds",
+      version: "2021-05-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetProductInfoByIdsResponse>(await this.callApi(params, req, runtime), new GetProductInfoByIdsResponse({}));
+  }
+
+  async getProductInfoByIds(request: GetProductInfoByIdsRequest): Promise<GetProductInfoByIdsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getProductInfoByIdsWithOptions(request, runtime);
+  }
+
+  async searchByPicWithOptions(request: SearchByPicRequest, runtime: $Util.RuntimeOptions): Promise<SearchByPicResponse> {
+    Util.validateModel(request);
+    let query = { };
+    query["UserType"] = request.userType;
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: Util.toMap(request),
+    });
+    let params = new $OpenApi.Params({
+      action: "SearchByPic",
+      version: "2021-05-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SearchByPicResponse>(await this.callApi(params, req, runtime), new SearchByPicResponse({}));
   }
 
   async searchByPic(request: SearchByPicRequest): Promise<SearchByPicResponse> {
@@ -935,10 +1169,24 @@ export default class Client extends OpenApi {
 
   async searchByUrlWithOptions(request: SearchByUrlRequest, runtime: $Util.RuntimeOptions): Promise<SearchByUrlResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["UserType"] = request.userType;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<SearchByUrlResponse>(await this.doRPCRequest("SearchByUrl", "2021-05-01", "HTTPS", "POST", "AK", "json", req, runtime), new SearchByUrlResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SearchByUrl",
+      version: "2021-05-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SearchByUrlResponse>(await this.callApi(params, req, runtime), new SearchByUrlResponse({}));
   }
 
   async searchByUrl(request: SearchByUrlRequest): Promise<SearchByUrlResponse> {
