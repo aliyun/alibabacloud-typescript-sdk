@@ -28,19 +28,19 @@ export class ActivateZonesRequest extends $tea.Model {
 }
 
 export class ActivateZonesResponseBody extends $tea.Model {
-  requestId?: string;
   result?: boolean;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       result: 'Result',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       result: 'boolean',
+      requestId: 'string',
     };
   }
 
@@ -91,19 +91,19 @@ export class AddConnectableClusterRequest extends $tea.Model {
 }
 
 export class AddConnectableClusterResponseBody extends $tea.Model {
-  requestId?: string;
   result?: boolean;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       result: 'Result',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       result: 'boolean',
+      requestId: 'string',
     };
   }
 
@@ -135,19 +135,19 @@ export class AddConnectableClusterResponse extends $tea.Model {
 }
 
 export class AddSnapshotRepoResponseBody extends $tea.Model {
-  requestId?: string;
   result?: boolean;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       result: 'Result',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       result: 'boolean',
+      requestId: 'string',
     };
   }
 
@@ -198,19 +198,19 @@ export class CancelDeletionRequest extends $tea.Model {
 }
 
 export class CancelDeletionResponseBody extends $tea.Model {
-  requestId?: string;
   result?: boolean;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       result: 'Result',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       result: 'boolean',
+      requestId: 'string',
     };
   }
 
@@ -261,19 +261,19 @@ export class CancelLogstashDeletionRequest extends $tea.Model {
 }
 
 export class CancelLogstashDeletionResponseBody extends $tea.Model {
-  requestId?: string;
   result?: boolean;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       result: 'Result',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       result: 'boolean',
+      requestId: 'string',
     };
   }
 
@@ -305,19 +305,19 @@ export class CancelLogstashDeletionResponse extends $tea.Model {
 }
 
 export class CancelTaskRequest extends $tea.Model {
-  clientToken?: string;
   taskType?: string;
+  clientToken?: string;
   static names(): { [key: string]: string } {
     return {
-      clientToken: 'clientToken',
       taskType: 'taskType',
+      clientToken: 'clientToken',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      clientToken: 'string',
       taskType: 'string',
+      clientToken: 'string',
     };
   }
 
@@ -327,19 +327,19 @@ export class CancelTaskRequest extends $tea.Model {
 }
 
 export class CancelTaskResponseBody extends $tea.Model {
-  requestId?: string;
   result?: boolean;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       result: 'Result',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       result: 'boolean',
+      requestId: 'string',
     };
   }
 
@@ -465,19 +465,19 @@ export class CloseDiagnosisRequest extends $tea.Model {
 }
 
 export class CloseDiagnosisResponseBody extends $tea.Model {
-  requestId?: string;
   result?: boolean;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       result: 'Result',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       result: 'boolean',
+      requestId: 'string',
     };
   }
 
@@ -528,19 +528,19 @@ export class CloseHttpsRequest extends $tea.Model {
 }
 
 export class CloseHttpsResponseBody extends $tea.Model {
-  requestId?: string;
   result?: boolean;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       result: 'Result',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       result: 'boolean',
+      requestId: 'string',
     };
   }
 
@@ -591,19 +591,19 @@ export class CloseManagedIndexRequest extends $tea.Model {
 }
 
 export class CloseManagedIndexResponseBody extends $tea.Model {
-  requestId?: string;
   result?: boolean;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       result: 'Result',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       result: 'boolean',
+      requestId: 'string',
     };
   }
 
@@ -843,19 +843,19 @@ export class CreateILMPolicyRequest extends $tea.Model {
 }
 
 export class CreateILMPolicyResponseBody extends $tea.Model {
-  requestId?: string;
   result?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       result: 'Result',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       result: 'string',
+      requestId: 'string',
     };
   }
 
@@ -906,19 +906,19 @@ export class CreateIndexTemplateRequest extends $tea.Model {
 }
 
 export class CreateIndexTemplateResponseBody extends $tea.Model {
-  requestId?: string;
   result?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       result: 'Result',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       result: 'string',
+      requestId: 'string',
     };
   }
 
@@ -941,6 +941,69 @@ export class CreateIndexTemplateResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: CreateIndexTemplateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateInstanceRequest extends $tea.Model {
+  clientToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'clientToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateInstanceResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: CreateInstanceResponseBodyResult;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: CreateInstanceResponseBodyResult,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateInstanceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CreateInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CreateInstanceResponseBody,
     };
   }
 
@@ -1013,19 +1076,19 @@ export class CreateLogstashResponse extends $tea.Model {
 }
 
 export class CreatePipelinesRequest extends $tea.Model {
-  clientToken?: string;
   trigger?: boolean;
+  clientToken?: string;
   static names(): { [key: string]: string } {
     return {
-      clientToken: 'ClientToken',
       trigger: 'trigger',
+      clientToken: 'ClientToken',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      clientToken: 'string',
       trigger: 'boolean',
+      clientToken: 'string',
     };
   }
 
@@ -1035,19 +1098,19 @@ export class CreatePipelinesRequest extends $tea.Model {
 }
 
 export class CreatePipelinesResponseBody extends $tea.Model {
-  requestId?: string;
   result?: boolean;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       result: 'Result',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       result: 'boolean',
+      requestId: 'string',
     };
   }
 
@@ -1098,19 +1161,19 @@ export class CreateSnapshotRequest extends $tea.Model {
 }
 
 export class CreateSnapshotResponseBody extends $tea.Model {
-  requestId?: string;
   result?: boolean;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       result: 'Result',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       result: 'boolean',
+      requestId: 'string',
     };
   }
 
@@ -1227,19 +1290,19 @@ export class DeactivateZonesRequest extends $tea.Model {
 }
 
 export class DeactivateZonesResponseBody extends $tea.Model {
-  requestId?: string;
   result?: boolean;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       result: 'Result',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       result: 'boolean',
+      requestId: 'string',
     };
   }
 
@@ -1290,19 +1353,19 @@ export class DeleteCollectorRequest extends $tea.Model {
 }
 
 export class DeleteCollectorResponseBody extends $tea.Model {
-  requestId?: string;
   result?: boolean;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       result: 'Result',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       result: 'boolean',
+      requestId: 'string',
     };
   }
 
@@ -1356,19 +1419,19 @@ export class DeleteConnectedClusterRequest extends $tea.Model {
 }
 
 export class DeleteConnectedClusterResponseBody extends $tea.Model {
-  requestId?: string;
   result?: boolean;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       result: 'Result',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       result: 'boolean',
+      requestId: 'string',
     };
   }
 
@@ -1419,19 +1482,19 @@ export class DeleteDataStreamRequest extends $tea.Model {
 }
 
 export class DeleteDataStreamResponseBody extends $tea.Model {
-  requestId?: string;
   result?: boolean;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       result: 'Result',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       result: 'boolean',
+      requestId: 'string',
     };
   }
 
@@ -1485,19 +1548,19 @@ export class DeleteDataTaskRequest extends $tea.Model {
 }
 
 export class DeleteDataTaskResponseBody extends $tea.Model {
-  requestId?: string;
   result?: boolean;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       result: 'Result',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       result: 'boolean',
+      requestId: 'string',
     };
   }
 
@@ -1529,19 +1592,19 @@ export class DeleteDataTaskResponse extends $tea.Model {
 }
 
 export class DeleteILMPolicyResponseBody extends $tea.Model {
-  requestId?: string;
   result?: boolean;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       result: 'Result',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       result: 'boolean',
+      requestId: 'string',
     };
   }
 
@@ -1573,19 +1636,19 @@ export class DeleteILMPolicyResponse extends $tea.Model {
 }
 
 export class DeleteIndexTemplateResponseBody extends $tea.Model {
-  requestId?: string;
   result?: boolean;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       result: 'Result',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       result: 'boolean',
+      requestId: 'string',
     };
   }
 
@@ -1765,19 +1828,19 @@ export class DeletePipelinesRequest extends $tea.Model {
 }
 
 export class DeletePipelinesResponseBody extends $tea.Model {
-  requestId?: string;
   result?: boolean;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       result: 'Result',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       result: 'boolean',
+      requestId: 'string',
     };
   }
 
@@ -1809,19 +1872,19 @@ export class DeletePipelinesResponse extends $tea.Model {
 }
 
 export class DeleteSnapshotRepoRequest extends $tea.Model {
-  clientToken?: string;
   repoPath?: string;
+  clientToken?: string;
   static names(): { [key: string]: string } {
     return {
-      clientToken: 'clientToken',
       repoPath: 'repoPath',
+      clientToken: 'clientToken',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      clientToken: 'string',
       repoPath: 'string',
+      clientToken: 'string',
     };
   }
 
@@ -1831,19 +1894,19 @@ export class DeleteSnapshotRepoRequest extends $tea.Model {
 }
 
 export class DeleteSnapshotRepoResponseBody extends $tea.Model {
-  requestId?: string;
   result?: boolean;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       result: 'Result',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       result: 'boolean',
+      requestId: 'string',
     };
   }
 
@@ -1894,19 +1957,19 @@ export class DeleteVpcEndpointRequest extends $tea.Model {
 }
 
 export class DeleteVpcEndpointResponseBody extends $tea.Model {
-  requestId?: string;
   result?: boolean;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       result: 'Result',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       result: 'boolean',
+      requestId: 'string',
     };
   }
 
@@ -1973,50 +2036,6 @@ export class DescribeAckOperatorResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: DescribeAckOperatorResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeApmResponseBody extends $tea.Model {
-  requestId?: string;
-  result?: DescribeApmResponseBodyResult;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      result: 'Result',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      result: DescribeApmResponseBodyResult,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeApmResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DescribeApmResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DescribeApmResponseBody,
     };
   }
 
@@ -2441,19 +2460,19 @@ export class DescribeInstanceResponse extends $tea.Model {
 }
 
 export class DescribeKibanaSettingsResponseBody extends $tea.Model {
-  requestId?: string;
   result?: { [key: string]: any };
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       result: 'Result',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       result: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      requestId: 'string',
     };
   }
 
@@ -2812,19 +2831,19 @@ export class DescribeXpackMonitorConfigResponse extends $tea.Model {
 }
 
 export class DiagnoseInstanceRequest extends $tea.Model {
-  clientToken?: string;
   lang?: string;
+  clientToken?: string;
   static names(): { [key: string]: string } {
     return {
-      clientToken: 'ClientToken',
       lang: 'lang',
+      clientToken: 'ClientToken',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      clientToken: 'string',
       lang: 'string',
+      clientToken: 'string',
     };
   }
 
@@ -3195,15 +3214,15 @@ export class GetEmonMonitorDataResponseBody extends $tea.Model {
   code?: string;
   message?: string;
   requestId?: string;
-  result?: GetEmonMonitorDataResponseBodyResult[];
   success?: boolean;
+  result?: GetEmonMonitorDataResponseBodyResult[];
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
-      result: 'Result',
       success: 'Success',
+      result: 'Result',
     };
   }
 
@@ -3212,8 +3231,8 @@ export class GetEmonMonitorDataResponseBody extends $tea.Model {
       code: 'string',
       message: 'string',
       requestId: 'string',
-      result: { 'type': 'array', 'itemType': GetEmonMonitorDataResponseBodyResult },
       success: 'boolean',
+      result: { 'type': 'array', 'itemType': GetEmonMonitorDataResponseBodyResult },
     };
   }
 
@@ -3352,22 +3371,22 @@ export class GetRegionConfigurationResponse extends $tea.Model {
 }
 
 export class GetSuggestShrinkableNodesRequest extends $tea.Model {
+  nodeType?: string;
   count?: number;
   ignoreStatus?: boolean;
-  nodeType?: string;
   static names(): { [key: string]: string } {
     return {
+      nodeType: 'nodeType',
       count: 'count',
       ignoreStatus: 'ignoreStatus',
-      nodeType: 'nodeType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      nodeType: 'string',
       count: 'number',
       ignoreStatus: 'boolean',
-      nodeType: 'string',
     };
   }
 
@@ -3421,19 +3440,19 @@ export class GetSuggestShrinkableNodesResponse extends $tea.Model {
 }
 
 export class GetTransferableNodesRequest extends $tea.Model {
-  count?: number;
   nodeType?: string;
+  count?: number;
   static names(): { [key: string]: string } {
     return {
-      count: 'count',
       nodeType: 'nodeType',
+      count: 'count',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      count: 'number',
       nodeType: 'string',
+      count: 'number',
     };
   }
 
@@ -3506,19 +3525,19 @@ export class InitializeOperationRoleRequest extends $tea.Model {
 }
 
 export class InitializeOperationRoleResponseBody extends $tea.Model {
-  requestId?: string;
   result?: boolean;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       result: 'Result',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       result: 'boolean',
+      requestId: 'string',
     };
   }
 
@@ -3569,19 +3588,19 @@ export class InstallAckOperatorRequest extends $tea.Model {
 }
 
 export class InstallAckOperatorResponseBody extends $tea.Model {
-  requestId?: string;
   result?: boolean;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       result: 'Result',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       result: 'boolean',
+      requestId: 'string',
     };
   }
 
@@ -4289,18 +4308,18 @@ export class ListAvailableEsInstanceIdsResponse extends $tea.Model {
 }
 
 export class ListCollectorsRequest extends $tea.Model {
-  instanceId?: string;
-  name?: string;
-  page?: number;
   resId?: string;
+  name?: string;
+  instanceId?: string;
+  page?: number;
   size?: number;
   sourceType?: string;
   static names(): { [key: string]: string } {
     return {
-      instanceId: 'instanceId',
-      name: 'name',
-      page: 'page',
       resId: 'resId',
+      name: 'name',
+      instanceId: 'instanceId',
+      page: 'page',
       size: 'size',
       sourceType: 'sourceType',
     };
@@ -4308,10 +4327,10 @@ export class ListCollectorsRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      instanceId: 'string',
-      name: 'string',
-      page: 'number',
       resId: 'string',
+      name: 'string',
+      instanceId: 'string',
+      page: 'number',
       size: 'number',
       sourceType: 'string',
     };
@@ -4323,21 +4342,21 @@ export class ListCollectorsRequest extends $tea.Model {
 }
 
 export class ListCollectorsResponseBody extends $tea.Model {
-  headers?: ListCollectorsResponseBodyHeaders;
   requestId?: string;
+  headers?: ListCollectorsResponseBodyHeaders;
   result?: ListCollectorsResponseBodyResult[];
   static names(): { [key: string]: string } {
     return {
-      headers: 'Headers',
       requestId: 'RequestId',
+      headers: 'Headers',
       result: 'Result',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      headers: ListCollectorsResponseBodyHeaders,
       requestId: 'string',
+      headers: ListCollectorsResponseBodyHeaders,
       result: { 'type': 'array', 'itemType': ListCollectorsResponseBodyResult },
     };
   }
@@ -4436,21 +4455,21 @@ export class ListDataStreamsRequest extends $tea.Model {
 }
 
 export class ListDataStreamsResponseBody extends $tea.Model {
-  headers?: ListDataStreamsResponseBodyHeaders;
   requestId?: string;
+  headers?: ListDataStreamsResponseBodyHeaders;
   result?: ListDataStreamsResponseBodyResult[];
   static names(): { [key: string]: string } {
     return {
-      headers: 'Headers',
       requestId: 'RequestId',
+      headers: 'Headers',
       result: 'Result',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      headers: ListDataStreamsResponseBodyHeaders,
       requestId: 'string',
+      headers: ListDataStreamsResponseBodyHeaders,
       result: { 'type': 'array', 'itemType': ListDataStreamsResponseBodyResult },
     };
   }
@@ -4659,33 +4678,33 @@ export class ListDiagnoseIndicesResponse extends $tea.Model {
 }
 
 export class ListDiagnoseReportRequest extends $tea.Model {
-  detail?: boolean;
-  endTime?: number;
   lang?: string;
+  startTime?: number;
+  endTime?: number;
   page?: number;
   size?: number;
-  startTime?: number;
+  detail?: boolean;
   trigger?: string;
   static names(): { [key: string]: string } {
     return {
-      detail: 'detail',
-      endTime: 'endTime',
       lang: 'lang',
+      startTime: 'startTime',
+      endTime: 'endTime',
       page: 'page',
       size: 'size',
-      startTime: 'startTime',
+      detail: 'detail',
       trigger: 'trigger',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      detail: 'boolean',
-      endTime: 'number',
       lang: 'string',
+      startTime: 'number',
+      endTime: 'number',
       page: 'number',
       size: 'number',
-      startTime: 'number',
+      detail: 'boolean',
       trigger: 'string',
     };
   }
@@ -4696,21 +4715,21 @@ export class ListDiagnoseReportRequest extends $tea.Model {
 }
 
 export class ListDiagnoseReportResponseBody extends $tea.Model {
-  headers?: ListDiagnoseReportResponseBodyHeaders;
   requestId?: string;
+  headers?: ListDiagnoseReportResponseBodyHeaders;
   result?: ListDiagnoseReportResponseBodyResult[];
   static names(): { [key: string]: string } {
     return {
-      headers: 'Headers',
       requestId: 'RequestId',
+      headers: 'Headers',
       result: 'Result',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      headers: ListDiagnoseReportResponseBodyHeaders,
       requestId: 'string',
+      headers: ListDiagnoseReportResponseBodyHeaders,
       result: { 'type': 'array', 'itemType': ListDiagnoseReportResponseBodyResult },
     };
   }
@@ -4743,30 +4762,30 @@ export class ListDiagnoseReportResponse extends $tea.Model {
 }
 
 export class ListDiagnoseReportIdsRequest extends $tea.Model {
-  endTime?: number;
   lang?: string;
+  startTime?: number;
+  endTime?: number;
   page?: number;
   size?: number;
-  startTime?: number;
   trigger?: string;
   static names(): { [key: string]: string } {
     return {
-      endTime: 'endTime',
       lang: 'lang',
+      startTime: 'startTime',
+      endTime: 'endTime',
       page: 'page',
       size: 'size',
-      startTime: 'startTime',
       trigger: 'trigger',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      endTime: 'number',
       lang: 'string',
+      startTime: 'number',
+      endTime: 'number',
       page: 'number',
       size: 'number',
-      startTime: 'number',
       trigger: 'string',
     };
   }
@@ -4777,22 +4796,22 @@ export class ListDiagnoseReportIdsRequest extends $tea.Model {
 }
 
 export class ListDiagnoseReportIdsResponseBody extends $tea.Model {
-  headers?: ListDiagnoseReportIdsResponseBodyHeaders;
   requestId?: string;
   result?: string[];
+  headers?: ListDiagnoseReportIdsResponseBodyHeaders;
   static names(): { [key: string]: string } {
     return {
-      headers: 'Headers',
       requestId: 'RequestId',
       result: 'Result',
+      headers: 'Headers',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      headers: ListDiagnoseReportIdsResponseBodyHeaders,
       requestId: 'string',
       result: { 'type': 'array', 'itemType': 'string' },
+      headers: ListDiagnoseReportIdsResponseBodyHeaders,
     };
   }
 
@@ -4824,22 +4843,22 @@ export class ListDiagnoseReportIdsResponse extends $tea.Model {
 }
 
 export class ListDictInformationRequest extends $tea.Model {
-  analyzerType?: string;
   bucketName?: string;
   key?: string;
+  analyzerType?: string;
   static names(): { [key: string]: string } {
     return {
-      analyzerType: 'analyzerType',
       bucketName: 'bucketName',
       key: 'key',
+      analyzerType: 'analyzerType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      analyzerType: 'string',
       bucketName: 'string',
       key: 'string',
+      analyzerType: 'string',
     };
   }
 
@@ -4915,21 +4934,21 @@ export class ListDictsRequest extends $tea.Model {
 }
 
 export class ListDictsResponseBody extends $tea.Model {
-  headers?: ListDictsResponseBodyHeaders;
   requestId?: string;
+  headers?: ListDictsResponseBodyHeaders;
   result?: ListDictsResponseBodyResult[];
   static names(): { [key: string]: string } {
     return {
-      headers: 'Headers',
       requestId: 'RequestId',
+      headers: 'Headers',
       result: 'Result',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      headers: ListDictsResponseBodyHeaders,
       requestId: 'string',
+      headers: ListDictsResponseBodyHeaders,
       result: { 'type': 'array', 'itemType': ListDictsResponseBodyResult },
     };
   }
@@ -4962,18 +4981,18 @@ export class ListDictsResponse extends $tea.Model {
 }
 
 export class ListEcsInstancesRequest extends $tea.Model {
-  ecsInstanceIds?: string;
-  ecsInstanceName?: string;
   page?: number;
   size?: number;
+  ecsInstanceIds?: string;
+  ecsInstanceName?: string;
   tags?: string;
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
-      ecsInstanceIds: 'ecsInstanceIds',
-      ecsInstanceName: 'ecsInstanceName',
       page: 'page',
       size: 'size',
+      ecsInstanceIds: 'ecsInstanceIds',
+      ecsInstanceName: 'ecsInstanceName',
       tags: 'tags',
       vpcId: 'vpcId',
     };
@@ -4981,10 +5000,10 @@ export class ListEcsInstancesRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      ecsInstanceIds: 'string',
-      ecsInstanceName: 'string',
       page: 'number',
       size: 'number',
+      ecsInstanceIds: 'string',
+      ecsInstanceName: 'string',
       tags: 'string',
       vpcId: 'string',
     };
@@ -4996,21 +5015,21 @@ export class ListEcsInstancesRequest extends $tea.Model {
 }
 
 export class ListEcsInstancesResponseBody extends $tea.Model {
-  headers?: ListEcsInstancesResponseBodyHeaders;
   requestId?: string;
+  headers?: ListEcsInstancesResponseBodyHeaders;
   result?: ListEcsInstancesResponseBodyResult[];
   static names(): { [key: string]: string } {
     return {
-      headers: 'Headers',
       requestId: 'RequestId',
+      headers: 'Headers',
       result: 'Result',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      headers: ListEcsInstancesResponseBodyHeaders,
       requestId: 'string',
+      headers: ListEcsInstancesResponseBodyHeaders,
       result: { 'type': 'array', 'itemType': ListEcsInstancesResponseBodyResult },
     };
   }
@@ -5213,46 +5232,46 @@ export class ListIndexTemplatesResponse extends $tea.Model {
 }
 
 export class ListInstanceRequest extends $tea.Model {
-  description?: string;
-  esVersion?: string;
-  instanceCategory?: string;
-  instanceId?: string;
   page?: number;
-  paymentType?: string;
-  resourceGroupId?: string;
   size?: number;
+  description?: string;
+  instanceId?: string;
+  esVersion?: string;
+  resourceGroupId?: string;
   tags?: string;
   vpcId?: string;
   zoneId?: string;
+  paymentType?: string;
+  instanceCategory?: string;
   static names(): { [key: string]: string } {
     return {
-      description: 'description',
-      esVersion: 'esVersion',
-      instanceCategory: 'instanceCategory',
-      instanceId: 'instanceId',
       page: 'page',
-      paymentType: 'paymentType',
-      resourceGroupId: 'resourceGroupId',
       size: 'size',
+      description: 'description',
+      instanceId: 'instanceId',
+      esVersion: 'esVersion',
+      resourceGroupId: 'resourceGroupId',
       tags: 'tags',
       vpcId: 'vpcId',
       zoneId: 'zoneId',
+      paymentType: 'paymentType',
+      instanceCategory: 'instanceCategory',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      description: 'string',
-      esVersion: 'string',
-      instanceCategory: 'string',
-      instanceId: 'string',
       page: 'number',
-      paymentType: 'string',
-      resourceGroupId: 'string',
       size: 'number',
+      description: 'string',
+      instanceId: 'string',
+      esVersion: 'string',
+      resourceGroupId: 'string',
       tags: 'string',
       vpcId: 'string',
       zoneId: 'string',
+      paymentType: 'string',
+      instanceCategory: 'string',
     };
   }
 
@@ -5262,21 +5281,21 @@ export class ListInstanceRequest extends $tea.Model {
 }
 
 export class ListInstanceResponseBody extends $tea.Model {
-  headers?: ListInstanceResponseBodyHeaders;
   requestId?: string;
+  headers?: ListInstanceResponseBodyHeaders;
   result?: ListInstanceResponseBodyResult[];
   static names(): { [key: string]: string } {
     return {
-      headers: 'Headers',
       requestId: 'RequestId',
+      headers: 'Headers',
       result: 'Result',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      headers: ListInstanceResponseBodyHeaders,
       requestId: 'string',
+      headers: ListInstanceResponseBodyHeaders,
       result: { 'type': 'array', 'itemType': ListInstanceResponseBodyResult },
     };
   }
@@ -5310,17 +5329,17 @@ export class ListInstanceResponse extends $tea.Model {
 
 export class ListInstanceIndicesRequest extends $tea.Model {
   all?: boolean;
+  name?: string;
   isManaged?: boolean;
   isOpenstore?: boolean;
-  name?: string;
   page?: number;
   size?: number;
   static names(): { [key: string]: string } {
     return {
       all: 'all',
+      name: 'name',
       isManaged: 'isManaged',
       isOpenstore: 'isOpenstore',
-      name: 'name',
       page: 'page',
       size: 'size',
     };
@@ -5329,9 +5348,9 @@ export class ListInstanceIndicesRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       all: 'boolean',
+      name: 'string',
       isManaged: 'boolean',
       isOpenstore: 'boolean',
-      name: 'string',
       page: 'number',
       size: 'number',
     };
@@ -5343,21 +5362,21 @@ export class ListInstanceIndicesRequest extends $tea.Model {
 }
 
 export class ListInstanceIndicesResponseBody extends $tea.Model {
-  headers?: ListInstanceIndicesResponseBodyHeaders;
   requestId?: string;
+  headers?: ListInstanceIndicesResponseBodyHeaders;
   result?: ListInstanceIndicesResponseBodyResult[];
   static names(): { [key: string]: string } {
     return {
-      headers: 'Headers',
       requestId: 'RequestId',
+      headers: 'Headers',
       result: 'Result',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      headers: ListInstanceIndicesResponseBodyHeaders,
       requestId: 'string',
+      headers: ListInstanceIndicesResponseBodyHeaders,
       result: { 'type': 'array', 'itemType': ListInstanceIndicesResponseBodyResult },
     };
   }
@@ -5412,21 +5431,21 @@ export class ListKibanaPluginsRequest extends $tea.Model {
 }
 
 export class ListKibanaPluginsResponseBody extends $tea.Model {
-  headers?: ListKibanaPluginsResponseBodyHeaders;
   requestId?: string;
+  headers?: ListKibanaPluginsResponseBodyHeaders;
   result?: ListKibanaPluginsResponseBodyResult[];
   static names(): { [key: string]: string } {
     return {
-      headers: 'Headers',
       requestId: 'RequestId',
+      headers: 'Headers',
       result: 'Result',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      headers: ListKibanaPluginsResponseBodyHeaders,
       requestId: 'string',
+      headers: ListKibanaPluginsResponseBodyHeaders,
       result: { 'type': 'array', 'itemType': ListKibanaPluginsResponseBodyResult },
     };
   }
@@ -5459,34 +5478,34 @@ export class ListKibanaPluginsResponse extends $tea.Model {
 }
 
 export class ListLogstashRequest extends $tea.Model {
+  page?: number;
+  size?: number;
   description?: string;
   instanceId?: string;
-  ownerId?: string;
-  page?: number;
-  resourceGroupId?: string;
-  size?: number;
   version?: string;
+  ownerId?: string;
+  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
+      page: 'page',
+      size: 'size',
       description: 'description',
       instanceId: 'instanceId',
-      ownerId: 'ownerId',
-      page: 'page',
-      resourceGroupId: 'resourceGroupId',
-      size: 'size',
       version: 'version',
+      ownerId: 'ownerId',
+      resourceGroupId: 'resourceGroupId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      page: 'number',
+      size: 'number',
       description: 'string',
       instanceId: 'string',
-      ownerId: 'string',
-      page: 'number',
-      resourceGroupId: 'string',
-      size: 'number',
       version: 'string',
+      ownerId: 'string',
+      resourceGroupId: 'string',
     };
   }
 
@@ -5496,21 +5515,21 @@ export class ListLogstashRequest extends $tea.Model {
 }
 
 export class ListLogstashResponseBody extends $tea.Model {
-  headers?: ListLogstashResponseBodyHeaders;
   requestId?: string;
+  headers?: ListLogstashResponseBodyHeaders;
   result?: ListLogstashResponseBodyResult[];
   static names(): { [key: string]: string } {
     return {
-      headers: 'Headers',
       requestId: 'RequestId',
+      headers: 'Headers',
       result: 'Result',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      headers: ListLogstashResponseBodyHeaders,
       requestId: 'string',
+      headers: ListLogstashResponseBodyHeaders,
       result: { 'type': 'array', 'itemType': ListLogstashResponseBodyResult },
     };
   }
@@ -5543,31 +5562,31 @@ export class ListLogstashResponse extends $tea.Model {
 }
 
 export class ListLogstashLogRequest extends $tea.Model {
+  type?: string;
+  query?: string;
   beginTime?: number;
   endTime?: number;
   page?: number;
-  query?: string;
   size?: number;
-  type?: string;
   static names(): { [key: string]: string } {
     return {
+      type: 'type',
+      query: 'query',
       beginTime: 'beginTime',
       endTime: 'endTime',
       page: 'page',
-      query: 'query',
       size: 'size',
-      type: 'type',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      type: 'string',
+      query: 'string',
       beginTime: 'number',
       endTime: 'number',
       page: 'number',
-      query: 'string',
       size: 'number',
-      type: 'string',
     };
   }
 
@@ -5693,27 +5712,27 @@ export class ListLogstashPluginsResponse extends $tea.Model {
 }
 
 export class ListNodesRequest extends $tea.Model {
-  ecsInstanceIds?: string;
-  ecsInstanceName?: string;
   page?: number;
   size?: number;
+  ecsInstanceIds?: string;
+  ecsInstanceName?: string;
   tags?: string;
   static names(): { [key: string]: string } {
     return {
-      ecsInstanceIds: 'ecsInstanceIds',
-      ecsInstanceName: 'ecsInstanceName',
       page: 'page',
       size: 'size',
+      ecsInstanceIds: 'ecsInstanceIds',
+      ecsInstanceName: 'ecsInstanceName',
       tags: 'tags',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      ecsInstanceIds: 'string',
-      ecsInstanceName: 'string',
       page: 'number',
       size: 'number',
+      ecsInstanceIds: 'string',
+      ecsInstanceName: 'string',
       tags: 'string',
     };
   }
@@ -5724,21 +5743,21 @@ export class ListNodesRequest extends $tea.Model {
 }
 
 export class ListNodesResponseBody extends $tea.Model {
-  headers?: ListNodesResponseBodyHeaders;
   requestId?: string;
+  headers?: ListNodesResponseBodyHeaders;
   result?: ListNodesResponseBodyResult[];
   static names(): { [key: string]: string } {
     return {
-      headers: 'Headers',
       requestId: 'RequestId',
+      headers: 'Headers',
       result: 'Result',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      headers: ListNodesResponseBodyHeaders,
       requestId: 'string',
+      headers: ListNodesResponseBodyHeaders,
       result: { 'type': 'array', 'itemType': ListNodesResponseBodyResult },
     };
   }
@@ -5771,21 +5790,21 @@ export class ListNodesResponse extends $tea.Model {
 }
 
 export class ListPipelineRequest extends $tea.Model {
-  page?: number;
   pipelineId?: string;
+  page?: number;
   size?: number;
   static names(): { [key: string]: string } {
     return {
-      page: 'page',
       pipelineId: 'pipelineId',
+      page: 'page',
       size: 'size',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      page: 'number',
       pipelineId: 'string',
+      page: 'number',
       size: 'number',
     };
   }
@@ -5796,21 +5815,21 @@ export class ListPipelineRequest extends $tea.Model {
 }
 
 export class ListPipelineResponseBody extends $tea.Model {
-  headers?: ListPipelineResponseBodyHeaders;
   requestId?: string;
+  headers?: ListPipelineResponseBodyHeaders;
   result?: ListPipelineResponseBodyResult[];
   static names(): { [key: string]: string } {
     return {
-      headers: 'Headers',
       requestId: 'RequestId',
+      headers: 'Headers',
       result: 'Result',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      headers: ListPipelineResponseBodyHeaders,
       requestId: 'string',
+      headers: ListPipelineResponseBodyHeaders,
       result: { 'type': 'array', 'itemType': ListPipelineResponseBodyResult },
     };
   }
@@ -5915,21 +5934,21 @@ export class ListPluginsRequest extends $tea.Model {
 }
 
 export class ListPluginsResponseBody extends $tea.Model {
-  headers?: ListPluginsResponseBodyHeaders;
   requestId?: string;
+  headers?: ListPluginsResponseBodyHeaders;
   result?: ListPluginsResponseBodyResult[];
   static names(): { [key: string]: string } {
     return {
-      headers: 'Headers',
       requestId: 'RequestId',
+      headers: 'Headers',
       result: 'Result',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      headers: ListPluginsResponseBodyHeaders,
       requestId: 'string',
+      headers: ListPluginsResponseBodyHeaders,
       result: { 'type': 'array', 'itemType': ListPluginsResponseBodyResult },
     };
   }
@@ -5962,31 +5981,31 @@ export class ListPluginsResponse extends $tea.Model {
 }
 
 export class ListSearchLogRequest extends $tea.Model {
+  type?: string;
+  query?: string;
   beginTime?: number;
   endTime?: number;
   page?: number;
-  query?: string;
   size?: number;
-  type?: string;
   static names(): { [key: string]: string } {
     return {
+      type: 'type',
+      query: 'query',
       beginTime: 'beginTime',
       endTime: 'endTime',
       page: 'page',
-      query: 'query',
       size: 'size',
-      type: 'type',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      type: 'string',
+      query: 'string',
       beginTime: 'number',
       endTime: 'number',
       page: 'number',
-      query: 'string',
       size: 'number',
-      type: 'string',
     };
   }
 
@@ -5996,21 +6015,21 @@ export class ListSearchLogRequest extends $tea.Model {
 }
 
 export class ListSearchLogResponseBody extends $tea.Model {
-  headers?: ListSearchLogResponseBodyHeaders;
   requestId?: string;
+  headers?: ListSearchLogResponseBodyHeaders;
   result?: ListSearchLogResponseBodyResult[];
   static names(): { [key: string]: string } {
     return {
-      headers: 'Headers',
       requestId: 'RequestId',
+      headers: 'Headers',
       result: 'Result',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      headers: ListSearchLogResponseBodyHeaders,
       requestId: 'string',
+      headers: ListSearchLogResponseBodyHeaders,
       result: { 'type': 'array', 'itemType': ListSearchLogResponseBodyResult },
     };
   }
@@ -6150,30 +6169,30 @@ export class ListSnapshotReposByInstanceIdResponse extends $tea.Model {
 }
 
 export class ListTagResourcesRequest extends $tea.Model {
-  nextToken?: string;
   page?: number;
-  resourceIds?: string;
-  resourceType?: string;
   size?: number;
+  resourceType?: string;
+  nextToken?: string;
+  resourceIds?: string;
   tags?: string;
   static names(): { [key: string]: string } {
     return {
-      nextToken: 'NextToken',
       page: 'Page',
-      resourceIds: 'ResourceIds',
-      resourceType: 'ResourceType',
       size: 'Size',
+      resourceType: 'ResourceType',
+      nextToken: 'NextToken',
+      resourceIds: 'ResourceIds',
       tags: 'Tags',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      nextToken: 'string',
       page: 'number',
-      resourceIds: 'string',
-      resourceType: 'string',
       size: 'number',
+      resourceType: 'string',
+      nextToken: 'string',
+      resourceIds: 'string',
       tags: 'string',
     };
   }
@@ -6184,24 +6203,24 @@ export class ListTagResourcesRequest extends $tea.Model {
 }
 
 export class ListTagResourcesResponseBody extends $tea.Model {
-  headers?: ListTagResourcesResponseBodyHeaders;
   pageSize?: number;
   requestId?: string;
+  headers?: ListTagResourcesResponseBodyHeaders;
   tagResources?: ListTagResourcesResponseBodyTagResources;
   static names(): { [key: string]: string } {
     return {
-      headers: 'Headers',
       pageSize: 'PageSize',
       requestId: 'RequestId',
+      headers: 'Headers',
       tagResources: 'TagResources',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      headers: ListTagResourcesResponseBodyHeaders,
       pageSize: 'number',
       requestId: 'string',
+      headers: ListTagResourcesResponseBodyHeaders,
       tagResources: ListTagResourcesResponseBodyTagResources,
     };
   }
@@ -6300,19 +6319,19 @@ export class ListTagsResponse extends $tea.Model {
 }
 
 export class ListVpcEndpointsRequest extends $tea.Model {
-  page?: number;
   size?: number;
+  page?: number;
   static names(): { [key: string]: string } {
     return {
-      page: 'page',
       size: 'size',
+      page: 'page',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      page: 'number',
       size: 'number',
+      page: 'number',
     };
   }
 
@@ -6385,19 +6404,19 @@ export class MigrateToOtherZoneRequest extends $tea.Model {
 }
 
 export class MigrateToOtherZoneResponseBody extends $tea.Model {
-  requestId?: string;
   result?: boolean;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       result: 'Result',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       result: 'boolean',
+      requestId: 'string',
     };
   }
 
@@ -6448,19 +6467,19 @@ export class ModifyDeployMachineRequest extends $tea.Model {
 }
 
 export class ModifyDeployMachineResponseBody extends $tea.Model {
-  requestId?: string;
   result?: boolean;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       result: 'Result',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       result: 'boolean',
+      requestId: 'string',
     };
   }
 
@@ -6555,19 +6574,19 @@ export class ModifyInstanceMaintainTimeRequest extends $tea.Model {
 }
 
 export class ModifyInstanceMaintainTimeResponseBody extends $tea.Model {
-  requestId?: string;
   result?: boolean;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       result: 'Result',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       result: 'boolean',
+      requestId: 'string',
     };
   }
 
@@ -6600,30 +6619,30 @@ export class ModifyInstanceMaintainTimeResponse extends $tea.Model {
 
 export class ModifyWhiteIpsRequest extends $tea.Model {
   clientToken?: string;
-  modifyMode?: string;
-  networkType?: string;
   nodeType?: string;
-  whiteIpGroup?: ModifyWhiteIpsRequestWhiteIpGroup;
+  networkType?: string;
+  modifyMode?: string;
   whiteIpList?: string[];
+  whiteIpGroup?: ModifyWhiteIpsRequestWhiteIpGroup;
   static names(): { [key: string]: string } {
     return {
       clientToken: 'clientToken',
-      modifyMode: 'modifyMode',
-      networkType: 'networkType',
       nodeType: 'nodeType',
-      whiteIpGroup: 'whiteIpGroup',
+      networkType: 'networkType',
+      modifyMode: 'modifyMode',
       whiteIpList: 'whiteIpList',
+      whiteIpGroup: 'whiteIpGroup',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       clientToken: 'string',
-      modifyMode: 'string',
-      networkType: 'string',
       nodeType: 'string',
-      whiteIpGroup: ModifyWhiteIpsRequestWhiteIpGroup,
+      networkType: 'string',
+      modifyMode: 'string',
       whiteIpList: { 'type': 'array', 'itemType': 'string' },
+      whiteIpGroup: ModifyWhiteIpsRequestWhiteIpGroup,
     };
   }
 
@@ -6633,19 +6652,19 @@ export class ModifyWhiteIpsRequest extends $tea.Model {
 }
 
 export class ModifyWhiteIpsResponseBody extends $tea.Model {
-  requestId?: string;
   result?: boolean;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       result: 'Result',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       result: 'boolean',
+      requestId: 'string',
     };
   }
 
@@ -6762,19 +6781,19 @@ export class OpenDiagnosisRequest extends $tea.Model {
 }
 
 export class OpenDiagnosisResponseBody extends $tea.Model {
-  requestId?: string;
   result?: boolean;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       result: 'Result',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       result: 'boolean',
+      requestId: 'string',
     };
   }
 
@@ -6825,19 +6844,19 @@ export class OpenHttpsRequest extends $tea.Model {
 }
 
 export class OpenHttpsResponseBody extends $tea.Model {
-  requestId?: string;
   result?: boolean;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       result: 'Result',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       result: 'boolean',
+      requestId: 'string',
     };
   }
 
@@ -7001,19 +7020,19 @@ export class ReinstallCollectorRequest extends $tea.Model {
 }
 
 export class ReinstallCollectorResponseBody extends $tea.Model {
-  requestId?: string;
   result?: boolean;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       result: 'Result',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       result: 'boolean',
+      requestId: 'string',
     };
   }
 
@@ -7044,47 +7063,6 @@ export class ReinstallCollectorResponse extends $tea.Model {
   }
 }
 
-export class RemoveApmResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'requestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RemoveApmResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: RemoveApmResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: RemoveApmResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class RenewInstanceRequest extends $tea.Model {
   clientToken?: string;
   static names(): { [key: string]: string } {
@@ -7105,19 +7083,19 @@ export class RenewInstanceRequest extends $tea.Model {
 }
 
 export class RenewInstanceResponseBody extends $tea.Model {
-  requestId?: string;
   result?: boolean;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       result: 'Result',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       result: 'boolean',
+      requestId: 'string',
     };
   }
 
@@ -7168,19 +7146,19 @@ export class RenewLogstashRequest extends $tea.Model {
 }
 
 export class RenewLogstashResponseBody extends $tea.Model {
-  requestId?: string;
   result?: boolean;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       result: 'Result',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       result: 'boolean',
+      requestId: 'string',
     };
   }
 
@@ -7231,19 +7209,19 @@ export class RestartCollectorRequest extends $tea.Model {
 }
 
 export class RestartCollectorResponseBody extends $tea.Model {
-  requestId?: string;
   result?: boolean;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       result: 'Result',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       result: 'boolean',
+      requestId: 'string',
     };
   }
 
@@ -7275,19 +7253,19 @@ export class RestartCollectorResponse extends $tea.Model {
 }
 
 export class RestartInstanceRequest extends $tea.Model {
-  clientToken?: string;
   force?: boolean;
+  clientToken?: string;
   static names(): { [key: string]: string } {
     return {
-      clientToken: 'clientToken',
       force: 'force',
+      clientToken: 'clientToken',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      clientToken: 'string',
       force: 'boolean',
+      clientToken: 'string',
     };
   }
 
@@ -7341,19 +7319,19 @@ export class RestartInstanceResponse extends $tea.Model {
 }
 
 export class RestartLogstashRequest extends $tea.Model {
-  clientToken?: string;
   force?: boolean;
+  clientToken?: string;
   static names(): { [key: string]: string } {
     return {
-      clientToken: 'clientToken',
       force: 'force',
+      clientToken: 'clientToken',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      clientToken: 'string',
       force: 'boolean',
+      clientToken: 'string',
     };
   }
 
@@ -7423,19 +7401,19 @@ export class ResumeElasticsearchTaskRequest extends $tea.Model {
 }
 
 export class ResumeElasticsearchTaskResponseBody extends $tea.Model {
-  requestId?: string;
   result?: boolean;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       result: 'Result',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       result: 'boolean',
+      requestId: 'string',
     };
   }
 
@@ -7555,19 +7533,19 @@ export class RolloverDataStreamRequest extends $tea.Model {
 }
 
 export class RolloverDataStreamResponseBody extends $tea.Model {
-  requestId?: string;
   result?: boolean;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       result: 'Result',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       result: 'boolean',
+      requestId: 'string',
     };
   }
 
@@ -7618,19 +7596,19 @@ export class RunPipelinesRequest extends $tea.Model {
 }
 
 export class RunPipelinesResponseBody extends $tea.Model {
-  requestId?: string;
   result?: boolean;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       result: 'Result',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       result: 'boolean',
+      requestId: 'string',
     };
   }
 
@@ -7662,22 +7640,22 @@ export class RunPipelinesResponse extends $tea.Model {
 }
 
 export class ShrinkNodeRequest extends $tea.Model {
+  nodeType?: string;
   clientToken?: string;
   ignoreStatus?: boolean;
-  nodeType?: string;
   static names(): { [key: string]: string } {
     return {
+      nodeType: 'nodeType',
       clientToken: 'clientToken',
       ignoreStatus: 'ignoreStatus',
-      nodeType: 'nodeType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      nodeType: 'string',
       clientToken: 'string',
       ignoreStatus: 'boolean',
-      nodeType: 'string',
     };
   }
 
@@ -7687,19 +7665,19 @@ export class ShrinkNodeRequest extends $tea.Model {
 }
 
 export class ShrinkNodeResponseBody extends $tea.Model {
-  requestId?: string;
   result?: boolean;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       result: 'Result',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       result: 'boolean',
+      requestId: 'string',
     };
   }
 
@@ -7730,47 +7708,6 @@ export class ShrinkNodeResponse extends $tea.Model {
   }
 }
 
-export class StartApmResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'requestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StartApmResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: StartApmResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: StartApmResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class StartCollectorRequest extends $tea.Model {
   clientToken?: string;
   static names(): { [key: string]: string } {
@@ -7791,19 +7728,19 @@ export class StartCollectorRequest extends $tea.Model {
 }
 
 export class StartCollectorResponseBody extends $tea.Model {
-  requestId?: string;
   result?: boolean;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       result: 'Result',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       result: 'boolean',
+      requestId: 'string',
     };
   }
 
@@ -7834,47 +7771,6 @@ export class StartCollectorResponse extends $tea.Model {
   }
 }
 
-export class StopApmResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'requestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StopApmResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: StopApmResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: StopApmResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class StopCollectorRequest extends $tea.Model {
   clientToken?: string;
   static names(): { [key: string]: string } {
@@ -7895,19 +7791,19 @@ export class StopCollectorRequest extends $tea.Model {
 }
 
 export class StopCollectorResponseBody extends $tea.Model {
-  requestId?: string;
   result?: boolean;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       result: 'Result',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       result: 'boolean',
+      requestId: 'string',
     };
   }
 
@@ -7958,19 +7854,19 @@ export class StopPipelinesRequest extends $tea.Model {
 }
 
 export class StopPipelinesResponseBody extends $tea.Model {
-  requestId?: string;
   result?: boolean;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       result: 'Result',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       result: 'boolean',
+      requestId: 'string',
     };
   }
 
@@ -8043,19 +7939,19 @@ export class TagResourcesResponse extends $tea.Model {
 }
 
 export class TransferNodeRequest extends $tea.Model {
-  clientToken?: string;
   nodeType?: string;
+  clientToken?: string;
   static names(): { [key: string]: string } {
     return {
-      clientToken: 'clientToken',
       nodeType: 'nodeType',
+      clientToken: 'clientToken',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      clientToken: 'string',
       nodeType: 'string',
+      clientToken: 'string',
     };
   }
 
@@ -8065,19 +7961,19 @@ export class TransferNodeRequest extends $tea.Model {
 }
 
 export class TransferNodeResponseBody extends $tea.Model {
-  requestId?: string;
   result?: boolean;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       result: 'Result',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       result: 'boolean',
+      requestId: 'string',
     };
   }
 
@@ -8109,25 +8005,25 @@ export class TransferNodeResponse extends $tea.Model {
 }
 
 export class TriggerNetworkRequest extends $tea.Model {
-  actionType?: string;
   clientToken?: string;
-  networkType?: string;
   nodeType?: string;
+  networkType?: string;
+  actionType?: string;
   static names(): { [key: string]: string } {
     return {
-      actionType: 'actionType',
       clientToken: 'clientToken',
-      networkType: 'networkType',
       nodeType: 'nodeType',
+      networkType: 'networkType',
+      actionType: 'actionType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      actionType: 'string',
       clientToken: 'string',
-      networkType: 'string',
       nodeType: 'string',
+      networkType: 'string',
+      actionType: 'string',
     };
   }
 
@@ -8137,19 +8033,19 @@ export class TriggerNetworkRequest extends $tea.Model {
 }
 
 export class TriggerNetworkResponseBody extends $tea.Model {
-  requestId?: string;
   result?: boolean;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       result: 'Result',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       result: 'boolean',
+      requestId: 'string',
     };
   }
 
@@ -8370,25 +8266,25 @@ export class UninstallPluginResponse extends $tea.Model {
 }
 
 export class UntagResourcesRequest extends $tea.Model {
-  all?: boolean;
   resourceIds?: string;
   resourceType?: string;
   tagKeys?: string;
+  all?: boolean;
   static names(): { [key: string]: string } {
     return {
-      all: 'All',
       resourceIds: 'ResourceIds',
       resourceType: 'ResourceType',
       tagKeys: 'TagKeys',
+      all: 'All',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      all: 'boolean',
       resourceIds: 'string',
       resourceType: 'string',
       tagKeys: 'string',
+      all: 'boolean',
     };
   }
 
@@ -8398,19 +8294,19 @@ export class UntagResourcesRequest extends $tea.Model {
 }
 
 export class UntagResourcesResponseBody extends $tea.Model {
-  requestId?: string;
   result?: boolean;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       result: 'Result',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       result: 'boolean',
+      requestId: 'string',
     };
   }
 
@@ -8521,19 +8417,19 @@ export class UpdateAdvancedSettingRequest extends $tea.Model {
 }
 
 export class UpdateAdvancedSettingResponseBody extends $tea.Model {
-  requestId?: string;
   result?: boolean;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       result: 'Result',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       result: 'boolean',
+      requestId: 'string',
     };
   }
 
@@ -8619,78 +8515,6 @@ export class UpdateAliwsDictResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: UpdateAliwsDictResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateApmRequest extends $tea.Model {
-  outputES?: string;
-  outputESPassword?: string;
-  outputESUserName?: string;
-  token?: string;
-  yml?: string;
-  static names(): { [key: string]: string } {
-    return {
-      outputES: 'outputES',
-      outputESPassword: 'outputESPassword',
-      outputESUserName: 'outputESUserName',
-      token: 'token',
-      yml: 'yml',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      outputES: 'string',
-      outputESPassword: 'string',
-      outputESUserName: 'string',
-      token: 'string',
-      yml: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateApmResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'requestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateApmResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: UpdateApmResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: UpdateApmResponseBody,
     };
   }
 
@@ -8892,19 +8716,19 @@ export class UpdateCollectorNameResponse extends $tea.Model {
 }
 
 export class UpdateDescriptionRequest extends $tea.Model {
-  description?: string;
   clientToken?: string;
+  description?: string;
   static names(): { [key: string]: string } {
     return {
-      description: 'description',
       clientToken: 'clientToken',
+      description: 'description',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      description: 'string',
       clientToken: 'string',
+      description: 'string',
     };
   }
 
@@ -8980,19 +8804,19 @@ export class UpdateDiagnosisSettingsRequest extends $tea.Model {
 }
 
 export class UpdateDiagnosisSettingsResponseBody extends $tea.Model {
-  requestId?: string;
   result?: boolean;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       result: 'Result',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       result: 'boolean',
+      requestId: 'string',
     };
   }
 
@@ -9106,19 +8930,19 @@ export class UpdateExtendConfigRequest extends $tea.Model {
 }
 
 export class UpdateExtendConfigResponseBody extends $tea.Model {
-  requestId?: string;
   result?: boolean;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       result: 'Result',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       result: 'boolean',
+      requestId: 'string',
     };
   }
 
@@ -9295,19 +9119,19 @@ export class UpdateILMPolicyRequest extends $tea.Model {
 }
 
 export class UpdateILMPolicyResponseBody extends $tea.Model {
-  requestId?: string;
   result?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       result: 'Result',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       result: 'string',
+      requestId: 'string',
     };
   }
 
@@ -9358,19 +9182,19 @@ export class UpdateIndexTemplateRequest extends $tea.Model {
 }
 
 export class UpdateIndexTemplateResponseBody extends $tea.Model {
-  requestId?: string;
   result?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       result: 'Result',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       result: 'string',
+      requestId: 'string',
     };
   }
 
@@ -9490,19 +9314,19 @@ export class UpdateInstanceChargeTypeRequest extends $tea.Model {
 }
 
 export class UpdateInstanceChargeTypeResponseBody extends $tea.Model {
-  requestId?: string;
   result?: boolean;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       result: 'Result',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       result: 'boolean',
+      requestId: 'string',
     };
   }
 
@@ -9613,19 +9437,19 @@ export class UpdateKibanaSettingsRequest extends $tea.Model {
 }
 
 export class UpdateKibanaSettingsResponseBody extends $tea.Model {
-  requestId?: string;
   result?: boolean;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       result: 'Result',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       result: 'boolean',
+      requestId: 'string',
     };
   }
 
@@ -9742,19 +9566,19 @@ export class UpdateLogstashRequest extends $tea.Model {
 }
 
 export class UpdateLogstashResponseBody extends $tea.Model {
-  requestId?: string;
   result?: boolean;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       result: 'Result',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       result: 'boolean',
+      requestId: 'string',
     };
   }
 
@@ -9805,19 +9629,19 @@ export class UpdateLogstashChargeTypeRequest extends $tea.Model {
 }
 
 export class UpdateLogstashChargeTypeResponseBody extends $tea.Model {
-  requestId?: string;
   result?: boolean;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       result: 'Result',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       result: 'boolean',
+      requestId: 'string',
     };
   }
 
@@ -9991,19 +9815,19 @@ export class UpdatePipelineManagementConfigRequest extends $tea.Model {
 }
 
 export class UpdatePipelineManagementConfigResponseBody extends $tea.Model {
-  requestId?: string;
   result?: boolean;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       result: 'Result',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       result: 'boolean',
+      requestId: 'string',
     };
   }
 
@@ -10035,19 +9859,19 @@ export class UpdatePipelineManagementConfigResponse extends $tea.Model {
 }
 
 export class UpdatePipelinesRequest extends $tea.Model {
-  clientToken?: string;
   trigger?: boolean;
+  clientToken?: string;
   static names(): { [key: string]: string } {
     return {
-      clientToken: 'clientToken',
       trigger: 'trigger',
+      clientToken: 'clientToken',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      clientToken: 'string',
       trigger: 'boolean',
+      clientToken: 'string',
     };
   }
 
@@ -10057,19 +9881,19 @@ export class UpdatePipelinesRequest extends $tea.Model {
 }
 
 export class UpdatePipelinesResponseBody extends $tea.Model {
-  requestId?: string;
   result?: boolean;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       result: 'Result',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       result: 'boolean',
+      requestId: 'string',
     };
   }
 
@@ -10315,19 +10139,19 @@ export class UpdateReadWritePolicyRequest extends $tea.Model {
 }
 
 export class UpdateReadWritePolicyResponseBody extends $tea.Model {
-  requestId?: string;
   result?: boolean;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       result: 'Result',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       result: 'boolean',
+      requestId: 'string',
     };
   }
 
@@ -10485,19 +10309,19 @@ export class UpdateTemplateRequest extends $tea.Model {
 }
 
 export class UpdateTemplateResponseBody extends $tea.Model {
-  requestId?: string;
   result?: boolean;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       result: 'Result',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       result: 'boolean',
+      requestId: 'string',
     };
   }
 
@@ -10530,14 +10354,14 @@ export class UpdateTemplateResponse extends $tea.Model {
 
 export class UpdateWhiteIpsRequest extends $tea.Model {
   clientToken?: string;
-  esIPWhitelist?: string[];
   modifyMode?: string;
+  esIPWhitelist?: string[];
   whiteIpGroup?: UpdateWhiteIpsRequestWhiteIpGroup;
   static names(): { [key: string]: string } {
     return {
       clientToken: 'clientToken',
-      esIPWhitelist: 'esIPWhitelist',
       modifyMode: 'modifyMode',
+      esIPWhitelist: 'esIPWhitelist',
       whiteIpGroup: 'whiteIpGroup',
     };
   }
@@ -10545,8 +10369,8 @@ export class UpdateWhiteIpsRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       clientToken: 'string',
-      esIPWhitelist: { 'type': 'array', 'itemType': 'string' },
       modifyMode: 'string',
+      esIPWhitelist: { 'type': 'array', 'itemType': 'string' },
       whiteIpGroup: UpdateWhiteIpsRequestWhiteIpGroup,
     };
   }
@@ -10620,19 +10444,19 @@ export class UpdateXpackMonitorConfigRequest extends $tea.Model {
 }
 
 export class UpdateXpackMonitorConfigResponseBody extends $tea.Model {
-  requestId?: string;
   result?: boolean;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       result: 'Result',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       result: 'boolean',
+      requestId: 'string',
     };
   }
 
@@ -10666,14 +10490,14 @@ export class UpdateXpackMonitorConfigResponse extends $tea.Model {
 export class UpgradeEngineVersionRequest extends $tea.Model {
   clientToken?: string;
   dryRun?: boolean;
-  type?: string;
   version?: string;
+  type?: string;
   static names(): { [key: string]: string } {
     return {
       clientToken: 'clientToken',
       dryRun: 'dryRun',
-      type: 'type',
       version: 'version',
+      type: 'type',
     };
   }
 
@@ -10681,8 +10505,8 @@ export class UpgradeEngineVersionRequest extends $tea.Model {
     return {
       clientToken: 'string',
       dryRun: 'boolean',
-      type: 'string',
       version: 'string',
+      type: 'string',
     };
   }
 
@@ -10755,19 +10579,19 @@ export class ValidateConnectionRequest extends $tea.Model {
 }
 
 export class ValidateConnectionResponseBody extends $tea.Model {
-  requestId?: string;
   result?: boolean;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       result: 'Result',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       result: 'boolean',
+      requestId: 'string',
     };
   }
 
@@ -10799,19 +10623,19 @@ export class ValidateConnectionResponse extends $tea.Model {
 }
 
 export class ValidateShrinkNodesRequest extends $tea.Model {
-  ignoreStatus?: boolean;
   nodeType?: string;
+  ignoreStatus?: boolean;
   static names(): { [key: string]: string } {
     return {
-      ignoreStatus: 'ignoreStatus',
       nodeType: 'nodeType',
+      ignoreStatus: 'ignoreStatus',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      ignoreStatus: 'boolean',
       nodeType: 'string',
+      ignoreStatus: 'boolean',
     };
   }
 
@@ -10821,19 +10645,19 @@ export class ValidateShrinkNodesRequest extends $tea.Model {
 }
 
 export class ValidateShrinkNodesResponseBody extends $tea.Model {
-  requestId?: string;
   result?: boolean;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       result: 'Result',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       result: 'boolean',
+      requestId: 'string',
     };
   }
 
@@ -10887,19 +10711,19 @@ export class ValidateSlrPermissionRequest extends $tea.Model {
 }
 
 export class ValidateSlrPermissionResponseBody extends $tea.Model {
-  requestId?: string;
   result?: boolean;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       result: 'Result',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       result: 'boolean',
+      requestId: 'string',
     };
   }
 
@@ -10950,19 +10774,19 @@ export class ValidateTransferableNodesRequest extends $tea.Model {
 }
 
 export class ValidateTransferableNodesResponseBody extends $tea.Model {
-  requestId?: string;
   result?: boolean;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       result: 'Result',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       result: 'boolean',
+      requestId: 'string',
     };
   }
 
@@ -10985,69 +10809,6 @@ export class ValidateTransferableNodesResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: ValidateTransferableNodesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateInstanceRequest extends $tea.Model {
-  clientToken?: string;
-  static names(): { [key: string]: string } {
-    return {
-      clientToken: 'clientToken',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clientToken: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateInstanceResponseBody extends $tea.Model {
-  requestId?: string;
-  result?: CreateInstanceResponseBodyResult;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      result: 'Result',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      result: CreateInstanceResponseBodyResult,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateInstanceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: CreateInstanceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: CreateInstanceResponseBody,
     };
   }
 
@@ -11363,6 +11124,25 @@ export class CreateDataTasksResponseBodyResult extends $tea.Model {
   }
 }
 
+export class CreateInstanceResponseBodyResult extends $tea.Model {
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'instanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateLogstashResponseBodyResult extends $tea.Model {
   instanceId?: string;
   static names(): { [key: string]: string } {
@@ -11383,25 +11163,25 @@ export class CreateLogstashResponseBodyResult extends $tea.Model {
 }
 
 export class CreateVpcEndpointResponseBodyResult extends $tea.Model {
+  serviceId?: string;
   endpointDomain?: string;
   endpointId?: string;
   endpointName?: string;
-  serviceId?: string;
   static names(): { [key: string]: string } {
     return {
+      serviceId: 'serviceId',
       endpointDomain: 'endpointDomain',
       endpointId: 'endpointId',
       endpointName: 'endpointName',
-      serviceId: 'serviceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      serviceId: 'string',
       endpointDomain: 'string',
       endpointId: 'string',
       endpointName: 'string',
-      serviceId: 'string',
     };
   }
 
@@ -11411,92 +11191,19 @@ export class CreateVpcEndpointResponseBodyResult extends $tea.Model {
 }
 
 export class DescribeAckOperatorResponseBodyResult extends $tea.Model {
-  status?: string;
   version?: string;
+  status?: string;
   static names(): { [key: string]: string } {
     return {
-      status: 'status',
       version: 'version',
+      status: 'status',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      status: 'string',
       version: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeApmResponseBodyResult extends $tea.Model {
-  createdAt?: string;
-  deployedReplica?: number;
-  description?: string;
-  endTime?: number;
-  instanceId?: string;
-  nodeAmount?: number;
-  outputES?: string;
-  outputESUserName?: string;
-  outputEsDescription?: string;
-  ownerId?: string;
-  paymentType?: string;
-  region?: string;
-  replica?: number;
-  resourceSpec?: string;
-  status?: string;
-  version?: string;
-  vpcId?: string;
-  vsArea?: string;
-  vswitchId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      createdAt: 'CreatedAt',
-      deployedReplica: 'DeployedReplica',
-      description: 'Description',
-      endTime: 'EndTime',
-      instanceId: 'InstanceId',
-      nodeAmount: 'NodeAmount',
-      outputES: 'OutputES',
-      outputESUserName: 'OutputESUserName',
-      outputEsDescription: 'OutputEsDescription',
-      ownerId: 'OwnerId',
-      paymentType: 'PaymentType',
-      region: 'Region',
-      replica: 'Replica',
-      resourceSpec: 'ResourceSpec',
-      status: 'Status',
-      version: 'Version',
-      vpcId: 'VpcId',
-      vsArea: 'VsArea',
-      vswitchId: 'VswitchId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      createdAt: 'string',
-      deployedReplica: 'number',
-      description: 'string',
-      endTime: 'number',
-      instanceId: 'string',
-      nodeAmount: 'number',
-      outputES: 'string',
-      outputESUserName: 'string',
-      outputEsDescription: 'string',
-      ownerId: 'string',
-      paymentType: 'string',
-      region: 'string',
-      replica: 'number',
-      resourceSpec: 'string',
       status: 'string',
-      version: 'string',
-      vpcId: 'string',
-      vsArea: 'string',
-      vswitchId: 'string',
     };
   }
 
@@ -11608,52 +11315,52 @@ export class DescribeCollectorResponseBodyResultExtendConfigs extends $tea.Model
 }
 
 export class DescribeCollectorResponseBodyResult extends $tea.Model {
-  collectorPaths?: string[];
-  configs?: DescribeCollectorResponseBodyResultConfigs[];
-  dryRun?: boolean;
-  extendConfigs?: DescribeCollectorResponseBodyResultExtendConfigs[];
-  gmtCreatedTime?: string;
-  gmtUpdateTime?: string;
-  name?: string;
-  ownerId?: string;
   resId?: string;
+  gmtUpdateTime?: string;
+  dryRun?: boolean;
+  ownerId?: string;
+  vpcId?: string;
   resType?: string;
   resVersion?: string;
+  gmtCreatedTime?: string;
   status?: string;
-  vpcId?: string;
+  name?: string;
+  configs?: DescribeCollectorResponseBodyResultConfigs[];
+  extendConfigs?: DescribeCollectorResponseBodyResultExtendConfigs[];
+  collectorPaths?: string[];
   static names(): { [key: string]: string } {
     return {
-      collectorPaths: 'collectorPaths',
-      configs: 'configs',
-      dryRun: 'dryRun',
-      extendConfigs: 'extendConfigs',
-      gmtCreatedTime: 'gmtCreatedTime',
-      gmtUpdateTime: 'gmtUpdateTime',
-      name: 'name',
-      ownerId: 'ownerId',
       resId: 'resId',
+      gmtUpdateTime: 'gmtUpdateTime',
+      dryRun: 'dryRun',
+      ownerId: 'ownerId',
+      vpcId: 'vpcId',
       resType: 'resType',
       resVersion: 'resVersion',
+      gmtCreatedTime: 'gmtCreatedTime',
       status: 'status',
-      vpcId: 'vpcId',
+      name: 'name',
+      configs: 'configs',
+      extendConfigs: 'extendConfigs',
+      collectorPaths: 'collectorPaths',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      collectorPaths: { 'type': 'array', 'itemType': 'string' },
-      configs: { 'type': 'array', 'itemType': DescribeCollectorResponseBodyResultConfigs },
-      dryRun: 'boolean',
-      extendConfigs: { 'type': 'array', 'itemType': DescribeCollectorResponseBodyResultExtendConfigs },
-      gmtCreatedTime: 'string',
-      gmtUpdateTime: 'string',
-      name: 'string',
-      ownerId: 'string',
       resId: 'string',
+      gmtUpdateTime: 'string',
+      dryRun: 'boolean',
+      ownerId: 'string',
+      vpcId: 'string',
       resType: 'string',
       resVersion: 'string',
+      gmtCreatedTime: 'string',
       status: 'string',
-      vpcId: 'string',
+      name: 'string',
+      configs: { 'type': 'array', 'itemType': DescribeCollectorResponseBodyResultConfigs },
+      extendConfigs: { 'type': 'array', 'itemType': DescribeCollectorResponseBodyResultExtendConfigs },
+      collectorPaths: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -11741,34 +11448,34 @@ export class DescribeDiagnoseReportResponseBodyResultDiagnoseItems extends $tea.
 }
 
 export class DescribeDiagnoseReportResponseBodyResult extends $tea.Model {
+  trigger?: string;
   createTime?: number;
-  diagnoseItems?: DescribeDiagnoseReportResponseBodyResultDiagnoseItems[];
-  health?: string;
-  instanceId?: string;
   reportId?: string;
   state?: string;
-  trigger?: string;
+  instanceId?: string;
+  health?: string;
+  diagnoseItems?: DescribeDiagnoseReportResponseBodyResultDiagnoseItems[];
   static names(): { [key: string]: string } {
     return {
+      trigger: 'trigger',
       createTime: 'createTime',
-      diagnoseItems: 'diagnoseItems',
-      health: 'health',
-      instanceId: 'instanceId',
       reportId: 'reportId',
       state: 'state',
-      trigger: 'trigger',
+      instanceId: 'instanceId',
+      health: 'health',
+      diagnoseItems: 'diagnoseItems',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      trigger: 'string',
       createTime: 'number',
-      diagnoseItems: { 'type': 'array', 'itemType': DescribeDiagnoseReportResponseBodyResultDiagnoseItems },
-      health: 'string',
-      instanceId: 'string',
       reportId: 'string',
       state: 'string',
-      trigger: 'string',
+      instanceId: 'string',
+      health: 'string',
+      diagnoseItems: { 'type': 'array', 'itemType': DescribeDiagnoseReportResponseBodyResultDiagnoseItems },
     };
   }
 
@@ -11778,19 +11485,19 @@ export class DescribeDiagnoseReportResponseBodyResult extends $tea.Model {
 }
 
 export class DescribeDiagnosisSettingsResponseBodyResult extends $tea.Model {
-  scene?: string;
   updateTime?: number;
+  scene?: string;
   static names(): { [key: string]: string } {
     return {
-      scene: 'scene',
       updateTime: 'updateTime',
+      scene: 'scene',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      scene: 'string',
       updateTime: 'number',
+      scene: 'string',
     };
   }
 
@@ -11822,22 +11529,22 @@ export class DescribeILMPolicyResponseBodyResult extends $tea.Model {
 }
 
 export class DescribeIndexTemplateResponseBodyResultTemplate extends $tea.Model {
-  aliases?: string;
-  mappings?: string;
   settings?: string;
+  mappings?: string;
+  aliases?: string;
   static names(): { [key: string]: string } {
     return {
-      aliases: 'aliases',
-      mappings: 'mappings',
       settings: 'settings',
+      mappings: 'mappings',
+      aliases: 'aliases',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      aliases: 'string',
-      mappings: 'string',
       settings: 'string',
+      mappings: 'string',
+      aliases: 'string',
     };
   }
 
@@ -11848,18 +11555,18 @@ export class DescribeIndexTemplateResponseBodyResultTemplate extends $tea.Model 
 
 export class DescribeIndexTemplateResponseBodyResult extends $tea.Model {
   dataStream?: boolean;
-  ilmPolicy?: string;
-  indexPatterns?: string[];
   indexTemplate?: string;
+  ilmPolicy?: string;
   priority?: number;
+  indexPatterns?: string[];
   template?: DescribeIndexTemplateResponseBodyResultTemplate;
   static names(): { [key: string]: string } {
     return {
       dataStream: 'dataStream',
-      ilmPolicy: 'ilmPolicy',
-      indexPatterns: 'indexPatterns',
       indexTemplate: 'indexTemplate',
+      ilmPolicy: 'ilmPolicy',
       priority: 'priority',
+      indexPatterns: 'indexPatterns',
       template: 'template',
     };
   }
@@ -11867,86 +11574,11 @@ export class DescribeIndexTemplateResponseBodyResult extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       dataStream: 'boolean',
-      ilmPolicy: 'string',
-      indexPatterns: { 'type': 'array', 'itemType': 'string' },
       indexTemplate: 'string',
+      ilmPolicy: 'string',
       priority: 'number',
+      indexPatterns: { 'type': 'array', 'itemType': 'string' },
       template: DescribeIndexTemplateResponseBodyResultTemplate,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeInstanceResponseBodyResultAdvancedSetting extends $tea.Model {
-  gcName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      gcName: 'gcName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      gcName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeInstanceResponseBodyResultAliwsDicts extends $tea.Model {
-  fileSize?: number;
-  sourceType?: string;
-  name?: string;
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      fileSize: 'fileSize',
-      sourceType: 'sourceType',
-      name: 'name',
-      type: 'type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      fileSize: 'number',
-      sourceType: 'string',
-      name: 'string',
-      type: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeInstanceResponseBodyResultClientNodeConfiguration extends $tea.Model {
-  amount?: number;
-  disk?: number;
-  diskType?: string;
-  spec?: string;
-  static names(): { [key: string]: string } {
-    return {
-      amount: 'amount',
-      disk: 'disk',
-      diskType: 'diskType',
-      spec: 'spec',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      amount: 'number',
-      disk: 'number',
-      diskType: 'string',
-      spec: 'string',
     };
   }
 
@@ -11983,172 +11615,57 @@ export class DescribeInstanceResponseBodyResultDictList extends $tea.Model {
   }
 }
 
-export class DescribeInstanceResponseBodyResultElasticDataNodeConfiguration extends $tea.Model {
-  amount?: number;
-  disk?: number;
-  diskEncryption?: boolean;
-  diskType?: string;
-  spec?: string;
-  static names(): { [key: string]: string } {
-    return {
-      amount: 'amount',
-      disk: 'disk',
-      diskEncryption: 'diskEncryption',
-      diskType: 'diskType',
-      spec: 'spec',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      amount: 'number',
-      disk: 'number',
-      diskEncryption: 'boolean',
-      diskType: 'string',
-      spec: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeInstanceResponseBodyResultKibanaConfiguration extends $tea.Model {
-  amount?: number;
-  spec?: string;
-  static names(): { [key: string]: string } {
-    return {
-      amount: 'amount',
-      spec: 'spec',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      amount: 'number',
-      spec: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeInstanceResponseBodyResultMasterConfiguration extends $tea.Model {
-  amount?: number;
-  disk?: number;
-  diskType?: string;
-  spec?: string;
-  static names(): { [key: string]: string } {
-    return {
-      amount: 'amount',
-      disk: 'disk',
-      diskType: 'diskType',
-      spec: 'spec',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      amount: 'number',
-      disk: 'number',
-      diskType: 'string',
-      spec: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeInstanceResponseBodyResultNetworkConfigWhiteIpGroupList extends $tea.Model {
-  whiteIpType?: string;
-  groupName?: string;
-  ips?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      whiteIpType: 'whiteIpType',
-      groupName: 'groupName',
-      ips: 'ips',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      whiteIpType: 'string',
-      groupName: 'string',
-      ips: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeInstanceResponseBodyResultNetworkConfig extends $tea.Model {
-  type?: string;
-  vpcId?: string;
-  vsArea?: string;
-  vswitchId?: string;
-  whiteIpGroupList?: DescribeInstanceResponseBodyResultNetworkConfigWhiteIpGroupList[];
-  static names(): { [key: string]: string } {
-    return {
-      type: 'type',
-      vpcId: 'vpcId',
-      vsArea: 'vsArea',
-      vswitchId: 'vswitchId',
-      whiteIpGroupList: 'whiteIpGroupList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      type: 'string',
-      vpcId: 'string',
-      vsArea: 'string',
-      vswitchId: 'string',
-      whiteIpGroupList: { 'type': 'array', 'itemType': DescribeInstanceResponseBodyResultNetworkConfigWhiteIpGroupList },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeInstanceResponseBodyResultNodeSpec extends $tea.Model {
-  disk?: number;
-  diskEncryption?: boolean;
-  diskType?: string;
-  spec?: string;
-  static names(): { [key: string]: string } {
-    return {
-      disk: 'disk',
-      diskEncryption: 'diskEncryption',
-      diskType: 'diskType',
-      spec: 'spec',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      disk: 'number',
-      diskEncryption: 'boolean',
-      diskType: 'string',
-      spec: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeInstanceResponseBodyResultSynonymsDicts extends $tea.Model {
+  fileSize?: number;
+  sourceType?: string;
+  name?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fileSize: 'fileSize',
+      sourceType: 'sourceType',
+      name: 'name',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileSize: 'number',
+      sourceType: 'string',
+      name: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceResponseBodyResultZoneInfos extends $tea.Model {
+  status?: string;
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      status: 'status',
+      zoneId: 'zoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      status: 'string',
+      zoneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceResponseBodyResultAliwsDicts extends $tea.Model {
   fileSize?: number;
   sourceType?: string;
   name?: string;
@@ -12198,18 +11715,96 @@ export class DescribeInstanceResponseBodyResultTags extends $tea.Model {
   }
 }
 
-export class DescribeInstanceResponseBodyResultWarmNodeConfiguration extends $tea.Model {
-  amount?: number;
+export class DescribeInstanceResponseBodyResultNodeSpec extends $tea.Model {
+  spec?: string;
   disk?: number;
   diskEncryption?: boolean;
   diskType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      spec: 'spec',
+      disk: 'disk',
+      diskEncryption: 'diskEncryption',
+      diskType: 'diskType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      spec: 'string',
+      disk: 'number',
+      diskEncryption: 'boolean',
+      diskType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceResponseBodyResultNetworkConfigWhiteIpGroupList extends $tea.Model {
+  whiteIpType?: string;
+  groupName?: string;
+  ips?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      whiteIpType: 'whiteIpType',
+      groupName: 'groupName',
+      ips: 'ips',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      whiteIpType: 'string',
+      groupName: 'string',
+      ips: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceResponseBodyResultNetworkConfig extends $tea.Model {
+  vpcId?: string;
+  vsArea?: string;
+  type?: string;
+  vswitchId?: string;
+  whiteIpGroupList?: DescribeInstanceResponseBodyResultNetworkConfigWhiteIpGroupList[];
+  static names(): { [key: string]: string } {
+    return {
+      vpcId: 'vpcId',
+      vsArea: 'vsArea',
+      type: 'type',
+      vswitchId: 'vswitchId',
+      whiteIpGroupList: 'whiteIpGroupList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      vpcId: 'string',
+      vsArea: 'string',
+      type: 'string',
+      vswitchId: 'string',
+      whiteIpGroupList: { 'type': 'array', 'itemType': DescribeInstanceResponseBodyResultNetworkConfigWhiteIpGroupList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceResponseBodyResultKibanaConfiguration extends $tea.Model {
+  amount?: number;
   spec?: string;
   static names(): { [key: string]: string } {
     return {
       amount: 'amount',
-      disk: 'disk',
-      diskEncryption: 'diskEncryption',
-      diskType: 'diskType',
       spec: 'spec',
     };
   }
@@ -12217,9 +11812,6 @@ export class DescribeInstanceResponseBodyResultWarmNodeConfiguration extends $te
   static types(): { [key: string]: any } {
     return {
       amount: 'number',
-      disk: 'number',
-      diskEncryption: 'boolean',
-      diskType: 'string',
       spec: 'string',
     };
   }
@@ -12229,20 +11821,135 @@ export class DescribeInstanceResponseBodyResultWarmNodeConfiguration extends $te
   }
 }
 
-export class DescribeInstanceResponseBodyResultZoneInfos extends $tea.Model {
-  status?: string;
-  zoneId?: string;
+export class DescribeInstanceResponseBodyResultMasterConfiguration extends $tea.Model {
+  spec?: string;
+  amount?: number;
+  disk?: number;
+  diskType?: string;
   static names(): { [key: string]: string } {
     return {
-      status: 'status',
-      zoneId: 'zoneId',
+      spec: 'spec',
+      amount: 'amount',
+      disk: 'disk',
+      diskType: 'diskType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      status: 'string',
-      zoneId: 'string',
+      spec: 'string',
+      amount: 'number',
+      disk: 'number',
+      diskType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceResponseBodyResultClientNodeConfiguration extends $tea.Model {
+  spec?: string;
+  amount?: number;
+  disk?: number;
+  diskType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      spec: 'spec',
+      amount: 'amount',
+      disk: 'disk',
+      diskType: 'diskType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      spec: 'string',
+      amount: 'number',
+      disk: 'number',
+      diskType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceResponseBodyResultWarmNodeConfiguration extends $tea.Model {
+  amount?: number;
+  spec?: string;
+  disk?: number;
+  diskEncryption?: boolean;
+  diskType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      amount: 'amount',
+      spec: 'spec',
+      disk: 'disk',
+      diskEncryption: 'diskEncryption',
+      diskType: 'diskType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      amount: 'number',
+      spec: 'string',
+      disk: 'number',
+      diskEncryption: 'boolean',
+      diskType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceResponseBodyResultAdvancedSetting extends $tea.Model {
+  gcName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      gcName: 'gcName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      gcName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceResponseBodyResultElasticDataNodeConfiguration extends $tea.Model {
+  amount?: number;
+  spec?: string;
+  disk?: number;
+  diskEncryption?: boolean;
+  diskType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      amount: 'amount',
+      spec: 'spec',
+      disk: 'disk',
+      diskEncryption: 'diskEncryption',
+      diskType: 'diskType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      amount: 'number',
+      spec: 'string',
+      disk: 'number',
+      diskEncryption: 'boolean',
+      diskType: 'string',
     };
   }
 
@@ -12253,162 +11960,187 @@ export class DescribeInstanceResponseBodyResultZoneInfos extends $tea.Model {
 
 export class DescribeInstanceResponseBodyResult extends $tea.Model {
   advancedDedicateMaster?: boolean;
-  advancedSetting?: DescribeInstanceResponseBodyResultAdvancedSetting;
-  aliwsDicts?: DescribeInstanceResponseBodyResultAliwsDicts[];
-  clientNodeConfiguration?: DescribeInstanceResponseBodyResultClientNodeConfiguration;
-  createdAt?: string;
-  dedicateMaster?: boolean;
-  description?: string;
-  dictList?: DescribeInstanceResponseBodyResultDictList[];
-  domain?: string;
-  elasticDataNodeConfiguration?: DescribeInstanceResponseBodyResultElasticDataNodeConfiguration;
-  enableKibanaPrivateNetwork?: boolean;
-  enableKibanaPublicNetwork?: boolean;
-  enablePublic?: boolean;
-  esConfig?: { [key: string]: any };
-  esIPBlacklist?: string[];
-  esIPWhitelist?: string[];
-  esVersion?: string;
-  extendConfigs?: { [key: string]: any }[];
-  haveClientNode?: boolean;
-  haveKibana?: boolean;
-  instanceId?: string;
-  isNewDeployment?: boolean;
-  kibanaConfiguration?: DescribeInstanceResponseBodyResultKibanaConfiguration;
-  kibanaDomain?: string;
-  kibanaIPWhitelist?: string[];
-  kibanaPort?: number;
-  kibanaPrivateIPWhitelist?: string[];
-  masterConfiguration?: DescribeInstanceResponseBodyResultMasterConfiguration;
-  networkConfig?: DescribeInstanceResponseBodyResultNetworkConfig;
-  nodeAmount?: number;
-  nodeSpec?: DescribeInstanceResponseBodyResultNodeSpec;
-  paymentType?: string;
-  port?: number;
-  postpaidServiceStatus?: string;
-  privateNetworkIpWhiteList?: string[];
   protocol?: string;
-  publicDomain?: string;
-  publicIpWhitelist?: string[];
-  publicPort?: number;
-  resourceGroupId?: string;
-  serviceVpc?: boolean;
-  status?: string;
-  synonymsDicts?: DescribeInstanceResponseBodyResultSynonymsDicts[];
-  tags?: DescribeInstanceResponseBodyResultTags[];
-  updatedAt?: string;
+  enableKibanaPublicNetwork?: boolean;
+  nodeAmount?: number;
+  createdAt?: string;
+  enableKibanaPrivateNetwork?: boolean;
   vpcInstanceId?: string;
+  port?: number;
+  enablePublic?: boolean;
+  dedicateMaster?: boolean;
+  kibanaPort?: number;
+  esConfig?: { [key: string]: any };
+  resourceGroupId?: string;
+  paymentType?: string;
+  postpaidServiceStatus?: string;
+  esVersion?: string;
+  haveKibana?: boolean;
+  isNewDeployment?: boolean;
   warmNode?: boolean;
-  warmNodeConfiguration?: DescribeInstanceResponseBodyResultWarmNodeConfiguration;
+  updatedAt?: string;
+  instanceId?: string;
   zoneCount?: number;
+  publicDomain?: string;
+  status?: string;
+  serviceVpc?: boolean;
+  publicPort?: number;
+  haveClientNode?: boolean;
+  domain?: string;
+  description?: string;
+  kibanaDomain?: string;
+  dictList?: DescribeInstanceResponseBodyResultDictList[];
+  synonymsDicts?: DescribeInstanceResponseBodyResultSynonymsDicts[];
   zoneInfos?: DescribeInstanceResponseBodyResultZoneInfos[];
+  aliwsDicts?: DescribeInstanceResponseBodyResultAliwsDicts[];
+  tags?: DescribeInstanceResponseBodyResultTags[];
+  esIPWhitelist?: string[];
+  extendConfigs?: { [key: string]: any }[];
+  privateNetworkIpWhiteList?: string[];
+  publicIpWhitelist?: string[];
+  kibanaPrivateIPWhitelist?: string[];
+  esIPBlacklist?: string[];
+  kibanaIPWhitelist?: string[];
+  nodeSpec?: DescribeInstanceResponseBodyResultNodeSpec;
+  networkConfig?: DescribeInstanceResponseBodyResultNetworkConfig;
+  kibanaConfiguration?: DescribeInstanceResponseBodyResultKibanaConfiguration;
+  masterConfiguration?: DescribeInstanceResponseBodyResultMasterConfiguration;
+  clientNodeConfiguration?: DescribeInstanceResponseBodyResultClientNodeConfiguration;
+  warmNodeConfiguration?: DescribeInstanceResponseBodyResultWarmNodeConfiguration;
+  advancedSetting?: DescribeInstanceResponseBodyResultAdvancedSetting;
+  elasticDataNodeConfiguration?: DescribeInstanceResponseBodyResultElasticDataNodeConfiguration;
   static names(): { [key: string]: string } {
     return {
       advancedDedicateMaster: 'advancedDedicateMaster',
-      advancedSetting: 'advancedSetting',
-      aliwsDicts: 'aliwsDicts',
-      clientNodeConfiguration: 'clientNodeConfiguration',
-      createdAt: 'createdAt',
-      dedicateMaster: 'dedicateMaster',
-      description: 'description',
-      dictList: 'dictList',
-      domain: 'domain',
-      elasticDataNodeConfiguration: 'elasticDataNodeConfiguration',
-      enableKibanaPrivateNetwork: 'enableKibanaPrivateNetwork',
-      enableKibanaPublicNetwork: 'enableKibanaPublicNetwork',
-      enablePublic: 'enablePublic',
-      esConfig: 'esConfig',
-      esIPBlacklist: 'esIPBlacklist',
-      esIPWhitelist: 'esIPWhitelist',
-      esVersion: 'esVersion',
-      extendConfigs: 'extendConfigs',
-      haveClientNode: 'haveClientNode',
-      haveKibana: 'haveKibana',
-      instanceId: 'instanceId',
-      isNewDeployment: 'isNewDeployment',
-      kibanaConfiguration: 'kibanaConfiguration',
-      kibanaDomain: 'kibanaDomain',
-      kibanaIPWhitelist: 'kibanaIPWhitelist',
-      kibanaPort: 'kibanaPort',
-      kibanaPrivateIPWhitelist: 'kibanaPrivateIPWhitelist',
-      masterConfiguration: 'masterConfiguration',
-      networkConfig: 'networkConfig',
-      nodeAmount: 'nodeAmount',
-      nodeSpec: 'nodeSpec',
-      paymentType: 'paymentType',
-      port: 'port',
-      postpaidServiceStatus: 'postpaidServiceStatus',
-      privateNetworkIpWhiteList: 'privateNetworkIpWhiteList',
       protocol: 'protocol',
-      publicDomain: 'publicDomain',
-      publicIpWhitelist: 'publicIpWhitelist',
-      publicPort: 'publicPort',
-      resourceGroupId: 'resourceGroupId',
-      serviceVpc: 'serviceVpc',
-      status: 'status',
-      synonymsDicts: 'synonymsDicts',
-      tags: 'tags',
-      updatedAt: 'updatedAt',
+      enableKibanaPublicNetwork: 'enableKibanaPublicNetwork',
+      nodeAmount: 'nodeAmount',
+      createdAt: 'createdAt',
+      enableKibanaPrivateNetwork: 'enableKibanaPrivateNetwork',
       vpcInstanceId: 'vpcInstanceId',
+      port: 'port',
+      enablePublic: 'enablePublic',
+      dedicateMaster: 'dedicateMaster',
+      kibanaPort: 'kibanaPort',
+      esConfig: 'esConfig',
+      resourceGroupId: 'resourceGroupId',
+      paymentType: 'paymentType',
+      postpaidServiceStatus: 'postpaidServiceStatus',
+      esVersion: 'esVersion',
+      haveKibana: 'haveKibana',
+      isNewDeployment: 'isNewDeployment',
       warmNode: 'warmNode',
-      warmNodeConfiguration: 'warmNodeConfiguration',
+      updatedAt: 'updatedAt',
+      instanceId: 'instanceId',
       zoneCount: 'zoneCount',
+      publicDomain: 'publicDomain',
+      status: 'status',
+      serviceVpc: 'serviceVpc',
+      publicPort: 'publicPort',
+      haveClientNode: 'haveClientNode',
+      domain: 'domain',
+      description: 'description',
+      kibanaDomain: 'kibanaDomain',
+      dictList: 'dictList',
+      synonymsDicts: 'synonymsDicts',
       zoneInfos: 'zoneInfos',
+      aliwsDicts: 'aliwsDicts',
+      tags: 'tags',
+      esIPWhitelist: 'esIPWhitelist',
+      extendConfigs: 'extendConfigs',
+      privateNetworkIpWhiteList: 'privateNetworkIpWhiteList',
+      publicIpWhitelist: 'publicIpWhitelist',
+      kibanaPrivateIPWhitelist: 'kibanaPrivateIPWhitelist',
+      esIPBlacklist: 'esIPBlacklist',
+      kibanaIPWhitelist: 'kibanaIPWhitelist',
+      nodeSpec: 'nodeSpec',
+      networkConfig: 'networkConfig',
+      kibanaConfiguration: 'kibanaConfiguration',
+      masterConfiguration: 'masterConfiguration',
+      clientNodeConfiguration: 'clientNodeConfiguration',
+      warmNodeConfiguration: 'warmNodeConfiguration',
+      advancedSetting: 'advancedSetting',
+      elasticDataNodeConfiguration: 'elasticDataNodeConfiguration',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       advancedDedicateMaster: 'boolean',
-      advancedSetting: DescribeInstanceResponseBodyResultAdvancedSetting,
-      aliwsDicts: { 'type': 'array', 'itemType': DescribeInstanceResponseBodyResultAliwsDicts },
-      clientNodeConfiguration: DescribeInstanceResponseBodyResultClientNodeConfiguration,
-      createdAt: 'string',
-      dedicateMaster: 'boolean',
-      description: 'string',
-      dictList: { 'type': 'array', 'itemType': DescribeInstanceResponseBodyResultDictList },
-      domain: 'string',
-      elasticDataNodeConfiguration: DescribeInstanceResponseBodyResultElasticDataNodeConfiguration,
-      enableKibanaPrivateNetwork: 'boolean',
-      enableKibanaPublicNetwork: 'boolean',
-      enablePublic: 'boolean',
-      esConfig: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      esIPBlacklist: { 'type': 'array', 'itemType': 'string' },
-      esIPWhitelist: { 'type': 'array', 'itemType': 'string' },
-      esVersion: 'string',
-      extendConfigs: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
-      haveClientNode: 'boolean',
-      haveKibana: 'boolean',
-      instanceId: 'string',
-      isNewDeployment: 'boolean',
-      kibanaConfiguration: DescribeInstanceResponseBodyResultKibanaConfiguration,
-      kibanaDomain: 'string',
-      kibanaIPWhitelist: { 'type': 'array', 'itemType': 'string' },
-      kibanaPort: 'number',
-      kibanaPrivateIPWhitelist: { 'type': 'array', 'itemType': 'string' },
-      masterConfiguration: DescribeInstanceResponseBodyResultMasterConfiguration,
-      networkConfig: DescribeInstanceResponseBodyResultNetworkConfig,
-      nodeAmount: 'number',
-      nodeSpec: DescribeInstanceResponseBodyResultNodeSpec,
-      paymentType: 'string',
-      port: 'number',
-      postpaidServiceStatus: 'string',
-      privateNetworkIpWhiteList: { 'type': 'array', 'itemType': 'string' },
       protocol: 'string',
-      publicDomain: 'string',
-      publicIpWhitelist: { 'type': 'array', 'itemType': 'string' },
-      publicPort: 'number',
-      resourceGroupId: 'string',
-      serviceVpc: 'boolean',
-      status: 'string',
-      synonymsDicts: { 'type': 'array', 'itemType': DescribeInstanceResponseBodyResultSynonymsDicts },
-      tags: { 'type': 'array', 'itemType': DescribeInstanceResponseBodyResultTags },
-      updatedAt: 'string',
+      enableKibanaPublicNetwork: 'boolean',
+      nodeAmount: 'number',
+      createdAt: 'string',
+      enableKibanaPrivateNetwork: 'boolean',
       vpcInstanceId: 'string',
+      port: 'number',
+      enablePublic: 'boolean',
+      dedicateMaster: 'boolean',
+      kibanaPort: 'number',
+      esConfig: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      resourceGroupId: 'string',
+      paymentType: 'string',
+      postpaidServiceStatus: 'string',
+      esVersion: 'string',
+      haveKibana: 'boolean',
+      isNewDeployment: 'boolean',
       warmNode: 'boolean',
-      warmNodeConfiguration: DescribeInstanceResponseBodyResultWarmNodeConfiguration,
+      updatedAt: 'string',
+      instanceId: 'string',
       zoneCount: 'number',
+      publicDomain: 'string',
+      status: 'string',
+      serviceVpc: 'boolean',
+      publicPort: 'number',
+      haveClientNode: 'boolean',
+      domain: 'string',
+      description: 'string',
+      kibanaDomain: 'string',
+      dictList: { 'type': 'array', 'itemType': DescribeInstanceResponseBodyResultDictList },
+      synonymsDicts: { 'type': 'array', 'itemType': DescribeInstanceResponseBodyResultSynonymsDicts },
       zoneInfos: { 'type': 'array', 'itemType': DescribeInstanceResponseBodyResultZoneInfos },
+      aliwsDicts: { 'type': 'array', 'itemType': DescribeInstanceResponseBodyResultAliwsDicts },
+      tags: { 'type': 'array', 'itemType': DescribeInstanceResponseBodyResultTags },
+      esIPWhitelist: { 'type': 'array', 'itemType': 'string' },
+      extendConfigs: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
+      privateNetworkIpWhiteList: { 'type': 'array', 'itemType': 'string' },
+      publicIpWhitelist: { 'type': 'array', 'itemType': 'string' },
+      kibanaPrivateIPWhitelist: { 'type': 'array', 'itemType': 'string' },
+      esIPBlacklist: { 'type': 'array', 'itemType': 'string' },
+      kibanaIPWhitelist: { 'type': 'array', 'itemType': 'string' },
+      nodeSpec: DescribeInstanceResponseBodyResultNodeSpec,
+      networkConfig: DescribeInstanceResponseBodyResultNetworkConfig,
+      kibanaConfiguration: DescribeInstanceResponseBodyResultKibanaConfiguration,
+      masterConfiguration: DescribeInstanceResponseBodyResultMasterConfiguration,
+      clientNodeConfiguration: DescribeInstanceResponseBodyResultClientNodeConfiguration,
+      warmNodeConfiguration: DescribeInstanceResponseBodyResultWarmNodeConfiguration,
+      advancedSetting: DescribeInstanceResponseBodyResultAdvancedSetting,
+      elasticDataNodeConfiguration: DescribeInstanceResponseBodyResultElasticDataNodeConfiguration,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLogstashResponseBodyResultEndpointList extends $tea.Model {
+  zoneId?: string;
+  port?: string;
+  host?: string;
+  static names(): { [key: string]: string } {
+    return {
+      zoneId: 'zoneId',
+      port: 'port',
+      host: 'host',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      zoneId: 'string',
+      port: 'string',
+      host: 'string',
     };
   }
 
@@ -12461,23 +12193,26 @@ export class DescribeLogstashResponseBodyResultZoneInfos extends $tea.Model {
   }
 }
 
-export class DescribeLogstashResponseBodyResultEndpointList extends $tea.Model {
-  zoneId?: string;
-  port?: string;
-  host?: string;
+export class DescribeLogstashResponseBodyResultNodeSpec extends $tea.Model {
+  spec?: string;
+  disk?: number;
+  diskEncryption?: boolean;
+  diskType?: string;
   static names(): { [key: string]: string } {
     return {
-      zoneId: 'zoneId',
-      port: 'port',
-      host: 'host',
+      spec: 'spec',
+      disk: 'disk',
+      diskEncryption: 'diskEncryption',
+      diskType: 'diskType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      zoneId: 'string',
-      port: 'string',
-      host: 'string',
+      spec: 'string',
+      disk: 'number',
+      diskEncryption: 'boolean',
+      diskType: 'string',
     };
   }
 
@@ -12487,24 +12222,24 @@ export class DescribeLogstashResponseBodyResultEndpointList extends $tea.Model {
 }
 
 export class DescribeLogstashResponseBodyResultNetworkConfig extends $tea.Model {
-  type?: string;
   vpcId?: string;
   vsArea?: string;
+  type?: string;
   vswitchId?: string;
   static names(): { [key: string]: string } {
     return {
-      type: 'type',
       vpcId: 'vpcId',
       vsArea: 'vsArea',
+      type: 'type',
       vswitchId: 'vswitchId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      type: 'string',
       vpcId: 'string',
       vsArea: 'string',
+      type: 'string',
       vswitchId: 'string',
     };
   }
@@ -12514,93 +12249,65 @@ export class DescribeLogstashResponseBodyResultNetworkConfig extends $tea.Model 
   }
 }
 
-export class DescribeLogstashResponseBodyResultNodeSpec extends $tea.Model {
-  disk?: number;
-  diskEncryption?: boolean;
-  diskType?: string;
-  spec?: string;
-  static names(): { [key: string]: string } {
-    return {
-      disk: 'disk',
-      diskEncryption: 'diskEncryption',
-      diskType: 'diskType',
-      spec: 'spec',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      disk: 'number',
-      diskEncryption: 'boolean',
-      diskType: 'string',
-      spec: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeLogstashResponseBodyResult extends $tea.Model {
-  extendConfigs?: { [key: string]: any }[];
-  resourceGroupId?: string;
-  tags?: DescribeLogstashResponseBodyResultTags[];
-  zoneInfos?: DescribeLogstashResponseBodyResultZoneInfos[];
   config?: { [key: string]: any };
-  createdAt?: string;
-  description?: string;
-  endpointList?: DescribeLogstashResponseBodyResultEndpointList[];
-  instanceId?: string;
-  networkConfig?: DescribeLogstashResponseBodyResultNetworkConfig;
-  nodeAmount?: number;
-  nodeSpec?: DescribeLogstashResponseBodyResultNodeSpec;
   paymentType?: string;
+  resourceGroupId?: string;
+  nodeAmount?: number;
+  description?: string;
+  createdAt?: string;
   status?: string;
+  vpcInstanceId?: string;
   updatedAt?: string;
   version?: string;
-  vpcInstanceId?: string;
+  instanceId?: string;
+  endpointList?: DescribeLogstashResponseBodyResultEndpointList[];
+  tags?: DescribeLogstashResponseBodyResultTags[];
+  zoneInfos?: DescribeLogstashResponseBodyResultZoneInfos[];
+  extendConfigs?: { [key: string]: any }[];
+  nodeSpec?: DescribeLogstashResponseBodyResultNodeSpec;
+  networkConfig?: DescribeLogstashResponseBodyResultNetworkConfig;
   static names(): { [key: string]: string } {
     return {
-      extendConfigs: 'ExtendConfigs',
-      resourceGroupId: 'ResourceGroupId',
-      tags: 'Tags',
-      zoneInfos: 'ZoneInfos',
       config: 'config',
-      createdAt: 'createdAt',
-      description: 'description',
-      endpointList: 'endpointList',
-      instanceId: 'instanceId',
-      networkConfig: 'networkConfig',
-      nodeAmount: 'nodeAmount',
-      nodeSpec: 'nodeSpec',
       paymentType: 'paymentType',
+      resourceGroupId: 'ResourceGroupId',
+      nodeAmount: 'nodeAmount',
+      description: 'description',
+      createdAt: 'createdAt',
       status: 'status',
+      vpcInstanceId: 'vpcInstanceId',
       updatedAt: 'updatedAt',
       version: 'version',
-      vpcInstanceId: 'vpcInstanceId',
+      instanceId: 'instanceId',
+      endpointList: 'endpointList',
+      tags: 'Tags',
+      zoneInfos: 'ZoneInfos',
+      extendConfigs: 'ExtendConfigs',
+      nodeSpec: 'nodeSpec',
+      networkConfig: 'networkConfig',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      extendConfigs: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
-      resourceGroupId: 'string',
-      tags: { 'type': 'array', 'itemType': DescribeLogstashResponseBodyResultTags },
-      zoneInfos: { 'type': 'array', 'itemType': DescribeLogstashResponseBodyResultZoneInfos },
       config: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      createdAt: 'string',
-      description: 'string',
-      endpointList: { 'type': 'array', 'itemType': DescribeLogstashResponseBodyResultEndpointList },
-      instanceId: 'string',
-      networkConfig: DescribeLogstashResponseBodyResultNetworkConfig,
-      nodeAmount: 'number',
-      nodeSpec: DescribeLogstashResponseBodyResultNodeSpec,
       paymentType: 'string',
+      resourceGroupId: 'string',
+      nodeAmount: 'number',
+      description: 'string',
+      createdAt: 'string',
       status: 'string',
+      vpcInstanceId: 'string',
       updatedAt: 'string',
       version: 'string',
-      vpcInstanceId: 'string',
+      instanceId: 'string',
+      endpointList: { 'type': 'array', 'itemType': DescribeLogstashResponseBodyResultEndpointList },
+      tags: { 'type': 'array', 'itemType': DescribeLogstashResponseBodyResultTags },
+      zoneInfos: { 'type': 'array', 'itemType': DescribeLogstashResponseBodyResultZoneInfos },
+      extendConfigs: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
+      nodeSpec: DescribeLogstashResponseBodyResultNodeSpec,
+      networkConfig: DescribeLogstashResponseBodyResultNetworkConfig,
     };
   }
 
@@ -12610,49 +12317,49 @@ export class DescribeLogstashResponseBodyResult extends $tea.Model {
 }
 
 export class DescribePipelineResponseBodyResult extends $tea.Model {
-  batchDelay?: number;
-  batchSize?: number;
-  config?: string;
-  description?: string;
-  gmtCreatedTime?: string;
-  gmtUpdateTime?: string;
   pipelineId?: string;
-  pipelineStatus?: string;
+  gmtUpdateTime?: string;
+  queueType?: string;
   queueCheckPointWrites?: number;
   queueMaxBytes?: number;
-  queueType?: string;
+  config?: string;
+  batchDelay?: number;
   workers?: number;
+  description?: string;
+  gmtCreatedTime?: string;
+  batchSize?: number;
+  pipelineStatus?: string;
   static names(): { [key: string]: string } {
     return {
-      batchDelay: 'batchDelay',
-      batchSize: 'batchSize',
-      config: 'config',
-      description: 'description',
-      gmtCreatedTime: 'gmtCreatedTime',
-      gmtUpdateTime: 'gmtUpdateTime',
       pipelineId: 'pipelineId',
-      pipelineStatus: 'pipelineStatus',
+      gmtUpdateTime: 'gmtUpdateTime',
+      queueType: 'queueType',
       queueCheckPointWrites: 'queueCheckPointWrites',
       queueMaxBytes: 'queueMaxBytes',
-      queueType: 'queueType',
+      config: 'config',
+      batchDelay: 'batchDelay',
       workers: 'workers',
+      description: 'description',
+      gmtCreatedTime: 'gmtCreatedTime',
+      batchSize: 'batchSize',
+      pipelineStatus: 'pipelineStatus',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      batchDelay: 'number',
-      batchSize: 'number',
-      config: 'string',
-      description: 'string',
-      gmtCreatedTime: 'string',
-      gmtUpdateTime: 'string',
       pipelineId: 'string',
-      pipelineStatus: 'string',
+      gmtUpdateTime: 'string',
+      queueType: 'string',
       queueCheckPointWrites: 'number',
       queueMaxBytes: 'number',
-      queueType: 'string',
+      config: 'string',
+      batchDelay: 'number',
       workers: 'number',
+      description: 'string',
+      gmtCreatedTime: 'string',
+      batchSize: 'number',
+      pipelineStatus: 'string',
     };
   }
 
@@ -12663,27 +12370,27 @@ export class DescribePipelineResponseBodyResult extends $tea.Model {
 
 export class DescribePipelineManagementConfigResponseBodyResult extends $tea.Model {
   endpoints?: string;
+  userName?: string;
+  pipelineManagementType?: string;
   esInstanceId?: string;
   pipelineIds?: string[];
-  pipelineManagementType?: string;
-  userName?: string;
   static names(): { [key: string]: string } {
     return {
       endpoints: 'endpoints',
+      userName: 'userName',
+      pipelineManagementType: 'pipelineManagementType',
       esInstanceId: 'esInstanceId',
       pipelineIds: 'pipelineIds',
-      pipelineManagementType: 'pipelineManagementType',
-      userName: 'userName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       endpoints: 'string',
+      userName: 'string',
+      pipelineManagementType: 'string',
       esInstanceId: 'string',
       pipelineIds: { 'type': 'array', 'itemType': 'string' },
-      pipelineManagementType: 'string',
-      userName: 'string',
     };
   }
 
@@ -12768,28 +12475,28 @@ export class DescribeTemplatesResponseBodyResult extends $tea.Model {
 }
 
 export class DescribeXpackMonitorConfigResponseBodyResult extends $tea.Model {
+  userName?: string;
+  esInstanceId?: string;
   enable?: boolean;
   endpoints?: string[];
-  esInstanceId?: string;
   pipelineIds?: string[];
-  userName?: string;
   static names(): { [key: string]: string } {
     return {
+      userName: 'userName',
+      esInstanceId: 'esInstanceId',
       enable: 'enable',
       endpoints: 'endpoints',
-      esInstanceId: 'esInstanceId',
       pipelineIds: 'pipelineIds',
-      userName: 'userName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      userName: 'string',
+      esInstanceId: 'string',
       enable: 'boolean',
       endpoints: { 'type': 'array', 'itemType': 'string' },
-      esInstanceId: 'string',
       pipelineIds: { 'type': 'array', 'itemType': 'string' },
-      userName: 'string',
     };
   }
 
@@ -12819,27 +12526,27 @@ export class DiagnoseInstanceResponseBodyResultDiagnoseItems extends $tea.Model 
 
 export class DiagnoseInstanceResponseBodyResult extends $tea.Model {
   createTime?: number;
-  diagnoseItems?: DiagnoseInstanceResponseBodyResultDiagnoseItems[];
-  instanceId?: string;
   reportId?: string;
   state?: string;
+  instanceId?: string;
+  diagnoseItems?: DiagnoseInstanceResponseBodyResultDiagnoseItems[];
   static names(): { [key: string]: string } {
     return {
       createTime: 'createTime',
-      diagnoseItems: 'diagnoseItems',
-      instanceId: 'instanceId',
       reportId: 'reportId',
       state: 'state',
+      instanceId: 'instanceId',
+      diagnoseItems: 'diagnoseItems',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       createTime: 'number',
-      diagnoseItems: { 'type': 'array', 'itemType': DiagnoseInstanceResponseBodyResultDiagnoseItems },
-      instanceId: 'string',
       reportId: 'string',
       state: 'string',
+      instanceId: 'string',
+      diagnoseItems: { 'type': 'array', 'itemType': DiagnoseInstanceResponseBodyResultDiagnoseItems },
     };
   }
 
@@ -12893,28 +12600,28 @@ export class EstimatedRestartTimeResponseBodyResult extends $tea.Model {
 }
 
 export class GetClusterDataInformationResponseBodyResultMetaInfo extends $tea.Model {
-  fields?: string[];
-  indices?: string[];
   mapping?: string;
   settings?: string;
   typeName?: string[];
+  fields?: string[];
+  indices?: string[];
   static names(): { [key: string]: string } {
     return {
-      fields: 'fields',
-      indices: 'indices',
       mapping: 'mapping',
       settings: 'settings',
       typeName: 'typeName',
+      fields: 'fields',
+      indices: 'indices',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      fields: { 'type': 'array', 'itemType': 'string' },
-      indices: { 'type': 'array', 'itemType': 'string' },
       mapping: 'string',
       settings: 'string',
       typeName: { 'type': 'array', 'itemType': 'string' },
+      fields: { 'type': 'array', 'itemType': 'string' },
+      indices: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -12946,28 +12653,28 @@ export class GetClusterDataInformationResponseBodyResult extends $tea.Model {
 }
 
 export class GetElastictaskResponseBodyResultElasticExpansionTask extends $tea.Model {
-  cronExpression?: string;
-  elasticNodeCount?: number;
-  replicaCount?: number;
-  targetIndices?: string[];
   triggerType?: string;
+  replicaCount?: number;
+  elasticNodeCount?: number;
+  cronExpression?: string;
+  targetIndices?: string[];
   static names(): { [key: string]: string } {
     return {
-      cronExpression: 'cronExpression',
-      elasticNodeCount: 'elasticNodeCount',
-      replicaCount: 'replicaCount',
-      targetIndices: 'targetIndices',
       triggerType: 'triggerType',
+      replicaCount: 'replicaCount',
+      elasticNodeCount: 'elasticNodeCount',
+      cronExpression: 'cronExpression',
+      targetIndices: 'targetIndices',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      cronExpression: 'string',
-      elasticNodeCount: 'number',
-      replicaCount: 'number',
-      targetIndices: { 'type': 'array', 'itemType': 'string' },
       triggerType: 'string',
+      replicaCount: 'number',
+      elasticNodeCount: 'number',
+      cronExpression: 'string',
+      targetIndices: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -12977,28 +12684,28 @@ export class GetElastictaskResponseBodyResultElasticExpansionTask extends $tea.M
 }
 
 export class GetElastictaskResponseBodyResultElasticShrinkTask extends $tea.Model {
-  cronExpression?: string;
-  elasticNodeCount?: number;
-  replicaCount?: number;
-  targetIndices?: string[];
   triggerType?: string;
+  replicaCount?: number;
+  elasticNodeCount?: number;
+  cronExpression?: string;
+  targetIndices?: string[];
   static names(): { [key: string]: string } {
     return {
-      cronExpression: 'cronExpression',
-      elasticNodeCount: 'elasticNodeCount',
-      replicaCount: 'replicaCount',
-      targetIndices: 'targetIndices',
       triggerType: 'triggerType',
+      replicaCount: 'replicaCount',
+      elasticNodeCount: 'elasticNodeCount',
+      cronExpression: 'cronExpression',
+      targetIndices: 'targetIndices',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      cronExpression: 'string',
-      elasticNodeCount: 'number',
-      replicaCount: 'number',
-      targetIndices: { 'type': 'array', 'itemType': 'string' },
       triggerType: 'string',
+      replicaCount: 'number',
+      elasticNodeCount: 'number',
+      cronExpression: 'string',
+      targetIndices: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -13064,69 +12771,19 @@ export class GetEmonMonitorDataResponseBodyResult extends $tea.Model {
 }
 
 export class GetOpenStoreUsageResponseBodyResult extends $tea.Model {
-  currentUsage?: number;
   lastDayUsage?: number;
+  currentUsage?: number;
   static names(): { [key: string]: string } {
     return {
-      currentUsage: 'currentUsage',
       lastDayUsage: 'lastDayUsage',
+      currentUsage: 'currentUsage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      currentUsage: 'number',
       lastDayUsage: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetRegionConfigurationResponseBodyResultClientNodeAmountRange extends $tea.Model {
-  maxAmount?: number;
-  minAmount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      maxAmount: 'maxAmount',
-      minAmount: 'minAmount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      maxAmount: 'number',
-      minAmount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetRegionConfigurationResponseBodyResultClientNodeDiskList extends $tea.Model {
-  scaleLimit?: number;
-  minSize?: number;
-  maxSize?: number;
-  diskType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      scaleLimit: 'scaleLimit',
-      minSize: 'minSize',
-      maxSize: 'maxSize',
-      diskType: 'diskType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      scaleLimit: 'number',
-      minSize: 'number',
-      maxSize: 'number',
-      diskType: 'string',
+      currentUsage: 'number',
     };
   }
 
@@ -13166,87 +12823,6 @@ export class GetRegionConfigurationResponseBodyResultDataDiskList extends $tea.M
   }
 }
 
-export class GetRegionConfigurationResponseBodyResultElasticNodePropertiesAmountRange extends $tea.Model {
-  maxAmount?: number;
-  minAmount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      maxAmount: 'maxAmount',
-      minAmount: 'minAmount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      maxAmount: 'number',
-      minAmount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetRegionConfigurationResponseBodyResultElasticNodePropertiesDiskList extends $tea.Model {
-  scaleLimit?: number;
-  minSize?: number;
-  diskEncryption?: boolean;
-  maxSize?: number;
-  diskType?: string;
-  valueLimitSet?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      scaleLimit: 'scaleLimit',
-      minSize: 'minSize',
-      diskEncryption: 'diskEncryption',
-      maxSize: 'maxSize',
-      diskType: 'diskType',
-      valueLimitSet: 'valueLimitSet',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      scaleLimit: 'number',
-      minSize: 'number',
-      diskEncryption: 'boolean',
-      maxSize: 'number',
-      diskType: 'string',
-      valueLimitSet: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetRegionConfigurationResponseBodyResultElasticNodeProperties extends $tea.Model {
-  amountRange?: GetRegionConfigurationResponseBodyResultElasticNodePropertiesAmountRange;
-  diskList?: GetRegionConfigurationResponseBodyResultElasticNodePropertiesDiskList[];
-  spec?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      amountRange: 'amountRange',
-      diskList: 'diskList',
-      spec: 'spec',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      amountRange: GetRegionConfigurationResponseBodyResultElasticNodePropertiesAmountRange,
-      diskList: { 'type': 'array', 'itemType': GetRegionConfigurationResponseBodyResultElasticNodePropertiesDiskList },
-      spec: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class GetRegionConfigurationResponseBodyResultEsVersionsLatestList extends $tea.Model {
   key?: string;
   value?: string;
@@ -13261,125 +12837,6 @@ export class GetRegionConfigurationResponseBodyResultEsVersionsLatestList extend
     return {
       key: 'string',
       value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetRegionConfigurationResponseBodyResultJvmConfine extends $tea.Model {
-  memory?: number;
-  supportEsVersions?: string[];
-  supportGcs?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      memory: 'memory',
-      supportEsVersions: 'supportEsVersions',
-      supportGcs: 'supportGcs',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      memory: 'number',
-      supportEsVersions: { 'type': 'array', 'itemType': 'string' },
-      supportGcs: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetRegionConfigurationResponseBodyResultKibanaNodePropertiesAmountRange extends $tea.Model {
-  maxAmount?: number;
-  minAmount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      maxAmount: 'maxAmount',
-      minAmount: 'minAmount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      maxAmount: 'number',
-      minAmount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetRegionConfigurationResponseBodyResultKibanaNodeProperties extends $tea.Model {
-  amountRange?: GetRegionConfigurationResponseBodyResultKibanaNodePropertiesAmountRange;
-  spec?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      amountRange: 'amountRange',
-      spec: 'spec',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      amountRange: GetRegionConfigurationResponseBodyResultKibanaNodePropertiesAmountRange,
-      spec: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetRegionConfigurationResponseBodyResultMasterDiskList extends $tea.Model {
-  scaleLimit?: number;
-  minSize?: number;
-  maxSize?: number;
-  diskType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      scaleLimit: 'scaleLimit',
-      minSize: 'minSize',
-      maxSize: 'maxSize',
-      diskType: 'diskType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      scaleLimit: 'number',
-      minSize: 'number',
-      maxSize: 'number',
-      diskType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetRegionConfigurationResponseBodyResultNode extends $tea.Model {
-  maxAmount?: number;
-  minAmount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      maxAmount: 'maxAmount',
-      minAmount: 'minAmount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      maxAmount: 'number',
-      minAmount: 'number',
     };
   }
 
@@ -13417,6 +12874,62 @@ export class GetRegionConfigurationResponseBodyResultNodeSpecList extends $tea.M
       disk: 'number',
       specGroupType: 'string',
       enable: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRegionConfigurationResponseBodyResultClientNodeDiskList extends $tea.Model {
+  scaleLimit?: number;
+  minSize?: number;
+  maxSize?: number;
+  diskType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      scaleLimit: 'scaleLimit',
+      minSize: 'minSize',
+      maxSize: 'maxSize',
+      diskType: 'diskType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      scaleLimit: 'number',
+      minSize: 'number',
+      maxSize: 'number',
+      diskType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRegionConfigurationResponseBodyResultMasterDiskList extends $tea.Model {
+  scaleLimit?: number;
+  minSize?: number;
+  maxSize?: number;
+  diskType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      scaleLimit: 'scaleLimit',
+      minSize: 'minSize',
+      maxSize: 'maxSize',
+      diskType: 'diskType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      scaleLimit: 'number',
+      minSize: 'number',
+      maxSize: 'number',
+      diskType: 'string',
     };
   }
 
@@ -13469,7 +12982,54 @@ export class GetRegionConfigurationResponseBodyResultSupportVersions extends $te
   }
 }
 
-export class GetRegionConfigurationResponseBodyResultWarmNodePropertiesAmountRange extends $tea.Model {
+export class GetRegionConfigurationResponseBodyResultNode extends $tea.Model {
+  maxAmount?: number;
+  minAmount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      maxAmount: 'maxAmount',
+      minAmount: 'minAmount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxAmount: 'number',
+      minAmount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRegionConfigurationResponseBodyResultJvmConfine extends $tea.Model {
+  memory?: number;
+  supportEsVersions?: string[];
+  supportGcs?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      memory: 'memory',
+      supportEsVersions: 'supportEsVersions',
+      supportGcs: 'supportGcs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      memory: 'number',
+      supportEsVersions: { 'type': 'array', 'itemType': 'string' },
+      supportGcs: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRegionConfigurationResponseBodyResultClientNodeAmountRange extends $tea.Model {
   maxAmount?: number;
   minAmount?: number;
   static names(): { [key: string]: string } {
@@ -13525,23 +13085,170 @@ export class GetRegionConfigurationResponseBodyResultWarmNodePropertiesDiskList 
   }
 }
 
-export class GetRegionConfigurationResponseBodyResultWarmNodeProperties extends $tea.Model {
-  amountRange?: GetRegionConfigurationResponseBodyResultWarmNodePropertiesAmountRange;
-  diskList?: GetRegionConfigurationResponseBodyResultWarmNodePropertiesDiskList[];
-  spec?: string[];
+export class GetRegionConfigurationResponseBodyResultWarmNodePropertiesAmountRange extends $tea.Model {
+  maxAmount?: number;
+  minAmount?: number;
   static names(): { [key: string]: string } {
     return {
-      amountRange: 'amountRange',
-      diskList: 'diskList',
-      spec: 'spec',
+      maxAmount: 'maxAmount',
+      minAmount: 'minAmount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      amountRange: GetRegionConfigurationResponseBodyResultWarmNodePropertiesAmountRange,
+      maxAmount: 'number',
+      minAmount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRegionConfigurationResponseBodyResultWarmNodeProperties extends $tea.Model {
+  diskList?: GetRegionConfigurationResponseBodyResultWarmNodePropertiesDiskList[];
+  spec?: string[];
+  amountRange?: GetRegionConfigurationResponseBodyResultWarmNodePropertiesAmountRange;
+  static names(): { [key: string]: string } {
+    return {
+      diskList: 'diskList',
+      spec: 'spec',
+      amountRange: 'amountRange',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
       diskList: { 'type': 'array', 'itemType': GetRegionConfigurationResponseBodyResultWarmNodePropertiesDiskList },
       spec: { 'type': 'array', 'itemType': 'string' },
+      amountRange: GetRegionConfigurationResponseBodyResultWarmNodePropertiesAmountRange,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRegionConfigurationResponseBodyResultKibanaNodePropertiesAmountRange extends $tea.Model {
+  maxAmount?: number;
+  minAmount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      maxAmount: 'maxAmount',
+      minAmount: 'minAmount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxAmount: 'number',
+      minAmount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRegionConfigurationResponseBodyResultKibanaNodeProperties extends $tea.Model {
+  spec?: string[];
+  amountRange?: GetRegionConfigurationResponseBodyResultKibanaNodePropertiesAmountRange;
+  static names(): { [key: string]: string } {
+    return {
+      spec: 'spec',
+      amountRange: 'amountRange',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      spec: { 'type': 'array', 'itemType': 'string' },
+      amountRange: GetRegionConfigurationResponseBodyResultKibanaNodePropertiesAmountRange,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRegionConfigurationResponseBodyResultElasticNodePropertiesDiskList extends $tea.Model {
+  scaleLimit?: number;
+  minSize?: number;
+  diskEncryption?: boolean;
+  maxSize?: number;
+  diskType?: string;
+  valueLimitSet?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      scaleLimit: 'scaleLimit',
+      minSize: 'minSize',
+      diskEncryption: 'diskEncryption',
+      maxSize: 'maxSize',
+      diskType: 'diskType',
+      valueLimitSet: 'valueLimitSet',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      scaleLimit: 'number',
+      minSize: 'number',
+      diskEncryption: 'boolean',
+      maxSize: 'number',
+      diskType: 'string',
+      valueLimitSet: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRegionConfigurationResponseBodyResultElasticNodePropertiesAmountRange extends $tea.Model {
+  maxAmount?: number;
+  minAmount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      maxAmount: 'maxAmount',
+      minAmount: 'minAmount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxAmount: 'number',
+      minAmount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRegionConfigurationResponseBodyResultElasticNodeProperties extends $tea.Model {
+  diskList?: GetRegionConfigurationResponseBodyResultElasticNodePropertiesDiskList[];
+  spec?: string[];
+  amountRange?: GetRegionConfigurationResponseBodyResultElasticNodePropertiesAmountRange;
+  static names(): { [key: string]: string } {
+    return {
+      diskList: 'diskList',
+      spec: 'spec',
+      amountRange: 'amountRange',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      diskList: { 'type': 'array', 'itemType': GetRegionConfigurationResponseBodyResultElasticNodePropertiesDiskList },
+      spec: { 'type': 'array', 'itemType': 'string' },
+      amountRange: GetRegionConfigurationResponseBodyResultElasticNodePropertiesAmountRange,
     };
   }
 
@@ -13551,73 +13258,73 @@ export class GetRegionConfigurationResponseBodyResultWarmNodeProperties extends 
 }
 
 export class GetRegionConfigurationResponseBodyResult extends $tea.Model {
-  clientNodeAmountRange?: GetRegionConfigurationResponseBodyResultClientNodeAmountRange;
-  clientNodeDiskList?: GetRegionConfigurationResponseBodyResultClientNodeDiskList[];
-  clientNodeSpec?: string[];
+  env?: string;
+  regionId?: string;
   createUrl?: string;
   dataDiskList?: GetRegionConfigurationResponseBodyResultDataDiskList[];
-  elasticNodeProperties?: GetRegionConfigurationResponseBodyResultElasticNodeProperties;
-  env?: string;
-  esVersions?: string[];
   esVersionsLatestList?: GetRegionConfigurationResponseBodyResultEsVersionsLatestList[];
-  instanceSupportNodes?: string[];
-  jvmConfine?: GetRegionConfigurationResponseBodyResultJvmConfine;
-  kibanaNodeProperties?: GetRegionConfigurationResponseBodyResultKibanaNodeProperties;
-  masterDiskList?: GetRegionConfigurationResponseBodyResultMasterDiskList[];
-  masterSpec?: string[];
-  node?: GetRegionConfigurationResponseBodyResultNode;
   nodeSpecList?: GetRegionConfigurationResponseBodyResultNodeSpecList[];
-  regionId?: string;
+  clientNodeDiskList?: GetRegionConfigurationResponseBodyResultClientNodeDiskList[];
+  masterDiskList?: GetRegionConfigurationResponseBodyResultMasterDiskList[];
   supportVersions?: GetRegionConfigurationResponseBodyResultSupportVersions[];
-  warmNodeProperties?: GetRegionConfigurationResponseBodyResultWarmNodeProperties;
+  masterSpec?: string[];
+  clientNodeSpec?: string[];
   zones?: string[];
+  instanceSupportNodes?: string[];
+  esVersions?: string[];
+  node?: GetRegionConfigurationResponseBodyResultNode;
+  jvmConfine?: GetRegionConfigurationResponseBodyResultJvmConfine;
+  clientNodeAmountRange?: GetRegionConfigurationResponseBodyResultClientNodeAmountRange;
+  warmNodeProperties?: GetRegionConfigurationResponseBodyResultWarmNodeProperties;
+  kibanaNodeProperties?: GetRegionConfigurationResponseBodyResultKibanaNodeProperties;
+  elasticNodeProperties?: GetRegionConfigurationResponseBodyResultElasticNodeProperties;
   static names(): { [key: string]: string } {
     return {
-      clientNodeAmountRange: 'clientNodeAmountRange',
-      clientNodeDiskList: 'clientNodeDiskList',
-      clientNodeSpec: 'clientNodeSpec',
+      env: 'env',
+      regionId: 'regionId',
       createUrl: 'createUrl',
       dataDiskList: 'dataDiskList',
-      elasticNodeProperties: 'elasticNodeProperties',
-      env: 'env',
-      esVersions: 'esVersions',
       esVersionsLatestList: 'esVersionsLatestList',
-      instanceSupportNodes: 'instanceSupportNodes',
-      jvmConfine: 'jvmConfine',
-      kibanaNodeProperties: 'kibanaNodeProperties',
-      masterDiskList: 'masterDiskList',
-      masterSpec: 'masterSpec',
-      node: 'node',
       nodeSpecList: 'nodeSpecList',
-      regionId: 'regionId',
+      clientNodeDiskList: 'clientNodeDiskList',
+      masterDiskList: 'masterDiskList',
       supportVersions: 'supportVersions',
-      warmNodeProperties: 'warmNodeProperties',
+      masterSpec: 'masterSpec',
+      clientNodeSpec: 'clientNodeSpec',
       zones: 'zones',
+      instanceSupportNodes: 'instanceSupportNodes',
+      esVersions: 'esVersions',
+      node: 'node',
+      jvmConfine: 'jvmConfine',
+      clientNodeAmountRange: 'clientNodeAmountRange',
+      warmNodeProperties: 'warmNodeProperties',
+      kibanaNodeProperties: 'kibanaNodeProperties',
+      elasticNodeProperties: 'elasticNodeProperties',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      clientNodeAmountRange: GetRegionConfigurationResponseBodyResultClientNodeAmountRange,
-      clientNodeDiskList: { 'type': 'array', 'itemType': GetRegionConfigurationResponseBodyResultClientNodeDiskList },
-      clientNodeSpec: { 'type': 'array', 'itemType': 'string' },
+      env: 'string',
+      regionId: 'string',
       createUrl: 'string',
       dataDiskList: { 'type': 'array', 'itemType': GetRegionConfigurationResponseBodyResultDataDiskList },
-      elasticNodeProperties: GetRegionConfigurationResponseBodyResultElasticNodeProperties,
-      env: 'string',
-      esVersions: { 'type': 'array', 'itemType': 'string' },
       esVersionsLatestList: { 'type': 'array', 'itemType': GetRegionConfigurationResponseBodyResultEsVersionsLatestList },
-      instanceSupportNodes: { 'type': 'array', 'itemType': 'string' },
-      jvmConfine: GetRegionConfigurationResponseBodyResultJvmConfine,
-      kibanaNodeProperties: GetRegionConfigurationResponseBodyResultKibanaNodeProperties,
-      masterDiskList: { 'type': 'array', 'itemType': GetRegionConfigurationResponseBodyResultMasterDiskList },
-      masterSpec: { 'type': 'array', 'itemType': 'string' },
-      node: GetRegionConfigurationResponseBodyResultNode,
       nodeSpecList: { 'type': 'array', 'itemType': GetRegionConfigurationResponseBodyResultNodeSpecList },
-      regionId: 'string',
+      clientNodeDiskList: { 'type': 'array', 'itemType': GetRegionConfigurationResponseBodyResultClientNodeDiskList },
+      masterDiskList: { 'type': 'array', 'itemType': GetRegionConfigurationResponseBodyResultMasterDiskList },
       supportVersions: { 'type': 'array', 'itemType': GetRegionConfigurationResponseBodyResultSupportVersions },
-      warmNodeProperties: GetRegionConfigurationResponseBodyResultWarmNodeProperties,
+      masterSpec: { 'type': 'array', 'itemType': 'string' },
+      clientNodeSpec: { 'type': 'array', 'itemType': 'string' },
       zones: { 'type': 'array', 'itemType': 'string' },
+      instanceSupportNodes: { 'type': 'array', 'itemType': 'string' },
+      esVersions: { 'type': 'array', 'itemType': 'string' },
+      node: GetRegionConfigurationResponseBodyResultNode,
+      jvmConfine: GetRegionConfigurationResponseBodyResultJvmConfine,
+      clientNodeAmountRange: GetRegionConfigurationResponseBodyResultClientNodeAmountRange,
+      warmNodeProperties: GetRegionConfigurationResponseBodyResultWarmNodeProperties,
+      kibanaNodeProperties: GetRegionConfigurationResponseBodyResultKibanaNodeProperties,
+      elasticNodeProperties: GetRegionConfigurationResponseBodyResultElasticNodeProperties,
     };
   }
 
@@ -14031,19 +13738,19 @@ export class ListConnectedClustersResponseBodyResult extends $tea.Model {
 }
 
 export class ListDataStreamsResponseBodyHeaders extends $tea.Model {
-  xManagedCount?: number;
   xManagedStorageSize?: number;
+  xManagedCount?: number;
   static names(): { [key: string]: string } {
     return {
-      xManagedCount: 'X-Managed-Count',
       xManagedStorageSize: 'X-Managed-StorageSize',
+      xManagedCount: 'X-Managed-Count',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      xManagedCount: 'number',
       xManagedStorageSize: 'number',
+      xManagedCount: 'number',
     };
   }
 
@@ -14379,22 +14086,22 @@ export class ListDiagnoseReportIdsResponseBodyHeaders extends $tea.Model {
 }
 
 export class ListDictInformationResponseBodyResultOssObject extends $tea.Model {
+  key?: string;
   bucketName?: string;
   etag?: string;
-  key?: string;
   static names(): { [key: string]: string } {
     return {
+      key: 'key',
       bucketName: 'bucketName',
       etag: 'etag',
-      key: 'key',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      key: 'string',
       bucketName: 'string',
       etag: 'string',
-      key: 'string',
     };
   }
 
@@ -14404,22 +14111,22 @@ export class ListDictInformationResponseBodyResultOssObject extends $tea.Model {
 }
 
 export class ListDictInformationResponseBodyResult extends $tea.Model {
+  type?: string;
   fileSize?: number;
   ossObject?: ListDictInformationResponseBodyResultOssObject;
-  type?: string;
   static names(): { [key: string]: string } {
     return {
+      type: 'type',
       fileSize: 'fileSize',
       ossObject: 'ossObject',
-      type: 'type',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      type: 'string',
       fileSize: 'number',
       ossObject: ListDictInformationResponseBodyResultOssObject,
-      type: 'string',
     };
   }
 
@@ -15108,25 +14815,25 @@ export class ListInstanceResponseBodyResult extends $tea.Model {
 }
 
 export class ListInstanceIndicesResponseBodyHeaders extends $tea.Model {
-  xManagedCount?: number;
   xManagedStorageSize?: number;
-  xOSSCount?: number;
+  xManagedCount?: number;
   xOSSStorageSize?: number;
+  xOSSCount?: number;
   static names(): { [key: string]: string } {
     return {
-      xManagedCount: 'X-Managed-Count',
       xManagedStorageSize: 'X-Managed-StorageSize',
-      xOSSCount: 'X-OSS-Count',
+      xManagedCount: 'X-Managed-Count',
       xOSSStorageSize: 'X-OSS-StorageSize',
+      xOSSCount: 'X-OSS-Count',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      xManagedCount: 'number',
       xManagedStorageSize: 'number',
-      xOSSCount: 'number',
+      xManagedCount: 'number',
       xOSSStorageSize: 'number',
+      xOSSCount: 'number',
     };
   }
 
@@ -15926,28 +15633,28 @@ export class ListVpcEndpointsResponseBodyResult extends $tea.Model {
 }
 
 export class ModifyElastictaskResponseBodyResultElasticExpansionTask extends $tea.Model {
-  cronExpression?: string;
-  elasticNodeCount?: number;
-  replicaCount?: number;
-  targetIndices?: string[];
   triggerType?: string;
+  replicaCount?: number;
+  elasticNodeCount?: number;
+  cronExpression?: string;
+  targetIndices?: string[];
   static names(): { [key: string]: string } {
     return {
-      cronExpression: 'cronExpression',
-      elasticNodeCount: 'elasticNodeCount',
-      replicaCount: 'replicaCount',
-      targetIndices: 'targetIndices',
       triggerType: 'triggerType',
+      replicaCount: 'replicaCount',
+      elasticNodeCount: 'elasticNodeCount',
+      cronExpression: 'cronExpression',
+      targetIndices: 'targetIndices',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      cronExpression: 'string',
-      elasticNodeCount: 'number',
-      replicaCount: 'number',
-      targetIndices: { 'type': 'array', 'itemType': 'string' },
       triggerType: 'string',
+      replicaCount: 'number',
+      elasticNodeCount: 'number',
+      cronExpression: 'string',
+      targetIndices: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -15957,28 +15664,28 @@ export class ModifyElastictaskResponseBodyResultElasticExpansionTask extends $te
 }
 
 export class ModifyElastictaskResponseBodyResultElasticShrinkTask extends $tea.Model {
-  cronExpression?: string;
-  elasticNodeCount?: number;
-  replicaCount?: number;
-  targetIndices?: string[];
   triggerType?: string;
+  replicaCount?: number;
+  elasticNodeCount?: number;
+  cronExpression?: string;
+  targetIndices?: string[];
   static names(): { [key: string]: string } {
     return {
-      cronExpression: 'cronExpression',
-      elasticNodeCount: 'elasticNodeCount',
-      replicaCount: 'replicaCount',
-      targetIndices: 'targetIndices',
       triggerType: 'triggerType',
+      replicaCount: 'replicaCount',
+      elasticNodeCount: 'elasticNodeCount',
+      cronExpression: 'cronExpression',
+      targetIndices: 'targetIndices',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      cronExpression: 'string',
-      elasticNodeCount: 'number',
-      replicaCount: 'number',
-      targetIndices: { 'type': 'array', 'itemType': 'string' },
       triggerType: 'string',
+      replicaCount: 'number',
+      elasticNodeCount: 'number',
+      cronExpression: 'string',
+      targetIndices: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -16059,115 +15766,6 @@ export class MoveResourceGroupResponseBodyResultDictList extends $tea.Model {
   }
 }
 
-export class MoveResourceGroupResponseBodyResultKibanaConfiguration extends $tea.Model {
-  amount?: number;
-  disk?: number;
-  diskType?: string;
-  spec?: string;
-  static names(): { [key: string]: string } {
-    return {
-      amount: 'amount',
-      disk: 'disk',
-      diskType: 'diskType',
-      spec: 'spec',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      amount: 'number',
-      disk: 'number',
-      diskType: 'string',
-      spec: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class MoveResourceGroupResponseBodyResultMasterConfiguration extends $tea.Model {
-  amount?: number;
-  disk?: number;
-  diskType?: string;
-  spec?: string;
-  static names(): { [key: string]: string } {
-    return {
-      amount: 'amount',
-      disk: 'disk',
-      diskType: 'diskType',
-      spec: 'spec',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      amount: 'number',
-      disk: 'number',
-      diskType: 'string',
-      spec: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class MoveResourceGroupResponseBodyResultNetworkConfig extends $tea.Model {
-  type?: string;
-  vpcId?: string;
-  vsArea?: string;
-  vswitchId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      type: 'type',
-      vpcId: 'vpcId',
-      vsArea: 'vsArea',
-      vswitchId: 'vswitchId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      type: 'string',
-      vpcId: 'string',
-      vsArea: 'string',
-      vswitchId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class MoveResourceGroupResponseBodyResultNodeSpec extends $tea.Model {
-  disk?: number;
-  diskType?: string;
-  spec?: string;
-  static names(): { [key: string]: string } {
-    return {
-      disk: 'disk',
-      diskType: 'diskType',
-      spec: 'spec',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      disk: 'number',
-      diskType: 'string',
-      spec: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class MoveResourceGroupResponseBodyResultSynonymsDicts extends $tea.Model {
   fileSize?: number;
   sourceType?: string;
@@ -16196,71 +15794,180 @@ export class MoveResourceGroupResponseBodyResultSynonymsDicts extends $tea.Model
   }
 }
 
-export class MoveResourceGroupResponseBodyResult extends $tea.Model {
-  createdAt?: string;
-  description?: string;
-  dictList?: MoveResourceGroupResponseBodyResultDictList[];
-  domain?: string;
-  esVersion?: string;
-  instanceId?: string;
-  kibanaConfiguration?: MoveResourceGroupResponseBodyResultKibanaConfiguration;
-  kibanaDomain?: string;
-  kibanaPort?: number;
-  masterConfiguration?: MoveResourceGroupResponseBodyResultMasterConfiguration;
-  networkConfig?: MoveResourceGroupResponseBodyResultNetworkConfig;
-  nodeAmount?: number;
-  nodeSpec?: MoveResourceGroupResponseBodyResultNodeSpec;
-  paymentType?: string;
-  publicDomain?: string;
-  publicPort?: number;
-  status?: string;
-  synonymsDicts?: MoveResourceGroupResponseBodyResultSynonymsDicts[];
-  updatedAt?: string;
+export class MoveResourceGroupResponseBodyResultNodeSpec extends $tea.Model {
+  spec?: string;
+  disk?: number;
+  diskType?: string;
   static names(): { [key: string]: string } {
     return {
-      createdAt: 'createdAt',
-      description: 'description',
-      dictList: 'dictList',
-      domain: 'domain',
-      esVersion: 'esVersion',
-      instanceId: 'instanceId',
-      kibanaConfiguration: 'kibanaConfiguration',
-      kibanaDomain: 'kibanaDomain',
-      kibanaPort: 'kibanaPort',
-      masterConfiguration: 'masterConfiguration',
-      networkConfig: 'networkConfig',
-      nodeAmount: 'nodeAmount',
-      nodeSpec: 'nodeSpec',
-      paymentType: 'paymentType',
-      publicDomain: 'publicDomain',
-      publicPort: 'publicPort',
-      status: 'status',
-      synonymsDicts: 'synonymsDicts',
-      updatedAt: 'updatedAt',
+      spec: 'spec',
+      disk: 'disk',
+      diskType: 'diskType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      createdAt: 'string',
-      description: 'string',
-      dictList: { 'type': 'array', 'itemType': MoveResourceGroupResponseBodyResultDictList },
-      domain: 'string',
-      esVersion: 'string',
-      instanceId: 'string',
-      kibanaConfiguration: MoveResourceGroupResponseBodyResultKibanaConfiguration,
-      kibanaDomain: 'string',
-      kibanaPort: 'number',
-      masterConfiguration: MoveResourceGroupResponseBodyResultMasterConfiguration,
-      networkConfig: MoveResourceGroupResponseBodyResultNetworkConfig,
+      spec: 'string',
+      disk: 'number',
+      diskType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MoveResourceGroupResponseBodyResultNetworkConfig extends $tea.Model {
+  vpcId?: string;
+  vsArea?: string;
+  type?: string;
+  vswitchId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      vpcId: 'vpcId',
+      vsArea: 'vsArea',
+      type: 'type',
+      vswitchId: 'vswitchId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      vpcId: 'string',
+      vsArea: 'string',
+      type: 'string',
+      vswitchId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MoveResourceGroupResponseBodyResultKibanaConfiguration extends $tea.Model {
+  spec?: string;
+  amount?: number;
+  disk?: number;
+  diskType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      spec: 'spec',
+      amount: 'amount',
+      disk: 'disk',
+      diskType: 'diskType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      spec: 'string',
+      amount: 'number',
+      disk: 'number',
+      diskType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MoveResourceGroupResponseBodyResultMasterConfiguration extends $tea.Model {
+  spec?: string;
+  amount?: number;
+  disk?: number;
+  diskType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      spec: 'spec',
+      amount: 'amount',
+      disk: 'disk',
+      diskType: 'diskType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      spec: 'string',
+      amount: 'number',
+      disk: 'number',
+      diskType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MoveResourceGroupResponseBodyResult extends $tea.Model {
+  nodeAmount?: number;
+  publicDomain?: string;
+  createdAt?: string;
+  status?: string;
+  publicPort?: number;
+  kibanaPort?: number;
+  paymentType?: string;
+  domain?: string;
+  description?: string;
+  esVersion?: string;
+  kibanaDomain?: string;
+  updatedAt?: string;
+  instanceId?: string;
+  dictList?: MoveResourceGroupResponseBodyResultDictList[];
+  synonymsDicts?: MoveResourceGroupResponseBodyResultSynonymsDicts[];
+  nodeSpec?: MoveResourceGroupResponseBodyResultNodeSpec;
+  networkConfig?: MoveResourceGroupResponseBodyResultNetworkConfig;
+  kibanaConfiguration?: MoveResourceGroupResponseBodyResultKibanaConfiguration;
+  masterConfiguration?: MoveResourceGroupResponseBodyResultMasterConfiguration;
+  static names(): { [key: string]: string } {
+    return {
+      nodeAmount: 'nodeAmount',
+      publicDomain: 'publicDomain',
+      createdAt: 'createdAt',
+      status: 'status',
+      publicPort: 'publicPort',
+      kibanaPort: 'kibanaPort',
+      paymentType: 'paymentType',
+      domain: 'domain',
+      description: 'description',
+      esVersion: 'esVersion',
+      kibanaDomain: 'kibanaDomain',
+      updatedAt: 'updatedAt',
+      instanceId: 'instanceId',
+      dictList: 'dictList',
+      synonymsDicts: 'synonymsDicts',
+      nodeSpec: 'nodeSpec',
+      networkConfig: 'networkConfig',
+      kibanaConfiguration: 'kibanaConfiguration',
+      masterConfiguration: 'masterConfiguration',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
       nodeAmount: 'number',
-      nodeSpec: MoveResourceGroupResponseBodyResultNodeSpec,
-      paymentType: 'string',
       publicDomain: 'string',
-      publicPort: 'number',
+      createdAt: 'string',
       status: 'string',
-      synonymsDicts: { 'type': 'array', 'itemType': MoveResourceGroupResponseBodyResultSynonymsDicts },
+      publicPort: 'number',
+      kibanaPort: 'number',
+      paymentType: 'string',
+      domain: 'string',
+      description: 'string',
+      esVersion: 'string',
+      kibanaDomain: 'string',
       updatedAt: 'string',
+      instanceId: 'string',
+      dictList: { 'type': 'array', 'itemType': MoveResourceGroupResponseBodyResultDictList },
+      synonymsDicts: { 'type': 'array', 'itemType': MoveResourceGroupResponseBodyResultSynonymsDicts },
+      nodeSpec: MoveResourceGroupResponseBodyResultNodeSpec,
+      networkConfig: MoveResourceGroupResponseBodyResultNetworkConfig,
+      kibanaConfiguration: MoveResourceGroupResponseBodyResultKibanaConfiguration,
+      masterConfiguration: MoveResourceGroupResponseBodyResultMasterConfiguration,
     };
   }
 
@@ -16319,115 +16026,6 @@ export class RestartInstanceResponseBodyResultDictList extends $tea.Model {
   }
 }
 
-export class RestartInstanceResponseBodyResultKibanaConfiguration extends $tea.Model {
-  amount?: number;
-  disk?: number;
-  diskType?: string;
-  spec?: string;
-  static names(): { [key: string]: string } {
-    return {
-      amount: 'amount',
-      disk: 'disk',
-      diskType: 'diskType',
-      spec: 'spec',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      amount: 'number',
-      disk: 'number',
-      diskType: 'string',
-      spec: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RestartInstanceResponseBodyResultMasterConfiguration extends $tea.Model {
-  amount?: number;
-  disk?: number;
-  diskType?: string;
-  spec?: string;
-  static names(): { [key: string]: string } {
-    return {
-      amount: 'amount',
-      disk: 'disk',
-      diskType: 'diskType',
-      spec: 'spec',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      amount: 'number',
-      disk: 'number',
-      diskType: 'string',
-      spec: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RestartInstanceResponseBodyResultNetworkConfig extends $tea.Model {
-  type?: string;
-  vpcId?: string;
-  vsArea?: string;
-  vswitchId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      type: 'type',
-      vpcId: 'vpcId',
-      vsArea: 'vsArea',
-      vswitchId: 'vswitchId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      type: 'string',
-      vpcId: 'string',
-      vsArea: 'string',
-      vswitchId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RestartInstanceResponseBodyResultNodeSpec extends $tea.Model {
-  disk?: number;
-  diskType?: string;
-  spec?: string;
-  static names(): { [key: string]: string } {
-    return {
-      disk: 'disk',
-      diskType: 'diskType',
-      spec: 'spec',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      disk: 'number',
-      diskType: 'string',
-      spec: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class RestartInstanceResponseBodyResultSynonymsDicts extends $tea.Model {
   fileSize?: number;
   type?: string;
@@ -16456,71 +16054,180 @@ export class RestartInstanceResponseBodyResultSynonymsDicts extends $tea.Model {
   }
 }
 
-export class RestartInstanceResponseBodyResult extends $tea.Model {
-  createdAt?: string;
-  description?: string;
-  dictList?: RestartInstanceResponseBodyResultDictList[];
-  domain?: string;
-  esVersion?: string;
-  instanceId?: string;
-  kibanaConfiguration?: RestartInstanceResponseBodyResultKibanaConfiguration;
-  kibanaDomain?: string;
-  kibanaPort?: number;
-  masterConfiguration?: RestartInstanceResponseBodyResultMasterConfiguration;
-  networkConfig?: RestartInstanceResponseBodyResultNetworkConfig;
-  nodeAmount?: number;
-  nodeSpec?: RestartInstanceResponseBodyResultNodeSpec;
-  paymentType?: string;
-  publicDomain?: string;
-  publicPort?: number;
-  status?: string;
-  synonymsDicts?: RestartInstanceResponseBodyResultSynonymsDicts[];
-  updatedAt?: string;
+export class RestartInstanceResponseBodyResultKibanaConfiguration extends $tea.Model {
+  spec?: string;
+  amount?: number;
+  disk?: number;
+  diskType?: string;
   static names(): { [key: string]: string } {
     return {
-      createdAt: 'createdAt',
-      description: 'description',
-      dictList: 'dictList',
-      domain: 'domain',
-      esVersion: 'esVersion',
-      instanceId: 'instanceId',
-      kibanaConfiguration: 'kibanaConfiguration',
-      kibanaDomain: 'kibanaDomain',
-      kibanaPort: 'kibanaPort',
-      masterConfiguration: 'masterConfiguration',
-      networkConfig: 'networkConfig',
-      nodeAmount: 'nodeAmount',
-      nodeSpec: 'nodeSpec',
-      paymentType: 'paymentType',
-      publicDomain: 'publicDomain',
-      publicPort: 'publicPort',
-      status: 'status',
-      synonymsDicts: 'synonymsDicts',
-      updatedAt: 'updatedAt',
+      spec: 'spec',
+      amount: 'amount',
+      disk: 'disk',
+      diskType: 'diskType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      spec: 'string',
+      amount: 'number',
+      disk: 'number',
+      diskType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RestartInstanceResponseBodyResultMasterConfiguration extends $tea.Model {
+  spec?: string;
+  amount?: number;
+  disk?: number;
+  diskType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      spec: 'spec',
+      amount: 'amount',
+      disk: 'disk',
+      diskType: 'diskType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      spec: 'string',
+      amount: 'number',
+      disk: 'number',
+      diskType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RestartInstanceResponseBodyResultNetworkConfig extends $tea.Model {
+  vpcId?: string;
+  vsArea?: string;
+  type?: string;
+  vswitchId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      vpcId: 'vpcId',
+      vsArea: 'vsArea',
+      type: 'type',
+      vswitchId: 'vswitchId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      vpcId: 'string',
+      vsArea: 'string',
+      type: 'string',
+      vswitchId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RestartInstanceResponseBodyResultNodeSpec extends $tea.Model {
+  spec?: string;
+  disk?: number;
+  diskType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      spec: 'spec',
+      disk: 'disk',
+      diskType: 'diskType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      spec: 'string',
+      disk: 'number',
+      diskType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RestartInstanceResponseBodyResult extends $tea.Model {
+  nodeAmount?: number;
+  publicDomain?: string;
+  createdAt?: string;
+  status?: string;
+  kibanaPort?: number;
+  publicPort?: number;
+  paymentType?: string;
+  domain?: string;
+  description?: string;
+  esVersion?: string;
+  kibanaDomain?: string;
+  updatedAt?: string;
+  instanceId?: string;
+  dictList?: RestartInstanceResponseBodyResultDictList[];
+  synonymsDicts?: RestartInstanceResponseBodyResultSynonymsDicts[];
+  kibanaConfiguration?: RestartInstanceResponseBodyResultKibanaConfiguration;
+  masterConfiguration?: RestartInstanceResponseBodyResultMasterConfiguration;
+  networkConfig?: RestartInstanceResponseBodyResultNetworkConfig;
+  nodeSpec?: RestartInstanceResponseBodyResultNodeSpec;
+  static names(): { [key: string]: string } {
+    return {
+      nodeAmount: 'nodeAmount',
+      publicDomain: 'publicDomain',
+      createdAt: 'createdAt',
+      status: 'status',
+      kibanaPort: 'kibanaPort',
+      publicPort: 'publicPort',
+      paymentType: 'paymentType',
+      domain: 'domain',
+      description: 'description',
+      esVersion: 'esVersion',
+      kibanaDomain: 'kibanaDomain',
+      updatedAt: 'updatedAt',
+      instanceId: 'instanceId',
+      dictList: 'dictList',
+      synonymsDicts: 'synonymsDicts',
+      kibanaConfiguration: 'kibanaConfiguration',
+      masterConfiguration: 'masterConfiguration',
+      networkConfig: 'networkConfig',
+      nodeSpec: 'nodeSpec',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nodeAmount: 'number',
+      publicDomain: 'string',
       createdAt: 'string',
-      description: 'string',
-      dictList: { 'type': 'array', 'itemType': RestartInstanceResponseBodyResultDictList },
-      domain: 'string',
-      esVersion: 'string',
-      instanceId: 'string',
-      kibanaConfiguration: RestartInstanceResponseBodyResultKibanaConfiguration,
-      kibanaDomain: 'string',
+      status: 'string',
       kibanaPort: 'number',
+      publicPort: 'number',
+      paymentType: 'string',
+      domain: 'string',
+      description: 'string',
+      esVersion: 'string',
+      kibanaDomain: 'string',
+      updatedAt: 'string',
+      instanceId: 'string',
+      dictList: { 'type': 'array', 'itemType': RestartInstanceResponseBodyResultDictList },
+      synonymsDicts: { 'type': 'array', 'itemType': RestartInstanceResponseBodyResultSynonymsDicts },
+      kibanaConfiguration: RestartInstanceResponseBodyResultKibanaConfiguration,
       masterConfiguration: RestartInstanceResponseBodyResultMasterConfiguration,
       networkConfig: RestartInstanceResponseBodyResultNetworkConfig,
-      nodeAmount: 'number',
       nodeSpec: RestartInstanceResponseBodyResultNodeSpec,
-      paymentType: 'string',
-      publicDomain: 'string',
-      publicPort: 'number',
-      status: 'string',
-      synonymsDicts: { 'type': 'array', 'itemType': RestartInstanceResponseBodyResultSynonymsDicts },
-      updatedAt: 'string',
     };
   }
 
@@ -16679,52 +16386,52 @@ export class UpdateCollectorResponseBodyResultExtendConfigs extends $tea.Model {
 }
 
 export class UpdateCollectorResponseBodyResult extends $tea.Model {
-  collectorPaths?: string[];
-  configs?: UpdateCollectorResponseBodyResultConfigs[];
-  dryRun?: boolean;
-  extendConfigs?: UpdateCollectorResponseBodyResultExtendConfigs[];
-  gmtCreatedTime?: string;
-  gmtUpdateTime?: string;
-  name?: string;
-  ownerId?: string;
   resId?: string;
+  gmtUpdateTime?: string;
+  dryRun?: boolean;
+  ownerId?: string;
+  vpcId?: string;
   resType?: string;
   resVersion?: string;
+  gmtCreatedTime?: string;
   status?: string;
-  vpcId?: string;
+  name?: string;
+  configs?: UpdateCollectorResponseBodyResultConfigs[];
+  extendConfigs?: UpdateCollectorResponseBodyResultExtendConfigs[];
+  collectorPaths?: string[];
   static names(): { [key: string]: string } {
     return {
-      collectorPaths: 'collectorPaths',
-      configs: 'configs',
-      dryRun: 'dryRun',
-      extendConfigs: 'extendConfigs',
-      gmtCreatedTime: 'gmtCreatedTime',
-      gmtUpdateTime: 'gmtUpdateTime',
-      name: 'name',
-      ownerId: 'ownerId',
       resId: 'resId',
+      gmtUpdateTime: 'gmtUpdateTime',
+      dryRun: 'dryRun',
+      ownerId: 'ownerId',
+      vpcId: 'vpcId',
       resType: 'resType',
       resVersion: 'resVersion',
+      gmtCreatedTime: 'gmtCreatedTime',
       status: 'status',
-      vpcId: 'vpcId',
+      name: 'name',
+      configs: 'configs',
+      extendConfigs: 'extendConfigs',
+      collectorPaths: 'collectorPaths',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      collectorPaths: { 'type': 'array', 'itemType': 'string' },
-      configs: { 'type': 'array', 'itemType': UpdateCollectorResponseBodyResultConfigs },
-      dryRun: 'boolean',
-      extendConfigs: { 'type': 'array', 'itemType': UpdateCollectorResponseBodyResultExtendConfigs },
-      gmtCreatedTime: 'string',
-      gmtUpdateTime: 'string',
-      name: 'string',
-      ownerId: 'string',
       resId: 'string',
+      gmtUpdateTime: 'string',
+      dryRun: 'boolean',
+      ownerId: 'string',
+      vpcId: 'string',
       resType: 'string',
       resVersion: 'string',
+      gmtCreatedTime: 'string',
       status: 'string',
-      vpcId: 'string',
+      name: 'string',
+      configs: { 'type': 'array', 'itemType': UpdateCollectorResponseBodyResultConfigs },
+      extendConfigs: { 'type': 'array', 'itemType': UpdateCollectorResponseBodyResultExtendConfigs },
+      collectorPaths: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -16836,52 +16543,52 @@ export class UpdateCollectorNameResponseBodyResultExtendConfigs extends $tea.Mod
 }
 
 export class UpdateCollectorNameResponseBodyResult extends $tea.Model {
-  collectorPaths?: string[];
-  configs?: UpdateCollectorNameResponseBodyResultConfigs[];
-  dryRun?: boolean;
-  extendConfigs?: UpdateCollectorNameResponseBodyResultExtendConfigs[];
-  gmtCreatedTime?: string;
-  gmtUpdateTime?: string;
-  name?: string;
-  ownerId?: string;
   resId?: string;
+  gmtUpdateTime?: string;
+  dryRun?: boolean;
+  ownerId?: string;
+  vpcId?: string;
   resType?: string;
   resVersion?: string;
+  gmtCreatedTime?: string;
   status?: string;
-  vpcId?: string;
+  name?: string;
+  configs?: UpdateCollectorNameResponseBodyResultConfigs[];
+  extendConfigs?: UpdateCollectorNameResponseBodyResultExtendConfigs[];
+  collectorPaths?: string[];
   static names(): { [key: string]: string } {
     return {
-      collectorPaths: 'collectorPaths',
-      configs: 'configs',
-      dryRun: 'dryRun',
-      extendConfigs: 'extendConfigs',
-      gmtCreatedTime: 'gmtCreatedTime',
-      gmtUpdateTime: 'gmtUpdateTime',
-      name: 'name',
-      ownerId: 'ownerId',
       resId: 'resId',
+      gmtUpdateTime: 'gmtUpdateTime',
+      dryRun: 'dryRun',
+      ownerId: 'ownerId',
+      vpcId: 'vpcId',
       resType: 'resType',
       resVersion: 'resVersion',
+      gmtCreatedTime: 'gmtCreatedTime',
       status: 'status',
-      vpcId: 'vpcId',
+      name: 'name',
+      configs: 'configs',
+      extendConfigs: 'extendConfigs',
+      collectorPaths: 'collectorPaths',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      collectorPaths: { 'type': 'array', 'itemType': 'string' },
-      configs: { 'type': 'array', 'itemType': UpdateCollectorNameResponseBodyResultConfigs },
-      dryRun: 'boolean',
-      extendConfigs: { 'type': 'array', 'itemType': UpdateCollectorNameResponseBodyResultExtendConfigs },
-      gmtCreatedTime: 'string',
-      gmtUpdateTime: 'string',
-      name: 'string',
-      ownerId: 'string',
       resId: 'string',
+      gmtUpdateTime: 'string',
+      dryRun: 'boolean',
+      ownerId: 'string',
+      vpcId: 'string',
       resType: 'string',
       resVersion: 'string',
+      gmtCreatedTime: 'string',
       status: 'string',
-      vpcId: 'string',
+      name: 'string',
+      configs: { 'type': 'array', 'itemType': UpdateCollectorNameResponseBodyResultConfigs },
+      extendConfigs: { 'type': 'array', 'itemType': UpdateCollectorNameResponseBodyResultExtendConfigs },
+      collectorPaths: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -17018,115 +16725,6 @@ export class UpdateInstanceResponseBodyResultDictList extends $tea.Model {
   }
 }
 
-export class UpdateInstanceResponseBodyResultKibanaConfiguration extends $tea.Model {
-  amount?: number;
-  disk?: number;
-  diskType?: string;
-  spec?: string;
-  static names(): { [key: string]: string } {
-    return {
-      amount: 'amount',
-      disk: 'disk',
-      diskType: 'diskType',
-      spec: 'spec',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      amount: 'number',
-      disk: 'number',
-      diskType: 'string',
-      spec: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateInstanceResponseBodyResultMasterConfiguration extends $tea.Model {
-  amount?: number;
-  disk?: number;
-  diskType?: string;
-  spec?: string;
-  static names(): { [key: string]: string } {
-    return {
-      amount: 'amount',
-      disk: 'disk',
-      diskType: 'diskType',
-      spec: 'spec',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      amount: 'number',
-      disk: 'number',
-      diskType: 'string',
-      spec: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateInstanceResponseBodyResultNetworkConfig extends $tea.Model {
-  type?: string;
-  vpcId?: string;
-  vsArea?: string;
-  vswitchId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      type: 'type',
-      vpcId: 'vpcId',
-      vsArea: 'vsArea',
-      vswitchId: 'vswitchId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      type: 'string',
-      vpcId: 'string',
-      vsArea: 'string',
-      vswitchId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateInstanceResponseBodyResultNodeSpec extends $tea.Model {
-  disk?: number;
-  diskType?: string;
-  spec?: string;
-  static names(): { [key: string]: string } {
-    return {
-      disk: 'disk',
-      diskType: 'diskType',
-      spec: 'spec',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      disk: 'number',
-      diskType: 'string',
-      spec: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class UpdateInstanceResponseBodyResultSynonymsDicts extends $tea.Model {
   fileSize?: number;
   sourceType?: string;
@@ -17155,71 +16753,180 @@ export class UpdateInstanceResponseBodyResultSynonymsDicts extends $tea.Model {
   }
 }
 
-export class UpdateInstanceResponseBodyResult extends $tea.Model {
-  createdAt?: string;
-  description?: string;
-  dictList?: UpdateInstanceResponseBodyResultDictList[];
-  domain?: string;
-  esVersion?: string;
-  instanceId?: string;
-  kibanaConfiguration?: UpdateInstanceResponseBodyResultKibanaConfiguration;
-  kibanaDomain?: string;
-  kibanaPort?: number;
-  masterConfiguration?: UpdateInstanceResponseBodyResultMasterConfiguration;
-  networkConfig?: UpdateInstanceResponseBodyResultNetworkConfig;
-  nodeAmount?: number;
-  nodeSpec?: UpdateInstanceResponseBodyResultNodeSpec;
-  paymentType?: string;
-  publicDomain?: string;
-  publicPort?: number;
-  status?: string;
-  synonymsDicts?: UpdateInstanceResponseBodyResultSynonymsDicts[];
-  updatedAt?: string;
+export class UpdateInstanceResponseBodyResultNodeSpec extends $tea.Model {
+  spec?: string;
+  disk?: number;
+  diskType?: string;
   static names(): { [key: string]: string } {
     return {
-      createdAt: 'createdAt',
-      description: 'description',
-      dictList: 'dictList',
-      domain: 'domain',
-      esVersion: 'esVersion',
-      instanceId: 'instanceId',
-      kibanaConfiguration: 'kibanaConfiguration',
-      kibanaDomain: 'kibanaDomain',
-      kibanaPort: 'kibanaPort',
-      masterConfiguration: 'masterConfiguration',
-      networkConfig: 'networkConfig',
-      nodeAmount: 'nodeAmount',
-      nodeSpec: 'nodeSpec',
-      paymentType: 'paymentType',
-      publicDomain: 'publicDomain',
-      publicPort: 'publicPort',
-      status: 'status',
-      synonymsDicts: 'synonymsDicts',
-      updatedAt: 'updatedAt',
+      spec: 'spec',
+      disk: 'disk',
+      diskType: 'diskType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      createdAt: 'string',
-      description: 'string',
-      dictList: { 'type': 'array', 'itemType': UpdateInstanceResponseBodyResultDictList },
-      domain: 'string',
-      esVersion: 'string',
-      instanceId: 'string',
-      kibanaConfiguration: UpdateInstanceResponseBodyResultKibanaConfiguration,
-      kibanaDomain: 'string',
-      kibanaPort: 'number',
-      masterConfiguration: UpdateInstanceResponseBodyResultMasterConfiguration,
-      networkConfig: UpdateInstanceResponseBodyResultNetworkConfig,
+      spec: 'string',
+      disk: 'number',
+      diskType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateInstanceResponseBodyResultNetworkConfig extends $tea.Model {
+  vpcId?: string;
+  vsArea?: string;
+  type?: string;
+  vswitchId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      vpcId: 'vpcId',
+      vsArea: 'vsArea',
+      type: 'type',
+      vswitchId: 'vswitchId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      vpcId: 'string',
+      vsArea: 'string',
+      type: 'string',
+      vswitchId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateInstanceResponseBodyResultKibanaConfiguration extends $tea.Model {
+  spec?: string;
+  amount?: number;
+  disk?: number;
+  diskType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      spec: 'spec',
+      amount: 'amount',
+      disk: 'disk',
+      diskType: 'diskType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      spec: 'string',
+      amount: 'number',
+      disk: 'number',
+      diskType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateInstanceResponseBodyResultMasterConfiguration extends $tea.Model {
+  spec?: string;
+  amount?: number;
+  disk?: number;
+  diskType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      spec: 'spec',
+      amount: 'amount',
+      disk: 'disk',
+      diskType: 'diskType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      spec: 'string',
+      amount: 'number',
+      disk: 'number',
+      diskType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateInstanceResponseBodyResult extends $tea.Model {
+  nodeAmount?: number;
+  publicDomain?: string;
+  createdAt?: string;
+  status?: string;
+  publicPort?: number;
+  kibanaPort?: number;
+  paymentType?: string;
+  domain?: string;
+  description?: string;
+  esVersion?: string;
+  kibanaDomain?: string;
+  updatedAt?: string;
+  instanceId?: string;
+  dictList?: UpdateInstanceResponseBodyResultDictList[];
+  synonymsDicts?: UpdateInstanceResponseBodyResultSynonymsDicts[];
+  nodeSpec?: UpdateInstanceResponseBodyResultNodeSpec;
+  networkConfig?: UpdateInstanceResponseBodyResultNetworkConfig;
+  kibanaConfiguration?: UpdateInstanceResponseBodyResultKibanaConfiguration;
+  masterConfiguration?: UpdateInstanceResponseBodyResultMasterConfiguration;
+  static names(): { [key: string]: string } {
+    return {
+      nodeAmount: 'nodeAmount',
+      publicDomain: 'publicDomain',
+      createdAt: 'createdAt',
+      status: 'status',
+      publicPort: 'publicPort',
+      kibanaPort: 'kibanaPort',
+      paymentType: 'paymentType',
+      domain: 'domain',
+      description: 'description',
+      esVersion: 'esVersion',
+      kibanaDomain: 'kibanaDomain',
+      updatedAt: 'updatedAt',
+      instanceId: 'instanceId',
+      dictList: 'dictList',
+      synonymsDicts: 'synonymsDicts',
+      nodeSpec: 'nodeSpec',
+      networkConfig: 'networkConfig',
+      kibanaConfiguration: 'kibanaConfiguration',
+      masterConfiguration: 'masterConfiguration',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
       nodeAmount: 'number',
-      nodeSpec: UpdateInstanceResponseBodyResultNodeSpec,
-      paymentType: 'string',
       publicDomain: 'string',
-      publicPort: 'number',
+      createdAt: 'string',
       status: 'string',
-      synonymsDicts: { 'type': 'array', 'itemType': UpdateInstanceResponseBodyResultSynonymsDicts },
+      publicPort: 'number',
+      kibanaPort: 'number',
+      paymentType: 'string',
+      domain: 'string',
+      description: 'string',
+      esVersion: 'string',
+      kibanaDomain: 'string',
       updatedAt: 'string',
+      instanceId: 'string',
+      dictList: { 'type': 'array', 'itemType': UpdateInstanceResponseBodyResultDictList },
+      synonymsDicts: { 'type': 'array', 'itemType': UpdateInstanceResponseBodyResultSynonymsDicts },
+      nodeSpec: UpdateInstanceResponseBodyResultNodeSpec,
+      networkConfig: UpdateInstanceResponseBodyResultNetworkConfig,
+      kibanaConfiguration: UpdateInstanceResponseBodyResultKibanaConfiguration,
+      masterConfiguration: UpdateInstanceResponseBodyResultMasterConfiguration,
     };
   }
 
@@ -17229,19 +16936,19 @@ export class UpdateInstanceResponseBodyResult extends $tea.Model {
 }
 
 export class UpdateKibanaWhiteIpsResponseBodyResult extends $tea.Model {
-  kibanaIPWhitelist?: string[];
   kibanaPrivateIPWhitelist?: string[];
+  kibanaIPWhitelist?: string[];
   static names(): { [key: string]: string } {
     return {
-      kibanaIPWhitelist: 'kibanaIPWhitelist',
       kibanaPrivateIPWhitelist: 'kibanaPrivateIPWhitelist',
+      kibanaIPWhitelist: 'kibanaIPWhitelist',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      kibanaIPWhitelist: { 'type': 'array', 'itemType': 'string' },
       kibanaPrivateIPWhitelist: { 'type': 'array', 'itemType': 'string' },
+      kibanaIPWhitelist: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -17327,19 +17034,19 @@ export class UpdatePublicWhiteIpsResponseBodyResult extends $tea.Model {
 }
 
 export class UpdateSnapshotSettingResponseBodyResult extends $tea.Model {
-  enable?: boolean;
   quartzRegex?: string;
+  enable?: boolean;
   static names(): { [key: string]: string } {
     return {
-      enable: 'enable',
       quartzRegex: 'quartzRegex',
+      enable: 'enable',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      enable: 'boolean',
       quartzRegex: 'string',
+      enable: 'boolean',
     };
   }
 
@@ -17421,22 +17128,22 @@ export class UpdateWhiteIpsResponseBodyResult extends $tea.Model {
 }
 
 export class UpgradeEngineVersionResponseBodyResultValidateResult extends $tea.Model {
+  errorType?: string;
   errorCode?: string;
   errorMsg?: string;
-  errorType?: string;
   static names(): { [key: string]: string } {
     return {
+      errorType: 'errorType',
       errorCode: 'errorCode',
       errorMsg: 'errorMsg',
-      errorType: 'errorType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      errorType: 'string',
       errorCode: 'string',
       errorMsg: 'string',
-      errorType: 'string',
     };
   }
 
@@ -17446,41 +17153,22 @@ export class UpgradeEngineVersionResponseBodyResultValidateResult extends $tea.M
 }
 
 export class UpgradeEngineVersionResponseBodyResult extends $tea.Model {
+  validateType?: string;
   status?: string;
   validateResult?: UpgradeEngineVersionResponseBodyResultValidateResult;
-  validateType?: string;
   static names(): { [key: string]: string } {
     return {
+      validateType: 'validateType',
       status: 'status',
       validateResult: 'validateResult',
-      validateType: 'validateType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      validateType: 'string',
       status: 'string',
       validateResult: UpgradeEngineVersionResponseBodyResultValidateResult,
-      validateType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateInstanceResponseBodyResult extends $tea.Model {
-  instanceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceId: 'instanceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceId: 'string',
     };
   }
 
@@ -17569,18 +17257,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "ActivateZones",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/actions/recover-zones`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ActivateZonesResponse>(await this.callApi(params, req, runtime), new ActivateZonesResponse({}));
+    return $tea.cast<ActivateZonesResponse>(await this.doROARequest("ActivateZones", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/instances/${InstanceId}/actions/recover-zones`, "json", req, runtime), new ActivateZonesResponse({}));
   }
 
   async addConnectableCluster(InstanceId: string, request: AddConnectableClusterRequest): Promise<AddConnectableClusterResponse> {
@@ -17601,18 +17278,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "AddConnectableCluster",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/connected-clusters`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<AddConnectableClusterResponse>(await this.callApi(params, req, runtime), new AddConnectableClusterResponse({}));
+    return $tea.cast<AddConnectableClusterResponse>(await this.doROARequest("AddConnectableCluster", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/instances/${InstanceId}/connected-clusters`, "json", req, runtime), new AddConnectableClusterResponse({}));
   }
 
   async addSnapshotRepo(InstanceId: string): Promise<AddSnapshotRepoResponse> {
@@ -17626,18 +17292,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
-      action: "AddSnapshotRepo",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/snapshot-repos`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<AddSnapshotRepoResponse>(await this.callApi(params, req, runtime), new AddSnapshotRepoResponse({}));
+    return $tea.cast<AddSnapshotRepoResponse>(await this.doROARequest("AddSnapshotRepo", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/instances/${InstanceId}/snapshot-repos`, "json", req, runtime), new AddSnapshotRepoResponse({}));
   }
 
   async cancelDeletion(InstanceId: string, request: CancelDeletionRequest): Promise<CancelDeletionResponse> {
@@ -17658,18 +17313,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "CancelDeletion",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/actions/cancel-deletion`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<CancelDeletionResponse>(await this.callApi(params, req, runtime), new CancelDeletionResponse({}));
+    return $tea.cast<CancelDeletionResponse>(await this.doROARequest("CancelDeletion", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/instances/${InstanceId}/actions/cancel-deletion`, "json", req, runtime), new CancelDeletionResponse({}));
   }
 
   async cancelLogstashDeletion(InstanceId: string, request: CancelLogstashDeletionRequest): Promise<CancelLogstashDeletionResponse> {
@@ -17690,18 +17334,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "CancelLogstashDeletion",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/logstashes/${InstanceId}/actions/cancel-deletion`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<CancelLogstashDeletionResponse>(await this.callApi(params, req, runtime), new CancelLogstashDeletionResponse({}));
+    return $tea.cast<CancelLogstashDeletionResponse>(await this.doROARequest("CancelLogstashDeletion", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/logstashes/${InstanceId}/actions/cancel-deletion`, "json", req, runtime), new CancelLogstashDeletionResponse({}));
   }
 
   async cancelTask(InstanceId: string, request: CancelTaskRequest): Promise<CancelTaskResponse> {
@@ -17714,30 +17347,19 @@ export default class Client extends OpenApi {
     Util.validateModel(request);
     InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.clientToken)) {
-      query["clientToken"] = request.clientToken;
-    }
-
     if (!Util.isUnset(request.taskType)) {
       query["taskType"] = request.taskType;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["clientToken"] = request.clientToken;
     }
 
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "CancelTask",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/actions/cancel-task`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<CancelTaskResponse>(await this.callApi(params, req, runtime), new CancelTaskResponse({}));
+    return $tea.cast<CancelTaskResponse>(await this.doROARequest("CancelTask", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/instances/${InstanceId}/actions/cancel-task`, "json", req, runtime), new CancelTaskResponse({}));
   }
 
   async capacityPlan(request: CapacityPlanRequest): Promise<CapacityPlanResponse> {
@@ -17769,18 +17391,7 @@ export default class Client extends OpenApi {
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
-      action: "CapacityPlan",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/assist/actions/capacity-plan`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<CapacityPlanResponse>(await this.callApi(params, req, runtime), new CapacityPlanResponse({}));
+    return $tea.cast<CapacityPlanResponse>(await this.doROARequest("CapacityPlan", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/assist/actions/capacity-plan`, "json", req, runtime), new CapacityPlanResponse({}));
   }
 
   async closeDiagnosis(InstanceId: string, request: CloseDiagnosisRequest): Promise<CloseDiagnosisResponse> {
@@ -17805,18 +17416,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "CloseDiagnosis",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/diagnosis/instances/${InstanceId}/actions/close-diagnosis`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<CloseDiagnosisResponse>(await this.callApi(params, req, runtime), new CloseDiagnosisResponse({}));
+    return $tea.cast<CloseDiagnosisResponse>(await this.doROARequest("CloseDiagnosis", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/diagnosis/instances/${InstanceId}/actions/close-diagnosis`, "json", req, runtime), new CloseDiagnosisResponse({}));
   }
 
   async closeHttps(InstanceId: string, request: CloseHttpsRequest): Promise<CloseHttpsResponse> {
@@ -17837,30 +17437,19 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "CloseHttps",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/actions/close-https`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<CloseHttpsResponse>(await this.callApi(params, req, runtime), new CloseHttpsResponse({}));
+    return $tea.cast<CloseHttpsResponse>(await this.doROARequest("CloseHttps", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/instances/${InstanceId}/actions/close-https`, "json", req, runtime), new CloseHttpsResponse({}));
   }
 
-  async closeManagedIndex(Index: string, InstanceId: string, request: CloseManagedIndexRequest): Promise<CloseManagedIndexResponse> {
+  async closeManagedIndex(InstanceId: string, Index: string, request: CloseManagedIndexRequest): Promise<CloseManagedIndexResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.closeManagedIndexWithOptions(Index, InstanceId, request, headers, runtime);
+    return await this.closeManagedIndexWithOptions(InstanceId, Index, request, headers, runtime);
   }
 
-  async closeManagedIndexWithOptions(Index: string, InstanceId: string, request: CloseManagedIndexRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CloseManagedIndexResponse> {
+  async closeManagedIndexWithOptions(InstanceId: string, Index: string, request: CloseManagedIndexRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CloseManagedIndexResponse> {
     Util.validateModel(request);
-    Index = OpenApiUtil.getEncodeParam(Index);
     InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
+    Index = OpenApiUtil.getEncodeParam(Index);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
@@ -17870,18 +17459,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "CloseManagedIndex",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/indices/{Index}/close-managed`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<CloseManagedIndexResponse>(await this.callApi(params, req, runtime), new CloseManagedIndexResponse({}));
+    return $tea.cast<CloseManagedIndexResponse>(await this.doROARequest("CloseManagedIndex", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/instances/${InstanceId}/indices/${Index}/close-managed`, "json", req, runtime), new CloseManagedIndexResponse({}));
   }
 
   async createCollector(request: CreateCollectorRequest): Promise<CreateCollectorResponse> {
@@ -17901,18 +17479,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "CreateCollector",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/collectors`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<CreateCollectorResponse>(await this.callApi(params, req, runtime), new CreateCollectorResponse({}));
+    return $tea.cast<CreateCollectorResponse>(await this.doROARequest("CreateCollector", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/collectors`, "json", req, runtime), new CreateCollectorResponse({}));
   }
 
   async createDataStream(InstanceId: string, request: CreateDataStreamRequest): Promise<CreateDataStreamResponse> {
@@ -17933,18 +17500,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "CreateDataStream",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/data-streams`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<CreateDataStreamResponse>(await this.callApi(params, req, runtime), new CreateDataStreamResponse({}));
+    return $tea.cast<CreateDataStreamResponse>(await this.doROARequest("CreateDataStream", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/instances/${InstanceId}/data-streams`, "json", req, runtime), new CreateDataStreamResponse({}));
   }
 
   async createDataTasks(InstanceId: string, request: CreateDataTasksRequest): Promise<CreateDataTasksResponse> {
@@ -17965,18 +17521,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "CreateDataTasks",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/data-task`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<CreateDataTasksResponse>(await this.callApi(params, req, runtime), new CreateDataTasksResponse({}));
+    return $tea.cast<CreateDataTasksResponse>(await this.doROARequest("CreateDataTasks", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/instances/${InstanceId}/data-task`, "json", req, runtime), new CreateDataTasksResponse({}));
   }
 
   async createILMPolicy(InstanceId: string, request: CreateILMPolicyRequest): Promise<CreateILMPolicyResponse> {
@@ -17997,18 +17542,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "CreateILMPolicy",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/ilm-policies`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<CreateILMPolicyResponse>(await this.callApi(params, req, runtime), new CreateILMPolicyResponse({}));
+    return $tea.cast<CreateILMPolicyResponse>(await this.doROARequest("CreateILMPolicy", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/instances/${InstanceId}/ilm-policies`, "json", req, runtime), new CreateILMPolicyResponse({}));
   }
 
   async createIndexTemplate(InstanceId: string, request: CreateIndexTemplateRequest): Promise<CreateIndexTemplateResponse> {
@@ -18029,18 +17563,27 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "CreateIndexTemplate",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/index-templates`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
+    return $tea.cast<CreateIndexTemplateResponse>(await this.doROARequest("CreateIndexTemplate", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/instances/${InstanceId}/index-templates`, "json", req, runtime), new CreateIndexTemplateResponse({}));
+  }
+
+  async createInstance(request: CreateInstanceRequest): Promise<CreateInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createInstanceWithOptions(request, headers, runtime);
+  }
+
+  async createInstanceWithOptions(request: CreateInstanceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateInstanceResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["clientToken"] = request.clientToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CreateIndexTemplateResponse>(await this.callApi(params, req, runtime), new CreateIndexTemplateResponse({}));
+    return $tea.cast<CreateInstanceResponse>(await this.doROARequest("createInstance", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/instances`, "json", req, runtime), new CreateInstanceResponse({}));
   }
 
   async createLogstash(request: CreateLogstashRequest): Promise<CreateLogstashResponse> {
@@ -18060,18 +17603,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "CreateLogstash",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/logstashes`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<CreateLogstashResponse>(await this.callApi(params, req, runtime), new CreateLogstashResponse({}));
+    return $tea.cast<CreateLogstashResponse>(await this.doROARequest("CreateLogstash", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/logstashes`, "json", req, runtime), new CreateLogstashResponse({}));
   }
 
   async createPipelines(InstanceId: string, request: CreatePipelinesRequest): Promise<CreatePipelinesResponse> {
@@ -18084,30 +17616,19 @@ export default class Client extends OpenApi {
     Util.validateModel(request);
     InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.clientToken)) {
-      query["ClientToken"] = request.clientToken;
-    }
-
     if (!Util.isUnset(request.trigger)) {
       query["trigger"] = request.trigger;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
     }
 
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "CreatePipelines",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/logstashes/${InstanceId}/pipelines`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<CreatePipelinesResponse>(await this.callApi(params, req, runtime), new CreatePipelinesResponse({}));
+    return $tea.cast<CreatePipelinesResponse>(await this.doROARequest("CreatePipelines", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/logstashes/${InstanceId}/pipelines`, "json", req, runtime), new CreatePipelinesResponse({}));
   }
 
   async createSnapshot(InstanceId: string, request: CreateSnapshotRequest): Promise<CreateSnapshotResponse> {
@@ -18128,18 +17649,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "CreateSnapshot",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/snapshots`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<CreateSnapshotResponse>(await this.callApi(params, req, runtime), new CreateSnapshotResponse({}));
+    return $tea.cast<CreateSnapshotResponse>(await this.doROARequest("CreateSnapshot", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/instances/${InstanceId}/snapshots`, "json", req, runtime), new CreateSnapshotResponse({}));
   }
 
   async createVpcEndpoint(InstanceId: string, request: CreateVpcEndpointRequest): Promise<CreateVpcEndpointResponse> {
@@ -18164,18 +17674,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "CreateVpcEndpoint",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/vpc-endpoints`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<CreateVpcEndpointResponse>(await this.callApi(params, req, runtime), new CreateVpcEndpointResponse({}));
+    return $tea.cast<CreateVpcEndpointResponse>(await this.doROARequest("CreateVpcEndpoint", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/instances/${InstanceId}/vpc-endpoints`, "json", req, runtime), new CreateVpcEndpointResponse({}));
   }
 
   async deactivateZones(InstanceId: string, request: DeactivateZonesRequest): Promise<DeactivateZonesResponse> {
@@ -18196,18 +17695,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "DeactivateZones",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/actions/down-zones`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DeactivateZonesResponse>(await this.callApi(params, req, runtime), new DeactivateZonesResponse({}));
+    return $tea.cast<DeactivateZonesResponse>(await this.doROARequest("DeactivateZones", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/instances/${InstanceId}/actions/down-zones`, "json", req, runtime), new DeactivateZonesResponse({}));
   }
 
   async deleteCollector(ResId: string, request: DeleteCollectorRequest): Promise<DeleteCollectorResponse> {
@@ -18228,18 +17716,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "DeleteCollector",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/collectors/${ResId}`,
-      method: "DELETE",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DeleteCollectorResponse>(await this.callApi(params, req, runtime), new DeleteCollectorResponse({}));
+    return $tea.cast<DeleteCollectorResponse>(await this.doROARequest("DeleteCollector", "2017-06-13", "HTTPS", "DELETE", "AK", `/openapi/collectors/${ResId}`, "json", req, runtime), new DeleteCollectorResponse({}));
   }
 
   async deleteConnectedCluster(InstanceId: string, request: DeleteConnectedClusterRequest): Promise<DeleteConnectedClusterResponse> {
@@ -18264,30 +17741,19 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "DeleteConnectedCluster",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/connected-clusters`,
-      method: "DELETE",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DeleteConnectedClusterResponse>(await this.callApi(params, req, runtime), new DeleteConnectedClusterResponse({}));
+    return $tea.cast<DeleteConnectedClusterResponse>(await this.doROARequest("DeleteConnectedCluster", "2017-06-13", "HTTPS", "DELETE", "AK", `/openapi/instances/${InstanceId}/connected-clusters`, "json", req, runtime), new DeleteConnectedClusterResponse({}));
   }
 
-  async deleteDataStream(DataStream: string, InstanceId: string, request: DeleteDataStreamRequest): Promise<DeleteDataStreamResponse> {
+  async deleteDataStream(InstanceId: string, DataStream: string, request: DeleteDataStreamRequest): Promise<DeleteDataStreamResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteDataStreamWithOptions(DataStream, InstanceId, request, headers, runtime);
+    return await this.deleteDataStreamWithOptions(InstanceId, DataStream, request, headers, runtime);
   }
 
-  async deleteDataStreamWithOptions(DataStream: string, InstanceId: string, request: DeleteDataStreamRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteDataStreamResponse> {
+  async deleteDataStreamWithOptions(InstanceId: string, DataStream: string, request: DeleteDataStreamRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteDataStreamResponse> {
     Util.validateModel(request);
-    DataStream = OpenApiUtil.getEncodeParam(DataStream);
     InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
+    DataStream = OpenApiUtil.getEncodeParam(DataStream);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
@@ -18297,18 +17763,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "DeleteDataStream",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/data-streams/{DataStream}`,
-      method: "DELETE",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DeleteDataStreamResponse>(await this.callApi(params, req, runtime), new DeleteDataStreamResponse({}));
+    return $tea.cast<DeleteDataStreamResponse>(await this.doROARequest("DeleteDataStream", "2017-06-13", "HTTPS", "DELETE", "AK", `/openapi/instances/${InstanceId}/data-streams/${DataStream}`, "json", req, runtime), new DeleteDataStreamResponse({}));
   }
 
   async deleteDataTask(InstanceId: string, request: DeleteDataTaskRequest): Promise<DeleteDataTaskResponse> {
@@ -18333,18 +17788,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "DeleteDataTask",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/data-task`,
-      method: "DELETE",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DeleteDataTaskResponse>(await this.callApi(params, req, runtime), new DeleteDataTaskResponse({}));
+    return $tea.cast<DeleteDataTaskResponse>(await this.doROARequest("DeleteDataTask", "2017-06-13", "HTTPS", "DELETE", "AK", `/openapi/instances/${InstanceId}/data-task`, "json", req, runtime), new DeleteDataTaskResponse({}));
   }
 
   async deleteILMPolicy(InstanceId: string, PolicyName: string): Promise<DeleteILMPolicyResponse> {
@@ -18359,44 +17803,22 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
-      action: "DeleteILMPolicy",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/ilm-policies/{PolicyName}`,
-      method: "DELETE",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DeleteILMPolicyResponse>(await this.callApi(params, req, runtime), new DeleteILMPolicyResponse({}));
+    return $tea.cast<DeleteILMPolicyResponse>(await this.doROARequest("DeleteILMPolicy", "2017-06-13", "HTTPS", "DELETE", "AK", `/openapi/instances/${InstanceId}/ilm-policies/${PolicyName}`, "json", req, runtime), new DeleteILMPolicyResponse({}));
   }
 
-  async deleteIndexTemplate(IndexTemplate: string, InstanceId: string): Promise<DeleteIndexTemplateResponse> {
+  async deleteIndexTemplate(InstanceId: string, IndexTemplate: string): Promise<DeleteIndexTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteIndexTemplateWithOptions(IndexTemplate, InstanceId, headers, runtime);
+    return await this.deleteIndexTemplateWithOptions(InstanceId, IndexTemplate, headers, runtime);
   }
 
-  async deleteIndexTemplateWithOptions(IndexTemplate: string, InstanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteIndexTemplateResponse> {
-    IndexTemplate = OpenApiUtil.getEncodeParam(IndexTemplate);
+  async deleteIndexTemplateWithOptions(InstanceId: string, IndexTemplate: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteIndexTemplateResponse> {
     InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
+    IndexTemplate = OpenApiUtil.getEncodeParam(IndexTemplate);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
-      action: "DeleteIndexTemplate",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/index-templates/{IndexTemplate}`,
-      method: "DELETE",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DeleteIndexTemplateResponse>(await this.callApi(params, req, runtime), new DeleteIndexTemplateResponse({}));
+    return $tea.cast<DeleteIndexTemplateResponse>(await this.doROARequest("DeleteIndexTemplate", "2017-06-13", "HTTPS", "DELETE", "AK", `/openapi/instances/${InstanceId}/index-templates/${IndexTemplate}`, "json", req, runtime), new DeleteIndexTemplateResponse({}));
   }
 
   async deleteInstance(InstanceId: string, request: DeleteInstanceRequest): Promise<DeleteInstanceResponse> {
@@ -18421,18 +17843,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "DeleteInstance",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}`,
-      method: "DELETE",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DeleteInstanceResponse>(await this.callApi(params, req, runtime), new DeleteInstanceResponse({}));
+    return $tea.cast<DeleteInstanceResponse>(await this.doROARequest("DeleteInstance", "2017-06-13", "HTTPS", "DELETE", "AK", `/openapi/instances/${InstanceId}`, "json", req, runtime), new DeleteInstanceResponse({}));
   }
 
   async deleteLogstash(InstanceId: string, request: DeleteLogstashRequest): Promise<DeleteLogstashResponse> {
@@ -18457,18 +17868,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "DeleteLogstash",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/logstashes/${InstanceId}`,
-      method: "DELETE",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DeleteLogstashResponse>(await this.callApi(params, req, runtime), new DeleteLogstashResponse({}));
+    return $tea.cast<DeleteLogstashResponse>(await this.doROARequest("DeleteLogstash", "2017-06-13", "HTTPS", "DELETE", "AK", `/openapi/logstashes/${InstanceId}`, "json", req, runtime), new DeleteLogstashResponse({}));
   }
 
   async deletePipelines(InstanceId: string, request: DeletePipelinesRequest): Promise<DeletePipelinesResponse> {
@@ -18493,18 +17893,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "DeletePipelines",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/logstashes/${InstanceId}/pipelines`,
-      method: "DELETE",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DeletePipelinesResponse>(await this.callApi(params, req, runtime), new DeletePipelinesResponse({}));
+    return $tea.cast<DeletePipelinesResponse>(await this.doROARequest("DeletePipelines", "2017-06-13", "HTTPS", "DELETE", "AK", `/openapi/logstashes/${InstanceId}/pipelines`, "json", req, runtime), new DeletePipelinesResponse({}));
   }
 
   async deleteSnapshotRepo(InstanceId: string, request: DeleteSnapshotRepoRequest): Promise<DeleteSnapshotRepoResponse> {
@@ -18517,42 +17906,31 @@ export default class Client extends OpenApi {
     Util.validateModel(request);
     InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.clientToken)) {
-      query["clientToken"] = request.clientToken;
-    }
-
     if (!Util.isUnset(request.repoPath)) {
       query["repoPath"] = request.repoPath;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["clientToken"] = request.clientToken;
     }
 
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "DeleteSnapshotRepo",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/snapshot-repos`,
-      method: "DELETE",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DeleteSnapshotRepoResponse>(await this.callApi(params, req, runtime), new DeleteSnapshotRepoResponse({}));
+    return $tea.cast<DeleteSnapshotRepoResponse>(await this.doROARequest("DeleteSnapshotRepo", "2017-06-13", "HTTPS", "DELETE", "AK", `/openapi/instances/${InstanceId}/snapshot-repos`, "json", req, runtime), new DeleteSnapshotRepoResponse({}));
   }
 
-  async deleteVpcEndpoint(EndpointId: string, InstanceId: string, request: DeleteVpcEndpointRequest): Promise<DeleteVpcEndpointResponse> {
+  async deleteVpcEndpoint(InstanceId: string, EndpointId: string, request: DeleteVpcEndpointRequest): Promise<DeleteVpcEndpointResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteVpcEndpointWithOptions(EndpointId, InstanceId, request, headers, runtime);
+    return await this.deleteVpcEndpointWithOptions(InstanceId, EndpointId, request, headers, runtime);
   }
 
-  async deleteVpcEndpointWithOptions(EndpointId: string, InstanceId: string, request: DeleteVpcEndpointRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteVpcEndpointResponse> {
+  async deleteVpcEndpointWithOptions(InstanceId: string, EndpointId: string, request: DeleteVpcEndpointRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteVpcEndpointResponse> {
     Util.validateModel(request);
-    EndpointId = OpenApiUtil.getEncodeParam(EndpointId);
     InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
+    EndpointId = OpenApiUtil.getEncodeParam(EndpointId);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
@@ -18562,18 +17940,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "DeleteVpcEndpoint",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/vpc-endpoints/{EndpointId}`,
-      method: "DELETE",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DeleteVpcEndpointResponse>(await this.callApi(params, req, runtime), new DeleteVpcEndpointResponse({}));
+    return $tea.cast<DeleteVpcEndpointResponse>(await this.doROARequest("DeleteVpcEndpoint", "2017-06-13", "HTTPS", "DELETE", "AK", `/openapi/instances/${InstanceId}/vpc-endpoints/${EndpointId}`, "json", req, runtime), new DeleteVpcEndpointResponse({}));
   }
 
   async describeAckOperator(ClusterId: string): Promise<DescribeAckOperatorResponse> {
@@ -18587,43 +17954,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
-      action: "DescribeAckOperator",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/ack-clusters/${ClusterId}/operator`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeAckOperatorResponse>(await this.callApi(params, req, runtime), new DescribeAckOperatorResponse({}));
-  }
-
-  async describeApm(instanceId: string): Promise<DescribeApmResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.describeApmWithOptions(instanceId, headers, runtime);
-  }
-
-  async describeApmWithOptions(instanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeApmResponse> {
-    instanceId = OpenApiUtil.getEncodeParam(instanceId);
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-    });
-    let params = new $OpenApi.Params({
-      action: "DescribeApm",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/apm/${instanceId}`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeApmResponse>(await this.callApi(params, req, runtime), new DescribeApmResponse({}));
+    return $tea.cast<DescribeAckOperatorResponse>(await this.doROARequest("DescribeAckOperator", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/ack-clusters/${ClusterId}/operator`, "json", req, runtime), new DescribeAckOperatorResponse({}));
   }
 
   async describeCollector(ResId: string): Promise<DescribeCollectorResponse> {
@@ -18637,18 +17968,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
-      action: "DescribeCollector",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/collectors/${ResId}`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeCollectorResponse>(await this.callApi(params, req, runtime), new DescribeCollectorResponse({}));
+    return $tea.cast<DescribeCollectorResponse>(await this.doROARequest("DescribeCollector", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/collectors/${ResId}`, "json", req, runtime), new DescribeCollectorResponse({}));
   }
 
   async describeConnectableClusters(InstanceId: string, request: DescribeConnectableClustersRequest): Promise<DescribeConnectableClustersResponse> {
@@ -18669,18 +17989,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "DescribeConnectableClusters",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/connectable-clusters`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeConnectableClustersResponse>(await this.callApi(params, req, runtime), new DescribeConnectableClustersResponse({}));
+    return $tea.cast<DescribeConnectableClustersResponse>(await this.doROARequest("DescribeConnectableClusters", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/instances/${InstanceId}/connectable-clusters`, "json", req, runtime), new DescribeConnectableClustersResponse({}));
   }
 
   async describeDiagnoseReport(InstanceId: string, ReportId: string, request: DescribeDiagnoseReportRequest): Promise<DescribeDiagnoseReportResponse> {
@@ -18702,18 +18011,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "DescribeDiagnoseReport",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/diagnosis/instances/${InstanceId}/reports/{ReportId}`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeDiagnoseReportResponse>(await this.callApi(params, req, runtime), new DescribeDiagnoseReportResponse({}));
+    return $tea.cast<DescribeDiagnoseReportResponse>(await this.doROARequest("DescribeDiagnoseReport", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/diagnosis/instances/${InstanceId}/reports/${ReportId}`, "json", req, runtime), new DescribeDiagnoseReportResponse({}));
   }
 
   async describeDiagnosisSettings(InstanceId: string, request: DescribeDiagnosisSettingsRequest): Promise<DescribeDiagnosisSettingsResponse> {
@@ -18734,18 +18032,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "DescribeDiagnosisSettings",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/diagnosis/instances/${InstanceId}/settings`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeDiagnosisSettingsResponse>(await this.callApi(params, req, runtime), new DescribeDiagnosisSettingsResponse({}));
+    return $tea.cast<DescribeDiagnosisSettingsResponse>(await this.doROARequest("DescribeDiagnosisSettings", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/diagnosis/instances/${InstanceId}/settings`, "json", req, runtime), new DescribeDiagnosisSettingsResponse({}));
   }
 
   async describeElasticsearchHealth(InstanceId: string): Promise<DescribeElasticsearchHealthResponse> {
@@ -18759,18 +18046,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
-      action: "DescribeElasticsearchHealth",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/elasticsearch-health`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeElasticsearchHealthResponse>(await this.callApi(params, req, runtime), new DescribeElasticsearchHealthResponse({}));
+    return $tea.cast<DescribeElasticsearchHealthResponse>(await this.doROARequest("DescribeElasticsearchHealth", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/instances/${InstanceId}/elasticsearch-health`, "json", req, runtime), new DescribeElasticsearchHealthResponse({}));
   }
 
   async describeILMPolicy(InstanceId: string, PolicyName: string): Promise<DescribeILMPolicyResponse> {
@@ -18785,44 +18061,22 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
-      action: "DescribeILMPolicy",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/ilm-policies/{PolicyName}`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeILMPolicyResponse>(await this.callApi(params, req, runtime), new DescribeILMPolicyResponse({}));
+    return $tea.cast<DescribeILMPolicyResponse>(await this.doROARequest("DescribeILMPolicy", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/instances/${InstanceId}/ilm-policies/${PolicyName}`, "json", req, runtime), new DescribeILMPolicyResponse({}));
   }
 
-  async describeIndexTemplate(IndexTemplate: string, InstanceId: string): Promise<DescribeIndexTemplateResponse> {
+  async describeIndexTemplate(InstanceId: string, IndexTemplate: string): Promise<DescribeIndexTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.describeIndexTemplateWithOptions(IndexTemplate, InstanceId, headers, runtime);
+    return await this.describeIndexTemplateWithOptions(InstanceId, IndexTemplate, headers, runtime);
   }
 
-  async describeIndexTemplateWithOptions(IndexTemplate: string, InstanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeIndexTemplateResponse> {
-    IndexTemplate = OpenApiUtil.getEncodeParam(IndexTemplate);
+  async describeIndexTemplateWithOptions(InstanceId: string, IndexTemplate: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeIndexTemplateResponse> {
     InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
+    IndexTemplate = OpenApiUtil.getEncodeParam(IndexTemplate);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
-      action: "DescribeIndexTemplate",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/index-templates/{IndexTemplate}`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeIndexTemplateResponse>(await this.callApi(params, req, runtime), new DescribeIndexTemplateResponse({}));
+    return $tea.cast<DescribeIndexTemplateResponse>(await this.doROARequest("DescribeIndexTemplate", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/instances/${InstanceId}/index-templates/${IndexTemplate}`, "json", req, runtime), new DescribeIndexTemplateResponse({}));
   }
 
   async describeInstance(InstanceId: string): Promise<DescribeInstanceResponse> {
@@ -18836,18 +18090,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
-      action: "DescribeInstance",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeInstanceResponse>(await this.callApi(params, req, runtime), new DescribeInstanceResponse({}));
+    return $tea.cast<DescribeInstanceResponse>(await this.doROARequest("DescribeInstance", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/instances/${InstanceId}`, "json", req, runtime), new DescribeInstanceResponse({}));
   }
 
   async describeKibanaSettings(InstanceId: string): Promise<DescribeKibanaSettingsResponse> {
@@ -18861,18 +18104,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
-      action: "DescribeKibanaSettings",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/kibana-settings`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeKibanaSettingsResponse>(await this.callApi(params, req, runtime), new DescribeKibanaSettingsResponse({}));
+    return $tea.cast<DescribeKibanaSettingsResponse>(await this.doROARequest("DescribeKibanaSettings", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/instances/${InstanceId}/kibana-settings`, "json", req, runtime), new DescribeKibanaSettingsResponse({}));
   }
 
   async describeLogstash(InstanceId: string): Promise<DescribeLogstashResponse> {
@@ -18886,18 +18118,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
-      action: "DescribeLogstash",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/logstashes/${InstanceId}`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeLogstashResponse>(await this.callApi(params, req, runtime), new DescribeLogstashResponse({}));
+    return $tea.cast<DescribeLogstashResponse>(await this.doROARequest("DescribeLogstash", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/logstashes/${InstanceId}`, "json", req, runtime), new DescribeLogstashResponse({}));
   }
 
   async describePipeline(InstanceId: string, PipelineId: string): Promise<DescribePipelineResponse> {
@@ -18912,18 +18133,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
-      action: "DescribePipeline",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/logstashes/${InstanceId}/pipelines/{PipelineId}`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribePipelineResponse>(await this.callApi(params, req, runtime), new DescribePipelineResponse({}));
+    return $tea.cast<DescribePipelineResponse>(await this.doROARequest("DescribePipeline", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/logstashes/${InstanceId}/pipelines/${PipelineId}`, "json", req, runtime), new DescribePipelineResponse({}));
   }
 
   async describePipelineManagementConfig(InstanceId: string, request: DescribePipelineManagementConfigRequest): Promise<DescribePipelineManagementConfigResponse> {
@@ -18944,18 +18154,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "DescribePipelineManagementConfig",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/logstashes/${InstanceId}/pipeline-management-config`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribePipelineManagementConfigResponse>(await this.callApi(params, req, runtime), new DescribePipelineManagementConfigResponse({}));
+    return $tea.cast<DescribePipelineManagementConfigResponse>(await this.doROARequest("DescribePipelineManagementConfig", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/logstashes/${InstanceId}/pipeline-management-config`, "json", req, runtime), new DescribePipelineManagementConfigResponse({}));
   }
 
   async describeRegions(): Promise<DescribeRegionsResponse> {
@@ -18968,18 +18167,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
-      action: "DescribeRegions",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/regions`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeRegionsResponse>(await this.callApi(params, req, runtime), new DescribeRegionsResponse({}));
+    return $tea.cast<DescribeRegionsResponse>(await this.doROARequest("DescribeRegions", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/regions`, "json", req, runtime), new DescribeRegionsResponse({}));
   }
 
   async describeSnapshotSetting(InstanceId: string): Promise<DescribeSnapshotSettingResponse> {
@@ -18993,18 +18181,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
-      action: "DescribeSnapshotSetting",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/snapshot-setting`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeSnapshotSettingResponse>(await this.callApi(params, req, runtime), new DescribeSnapshotSettingResponse({}));
+    return $tea.cast<DescribeSnapshotSettingResponse>(await this.doROARequest("DescribeSnapshotSetting", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/instances/${InstanceId}/snapshot-setting`, "json", req, runtime), new DescribeSnapshotSettingResponse({}));
   }
 
   async describeTemplates(InstanceId: string): Promise<DescribeTemplatesResponse> {
@@ -19018,18 +18195,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
-      action: "DescribeTemplates",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/templates`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeTemplatesResponse>(await this.callApi(params, req, runtime), new DescribeTemplatesResponse({}));
+    return $tea.cast<DescribeTemplatesResponse>(await this.doROARequest("DescribeTemplates", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/instances/${InstanceId}/templates`, "json", req, runtime), new DescribeTemplatesResponse({}));
   }
 
   async describeXpackMonitorConfig(InstanceId: string): Promise<DescribeXpackMonitorConfigResponse> {
@@ -19043,18 +18209,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
-      action: "DescribeXpackMonitorConfig",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/logstashes/${InstanceId}/xpack-monitor-config`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeXpackMonitorConfigResponse>(await this.callApi(params, req, runtime), new DescribeXpackMonitorConfigResponse({}));
+    return $tea.cast<DescribeXpackMonitorConfigResponse>(await this.doROARequest("DescribeXpackMonitorConfig", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/logstashes/${InstanceId}/xpack-monitor-config`, "json", req, runtime), new DescribeXpackMonitorConfigResponse({}));
   }
 
   async diagnoseInstance(InstanceId: string, request: DiagnoseInstanceRequest): Promise<DiagnoseInstanceResponse> {
@@ -19067,30 +18222,19 @@ export default class Client extends OpenApi {
     Util.validateModel(request);
     InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.clientToken)) {
-      query["ClientToken"] = request.clientToken;
-    }
-
     if (!Util.isUnset(request.lang)) {
       query["lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
     }
 
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "DiagnoseInstance",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/diagnosis/instances/${InstanceId}/actions/diagnose`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DiagnoseInstanceResponse>(await this.callApi(params, req, runtime), new DiagnoseInstanceResponse({}));
+    return $tea.cast<DiagnoseInstanceResponse>(await this.doROARequest("DiagnoseInstance", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/diagnosis/instances/${InstanceId}/actions/diagnose`, "json", req, runtime), new DiagnoseInstanceResponse({}));
   }
 
   async estimatedLogstashRestartTime(InstanceId: string, request: EstimatedLogstashRestartTimeRequest): Promise<EstimatedLogstashRestartTimeResponse> {
@@ -19111,18 +18255,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "EstimatedLogstashRestartTime",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/logstashes/${InstanceId}/estimated-time/restart-time`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<EstimatedLogstashRestartTimeResponse>(await this.callApi(params, req, runtime), new EstimatedLogstashRestartTimeResponse({}));
+    return $tea.cast<EstimatedLogstashRestartTimeResponse>(await this.doROARequest("EstimatedLogstashRestartTime", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/logstashes/${InstanceId}/estimated-time/restart-time`, "json", req, runtime), new EstimatedLogstashRestartTimeResponse({}));
   }
 
   async estimatedRestartTime(InstanceId: string, request: EstimatedRestartTimeRequest): Promise<EstimatedRestartTimeResponse> {
@@ -19143,18 +18276,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "EstimatedRestartTime",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/estimated-time/restart-time`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<EstimatedRestartTimeResponse>(await this.callApi(params, req, runtime), new EstimatedRestartTimeResponse({}));
+    return $tea.cast<EstimatedRestartTimeResponse>(await this.doROARequest("EstimatedRestartTime", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/instances/${InstanceId}/estimated-time/restart-time`, "json", req, runtime), new EstimatedRestartTimeResponse({}));
   }
 
   async getClusterDataInformation(): Promise<GetClusterDataInformationResponse> {
@@ -19167,18 +18289,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
-      action: "GetClusterDataInformation",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/cluster/data-information`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<GetClusterDataInformationResponse>(await this.callApi(params, req, runtime), new GetClusterDataInformationResponse({}));
+    return $tea.cast<GetClusterDataInformationResponse>(await this.doROARequest("GetClusterDataInformation", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/cluster/data-information`, "json", req, runtime), new GetClusterDataInformationResponse({}));
   }
 
   async getElastictask(InstanceId: string): Promise<GetElastictaskResponse> {
@@ -19192,18 +18303,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
-      action: "GetElastictask",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/elastic-task`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<GetElastictaskResponse>(await this.callApi(params, req, runtime), new GetElastictaskResponse({}));
+    return $tea.cast<GetElastictaskResponse>(await this.doROARequest("GetElastictask", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/instances/${InstanceId}/elastic-task`, "json", req, runtime), new GetElastictaskResponse({}));
   }
 
   async getEmonGrafanaAlerts(ProjectId: string): Promise<GetEmonGrafanaAlertsResponse> {
@@ -19217,18 +18317,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
-      action: "GetEmonGrafanaAlerts",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/emon/projects/${ProjectId}/grafana/proxy/api/alerts`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<GetEmonGrafanaAlertsResponse>(await this.callApi(params, req, runtime), new GetEmonGrafanaAlertsResponse({}));
+    return $tea.cast<GetEmonGrafanaAlertsResponse>(await this.doROARequest("GetEmonGrafanaAlerts", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/emon/projects/${ProjectId}/grafana/proxy/api/alerts`, "json", req, runtime), new GetEmonGrafanaAlertsResponse({}));
   }
 
   async getEmonGrafanaDashboards(ProjectId: string): Promise<GetEmonGrafanaDashboardsResponse> {
@@ -19242,18 +18331,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
-      action: "GetEmonGrafanaDashboards",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/emon/projects/${ProjectId}/grafana/proxy/api/search`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<GetEmonGrafanaDashboardsResponse>(await this.callApi(params, req, runtime), new GetEmonGrafanaDashboardsResponse({}));
+    return $tea.cast<GetEmonGrafanaDashboardsResponse>(await this.doROARequest("GetEmonGrafanaDashboards", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/emon/projects/${ProjectId}/grafana/proxy/api/search`, "json", req, runtime), new GetEmonGrafanaDashboardsResponse({}));
   }
 
   async getEmonMonitorData(ProjectId: string): Promise<GetEmonMonitorDataResponse> {
@@ -19267,18 +18345,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
-      action: "GetEmonMonitorData",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/emon/projects/${ProjectId}/metrics/query`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<GetEmonMonitorDataResponse>(await this.callApi(params, req, runtime), new GetEmonMonitorDataResponse({}));
+    return $tea.cast<GetEmonMonitorDataResponse>(await this.doROARequest("GetEmonMonitorData", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/emon/projects/${ProjectId}/metrics/query`, "json", req, runtime), new GetEmonMonitorDataResponse({}));
   }
 
   async getOpenStoreUsage(InstanceId: string): Promise<GetOpenStoreUsageResponse> {
@@ -19292,18 +18359,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
-      action: "GetOpenStoreUsage",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/openstore/usage`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<GetOpenStoreUsageResponse>(await this.callApi(params, req, runtime), new GetOpenStoreUsageResponse({}));
+    return $tea.cast<GetOpenStoreUsageResponse>(await this.doROARequest("GetOpenStoreUsage", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/instances/${InstanceId}/openstore/usage`, "json", req, runtime), new GetOpenStoreUsageResponse({}));
   }
 
   async getRegionConfiguration(request: GetRegionConfigurationRequest): Promise<GetRegionConfigurationResponse> {
@@ -19323,18 +18379,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "GetRegionConfiguration",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/region`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<GetRegionConfigurationResponse>(await this.callApi(params, req, runtime), new GetRegionConfigurationResponse({}));
+    return $tea.cast<GetRegionConfigurationResponse>(await this.doROARequest("GetRegionConfiguration", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/region`, "json", req, runtime), new GetRegionConfigurationResponse({}));
   }
 
   async getSuggestShrinkableNodes(InstanceId: string, request: GetSuggestShrinkableNodesRequest): Promise<GetSuggestShrinkableNodesResponse> {
@@ -19347,6 +18392,10 @@ export default class Client extends OpenApi {
     Util.validateModel(request);
     InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.nodeType)) {
+      query["nodeType"] = request.nodeType;
+    }
+
     if (!Util.isUnset(request.count)) {
       query["count"] = request.count;
     }
@@ -19355,26 +18404,11 @@ export default class Client extends OpenApi {
       query["ignoreStatus"] = request.ignoreStatus;
     }
 
-    if (!Util.isUnset(request.nodeType)) {
-      query["nodeType"] = request.nodeType;
-    }
-
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "GetSuggestShrinkableNodes",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/suggest-shrinkable-nodes`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<GetSuggestShrinkableNodesResponse>(await this.callApi(params, req, runtime), new GetSuggestShrinkableNodesResponse({}));
+    return $tea.cast<GetSuggestShrinkableNodesResponse>(await this.doROARequest("GetSuggestShrinkableNodes", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/instances/${InstanceId}/suggest-shrinkable-nodes`, "json", req, runtime), new GetSuggestShrinkableNodesResponse({}));
   }
 
   async getTransferableNodes(InstanceId: string, request: GetTransferableNodesRequest): Promise<GetTransferableNodesResponse> {
@@ -19387,30 +18421,19 @@ export default class Client extends OpenApi {
     Util.validateModel(request);
     InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.count)) {
-      query["count"] = request.count;
-    }
-
     if (!Util.isUnset(request.nodeType)) {
       query["nodeType"] = request.nodeType;
+    }
+
+    if (!Util.isUnset(request.count)) {
+      query["count"] = request.count;
     }
 
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "GetTransferableNodes",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/transferable-nodes`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<GetTransferableNodesResponse>(await this.callApi(params, req, runtime), new GetTransferableNodesResponse({}));
+    return $tea.cast<GetTransferableNodesResponse>(await this.doROARequest("GetTransferableNodes", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/instances/${InstanceId}/transferable-nodes`, "json", req, runtime), new GetTransferableNodesResponse({}));
   }
 
   async initializeOperationRole(request: InitializeOperationRoleRequest): Promise<InitializeOperationRoleResponse> {
@@ -19430,18 +18453,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "InitializeOperationRole",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/user/slr`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<InitializeOperationRoleResponse>(await this.callApi(params, req, runtime), new InitializeOperationRoleResponse({}));
+    return $tea.cast<InitializeOperationRoleResponse>(await this.doROARequest("InitializeOperationRole", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/user/slr`, "json", req, runtime), new InitializeOperationRoleResponse({}));
   }
 
   async installAckOperator(ClusterId: string, request: InstallAckOperatorRequest): Promise<InstallAckOperatorResponse> {
@@ -19462,18 +18474,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "InstallAckOperator",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/ack-clusters/${ClusterId}/operator`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<InstallAckOperatorResponse>(await this.callApi(params, req, runtime), new InstallAckOperatorResponse({}));
+    return $tea.cast<InstallAckOperatorResponse>(await this.doROARequest("InstallAckOperator", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/ack-clusters/${ClusterId}/operator`, "json", req, runtime), new InstallAckOperatorResponse({}));
   }
 
   async installKibanaSystemPlugin(InstanceId: string, request: InstallKibanaSystemPluginRequest): Promise<InstallKibanaSystemPluginResponse> {
@@ -19494,18 +18495,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "InstallKibanaSystemPlugin",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/kibana-plugins/system/actions/install`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<InstallKibanaSystemPluginResponse>(await this.callApi(params, req, runtime), new InstallKibanaSystemPluginResponse({}));
+    return $tea.cast<InstallKibanaSystemPluginResponse>(await this.doROARequest("InstallKibanaSystemPlugin", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/instances/${InstanceId}/kibana-plugins/system/actions/install`, "json", req, runtime), new InstallKibanaSystemPluginResponse({}));
   }
 
   async installLogstashSystemPlugin(InstanceId: string, request: InstallLogstashSystemPluginRequest): Promise<InstallLogstashSystemPluginResponse> {
@@ -19526,18 +18516,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "InstallLogstashSystemPlugin",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/logstashes/${InstanceId}/plugins/system/actions/install`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<InstallLogstashSystemPluginResponse>(await this.callApi(params, req, runtime), new InstallLogstashSystemPluginResponse({}));
+    return $tea.cast<InstallLogstashSystemPluginResponse>(await this.doROARequest("InstallLogstashSystemPlugin", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/logstashes/${InstanceId}/plugins/system/actions/install`, "json", req, runtime), new InstallLogstashSystemPluginResponse({}));
   }
 
   async installSystemPlugin(InstanceId: string, request: InstallSystemPluginRequest): Promise<InstallSystemPluginResponse> {
@@ -19558,18 +18537,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "InstallSystemPlugin",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/plugins/system/actions/install`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<InstallSystemPluginResponse>(await this.callApi(params, req, runtime), new InstallSystemPluginResponse({}));
+    return $tea.cast<InstallSystemPluginResponse>(await this.doROARequest("InstallSystemPlugin", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/instances/${InstanceId}/plugins/system/actions/install`, "json", req, runtime), new InstallSystemPluginResponse({}));
   }
 
   async installUserPlugins(InstanceId: string): Promise<InstallUserPluginsResponse> {
@@ -19583,18 +18551,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
-      action: "InstallUserPlugins",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/plugins/user/actions/install`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<InstallUserPluginsResponse>(await this.callApi(params, req, runtime), new InstallUserPluginsResponse({}));
+    return $tea.cast<InstallUserPluginsResponse>(await this.doROARequest("InstallUserPlugins", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/instances/${InstanceId}/plugins/user/actions/install`, "json", req, runtime), new InstallUserPluginsResponse({}));
   }
 
   async interruptElasticsearchTask(InstanceId: string, request: InterruptElasticsearchTaskRequest): Promise<InterruptElasticsearchTaskResponse> {
@@ -19615,18 +18572,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "InterruptElasticsearchTask",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/actions/interrupt`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<InterruptElasticsearchTaskResponse>(await this.callApi(params, req, runtime), new InterruptElasticsearchTaskResponse({}));
+    return $tea.cast<InterruptElasticsearchTaskResponse>(await this.doROARequest("InterruptElasticsearchTask", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/instances/${InstanceId}/actions/interrupt`, "json", req, runtime), new InterruptElasticsearchTaskResponse({}));
   }
 
   async interruptLogstashTask(InstanceId: string, request: InterruptLogstashTaskRequest): Promise<InterruptLogstashTaskResponse> {
@@ -19647,18 +18593,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "InterruptLogstashTask",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/logstashes/${InstanceId}/actions/interrupt`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<InterruptLogstashTaskResponse>(await this.callApi(params, req, runtime), new InterruptLogstashTaskResponse({}));
+    return $tea.cast<InterruptLogstashTaskResponse>(await this.doROARequest("InterruptLogstashTask", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/logstashes/${InstanceId}/actions/interrupt`, "json", req, runtime), new InterruptLogstashTaskResponse({}));
   }
 
   async listAckClusters(request: ListAckClustersRequest): Promise<ListAckClustersResponse> {
@@ -19686,18 +18621,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "ListAckClusters",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/ack-clusters`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListAckClustersResponse>(await this.callApi(params, req, runtime), new ListAckClustersResponse({}));
+    return $tea.cast<ListAckClustersResponse>(await this.doROARequest("ListAckClusters", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/ack-clusters`, "json", req, runtime), new ListAckClustersResponse({}));
   }
 
   async listAckNamespaces(ClusterId: string, request: ListAckNamespacesRequest): Promise<ListAckNamespacesResponse> {
@@ -19722,18 +18646,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "ListAckNamespaces",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/ack-clusters/${ClusterId}/namespaces`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListAckNamespacesResponse>(await this.callApi(params, req, runtime), new ListAckNamespacesResponse({}));
+    return $tea.cast<ListAckNamespacesResponse>(await this.doROARequest("ListAckNamespaces", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/ack-clusters/${ClusterId}/namespaces`, "json", req, runtime), new ListAckNamespacesResponse({}));
   }
 
   async listAllNode(InstanceId: string, request: ListAllNodeRequest): Promise<ListAllNodeResponse> {
@@ -19754,18 +18667,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "ListAllNode",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/nodes`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListAllNodeResponse>(await this.callApi(params, req, runtime), new ListAllNodeResponse({}));
+    return $tea.cast<ListAllNodeResponse>(await this.doROARequest("ListAllNode", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/instances/${InstanceId}/nodes`, "json", req, runtime), new ListAllNodeResponse({}));
   }
 
   async listAlternativeSnapshotRepos(InstanceId: string, request: ListAlternativeSnapshotReposRequest): Promise<ListAlternativeSnapshotReposResponse> {
@@ -19786,18 +18688,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "ListAlternativeSnapshotRepos",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/alternative-snapshot-repos`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListAlternativeSnapshotReposResponse>(await this.callApi(params, req, runtime), new ListAlternativeSnapshotReposResponse({}));
+    return $tea.cast<ListAlternativeSnapshotReposResponse>(await this.doROARequest("ListAlternativeSnapshotRepos", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/instances/${InstanceId}/alternative-snapshot-repos`, "json", req, runtime), new ListAlternativeSnapshotReposResponse({}));
   }
 
   async listAvailableEsInstanceIds(InstanceId: string): Promise<ListAvailableEsInstanceIdsResponse> {
@@ -19811,18 +18702,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
-      action: "ListAvailableEsInstanceIds",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/logstashes/${InstanceId}/available-elasticsearch-for-centralized-management`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListAvailableEsInstanceIdsResponse>(await this.callApi(params, req, runtime), new ListAvailableEsInstanceIdsResponse({}));
+    return $tea.cast<ListAvailableEsInstanceIdsResponse>(await this.doROARequest("ListAvailableEsInstanceIds", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/logstashes/${InstanceId}/available-elasticsearch-for-centralized-management`, "json", req, runtime), new ListAvailableEsInstanceIdsResponse({}));
   }
 
   async listCollectors(request: ListCollectorsRequest): Promise<ListCollectorsResponse> {
@@ -19834,20 +18714,20 @@ export default class Client extends OpenApi {
   async listCollectorsWithOptions(request: ListCollectorsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListCollectorsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.instanceId)) {
-      query["instanceId"] = request.instanceId;
+    if (!Util.isUnset(request.resId)) {
+      query["resId"] = request.resId;
     }
 
     if (!Util.isUnset(request.name)) {
       query["name"] = request.name;
     }
 
-    if (!Util.isUnset(request.page)) {
-      query["page"] = request.page;
+    if (!Util.isUnset(request.instanceId)) {
+      query["instanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.resId)) {
-      query["resId"] = request.resId;
+    if (!Util.isUnset(request.page)) {
+      query["page"] = request.page;
     }
 
     if (!Util.isUnset(request.size)) {
@@ -19862,18 +18742,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "ListCollectors",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/collectors`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListCollectorsResponse>(await this.callApi(params, req, runtime), new ListCollectorsResponse({}));
+    return $tea.cast<ListCollectorsResponse>(await this.doROARequest("ListCollectors", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/collectors`, "json", req, runtime), new ListCollectorsResponse({}));
   }
 
   async listConnectedClusters(InstanceId: string): Promise<ListConnectedClustersResponse> {
@@ -19887,18 +18756,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
-      action: "ListConnectedClusters",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/connected-clusters`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListConnectedClustersResponse>(await this.callApi(params, req, runtime), new ListConnectedClustersResponse({}));
+    return $tea.cast<ListConnectedClustersResponse>(await this.doROARequest("ListConnectedClusters", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/instances/${InstanceId}/connected-clusters`, "json", req, runtime), new ListConnectedClustersResponse({}));
   }
 
   async listDataStreams(InstanceId: string, request: ListDataStreamsRequest): Promise<ListDataStreamsResponse> {
@@ -19923,18 +18781,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "ListDataStreams",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/data-streams`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListDataStreamsResponse>(await this.callApi(params, req, runtime), new ListDataStreamsResponse({}));
+    return $tea.cast<ListDataStreamsResponse>(await this.doROARequest("ListDataStreams", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/instances/${InstanceId}/data-streams`, "json", req, runtime), new ListDataStreamsResponse({}));
   }
 
   async listDataTasks(InstanceId: string): Promise<ListDataTasksResponse> {
@@ -19948,18 +18795,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
-      action: "ListDataTasks",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/data-task`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListDataTasksResponse>(await this.callApi(params, req, runtime), new ListDataTasksResponse({}));
+    return $tea.cast<ListDataTasksResponse>(await this.doROARequest("ListDataTasks", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/instances/${InstanceId}/data-task`, "json", req, runtime), new ListDataTasksResponse({}));
   }
 
   async listDefaultCollectorConfigurations(request: ListDefaultCollectorConfigurationsRequest): Promise<ListDefaultCollectorConfigurationsResponse> {
@@ -19987,18 +18823,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "ListDefaultCollectorConfigurations",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/beats/default-configurations`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListDefaultCollectorConfigurationsResponse>(await this.callApi(params, req, runtime), new ListDefaultCollectorConfigurationsResponse({}));
+    return $tea.cast<ListDefaultCollectorConfigurationsResponse>(await this.doROARequest("ListDefaultCollectorConfigurations", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/beats/default-configurations`, "json", req, runtime), new ListDefaultCollectorConfigurationsResponse({}));
   }
 
   async listDiagnoseIndices(InstanceId: string, request: ListDiagnoseIndicesRequest): Promise<ListDiagnoseIndicesResponse> {
@@ -20019,18 +18844,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "ListDiagnoseIndices",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/diagnosis/instances/${InstanceId}/indices`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListDiagnoseIndicesResponse>(await this.callApi(params, req, runtime), new ListDiagnoseIndicesResponse({}));
+    return $tea.cast<ListDiagnoseIndicesResponse>(await this.doROARequest("ListDiagnoseIndices", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/diagnosis/instances/${InstanceId}/indices`, "json", req, runtime), new ListDiagnoseIndicesResponse({}));
   }
 
   async listDiagnoseReport(InstanceId: string, request: ListDiagnoseReportRequest): Promise<ListDiagnoseReportResponse> {
@@ -20043,16 +18857,16 @@ export default class Client extends OpenApi {
     Util.validateModel(request);
     InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.detail)) {
-      query["detail"] = request.detail;
+    if (!Util.isUnset(request.lang)) {
+      query["lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["startTime"] = request.startTime;
     }
 
     if (!Util.isUnset(request.endTime)) {
       query["endTime"] = request.endTime;
-    }
-
-    if (!Util.isUnset(request.lang)) {
-      query["lang"] = request.lang;
     }
 
     if (!Util.isUnset(request.page)) {
@@ -20063,8 +18877,8 @@ export default class Client extends OpenApi {
       query["size"] = request.size;
     }
 
-    if (!Util.isUnset(request.startTime)) {
-      query["startTime"] = request.startTime;
+    if (!Util.isUnset(request.detail)) {
+      query["detail"] = request.detail;
     }
 
     if (!Util.isUnset(request.trigger)) {
@@ -20075,18 +18889,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "ListDiagnoseReport",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/diagnosis/instances/${InstanceId}/reports`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListDiagnoseReportResponse>(await this.callApi(params, req, runtime), new ListDiagnoseReportResponse({}));
+    return $tea.cast<ListDiagnoseReportResponse>(await this.doROARequest("ListDiagnoseReport", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/diagnosis/instances/${InstanceId}/reports`, "json", req, runtime), new ListDiagnoseReportResponse({}));
   }
 
   async listDiagnoseReportIds(InstanceId: string, request: ListDiagnoseReportIdsRequest): Promise<ListDiagnoseReportIdsResponse> {
@@ -20099,12 +18902,16 @@ export default class Client extends OpenApi {
     Util.validateModel(request);
     InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.endTime)) {
-      query["endTime"] = request.endTime;
-    }
-
     if (!Util.isUnset(request.lang)) {
       query["lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["startTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["endTime"] = request.endTime;
     }
 
     if (!Util.isUnset(request.page)) {
@@ -20115,10 +18922,6 @@ export default class Client extends OpenApi {
       query["size"] = request.size;
     }
 
-    if (!Util.isUnset(request.startTime)) {
-      query["startTime"] = request.startTime;
-    }
-
     if (!Util.isUnset(request.trigger)) {
       query["trigger"] = request.trigger;
     }
@@ -20127,18 +18930,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "ListDiagnoseReportIds",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/diagnosis/instances/${InstanceId}/report-ids`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListDiagnoseReportIdsResponse>(await this.callApi(params, req, runtime), new ListDiagnoseReportIdsResponse({}));
+    return $tea.cast<ListDiagnoseReportIdsResponse>(await this.doROARequest("ListDiagnoseReportIds", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/diagnosis/instances/${InstanceId}/report-ids`, "json", req, runtime), new ListDiagnoseReportIdsResponse({}));
   }
 
   async listDictInformation(InstanceId: string, request: ListDictInformationRequest): Promise<ListDictInformationResponse> {
@@ -20151,10 +18943,6 @@ export default class Client extends OpenApi {
     Util.validateModel(request);
     InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.analyzerType)) {
-      query["analyzerType"] = request.analyzerType;
-    }
-
     if (!Util.isUnset(request.bucketName)) {
       query["bucketName"] = request.bucketName;
     }
@@ -20163,22 +18951,15 @@ export default class Client extends OpenApi {
       query["key"] = request.key;
     }
 
+    if (!Util.isUnset(request.analyzerType)) {
+      query["analyzerType"] = request.analyzerType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "ListDictInformation",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/dict/_info`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListDictInformationResponse>(await this.callApi(params, req, runtime), new ListDictInformationResponse({}));
+    return $tea.cast<ListDictInformationResponse>(await this.doROARequest("ListDictInformation", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/instances/${InstanceId}/dict/_info`, "json", req, runtime), new ListDictInformationResponse({}));
   }
 
   async listDicts(InstanceId: string, request: ListDictsRequest): Promise<ListDictsResponse> {
@@ -20203,18 +18984,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "ListDicts",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/dicts`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListDictsResponse>(await this.callApi(params, req, runtime), new ListDictsResponse({}));
+    return $tea.cast<ListDictsResponse>(await this.doROARequest("ListDicts", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/instances/${InstanceId}/dicts`, "json", req, runtime), new ListDictsResponse({}));
   }
 
   async listEcsInstances(request: ListEcsInstancesRequest): Promise<ListEcsInstancesResponse> {
@@ -20226,20 +18996,20 @@ export default class Client extends OpenApi {
   async listEcsInstancesWithOptions(request: ListEcsInstancesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListEcsInstancesResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.ecsInstanceIds)) {
-      query["ecsInstanceIds"] = request.ecsInstanceIds;
-    }
-
-    if (!Util.isUnset(request.ecsInstanceName)) {
-      query["ecsInstanceName"] = request.ecsInstanceName;
-    }
-
     if (!Util.isUnset(request.page)) {
       query["page"] = request.page;
     }
 
     if (!Util.isUnset(request.size)) {
       query["size"] = request.size;
+    }
+
+    if (!Util.isUnset(request.ecsInstanceIds)) {
+      query["ecsInstanceIds"] = request.ecsInstanceIds;
+    }
+
+    if (!Util.isUnset(request.ecsInstanceName)) {
+      query["ecsInstanceName"] = request.ecsInstanceName;
     }
 
     if (!Util.isUnset(request.tags)) {
@@ -20254,18 +19024,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "ListEcsInstances",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/ecs`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListEcsInstancesResponse>(await this.callApi(params, req, runtime), new ListEcsInstancesResponse({}));
+    return $tea.cast<ListEcsInstancesResponse>(await this.doROARequest("ListEcsInstances", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/ecs`, "json", req, runtime), new ListEcsInstancesResponse({}));
   }
 
   async listExtendfiles(InstanceId: string): Promise<ListExtendfilesResponse> {
@@ -20279,18 +19038,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
-      action: "ListExtendfiles",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/logstashes/${InstanceId}/extendfiles`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListExtendfilesResponse>(await this.callApi(params, req, runtime), new ListExtendfilesResponse({}));
+    return $tea.cast<ListExtendfilesResponse>(await this.doROARequest("ListExtendfiles", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/logstashes/${InstanceId}/extendfiles`, "json", req, runtime), new ListExtendfilesResponse({}));
   }
 
   async listILMPolicies(InstanceId: string, request: ListILMPoliciesRequest): Promise<ListILMPoliciesResponse> {
@@ -20311,18 +19059,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "ListILMPolicies",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/ilm-policies`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListILMPoliciesResponse>(await this.callApi(params, req, runtime), new ListILMPoliciesResponse({}));
+    return $tea.cast<ListILMPoliciesResponse>(await this.doROARequest("ListILMPolicies", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/instances/${InstanceId}/ilm-policies`, "json", req, runtime), new ListILMPoliciesResponse({}));
   }
 
   async listIndexTemplates(InstanceId: string, request: ListIndexTemplatesRequest): Promise<ListIndexTemplatesResponse> {
@@ -20343,18 +19080,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "ListIndexTemplates",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/index-templates`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListIndexTemplatesResponse>(await this.callApi(params, req, runtime), new ListIndexTemplatesResponse({}));
+    return $tea.cast<ListIndexTemplatesResponse>(await this.doROARequest("ListIndexTemplates", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/instances/${InstanceId}/index-templates`, "json", req, runtime), new ListIndexTemplatesResponse({}));
   }
 
   async listInstance(request: ListInstanceRequest): Promise<ListInstanceResponse> {
@@ -20366,36 +19092,28 @@ export default class Client extends OpenApi {
   async listInstanceWithOptions(request: ListInstanceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListInstanceResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.page)) {
+      query["page"] = request.page;
+    }
+
+    if (!Util.isUnset(request.size)) {
+      query["size"] = request.size;
+    }
+
     if (!Util.isUnset(request.description)) {
       query["description"] = request.description;
-    }
-
-    if (!Util.isUnset(request.esVersion)) {
-      query["esVersion"] = request.esVersion;
-    }
-
-    if (!Util.isUnset(request.instanceCategory)) {
-      query["instanceCategory"] = request.instanceCategory;
     }
 
     if (!Util.isUnset(request.instanceId)) {
       query["instanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.page)) {
-      query["page"] = request.page;
-    }
-
-    if (!Util.isUnset(request.paymentType)) {
-      query["paymentType"] = request.paymentType;
+    if (!Util.isUnset(request.esVersion)) {
+      query["esVersion"] = request.esVersion;
     }
 
     if (!Util.isUnset(request.resourceGroupId)) {
       query["resourceGroupId"] = request.resourceGroupId;
-    }
-
-    if (!Util.isUnset(request.size)) {
-      query["size"] = request.size;
     }
 
     if (!Util.isUnset(request.tags)) {
@@ -20410,22 +19128,19 @@ export default class Client extends OpenApi {
       query["zoneId"] = request.zoneId;
     }
 
+    if (!Util.isUnset(request.paymentType)) {
+      query["paymentType"] = request.paymentType;
+    }
+
+    if (!Util.isUnset(request.instanceCategory)) {
+      query["instanceCategory"] = request.instanceCategory;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "ListInstance",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListInstanceResponse>(await this.callApi(params, req, runtime), new ListInstanceResponse({}));
+    return $tea.cast<ListInstanceResponse>(await this.doROARequest("ListInstance", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/instances`, "json", req, runtime), new ListInstanceResponse({}));
   }
 
   async listInstanceIndices(InstanceId: string, request: ListInstanceIndicesRequest): Promise<ListInstanceIndicesResponse> {
@@ -20442,16 +19157,16 @@ export default class Client extends OpenApi {
       query["all"] = request.all;
     }
 
+    if (!Util.isUnset(request.name)) {
+      query["name"] = request.name;
+    }
+
     if (!Util.isUnset(request.isManaged)) {
       query["isManaged"] = request.isManaged;
     }
 
     if (!Util.isUnset(request.isOpenstore)) {
       query["isOpenstore"] = request.isOpenstore;
-    }
-
-    if (!Util.isUnset(request.name)) {
-      query["name"] = request.name;
     }
 
     if (!Util.isUnset(request.page)) {
@@ -20466,18 +19181,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "ListInstanceIndices",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/indices`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListInstanceIndicesResponse>(await this.callApi(params, req, runtime), new ListInstanceIndicesResponse({}));
+    return $tea.cast<ListInstanceIndicesResponse>(await this.doROARequest("ListInstanceIndices", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/instances/${InstanceId}/indices`, "json", req, runtime), new ListInstanceIndicesResponse({}));
   }
 
   async listKibanaPlugins(InstanceId: string, request: ListKibanaPluginsRequest): Promise<ListKibanaPluginsResponse> {
@@ -20502,18 +19206,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "ListKibanaPlugins",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/kibana-plugins`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListKibanaPluginsResponse>(await this.callApi(params, req, runtime), new ListKibanaPluginsResponse({}));
+    return $tea.cast<ListKibanaPluginsResponse>(await this.doROARequest("ListKibanaPlugins", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/instances/${InstanceId}/kibana-plugins`, "json", req, runtime), new ListKibanaPluginsResponse({}));
   }
 
   async listLogstash(request: ListLogstashRequest): Promise<ListLogstashResponse> {
@@ -20525,6 +19218,14 @@ export default class Client extends OpenApi {
   async listLogstashWithOptions(request: ListLogstashRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListLogstashResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.page)) {
+      query["page"] = request.page;
+    }
+
+    if (!Util.isUnset(request.size)) {
+      query["size"] = request.size;
+    }
+
     if (!Util.isUnset(request.description)) {
       query["description"] = request.description;
     }
@@ -20533,42 +19234,23 @@ export default class Client extends OpenApi {
       query["instanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
-      query["ownerId"] = request.ownerId;
+    if (!Util.isUnset(request.version)) {
+      query["version"] = request.version;
     }
 
-    if (!Util.isUnset(request.page)) {
-      query["page"] = request.page;
+    if (!Util.isUnset(request.ownerId)) {
+      query["ownerId"] = request.ownerId;
     }
 
     if (!Util.isUnset(request.resourceGroupId)) {
       query["resourceGroupId"] = request.resourceGroupId;
     }
 
-    if (!Util.isUnset(request.size)) {
-      query["size"] = request.size;
-    }
-
-    if (!Util.isUnset(request.version)) {
-      query["version"] = request.version;
-    }
-
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "ListLogstash",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/logstashes`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListLogstashResponse>(await this.callApi(params, req, runtime), new ListLogstashResponse({}));
+    return $tea.cast<ListLogstashResponse>(await this.doROARequest("ListLogstash", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/logstashes`, "json", req, runtime), new ListLogstashResponse({}));
   }
 
   async listLogstashLog(InstanceId: string, request: ListLogstashLogRequest): Promise<ListLogstashLogResponse> {
@@ -20581,6 +19263,14 @@ export default class Client extends OpenApi {
     Util.validateModel(request);
     InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.type)) {
+      query["type"] = request.type;
+    }
+
+    if (!Util.isUnset(request.query)) {
+      query["query"] = request.query;
+    }
+
     if (!Util.isUnset(request.beginTime)) {
       query["beginTime"] = request.beginTime;
     }
@@ -20593,34 +19283,15 @@ export default class Client extends OpenApi {
       query["page"] = request.page;
     }
 
-    if (!Util.isUnset(request.query)) {
-      query["query"] = request.query;
-    }
-
     if (!Util.isUnset(request.size)) {
       query["size"] = request.size;
-    }
-
-    if (!Util.isUnset(request.type)) {
-      query["type"] = request.type;
     }
 
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "ListLogstashLog",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/logstashes/${InstanceId}/search-log`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListLogstashLogResponse>(await this.callApi(params, req, runtime), new ListLogstashLogResponse({}));
+    return $tea.cast<ListLogstashLogResponse>(await this.doROARequest("ListLogstashLog", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/logstashes/${InstanceId}/search-log`, "json", req, runtime), new ListLogstashLogResponse({}));
   }
 
   async listLogstashPlugins(InstanceId: string, request: ListLogstashPluginsRequest): Promise<ListLogstashPluginsResponse> {
@@ -20653,18 +19324,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "ListLogstashPlugins",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/logstashes/${InstanceId}/plugins`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListLogstashPluginsResponse>(await this.callApi(params, req, runtime), new ListLogstashPluginsResponse({}));
+    return $tea.cast<ListLogstashPluginsResponse>(await this.doROARequest("ListLogstashPlugins", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/logstashes/${InstanceId}/plugins`, "json", req, runtime), new ListLogstashPluginsResponse({}));
   }
 
   async listNodes(ResId: string, request: ListNodesRequest): Promise<ListNodesResponse> {
@@ -20677,20 +19337,20 @@ export default class Client extends OpenApi {
     Util.validateModel(request);
     ResId = OpenApiUtil.getEncodeParam(ResId);
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.ecsInstanceIds)) {
-      query["ecsInstanceIds"] = request.ecsInstanceIds;
-    }
-
-    if (!Util.isUnset(request.ecsInstanceName)) {
-      query["ecsInstanceName"] = request.ecsInstanceName;
-    }
-
     if (!Util.isUnset(request.page)) {
       query["page"] = request.page;
     }
 
     if (!Util.isUnset(request.size)) {
       query["size"] = request.size;
+    }
+
+    if (!Util.isUnset(request.ecsInstanceIds)) {
+      query["ecsInstanceIds"] = request.ecsInstanceIds;
+    }
+
+    if (!Util.isUnset(request.ecsInstanceName)) {
+      query["ecsInstanceName"] = request.ecsInstanceName;
     }
 
     if (!Util.isUnset(request.tags)) {
@@ -20701,18 +19361,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "ListNodes",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/collectors/${ResId}/nodes`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListNodesResponse>(await this.callApi(params, req, runtime), new ListNodesResponse({}));
+    return $tea.cast<ListNodesResponse>(await this.doROARequest("ListNodes", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/collectors/${ResId}/nodes`, "json", req, runtime), new ListNodesResponse({}));
   }
 
   async listPipeline(InstanceId: string, request: ListPipelineRequest): Promise<ListPipelineResponse> {
@@ -20725,12 +19374,12 @@ export default class Client extends OpenApi {
     Util.validateModel(request);
     InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.page)) {
-      query["page"] = request.page;
-    }
-
     if (!Util.isUnset(request.pipelineId)) {
       query["pipelineId"] = request.pipelineId;
+    }
+
+    if (!Util.isUnset(request.page)) {
+      query["page"] = request.page;
     }
 
     if (!Util.isUnset(request.size)) {
@@ -20741,18 +19390,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "ListPipeline",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/logstashes/${InstanceId}/pipelines`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListPipelineResponse>(await this.callApi(params, req, runtime), new ListPipelineResponse({}));
+    return $tea.cast<ListPipelineResponse>(await this.doROARequest("ListPipeline", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/logstashes/${InstanceId}/pipelines`, "json", req, runtime), new ListPipelineResponse({}));
   }
 
   async listPipelineIds(InstanceId: string): Promise<ListPipelineIdsResponse> {
@@ -20766,18 +19404,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
-      action: "ListPipelineIds",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/pipeline-ids`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListPipelineIdsResponse>(await this.callApi(params, req, runtime), new ListPipelineIdsResponse({}));
+    return $tea.cast<ListPipelineIdsResponse>(await this.doROARequest("ListPipelineIds", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/instances/${InstanceId}/pipeline-ids`, "json", req, runtime), new ListPipelineIdsResponse({}));
   }
 
   async listPlugins(InstanceId: string, request: ListPluginsRequest): Promise<ListPluginsResponse> {
@@ -20810,18 +19437,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "ListPlugins",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/plugins`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListPluginsResponse>(await this.callApi(params, req, runtime), new ListPluginsResponse({}));
+    return $tea.cast<ListPluginsResponse>(await this.doROARequest("ListPlugins", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/instances/${InstanceId}/plugins`, "json", req, runtime), new ListPluginsResponse({}));
   }
 
   async listSearchLog(InstanceId: string, request: ListSearchLogRequest): Promise<ListSearchLogResponse> {
@@ -20834,6 +19450,14 @@ export default class Client extends OpenApi {
     Util.validateModel(request);
     InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.type)) {
+      query["type"] = request.type;
+    }
+
+    if (!Util.isUnset(request.query)) {
+      query["query"] = request.query;
+    }
+
     if (!Util.isUnset(request.beginTime)) {
       query["beginTime"] = request.beginTime;
     }
@@ -20846,34 +19470,15 @@ export default class Client extends OpenApi {
       query["page"] = request.page;
     }
 
-    if (!Util.isUnset(request.query)) {
-      query["query"] = request.query;
-    }
-
     if (!Util.isUnset(request.size)) {
       query["size"] = request.size;
-    }
-
-    if (!Util.isUnset(request.type)) {
-      query["type"] = request.type;
     }
 
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "ListSearchLog",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/search-log`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListSearchLogResponse>(await this.callApi(params, req, runtime), new ListSearchLogResponse({}));
+    return $tea.cast<ListSearchLogResponse>(await this.doROARequest("ListSearchLog", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/instances/${InstanceId}/search-log`, "json", req, runtime), new ListSearchLogResponse({}));
   }
 
   async listShardRecoveries(InstanceId: string, request: ListShardRecoveriesRequest): Promise<ListShardRecoveriesResponse> {
@@ -20894,18 +19499,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "ListShardRecoveries",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/cat-recovery`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListShardRecoveriesResponse>(await this.callApi(params, req, runtime), new ListShardRecoveriesResponse({}));
+    return $tea.cast<ListShardRecoveriesResponse>(await this.doROARequest("ListShardRecoveries", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/instances/${InstanceId}/cat-recovery`, "json", req, runtime), new ListShardRecoveriesResponse({}));
   }
 
   async listSnapshotReposByInstanceId(InstanceId: string): Promise<ListSnapshotReposByInstanceIdResponse> {
@@ -20919,18 +19513,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
-      action: "ListSnapshotReposByInstanceId",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/snapshot-repos`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListSnapshotReposByInstanceIdResponse>(await this.callApi(params, req, runtime), new ListSnapshotReposByInstanceIdResponse({}));
+    return $tea.cast<ListSnapshotReposByInstanceIdResponse>(await this.doROARequest("ListSnapshotReposByInstanceId", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/instances/${InstanceId}/snapshot-repos`, "json", req, runtime), new ListSnapshotReposByInstanceIdResponse({}));
   }
 
   async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
@@ -20942,24 +19525,24 @@ export default class Client extends OpenApi {
   async listTagResourcesWithOptions(request: ListTagResourcesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.nextToken)) {
-      query["NextToken"] = request.nextToken;
-    }
-
     if (!Util.isUnset(request.page)) {
       query["Page"] = request.page;
     }
 
-    if (!Util.isUnset(request.resourceIds)) {
-      query["ResourceIds"] = request.resourceIds;
+    if (!Util.isUnset(request.size)) {
+      query["Size"] = request.size;
     }
 
     if (!Util.isUnset(request.resourceType)) {
       query["ResourceType"] = request.resourceType;
     }
 
-    if (!Util.isUnset(request.size)) {
-      query["Size"] = request.size;
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.resourceIds)) {
+      query["ResourceIds"] = request.resourceIds;
     }
 
     if (!Util.isUnset(request.tags)) {
@@ -20970,18 +19553,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "ListTagResources",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/tags`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
+    return $tea.cast<ListTagResourcesResponse>(await this.doROARequest("ListTagResources", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/tags`, "json", req, runtime), new ListTagResourcesResponse({}));
   }
 
   async listTags(request: ListTagsRequest): Promise<ListTagsResponse> {
@@ -21005,18 +19577,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "ListTags",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/tags/all-tags`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListTagsResponse>(await this.callApi(params, req, runtime), new ListTagsResponse({}));
+    return $tea.cast<ListTagsResponse>(await this.doROARequest("ListTags", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/tags/all-tags`, "json", req, runtime), new ListTagsResponse({}));
   }
 
   async listVpcEndpoints(InstanceId: string, request: ListVpcEndpointsRequest): Promise<ListVpcEndpointsResponse> {
@@ -21029,30 +19590,19 @@ export default class Client extends OpenApi {
     Util.validateModel(request);
     InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.page)) {
-      query["page"] = request.page;
-    }
-
     if (!Util.isUnset(request.size)) {
       query["size"] = request.size;
+    }
+
+    if (!Util.isUnset(request.page)) {
+      query["page"] = request.page;
     }
 
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "ListVpcEndpoints",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/vpc-endpoints`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListVpcEndpointsResponse>(await this.callApi(params, req, runtime), new ListVpcEndpointsResponse({}));
+    return $tea.cast<ListVpcEndpointsResponse>(await this.doROARequest("ListVpcEndpoints", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/instances/${InstanceId}/vpc-endpoints`, "json", req, runtime), new ListVpcEndpointsResponse({}));
   }
 
   async migrateToOtherZone(InstanceId: string, request: MigrateToOtherZoneRequest): Promise<MigrateToOtherZoneResponse> {
@@ -21073,18 +19623,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "MigrateToOtherZone",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/actions/migrate-zones`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<MigrateToOtherZoneResponse>(await this.callApi(params, req, runtime), new MigrateToOtherZoneResponse({}));
+    return $tea.cast<MigrateToOtherZoneResponse>(await this.doROARequest("MigrateToOtherZone", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/instances/${InstanceId}/actions/migrate-zones`, "json", req, runtime), new MigrateToOtherZoneResponse({}));
   }
 
   async modifyDeployMachine(ResId: string, request: ModifyDeployMachineRequest): Promise<ModifyDeployMachineResponse> {
@@ -21105,18 +19644,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "ModifyDeployMachine",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/collectors/${ResId}/actions/modify-deploy-machines`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ModifyDeployMachineResponse>(await this.callApi(params, req, runtime), new ModifyDeployMachineResponse({}));
+    return $tea.cast<ModifyDeployMachineResponse>(await this.doROARequest("ModifyDeployMachine", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/collectors/${ResId}/actions/modify-deploy-machines`, "json", req, runtime), new ModifyDeployMachineResponse({}));
   }
 
   async modifyElastictask(InstanceId: string): Promise<ModifyElastictaskResponse> {
@@ -21130,18 +19658,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
-      action: "ModifyElastictask",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/elastic-task`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ModifyElastictaskResponse>(await this.callApi(params, req, runtime), new ModifyElastictaskResponse({}));
+    return $tea.cast<ModifyElastictaskResponse>(await this.doROARequest("ModifyElastictask", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/instances/${InstanceId}/elastic-task`, "json", req, runtime), new ModifyElastictaskResponse({}));
   }
 
   async modifyInstanceMaintainTime(InstanceId: string, request: ModifyInstanceMaintainTimeRequest): Promise<ModifyInstanceMaintainTimeResponse> {
@@ -21162,18 +19679,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "ModifyInstanceMaintainTime",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/actions/modify-maintaintime`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ModifyInstanceMaintainTimeResponse>(await this.callApi(params, req, runtime), new ModifyInstanceMaintainTimeResponse({}));
+    return $tea.cast<ModifyInstanceMaintainTimeResponse>(await this.doROARequest("ModifyInstanceMaintainTime", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/instances/${InstanceId}/actions/modify-maintaintime`, "json", req, runtime), new ModifyInstanceMaintainTimeResponse({}));
   }
 
   async modifyWhiteIps(InstanceId: string, request: ModifyWhiteIpsRequest): Promise<ModifyWhiteIpsResponse> {
@@ -21191,24 +19697,24 @@ export default class Client extends OpenApi {
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.modifyMode)) {
-      body["modifyMode"] = request.modifyMode;
+    if (!Util.isUnset(request.nodeType)) {
+      body["nodeType"] = request.nodeType;
     }
 
     if (!Util.isUnset(request.networkType)) {
       body["networkType"] = request.networkType;
     }
 
-    if (!Util.isUnset(request.nodeType)) {
-      body["nodeType"] = request.nodeType;
-    }
-
-    if (!Util.isUnset($tea.toMap(request.whiteIpGroup))) {
-      body["whiteIpGroup"] = request.whiteIpGroup;
+    if (!Util.isUnset(request.modifyMode)) {
+      body["modifyMode"] = request.modifyMode;
     }
 
     if (!Util.isUnset(request.whiteIpList)) {
       body["whiteIpList"] = request.whiteIpList;
+    }
+
+    if (!Util.isUnset($tea.toMap(request.whiteIpGroup))) {
+      body["whiteIpGroup"] = request.whiteIpGroup;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -21216,18 +19722,7 @@ export default class Client extends OpenApi {
       query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
-      action: "ModifyWhiteIps",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/actions/modify-white-ips`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<ModifyWhiteIpsResponse>(await this.callApi(params, req, runtime), new ModifyWhiteIpsResponse({}));
+    return $tea.cast<ModifyWhiteIpsResponse>(await this.doROARequestWithForm("ModifyWhiteIps", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/instances/${InstanceId}/actions/modify-white-ips`, "json", req, runtime), new ModifyWhiteIpsResponse({}));
   }
 
   async moveResourceGroup(InstanceId: string, request: MoveResourceGroupRequest): Promise<MoveResourceGroupResponse> {
@@ -21248,18 +19743,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "MoveResourceGroup",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/resourcegroup`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<MoveResourceGroupResponse>(await this.callApi(params, req, runtime), new MoveResourceGroupResponse({}));
+    return $tea.cast<MoveResourceGroupResponse>(await this.doROARequest("MoveResourceGroup", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/instances/${InstanceId}/resourcegroup`, "json", req, runtime), new MoveResourceGroupResponse({}));
   }
 
   async openDiagnosis(InstanceId: string, request: OpenDiagnosisRequest): Promise<OpenDiagnosisResponse> {
@@ -21284,18 +19768,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "OpenDiagnosis",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/diagnosis/instances/${InstanceId}/actions/open-diagnosis`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<OpenDiagnosisResponse>(await this.callApi(params, req, runtime), new OpenDiagnosisResponse({}));
+    return $tea.cast<OpenDiagnosisResponse>(await this.doROARequest("OpenDiagnosis", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/diagnosis/instances/${InstanceId}/actions/open-diagnosis`, "json", req, runtime), new OpenDiagnosisResponse({}));
   }
 
   async openHttps(InstanceId: string, request: OpenHttpsRequest): Promise<OpenHttpsResponse> {
@@ -21316,44 +19789,22 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "OpenHttps",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/actions/open-https`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<OpenHttpsResponse>(await this.callApi(params, req, runtime), new OpenHttpsResponse({}));
+    return $tea.cast<OpenHttpsResponse>(await this.doROARequest("OpenHttps", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/instances/${InstanceId}/actions/open-https`, "json", req, runtime), new OpenHttpsResponse({}));
   }
 
-  async postEmonTryAlarmRule(AlarmGroupId: string, ProjectId: string): Promise<PostEmonTryAlarmRuleResponse> {
+  async postEmonTryAlarmRule(ProjectId: string, AlarmGroupId: string): Promise<PostEmonTryAlarmRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.postEmonTryAlarmRuleWithOptions(AlarmGroupId, ProjectId, headers, runtime);
+    return await this.postEmonTryAlarmRuleWithOptions(ProjectId, AlarmGroupId, headers, runtime);
   }
 
-  async postEmonTryAlarmRuleWithOptions(AlarmGroupId: string, ProjectId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PostEmonTryAlarmRuleResponse> {
-    AlarmGroupId = OpenApiUtil.getEncodeParam(AlarmGroupId);
+  async postEmonTryAlarmRuleWithOptions(ProjectId: string, AlarmGroupId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PostEmonTryAlarmRuleResponse> {
     ProjectId = OpenApiUtil.getEncodeParam(ProjectId);
+    AlarmGroupId = OpenApiUtil.getEncodeParam(AlarmGroupId);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
-      action: "PostEmonTryAlarmRule",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/emon/projects/${ProjectId}/alarm-groups/{AlarmGroupId}/alarm-rules/_test`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<PostEmonTryAlarmRuleResponse>(await this.callApi(params, req, runtime), new PostEmonTryAlarmRuleResponse({}));
+    return $tea.cast<PostEmonTryAlarmRuleResponse>(await this.doROARequest("PostEmonTryAlarmRule", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/emon/projects/${ProjectId}/alarm-groups/${AlarmGroupId}/alarm-rules/_test`, "json", req, runtime), new PostEmonTryAlarmRuleResponse({}));
   }
 
   async recommendTemplates(InstanceId: string, request: RecommendTemplatesRequest): Promise<RecommendTemplatesResponse> {
@@ -21374,18 +19825,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "RecommendTemplates",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/recommended-templates`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<RecommendTemplatesResponse>(await this.callApi(params, req, runtime), new RecommendTemplatesResponse({}));
+    return $tea.cast<RecommendTemplatesResponse>(await this.doROARequest("RecommendTemplates", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/instances/${InstanceId}/recommended-templates`, "json", req, runtime), new RecommendTemplatesResponse({}));
   }
 
   async reinstallCollector(ResId: string, request: ReinstallCollectorRequest): Promise<ReinstallCollectorResponse> {
@@ -21406,43 +19846,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "ReinstallCollector",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/collectors/${ResId}/actions/reinstall`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ReinstallCollectorResponse>(await this.callApi(params, req, runtime), new ReinstallCollectorResponse({}));
-  }
-
-  async removeApm(instanceId: string): Promise<RemoveApmResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.removeApmWithOptions(instanceId, headers, runtime);
-  }
-
-  async removeApmWithOptions(instanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RemoveApmResponse> {
-    instanceId = OpenApiUtil.getEncodeParam(instanceId);
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-    });
-    let params = new $OpenApi.Params({
-      action: "RemoveApm",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/apm/${instanceId}`,
-      method: "DELETE",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<RemoveApmResponse>(await this.callApi(params, req, runtime), new RemoveApmResponse({}));
+    return $tea.cast<ReinstallCollectorResponse>(await this.doROARequest("ReinstallCollector", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/collectors/${ResId}/actions/reinstall`, "json", req, runtime), new ReinstallCollectorResponse({}));
   }
 
   async renewInstance(InstanceId: string, request: RenewInstanceRequest): Promise<RenewInstanceResponse> {
@@ -21463,18 +19867,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "RenewInstance",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/actions/renew`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<RenewInstanceResponse>(await this.callApi(params, req, runtime), new RenewInstanceResponse({}));
+    return $tea.cast<RenewInstanceResponse>(await this.doROARequest("RenewInstance", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/instances/${InstanceId}/actions/renew`, "json", req, runtime), new RenewInstanceResponse({}));
   }
 
   async renewLogstash(InstanceId: string, request: RenewLogstashRequest): Promise<RenewLogstashResponse> {
@@ -21495,18 +19888,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "RenewLogstash",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/logstashes/${InstanceId}/actions/renew`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<RenewLogstashResponse>(await this.callApi(params, req, runtime), new RenewLogstashResponse({}));
+    return $tea.cast<RenewLogstashResponse>(await this.doROARequest("RenewLogstash", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/logstashes/${InstanceId}/actions/renew`, "json", req, runtime), new RenewLogstashResponse({}));
   }
 
   async restartCollector(ResId: string, request: RestartCollectorRequest): Promise<RestartCollectorResponse> {
@@ -21527,18 +19909,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "RestartCollector",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/collectors/${ResId}/actions/restart`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<RestartCollectorResponse>(await this.callApi(params, req, runtime), new RestartCollectorResponse({}));
+    return $tea.cast<RestartCollectorResponse>(await this.doROARequest("RestartCollector", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/collectors/${ResId}/actions/restart`, "json", req, runtime), new RestartCollectorResponse({}));
   }
 
   async restartInstance(InstanceId: string, request: RestartInstanceRequest): Promise<RestartInstanceResponse> {
@@ -21551,30 +19922,19 @@ export default class Client extends OpenApi {
     Util.validateModel(request);
     InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.clientToken)) {
-      query["clientToken"] = request.clientToken;
-    }
-
     if (!Util.isUnset(request.force)) {
       query["force"] = request.force;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["clientToken"] = request.clientToken;
     }
 
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "RestartInstance",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/actions/restart`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<RestartInstanceResponse>(await this.callApi(params, req, runtime), new RestartInstanceResponse({}));
+    return $tea.cast<RestartInstanceResponse>(await this.doROARequest("RestartInstance", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/instances/${InstanceId}/actions/restart`, "json", req, runtime), new RestartInstanceResponse({}));
   }
 
   async restartLogstash(InstanceId: string, request: RestartLogstashRequest): Promise<RestartLogstashResponse> {
@@ -21587,30 +19947,19 @@ export default class Client extends OpenApi {
     Util.validateModel(request);
     InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.clientToken)) {
-      query["clientToken"] = request.clientToken;
-    }
-
     if (!Util.isUnset(request.force)) {
       query["force"] = request.force;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["clientToken"] = request.clientToken;
     }
 
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "RestartLogstash",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/logstashes/${InstanceId}/actions/restart`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<RestartLogstashResponse>(await this.callApi(params, req, runtime), new RestartLogstashResponse({}));
+    return $tea.cast<RestartLogstashResponse>(await this.doROARequest("RestartLogstash", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/logstashes/${InstanceId}/actions/restart`, "json", req, runtime), new RestartLogstashResponse({}));
   }
 
   async resumeElasticsearchTask(InstanceId: string, request: ResumeElasticsearchTaskRequest): Promise<ResumeElasticsearchTaskResponse> {
@@ -21631,18 +19980,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "ResumeElasticsearchTask",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/actions/resume`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ResumeElasticsearchTaskResponse>(await this.callApi(params, req, runtime), new ResumeElasticsearchTaskResponse({}));
+    return $tea.cast<ResumeElasticsearchTaskResponse>(await this.doROARequest("ResumeElasticsearchTask", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/instances/${InstanceId}/actions/resume`, "json", req, runtime), new ResumeElasticsearchTaskResponse({}));
   }
 
   async resumeLogstashTask(InstanceId: string, request: ResumeLogstashTaskRequest): Promise<ResumeLogstashTaskResponse> {
@@ -21663,30 +20001,19 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "ResumeLogstashTask",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/logstashes/${InstanceId}/actions/resume`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ResumeLogstashTaskResponse>(await this.callApi(params, req, runtime), new ResumeLogstashTaskResponse({}));
+    return $tea.cast<ResumeLogstashTaskResponse>(await this.doROARequest("ResumeLogstashTask", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/logstashes/${InstanceId}/actions/resume`, "json", req, runtime), new ResumeLogstashTaskResponse({}));
   }
 
-  async rolloverDataStream(DataStream: string, InstanceId: string, request: RolloverDataStreamRequest): Promise<RolloverDataStreamResponse> {
+  async rolloverDataStream(InstanceId: string, DataStream: string, request: RolloverDataStreamRequest): Promise<RolloverDataStreamResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.rolloverDataStreamWithOptions(DataStream, InstanceId, request, headers, runtime);
+    return await this.rolloverDataStreamWithOptions(InstanceId, DataStream, request, headers, runtime);
   }
 
-  async rolloverDataStreamWithOptions(DataStream: string, InstanceId: string, request: RolloverDataStreamRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RolloverDataStreamResponse> {
+  async rolloverDataStreamWithOptions(InstanceId: string, DataStream: string, request: RolloverDataStreamRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RolloverDataStreamResponse> {
     Util.validateModel(request);
-    DataStream = OpenApiUtil.getEncodeParam(DataStream);
     InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
+    DataStream = OpenApiUtil.getEncodeParam(DataStream);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
@@ -21696,18 +20023,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "RolloverDataStream",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/data-streams/{DataStream}/rollover`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<RolloverDataStreamResponse>(await this.callApi(params, req, runtime), new RolloverDataStreamResponse({}));
+    return $tea.cast<RolloverDataStreamResponse>(await this.doROARequest("RolloverDataStream", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/instances/${InstanceId}/data-streams/${DataStream}/rollover`, "json", req, runtime), new RolloverDataStreamResponse({}));
   }
 
   async runPipelines(InstanceId: string, request: RunPipelinesRequest): Promise<RunPipelinesResponse> {
@@ -21728,18 +20044,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "RunPipelines",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/logstashes/${InstanceId}/pipelines/action/run`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<RunPipelinesResponse>(await this.callApi(params, req, runtime), new RunPipelinesResponse({}));
+    return $tea.cast<RunPipelinesResponse>(await this.doROARequest("RunPipelines", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/logstashes/${InstanceId}/pipelines/action/run`, "json", req, runtime), new RunPipelinesResponse({}));
   }
 
   async shrinkNode(InstanceId: string, request: ShrinkNodeRequest): Promise<ShrinkNodeResponse> {
@@ -21752,6 +20057,10 @@ export default class Client extends OpenApi {
     Util.validateModel(request);
     InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.nodeType)) {
+      query["nodeType"] = request.nodeType;
+    }
+
     if (!Util.isUnset(request.clientToken)) {
       query["clientToken"] = request.clientToken;
     }
@@ -21760,51 +20069,11 @@ export default class Client extends OpenApi {
       query["ignoreStatus"] = request.ignoreStatus;
     }
 
-    if (!Util.isUnset(request.nodeType)) {
-      query["nodeType"] = request.nodeType;
-    }
-
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "ShrinkNode",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/actions/shrink`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ShrinkNodeResponse>(await this.callApi(params, req, runtime), new ShrinkNodeResponse({}));
-  }
-
-  async startApm(instanceId: string): Promise<StartApmResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.startApmWithOptions(instanceId, headers, runtime);
-  }
-
-  async startApmWithOptions(instanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StartApmResponse> {
-    instanceId = OpenApiUtil.getEncodeParam(instanceId);
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-    });
-    let params = new $OpenApi.Params({
-      action: "StartApm",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/apm/${instanceId}/actions/start`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<StartApmResponse>(await this.callApi(params, req, runtime), new StartApmResponse({}));
+    return $tea.cast<ShrinkNodeResponse>(await this.doROARequest("ShrinkNode", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/instances/${InstanceId}/actions/shrink`, "json", req, runtime), new ShrinkNodeResponse({}));
   }
 
   async startCollector(ResId: string, request: StartCollectorRequest): Promise<StartCollectorResponse> {
@@ -21825,43 +20094,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "StartCollector",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/collectors/${ResId}/actions/start`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<StartCollectorResponse>(await this.callApi(params, req, runtime), new StartCollectorResponse({}));
-  }
-
-  async stopApm(instanceId: string): Promise<StopApmResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.stopApmWithOptions(instanceId, headers, runtime);
-  }
-
-  async stopApmWithOptions(instanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StopApmResponse> {
-    instanceId = OpenApiUtil.getEncodeParam(instanceId);
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-    });
-    let params = new $OpenApi.Params({
-      action: "StopApm",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/apm/${instanceId}/actions/stop`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<StopApmResponse>(await this.callApi(params, req, runtime), new StopApmResponse({}));
+    return $tea.cast<StartCollectorResponse>(await this.doROARequest("StartCollector", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/collectors/${ResId}/actions/start`, "json", req, runtime), new StartCollectorResponse({}));
   }
 
   async stopCollector(ResId: string, request: StopCollectorRequest): Promise<StopCollectorResponse> {
@@ -21882,18 +20115,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "StopCollector",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/collectors/${ResId}/actions/stop`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<StopCollectorResponse>(await this.callApi(params, req, runtime), new StopCollectorResponse({}));
+    return $tea.cast<StopCollectorResponse>(await this.doROARequest("StopCollector", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/collectors/${ResId}/actions/stop`, "json", req, runtime), new StopCollectorResponse({}));
   }
 
   async stopPipelines(InstanceId: string, request: StopPipelinesRequest): Promise<StopPipelinesResponse> {
@@ -21914,18 +20136,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "StopPipelines",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/logstashes/${InstanceId}/pipelines/action/stop`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<StopPipelinesResponse>(await this.callApi(params, req, runtime), new StopPipelinesResponse({}));
+    return $tea.cast<StopPipelinesResponse>(await this.doROARequest("StopPipelines", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/logstashes/${InstanceId}/pipelines/action/stop`, "json", req, runtime), new StopPipelinesResponse({}));
   }
 
   async tagResources(): Promise<TagResourcesResponse> {
@@ -21938,18 +20149,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
-      action: "TagResources",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/tags`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
+    return $tea.cast<TagResourcesResponse>(await this.doROARequest("TagResources", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/tags`, "json", req, runtime), new TagResourcesResponse({}));
   }
 
   async transferNode(InstanceId: string, request: TransferNodeRequest): Promise<TransferNodeResponse> {
@@ -21962,30 +20162,19 @@ export default class Client extends OpenApi {
     Util.validateModel(request);
     InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.clientToken)) {
-      query["clientToken"] = request.clientToken;
-    }
-
     if (!Util.isUnset(request.nodeType)) {
       query["nodeType"] = request.nodeType;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["clientToken"] = request.clientToken;
     }
 
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "TransferNode",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/actions/transfer`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<TransferNodeResponse>(await this.callApi(params, req, runtime), new TransferNodeResponse({}));
+    return $tea.cast<TransferNodeResponse>(await this.doROARequest("TransferNode", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/instances/${InstanceId}/actions/transfer`, "json", req, runtime), new TransferNodeResponse({}));
   }
 
   async triggerNetwork(InstanceId: string, request: TriggerNetworkRequest): Promise<TriggerNetworkResponse> {
@@ -22003,16 +20192,16 @@ export default class Client extends OpenApi {
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.actionType)) {
-      body["actionType"] = request.actionType;
+    if (!Util.isUnset(request.nodeType)) {
+      body["nodeType"] = request.nodeType;
     }
 
     if (!Util.isUnset(request.networkType)) {
       body["networkType"] = request.networkType;
     }
 
-    if (!Util.isUnset(request.nodeType)) {
-      body["nodeType"] = request.nodeType;
+    if (!Util.isUnset(request.actionType)) {
+      body["actionType"] = request.actionType;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -22020,18 +20209,7 @@ export default class Client extends OpenApi {
       query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
-      action: "TriggerNetwork",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/actions/network-trigger`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<TriggerNetworkResponse>(await this.callApi(params, req, runtime), new TriggerNetworkResponse({}));
+    return $tea.cast<TriggerNetworkResponse>(await this.doROARequestWithForm("TriggerNetwork", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/instances/${InstanceId}/actions/network-trigger`, "json", req, runtime), new TriggerNetworkResponse({}));
   }
 
   async uninstallKibanaPlugin(InstanceId: string, request: UninstallKibanaPluginRequest): Promise<UninstallKibanaPluginResponse> {
@@ -22052,18 +20230,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "UninstallKibanaPlugin",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/kibana-plugins/actions/uninstall`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<UninstallKibanaPluginResponse>(await this.callApi(params, req, runtime), new UninstallKibanaPluginResponse({}));
+    return $tea.cast<UninstallKibanaPluginResponse>(await this.doROARequest("UninstallKibanaPlugin", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/instances/${InstanceId}/kibana-plugins/actions/uninstall`, "json", req, runtime), new UninstallKibanaPluginResponse({}));
   }
 
   async uninstallLogstashPlugin(InstanceId: string, request: UninstallLogstashPluginRequest): Promise<UninstallLogstashPluginResponse> {
@@ -22084,18 +20251,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "UninstallLogstashPlugin",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/logstashes/${InstanceId}/plugins/actions/uninstall`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<UninstallLogstashPluginResponse>(await this.callApi(params, req, runtime), new UninstallLogstashPluginResponse({}));
+    return $tea.cast<UninstallLogstashPluginResponse>(await this.doROARequest("UninstallLogstashPlugin", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/logstashes/${InstanceId}/plugins/actions/uninstall`, "json", req, runtime), new UninstallLogstashPluginResponse({}));
   }
 
   async uninstallPlugin(InstanceId: string, request: UninstallPluginRequest): Promise<UninstallPluginResponse> {
@@ -22116,18 +20272,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "UninstallPlugin",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/plugins/actions/uninstall`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<UninstallPluginResponse>(await this.callApi(params, req, runtime), new UninstallPluginResponse({}));
+    return $tea.cast<UninstallPluginResponse>(await this.doROARequest("UninstallPlugin", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/instances/${InstanceId}/plugins/actions/uninstall`, "json", req, runtime), new UninstallPluginResponse({}));
   }
 
   async untagResources(request: UntagResourcesRequest): Promise<UntagResourcesResponse> {
@@ -22139,10 +20284,6 @@ export default class Client extends OpenApi {
   async untagResourcesWithOptions(request: UntagResourcesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UntagResourcesResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.all)) {
-      query["All"] = request.all;
-    }
-
     if (!Util.isUnset(request.resourceIds)) {
       query["ResourceIds"] = request.resourceIds;
     }
@@ -22155,22 +20296,15 @@ export default class Client extends OpenApi {
       query["TagKeys"] = request.tagKeys;
     }
 
+    if (!Util.isUnset(request.all)) {
+      query["All"] = request.all;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "UntagResources",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/tags`,
-      method: "DELETE",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
+    return $tea.cast<UntagResourcesResponse>(await this.doROARequest("UntagResources", "2017-06-13", "HTTPS", "DELETE", "AK", `/openapi/tags`, "json", req, runtime), new UntagResourcesResponse({}));
   }
 
   async updateAdminPassword(InstanceId: string, request: UpdateAdminPasswordRequest): Promise<UpdateAdminPasswordResponse> {
@@ -22191,18 +20325,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "UpdateAdminPassword",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/admin-pwd`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<UpdateAdminPasswordResponse>(await this.callApi(params, req, runtime), new UpdateAdminPasswordResponse({}));
+    return $tea.cast<UpdateAdminPasswordResponse>(await this.doROARequest("UpdateAdminPassword", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/instances/${InstanceId}/admin-pwd`, "json", req, runtime), new UpdateAdminPasswordResponse({}));
   }
 
   async updateAdvancedSetting(InstanceId: string, request: UpdateAdvancedSettingRequest): Promise<UpdateAdvancedSettingResponse> {
@@ -22223,18 +20346,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "UpdateAdvancedSetting",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/actions/update-advanced-setting`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<UpdateAdvancedSettingResponse>(await this.callApi(params, req, runtime), new UpdateAdvancedSettingResponse({}));
+    return $tea.cast<UpdateAdvancedSettingResponse>(await this.doROARequest("UpdateAdvancedSetting", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/instances/${InstanceId}/actions/update-advanced-setting`, "json", req, runtime), new UpdateAdvancedSettingResponse({}));
   }
 
   async updateAliwsDict(InstanceId: string, request: UpdateAliwsDictRequest): Promise<UpdateAliwsDictResponse> {
@@ -22255,66 +20367,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "UpdateAliwsDict",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/aliws-dict`,
-      method: "PUT",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<UpdateAliwsDictResponse>(await this.callApi(params, req, runtime), new UpdateAliwsDictResponse({}));
-  }
-
-  async updateApm(instanceId: string, request: UpdateApmRequest): Promise<UpdateApmResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.updateApmWithOptions(instanceId, request, headers, runtime);
-  }
-
-  async updateApmWithOptions(instanceId: string, request: UpdateApmRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateApmResponse> {
-    Util.validateModel(request);
-    instanceId = OpenApiUtil.getEncodeParam(instanceId);
-    let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.outputES)) {
-      query["outputES"] = request.outputES;
-    }
-
-    if (!Util.isUnset(request.outputESPassword)) {
-      query["outputESPassword"] = request.outputESPassword;
-    }
-
-    if (!Util.isUnset(request.outputESUserName)) {
-      query["outputESUserName"] = request.outputESUserName;
-    }
-
-    if (!Util.isUnset(request.token)) {
-      query["token"] = request.token;
-    }
-
-    if (!Util.isUnset(request.yml)) {
-      query["yml"] = request.yml;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "UpdateApm",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/apm/${instanceId}`,
-      method: "PUT",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<UpdateApmResponse>(await this.callApi(params, req, runtime), new UpdateApmResponse({}));
+    return $tea.cast<UpdateAliwsDictResponse>(await this.doROARequest("UpdateAliwsDict", "2017-06-13", "HTTPS", "PUT", "AK", `/openapi/instances/${InstanceId}/aliws-dict`, "json", req, runtime), new UpdateAliwsDictResponse({}));
   }
 
   async updateBlackIps(InstanceId: string, request: UpdateBlackIpsRequest): Promise<UpdateBlackIpsResponse> {
@@ -22341,18 +20394,7 @@ export default class Client extends OpenApi {
       query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
-      action: "UpdateBlackIps",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/black-ips`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<UpdateBlackIpsResponse>(await this.callApi(params, req, runtime), new UpdateBlackIpsResponse({}));
+    return $tea.cast<UpdateBlackIpsResponse>(await this.doROARequestWithForm("UpdateBlackIps", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/instances/${InstanceId}/black-ips`, "json", req, runtime), new UpdateBlackIpsResponse({}));
   }
 
   async updateCollector(ResId: string, request: UpdateCollectorRequest): Promise<UpdateCollectorResponse> {
@@ -22373,18 +20415,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "UpdateCollector",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/collectors/${ResId}`,
-      method: "PUT",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<UpdateCollectorResponse>(await this.callApi(params, req, runtime), new UpdateCollectorResponse({}));
+    return $tea.cast<UpdateCollectorResponse>(await this.doROARequest("UpdateCollector", "2017-06-13", "HTTPS", "PUT", "AK", `/openapi/collectors/${ResId}`, "json", req, runtime), new UpdateCollectorResponse({}));
   }
 
   async updateCollectorName(ResId: string, request: UpdateCollectorNameRequest): Promise<UpdateCollectorNameResponse> {
@@ -22405,18 +20436,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "UpdateCollectorName",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/collectors/${ResId}/actions/rename`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<UpdateCollectorNameResponse>(await this.callApi(params, req, runtime), new UpdateCollectorNameResponse({}));
+    return $tea.cast<UpdateCollectorNameResponse>(await this.doROARequest("UpdateCollectorName", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/collectors/${ResId}/actions/rename`, "json", req, runtime), new UpdateCollectorNameResponse({}));
   }
 
   async updateDescription(InstanceId: string, request: UpdateDescriptionRequest): Promise<UpdateDescriptionResponse> {
@@ -22443,18 +20463,7 @@ export default class Client extends OpenApi {
       query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
-      action: "UpdateDescription",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/description`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<UpdateDescriptionResponse>(await this.callApi(params, req, runtime), new UpdateDescriptionResponse({}));
+    return $tea.cast<UpdateDescriptionResponse>(await this.doROARequest("UpdateDescription", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/instances/${InstanceId}/description`, "json", req, runtime), new UpdateDescriptionResponse({}));
   }
 
   async updateDiagnosisSettings(InstanceId: string, request: UpdateDiagnosisSettingsRequest): Promise<UpdateDiagnosisSettingsResponse> {
@@ -22479,18 +20488,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "UpdateDiagnosisSettings",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/diagnosis/instances/${InstanceId}/settings`,
-      method: "PUT",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<UpdateDiagnosisSettingsResponse>(await this.callApi(params, req, runtime), new UpdateDiagnosisSettingsResponse({}));
+    return $tea.cast<UpdateDiagnosisSettingsResponse>(await this.doROARequest("UpdateDiagnosisSettings", "2017-06-13", "HTTPS", "PUT", "AK", `/openapi/diagnosis/instances/${InstanceId}/settings`, "json", req, runtime), new UpdateDiagnosisSettingsResponse({}));
   }
 
   async updateDict(InstanceId: string, request: UpdateDictRequest): Promise<UpdateDictResponse> {
@@ -22511,18 +20509,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "UpdateDict",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/dict`,
-      method: "PUT",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<UpdateDictResponse>(await this.callApi(params, req, runtime), new UpdateDictResponse({}));
+    return $tea.cast<UpdateDictResponse>(await this.doROARequest("UpdateDict", "2017-06-13", "HTTPS", "PUT", "AK", `/openapi/instances/${InstanceId}/dict`, "json", req, runtime), new UpdateDictResponse({}));
   }
 
   async updateExtendConfig(InstanceId: string, request: UpdateExtendConfigRequest): Promise<UpdateExtendConfigResponse> {
@@ -22543,18 +20530,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "UpdateExtendConfig",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/extend-configs/actions/update`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<UpdateExtendConfigResponse>(await this.callApi(params, req, runtime), new UpdateExtendConfigResponse({}));
+    return $tea.cast<UpdateExtendConfigResponse>(await this.doROARequest("UpdateExtendConfig", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/instances/${InstanceId}/extend-configs/actions/update`, "json", req, runtime), new UpdateExtendConfigResponse({}));
   }
 
   async updateExtendfiles(InstanceId: string, request: UpdateExtendfilesRequest): Promise<UpdateExtendfilesResponse> {
@@ -22575,18 +20551,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "UpdateExtendfiles",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/logstashes/${InstanceId}/extendfiles`,
-      method: "PUT",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<UpdateExtendfilesResponse>(await this.callApi(params, req, runtime), new UpdateExtendfilesResponse({}));
+    return $tea.cast<UpdateExtendfilesResponse>(await this.doROARequest("UpdateExtendfiles", "2017-06-13", "HTTPS", "PUT", "AK", `/openapi/logstashes/${InstanceId}/extendfiles`, "json", req, runtime), new UpdateExtendfilesResponse({}));
   }
 
   async updateHotIkDicts(InstanceId: string, request: UpdateHotIkDictsRequest): Promise<UpdateHotIkDictsResponse> {
@@ -22607,18 +20572,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "UpdateHotIkDicts",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/ik-hot-dict`,
-      method: "PUT",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<UpdateHotIkDictsResponse>(await this.callApi(params, req, runtime), new UpdateHotIkDictsResponse({}));
+    return $tea.cast<UpdateHotIkDictsResponse>(await this.doROARequest("UpdateHotIkDicts", "2017-06-13", "HTTPS", "PUT", "AK", `/openapi/instances/${InstanceId}/ik-hot-dict`, "json", req, runtime), new UpdateHotIkDictsResponse({}));
   }
 
   async updateILMPolicy(InstanceId: string, PolicyName: string, request: UpdateILMPolicyRequest): Promise<UpdateILMPolicyResponse> {
@@ -22640,30 +20594,19 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "UpdateILMPolicy",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/ilm-policies/{PolicyName}`,
-      method: "PUT",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<UpdateILMPolicyResponse>(await this.callApi(params, req, runtime), new UpdateILMPolicyResponse({}));
+    return $tea.cast<UpdateILMPolicyResponse>(await this.doROARequest("UpdateILMPolicy", "2017-06-13", "HTTPS", "PUT", "AK", `/openapi/instances/${InstanceId}/ilm-policies/${PolicyName}`, "json", req, runtime), new UpdateILMPolicyResponse({}));
   }
 
-  async updateIndexTemplate(IndexTemplate: string, InstanceId: string, request: UpdateIndexTemplateRequest): Promise<UpdateIndexTemplateResponse> {
+  async updateIndexTemplate(InstanceId: string, IndexTemplate: string, request: UpdateIndexTemplateRequest): Promise<UpdateIndexTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.updateIndexTemplateWithOptions(IndexTemplate, InstanceId, request, headers, runtime);
+    return await this.updateIndexTemplateWithOptions(InstanceId, IndexTemplate, request, headers, runtime);
   }
 
-  async updateIndexTemplateWithOptions(IndexTemplate: string, InstanceId: string, request: UpdateIndexTemplateRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateIndexTemplateResponse> {
+  async updateIndexTemplateWithOptions(InstanceId: string, IndexTemplate: string, request: UpdateIndexTemplateRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateIndexTemplateResponse> {
     Util.validateModel(request);
-    IndexTemplate = OpenApiUtil.getEncodeParam(IndexTemplate);
     InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
+    IndexTemplate = OpenApiUtil.getEncodeParam(IndexTemplate);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
@@ -22673,18 +20616,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "UpdateIndexTemplate",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/index-templates/{IndexTemplate}`,
-      method: "PUT",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<UpdateIndexTemplateResponse>(await this.callApi(params, req, runtime), new UpdateIndexTemplateResponse({}));
+    return $tea.cast<UpdateIndexTemplateResponse>(await this.doROARequest("UpdateIndexTemplate", "2017-06-13", "HTTPS", "PUT", "AK", `/openapi/instances/${InstanceId}/index-templates/${IndexTemplate}`, "json", req, runtime), new UpdateIndexTemplateResponse({}));
   }
 
   async updateInstance(InstanceId: string, request: UpdateInstanceRequest): Promise<UpdateInstanceResponse> {
@@ -22713,18 +20645,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "UpdateInstance",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}`,
-      method: "PUT",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<UpdateInstanceResponse>(await this.callApi(params, req, runtime), new UpdateInstanceResponse({}));
+    return $tea.cast<UpdateInstanceResponse>(await this.doROARequest("UpdateInstance", "2017-06-13", "HTTPS", "PUT", "AK", `/openapi/instances/${InstanceId}`, "json", req, runtime), new UpdateInstanceResponse({}));
   }
 
   async updateInstanceChargeType(InstanceId: string, request: UpdateInstanceChargeTypeRequest): Promise<UpdateInstanceChargeTypeResponse> {
@@ -22745,18 +20666,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "UpdateInstanceChargeType",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/actions/convert-pay-type`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<UpdateInstanceChargeTypeResponse>(await this.callApi(params, req, runtime), new UpdateInstanceChargeTypeResponse({}));
+    return $tea.cast<UpdateInstanceChargeTypeResponse>(await this.doROARequest("UpdateInstanceChargeType", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/instances/${InstanceId}/actions/convert-pay-type`, "json", req, runtime), new UpdateInstanceChargeTypeResponse({}));
   }
 
   async updateInstanceSettings(InstanceId: string, request: UpdateInstanceSettingsRequest): Promise<UpdateInstanceSettingsResponse> {
@@ -22777,18 +20687,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "UpdateInstanceSettings",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/instance-settings`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<UpdateInstanceSettingsResponse>(await this.callApi(params, req, runtime), new UpdateInstanceSettingsResponse({}));
+    return $tea.cast<UpdateInstanceSettingsResponse>(await this.doROARequest("UpdateInstanceSettings", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/instances/${InstanceId}/instance-settings`, "json", req, runtime), new UpdateInstanceSettingsResponse({}));
   }
 
   async updateKibanaSettings(InstanceId: string, request: UpdateKibanaSettingsRequest): Promise<UpdateKibanaSettingsResponse> {
@@ -22809,18 +20708,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "UpdateKibanaSettings",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/actions/update-kibana-settings`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<UpdateKibanaSettingsResponse>(await this.callApi(params, req, runtime), new UpdateKibanaSettingsResponse({}));
+    return $tea.cast<UpdateKibanaSettingsResponse>(await this.doROARequest("UpdateKibanaSettings", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/instances/${InstanceId}/actions/update-kibana-settings`, "json", req, runtime), new UpdateKibanaSettingsResponse({}));
   }
 
   async updateKibanaWhiteIps(InstanceId: string, request: UpdateKibanaWhiteIpsRequest): Promise<UpdateKibanaWhiteIpsResponse> {
@@ -22845,18 +20733,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "UpdateKibanaWhiteIps",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/kibana-white-ips`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<UpdateKibanaWhiteIpsResponse>(await this.callApi(params, req, runtime), new UpdateKibanaWhiteIpsResponse({}));
+    return $tea.cast<UpdateKibanaWhiteIpsResponse>(await this.doROARequest("UpdateKibanaWhiteIps", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/instances/${InstanceId}/kibana-white-ips`, "json", req, runtime), new UpdateKibanaWhiteIpsResponse({}));
   }
 
   async updateLogstash(InstanceId: string, request: UpdateLogstashRequest): Promise<UpdateLogstashResponse> {
@@ -22877,18 +20754,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "UpdateLogstash",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/logstashes/${InstanceId}`,
-      method: "PUT",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<UpdateLogstashResponse>(await this.callApi(params, req, runtime), new UpdateLogstashResponse({}));
+    return $tea.cast<UpdateLogstashResponse>(await this.doROARequest("UpdateLogstash", "2017-06-13", "HTTPS", "PUT", "AK", `/openapi/logstashes/${InstanceId}`, "json", req, runtime), new UpdateLogstashResponse({}));
   }
 
   async updateLogstashChargeType(InstanceId: string, request: UpdateLogstashChargeTypeRequest): Promise<UpdateLogstashChargeTypeResponse> {
@@ -22909,18 +20775,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "UpdateLogstashChargeType",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/logstashes/${InstanceId}/actions/convert-pay-type`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<UpdateLogstashChargeTypeResponse>(await this.callApi(params, req, runtime), new UpdateLogstashChargeTypeResponse({}));
+    return $tea.cast<UpdateLogstashChargeTypeResponse>(await this.doROARequest("UpdateLogstashChargeType", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/logstashes/${InstanceId}/actions/convert-pay-type`, "json", req, runtime), new UpdateLogstashChargeTypeResponse({}));
   }
 
   async updateLogstashDescription(InstanceId: string, request: UpdateLogstashDescriptionRequest): Promise<UpdateLogstashDescriptionResponse> {
@@ -22941,18 +20796,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "UpdateLogstashDescription",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/logstashes/${InstanceId}/description`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<UpdateLogstashDescriptionResponse>(await this.callApi(params, req, runtime), new UpdateLogstashDescriptionResponse({}));
+    return $tea.cast<UpdateLogstashDescriptionResponse>(await this.doROARequest("UpdateLogstashDescription", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/logstashes/${InstanceId}/description`, "json", req, runtime), new UpdateLogstashDescriptionResponse({}));
   }
 
   async updateLogstashSettings(InstanceId: string, request: UpdateLogstashSettingsRequest): Promise<UpdateLogstashSettingsResponse> {
@@ -22973,18 +20817,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "UpdateLogstashSettings",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/logstashes/${InstanceId}/instance-settings`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<UpdateLogstashSettingsResponse>(await this.callApi(params, req, runtime), new UpdateLogstashSettingsResponse({}));
+    return $tea.cast<UpdateLogstashSettingsResponse>(await this.doROARequest("UpdateLogstashSettings", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/logstashes/${InstanceId}/instance-settings`, "json", req, runtime), new UpdateLogstashSettingsResponse({}));
   }
 
   async updatePipelineManagementConfig(InstanceId: string, request: UpdatePipelineManagementConfigRequest): Promise<UpdatePipelineManagementConfigResponse> {
@@ -23005,18 +20838,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "UpdatePipelineManagementConfig",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/logstashes/${InstanceId}/pipeline-management-config`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<UpdatePipelineManagementConfigResponse>(await this.callApi(params, req, runtime), new UpdatePipelineManagementConfigResponse({}));
+    return $tea.cast<UpdatePipelineManagementConfigResponse>(await this.doROARequest("UpdatePipelineManagementConfig", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/logstashes/${InstanceId}/pipeline-management-config`, "json", req, runtime), new UpdatePipelineManagementConfigResponse({}));
   }
 
   async updatePipelines(InstanceId: string, request: UpdatePipelinesRequest): Promise<UpdatePipelinesResponse> {
@@ -23029,30 +20851,19 @@ export default class Client extends OpenApi {
     Util.validateModel(request);
     InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.clientToken)) {
-      query["clientToken"] = request.clientToken;
-    }
-
     if (!Util.isUnset(request.trigger)) {
       query["trigger"] = request.trigger;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["clientToken"] = request.clientToken;
     }
 
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "UpdatePipelines",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/logstashes/${InstanceId}/pipelines`,
-      method: "PUT",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<UpdatePipelinesResponse>(await this.callApi(params, req, runtime), new UpdatePipelinesResponse({}));
+    return $tea.cast<UpdatePipelinesResponse>(await this.doROARequest("UpdatePipelines", "2017-06-13", "HTTPS", "PUT", "AK", `/openapi/logstashes/${InstanceId}/pipelines`, "json", req, runtime), new UpdatePipelinesResponse({}));
   }
 
   async updatePrivateNetworkWhiteIps(InstanceId: string, request: UpdatePrivateNetworkWhiteIpsRequest): Promise<UpdatePrivateNetworkWhiteIpsResponse> {
@@ -23077,18 +20888,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "UpdatePrivateNetworkWhiteIps",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/private-network-white-ips`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<UpdatePrivateNetworkWhiteIpsResponse>(await this.callApi(params, req, runtime), new UpdatePrivateNetworkWhiteIpsResponse({}));
+    return $tea.cast<UpdatePrivateNetworkWhiteIpsResponse>(await this.doROARequest("UpdatePrivateNetworkWhiteIps", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/instances/${InstanceId}/private-network-white-ips`, "json", req, runtime), new UpdatePrivateNetworkWhiteIpsResponse({}));
   }
 
   async updatePublicNetwork(InstanceId: string, request: UpdatePublicNetworkRequest): Promise<UpdatePublicNetworkResponse> {
@@ -23109,18 +20909,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "UpdatePublicNetwork",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/public-network`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<UpdatePublicNetworkResponse>(await this.callApi(params, req, runtime), new UpdatePublicNetworkResponse({}));
+    return $tea.cast<UpdatePublicNetworkResponse>(await this.doROARequest("UpdatePublicNetwork", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/instances/${InstanceId}/public-network`, "json", req, runtime), new UpdatePublicNetworkResponse({}));
   }
 
   async updatePublicWhiteIps(InstanceId: string, request: UpdatePublicWhiteIpsRequest): Promise<UpdatePublicWhiteIpsResponse> {
@@ -23145,18 +20934,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "UpdatePublicWhiteIps",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/public-white-ips`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<UpdatePublicWhiteIpsResponse>(await this.callApi(params, req, runtime), new UpdatePublicWhiteIpsResponse({}));
+    return $tea.cast<UpdatePublicWhiteIpsResponse>(await this.doROARequest("UpdatePublicWhiteIps", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/instances/${InstanceId}/public-white-ips`, "json", req, runtime), new UpdatePublicWhiteIpsResponse({}));
   }
 
   async updateReadWritePolicy(InstanceId: string, request: UpdateReadWritePolicyRequest): Promise<UpdateReadWritePolicyResponse> {
@@ -23177,18 +20955,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "UpdateReadWritePolicy",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/actions/update-read-write-policy`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<UpdateReadWritePolicyResponse>(await this.callApi(params, req, runtime), new UpdateReadWritePolicyResponse({}));
+    return $tea.cast<UpdateReadWritePolicyResponse>(await this.doROARequest("UpdateReadWritePolicy", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/instances/${InstanceId}/actions/update-read-write-policy`, "json", req, runtime), new UpdateReadWritePolicyResponse({}));
   }
 
   async updateSnapshotSetting(InstanceId: string): Promise<UpdateSnapshotSettingResponse> {
@@ -23202,18 +20969,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
-      action: "UpdateSnapshotSetting",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/snapshot-setting`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<UpdateSnapshotSettingResponse>(await this.callApi(params, req, runtime), new UpdateSnapshotSettingResponse({}));
+    return $tea.cast<UpdateSnapshotSettingResponse>(await this.doROARequest("UpdateSnapshotSetting", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/instances/${InstanceId}/snapshot-setting`, "json", req, runtime), new UpdateSnapshotSettingResponse({}));
   }
 
   async updateSynonymsDicts(InstanceId: string, request: UpdateSynonymsDictsRequest): Promise<UpdateSynonymsDictsResponse> {
@@ -23234,18 +20990,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "UpdateSynonymsDicts",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/synonymsDict`,
-      method: "PUT",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<UpdateSynonymsDictsResponse>(await this.callApi(params, req, runtime), new UpdateSynonymsDictsResponse({}));
+    return $tea.cast<UpdateSynonymsDictsResponse>(await this.doROARequest("UpdateSynonymsDicts", "2017-06-13", "HTTPS", "PUT", "AK", `/openapi/instances/${InstanceId}/synonymsDict`, "json", req, runtime), new UpdateSynonymsDictsResponse({}));
   }
 
   async updateTemplate(InstanceId: string, TemplateName: string, request: UpdateTemplateRequest): Promise<UpdateTemplateResponse> {
@@ -23267,18 +21012,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "UpdateTemplate",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/templates/{TemplateName}`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<UpdateTemplateResponse>(await this.callApi(params, req, runtime), new UpdateTemplateResponse({}));
+    return $tea.cast<UpdateTemplateResponse>(await this.doROARequest("UpdateTemplate", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/instances/${InstanceId}/templates/${TemplateName}`, "json", req, runtime), new UpdateTemplateResponse({}));
   }
 
   async updateWhiteIps(InstanceId: string, request: UpdateWhiteIpsRequest): Promise<UpdateWhiteIpsResponse> {
@@ -23313,18 +21047,7 @@ export default class Client extends OpenApi {
       query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
-      action: "UpdateWhiteIps",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/white-ips`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<UpdateWhiteIpsResponse>(await this.callApi(params, req, runtime), new UpdateWhiteIpsResponse({}));
+    return $tea.cast<UpdateWhiteIpsResponse>(await this.doROARequestWithForm("UpdateWhiteIps", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/instances/${InstanceId}/white-ips`, "json", req, runtime), new UpdateWhiteIpsResponse({}));
   }
 
   async updateXpackMonitorConfig(InstanceId: string, request: UpdateXpackMonitorConfigRequest): Promise<UpdateXpackMonitorConfigResponse> {
@@ -23345,18 +21068,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "UpdateXpackMonitorConfig",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/logstashes/${InstanceId}/xpack-monitor-config`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<UpdateXpackMonitorConfigResponse>(await this.callApi(params, req, runtime), new UpdateXpackMonitorConfigResponse({}));
+    return $tea.cast<UpdateXpackMonitorConfigResponse>(await this.doROARequest("UpdateXpackMonitorConfig", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/logstashes/${InstanceId}/xpack-monitor-config`, "json", req, runtime), new UpdateXpackMonitorConfigResponse({}));
   }
 
   async upgradeEngineVersion(InstanceId: string, request: UpgradeEngineVersionRequest): Promise<UpgradeEngineVersionResponse> {
@@ -23378,12 +21090,12 @@ export default class Client extends OpenApi {
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.type)) {
-      body["type"] = request.type;
-    }
-
     if (!Util.isUnset(request.version)) {
       body["version"] = request.version;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      body["type"] = request.type;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -23391,18 +21103,7 @@ export default class Client extends OpenApi {
       query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
-      action: "UpgradeEngineVersion",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/actions/upgrade-version`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<UpgradeEngineVersionResponse>(await this.callApi(params, req, runtime), new UpgradeEngineVersionResponse({}));
+    return $tea.cast<UpgradeEngineVersionResponse>(await this.doROARequestWithForm("UpgradeEngineVersion", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/instances/${InstanceId}/actions/upgrade-version`, "json", req, runtime), new UpgradeEngineVersionResponse({}));
   }
 
   async validateConnection(InstanceId: string, request: ValidateConnectionRequest): Promise<ValidateConnectionResponse> {
@@ -23423,18 +21124,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "ValidateConnection",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/logstashes/${InstanceId}/validate-connection`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ValidateConnectionResponse>(await this.callApi(params, req, runtime), new ValidateConnectionResponse({}));
+    return $tea.cast<ValidateConnectionResponse>(await this.doROARequest("ValidateConnection", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/logstashes/${InstanceId}/validate-connection`, "json", req, runtime), new ValidateConnectionResponse({}));
   }
 
   async validateShrinkNodes(InstanceId: string, request: ValidateShrinkNodesRequest): Promise<ValidateShrinkNodesResponse> {
@@ -23447,30 +21137,19 @@ export default class Client extends OpenApi {
     Util.validateModel(request);
     InstanceId = OpenApiUtil.getEncodeParam(InstanceId);
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.ignoreStatus)) {
-      query["ignoreStatus"] = request.ignoreStatus;
-    }
-
     if (!Util.isUnset(request.nodeType)) {
       query["nodeType"] = request.nodeType;
+    }
+
+    if (!Util.isUnset(request.ignoreStatus)) {
+      query["ignoreStatus"] = request.ignoreStatus;
     }
 
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "ValidateShrinkNodes",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/validate-shrink-nodes`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ValidateShrinkNodesResponse>(await this.callApi(params, req, runtime), new ValidateShrinkNodesResponse({}));
+    return $tea.cast<ValidateShrinkNodesResponse>(await this.doROARequest("ValidateShrinkNodes", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/instances/${InstanceId}/validate-shrink-nodes`, "json", req, runtime), new ValidateShrinkNodesResponse({}));
   }
 
   async validateSlrPermission(request: ValidateSlrPermissionRequest): Promise<ValidateSlrPermissionResponse> {
@@ -23494,18 +21173,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "ValidateSlrPermission",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/user/servicerolepermission`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ValidateSlrPermissionResponse>(await this.callApi(params, req, runtime), new ValidateSlrPermissionResponse({}));
+    return $tea.cast<ValidateSlrPermissionResponse>(await this.doROARequest("ValidateSlrPermission", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/user/servicerolepermission`, "json", req, runtime), new ValidateSlrPermissionResponse({}));
   }
 
   async validateTransferableNodes(InstanceId: string, request: ValidateTransferableNodesRequest): Promise<ValidateTransferableNodesResponse> {
@@ -23526,49 +21194,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "ValidateTransferableNodes",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/validate-transfer-nodes`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ValidateTransferableNodesResponse>(await this.callApi(params, req, runtime), new ValidateTransferableNodesResponse({}));
-  }
-
-  async createInstance(request: CreateInstanceRequest): Promise<CreateInstanceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.createInstanceWithOptions(request, headers, runtime);
-  }
-
-  async createInstanceWithOptions(request: CreateInstanceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateInstanceResponse> {
-    Util.validateModel(request);
-    let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.clientToken)) {
-      query["clientToken"] = request.clientToken;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "createInstance",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<CreateInstanceResponse>(await this.callApi(params, req, runtime), new CreateInstanceResponse({}));
+    return $tea.cast<ValidateTransferableNodesResponse>(await this.doROARequest("ValidateTransferableNodes", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/instances/${InstanceId}/validate-transfer-nodes`, "json", req, runtime), new ValidateTransferableNodesResponse({}));
   }
 
 }
