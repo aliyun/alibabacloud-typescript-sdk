@@ -84,7 +84,7 @@ export class ExecuteShrinkRequest extends $tea.Model {
 
 export class ExecuteResponseBody extends $tea.Model {
   code?: string;
-  data?: string;
+  data?: { [key: string]: any }[];
   message?: string;
   requestId?: string;
   rt?: number;
@@ -103,7 +103,7 @@ export class ExecuteResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'string',
-      data: 'string',
+      data: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
       message: 'string',
       requestId: 'string',
       rt: 'number',
@@ -130,6 +130,136 @@ export class ExecuteResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: ExecuteResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class WeathermonitorProvinceHourRequest extends $tea.Model {
+  appName?: string;
+  channel?: string;
+  extendParam?: { [key: string]: string };
+  orderId?: string;
+  requestId?: string;
+  serviceParam?: { [key: string]: string };
+  userId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      appName: 'AppName',
+      channel: 'Channel',
+      extendParam: 'ExtendParam',
+      orderId: 'OrderId',
+      requestId: 'RequestId',
+      serviceParam: 'ServiceParam',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appName: 'string',
+      channel: 'string',
+      extendParam: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      orderId: 'string',
+      requestId: 'string',
+      serviceParam: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      userId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class WeathermonitorProvinceHourShrinkRequest extends $tea.Model {
+  appName?: string;
+  channel?: string;
+  extendParamShrink?: string;
+  orderId?: string;
+  requestId?: string;
+  serviceParamShrink?: string;
+  userId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      appName: 'AppName',
+      channel: 'Channel',
+      extendParamShrink: 'ExtendParam',
+      orderId: 'OrderId',
+      requestId: 'RequestId',
+      serviceParamShrink: 'ServiceParam',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appName: 'string',
+      channel: 'string',
+      extendParamShrink: 'string',
+      orderId: 'string',
+      requestId: 'string',
+      serviceParamShrink: 'string',
+      userId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class WeathermonitorProvinceHourResponseBody extends $tea.Model {
+  code?: string;
+  data?: { [key: string]: any }[];
+  message?: string;
+  requestId?: string;
+  rt?: number;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      rt: 'Rt',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
+      message: 'string',
+      requestId: 'string',
+      rt: 'number',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class WeathermonitorProvinceHourResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: WeathermonitorProvinceHourResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: WeathermonitorProvinceHourResponseBody,
     };
   }
 
@@ -202,6 +332,49 @@ export default class Client extends OpenApi {
   async execute(request: ExecuteRequest): Promise<ExecuteResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.executeWithOptions(request, runtime);
+  }
+
+  async weathermonitorProvinceHourWithOptions(tmpReq: WeathermonitorProvinceHourRequest, runtime: $Util.RuntimeOptions): Promise<WeathermonitorProvinceHourResponse> {
+    Util.validateModel(tmpReq);
+    let request = new WeathermonitorProvinceHourShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.extendParam)) {
+      request.extendParamShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.extendParam, "ExtendParam", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.serviceParam)) {
+      request.serviceParamShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.serviceParam, "ServiceParam", "json");
+    }
+
+    let query = { };
+    query["AppName"] = request.appName;
+    query["Channel"] = request.channel;
+    query["ExtendParam"] = request.extendParamShrink;
+    query["OrderId"] = request.orderId;
+    query["RequestId"] = request.requestId;
+    query["ServiceParam"] = request.serviceParamShrink;
+    query["UserId"] = request.userId;
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: Util.toMap(request),
+    });
+    let params = new $OpenApi.Params({
+      action: "WeathermonitorProvinceHour",
+      version: "2021-09-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<WeathermonitorProvinceHourResponse>(await this.callApi(params, req, runtime), new WeathermonitorProvinceHourResponse({}));
+  }
+
+  async weathermonitorProvinceHour(request: WeathermonitorProvinceHourRequest): Promise<WeathermonitorProvinceHourResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.weathermonitorProvinceHourWithOptions(request, runtime);
   }
 
 }
