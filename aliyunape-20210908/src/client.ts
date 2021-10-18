@@ -631,8 +631,8 @@ export class HistoricalRequest extends $tea.Model {
   requestId?: string;
   station?: string;
   pageSize?: number;
-  startTime?: number;
-  endTime?: number;
+  startTime?: string;
+  endTime?: string;
   pageNum?: number;
   static names(): { [key: string]: string } {
     return {
@@ -654,8 +654,8 @@ export class HistoricalRequest extends $tea.Model {
       requestId: 'string',
       station: 'string',
       pageSize: 'number',
-      startTime: 'number',
-      endTime: 'number',
+      startTime: 'string',
+      endTime: 'string',
       pageNum: 'number',
     };
   }
