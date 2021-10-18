@@ -6309,6 +6309,28 @@ export class GetLiveResponseBodyResultPlayUrlInfoList extends $tea.Model {
   }
 }
 
+export class GetLiveResponseBodyResultArtcInfo extends $tea.Model {
+  artcUrl?: string;
+  artcH5Url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      artcUrl: 'ArtcUrl',
+      artcH5Url: 'ArtcH5Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      artcUrl: 'string',
+      artcH5Url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetLiveResponseBodyResult extends $tea.Model {
   anchorId?: string;
   liveId?: string;
@@ -6328,6 +6350,8 @@ export class GetLiveResponseBodyResult extends $tea.Model {
   playUrlInfoList?: GetLiveResponseBodyResultPlayUrlInfoList[];
   coverUrl?: string;
   userDefineField?: string;
+  hlsUrl?: string;
+  artcInfo?: GetLiveResponseBodyResultArtcInfo;
   static names(): { [key: string]: string } {
     return {
       anchorId: 'AnchorId',
@@ -6348,6 +6372,8 @@ export class GetLiveResponseBodyResult extends $tea.Model {
       playUrlInfoList: 'PlayUrlInfoList',
       coverUrl: 'CoverUrl',
       userDefineField: 'UserDefineField',
+      hlsUrl: 'HlsUrl',
+      artcInfo: 'ArtcInfo',
     };
   }
 
@@ -6371,6 +6397,8 @@ export class GetLiveResponseBodyResult extends $tea.Model {
       playUrlInfoList: { 'type': 'array', 'itemType': GetLiveResponseBodyResultPlayUrlInfoList },
       coverUrl: 'string',
       userDefineField: 'string',
+      hlsUrl: 'string',
+      artcInfo: GetLiveResponseBodyResultArtcInfo,
     };
   }
 
