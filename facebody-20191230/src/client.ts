@@ -368,15 +368,42 @@ export class DetectVideoLivingFaceResponse extends $tea.Model {
 
 export class RecognizeFaceRequest extends $tea.Model {
   imageURL?: string;
+  age?: boolean;
+  gender?: boolean;
+  hat?: boolean;
+  glass?: boolean;
+  beauty?: boolean;
+  expression?: boolean;
+  mask?: boolean;
+  quality?: boolean;
+  maxFaceNumber?: number;
   static names(): { [key: string]: string } {
     return {
       imageURL: 'ImageURL',
+      age: 'Age',
+      gender: 'Gender',
+      hat: 'Hat',
+      glass: 'Glass',
+      beauty: 'Beauty',
+      expression: 'Expression',
+      mask: 'Mask',
+      quality: 'Quality',
+      maxFaceNumber: 'MaxFaceNumber',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       imageURL: 'string',
+      age: 'boolean',
+      gender: 'boolean',
+      hat: 'boolean',
+      glass: 'boolean',
+      beauty: 'boolean',
+      expression: 'boolean',
+      mask: 'boolean',
+      quality: 'boolean',
+      maxFaceNumber: 'number',
     };
   }
 
@@ -387,15 +414,42 @@ export class RecognizeFaceRequest extends $tea.Model {
 
 export class RecognizeFaceAdvanceRequest extends $tea.Model {
   imageURLObject: Readable;
+  age?: boolean;
+  gender?: boolean;
+  hat?: boolean;
+  glass?: boolean;
+  beauty?: boolean;
+  expression?: boolean;
+  mask?: boolean;
+  quality?: boolean;
+  maxFaceNumber?: number;
   static names(): { [key: string]: string } {
     return {
       imageURLObject: 'ImageURLObject',
+      age: 'Age',
+      gender: 'Gender',
+      hat: 'Hat',
+      glass: 'Glass',
+      beauty: 'Beauty',
+      expression: 'Expression',
+      mask: 'Mask',
+      quality: 'Quality',
+      maxFaceNumber: 'MaxFaceNumber',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       imageURLObject: 'Readable',
+      age: 'boolean',
+      gender: 'boolean',
+      hat: 'boolean',
+      glass: 'boolean',
+      beauty: 'boolean',
+      expression: 'boolean',
+      mask: 'boolean',
+      quality: 'boolean',
+      maxFaceNumber: 'number',
     };
   }
 
@@ -7228,10 +7282,12 @@ export class SearchFaceResponseBodyDataMatchListLocation extends $tea.Model {
 export class SearchFaceResponseBodyDataMatchList extends $tea.Model {
   faceItems?: SearchFaceResponseBodyDataMatchListFaceItems[];
   location?: SearchFaceResponseBodyDataMatchListLocation;
+  qualitieScore?: number;
   static names(): { [key: string]: string } {
     return {
       faceItems: 'FaceItems',
       location: 'Location',
+      qualitieScore: 'QualitieScore',
     };
   }
 
@@ -7239,6 +7295,7 @@ export class SearchFaceResponseBodyDataMatchList extends $tea.Model {
     return {
       faceItems: { 'type': 'array', 'itemType': SearchFaceResponseBodyDataMatchListFaceItems },
       location: SearchFaceResponseBodyDataMatchListLocation,
+      qualitieScore: 'number',
     };
   }
 
@@ -7325,15 +7382,18 @@ export class CreateBodyPersonResponseBodyData extends $tea.Model {
 
 export class AddFaceResponseBodyData extends $tea.Model {
   faceId?: string;
+  qualitieScore?: number;
   static names(): { [key: string]: string } {
     return {
       faceId: 'FaceId',
+      qualitieScore: 'QualitieScore',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       faceId: 'string',
+      qualitieScore: 'number',
     };
   }
 
@@ -9033,10 +9093,12 @@ export class BatchAddFacesRequestFaces extends $tea.Model {
 export class BatchAddFacesResponseBodyDataInsertedFaces extends $tea.Model {
   imageURL?: string;
   faceId?: string;
+  qualitieScore?: number;
   static names(): { [key: string]: string } {
     return {
       imageURL: 'ImageURL',
       faceId: 'FaceId',
+      qualitieScore: 'QualitieScore',
     };
   }
 
@@ -9044,6 +9106,7 @@ export class BatchAddFacesResponseBodyDataInsertedFaces extends $tea.Model {
     return {
       imageURL: 'string',
       faceId: 'string',
+      qualitieScore: 'number',
     };
   }
 
