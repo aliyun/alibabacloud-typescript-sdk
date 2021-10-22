@@ -287,6 +287,97 @@ export class ImportMessageResponse extends $tea.Model {
   }
 }
 
+export class UnbindInterconnectionUidRequest extends $tea.Model {
+  appId?: string;
+  requestParams?: UnbindInterconnectionUidRequestRequestParams;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      requestParams: 'RequestParams',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      requestParams: UnbindInterconnectionUidRequestRequestParams,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnbindInterconnectionUidShrinkRequest extends $tea.Model {
+  appId?: string;
+  requestParamsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      requestParamsShrink: 'RequestParams',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      requestParamsShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnbindInterconnectionUidResponseBody extends $tea.Model {
+  requestId?: string;
+  code?: string;
+  message?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      code: 'Code',
+      message: 'Message',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      code: 'string',
+      message: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnbindInterconnectionUidResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: UnbindInterconnectionUidResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: UnbindInterconnectionUidResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SilenceAllGroupMembersRequest extends $tea.Model {
   appId?: string;
   requestParams?: SilenceAllGroupMembersRequestRequestParams;
@@ -3356,6 +3447,97 @@ export class GetMediaUploadUrlResponse extends $tea.Model {
   }
 }
 
+export class BindInterconnectionUidRequest extends $tea.Model {
+  appId?: string;
+  requestParams?: BindInterconnectionUidRequestRequestParams;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      requestParams: 'RequestParams',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      requestParams: BindInterconnectionUidRequestRequestParams,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BindInterconnectionUidShrinkRequest extends $tea.Model {
+  appId?: string;
+  requestParamsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      requestParamsShrink: 'RequestParams',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      requestParamsShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BindInterconnectionUidResponseBody extends $tea.Model {
+  requestId?: string;
+  code?: string;
+  message?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      code: 'Code',
+      message: 'Message',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      code: 'string',
+      message: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BindInterconnectionUidResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: BindInterconnectionUidResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: BindInterconnectionUidResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetMediaUrlRequest extends $tea.Model {
   appId?: string;
   requestParams?: GetMediaUrlRequestRequestParams;
@@ -3633,6 +3815,97 @@ export class UpdateCallbackConfigResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: UpdateCallbackConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BindInterconnectionCidRequest extends $tea.Model {
+  appId?: string;
+  requestParams?: BindInterconnectionCidRequestRequestParams;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      requestParams: 'RequestParams',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      requestParams: BindInterconnectionCidRequestRequestParams,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BindInterconnectionCidShrinkRequest extends $tea.Model {
+  appId?: string;
+  requestParamsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      requestParamsShrink: 'RequestParams',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      requestParamsShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BindInterconnectionCidResponseBody extends $tea.Model {
+  requestId?: string;
+  code?: string;
+  message?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      code: 'Code',
+      message: 'Message',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      code: 'string',
+      message: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BindInterconnectionCidResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: BindInterconnectionCidResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: BindInterconnectionCidResponseBody,
     };
   }
 
@@ -4938,6 +5211,100 @@ export class GetLoginTokenResponse extends $tea.Model {
   }
 }
 
+export class QueryInterconnectionCidMappingRequest extends $tea.Model {
+  appId?: string;
+  requestParams?: QueryInterconnectionCidMappingRequestRequestParams;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      requestParams: 'RequestParams',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      requestParams: QueryInterconnectionCidMappingRequestRequestParams,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryInterconnectionCidMappingShrinkRequest extends $tea.Model {
+  appId?: string;
+  requestParamsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      requestParamsShrink: 'RequestParams',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      requestParamsShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryInterconnectionCidMappingResponseBody extends $tea.Model {
+  requestId?: string;
+  code?: string;
+  message?: string;
+  result?: QueryInterconnectionCidMappingResponseBodyResult;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      code: 'Code',
+      message: 'Message',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      code: 'string',
+      message: 'string',
+      result: QueryInterconnectionCidMappingResponseBodyResult,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryInterconnectionCidMappingResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: QueryInterconnectionCidMappingResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: QueryInterconnectionCidMappingResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DismissGroupRequest extends $tea.Model {
   appId?: string;
   requestParams?: DismissGroupRequestRequestParams;
@@ -5659,6 +6026,28 @@ export class ImportMessageResponseBodyResult extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       importMessageResult: { 'type': 'map', 'keyType': 'string', 'valueType': ResultImportMessageResultValue },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnbindInterconnectionUidRequestRequestParams extends $tea.Model {
+  appUid?: string;
+  dingTalkUid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appUid: 'AppUid',
+      dingTalkUid: 'DingTalkUid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appUid: 'string',
+      dingTalkUid: 'string',
     };
   }
 
@@ -7115,6 +7504,28 @@ export class GetMediaUploadUrlResponseBodyResult extends $tea.Model {
   }
 }
 
+export class BindInterconnectionUidRequestRequestParams extends $tea.Model {
+  appUid?: string;
+  dingTalkUid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appUid: 'AppUid',
+      dingTalkUid: 'DingTalkUid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appUid: 'string',
+      dingTalkUid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetMediaUrlRequestRequestParams extends $tea.Model {
   mediaId?: string;
   urlExpireTime?: number;
@@ -7320,6 +7731,28 @@ export class UpdateCallbackConfigResponseBodyResult extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       imConfig: UpdateCallbackConfigResponseBodyResultImConfig,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BindInterconnectionCidRequestRequestParams extends $tea.Model {
+  aimAppCid?: string;
+  dingTalkCid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aimAppCid: 'AimAppCid',
+      dingTalkCid: 'DingTalkCid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aimAppCid: 'string',
+      dingTalkCid: 'string',
     };
   }
 
@@ -7890,6 +8323,47 @@ export class GetLoginTokenResponseBodyResult extends $tea.Model {
   }
 }
 
+export class QueryInterconnectionCidMappingRequestRequestParams extends $tea.Model {
+  srcCid?: string;
+  type?: number;
+  static names(): { [key: string]: string } {
+    return {
+      srcCid: 'SrcCid',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      srcCid: 'string',
+      type: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryInterconnectionCidMappingResponseBodyResult extends $tea.Model {
+  dstCid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dstCid: 'DstCid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dstCid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DismissGroupRequestRequestParams extends $tea.Model {
   operatorAppUid?: string;
   appCid?: string;
@@ -8146,6 +8620,25 @@ export default class Client extends OpenApi {
   async importMessage(request: ImportMessageRequest): Promise<ImportMessageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.importMessageWithOptions(request, runtime);
+  }
+
+  async unbindInterconnectionUidWithOptions(tmpReq: UnbindInterconnectionUidRequest, runtime: $Util.RuntimeOptions): Promise<UnbindInterconnectionUidResponse> {
+    Util.validateModel(tmpReq);
+    let request = new UnbindInterconnectionUidShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset($tea.toMap(tmpReq.requestParams))) {
+      request.requestParamsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.requestParams), "RequestParams", "json");
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<UnbindInterconnectionUidResponse>(await this.doRPCRequest("UnbindInterconnectionUid", "2020-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new UnbindInterconnectionUidResponse({}));
+  }
+
+  async unbindInterconnectionUid(request: UnbindInterconnectionUidRequest): Promise<UnbindInterconnectionUidResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.unbindInterconnectionUidWithOptions(request, runtime);
   }
 
   async silenceAllGroupMembersWithOptions(tmpReq: SilenceAllGroupMembersRequest, runtime: $Util.RuntimeOptions): Promise<SilenceAllGroupMembersResponse> {
@@ -8765,6 +9258,25 @@ export default class Client extends OpenApi {
     return await this.getMediaUploadUrlWithOptions(request, runtime);
   }
 
+  async bindInterconnectionUidWithOptions(tmpReq: BindInterconnectionUidRequest, runtime: $Util.RuntimeOptions): Promise<BindInterconnectionUidResponse> {
+    Util.validateModel(tmpReq);
+    let request = new BindInterconnectionUidShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset($tea.toMap(tmpReq.requestParams))) {
+      request.requestParamsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.requestParams), "RequestParams", "json");
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<BindInterconnectionUidResponse>(await this.doRPCRequest("BindInterconnectionUid", "2020-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new BindInterconnectionUidResponse({}));
+  }
+
+  async bindInterconnectionUid(request: BindInterconnectionUidRequest): Promise<BindInterconnectionUidResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.bindInterconnectionUidWithOptions(request, runtime);
+  }
+
   async getMediaUrlWithOptions(tmpReq: GetMediaUrlRequest, runtime: $Util.RuntimeOptions): Promise<GetMediaUrlResponse> {
     Util.validateModel(tmpReq);
     let request = new GetMediaUrlShrinkRequest({ });
@@ -8820,6 +9332,25 @@ export default class Client extends OpenApi {
   async updateCallbackConfig(request: UpdateCallbackConfigRequest): Promise<UpdateCallbackConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateCallbackConfigWithOptions(request, runtime);
+  }
+
+  async bindInterconnectionCidWithOptions(tmpReq: BindInterconnectionCidRequest, runtime: $Util.RuntimeOptions): Promise<BindInterconnectionCidResponse> {
+    Util.validateModel(tmpReq);
+    let request = new BindInterconnectionCidShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset($tea.toMap(tmpReq.requestParams))) {
+      request.requestParamsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.requestParams), "RequestParams", "json");
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<BindInterconnectionCidResponse>(await this.doRPCRequest("BindInterconnectionCid", "2020-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new BindInterconnectionCidResponse({}));
+  }
+
+  async bindInterconnectionCid(request: BindInterconnectionCidRequest): Promise<BindInterconnectionCidResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.bindInterconnectionCidWithOptions(request, runtime);
   }
 
   async initTenantWithOptions(request: InitTenantRequest, runtime: $Util.RuntimeOptions): Promise<InitTenantResponse> {
@@ -9078,6 +9609,25 @@ export default class Client extends OpenApi {
   async getLoginToken(request: GetLoginTokenRequest): Promise<GetLoginTokenResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getLoginTokenWithOptions(request, runtime);
+  }
+
+  async queryInterconnectionCidMappingWithOptions(tmpReq: QueryInterconnectionCidMappingRequest, runtime: $Util.RuntimeOptions): Promise<QueryInterconnectionCidMappingResponse> {
+    Util.validateModel(tmpReq);
+    let request = new QueryInterconnectionCidMappingShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset($tea.toMap(tmpReq.requestParams))) {
+      request.requestParamsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.requestParams), "RequestParams", "json");
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<QueryInterconnectionCidMappingResponse>(await this.doRPCRequest("QueryInterconnectionCidMapping", "2020-12-14", "HTTPS", "POST", "AK", "json", req, runtime), new QueryInterconnectionCidMappingResponse({}));
+  }
+
+  async queryInterconnectionCidMapping(request: QueryInterconnectionCidMappingRequest): Promise<QueryInterconnectionCidMappingResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryInterconnectionCidMappingWithOptions(request, runtime);
   }
 
   async dismissGroupWithOptions(tmpReq: DismissGroupRequest, runtime: $Util.RuntimeOptions): Promise<DismissGroupResponse> {
