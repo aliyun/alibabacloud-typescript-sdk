@@ -997,6 +997,7 @@ export class CreateDbfsRequest extends $tea.Model {
   KMSKeyId?: string;
   encryption?: boolean;
   usedScene?: string;
+  instanceType?: string;
   static names(): { [key: string]: string } {
     return {
       regionId: 'RegionId',
@@ -1013,6 +1014,7 @@ export class CreateDbfsRequest extends $tea.Model {
       KMSKeyId: 'KMSKeyId',
       encryption: 'Encryption',
       usedScene: 'UsedScene',
+      instanceType: 'InstanceType',
     };
   }
 
@@ -1032,6 +1034,7 @@ export class CreateDbfsRequest extends $tea.Model {
       KMSKeyId: 'string',
       encryption: 'boolean',
       usedScene: 'string',
+      instanceType: 'string',
     };
   }
 
