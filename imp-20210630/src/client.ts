@@ -1339,6 +1339,84 @@ export class DeleteLiveResponse extends $tea.Model {
   }
 }
 
+export class ListCommentsRequest extends $tea.Model {
+  appId?: string;
+  roomId?: string;
+  userId?: string;
+  pageNum?: number;
+  pageSize?: number;
+  sortType?: number;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      roomId: 'RoomId',
+      userId: 'UserId',
+      pageNum: 'PageNum',
+      pageSize: 'PageSize',
+      sortType: 'SortType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      roomId: 'string',
+      userId: 'string',
+      pageNum: 'number',
+      pageSize: 'number',
+      sortType: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCommentsResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: ListCommentsResponseBodyResult;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: ListCommentsResponseBodyResult,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCommentsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListCommentsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListCommentsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetLiveDomainStatusRequest extends $tea.Model {
   appId?: string;
   liveDomainList?: string[];
@@ -5148,6 +5226,74 @@ export class CreateConferenceResponseBodyResult extends $tea.Model {
   }
 }
 
+export class ListCommentsResponseBodyResultCommentVOList extends $tea.Model {
+  appId?: string;
+  roomId?: string;
+  commentId?: string;
+  senderId?: string;
+  senderNick?: string;
+  createAt?: number;
+  content?: string;
+  extension?: { [key: string]: string };
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      roomId: 'RoomId',
+      commentId: 'CommentId',
+      senderId: 'SenderId',
+      senderNick: 'SenderNick',
+      createAt: 'CreateAt',
+      content: 'Content',
+      extension: 'Extension',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      roomId: 'string',
+      commentId: 'string',
+      senderId: 'string',
+      senderNick: 'string',
+      createAt: 'number',
+      content: 'string',
+      extension: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCommentsResponseBodyResult extends $tea.Model {
+  commentVOList?: ListCommentsResponseBodyResultCommentVOList[];
+  hasMore?: boolean;
+  totalCount?: number;
+  pageTotal?: number;
+  static names(): { [key: string]: string } {
+    return {
+      commentVOList: 'CommentVOList',
+      hasMore: 'HasMore',
+      totalCount: 'TotalCount',
+      pageTotal: 'PageTotal',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commentVOList: { 'type': 'array', 'itemType': ListCommentsResponseBodyResultCommentVOList },
+      hasMore: 'boolean',
+      totalCount: 'number',
+      pageTotal: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetLiveDomainStatusResponseBodyResultLiveDomainInfoList extends $tea.Model {
   domain?: string;
   cname?: string;
@@ -6829,6 +6975,19 @@ export default class Client extends OpenApi {
   async deleteLive(request: DeleteLiveRequest): Promise<DeleteLiveResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteLiveWithOptions(request, runtime);
+  }
+
+  async listCommentsWithOptions(request: ListCommentsRequest, runtime: $Util.RuntimeOptions): Promise<ListCommentsResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<ListCommentsResponse>(await this.doRPCRequest("ListComments", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new ListCommentsResponse({}));
+  }
+
+  async listComments(request: ListCommentsRequest): Promise<ListCommentsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listCommentsWithOptions(request, runtime);
   }
 
   async getLiveDomainStatusWithOptions(tmpReq: GetLiveDomainStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetLiveDomainStatusResponse> {
