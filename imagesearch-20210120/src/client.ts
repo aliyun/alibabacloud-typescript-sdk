@@ -14,6 +14,81 @@ import EndpointUtil from '@alicloud/endpoint-util';
 import { Readable } from 'stream';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class ImageCategoryRequest extends $tea.Model {
+  instanceName?: string;
+  picUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceName: 'InstanceName',
+      picUrl: 'PicUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceName: 'string',
+      picUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImageCategoryResponseBody extends $tea.Model {
+  code?: number;
+  message?: string;
+  data?: ImageCategoryResponseBodyData;
+  success?: boolean;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      data: 'Data',
+      success: 'Success',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      message: 'string',
+      data: ImageCategoryResponseBodyData,
+      success: 'boolean',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImageCategoryResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ImageCategoryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ImageCategoryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GeneralRecognitionRequest extends $tea.Model {
   instanceName?: string;
   picContent?: string;
@@ -103,6 +178,81 @@ export class GeneralRecognitionResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: GeneralRecognitionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImagePropertyRequest extends $tea.Model {
+  instanceName?: string;
+  picUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceName: 'InstanceName',
+      picUrl: 'PicUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceName: 'string',
+      picUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImagePropertyResponseBody extends $tea.Model {
+  code?: number;
+  message?: string;
+  data?: ImagePropertyResponseBodyData;
+  success?: boolean;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      data: 'Data',
+      success: 'Success',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      message: 'string',
+      data: ImagePropertyResponseBodyData,
+      success: 'boolean',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImagePropertyResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ImagePropertyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ImagePropertyResponseBody,
     };
   }
 
@@ -410,6 +560,50 @@ export class CommodityTitleResponse extends $tea.Model {
   }
 }
 
+export class ImageCategoryResponseBodyDataCateResult extends $tea.Model {
+  score?: number;
+  name?: string;
+  id?: number;
+  static names(): { [key: string]: string } {
+    return {
+      score: 'Score',
+      name: 'Name',
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      score: 'number',
+      name: 'string',
+      id: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImageCategoryResponseBodyData extends $tea.Model {
+  cateResult?: ImageCategoryResponseBodyDataCateResult[];
+  static names(): { [key: string]: string } {
+    return {
+      cateResult: 'CateResult',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cateResult: { 'type': 'array', 'itemType': ImageCategoryResponseBodyDataCateResult },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GeneralRecognitionResponseBodyDataResult extends $tea.Model {
   tag?: string;
   score?: string;
@@ -446,6 +640,75 @@ export class GeneralRecognitionResponseBodyData extends $tea.Model {
     return {
       result: { 'type': 'array', 'itemType': GeneralRecognitionResponseBodyDataResult },
       regions: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImagePropertyResponseBodyDataPropertyResultsValues extends $tea.Model {
+  valueId?: string;
+  probability?: number;
+  valueName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      valueId: 'ValueId',
+      probability: 'Probability',
+      valueName: 'ValueName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      valueId: 'string',
+      probability: 'number',
+      valueName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImagePropertyResponseBodyDataPropertyResults extends $tea.Model {
+  propertyName?: string;
+  propertyId?: string;
+  values?: ImagePropertyResponseBodyDataPropertyResultsValues[];
+  static names(): { [key: string]: string } {
+    return {
+      propertyName: 'PropertyName',
+      propertyId: 'PropertyId',
+      values: 'Values',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      propertyName: 'string',
+      propertyId: 'string',
+      values: { 'type': 'array', 'itemType': ImagePropertyResponseBodyDataPropertyResultsValues },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImagePropertyResponseBodyData extends $tea.Model {
+  propertyResults?: ImagePropertyResponseBodyDataPropertyResults[];
+  static names(): { [key: string]: string } {
+    return {
+      propertyResults: 'PropertyResults',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      propertyResults: { 'type': 'array', 'itemType': ImagePropertyResponseBodyDataPropertyResults },
     };
   }
 
@@ -513,6 +776,19 @@ export default class Client extends OpenApi {
     }
 
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+  }
+
+  async imageCategoryWithOptions(request: ImageCategoryRequest, runtime: $Util.RuntimeOptions): Promise<ImageCategoryResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<ImageCategoryResponse>(await this.doRPCRequest("ImageCategory", "2021-01-20", "HTTPS", "POST", "AK", "json", req, runtime), new ImageCategoryResponse({}));
+  }
+
+  async imageCategory(request: ImageCategoryRequest): Promise<ImageCategoryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.imageCategoryWithOptions(request, runtime);
   }
 
   async generalRecognitionWithOptions(request: GeneralRecognitionRequest, runtime: $Util.RuntimeOptions): Promise<GeneralRecognitionResponse> {
@@ -600,6 +876,19 @@ export default class Client extends OpenApi {
 
     let generalRecognitionResp = await this.generalRecognitionWithOptions(generalRecognitionReq, runtime);
     return generalRecognitionResp;
+  }
+
+  async imagePropertyWithOptions(request: ImagePropertyRequest, runtime: $Util.RuntimeOptions): Promise<ImagePropertyResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<ImagePropertyResponse>(await this.doRPCRequest("ImageProperty", "2021-01-20", "HTTPS", "POST", "AK", "json", req, runtime), new ImagePropertyResponse({}));
+  }
+
+  async imageProperty(request: ImagePropertyRequest): Promise<ImagePropertyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.imagePropertyWithOptions(request, runtime);
   }
 
   async imageDuplicationWithOptions(request: ImageDuplicationRequest, runtime: $Util.RuntimeOptions): Promise<ImageDuplicationResponse> {
