@@ -1519,6 +1519,75 @@ export class SaveHotspotTagResponse extends $tea.Model {
   }
 }
 
+export class RecoveryOriginImageRequest extends $tea.Model {
+  subSceneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      subSceneId: 'SubSceneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      subSceneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecoveryOriginImageResponseBody extends $tea.Model {
+  requestId?: string;
+  code?: number;
+  success?: boolean;
+  message?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      code: 'Code',
+      success: 'Success',
+      message: 'Message',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      code: 'number',
+      success: 'boolean',
+      message: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecoveryOriginImageResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: RecoveryOriginImageResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: RecoveryOriginImageResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteProjectRequest extends $tea.Model {
   projectId?: string;
   static names(): { [key: string]: string } {
@@ -1904,6 +1973,75 @@ export class GetConnDataResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: GetConnDataResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RollbackSubSceneRequest extends $tea.Model {
+  id?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RollbackSubSceneResponseBody extends $tea.Model {
+  requestId?: string;
+  code?: number;
+  success?: boolean;
+  message?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      code: 'Code',
+      success: 'Success',
+      message: 'Message',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      code: 'number',
+      success: 'boolean',
+      message: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RollbackSubSceneResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: RollbackSubSceneResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: RollbackSubSceneResponseBody,
     };
   }
 
@@ -3559,6 +3697,81 @@ export class GetHotspotSceneDataResponse extends $tea.Model {
   }
 }
 
+export class AddMosaicsRequest extends $tea.Model {
+  subSceneId?: string;
+  markPosition?: string;
+  static names(): { [key: string]: string } {
+    return {
+      subSceneId: 'SubSceneId',
+      markPosition: 'MarkPosition',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      subSceneId: 'string',
+      markPosition: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddMosaicsResponseBody extends $tea.Model {
+  requestId?: string;
+  code?: number;
+  success?: boolean;
+  message?: string;
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      code: 'Code',
+      success: 'Success',
+      message: 'Message',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      code: 'number',
+      success: 'boolean',
+      message: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddMosaicsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: AddMosaicsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: AddMosaicsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ScenePublishRequest extends $tea.Model {
   sceneId?: string;
   static names(): { [key: string]: string } {
@@ -4334,6 +4547,7 @@ export class ListSubSceneResponseBodyList extends $tea.Model {
   cubemapPath?: string;
   deleted?: boolean;
   originUrl?: string;
+  baseImageUrl?: string;
   static names(): { [key: string]: string } {
     return {
       id: 'Id',
@@ -4348,6 +4562,7 @@ export class ListSubSceneResponseBodyList extends $tea.Model {
       cubemapPath: 'CubemapPath',
       deleted: 'Deleted',
       originUrl: 'OriginUrl',
+      baseImageUrl: 'BaseImageUrl',
     };
   }
 
@@ -4365,6 +4580,7 @@ export class ListSubSceneResponseBodyList extends $tea.Model {
       cubemapPath: 'string',
       deleted: 'boolean',
       originUrl: 'string',
+      baseImageUrl: 'string',
     };
   }
 
@@ -4795,6 +5011,19 @@ export default class Client extends OpenApi {
     return await this.saveHotspotTagWithOptions(request, runtime);
   }
 
+  async recoveryOriginImageWithOptions(request: RecoveryOriginImageRequest, runtime: $Util.RuntimeOptions): Promise<RecoveryOriginImageResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<RecoveryOriginImageResponse>(await this.doRPCRequest("RecoveryOriginImage", "2020-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new RecoveryOriginImageResponse({}));
+  }
+
+  async recoveryOriginImage(request: RecoveryOriginImageRequest): Promise<RecoveryOriginImageResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.recoveryOriginImageWithOptions(request, runtime);
+  }
+
   async deleteProjectWithOptions(request: DeleteProjectRequest, runtime: $Util.RuntimeOptions): Promise<DeleteProjectResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -4858,6 +5087,19 @@ export default class Client extends OpenApi {
   async getConnData(request: GetConnDataRequest): Promise<GetConnDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getConnDataWithOptions(request, runtime);
+  }
+
+  async rollbackSubSceneWithOptions(request: RollbackSubSceneRequest, runtime: $Util.RuntimeOptions): Promise<RollbackSubSceneResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<RollbackSubSceneResponse>(await this.doRPCRequest("RollbackSubScene", "2020-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new RollbackSubSceneResponse({}));
+  }
+
+  async rollbackSubScene(request: RollbackSubSceneRequest): Promise<RollbackSubSceneResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.rollbackSubSceneWithOptions(request, runtime);
   }
 
   async tempPreviewStatusWithOptions(request: TempPreviewStatusRequest, runtime: $Util.RuntimeOptions): Promise<TempPreviewStatusResponse> {
@@ -5131,6 +5373,19 @@ export default class Client extends OpenApi {
   async getHotspotSceneData(request: GetHotspotSceneDataRequest): Promise<GetHotspotSceneDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getHotspotSceneDataWithOptions(request, runtime);
+  }
+
+  async addMosaicsWithOptions(request: AddMosaicsRequest, runtime: $Util.RuntimeOptions): Promise<AddMosaicsResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<AddMosaicsResponse>(await this.doRPCRequest("AddMosaics", "2020-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new AddMosaicsResponse({}));
+  }
+
+  async addMosaics(request: AddMosaicsRequest): Promise<AddMosaicsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.addMosaicsWithOptions(request, runtime);
   }
 
   async scenePublishWithOptions(request: ScenePublishRequest, runtime: $Util.RuntimeOptions): Promise<ScenePublishResponse> {
