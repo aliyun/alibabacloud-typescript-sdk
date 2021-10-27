@@ -30,19 +30,19 @@ export class CloneFlowRequest extends $tea.Model {
 }
 
 export class CloneFlowResponseBody extends $tea.Model {
-  requestId?: string;
   flowId?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       flowId: 'FlowId',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       flowId: 'string',
+      requestId: 'string',
     };
   }
 
@@ -74,28 +74,28 @@ export class CloneFlowResponse extends $tea.Model {
 }
 
 export class CreateFlowRequest extends $tea.Model {
-  flowName?: string;
-  flowDescription?: string;
   definition?: string;
-  templateId?: string;
+  flowDescription?: string;
+  flowName?: string;
   flowSource?: string;
+  templateId?: string;
   static names(): { [key: string]: string } {
     return {
-      flowName: 'FlowName',
-      flowDescription: 'FlowDescription',
       definition: 'Definition',
-      templateId: 'TemplateId',
+      flowDescription: 'FlowDescription',
+      flowName: 'FlowName',
       flowSource: 'FlowSource',
+      templateId: 'TemplateId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      flowName: 'string',
-      flowDescription: 'string',
       definition: 'string',
-      templateId: 'string',
+      flowDescription: 'string',
+      flowName: 'string',
       flowSource: 'string',
+      templateId: 'string',
     };
   }
 
@@ -105,19 +105,19 @@ export class CreateFlowRequest extends $tea.Model {
 }
 
 export class CreateFlowResponseBody extends $tea.Model {
-  requestId?: string;
   flowId?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       flowId: 'FlowId',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       flowId: 'string',
+      requestId: 'string',
     };
   }
 
@@ -231,22 +231,22 @@ export class DisableFlowRequest extends $tea.Model {
 }
 
 export class DisableFlowResponseBody extends $tea.Model {
+  flowStatus?: string;
   requestId?: string;
   success?: boolean;
-  flowStatus?: string;
   static names(): { [key: string]: string } {
     return {
+      flowStatus: 'FlowStatus',
       requestId: 'RequestId',
       success: 'Success',
-      flowStatus: 'FlowStatus',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      flowStatus: 'string',
       requestId: 'string',
       success: 'boolean',
-      flowStatus: 'string',
     };
   }
 
@@ -297,22 +297,22 @@ export class EnableFlowRequest extends $tea.Model {
 }
 
 export class EnableFlowResponseBody extends $tea.Model {
+  flowStatus?: string;
   requestId?: string;
   success?: boolean;
-  flowStatus?: string;
   static names(): { [key: string]: string } {
     return {
+      flowStatus: 'FlowStatus',
       requestId: 'RequestId',
       success: 'Success',
-      flowStatus: 'FlowStatus',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      flowStatus: 'string',
       requestId: 'string',
       success: 'boolean',
-      flowStatus: 'string',
     };
   }
 
@@ -363,52 +363,52 @@ export class GetFlowRequest extends $tea.Model {
 }
 
 export class GetFlowResponseBody extends $tea.Model {
-  requestId?: string;
-  flowId?: string;
-  regionId?: string;
-  flowName?: string;
-  flowDescription?: string;
   createTime?: string;
-  updateTime?: string;
   currentVersionId?: number;
-  flowStatus?: string;
   definition?: string;
-  templateId?: string;
-  flowSource?: string;
+  flowDescription?: string;
   flowEditMode?: string;
+  flowId?: string;
+  flowName?: string;
+  flowSource?: string;
+  flowStatus?: string;
+  regionId?: string;
+  requestId?: string;
+  templateId?: string;
+  updateTime?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
-      flowId: 'FlowId',
-      regionId: 'RegionId',
-      flowName: 'FlowName',
-      flowDescription: 'FlowDescription',
       createTime: 'CreateTime',
-      updateTime: 'UpdateTime',
       currentVersionId: 'CurrentVersionId',
-      flowStatus: 'FlowStatus',
       definition: 'Definition',
-      templateId: 'TemplateId',
-      flowSource: 'FlowSource',
+      flowDescription: 'FlowDescription',
       flowEditMode: 'FlowEditMode',
+      flowId: 'FlowId',
+      flowName: 'FlowName',
+      flowSource: 'FlowSource',
+      flowStatus: 'FlowStatus',
+      regionId: 'RegionId',
+      requestId: 'RequestId',
+      templateId: 'TemplateId',
+      updateTime: 'UpdateTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
-      flowId: 'string',
-      regionId: 'string',
-      flowName: 'string',
-      flowDescription: 'string',
       createTime: 'string',
-      updateTime: 'string',
       currentVersionId: 'number',
-      flowStatus: 'string',
       definition: 'string',
-      templateId: 'string',
-      flowSource: 'string',
+      flowDescription: 'string',
       flowEditMode: 'string',
+      flowId: 'string',
+      flowName: 'string',
+      flowSource: 'string',
+      flowStatus: 'string',
+      regionId: 'string',
+      requestId: 'string',
+      templateId: 'string',
+      updateTime: 'string',
     };
   }
 
@@ -459,61 +459,61 @@ export class GetTemplateRequest extends $tea.Model {
 }
 
 export class GetTemplateResponseBody extends $tea.Model {
-  requestId?: string;
-  regionId?: string;
-  templateId?: string;
-  templateName?: string;
-  templateDescription?: string;
-  templateTag?: string;
-  definition?: string;
   createTime?: string;
-  updateTime?: string;
+  definition?: string;
+  regionId?: string;
+  requestId?: string;
   templateConnector?: string;
+  templateCreator?: string;
+  templateDescription?: string;
+  templateId?: string;
+  templateLocale?: string;
+  templateName?: string;
+  templateOverview?: string;
   templateSummary?: string;
   templateSummaryEn?: string;
-  templateLocale?: string;
+  templateTag?: string;
   templateVersion?: number;
-  templateOverview?: string;
-  templateCreator?: string;
+  updateTime?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
-      regionId: 'RegionId',
-      templateId: 'TemplateId',
-      templateName: 'TemplateName',
-      templateDescription: 'TemplateDescription',
-      templateTag: 'TemplateTag',
-      definition: 'Definition',
       createTime: 'CreateTime',
-      updateTime: 'UpdateTime',
+      definition: 'Definition',
+      regionId: 'RegionId',
+      requestId: 'RequestId',
       templateConnector: 'TemplateConnector',
+      templateCreator: 'TemplateCreator',
+      templateDescription: 'TemplateDescription',
+      templateId: 'TemplateId',
+      templateLocale: 'TemplateLocale',
+      templateName: 'TemplateName',
+      templateOverview: 'TemplateOverview',
       templateSummary: 'TemplateSummary',
       templateSummaryEn: 'TemplateSummaryEn',
-      templateLocale: 'TemplateLocale',
+      templateTag: 'TemplateTag',
       templateVersion: 'TemplateVersion',
-      templateOverview: 'TemplateOverview',
-      templateCreator: 'TemplateCreator',
+      updateTime: 'UpdateTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
-      regionId: 'string',
-      templateId: 'string',
-      templateName: 'string',
-      templateDescription: 'string',
-      templateTag: 'string',
-      definition: 'string',
       createTime: 'string',
-      updateTime: 'string',
+      definition: 'string',
+      regionId: 'string',
+      requestId: 'string',
       templateConnector: 'string',
+      templateCreator: 'string',
+      templateDescription: 'string',
+      templateId: 'string',
+      templateLocale: 'string',
+      templateName: 'string',
+      templateOverview: 'string',
       templateSummary: 'string',
       templateSummaryEn: 'string',
-      templateLocale: 'string',
+      templateTag: 'string',
       templateVersion: 'number',
-      templateOverview: 'string',
-      templateCreator: 'string',
+      updateTime: 'string',
     };
   }
 
@@ -635,31 +635,31 @@ export class GetVersionResponse extends $tea.Model {
 }
 
 export class GroupInvokeFlowRequest extends $tea.Model {
+  clientToken?: string;
+  data?: string;
   flowId?: string;
   groupKey?: string;
-  data?: string;
-  clientToken?: string;
-  totalCount?: number;
   tags?: string;
+  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
+      clientToken: 'ClientToken',
+      data: 'Data',
       flowId: 'FlowId',
       groupKey: 'GroupKey',
-      data: 'Data',
-      clientToken: 'ClientToken',
-      totalCount: 'TotalCount',
       tags: 'Tags',
+      totalCount: 'TotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      clientToken: 'string',
+      data: 'string',
       flowId: 'string',
       groupKey: 'string',
-      data: 'string',
-      clientToken: 'string',
-      totalCount: 'number',
       tags: 'string',
+      totalCount: 'number',
     };
   }
 
@@ -722,25 +722,25 @@ export class GroupInvokeFlowResponse extends $tea.Model {
 }
 
 export class InvokeFlowRequest extends $tea.Model {
+  clientToken?: string;
+  data?: string;
   flowId?: string;
   parameters?: string;
-  data?: string;
-  clientToken?: string;
   static names(): { [key: string]: string } {
     return {
+      clientToken: 'ClientToken',
+      data: 'Data',
       flowId: 'FlowId',
       parameters: 'Parameters',
-      data: 'Data',
-      clientToken: 'ClientToken',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      clientToken: 'string',
+      data: 'string',
       flowId: 'string',
       parameters: 'string',
-      data: 'string',
-      clientToken: 'string',
     };
   }
 
@@ -750,21 +750,21 @@ export class InvokeFlowRequest extends $tea.Model {
 }
 
 export class InvokeFlowResponseBody extends $tea.Model {
-  requestId?: string;
   invocationId?: string;
+  requestId?: string;
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       invocationId: 'InvocationId',
+      requestId: 'RequestId',
       success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       invocationId: 'string',
+      requestId: 'string',
       success: 'boolean',
     };
   }
@@ -797,25 +797,25 @@ export class InvokeFlowResponse extends $tea.Model {
 }
 
 export class ListFlowsRequest extends $tea.Model {
-  pageSize?: number;
-  pageNumber?: number;
-  flowName?: string;
   filter?: string;
+  flowName?: string;
+  pageNumber?: number;
+  pageSize?: number;
   static names(): { [key: string]: string } {
     return {
-      pageSize: 'PageSize',
-      pageNumber: 'PageNumber',
-      flowName: 'FlowName',
       filter: 'Filter',
+      flowName: 'FlowName',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      pageSize: 'number',
-      pageNumber: 'number',
-      flowName: 'string',
       filter: 'string',
+      flowName: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
     };
   }
 
@@ -825,22 +825,22 @@ export class ListFlowsRequest extends $tea.Model {
 }
 
 export class ListFlowsResponseBody extends $tea.Model {
+  flows?: ListFlowsResponseBodyFlows[];
   requestId?: string;
   totalCount?: number;
-  flows?: ListFlowsResponseBodyFlows[];
   static names(): { [key: string]: string } {
     return {
+      flows: 'Flows',
       requestId: 'RequestId',
       totalCount: 'TotalCount',
-      flows: 'Flows',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      flows: { 'type': 'array', 'itemType': ListFlowsResponseBodyFlows },
       requestId: 'string',
       totalCount: 'number',
-      flows: { 'type': 'array', 'itemType': ListFlowsResponseBodyFlows },
     };
   }
 
@@ -872,28 +872,28 @@ export class ListFlowsResponse extends $tea.Model {
 }
 
 export class ListTagResourcesRequest extends $tea.Model {
-  resourceType?: string;
-  resourceId?: string[];
-  tag?: ListTagResourcesRequestTag[];
-  nextToken?: string;
   maxResults?: number;
+  nextToken?: string;
+  resourceId?: string[];
+  resourceType?: string;
+  tag?: ListTagResourcesRequestTag[];
   static names(): { [key: string]: string } {
     return {
-      resourceType: 'ResourceType',
-      resourceId: 'ResourceId',
-      tag: 'Tag',
-      nextToken: 'NextToken',
       maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      tag: 'Tag',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      resourceType: 'string',
-      resourceId: { 'type': 'array', 'itemType': 'string' },
-      tag: { 'type': 'array', 'itemType': ListTagResourcesRequestTag },
-      nextToken: 'string',
       maxResults: 'number',
+      nextToken: 'string',
+      resourceId: { 'type': 'array', 'itemType': 'string' },
+      resourceType: 'string',
+      tag: { 'type': 'array', 'itemType': ListTagResourcesRequestTag },
     };
   }
 
@@ -903,25 +903,25 @@ export class ListTagResourcesRequest extends $tea.Model {
 }
 
 export class ListTagResourcesResponseBody extends $tea.Model {
-  requestId?: string;
   nextToken?: string;
-  totalCount?: number;
+  requestId?: string;
   tagResources?: ListTagResourcesResponseBodyTagResources[];
+  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       nextToken: 'NextToken',
-      totalCount: 'TotalCount',
+      requestId: 'RequestId',
       tagResources: 'TagResources',
+      totalCount: 'TotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       nextToken: 'string',
-      totalCount: 'number',
+      requestId: 'string',
       tagResources: { 'type': 'array', 'itemType': ListTagResourcesResponseBodyTagResources },
+      totalCount: 'number',
     };
   }
 
@@ -953,28 +953,28 @@ export class ListTagResourcesResponse extends $tea.Model {
 }
 
 export class ListTemplatesRequest extends $tea.Model {
+  lang?: string;
+  name?: string;
   pageNumber?: number;
   pageSize?: number;
-  name?: string;
   tag?: string;
-  lang?: string;
   static names(): { [key: string]: string } {
     return {
+      lang: 'Lang',
+      name: 'Name',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
-      name: 'Name',
       tag: 'Tag',
-      lang: 'Lang',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      lang: 'string',
+      name: 'string',
       pageNumber: 'number',
       pageSize: 'number',
-      name: 'string',
       tag: 'string',
-      lang: 'string',
     };
   }
 
@@ -985,21 +985,21 @@ export class ListTemplatesRequest extends $tea.Model {
 
 export class ListTemplatesResponseBody extends $tea.Model {
   requestId?: string;
-  totalCount?: number;
   templates?: ListTemplatesResponseBodyTemplates[];
+  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      totalCount: 'TotalCount',
       templates: 'Templates',
+      totalCount: 'TotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      totalCount: 'number',
       templates: { 'type': 'array', 'itemType': ListTemplatesResponseBodyTemplates },
+      totalCount: 'number',
     };
   }
 
@@ -1103,21 +1103,21 @@ export class ListVersionsResponse extends $tea.Model {
 }
 
 export class TagResourcesRequest extends $tea.Model {
-  resourceType?: string;
   resourceId?: string[];
+  resourceType?: string;
   tag?: TagResourcesRequestTag[];
   static names(): { [key: string]: string } {
     return {
-      resourceType: 'ResourceType',
       resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
       tag: 'Tag',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      resourceType: 'string',
       resourceId: { 'type': 'array', 'itemType': 'string' },
+      resourceType: 'string',
       tag: { 'type': 'array', 'itemType': TagResourcesRequestTag },
     };
   }
@@ -1172,25 +1172,25 @@ export class TagResourcesResponse extends $tea.Model {
 }
 
 export class UntagResourcesRequest extends $tea.Model {
-  resourceType?: string;
-  resourceId?: string[];
-  tagKey?: string[];
   all?: boolean;
+  resourceId?: string[];
+  resourceType?: string;
+  tagKey?: string[];
   static names(): { [key: string]: string } {
     return {
-      resourceType: 'ResourceType',
-      resourceId: 'ResourceId',
-      tagKey: 'TagKey',
       all: 'All',
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      tagKey: 'TagKey',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      resourceType: 'string',
-      resourceId: { 'type': 'array', 'itemType': 'string' },
-      tagKey: { 'type': 'array', 'itemType': 'string' },
       all: 'boolean',
+      resourceId: { 'type': 'array', 'itemType': 'string' },
+      resourceType: 'string',
+      tagKey: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -1244,25 +1244,25 @@ export class UntagResourcesResponse extends $tea.Model {
 }
 
 export class UpdateFlowRequest extends $tea.Model {
+  definition?: string;
+  flowDescription?: string;
   flowId?: string;
   flowName?: string;
-  flowDescription?: string;
-  definition?: string;
   static names(): { [key: string]: string } {
     return {
+      definition: 'Definition',
+      flowDescription: 'FlowDescription',
       flowId: 'FlowId',
       flowName: 'FlowName',
-      flowDescription: 'FlowDescription',
-      definition: 'Definition',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      definition: 'string',
+      flowDescription: 'string',
       flowId: 'string',
       flowName: 'string',
-      flowDescription: 'string',
-      definition: 'string',
     };
   }
 
@@ -1272,22 +1272,22 @@ export class UpdateFlowRequest extends $tea.Model {
 }
 
 export class UpdateFlowResponseBody extends $tea.Model {
+  currentVersionId?: number;
   requestId?: string;
   success?: boolean;
-  currentVersionId?: number;
   static names(): { [key: string]: string } {
     return {
+      currentVersionId: 'CurrentVersionId',
       requestId: 'RequestId',
       success: 'Success',
-      currentVersionId: 'CurrentVersionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      currentVersionId: 'number',
       requestId: 'string',
       success: 'boolean',
-      currentVersionId: 'number',
     };
   }
 
@@ -1319,46 +1319,46 @@ export class UpdateFlowResponse extends $tea.Model {
 }
 
 export class ListFlowsResponseBodyFlows extends $tea.Model {
-  flowId?: string;
-  regionId?: string;
-  flowName?: string;
-  flowDescription?: string;
-  versionId?: number;
   createTime?: string;
-  updateTime?: string;
-  flowStatus?: string;
-  templateId?: string;
-  flowSource?: string;
+  flowDescription?: string;
   flowEditMode?: string;
+  flowId?: string;
+  flowName?: string;
+  flowSource?: string;
+  flowStatus?: string;
+  regionId?: string;
+  templateId?: string;
+  updateTime?: string;
+  versionId?: number;
   static names(): { [key: string]: string } {
     return {
-      flowId: 'FlowId',
-      regionId: 'RegionId',
-      flowName: 'FlowName',
-      flowDescription: 'FlowDescription',
-      versionId: 'VersionId',
       createTime: 'CreateTime',
-      updateTime: 'UpdateTime',
-      flowStatus: 'FlowStatus',
-      templateId: 'TemplateId',
-      flowSource: 'FlowSource',
+      flowDescription: 'FlowDescription',
       flowEditMode: 'FlowEditMode',
+      flowId: 'FlowId',
+      flowName: 'FlowName',
+      flowSource: 'FlowSource',
+      flowStatus: 'FlowStatus',
+      regionId: 'RegionId',
+      templateId: 'TemplateId',
+      updateTime: 'UpdateTime',
+      versionId: 'VersionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      flowId: 'string',
-      regionId: 'string',
-      flowName: 'string',
-      flowDescription: 'string',
-      versionId: 'number',
       createTime: 'string',
-      updateTime: 'string',
-      flowStatus: 'string',
-      templateId: 'string',
-      flowSource: 'string',
+      flowDescription: 'string',
       flowEditMode: 'string',
+      flowId: 'string',
+      flowName: 'string',
+      flowSource: 'string',
+      flowStatus: 'string',
+      regionId: 'string',
+      templateId: 'string',
+      updateTime: 'string',
+      versionId: 'number',
     };
   }
 
@@ -1390,25 +1390,25 @@ export class ListTagResourcesRequestTag extends $tea.Model {
 }
 
 export class ListTagResourcesResponseBodyTagResources extends $tea.Model {
-  tagKey?: string;
-  tagValue?: string;
   resourceId?: string;
   resourceType?: string;
+  tagKey?: string;
+  tagValue?: string;
   static names(): { [key: string]: string } {
     return {
-      tagKey: 'TagKey',
-      tagValue: 'TagValue',
       resourceId: 'ResourceId',
       resourceType: 'ResourceType',
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      tagKey: 'string',
-      tagValue: 'string',
       resourceId: 'string',
       resourceType: 'string',
+      tagKey: 'string',
+      tagValue: 'string',
     };
   }
 
@@ -1418,52 +1418,52 @@ export class ListTagResourcesResponseBodyTagResources extends $tea.Model {
 }
 
 export class ListTemplatesResponseBodyTemplates extends $tea.Model {
-  templateId?: string;
-  templateName?: string;
-  templateDescription?: string;
-  templateTag?: string;
   createTime?: string;
-  updateTime?: string;
   templateConnector?: string;
+  templateCreator?: string;
+  templateDescription?: string;
+  templateId?: string;
+  templateLocale?: string;
+  templateName?: string;
+  templateOverview?: string;
   templateSummary?: string;
   templateSummaryEn?: string;
-  templateLocale?: string;
+  templateTag?: string;
   templateVersion?: number;
-  templateCreator?: string;
-  templateOverview?: string;
+  updateTime?: string;
   static names(): { [key: string]: string } {
     return {
-      templateId: 'TemplateId',
-      templateName: 'TemplateName',
-      templateDescription: 'TemplateDescription',
-      templateTag: 'TemplateTag',
       createTime: 'CreateTime',
-      updateTime: 'UpdateTime',
       templateConnector: 'TemplateConnector',
+      templateCreator: 'TemplateCreator',
+      templateDescription: 'TemplateDescription',
+      templateId: 'TemplateId',
+      templateLocale: 'TemplateLocale',
+      templateName: 'TemplateName',
+      templateOverview: 'TemplateOverview',
       templateSummary: 'TemplateSummary',
       templateSummaryEn: 'TemplateSummaryEn',
-      templateLocale: 'TemplateLocale',
+      templateTag: 'TemplateTag',
       templateVersion: 'TemplateVersion',
-      templateCreator: 'TemplateCreator',
-      templateOverview: 'TemplateOverview',
+      updateTime: 'UpdateTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      templateId: 'string',
-      templateName: 'string',
-      templateDescription: 'string',
-      templateTag: 'string',
       createTime: 'string',
-      updateTime: 'string',
       templateConnector: 'string',
+      templateCreator: 'string',
+      templateDescription: 'string',
+      templateId: 'string',
+      templateLocale: 'string',
+      templateName: 'string',
+      templateOverview: 'string',
       templateSummary: 'string',
       templateSummaryEn: 'string',
-      templateLocale: 'string',
+      templateTag: 'string',
       templateVersion: 'number',
-      templateCreator: 'string',
-      templateOverview: 'string',
+      updateTime: 'string',
     };
   }
 
@@ -1473,31 +1473,31 @@ export class ListTemplatesResponseBodyTemplates extends $tea.Model {
 }
 
 export class ListVersionsResponseBodyVersions extends $tea.Model {
-  versionId?: string;
+  createTime?: string;
   flowId?: string;
+  updateTime?: string;
+  versionId?: string;
   versionName?: number;
   versionStatus?: number;
-  createTime?: string;
-  updateTime?: string;
   static names(): { [key: string]: string } {
     return {
-      versionId: 'VersionId',
+      createTime: 'CreateTime',
       flowId: 'FlowId',
+      updateTime: 'UpdateTime',
+      versionId: 'VersionId',
       versionName: 'VersionName',
       versionStatus: 'VersionStatus',
-      createTime: 'CreateTime',
-      updateTime: 'UpdateTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      versionId: 'string',
+      createTime: 'string',
       flowId: 'string',
+      updateTime: 'string',
+      versionId: 'string',
       versionName: 'number',
       versionStatus: 'number',
-      createTime: 'string',
-      updateTime: 'string',
     };
   }
 
