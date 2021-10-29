@@ -343,22 +343,22 @@ export class SearchByUrlResponse extends $tea.Model {
 }
 
 export class GetProductInfoByIdsResponseBodyDataAuctionsResultMaxCommission extends $tea.Model {
-  maxCommissionRate?: string;
   maxCommissionClickUrl?: string;
   maxCommissionCouponShareUrl?: string;
+  maxCommissionRate?: string;
   static names(): { [key: string]: string } {
     return {
-      maxCommissionRate: 'MaxCommissionRate',
       maxCommissionClickUrl: 'MaxCommissionClickUrl',
       maxCommissionCouponShareUrl: 'MaxCommissionCouponShareUrl',
+      maxCommissionRate: 'MaxCommissionRate',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      maxCommissionRate: 'string',
       maxCommissionClickUrl: 'string',
       maxCommissionCouponShareUrl: 'string',
+      maxCommissionRate: 'string',
     };
   }
 
@@ -368,100 +368,100 @@ export class GetProductInfoByIdsResponseBodyDataAuctionsResultMaxCommission exte
 }
 
 export class GetProductInfoByIdsResponseBodyDataAuctionsResult extends $tea.Model {
+  categoryName?: string;
+  commissionRate?: string;
+  couponAmount?: number;
+  couponEndTime?: string;
+  couponInfo?: string;
+  couponRemainCount?: number;
+  couponShareUrl?: string;
+  couponStartFee?: string;
+  couponStartTime?: string;
+  couponTotalCount?: string;
+  deeplinkCouponShareUrl?: string;
+  deeplinkUrl?: string;
   itemId?: string;
-  title?: string;
+  levelOneCategoryName?: string;
+  maxCommission?: GetProductInfoByIdsResponseBodyDataAuctionsResultMaxCommission;
+  nick?: string;
+  picUrl?: string;
+  priceAfterCoupon?: string;
+  provcity?: string;
+  reservePrice?: string;
+  sellerId?: string;
+  shopTitle?: string;
   shortTitle?: string;
   subTitle?: string;
-  picUrl?: string;
-  reservePrice?: string;
-  zkFinalPrice?: string;
-  priceAfterCoupon?: string;
-  userType?: number;
-  provcity?: string;
-  nick?: string;
-  sellerId?: string;
-  volume?: number;
-  levelOneCategoryName?: string;
-  categoryName?: string;
-  couponTotalCount?: string;
-  couponRemainCount?: number;
-  couponStartTime?: string;
-  couponEndTime?: string;
-  couponStartFee?: string;
-  couponAmount?: number;
-  couponInfo?: string;
-  commissionRate?: string;
-  couponShareUrl?: string;
-  deeplinkCouponShareUrl?: string;
+  title?: string;
   url?: string;
-  deeplinkUrl?: string;
-  shopTitle?: string;
-  maxCommission?: GetProductInfoByIdsResponseBodyDataAuctionsResultMaxCommission;
+  userType?: number;
+  volume?: number;
+  zkFinalPrice?: string;
   static names(): { [key: string]: string } {
     return {
+      categoryName: 'CategoryName',
+      commissionRate: 'CommissionRate',
+      couponAmount: 'CouponAmount',
+      couponEndTime: 'CouponEndTime',
+      couponInfo: 'CouponInfo',
+      couponRemainCount: 'CouponRemainCount',
+      couponShareUrl: 'CouponShareUrl',
+      couponStartFee: 'CouponStartFee',
+      couponStartTime: 'CouponStartTime',
+      couponTotalCount: 'CouponTotalCount',
+      deeplinkCouponShareUrl: 'DeeplinkCouponShareUrl',
+      deeplinkUrl: 'DeeplinkUrl',
       itemId: 'ItemId',
-      title: 'Title',
+      levelOneCategoryName: 'LevelOneCategoryName',
+      maxCommission: 'MaxCommission',
+      nick: 'Nick',
+      picUrl: 'PicUrl',
+      priceAfterCoupon: 'PriceAfterCoupon',
+      provcity: 'Provcity',
+      reservePrice: 'ReservePrice',
+      sellerId: 'SellerId',
+      shopTitle: 'ShopTitle',
       shortTitle: 'ShortTitle',
       subTitle: 'SubTitle',
-      picUrl: 'PicUrl',
-      reservePrice: 'ReservePrice',
-      zkFinalPrice: 'ZkFinalPrice',
-      priceAfterCoupon: 'PriceAfterCoupon',
-      userType: 'UserType',
-      provcity: 'Provcity',
-      nick: 'Nick',
-      sellerId: 'SellerId',
-      volume: 'Volume',
-      levelOneCategoryName: 'LevelOneCategoryName',
-      categoryName: 'CategoryName',
-      couponTotalCount: 'CouponTotalCount',
-      couponRemainCount: 'CouponRemainCount',
-      couponStartTime: 'CouponStartTime',
-      couponEndTime: 'CouponEndTime',
-      couponStartFee: 'CouponStartFee',
-      couponAmount: 'CouponAmount',
-      couponInfo: 'CouponInfo',
-      commissionRate: 'CommissionRate',
-      couponShareUrl: 'CouponShareUrl',
-      deeplinkCouponShareUrl: 'DeeplinkCouponShareUrl',
+      title: 'Title',
       url: 'Url',
-      deeplinkUrl: 'DeeplinkUrl',
-      shopTitle: 'ShopTitle',
-      maxCommission: 'MaxCommission',
+      userType: 'UserType',
+      volume: 'Volume',
+      zkFinalPrice: 'ZkFinalPrice',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      categoryName: 'string',
+      commissionRate: 'string',
+      couponAmount: 'number',
+      couponEndTime: 'string',
+      couponInfo: 'string',
+      couponRemainCount: 'number',
+      couponShareUrl: 'string',
+      couponStartFee: 'string',
+      couponStartTime: 'string',
+      couponTotalCount: 'string',
+      deeplinkCouponShareUrl: 'string',
+      deeplinkUrl: 'string',
       itemId: 'string',
-      title: 'string',
+      levelOneCategoryName: 'string',
+      maxCommission: GetProductInfoByIdsResponseBodyDataAuctionsResultMaxCommission,
+      nick: 'string',
+      picUrl: 'string',
+      priceAfterCoupon: 'string',
+      provcity: 'string',
+      reservePrice: 'string',
+      sellerId: 'string',
+      shopTitle: 'string',
       shortTitle: 'string',
       subTitle: 'string',
-      picUrl: 'string',
-      reservePrice: 'string',
-      zkFinalPrice: 'string',
-      priceAfterCoupon: 'string',
-      userType: 'number',
-      provcity: 'string',
-      nick: 'string',
-      sellerId: 'string',
-      volume: 'number',
-      levelOneCategoryName: 'string',
-      categoryName: 'string',
-      couponTotalCount: 'string',
-      couponRemainCount: 'number',
-      couponStartTime: 'string',
-      couponEndTime: 'string',
-      couponStartFee: 'string',
-      couponAmount: 'number',
-      couponInfo: 'string',
-      commissionRate: 'string',
-      couponShareUrl: 'string',
-      deeplinkCouponShareUrl: 'string',
+      title: 'string',
       url: 'string',
-      deeplinkUrl: 'string',
-      shopTitle: 'string',
-      maxCommission: GetProductInfoByIdsResponseBodyDataAuctionsResultMaxCommission,
+      userType: 'number',
+      volume: 'number',
+      zkFinalPrice: 'string',
     };
   }
 
@@ -471,19 +471,19 @@ export class GetProductInfoByIdsResponseBodyDataAuctionsResult extends $tea.Mode
 }
 
 export class GetProductInfoByIdsResponseBodyDataAuctions extends $tea.Model {
-  result?: GetProductInfoByIdsResponseBodyDataAuctionsResult;
   rankScore?: number;
+  result?: GetProductInfoByIdsResponseBodyDataAuctionsResult;
   static names(): { [key: string]: string } {
     return {
-      result: 'Result',
       rankScore: 'RankScore',
+      result: 'Result',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      result: GetProductInfoByIdsResponseBodyDataAuctionsResult,
       rankScore: 'number',
+      result: GetProductInfoByIdsResponseBodyDataAuctionsResult,
     };
   }
 
@@ -512,22 +512,22 @@ export class GetProductInfoByIdsResponseBodyData extends $tea.Model {
 }
 
 export class SearchByPicResponseBodyDataAuctionsResultMaxCommission extends $tea.Model {
-  maxCommissionRate?: string;
   maxCommissionClickUrl?: string;
   maxCommissionCouponShareUrl?: string;
+  maxCommissionRate?: string;
   static names(): { [key: string]: string } {
     return {
-      maxCommissionRate: 'MaxCommissionRate',
       maxCommissionClickUrl: 'MaxCommissionClickUrl',
       maxCommissionCouponShareUrl: 'MaxCommissionCouponShareUrl',
+      maxCommissionRate: 'MaxCommissionRate',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      maxCommissionRate: 'string',
       maxCommissionClickUrl: 'string',
       maxCommissionCouponShareUrl: 'string',
+      maxCommissionRate: 'string',
     };
   }
 
@@ -537,100 +537,100 @@ export class SearchByPicResponseBodyDataAuctionsResultMaxCommission extends $tea
 }
 
 export class SearchByPicResponseBodyDataAuctionsResult extends $tea.Model {
+  categoryName?: string;
+  commissionRate?: string;
+  couponAmount?: number;
+  couponEndTime?: string;
+  couponInfo?: string;
+  couponRemainCount?: number;
+  couponShareUrl?: string;
+  couponStartFee?: string;
+  couponStartTime?: string;
+  couponTotalCount?: string;
+  deeplinkCouponShareUrl?: string;
+  deeplinkUrl?: string;
   itemId?: string;
-  title?: string;
+  levelOneCategoryName?: string;
+  maxCommission?: SearchByPicResponseBodyDataAuctionsResultMaxCommission;
+  nick?: string;
+  picUrl?: string;
+  priceAfterCoupon?: string;
+  provcity?: string;
+  reservePrice?: string;
+  sellerId?: string;
+  shopTitle?: string;
   shortTitle?: string;
   subTitle?: string;
-  picUrl?: string;
-  reservePrice?: string;
-  zkFinalPrice?: string;
-  priceAfterCoupon?: string;
-  userType?: number;
-  provcity?: string;
-  nick?: string;
-  sellerId?: string;
-  volume?: number;
-  levelOneCategoryName?: string;
-  categoryName?: string;
-  couponTotalCount?: string;
-  couponRemainCount?: number;
-  couponStartTime?: string;
-  couponEndTime?: string;
-  couponStartFee?: string;
-  couponAmount?: number;
-  couponInfo?: string;
-  commissionRate?: string;
-  couponShareUrl?: string;
-  deeplinkCouponShareUrl?: string;
+  title?: string;
   url?: string;
-  deeplinkUrl?: string;
-  shopTitle?: string;
-  maxCommission?: SearchByPicResponseBodyDataAuctionsResultMaxCommission;
+  userType?: number;
+  volume?: number;
+  zkFinalPrice?: string;
   static names(): { [key: string]: string } {
     return {
+      categoryName: 'CategoryName',
+      commissionRate: 'CommissionRate',
+      couponAmount: 'CouponAmount',
+      couponEndTime: 'CouponEndTime',
+      couponInfo: 'CouponInfo',
+      couponRemainCount: 'CouponRemainCount',
+      couponShareUrl: 'CouponShareUrl',
+      couponStartFee: 'CouponStartFee',
+      couponStartTime: 'CouponStartTime',
+      couponTotalCount: 'CouponTotalCount',
+      deeplinkCouponShareUrl: 'DeeplinkCouponShareUrl',
+      deeplinkUrl: 'DeeplinkUrl',
       itemId: 'ItemId',
-      title: 'Title',
+      levelOneCategoryName: 'LevelOneCategoryName',
+      maxCommission: 'MaxCommission',
+      nick: 'Nick',
+      picUrl: 'PicUrl',
+      priceAfterCoupon: 'PriceAfterCoupon',
+      provcity: 'Provcity',
+      reservePrice: 'ReservePrice',
+      sellerId: 'SellerId',
+      shopTitle: 'ShopTitle',
       shortTitle: 'ShortTitle',
       subTitle: 'SubTitle',
-      picUrl: 'PicUrl',
-      reservePrice: 'ReservePrice',
-      zkFinalPrice: 'ZkFinalPrice',
-      priceAfterCoupon: 'PriceAfterCoupon',
-      userType: 'UserType',
-      provcity: 'Provcity',
-      nick: 'Nick',
-      sellerId: 'SellerId',
-      volume: 'Volume',
-      levelOneCategoryName: 'LevelOneCategoryName',
-      categoryName: 'CategoryName',
-      couponTotalCount: 'CouponTotalCount',
-      couponRemainCount: 'CouponRemainCount',
-      couponStartTime: 'CouponStartTime',
-      couponEndTime: 'CouponEndTime',
-      couponStartFee: 'CouponStartFee',
-      couponAmount: 'CouponAmount',
-      couponInfo: 'CouponInfo',
-      commissionRate: 'CommissionRate',
-      couponShareUrl: 'CouponShareUrl',
-      deeplinkCouponShareUrl: 'DeeplinkCouponShareUrl',
+      title: 'Title',
       url: 'Url',
-      deeplinkUrl: 'DeeplinkUrl',
-      shopTitle: 'ShopTitle',
-      maxCommission: 'MaxCommission',
+      userType: 'UserType',
+      volume: 'Volume',
+      zkFinalPrice: 'ZkFinalPrice',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      categoryName: 'string',
+      commissionRate: 'string',
+      couponAmount: 'number',
+      couponEndTime: 'string',
+      couponInfo: 'string',
+      couponRemainCount: 'number',
+      couponShareUrl: 'string',
+      couponStartFee: 'string',
+      couponStartTime: 'string',
+      couponTotalCount: 'string',
+      deeplinkCouponShareUrl: 'string',
+      deeplinkUrl: 'string',
       itemId: 'string',
-      title: 'string',
+      levelOneCategoryName: 'string',
+      maxCommission: SearchByPicResponseBodyDataAuctionsResultMaxCommission,
+      nick: 'string',
+      picUrl: 'string',
+      priceAfterCoupon: 'string',
+      provcity: 'string',
+      reservePrice: 'string',
+      sellerId: 'string',
+      shopTitle: 'string',
       shortTitle: 'string',
       subTitle: 'string',
-      picUrl: 'string',
-      reservePrice: 'string',
-      zkFinalPrice: 'string',
-      priceAfterCoupon: 'string',
-      userType: 'number',
-      provcity: 'string',
-      nick: 'string',
-      sellerId: 'string',
-      volume: 'number',
-      levelOneCategoryName: 'string',
-      categoryName: 'string',
-      couponTotalCount: 'string',
-      couponRemainCount: 'number',
-      couponStartTime: 'string',
-      couponEndTime: 'string',
-      couponStartFee: 'string',
-      couponAmount: 'number',
-      couponInfo: 'string',
-      commissionRate: 'string',
-      couponShareUrl: 'string',
-      deeplinkCouponShareUrl: 'string',
+      title: 'string',
       url: 'string',
-      deeplinkUrl: 'string',
-      shopTitle: 'string',
-      maxCommission: SearchByPicResponseBodyDataAuctionsResultMaxCommission,
+      userType: 'number',
+      volume: 'number',
+      zkFinalPrice: 'string',
     };
   }
 
@@ -640,19 +640,19 @@ export class SearchByPicResponseBodyDataAuctionsResult extends $tea.Model {
 }
 
 export class SearchByPicResponseBodyDataAuctions extends $tea.Model {
-  result?: SearchByPicResponseBodyDataAuctionsResult;
   rankScore?: number;
+  result?: SearchByPicResponseBodyDataAuctionsResult;
   static names(): { [key: string]: string } {
     return {
-      result: 'Result',
       rankScore: 'RankScore',
+      result: 'Result',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      result: SearchByPicResponseBodyDataAuctionsResult,
       rankScore: 'number',
+      result: SearchByPicResponseBodyDataAuctionsResult,
     };
   }
 
@@ -766,22 +766,22 @@ export class SearchByPicResponseBodyPicInfo extends $tea.Model {
 }
 
 export class SearchByUrlResponseBodyDataAuctionsResultMaxCommission extends $tea.Model {
-  maxCommissionRate?: string;
   maxCommissionClickUrl?: string;
   maxCommissionCouponShareUrl?: string;
+  maxCommissionRate?: string;
   static names(): { [key: string]: string } {
     return {
-      maxCommissionRate: 'MaxCommissionRate',
       maxCommissionClickUrl: 'MaxCommissionClickUrl',
       maxCommissionCouponShareUrl: 'MaxCommissionCouponShareUrl',
+      maxCommissionRate: 'MaxCommissionRate',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      maxCommissionRate: 'string',
       maxCommissionClickUrl: 'string',
       maxCommissionCouponShareUrl: 'string',
+      maxCommissionRate: 'string',
     };
   }
 
@@ -791,100 +791,100 @@ export class SearchByUrlResponseBodyDataAuctionsResultMaxCommission extends $tea
 }
 
 export class SearchByUrlResponseBodyDataAuctionsResult extends $tea.Model {
+  categoryName?: string;
+  commissionRate?: string;
+  couponAmount?: number;
+  couponEndTime?: string;
+  couponInfo?: string;
+  couponRemainCount?: number;
+  couponShareUrl?: string;
+  couponStartFee?: string;
+  couponStartTime?: string;
+  couponTotalCount?: string;
+  deeplinkCouponShareUrl?: string;
+  deeplinkUrl?: string;
   itemId?: string;
-  title?: string;
+  levelOneCategoryName?: string;
+  maxCommission?: SearchByUrlResponseBodyDataAuctionsResultMaxCommission;
+  nick?: string;
+  picUrl?: string;
+  priceAfterCoupon?: string;
+  provcity?: string;
+  reservePrice?: string;
+  sellerId?: string;
+  shopTitle?: string;
   shortTitle?: string;
   subTitle?: string;
-  picUrl?: string;
-  reservePrice?: string;
-  zkFinalPrice?: string;
-  priceAfterCoupon?: string;
-  userType?: number;
-  provcity?: string;
-  nick?: string;
-  sellerId?: string;
-  volume?: number;
-  levelOneCategoryName?: string;
-  categoryName?: string;
-  couponTotalCount?: string;
-  couponRemainCount?: number;
-  couponStartTime?: string;
-  couponEndTime?: string;
-  couponStartFee?: string;
-  couponAmount?: number;
-  couponInfo?: string;
-  commissionRate?: string;
-  couponShareUrl?: string;
-  deeplinkCouponShareUrl?: string;
+  title?: string;
   url?: string;
-  deeplinkUrl?: string;
-  shopTitle?: string;
-  maxCommission?: SearchByUrlResponseBodyDataAuctionsResultMaxCommission;
+  userType?: number;
+  volume?: number;
+  zkFinalPrice?: string;
   static names(): { [key: string]: string } {
     return {
+      categoryName: 'CategoryName',
+      commissionRate: 'CommissionRate',
+      couponAmount: 'CouponAmount',
+      couponEndTime: 'CouponEndTime',
+      couponInfo: 'CouponInfo',
+      couponRemainCount: 'CouponRemainCount',
+      couponShareUrl: 'CouponShareUrl',
+      couponStartFee: 'CouponStartFee',
+      couponStartTime: 'CouponStartTime',
+      couponTotalCount: 'CouponTotalCount',
+      deeplinkCouponShareUrl: 'DeeplinkCouponShareUrl',
+      deeplinkUrl: 'DeeplinkUrl',
       itemId: 'ItemId',
-      title: 'Title',
+      levelOneCategoryName: 'LevelOneCategoryName',
+      maxCommission: 'MaxCommission',
+      nick: 'Nick',
+      picUrl: 'PicUrl',
+      priceAfterCoupon: 'PriceAfterCoupon',
+      provcity: 'Provcity',
+      reservePrice: 'ReservePrice',
+      sellerId: 'SellerId',
+      shopTitle: 'ShopTitle',
       shortTitle: 'ShortTitle',
       subTitle: 'SubTitle',
-      picUrl: 'PicUrl',
-      reservePrice: 'ReservePrice',
-      zkFinalPrice: 'ZkFinalPrice',
-      priceAfterCoupon: 'PriceAfterCoupon',
-      userType: 'UserType',
-      provcity: 'Provcity',
-      nick: 'Nick',
-      sellerId: 'SellerId',
-      volume: 'Volume',
-      levelOneCategoryName: 'LevelOneCategoryName',
-      categoryName: 'CategoryName',
-      couponTotalCount: 'CouponTotalCount',
-      couponRemainCount: 'CouponRemainCount',
-      couponStartTime: 'CouponStartTime',
-      couponEndTime: 'CouponEndTime',
-      couponStartFee: 'CouponStartFee',
-      couponAmount: 'CouponAmount',
-      couponInfo: 'CouponInfo',
-      commissionRate: 'CommissionRate',
-      couponShareUrl: 'CouponShareUrl',
-      deeplinkCouponShareUrl: 'DeeplinkCouponShareUrl',
+      title: 'Title',
       url: 'Url',
-      deeplinkUrl: 'DeeplinkUrl',
-      shopTitle: 'ShopTitle',
-      maxCommission: 'MaxCommission',
+      userType: 'UserType',
+      volume: 'Volume',
+      zkFinalPrice: 'ZkFinalPrice',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      categoryName: 'string',
+      commissionRate: 'string',
+      couponAmount: 'number',
+      couponEndTime: 'string',
+      couponInfo: 'string',
+      couponRemainCount: 'number',
+      couponShareUrl: 'string',
+      couponStartFee: 'string',
+      couponStartTime: 'string',
+      couponTotalCount: 'string',
+      deeplinkCouponShareUrl: 'string',
+      deeplinkUrl: 'string',
       itemId: 'string',
-      title: 'string',
+      levelOneCategoryName: 'string',
+      maxCommission: SearchByUrlResponseBodyDataAuctionsResultMaxCommission,
+      nick: 'string',
+      picUrl: 'string',
+      priceAfterCoupon: 'string',
+      provcity: 'string',
+      reservePrice: 'string',
+      sellerId: 'string',
+      shopTitle: 'string',
       shortTitle: 'string',
       subTitle: 'string',
-      picUrl: 'string',
-      reservePrice: 'string',
-      zkFinalPrice: 'string',
-      priceAfterCoupon: 'string',
-      userType: 'number',
-      provcity: 'string',
-      nick: 'string',
-      sellerId: 'string',
-      volume: 'number',
-      levelOneCategoryName: 'string',
-      categoryName: 'string',
-      couponTotalCount: 'string',
-      couponRemainCount: 'number',
-      couponStartTime: 'string',
-      couponEndTime: 'string',
-      couponStartFee: 'string',
-      couponAmount: 'number',
-      couponInfo: 'string',
-      commissionRate: 'string',
-      couponShareUrl: 'string',
-      deeplinkCouponShareUrl: 'string',
+      title: 'string',
       url: 'string',
-      deeplinkUrl: 'string',
-      shopTitle: 'string',
-      maxCommission: SearchByUrlResponseBodyDataAuctionsResultMaxCommission,
+      userType: 'number',
+      volume: 'number',
+      zkFinalPrice: 'string',
     };
   }
 
@@ -894,19 +894,19 @@ export class SearchByUrlResponseBodyDataAuctionsResult extends $tea.Model {
 }
 
 export class SearchByUrlResponseBodyDataAuctions extends $tea.Model {
-  result?: SearchByUrlResponseBodyDataAuctionsResult;
   rankScore?: number;
+  result?: SearchByUrlResponseBodyDataAuctionsResult;
   static names(): { [key: string]: string } {
     return {
-      result: 'Result',
       rankScore: 'RankScore',
+      result: 'Result',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      result: SearchByUrlResponseBodyDataAuctionsResult,
       rankScore: 'number',
+      result: SearchByUrlResponseBodyDataAuctionsResult,
     };
   }
 
