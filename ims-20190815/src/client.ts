@@ -4,29 +4,156 @@
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
+import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
-export class AddUserToGroupRequest extends $tea.Model {
-  groupPrincipalName?: string;
-  userPrincipalName?: string;
-  akProxySuffix?: string;
-  groupName?: string;
+export class AddClientIdToOIDCProviderRequest extends $tea.Model {
+  clientId?: string;
+  OIDCProviderName?: string;
   static names(): { [key: string]: string } {
     return {
-      groupPrincipalName: 'GroupPrincipalName',
-      userPrincipalName: 'UserPrincipalName',
-      akProxySuffix: 'AkProxySuffix',
-      groupName: 'GroupName',
+      clientId: 'ClientId',
+      OIDCProviderName: 'OIDCProviderName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      groupPrincipalName: 'string',
-      userPrincipalName: 'string',
-      akProxySuffix: 'string',
+      clientId: 'string',
+      OIDCProviderName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddClientIdToOIDCProviderResponseBody extends $tea.Model {
+  OIDCProvider?: AddClientIdToOIDCProviderResponseBodyOIDCProvider;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      OIDCProvider: 'OIDCProvider',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      OIDCProvider: AddClientIdToOIDCProviderResponseBodyOIDCProvider,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddClientIdToOIDCProviderResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: AddClientIdToOIDCProviderResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: AddClientIdToOIDCProviderResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddFingerprintToOIDCProviderRequest extends $tea.Model {
+  fingerprint?: string;
+  OIDCProviderName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fingerprint: 'Fingerprint',
+      OIDCProviderName: 'OIDCProviderName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fingerprint: 'string',
+      OIDCProviderName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddFingerprintToOIDCProviderResponseBody extends $tea.Model {
+  OIDCProvider?: AddFingerprintToOIDCProviderResponseBodyOIDCProvider;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      OIDCProvider: 'OIDCProvider',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      OIDCProvider: AddFingerprintToOIDCProviderResponseBodyOIDCProvider,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddFingerprintToOIDCProviderResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: AddFingerprintToOIDCProviderResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: AddFingerprintToOIDCProviderResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddUserToGroupRequest extends $tea.Model {
+  groupName?: string;
+  userPrincipalName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      groupName: 'GroupName',
+      userPrincipalName: 'UserPrincipalName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
       groupName: 'string',
+      userPrincipalName: 'string',
     };
   }
 
@@ -77,28 +204,25 @@ export class AddUserToGroupResponse extends $tea.Model {
 }
 
 export class BindMFADeviceRequest extends $tea.Model {
-  serialNumber?: string;
-  userPrincipalName?: string;
   authenticationCode1?: string;
   authenticationCode2?: string;
-  akProxySuffix?: string;
+  serialNumber?: string;
+  userPrincipalName?: string;
   static names(): { [key: string]: string } {
     return {
-      serialNumber: 'SerialNumber',
-      userPrincipalName: 'UserPrincipalName',
       authenticationCode1: 'AuthenticationCode1',
       authenticationCode2: 'AuthenticationCode2',
-      akProxySuffix: 'AkProxySuffix',
+      serialNumber: 'SerialNumber',
+      userPrincipalName: 'UserPrincipalName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      serialNumber: 'string',
-      userPrincipalName: 'string',
       authenticationCode1: 'string',
       authenticationCode2: 'string',
-      akProxySuffix: 'string',
+      serialNumber: 'string',
+      userPrincipalName: 'string',
     };
   }
 
@@ -149,22 +273,19 @@ export class BindMFADeviceResponse extends $tea.Model {
 }
 
 export class ChangePasswordRequest extends $tea.Model {
-  oldPassword?: string;
   newPassword?: string;
-  akProxySuffix?: string;
+  oldPassword?: string;
   static names(): { [key: string]: string } {
     return {
-      oldPassword: 'OldPassword',
       newPassword: 'NewPassword',
-      akProxySuffix: 'AkProxySuffix',
+      oldPassword: 'OldPassword',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      oldPassword: 'string',
       newPassword: 'string',
-      akProxySuffix: 'string',
+      oldPassword: 'string',
     };
   }
 
@@ -216,18 +337,15 @@ export class ChangePasswordResponse extends $tea.Model {
 
 export class CreateAccessKeyRequest extends $tea.Model {
   userPrincipalName?: string;
-  akProxySuffix?: string;
   static names(): { [key: string]: string } {
     return {
       userPrincipalName: 'UserPrincipalName',
-      akProxySuffix: 'AkProxySuffix',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       userPrincipalName: 'string',
-      akProxySuffix: 'string',
     };
   }
 
@@ -237,19 +355,19 @@ export class CreateAccessKeyRequest extends $tea.Model {
 }
 
 export class CreateAccessKeyResponseBody extends $tea.Model {
-  requestId?: string;
   accessKey?: CreateAccessKeyResponseBodyAccessKey;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       accessKey: 'AccessKey',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       accessKey: CreateAccessKeyResponseBodyAccessKey,
+      requestId: 'string',
     };
   }
 
@@ -280,113 +398,17 @@ export class CreateAccessKeyResponse extends $tea.Model {
   }
 }
 
-export class CreateApplicationRequest extends $tea.Model {
-  displayName?: string;
-  appPrincipalName?: string;
-  appType?: string;
-  redirectUris?: string;
-  secretRequired?: boolean;
-  accessTokenValidity?: number;
-  refreshTokenValidity?: number;
-  predefinedScopes?: string;
-  isMultiTenant?: boolean;
-  akProxySuffix?: string;
-  appName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      displayName: 'DisplayName',
-      appPrincipalName: 'AppPrincipalName',
-      appType: 'AppType',
-      redirectUris: 'RedirectUris',
-      secretRequired: 'SecretRequired',
-      accessTokenValidity: 'AccessTokenValidity',
-      refreshTokenValidity: 'RefreshTokenValidity',
-      predefinedScopes: 'PredefinedScopes',
-      isMultiTenant: 'IsMultiTenant',
-      akProxySuffix: 'AkProxySuffix',
-      appName: 'AppName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      displayName: 'string',
-      appPrincipalName: 'string',
-      appType: 'string',
-      redirectUris: 'string',
-      secretRequired: 'boolean',
-      accessTokenValidity: 'number',
-      refreshTokenValidity: 'number',
-      predefinedScopes: 'string',
-      isMultiTenant: 'boolean',
-      akProxySuffix: 'string',
-      appName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateApplicationResponseBody extends $tea.Model {
-  requestId?: string;
-  application?: CreateApplicationResponseBodyApplication;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      application: 'Application',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      application: CreateApplicationResponseBodyApplication,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateApplicationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: CreateApplicationResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: CreateApplicationResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class CreateAppSecretRequest extends $tea.Model {
   appId?: string;
-  akProxySuffix?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
-      akProxySuffix: 'AkProxySuffix',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       appId: 'string',
-      akProxySuffix: 'string',
     };
   }
 
@@ -396,19 +418,19 @@ export class CreateAppSecretRequest extends $tea.Model {
 }
 
 export class CreateAppSecretResponseBody extends $tea.Model {
-  requestId?: string;
   appSecret?: CreateAppSecretResponseBodyAppSecret;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       appSecret: 'AppSecret',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       appSecret: CreateAppSecretResponseBodyAppSecret,
+      requestId: 'string',
     };
   }
 
@@ -439,28 +461,109 @@ export class CreateAppSecretResponse extends $tea.Model {
   }
 }
 
-export class CreateGroupRequest extends $tea.Model {
-  groupPrincipalName?: string;
+export class CreateApplicationRequest extends $tea.Model {
+  accessTokenValidity?: number;
+  appName?: string;
+  appType?: string;
   displayName?: string;
+  isMultiTenant?: boolean;
+  predefinedScopes?: string;
+  redirectUris?: string;
+  refreshTokenValidity?: number;
+  secretRequired?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      accessTokenValidity: 'AccessTokenValidity',
+      appName: 'AppName',
+      appType: 'AppType',
+      displayName: 'DisplayName',
+      isMultiTenant: 'IsMultiTenant',
+      predefinedScopes: 'PredefinedScopes',
+      redirectUris: 'RedirectUris',
+      refreshTokenValidity: 'RefreshTokenValidity',
+      secretRequired: 'SecretRequired',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessTokenValidity: 'number',
+      appName: 'string',
+      appType: 'string',
+      displayName: 'string',
+      isMultiTenant: 'boolean',
+      predefinedScopes: 'string',
+      redirectUris: 'string',
+      refreshTokenValidity: 'number',
+      secretRequired: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateApplicationResponseBody extends $tea.Model {
+  application?: CreateApplicationResponseBodyApplication;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      application: 'Application',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      application: CreateApplicationResponseBodyApplication,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateApplicationResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CreateApplicationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CreateApplicationResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateGroupRequest extends $tea.Model {
   comments?: string;
-  akProxySuffix?: string;
+  displayName?: string;
   groupName?: string;
   static names(): { [key: string]: string } {
     return {
-      groupPrincipalName: 'GroupPrincipalName',
-      displayName: 'DisplayName',
       comments: 'Comments',
-      akProxySuffix: 'AkProxySuffix',
+      displayName: 'DisplayName',
       groupName: 'GroupName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      groupPrincipalName: 'string',
-      displayName: 'string',
       comments: 'string',
-      akProxySuffix: 'string',
+      displayName: 'string',
       groupName: 'string',
     };
   }
@@ -515,34 +618,28 @@ export class CreateGroupResponse extends $tea.Model {
 }
 
 export class CreateLoginProfileRequest extends $tea.Model {
-  userPrincipalName?: string;
+  MFABindRequired?: boolean;
   password?: string;
   passwordResetRequired?: boolean;
-  MFABindRequired?: boolean;
-  generateRandomPassword?: boolean;
   status?: string;
-  akProxySuffix?: string;
+  userPrincipalName?: string;
   static names(): { [key: string]: string } {
     return {
-      userPrincipalName: 'UserPrincipalName',
+      MFABindRequired: 'MFABindRequired',
       password: 'Password',
       passwordResetRequired: 'PasswordResetRequired',
-      MFABindRequired: 'MFABindRequired',
-      generateRandomPassword: 'GenerateRandomPassword',
       status: 'Status',
-      akProxySuffix: 'AkProxySuffix',
+      userPrincipalName: 'UserPrincipalName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      userPrincipalName: 'string',
+      MFABindRequired: 'boolean',
       password: 'string',
       passwordResetRequired: 'boolean',
-      MFABindRequired: 'boolean',
-      generateRandomPassword: 'boolean',
       status: 'string',
-      akProxySuffix: 'string',
+      userPrincipalName: 'string',
     };
   }
 
@@ -552,19 +649,19 @@ export class CreateLoginProfileRequest extends $tea.Model {
 }
 
 export class CreateLoginProfileResponseBody extends $tea.Model {
-  requestId?: string;
   loginProfile?: CreateLoginProfileResponseBodyLoginProfile;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       loginProfile: 'LoginProfile',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       loginProfile: CreateLoginProfileResponseBodyLoginProfile,
+      requestId: 'string',
     };
   }
 
@@ -595,29 +692,98 @@ export class CreateLoginProfileResponse extends $tea.Model {
   }
 }
 
-export class CreateSAMLProviderRequest extends $tea.Model {
-  SAMLProviderName?: string;
-  SAMLMetadataDocument?: string;
+export class CreateOIDCProviderRequest extends $tea.Model {
+  clientIds?: string;
   description?: string;
-  akProxySuffix?: string;
-  encodedSAMLMetadataDocument?: string;
+  fingerprints?: string;
+  issuerUrl?: string;
+  OIDCProviderName?: string;
   static names(): { [key: string]: string } {
     return {
-      SAMLProviderName: 'SAMLProviderName',
-      SAMLMetadataDocument: 'SAMLMetadataDocument',
+      clientIds: 'ClientIds',
       description: 'Description',
-      akProxySuffix: 'AkProxySuffix',
-      encodedSAMLMetadataDocument: 'EncodedSAMLMetadataDocument',
+      fingerprints: 'Fingerprints',
+      issuerUrl: 'IssuerUrl',
+      OIDCProviderName: 'OIDCProviderName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      SAMLProviderName: 'string',
-      SAMLMetadataDocument: 'string',
+      clientIds: 'string',
       description: 'string',
-      akProxySuffix: 'string',
+      fingerprints: 'string',
+      issuerUrl: 'string',
+      OIDCProviderName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateOIDCProviderResponseBody extends $tea.Model {
+  OIDCProvider?: CreateOIDCProviderResponseBodyOIDCProvider;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      OIDCProvider: 'OIDCProvider',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      OIDCProvider: CreateOIDCProviderResponseBodyOIDCProvider,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateOIDCProviderResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CreateOIDCProviderResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CreateOIDCProviderResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSAMLProviderRequest extends $tea.Model {
+  description?: string;
+  encodedSAMLMetadataDocument?: string;
+  SAMLProviderName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      encodedSAMLMetadataDocument: 'EncodedSAMLMetadataDocument',
+      SAMLProviderName: 'SAMLProviderName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
       encodedSAMLMetadataDocument: 'string',
+      SAMLProviderName: 'string',
     };
   }
 
@@ -671,31 +837,28 @@ export class CreateSAMLProviderResponse extends $tea.Model {
 }
 
 export class CreateUserRequest extends $tea.Model {
-  userPrincipalName?: string;
-  displayName?: string;
-  mobilePhone?: string;
-  email?: string;
   comments?: string;
-  akProxySuffix?: string;
+  displayName?: string;
+  email?: string;
+  mobilePhone?: string;
+  userPrincipalName?: string;
   static names(): { [key: string]: string } {
     return {
-      userPrincipalName: 'UserPrincipalName',
-      displayName: 'DisplayName',
-      mobilePhone: 'MobilePhone',
-      email: 'Email',
       comments: 'Comments',
-      akProxySuffix: 'AkProxySuffix',
+      displayName: 'DisplayName',
+      email: 'Email',
+      mobilePhone: 'MobilePhone',
+      userPrincipalName: 'UserPrincipalName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      userPrincipalName: 'string',
-      displayName: 'string',
-      mobilePhone: 'string',
-      email: 'string',
       comments: 'string',
-      akProxySuffix: 'string',
+      displayName: 'string',
+      email: 'string',
+      mobilePhone: 'string',
+      userPrincipalName: 'string',
     };
   }
 
@@ -705,19 +868,19 @@ export class CreateUserRequest extends $tea.Model {
 }
 
 export class CreateUserResponseBody extends $tea.Model {
-  user?: CreateUserResponseBodyUser;
   requestId?: string;
+  user?: CreateUserResponseBodyUser;
   static names(): { [key: string]: string } {
     return {
-      user: 'User',
       requestId: 'RequestId',
+      user: 'User',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      user: CreateUserResponseBodyUser,
       requestId: 'string',
+      user: CreateUserResponseBodyUser,
     };
   }
 
@@ -750,18 +913,15 @@ export class CreateUserResponse extends $tea.Model {
 
 export class CreateVirtualMFADeviceRequest extends $tea.Model {
   virtualMFADeviceName?: string;
-  akProxySuffix?: string;
   static names(): { [key: string]: string } {
     return {
       virtualMFADeviceName: 'VirtualMFADeviceName',
-      akProxySuffix: 'AkProxySuffix',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       virtualMFADeviceName: 'string',
-      akProxySuffix: 'string',
     };
   }
 
@@ -771,19 +931,19 @@ export class CreateVirtualMFADeviceRequest extends $tea.Model {
 }
 
 export class CreateVirtualMFADeviceResponseBody extends $tea.Model {
-  virtualMFADevice?: CreateVirtualMFADeviceResponseBodyVirtualMFADevice;
   requestId?: string;
+  virtualMFADevice?: CreateVirtualMFADeviceResponseBodyVirtualMFADevice;
   static names(): { [key: string]: string } {
     return {
-      virtualMFADevice: 'VirtualMFADevice',
       requestId: 'RequestId',
+      virtualMFADevice: 'VirtualMFADevice',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      virtualMFADevice: CreateVirtualMFADeviceResponseBodyVirtualMFADevice,
       requestId: 'string',
+      virtualMFADevice: CreateVirtualMFADeviceResponseBodyVirtualMFADevice,
     };
   }
 
@@ -817,12 +977,10 @@ export class CreateVirtualMFADeviceResponse extends $tea.Model {
 export class DeleteAccessKeyRequest extends $tea.Model {
   userAccessKeyId?: string;
   userPrincipalName?: string;
-  akProxySuffix?: string;
   static names(): { [key: string]: string } {
     return {
       userAccessKeyId: 'UserAccessKeyId',
       userPrincipalName: 'UserPrincipalName',
-      akProxySuffix: 'AkProxySuffix',
     };
   }
 
@@ -830,7 +988,6 @@ export class DeleteAccessKeyRequest extends $tea.Model {
     return {
       userAccessKeyId: 'string',
       userPrincipalName: 'string',
-      akProxySuffix: 'string',
     };
   }
 
@@ -880,78 +1037,13 @@ export class DeleteAccessKeyResponse extends $tea.Model {
   }
 }
 
-export class DeleteApplicationRequest extends $tea.Model {
-  appId?: string;
-  akProxySuffix?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      akProxySuffix: 'AkProxySuffix',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      akProxySuffix: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteApplicationResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteApplicationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DeleteApplicationResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DeleteApplicationResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DeleteAppSecretRequest extends $tea.Model {
   appId?: string;
   appSecretId?: string;
-  akProxySuffix?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
       appSecretId: 'AppSecretId',
-      akProxySuffix: 'AkProxySuffix',
     };
   }
 
@@ -959,7 +1051,6 @@ export class DeleteAppSecretRequest extends $tea.Model {
     return {
       appId: 'string',
       appSecretId: 'string',
-      akProxySuffix: 'string',
     };
   }
 
@@ -1009,22 +1100,76 @@ export class DeleteAppSecretResponse extends $tea.Model {
   }
 }
 
+export class DeleteApplicationRequest extends $tea.Model {
+  appId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteApplicationResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteApplicationResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DeleteApplicationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DeleteApplicationResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteGroupRequest extends $tea.Model {
-  groupPrincipalName?: string;
-  akProxySuffix?: string;
   groupName?: string;
   static names(): { [key: string]: string } {
     return {
-      groupPrincipalName: 'GroupPrincipalName',
-      akProxySuffix: 'AkProxySuffix',
       groupName: 'GroupName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      groupPrincipalName: 'string',
-      akProxySuffix: 'string',
       groupName: 'string',
     };
   }
@@ -1077,18 +1222,15 @@ export class DeleteGroupResponse extends $tea.Model {
 
 export class DeleteLoginProfileRequest extends $tea.Model {
   userPrincipalName?: string;
-  akProxySuffix?: string;
   static names(): { [key: string]: string } {
     return {
       userPrincipalName: 'UserPrincipalName',
-      akProxySuffix: 'AkProxySuffix',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       userPrincipalName: 'string',
-      akProxySuffix: 'string',
     };
   }
 
@@ -1138,20 +1280,77 @@ export class DeleteLoginProfileResponse extends $tea.Model {
   }
 }
 
+export class DeleteOIDCProviderRequest extends $tea.Model {
+  OIDCProviderName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      OIDCProviderName: 'OIDCProviderName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      OIDCProviderName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteOIDCProviderResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteOIDCProviderResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DeleteOIDCProviderResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DeleteOIDCProviderResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteSAMLProviderRequest extends $tea.Model {
   SAMLProviderName?: string;
-  akProxySuffix?: string;
   static names(): { [key: string]: string } {
     return {
       SAMLProviderName: 'SAMLProviderName',
-      akProxySuffix: 'AkProxySuffix',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       SAMLProviderName: 'string',
-      akProxySuffix: 'string',
     };
   }
 
@@ -1202,22 +1401,19 @@ export class DeleteSAMLProviderResponse extends $tea.Model {
 }
 
 export class DeleteUserRequest extends $tea.Model {
-  userPrincipalName?: string;
   userId?: string;
-  akProxySuffix?: string;
+  userPrincipalName?: string;
   static names(): { [key: string]: string } {
     return {
-      userPrincipalName: 'UserPrincipalName',
       userId: 'UserId',
-      akProxySuffix: 'AkProxySuffix',
+      userPrincipalName: 'UserPrincipalName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      userPrincipalName: 'string',
       userId: 'string',
-      akProxySuffix: 'string',
+      userPrincipalName: 'string',
     };
   }
 
@@ -1269,18 +1465,15 @@ export class DeleteUserResponse extends $tea.Model {
 
 export class DeleteVirtualMFADeviceRequest extends $tea.Model {
   serialNumber?: string;
-  akProxySuffix?: string;
   static names(): { [key: string]: string } {
     return {
       serialNumber: 'SerialNumber',
-      akProxySuffix: 'AkProxySuffix',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       serialNumber: 'string',
-      akProxySuffix: 'string',
     };
   }
 
@@ -1332,18 +1525,15 @@ export class DeleteVirtualMFADeviceResponse extends $tea.Model {
 
 export class DisableVirtualMFARequest extends $tea.Model {
   userPrincipalName?: string;
-  akProxySuffix?: string;
   static names(): { [key: string]: string } {
     return {
       userPrincipalName: 'UserPrincipalName',
-      akProxySuffix: 'AkProxySuffix',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       userPrincipalName: 'string',
-      akProxySuffix: 'string',
     };
   }
 
@@ -1385,25 +1575,6 @@ export class DisableVirtualMFAResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: DisableVirtualMFAResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GenerateCredentialReportRequest extends $tea.Model {
-  akProxySuffix?: string;
-  static names(): { [key: string]: string } {
-    return {
-      akProxySuffix: 'AkProxySuffix',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      akProxySuffix: 'string',
     };
   }
 
@@ -1457,22 +1628,19 @@ export class GenerateCredentialReportResponse extends $tea.Model {
 }
 
 export class GetAccessKeyLastUsedRequest extends $tea.Model {
-  userPrincipalName?: string;
   userAccessKeyId?: string;
-  akProxySuffix?: string;
+  userPrincipalName?: string;
   static names(): { [key: string]: string } {
     return {
-      userPrincipalName: 'UserPrincipalName',
       userAccessKeyId: 'UserAccessKeyId',
-      akProxySuffix: 'AkProxySuffix',
+      userPrincipalName: 'UserPrincipalName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      userPrincipalName: 'string',
       userAccessKeyId: 'string',
-      akProxySuffix: 'string',
+      userPrincipalName: 'string',
     };
   }
 
@@ -1525,39 +1693,20 @@ export class GetAccessKeyLastUsedResponse extends $tea.Model {
   }
 }
 
-export class GetAccountMFAInfoRequest extends $tea.Model {
-  akProxySuffix?: string;
-  static names(): { [key: string]: string } {
-    return {
-      akProxySuffix: 'AkProxySuffix',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      akProxySuffix: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class GetAccountMFAInfoResponseBody extends $tea.Model {
-  requestId?: string;
   isMFAEnable?: boolean;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       isMFAEnable: 'IsMFAEnable',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       isMFAEnable: 'boolean',
+      requestId: 'string',
     };
   }
 
@@ -1588,39 +1737,20 @@ export class GetAccountMFAInfoResponse extends $tea.Model {
   }
 }
 
-export class GetAccountSecurityPracticeReportRequest extends $tea.Model {
-  akProxySuffix?: string;
-  static names(): { [key: string]: string } {
-    return {
-      akProxySuffix: 'AkProxySuffix',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      akProxySuffix: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class GetAccountSecurityPracticeReportResponseBody extends $tea.Model {
-  requestId?: string;
   accountSecurityPracticeInfo?: GetAccountSecurityPracticeReportResponseBodyAccountSecurityPracticeInfo;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       accountSecurityPracticeInfo: 'AccountSecurityPracticeInfo',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       accountSecurityPracticeInfo: GetAccountSecurityPracticeReportResponseBodyAccountSecurityPracticeInfo,
+      requestId: 'string',
     };
   }
 
@@ -1643,25 +1773,6 @@ export class GetAccountSecurityPracticeReportResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: GetAccountSecurityPracticeReportResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAccountSummaryRequest extends $tea.Model {
-  akProxySuffix?: string;
-  static names(): { [key: string]: string } {
-    return {
-      akProxySuffix: 'AkProxySuffix',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      akProxySuffix: 'string',
     };
   }
 
@@ -1714,81 +1825,13 @@ export class GetAccountSummaryResponse extends $tea.Model {
   }
 }
 
-export class GetApplicationRequest extends $tea.Model {
-  appId?: string;
-  akProxySuffix?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      akProxySuffix: 'AkProxySuffix',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      akProxySuffix: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetApplicationResponseBody extends $tea.Model {
-  requestId?: string;
-  application?: GetApplicationResponseBodyApplication;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      application: 'Application',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      application: GetApplicationResponseBodyApplication,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetApplicationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: GetApplicationResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: GetApplicationResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class GetAppSecretRequest extends $tea.Model {
   appId?: string;
   appSecretId?: string;
-  akProxySuffix?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
       appSecretId: 'AppSecretId',
-      akProxySuffix: 'AkProxySuffix',
     };
   }
 
@@ -1796,7 +1839,6 @@ export class GetAppSecretRequest extends $tea.Model {
     return {
       appId: 'string',
       appSecretId: 'string',
-      akProxySuffix: 'string',
     };
   }
 
@@ -1806,19 +1848,19 @@ export class GetAppSecretRequest extends $tea.Model {
 }
 
 export class GetAppSecretResponseBody extends $tea.Model {
-  requestId?: string;
   appSecret?: GetAppSecretResponseBodyAppSecret;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       appSecret: 'AppSecret',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       appSecret: GetAppSecretResponseBodyAppSecret,
+      requestId: 'string',
     };
   }
 
@@ -1849,17 +1891,61 @@ export class GetAppSecretResponse extends $tea.Model {
   }
 }
 
-export class GetCredentialReportRequest extends $tea.Model {
-  akProxySuffix?: string;
+export class GetApplicationRequest extends $tea.Model {
+  appId?: string;
   static names(): { [key: string]: string } {
     return {
-      akProxySuffix: 'AkProxySuffix',
+      appId: 'AppId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      akProxySuffix: 'string',
+      appId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetApplicationResponseBody extends $tea.Model {
+  application?: GetApplicationResponseBodyApplication;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      application: 'Application',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      application: GetApplicationResponseBodyApplication,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetApplicationResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetApplicationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetApplicationResponseBody,
     };
   }
 
@@ -1869,22 +1955,22 @@ export class GetCredentialReportRequest extends $tea.Model {
 }
 
 export class GetCredentialReportResponseBody extends $tea.Model {
+  content?: string;
   generatedTime?: string;
   requestId?: string;
-  content?: string;
   static names(): { [key: string]: string } {
     return {
+      content: 'Content',
       generatedTime: 'GeneratedTime',
       requestId: 'RequestId',
-      content: 'Content',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      content: 'string',
       generatedTime: 'string',
       requestId: 'string',
-      content: 'string',
     };
   }
 
@@ -1907,25 +1993,6 @@ export class GetCredentialReportResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: GetCredentialReportResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDefaultDomainRequest extends $tea.Model {
-  akProxySuffix?: string;
-  static names(): { [key: string]: string } {
-    return {
-      akProxySuffix: 'AkProxySuffix',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      akProxySuffix: 'string',
     };
   }
 
@@ -1979,21 +2046,15 @@ export class GetDefaultDomainResponse extends $tea.Model {
 }
 
 export class GetGroupRequest extends $tea.Model {
-  groupPrincipalName?: string;
-  akProxySuffix?: string;
   groupName?: string;
   static names(): { [key: string]: string } {
     return {
-      groupPrincipalName: 'GroupPrincipalName',
-      akProxySuffix: 'AkProxySuffix',
       groupName: 'GroupName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      groupPrincipalName: 'string',
-      akProxySuffix: 'string',
       groupName: 'string',
     };
   }
@@ -2049,18 +2110,15 @@ export class GetGroupResponse extends $tea.Model {
 
 export class GetLoginProfileRequest extends $tea.Model {
   userPrincipalName?: string;
-  akProxySuffix?: string;
   static names(): { [key: string]: string } {
     return {
       userPrincipalName: 'UserPrincipalName',
-      akProxySuffix: 'AkProxySuffix',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       userPrincipalName: 'string',
-      akProxySuffix: 'string',
     };
   }
 
@@ -2070,19 +2128,19 @@ export class GetLoginProfileRequest extends $tea.Model {
 }
 
 export class GetLoginProfileResponseBody extends $tea.Model {
-  requestId?: string;
   loginProfile?: GetLoginProfileResponseBodyLoginProfile;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       loginProfile: 'LoginProfile',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       loginProfile: GetLoginProfileResponseBodyLoginProfile,
+      requestId: 'string',
     };
   }
 
@@ -2113,17 +2171,61 @@ export class GetLoginProfileResponse extends $tea.Model {
   }
 }
 
-export class GetPasswordPolicyRequest extends $tea.Model {
-  akProxySuffix?: string;
+export class GetOIDCProviderRequest extends $tea.Model {
+  OIDCProviderName?: string;
   static names(): { [key: string]: string } {
     return {
-      akProxySuffix: 'AkProxySuffix',
+      OIDCProviderName: 'OIDCProviderName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      akProxySuffix: 'string',
+      OIDCProviderName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOIDCProviderResponseBody extends $tea.Model {
+  OIDCProvider?: GetOIDCProviderResponseBodyOIDCProvider;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      OIDCProvider: 'OIDCProvider',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      OIDCProvider: GetOIDCProviderResponseBodyOIDCProvider,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOIDCProviderResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetOIDCProviderResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetOIDCProviderResponseBody,
     };
   }
 
@@ -2133,19 +2235,19 @@ export class GetPasswordPolicyRequest extends $tea.Model {
 }
 
 export class GetPasswordPolicyResponseBody extends $tea.Model {
-  requestId?: string;
   passwordPolicy?: GetPasswordPolicyResponseBodyPasswordPolicy;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       passwordPolicy: 'PasswordPolicy',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       passwordPolicy: GetPasswordPolicyResponseBodyPasswordPolicy,
+      requestId: 'string',
     };
   }
 
@@ -2178,18 +2280,15 @@ export class GetPasswordPolicyResponse extends $tea.Model {
 
 export class GetSAMLProviderRequest extends $tea.Model {
   SAMLProviderName?: string;
-  akProxySuffix?: string;
   static names(): { [key: string]: string } {
     return {
       SAMLProviderName: 'SAMLProviderName',
-      akProxySuffix: 'AkProxySuffix',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       SAMLProviderName: 'string',
-      akProxySuffix: 'string',
     };
   }
 
@@ -2242,39 +2341,20 @@ export class GetSAMLProviderResponse extends $tea.Model {
   }
 }
 
-export class GetSecurityPreferenceRequest extends $tea.Model {
-  akProxySuffix?: string;
-  static names(): { [key: string]: string } {
-    return {
-      akProxySuffix: 'AkProxySuffix',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      akProxySuffix: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class GetSecurityPreferenceResponseBody extends $tea.Model {
-  securityPreference?: GetSecurityPreferenceResponseBodySecurityPreference;
   requestId?: string;
+  securityPreference?: GetSecurityPreferenceResponseBodySecurityPreference;
   static names(): { [key: string]: string } {
     return {
-      securityPreference: 'SecurityPreference',
       requestId: 'RequestId',
+      securityPreference: 'SecurityPreference',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      securityPreference: GetSecurityPreferenceResponseBodySecurityPreference,
       requestId: 'string',
+      securityPreference: GetSecurityPreferenceResponseBodySecurityPreference,
     };
   }
 
@@ -2306,25 +2386,22 @@ export class GetSecurityPreferenceResponse extends $tea.Model {
 }
 
 export class GetUserRequest extends $tea.Model {
-  userPrincipalName?: string;
-  userId?: string;
   userAccessKeyId?: string;
-  akProxySuffix?: string;
+  userId?: string;
+  userPrincipalName?: string;
   static names(): { [key: string]: string } {
     return {
-      userPrincipalName: 'UserPrincipalName',
-      userId: 'UserId',
       userAccessKeyId: 'UserAccessKeyId',
-      akProxySuffix: 'AkProxySuffix',
+      userId: 'UserId',
+      userPrincipalName: 'UserPrincipalName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      userPrincipalName: 'string',
-      userId: 'string',
       userAccessKeyId: 'string',
-      akProxySuffix: 'string',
+      userId: 'string',
+      userPrincipalName: 'string',
     };
   }
 
@@ -2334,19 +2411,19 @@ export class GetUserRequest extends $tea.Model {
 }
 
 export class GetUserResponseBody extends $tea.Model {
-  user?: GetUserResponseBodyUser;
   requestId?: string;
+  user?: GetUserResponseBodyUser;
   static names(): { [key: string]: string } {
     return {
-      user: 'User',
       requestId: 'RequestId',
+      user: 'User',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      user: GetUserResponseBodyUser,
       requestId: 'string',
+      user: GetUserResponseBodyUser,
     };
   }
 
@@ -2379,18 +2456,15 @@ export class GetUserResponse extends $tea.Model {
 
 export class GetUserMFAInfoRequest extends $tea.Model {
   userPrincipalName?: string;
-  akProxySuffix?: string;
   static names(): { [key: string]: string } {
     return {
       userPrincipalName: 'UserPrincipalName',
-      akProxySuffix: 'AkProxySuffix',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       userPrincipalName: 'string',
-      akProxySuffix: 'string',
     };
   }
 
@@ -2400,22 +2474,22 @@ export class GetUserMFAInfoRequest extends $tea.Model {
 }
 
 export class GetUserMFAInfoResponseBody extends $tea.Model {
+  isMFAEnable?: boolean;
   MFADevice?: GetUserMFAInfoResponseBodyMFADevice;
   requestId?: string;
-  isMFAEnable?: boolean;
   static names(): { [key: string]: string } {
     return {
+      isMFAEnable: 'IsMFAEnable',
       MFADevice: 'MFADevice',
       requestId: 'RequestId',
-      isMFAEnable: 'IsMFAEnable',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      isMFAEnable: 'boolean',
       MFADevice: GetUserMFAInfoResponseBodyMFADevice,
       requestId: 'string',
-      isMFAEnable: 'boolean',
     };
   }
 
@@ -2446,39 +2520,20 @@ export class GetUserMFAInfoResponse extends $tea.Model {
   }
 }
 
-export class GetUserSsoSettingsRequest extends $tea.Model {
-  akProxySuffix?: string;
-  static names(): { [key: string]: string } {
-    return {
-      akProxySuffix: 'AkProxySuffix',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      akProxySuffix: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class GetUserSsoSettingsResponseBody extends $tea.Model {
-  userSsoSettings?: GetUserSsoSettingsResponseBodyUserSsoSettings;
   requestId?: string;
+  userSsoSettings?: GetUserSsoSettingsResponseBodyUserSsoSettings;
   static names(): { [key: string]: string } {
     return {
-      userSsoSettings: 'UserSsoSettings',
       requestId: 'RequestId',
+      userSsoSettings: 'UserSsoSettings',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      userSsoSettings: GetUserSsoSettingsResponseBodyUserSsoSettings,
       requestId: 'string',
+      userSsoSettings: GetUserSsoSettingsResponseBodyUserSsoSettings,
     };
   }
 
@@ -2511,18 +2566,15 @@ export class GetUserSsoSettingsResponse extends $tea.Model {
 
 export class ListAccessKeysRequest extends $tea.Model {
   userPrincipalName?: string;
-  akProxySuffix?: string;
   static names(): { [key: string]: string } {
     return {
       userPrincipalName: 'UserPrincipalName',
-      akProxySuffix: 'AkProxySuffix',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       userPrincipalName: 'string',
-      akProxySuffix: 'string',
     };
   }
 
@@ -2575,83 +2627,17 @@ export class ListAccessKeysResponse extends $tea.Model {
   }
 }
 
-export class ListApplicationsRequest extends $tea.Model {
-  akProxySuffix?: string;
-  static names(): { [key: string]: string } {
-    return {
-      akProxySuffix: 'AkProxySuffix',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      akProxySuffix: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListApplicationsResponseBody extends $tea.Model {
-  requestId?: string;
-  applications?: ListApplicationsResponseBodyApplications;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      applications: 'Applications',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      applications: ListApplicationsResponseBodyApplications,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListApplicationsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ListApplicationsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListApplicationsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ListAppSecretIdsRequest extends $tea.Model {
   appId?: string;
-  akProxySuffix?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
-      akProxySuffix: 'AkProxySuffix',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       appId: 'string',
-      akProxySuffix: 'string',
     };
   }
 
@@ -2704,15 +2690,57 @@ export class ListAppSecretIdsResponse extends $tea.Model {
   }
 }
 
+export class ListApplicationsResponseBody extends $tea.Model {
+  applications?: ListApplicationsResponseBodyApplications;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      applications: 'Applications',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applications: ListApplicationsResponseBodyApplications,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListApplicationsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListApplicationsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListApplicationsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListGroupsRequest extends $tea.Model {
   marker?: string;
   maxItems?: number;
-  akProxySuffix?: string;
   static names(): { [key: string]: string } {
     return {
       marker: 'Marker',
       maxItems: 'MaxItems',
-      akProxySuffix: 'AkProxySuffix',
     };
   }
 
@@ -2720,7 +2748,6 @@ export class ListGroupsRequest extends $tea.Model {
     return {
       marker: 'string',
       maxItems: 'number',
-      akProxySuffix: 'string',
     };
   }
 
@@ -2730,25 +2757,25 @@ export class ListGroupsRequest extends $tea.Model {
 }
 
 export class ListGroupsResponseBody extends $tea.Model {
-  requestId?: string;
   groups?: ListGroupsResponseBodyGroups;
   isTruncated?: boolean;
   marker?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       groups: 'Groups',
       isTruncated: 'IsTruncated',
       marker: 'Marker',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       groups: ListGroupsResponseBodyGroups,
       isTruncated: 'boolean',
       marker: 'string',
+      requestId: 'string',
     };
   }
 
@@ -2781,18 +2808,15 @@ export class ListGroupsResponse extends $tea.Model {
 
 export class ListGroupsForUserRequest extends $tea.Model {
   userPrincipalName?: string;
-  akProxySuffix?: string;
   static names(): { [key: string]: string } {
     return {
       userPrincipalName: 'UserPrincipalName',
-      akProxySuffix: 'AkProxySuffix',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       userPrincipalName: 'string',
-      akProxySuffix: 'string',
     };
   }
 
@@ -2802,19 +2826,19 @@ export class ListGroupsForUserRequest extends $tea.Model {
 }
 
 export class ListGroupsForUserResponseBody extends $tea.Model {
-  requestId?: string;
   groups?: ListGroupsForUserResponseBodyGroups;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       groups: 'Groups',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       groups: ListGroupsForUserResponseBodyGroups,
+      requestId: 'string',
     };
   }
 
@@ -2845,19 +2869,88 @@ export class ListGroupsForUserResponse extends $tea.Model {
   }
 }
 
+export class ListOIDCProvidersRequest extends $tea.Model {
+  marker?: string;
+  maxItems?: number;
+  static names(): { [key: string]: string } {
+    return {
+      marker: 'Marker',
+      maxItems: 'MaxItems',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      marker: 'string',
+      maxItems: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListOIDCProvidersResponseBody extends $tea.Model {
+  isTruncated?: boolean;
+  marker?: string;
+  OIDCProviders?: ListOIDCProvidersResponseBodyOIDCProviders;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      isTruncated: 'IsTruncated',
+      marker: 'Marker',
+      OIDCProviders: 'OIDCProviders',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      isTruncated: 'boolean',
+      marker: 'string',
+      OIDCProviders: ListOIDCProvidersResponseBodyOIDCProviders,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListOIDCProvidersResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListOIDCProvidersResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListOIDCProvidersResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListPredefinedScopesRequest extends $tea.Model {
-  akProxySuffix?: string;
   appType?: string;
   static names(): { [key: string]: string } {
     return {
-      akProxySuffix: 'AkProxySuffix',
       appType: 'AppType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      akProxySuffix: 'string',
       appType: 'string',
     };
   }
@@ -2914,12 +3007,10 @@ export class ListPredefinedScopesResponse extends $tea.Model {
 export class ListSAMLProvidersRequest extends $tea.Model {
   marker?: string;
   maxItems?: number;
-  akProxySuffix?: string;
   static names(): { [key: string]: string } {
     return {
       marker: 'Marker',
       maxItems: 'MaxItems',
-      akProxySuffix: 'AkProxySuffix',
     };
   }
 
@@ -2927,7 +3018,6 @@ export class ListSAMLProvidersRequest extends $tea.Model {
     return {
       marker: 'string',
       maxItems: 'number',
-      akProxySuffix: 'string',
     };
   }
 
@@ -2937,25 +3027,25 @@ export class ListSAMLProvidersRequest extends $tea.Model {
 }
 
 export class ListSAMLProvidersResponseBody extends $tea.Model {
-  requestId?: string;
-  SAMLProviders?: ListSAMLProvidersResponseBodySAMLProviders;
   isTruncated?: boolean;
   marker?: string;
+  requestId?: string;
+  SAMLProviders?: ListSAMLProvidersResponseBodySAMLProviders;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
-      SAMLProviders: 'SAMLProviders',
       isTruncated: 'IsTruncated',
       marker: 'Marker',
+      requestId: 'RequestId',
+      SAMLProviders: 'SAMLProviders',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
-      SAMLProviders: ListSAMLProvidersResponseBodySAMLProviders,
       isTruncated: 'boolean',
       marker: 'string',
+      requestId: 'string',
+      SAMLProviders: ListSAMLProvidersResponseBodySAMLProviders,
     };
   }
 
@@ -2989,12 +3079,10 @@ export class ListSAMLProvidersResponse extends $tea.Model {
 export class ListUserBasicInfosRequest extends $tea.Model {
   marker?: string;
   maxItems?: number;
-  akProxySuffix?: string;
   static names(): { [key: string]: string } {
     return {
       marker: 'Marker',
       maxItems: 'MaxItems',
-      akProxySuffix: 'AkProxySuffix',
     };
   }
 
@@ -3002,7 +3090,6 @@ export class ListUserBasicInfosRequest extends $tea.Model {
     return {
       marker: 'string',
       maxItems: 'number',
-      akProxySuffix: 'string',
     };
   }
 
@@ -3012,25 +3099,25 @@ export class ListUserBasicInfosRequest extends $tea.Model {
 }
 
 export class ListUserBasicInfosResponseBody extends $tea.Model {
-  requestId?: string;
   isTruncated?: boolean;
-  userBasicInfos?: ListUserBasicInfosResponseBodyUserBasicInfos;
   marker?: string;
+  requestId?: string;
+  userBasicInfos?: ListUserBasicInfosResponseBodyUserBasicInfos;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       isTruncated: 'IsTruncated',
-      userBasicInfos: 'UserBasicInfos',
       marker: 'Marker',
+      requestId: 'RequestId',
+      userBasicInfos: 'UserBasicInfos',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       isTruncated: 'boolean',
-      userBasicInfos: ListUserBasicInfosResponseBodyUserBasicInfos,
       marker: 'string',
+      requestId: 'string',
+      userBasicInfos: ListUserBasicInfosResponseBodyUserBasicInfos,
     };
   }
 
@@ -3064,12 +3151,10 @@ export class ListUserBasicInfosResponse extends $tea.Model {
 export class ListUsersRequest extends $tea.Model {
   marker?: string;
   maxItems?: number;
-  akProxySuffix?: string;
   static names(): { [key: string]: string } {
     return {
       marker: 'Marker',
       maxItems: 'MaxItems',
-      akProxySuffix: 'AkProxySuffix',
     };
   }
 
@@ -3077,7 +3162,6 @@ export class ListUsersRequest extends $tea.Model {
     return {
       marker: 'string',
       maxItems: 'number',
-      akProxySuffix: 'string',
     };
   }
 
@@ -3087,24 +3171,24 @@ export class ListUsersRequest extends $tea.Model {
 }
 
 export class ListUsersResponseBody extends $tea.Model {
-  requestId?: string;
   isTruncated?: boolean;
   marker?: string;
+  requestId?: string;
   users?: ListUsersResponseBodyUsers;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       isTruncated: 'IsTruncated',
       marker: 'Marker',
+      requestId: 'RequestId',
       users: 'Users',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       isTruncated: 'boolean',
       marker: 'string',
+      requestId: 'string',
       users: ListUsersResponseBodyUsers,
     };
   }
@@ -3137,15 +3221,11 @@ export class ListUsersResponse extends $tea.Model {
 }
 
 export class ListUsersForGroupRequest extends $tea.Model {
-  groupPrincipalName?: string;
-  akProxySuffix?: string;
   groupName?: string;
   marker?: string;
   maxItems?: number;
   static names(): { [key: string]: string } {
     return {
-      groupPrincipalName: 'GroupPrincipalName',
-      akProxySuffix: 'AkProxySuffix',
       groupName: 'GroupName',
       marker: 'Marker',
       maxItems: 'MaxItems',
@@ -3154,8 +3234,6 @@ export class ListUsersForGroupRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      groupPrincipalName: 'string',
-      akProxySuffix: 'string',
       groupName: 'string',
       marker: 'string',
       maxItems: 'number',
@@ -3168,24 +3246,24 @@ export class ListUsersForGroupRequest extends $tea.Model {
 }
 
 export class ListUsersForGroupResponseBody extends $tea.Model {
-  requestId?: string;
   isTruncated?: boolean;
   marker?: string;
+  requestId?: string;
   users?: ListUsersForGroupResponseBodyUsers;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       isTruncated: 'IsTruncated',
       marker: 'Marker',
+      requestId: 'RequestId',
       users: 'Users',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       isTruncated: 'boolean',
       marker: 'string',
+      requestId: 'string',
       users: ListUsersForGroupResponseBodyUsers,
     };
   }
@@ -3220,12 +3298,10 @@ export class ListUsersForGroupResponse extends $tea.Model {
 export class ListVirtualMFADevicesRequest extends $tea.Model {
   marker?: string;
   maxItems?: number;
-  akProxySuffix?: string;
   static names(): { [key: string]: string } {
     return {
       marker: 'Marker',
       maxItems: 'MaxItems',
-      akProxySuffix: 'AkProxySuffix',
     };
   }
 
@@ -3233,7 +3309,6 @@ export class ListVirtualMFADevicesRequest extends $tea.Model {
     return {
       marker: 'string',
       maxItems: 'number',
-      akProxySuffix: 'string',
     };
   }
 
@@ -3243,25 +3318,25 @@ export class ListVirtualMFADevicesRequest extends $tea.Model {
 }
 
 export class ListVirtualMFADevicesResponseBody extends $tea.Model {
-  virtualMFADevices?: ListVirtualMFADevicesResponseBodyVirtualMFADevices;
-  requestId?: string;
   isTruncated?: boolean;
   marker?: string;
+  requestId?: string;
+  virtualMFADevices?: ListVirtualMFADevicesResponseBodyVirtualMFADevices;
   static names(): { [key: string]: string } {
     return {
-      virtualMFADevices: 'VirtualMFADevices',
-      requestId: 'RequestId',
       isTruncated: 'IsTruncated',
       marker: 'Marker',
+      requestId: 'RequestId',
+      virtualMFADevices: 'VirtualMFADevices',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      virtualMFADevices: ListVirtualMFADevicesResponseBodyVirtualMFADevices,
-      requestId: 'string',
       isTruncated: 'boolean',
       marker: 'string',
+      requestId: 'string',
+      virtualMFADevices: ListVirtualMFADevicesResponseBodyVirtualMFADevices,
     };
   }
 
@@ -3292,26 +3367,152 @@ export class ListVirtualMFADevicesResponse extends $tea.Model {
   }
 }
 
-export class RemoveUserFromGroupRequest extends $tea.Model {
-  userPrincipalName?: string;
-  groupPrincipalName?: string;
-  akProxySuffix?: string;
-  groupName?: string;
+export class RemoveClientIdFromOIDCProviderRequest extends $tea.Model {
+  clientId?: string;
+  OIDCProviderName?: string;
   static names(): { [key: string]: string } {
     return {
-      userPrincipalName: 'UserPrincipalName',
-      groupPrincipalName: 'GroupPrincipalName',
-      akProxySuffix: 'AkProxySuffix',
-      groupName: 'GroupName',
+      clientId: 'ClientId',
+      OIDCProviderName: 'OIDCProviderName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      userPrincipalName: 'string',
-      groupPrincipalName: 'string',
-      akProxySuffix: 'string',
+      clientId: 'string',
+      OIDCProviderName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemoveClientIdFromOIDCProviderResponseBody extends $tea.Model {
+  OIDCProvider?: RemoveClientIdFromOIDCProviderResponseBodyOIDCProvider;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      OIDCProvider: 'OIDCProvider',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      OIDCProvider: RemoveClientIdFromOIDCProviderResponseBodyOIDCProvider,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemoveClientIdFromOIDCProviderResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: RemoveClientIdFromOIDCProviderResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: RemoveClientIdFromOIDCProviderResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemoveFingerprintFromOIDCProviderRequest extends $tea.Model {
+  fingerprint?: string;
+  OIDCProviderName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fingerprint: 'Fingerprint',
+      OIDCProviderName: 'OIDCProviderName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fingerprint: 'string',
+      OIDCProviderName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemoveFingerprintFromOIDCProviderResponseBody extends $tea.Model {
+  OIDCProvider?: RemoveFingerprintFromOIDCProviderResponseBodyOIDCProvider;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      OIDCProvider: 'OIDCProvider',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      OIDCProvider: RemoveFingerprintFromOIDCProviderResponseBodyOIDCProvider,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemoveFingerprintFromOIDCProviderResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: RemoveFingerprintFromOIDCProviderResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: RemoveFingerprintFromOIDCProviderResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemoveUserFromGroupRequest extends $tea.Model {
+  groupName?: string;
+  userPrincipalName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      groupName: 'GroupName',
+      userPrincipalName: 'UserPrincipalName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
       groupName: 'string',
+      userPrincipalName: 'string',
     };
   }
 
@@ -3363,18 +3564,15 @@ export class RemoveUserFromGroupResponse extends $tea.Model {
 
 export class SetDefaultDomainRequest extends $tea.Model {
   defaultDomainName?: string;
-  akProxySuffix?: string;
   static names(): { [key: string]: string } {
     return {
       defaultDomainName: 'DefaultDomainName',
-      akProxySuffix: 'AkProxySuffix',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       defaultDomainName: 'string',
-      akProxySuffix: 'string',
     };
   }
 
@@ -3428,49 +3626,46 @@ export class SetDefaultDomainResponse extends $tea.Model {
 }
 
 export class SetPasswordPolicyRequest extends $tea.Model {
-  minimumPasswordLength?: number;
-  requireLowercaseCharacters?: boolean;
-  requireUppercaseCharacters?: boolean;
-  requireNumbers?: boolean;
-  requireSymbols?: boolean;
   hardExpire?: boolean;
   maxLoginAttemps?: number;
-  passwordReusePrevention?: number;
   maxPasswordAge?: number;
   minimumPasswordDifferentCharacter?: number;
+  minimumPasswordLength?: number;
   passwordNotContainUserName?: boolean;
-  akProxySuffix?: string;
+  passwordReusePrevention?: number;
+  requireLowercaseCharacters?: boolean;
+  requireNumbers?: boolean;
+  requireSymbols?: boolean;
+  requireUppercaseCharacters?: boolean;
   static names(): { [key: string]: string } {
     return {
-      minimumPasswordLength: 'MinimumPasswordLength',
-      requireLowercaseCharacters: 'RequireLowercaseCharacters',
-      requireUppercaseCharacters: 'RequireUppercaseCharacters',
-      requireNumbers: 'RequireNumbers',
-      requireSymbols: 'RequireSymbols',
       hardExpire: 'HardExpire',
       maxLoginAttemps: 'MaxLoginAttemps',
-      passwordReusePrevention: 'PasswordReusePrevention',
       maxPasswordAge: 'MaxPasswordAge',
       minimumPasswordDifferentCharacter: 'MinimumPasswordDifferentCharacter',
+      minimumPasswordLength: 'MinimumPasswordLength',
       passwordNotContainUserName: 'PasswordNotContainUserName',
-      akProxySuffix: 'AkProxySuffix',
+      passwordReusePrevention: 'PasswordReusePrevention',
+      requireLowercaseCharacters: 'RequireLowercaseCharacters',
+      requireNumbers: 'RequireNumbers',
+      requireSymbols: 'RequireSymbols',
+      requireUppercaseCharacters: 'RequireUppercaseCharacters',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      minimumPasswordLength: 'number',
-      requireLowercaseCharacters: 'boolean',
-      requireUppercaseCharacters: 'boolean',
-      requireNumbers: 'boolean',
-      requireSymbols: 'boolean',
       hardExpire: 'boolean',
       maxLoginAttemps: 'number',
-      passwordReusePrevention: 'number',
       maxPasswordAge: 'number',
       minimumPasswordDifferentCharacter: 'number',
+      minimumPasswordLength: 'number',
       passwordNotContainUserName: 'boolean',
-      akProxySuffix: 'string',
+      passwordReusePrevention: 'number',
+      requireLowercaseCharacters: 'boolean',
+      requireNumbers: 'boolean',
+      requireSymbols: 'boolean',
+      requireUppercaseCharacters: 'boolean',
     };
   }
 
@@ -3480,19 +3675,19 @@ export class SetPasswordPolicyRequest extends $tea.Model {
 }
 
 export class SetPasswordPolicyResponseBody extends $tea.Model {
-  requestId?: string;
   passwordPolicy?: SetPasswordPolicyResponseBodyPasswordPolicy;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       passwordPolicy: 'PasswordPolicy',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       passwordPolicy: SetPasswordPolicyResponseBodyPasswordPolicy,
+      requestId: 'string',
     };
   }
 
@@ -3524,34 +3719,77 @@ export class SetPasswordPolicyResponse extends $tea.Model {
 }
 
 export class SetSecurityPreferenceRequest extends $tea.Model {
-  enableSaveMFATicket?: boolean;
   allowUserToChangePassword?: boolean;
   allowUserToManageAccessKeys?: boolean;
   allowUserToManageMFADevices?: boolean;
-  loginSessionDuration?: number;
+  enableSaveMFATicket?: boolean;
+  enforceMFAForLogin?: boolean;
   loginNetworkMasks?: string;
-  akProxySuffix?: string;
+  loginSessionDuration?: number;
+  verificationTypes?: string[];
   static names(): { [key: string]: string } {
     return {
-      enableSaveMFATicket: 'EnableSaveMFATicket',
       allowUserToChangePassword: 'AllowUserToChangePassword',
       allowUserToManageAccessKeys: 'AllowUserToManageAccessKeys',
       allowUserToManageMFADevices: 'AllowUserToManageMFADevices',
-      loginSessionDuration: 'LoginSessionDuration',
+      enableSaveMFATicket: 'EnableSaveMFATicket',
+      enforceMFAForLogin: 'EnforceMFAForLogin',
       loginNetworkMasks: 'LoginNetworkMasks',
-      akProxySuffix: 'AkProxySuffix',
+      loginSessionDuration: 'LoginSessionDuration',
+      verificationTypes: 'VerificationTypes',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      enableSaveMFATicket: 'boolean',
       allowUserToChangePassword: 'boolean',
       allowUserToManageAccessKeys: 'boolean',
       allowUserToManageMFADevices: 'boolean',
-      loginSessionDuration: 'number',
+      enableSaveMFATicket: 'boolean',
+      enforceMFAForLogin: 'boolean',
       loginNetworkMasks: 'string',
-      akProxySuffix: 'string',
+      loginSessionDuration: 'number',
+      verificationTypes: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetSecurityPreferenceShrinkRequest extends $tea.Model {
+  allowUserToChangePassword?: boolean;
+  allowUserToManageAccessKeys?: boolean;
+  allowUserToManageMFADevices?: boolean;
+  enableSaveMFATicket?: boolean;
+  enforceMFAForLogin?: boolean;
+  loginNetworkMasks?: string;
+  loginSessionDuration?: number;
+  verificationTypesShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      allowUserToChangePassword: 'AllowUserToChangePassword',
+      allowUserToManageAccessKeys: 'AllowUserToManageAccessKeys',
+      allowUserToManageMFADevices: 'AllowUserToManageMFADevices',
+      enableSaveMFATicket: 'EnableSaveMFATicket',
+      enforceMFAForLogin: 'EnforceMFAForLogin',
+      loginNetworkMasks: 'LoginNetworkMasks',
+      loginSessionDuration: 'LoginSessionDuration',
+      verificationTypesShrink: 'VerificationTypes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allowUserToChangePassword: 'boolean',
+      allowUserToManageAccessKeys: 'boolean',
+      allowUserToManageMFADevices: 'boolean',
+      enableSaveMFATicket: 'boolean',
+      enforceMFAForLogin: 'boolean',
+      loginNetworkMasks: 'string',
+      loginSessionDuration: 'number',
+      verificationTypesShrink: 'string',
     };
   }
 
@@ -3561,19 +3799,19 @@ export class SetSecurityPreferenceRequest extends $tea.Model {
 }
 
 export class SetSecurityPreferenceResponseBody extends $tea.Model {
-  securityPreference?: SetSecurityPreferenceResponseBodySecurityPreference;
   requestId?: string;
+  securityPreference?: SetSecurityPreferenceResponseBodySecurityPreference;
   static names(): { [key: string]: string } {
     return {
-      securityPreference: 'SecurityPreference',
       requestId: 'RequestId',
+      securityPreference: 'SecurityPreference',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      securityPreference: SetSecurityPreferenceResponseBodySecurityPreference,
       requestId: 'string',
+      securityPreference: SetSecurityPreferenceResponseBodySecurityPreference,
     };
   }
 
@@ -3605,25 +3843,22 @@ export class SetSecurityPreferenceResponse extends $tea.Model {
 }
 
 export class SetUserSsoSettingsRequest extends $tea.Model {
+  auxiliaryDomain?: string;
   metadataDocument?: string;
   ssoEnabled?: boolean;
-  auxiliaryDomain?: string;
-  akProxySuffix?: string;
   static names(): { [key: string]: string } {
     return {
+      auxiliaryDomain: 'AuxiliaryDomain',
       metadataDocument: 'MetadataDocument',
       ssoEnabled: 'SsoEnabled',
-      auxiliaryDomain: 'AuxiliaryDomain',
-      akProxySuffix: 'AkProxySuffix',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      auxiliaryDomain: 'string',
       metadataDocument: 'string',
       ssoEnabled: 'boolean',
-      auxiliaryDomain: 'string',
-      akProxySuffix: 'string',
     };
   }
 
@@ -3633,19 +3868,19 @@ export class SetUserSsoSettingsRequest extends $tea.Model {
 }
 
 export class SetUserSsoSettingsResponseBody extends $tea.Model {
-  userSsoSettings?: SetUserSsoSettingsResponseBodyUserSsoSettings;
   requestId?: string;
+  userSsoSettings?: SetUserSsoSettingsResponseBodyUserSsoSettings;
   static names(): { [key: string]: string } {
     return {
-      userSsoSettings: 'UserSsoSettings',
       requestId: 'RequestId',
+      userSsoSettings: 'UserSsoSettings',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      userSsoSettings: SetUserSsoSettingsResponseBodyUserSsoSettings,
       requestId: 'string',
+      userSsoSettings: SetUserSsoSettingsResponseBodyUserSsoSettings,
     };
   }
 
@@ -3678,18 +3913,15 @@ export class SetUserSsoSettingsResponse extends $tea.Model {
 
 export class UnbindMFADeviceRequest extends $tea.Model {
   userPrincipalName?: string;
-  akProxySuffix?: string;
   static names(): { [key: string]: string } {
     return {
       userPrincipalName: 'UserPrincipalName',
-      akProxySuffix: 'AkProxySuffix',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       userPrincipalName: 'string',
-      akProxySuffix: 'string',
     };
   }
 
@@ -3743,25 +3975,22 @@ export class UnbindMFADeviceResponse extends $tea.Model {
 }
 
 export class UpdateAccessKeyRequest extends $tea.Model {
-  userPrincipalName?: string;
-  userAccessKeyId?: string;
   status?: string;
-  akProxySuffix?: string;
+  userAccessKeyId?: string;
+  userPrincipalName?: string;
   static names(): { [key: string]: string } {
     return {
-      userPrincipalName: 'UserPrincipalName',
-      userAccessKeyId: 'UserAccessKeyId',
       status: 'Status',
-      akProxySuffix: 'AkProxySuffix',
+      userAccessKeyId: 'UserAccessKeyId',
+      userPrincipalName: 'UserPrincipalName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      userPrincipalName: 'string',
-      userAccessKeyId: 'string',
       status: 'string',
-      akProxySuffix: 'string',
+      userAccessKeyId: 'string',
+      userPrincipalName: 'string',
     };
   }
 
@@ -3813,39 +4042,36 @@ export class UpdateAccessKeyResponse extends $tea.Model {
 
 export class UpdateApplicationRequest extends $tea.Model {
   appId?: string;
-  newDisplayName?: string;
-  newRedirectUris?: string;
-  newPredefinedScopes?: string;
-  newSecretRequired?: boolean;
   newAccessTokenValidity?: number;
-  newRefreshTokenValidity?: number;
+  newDisplayName?: string;
   newIsMultiTenant?: boolean;
-  akProxySuffix?: string;
+  newPredefinedScopes?: string;
+  newRedirectUris?: string;
+  newRefreshTokenValidity?: number;
+  newSecretRequired?: boolean;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
-      newDisplayName: 'NewDisplayName',
-      newRedirectUris: 'NewRedirectUris',
-      newPredefinedScopes: 'NewPredefinedScopes',
-      newSecretRequired: 'NewSecretRequired',
       newAccessTokenValidity: 'NewAccessTokenValidity',
-      newRefreshTokenValidity: 'NewRefreshTokenValidity',
+      newDisplayName: 'NewDisplayName',
       newIsMultiTenant: 'NewIsMultiTenant',
-      akProxySuffix: 'AkProxySuffix',
+      newPredefinedScopes: 'NewPredefinedScopes',
+      newRedirectUris: 'NewRedirectUris',
+      newRefreshTokenValidity: 'NewRefreshTokenValidity',
+      newSecretRequired: 'NewSecretRequired',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       appId: 'string',
-      newDisplayName: 'string',
-      newRedirectUris: 'string',
-      newPredefinedScopes: 'string',
-      newSecretRequired: 'boolean',
       newAccessTokenValidity: 'number',
-      newRefreshTokenValidity: 'number',
+      newDisplayName: 'string',
       newIsMultiTenant: 'boolean',
-      akProxySuffix: 'string',
+      newPredefinedScopes: 'string',
+      newRedirectUris: 'string',
+      newRefreshTokenValidity: 'number',
+      newSecretRequired: 'boolean',
     };
   }
 
@@ -3855,19 +4081,19 @@ export class UpdateApplicationRequest extends $tea.Model {
 }
 
 export class UpdateApplicationResponseBody extends $tea.Model {
-  requestId?: string;
   application?: UpdateApplicationResponseBodyApplication;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       application: 'Application',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       application: UpdateApplicationResponseBodyApplication,
+      requestId: 'string',
     };
   }
 
@@ -3899,34 +4125,25 @@ export class UpdateApplicationResponse extends $tea.Model {
 }
 
 export class UpdateGroupRequest extends $tea.Model {
-  groupPrincipalName?: string;
-  newGroupPrincipalName?: string;
+  groupName?: string;
   newComments?: string;
   newDisplayName?: string;
-  akProxySuffix?: string;
   newGroupName?: string;
-  groupName?: string;
   static names(): { [key: string]: string } {
     return {
-      groupPrincipalName: 'GroupPrincipalName',
-      newGroupPrincipalName: 'NewGroupPrincipalName',
+      groupName: 'GroupName',
       newComments: 'NewComments',
       newDisplayName: 'NewDisplayName',
-      akProxySuffix: 'AkProxySuffix',
       newGroupName: 'NewGroupName',
-      groupName: 'GroupName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      groupPrincipalName: 'string',
-      newGroupPrincipalName: 'string',
+      groupName: 'string',
       newComments: 'string',
       newDisplayName: 'string',
-      akProxySuffix: 'string',
       newGroupName: 'string',
-      groupName: 'string',
     };
   }
 
@@ -3980,34 +4197,28 @@ export class UpdateGroupResponse extends $tea.Model {
 }
 
 export class UpdateLoginProfileRequest extends $tea.Model {
-  userPrincipalName?: string;
+  MFABindRequired?: boolean;
   password?: string;
   passwordResetRequired?: boolean;
-  MFABindRequired?: boolean;
-  generateRandomPassword?: boolean;
   status?: string;
-  akProxySuffix?: string;
+  userPrincipalName?: string;
   static names(): { [key: string]: string } {
     return {
-      userPrincipalName: 'UserPrincipalName',
+      MFABindRequired: 'MFABindRequired',
       password: 'Password',
       passwordResetRequired: 'PasswordResetRequired',
-      MFABindRequired: 'MFABindRequired',
-      generateRandomPassword: 'GenerateRandomPassword',
       status: 'Status',
-      akProxySuffix: 'AkProxySuffix',
+      userPrincipalName: 'UserPrincipalName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      userPrincipalName: 'string',
+      MFABindRequired: 'boolean',
       password: 'string',
       passwordResetRequired: 'boolean',
-      MFABindRequired: 'boolean',
-      generateRandomPassword: 'boolean',
       status: 'string',
-      akProxySuffix: 'string',
+      userPrincipalName: 'string',
     };
   }
 
@@ -4017,19 +4228,19 @@ export class UpdateLoginProfileRequest extends $tea.Model {
 }
 
 export class UpdateLoginProfileResponseBody extends $tea.Model {
-  requestId?: string;
   loginProfile?: UpdateLoginProfileResponseBodyLoginProfile;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       loginProfile: 'LoginProfile',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       loginProfile: UpdateLoginProfileResponseBodyLoginProfile,
+      requestId: 'string',
     };
   }
 
@@ -4060,29 +4271,92 @@ export class UpdateLoginProfileResponse extends $tea.Model {
   }
 }
 
-export class UpdateSAMLProviderRequest extends $tea.Model {
-  SAMLProviderName?: string;
-  newSAMLMetadataDocument?: string;
+export class UpdateOIDCProviderRequest extends $tea.Model {
+  clientIds?: string;
   newDescription?: string;
-  akProxySuffix?: string;
-  newEncodedSAMLMetadataDocument?: string;
+  OIDCProviderName?: string;
   static names(): { [key: string]: string } {
     return {
-      SAMLProviderName: 'SAMLProviderName',
-      newSAMLMetadataDocument: 'NewSAMLMetadataDocument',
+      clientIds: 'ClientIds',
       newDescription: 'NewDescription',
-      akProxySuffix: 'AkProxySuffix',
-      newEncodedSAMLMetadataDocument: 'NewEncodedSAMLMetadataDocument',
+      OIDCProviderName: 'OIDCProviderName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      SAMLProviderName: 'string',
-      newSAMLMetadataDocument: 'string',
+      clientIds: 'string',
       newDescription: 'string',
-      akProxySuffix: 'string',
+      OIDCProviderName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateOIDCProviderResponseBody extends $tea.Model {
+  OIDCProvider?: UpdateOIDCProviderResponseBodyOIDCProvider;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      OIDCProvider: 'OIDCProvider',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      OIDCProvider: UpdateOIDCProviderResponseBodyOIDCProvider,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateOIDCProviderResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: UpdateOIDCProviderResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: UpdateOIDCProviderResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSAMLProviderRequest extends $tea.Model {
+  newDescription?: string;
+  newEncodedSAMLMetadataDocument?: string;
+  SAMLProviderName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      newDescription: 'NewDescription',
+      newEncodedSAMLMetadataDocument: 'NewEncodedSAMLMetadataDocument',
+      SAMLProviderName: 'SAMLProviderName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      newDescription: 'string',
       newEncodedSAMLMetadataDocument: 'string',
+      SAMLProviderName: 'string',
     };
   }
 
@@ -4136,37 +4410,34 @@ export class UpdateSAMLProviderResponse extends $tea.Model {
 }
 
 export class UpdateUserRequest extends $tea.Model {
-  userPrincipalName?: string;
-  userId?: string;
-  newUserPrincipalName?: string;
-  newDisplayName?: string;
-  newMobilePhone?: string;
-  newEmail?: string;
   newComments?: string;
-  akProxySuffix?: string;
+  newDisplayName?: string;
+  newEmail?: string;
+  newMobilePhone?: string;
+  newUserPrincipalName?: string;
+  userId?: string;
+  userPrincipalName?: string;
   static names(): { [key: string]: string } {
     return {
-      userPrincipalName: 'UserPrincipalName',
-      userId: 'UserId',
-      newUserPrincipalName: 'NewUserPrincipalName',
-      newDisplayName: 'NewDisplayName',
-      newMobilePhone: 'NewMobilePhone',
-      newEmail: 'NewEmail',
       newComments: 'NewComments',
-      akProxySuffix: 'AkProxySuffix',
+      newDisplayName: 'NewDisplayName',
+      newEmail: 'NewEmail',
+      newMobilePhone: 'NewMobilePhone',
+      newUserPrincipalName: 'NewUserPrincipalName',
+      userId: 'UserId',
+      userPrincipalName: 'UserPrincipalName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      userPrincipalName: 'string',
-      userId: 'string',
-      newUserPrincipalName: 'string',
-      newDisplayName: 'string',
-      newMobilePhone: 'string',
-      newEmail: 'string',
       newComments: 'string',
-      akProxySuffix: 'string',
+      newDisplayName: 'string',
+      newEmail: 'string',
+      newMobilePhone: 'string',
+      newUserPrincipalName: 'string',
+      userId: 'string',
+      userPrincipalName: 'string',
     };
   }
 
@@ -4176,19 +4447,19 @@ export class UpdateUserRequest extends $tea.Model {
 }
 
 export class UpdateUserResponseBody extends $tea.Model {
-  user?: UpdateUserResponseBodyUser;
   requestId?: string;
+  user?: UpdateUserResponseBodyUser;
   static names(): { [key: string]: string } {
     return {
-      user: 'User',
       requestId: 'RequestId',
+      user: 'User',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      user: UpdateUserResponseBodyUser,
       requestId: 'string',
+      user: UpdateUserResponseBodyUser,
     };
   }
 
@@ -4219,26 +4490,38 @@ export class UpdateUserResponse extends $tea.Model {
   }
 }
 
-export class CreateAccessKeyResponseBodyAccessKey extends $tea.Model {
-  status?: string;
-  accessKeySecret?: string;
-  accessKeyId?: string;
-  createDate?: string;
+export class AddClientIdToOIDCProviderResponseBodyOIDCProvider extends $tea.Model {
+  arn?: string;
+  clientIds?: string;
+  description?: string;
+  fingerprints?: string;
+  gmtCreate?: string;
+  gmtModified?: string;
+  issuerUrl?: string;
+  OIDCProviderName?: string;
   static names(): { [key: string]: string } {
     return {
-      status: 'Status',
-      accessKeySecret: 'AccessKeySecret',
-      accessKeyId: 'AccessKeyId',
-      createDate: 'CreateDate',
+      arn: 'Arn',
+      clientIds: 'ClientIds',
+      description: 'Description',
+      fingerprints: 'Fingerprints',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      issuerUrl: 'IssuerUrl',
+      OIDCProviderName: 'OIDCProviderName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      status: 'string',
-      accessKeySecret: 'string',
-      accessKeyId: 'string',
-      createDate: 'string',
+      arn: 'string',
+      clientIds: 'string',
+      description: 'string',
+      fingerprints: 'string',
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      issuerUrl: 'string',
+      OIDCProviderName: 'string',
     };
   }
 
@@ -4247,17 +4530,94 @@ export class CreateAccessKeyResponseBodyAccessKey extends $tea.Model {
   }
 }
 
-export class CreateApplicationResponseBodyApplicationRedirectUris extends $tea.Model {
-  redirectUri?: string[];
+export class AddFingerprintToOIDCProviderResponseBodyOIDCProvider extends $tea.Model {
+  arn?: string;
+  clientIds?: string;
+  description?: string;
+  fingerprints?: string;
+  gmtCreate?: string;
+  gmtModified?: string;
+  issuerUrl?: string;
+  OIDCProviderName?: string;
   static names(): { [key: string]: string } {
     return {
-      redirectUri: 'RedirectUri',
+      arn: 'Arn',
+      clientIds: 'ClientIds',
+      description: 'Description',
+      fingerprints: 'Fingerprints',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      issuerUrl: 'IssuerUrl',
+      OIDCProviderName: 'OIDCProviderName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      redirectUri: { 'type': 'array', 'itemType': 'string' },
+      arn: 'string',
+      clientIds: 'string',
+      description: 'string',
+      fingerprints: 'string',
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      issuerUrl: 'string',
+      OIDCProviderName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAccessKeyResponseBodyAccessKey extends $tea.Model {
+  accessKeyId?: string;
+  accessKeySecret?: string;
+  createDate?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessKeyId: 'AccessKeyId',
+      accessKeySecret: 'AccessKeySecret',
+      createDate: 'CreateDate',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessKeyId: 'string',
+      accessKeySecret: 'string',
+      createDate: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAppSecretResponseBodyAppSecret extends $tea.Model {
+  appId?: string;
+  appSecretId?: string;
+  appSecretValue?: string;
+  createDate?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      appSecretId: 'AppSecretId',
+      appSecretValue: 'AppSecretValue',
+      createDate: 'CreateDate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      appSecretId: 'string',
+      appSecretValue: 'string',
+      createDate: 'string',
     };
   }
 
@@ -4326,53 +4686,17 @@ export class CreateApplicationResponseBodyApplicationDelegatedScope extends $tea
   }
 }
 
-export class CreateApplicationResponseBodyApplication extends $tea.Model {
-  displayName?: string;
-  accessTokenValidity?: number;
-  secretRequired?: boolean;
-  accountId?: string;
-  createDate?: string;
-  appName?: string;
-  redirectUris?: CreateApplicationResponseBodyApplicationRedirectUris;
-  updateDate?: string;
-  delegatedScope?: CreateApplicationResponseBodyApplicationDelegatedScope;
-  appId?: string;
-  refreshTokenValidity?: number;
-  isMultiTenant?: boolean;
-  appType?: string;
+export class CreateApplicationResponseBodyApplicationRedirectUris extends $tea.Model {
+  redirectUri?: string[];
   static names(): { [key: string]: string } {
     return {
-      displayName: 'DisplayName',
-      accessTokenValidity: 'AccessTokenValidity',
-      secretRequired: 'SecretRequired',
-      accountId: 'AccountId',
-      createDate: 'CreateDate',
-      appName: 'AppName',
-      redirectUris: 'RedirectUris',
-      updateDate: 'UpdateDate',
-      delegatedScope: 'DelegatedScope',
-      appId: 'AppId',
-      refreshTokenValidity: 'RefreshTokenValidity',
-      isMultiTenant: 'IsMultiTenant',
-      appType: 'AppType',
+      redirectUri: 'RedirectUri',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      displayName: 'string',
-      accessTokenValidity: 'number',
-      secretRequired: 'boolean',
-      accountId: 'string',
-      createDate: 'string',
-      appName: 'string',
-      redirectUris: CreateApplicationResponseBodyApplicationRedirectUris,
-      updateDate: 'string',
-      delegatedScope: CreateApplicationResponseBodyApplicationDelegatedScope,
-      appId: 'string',
-      refreshTokenValidity: 'number',
-      isMultiTenant: 'boolean',
-      appType: 'string',
+      redirectUri: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -4381,26 +4705,53 @@ export class CreateApplicationResponseBodyApplication extends $tea.Model {
   }
 }
 
-export class CreateAppSecretResponseBodyAppSecret extends $tea.Model {
-  appSecretValue?: string;
+export class CreateApplicationResponseBodyApplication extends $tea.Model {
+  accessTokenValidity?: number;
+  accountId?: string;
   appId?: string;
-  appSecretId?: string;
+  appName?: string;
+  appType?: string;
   createDate?: string;
+  delegatedScope?: CreateApplicationResponseBodyApplicationDelegatedScope;
+  displayName?: string;
+  isMultiTenant?: boolean;
+  redirectUris?: CreateApplicationResponseBodyApplicationRedirectUris;
+  refreshTokenValidity?: number;
+  secretRequired?: boolean;
+  updateDate?: string;
   static names(): { [key: string]: string } {
     return {
-      appSecretValue: 'AppSecretValue',
+      accessTokenValidity: 'AccessTokenValidity',
+      accountId: 'AccountId',
       appId: 'AppId',
-      appSecretId: 'AppSecretId',
+      appName: 'AppName',
+      appType: 'AppType',
       createDate: 'CreateDate',
+      delegatedScope: 'DelegatedScope',
+      displayName: 'DisplayName',
+      isMultiTenant: 'IsMultiTenant',
+      redirectUris: 'RedirectUris',
+      refreshTokenValidity: 'RefreshTokenValidity',
+      secretRequired: 'SecretRequired',
+      updateDate: 'UpdateDate',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      appSecretValue: 'string',
+      accessTokenValidity: 'number',
+      accountId: 'string',
       appId: 'string',
-      appSecretId: 'string',
+      appName: 'string',
+      appType: 'string',
       createDate: 'string',
+      delegatedScope: CreateApplicationResponseBodyApplicationDelegatedScope,
+      displayName: 'string',
+      isMultiTenant: 'boolean',
+      redirectUris: CreateApplicationResponseBodyApplicationRedirectUris,
+      refreshTokenValidity: 'number',
+      secretRequired: 'boolean',
+      updateDate: 'string',
     };
   }
 
@@ -4410,31 +4761,31 @@ export class CreateAppSecretResponseBodyAppSecret extends $tea.Model {
 }
 
 export class CreateGroupResponseBodyGroup extends $tea.Model {
-  displayName?: string;
-  groupId?: string;
-  updateDate?: string;
-  groupName?: string;
   comments?: string;
   createDate?: string;
+  displayName?: string;
+  groupId?: string;
+  groupName?: string;
+  updateDate?: string;
   static names(): { [key: string]: string } {
     return {
-      displayName: 'DisplayName',
-      groupId: 'GroupId',
-      updateDate: 'UpdateDate',
-      groupName: 'GroupName',
       comments: 'Comments',
       createDate: 'CreateDate',
+      displayName: 'DisplayName',
+      groupId: 'GroupId',
+      groupName: 'GroupName',
+      updateDate: 'UpdateDate',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      displayName: 'string',
-      groupId: 'string',
-      updateDate: 'string',
-      groupName: 'string',
       comments: 'string',
       createDate: 'string',
+      displayName: 'string',
+      groupId: 'string',
+      groupName: 'string',
+      updateDate: 'string',
     };
   }
 
@@ -4444,28 +4795,68 @@ export class CreateGroupResponseBodyGroup extends $tea.Model {
 }
 
 export class CreateLoginProfileResponseBodyLoginProfile extends $tea.Model {
-  userPrincipalName?: string;
+  MFABindRequired?: boolean;
+  passwordResetRequired?: boolean;
   status?: string;
   updateDate?: string;
-  passwordResetRequired?: boolean;
-  MFABindRequired?: boolean;
+  userPrincipalName?: string;
   static names(): { [key: string]: string } {
     return {
-      userPrincipalName: 'UserPrincipalName',
+      MFABindRequired: 'MFABindRequired',
+      passwordResetRequired: 'PasswordResetRequired',
       status: 'Status',
       updateDate: 'UpdateDate',
-      passwordResetRequired: 'PasswordResetRequired',
-      MFABindRequired: 'MFABindRequired',
+      userPrincipalName: 'UserPrincipalName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      userPrincipalName: 'string',
+      MFABindRequired: 'boolean',
+      passwordResetRequired: 'boolean',
       status: 'string',
       updateDate: 'string',
-      passwordResetRequired: 'boolean',
-      MFABindRequired: 'boolean',
+      userPrincipalName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateOIDCProviderResponseBodyOIDCProvider extends $tea.Model {
+  arn?: string;
+  clientIds?: string;
+  description?: string;
+  fingerprints?: string;
+  gmtCreate?: string;
+  gmtModified?: string;
+  issuerUrl?: string;
+  OIDCProviderName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      arn: 'Arn',
+      clientIds: 'ClientIds',
+      description: 'Description',
+      fingerprints: 'Fingerprints',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      issuerUrl: 'IssuerUrl',
+      OIDCProviderName: 'OIDCProviderName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      arn: 'string',
+      clientIds: 'string',
+      description: 'string',
+      fingerprints: 'string',
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      issuerUrl: 'string',
+      OIDCProviderName: 'string',
     };
   }
 
@@ -4475,28 +4866,28 @@ export class CreateLoginProfileResponseBodyLoginProfile extends $tea.Model {
 }
 
 export class CreateSAMLProviderResponseBodySAMLProvider extends $tea.Model {
-  updateDate?: string;
+  arn?: string;
+  createDate?: string;
   description?: string;
   SAMLProviderName?: string;
-  createDate?: string;
-  arn?: string;
+  updateDate?: string;
   static names(): { [key: string]: string } {
     return {
-      updateDate: 'UpdateDate',
+      arn: 'Arn',
+      createDate: 'CreateDate',
       description: 'Description',
       SAMLProviderName: 'SAMLProviderName',
-      createDate: 'CreateDate',
-      arn: 'Arn',
+      updateDate: 'UpdateDate',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      updateDate: 'string',
+      arn: 'string',
+      createDate: 'string',
       description: 'string',
       SAMLProviderName: 'string',
-      createDate: 'string',
-      arn: 'string',
+      updateDate: 'string',
     };
   }
 
@@ -4506,40 +4897,40 @@ export class CreateSAMLProviderResponseBodySAMLProvider extends $tea.Model {
 }
 
 export class CreateUserResponseBodyUser extends $tea.Model {
-  displayName?: string;
-  userPrincipalName?: string;
-  email?: string;
-  updateDate?: string;
-  mobilePhone?: string;
-  userId?: string;
   comments?: string;
-  lastLoginDate?: string;
   createDate?: string;
+  displayName?: string;
+  email?: string;
+  lastLoginDate?: string;
+  mobilePhone?: string;
+  updateDate?: string;
+  userId?: string;
+  userPrincipalName?: string;
   static names(): { [key: string]: string } {
     return {
-      displayName: 'DisplayName',
-      userPrincipalName: 'UserPrincipalName',
-      email: 'Email',
-      updateDate: 'UpdateDate',
-      mobilePhone: 'MobilePhone',
-      userId: 'UserId',
       comments: 'Comments',
-      lastLoginDate: 'LastLoginDate',
       createDate: 'CreateDate',
+      displayName: 'DisplayName',
+      email: 'Email',
+      lastLoginDate: 'LastLoginDate',
+      mobilePhone: 'MobilePhone',
+      updateDate: 'UpdateDate',
+      userId: 'UserId',
+      userPrincipalName: 'UserPrincipalName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      displayName: 'string',
-      userPrincipalName: 'string',
-      email: 'string',
-      updateDate: 'string',
-      mobilePhone: 'string',
-      userId: 'string',
       comments: 'string',
-      lastLoginDate: 'string',
       createDate: 'string',
+      displayName: 'string',
+      email: 'string',
+      lastLoginDate: 'string',
+      mobilePhone: 'string',
+      updateDate: 'string',
+      userId: 'string',
+      userPrincipalName: 'string',
     };
   }
 
@@ -4549,22 +4940,22 @@ export class CreateUserResponseBodyUser extends $tea.Model {
 }
 
 export class CreateVirtualMFADeviceResponseBodyVirtualMFADevice extends $tea.Model {
-  serialNumber?: string;
-  QRCodePNG?: string;
   base32StringSeed?: string;
+  QRCodePNG?: string;
+  serialNumber?: string;
   static names(): { [key: string]: string } {
     return {
-      serialNumber: 'SerialNumber',
-      QRCodePNG: 'QRCodePNG',
       base32StringSeed: 'Base32StringSeed',
+      QRCodePNG: 'QRCodePNG',
+      serialNumber: 'SerialNumber',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      serialNumber: 'string',
-      QRCodePNG: 'string',
       base32StringSeed: 'string',
+      QRCodePNG: 'string',
+      serialNumber: 'string',
     };
   }
 
@@ -4593,40 +4984,40 @@ export class GetAccessKeyLastUsedResponseBodyAccessKeyLastUsed extends $tea.Mode
 }
 
 export class GetAccountSecurityPracticeReportResponseBodyAccountSecurityPracticeInfoAccountSecurityPracticeUserInfo extends $tea.Model {
-  unusedAkNum?: number;
-  subUserWithUnusedAccessKey?: number;
-  rootWithAccessKey?: number;
-  subUser?: number;
   bindMfa?: boolean;
   oldAkNum?: number;
+  rootWithAccessKey?: number;
+  subUser?: number;
+  subUserBindMfa?: number;
   subUserPwdLevel?: string;
   subUserWithOldAccessKey?: number;
-  subUserBindMfa?: number;
+  subUserWithUnusedAccessKey?: number;
+  unusedAkNum?: number;
   static names(): { [key: string]: string } {
     return {
-      unusedAkNum: 'UnusedAkNum',
-      subUserWithUnusedAccessKey: 'SubUserWithUnusedAccessKey',
-      rootWithAccessKey: 'RootWithAccessKey',
-      subUser: 'SubUser',
       bindMfa: 'BindMfa',
       oldAkNum: 'OldAkNum',
+      rootWithAccessKey: 'RootWithAccessKey',
+      subUser: 'SubUser',
+      subUserBindMfa: 'SubUserBindMfa',
       subUserPwdLevel: 'SubUserPwdLevel',
       subUserWithOldAccessKey: 'SubUserWithOldAccessKey',
-      subUserBindMfa: 'SubUserBindMfa',
+      subUserWithUnusedAccessKey: 'SubUserWithUnusedAccessKey',
+      unusedAkNum: 'UnusedAkNum',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      unusedAkNum: 'number',
-      subUserWithUnusedAccessKey: 'number',
-      rootWithAccessKey: 'number',
-      subUser: 'number',
       bindMfa: 'boolean',
       oldAkNum: 'number',
+      rootWithAccessKey: 'number',
+      subUser: 'number',
+      subUserBindMfa: 'number',
       subUserPwdLevel: 'string',
       subUserWithOldAccessKey: 'number',
-      subUserBindMfa: 'number',
+      subUserWithUnusedAccessKey: 'number',
+      unusedAkNum: 'number',
     };
   }
 
@@ -4658,76 +5049,76 @@ export class GetAccountSecurityPracticeReportResponseBodyAccountSecurityPractice
 }
 
 export class GetAccountSummaryResponseBodySummaryMap extends $tea.Model {
-  MFADevices?: number;
   accessKeysPerUserQuota?: number;
   attachedPoliciesPerGroupQuota?: number;
-  attachedSystemPoliciesPerRoleQuota?: number;
   attachedPoliciesPerRoleQuota?: number;
-  groupsPerUserQuota?: number;
-  roles?: number;
-  policySizeQuota?: number;
-  attachedSystemPoliciesPerGroupQuota?: number;
-  attachedSystemPoliciesPerUserQuota?: number;
   attachedPoliciesPerUserQuota?: number;
-  groupsQuota?: number;
+  attachedSystemPoliciesPerGroupQuota?: number;
+  attachedSystemPoliciesPerRoleQuota?: number;
+  attachedSystemPoliciesPerUserQuota?: number;
   groups?: number;
-  policiesQuota?: number;
-  virtualMFADevicesQuota?: number;
-  versionsPerPolicyQuota?: number;
-  rolesQuota?: number;
-  usersQuota?: number;
-  policies?: number;
-  users?: number;
+  groupsPerUserQuota?: number;
+  groupsQuota?: number;
+  MFADevices?: number;
   MFADevicesInUse?: number;
+  policies?: number;
+  policiesQuota?: number;
+  policySizeQuota?: number;
+  roles?: number;
+  rolesQuota?: number;
+  users?: number;
+  usersQuota?: number;
+  versionsPerPolicyQuota?: number;
+  virtualMFADevicesQuota?: number;
   static names(): { [key: string]: string } {
     return {
-      MFADevices: 'MFADevices',
       accessKeysPerUserQuota: 'AccessKeysPerUserQuota',
       attachedPoliciesPerGroupQuota: 'AttachedPoliciesPerGroupQuota',
-      attachedSystemPoliciesPerRoleQuota: 'AttachedSystemPoliciesPerRoleQuota',
       attachedPoliciesPerRoleQuota: 'AttachedPoliciesPerRoleQuota',
-      groupsPerUserQuota: 'GroupsPerUserQuota',
-      roles: 'Roles',
-      policySizeQuota: 'PolicySizeQuota',
-      attachedSystemPoliciesPerGroupQuota: 'AttachedSystemPoliciesPerGroupQuota',
-      attachedSystemPoliciesPerUserQuota: 'AttachedSystemPoliciesPerUserQuota',
       attachedPoliciesPerUserQuota: 'AttachedPoliciesPerUserQuota',
-      groupsQuota: 'GroupsQuota',
+      attachedSystemPoliciesPerGroupQuota: 'AttachedSystemPoliciesPerGroupQuota',
+      attachedSystemPoliciesPerRoleQuota: 'AttachedSystemPoliciesPerRoleQuota',
+      attachedSystemPoliciesPerUserQuota: 'AttachedSystemPoliciesPerUserQuota',
       groups: 'Groups',
-      policiesQuota: 'PoliciesQuota',
-      virtualMFADevicesQuota: 'VirtualMFADevicesQuota',
-      versionsPerPolicyQuota: 'VersionsPerPolicyQuota',
-      rolesQuota: 'RolesQuota',
-      usersQuota: 'UsersQuota',
-      policies: 'Policies',
-      users: 'Users',
+      groupsPerUserQuota: 'GroupsPerUserQuota',
+      groupsQuota: 'GroupsQuota',
+      MFADevices: 'MFADevices',
       MFADevicesInUse: 'MFADevicesInUse',
+      policies: 'Policies',
+      policiesQuota: 'PoliciesQuota',
+      policySizeQuota: 'PolicySizeQuota',
+      roles: 'Roles',
+      rolesQuota: 'RolesQuota',
+      users: 'Users',
+      usersQuota: 'UsersQuota',
+      versionsPerPolicyQuota: 'VersionsPerPolicyQuota',
+      virtualMFADevicesQuota: 'VirtualMFADevicesQuota',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      MFADevices: 'number',
       accessKeysPerUserQuota: 'number',
       attachedPoliciesPerGroupQuota: 'number',
-      attachedSystemPoliciesPerRoleQuota: 'number',
       attachedPoliciesPerRoleQuota: 'number',
-      groupsPerUserQuota: 'number',
-      roles: 'number',
-      policySizeQuota: 'number',
-      attachedSystemPoliciesPerGroupQuota: 'number',
-      attachedSystemPoliciesPerUserQuota: 'number',
       attachedPoliciesPerUserQuota: 'number',
-      groupsQuota: 'number',
+      attachedSystemPoliciesPerGroupQuota: 'number',
+      attachedSystemPoliciesPerRoleQuota: 'number',
+      attachedSystemPoliciesPerUserQuota: 'number',
       groups: 'number',
-      policiesQuota: 'number',
-      virtualMFADevicesQuota: 'number',
-      versionsPerPolicyQuota: 'number',
-      rolesQuota: 'number',
-      usersQuota: 'number',
-      policies: 'number',
-      users: 'number',
+      groupsPerUserQuota: 'number',
+      groupsQuota: 'number',
+      MFADevices: 'number',
       MFADevicesInUse: 'number',
+      policies: 'number',
+      policiesQuota: 'number',
+      policySizeQuota: 'number',
+      roles: 'number',
+      rolesQuota: 'number',
+      users: 'number',
+      usersQuota: 'number',
+      versionsPerPolicyQuota: 'number',
+      virtualMFADevicesQuota: 'number',
     };
   }
 
@@ -4736,17 +5127,26 @@ export class GetAccountSummaryResponseBodySummaryMap extends $tea.Model {
   }
 }
 
-export class GetApplicationResponseBodyApplicationRedirectUris extends $tea.Model {
-  redirectUri?: string[];
+export class GetAppSecretResponseBodyAppSecret extends $tea.Model {
+  appId?: string;
+  appSecretId?: string;
+  appSecretValue?: string;
+  createDate?: string;
   static names(): { [key: string]: string } {
     return {
-      redirectUri: 'RedirectUri',
+      appId: 'AppId',
+      appSecretId: 'AppSecretId',
+      appSecretValue: 'AppSecretValue',
+      createDate: 'CreateDate',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      redirectUri: { 'type': 'array', 'itemType': 'string' },
+      appId: 'string',
+      appSecretId: 'string',
+      appSecretValue: 'string',
+      createDate: 'string',
     };
   }
 
@@ -4815,53 +5215,17 @@ export class GetApplicationResponseBodyApplicationDelegatedScope extends $tea.Mo
   }
 }
 
-export class GetApplicationResponseBodyApplication extends $tea.Model {
-  displayName?: string;
-  accessTokenValidity?: number;
-  secretRequired?: boolean;
-  accountId?: string;
-  createDate?: string;
-  appName?: string;
-  redirectUris?: GetApplicationResponseBodyApplicationRedirectUris;
-  updateDate?: string;
-  delegatedScope?: GetApplicationResponseBodyApplicationDelegatedScope;
-  appId?: string;
-  refreshTokenValidity?: number;
-  isMultiTenant?: boolean;
-  appType?: string;
+export class GetApplicationResponseBodyApplicationRedirectUris extends $tea.Model {
+  redirectUri?: string[];
   static names(): { [key: string]: string } {
     return {
-      displayName: 'DisplayName',
-      accessTokenValidity: 'AccessTokenValidity',
-      secretRequired: 'SecretRequired',
-      accountId: 'AccountId',
-      createDate: 'CreateDate',
-      appName: 'AppName',
-      redirectUris: 'RedirectUris',
-      updateDate: 'UpdateDate',
-      delegatedScope: 'DelegatedScope',
-      appId: 'AppId',
-      refreshTokenValidity: 'RefreshTokenValidity',
-      isMultiTenant: 'IsMultiTenant',
-      appType: 'AppType',
+      redirectUri: 'RedirectUri',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      displayName: 'string',
-      accessTokenValidity: 'number',
-      secretRequired: 'boolean',
-      accountId: 'string',
-      createDate: 'string',
-      appName: 'string',
-      redirectUris: GetApplicationResponseBodyApplicationRedirectUris,
-      updateDate: 'string',
-      delegatedScope: GetApplicationResponseBodyApplicationDelegatedScope,
-      appId: 'string',
-      refreshTokenValidity: 'number',
-      isMultiTenant: 'boolean',
-      appType: 'string',
+      redirectUri: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -4870,26 +5234,53 @@ export class GetApplicationResponseBodyApplication extends $tea.Model {
   }
 }
 
-export class GetAppSecretResponseBodyAppSecret extends $tea.Model {
-  appSecretValue?: string;
+export class GetApplicationResponseBodyApplication extends $tea.Model {
+  accessTokenValidity?: number;
+  accountId?: string;
   appId?: string;
-  appSecretId?: string;
+  appName?: string;
+  appType?: string;
   createDate?: string;
+  delegatedScope?: GetApplicationResponseBodyApplicationDelegatedScope;
+  displayName?: string;
+  isMultiTenant?: boolean;
+  redirectUris?: GetApplicationResponseBodyApplicationRedirectUris;
+  refreshTokenValidity?: number;
+  secretRequired?: boolean;
+  updateDate?: string;
   static names(): { [key: string]: string } {
     return {
-      appSecretValue: 'AppSecretValue',
+      accessTokenValidity: 'AccessTokenValidity',
+      accountId: 'AccountId',
       appId: 'AppId',
-      appSecretId: 'AppSecretId',
+      appName: 'AppName',
+      appType: 'AppType',
       createDate: 'CreateDate',
+      delegatedScope: 'DelegatedScope',
+      displayName: 'DisplayName',
+      isMultiTenant: 'IsMultiTenant',
+      redirectUris: 'RedirectUris',
+      refreshTokenValidity: 'RefreshTokenValidity',
+      secretRequired: 'SecretRequired',
+      updateDate: 'UpdateDate',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      appSecretValue: 'string',
+      accessTokenValidity: 'number',
+      accountId: 'string',
       appId: 'string',
-      appSecretId: 'string',
+      appName: 'string',
+      appType: 'string',
       createDate: 'string',
+      delegatedScope: GetApplicationResponseBodyApplicationDelegatedScope,
+      displayName: 'string',
+      isMultiTenant: 'boolean',
+      redirectUris: GetApplicationResponseBodyApplicationRedirectUris,
+      refreshTokenValidity: 'number',
+      secretRequired: 'boolean',
+      updateDate: 'string',
     };
   }
 
@@ -4899,31 +5290,31 @@ export class GetAppSecretResponseBodyAppSecret extends $tea.Model {
 }
 
 export class GetGroupResponseBodyGroup extends $tea.Model {
-  displayName?: string;
-  groupId?: string;
-  updateDate?: string;
-  groupName?: string;
   comments?: string;
   createDate?: string;
+  displayName?: string;
+  groupId?: string;
+  groupName?: string;
+  updateDate?: string;
   static names(): { [key: string]: string } {
     return {
-      displayName: 'DisplayName',
-      groupId: 'GroupId',
-      updateDate: 'UpdateDate',
-      groupName: 'GroupName',
       comments: 'Comments',
       createDate: 'CreateDate',
+      displayName: 'DisplayName',
+      groupId: 'GroupId',
+      groupName: 'GroupName',
+      updateDate: 'UpdateDate',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      displayName: 'string',
-      groupId: 'string',
-      updateDate: 'string',
-      groupName: 'string',
       comments: 'string',
       createDate: 'string',
+      displayName: 'string',
+      groupId: 'string',
+      groupName: 'string',
+      updateDate: 'string',
     };
   }
 
@@ -4933,31 +5324,71 @@ export class GetGroupResponseBodyGroup extends $tea.Model {
 }
 
 export class GetLoginProfileResponseBodyLoginProfile extends $tea.Model {
-  status?: string;
-  userPrincipalName?: string;
-  updateDate?: string;
   lastLoginTime?: string;
-  passwordResetRequired?: boolean;
   MFABindRequired?: boolean;
+  passwordResetRequired?: boolean;
+  status?: string;
+  updateDate?: string;
+  userPrincipalName?: string;
   static names(): { [key: string]: string } {
     return {
-      status: 'Status',
-      userPrincipalName: 'UserPrincipalName',
-      updateDate: 'UpdateDate',
       lastLoginTime: 'LastLoginTime',
-      passwordResetRequired: 'PasswordResetRequired',
       MFABindRequired: 'MFABindRequired',
+      passwordResetRequired: 'PasswordResetRequired',
+      status: 'Status',
+      updateDate: 'UpdateDate',
+      userPrincipalName: 'UserPrincipalName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      status: 'string',
-      userPrincipalName: 'string',
-      updateDate: 'string',
       lastLoginTime: 'string',
-      passwordResetRequired: 'boolean',
       MFABindRequired: 'boolean',
+      passwordResetRequired: 'boolean',
+      status: 'string',
+      updateDate: 'string',
+      userPrincipalName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOIDCProviderResponseBodyOIDCProvider extends $tea.Model {
+  arn?: string;
+  clientIds?: string;
+  description?: string;
+  fingerprints?: string;
+  gmtCreate?: string;
+  gmtModified?: string;
+  issuerUrl?: string;
+  OIDCProviderName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      arn: 'Arn',
+      clientIds: 'ClientIds',
+      description: 'Description',
+      fingerprints: 'Fingerprints',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      issuerUrl: 'IssuerUrl',
+      OIDCProviderName: 'OIDCProviderName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      arn: 'string',
+      clientIds: 'string',
+      description: 'string',
+      fingerprints: 'string',
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      issuerUrl: 'string',
+      OIDCProviderName: 'string',
     };
   }
 
@@ -4967,46 +5398,46 @@ export class GetLoginProfileResponseBodyLoginProfile extends $tea.Model {
 }
 
 export class GetPasswordPolicyResponseBodyPasswordPolicy extends $tea.Model {
-  requireNumbers?: boolean;
-  requireLowercaseCharacters?: boolean;
-  passwordReusePrevention?: number;
-  requireSymbols?: boolean;
-  passwordNotContainUserName?: boolean;
-  minimumPasswordDifferentCharacter?: number;
-  maxPasswordAge?: number;
   hardExpire?: boolean;
-  minimumPasswordLength?: number;
-  requireUppercaseCharacters?: boolean;
   maxLoginAttemps?: number;
+  maxPasswordAge?: number;
+  minimumPasswordDifferentCharacter?: number;
+  minimumPasswordLength?: number;
+  passwordNotContainUserName?: boolean;
+  passwordReusePrevention?: number;
+  requireLowercaseCharacters?: boolean;
+  requireNumbers?: boolean;
+  requireSymbols?: boolean;
+  requireUppercaseCharacters?: boolean;
   static names(): { [key: string]: string } {
     return {
-      requireNumbers: 'RequireNumbers',
-      requireLowercaseCharacters: 'RequireLowercaseCharacters',
-      passwordReusePrevention: 'PasswordReusePrevention',
-      requireSymbols: 'RequireSymbols',
-      passwordNotContainUserName: 'PasswordNotContainUserName',
-      minimumPasswordDifferentCharacter: 'MinimumPasswordDifferentCharacter',
-      maxPasswordAge: 'MaxPasswordAge',
       hardExpire: 'HardExpire',
-      minimumPasswordLength: 'MinimumPasswordLength',
-      requireUppercaseCharacters: 'RequireUppercaseCharacters',
       maxLoginAttemps: 'MaxLoginAttemps',
+      maxPasswordAge: 'MaxPasswordAge',
+      minimumPasswordDifferentCharacter: 'MinimumPasswordDifferentCharacter',
+      minimumPasswordLength: 'MinimumPasswordLength',
+      passwordNotContainUserName: 'PasswordNotContainUserName',
+      passwordReusePrevention: 'PasswordReusePrevention',
+      requireLowercaseCharacters: 'RequireLowercaseCharacters',
+      requireNumbers: 'RequireNumbers',
+      requireSymbols: 'RequireSymbols',
+      requireUppercaseCharacters: 'RequireUppercaseCharacters',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requireNumbers: 'boolean',
-      requireLowercaseCharacters: 'boolean',
-      passwordReusePrevention: 'number',
-      requireSymbols: 'boolean',
-      passwordNotContainUserName: 'boolean',
-      minimumPasswordDifferentCharacter: 'number',
-      maxPasswordAge: 'number',
       hardExpire: 'boolean',
-      minimumPasswordLength: 'number',
-      requireUppercaseCharacters: 'boolean',
       maxLoginAttemps: 'number',
+      maxPasswordAge: 'number',
+      minimumPasswordDifferentCharacter: 'number',
+      minimumPasswordLength: 'number',
+      passwordNotContainUserName: 'boolean',
+      passwordReusePrevention: 'number',
+      requireLowercaseCharacters: 'boolean',
+      requireNumbers: 'boolean',
+      requireSymbols: 'boolean',
+      requireUppercaseCharacters: 'boolean',
     };
   }
 
@@ -5016,31 +5447,31 @@ export class GetPasswordPolicyResponseBodyPasswordPolicy extends $tea.Model {
 }
 
 export class GetSAMLProviderResponseBodySAMLProvider extends $tea.Model {
-  description?: string;
-  updateDate?: string;
-  SAMLProviderName?: string;
-  createDate?: string;
-  encodedSAMLMetadataDocument?: string;
   arn?: string;
+  createDate?: string;
+  description?: string;
+  encodedSAMLMetadataDocument?: string;
+  SAMLProviderName?: string;
+  updateDate?: string;
   static names(): { [key: string]: string } {
     return {
-      description: 'Description',
-      updateDate: 'UpdateDate',
-      SAMLProviderName: 'SAMLProviderName',
-      createDate: 'CreateDate',
-      encodedSAMLMetadataDocument: 'EncodedSAMLMetadataDocument',
       arn: 'Arn',
+      createDate: 'CreateDate',
+      description: 'Description',
+      encodedSAMLMetadataDocument: 'EncodedSAMLMetadataDocument',
+      SAMLProviderName: 'SAMLProviderName',
+      updateDate: 'UpdateDate',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      description: 'string',
-      updateDate: 'string',
-      SAMLProviderName: 'string',
-      createDate: 'string',
-      encodedSAMLMetadataDocument: 'string',
       arn: 'string',
+      createDate: 'string',
+      description: 'string',
+      encodedSAMLMetadataDocument: 'string',
+      SAMLProviderName: 'string',
+      updateDate: 'string',
     };
   }
 
@@ -5069,25 +5500,28 @@ export class GetSecurityPreferenceResponseBodySecurityPreferenceAccessKeyPrefere
 }
 
 export class GetSecurityPreferenceResponseBodySecurityPreferenceLoginProfilePreference extends $tea.Model {
-  enableSaveMFATicket?: boolean;
-  loginSessionDuration?: number;
-  loginNetworkMasks?: string;
   allowUserToChangePassword?: boolean;
+  enableSaveMFATicket?: boolean;
+  enforceMFAForLogin?: boolean;
+  loginNetworkMasks?: string;
+  loginSessionDuration?: number;
   static names(): { [key: string]: string } {
     return {
-      enableSaveMFATicket: 'EnableSaveMFATicket',
-      loginSessionDuration: 'LoginSessionDuration',
-      loginNetworkMasks: 'LoginNetworkMasks',
       allowUserToChangePassword: 'AllowUserToChangePassword',
+      enableSaveMFATicket: 'EnableSaveMFATicket',
+      enforceMFAForLogin: 'EnforceMFAForLogin',
+      loginNetworkMasks: 'LoginNetworkMasks',
+      loginSessionDuration: 'LoginSessionDuration',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      enableSaveMFATicket: 'boolean',
-      loginSessionDuration: 'number',
-      loginNetworkMasks: 'string',
       allowUserToChangePassword: 'boolean',
+      enableSaveMFATicket: 'boolean',
+      enforceMFAForLogin: 'boolean',
+      loginNetworkMasks: 'string',
+      loginSessionDuration: 'number',
     };
   }
 
@@ -5115,15 +5549,36 @@ export class GetSecurityPreferenceResponseBodySecurityPreferenceMFAPreference ex
   }
 }
 
+export class GetSecurityPreferenceResponseBodySecurityPreferenceVerificationPreference extends $tea.Model {
+  verificationTypes?: string;
+  static names(): { [key: string]: string } {
+    return {
+      verificationTypes: 'VerificationTypes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      verificationTypes: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetSecurityPreferenceResponseBodySecurityPreference extends $tea.Model {
   accessKeyPreference?: GetSecurityPreferenceResponseBodySecurityPreferenceAccessKeyPreference;
   loginProfilePreference?: GetSecurityPreferenceResponseBodySecurityPreferenceLoginProfilePreference;
   MFAPreference?: GetSecurityPreferenceResponseBodySecurityPreferenceMFAPreference;
+  verificationPreference?: GetSecurityPreferenceResponseBodySecurityPreferenceVerificationPreference;
   static names(): { [key: string]: string } {
     return {
       accessKeyPreference: 'AccessKeyPreference',
       loginProfilePreference: 'LoginProfilePreference',
       MFAPreference: 'MFAPreference',
+      verificationPreference: 'VerificationPreference',
     };
   }
 
@@ -5132,6 +5587,7 @@ export class GetSecurityPreferenceResponseBodySecurityPreference extends $tea.Mo
       accessKeyPreference: GetSecurityPreferenceResponseBodySecurityPreferenceAccessKeyPreference,
       loginProfilePreference: GetSecurityPreferenceResponseBodySecurityPreferenceLoginProfilePreference,
       MFAPreference: GetSecurityPreferenceResponseBodySecurityPreferenceMFAPreference,
+      verificationPreference: GetSecurityPreferenceResponseBodySecurityPreferenceVerificationPreference,
     };
   }
 
@@ -5141,40 +5597,40 @@ export class GetSecurityPreferenceResponseBodySecurityPreference extends $tea.Mo
 }
 
 export class GetUserResponseBodyUser extends $tea.Model {
-  displayName?: string;
-  userPrincipalName?: string;
-  email?: string;
-  updateDate?: string;
-  mobilePhone?: string;
-  userId?: string;
   comments?: string;
-  lastLoginDate?: string;
   createDate?: string;
+  displayName?: string;
+  email?: string;
+  lastLoginDate?: string;
+  mobilePhone?: string;
+  updateDate?: string;
+  userId?: string;
+  userPrincipalName?: string;
   static names(): { [key: string]: string } {
     return {
-      displayName: 'DisplayName',
-      userPrincipalName: 'UserPrincipalName',
-      email: 'Email',
-      updateDate: 'UpdateDate',
-      mobilePhone: 'MobilePhone',
-      userId: 'UserId',
       comments: 'Comments',
-      lastLoginDate: 'LastLoginDate',
       createDate: 'CreateDate',
+      displayName: 'DisplayName',
+      email: 'Email',
+      lastLoginDate: 'LastLoginDate',
+      mobilePhone: 'MobilePhone',
+      updateDate: 'UpdateDate',
+      userId: 'UserId',
+      userPrincipalName: 'UserPrincipalName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      displayName: 'string',
-      userPrincipalName: 'string',
-      email: 'string',
-      updateDate: 'string',
-      mobilePhone: 'string',
-      userId: 'string',
       comments: 'string',
-      lastLoginDate: 'string',
       createDate: 'string',
+      displayName: 'string',
+      email: 'string',
+      lastLoginDate: 'string',
+      mobilePhone: 'string',
+      updateDate: 'string',
+      userId: 'string',
+      userPrincipalName: 'string',
     };
   }
 
@@ -5185,15 +5641,18 @@ export class GetUserResponseBodyUser extends $tea.Model {
 
 export class GetUserMFAInfoResponseBodyMFADevice extends $tea.Model {
   serialNumber?: string;
+  type?: string;
   static names(): { [key: string]: string } {
     return {
       serialNumber: 'SerialNumber',
+      type: 'Type',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       serialNumber: 'string',
+      type: 'string',
     };
   }
 
@@ -5228,25 +5687,25 @@ export class GetUserSsoSettingsResponseBodyUserSsoSettings extends $tea.Model {
 }
 
 export class ListAccessKeysResponseBodyAccessKeysAccessKey extends $tea.Model {
-  status?: string;
-  updateDate?: string;
   accessKeyId?: string;
   createDate?: string;
+  status?: string;
+  updateDate?: string;
   static names(): { [key: string]: string } {
     return {
-      status: 'Status',
-      updateDate: 'UpdateDate',
       accessKeyId: 'AccessKeyId',
       createDate: 'CreateDate',
+      status: 'Status',
+      updateDate: 'UpdateDate',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      status: 'string',
-      updateDate: 'string',
       accessKeyId: 'string',
       createDate: 'string',
+      status: 'string',
+      updateDate: 'string',
     };
   }
 
@@ -5274,17 +5733,42 @@ export class ListAccessKeysResponseBodyAccessKeys extends $tea.Model {
   }
 }
 
-export class ListApplicationsResponseBodyApplicationsApplicationRedirectUris extends $tea.Model {
-  redirectUri?: string[];
+export class ListAppSecretIdsResponseBodyAppSecretsAppSecret extends $tea.Model {
+  appId?: string;
+  appSecretId?: string;
+  createDate?: string;
   static names(): { [key: string]: string } {
     return {
-      redirectUri: 'RedirectUri',
+      appId: 'AppId',
+      appSecretId: 'AppSecretId',
+      createDate: 'CreateDate',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      redirectUri: { 'type': 'array', 'itemType': 'string' },
+      appId: 'string',
+      appSecretId: 'string',
+      createDate: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAppSecretIdsResponseBodyAppSecrets extends $tea.Model {
+  appSecret?: ListAppSecretIdsResponseBodyAppSecretsAppSecret[];
+  static names(): { [key: string]: string } {
+    return {
+      appSecret: 'AppSecret',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appSecret: { 'type': 'array', 'itemType': ListAppSecretIdsResponseBodyAppSecretsAppSecret },
     };
   }
 
@@ -5353,53 +5837,72 @@ export class ListApplicationsResponseBodyApplicationsApplicationDelegatedScope e
   }
 }
 
-export class ListApplicationsResponseBodyApplicationsApplication extends $tea.Model {
-  displayName?: string;
-  accessTokenValidity?: number;
-  secretRequired?: boolean;
-  accountId?: string;
-  createDate?: string;
-  appName?: string;
-  redirectUris?: ListApplicationsResponseBodyApplicationsApplicationRedirectUris;
-  updateDate?: string;
-  delegatedScope?: ListApplicationsResponseBodyApplicationsApplicationDelegatedScope;
-  appId?: string;
-  refreshTokenValidity?: number;
-  isMultiTenant?: boolean;
-  appType?: string;
+export class ListApplicationsResponseBodyApplicationsApplicationRedirectUris extends $tea.Model {
+  redirectUri?: string[];
   static names(): { [key: string]: string } {
     return {
-      displayName: 'DisplayName',
-      accessTokenValidity: 'AccessTokenValidity',
-      secretRequired: 'SecretRequired',
-      accountId: 'AccountId',
-      createDate: 'CreateDate',
-      appName: 'AppName',
-      redirectUris: 'RedirectUris',
-      updateDate: 'UpdateDate',
-      delegatedScope: 'DelegatedScope',
-      appId: 'AppId',
-      refreshTokenValidity: 'RefreshTokenValidity',
-      isMultiTenant: 'IsMultiTenant',
-      appType: 'AppType',
+      redirectUri: 'RedirectUri',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      displayName: 'string',
+      redirectUri: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListApplicationsResponseBodyApplicationsApplication extends $tea.Model {
+  accessTokenValidity?: number;
+  accountId?: string;
+  appId?: string;
+  appName?: string;
+  appType?: string;
+  createDate?: string;
+  delegatedScope?: ListApplicationsResponseBodyApplicationsApplicationDelegatedScope;
+  displayName?: string;
+  isMultiTenant?: boolean;
+  redirectUris?: ListApplicationsResponseBodyApplicationsApplicationRedirectUris;
+  refreshTokenValidity?: number;
+  secretRequired?: boolean;
+  updateDate?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessTokenValidity: 'AccessTokenValidity',
+      accountId: 'AccountId',
+      appId: 'AppId',
+      appName: 'AppName',
+      appType: 'AppType',
+      createDate: 'CreateDate',
+      delegatedScope: 'DelegatedScope',
+      displayName: 'DisplayName',
+      isMultiTenant: 'IsMultiTenant',
+      redirectUris: 'RedirectUris',
+      refreshTokenValidity: 'RefreshTokenValidity',
+      secretRequired: 'SecretRequired',
+      updateDate: 'UpdateDate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
       accessTokenValidity: 'number',
-      secretRequired: 'boolean',
       accountId: 'string',
-      createDate: 'string',
-      appName: 'string',
-      redirectUris: ListApplicationsResponseBodyApplicationsApplicationRedirectUris,
-      updateDate: 'string',
-      delegatedScope: ListApplicationsResponseBodyApplicationsApplicationDelegatedScope,
       appId: 'string',
-      refreshTokenValidity: 'number',
-      isMultiTenant: 'boolean',
+      appName: 'string',
       appType: 'string',
+      createDate: 'string',
+      delegatedScope: ListApplicationsResponseBodyApplicationsApplicationDelegatedScope,
+      displayName: 'string',
+      isMultiTenant: 'boolean',
+      redirectUris: ListApplicationsResponseBodyApplicationsApplicationRedirectUris,
+      refreshTokenValidity: 'number',
+      secretRequired: 'boolean',
+      updateDate: 'string',
     };
   }
 
@@ -5427,76 +5930,32 @@ export class ListApplicationsResponseBodyApplications extends $tea.Model {
   }
 }
 
-export class ListAppSecretIdsResponseBodyAppSecretsAppSecret extends $tea.Model {
-  appId?: string;
-  appSecretId?: string;
-  createDate?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      appSecretId: 'AppSecretId',
-      createDate: 'CreateDate',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      appSecretId: 'string',
-      createDate: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListAppSecretIdsResponseBodyAppSecrets extends $tea.Model {
-  appSecret?: ListAppSecretIdsResponseBodyAppSecretsAppSecret[];
-  static names(): { [key: string]: string } {
-    return {
-      appSecret: 'AppSecret',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appSecret: { 'type': 'array', 'itemType': ListAppSecretIdsResponseBodyAppSecretsAppSecret },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ListGroupsResponseBodyGroupsGroup extends $tea.Model {
-  displayName?: string;
-  groupId?: string;
-  updateDate?: string;
-  groupName?: string;
   comments?: string;
   createDate?: string;
+  displayName?: string;
+  groupId?: string;
+  groupName?: string;
+  updateDate?: string;
   static names(): { [key: string]: string } {
     return {
-      displayName: 'DisplayName',
-      groupId: 'GroupId',
-      updateDate: 'UpdateDate',
-      groupName: 'GroupName',
       comments: 'Comments',
       createDate: 'CreateDate',
+      displayName: 'DisplayName',
+      groupId: 'GroupId',
+      groupName: 'GroupName',
+      updateDate: 'UpdateDate',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      displayName: 'string',
-      groupId: 'string',
-      updateDate: 'string',
-      groupName: 'string',
       comments: 'string',
       createDate: 'string',
+      displayName: 'string',
+      groupId: 'string',
+      groupName: 'string',
+      updateDate: 'string',
     };
   }
 
@@ -5525,27 +5984,27 @@ export class ListGroupsResponseBodyGroups extends $tea.Model {
 }
 
 export class ListGroupsForUserResponseBodyGroupsGroup extends $tea.Model {
-  displayName?: string;
-  groupName?: string;
-  groupId?: string;
   comments?: string;
+  displayName?: string;
+  groupId?: string;
+  groupName?: string;
   joinDate?: string;
   static names(): { [key: string]: string } {
     return {
-      displayName: 'DisplayName',
-      groupName: 'GroupName',
-      groupId: 'GroupId',
       comments: 'Comments',
+      displayName: 'DisplayName',
+      groupId: 'GroupId',
+      groupName: 'GroupName',
       joinDate: 'JoinDate',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      displayName: 'string',
-      groupName: 'string',
-      groupId: 'string',
       comments: 'string',
+      displayName: 'string',
+      groupId: 'string',
+      groupName: 'string',
       joinDate: 'string',
     };
   }
@@ -5566,6 +6025,65 @@ export class ListGroupsForUserResponseBodyGroups extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       group: { 'type': 'array', 'itemType': ListGroupsForUserResponseBodyGroupsGroup },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListOIDCProvidersResponseBodyOIDCProvidersOIDCProvider extends $tea.Model {
+  arn?: string;
+  clientIds?: string;
+  description?: string;
+  fingerprints?: string;
+  gmtCreate?: string;
+  gmtModified?: string;
+  issuerUrl?: string;
+  OIDCProviderName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      arn: 'Arn',
+      clientIds: 'ClientIds',
+      description: 'Description',
+      fingerprints: 'Fingerprints',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      issuerUrl: 'IssuerUrl',
+      OIDCProviderName: 'OIDCProviderName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      arn: 'string',
+      clientIds: 'string',
+      description: 'string',
+      fingerprints: 'string',
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      issuerUrl: 'string',
+      OIDCProviderName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListOIDCProvidersResponseBodyOIDCProviders extends $tea.Model {
+  OIDCProvider?: ListOIDCProvidersResponseBodyOIDCProvidersOIDCProvider[];
+  static names(): { [key: string]: string } {
+    return {
+      OIDCProvider: 'OIDCProvider',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      OIDCProvider: { 'type': 'array', 'itemType': ListOIDCProvidersResponseBodyOIDCProvidersOIDCProvider },
     };
   }
 
@@ -5616,28 +6134,28 @@ export class ListPredefinedScopesResponseBodyPredefinedScopes extends $tea.Model
 }
 
 export class ListSAMLProvidersResponseBodySAMLProvidersSAMLProvider extends $tea.Model {
-  updateDate?: string;
+  arn?: string;
+  createDate?: string;
   description?: string;
   SAMLProviderName?: string;
-  createDate?: string;
-  arn?: string;
+  updateDate?: string;
   static names(): { [key: string]: string } {
     return {
-      updateDate: 'UpdateDate',
+      arn: 'Arn',
+      createDate: 'CreateDate',
       description: 'Description',
       SAMLProviderName: 'SAMLProviderName',
-      createDate: 'CreateDate',
-      arn: 'Arn',
+      updateDate: 'UpdateDate',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      updateDate: 'string',
+      arn: 'string',
+      createDate: 'string',
       description: 'string',
       SAMLProviderName: 'string',
-      createDate: 'string',
-      arn: 'string',
+      updateDate: 'string',
     };
   }
 
@@ -5666,22 +6184,22 @@ export class ListSAMLProvidersResponseBodySAMLProviders extends $tea.Model {
 }
 
 export class ListUserBasicInfosResponseBodyUserBasicInfosUserBasicInfo extends $tea.Model {
-  userPrincipalName?: string;
   displayName?: string;
   userId?: string;
+  userPrincipalName?: string;
   static names(): { [key: string]: string } {
     return {
-      userPrincipalName: 'UserPrincipalName',
       displayName: 'DisplayName',
       userId: 'UserId',
+      userPrincipalName: 'UserPrincipalName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      userPrincipalName: 'string',
       displayName: 'string',
       userId: 'string',
+      userPrincipalName: 'string',
     };
   }
 
@@ -5710,40 +6228,40 @@ export class ListUserBasicInfosResponseBodyUserBasicInfos extends $tea.Model {
 }
 
 export class ListUsersResponseBodyUsersUser extends $tea.Model {
-  displayName?: string;
-  userPrincipalName?: string;
-  email?: string;
-  updateDate?: string;
-  mobilePhone?: string;
-  userId?: string;
   comments?: string;
-  lastLoginDate?: string;
   createDate?: string;
+  displayName?: string;
+  email?: string;
+  lastLoginDate?: string;
+  mobilePhone?: string;
+  updateDate?: string;
+  userId?: string;
+  userPrincipalName?: string;
   static names(): { [key: string]: string } {
     return {
-      displayName: 'DisplayName',
-      userPrincipalName: 'UserPrincipalName',
-      email: 'Email',
-      updateDate: 'UpdateDate',
-      mobilePhone: 'MobilePhone',
-      userId: 'UserId',
       comments: 'Comments',
-      lastLoginDate: 'LastLoginDate',
       createDate: 'CreateDate',
+      displayName: 'DisplayName',
+      email: 'Email',
+      lastLoginDate: 'LastLoginDate',
+      mobilePhone: 'MobilePhone',
+      updateDate: 'UpdateDate',
+      userId: 'UserId',
+      userPrincipalName: 'UserPrincipalName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      displayName: 'string',
-      userPrincipalName: 'string',
-      email: 'string',
-      updateDate: 'string',
-      mobilePhone: 'string',
-      userId: 'string',
       comments: 'string',
-      lastLoginDate: 'string',
       createDate: 'string',
+      displayName: 'string',
+      email: 'string',
+      lastLoginDate: 'string',
+      mobilePhone: 'string',
+      updateDate: 'string',
+      userId: 'string',
+      userPrincipalName: 'string',
     };
   }
 
@@ -5772,25 +6290,25 @@ export class ListUsersResponseBodyUsers extends $tea.Model {
 }
 
 export class ListUsersForGroupResponseBodyUsersUser extends $tea.Model {
-  userPrincipalName?: string;
   displayName?: string;
-  userId?: string;
   joinDate?: string;
+  userId?: string;
+  userPrincipalName?: string;
   static names(): { [key: string]: string } {
     return {
-      userPrincipalName: 'UserPrincipalName',
       displayName: 'DisplayName',
-      userId: 'UserId',
       joinDate: 'JoinDate',
+      userId: 'UserId',
+      userPrincipalName: 'UserPrincipalName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      userPrincipalName: 'string',
       displayName: 'string',
-      userId: 'string',
       joinDate: 'string',
+      userId: 'string',
+      userPrincipalName: 'string',
     };
   }
 
@@ -5819,22 +6337,22 @@ export class ListUsersForGroupResponseBodyUsers extends $tea.Model {
 }
 
 export class ListVirtualMFADevicesResponseBodyVirtualMFADevicesVirtualMFADeviceUser extends $tea.Model {
-  userPrincipalName?: string;
   displayName?: string;
   userId?: string;
+  userPrincipalName?: string;
   static names(): { [key: string]: string } {
     return {
-      userPrincipalName: 'UserPrincipalName',
       displayName: 'DisplayName',
       userId: 'UserId',
+      userPrincipalName: 'UserPrincipalName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      userPrincipalName: 'string',
       displayName: 'string',
       userId: 'string',
+      userPrincipalName: 'string',
     };
   }
 
@@ -5844,22 +6362,22 @@ export class ListVirtualMFADevicesResponseBodyVirtualMFADevicesVirtualMFADeviceU
 }
 
 export class ListVirtualMFADevicesResponseBodyVirtualMFADevicesVirtualMFADevice extends $tea.Model {
+  activateDate?: string;
   serialNumber?: string;
   user?: ListVirtualMFADevicesResponseBodyVirtualMFADevicesVirtualMFADeviceUser;
-  activateDate?: string;
   static names(): { [key: string]: string } {
     return {
+      activateDate: 'ActivateDate',
       serialNumber: 'SerialNumber',
       user: 'User',
-      activateDate: 'ActivateDate',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      activateDate: 'string',
       serialNumber: 'string',
       user: ListVirtualMFADevicesResponseBodyVirtualMFADevicesVirtualMFADeviceUser,
-      activateDate: 'string',
     };
   }
 
@@ -5887,47 +6405,127 @@ export class ListVirtualMFADevicesResponseBodyVirtualMFADevices extends $tea.Mod
   }
 }
 
-export class SetPasswordPolicyResponseBodyPasswordPolicy extends $tea.Model {
-  requireNumbers?: boolean;
-  requireLowercaseCharacters?: boolean;
-  passwordReusePrevention?: number;
-  requireSymbols?: boolean;
-  passwordNotContainUserName?: boolean;
-  minimumPasswordDifferentCharacter?: number;
-  maxPasswordAge?: number;
-  hardExpire?: boolean;
-  minimumPasswordLength?: number;
-  requireUppercaseCharacters?: boolean;
-  maxLoginAttemps?: number;
+export class RemoveClientIdFromOIDCProviderResponseBodyOIDCProvider extends $tea.Model {
+  arn?: string;
+  clientIds?: string;
+  description?: string;
+  fingerprints?: string;
+  gmtCreate?: string;
+  gmtModified?: string;
+  issuerUrl?: string;
+  OIDCProviderName?: string;
   static names(): { [key: string]: string } {
     return {
-      requireNumbers: 'RequireNumbers',
-      requireLowercaseCharacters: 'RequireLowercaseCharacters',
-      passwordReusePrevention: 'PasswordReusePrevention',
-      requireSymbols: 'RequireSymbols',
-      passwordNotContainUserName: 'PasswordNotContainUserName',
-      minimumPasswordDifferentCharacter: 'MinimumPasswordDifferentCharacter',
-      maxPasswordAge: 'MaxPasswordAge',
-      hardExpire: 'HardExpire',
-      minimumPasswordLength: 'MinimumPasswordLength',
-      requireUppercaseCharacters: 'RequireUppercaseCharacters',
-      maxLoginAttemps: 'MaxLoginAttemps',
+      arn: 'Arn',
+      clientIds: 'ClientIds',
+      description: 'Description',
+      fingerprints: 'Fingerprints',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      issuerUrl: 'IssuerUrl',
+      OIDCProviderName: 'OIDCProviderName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requireNumbers: 'boolean',
-      requireLowercaseCharacters: 'boolean',
-      passwordReusePrevention: 'number',
-      requireSymbols: 'boolean',
-      passwordNotContainUserName: 'boolean',
-      minimumPasswordDifferentCharacter: 'number',
-      maxPasswordAge: 'number',
+      arn: 'string',
+      clientIds: 'string',
+      description: 'string',
+      fingerprints: 'string',
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      issuerUrl: 'string',
+      OIDCProviderName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemoveFingerprintFromOIDCProviderResponseBodyOIDCProvider extends $tea.Model {
+  arn?: string;
+  clientIds?: string;
+  description?: string;
+  fingerprints?: string;
+  gmtCreate?: string;
+  gmtModified?: string;
+  issuerUrl?: string;
+  OIDCProviderName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      arn: 'Arn',
+      clientIds: 'ClientIds',
+      description: 'Description',
+      fingerprints: 'Fingerprints',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      issuerUrl: 'IssuerUrl',
+      OIDCProviderName: 'OIDCProviderName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      arn: 'string',
+      clientIds: 'string',
+      description: 'string',
+      fingerprints: 'string',
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      issuerUrl: 'string',
+      OIDCProviderName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetPasswordPolicyResponseBodyPasswordPolicy extends $tea.Model {
+  hardExpire?: boolean;
+  maxLoginAttemps?: number;
+  maxPasswordAge?: number;
+  minimumPasswordDifferentCharacter?: number;
+  minimumPasswordLength?: number;
+  passwordNotContainUserName?: boolean;
+  passwordReusePrevention?: number;
+  requireLowercaseCharacters?: boolean;
+  requireNumbers?: boolean;
+  requireSymbols?: boolean;
+  requireUppercaseCharacters?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      hardExpire: 'HardExpire',
+      maxLoginAttemps: 'MaxLoginAttemps',
+      maxPasswordAge: 'MaxPasswordAge',
+      minimumPasswordDifferentCharacter: 'MinimumPasswordDifferentCharacter',
+      minimumPasswordLength: 'MinimumPasswordLength',
+      passwordNotContainUserName: 'PasswordNotContainUserName',
+      passwordReusePrevention: 'PasswordReusePrevention',
+      requireLowercaseCharacters: 'RequireLowercaseCharacters',
+      requireNumbers: 'RequireNumbers',
+      requireSymbols: 'RequireSymbols',
+      requireUppercaseCharacters: 'RequireUppercaseCharacters',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
       hardExpire: 'boolean',
-      minimumPasswordLength: 'number',
-      requireUppercaseCharacters: 'boolean',
       maxLoginAttemps: 'number',
+      maxPasswordAge: 'number',
+      minimumPasswordDifferentCharacter: 'number',
+      minimumPasswordLength: 'number',
+      passwordNotContainUserName: 'boolean',
+      passwordReusePrevention: 'number',
+      requireLowercaseCharacters: 'boolean',
+      requireNumbers: 'boolean',
+      requireSymbols: 'boolean',
+      requireUppercaseCharacters: 'boolean',
     };
   }
 
@@ -5956,25 +6554,28 @@ export class SetSecurityPreferenceResponseBodySecurityPreferenceAccessKeyPrefere
 }
 
 export class SetSecurityPreferenceResponseBodySecurityPreferenceLoginProfilePreference extends $tea.Model {
-  enableSaveMFATicket?: boolean;
-  loginSessionDuration?: number;
-  loginNetworkMasks?: string;
   allowUserToChangePassword?: boolean;
+  enableSaveMFATicket?: boolean;
+  enforceMFAForLogin?: boolean;
+  loginNetworkMasks?: string;
+  loginSessionDuration?: number;
   static names(): { [key: string]: string } {
     return {
-      enableSaveMFATicket: 'EnableSaveMFATicket',
-      loginSessionDuration: 'LoginSessionDuration',
-      loginNetworkMasks: 'LoginNetworkMasks',
       allowUserToChangePassword: 'AllowUserToChangePassword',
+      enableSaveMFATicket: 'EnableSaveMFATicket',
+      enforceMFAForLogin: 'EnforceMFAForLogin',
+      loginNetworkMasks: 'LoginNetworkMasks',
+      loginSessionDuration: 'LoginSessionDuration',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      enableSaveMFATicket: 'boolean',
-      loginSessionDuration: 'number',
-      loginNetworkMasks: 'string',
       allowUserToChangePassword: 'boolean',
+      enableSaveMFATicket: 'boolean',
+      enforceMFAForLogin: 'boolean',
+      loginNetworkMasks: 'string',
+      loginSessionDuration: 'number',
     };
   }
 
@@ -6002,15 +6603,36 @@ export class SetSecurityPreferenceResponseBodySecurityPreferenceMFAPreference ex
   }
 }
 
+export class SetSecurityPreferenceResponseBodySecurityPreferenceVerificationPreference extends $tea.Model {
+  verificationTypes?: string;
+  static names(): { [key: string]: string } {
+    return {
+      verificationTypes: 'VerificationTypes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      verificationTypes: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SetSecurityPreferenceResponseBodySecurityPreference extends $tea.Model {
   accessKeyPreference?: SetSecurityPreferenceResponseBodySecurityPreferenceAccessKeyPreference;
   loginProfilePreference?: SetSecurityPreferenceResponseBodySecurityPreferenceLoginProfilePreference;
   MFAPreference?: SetSecurityPreferenceResponseBodySecurityPreferenceMFAPreference;
+  verificationPreference?: SetSecurityPreferenceResponseBodySecurityPreferenceVerificationPreference;
   static names(): { [key: string]: string } {
     return {
       accessKeyPreference: 'AccessKeyPreference',
       loginProfilePreference: 'LoginProfilePreference',
       MFAPreference: 'MFAPreference',
+      verificationPreference: 'VerificationPreference',
     };
   }
 
@@ -6019,6 +6641,7 @@ export class SetSecurityPreferenceResponseBodySecurityPreference extends $tea.Mo
       accessKeyPreference: SetSecurityPreferenceResponseBodySecurityPreferenceAccessKeyPreference,
       loginProfilePreference: SetSecurityPreferenceResponseBodySecurityPreferenceLoginProfilePreference,
       MFAPreference: SetSecurityPreferenceResponseBodySecurityPreferenceMFAPreference,
+      verificationPreference: SetSecurityPreferenceResponseBodySecurityPreferenceVerificationPreference,
     };
   }
 
@@ -6063,25 +6686,6 @@ export class UnbindMFADeviceResponseBodyMFADevice extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       serialNumber: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateApplicationResponseBodyApplicationRedirectUris extends $tea.Model {
-  redirectUri?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      redirectUri: 'RedirectUri',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      redirectUri: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -6150,53 +6754,72 @@ export class UpdateApplicationResponseBodyApplicationDelegatedScope extends $tea
   }
 }
 
-export class UpdateApplicationResponseBodyApplication extends $tea.Model {
-  displayName?: string;
-  accessTokenValidity?: number;
-  secretRequired?: boolean;
-  accountId?: string;
-  createDate?: string;
-  appName?: string;
-  redirectUris?: UpdateApplicationResponseBodyApplicationRedirectUris;
-  updateDate?: string;
-  delegatedScope?: UpdateApplicationResponseBodyApplicationDelegatedScope;
-  appId?: string;
-  refreshTokenValidity?: number;
-  isMultiTenant?: boolean;
-  appType?: string;
+export class UpdateApplicationResponseBodyApplicationRedirectUris extends $tea.Model {
+  redirectUri?: string[];
   static names(): { [key: string]: string } {
     return {
-      displayName: 'DisplayName',
-      accessTokenValidity: 'AccessTokenValidity',
-      secretRequired: 'SecretRequired',
-      accountId: 'AccountId',
-      createDate: 'CreateDate',
-      appName: 'AppName',
-      redirectUris: 'RedirectUris',
-      updateDate: 'UpdateDate',
-      delegatedScope: 'DelegatedScope',
-      appId: 'AppId',
-      refreshTokenValidity: 'RefreshTokenValidity',
-      isMultiTenant: 'IsMultiTenant',
-      appType: 'AppType',
+      redirectUri: 'RedirectUri',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      displayName: 'string',
+      redirectUri: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateApplicationResponseBodyApplication extends $tea.Model {
+  accessTokenValidity?: number;
+  accountId?: string;
+  appId?: string;
+  appName?: string;
+  appType?: string;
+  createDate?: string;
+  delegatedScope?: UpdateApplicationResponseBodyApplicationDelegatedScope;
+  displayName?: string;
+  isMultiTenant?: boolean;
+  redirectUris?: UpdateApplicationResponseBodyApplicationRedirectUris;
+  refreshTokenValidity?: number;
+  secretRequired?: boolean;
+  updateDate?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessTokenValidity: 'AccessTokenValidity',
+      accountId: 'AccountId',
+      appId: 'AppId',
+      appName: 'AppName',
+      appType: 'AppType',
+      createDate: 'CreateDate',
+      delegatedScope: 'DelegatedScope',
+      displayName: 'DisplayName',
+      isMultiTenant: 'IsMultiTenant',
+      redirectUris: 'RedirectUris',
+      refreshTokenValidity: 'RefreshTokenValidity',
+      secretRequired: 'SecretRequired',
+      updateDate: 'UpdateDate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
       accessTokenValidity: 'number',
-      secretRequired: 'boolean',
       accountId: 'string',
-      createDate: 'string',
-      appName: 'string',
-      redirectUris: UpdateApplicationResponseBodyApplicationRedirectUris,
-      updateDate: 'string',
-      delegatedScope: UpdateApplicationResponseBodyApplicationDelegatedScope,
       appId: 'string',
-      refreshTokenValidity: 'number',
-      isMultiTenant: 'boolean',
+      appName: 'string',
       appType: 'string',
+      createDate: 'string',
+      delegatedScope: UpdateApplicationResponseBodyApplicationDelegatedScope,
+      displayName: 'string',
+      isMultiTenant: 'boolean',
+      redirectUris: UpdateApplicationResponseBodyApplicationRedirectUris,
+      refreshTokenValidity: 'number',
+      secretRequired: 'boolean',
+      updateDate: 'string',
     };
   }
 
@@ -6206,31 +6829,31 @@ export class UpdateApplicationResponseBodyApplication extends $tea.Model {
 }
 
 export class UpdateGroupResponseBodyGroup extends $tea.Model {
-  displayName?: string;
-  groupId?: string;
-  updateDate?: string;
-  groupName?: string;
   comments?: string;
   createDate?: string;
+  displayName?: string;
+  groupId?: string;
+  groupName?: string;
+  updateDate?: string;
   static names(): { [key: string]: string } {
     return {
-      displayName: 'DisplayName',
-      groupId: 'GroupId',
-      updateDate: 'UpdateDate',
-      groupName: 'GroupName',
       comments: 'Comments',
       createDate: 'CreateDate',
+      displayName: 'DisplayName',
+      groupId: 'GroupId',
+      groupName: 'GroupName',
+      updateDate: 'UpdateDate',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      displayName: 'string',
-      groupId: 'string',
-      updateDate: 'string',
-      groupName: 'string',
       comments: 'string',
       createDate: 'string',
+      displayName: 'string',
+      groupId: 'string',
+      groupName: 'string',
+      updateDate: 'string',
     };
   }
 
@@ -6240,28 +6863,68 @@ export class UpdateGroupResponseBodyGroup extends $tea.Model {
 }
 
 export class UpdateLoginProfileResponseBodyLoginProfile extends $tea.Model {
-  userPrincipalName?: string;
+  MFABindRequired?: boolean;
+  passwordResetRequired?: boolean;
   status?: string;
   updateDate?: string;
-  passwordResetRequired?: boolean;
-  MFABindRequired?: boolean;
+  userPrincipalName?: string;
   static names(): { [key: string]: string } {
     return {
-      userPrincipalName: 'UserPrincipalName',
+      MFABindRequired: 'MFABindRequired',
+      passwordResetRequired: 'PasswordResetRequired',
       status: 'Status',
       updateDate: 'UpdateDate',
-      passwordResetRequired: 'PasswordResetRequired',
-      MFABindRequired: 'MFABindRequired',
+      userPrincipalName: 'UserPrincipalName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      userPrincipalName: 'string',
+      MFABindRequired: 'boolean',
+      passwordResetRequired: 'boolean',
       status: 'string',
       updateDate: 'string',
-      passwordResetRequired: 'boolean',
-      MFABindRequired: 'boolean',
+      userPrincipalName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateOIDCProviderResponseBodyOIDCProvider extends $tea.Model {
+  arn?: string;
+  clientIds?: string;
+  description?: string;
+  fingerprints?: string;
+  gmtCreate?: string;
+  gmtModified?: string;
+  issuerUrl?: string;
+  OIDCProviderName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      arn: 'Arn',
+      clientIds: 'ClientIds',
+      description: 'Description',
+      fingerprints: 'Fingerprints',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      issuerUrl: 'IssuerUrl',
+      OIDCProviderName: 'OIDCProviderName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      arn: 'string',
+      clientIds: 'string',
+      description: 'string',
+      fingerprints: 'string',
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      issuerUrl: 'string',
+      OIDCProviderName: 'string',
     };
   }
 
@@ -6271,28 +6934,28 @@ export class UpdateLoginProfileResponseBodyLoginProfile extends $tea.Model {
 }
 
 export class UpdateSAMLProviderResponseBodySAMLProvider extends $tea.Model {
-  updateDate?: string;
+  arn?: string;
+  createDate?: string;
   description?: string;
   SAMLProviderName?: string;
-  createDate?: string;
-  arn?: string;
+  updateDate?: string;
   static names(): { [key: string]: string } {
     return {
-      updateDate: 'UpdateDate',
+      arn: 'Arn',
+      createDate: 'CreateDate',
       description: 'Description',
       SAMLProviderName: 'SAMLProviderName',
-      createDate: 'CreateDate',
-      arn: 'Arn',
+      updateDate: 'UpdateDate',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      updateDate: 'string',
+      arn: 'string',
+      createDate: 'string',
       description: 'string',
       SAMLProviderName: 'string',
-      createDate: 'string',
-      arn: 'string',
+      updateDate: 'string',
     };
   }
 
@@ -6302,40 +6965,40 @@ export class UpdateSAMLProviderResponseBodySAMLProvider extends $tea.Model {
 }
 
 export class UpdateUserResponseBodyUser extends $tea.Model {
-  displayName?: string;
-  userPrincipalName?: string;
-  email?: string;
-  updateDate?: string;
-  mobilePhone?: string;
-  userId?: string;
   comments?: string;
-  lastLoginDate?: string;
   createDate?: string;
+  displayName?: string;
+  email?: string;
+  lastLoginDate?: string;
+  mobilePhone?: string;
+  updateDate?: string;
+  userId?: string;
+  userPrincipalName?: string;
   static names(): { [key: string]: string } {
     return {
-      displayName: 'DisplayName',
-      userPrincipalName: 'UserPrincipalName',
-      email: 'Email',
-      updateDate: 'UpdateDate',
-      mobilePhone: 'MobilePhone',
-      userId: 'UserId',
       comments: 'Comments',
-      lastLoginDate: 'LastLoginDate',
       createDate: 'CreateDate',
+      displayName: 'DisplayName',
+      email: 'Email',
+      lastLoginDate: 'LastLoginDate',
+      mobilePhone: 'MobilePhone',
+      updateDate: 'UpdateDate',
+      userId: 'UserId',
+      userPrincipalName: 'UserPrincipalName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      displayName: 'string',
-      userPrincipalName: 'string',
-      email: 'string',
-      updateDate: 'string',
-      mobilePhone: 'string',
-      userId: 'string',
       comments: 'string',
-      lastLoginDate: 'string',
       createDate: 'string',
+      displayName: 'string',
+      email: 'string',
+      lastLoginDate: 'string',
+      mobilePhone: 'string',
+      updateDate: 'string',
+      userId: 'string',
+      userPrincipalName: 'string',
     };
   }
 
@@ -6365,6 +7028,32 @@ export default class Client extends OpenApi {
     }
 
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+  }
+
+  async addClientIdToOIDCProviderWithOptions(request: AddClientIdToOIDCProviderRequest, runtime: $Util.RuntimeOptions): Promise<AddClientIdToOIDCProviderResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<AddClientIdToOIDCProviderResponse>(await this.doRPCRequest("AddClientIdToOIDCProvider", "2019-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new AddClientIdToOIDCProviderResponse({}));
+  }
+
+  async addClientIdToOIDCProvider(request: AddClientIdToOIDCProviderRequest): Promise<AddClientIdToOIDCProviderResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.addClientIdToOIDCProviderWithOptions(request, runtime);
+  }
+
+  async addFingerprintToOIDCProviderWithOptions(request: AddFingerprintToOIDCProviderRequest, runtime: $Util.RuntimeOptions): Promise<AddFingerprintToOIDCProviderResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<AddFingerprintToOIDCProviderResponse>(await this.doRPCRequest("AddFingerprintToOIDCProvider", "2019-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new AddFingerprintToOIDCProviderResponse({}));
+  }
+
+  async addFingerprintToOIDCProvider(request: AddFingerprintToOIDCProviderRequest): Promise<AddFingerprintToOIDCProviderResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.addFingerprintToOIDCProviderWithOptions(request, runtime);
   }
 
   async addUserToGroupWithOptions(request: AddUserToGroupRequest, runtime: $Util.RuntimeOptions): Promise<AddUserToGroupResponse> {
@@ -6419,19 +7108,6 @@ export default class Client extends OpenApi {
     return await this.createAccessKeyWithOptions(request, runtime);
   }
 
-  async createApplicationWithOptions(request: CreateApplicationRequest, runtime: $Util.RuntimeOptions): Promise<CreateApplicationResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<CreateApplicationResponse>(await this.doRPCRequest("CreateApplication", "2019-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new CreateApplicationResponse({}));
-  }
-
-  async createApplication(request: CreateApplicationRequest): Promise<CreateApplicationResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.createApplicationWithOptions(request, runtime);
-  }
-
   async createAppSecretWithOptions(request: CreateAppSecretRequest, runtime: $Util.RuntimeOptions): Promise<CreateAppSecretResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -6443,6 +7119,19 @@ export default class Client extends OpenApi {
   async createAppSecret(request: CreateAppSecretRequest): Promise<CreateAppSecretResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createAppSecretWithOptions(request, runtime);
+  }
+
+  async createApplicationWithOptions(request: CreateApplicationRequest, runtime: $Util.RuntimeOptions): Promise<CreateApplicationResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<CreateApplicationResponse>(await this.doRPCRequest("CreateApplication", "2019-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new CreateApplicationResponse({}));
+  }
+
+  async createApplication(request: CreateApplicationRequest): Promise<CreateApplicationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createApplicationWithOptions(request, runtime);
   }
 
   async createGroupWithOptions(request: CreateGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateGroupResponse> {
@@ -6469,6 +7158,19 @@ export default class Client extends OpenApi {
   async createLoginProfile(request: CreateLoginProfileRequest): Promise<CreateLoginProfileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createLoginProfileWithOptions(request, runtime);
+  }
+
+  async createOIDCProviderWithOptions(request: CreateOIDCProviderRequest, runtime: $Util.RuntimeOptions): Promise<CreateOIDCProviderResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<CreateOIDCProviderResponse>(await this.doRPCRequest("CreateOIDCProvider", "2019-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new CreateOIDCProviderResponse({}));
+  }
+
+  async createOIDCProvider(request: CreateOIDCProviderRequest): Promise<CreateOIDCProviderResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createOIDCProviderWithOptions(request, runtime);
   }
 
   async createSAMLProviderWithOptions(request: CreateSAMLProviderRequest, runtime: $Util.RuntimeOptions): Promise<CreateSAMLProviderResponse> {
@@ -6523,19 +7225,6 @@ export default class Client extends OpenApi {
     return await this.deleteAccessKeyWithOptions(request, runtime);
   }
 
-  async deleteApplicationWithOptions(request: DeleteApplicationRequest, runtime: $Util.RuntimeOptions): Promise<DeleteApplicationResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<DeleteApplicationResponse>(await this.doRPCRequest("DeleteApplication", "2019-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteApplicationResponse({}));
-  }
-
-  async deleteApplication(request: DeleteApplicationRequest): Promise<DeleteApplicationResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.deleteApplicationWithOptions(request, runtime);
-  }
-
   async deleteAppSecretWithOptions(request: DeleteAppSecretRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAppSecretResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -6547,6 +7236,19 @@ export default class Client extends OpenApi {
   async deleteAppSecret(request: DeleteAppSecretRequest): Promise<DeleteAppSecretResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteAppSecretWithOptions(request, runtime);
+  }
+
+  async deleteApplicationWithOptions(request: DeleteApplicationRequest, runtime: $Util.RuntimeOptions): Promise<DeleteApplicationResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DeleteApplicationResponse>(await this.doRPCRequest("DeleteApplication", "2019-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteApplicationResponse({}));
+  }
+
+  async deleteApplication(request: DeleteApplicationRequest): Promise<DeleteApplicationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteApplicationWithOptions(request, runtime);
   }
 
   async deleteGroupWithOptions(request: DeleteGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteGroupResponse> {
@@ -6573,6 +7275,19 @@ export default class Client extends OpenApi {
   async deleteLoginProfile(request: DeleteLoginProfileRequest): Promise<DeleteLoginProfileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteLoginProfileWithOptions(request, runtime);
+  }
+
+  async deleteOIDCProviderWithOptions(request: DeleteOIDCProviderRequest, runtime: $Util.RuntimeOptions): Promise<DeleteOIDCProviderResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DeleteOIDCProviderResponse>(await this.doRPCRequest("DeleteOIDCProvider", "2019-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteOIDCProviderResponse({}));
+  }
+
+  async deleteOIDCProvider(request: DeleteOIDCProviderRequest): Promise<DeleteOIDCProviderResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteOIDCProviderWithOptions(request, runtime);
   }
 
   async deleteSAMLProviderWithOptions(request: DeleteSAMLProviderRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSAMLProviderResponse> {
@@ -6627,17 +7342,14 @@ export default class Client extends OpenApi {
     return await this.disableVirtualMFAWithOptions(request, runtime);
   }
 
-  async generateCredentialReportWithOptions(request: GenerateCredentialReportRequest, runtime: $Util.RuntimeOptions): Promise<GenerateCredentialReportResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
+  async generateCredentialReportWithOptions(runtime: $Util.RuntimeOptions): Promise<GenerateCredentialReportResponse> {
+    let req = new $OpenApi.OpenApiRequest({ });
     return $tea.cast<GenerateCredentialReportResponse>(await this.doRPCRequest("GenerateCredentialReport", "2019-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new GenerateCredentialReportResponse({}));
   }
 
-  async generateCredentialReport(request: GenerateCredentialReportRequest): Promise<GenerateCredentialReportResponse> {
+  async generateCredentialReport(): Promise<GenerateCredentialReportResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.generateCredentialReportWithOptions(request, runtime);
+    return await this.generateCredentialReportWithOptions(runtime);
   }
 
   async getAccessKeyLastUsedWithOptions(request: GetAccessKeyLastUsedRequest, runtime: $Util.RuntimeOptions): Promise<GetAccessKeyLastUsedResponse> {
@@ -6653,56 +7365,34 @@ export default class Client extends OpenApi {
     return await this.getAccessKeyLastUsedWithOptions(request, runtime);
   }
 
-  async getAccountMFAInfoWithOptions(request: GetAccountMFAInfoRequest, runtime: $Util.RuntimeOptions): Promise<GetAccountMFAInfoResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
+  async getAccountMFAInfoWithOptions(runtime: $Util.RuntimeOptions): Promise<GetAccountMFAInfoResponse> {
+    let req = new $OpenApi.OpenApiRequest({ });
     return $tea.cast<GetAccountMFAInfoResponse>(await this.doRPCRequest("GetAccountMFAInfo", "2019-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new GetAccountMFAInfoResponse({}));
   }
 
-  async getAccountMFAInfo(request: GetAccountMFAInfoRequest): Promise<GetAccountMFAInfoResponse> {
+  async getAccountMFAInfo(): Promise<GetAccountMFAInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.getAccountMFAInfoWithOptions(request, runtime);
+    return await this.getAccountMFAInfoWithOptions(runtime);
   }
 
-  async getAccountSecurityPracticeReportWithOptions(request: GetAccountSecurityPracticeReportRequest, runtime: $Util.RuntimeOptions): Promise<GetAccountSecurityPracticeReportResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
+  async getAccountSecurityPracticeReportWithOptions(runtime: $Util.RuntimeOptions): Promise<GetAccountSecurityPracticeReportResponse> {
+    let req = new $OpenApi.OpenApiRequest({ });
     return $tea.cast<GetAccountSecurityPracticeReportResponse>(await this.doRPCRequest("GetAccountSecurityPracticeReport", "2019-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new GetAccountSecurityPracticeReportResponse({}));
   }
 
-  async getAccountSecurityPracticeReport(request: GetAccountSecurityPracticeReportRequest): Promise<GetAccountSecurityPracticeReportResponse> {
+  async getAccountSecurityPracticeReport(): Promise<GetAccountSecurityPracticeReportResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.getAccountSecurityPracticeReportWithOptions(request, runtime);
+    return await this.getAccountSecurityPracticeReportWithOptions(runtime);
   }
 
-  async getAccountSummaryWithOptions(request: GetAccountSummaryRequest, runtime: $Util.RuntimeOptions): Promise<GetAccountSummaryResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
+  async getAccountSummaryWithOptions(runtime: $Util.RuntimeOptions): Promise<GetAccountSummaryResponse> {
+    let req = new $OpenApi.OpenApiRequest({ });
     return $tea.cast<GetAccountSummaryResponse>(await this.doRPCRequest("GetAccountSummary", "2019-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new GetAccountSummaryResponse({}));
   }
 
-  async getAccountSummary(request: GetAccountSummaryRequest): Promise<GetAccountSummaryResponse> {
+  async getAccountSummary(): Promise<GetAccountSummaryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.getAccountSummaryWithOptions(request, runtime);
-  }
-
-  async getApplicationWithOptions(request: GetApplicationRequest, runtime: $Util.RuntimeOptions): Promise<GetApplicationResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<GetApplicationResponse>(await this.doRPCRequest("GetApplication", "2019-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new GetApplicationResponse({}));
-  }
-
-  async getApplication(request: GetApplicationRequest): Promise<GetApplicationResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getApplicationWithOptions(request, runtime);
+    return await this.getAccountSummaryWithOptions(runtime);
   }
 
   async getAppSecretWithOptions(request: GetAppSecretRequest, runtime: $Util.RuntimeOptions): Promise<GetAppSecretResponse> {
@@ -6718,30 +7408,37 @@ export default class Client extends OpenApi {
     return await this.getAppSecretWithOptions(request, runtime);
   }
 
-  async getCredentialReportWithOptions(request: GetCredentialReportRequest, runtime: $Util.RuntimeOptions): Promise<GetCredentialReportResponse> {
+  async getApplicationWithOptions(request: GetApplicationRequest, runtime: $Util.RuntimeOptions): Promise<GetApplicationResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
+    return $tea.cast<GetApplicationResponse>(await this.doRPCRequest("GetApplication", "2019-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new GetApplicationResponse({}));
+  }
+
+  async getApplication(request: GetApplicationRequest): Promise<GetApplicationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getApplicationWithOptions(request, runtime);
+  }
+
+  async getCredentialReportWithOptions(runtime: $Util.RuntimeOptions): Promise<GetCredentialReportResponse> {
+    let req = new $OpenApi.OpenApiRequest({ });
     return $tea.cast<GetCredentialReportResponse>(await this.doRPCRequest("GetCredentialReport", "2019-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new GetCredentialReportResponse({}));
   }
 
-  async getCredentialReport(request: GetCredentialReportRequest): Promise<GetCredentialReportResponse> {
+  async getCredentialReport(): Promise<GetCredentialReportResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.getCredentialReportWithOptions(request, runtime);
+    return await this.getCredentialReportWithOptions(runtime);
   }
 
-  async getDefaultDomainWithOptions(request: GetDefaultDomainRequest, runtime: $Util.RuntimeOptions): Promise<GetDefaultDomainResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
+  async getDefaultDomainWithOptions(runtime: $Util.RuntimeOptions): Promise<GetDefaultDomainResponse> {
+    let req = new $OpenApi.OpenApiRequest({ });
     return $tea.cast<GetDefaultDomainResponse>(await this.doRPCRequest("GetDefaultDomain", "2019-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new GetDefaultDomainResponse({}));
   }
 
-  async getDefaultDomain(request: GetDefaultDomainRequest): Promise<GetDefaultDomainResponse> {
+  async getDefaultDomain(): Promise<GetDefaultDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.getDefaultDomainWithOptions(request, runtime);
+    return await this.getDefaultDomainWithOptions(runtime);
   }
 
   async getGroupWithOptions(request: GetGroupRequest, runtime: $Util.RuntimeOptions): Promise<GetGroupResponse> {
@@ -6770,17 +7467,27 @@ export default class Client extends OpenApi {
     return await this.getLoginProfileWithOptions(request, runtime);
   }
 
-  async getPasswordPolicyWithOptions(request: GetPasswordPolicyRequest, runtime: $Util.RuntimeOptions): Promise<GetPasswordPolicyResponse> {
+  async getOIDCProviderWithOptions(request: GetOIDCProviderRequest, runtime: $Util.RuntimeOptions): Promise<GetOIDCProviderResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
+    return $tea.cast<GetOIDCProviderResponse>(await this.doRPCRequest("GetOIDCProvider", "2019-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new GetOIDCProviderResponse({}));
+  }
+
+  async getOIDCProvider(request: GetOIDCProviderRequest): Promise<GetOIDCProviderResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getOIDCProviderWithOptions(request, runtime);
+  }
+
+  async getPasswordPolicyWithOptions(runtime: $Util.RuntimeOptions): Promise<GetPasswordPolicyResponse> {
+    let req = new $OpenApi.OpenApiRequest({ });
     return $tea.cast<GetPasswordPolicyResponse>(await this.doRPCRequest("GetPasswordPolicy", "2019-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new GetPasswordPolicyResponse({}));
   }
 
-  async getPasswordPolicy(request: GetPasswordPolicyRequest): Promise<GetPasswordPolicyResponse> {
+  async getPasswordPolicy(): Promise<GetPasswordPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.getPasswordPolicyWithOptions(request, runtime);
+    return await this.getPasswordPolicyWithOptions(runtime);
   }
 
   async getSAMLProviderWithOptions(request: GetSAMLProviderRequest, runtime: $Util.RuntimeOptions): Promise<GetSAMLProviderResponse> {
@@ -6796,17 +7503,14 @@ export default class Client extends OpenApi {
     return await this.getSAMLProviderWithOptions(request, runtime);
   }
 
-  async getSecurityPreferenceWithOptions(request: GetSecurityPreferenceRequest, runtime: $Util.RuntimeOptions): Promise<GetSecurityPreferenceResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
+  async getSecurityPreferenceWithOptions(runtime: $Util.RuntimeOptions): Promise<GetSecurityPreferenceResponse> {
+    let req = new $OpenApi.OpenApiRequest({ });
     return $tea.cast<GetSecurityPreferenceResponse>(await this.doRPCRequest("GetSecurityPreference", "2019-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new GetSecurityPreferenceResponse({}));
   }
 
-  async getSecurityPreference(request: GetSecurityPreferenceRequest): Promise<GetSecurityPreferenceResponse> {
+  async getSecurityPreference(): Promise<GetSecurityPreferenceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.getSecurityPreferenceWithOptions(request, runtime);
+    return await this.getSecurityPreferenceWithOptions(runtime);
   }
 
   async getUserWithOptions(request: GetUserRequest, runtime: $Util.RuntimeOptions): Promise<GetUserResponse> {
@@ -6835,17 +7539,14 @@ export default class Client extends OpenApi {
     return await this.getUserMFAInfoWithOptions(request, runtime);
   }
 
-  async getUserSsoSettingsWithOptions(request: GetUserSsoSettingsRequest, runtime: $Util.RuntimeOptions): Promise<GetUserSsoSettingsResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
+  async getUserSsoSettingsWithOptions(runtime: $Util.RuntimeOptions): Promise<GetUserSsoSettingsResponse> {
+    let req = new $OpenApi.OpenApiRequest({ });
     return $tea.cast<GetUserSsoSettingsResponse>(await this.doRPCRequest("GetUserSsoSettings", "2019-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new GetUserSsoSettingsResponse({}));
   }
 
-  async getUserSsoSettings(request: GetUserSsoSettingsRequest): Promise<GetUserSsoSettingsResponse> {
+  async getUserSsoSettings(): Promise<GetUserSsoSettingsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.getUserSsoSettingsWithOptions(request, runtime);
+    return await this.getUserSsoSettingsWithOptions(runtime);
   }
 
   async listAccessKeysWithOptions(request: ListAccessKeysRequest, runtime: $Util.RuntimeOptions): Promise<ListAccessKeysResponse> {
@@ -6861,19 +7562,6 @@ export default class Client extends OpenApi {
     return await this.listAccessKeysWithOptions(request, runtime);
   }
 
-  async listApplicationsWithOptions(request: ListApplicationsRequest, runtime: $Util.RuntimeOptions): Promise<ListApplicationsResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<ListApplicationsResponse>(await this.doRPCRequest("ListApplications", "2019-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new ListApplicationsResponse({}));
-  }
-
-  async listApplications(request: ListApplicationsRequest): Promise<ListApplicationsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.listApplicationsWithOptions(request, runtime);
-  }
-
   async listAppSecretIdsWithOptions(request: ListAppSecretIdsRequest, runtime: $Util.RuntimeOptions): Promise<ListAppSecretIdsResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -6885,6 +7573,16 @@ export default class Client extends OpenApi {
   async listAppSecretIds(request: ListAppSecretIdsRequest): Promise<ListAppSecretIdsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listAppSecretIdsWithOptions(request, runtime);
+  }
+
+  async listApplicationsWithOptions(runtime: $Util.RuntimeOptions): Promise<ListApplicationsResponse> {
+    let req = new $OpenApi.OpenApiRequest({ });
+    return $tea.cast<ListApplicationsResponse>(await this.doRPCRequest("ListApplications", "2019-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new ListApplicationsResponse({}));
+  }
+
+  async listApplications(): Promise<ListApplicationsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listApplicationsWithOptions(runtime);
   }
 
   async listGroupsWithOptions(request: ListGroupsRequest, runtime: $Util.RuntimeOptions): Promise<ListGroupsResponse> {
@@ -6911,6 +7609,19 @@ export default class Client extends OpenApi {
   async listGroupsForUser(request: ListGroupsForUserRequest): Promise<ListGroupsForUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listGroupsForUserWithOptions(request, runtime);
+  }
+
+  async listOIDCProvidersWithOptions(request: ListOIDCProvidersRequest, runtime: $Util.RuntimeOptions): Promise<ListOIDCProvidersResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<ListOIDCProvidersResponse>(await this.doRPCRequest("ListOIDCProviders", "2019-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new ListOIDCProvidersResponse({}));
+  }
+
+  async listOIDCProviders(request: ListOIDCProvidersRequest): Promise<ListOIDCProvidersResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listOIDCProvidersWithOptions(request, runtime);
   }
 
   async listPredefinedScopesWithOptions(request: ListPredefinedScopesRequest, runtime: $Util.RuntimeOptions): Promise<ListPredefinedScopesResponse> {
@@ -6991,6 +7702,32 @@ export default class Client extends OpenApi {
     return await this.listVirtualMFADevicesWithOptions(request, runtime);
   }
 
+  async removeClientIdFromOIDCProviderWithOptions(request: RemoveClientIdFromOIDCProviderRequest, runtime: $Util.RuntimeOptions): Promise<RemoveClientIdFromOIDCProviderResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<RemoveClientIdFromOIDCProviderResponse>(await this.doRPCRequest("RemoveClientIdFromOIDCProvider", "2019-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new RemoveClientIdFromOIDCProviderResponse({}));
+  }
+
+  async removeClientIdFromOIDCProvider(request: RemoveClientIdFromOIDCProviderRequest): Promise<RemoveClientIdFromOIDCProviderResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.removeClientIdFromOIDCProviderWithOptions(request, runtime);
+  }
+
+  async removeFingerprintFromOIDCProviderWithOptions(request: RemoveFingerprintFromOIDCProviderRequest, runtime: $Util.RuntimeOptions): Promise<RemoveFingerprintFromOIDCProviderResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<RemoveFingerprintFromOIDCProviderResponse>(await this.doRPCRequest("RemoveFingerprintFromOIDCProvider", "2019-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new RemoveFingerprintFromOIDCProviderResponse({}));
+  }
+
+  async removeFingerprintFromOIDCProvider(request: RemoveFingerprintFromOIDCProviderRequest): Promise<RemoveFingerprintFromOIDCProviderResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.removeFingerprintFromOIDCProviderWithOptions(request, runtime);
+  }
+
   async removeUserFromGroupWithOptions(request: RemoveUserFromGroupRequest, runtime: $Util.RuntimeOptions): Promise<RemoveUserFromGroupResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -7030,8 +7767,14 @@ export default class Client extends OpenApi {
     return await this.setPasswordPolicyWithOptions(request, runtime);
   }
 
-  async setSecurityPreferenceWithOptions(request: SetSecurityPreferenceRequest, runtime: $Util.RuntimeOptions): Promise<SetSecurityPreferenceResponse> {
-    Util.validateModel(request);
+  async setSecurityPreferenceWithOptions(tmpReq: SetSecurityPreferenceRequest, runtime: $Util.RuntimeOptions): Promise<SetSecurityPreferenceResponse> {
+    Util.validateModel(tmpReq);
+    let request = new SetSecurityPreferenceShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.verificationTypes)) {
+      request.verificationTypesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.verificationTypes, "VerificationTypes", "json");
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
@@ -7119,6 +7862,19 @@ export default class Client extends OpenApi {
   async updateLoginProfile(request: UpdateLoginProfileRequest): Promise<UpdateLoginProfileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateLoginProfileWithOptions(request, runtime);
+  }
+
+  async updateOIDCProviderWithOptions(request: UpdateOIDCProviderRequest, runtime: $Util.RuntimeOptions): Promise<UpdateOIDCProviderResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<UpdateOIDCProviderResponse>(await this.doRPCRequest("UpdateOIDCProvider", "2019-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateOIDCProviderResponse({}));
+  }
+
+  async updateOIDCProvider(request: UpdateOIDCProviderRequest): Promise<UpdateOIDCProviderResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateOIDCProviderWithOptions(request, runtime);
   }
 
   async updateSAMLProviderWithOptions(request: UpdateSAMLProviderRequest, runtime: $Util.RuntimeOptions): Promise<UpdateSAMLProviderResponse> {
