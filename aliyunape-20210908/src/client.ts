@@ -7,32 +7,32 @@ import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
-export class WeathermonitorRequest extends $tea.Model {
-  userId?: number;
+export class HistoricalRequest extends $tea.Model {
+  endTime?: string;
   orderId?: string;
-  requestId?: string;
-  pageSize?: number;
-  curHour?: string;
   pageNum?: number;
+  pageSize?: number;
+  startTime?: string;
+  station?: string;
   static names(): { [key: string]: string } {
     return {
-      userId: 'UserId',
+      endTime: 'EndTime',
       orderId: 'OrderId',
-      requestId: 'RequestId',
-      pageSize: 'PageSize',
-      curHour: 'CurHour',
       pageNum: 'PageNum',
+      pageSize: 'PageSize',
+      startTime: 'StartTime',
+      station: 'Station',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      userId: 'number',
+      endTime: 'string',
       orderId: 'string',
-      requestId: 'string',
-      pageSize: 'number',
-      curHour: 'string',
       pageNum: 'number',
+      pageSize: 'number',
+      startTime: 'string',
+      station: 'string',
     };
   }
 
@@ -41,31 +41,31 @@ export class WeathermonitorRequest extends $tea.Model {
   }
 }
 
-export class WeathermonitorResponseBody extends $tea.Model {
-  rt?: number;
+export class HistoricalResponseBody extends $tea.Model {
+  code?: string;
+  data?: { [key: string]: any }[];
   message?: string;
   requestId?: string;
-  data?: { [key: string]: any }[];
-  code?: string;
+  rt?: number;
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
-      rt: 'Rt',
+      code: 'Code',
+      data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
-      data: 'Data',
-      code: 'Code',
+      rt: 'Rt',
       success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      rt: 'number',
+      code: 'string',
+      data: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
       message: 'string',
       requestId: 'string',
-      data: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
-      code: 'string',
+      rt: 'number',
       success: 'boolean',
     };
   }
@@ -75,9 +75,9 @@ export class WeathermonitorResponseBody extends $tea.Model {
   }
 }
 
-export class WeathermonitorResponse extends $tea.Model {
+export class HistoricalResponse extends $tea.Model {
   headers: { [key: string]: string };
-  body: WeathermonitorResponseBody;
+  body: HistoricalResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -88,97 +88,7 @@ export class WeathermonitorResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: WeathermonitorResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class WeatherforecastTimeRequest extends $tea.Model {
-  userId?: number;
-  orderId?: string;
-  requestId?: string;
-  lon?: string;
-  curHour?: string;
-  lat?: string;
-  static names(): { [key: string]: string } {
-    return {
-      userId: 'UserId',
-      orderId: 'OrderId',
-      requestId: 'RequestId',
-      lon: 'Lon',
-      curHour: 'CurHour',
-      lat: 'Lat',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      userId: 'number',
-      orderId: 'string',
-      requestId: 'string',
-      lon: 'string',
-      curHour: 'string',
-      lat: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class WeatherforecastTimeResponseBody extends $tea.Model {
-  rt?: number;
-  message?: string;
-  requestId?: string;
-  data?: { [key: string]: any }[];
-  code?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      rt: 'Rt',
-      message: 'Message',
-      requestId: 'RequestId',
-      data: 'Data',
-      code: 'Code',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      rt: 'number',
-      message: 'string',
-      requestId: 'string',
-      data: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
-      code: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class WeatherforecastTimeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: WeatherforecastTimeResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: WeatherforecastTimeResponseBody,
+      body: HistoricalResponseBody,
     };
   }
 
@@ -188,16 +98,12 @@ export class WeatherforecastTimeResponse extends $tea.Model {
 }
 
 export class StationDayRequest extends $tea.Model {
-  userId?: number;
   orderId?: string;
-  requestId?: string;
   startForecast?: string;
   station?: string;
   static names(): { [key: string]: string } {
     return {
-      userId: 'UserId',
       orderId: 'OrderId',
-      requestId: 'RequestId',
       startForecast: 'StartForecast',
       station: 'Station',
     };
@@ -205,9 +111,7 @@ export class StationDayRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      userId: 'number',
       orderId: 'string',
-      requestId: 'string',
       startForecast: 'string',
       station: 'string',
     };
@@ -219,30 +123,30 @@ export class StationDayRequest extends $tea.Model {
 }
 
 export class StationDayResponseBody extends $tea.Model {
-  rt?: number;
+  code?: string;
+  data?: { [key: string]: any }[];
   message?: string;
   requestId?: string;
-  data?: { [key: string]: any }[];
-  code?: string;
+  rt?: number;
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
-      rt: 'Rt',
+      code: 'Code',
+      data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
-      data: 'Data',
-      code: 'Code',
+      rt: 'Rt',
       success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      rt: 'number',
+      code: 'string',
+      data: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
       message: 'string',
       requestId: 'string',
-      data: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
-      code: 'string',
+      rt: 'number',
       success: 'boolean',
     };
   }
@@ -275,31 +179,25 @@ export class StationDayResponse extends $tea.Model {
 }
 
 export class WeatherforecastRequest extends $tea.Model {
-  userId?: number;
-  orderId?: string;
-  requestId?: string;
-  startForecast?: string;
-  lon?: string;
   lat?: string;
+  lon?: string;
+  orderId?: string;
+  startForecast?: string;
   static names(): { [key: string]: string } {
     return {
-      userId: 'UserId',
-      orderId: 'OrderId',
-      requestId: 'RequestId',
-      startForecast: 'StartForecast',
-      lon: 'Lon',
       lat: 'Lat',
+      lon: 'Lon',
+      orderId: 'OrderId',
+      startForecast: 'StartForecast',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      userId: 'number',
-      orderId: 'string',
-      requestId: 'string',
-      startForecast: 'string',
-      lon: 'string',
       lat: 'string',
+      lon: 'string',
+      orderId: 'string',
+      startForecast: 'string',
     };
   }
 
@@ -309,30 +207,30 @@ export class WeatherforecastRequest extends $tea.Model {
 }
 
 export class WeatherforecastResponseBody extends $tea.Model {
-  rt?: number;
+  code?: string;
+  data?: { [key: string]: any }[];
   message?: string;
   requestId?: string;
-  data?: { [key: string]: any }[];
-  code?: string;
+  rt?: number;
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
-      rt: 'Rt',
+      code: 'Code',
+      data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
-      data: 'Data',
-      code: 'Code',
+      rt: 'Rt',
       success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      rt: 'number',
+      code: 'string',
+      data: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
       message: 'string',
       requestId: 'string',
-      data: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
-      code: 'string',
+      rt: 'number',
       success: 'boolean',
     };
   }
@@ -364,38 +262,29 @@ export class WeatherforecastResponse extends $tea.Model {
   }
 }
 
-export class HistoricalRequest extends $tea.Model {
-  userId?: number;
+export class WeatherforecastTimeRequest extends $tea.Model {
+  curHour?: string;
+  lat?: string;
+  lon?: string;
   orderId?: string;
-  requestId?: string;
-  station?: string;
-  pageSize?: number;
-  startTime?: string;
-  endTime?: string;
-  pageNum?: number;
+  sourceIp?: string;
   static names(): { [key: string]: string } {
     return {
-      userId: 'UserId',
+      curHour: 'CurHour',
+      lat: 'Lat',
+      lon: 'Lon',
       orderId: 'OrderId',
-      requestId: 'RequestId',
-      station: 'Station',
-      pageSize: 'PageSize',
-      startTime: 'StartTime',
-      endTime: 'EndTime',
-      pageNum: 'PageNum',
+      sourceIp: 'SourceIp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      userId: 'number',
+      curHour: 'string',
+      lat: 'string',
+      lon: 'string',
       orderId: 'string',
-      requestId: 'string',
-      station: 'string',
-      pageSize: 'number',
-      startTime: 'string',
-      endTime: 'string',
-      pageNum: 'number',
+      sourceIp: 'string',
     };
   }
 
@@ -404,31 +293,31 @@ export class HistoricalRequest extends $tea.Model {
   }
 }
 
-export class HistoricalResponseBody extends $tea.Model {
-  rt?: number;
+export class WeatherforecastTimeResponseBody extends $tea.Model {
+  code?: string;
+  data?: { [key: string]: any }[];
   message?: string;
   requestId?: string;
-  data?: { [key: string]: any }[];
-  code?: string;
+  rt?: number;
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
-      rt: 'Rt',
+      code: 'Code',
+      data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
-      data: 'Data',
-      code: 'Code',
+      rt: 'Rt',
       success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      rt: 'number',
+      code: 'string',
+      data: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
       message: 'string',
       requestId: 'string',
-      data: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
-      code: 'string',
+      rt: 'number',
       success: 'boolean',
     };
   }
@@ -438,9 +327,9 @@ export class HistoricalResponseBody extends $tea.Model {
   }
 }
 
-export class HistoricalResponse extends $tea.Model {
+export class WeatherforecastTimeResponse extends $tea.Model {
   headers: { [key: string]: string };
-  body: HistoricalResponseBody;
+  body: WeatherforecastTimeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -451,7 +340,91 @@ export class HistoricalResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: HistoricalResponseBody,
+      body: WeatherforecastTimeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class WeathermonitorRequest extends $tea.Model {
+  curHour?: string;
+  orderId?: string;
+  pageNum?: number;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      curHour: 'CurHour',
+      orderId: 'OrderId',
+      pageNum: 'PageNum',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      curHour: 'string',
+      orderId: 'string',
+      pageNum: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class WeathermonitorResponseBody extends $tea.Model {
+  code?: string;
+  data?: { [key: string]: any }[];
+  message?: string;
+  requestId?: string;
+  rt?: number;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      rt: 'Rt',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
+      message: 'string',
+      requestId: 'string',
+      rt: 'number',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class WeathermonitorResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: WeathermonitorResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: WeathermonitorResponseBody,
     };
   }
 
@@ -483,30 +456,17 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
-  async weathermonitorWithOptions(request: WeathermonitorRequest, runtime: $Util.RuntimeOptions): Promise<WeathermonitorResponse> {
+  async historicalWithOptions(request: HistoricalRequest, runtime: $Util.RuntimeOptions): Promise<HistoricalResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<WeathermonitorResponse>(await this.doRPCRequest("Weathermonitor", "2021-09-08", "HTTPS", "POST", "AK", "json", req, runtime), new WeathermonitorResponse({}));
+    return $tea.cast<HistoricalResponse>(await this.doRPCRequest("Historical", "2021-09-08", "HTTPS", "POST", "AK", "json", req, runtime), new HistoricalResponse({}));
   }
 
-  async weathermonitor(request: WeathermonitorRequest): Promise<WeathermonitorResponse> {
+  async historical(request: HistoricalRequest): Promise<HistoricalResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.weathermonitorWithOptions(request, runtime);
-  }
-
-  async weatherforecastTimeWithOptions(request: WeatherforecastTimeRequest, runtime: $Util.RuntimeOptions): Promise<WeatherforecastTimeResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<WeatherforecastTimeResponse>(await this.doRPCRequest("WeatherforecastTime", "2021-09-08", "HTTPS", "POST", "AK", "json", req, runtime), new WeatherforecastTimeResponse({}));
-  }
-
-  async weatherforecastTime(request: WeatherforecastTimeRequest): Promise<WeatherforecastTimeResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.weatherforecastTimeWithOptions(request, runtime);
+    return await this.historicalWithOptions(request, runtime);
   }
 
   async stationDayWithOptions(request: StationDayRequest, runtime: $Util.RuntimeOptions): Promise<StationDayResponse> {
@@ -535,17 +495,30 @@ export default class Client extends OpenApi {
     return await this.weatherforecastWithOptions(request, runtime);
   }
 
-  async historicalWithOptions(request: HistoricalRequest, runtime: $Util.RuntimeOptions): Promise<HistoricalResponse> {
+  async weatherforecastTimeWithOptions(request: WeatherforecastTimeRequest, runtime: $Util.RuntimeOptions): Promise<WeatherforecastTimeResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<HistoricalResponse>(await this.doRPCRequest("Historical", "2021-09-08", "HTTPS", "POST", "AK", "json", req, runtime), new HistoricalResponse({}));
+    return $tea.cast<WeatherforecastTimeResponse>(await this.doRPCRequest("WeatherforecastTime", "2021-09-08", "HTTPS", "POST", "AK", "json", req, runtime), new WeatherforecastTimeResponse({}));
   }
 
-  async historical(request: HistoricalRequest): Promise<HistoricalResponse> {
+  async weatherforecastTime(request: WeatherforecastTimeRequest): Promise<WeatherforecastTimeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.historicalWithOptions(request, runtime);
+    return await this.weatherforecastTimeWithOptions(request, runtime);
+  }
+
+  async weathermonitorWithOptions(request: WeathermonitorRequest, runtime: $Util.RuntimeOptions): Promise<WeathermonitorResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<WeathermonitorResponse>(await this.doRPCRequest("Weathermonitor", "2021-09-08", "HTTPS", "POST", "AK", "json", req, runtime), new WeathermonitorResponse({}));
+  }
+
+  async weathermonitor(request: WeathermonitorRequest): Promise<WeathermonitorResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.weathermonitorWithOptions(request, runtime);
   }
 
 }
