@@ -4282,10 +4282,11 @@ export class DescribeCharacterSetResponseBodyData extends $tea.Model {
 
 export class DescribeDBInstanceAttributeResponseBodyDBInstanceConnAddrs extends $tea.Model {
   connectionString?: string;
-  port?: string;
+  port?: number;
   type?: string;
   VPCId?: string;
   vSwitchId?: string;
+  vpcInstanceId?: string;
   static names(): { [key: string]: string } {
     return {
       connectionString: 'ConnectionString',
@@ -4293,16 +4294,18 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstanceConnAddrs extends 
       type: 'Type',
       VPCId: 'VPCId',
       vSwitchId: 'VSwitchId',
+      vpcInstanceId: 'VpcInstanceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       connectionString: 'string',
-      port: 'string',
+      port: 'number',
       type: 'string',
       VPCId: 'string',
       vSwitchId: 'string',
+      vpcInstanceId: 'string',
     };
   }
 
