@@ -3817,6 +3817,7 @@ export class SendCommentRequest extends $tea.Model {
   extension?: { [key: string]: string };
   roomId?: string;
   senderId?: string;
+  senderNick?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
@@ -3824,6 +3825,7 @@ export class SendCommentRequest extends $tea.Model {
       extension: 'Extension',
       roomId: 'RoomId',
       senderId: 'SenderId',
+      senderNick: 'SenderNick',
     };
   }
 
@@ -3834,6 +3836,7 @@ export class SendCommentRequest extends $tea.Model {
       extension: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       roomId: 'string',
       senderId: 'string',
+      senderNick: 'string',
     };
   }
 
@@ -3848,6 +3851,7 @@ export class SendCommentShrinkRequest extends $tea.Model {
   extensionShrink?: string;
   roomId?: string;
   senderId?: string;
+  senderNick?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
@@ -3855,6 +3859,7 @@ export class SendCommentShrinkRequest extends $tea.Model {
       extensionShrink: 'Extension',
       roomId: 'RoomId',
       senderId: 'SenderId',
+      senderNick: 'SenderNick',
     };
   }
 
@@ -3865,6 +3870,7 @@ export class SendCommentShrinkRequest extends $tea.Model {
       extensionShrink: 'string',
       roomId: 'string',
       senderId: 'string',
+      senderNick: 'string',
     };
   }
 
