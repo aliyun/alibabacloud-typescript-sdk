@@ -5550,7 +5550,7 @@ export class GetSecurityPreferenceResponseBodySecurityPreferenceMFAPreference ex
 }
 
 export class GetSecurityPreferenceResponseBodySecurityPreferenceVerificationPreference extends $tea.Model {
-  verificationTypes?: string;
+  verificationTypes?: string[];
   static names(): { [key: string]: string } {
     return {
       verificationTypes: 'VerificationTypes',
@@ -5559,7 +5559,7 @@ export class GetSecurityPreferenceResponseBodySecurityPreferenceVerificationPref
 
   static types(): { [key: string]: any } {
     return {
-      verificationTypes: 'string',
+      verificationTypes: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -6604,7 +6604,7 @@ export class SetSecurityPreferenceResponseBodySecurityPreferenceMFAPreference ex
 }
 
 export class SetSecurityPreferenceResponseBodySecurityPreferenceVerificationPreference extends $tea.Model {
-  verificationTypes?: string;
+  verificationTypes?: string[];
   static names(): { [key: string]: string } {
     return {
       verificationTypes: 'VerificationTypes',
@@ -6613,7 +6613,7 @@ export class SetSecurityPreferenceResponseBodySecurityPreferenceVerificationPref
 
   static types(): { [key: string]: any } {
     return {
-      verificationTypes: 'string',
+      verificationTypes: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
