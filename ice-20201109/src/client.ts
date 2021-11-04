@@ -8,38 +8,20 @@ import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
-export class ListSmartJobsRequest extends $tea.Model {
-  status?: number;
-  nextToken?: string;
-  maxResults?: number;
-  pageNo?: number;
-  pageSize?: number;
-  jobType?: string;
-  sortBy?: string;
-  jobState?: string;
+export class AddEditingProjectMaterialsRequest extends $tea.Model {
+  materialMaps?: string;
+  projectId?: string;
   static names(): { [key: string]: string } {
     return {
-      status: 'Status',
-      nextToken: 'NextToken',
-      maxResults: 'MaxResults',
-      pageNo: 'PageNo',
-      pageSize: 'PageSize',
-      jobType: 'JobType',
-      sortBy: 'SortBy',
-      jobState: 'JobState',
+      materialMaps: 'MaterialMaps',
+      projectId: 'ProjectId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      status: 'number',
-      nextToken: 'string',
-      maxResults: 'number',
-      pageNo: 'number',
-      pageSize: 'number',
-      jobType: 'string',
-      sortBy: 'string',
-      jobState: 'string',
+      materialMaps: 'string',
+      projectId: 'string',
     };
   }
 
@@ -48,29 +30,29 @@ export class ListSmartJobsRequest extends $tea.Model {
   }
 }
 
-export class ListSmartJobsResponseBody extends $tea.Model {
+export class AddEditingProjectMaterialsResponseBody extends $tea.Model {
+  liveMaterials?: AddEditingProjectMaterialsResponseBodyLiveMaterials[];
+  mediaInfos?: AddEditingProjectMaterialsResponseBodyMediaInfos[];
+  projectId?: string;
+  projectMaterials?: string;
   requestId?: string;
-  smartJobList?: ListSmartJobsResponseBodySmartJobList[];
-  nextToken?: string;
-  maxResults?: string;
-  totalCount?: string;
   static names(): { [key: string]: string } {
     return {
+      liveMaterials: 'LiveMaterials',
+      mediaInfos: 'MediaInfos',
+      projectId: 'ProjectId',
+      projectMaterials: 'ProjectMaterials',
       requestId: 'RequestId',
-      smartJobList: 'SmartJobList',
-      nextToken: 'NextToken',
-      maxResults: 'MaxResults',
-      totalCount: 'TotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      liveMaterials: { 'type': 'array', 'itemType': AddEditingProjectMaterialsResponseBodyLiveMaterials },
+      mediaInfos: { 'type': 'array', 'itemType': AddEditingProjectMaterialsResponseBodyMediaInfos },
+      projectId: 'string',
+      projectMaterials: 'string',
       requestId: 'string',
-      smartJobList: { 'type': 'array', 'itemType': ListSmartJobsResponseBodySmartJobList },
-      nextToken: 'string',
-      maxResults: 'string',
-      totalCount: 'string',
     };
   }
 
@@ -79,9 +61,9 @@ export class ListSmartJobsResponseBody extends $tea.Model {
   }
 }
 
-export class ListSmartJobsResponse extends $tea.Model {
+export class AddEditingProjectMaterialsResponse extends $tea.Model {
   headers: { [key: string]: string };
-  body: ListSmartJobsResponseBody;
+  body: AddEditingProjectMaterialsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -92,189 +74,7 @@ export class ListSmartJobsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListSmartJobsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetLiveEditingJobRequest extends $tea.Model {
-  jobId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      jobId: 'JobId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      jobId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetLiveEditingJobResponseBody extends $tea.Model {
-  requestId?: string;
-  liveEditingJob?: GetLiveEditingJobResponseBodyLiveEditingJob;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      liveEditingJob: 'LiveEditingJob',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      liveEditingJob: GetLiveEditingJobResponseBodyLiveEditingJob,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetLiveEditingJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: GetLiveEditingJobResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: GetLiveEditingJobResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeRelatedAuthorizationStatusResponseBody extends $tea.Model {
-  requestId?: string;
-  OSSAuthorized?: boolean;
-  MTSAuthorized?: boolean;
-  MNSAuthorized?: boolean;
-  authorized?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      OSSAuthorized: 'OSSAuthorized',
-      MTSAuthorized: 'MTSAuthorized',
-      MNSAuthorized: 'MNSAuthorized',
-      authorized: 'Authorized',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      OSSAuthorized: 'boolean',
-      MTSAuthorized: 'boolean',
-      MNSAuthorized: 'boolean',
-      authorized: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeRelatedAuthorizationStatusResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DescribeRelatedAuthorizationStatusResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DescribeRelatedAuthorizationStatusResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteSmartJobRequest extends $tea.Model {
-  jobId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      jobId: 'JobId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      jobId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteSmartJobResponseBody extends $tea.Model {
-  requestId?: string;
-  state?: string;
-  jobId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      state: 'State',
-      jobId: 'JobId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      state: 'string',
-      jobId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteSmartJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DeleteSmartJobResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DeleteSmartJobResponseBody,
+      body: AddEditingProjectMaterialsResponseBody,
     };
   }
 
@@ -284,37 +84,37 @@ export class DeleteSmartJobResponse extends $tea.Model {
 }
 
 export class AddTemplateRequest extends $tea.Model {
-  name?: string;
-  type?: string;
   config?: string;
   coverUrl?: string;
+  name?: string;
   previewMedia?: string;
-  status?: string;
-  source?: string;
   relatedMediaids?: string;
+  source?: string;
+  status?: string;
+  type?: string;
   static names(): { [key: string]: string } {
     return {
-      name: 'Name',
-      type: 'Type',
       config: 'Config',
       coverUrl: 'CoverUrl',
+      name: 'Name',
       previewMedia: 'PreviewMedia',
-      status: 'Status',
-      source: 'Source',
       relatedMediaids: 'RelatedMediaids',
+      source: 'Source',
+      status: 'Status',
+      type: 'Type',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      name: 'string',
-      type: 'string',
       config: 'string',
       coverUrl: 'string',
+      name: 'string',
       previewMedia: 'string',
-      status: 'string',
-      source: 'string',
       relatedMediaids: 'string',
+      source: 'string',
+      status: 'string',
+      type: 'string',
     };
   }
 
@@ -367,32 +167,20 @@ export class AddTemplateResponse extends $tea.Model {
   }
 }
 
-export class UpdateEditingProjectRequest extends $tea.Model {
-  title?: string;
-  description?: string;
-  timeline?: string;
-  coverURL?: string;
-  projectId?: string;
-  businessStatus?: string;
+export class BatchGetMediaInfosRequest extends $tea.Model {
+  additionType?: string;
+  mediaIds?: string;
   static names(): { [key: string]: string } {
     return {
-      title: 'Title',
-      description: 'Description',
-      timeline: 'Timeline',
-      coverURL: 'CoverURL',
-      projectId: 'ProjectId',
-      businessStatus: 'BusinessStatus',
+      additionType: 'AdditionType',
+      mediaIds: 'MediaIds',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      title: 'string',
-      description: 'string',
-      timeline: 'string',
-      coverURL: 'string',
-      projectId: 'string',
-      businessStatus: 'string',
+      additionType: 'string',
+      mediaIds: 'string',
     };
   }
 
@@ -401,152 +189,20 @@ export class UpdateEditingProjectRequest extends $tea.Model {
   }
 }
 
-export class UpdateEditingProjectResponseBody extends $tea.Model {
+export class BatchGetMediaInfosResponseBody extends $tea.Model {
+  mediaInfos?: BatchGetMediaInfosResponseBodyMediaInfos[];
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateEditingProjectResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: UpdateEditingProjectResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: UpdateEditingProjectResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMediaProducingJobsRequest extends $tea.Model {
-  status?: string;
-  static names(): { [key: string]: string } {
-    return {
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      status: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMediaProducingJobsResponseBody extends $tea.Model {
-  requestId?: string;
-  mediaProducingJobList?: ListMediaProducingJobsResponseBodyMediaProducingJobList[];
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      mediaProducingJobList: 'MediaProducingJobList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      mediaProducingJobList: { 'type': 'array', 'itemType': ListMediaProducingJobsResponseBodyMediaProducingJobList },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMediaProducingJobsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ListMediaProducingJobsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListMediaProducingJobsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetEditingProjectMaterialsRequest extends $tea.Model {
-  projectId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      projectId: 'ProjectId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      projectId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetEditingProjectMaterialsResponseBody extends $tea.Model {
-  requestId?: string;
-  projectId?: string;
-  mediaInfos?: GetEditingProjectMaterialsResponseBodyMediaInfos[];
-  liveMaterials?: GetEditingProjectMaterialsResponseBodyLiveMaterials[];
-  projectMaterials?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      projectId: 'ProjectId',
       mediaInfos: 'MediaInfos',
-      liveMaterials: 'LiveMaterials',
-      projectMaterials: 'ProjectMaterials',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      mediaInfos: { 'type': 'array', 'itemType': BatchGetMediaInfosResponseBodyMediaInfos },
       requestId: 'string',
-      projectId: 'string',
-      mediaInfos: { 'type': 'array', 'itemType': GetEditingProjectMaterialsResponseBodyMediaInfos },
-      liveMaterials: { 'type': 'array', 'itemType': GetEditingProjectMaterialsResponseBodyLiveMaterials },
-      projectMaterials: 'string',
     };
   }
 
@@ -555,9 +211,9 @@ export class GetEditingProjectMaterialsResponseBody extends $tea.Model {
   }
 }
 
-export class GetEditingProjectMaterialsResponse extends $tea.Model {
+export class BatchGetMediaInfosResponse extends $tea.Model {
   headers: { [key: string]: string };
-  body: GetEditingProjectMaterialsResponseBody;
+  body: BatchGetMediaInfosResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -568,7 +224,503 @@ export class GetEditingProjectMaterialsResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: GetEditingProjectMaterialsResponseBody,
+      body: BatchGetMediaInfosResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEditingProjectRequest extends $tea.Model {
+  businessConfig?: string;
+  coverURL?: string;
+  description?: string;
+  materialMaps?: string;
+  projectType?: string;
+  timeline?: string;
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      businessConfig: 'BusinessConfig',
+      coverURL: 'CoverURL',
+      description: 'Description',
+      materialMaps: 'MaterialMaps',
+      projectType: 'ProjectType',
+      timeline: 'Timeline',
+      title: 'Title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      businessConfig: 'string',
+      coverURL: 'string',
+      description: 'string',
+      materialMaps: 'string',
+      projectType: 'string',
+      timeline: 'string',
+      title: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEditingProjectResponseBody extends $tea.Model {
+  project?: CreateEditingProjectResponseBodyProject;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      project: 'Project',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      project: CreateEditingProjectResponseBodyProject,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEditingProjectResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CreateEditingProjectResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CreateEditingProjectResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteEditingProjectMaterialsRequest extends $tea.Model {
+  materialIds?: string;
+  materialType?: string;
+  projectId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      materialIds: 'MaterialIds',
+      materialType: 'MaterialType',
+      projectId: 'ProjectId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      materialIds: 'string',
+      materialType: 'string',
+      projectId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteEditingProjectMaterialsResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteEditingProjectMaterialsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DeleteEditingProjectMaterialsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DeleteEditingProjectMaterialsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteEditingProjectsRequest extends $tea.Model {
+  projectIds?: string;
+  static names(): { [key: string]: string } {
+    return {
+      projectIds: 'ProjectIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectIds: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteEditingProjectsResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteEditingProjectsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DeleteEditingProjectsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DeleteEditingProjectsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteMediaInfosRequest extends $tea.Model {
+  inputURLs?: string;
+  mediaIds?: string;
+  static names(): { [key: string]: string } {
+    return {
+      inputURLs: 'InputURLs',
+      mediaIds: 'MediaIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inputURLs: 'string',
+      mediaIds: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteMediaInfosResponseBody extends $tea.Model {
+  ignoredList?: string[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ignoredList: 'IgnoredList',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ignoredList: { 'type': 'array', 'itemType': 'string' },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteMediaInfosResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DeleteMediaInfosResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DeleteMediaInfosResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteSmartJobRequest extends $tea.Model {
+  jobId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jobId: 'JobId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteSmartJobResponseBody extends $tea.Model {
+  jobId?: string;
+  requestId?: string;
+  state?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jobId: 'JobId',
+      requestId: 'RequestId',
+      state: 'State',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobId: 'string',
+      requestId: 'string',
+      state: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteSmartJobResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DeleteSmartJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DeleteSmartJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteTemplateRequest extends $tea.Model {
+  templateIds?: string;
+  static names(): { [key: string]: string } {
+    return {
+      templateIds: 'TemplateIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      templateIds: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteTemplateResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteTemplateResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DeleteTemplateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DeleteTemplateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeIceProductStatusResponseBody extends $tea.Model {
+  ICEServiceAvaliable?: boolean;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ICEServiceAvaliable: 'ICEServiceAvaliable',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ICEServiceAvaliable: 'boolean',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeIceProductStatusResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeIceProductStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeIceProductStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRelatedAuthorizationStatusResponseBody extends $tea.Model {
+  authorized?: boolean;
+  MNSAuthorized?: boolean;
+  MTSAuthorized?: boolean;
+  OSSAuthorized?: boolean;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authorized: 'Authorized',
+      MNSAuthorized: 'MNSAuthorized',
+      MTSAuthorized: 'MTSAuthorized',
+      OSSAuthorized: 'OSSAuthorized',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authorized: 'boolean',
+      MNSAuthorized: 'boolean',
+      MTSAuthorized: 'boolean',
+      OSSAuthorized: 'boolean',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRelatedAuthorizationStatusResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeRelatedAuthorizationStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeRelatedAuthorizationStatusResponseBody,
     };
   }
 
@@ -578,28 +730,28 @@ export class GetEditingProjectMaterialsResponse extends $tea.Model {
 }
 
 export class GetDefaultStorageLocationResponseBody extends $tea.Model {
-  requestId?: string;
-  storageType?: string;
   bucket?: string;
   path?: string;
+  requestId?: string;
   status?: string;
+  storageType?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
-      storageType: 'StorageType',
       bucket: 'Bucket',
       path: 'Path',
+      requestId: 'RequestId',
       status: 'Status',
+      storageType: 'StorageType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
-      storageType: 'string',
       bucket: 'string',
       path: 'string',
+      requestId: 'string',
       status: 'string',
+      storageType: 'string',
     };
   }
 
@@ -630,20 +782,17 @@ export class GetDefaultStorageLocationResponse extends $tea.Model {
   }
 }
 
-export class DeleteMediaInfosRequest extends $tea.Model {
-  mediaIds?: string;
-  inputURLs?: string;
+export class GetEditingProjectRequest extends $tea.Model {
+  projectId?: string;
   static names(): { [key: string]: string } {
     return {
-      mediaIds: 'MediaIds',
-      inputURLs: 'InputURLs',
+      projectId: 'ProjectId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      mediaIds: 'string',
-      inputURLs: 'string',
+      projectId: 'string',
     };
   }
 
@@ -652,20 +801,20 @@ export class DeleteMediaInfosRequest extends $tea.Model {
   }
 }
 
-export class DeleteMediaInfosResponseBody extends $tea.Model {
+export class GetEditingProjectResponseBody extends $tea.Model {
+  project?: GetEditingProjectResponseBodyProject;
   requestId?: string;
-  ignoredList?: string[];
   static names(): { [key: string]: string } {
     return {
+      project: 'Project',
       requestId: 'RequestId',
-      ignoredList: 'IgnoredList',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      project: GetEditingProjectResponseBodyProject,
       requestId: 'string',
-      ignoredList: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -674,9 +823,9 @@ export class DeleteMediaInfosResponseBody extends $tea.Model {
   }
 }
 
-export class DeleteMediaInfosResponse extends $tea.Model {
+export class GetEditingProjectResponse extends $tea.Model {
   headers: { [key: string]: string };
-  body: DeleteMediaInfosResponseBody;
+  body: GetEditingProjectResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -687,7 +836,1362 @@ export class DeleteMediaInfosResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DeleteMediaInfosResponseBody,
+      body: GetEditingProjectResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEditingProjectMaterialsRequest extends $tea.Model {
+  projectId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      projectId: 'ProjectId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEditingProjectMaterialsResponseBody extends $tea.Model {
+  liveMaterials?: GetEditingProjectMaterialsResponseBodyLiveMaterials[];
+  mediaInfos?: GetEditingProjectMaterialsResponseBodyMediaInfos[];
+  projectId?: string;
+  projectMaterials?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      liveMaterials: 'LiveMaterials',
+      mediaInfos: 'MediaInfos',
+      projectId: 'ProjectId',
+      projectMaterials: 'ProjectMaterials',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      liveMaterials: { 'type': 'array', 'itemType': GetEditingProjectMaterialsResponseBodyLiveMaterials },
+      mediaInfos: { 'type': 'array', 'itemType': GetEditingProjectMaterialsResponseBodyMediaInfos },
+      projectId: 'string',
+      projectMaterials: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEditingProjectMaterialsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetEditingProjectMaterialsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetEditingProjectMaterialsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEventCallbackResponseBody extends $tea.Model {
+  callbackQueueName?: string;
+  eventTypeList?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      callbackQueueName: 'CallbackQueueName',
+      eventTypeList: 'EventTypeList',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      callbackQueueName: 'string',
+      eventTypeList: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEventCallbackResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetEventCallbackResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetEventCallbackResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLiveEditingIndexFileRequest extends $tea.Model {
+  appName?: string;
+  domainName?: string;
+  projectId?: string;
+  streamName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appName: 'AppName',
+      domainName: 'DomainName',
+      projectId: 'ProjectId',
+      streamName: 'StreamName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appName: 'string',
+      domainName: 'string',
+      projectId: 'string',
+      streamName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLiveEditingIndexFileResponseBody extends $tea.Model {
+  indexFile?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      indexFile: 'IndexFile',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      indexFile: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLiveEditingIndexFileResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetLiveEditingIndexFileResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetLiveEditingIndexFileResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLiveEditingJobRequest extends $tea.Model {
+  jobId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jobId: 'JobId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLiveEditingJobResponseBody extends $tea.Model {
+  liveEditingJob?: GetLiveEditingJobResponseBodyLiveEditingJob;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      liveEditingJob: 'LiveEditingJob',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      liveEditingJob: GetLiveEditingJobResponseBodyLiveEditingJob,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLiveEditingJobResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetLiveEditingJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetLiveEditingJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMediaInfoRequest extends $tea.Model {
+  inputURL?: string;
+  mediaId?: string;
+  outputType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      inputURL: 'InputURL',
+      mediaId: 'MediaId',
+      outputType: 'OutputType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inputURL: 'string',
+      mediaId: 'string',
+      outputType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMediaInfoResponseBody extends $tea.Model {
+  mediaInfo?: GetMediaInfoResponseBodyMediaInfo;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      mediaInfo: 'MediaInfo',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mediaInfo: GetMediaInfoResponseBodyMediaInfo,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMediaInfoResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetMediaInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetMediaInfoResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMediaProducingJobRequest extends $tea.Model {
+  jobId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jobId: 'JobId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMediaProducingJobResponseBody extends $tea.Model {
+  mediaProducingJob?: GetMediaProducingJobResponseBodyMediaProducingJob;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      mediaProducingJob: 'MediaProducingJob',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mediaProducingJob: GetMediaProducingJobResponseBodyMediaProducingJob,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMediaProducingJobResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetMediaProducingJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetMediaProducingJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSmartHandleJobRequest extends $tea.Model {
+  jobId?: string;
+  withAiResult?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jobId: 'JobId',
+      withAiResult: 'WithAiResult',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobId: 'string',
+      withAiResult: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSmartHandleJobResponseBody extends $tea.Model {
+  FEExtend?: string;
+  jobId?: string;
+  output?: string;
+  requestId?: string;
+  smartJobInfo?: GetSmartHandleJobResponseBodySmartJobInfo;
+  state?: string;
+  userData?: string;
+  static names(): { [key: string]: string } {
+    return {
+      FEExtend: 'FEExtend',
+      jobId: 'JobId',
+      output: 'Output',
+      requestId: 'RequestId',
+      smartJobInfo: 'SmartJobInfo',
+      state: 'State',
+      userData: 'UserData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      FEExtend: 'string',
+      jobId: 'string',
+      output: 'string',
+      requestId: 'string',
+      smartJobInfo: GetSmartHandleJobResponseBodySmartJobInfo,
+      state: 'string',
+      userData: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSmartHandleJobResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetSmartHandleJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetSmartHandleJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTemplateRequest extends $tea.Model {
+  relatedMediaidFlag?: string;
+  templateId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      relatedMediaidFlag: 'RelatedMediaidFlag',
+      templateId: 'TemplateId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      relatedMediaidFlag: 'string',
+      templateId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTemplateResponseBody extends $tea.Model {
+  requestId?: string;
+  template?: GetTemplateResponseBodyTemplate;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      template: 'Template',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      template: GetTemplateResponseBodyTemplate,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTemplateResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetTemplateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetTemplateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAllPublicMediaTagsRequest extends $tea.Model {
+  businessType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      businessType: 'BusinessType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      businessType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAllPublicMediaTagsResponseBody extends $tea.Model {
+  mediaTagList?: ListAllPublicMediaTagsResponseBodyMediaTagList[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      mediaTagList: 'MediaTagList',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mediaTagList: { 'type': 'array', 'itemType': ListAllPublicMediaTagsResponseBodyMediaTagList },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAllPublicMediaTagsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListAllPublicMediaTagsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListAllPublicMediaTagsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMediaBasicInfosRequest extends $tea.Model {
+  businessType?: string;
+  category?: string;
+  endTime?: string;
+  includeFileBasicInfo?: boolean;
+  maxResults?: number;
+  mediaType?: string;
+  nextToken?: string;
+  sortBy?: string;
+  source?: string;
+  startTime?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      businessType: 'BusinessType',
+      category: 'Category',
+      endTime: 'EndTime',
+      includeFileBasicInfo: 'IncludeFileBasicInfo',
+      maxResults: 'MaxResults',
+      mediaType: 'MediaType',
+      nextToken: 'NextToken',
+      sortBy: 'SortBy',
+      source: 'Source',
+      startTime: 'StartTime',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      businessType: 'string',
+      category: 'string',
+      endTime: 'string',
+      includeFileBasicInfo: 'boolean',
+      maxResults: 'number',
+      mediaType: 'string',
+      nextToken: 'string',
+      sortBy: 'string',
+      source: 'string',
+      startTime: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMediaBasicInfosResponseBody extends $tea.Model {
+  maxResults?: number;
+  mediaInfos?: ListMediaBasicInfosResponseBodyMediaInfos[];
+  nextToken?: string;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      maxResults: 'MaxResults',
+      mediaInfos: 'MediaInfos',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxResults: 'number',
+      mediaInfos: { 'type': 'array', 'itemType': ListMediaBasicInfosResponseBodyMediaInfos },
+      nextToken: 'string',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMediaBasicInfosResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListMediaBasicInfosResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListMediaBasicInfosResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMediaProducingJobsRequest extends $tea.Model {
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMediaProducingJobsResponseBody extends $tea.Model {
+  mediaProducingJobList?: ListMediaProducingJobsResponseBodyMediaProducingJobList[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      mediaProducingJobList: 'MediaProducingJobList',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mediaProducingJobList: { 'type': 'array', 'itemType': ListMediaProducingJobsResponseBodyMediaProducingJobList },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMediaProducingJobsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListMediaProducingJobsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListMediaProducingJobsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPublicMediaBasicInfosRequest extends $tea.Model {
+  includeFileBasicInfo?: boolean;
+  maxResults?: number;
+  mediaTagId?: string;
+  nextToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      includeFileBasicInfo: 'IncludeFileBasicInfo',
+      maxResults: 'MaxResults',
+      mediaTagId: 'MediaTagId',
+      nextToken: 'NextToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      includeFileBasicInfo: 'boolean',
+      maxResults: 'number',
+      mediaTagId: 'string',
+      nextToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPublicMediaBasicInfosResponseBody extends $tea.Model {
+  maxResults?: number;
+  mediaInfos?: ListPublicMediaBasicInfosResponseBodyMediaInfos[];
+  nextToken?: string;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      maxResults: 'MaxResults',
+      mediaInfos: 'MediaInfos',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxResults: 'number',
+      mediaInfos: { 'type': 'array', 'itemType': ListPublicMediaBasicInfosResponseBodyMediaInfos },
+      nextToken: 'string',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPublicMediaBasicInfosResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListPublicMediaBasicInfosResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListPublicMediaBasicInfosResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSmartJobsRequest extends $tea.Model {
+  jobState?: string;
+  jobType?: string;
+  maxResults?: number;
+  nextToken?: string;
+  pageNo?: number;
+  pageSize?: number;
+  sortBy?: string;
+  status?: number;
+  static names(): { [key: string]: string } {
+    return {
+      jobState: 'JobState',
+      jobType: 'JobType',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      sortBy: 'SortBy',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobState: 'string',
+      jobType: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+      pageNo: 'number',
+      pageSize: 'number',
+      sortBy: 'string',
+      status: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSmartJobsResponseBody extends $tea.Model {
+  maxResults?: string;
+  nextToken?: string;
+  requestId?: string;
+  smartJobList?: ListSmartJobsResponseBodySmartJobList[];
+  totalCount?: string;
+  static names(): { [key: string]: string } {
+    return {
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      smartJobList: 'SmartJobList',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxResults: 'string',
+      nextToken: 'string',
+      requestId: 'string',
+      smartJobList: { 'type': 'array', 'itemType': ListSmartJobsResponseBodySmartJobList },
+      totalCount: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSmartJobsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListSmartJobsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListSmartJobsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSysTemplatesRequest extends $tea.Model {
+  maxResults?: number;
+  nextToken?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxResults: 'number',
+      nextToken: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSysTemplatesResponseBody extends $tea.Model {
+  maxResults?: number;
+  nextToken?: string;
+  requestId?: string;
+  templates?: ListSysTemplatesResponseBodyTemplates[];
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      templates: 'Templates',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxResults: 'number',
+      nextToken: 'string',
+      requestId: 'string',
+      templates: { 'type': 'array', 'itemType': ListSysTemplatesResponseBodyTemplates },
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSysTemplatesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListSysTemplatesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListSysTemplatesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTemplatesRequest extends $tea.Model {
+  createSource?: string;
+  keyword?: string;
+  sortType?: string;
+  status?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createSource: 'CreateSource',
+      keyword: 'Keyword',
+      sortType: 'SortType',
+      status: 'Status',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createSource: 'string',
+      keyword: 'string',
+      sortType: 'string',
+      status: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTemplatesResponseBody extends $tea.Model {
+  requestId?: string;
+  templates?: ListTemplatesResponseBodyTemplates[];
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      templates: 'Templates',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      templates: { 'type': 'array', 'itemType': ListTemplatesResponseBodyTemplates },
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTemplatesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListTemplatesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListTemplatesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RegisterMediaInfoRequest extends $tea.Model {
+  businessType?: string;
+  category?: string;
+  clientToken?: string;
+  coverURL?: string;
+  description?: string;
+  dynamicMetaDataList?: string;
+  inputURL?: string;
+  mediaTags?: string;
+  mediaType?: string;
+  overwrite?: boolean;
+  registerConfig?: string;
+  title?: string;
+  userData?: string;
+  static names(): { [key: string]: string } {
+    return {
+      businessType: 'BusinessType',
+      category: 'Category',
+      clientToken: 'ClientToken',
+      coverURL: 'CoverURL',
+      description: 'Description',
+      dynamicMetaDataList: 'DynamicMetaDataList',
+      inputURL: 'InputURL',
+      mediaTags: 'MediaTags',
+      mediaType: 'MediaType',
+      overwrite: 'Overwrite',
+      registerConfig: 'RegisterConfig',
+      title: 'Title',
+      userData: 'UserData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      businessType: 'string',
+      category: 'string',
+      clientToken: 'string',
+      coverURL: 'string',
+      description: 'string',
+      dynamicMetaDataList: 'string',
+      inputURL: 'string',
+      mediaTags: 'string',
+      mediaType: 'string',
+      overwrite: 'boolean',
+      registerConfig: 'string',
+      title: 'string',
+      userData: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RegisterMediaInfoResponseBody extends $tea.Model {
+  mediaId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      mediaId: 'MediaId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mediaId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RegisterMediaInfoResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: RegisterMediaInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: RegisterMediaInfoResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchEditingProjectRequest extends $tea.Model {
+  createSource?: string;
+  endTime?: string;
+  maxResults?: number;
+  nextToken?: string;
+  projectType?: string;
+  sortBy?: string;
+  startTime?: string;
+  status?: string;
+  templateType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createSource: 'CreateSource',
+      endTime: 'EndTime',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      projectType: 'ProjectType',
+      sortBy: 'SortBy',
+      startTime: 'StartTime',
+      status: 'Status',
+      templateType: 'TemplateType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createSource: 'string',
+      endTime: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+      projectType: 'string',
+      sortBy: 'string',
+      startTime: 'string',
+      status: 'string',
+      templateType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchEditingProjectResponseBody extends $tea.Model {
+  maxResults?: number;
+  nextToken?: string;
+  projectList?: SearchEditingProjectResponseBodyProjectList[];
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      projectList: 'ProjectList',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxResults: 'number',
+      nextToken: 'string',
+      projectList: { 'type': 'array', 'itemType': SearchEditingProjectResponseBodyProjectList },
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchEditingProjectResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: SearchEditingProjectResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: SearchEditingProjectResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetDefaultStorageLocationRequest extends $tea.Model {
+  bucket?: string;
+  path?: string;
+  storageType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bucket: 'Bucket',
+      path: 'Path',
+      storageType: 'StorageType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bucket: 'string',
+      path: 'string',
+      storageType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetDefaultStorageLocationResponseBody extends $tea.Model {
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetDefaultStorageLocationResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: SetDefaultStorageLocationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: SetDefaultStorageLocationResponseBody,
     };
   }
 
@@ -762,1030 +2266,32 @@ export class SetEventCallbackResponse extends $tea.Model {
   }
 }
 
-export class GetTemplateRequest extends $tea.Model {
-  templateId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      templateId: 'TemplateId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      templateId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetTemplateResponseBody extends $tea.Model {
-  requestId?: string;
-  template?: GetTemplateResponseBodyTemplate;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      template: 'Template',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      template: GetTemplateResponseBodyTemplate,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetTemplateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: GetTemplateResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: GetTemplateResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RegisterMediaInfoRequest extends $tea.Model {
-  inputURL?: string;
-  mediaType?: string;
-  businessType?: string;
-  title?: string;
-  description?: string;
-  category?: string;
-  mediaTags?: string;
-  coverURL?: string;
-  dynamicMetaDataList?: string;
-  userData?: string;
-  overwrite?: boolean;
-  clientToken?: string;
-  registerConfig?: string;
-  static names(): { [key: string]: string } {
-    return {
-      inputURL: 'InputURL',
-      mediaType: 'MediaType',
-      businessType: 'BusinessType',
-      title: 'Title',
-      description: 'Description',
-      category: 'Category',
-      mediaTags: 'MediaTags',
-      coverURL: 'CoverURL',
-      dynamicMetaDataList: 'DynamicMetaDataList',
-      userData: 'UserData',
-      overwrite: 'Overwrite',
-      clientToken: 'ClientToken',
-      registerConfig: 'RegisterConfig',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      inputURL: 'string',
-      mediaType: 'string',
-      businessType: 'string',
-      title: 'string',
-      description: 'string',
-      category: 'string',
-      mediaTags: 'string',
-      coverURL: 'string',
-      dynamicMetaDataList: 'string',
-      userData: 'string',
-      overwrite: 'boolean',
-      clientToken: 'string',
-      registerConfig: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RegisterMediaInfoResponseBody extends $tea.Model {
-  requestId?: string;
-  mediaId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      mediaId: 'MediaId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      mediaId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RegisterMediaInfoResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: RegisterMediaInfoResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: RegisterMediaInfoResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateEditingProjectRequest extends $tea.Model {
-  title?: string;
-  description?: string;
-  timeline?: string;
-  coverURL?: string;
-  materialMaps?: string;
-  businessConfig?: string;
-  projectType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      title: 'Title',
-      description: 'Description',
-      timeline: 'Timeline',
-      coverURL: 'CoverURL',
-      materialMaps: 'MaterialMaps',
-      businessConfig: 'BusinessConfig',
-      projectType: 'ProjectType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      title: 'string',
-      description: 'string',
-      timeline: 'string',
-      coverURL: 'string',
-      materialMaps: 'string',
-      businessConfig: 'string',
-      projectType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateEditingProjectResponseBody extends $tea.Model {
-  requestId?: string;
-  project?: CreateEditingProjectResponseBodyProject;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      project: 'Project',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      project: CreateEditingProjectResponseBodyProject,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateEditingProjectResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: CreateEditingProjectResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: CreateEditingProjectResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BatchGetMediaInfosRequest extends $tea.Model {
-  mediaIds?: string;
-  additionType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      mediaIds: 'MediaIds',
-      additionType: 'AdditionType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      mediaIds: 'string',
-      additionType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BatchGetMediaInfosResponseBody extends $tea.Model {
-  requestId?: string;
-  mediaInfos?: BatchGetMediaInfosResponseBodyMediaInfos[];
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      mediaInfos: 'MediaInfos',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      mediaInfos: { 'type': 'array', 'itemType': BatchGetMediaInfosResponseBodyMediaInfos },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BatchGetMediaInfosResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: BatchGetMediaInfosResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: BatchGetMediaInfosResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SetDefaultStorageLocationRequest extends $tea.Model {
-  storageType?: string;
-  bucket?: string;
-  path?: string;
-  static names(): { [key: string]: string } {
-    return {
-      storageType: 'StorageType',
-      bucket: 'Bucket',
-      path: 'Path',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      storageType: 'string',
-      bucket: 'string',
-      path: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SetDefaultStorageLocationResponseBody extends $tea.Model {
-  requestId?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SetDefaultStorageLocationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: SetDefaultStorageLocationResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: SetDefaultStorageLocationResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateMediaInfoRequest extends $tea.Model {
-  mediaId?: string;
-  inputURL?: string;
-  businessType?: string;
-  title?: string;
-  description?: string;
-  category?: string;
-  mediaTags?: string;
-  coverURL?: string;
-  dynamicMetaDataList?: string;
-  userData?: string;
-  appendTags?: boolean;
-  appendDynamicMeta?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      mediaId: 'MediaId',
-      inputURL: 'InputURL',
-      businessType: 'BusinessType',
-      title: 'Title',
-      description: 'Description',
-      category: 'Category',
-      mediaTags: 'MediaTags',
-      coverURL: 'CoverURL',
-      dynamicMetaDataList: 'DynamicMetaDataList',
-      userData: 'UserData',
-      appendTags: 'AppendTags',
-      appendDynamicMeta: 'AppendDynamicMeta',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      mediaId: 'string',
-      inputURL: 'string',
-      businessType: 'string',
-      title: 'string',
-      description: 'string',
-      category: 'string',
-      mediaTags: 'string',
-      coverURL: 'string',
-      dynamicMetaDataList: 'string',
-      userData: 'string',
-      appendTags: 'boolean',
-      appendDynamicMeta: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateMediaInfoResponseBody extends $tea.Model {
-  requestId?: string;
-  mediaId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      mediaId: 'MediaId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      mediaId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateMediaInfoResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: UpdateMediaInfoResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: UpdateMediaInfoResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetMediaProducingJobRequest extends $tea.Model {
-  jobId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      jobId: 'JobId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      jobId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetMediaProducingJobResponseBody extends $tea.Model {
-  requestId?: string;
-  mediaProducingJob?: GetMediaProducingJobResponseBodyMediaProducingJob;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      mediaProducingJob: 'MediaProducingJob',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      mediaProducingJob: GetMediaProducingJobResponseBodyMediaProducingJob,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetMediaProducingJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: GetMediaProducingJobResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: GetMediaProducingJobResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeIceProductStatusResponseBody extends $tea.Model {
-  requestId?: string;
-  ICEServiceAvaliable?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      ICEServiceAvaliable: 'ICEServiceAvaliable',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      ICEServiceAvaliable: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeIceProductStatusResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DescribeIceProductStatusResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DescribeIceProductStatusResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetLiveEditingIndexFileRequest extends $tea.Model {
-  appName?: string;
-  domainName?: string;
-  streamName?: string;
-  projectId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appName: 'AppName',
-      domainName: 'DomainName',
-      streamName: 'StreamName',
-      projectId: 'ProjectId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appName: 'string',
-      domainName: 'string',
-      streamName: 'string',
-      projectId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetLiveEditingIndexFileResponseBody extends $tea.Model {
-  requestId?: string;
-  indexFile?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      indexFile: 'IndexFile',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      indexFile: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetLiveEditingIndexFileResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: GetLiveEditingIndexFileResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: GetLiveEditingIndexFileResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMediaBasicInfosRequest extends $tea.Model {
-  startTime?: string;
-  endTime?: string;
-  mediaType?: string;
-  businessType?: string;
-  source?: string;
-  category?: string;
-  status?: string;
-  nextToken?: string;
-  maxResults?: number;
-  sortBy?: string;
-  includeFileBasicInfo?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      startTime: 'StartTime',
-      endTime: 'EndTime',
-      mediaType: 'MediaType',
-      businessType: 'BusinessType',
-      source: 'Source',
-      category: 'Category',
-      status: 'Status',
-      nextToken: 'NextToken',
-      maxResults: 'MaxResults',
-      sortBy: 'SortBy',
-      includeFileBasicInfo: 'IncludeFileBasicInfo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      startTime: 'string',
-      endTime: 'string',
-      mediaType: 'string',
-      businessType: 'string',
-      source: 'string',
-      category: 'string',
-      status: 'string',
-      nextToken: 'string',
-      maxResults: 'number',
-      sortBy: 'string',
-      includeFileBasicInfo: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMediaBasicInfosResponseBody extends $tea.Model {
-  requestId?: string;
-  totalCount?: number;
-  mediaInfos?: ListMediaBasicInfosResponseBodyMediaInfos[];
-  nextToken?: string;
-  maxResults?: number;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-      mediaInfos: 'MediaInfos',
-      nextToken: 'NextToken',
-      maxResults: 'MaxResults',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      totalCount: 'number',
-      mediaInfos: { 'type': 'array', 'itemType': ListMediaBasicInfosResponseBodyMediaInfos },
-      nextToken: 'string',
-      maxResults: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMediaBasicInfosResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ListMediaBasicInfosResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListMediaBasicInfosResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitSubtitleProduceJobRequest extends $tea.Model {
-  editingConfig?: string;
-  type?: string;
-  outputConfig?: string;
-  inputConfig?: string;
-  isAsync?: number;
-  title?: string;
-  description?: string;
-  userData?: string;
-  static names(): { [key: string]: string } {
-    return {
-      editingConfig: 'EditingConfig',
-      type: 'Type',
-      outputConfig: 'OutputConfig',
-      inputConfig: 'InputConfig',
-      isAsync: 'IsAsync',
-      title: 'Title',
-      description: 'Description',
-      userData: 'UserData',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      editingConfig: 'string',
-      type: 'string',
-      outputConfig: 'string',
-      inputConfig: 'string',
-      isAsync: 'number',
-      title: 'string',
-      description: 'string',
-      userData: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitSubtitleProduceJobResponseBody extends $tea.Model {
-  requestId?: string;
-  jobId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      jobId: 'JobId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      jobId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitSubtitleProduceJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: SubmitSubtitleProduceJobResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: SubmitSubtitleProduceJobResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitKeyWordCutJobRequest extends $tea.Model {
-  keyword?: string;
-  inputFile?: string;
-  userData?: string;
-  title?: string;
-  description?: string;
-  static names(): { [key: string]: string } {
-    return {
-      keyword: 'Keyword',
-      inputFile: 'InputFile',
-      userData: 'UserData',
-      title: 'Title',
-      description: 'Description',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      keyword: 'string',
-      inputFile: 'string',
-      userData: 'string',
-      title: 'string',
-      description: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitKeyWordCutJobResponseBody extends $tea.Model {
-  requestId?: string;
-  jobId?: string;
-  output?: string;
-  state?: string;
-  userData?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      jobId: 'JobId',
-      output: 'Output',
-      state: 'State',
-      userData: 'UserData',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      jobId: 'string',
-      output: 'string',
-      state: 'string',
-      userData: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitKeyWordCutJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: SubmitKeyWordCutJobResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: SubmitKeyWordCutJobResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddEditingProjectMaterialsRequest extends $tea.Model {
-  projectId?: string;
-  materialMaps?: string;
-  static names(): { [key: string]: string } {
-    return {
-      projectId: 'ProjectId',
-      materialMaps: 'MaterialMaps',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      projectId: 'string',
-      materialMaps: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddEditingProjectMaterialsResponseBody extends $tea.Model {
-  requestId?: string;
-  projectId?: string;
-  mediaInfos?: AddEditingProjectMaterialsResponseBodyMediaInfos[];
-  liveMaterials?: AddEditingProjectMaterialsResponseBodyLiveMaterials[];
-  projectMaterials?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      projectId: 'ProjectId',
-      mediaInfos: 'MediaInfos',
-      liveMaterials: 'LiveMaterials',
-      projectMaterials: 'ProjectMaterials',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      projectId: 'string',
-      mediaInfos: { 'type': 'array', 'itemType': AddEditingProjectMaterialsResponseBodyMediaInfos },
-      liveMaterials: { 'type': 'array', 'itemType': AddEditingProjectMaterialsResponseBodyLiveMaterials },
-      projectMaterials: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddEditingProjectMaterialsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: AddEditingProjectMaterialsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: AddEditingProjectMaterialsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class SubmitASRJobRequest extends $tea.Model {
-  inputFile?: string;
-  userData?: string;
-  title?: string;
   description?: string;
-  startTime?: string;
   duration?: string;
+  inputFile?: string;
+  startTime?: string;
+  title?: string;
+  userData?: string;
   static names(): { [key: string]: string } {
     return {
-      inputFile: 'InputFile',
-      userData: 'UserData',
-      title: 'Title',
       description: 'Description',
-      startTime: 'StartTime',
       duration: 'Duration',
+      inputFile: 'InputFile',
+      startTime: 'StartTime',
+      title: 'Title',
+      userData: 'UserData',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      inputFile: 'string',
-      userData: 'string',
-      title: 'string',
       description: 'string',
-      startTime: 'string',
       duration: 'string',
+      inputFile: 'string',
+      startTime: 'string',
+      title: 'string',
+      userData: 'string',
     };
   }
 
@@ -1795,28 +2301,22 @@ export class SubmitASRJobRequest extends $tea.Model {
 }
 
 export class SubmitASRJobResponseBody extends $tea.Model {
-  requestId?: string;
   jobId?: string;
-  output?: string;
+  requestId?: string;
   state?: string;
-  userData?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       jobId: 'JobId',
-      output: 'Output',
+      requestId: 'RequestId',
       state: 'State',
-      userData: 'UserData',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       jobId: 'string',
-      output: 'string',
+      requestId: 'string',
       state: 'string',
-      userData: 'string',
     };
   }
 
@@ -1847,686 +2347,35 @@ export class SubmitASRJobResponse extends $tea.Model {
   }
 }
 
-export class GetEditingProjectRequest extends $tea.Model {
-  projectId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      projectId: 'ProjectId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      projectId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetEditingProjectResponseBody extends $tea.Model {
-  requestId?: string;
-  project?: GetEditingProjectResponseBodyProject;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      project: 'Project',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      project: GetEditingProjectResponseBodyProject,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetEditingProjectResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: GetEditingProjectResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: GetEditingProjectResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSysTemplatesRequest extends $tea.Model {
-  nextToken?: string;
-  maxResults?: number;
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      nextToken: 'NextToken',
-      maxResults: 'MaxResults',
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      nextToken: 'string',
-      maxResults: 'number',
-      type: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSysTemplatesResponseBody extends $tea.Model {
-  totalCount?: number;
-  requestId?: string;
-  nextToken?: string;
-  maxResults?: number;
-  templates?: ListSysTemplatesResponseBodyTemplates[];
-  static names(): { [key: string]: string } {
-    return {
-      totalCount: 'TotalCount',
-      requestId: 'RequestId',
-      nextToken: 'NextToken',
-      maxResults: 'MaxResults',
-      templates: 'Templates',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      totalCount: 'number',
-      requestId: 'string',
-      nextToken: 'string',
-      maxResults: 'number',
-      templates: { 'type': 'array', 'itemType': ListSysTemplatesResponseBodyTemplates },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSysTemplatesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ListSysTemplatesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListSysTemplatesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteTemplateRequest extends $tea.Model {
-  templateIds?: string;
-  static names(): { [key: string]: string } {
-    return {
-      templateIds: 'TemplateIds',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      templateIds: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteTemplateResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteTemplateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DeleteTemplateResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DeleteTemplateResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitIRJobRequest extends $tea.Model {
-  inputFile?: string;
-  userData?: string;
-  title?: string;
+export class SubmitAudioProduceJobRequest extends $tea.Model {
   description?: string;
-  static names(): { [key: string]: string } {
-    return {
-      inputFile: 'InputFile',
-      userData: 'UserData',
-      title: 'Title',
-      description: 'Description',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      inputFile: 'string',
-      userData: 'string',
-      title: 'string',
-      description: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitIRJobResponseBody extends $tea.Model {
-  requestId?: string;
-  jobId?: string;
-  output?: string;
-  state?: string;
-  userData?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      jobId: 'JobId',
-      output: 'Output',
-      state: 'State',
-      userData: 'UserData',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      jobId: 'string',
-      output: 'string',
-      state: 'string',
-      userData: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitIRJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: SubmitIRJobResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: SubmitIRJobResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteEditingProjectMaterialsRequest extends $tea.Model {
-  projectId?: string;
-  materialIds?: string;
-  materialType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      projectId: 'ProjectId',
-      materialIds: 'MaterialIds',
-      materialType: 'MaterialType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      projectId: 'string',
-      materialIds: 'string',
-      materialType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteEditingProjectMaterialsResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteEditingProjectMaterialsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DeleteEditingProjectMaterialsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DeleteEditingProjectMaterialsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SearchEditingProjectRequest extends $tea.Model {
-  startTime?: string;
-  endTime?: string;
-  status?: string;
-  sortBy?: string;
-  nextToken?: string;
-  maxResults?: number;
-  createSource?: string;
-  templateType?: string;
-  projectType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      startTime: 'StartTime',
-      endTime: 'EndTime',
-      status: 'Status',
-      sortBy: 'SortBy',
-      nextToken: 'NextToken',
-      maxResults: 'MaxResults',
-      createSource: 'CreateSource',
-      templateType: 'TemplateType',
-      projectType: 'ProjectType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      startTime: 'string',
-      endTime: 'string',
-      status: 'string',
-      sortBy: 'string',
-      nextToken: 'string',
-      maxResults: 'number',
-      createSource: 'string',
-      templateType: 'string',
-      projectType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SearchEditingProjectResponseBody extends $tea.Model {
-  requestId?: string;
-  projectList?: SearchEditingProjectResponseBodyProjectList[];
-  maxResults?: number;
-  totalCount?: number;
-  nextToken?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      projectList: 'ProjectList',
-      maxResults: 'MaxResults',
-      totalCount: 'TotalCount',
-      nextToken: 'NextToken',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      projectList: { 'type': 'array', 'itemType': SearchEditingProjectResponseBodyProjectList },
-      maxResults: 'number',
-      totalCount: 'number',
-      nextToken: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SearchEditingProjectResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: SearchEditingProjectResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: SearchEditingProjectResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTemplatesRequest extends $tea.Model {
-  type?: string;
-  status?: string;
-  createSource?: string;
-  keyword?: string;
-  sortType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      type: 'Type',
-      status: 'Status',
-      createSource: 'CreateSource',
-      keyword: 'Keyword',
-      sortType: 'SortType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      type: 'string',
-      status: 'string',
-      createSource: 'string',
-      keyword: 'string',
-      sortType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTemplatesResponseBody extends $tea.Model {
-  requestId?: string;
-  totalCount?: number;
-  templates?: ListTemplatesResponseBodyTemplates[];
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-      templates: 'Templates',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      totalCount: 'number',
-      templates: { 'type': 'array', 'itemType': ListTemplatesResponseBodyTemplates },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTemplatesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ListTemplatesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListTemplatesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteEditingProjectsRequest extends $tea.Model {
-  projectIds?: string;
-  static names(): { [key: string]: string } {
-    return {
-      projectIds: 'ProjectIds',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      projectIds: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteEditingProjectsResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteEditingProjectsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DeleteEditingProjectsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DeleteEditingProjectsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetMediaInfoRequest extends $tea.Model {
-  mediaId?: string;
-  inputURL?: string;
-  outputType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      mediaId: 'MediaId',
-      inputURL: 'InputURL',
-      outputType: 'OutputType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      mediaId: 'string',
-      inputURL: 'string',
-      outputType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetMediaInfoResponseBody extends $tea.Model {
-  requestId?: string;
-  mediaInfo?: GetMediaInfoResponseBodyMediaInfo;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      mediaInfo: 'MediaInfo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      mediaInfo: GetMediaInfoResponseBodyMediaInfo,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetMediaInfoResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: GetMediaInfoResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: GetMediaInfoResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitSmartJobRequest extends $tea.Model {
   editingConfig?: string;
-  outputConfig?: string;
   inputConfig?: string;
+  outputConfig?: string;
+  overwrite?: boolean;
   title?: string;
-  description?: string;
   userData?: string;
-  jobType?: string;
   static names(): { [key: string]: string } {
     return {
-      editingConfig: 'EditingConfig',
-      outputConfig: 'OutputConfig',
-      inputConfig: 'InputConfig',
-      title: 'Title',
       description: 'Description',
+      editingConfig: 'EditingConfig',
+      inputConfig: 'InputConfig',
+      outputConfig: 'OutputConfig',
+      overwrite: 'Overwrite',
+      title: 'Title',
       userData: 'UserData',
-      jobType: 'JobType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      editingConfig: 'string',
-      outputConfig: 'string',
-      inputConfig: 'string',
-      title: 'string',
       description: 'string',
+      editingConfig: 'string',
+      inputConfig: 'string',
+      outputConfig: 'string',
+      overwrite: 'boolean',
+      title: 'string',
       userData: 'string',
-      jobType: 'string',
     };
   }
 
@@ -2535,20 +2384,23 @@ export class SubmitSmartJobRequest extends $tea.Model {
   }
 }
 
-export class SubmitSmartJobResponseBody extends $tea.Model {
-  requestId?: string;
+export class SubmitAudioProduceJobResponseBody extends $tea.Model {
   jobId?: string;
+  requestId?: string;
+  state?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       jobId: 'JobId',
+      requestId: 'RequestId',
+      state: 'State',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       jobId: 'string',
+      requestId: 'string',
+      state: 'string',
     };
   }
 
@@ -2557,9 +2409,9 @@ export class SubmitSmartJobResponseBody extends $tea.Model {
   }
 }
 
-export class SubmitSmartJobResponse extends $tea.Model {
+export class SubmitAudioProduceJobResponse extends $tea.Model {
   headers: { [key: string]: string };
-  body: SubmitSmartJobResponseBody;
+  body: SubmitAudioProduceJobResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2570,7 +2422,7 @@ export class SubmitSmartJobResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: SubmitSmartJobResponseBody,
+      body: SubmitAudioProduceJobResponseBody,
     };
   }
 
@@ -2580,37 +2432,37 @@ export class SubmitSmartJobResponse extends $tea.Model {
 }
 
 export class SubmitDelogoJobRequest extends $tea.Model {
-  inputFile?: string;
-  userData?: string;
-  title?: string;
   description?: string;
-  outputConfig?: string;
+  inputFile?: string;
   inputType?: string;
-  overwrite?: boolean;
+  outputConfig?: string;
   outputMediaTarget?: string;
+  overwrite?: boolean;
+  title?: string;
+  userData?: string;
   static names(): { [key: string]: string } {
     return {
-      inputFile: 'InputFile',
-      userData: 'UserData',
-      title: 'Title',
       description: 'Description',
-      outputConfig: 'OutputConfig',
+      inputFile: 'InputFile',
       inputType: 'InputType',
-      overwrite: 'Overwrite',
+      outputConfig: 'OutputConfig',
       outputMediaTarget: 'OutputMediaTarget',
+      overwrite: 'Overwrite',
+      title: 'Title',
+      userData: 'UserData',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      inputFile: 'string',
-      userData: 'string',
-      title: 'string',
       description: 'string',
-      outputConfig: 'string',
+      inputFile: 'string',
       inputType: 'string',
-      overwrite: 'boolean',
+      outputConfig: 'string',
       outputMediaTarget: 'string',
+      overwrite: 'boolean',
+      title: 'string',
+      userData: 'string',
     };
   }
 
@@ -2620,16 +2472,16 @@ export class SubmitDelogoJobRequest extends $tea.Model {
 }
 
 export class SubmitDelogoJobResponseBody extends $tea.Model {
-  requestId?: string;
   jobId?: string;
   output?: string;
+  requestId?: string;
   state?: string;
   userData?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       jobId: 'JobId',
       output: 'Output',
+      requestId: 'RequestId',
       state: 'State',
       userData: 'UserData',
     };
@@ -2637,9 +2489,9 @@ export class SubmitDelogoJobResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       jobId: 'string',
       output: 'string',
+      requestId: 'string',
       state: 'string',
       userData: 'string',
     };
@@ -2672,35 +2524,896 @@ export class SubmitDelogoJobResponse extends $tea.Model {
   }
 }
 
-export class UpdateTemplateRequest extends $tea.Model {
-  templateId?: string;
-  name?: string;
-  config?: string;
-  coverUrl?: string;
-  previewMedia?: string;
-  status?: string;
-  source?: string;
+export class SubmitH2VJobRequest extends $tea.Model {
+  description?: string;
+  inputFile?: string;
+  inputType?: string;
+  outputConfig?: string;
+  outputMediaTarget?: string;
+  overwrite?: boolean;
+  title?: string;
+  userData?: string;
   static names(): { [key: string]: string } {
     return {
-      templateId: 'TemplateId',
-      name: 'Name',
-      config: 'Config',
-      coverUrl: 'CoverUrl',
-      previewMedia: 'PreviewMedia',
-      status: 'Status',
-      source: 'Source',
+      description: 'Description',
+      inputFile: 'InputFile',
+      inputType: 'InputType',
+      outputConfig: 'OutputConfig',
+      outputMediaTarget: 'OutputMediaTarget',
+      overwrite: 'Overwrite',
+      title: 'Title',
+      userData: 'UserData',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      description: 'string',
+      inputFile: 'string',
+      inputType: 'string',
+      outputConfig: 'string',
+      outputMediaTarget: 'string',
+      overwrite: 'boolean',
+      title: 'string',
+      userData: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitH2VJobResponseBody extends $tea.Model {
+  jobId?: string;
+  output?: string;
+  requestId?: string;
+  state?: string;
+  userData?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jobId: 'JobId',
+      output: 'Output',
+      requestId: 'RequestId',
+      state: 'State',
+      userData: 'UserData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobId: 'string',
+      output: 'string',
+      requestId: 'string',
+      state: 'string',
+      userData: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitH2VJobResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: SubmitH2VJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: SubmitH2VJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitKeyWordCutJobRequest extends $tea.Model {
+  description?: string;
+  inputFile?: string;
+  keyword?: string;
+  title?: string;
+  userData?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      inputFile: 'InputFile',
+      keyword: 'Keyword',
+      title: 'Title',
+      userData: 'UserData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      inputFile: 'string',
+      keyword: 'string',
+      title: 'string',
+      userData: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitKeyWordCutJobResponseBody extends $tea.Model {
+  jobId?: string;
+  output?: string;
+  requestId?: string;
+  state?: string;
+  userData?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jobId: 'JobId',
+      output: 'Output',
+      requestId: 'RequestId',
+      state: 'State',
+      userData: 'UserData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobId: 'string',
+      output: 'string',
+      requestId: 'string',
+      state: 'string',
+      userData: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitKeyWordCutJobResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: SubmitKeyWordCutJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: SubmitKeyWordCutJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitLiveEditingJobRequest extends $tea.Model {
+  clips?: string;
+  liveStreamConfig?: string;
+  mediaProduceConfig?: string;
+  outputMediaConfig?: string;
+  outputMediaTarget?: string;
+  projectId?: string;
+  userData?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clips: 'Clips',
+      liveStreamConfig: 'LiveStreamConfig',
+      mediaProduceConfig: 'MediaProduceConfig',
+      outputMediaConfig: 'OutputMediaConfig',
+      outputMediaTarget: 'OutputMediaTarget',
+      projectId: 'ProjectId',
+      userData: 'UserData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clips: 'string',
+      liveStreamConfig: 'string',
+      mediaProduceConfig: 'string',
+      outputMediaConfig: 'string',
+      outputMediaTarget: 'string',
+      projectId: 'string',
+      userData: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitLiveEditingJobResponseBody extends $tea.Model {
+  jobId?: string;
+  mediaId?: string;
+  mediaURL?: string;
+  projectId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jobId: 'JobId',
+      mediaId: 'MediaId',
+      mediaURL: 'MediaURL',
+      projectId: 'ProjectId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobId: 'string',
+      mediaId: 'string',
+      mediaURL: 'string',
+      projectId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitLiveEditingJobResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: SubmitLiveEditingJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: SubmitLiveEditingJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitMattingJobRequest extends $tea.Model {
+  description?: string;
+  inputFile?: string;
+  inputType?: string;
+  outputConfig?: string;
+  outputMediaTarget?: string;
+  overwrite?: string;
+  title?: string;
+  userData?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      inputFile: 'InputFile',
+      inputType: 'InputType',
+      outputConfig: 'OutputConfig',
+      outputMediaTarget: 'OutputMediaTarget',
+      overwrite: 'Overwrite',
+      title: 'Title',
+      userData: 'UserData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      inputFile: 'string',
+      inputType: 'string',
+      outputConfig: 'string',
+      outputMediaTarget: 'string',
+      overwrite: 'string',
+      title: 'string',
+      userData: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitMattingJobResponseBody extends $tea.Model {
+  jobId?: string;
+  output?: string;
+  requestId?: string;
+  state?: string;
+  userData?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jobId: 'JobId',
+      output: 'Output',
+      requestId: 'RequestId',
+      state: 'State',
+      userData: 'UserData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobId: 'string',
+      output: 'string',
+      requestId: 'string',
+      state: 'string',
+      userData: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitMattingJobResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: SubmitMattingJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: SubmitMattingJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitMediaProducingJobRequest extends $tea.Model {
+  clientToken?: string;
+  clipsParam?: string;
+  outputMediaConfig?: string;
+  outputMediaTarget?: string;
+  projectId?: string;
+  projectMetadata?: string;
+  source?: string;
+  templateId?: string;
+  timeline?: string;
+  userData?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      clipsParam: 'ClipsParam',
+      outputMediaConfig: 'OutputMediaConfig',
+      outputMediaTarget: 'OutputMediaTarget',
+      projectId: 'ProjectId',
+      projectMetadata: 'ProjectMetadata',
+      source: 'Source',
+      templateId: 'TemplateId',
+      timeline: 'Timeline',
+      userData: 'UserData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      clipsParam: 'string',
+      outputMediaConfig: 'string',
+      outputMediaTarget: 'string',
+      projectId: 'string',
+      projectMetadata: 'string',
+      source: 'string',
       templateId: 'string',
-      name: 'string',
+      timeline: 'string',
+      userData: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitMediaProducingJobResponseBody extends $tea.Model {
+  jobId?: string;
+  mediaId?: string;
+  projectId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jobId: 'JobId',
+      mediaId: 'MediaId',
+      projectId: 'ProjectId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobId: 'string',
+      mediaId: 'string',
+      projectId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitMediaProducingJobResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: SubmitMediaProducingJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: SubmitMediaProducingJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitPPTCutJobRequest extends $tea.Model {
+  description?: string;
+  inputFile?: string;
+  title?: string;
+  userData?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      inputFile: 'InputFile',
+      title: 'Title',
+      userData: 'UserData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      inputFile: 'string',
+      title: 'string',
+      userData: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitPPTCutJobResponseBody extends $tea.Model {
+  jobId?: string;
+  output?: string;
+  requestId?: string;
+  state?: string;
+  userData?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jobId: 'JobId',
+      output: 'Output',
+      requestId: 'RequestId',
+      state: 'State',
+      userData: 'UserData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobId: 'string',
+      output: 'string',
+      requestId: 'string',
+      state: 'string',
+      userData: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitPPTCutJobResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: SubmitPPTCutJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: SubmitPPTCutJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitSubtitleProduceJobRequest extends $tea.Model {
+  description?: string;
+  editingConfig?: string;
+  inputConfig?: string;
+  isAsync?: number;
+  outputConfig?: string;
+  title?: string;
+  type?: string;
+  userData?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      editingConfig: 'EditingConfig',
+      inputConfig: 'InputConfig',
+      isAsync: 'IsAsync',
+      outputConfig: 'OutputConfig',
+      title: 'Title',
+      type: 'Type',
+      userData: 'UserData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      editingConfig: 'string',
+      inputConfig: 'string',
+      isAsync: 'number',
+      outputConfig: 'string',
+      title: 'string',
+      type: 'string',
+      userData: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitSubtitleProduceJobResponseBody extends $tea.Model {
+  jobId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jobId: 'JobId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitSubtitleProduceJobResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: SubmitSubtitleProduceJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: SubmitSubtitleProduceJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEditingProjectRequest extends $tea.Model {
+  businessStatus?: string;
+  coverURL?: string;
+  description?: string;
+  projectId?: string;
+  timeline?: string;
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      businessStatus: 'BusinessStatus',
+      coverURL: 'CoverURL',
+      description: 'Description',
+      projectId: 'ProjectId',
+      timeline: 'Timeline',
+      title: 'Title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      businessStatus: 'string',
+      coverURL: 'string',
+      description: 'string',
+      projectId: 'string',
+      timeline: 'string',
+      title: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEditingProjectResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEditingProjectResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: UpdateEditingProjectResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: UpdateEditingProjectResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateMediaInfoRequest extends $tea.Model {
+  appendDynamicMeta?: boolean;
+  appendTags?: boolean;
+  businessType?: string;
+  category?: string;
+  coverURL?: string;
+  description?: string;
+  dynamicMetaDataList?: string;
+  inputURL?: string;
+  mediaId?: string;
+  mediaTags?: string;
+  title?: string;
+  userData?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appendDynamicMeta: 'AppendDynamicMeta',
+      appendTags: 'AppendTags',
+      businessType: 'BusinessType',
+      category: 'Category',
+      coverURL: 'CoverURL',
+      description: 'Description',
+      dynamicMetaDataList: 'DynamicMetaDataList',
+      inputURL: 'InputURL',
+      mediaId: 'MediaId',
+      mediaTags: 'MediaTags',
+      title: 'Title',
+      userData: 'UserData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appendDynamicMeta: 'boolean',
+      appendTags: 'boolean',
+      businessType: 'string',
+      category: 'string',
+      coverURL: 'string',
+      description: 'string',
+      dynamicMetaDataList: 'string',
+      inputURL: 'string',
+      mediaId: 'string',
+      mediaTags: 'string',
+      title: 'string',
+      userData: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateMediaInfoResponseBody extends $tea.Model {
+  mediaId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      mediaId: 'MediaId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mediaId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateMediaInfoResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: UpdateMediaInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: UpdateMediaInfoResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSmartJobRequest extends $tea.Model {
+  FEExtend?: string;
+  jobId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      FEExtend: 'FEExtend',
+      jobId: 'JobId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      FEExtend: 'string',
+      jobId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSmartJobResponseBody extends $tea.Model {
+  FEExtend?: string;
+  jobId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      FEExtend: 'FEExtend',
+      jobId: 'JobId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      FEExtend: 'string',
+      jobId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSmartJobResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: UpdateSmartJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: UpdateSmartJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateTemplateRequest extends $tea.Model {
+  config?: string;
+  coverUrl?: string;
+  name?: string;
+  previewMedia?: string;
+  source?: string;
+  status?: string;
+  templateId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      config: 'Config',
+      coverUrl: 'CoverUrl',
+      name: 'Name',
+      previewMedia: 'PreviewMedia',
+      source: 'Source',
+      status: 'Status',
+      templateId: 'TemplateId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
       config: 'string',
       coverUrl: 'string',
+      name: 'string',
       previewMedia: 'string',
-      status: 'string',
       source: 'string',
+      status: 'string',
+      templateId: 'string',
     };
   }
 
@@ -2750,35 +3463,26 @@ export class UpdateTemplateResponse extends $tea.Model {
   }
 }
 
-export class SubmitAudioProduceJobRequest extends $tea.Model {
-  editingConfig?: string;
-  outputConfig?: string;
-  inputConfig?: string;
-  title?: string;
-  description?: string;
-  userData?: string;
-  overwrite?: boolean;
+export class AddEditingProjectMaterialsResponseBodyLiveMaterials extends $tea.Model {
+  appName?: string;
+  domainName?: string;
+  liveUrl?: string;
+  streamName?: string;
   static names(): { [key: string]: string } {
     return {
-      editingConfig: 'EditingConfig',
-      outputConfig: 'OutputConfig',
-      inputConfig: 'InputConfig',
-      title: 'Title',
-      description: 'Description',
-      userData: 'UserData',
-      overwrite: 'Overwrite',
+      appName: 'AppName',
+      domainName: 'DomainName',
+      liveUrl: 'LiveUrl',
+      streamName: 'StreamName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      editingConfig: 'string',
-      outputConfig: 'string',
-      inputConfig: 'string',
-      title: 'string',
-      description: 'string',
-      userData: 'string',
-      overwrite: 'boolean',
+      appName: 'string',
+      domainName: 'string',
+      liveUrl: 'string',
+      streamName: 'string',
     };
   }
 
@@ -2787,23 +3491,47 @@ export class SubmitAudioProduceJobRequest extends $tea.Model {
   }
 }
 
-export class SubmitAudioProduceJobResponseBody extends $tea.Model {
-  requestId?: string;
-  jobId?: string;
-  state?: string;
+export class AddEditingProjectMaterialsResponseBodyMediaInfosFileInfoListFileBasicInfo extends $tea.Model {
+  bitrate?: string;
+  duration?: string;
+  fileName?: string;
+  fileSize?: string;
+  fileStatus?: string;
+  fileType?: string;
+  fileUrl?: string;
+  formatName?: string;
+  height?: string;
+  region?: string;
+  width?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
-      jobId: 'JobId',
-      state: 'State',
+      bitrate: 'Bitrate',
+      duration: 'Duration',
+      fileName: 'FileName',
+      fileSize: 'FileSize',
+      fileStatus: 'FileStatus',
+      fileType: 'FileType',
+      fileUrl: 'FileUrl',
+      formatName: 'FormatName',
+      height: 'Height',
+      region: 'Region',
+      width: 'Width',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
-      jobId: 'string',
-      state: 'string',
+      bitrate: 'string',
+      duration: 'string',
+      fileName: 'string',
+      fileSize: 'string',
+      fileStatus: 'string',
+      fileType: 'string',
+      fileUrl: 'string',
+      formatName: 'string',
+      height: 'string',
+      region: 'string',
+      width: 'string',
     };
   }
 
@@ -2812,20 +3540,17 @@ export class SubmitAudioProduceJobResponseBody extends $tea.Model {
   }
 }
 
-export class SubmitAudioProduceJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: SubmitAudioProduceJobResponseBody;
+export class AddEditingProjectMaterialsResponseBodyMediaInfosFileInfoList extends $tea.Model {
+  fileBasicInfo?: AddEditingProjectMaterialsResponseBodyMediaInfosFileInfoListFileBasicInfo;
   static names(): { [key: string]: string } {
     return {
-      headers: 'headers',
-      body: 'body',
+      fileBasicInfo: 'FileBasicInfo',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: SubmitAudioProduceJobResponseBody,
+      fileBasicInfo: AddEditingProjectMaterialsResponseBodyMediaInfosFileInfoListFileBasicInfo,
     };
   }
 
@@ -2834,972 +3559,615 @@ export class SubmitAudioProduceJobResponse extends $tea.Model {
   }
 }
 
-export class SubmitMediaProducingJobRequest extends $tea.Model {
-  projectId?: string;
-  timeline?: string;
-  templateId?: string;
-  clipsParam?: string;
-  projectMetadata?: string;
-  outputMediaTarget?: string;
-  outputMediaConfig?: string;
-  userData?: string;
-  clientToken?: string;
-  source?: string;
-  static names(): { [key: string]: string } {
-    return {
-      projectId: 'ProjectId',
-      timeline: 'Timeline',
-      templateId: 'TemplateId',
-      clipsParam: 'ClipsParam',
-      projectMetadata: 'ProjectMetadata',
-      outputMediaTarget: 'OutputMediaTarget',
-      outputMediaConfig: 'OutputMediaConfig',
-      userData: 'UserData',
-      clientToken: 'ClientToken',
-      source: 'Source',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      projectId: 'string',
-      timeline: 'string',
-      templateId: 'string',
-      clipsParam: 'string',
-      projectMetadata: 'string',
-      outputMediaTarget: 'string',
-      outputMediaConfig: 'string',
-      userData: 'string',
-      clientToken: 'string',
-      source: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitMediaProducingJobResponseBody extends $tea.Model {
-  requestId?: string;
-  projectId?: string;
-  jobId?: string;
-  mediaId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      projectId: 'ProjectId',
-      jobId: 'JobId',
-      mediaId: 'MediaId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      projectId: 'string',
-      jobId: 'string',
-      mediaId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitMediaProducingJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: SubmitMediaProducingJobResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: SubmitMediaProducingJobResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateSmartJobRequest extends $tea.Model {
-  jobId?: string;
-  FEExtend?: string;
-  static names(): { [key: string]: string } {
-    return {
-      jobId: 'JobId',
-      FEExtend: 'FEExtend',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      jobId: 'string',
-      FEExtend: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateSmartJobResponseBody extends $tea.Model {
-  requestId?: string;
-  jobId?: string;
-  FEExtend?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      jobId: 'JobId',
-      FEExtend: 'FEExtend',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      jobId: 'string',
-      FEExtend: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateSmartJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: UpdateSmartJobResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: UpdateSmartJobResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListAllPublicMediaTagsRequest extends $tea.Model {
+export class AddEditingProjectMaterialsResponseBodyMediaInfosMediaBasicInfo extends $tea.Model {
   businessType?: string;
+  category?: string;
+  coverURL?: string;
+  createTime?: string;
+  deletedTime?: string;
+  description?: string;
+  inputURL?: string;
+  mediaId?: string;
+  mediaTags?: string;
+  mediaType?: string;
+  modifiedTime?: string;
+  snapshots?: string;
+  source?: string;
+  spriteImages?: string;
+  status?: string;
+  title?: string;
+  transcodeStatus?: string;
+  userData?: string;
   static names(): { [key: string]: string } {
     return {
       businessType: 'BusinessType',
+      category: 'Category',
+      coverURL: 'CoverURL',
+      createTime: 'CreateTime',
+      deletedTime: 'DeletedTime',
+      description: 'Description',
+      inputURL: 'InputURL',
+      mediaId: 'MediaId',
+      mediaTags: 'MediaTags',
+      mediaType: 'MediaType',
+      modifiedTime: 'ModifiedTime',
+      snapshots: 'Snapshots',
+      source: 'Source',
+      spriteImages: 'SpriteImages',
+      status: 'Status',
+      title: 'Title',
+      transcodeStatus: 'TranscodeStatus',
+      userData: 'UserData',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       businessType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListAllPublicMediaTagsResponseBody extends $tea.Model {
-  requestId?: string;
-  mediaTagList?: ListAllPublicMediaTagsResponseBodyMediaTagList[];
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      mediaTagList: 'MediaTagList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      mediaTagList: { 'type': 'array', 'itemType': ListAllPublicMediaTagsResponseBodyMediaTagList },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListAllPublicMediaTagsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ListAllPublicMediaTagsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListAllPublicMediaTagsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitMattingJobRequest extends $tea.Model {
-  inputFile?: string;
-  userData?: string;
-  title?: string;
-  description?: string;
-  outputConfig?: string;
-  inputType?: string;
-  overwrite?: string;
-  outputMediaTarget?: string;
-  static names(): { [key: string]: string } {
-    return {
-      inputFile: 'InputFile',
-      userData: 'UserData',
-      title: 'Title',
-      description: 'Description',
-      outputConfig: 'OutputConfig',
-      inputType: 'InputType',
-      overwrite: 'Overwrite',
-      outputMediaTarget: 'OutputMediaTarget',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      inputFile: 'string',
-      userData: 'string',
-      title: 'string',
-      description: 'string',
-      outputConfig: 'string',
-      inputType: 'string',
-      overwrite: 'string',
-      outputMediaTarget: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitMattingJobResponseBody extends $tea.Model {
-  requestId?: string;
-  jobId?: string;
-  output?: string;
-  state?: string;
-  userData?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      jobId: 'JobId',
-      output: 'Output',
-      state: 'State',
-      userData: 'UserData',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      jobId: 'string',
-      output: 'string',
-      state: 'string',
-      userData: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitMattingJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: SubmitMattingJobResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: SubmitMattingJobResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetEventCallbackResponseBody extends $tea.Model {
-  requestId?: string;
-  callbackQueueName?: string;
-  eventTypeList?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      callbackQueueName: 'CallbackQueueName',
-      eventTypeList: 'EventTypeList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      callbackQueueName: 'string',
-      eventTypeList: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetEventCallbackResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: GetEventCallbackResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: GetEventCallbackResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListPublicMediaBasicInfosRequest extends $tea.Model {
-  mediaTagId?: string;
-  nextToken?: string;
-  maxResults?: number;
-  includeFileBasicInfo?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      mediaTagId: 'MediaTagId',
-      nextToken: 'NextToken',
-      maxResults: 'MaxResults',
-      includeFileBasicInfo: 'IncludeFileBasicInfo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      mediaTagId: 'string',
-      nextToken: 'string',
-      maxResults: 'number',
-      includeFileBasicInfo: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListPublicMediaBasicInfosResponseBody extends $tea.Model {
-  requestId?: string;
-  totalCount?: number;
-  mediaInfos?: ListPublicMediaBasicInfosResponseBodyMediaInfos[];
-  nextToken?: string;
-  maxResults?: number;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-      mediaInfos: 'MediaInfos',
-      nextToken: 'NextToken',
-      maxResults: 'MaxResults',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      totalCount: 'number',
-      mediaInfos: { 'type': 'array', 'itemType': ListPublicMediaBasicInfosResponseBodyMediaInfos },
-      nextToken: 'string',
-      maxResults: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListPublicMediaBasicInfosResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ListPublicMediaBasicInfosResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListPublicMediaBasicInfosResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitCoverJobRequest extends $tea.Model {
-  inputFile?: string;
-  userData?: string;
-  title?: string;
-  description?: string;
-  outputConfig?: string;
-  static names(): { [key: string]: string } {
-    return {
-      inputFile: 'InputFile',
-      userData: 'UserData',
-      title: 'Title',
-      description: 'Description',
-      outputConfig: 'OutputConfig',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      inputFile: 'string',
-      userData: 'string',
-      title: 'string',
-      description: 'string',
-      outputConfig: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitCoverJobResponseBody extends $tea.Model {
-  requestId?: string;
-  jobId?: string;
-  output?: string;
-  state?: string;
-  userData?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      jobId: 'JobId',
-      output: 'Output',
-      state: 'State',
-      userData: 'UserData',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      jobId: 'string',
-      output: 'string',
-      state: 'string',
-      userData: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitCoverJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: SubmitCoverJobResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: SubmitCoverJobResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetSmartHandleJobRequest extends $tea.Model {
-  jobId?: string;
-  withAiResult?: string;
-  static names(): { [key: string]: string } {
-    return {
-      jobId: 'JobId',
-      withAiResult: 'WithAiResult',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      jobId: 'string',
-      withAiResult: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetSmartHandleJobResponseBody extends $tea.Model {
-  requestId?: string;
-  jobId?: string;
-  output?: string;
-  state?: string;
-  userData?: string;
-  FEExtend?: string;
-  smartJobInfo?: GetSmartHandleJobResponseBodySmartJobInfo;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      jobId: 'JobId',
-      output: 'Output',
-      state: 'State',
-      userData: 'UserData',
-      FEExtend: 'FEExtend',
-      smartJobInfo: 'SmartJobInfo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      jobId: 'string',
-      output: 'string',
-      state: 'string',
-      userData: 'string',
-      FEExtend: 'string',
-      smartJobInfo: GetSmartHandleJobResponseBodySmartJobInfo,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetSmartHandleJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: GetSmartHandleJobResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: GetSmartHandleJobResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitH2VJobRequest extends $tea.Model {
-  inputFile?: string;
-  userData?: string;
-  title?: string;
-  description?: string;
-  outputConfig?: string;
-  inputType?: string;
-  overwrite?: boolean;
-  outputMediaTarget?: string;
-  static names(): { [key: string]: string } {
-    return {
-      inputFile: 'InputFile',
-      userData: 'UserData',
-      title: 'Title',
-      description: 'Description',
-      outputConfig: 'OutputConfig',
-      inputType: 'InputType',
-      overwrite: 'Overwrite',
-      outputMediaTarget: 'OutputMediaTarget',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      inputFile: 'string',
-      userData: 'string',
-      title: 'string',
-      description: 'string',
-      outputConfig: 'string',
-      inputType: 'string',
-      overwrite: 'boolean',
-      outputMediaTarget: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitH2VJobResponseBody extends $tea.Model {
-  requestId?: string;
-  jobId?: string;
-  output?: string;
-  state?: string;
-  userData?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      jobId: 'JobId',
-      output: 'Output',
-      state: 'State',
-      userData: 'UserData',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      jobId: 'string',
-      output: 'string',
-      state: 'string',
-      userData: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitH2VJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: SubmitH2VJobResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: SubmitH2VJobResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitLiveEditingJobRequest extends $tea.Model {
-  clips?: string;
-  projectId?: string;
-  liveStreamConfig?: string;
-  outputMediaConfig?: string;
-  mediaProduceConfig?: string;
-  userData?: string;
-  outputMediaTarget?: string;
-  static names(): { [key: string]: string } {
-    return {
-      clips: 'Clips',
-      projectId: 'ProjectId',
-      liveStreamConfig: 'LiveStreamConfig',
-      outputMediaConfig: 'OutputMediaConfig',
-      mediaProduceConfig: 'MediaProduceConfig',
-      userData: 'UserData',
-      outputMediaTarget: 'OutputMediaTarget',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clips: 'string',
-      projectId: 'string',
-      liveStreamConfig: 'string',
-      outputMediaConfig: 'string',
-      mediaProduceConfig: 'string',
-      userData: 'string',
-      outputMediaTarget: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitLiveEditingJobResponseBody extends $tea.Model {
-  requestId?: string;
-  projectId?: string;
-  jobId?: string;
-  mediaId?: string;
-  mediaURL?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      projectId: 'ProjectId',
-      jobId: 'JobId',
-      mediaId: 'MediaId',
-      mediaURL: 'MediaURL',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      projectId: 'string',
-      jobId: 'string',
-      mediaId: 'string',
-      mediaURL: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitLiveEditingJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: SubmitLiveEditingJobResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: SubmitLiveEditingJobResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitPPTCutJobRequest extends $tea.Model {
-  inputFile?: string;
-  userData?: string;
-  title?: string;
-  description?: string;
-  static names(): { [key: string]: string } {
-    return {
-      inputFile: 'InputFile',
-      userData: 'UserData',
-      title: 'Title',
-      description: 'Description',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      inputFile: 'string',
-      userData: 'string',
-      title: 'string',
-      description: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitPPTCutJobResponseBody extends $tea.Model {
-  requestId?: string;
-  jobId?: string;
-  output?: string;
-  state?: string;
-  userData?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      jobId: 'JobId',
-      output: 'Output',
-      state: 'State',
-      userData: 'UserData',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      jobId: 'string',
-      output: 'string',
-      state: 'string',
-      userData: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitPPTCutJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: SubmitPPTCutJobResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: SubmitPPTCutJobResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSmartJobsResponseBodySmartJobListInputConfig extends $tea.Model {
-  inputFile?: string;
-  keyword?: string;
-  static names(): { [key: string]: string } {
-    return {
-      inputFile: 'InputFile',
-      keyword: 'Keyword',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      inputFile: 'string',
-      keyword: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSmartJobsResponseBodySmartJobListOutputConfig extends $tea.Model {
-  bucket?: string;
-  object?: string;
-  static names(): { [key: string]: string } {
-    return {
-      bucket: 'Bucket',
-      object: 'Object',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bucket: 'string',
-      object: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSmartJobsResponseBodySmartJobList extends $tea.Model {
-  jobId?: string;
-  title?: string;
-  description?: string;
-  userId?: number;
-  jobType?: string;
-  editingConfig?: string;
-  userData?: string;
-  jobState?: string;
-  createTime?: string;
-  modifiedTime?: string;
-  inputConfig?: ListSmartJobsResponseBodySmartJobListInputConfig;
-  outputConfig?: ListSmartJobsResponseBodySmartJobListOutputConfig;
-  static names(): { [key: string]: string } {
-    return {
-      jobId: 'JobId',
-      title: 'Title',
-      description: 'Description',
-      userId: 'UserId',
-      jobType: 'JobType',
-      editingConfig: 'EditingConfig',
-      userData: 'UserData',
-      jobState: 'JobState',
-      createTime: 'CreateTime',
-      modifiedTime: 'ModifiedTime',
-      inputConfig: 'InputConfig',
-      outputConfig: 'OutputConfig',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      jobId: 'string',
-      title: 'string',
-      description: 'string',
-      userId: 'number',
-      jobType: 'string',
-      editingConfig: 'string',
-      userData: 'string',
-      jobState: 'string',
+      category: 'string',
+      coverURL: 'string',
       createTime: 'string',
+      deletedTime: 'string',
+      description: 'string',
+      inputURL: 'string',
+      mediaId: 'string',
+      mediaTags: 'string',
+      mediaType: 'string',
       modifiedTime: 'string',
-      inputConfig: ListSmartJobsResponseBodySmartJobListInputConfig,
-      outputConfig: ListSmartJobsResponseBodySmartJobListOutputConfig,
+      snapshots: 'string',
+      source: 'string',
+      spriteImages: 'string',
+      status: 'string',
+      title: 'string',
+      transcodeStatus: 'string',
+      userData: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddEditingProjectMaterialsResponseBodyMediaInfos extends $tea.Model {
+  fileInfoList?: AddEditingProjectMaterialsResponseBodyMediaInfosFileInfoList[];
+  mediaBasicInfo?: AddEditingProjectMaterialsResponseBodyMediaInfosMediaBasicInfo;
+  mediaId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fileInfoList: 'FileInfoList',
+      mediaBasicInfo: 'MediaBasicInfo',
+      mediaId: 'MediaId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileInfoList: { 'type': 'array', 'itemType': AddEditingProjectMaterialsResponseBodyMediaInfosFileInfoList },
+      mediaBasicInfo: AddEditingProjectMaterialsResponseBodyMediaInfosMediaBasicInfo,
+      mediaId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddTemplateResponseBodyTemplate extends $tea.Model {
+  config?: string;
+  coverUrl?: string;
+  createSource?: string;
+  modifiedSource?: string;
+  name?: string;
+  previewMedia?: string;
+  status?: string;
+  templateId?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      config: 'Config',
+      coverUrl: 'CoverUrl',
+      createSource: 'CreateSource',
+      modifiedSource: 'ModifiedSource',
+      name: 'Name',
+      previewMedia: 'PreviewMedia',
+      status: 'Status',
+      templateId: 'TemplateId',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      config: 'string',
+      coverUrl: 'string',
+      createSource: 'string',
+      modifiedSource: 'string',
+      name: 'string',
+      previewMedia: 'string',
+      status: 'string',
+      templateId: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchGetMediaInfosResponseBodyMediaInfosFileInfoListFileBasicInfo extends $tea.Model {
+  bitrate?: string;
+  duration?: string;
+  fileName?: string;
+  fileSize?: string;
+  fileStatus?: string;
+  fileType?: string;
+  fileUrl?: string;
+  formatName?: string;
+  height?: string;
+  region?: string;
+  width?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bitrate: 'Bitrate',
+      duration: 'Duration',
+      fileName: 'FileName',
+      fileSize: 'FileSize',
+      fileStatus: 'FileStatus',
+      fileType: 'FileType',
+      fileUrl: 'FileUrl',
+      formatName: 'FormatName',
+      height: 'Height',
+      region: 'Region',
+      width: 'Width',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bitrate: 'string',
+      duration: 'string',
+      fileName: 'string',
+      fileSize: 'string',
+      fileStatus: 'string',
+      fileType: 'string',
+      fileUrl: 'string',
+      formatName: 'string',
+      height: 'string',
+      region: 'string',
+      width: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchGetMediaInfosResponseBodyMediaInfosFileInfoList extends $tea.Model {
+  fileBasicInfo?: BatchGetMediaInfosResponseBodyMediaInfosFileInfoListFileBasicInfo;
+  static names(): { [key: string]: string } {
+    return {
+      fileBasicInfo: 'FileBasicInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileBasicInfo: BatchGetMediaInfosResponseBodyMediaInfosFileInfoListFileBasicInfo,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchGetMediaInfosResponseBodyMediaInfosMediaBasicInfo extends $tea.Model {
+  businessType?: string;
+  category?: string;
+  coverURL?: string;
+  createTime?: string;
+  deletedTime?: string;
+  description?: string;
+  inputURL?: string;
+  mediaId?: string;
+  mediaTags?: string;
+  mediaType?: string;
+  modifiedTime?: string;
+  snapshots?: string;
+  source?: string;
+  spriteImages?: string;
+  status?: string;
+  title?: string;
+  transcodeStatus?: string;
+  userData?: string;
+  static names(): { [key: string]: string } {
+    return {
+      businessType: 'BusinessType',
+      category: 'Category',
+      coverURL: 'CoverURL',
+      createTime: 'CreateTime',
+      deletedTime: 'DeletedTime',
+      description: 'Description',
+      inputURL: 'InputURL',
+      mediaId: 'MediaId',
+      mediaTags: 'MediaTags',
+      mediaType: 'MediaType',
+      modifiedTime: 'ModifiedTime',
+      snapshots: 'Snapshots',
+      source: 'Source',
+      spriteImages: 'SpriteImages',
+      status: 'Status',
+      title: 'Title',
+      transcodeStatus: 'TranscodeStatus',
+      userData: 'UserData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      businessType: 'string',
+      category: 'string',
+      coverURL: 'string',
+      createTime: 'string',
+      deletedTime: 'string',
+      description: 'string',
+      inputURL: 'string',
+      mediaId: 'string',
+      mediaTags: 'string',
+      mediaType: 'string',
+      modifiedTime: 'string',
+      snapshots: 'string',
+      source: 'string',
+      spriteImages: 'string',
+      status: 'string',
+      title: 'string',
+      transcodeStatus: 'string',
+      userData: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchGetMediaInfosResponseBodyMediaInfos extends $tea.Model {
+  fileInfoList?: BatchGetMediaInfosResponseBodyMediaInfosFileInfoList[];
+  mediaBasicInfo?: BatchGetMediaInfosResponseBodyMediaInfosMediaBasicInfo;
+  mediaId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fileInfoList: 'FileInfoList',
+      mediaBasicInfo: 'MediaBasicInfo',
+      mediaId: 'MediaId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileInfoList: { 'type': 'array', 'itemType': BatchGetMediaInfosResponseBodyMediaInfosFileInfoList },
+      mediaBasicInfo: BatchGetMediaInfosResponseBodyMediaInfosMediaBasicInfo,
+      mediaId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEditingProjectResponseBodyProject extends $tea.Model {
+  businessConfig?: string;
+  businessStatus?: string;
+  coverURL?: string;
+  createSource?: string;
+  createTime?: string;
+  description?: string;
+  duration?: number;
+  modifiedSource?: string;
+  modifiedTime?: string;
+  projectId?: string;
+  projectType?: string;
+  status?: number;
+  statusName?: string;
+  templateType?: string;
+  timeline?: string;
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      businessConfig: 'BusinessConfig',
+      businessStatus: 'BusinessStatus',
+      coverURL: 'CoverURL',
+      createSource: 'CreateSource',
+      createTime: 'CreateTime',
+      description: 'Description',
+      duration: 'Duration',
+      modifiedSource: 'ModifiedSource',
+      modifiedTime: 'ModifiedTime',
+      projectId: 'ProjectId',
+      projectType: 'ProjectType',
+      status: 'Status',
+      statusName: 'StatusName',
+      templateType: 'TemplateType',
+      timeline: 'Timeline',
+      title: 'Title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      businessConfig: 'string',
+      businessStatus: 'string',
+      coverURL: 'string',
+      createSource: 'string',
+      createTime: 'string',
+      description: 'string',
+      duration: 'number',
+      modifiedSource: 'string',
+      modifiedTime: 'string',
+      projectId: 'string',
+      projectType: 'string',
+      status: 'number',
+      statusName: 'string',
+      templateType: 'string',
+      timeline: 'string',
+      title: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEditingProjectResponseBodyProject extends $tea.Model {
+  businessConfig?: string;
+  businessStatus?: string;
+  coverURL?: string;
+  createSource?: string;
+  createTime?: string;
+  description?: string;
+  duration?: number;
+  modifiedSource?: string;
+  modifiedTime?: string;
+  projectId?: string;
+  projectType?: string;
+  status?: string;
+  templateType?: string;
+  timeline?: string;
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      businessConfig: 'BusinessConfig',
+      businessStatus: 'BusinessStatus',
+      coverURL: 'CoverURL',
+      createSource: 'CreateSource',
+      createTime: 'CreateTime',
+      description: 'Description',
+      duration: 'Duration',
+      modifiedSource: 'ModifiedSource',
+      modifiedTime: 'ModifiedTime',
+      projectId: 'ProjectId',
+      projectType: 'ProjectType',
+      status: 'Status',
+      templateType: 'TemplateType',
+      timeline: 'Timeline',
+      title: 'Title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      businessConfig: 'string',
+      businessStatus: 'string',
+      coverURL: 'string',
+      createSource: 'string',
+      createTime: 'string',
+      description: 'string',
+      duration: 'number',
+      modifiedSource: 'string',
+      modifiedTime: 'string',
+      projectId: 'string',
+      projectType: 'string',
+      status: 'string',
+      templateType: 'string',
+      timeline: 'string',
+      title: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEditingProjectMaterialsResponseBodyLiveMaterials extends $tea.Model {
+  appName?: string;
+  domainName?: string;
+  liveUrl?: string;
+  streamName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appName: 'AppName',
+      domainName: 'DomainName',
+      liveUrl: 'LiveUrl',
+      streamName: 'StreamName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appName: 'string',
+      domainName: 'string',
+      liveUrl: 'string',
+      streamName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEditingProjectMaterialsResponseBodyMediaInfosFileInfoListFileBasicInfo extends $tea.Model {
+  bitrate?: string;
+  duration?: string;
+  fileName?: string;
+  fileSize?: string;
+  fileStatus?: string;
+  fileType?: string;
+  fileUrl?: string;
+  formatName?: string;
+  height?: string;
+  region?: string;
+  width?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bitrate: 'Bitrate',
+      duration: 'Duration',
+      fileName: 'FileName',
+      fileSize: 'FileSize',
+      fileStatus: 'FileStatus',
+      fileType: 'FileType',
+      fileUrl: 'FileUrl',
+      formatName: 'FormatName',
+      height: 'Height',
+      region: 'Region',
+      width: 'Width',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bitrate: 'string',
+      duration: 'string',
+      fileName: 'string',
+      fileSize: 'string',
+      fileStatus: 'string',
+      fileType: 'string',
+      fileUrl: 'string',
+      formatName: 'string',
+      height: 'string',
+      region: 'string',
+      width: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEditingProjectMaterialsResponseBodyMediaInfosFileInfoList extends $tea.Model {
+  fileBasicInfo?: GetEditingProjectMaterialsResponseBodyMediaInfosFileInfoListFileBasicInfo;
+  static names(): { [key: string]: string } {
+    return {
+      fileBasicInfo: 'FileBasicInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileBasicInfo: GetEditingProjectMaterialsResponseBodyMediaInfosFileInfoListFileBasicInfo,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEditingProjectMaterialsResponseBodyMediaInfosMediaBasicInfo extends $tea.Model {
+  businessType?: string;
+  category?: string;
+  coverURL?: string;
+  createTime?: string;
+  deletedTime?: string;
+  description?: string;
+  inputURL?: string;
+  mediaId?: string;
+  mediaTags?: string;
+  mediaType?: string;
+  modifiedTime?: string;
+  snapshots?: string;
+  source?: string;
+  spriteImages?: string;
+  status?: string;
+  title?: string;
+  transcodeStatus?: string;
+  userData?: string;
+  static names(): { [key: string]: string } {
+    return {
+      businessType: 'BusinessType',
+      category: 'Category',
+      coverURL: 'CoverURL',
+      createTime: 'CreateTime',
+      deletedTime: 'DeletedTime',
+      description: 'Description',
+      inputURL: 'InputURL',
+      mediaId: 'MediaId',
+      mediaTags: 'MediaTags',
+      mediaType: 'MediaType',
+      modifiedTime: 'ModifiedTime',
+      snapshots: 'Snapshots',
+      source: 'Source',
+      spriteImages: 'SpriteImages',
+      status: 'Status',
+      title: 'Title',
+      transcodeStatus: 'TranscodeStatus',
+      userData: 'UserData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      businessType: 'string',
+      category: 'string',
+      coverURL: 'string',
+      createTime: 'string',
+      deletedTime: 'string',
+      description: 'string',
+      inputURL: 'string',
+      mediaId: 'string',
+      mediaTags: 'string',
+      mediaType: 'string',
+      modifiedTime: 'string',
+      snapshots: 'string',
+      source: 'string',
+      spriteImages: 'string',
+      status: 'string',
+      title: 'string',
+      transcodeStatus: 'string',
+      userData: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEditingProjectMaterialsResponseBodyMediaInfos extends $tea.Model {
+  fileInfoList?: GetEditingProjectMaterialsResponseBodyMediaInfosFileInfoList[];
+  mediaBasicInfo?: GetEditingProjectMaterialsResponseBodyMediaInfosMediaBasicInfo;
+  mediaId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fileInfoList: 'FileInfoList',
+      mediaBasicInfo: 'MediaBasicInfo',
+      mediaId: 'MediaId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileInfoList: { 'type': 'array', 'itemType': GetEditingProjectMaterialsResponseBodyMediaInfosFileInfoList },
+      mediaBasicInfo: GetEditingProjectMaterialsResponseBodyMediaInfosMediaBasicInfo,
+      mediaId: 'string',
     };
   }
 
@@ -3853,34 +4221,34 @@ export class GetLiveEditingJobResponseBodyLiveEditingJobMediaProduceConfig exten
 }
 
 export class GetLiveEditingJobResponseBodyLiveEditingJobOutputMediaConfig extends $tea.Model {
+  bitrate?: number;
+  fileName?: string;
+  height?: number;
   mediaURL?: string;
   storageLocation?: string;
-  fileName?: string;
-  width?: number;
-  height?: number;
-  bitrate?: number;
   vodTemplateGroupId?: string;
+  width?: number;
   static names(): { [key: string]: string } {
     return {
+      bitrate: 'Bitrate',
+      fileName: 'FileName',
+      height: 'Height',
       mediaURL: 'MediaURL',
       storageLocation: 'StorageLocation',
-      fileName: 'FileName',
-      width: 'Width',
-      height: 'Height',
-      bitrate: 'Bitrate',
       vodTemplateGroupId: 'VodTemplateGroupId',
+      width: 'Width',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      bitrate: 'number',
+      fileName: 'string',
+      height: 'number',
       mediaURL: 'string',
       storageLocation: 'string',
-      fileName: 'string',
-      width: 'number',
-      height: 'number',
-      bitrate: 'number',
       vodTemplateGroupId: 'string',
+      width: 'number',
     };
   }
 
@@ -3890,1344 +4258,58 @@ export class GetLiveEditingJobResponseBodyLiveEditingJobOutputMediaConfig extend
 }
 
 export class GetLiveEditingJobResponseBodyLiveEditingJob extends $tea.Model {
-  jobId?: string;
-  projectId?: string;
-  status?: string;
   clips?: string;
-  userData?: string;
-  creationTime?: string;
-  modifiedTime?: string;
-  completeTime?: string;
-  mediaId?: string;
-  mediaURL?: string;
   code?: string;
-  message?: string;
+  completeTime?: string;
+  creationTime?: string;
+  jobId?: string;
   liveStreamConfig?: GetLiveEditingJobResponseBodyLiveEditingJobLiveStreamConfig;
+  mediaId?: string;
   mediaProduceConfig?: GetLiveEditingJobResponseBodyLiveEditingJobMediaProduceConfig;
+  mediaURL?: string;
+  message?: string;
+  modifiedTime?: string;
   outputMediaConfig?: GetLiveEditingJobResponseBodyLiveEditingJobOutputMediaConfig;
+  projectId?: string;
+  status?: string;
+  userData?: string;
   static names(): { [key: string]: string } {
     return {
-      jobId: 'JobId',
-      projectId: 'ProjectId',
-      status: 'Status',
       clips: 'Clips',
-      userData: 'UserData',
-      creationTime: 'CreationTime',
-      modifiedTime: 'ModifiedTime',
-      completeTime: 'CompleteTime',
-      mediaId: 'MediaId',
-      mediaURL: 'MediaURL',
       code: 'Code',
-      message: 'Message',
+      completeTime: 'CompleteTime',
+      creationTime: 'CreationTime',
+      jobId: 'JobId',
       liveStreamConfig: 'LiveStreamConfig',
+      mediaId: 'MediaId',
       mediaProduceConfig: 'MediaProduceConfig',
+      mediaURL: 'MediaURL',
+      message: 'Message',
+      modifiedTime: 'ModifiedTime',
       outputMediaConfig: 'OutputMediaConfig',
+      projectId: 'ProjectId',
+      status: 'Status',
+      userData: 'UserData',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      jobId: 'string',
-      projectId: 'string',
-      status: 'string',
       clips: 'string',
-      userData: 'string',
-      creationTime: 'string',
-      modifiedTime: 'string',
-      completeTime: 'string',
-      mediaId: 'string',
-      mediaURL: 'string',
       code: 'string',
-      message: 'string',
+      completeTime: 'string',
+      creationTime: 'string',
+      jobId: 'string',
       liveStreamConfig: GetLiveEditingJobResponseBodyLiveEditingJobLiveStreamConfig,
+      mediaId: 'string',
       mediaProduceConfig: GetLiveEditingJobResponseBodyLiveEditingJobMediaProduceConfig,
+      mediaURL: 'string',
+      message: 'string',
+      modifiedTime: 'string',
       outputMediaConfig: GetLiveEditingJobResponseBodyLiveEditingJobOutputMediaConfig,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddTemplateResponseBodyTemplate extends $tea.Model {
-  templateId?: string;
-  name?: string;
-  type?: string;
-  config?: string;
-  coverUrl?: string;
-  previewMedia?: string;
-  status?: string;
-  createSource?: string;
-  modifiedSource?: string;
-  static names(): { [key: string]: string } {
-    return {
-      templateId: 'TemplateId',
-      name: 'Name',
-      type: 'Type',
-      config: 'Config',
-      coverUrl: 'CoverUrl',
-      previewMedia: 'PreviewMedia',
-      status: 'Status',
-      createSource: 'CreateSource',
-      modifiedSource: 'ModifiedSource',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      templateId: 'string',
-      name: 'string',
-      type: 'string',
-      config: 'string',
-      coverUrl: 'string',
-      previewMedia: 'string',
-      status: 'string',
-      createSource: 'string',
-      modifiedSource: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMediaProducingJobsResponseBodyMediaProducingJobList extends $tea.Model {
-  jobId?: string;
-  projectId?: string;
-  mediaId?: string;
-  mediaURL?: string;
-  templateId?: string;
-  clipsParam?: string;
-  duration?: number;
-  createTime?: string;
-  completeTime?: string;
-  modifiedTime?: string;
-  status?: string;
-  code?: string;
-  message?: string;
-  static names(): { [key: string]: string } {
-    return {
-      jobId: 'JobId',
-      projectId: 'ProjectId',
-      mediaId: 'MediaId',
-      mediaURL: 'MediaURL',
-      templateId: 'TemplateId',
-      clipsParam: 'ClipsParam',
-      duration: 'Duration',
-      createTime: 'CreateTime',
-      completeTime: 'CompleteTime',
-      modifiedTime: 'ModifiedTime',
-      status: 'Status',
-      code: 'Code',
-      message: 'Message',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      jobId: 'string',
       projectId: 'string',
-      mediaId: 'string',
-      mediaURL: 'string',
-      templateId: 'string',
-      clipsParam: 'string',
-      duration: 'number',
-      createTime: 'string',
-      completeTime: 'string',
-      modifiedTime: 'string',
       status: 'string',
-      code: 'string',
-      message: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetEditingProjectMaterialsResponseBodyMediaInfosMediaBasicInfo extends $tea.Model {
-  mediaId?: string;
-  inputURL?: string;
-  mediaType?: string;
-  businessType?: string;
-  source?: string;
-  title?: string;
-  description?: string;
-  category?: string;
-  mediaTags?: string;
-  coverURL?: string;
-  userData?: string;
-  snapshots?: string;
-  status?: string;
-  transcodeStatus?: string;
-  createTime?: string;
-  modifiedTime?: string;
-  deletedTime?: string;
-  spriteImages?: string;
-  static names(): { [key: string]: string } {
-    return {
-      mediaId: 'MediaId',
-      inputURL: 'InputURL',
-      mediaType: 'MediaType',
-      businessType: 'BusinessType',
-      source: 'Source',
-      title: 'Title',
-      description: 'Description',
-      category: 'Category',
-      mediaTags: 'MediaTags',
-      coverURL: 'CoverURL',
-      userData: 'UserData',
-      snapshots: 'Snapshots',
-      status: 'Status',
-      transcodeStatus: 'TranscodeStatus',
-      createTime: 'CreateTime',
-      modifiedTime: 'ModifiedTime',
-      deletedTime: 'DeletedTime',
-      spriteImages: 'SpriteImages',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      mediaId: 'string',
-      inputURL: 'string',
-      mediaType: 'string',
-      businessType: 'string',
-      source: 'string',
-      title: 'string',
-      description: 'string',
-      category: 'string',
-      mediaTags: 'string',
-      coverURL: 'string',
       userData: 'string',
-      snapshots: 'string',
-      status: 'string',
-      transcodeStatus: 'string',
-      createTime: 'string',
-      modifiedTime: 'string',
-      deletedTime: 'string',
-      spriteImages: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetEditingProjectMaterialsResponseBodyMediaInfosFileInfoListFileBasicInfo extends $tea.Model {
-  fileName?: string;
-  fileStatus?: string;
-  fileType?: string;
-  fileSize?: string;
-  fileUrl?: string;
-  region?: string;
-  formatName?: string;
-  duration?: string;
-  bitrate?: string;
-  width?: string;
-  height?: string;
-  static names(): { [key: string]: string } {
-    return {
-      fileName: 'FileName',
-      fileStatus: 'FileStatus',
-      fileType: 'FileType',
-      fileSize: 'FileSize',
-      fileUrl: 'FileUrl',
-      region: 'Region',
-      formatName: 'FormatName',
-      duration: 'Duration',
-      bitrate: 'Bitrate',
-      width: 'Width',
-      height: 'Height',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      fileName: 'string',
-      fileStatus: 'string',
-      fileType: 'string',
-      fileSize: 'string',
-      fileUrl: 'string',
-      region: 'string',
-      formatName: 'string',
-      duration: 'string',
-      bitrate: 'string',
-      width: 'string',
-      height: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetEditingProjectMaterialsResponseBodyMediaInfosFileInfoList extends $tea.Model {
-  fileBasicInfo?: GetEditingProjectMaterialsResponseBodyMediaInfosFileInfoListFileBasicInfo;
-  static names(): { [key: string]: string } {
-    return {
-      fileBasicInfo: 'FileBasicInfo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      fileBasicInfo: GetEditingProjectMaterialsResponseBodyMediaInfosFileInfoListFileBasicInfo,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetEditingProjectMaterialsResponseBodyMediaInfos extends $tea.Model {
-  mediaId?: string;
-  mediaBasicInfo?: GetEditingProjectMaterialsResponseBodyMediaInfosMediaBasicInfo;
-  fileInfoList?: GetEditingProjectMaterialsResponseBodyMediaInfosFileInfoList[];
-  static names(): { [key: string]: string } {
-    return {
-      mediaId: 'MediaId',
-      mediaBasicInfo: 'MediaBasicInfo',
-      fileInfoList: 'FileInfoList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      mediaId: 'string',
-      mediaBasicInfo: GetEditingProjectMaterialsResponseBodyMediaInfosMediaBasicInfo,
-      fileInfoList: { 'type': 'array', 'itemType': GetEditingProjectMaterialsResponseBodyMediaInfosFileInfoList },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetEditingProjectMaterialsResponseBodyLiveMaterials extends $tea.Model {
-  appName?: string;
-  streamName?: string;
-  domainName?: string;
-  liveUrl?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appName: 'AppName',
-      streamName: 'StreamName',
-      domainName: 'DomainName',
-      liveUrl: 'LiveUrl',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appName: 'string',
-      streamName: 'string',
-      domainName: 'string',
-      liveUrl: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetTemplateResponseBodyTemplate extends $tea.Model {
-  templateId?: string;
-  name?: string;
-  type?: string;
-  config?: string;
-  previewMedia?: string;
-  status?: string;
-  createSource?: string;
-  modifiedSource?: string;
-  previewMediaStatus?: string;
-  creationTime?: string;
-  modifiedTime?: string;
-  coverURL?: string;
-  clipsParam?: string;
-  static names(): { [key: string]: string } {
-    return {
-      templateId: 'TemplateId',
-      name: 'Name',
-      type: 'Type',
-      config: 'Config',
-      previewMedia: 'PreviewMedia',
-      status: 'Status',
-      createSource: 'CreateSource',
-      modifiedSource: 'ModifiedSource',
-      previewMediaStatus: 'PreviewMediaStatus',
-      creationTime: 'CreationTime',
-      modifiedTime: 'ModifiedTime',
-      coverURL: 'CoverURL',
-      clipsParam: 'ClipsParam',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      templateId: 'string',
-      name: 'string',
-      type: 'string',
-      config: 'string',
-      previewMedia: 'string',
-      status: 'string',
-      createSource: 'string',
-      modifiedSource: 'string',
-      previewMediaStatus: 'string',
-      creationTime: 'string',
-      modifiedTime: 'string',
-      coverURL: 'string',
-      clipsParam: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateEditingProjectResponseBodyProject extends $tea.Model {
-  projectId?: string;
-  title?: string;
-  description?: string;
-  timeline?: string;
-  coverURL?: string;
-  status?: number;
-  statusName?: string;
-  createTime?: string;
-  modifiedTime?: string;
-  duration?: number;
-  createSource?: string;
-  modifiedSource?: string;
-  templateType?: string;
-  businessConfig?: string;
-  projectType?: string;
-  businessStatus?: string;
-  static names(): { [key: string]: string } {
-    return {
-      projectId: 'ProjectId',
-      title: 'Title',
-      description: 'Description',
-      timeline: 'Timeline',
-      coverURL: 'CoverURL',
-      status: 'Status',
-      statusName: 'StatusName',
-      createTime: 'CreateTime',
-      modifiedTime: 'ModifiedTime',
-      duration: 'Duration',
-      createSource: 'CreateSource',
-      modifiedSource: 'ModifiedSource',
-      templateType: 'TemplateType',
-      businessConfig: 'BusinessConfig',
-      projectType: 'ProjectType',
-      businessStatus: 'BusinessStatus',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      projectId: 'string',
-      title: 'string',
-      description: 'string',
-      timeline: 'string',
-      coverURL: 'string',
-      status: 'number',
-      statusName: 'string',
-      createTime: 'string',
-      modifiedTime: 'string',
-      duration: 'number',
-      createSource: 'string',
-      modifiedSource: 'string',
-      templateType: 'string',
-      businessConfig: 'string',
-      projectType: 'string',
-      businessStatus: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BatchGetMediaInfosResponseBodyMediaInfosMediaBasicInfo extends $tea.Model {
-  mediaId?: string;
-  inputURL?: string;
-  mediaType?: string;
-  businessType?: string;
-  source?: string;
-  title?: string;
-  description?: string;
-  category?: string;
-  mediaTags?: string;
-  coverURL?: string;
-  userData?: string;
-  snapshots?: string;
-  status?: string;
-  transcodeStatus?: string;
-  createTime?: string;
-  modifiedTime?: string;
-  deletedTime?: string;
-  spriteImages?: string;
-  static names(): { [key: string]: string } {
-    return {
-      mediaId: 'MediaId',
-      inputURL: 'InputURL',
-      mediaType: 'MediaType',
-      businessType: 'BusinessType',
-      source: 'Source',
-      title: 'Title',
-      description: 'Description',
-      category: 'Category',
-      mediaTags: 'MediaTags',
-      coverURL: 'CoverURL',
-      userData: 'UserData',
-      snapshots: 'Snapshots',
-      status: 'Status',
-      transcodeStatus: 'TranscodeStatus',
-      createTime: 'CreateTime',
-      modifiedTime: 'ModifiedTime',
-      deletedTime: 'DeletedTime',
-      spriteImages: 'SpriteImages',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      mediaId: 'string',
-      inputURL: 'string',
-      mediaType: 'string',
-      businessType: 'string',
-      source: 'string',
-      title: 'string',
-      description: 'string',
-      category: 'string',
-      mediaTags: 'string',
-      coverURL: 'string',
-      userData: 'string',
-      snapshots: 'string',
-      status: 'string',
-      transcodeStatus: 'string',
-      createTime: 'string',
-      modifiedTime: 'string',
-      deletedTime: 'string',
-      spriteImages: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BatchGetMediaInfosResponseBodyMediaInfosFileInfoListFileBasicInfo extends $tea.Model {
-  fileName?: string;
-  fileStatus?: string;
-  fileType?: string;
-  fileSize?: string;
-  fileUrl?: string;
-  region?: string;
-  formatName?: string;
-  duration?: string;
-  bitrate?: string;
-  width?: string;
-  height?: string;
-  static names(): { [key: string]: string } {
-    return {
-      fileName: 'FileName',
-      fileStatus: 'FileStatus',
-      fileType: 'FileType',
-      fileSize: 'FileSize',
-      fileUrl: 'FileUrl',
-      region: 'Region',
-      formatName: 'FormatName',
-      duration: 'Duration',
-      bitrate: 'Bitrate',
-      width: 'Width',
-      height: 'Height',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      fileName: 'string',
-      fileStatus: 'string',
-      fileType: 'string',
-      fileSize: 'string',
-      fileUrl: 'string',
-      region: 'string',
-      formatName: 'string',
-      duration: 'string',
-      bitrate: 'string',
-      width: 'string',
-      height: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BatchGetMediaInfosResponseBodyMediaInfosFileInfoList extends $tea.Model {
-  fileBasicInfo?: BatchGetMediaInfosResponseBodyMediaInfosFileInfoListFileBasicInfo;
-  static names(): { [key: string]: string } {
-    return {
-      fileBasicInfo: 'FileBasicInfo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      fileBasicInfo: BatchGetMediaInfosResponseBodyMediaInfosFileInfoListFileBasicInfo,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BatchGetMediaInfosResponseBodyMediaInfos extends $tea.Model {
-  mediaId?: string;
-  mediaBasicInfo?: BatchGetMediaInfosResponseBodyMediaInfosMediaBasicInfo;
-  fileInfoList?: BatchGetMediaInfosResponseBodyMediaInfosFileInfoList[];
-  static names(): { [key: string]: string } {
-    return {
-      mediaId: 'MediaId',
-      mediaBasicInfo: 'MediaBasicInfo',
-      fileInfoList: 'FileInfoList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      mediaId: 'string',
-      mediaBasicInfo: BatchGetMediaInfosResponseBodyMediaInfosMediaBasicInfo,
-      fileInfoList: { 'type': 'array', 'itemType': BatchGetMediaInfosResponseBodyMediaInfosFileInfoList },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetMediaProducingJobResponseBodyMediaProducingJob extends $tea.Model {
-  jobId?: string;
-  projectId?: string;
-  mediaId?: string;
-  mediaURL?: string;
-  timeline?: string;
-  templateId?: string;
-  clipsParam?: string;
-  duration?: number;
-  createTime?: string;
-  completeTime?: string;
-  modifiedTime?: string;
-  status?: string;
-  code?: string;
-  message?: string;
-  static names(): { [key: string]: string } {
-    return {
-      jobId: 'JobId',
-      projectId: 'ProjectId',
-      mediaId: 'MediaId',
-      mediaURL: 'MediaURL',
-      timeline: 'Timeline',
-      templateId: 'TemplateId',
-      clipsParam: 'ClipsParam',
-      duration: 'Duration',
-      createTime: 'CreateTime',
-      completeTime: 'CompleteTime',
-      modifiedTime: 'ModifiedTime',
-      status: 'Status',
-      code: 'Code',
-      message: 'Message',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      jobId: 'string',
-      projectId: 'string',
-      mediaId: 'string',
-      mediaURL: 'string',
-      timeline: 'string',
-      templateId: 'string',
-      clipsParam: 'string',
-      duration: 'number',
-      createTime: 'string',
-      completeTime: 'string',
-      modifiedTime: 'string',
-      status: 'string',
-      code: 'string',
-      message: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMediaBasicInfosResponseBodyMediaInfosMediaBasicInfo extends $tea.Model {
-  mediaId?: string;
-  inputURL?: string;
-  mediaType?: string;
-  businessType?: string;
-  source?: string;
-  title?: string;
-  description?: string;
-  category?: string;
-  mediaTags?: string;
-  coverURL?: string;
-  userData?: string;
-  snapshots?: string;
-  status?: string;
-  transcodeStatus?: string;
-  createTime?: string;
-  modifiedTime?: string;
-  deletedTime?: string;
-  spriteImages?: string;
-  static names(): { [key: string]: string } {
-    return {
-      mediaId: 'MediaId',
-      inputURL: 'InputURL',
-      mediaType: 'MediaType',
-      businessType: 'BusinessType',
-      source: 'Source',
-      title: 'Title',
-      description: 'Description',
-      category: 'Category',
-      mediaTags: 'MediaTags',
-      coverURL: 'CoverURL',
-      userData: 'UserData',
-      snapshots: 'Snapshots',
-      status: 'Status',
-      transcodeStatus: 'TranscodeStatus',
-      createTime: 'CreateTime',
-      modifiedTime: 'ModifiedTime',
-      deletedTime: 'DeletedTime',
-      spriteImages: 'SpriteImages',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      mediaId: 'string',
-      inputURL: 'string',
-      mediaType: 'string',
-      businessType: 'string',
-      source: 'string',
-      title: 'string',
-      description: 'string',
-      category: 'string',
-      mediaTags: 'string',
-      coverURL: 'string',
-      userData: 'string',
-      snapshots: 'string',
-      status: 'string',
-      transcodeStatus: 'string',
-      createTime: 'string',
-      modifiedTime: 'string',
-      deletedTime: 'string',
-      spriteImages: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMediaBasicInfosResponseBodyMediaInfosFileInfoListFileBasicInfo extends $tea.Model {
-  fileName?: string;
-  fileStatus?: string;
-  fileType?: string;
-  fileSize?: string;
-  fileUrl?: string;
-  region?: string;
-  formatName?: string;
-  duration?: string;
-  bitrate?: string;
-  width?: string;
-  height?: string;
-  static names(): { [key: string]: string } {
-    return {
-      fileName: 'FileName',
-      fileStatus: 'FileStatus',
-      fileType: 'FileType',
-      fileSize: 'FileSize',
-      fileUrl: 'FileUrl',
-      region: 'Region',
-      formatName: 'FormatName',
-      duration: 'Duration',
-      bitrate: 'Bitrate',
-      width: 'Width',
-      height: 'Height',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      fileName: 'string',
-      fileStatus: 'string',
-      fileType: 'string',
-      fileSize: 'string',
-      fileUrl: 'string',
-      region: 'string',
-      formatName: 'string',
-      duration: 'string',
-      bitrate: 'string',
-      width: 'string',
-      height: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMediaBasicInfosResponseBodyMediaInfosFileInfoList extends $tea.Model {
-  fileBasicInfo?: ListMediaBasicInfosResponseBodyMediaInfosFileInfoListFileBasicInfo;
-  static names(): { [key: string]: string } {
-    return {
-      fileBasicInfo: 'FileBasicInfo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      fileBasicInfo: ListMediaBasicInfosResponseBodyMediaInfosFileInfoListFileBasicInfo,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMediaBasicInfosResponseBodyMediaInfos extends $tea.Model {
-  mediaId?: string;
-  mediaBasicInfo?: ListMediaBasicInfosResponseBodyMediaInfosMediaBasicInfo;
-  fileInfoList?: ListMediaBasicInfosResponseBodyMediaInfosFileInfoList[];
-  static names(): { [key: string]: string } {
-    return {
-      mediaId: 'MediaId',
-      mediaBasicInfo: 'MediaBasicInfo',
-      fileInfoList: 'FileInfoList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      mediaId: 'string',
-      mediaBasicInfo: ListMediaBasicInfosResponseBodyMediaInfosMediaBasicInfo,
-      fileInfoList: { 'type': 'array', 'itemType': ListMediaBasicInfosResponseBodyMediaInfosFileInfoList },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddEditingProjectMaterialsResponseBodyMediaInfosMediaBasicInfo extends $tea.Model {
-  mediaId?: string;
-  inputURL?: string;
-  mediaType?: string;
-  businessType?: string;
-  source?: string;
-  title?: string;
-  description?: string;
-  category?: string;
-  mediaTags?: string;
-  coverURL?: string;
-  userData?: string;
-  snapshots?: string;
-  status?: string;
-  transcodeStatus?: string;
-  createTime?: string;
-  modifiedTime?: string;
-  deletedTime?: string;
-  spriteImages?: string;
-  static names(): { [key: string]: string } {
-    return {
-      mediaId: 'MediaId',
-      inputURL: 'InputURL',
-      mediaType: 'MediaType',
-      businessType: 'BusinessType',
-      source: 'Source',
-      title: 'Title',
-      description: 'Description',
-      category: 'Category',
-      mediaTags: 'MediaTags',
-      coverURL: 'CoverURL',
-      userData: 'UserData',
-      snapshots: 'Snapshots',
-      status: 'Status',
-      transcodeStatus: 'TranscodeStatus',
-      createTime: 'CreateTime',
-      modifiedTime: 'ModifiedTime',
-      deletedTime: 'DeletedTime',
-      spriteImages: 'SpriteImages',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      mediaId: 'string',
-      inputURL: 'string',
-      mediaType: 'string',
-      businessType: 'string',
-      source: 'string',
-      title: 'string',
-      description: 'string',
-      category: 'string',
-      mediaTags: 'string',
-      coverURL: 'string',
-      userData: 'string',
-      snapshots: 'string',
-      status: 'string',
-      transcodeStatus: 'string',
-      createTime: 'string',
-      modifiedTime: 'string',
-      deletedTime: 'string',
-      spriteImages: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddEditingProjectMaterialsResponseBodyMediaInfosFileInfoListFileBasicInfo extends $tea.Model {
-  fileName?: string;
-  fileStatus?: string;
-  fileType?: string;
-  fileSize?: string;
-  fileUrl?: string;
-  region?: string;
-  formatName?: string;
-  duration?: string;
-  bitrate?: string;
-  width?: string;
-  height?: string;
-  static names(): { [key: string]: string } {
-    return {
-      fileName: 'FileName',
-      fileStatus: 'FileStatus',
-      fileType: 'FileType',
-      fileSize: 'FileSize',
-      fileUrl: 'FileUrl',
-      region: 'Region',
-      formatName: 'FormatName',
-      duration: 'Duration',
-      bitrate: 'Bitrate',
-      width: 'Width',
-      height: 'Height',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      fileName: 'string',
-      fileStatus: 'string',
-      fileType: 'string',
-      fileSize: 'string',
-      fileUrl: 'string',
-      region: 'string',
-      formatName: 'string',
-      duration: 'string',
-      bitrate: 'string',
-      width: 'string',
-      height: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddEditingProjectMaterialsResponseBodyMediaInfosFileInfoList extends $tea.Model {
-  fileBasicInfo?: AddEditingProjectMaterialsResponseBodyMediaInfosFileInfoListFileBasicInfo;
-  static names(): { [key: string]: string } {
-    return {
-      fileBasicInfo: 'FileBasicInfo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      fileBasicInfo: AddEditingProjectMaterialsResponseBodyMediaInfosFileInfoListFileBasicInfo,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddEditingProjectMaterialsResponseBodyMediaInfos extends $tea.Model {
-  mediaId?: string;
-  mediaBasicInfo?: AddEditingProjectMaterialsResponseBodyMediaInfosMediaBasicInfo;
-  fileInfoList?: AddEditingProjectMaterialsResponseBodyMediaInfosFileInfoList[];
-  static names(): { [key: string]: string } {
-    return {
-      mediaId: 'MediaId',
-      mediaBasicInfo: 'MediaBasicInfo',
-      fileInfoList: 'FileInfoList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      mediaId: 'string',
-      mediaBasicInfo: AddEditingProjectMaterialsResponseBodyMediaInfosMediaBasicInfo,
-      fileInfoList: { 'type': 'array', 'itemType': AddEditingProjectMaterialsResponseBodyMediaInfosFileInfoList },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddEditingProjectMaterialsResponseBodyLiveMaterials extends $tea.Model {
-  appName?: string;
-  streamName?: string;
-  domainName?: string;
-  liveUrl?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appName: 'AppName',
-      streamName: 'StreamName',
-      domainName: 'DomainName',
-      liveUrl: 'LiveUrl',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appName: 'string',
-      streamName: 'string',
-      domainName: 'string',
-      liveUrl: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetEditingProjectResponseBodyProject extends $tea.Model {
-  projectId?: string;
-  title?: string;
-  timeline?: string;
-  description?: string;
-  coverURL?: string;
-  createTime?: string;
-  modifiedTime?: string;
-  duration?: number;
-  status?: string;
-  createSource?: string;
-  templateType?: string;
-  modifiedSource?: string;
-  projectType?: string;
-  businessConfig?: string;
-  businessStatus?: string;
-  static names(): { [key: string]: string } {
-    return {
-      projectId: 'ProjectId',
-      title: 'Title',
-      timeline: 'Timeline',
-      description: 'Description',
-      coverURL: 'CoverURL',
-      createTime: 'CreateTime',
-      modifiedTime: 'ModifiedTime',
-      duration: 'Duration',
-      status: 'Status',
-      createSource: 'CreateSource',
-      templateType: 'TemplateType',
-      modifiedSource: 'ModifiedSource',
-      projectType: 'ProjectType',
-      businessConfig: 'BusinessConfig',
-      businessStatus: 'BusinessStatus',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      projectId: 'string',
-      title: 'string',
-      timeline: 'string',
-      description: 'string',
-      coverURL: 'string',
-      createTime: 'string',
-      modifiedTime: 'string',
-      duration: 'number',
-      status: 'string',
-      createSource: 'string',
-      templateType: 'string',
-      modifiedSource: 'string',
-      projectType: 'string',
-      businessConfig: 'string',
-      businessStatus: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSysTemplatesResponseBodyTemplates extends $tea.Model {
-  templateId?: string;
-  name?: string;
-  type?: string;
-  config?: string;
-  static names(): { [key: string]: string } {
-    return {
-      templateId: 'TemplateId',
-      name: 'Name',
-      type: 'Type',
-      config: 'Config',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      templateId: 'string',
-      name: 'string',
-      type: 'string',
-      config: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SearchEditingProjectResponseBodyProjectList extends $tea.Model {
-  projectId?: string;
-  title?: string;
-  timeline?: string;
-  description?: string;
-  coverURL?: string;
-  createTime?: string;
-  modifiedTime?: string;
-  duration?: number;
-  status?: string;
-  errorCode?: string;
-  errorMessage?: string;
-  createSource?: string;
-  modifiedSource?: string;
-  templateType?: string;
-  projectType?: string;
-  businessConfig?: string;
-  businessStatus?: string;
-  static names(): { [key: string]: string } {
-    return {
-      projectId: 'ProjectId',
-      title: 'Title',
-      timeline: 'Timeline',
-      description: 'Description',
-      coverURL: 'CoverURL',
-      createTime: 'CreateTime',
-      modifiedTime: 'ModifiedTime',
-      duration: 'Duration',
-      status: 'Status',
-      errorCode: 'ErrorCode',
-      errorMessage: 'ErrorMessage',
-      createSource: 'CreateSource',
-      modifiedSource: 'ModifiedSource',
-      templateType: 'TemplateType',
-      projectType: 'ProjectType',
-      businessConfig: 'BusinessConfig',
-      businessStatus: 'BusinessStatus',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      projectId: 'string',
-      title: 'string',
-      timeline: 'string',
-      description: 'string',
-      coverURL: 'string',
-      createTime: 'string',
-      modifiedTime: 'string',
-      duration: 'number',
-      status: 'string',
-      errorCode: 'string',
-      errorMessage: 'string',
-      createSource: 'string',
-      modifiedSource: 'string',
-      templateType: 'string',
-      projectType: 'string',
-      businessConfig: 'string',
-      businessStatus: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTemplatesResponseBodyTemplates extends $tea.Model {
-  templateId?: string;
-  name?: string;
-  type?: string;
-  config?: string;
-  previewMedia?: string;
-  status?: string;
-  createSource?: string;
-  modifiedSource?: string;
-  previewMediaStatus?: string;
-  creationTime?: string;
-  modifiedTime?: string;
-  coverURL?: string;
-  clipsParam?: string;
-  static names(): { [key: string]: string } {
-    return {
-      templateId: 'TemplateId',
-      name: 'Name',
-      type: 'Type',
-      config: 'Config',
-      previewMedia: 'PreviewMedia',
-      status: 'Status',
-      createSource: 'CreateSource',
-      modifiedSource: 'ModifiedSource',
-      previewMediaStatus: 'PreviewMediaStatus',
-      creationTime: 'CreationTime',
-      modifiedTime: 'ModifiedTime',
-      coverURL: 'CoverURL',
-      clipsParam: 'ClipsParam',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      templateId: 'string',
-      name: 'string',
-      type: 'string',
-      config: 'string',
-      previewMedia: 'string',
-      status: 'string',
-      createSource: 'string',
-      modifiedSource: 'string',
-      previewMediaStatus: 'string',
-      creationTime: 'string',
-      modifiedTime: 'string',
-      coverURL: 'string',
-      clipsParam: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetMediaInfoResponseBodyMediaInfoMediaBasicInfo extends $tea.Model {
-  mediaId?: string;
-  inputURL?: string;
-  mediaType?: string;
-  businessType?: string;
-  source?: string;
-  title?: string;
-  description?: string;
-  category?: string;
-  mediaTags?: string;
-  coverURL?: string;
-  userData?: string;
-  status?: string;
-  createTime?: string;
-  modifiedTime?: string;
-  deletedTime?: string;
-  spriteImages?: string;
-  static names(): { [key: string]: string } {
-    return {
-      mediaId: 'MediaId',
-      inputURL: 'InputURL',
-      mediaType: 'MediaType',
-      businessType: 'BusinessType',
-      source: 'Source',
-      title: 'Title',
-      description: 'Description',
-      category: 'Category',
-      mediaTags: 'MediaTags',
-      coverURL: 'CoverURL',
-      userData: 'UserData',
-      status: 'Status',
-      createTime: 'CreateTime',
-      modifiedTime: 'ModifiedTime',
-      deletedTime: 'DeletedTime',
-      spriteImages: 'SpriteImages',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      mediaId: 'string',
-      inputURL: 'string',
-      mediaType: 'string',
-      businessType: 'string',
-      source: 'string',
-      title: 'string',
-      description: 'string',
-      category: 'string',
-      mediaTags: 'string',
-      coverURL: 'string',
-      userData: 'string',
-      status: 'string',
-      createTime: 'string',
-      modifiedTime: 'string',
-      deletedTime: 'string',
-      spriteImages: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetMediaInfoResponseBodyMediaInfoDynamicMetaDataList extends $tea.Model {
-  in?: number;
-  out?: number;
-  type?: string;
-  data?: string;
-  static names(): { [key: string]: string } {
-    return {
-      in: 'In',
-      out: 'Out',
-      type: 'Type',
-      data: 'Data',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      in: 'number',
-      out: 'number',
-      type: 'string',
-      data: 'string',
     };
   }
 
@@ -5237,19 +4319,19 @@ export class GetMediaInfoResponseBodyMediaInfoDynamicMetaDataList extends $tea.M
 }
 
 export class GetMediaInfoResponseBodyMediaInfoAiRoughDataList extends $tea.Model {
-  type?: string;
   result?: string;
+  type?: string;
   static names(): { [key: string]: string } {
     return {
-      type: 'Type',
       result: 'Result',
+      type: 'Type',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      type: 'string',
       result: 'string',
+      type: 'string',
     };
   }
 
@@ -5258,47 +4340,26 @@ export class GetMediaInfoResponseBodyMediaInfoAiRoughDataList extends $tea.Model
   }
 }
 
-export class GetMediaInfoResponseBodyMediaInfoFileInfoListFileBasicInfo extends $tea.Model {
-  fileName?: string;
-  fileStatus?: string;
-  fileType?: string;
-  fileSize?: string;
-  fileUrl?: string;
-  region?: string;
-  formatName?: string;
-  duration?: string;
-  bitrate?: string;
-  width?: string;
-  height?: string;
+export class GetMediaInfoResponseBodyMediaInfoDynamicMetaDataList extends $tea.Model {
+  data?: string;
+  in?: number;
+  out?: number;
+  type?: string;
   static names(): { [key: string]: string } {
     return {
-      fileName: 'FileName',
-      fileStatus: 'FileStatus',
-      fileType: 'FileType',
-      fileSize: 'FileSize',
-      fileUrl: 'FileUrl',
-      region: 'Region',
-      formatName: 'FormatName',
-      duration: 'Duration',
-      bitrate: 'Bitrate',
-      width: 'Width',
-      height: 'Height',
+      data: 'Data',
+      in: 'In',
+      out: 'Out',
+      type: 'Type',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      fileName: 'string',
-      fileStatus: 'string',
-      fileType: 'string',
-      fileSize: 'string',
-      fileUrl: 'string',
-      region: 'string',
-      formatName: 'string',
-      duration: 'string',
-      bitrate: 'string',
-      width: 'string',
-      height: 'string',
+      data: 'string',
+      in: 'number',
+      out: 'number',
+      type: 'string',
     };
   }
 
@@ -5308,67 +4369,67 @@ export class GetMediaInfoResponseBodyMediaInfoFileInfoListFileBasicInfo extends 
 }
 
 export class GetMediaInfoResponseBodyMediaInfoFileInfoListAudioStreamInfoList extends $tea.Model {
-  index?: string;
-  codecName?: string;
+  bitrate?: string;
+  channelLayout?: string;
+  channels?: string;
   codecLongName?: string;
-  codecTimeBase?: string;
-  codecTagString?: string;
+  codecName?: string;
   codecTag?: string;
+  codecTagString?: string;
+  codecTimeBase?: string;
+  duration?: string;
+  fps?: string;
+  index?: string;
+  lang?: string;
+  numFrames?: string;
   profile?: string;
   sampleFmt?: string;
   sampleRate?: string;
-  channels?: string;
-  channelLayout?: string;
-  timebase?: string;
   startTime?: string;
-  duration?: string;
-  bitrate?: string;
-  fps?: string;
-  numFrames?: string;
-  lang?: string;
+  timebase?: string;
   static names(): { [key: string]: string } {
     return {
-      index: 'Index',
-      codecName: 'CodecName',
+      bitrate: 'Bitrate',
+      channelLayout: 'ChannelLayout',
+      channels: 'Channels',
       codecLongName: 'CodecLongName',
-      codecTimeBase: 'CodecTimeBase',
-      codecTagString: 'CodecTagString',
+      codecName: 'CodecName',
       codecTag: 'CodecTag',
+      codecTagString: 'CodecTagString',
+      codecTimeBase: 'CodecTimeBase',
+      duration: 'Duration',
+      fps: 'Fps',
+      index: 'Index',
+      lang: 'Lang',
+      numFrames: 'NumFrames',
       profile: 'Profile',
       sampleFmt: 'SampleFmt',
       sampleRate: 'SampleRate',
-      channels: 'Channels',
-      channelLayout: 'ChannelLayout',
-      timebase: 'Timebase',
       startTime: 'StartTime',
-      duration: 'Duration',
-      bitrate: 'Bitrate',
-      fps: 'Fps',
-      numFrames: 'NumFrames',
-      lang: 'Lang',
+      timebase: 'Timebase',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      index: 'string',
-      codecName: 'string',
+      bitrate: 'string',
+      channelLayout: 'string',
+      channels: 'string',
       codecLongName: 'string',
-      codecTimeBase: 'string',
-      codecTagString: 'string',
+      codecName: 'string',
       codecTag: 'string',
+      codecTagString: 'string',
+      codecTimeBase: 'string',
+      duration: 'string',
+      fps: 'string',
+      index: 'string',
+      lang: 'string',
+      numFrames: 'string',
       profile: 'string',
       sampleFmt: 'string',
       sampleRate: 'string',
-      channels: 'string',
-      channelLayout: 'string',
-      timebase: 'string',
       startTime: 'string',
-      duration: 'string',
-      bitrate: 'string',
-      fps: 'string',
-      numFrames: 'string',
-      lang: 'string',
+      timebase: 'string',
     };
   }
 
@@ -5377,86 +4438,47 @@ export class GetMediaInfoResponseBodyMediaInfoFileInfoListAudioStreamInfoList ex
   }
 }
 
-export class GetMediaInfoResponseBodyMediaInfoFileInfoListVideoStreamInfoList extends $tea.Model {
-  index?: string;
-  codecName?: string;
-  codecLongName?: string;
-  profile?: string;
-  codecTimeBase?: string;
-  codecTagString?: string;
-  codecTag?: string;
-  width?: string;
-  height?: string;
-  hasBFrames?: string;
-  sar?: string;
-  dar?: string;
-  pixFmt?: string;
-  level?: string;
-  fps?: string;
-  avgFPS?: string;
-  timebase?: string;
-  startTime?: string;
-  duration?: string;
+export class GetMediaInfoResponseBodyMediaInfoFileInfoListFileBasicInfo extends $tea.Model {
   bitrate?: string;
-  numFrames?: string;
-  lang?: string;
-  rotate?: string;
-  nbFrames?: string;
+  duration?: string;
+  fileName?: string;
+  fileSize?: string;
+  fileStatus?: string;
+  fileType?: string;
+  fileUrl?: string;
+  formatName?: string;
+  height?: string;
+  region?: string;
+  width?: string;
   static names(): { [key: string]: string } {
     return {
-      index: 'Index',
-      codecName: 'CodecName',
-      codecLongName: 'CodecLongName',
-      profile: 'Profile',
-      codecTimeBase: 'CodecTimeBase',
-      codecTagString: 'CodecTagString',
-      codecTag: 'CodecTag',
-      width: 'Width',
-      height: 'Height',
-      hasBFrames: 'HasBFrames',
-      sar: 'Sar',
-      dar: 'Dar',
-      pixFmt: 'PixFmt',
-      level: 'Level',
-      fps: 'Fps',
-      avgFPS: 'AvgFPS',
-      timebase: 'Timebase',
-      startTime: 'StartTime',
-      duration: 'Duration',
       bitrate: 'Bitrate',
-      numFrames: 'NumFrames',
-      lang: 'Lang',
-      rotate: 'Rotate',
-      nbFrames: 'Nb_frames',
+      duration: 'Duration',
+      fileName: 'FileName',
+      fileSize: 'FileSize',
+      fileStatus: 'FileStatus',
+      fileType: 'FileType',
+      fileUrl: 'FileUrl',
+      formatName: 'FormatName',
+      height: 'Height',
+      region: 'Region',
+      width: 'Width',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      index: 'string',
-      codecName: 'string',
-      codecLongName: 'string',
-      profile: 'string',
-      codecTimeBase: 'string',
-      codecTagString: 'string',
-      codecTag: 'string',
-      width: 'string',
-      height: 'string',
-      hasBFrames: 'string',
-      sar: 'string',
-      dar: 'string',
-      pixFmt: 'string',
-      level: 'string',
-      fps: 'string',
-      avgFPS: 'string',
-      timebase: 'string',
-      startTime: 'string',
-      duration: 'string',
       bitrate: 'string',
-      numFrames: 'string',
-      lang: 'string',
-      rotate: 'string',
-      nbFrames: 'string',
+      duration: 'string',
+      fileName: 'string',
+      fileSize: 'string',
+      fileStatus: 'string',
+      fileType: 'string',
+      fileUrl: 'string',
+      formatName: 'string',
+      height: 'string',
+      region: 'string',
+      width: 'string',
     };
   }
 
@@ -5466,43 +4488,131 @@ export class GetMediaInfoResponseBodyMediaInfoFileInfoListVideoStreamInfoList ex
 }
 
 export class GetMediaInfoResponseBodyMediaInfoFileInfoListSubtitleStreamInfoList extends $tea.Model {
-  index?: string;
-  codecName?: string;
   codecLongName?: string;
-  codecTimeBase?: string;
-  codecTagString?: string;
+  codecName?: string;
   codecTag?: string;
-  timebase?: string;
-  startTime?: string;
+  codecTagString?: string;
+  codecTimeBase?: string;
   duration?: string;
+  index?: string;
   lang?: string;
+  startTime?: string;
+  timebase?: string;
   static names(): { [key: string]: string } {
     return {
-      index: 'Index',
-      codecName: 'CodecName',
       codecLongName: 'CodecLongName',
-      codecTimeBase: 'CodecTimeBase',
-      codecTagString: 'CodecTagString',
+      codecName: 'CodecName',
       codecTag: 'CodecTag',
-      timebase: 'Timebase',
-      startTime: 'StartTime',
+      codecTagString: 'CodecTagString',
+      codecTimeBase: 'CodecTimeBase',
       duration: 'Duration',
+      index: 'Index',
       lang: 'Lang',
+      startTime: 'StartTime',
+      timebase: 'Timebase',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      index: 'string',
-      codecName: 'string',
       codecLongName: 'string',
-      codecTimeBase: 'string',
-      codecTagString: 'string',
+      codecName: 'string',
       codecTag: 'string',
-      timebase: 'string',
-      startTime: 'string',
+      codecTagString: 'string',
+      codecTimeBase: 'string',
       duration: 'string',
+      index: 'string',
       lang: 'string',
+      startTime: 'string',
+      timebase: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMediaInfoResponseBodyMediaInfoFileInfoListVideoStreamInfoList extends $tea.Model {
+  avgFPS?: string;
+  bitrate?: string;
+  codecLongName?: string;
+  codecName?: string;
+  codecTag?: string;
+  codecTagString?: string;
+  codecTimeBase?: string;
+  dar?: string;
+  duration?: string;
+  fps?: string;
+  hasBFrames?: string;
+  height?: string;
+  index?: string;
+  lang?: string;
+  level?: string;
+  nbFrames?: string;
+  numFrames?: string;
+  pixFmt?: string;
+  profile?: string;
+  rotate?: string;
+  sar?: string;
+  startTime?: string;
+  timebase?: string;
+  width?: string;
+  static names(): { [key: string]: string } {
+    return {
+      avgFPS: 'AvgFPS',
+      bitrate: 'Bitrate',
+      codecLongName: 'CodecLongName',
+      codecName: 'CodecName',
+      codecTag: 'CodecTag',
+      codecTagString: 'CodecTagString',
+      codecTimeBase: 'CodecTimeBase',
+      dar: 'Dar',
+      duration: 'Duration',
+      fps: 'Fps',
+      hasBFrames: 'HasBFrames',
+      height: 'Height',
+      index: 'Index',
+      lang: 'Lang',
+      level: 'Level',
+      nbFrames: 'Nb_frames',
+      numFrames: 'NumFrames',
+      pixFmt: 'PixFmt',
+      profile: 'Profile',
+      rotate: 'Rotate',
+      sar: 'Sar',
+      startTime: 'StartTime',
+      timebase: 'Timebase',
+      width: 'Width',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      avgFPS: 'string',
+      bitrate: 'string',
+      codecLongName: 'string',
+      codecName: 'string',
+      codecTag: 'string',
+      codecTagString: 'string',
+      codecTimeBase: 'string',
+      dar: 'string',
+      duration: 'string',
+      fps: 'string',
+      hasBFrames: 'string',
+      height: 'string',
+      index: 'string',
+      lang: 'string',
+      level: 'string',
+      nbFrames: 'string',
+      numFrames: 'string',
+      pixFmt: 'string',
+      profile: 'string',
+      rotate: 'string',
+      sar: 'string',
+      startTime: 'string',
+      timebase: 'string',
+      width: 'string',
     };
   }
 
@@ -5512,25 +4622,89 @@ export class GetMediaInfoResponseBodyMediaInfoFileInfoListSubtitleStreamInfoList
 }
 
 export class GetMediaInfoResponseBodyMediaInfoFileInfoList extends $tea.Model {
-  fileBasicInfo?: GetMediaInfoResponseBodyMediaInfoFileInfoListFileBasicInfo;
   audioStreamInfoList?: GetMediaInfoResponseBodyMediaInfoFileInfoListAudioStreamInfoList[];
-  videoStreamInfoList?: GetMediaInfoResponseBodyMediaInfoFileInfoListVideoStreamInfoList[];
+  fileBasicInfo?: GetMediaInfoResponseBodyMediaInfoFileInfoListFileBasicInfo;
   subtitleStreamInfoList?: GetMediaInfoResponseBodyMediaInfoFileInfoListSubtitleStreamInfoList[];
+  videoStreamInfoList?: GetMediaInfoResponseBodyMediaInfoFileInfoListVideoStreamInfoList[];
   static names(): { [key: string]: string } {
     return {
-      fileBasicInfo: 'FileBasicInfo',
       audioStreamInfoList: 'AudioStreamInfoList',
-      videoStreamInfoList: 'VideoStreamInfoList',
+      fileBasicInfo: 'FileBasicInfo',
       subtitleStreamInfoList: 'SubtitleStreamInfoList',
+      videoStreamInfoList: 'VideoStreamInfoList',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      fileBasicInfo: GetMediaInfoResponseBodyMediaInfoFileInfoListFileBasicInfo,
       audioStreamInfoList: { 'type': 'array', 'itemType': GetMediaInfoResponseBodyMediaInfoFileInfoListAudioStreamInfoList },
-      videoStreamInfoList: { 'type': 'array', 'itemType': GetMediaInfoResponseBodyMediaInfoFileInfoListVideoStreamInfoList },
+      fileBasicInfo: GetMediaInfoResponseBodyMediaInfoFileInfoListFileBasicInfo,
       subtitleStreamInfoList: { 'type': 'array', 'itemType': GetMediaInfoResponseBodyMediaInfoFileInfoListSubtitleStreamInfoList },
+      videoStreamInfoList: { 'type': 'array', 'itemType': GetMediaInfoResponseBodyMediaInfoFileInfoListVideoStreamInfoList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMediaInfoResponseBodyMediaInfoMediaBasicInfo extends $tea.Model {
+  businessType?: string;
+  category?: string;
+  coverURL?: string;
+  createTime?: string;
+  deletedTime?: string;
+  description?: string;
+  inputURL?: string;
+  mediaId?: string;
+  mediaTags?: string;
+  mediaType?: string;
+  modifiedTime?: string;
+  source?: string;
+  spriteImages?: string;
+  status?: string;
+  title?: string;
+  userData?: string;
+  static names(): { [key: string]: string } {
+    return {
+      businessType: 'BusinessType',
+      category: 'Category',
+      coverURL: 'CoverURL',
+      createTime: 'CreateTime',
+      deletedTime: 'DeletedTime',
+      description: 'Description',
+      inputURL: 'InputURL',
+      mediaId: 'MediaId',
+      mediaTags: 'MediaTags',
+      mediaType: 'MediaType',
+      modifiedTime: 'ModifiedTime',
+      source: 'Source',
+      spriteImages: 'SpriteImages',
+      status: 'Status',
+      title: 'Title',
+      userData: 'UserData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      businessType: 'string',
+      category: 'string',
+      coverURL: 'string',
+      createTime: 'string',
+      deletedTime: 'string',
+      description: 'string',
+      inputURL: 'string',
+      mediaId: 'string',
+      mediaTags: 'string',
+      mediaType: 'string',
+      modifiedTime: 'string',
+      source: 'string',
+      spriteImages: 'string',
+      status: 'string',
+      title: 'string',
+      userData: 'string',
     };
   }
 
@@ -5540,213 +4714,86 @@ export class GetMediaInfoResponseBodyMediaInfoFileInfoList extends $tea.Model {
 }
 
 export class GetMediaInfoResponseBodyMediaInfo extends $tea.Model {
-  mediaId?: string;
-  mediaBasicInfo?: GetMediaInfoResponseBodyMediaInfoMediaBasicInfo;
-  dynamicMetaDataList?: GetMediaInfoResponseBodyMediaInfoDynamicMetaDataList[];
   aiRoughDataList?: GetMediaInfoResponseBodyMediaInfoAiRoughDataList[];
+  dynamicMetaDataList?: GetMediaInfoResponseBodyMediaInfoDynamicMetaDataList[];
   fileInfoList?: GetMediaInfoResponseBodyMediaInfoFileInfoList[];
+  mediaBasicInfo?: GetMediaInfoResponseBodyMediaInfoMediaBasicInfo;
+  mediaId?: string;
   static names(): { [key: string]: string } {
     return {
-      mediaId: 'MediaId',
-      mediaBasicInfo: 'MediaBasicInfo',
-      dynamicMetaDataList: 'DynamicMetaDataList',
       aiRoughDataList: 'AiRoughDataList',
+      dynamicMetaDataList: 'DynamicMetaDataList',
       fileInfoList: 'FileInfoList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      mediaId: 'string',
-      mediaBasicInfo: GetMediaInfoResponseBodyMediaInfoMediaBasicInfo,
-      dynamicMetaDataList: { 'type': 'array', 'itemType': GetMediaInfoResponseBodyMediaInfoDynamicMetaDataList },
-      aiRoughDataList: { 'type': 'array', 'itemType': GetMediaInfoResponseBodyMediaInfoAiRoughDataList },
-      fileInfoList: { 'type': 'array', 'itemType': GetMediaInfoResponseBodyMediaInfoFileInfoList },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListAllPublicMediaTagsResponseBodyMediaTagList extends $tea.Model {
-  mediaTagId?: string;
-  mediaTagNameChinese?: string;
-  mediaTagNameEnglish?: string;
-  static names(): { [key: string]: string } {
-    return {
-      mediaTagId: 'MediaTagId',
-      mediaTagNameChinese: 'MediaTagNameChinese',
-      mediaTagNameEnglish: 'MediaTagNameEnglish',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      mediaTagId: 'string',
-      mediaTagNameChinese: 'string',
-      mediaTagNameEnglish: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListPublicMediaBasicInfosResponseBodyMediaInfosMediaBasicInfo extends $tea.Model {
-  mediaId?: string;
-  inputURL?: string;
-  mediaType?: string;
-  businessType?: string;
-  source?: string;
-  title?: string;
-  description?: string;
-  category?: string;
-  mediaTags?: string;
-  coverURL?: string;
-  userData?: string;
-  snapshots?: string;
-  status?: string;
-  transcodeStatus?: string;
-  createTime?: string;
-  modifiedTime?: string;
-  deletedTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      mediaId: 'MediaId',
-      inputURL: 'InputURL',
-      mediaType: 'MediaType',
-      businessType: 'BusinessType',
-      source: 'Source',
-      title: 'Title',
-      description: 'Description',
-      category: 'Category',
-      mediaTags: 'MediaTags',
-      coverURL: 'CoverURL',
-      userData: 'UserData',
-      snapshots: 'Snapshots',
-      status: 'Status',
-      transcodeStatus: 'TranscodeStatus',
-      createTime: 'CreateTime',
-      modifiedTime: 'ModifiedTime',
-      deletedTime: 'DeletedTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      mediaId: 'string',
-      inputURL: 'string',
-      mediaType: 'string',
-      businessType: 'string',
-      source: 'string',
-      title: 'string',
-      description: 'string',
-      category: 'string',
-      mediaTags: 'string',
-      coverURL: 'string',
-      userData: 'string',
-      snapshots: 'string',
-      status: 'string',
-      transcodeStatus: 'string',
-      createTime: 'string',
-      modifiedTime: 'string',
-      deletedTime: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListPublicMediaBasicInfosResponseBodyMediaInfosFileInfoListFileBasicInfo extends $tea.Model {
-  fileName?: string;
-  fileStatus?: string;
-  fileType?: string;
-  fileSize?: string;
-  fileUrl?: string;
-  region?: string;
-  formatName?: string;
-  duration?: string;
-  bitrate?: string;
-  width?: string;
-  height?: string;
-  static names(): { [key: string]: string } {
-    return {
-      fileName: 'FileName',
-      fileStatus: 'FileStatus',
-      fileType: 'FileType',
-      fileSize: 'FileSize',
-      fileUrl: 'FileUrl',
-      region: 'Region',
-      formatName: 'FormatName',
-      duration: 'Duration',
-      bitrate: 'Bitrate',
-      width: 'Width',
-      height: 'Height',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      fileName: 'string',
-      fileStatus: 'string',
-      fileType: 'string',
-      fileSize: 'string',
-      fileUrl: 'string',
-      region: 'string',
-      formatName: 'string',
-      duration: 'string',
-      bitrate: 'string',
-      width: 'string',
-      height: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListPublicMediaBasicInfosResponseBodyMediaInfosFileInfoList extends $tea.Model {
-  fileBasicInfo?: ListPublicMediaBasicInfosResponseBodyMediaInfosFileInfoListFileBasicInfo;
-  static names(): { [key: string]: string } {
-    return {
-      fileBasicInfo: 'FileBasicInfo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      fileBasicInfo: ListPublicMediaBasicInfosResponseBodyMediaInfosFileInfoListFileBasicInfo,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListPublicMediaBasicInfosResponseBodyMediaInfos extends $tea.Model {
-  mediaId?: string;
-  mediaBasicInfo?: ListPublicMediaBasicInfosResponseBodyMediaInfosMediaBasicInfo;
-  fileInfoList?: ListPublicMediaBasicInfosResponseBodyMediaInfosFileInfoList[];
-  static names(): { [key: string]: string } {
-    return {
-      mediaId: 'MediaId',
       mediaBasicInfo: 'MediaBasicInfo',
-      fileInfoList: 'FileInfoList',
+      mediaId: 'MediaId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      aiRoughDataList: { 'type': 'array', 'itemType': GetMediaInfoResponseBodyMediaInfoAiRoughDataList },
+      dynamicMetaDataList: { 'type': 'array', 'itemType': GetMediaInfoResponseBodyMediaInfoDynamicMetaDataList },
+      fileInfoList: { 'type': 'array', 'itemType': GetMediaInfoResponseBodyMediaInfoFileInfoList },
+      mediaBasicInfo: GetMediaInfoResponseBodyMediaInfoMediaBasicInfo,
       mediaId: 'string',
-      mediaBasicInfo: ListPublicMediaBasicInfosResponseBodyMediaInfosMediaBasicInfo,
-      fileInfoList: { 'type': 'array', 'itemType': ListPublicMediaBasicInfosResponseBodyMediaInfosFileInfoList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMediaProducingJobResponseBodyMediaProducingJob extends $tea.Model {
+  clipsParam?: string;
+  code?: string;
+  completeTime?: string;
+  createTime?: string;
+  duration?: number;
+  jobId?: string;
+  mediaId?: string;
+  mediaURL?: string;
+  message?: string;
+  modifiedTime?: string;
+  projectId?: string;
+  status?: string;
+  templateId?: string;
+  timeline?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clipsParam: 'ClipsParam',
+      code: 'Code',
+      completeTime: 'CompleteTime',
+      createTime: 'CreateTime',
+      duration: 'Duration',
+      jobId: 'JobId',
+      mediaId: 'MediaId',
+      mediaURL: 'MediaURL',
+      message: 'Message',
+      modifiedTime: 'ModifiedTime',
+      projectId: 'ProjectId',
+      status: 'Status',
+      templateId: 'TemplateId',
+      timeline: 'Timeline',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clipsParam: 'string',
+      code: 'string',
+      completeTime: 'string',
+      createTime: 'string',
+      duration: 'number',
+      jobId: 'string',
+      mediaId: 'string',
+      mediaURL: 'string',
+      message: 'string',
+      modifiedTime: 'string',
+      projectId: 'string',
+      status: 'string',
+      templateId: 'string',
+      timeline: 'string',
     };
   }
 
@@ -5800,40 +4847,747 @@ export class GetSmartHandleJobResponseBodySmartJobInfoOutputConfig extends $tea.
 }
 
 export class GetSmartHandleJobResponseBodySmartJobInfo extends $tea.Model {
-  title?: string;
+  createTime?: string;
   description?: string;
-  userId?: string;
   editingConfig?: string;
   inputConfig?: GetSmartHandleJobResponseBodySmartJobInfoInputConfig;
-  outputConfig?: GetSmartHandleJobResponseBodySmartJobInfoOutputConfig;
-  createTime?: string;
-  modifiedTime?: string;
   jobType?: string;
+  modifiedTime?: string;
+  outputConfig?: GetSmartHandleJobResponseBodySmartJobInfoOutputConfig;
+  title?: string;
+  userId?: string;
   static names(): { [key: string]: string } {
     return {
-      title: 'Title',
+      createTime: 'CreateTime',
       description: 'Description',
-      userId: 'UserId',
       editingConfig: 'EditingConfig',
       inputConfig: 'InputConfig',
-      outputConfig: 'OutputConfig',
-      createTime: 'CreateTime',
-      modifiedTime: 'ModifiedTime',
       jobType: 'JobType',
+      modifiedTime: 'ModifiedTime',
+      outputConfig: 'OutputConfig',
+      title: 'Title',
+      userId: 'UserId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      title: 'string',
+      createTime: 'string',
       description: 'string',
-      userId: 'string',
       editingConfig: 'string',
       inputConfig: GetSmartHandleJobResponseBodySmartJobInfoInputConfig,
-      outputConfig: GetSmartHandleJobResponseBodySmartJobInfoOutputConfig,
-      createTime: 'string',
-      modifiedTime: 'string',
       jobType: 'string',
+      modifiedTime: 'string',
+      outputConfig: GetSmartHandleJobResponseBodySmartJobInfoOutputConfig,
+      title: 'string',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTemplateResponseBodyTemplate extends $tea.Model {
+  clipsParam?: string;
+  config?: string;
+  coverURL?: string;
+  createSource?: string;
+  creationTime?: string;
+  modifiedSource?: string;
+  modifiedTime?: string;
+  name?: string;
+  previewMedia?: string;
+  previewMediaStatus?: string;
+  relatedMediaids?: string;
+  status?: string;
+  templateId?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clipsParam: 'ClipsParam',
+      config: 'Config',
+      coverURL: 'CoverURL',
+      createSource: 'CreateSource',
+      creationTime: 'CreationTime',
+      modifiedSource: 'ModifiedSource',
+      modifiedTime: 'ModifiedTime',
+      name: 'Name',
+      previewMedia: 'PreviewMedia',
+      previewMediaStatus: 'PreviewMediaStatus',
+      relatedMediaids: 'RelatedMediaids',
+      status: 'Status',
+      templateId: 'TemplateId',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clipsParam: 'string',
+      config: 'string',
+      coverURL: 'string',
+      createSource: 'string',
+      creationTime: 'string',
+      modifiedSource: 'string',
+      modifiedTime: 'string',
+      name: 'string',
+      previewMedia: 'string',
+      previewMediaStatus: 'string',
+      relatedMediaids: 'string',
+      status: 'string',
+      templateId: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAllPublicMediaTagsResponseBodyMediaTagList extends $tea.Model {
+  mediaTagId?: string;
+  mediaTagNameChinese?: string;
+  mediaTagNameEnglish?: string;
+  static names(): { [key: string]: string } {
+    return {
+      mediaTagId: 'MediaTagId',
+      mediaTagNameChinese: 'MediaTagNameChinese',
+      mediaTagNameEnglish: 'MediaTagNameEnglish',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mediaTagId: 'string',
+      mediaTagNameChinese: 'string',
+      mediaTagNameEnglish: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMediaBasicInfosResponseBodyMediaInfosFileInfoListFileBasicInfo extends $tea.Model {
+  bitrate?: string;
+  duration?: string;
+  fileName?: string;
+  fileSize?: string;
+  fileStatus?: string;
+  fileType?: string;
+  fileUrl?: string;
+  formatName?: string;
+  height?: string;
+  region?: string;
+  width?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bitrate: 'Bitrate',
+      duration: 'Duration',
+      fileName: 'FileName',
+      fileSize: 'FileSize',
+      fileStatus: 'FileStatus',
+      fileType: 'FileType',
+      fileUrl: 'FileUrl',
+      formatName: 'FormatName',
+      height: 'Height',
+      region: 'Region',
+      width: 'Width',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bitrate: 'string',
+      duration: 'string',
+      fileName: 'string',
+      fileSize: 'string',
+      fileStatus: 'string',
+      fileType: 'string',
+      fileUrl: 'string',
+      formatName: 'string',
+      height: 'string',
+      region: 'string',
+      width: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMediaBasicInfosResponseBodyMediaInfosFileInfoList extends $tea.Model {
+  fileBasicInfo?: ListMediaBasicInfosResponseBodyMediaInfosFileInfoListFileBasicInfo;
+  static names(): { [key: string]: string } {
+    return {
+      fileBasicInfo: 'FileBasicInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileBasicInfo: ListMediaBasicInfosResponseBodyMediaInfosFileInfoListFileBasicInfo,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMediaBasicInfosResponseBodyMediaInfosMediaBasicInfo extends $tea.Model {
+  businessType?: string;
+  category?: string;
+  coverURL?: string;
+  createTime?: string;
+  deletedTime?: string;
+  description?: string;
+  inputURL?: string;
+  mediaId?: string;
+  mediaTags?: string;
+  mediaType?: string;
+  modifiedTime?: string;
+  snapshots?: string;
+  source?: string;
+  spriteImages?: string;
+  status?: string;
+  title?: string;
+  transcodeStatus?: string;
+  userData?: string;
+  static names(): { [key: string]: string } {
+    return {
+      businessType: 'BusinessType',
+      category: 'Category',
+      coverURL: 'CoverURL',
+      createTime: 'CreateTime',
+      deletedTime: 'DeletedTime',
+      description: 'Description',
+      inputURL: 'InputURL',
+      mediaId: 'MediaId',
+      mediaTags: 'MediaTags',
+      mediaType: 'MediaType',
+      modifiedTime: 'ModifiedTime',
+      snapshots: 'Snapshots',
+      source: 'Source',
+      spriteImages: 'SpriteImages',
+      status: 'Status',
+      title: 'Title',
+      transcodeStatus: 'TranscodeStatus',
+      userData: 'UserData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      businessType: 'string',
+      category: 'string',
+      coverURL: 'string',
+      createTime: 'string',
+      deletedTime: 'string',
+      description: 'string',
+      inputURL: 'string',
+      mediaId: 'string',
+      mediaTags: 'string',
+      mediaType: 'string',
+      modifiedTime: 'string',
+      snapshots: 'string',
+      source: 'string',
+      spriteImages: 'string',
+      status: 'string',
+      title: 'string',
+      transcodeStatus: 'string',
+      userData: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMediaBasicInfosResponseBodyMediaInfos extends $tea.Model {
+  fileInfoList?: ListMediaBasicInfosResponseBodyMediaInfosFileInfoList[];
+  mediaBasicInfo?: ListMediaBasicInfosResponseBodyMediaInfosMediaBasicInfo;
+  mediaId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fileInfoList: 'FileInfoList',
+      mediaBasicInfo: 'MediaBasicInfo',
+      mediaId: 'MediaId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileInfoList: { 'type': 'array', 'itemType': ListMediaBasicInfosResponseBodyMediaInfosFileInfoList },
+      mediaBasicInfo: ListMediaBasicInfosResponseBodyMediaInfosMediaBasicInfo,
+      mediaId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMediaProducingJobsResponseBodyMediaProducingJobList extends $tea.Model {
+  clipsParam?: string;
+  code?: string;
+  completeTime?: string;
+  createTime?: string;
+  duration?: number;
+  jobId?: string;
+  mediaId?: string;
+  mediaURL?: string;
+  message?: string;
+  modifiedTime?: string;
+  projectId?: string;
+  status?: string;
+  templateId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clipsParam: 'ClipsParam',
+      code: 'Code',
+      completeTime: 'CompleteTime',
+      createTime: 'CreateTime',
+      duration: 'Duration',
+      jobId: 'JobId',
+      mediaId: 'MediaId',
+      mediaURL: 'MediaURL',
+      message: 'Message',
+      modifiedTime: 'ModifiedTime',
+      projectId: 'ProjectId',
+      status: 'Status',
+      templateId: 'TemplateId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clipsParam: 'string',
+      code: 'string',
+      completeTime: 'string',
+      createTime: 'string',
+      duration: 'number',
+      jobId: 'string',
+      mediaId: 'string',
+      mediaURL: 'string',
+      message: 'string',
+      modifiedTime: 'string',
+      projectId: 'string',
+      status: 'string',
+      templateId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPublicMediaBasicInfosResponseBodyMediaInfosFileInfoListFileBasicInfo extends $tea.Model {
+  bitrate?: string;
+  duration?: string;
+  fileName?: string;
+  fileSize?: string;
+  fileStatus?: string;
+  fileType?: string;
+  fileUrl?: string;
+  formatName?: string;
+  height?: string;
+  region?: string;
+  width?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bitrate: 'Bitrate',
+      duration: 'Duration',
+      fileName: 'FileName',
+      fileSize: 'FileSize',
+      fileStatus: 'FileStatus',
+      fileType: 'FileType',
+      fileUrl: 'FileUrl',
+      formatName: 'FormatName',
+      height: 'Height',
+      region: 'Region',
+      width: 'Width',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bitrate: 'string',
+      duration: 'string',
+      fileName: 'string',
+      fileSize: 'string',
+      fileStatus: 'string',
+      fileType: 'string',
+      fileUrl: 'string',
+      formatName: 'string',
+      height: 'string',
+      region: 'string',
+      width: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPublicMediaBasicInfosResponseBodyMediaInfosFileInfoList extends $tea.Model {
+  fileBasicInfo?: ListPublicMediaBasicInfosResponseBodyMediaInfosFileInfoListFileBasicInfo;
+  static names(): { [key: string]: string } {
+    return {
+      fileBasicInfo: 'FileBasicInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileBasicInfo: ListPublicMediaBasicInfosResponseBodyMediaInfosFileInfoListFileBasicInfo,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPublicMediaBasicInfosResponseBodyMediaInfosMediaBasicInfo extends $tea.Model {
+  businessType?: string;
+  category?: string;
+  coverURL?: string;
+  createTime?: string;
+  deletedTime?: string;
+  description?: string;
+  inputURL?: string;
+  mediaId?: string;
+  mediaTags?: string;
+  mediaType?: string;
+  modifiedTime?: string;
+  snapshots?: string;
+  source?: string;
+  status?: string;
+  title?: string;
+  transcodeStatus?: string;
+  userData?: string;
+  static names(): { [key: string]: string } {
+    return {
+      businessType: 'BusinessType',
+      category: 'Category',
+      coverURL: 'CoverURL',
+      createTime: 'CreateTime',
+      deletedTime: 'DeletedTime',
+      description: 'Description',
+      inputURL: 'InputURL',
+      mediaId: 'MediaId',
+      mediaTags: 'MediaTags',
+      mediaType: 'MediaType',
+      modifiedTime: 'ModifiedTime',
+      snapshots: 'Snapshots',
+      source: 'Source',
+      status: 'Status',
+      title: 'Title',
+      transcodeStatus: 'TranscodeStatus',
+      userData: 'UserData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      businessType: 'string',
+      category: 'string',
+      coverURL: 'string',
+      createTime: 'string',
+      deletedTime: 'string',
+      description: 'string',
+      inputURL: 'string',
+      mediaId: 'string',
+      mediaTags: 'string',
+      mediaType: 'string',
+      modifiedTime: 'string',
+      snapshots: 'string',
+      source: 'string',
+      status: 'string',
+      title: 'string',
+      transcodeStatus: 'string',
+      userData: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPublicMediaBasicInfosResponseBodyMediaInfos extends $tea.Model {
+  fileInfoList?: ListPublicMediaBasicInfosResponseBodyMediaInfosFileInfoList[];
+  mediaBasicInfo?: ListPublicMediaBasicInfosResponseBodyMediaInfosMediaBasicInfo;
+  mediaId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fileInfoList: 'FileInfoList',
+      mediaBasicInfo: 'MediaBasicInfo',
+      mediaId: 'MediaId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileInfoList: { 'type': 'array', 'itemType': ListPublicMediaBasicInfosResponseBodyMediaInfosFileInfoList },
+      mediaBasicInfo: ListPublicMediaBasicInfosResponseBodyMediaInfosMediaBasicInfo,
+      mediaId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSmartJobsResponseBodySmartJobListInputConfig extends $tea.Model {
+  inputFile?: string;
+  keyword?: string;
+  static names(): { [key: string]: string } {
+    return {
+      inputFile: 'InputFile',
+      keyword: 'Keyword',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inputFile: 'string',
+      keyword: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSmartJobsResponseBodySmartJobListOutputConfig extends $tea.Model {
+  bucket?: string;
+  object?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bucket: 'Bucket',
+      object: 'Object',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bucket: 'string',
+      object: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSmartJobsResponseBodySmartJobList extends $tea.Model {
+  createTime?: string;
+  description?: string;
+  editingConfig?: string;
+  inputConfig?: ListSmartJobsResponseBodySmartJobListInputConfig;
+  jobId?: string;
+  jobState?: string;
+  jobType?: string;
+  modifiedTime?: string;
+  outputConfig?: ListSmartJobsResponseBodySmartJobListOutputConfig;
+  title?: string;
+  userData?: string;
+  userId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      description: 'Description',
+      editingConfig: 'EditingConfig',
+      inputConfig: 'InputConfig',
+      jobId: 'JobId',
+      jobState: 'JobState',
+      jobType: 'JobType',
+      modifiedTime: 'ModifiedTime',
+      outputConfig: 'OutputConfig',
+      title: 'Title',
+      userData: 'UserData',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      description: 'string',
+      editingConfig: 'string',
+      inputConfig: ListSmartJobsResponseBodySmartJobListInputConfig,
+      jobId: 'string',
+      jobState: 'string',
+      jobType: 'string',
+      modifiedTime: 'string',
+      outputConfig: ListSmartJobsResponseBodySmartJobListOutputConfig,
+      title: 'string',
+      userData: 'string',
+      userId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSysTemplatesResponseBodyTemplates extends $tea.Model {
+  config?: string;
+  name?: string;
+  templateId?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      config: 'Config',
+      name: 'Name',
+      templateId: 'TemplateId',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      config: 'string',
+      name: 'string',
+      templateId: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTemplatesResponseBodyTemplates extends $tea.Model {
+  clipsParam?: string;
+  config?: string;
+  coverURL?: string;
+  createSource?: string;
+  creationTime?: string;
+  modifiedSource?: string;
+  modifiedTime?: string;
+  name?: string;
+  previewMedia?: string;
+  previewMediaStatus?: string;
+  status?: string;
+  templateId?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clipsParam: 'ClipsParam',
+      config: 'Config',
+      coverURL: 'CoverURL',
+      createSource: 'CreateSource',
+      creationTime: 'CreationTime',
+      modifiedSource: 'ModifiedSource',
+      modifiedTime: 'ModifiedTime',
+      name: 'Name',
+      previewMedia: 'PreviewMedia',
+      previewMediaStatus: 'PreviewMediaStatus',
+      status: 'Status',
+      templateId: 'TemplateId',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clipsParam: 'string',
+      config: 'string',
+      coverURL: 'string',
+      createSource: 'string',
+      creationTime: 'string',
+      modifiedSource: 'string',
+      modifiedTime: 'string',
+      name: 'string',
+      previewMedia: 'string',
+      previewMediaStatus: 'string',
+      status: 'string',
+      templateId: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchEditingProjectResponseBodyProjectList extends $tea.Model {
+  businessConfig?: string;
+  businessStatus?: string;
+  coverURL?: string;
+  createSource?: string;
+  createTime?: string;
+  description?: string;
+  duration?: number;
+  errorCode?: string;
+  errorMessage?: string;
+  modifiedSource?: string;
+  modifiedTime?: string;
+  projectId?: string;
+  projectType?: string;
+  status?: string;
+  templateType?: string;
+  timeline?: string;
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      businessConfig: 'BusinessConfig',
+      businessStatus: 'BusinessStatus',
+      coverURL: 'CoverURL',
+      createSource: 'CreateSource',
+      createTime: 'CreateTime',
+      description: 'Description',
+      duration: 'Duration',
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      modifiedSource: 'ModifiedSource',
+      modifiedTime: 'ModifiedTime',
+      projectId: 'ProjectId',
+      projectType: 'ProjectType',
+      status: 'Status',
+      templateType: 'TemplateType',
+      timeline: 'Timeline',
+      title: 'Title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      businessConfig: 'string',
+      businessStatus: 'string',
+      coverURL: 'string',
+      createSource: 'string',
+      createTime: 'string',
+      description: 'string',
+      duration: 'number',
+      errorCode: 'string',
+      errorMessage: 'string',
+      modifiedSource: 'string',
+      modifiedTime: 'string',
+      projectId: 'string',
+      projectType: 'string',
+      status: 'string',
+      templateType: 'string',
+      timeline: 'string',
+      title: 'string',
     };
   }
 
@@ -5923,54 +5677,17 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
-  async listSmartJobsWithOptions(request: ListSmartJobsRequest, runtime: $Util.RuntimeOptions): Promise<ListSmartJobsResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
-      query: query,
-    });
-    return $tea.cast<ListSmartJobsResponse>(await this.doRPCRequest("ListSmartJobs", "2020-11-09", "HTTPS", "GET", "AK", "json", req, runtime), new ListSmartJobsResponse({}));
-  }
-
-  async listSmartJobs(request: ListSmartJobsRequest): Promise<ListSmartJobsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.listSmartJobsWithOptions(request, runtime);
-  }
-
-  async getLiveEditingJobWithOptions(request: GetLiveEditingJobRequest, runtime: $Util.RuntimeOptions): Promise<GetLiveEditingJobResponse> {
+  async addEditingProjectMaterialsWithOptions(request: AddEditingProjectMaterialsRequest, runtime: $Util.RuntimeOptions): Promise<AddEditingProjectMaterialsResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<GetLiveEditingJobResponse>(await this.doRPCRequest("GetLiveEditingJob", "2020-11-09", "HTTPS", "POST", "AK", "json", req, runtime), new GetLiveEditingJobResponse({}));
+    return $tea.cast<AddEditingProjectMaterialsResponse>(await this.doRPCRequest("AddEditingProjectMaterials", "2020-11-09", "HTTPS", "POST", "AK", "json", req, runtime), new AddEditingProjectMaterialsResponse({}));
   }
 
-  async getLiveEditingJob(request: GetLiveEditingJobRequest): Promise<GetLiveEditingJobResponse> {
+  async addEditingProjectMaterials(request: AddEditingProjectMaterialsRequest): Promise<AddEditingProjectMaterialsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.getLiveEditingJobWithOptions(request, runtime);
-  }
-
-  async describeRelatedAuthorizationStatusWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeRelatedAuthorizationStatusResponse> {
-    let req = new $OpenApi.OpenApiRequest({ });
-    return $tea.cast<DescribeRelatedAuthorizationStatusResponse>(await this.doRPCRequest("DescribeRelatedAuthorizationStatus", "2020-11-09", "HTTPS", "GET", "AK", "json", req, runtime), new DescribeRelatedAuthorizationStatusResponse({}));
-  }
-
-  async describeRelatedAuthorizationStatus(): Promise<DescribeRelatedAuthorizationStatusResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeRelatedAuthorizationStatusWithOptions(runtime);
-  }
-
-  async deleteSmartJobWithOptions(request: DeleteSmartJobRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSmartJobResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<DeleteSmartJobResponse>(await this.doRPCRequest("DeleteSmartJob", "2020-11-09", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteSmartJobResponse({}));
-  }
-
-  async deleteSmartJob(request: DeleteSmartJobRequest): Promise<DeleteSmartJobResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.deleteSmartJobWithOptions(request, runtime);
+    return await this.addEditingProjectMaterialsWithOptions(request, runtime);
   }
 
   async addTemplateWithOptions(request: AddTemplateRequest, runtime: $Util.RuntimeOptions): Promise<AddTemplateResponse> {
@@ -5986,122 +5703,6 @@ export default class Client extends OpenApi {
     return await this.addTemplateWithOptions(request, runtime);
   }
 
-  async updateEditingProjectWithOptions(request: UpdateEditingProjectRequest, runtime: $Util.RuntimeOptions): Promise<UpdateEditingProjectResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<UpdateEditingProjectResponse>(await this.doRPCRequest("UpdateEditingProject", "2020-11-09", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateEditingProjectResponse({}));
-  }
-
-  async updateEditingProject(request: UpdateEditingProjectRequest): Promise<UpdateEditingProjectResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.updateEditingProjectWithOptions(request, runtime);
-  }
-
-  async listMediaProducingJobsWithOptions(request: ListMediaProducingJobsRequest, runtime: $Util.RuntimeOptions): Promise<ListMediaProducingJobsResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<ListMediaProducingJobsResponse>(await this.doRPCRequest("ListMediaProducingJobs", "2020-11-09", "HTTPS", "POST", "AK", "json", req, runtime), new ListMediaProducingJobsResponse({}));
-  }
-
-  async listMediaProducingJobs(request: ListMediaProducingJobsRequest): Promise<ListMediaProducingJobsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.listMediaProducingJobsWithOptions(request, runtime);
-  }
-
-  async getEditingProjectMaterialsWithOptions(request: GetEditingProjectMaterialsRequest, runtime: $Util.RuntimeOptions): Promise<GetEditingProjectMaterialsResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
-      query: query,
-    });
-    return $tea.cast<GetEditingProjectMaterialsResponse>(await this.doRPCRequest("GetEditingProjectMaterials", "2020-11-09", "HTTPS", "GET", "AK", "json", req, runtime), new GetEditingProjectMaterialsResponse({}));
-  }
-
-  async getEditingProjectMaterials(request: GetEditingProjectMaterialsRequest): Promise<GetEditingProjectMaterialsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getEditingProjectMaterialsWithOptions(request, runtime);
-  }
-
-  async getDefaultStorageLocationWithOptions(runtime: $Util.RuntimeOptions): Promise<GetDefaultStorageLocationResponse> {
-    let req = new $OpenApi.OpenApiRequest({ });
-    return $tea.cast<GetDefaultStorageLocationResponse>(await this.doRPCRequest("GetDefaultStorageLocation", "2020-11-09", "HTTPS", "POST", "AK", "json", req, runtime), new GetDefaultStorageLocationResponse({}));
-  }
-
-  async getDefaultStorageLocation(): Promise<GetDefaultStorageLocationResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getDefaultStorageLocationWithOptions(runtime);
-  }
-
-  async deleteMediaInfosWithOptions(request: DeleteMediaInfosRequest, runtime: $Util.RuntimeOptions): Promise<DeleteMediaInfosResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<DeleteMediaInfosResponse>(await this.doRPCRequest("DeleteMediaInfos", "2020-11-09", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteMediaInfosResponse({}));
-  }
-
-  async deleteMediaInfos(request: DeleteMediaInfosRequest): Promise<DeleteMediaInfosResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.deleteMediaInfosWithOptions(request, runtime);
-  }
-
-  async setEventCallbackWithOptions(request: SetEventCallbackRequest, runtime: $Util.RuntimeOptions): Promise<SetEventCallbackResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<SetEventCallbackResponse>(await this.doRPCRequest("SetEventCallback", "2020-11-09", "HTTPS", "POST", "AK", "json", req, runtime), new SetEventCallbackResponse({}));
-  }
-
-  async setEventCallback(request: SetEventCallbackRequest): Promise<SetEventCallbackResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.setEventCallbackWithOptions(request, runtime);
-  }
-
-  async getTemplateWithOptions(request: GetTemplateRequest, runtime: $Util.RuntimeOptions): Promise<GetTemplateResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
-      query: query,
-    });
-    return $tea.cast<GetTemplateResponse>(await this.doRPCRequest("GetTemplate", "2020-11-09", "HTTPS", "GET", "AK", "json", req, runtime), new GetTemplateResponse({}));
-  }
-
-  async getTemplate(request: GetTemplateRequest): Promise<GetTemplateResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getTemplateWithOptions(request, runtime);
-  }
-
-  async registerMediaInfoWithOptions(request: RegisterMediaInfoRequest, runtime: $Util.RuntimeOptions): Promise<RegisterMediaInfoResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<RegisterMediaInfoResponse>(await this.doRPCRequest("RegisterMediaInfo", "2020-11-09", "HTTPS", "POST", "AK", "json", req, runtime), new RegisterMediaInfoResponse({}));
-  }
-
-  async registerMediaInfo(request: RegisterMediaInfoRequest): Promise<RegisterMediaInfoResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.registerMediaInfoWithOptions(request, runtime);
-  }
-
-  async createEditingProjectWithOptions(request: CreateEditingProjectRequest, runtime: $Util.RuntimeOptions): Promise<CreateEditingProjectResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<CreateEditingProjectResponse>(await this.doRPCRequest("CreateEditingProject", "2020-11-09", "HTTPS", "POST", "AK", "json", req, runtime), new CreateEditingProjectResponse({}));
-  }
-
-  async createEditingProject(request: CreateEditingProjectRequest): Promise<CreateEditingProjectResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.createEditingProjectWithOptions(request, runtime);
-  }
-
   async batchGetMediaInfosWithOptions(request: BatchGetMediaInfosRequest, runtime: $Util.RuntimeOptions): Promise<BatchGetMediaInfosResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -6115,189 +5716,17 @@ export default class Client extends OpenApi {
     return await this.batchGetMediaInfosWithOptions(request, runtime);
   }
 
-  async setDefaultStorageLocationWithOptions(request: SetDefaultStorageLocationRequest, runtime: $Util.RuntimeOptions): Promise<SetDefaultStorageLocationResponse> {
+  async createEditingProjectWithOptions(request: CreateEditingProjectRequest, runtime: $Util.RuntimeOptions): Promise<CreateEditingProjectResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<SetDefaultStorageLocationResponse>(await this.doRPCRequest("SetDefaultStorageLocation", "2020-11-09", "HTTPS", "POST", "AK", "json", req, runtime), new SetDefaultStorageLocationResponse({}));
+    return $tea.cast<CreateEditingProjectResponse>(await this.doRPCRequest("CreateEditingProject", "2020-11-09", "HTTPS", "POST", "AK", "json", req, runtime), new CreateEditingProjectResponse({}));
   }
 
-  async setDefaultStorageLocation(request: SetDefaultStorageLocationRequest): Promise<SetDefaultStorageLocationResponse> {
+  async createEditingProject(request: CreateEditingProjectRequest): Promise<CreateEditingProjectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.setDefaultStorageLocationWithOptions(request, runtime);
-  }
-
-  async updateMediaInfoWithOptions(request: UpdateMediaInfoRequest, runtime: $Util.RuntimeOptions): Promise<UpdateMediaInfoResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<UpdateMediaInfoResponse>(await this.doRPCRequest("UpdateMediaInfo", "2020-11-09", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateMediaInfoResponse({}));
-  }
-
-  async updateMediaInfo(request: UpdateMediaInfoRequest): Promise<UpdateMediaInfoResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.updateMediaInfoWithOptions(request, runtime);
-  }
-
-  async getMediaProducingJobWithOptions(request: GetMediaProducingJobRequest, runtime: $Util.RuntimeOptions): Promise<GetMediaProducingJobResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
-      query: query,
-    });
-    return $tea.cast<GetMediaProducingJobResponse>(await this.doRPCRequest("GetMediaProducingJob", "2020-11-09", "HTTPS", "GET", "AK", "json", req, runtime), new GetMediaProducingJobResponse({}));
-  }
-
-  async getMediaProducingJob(request: GetMediaProducingJobRequest): Promise<GetMediaProducingJobResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getMediaProducingJobWithOptions(request, runtime);
-  }
-
-  async describeIceProductStatusWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeIceProductStatusResponse> {
-    let req = new $OpenApi.OpenApiRequest({ });
-    return $tea.cast<DescribeIceProductStatusResponse>(await this.doRPCRequest("DescribeIceProductStatus", "2020-11-09", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeIceProductStatusResponse({}));
-  }
-
-  async describeIceProductStatus(): Promise<DescribeIceProductStatusResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeIceProductStatusWithOptions(runtime);
-  }
-
-  async getLiveEditingIndexFileWithOptions(request: GetLiveEditingIndexFileRequest, runtime: $Util.RuntimeOptions): Promise<GetLiveEditingIndexFileResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
-      query: query,
-    });
-    return $tea.cast<GetLiveEditingIndexFileResponse>(await this.doRPCRequest("GetLiveEditingIndexFile", "2020-11-09", "HTTPS", "GET", "AK", "json", req, runtime), new GetLiveEditingIndexFileResponse({}));
-  }
-
-  async getLiveEditingIndexFile(request: GetLiveEditingIndexFileRequest): Promise<GetLiveEditingIndexFileResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getLiveEditingIndexFileWithOptions(request, runtime);
-  }
-
-  async listMediaBasicInfosWithOptions(request: ListMediaBasicInfosRequest, runtime: $Util.RuntimeOptions): Promise<ListMediaBasicInfosResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<ListMediaBasicInfosResponse>(await this.doRPCRequest("ListMediaBasicInfos", "2020-11-09", "HTTPS", "POST", "AK", "json", req, runtime), new ListMediaBasicInfosResponse({}));
-  }
-
-  async listMediaBasicInfos(request: ListMediaBasicInfosRequest): Promise<ListMediaBasicInfosResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.listMediaBasicInfosWithOptions(request, runtime);
-  }
-
-  async submitSubtitleProduceJobWithOptions(request: SubmitSubtitleProduceJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitSubtitleProduceJobResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<SubmitSubtitleProduceJobResponse>(await this.doRPCRequest("SubmitSubtitleProduceJob", "2020-11-09", "HTTPS", "POST", "AK", "json", req, runtime), new SubmitSubtitleProduceJobResponse({}));
-  }
-
-  async submitSubtitleProduceJob(request: SubmitSubtitleProduceJobRequest): Promise<SubmitSubtitleProduceJobResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.submitSubtitleProduceJobWithOptions(request, runtime);
-  }
-
-  async submitKeyWordCutJobWithOptions(request: SubmitKeyWordCutJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitKeyWordCutJobResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
-      query: query,
-    });
-    return $tea.cast<SubmitKeyWordCutJobResponse>(await this.doRPCRequest("SubmitKeyWordCutJob", "2020-11-09", "HTTPS", "GET", "AK", "json", req, runtime), new SubmitKeyWordCutJobResponse({}));
-  }
-
-  async submitKeyWordCutJob(request: SubmitKeyWordCutJobRequest): Promise<SubmitKeyWordCutJobResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.submitKeyWordCutJobWithOptions(request, runtime);
-  }
-
-  async addEditingProjectMaterialsWithOptions(request: AddEditingProjectMaterialsRequest, runtime: $Util.RuntimeOptions): Promise<AddEditingProjectMaterialsResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<AddEditingProjectMaterialsResponse>(await this.doRPCRequest("AddEditingProjectMaterials", "2020-11-09", "HTTPS", "POST", "AK", "json", req, runtime), new AddEditingProjectMaterialsResponse({}));
-  }
-
-  async addEditingProjectMaterials(request: AddEditingProjectMaterialsRequest): Promise<AddEditingProjectMaterialsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.addEditingProjectMaterialsWithOptions(request, runtime);
-  }
-
-  async submitASRJobWithOptions(request: SubmitASRJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitASRJobResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<SubmitASRJobResponse>(await this.doRPCRequest("SubmitASRJob", "2020-11-09", "HTTPS", "POST", "AK", "json", req, runtime), new SubmitASRJobResponse({}));
-  }
-
-  async submitASRJob(request: SubmitASRJobRequest): Promise<SubmitASRJobResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.submitASRJobWithOptions(request, runtime);
-  }
-
-  async getEditingProjectWithOptions(request: GetEditingProjectRequest, runtime: $Util.RuntimeOptions): Promise<GetEditingProjectResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
-      query: query,
-    });
-    return $tea.cast<GetEditingProjectResponse>(await this.doRPCRequest("GetEditingProject", "2020-11-09", "HTTPS", "GET", "AK", "json", req, runtime), new GetEditingProjectResponse({}));
-  }
-
-  async getEditingProject(request: GetEditingProjectRequest): Promise<GetEditingProjectResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getEditingProjectWithOptions(request, runtime);
-  }
-
-  async listSysTemplatesWithOptions(request: ListSysTemplatesRequest, runtime: $Util.RuntimeOptions): Promise<ListSysTemplatesResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
-      query: query,
-    });
-    return $tea.cast<ListSysTemplatesResponse>(await this.doRPCRequest("ListSysTemplates", "2020-11-09", "HTTPS", "GET", "AK", "json", req, runtime), new ListSysTemplatesResponse({}));
-  }
-
-  async listSysTemplates(request: ListSysTemplatesRequest): Promise<ListSysTemplatesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.listSysTemplatesWithOptions(request, runtime);
-  }
-
-  async deleteTemplateWithOptions(request: DeleteTemplateRequest, runtime: $Util.RuntimeOptions): Promise<DeleteTemplateResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
-      query: query,
-    });
-    return $tea.cast<DeleteTemplateResponse>(await this.doRPCRequest("DeleteTemplate", "2020-11-09", "HTTPS", "GET", "AK", "json", req, runtime), new DeleteTemplateResponse({}));
-  }
-
-  async deleteTemplate(request: DeleteTemplateRequest): Promise<DeleteTemplateResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.deleteTemplateWithOptions(request, runtime);
-  }
-
-  async submitIRJobWithOptions(request: SubmitIRJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitIRJobResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<SubmitIRJobResponse>(await this.doRPCRequest("SubmitIRJob", "2020-11-09", "HTTPS", "POST", "AK", "json", req, runtime), new SubmitIRJobResponse({}));
-  }
-
-  async submitIRJob(request: SubmitIRJobRequest): Promise<SubmitIRJobResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.submitIRJobWithOptions(request, runtime);
+    return await this.createEditingProjectWithOptions(request, runtime);
   }
 
   async deleteEditingProjectMaterialsWithOptions(request: DeleteEditingProjectMaterialsRequest, runtime: $Util.RuntimeOptions): Promise<DeleteEditingProjectMaterialsResponse> {
@@ -6314,32 +5743,6 @@ export default class Client extends OpenApi {
     return await this.deleteEditingProjectMaterialsWithOptions(request, runtime);
   }
 
-  async searchEditingProjectWithOptions(request: SearchEditingProjectRequest, runtime: $Util.RuntimeOptions): Promise<SearchEditingProjectResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<SearchEditingProjectResponse>(await this.doRPCRequest("SearchEditingProject", "2020-11-09", "HTTPS", "POST", "AK", "json", req, runtime), new SearchEditingProjectResponse({}));
-  }
-
-  async searchEditingProject(request: SearchEditingProjectRequest): Promise<SearchEditingProjectResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.searchEditingProjectWithOptions(request, runtime);
-  }
-
-  async listTemplatesWithOptions(request: ListTemplatesRequest, runtime: $Util.RuntimeOptions): Promise<ListTemplatesResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<ListTemplatesResponse>(await this.doRPCRequest("ListTemplates", "2020-11-09", "HTTPS", "POST", "AK", "json", req, runtime), new ListTemplatesResponse({}));
-  }
-
-  async listTemplates(request: ListTemplatesRequest): Promise<ListTemplatesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.listTemplatesWithOptions(request, runtime);
-  }
-
   async deleteEditingProjectsWithOptions(request: DeleteEditingProjectsRequest, runtime: $Util.RuntimeOptions): Promise<DeleteEditingProjectsResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -6351,6 +5754,141 @@ export default class Client extends OpenApi {
   async deleteEditingProjects(request: DeleteEditingProjectsRequest): Promise<DeleteEditingProjectsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteEditingProjectsWithOptions(request, runtime);
+  }
+
+  async deleteMediaInfosWithOptions(request: DeleteMediaInfosRequest, runtime: $Util.RuntimeOptions): Promise<DeleteMediaInfosResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DeleteMediaInfosResponse>(await this.doRPCRequest("DeleteMediaInfos", "2020-11-09", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteMediaInfosResponse({}));
+  }
+
+  async deleteMediaInfos(request: DeleteMediaInfosRequest): Promise<DeleteMediaInfosResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteMediaInfosWithOptions(request, runtime);
+  }
+
+  async deleteSmartJobWithOptions(request: DeleteSmartJobRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSmartJobResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DeleteSmartJobResponse>(await this.doRPCRequest("DeleteSmartJob", "2020-11-09", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteSmartJobResponse({}));
+  }
+
+  async deleteSmartJob(request: DeleteSmartJobRequest): Promise<DeleteSmartJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteSmartJobWithOptions(request, runtime);
+  }
+
+  async deleteTemplateWithOptions(request: DeleteTemplateRequest, runtime: $Util.RuntimeOptions): Promise<DeleteTemplateResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: query,
+    });
+    return $tea.cast<DeleteTemplateResponse>(await this.doRPCRequest("DeleteTemplate", "2020-11-09", "HTTPS", "GET", "AK", "json", req, runtime), new DeleteTemplateResponse({}));
+  }
+
+  async deleteTemplate(request: DeleteTemplateRequest): Promise<DeleteTemplateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteTemplateWithOptions(request, runtime);
+  }
+
+  async describeIceProductStatusWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeIceProductStatusResponse> {
+    let req = new $OpenApi.OpenApiRequest({ });
+    return $tea.cast<DescribeIceProductStatusResponse>(await this.doRPCRequest("DescribeIceProductStatus", "2020-11-09", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeIceProductStatusResponse({}));
+  }
+
+  async describeIceProductStatus(): Promise<DescribeIceProductStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeIceProductStatusWithOptions(runtime);
+  }
+
+  async describeRelatedAuthorizationStatusWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeRelatedAuthorizationStatusResponse> {
+    let req = new $OpenApi.OpenApiRequest({ });
+    return $tea.cast<DescribeRelatedAuthorizationStatusResponse>(await this.doRPCRequest("DescribeRelatedAuthorizationStatus", "2020-11-09", "HTTPS", "GET", "AK", "json", req, runtime), new DescribeRelatedAuthorizationStatusResponse({}));
+  }
+
+  async describeRelatedAuthorizationStatus(): Promise<DescribeRelatedAuthorizationStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeRelatedAuthorizationStatusWithOptions(runtime);
+  }
+
+  async getDefaultStorageLocationWithOptions(runtime: $Util.RuntimeOptions): Promise<GetDefaultStorageLocationResponse> {
+    let req = new $OpenApi.OpenApiRequest({ });
+    return $tea.cast<GetDefaultStorageLocationResponse>(await this.doRPCRequest("GetDefaultStorageLocation", "2020-11-09", "HTTPS", "POST", "AK", "json", req, runtime), new GetDefaultStorageLocationResponse({}));
+  }
+
+  async getDefaultStorageLocation(): Promise<GetDefaultStorageLocationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getDefaultStorageLocationWithOptions(runtime);
+  }
+
+  async getEditingProjectWithOptions(request: GetEditingProjectRequest, runtime: $Util.RuntimeOptions): Promise<GetEditingProjectResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: query,
+    });
+    return $tea.cast<GetEditingProjectResponse>(await this.doRPCRequest("GetEditingProject", "2020-11-09", "HTTPS", "GET", "AK", "json", req, runtime), new GetEditingProjectResponse({}));
+  }
+
+  async getEditingProject(request: GetEditingProjectRequest): Promise<GetEditingProjectResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getEditingProjectWithOptions(request, runtime);
+  }
+
+  async getEditingProjectMaterialsWithOptions(request: GetEditingProjectMaterialsRequest, runtime: $Util.RuntimeOptions): Promise<GetEditingProjectMaterialsResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: query,
+    });
+    return $tea.cast<GetEditingProjectMaterialsResponse>(await this.doRPCRequest("GetEditingProjectMaterials", "2020-11-09", "HTTPS", "GET", "AK", "json", req, runtime), new GetEditingProjectMaterialsResponse({}));
+  }
+
+  async getEditingProjectMaterials(request: GetEditingProjectMaterialsRequest): Promise<GetEditingProjectMaterialsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getEditingProjectMaterialsWithOptions(request, runtime);
+  }
+
+  async getEventCallbackWithOptions(runtime: $Util.RuntimeOptions): Promise<GetEventCallbackResponse> {
+    let req = new $OpenApi.OpenApiRequest({ });
+    return $tea.cast<GetEventCallbackResponse>(await this.doRPCRequest("GetEventCallback", "2020-11-09", "HTTPS", "POST", "AK", "json", req, runtime), new GetEventCallbackResponse({}));
+  }
+
+  async getEventCallback(): Promise<GetEventCallbackResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getEventCallbackWithOptions(runtime);
+  }
+
+  async getLiveEditingIndexFileWithOptions(request: GetLiveEditingIndexFileRequest, runtime: $Util.RuntimeOptions): Promise<GetLiveEditingIndexFileResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: query,
+    });
+    return $tea.cast<GetLiveEditingIndexFileResponse>(await this.doRPCRequest("GetLiveEditingIndexFile", "2020-11-09", "HTTPS", "GET", "AK", "json", req, runtime), new GetLiveEditingIndexFileResponse({}));
+  }
+
+  async getLiveEditingIndexFile(request: GetLiveEditingIndexFileRequest): Promise<GetLiveEditingIndexFileResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getLiveEditingIndexFileWithOptions(request, runtime);
+  }
+
+  async getLiveEditingJobWithOptions(request: GetLiveEditingJobRequest, runtime: $Util.RuntimeOptions): Promise<GetLiveEditingJobResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<GetLiveEditingJobResponse>(await this.doRPCRequest("GetLiveEditingJob", "2020-11-09", "HTTPS", "POST", "AK", "json", req, runtime), new GetLiveEditingJobResponse({}));
+  }
+
+  async getLiveEditingJob(request: GetLiveEditingJobRequest): Promise<GetLiveEditingJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getLiveEditingJobWithOptions(request, runtime);
   }
 
   async getMediaInfoWithOptions(request: GetMediaInfoRequest, runtime: $Util.RuntimeOptions): Promise<GetMediaInfoResponse> {
@@ -6366,144 +5904,18 @@ export default class Client extends OpenApi {
     return await this.getMediaInfoWithOptions(request, runtime);
   }
 
-  async submitSmartJobWithOptions(request: SubmitSmartJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitSmartJobResponse> {
+  async getMediaProducingJobWithOptions(request: GetMediaProducingJobRequest, runtime: $Util.RuntimeOptions): Promise<GetMediaProducingJobResponse> {
     Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: query,
     });
-    return $tea.cast<SubmitSmartJobResponse>(await this.doRPCRequest("SubmitSmartJob", "2020-11-09", "HTTPS", "POST", "AK", "json", req, runtime), new SubmitSmartJobResponse({}));
+    return $tea.cast<GetMediaProducingJobResponse>(await this.doRPCRequest("GetMediaProducingJob", "2020-11-09", "HTTPS", "GET", "AK", "json", req, runtime), new GetMediaProducingJobResponse({}));
   }
 
-  async submitSmartJob(request: SubmitSmartJobRequest): Promise<SubmitSmartJobResponse> {
+  async getMediaProducingJob(request: GetMediaProducingJobRequest): Promise<GetMediaProducingJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.submitSmartJobWithOptions(request, runtime);
-  }
-
-  async submitDelogoJobWithOptions(request: SubmitDelogoJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitDelogoJobResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<SubmitDelogoJobResponse>(await this.doRPCRequest("SubmitDelogoJob", "2020-11-09", "HTTPS", "POST", "AK", "json", req, runtime), new SubmitDelogoJobResponse({}));
-  }
-
-  async submitDelogoJob(request: SubmitDelogoJobRequest): Promise<SubmitDelogoJobResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.submitDelogoJobWithOptions(request, runtime);
-  }
-
-  async updateTemplateWithOptions(request: UpdateTemplateRequest, runtime: $Util.RuntimeOptions): Promise<UpdateTemplateResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<UpdateTemplateResponse>(await this.doRPCRequest("UpdateTemplate", "2020-11-09", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateTemplateResponse({}));
-  }
-
-  async updateTemplate(request: UpdateTemplateRequest): Promise<UpdateTemplateResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.updateTemplateWithOptions(request, runtime);
-  }
-
-  async submitAudioProduceJobWithOptions(request: SubmitAudioProduceJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitAudioProduceJobResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<SubmitAudioProduceJobResponse>(await this.doRPCRequest("SubmitAudioProduceJob", "2020-11-09", "HTTPS", "POST", "AK", "json", req, runtime), new SubmitAudioProduceJobResponse({}));
-  }
-
-  async submitAudioProduceJob(request: SubmitAudioProduceJobRequest): Promise<SubmitAudioProduceJobResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.submitAudioProduceJobWithOptions(request, runtime);
-  }
-
-  async submitMediaProducingJobWithOptions(request: SubmitMediaProducingJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitMediaProducingJobResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<SubmitMediaProducingJobResponse>(await this.doRPCRequest("SubmitMediaProducingJob", "2020-11-09", "HTTPS", "POST", "AK", "json", req, runtime), new SubmitMediaProducingJobResponse({}));
-  }
-
-  async submitMediaProducingJob(request: SubmitMediaProducingJobRequest): Promise<SubmitMediaProducingJobResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.submitMediaProducingJobWithOptions(request, runtime);
-  }
-
-  async updateSmartJobWithOptions(request: UpdateSmartJobRequest, runtime: $Util.RuntimeOptions): Promise<UpdateSmartJobResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<UpdateSmartJobResponse>(await this.doRPCRequest("UpdateSmartJob", "2020-11-09", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateSmartJobResponse({}));
-  }
-
-  async updateSmartJob(request: UpdateSmartJobRequest): Promise<UpdateSmartJobResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.updateSmartJobWithOptions(request, runtime);
-  }
-
-  async listAllPublicMediaTagsWithOptions(request: ListAllPublicMediaTagsRequest, runtime: $Util.RuntimeOptions): Promise<ListAllPublicMediaTagsResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<ListAllPublicMediaTagsResponse>(await this.doRPCRequest("ListAllPublicMediaTags", "2020-11-09", "HTTPS", "POST", "AK", "json", req, runtime), new ListAllPublicMediaTagsResponse({}));
-  }
-
-  async listAllPublicMediaTags(request: ListAllPublicMediaTagsRequest): Promise<ListAllPublicMediaTagsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.listAllPublicMediaTagsWithOptions(request, runtime);
-  }
-
-  async submitMattingJobWithOptions(request: SubmitMattingJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitMattingJobResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<SubmitMattingJobResponse>(await this.doRPCRequest("SubmitMattingJob", "2020-11-09", "HTTPS", "POST", "AK", "json", req, runtime), new SubmitMattingJobResponse({}));
-  }
-
-  async submitMattingJob(request: SubmitMattingJobRequest): Promise<SubmitMattingJobResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.submitMattingJobWithOptions(request, runtime);
-  }
-
-  async getEventCallbackWithOptions(runtime: $Util.RuntimeOptions): Promise<GetEventCallbackResponse> {
-    let req = new $OpenApi.OpenApiRequest({ });
-    return $tea.cast<GetEventCallbackResponse>(await this.doRPCRequest("GetEventCallback", "2020-11-09", "HTTPS", "POST", "AK", "json", req, runtime), new GetEventCallbackResponse({}));
-  }
-
-  async getEventCallback(): Promise<GetEventCallbackResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getEventCallbackWithOptions(runtime);
-  }
-
-  async listPublicMediaBasicInfosWithOptions(request: ListPublicMediaBasicInfosRequest, runtime: $Util.RuntimeOptions): Promise<ListPublicMediaBasicInfosResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<ListPublicMediaBasicInfosResponse>(await this.doRPCRequest("ListPublicMediaBasicInfos", "2020-11-09", "HTTPS", "POST", "AK", "json", req, runtime), new ListPublicMediaBasicInfosResponse({}));
-  }
-
-  async listPublicMediaBasicInfos(request: ListPublicMediaBasicInfosRequest): Promise<ListPublicMediaBasicInfosResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.listPublicMediaBasicInfosWithOptions(request, runtime);
-  }
-
-  async submitCoverJobWithOptions(request: SubmitCoverJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitCoverJobResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<SubmitCoverJobResponse>(await this.doRPCRequest("SubmitCoverJob", "2020-11-09", "HTTPS", "POST", "AK", "json", req, runtime), new SubmitCoverJobResponse({}));
-  }
-
-  async submitCoverJob(request: SubmitCoverJobRequest): Promise<SubmitCoverJobResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.submitCoverJobWithOptions(request, runtime);
+    return await this.getMediaProducingJobWithOptions(request, runtime);
   }
 
   async getSmartHandleJobWithOptions(request: GetSmartHandleJobRequest, runtime: $Util.RuntimeOptions): Promise<GetSmartHandleJobResponse> {
@@ -6520,6 +5932,204 @@ export default class Client extends OpenApi {
     return await this.getSmartHandleJobWithOptions(request, runtime);
   }
 
+  async getTemplateWithOptions(request: GetTemplateRequest, runtime: $Util.RuntimeOptions): Promise<GetTemplateResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: query,
+    });
+    return $tea.cast<GetTemplateResponse>(await this.doRPCRequest("GetTemplate", "2020-11-09", "HTTPS", "GET", "AK", "json", req, runtime), new GetTemplateResponse({}));
+  }
+
+  async getTemplate(request: GetTemplateRequest): Promise<GetTemplateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getTemplateWithOptions(request, runtime);
+  }
+
+  async listAllPublicMediaTagsWithOptions(request: ListAllPublicMediaTagsRequest, runtime: $Util.RuntimeOptions): Promise<ListAllPublicMediaTagsResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<ListAllPublicMediaTagsResponse>(await this.doRPCRequest("ListAllPublicMediaTags", "2020-11-09", "HTTPS", "POST", "AK", "json", req, runtime), new ListAllPublicMediaTagsResponse({}));
+  }
+
+  async listAllPublicMediaTags(request: ListAllPublicMediaTagsRequest): Promise<ListAllPublicMediaTagsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listAllPublicMediaTagsWithOptions(request, runtime);
+  }
+
+  async listMediaBasicInfosWithOptions(request: ListMediaBasicInfosRequest, runtime: $Util.RuntimeOptions): Promise<ListMediaBasicInfosResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<ListMediaBasicInfosResponse>(await this.doRPCRequest("ListMediaBasicInfos", "2020-11-09", "HTTPS", "POST", "AK", "json", req, runtime), new ListMediaBasicInfosResponse({}));
+  }
+
+  async listMediaBasicInfos(request: ListMediaBasicInfosRequest): Promise<ListMediaBasicInfosResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listMediaBasicInfosWithOptions(request, runtime);
+  }
+
+  async listMediaProducingJobsWithOptions(request: ListMediaProducingJobsRequest, runtime: $Util.RuntimeOptions): Promise<ListMediaProducingJobsResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<ListMediaProducingJobsResponse>(await this.doRPCRequest("ListMediaProducingJobs", "2020-11-09", "HTTPS", "POST", "AK", "json", req, runtime), new ListMediaProducingJobsResponse({}));
+  }
+
+  async listMediaProducingJobs(request: ListMediaProducingJobsRequest): Promise<ListMediaProducingJobsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listMediaProducingJobsWithOptions(request, runtime);
+  }
+
+  async listPublicMediaBasicInfosWithOptions(request: ListPublicMediaBasicInfosRequest, runtime: $Util.RuntimeOptions): Promise<ListPublicMediaBasicInfosResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<ListPublicMediaBasicInfosResponse>(await this.doRPCRequest("ListPublicMediaBasicInfos", "2020-11-09", "HTTPS", "POST", "AK", "json", req, runtime), new ListPublicMediaBasicInfosResponse({}));
+  }
+
+  async listPublicMediaBasicInfos(request: ListPublicMediaBasicInfosRequest): Promise<ListPublicMediaBasicInfosResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listPublicMediaBasicInfosWithOptions(request, runtime);
+  }
+
+  async listSmartJobsWithOptions(request: ListSmartJobsRequest, runtime: $Util.RuntimeOptions): Promise<ListSmartJobsResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: query,
+    });
+    return $tea.cast<ListSmartJobsResponse>(await this.doRPCRequest("ListSmartJobs", "2020-11-09", "HTTPS", "GET", "AK", "json", req, runtime), new ListSmartJobsResponse({}));
+  }
+
+  async listSmartJobs(request: ListSmartJobsRequest): Promise<ListSmartJobsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listSmartJobsWithOptions(request, runtime);
+  }
+
+  async listSysTemplatesWithOptions(request: ListSysTemplatesRequest, runtime: $Util.RuntimeOptions): Promise<ListSysTemplatesResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: query,
+    });
+    return $tea.cast<ListSysTemplatesResponse>(await this.doRPCRequest("ListSysTemplates", "2020-11-09", "HTTPS", "GET", "AK", "json", req, runtime), new ListSysTemplatesResponse({}));
+  }
+
+  async listSysTemplates(request: ListSysTemplatesRequest): Promise<ListSysTemplatesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listSysTemplatesWithOptions(request, runtime);
+  }
+
+  async listTemplatesWithOptions(request: ListTemplatesRequest, runtime: $Util.RuntimeOptions): Promise<ListTemplatesResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<ListTemplatesResponse>(await this.doRPCRequest("ListTemplates", "2020-11-09", "HTTPS", "POST", "AK", "json", req, runtime), new ListTemplatesResponse({}));
+  }
+
+  async listTemplates(request: ListTemplatesRequest): Promise<ListTemplatesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listTemplatesWithOptions(request, runtime);
+  }
+
+  async registerMediaInfoWithOptions(request: RegisterMediaInfoRequest, runtime: $Util.RuntimeOptions): Promise<RegisterMediaInfoResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<RegisterMediaInfoResponse>(await this.doRPCRequest("RegisterMediaInfo", "2020-11-09", "HTTPS", "POST", "AK", "json", req, runtime), new RegisterMediaInfoResponse({}));
+  }
+
+  async registerMediaInfo(request: RegisterMediaInfoRequest): Promise<RegisterMediaInfoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.registerMediaInfoWithOptions(request, runtime);
+  }
+
+  async searchEditingProjectWithOptions(request: SearchEditingProjectRequest, runtime: $Util.RuntimeOptions): Promise<SearchEditingProjectResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<SearchEditingProjectResponse>(await this.doRPCRequest("SearchEditingProject", "2020-11-09", "HTTPS", "POST", "AK", "json", req, runtime), new SearchEditingProjectResponse({}));
+  }
+
+  async searchEditingProject(request: SearchEditingProjectRequest): Promise<SearchEditingProjectResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.searchEditingProjectWithOptions(request, runtime);
+  }
+
+  async setDefaultStorageLocationWithOptions(request: SetDefaultStorageLocationRequest, runtime: $Util.RuntimeOptions): Promise<SetDefaultStorageLocationResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<SetDefaultStorageLocationResponse>(await this.doRPCRequest("SetDefaultStorageLocation", "2020-11-09", "HTTPS", "POST", "AK", "json", req, runtime), new SetDefaultStorageLocationResponse({}));
+  }
+
+  async setDefaultStorageLocation(request: SetDefaultStorageLocationRequest): Promise<SetDefaultStorageLocationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.setDefaultStorageLocationWithOptions(request, runtime);
+  }
+
+  async setEventCallbackWithOptions(request: SetEventCallbackRequest, runtime: $Util.RuntimeOptions): Promise<SetEventCallbackResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<SetEventCallbackResponse>(await this.doRPCRequest("SetEventCallback", "2020-11-09", "HTTPS", "POST", "AK", "json", req, runtime), new SetEventCallbackResponse({}));
+  }
+
+  async setEventCallback(request: SetEventCallbackRequest): Promise<SetEventCallbackResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.setEventCallbackWithOptions(request, runtime);
+  }
+
+  async submitASRJobWithOptions(request: SubmitASRJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitASRJobResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<SubmitASRJobResponse>(await this.doRPCRequest("SubmitASRJob", "2020-11-09", "HTTPS", "POST", "AK", "json", req, runtime), new SubmitASRJobResponse({}));
+  }
+
+  async submitASRJob(request: SubmitASRJobRequest): Promise<SubmitASRJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.submitASRJobWithOptions(request, runtime);
+  }
+
+  async submitAudioProduceJobWithOptions(request: SubmitAudioProduceJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitAudioProduceJobResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<SubmitAudioProduceJobResponse>(await this.doRPCRequest("SubmitAudioProduceJob", "2020-11-09", "HTTPS", "POST", "AK", "json", req, runtime), new SubmitAudioProduceJobResponse({}));
+  }
+
+  async submitAudioProduceJob(request: SubmitAudioProduceJobRequest): Promise<SubmitAudioProduceJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.submitAudioProduceJobWithOptions(request, runtime);
+  }
+
+  async submitDelogoJobWithOptions(request: SubmitDelogoJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitDelogoJobResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<SubmitDelogoJobResponse>(await this.doRPCRequest("SubmitDelogoJob", "2020-11-09", "HTTPS", "POST", "AK", "json", req, runtime), new SubmitDelogoJobResponse({}));
+  }
+
+  async submitDelogoJob(request: SubmitDelogoJobRequest): Promise<SubmitDelogoJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.submitDelogoJobWithOptions(request, runtime);
+  }
+
   async submitH2VJobWithOptions(request: SubmitH2VJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitH2VJobResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -6531,6 +6141,20 @@ export default class Client extends OpenApi {
   async submitH2VJob(request: SubmitH2VJobRequest): Promise<SubmitH2VJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.submitH2VJobWithOptions(request, runtime);
+  }
+
+  async submitKeyWordCutJobWithOptions(request: SubmitKeyWordCutJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitKeyWordCutJobResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: query,
+    });
+    return $tea.cast<SubmitKeyWordCutJobResponse>(await this.doRPCRequest("SubmitKeyWordCutJob", "2020-11-09", "HTTPS", "GET", "AK", "json", req, runtime), new SubmitKeyWordCutJobResponse({}));
+  }
+
+  async submitKeyWordCutJob(request: SubmitKeyWordCutJobRequest): Promise<SubmitKeyWordCutJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.submitKeyWordCutJobWithOptions(request, runtime);
   }
 
   async submitLiveEditingJobWithOptions(request: SubmitLiveEditingJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitLiveEditingJobResponse> {
@@ -6546,6 +6170,32 @@ export default class Client extends OpenApi {
     return await this.submitLiveEditingJobWithOptions(request, runtime);
   }
 
+  async submitMattingJobWithOptions(request: SubmitMattingJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitMattingJobResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<SubmitMattingJobResponse>(await this.doRPCRequest("SubmitMattingJob", "2020-11-09", "HTTPS", "POST", "AK", "json", req, runtime), new SubmitMattingJobResponse({}));
+  }
+
+  async submitMattingJob(request: SubmitMattingJobRequest): Promise<SubmitMattingJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.submitMattingJobWithOptions(request, runtime);
+  }
+
+  async submitMediaProducingJobWithOptions(request: SubmitMediaProducingJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitMediaProducingJobResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<SubmitMediaProducingJobResponse>(await this.doRPCRequest("SubmitMediaProducingJob", "2020-11-09", "HTTPS", "POST", "AK", "json", req, runtime), new SubmitMediaProducingJobResponse({}));
+  }
+
+  async submitMediaProducingJob(request: SubmitMediaProducingJobRequest): Promise<SubmitMediaProducingJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.submitMediaProducingJobWithOptions(request, runtime);
+  }
+
   async submitPPTCutJobWithOptions(request: SubmitPPTCutJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitPPTCutJobResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -6558,6 +6208,71 @@ export default class Client extends OpenApi {
   async submitPPTCutJob(request: SubmitPPTCutJobRequest): Promise<SubmitPPTCutJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.submitPPTCutJobWithOptions(request, runtime);
+  }
+
+  async submitSubtitleProduceJobWithOptions(request: SubmitSubtitleProduceJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitSubtitleProduceJobResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<SubmitSubtitleProduceJobResponse>(await this.doRPCRequest("SubmitSubtitleProduceJob", "2020-11-09", "HTTPS", "POST", "AK", "json", req, runtime), new SubmitSubtitleProduceJobResponse({}));
+  }
+
+  async submitSubtitleProduceJob(request: SubmitSubtitleProduceJobRequest): Promise<SubmitSubtitleProduceJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.submitSubtitleProduceJobWithOptions(request, runtime);
+  }
+
+  async updateEditingProjectWithOptions(request: UpdateEditingProjectRequest, runtime: $Util.RuntimeOptions): Promise<UpdateEditingProjectResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<UpdateEditingProjectResponse>(await this.doRPCRequest("UpdateEditingProject", "2020-11-09", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateEditingProjectResponse({}));
+  }
+
+  async updateEditingProject(request: UpdateEditingProjectRequest): Promise<UpdateEditingProjectResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateEditingProjectWithOptions(request, runtime);
+  }
+
+  async updateMediaInfoWithOptions(request: UpdateMediaInfoRequest, runtime: $Util.RuntimeOptions): Promise<UpdateMediaInfoResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<UpdateMediaInfoResponse>(await this.doRPCRequest("UpdateMediaInfo", "2020-11-09", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateMediaInfoResponse({}));
+  }
+
+  async updateMediaInfo(request: UpdateMediaInfoRequest): Promise<UpdateMediaInfoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateMediaInfoWithOptions(request, runtime);
+  }
+
+  async updateSmartJobWithOptions(request: UpdateSmartJobRequest, runtime: $Util.RuntimeOptions): Promise<UpdateSmartJobResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<UpdateSmartJobResponse>(await this.doRPCRequest("UpdateSmartJob", "2020-11-09", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateSmartJobResponse({}));
+  }
+
+  async updateSmartJob(request: UpdateSmartJobRequest): Promise<UpdateSmartJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateSmartJobWithOptions(request, runtime);
+  }
+
+  async updateTemplateWithOptions(request: UpdateTemplateRequest, runtime: $Util.RuntimeOptions): Promise<UpdateTemplateResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<UpdateTemplateResponse>(await this.doRPCRequest("UpdateTemplate", "2020-11-09", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateTemplateResponse({}));
+  }
+
+  async updateTemplate(request: UpdateTemplateRequest): Promise<UpdateTemplateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateTemplateWithOptions(request, runtime);
   }
 
 }
