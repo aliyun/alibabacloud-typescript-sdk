@@ -6275,34 +6275,6 @@ export class DescribeInstallCaptchaResponse extends $tea.Model {
   }
 }
 
-export class DescribeInstallCodesRequest extends $tea.Model {
-  currentPage?: number;
-  pageSize?: number;
-  status?: number;
-  subAccountName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      currentPage: 'CurrentPage',
-      pageSize: 'PageSize',
-      status: 'Status',
-      subAccountName: 'SubAccountName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      currentPage: 'number',
-      pageSize: 'number',
-      status: 'number',
-      subAccountName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeInstallCodesResponseBody extends $tea.Model {
   installCodes?: DescribeInstallCodesResponseBodyInstallCodes[];
   requestId?: string;
@@ -11985,6 +11957,99 @@ export class ExportRecordResponse extends $tea.Model {
   }
 }
 
+export class ExportVulRequest extends $tea.Model {
+  aliasName?: string;
+  attachTypes?: string;
+  dealed?: string;
+  groupId?: string;
+  lang?: string;
+  necessity?: string;
+  searchTags?: string;
+  type?: string;
+  uuids?: string;
+  vpcInstanceIds?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aliasName: 'AliasName',
+      attachTypes: 'AttachTypes',
+      dealed: 'Dealed',
+      groupId: 'GroupId',
+      lang: 'Lang',
+      necessity: 'Necessity',
+      searchTags: 'SearchTags',
+      type: 'Type',
+      uuids: 'Uuids',
+      vpcInstanceIds: 'VpcInstanceIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliasName: 'string',
+      attachTypes: 'string',
+      dealed: 'string',
+      groupId: 'string',
+      lang: 'string',
+      necessity: 'string',
+      searchTags: 'string',
+      type: 'string',
+      uuids: 'string',
+      vpcInstanceIds: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExportVulResponseBody extends $tea.Model {
+  fileName?: string;
+  id?: number;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fileName: 'FileName',
+      id: 'Id',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileName: 'string',
+      id: 'number',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExportVulResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ExportVulResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ExportVulResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class FixCheckWarningsRequest extends $tea.Model {
   checkParams?: string;
   lang?: string;
@@ -15542,6 +15607,72 @@ export class QueryDiscoverDatabaseResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: QueryDiscoverDatabaseResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryGroupIdByGroupNameRequest extends $tea.Model {
+  groupName?: string;
+  sourceIp?: string;
+  static names(): { [key: string]: string } {
+    return {
+      groupName: 'GroupName',
+      sourceIp: 'SourceIp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupName: 'string',
+      sourceIp: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryGroupIdByGroupNameResponseBody extends $tea.Model {
+  groupId?: number;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      groupId: 'GroupId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupId: 'number',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryGroupIdByGroupNameResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: QueryGroupIdByGroupNameResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: QueryGroupIdByGroupNameResponseBody,
     };
   }
 
@@ -19775,8 +19906,6 @@ export class DescribeInstallCodesResponseBodyInstallCodes extends $tea.Model {
   groupName?: string;
   onlyImage?: boolean;
   os?: string;
-  tag?: string;
-  vendor?: number;
   vendorName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19786,8 +19915,6 @@ export class DescribeInstallCodesResponseBodyInstallCodes extends $tea.Model {
       groupName: 'GroupName',
       onlyImage: 'OnlyImage',
       os: 'Os',
-      tag: 'Tag',
-      vendor: 'Vendor',
       vendorName: 'VendorName',
     };
   }
@@ -19800,8 +19927,6 @@ export class DescribeInstallCodesResponseBodyInstallCodes extends $tea.Model {
       groupName: 'string',
       onlyImage: 'boolean',
       os: 'string',
-      tag: 'string',
-      vendor: 'number',
       vendorName: 'string',
     };
   }
@@ -23161,6 +23286,7 @@ export class DescribeVulListResponseBodyVulRecordsExtendContentJsonRpmEntityList
 export class DescribeVulListResponseBodyVulRecordsExtendContentJson extends $tea.Model {
   absolutePath?: string;
   aliasName?: string;
+  description?: string;
   ip?: string;
   lastTs?: number;
   necessity?: DescribeVulListResponseBodyVulRecordsExtendContentJsonNecessity;
@@ -23175,6 +23301,7 @@ export class DescribeVulListResponseBodyVulRecordsExtendContentJson extends $tea
     return {
       absolutePath: 'AbsolutePath',
       aliasName: 'AliasName',
+      description: 'Description',
       ip: 'Ip',
       lastTs: 'LastTs',
       necessity: 'Necessity',
@@ -23192,6 +23319,7 @@ export class DescribeVulListResponseBodyVulRecordsExtendContentJson extends $tea
     return {
       absolutePath: 'string',
       aliasName: 'string',
+      description: 'string',
       ip: 'string',
       lastTs: 'number',
       necessity: DescribeVulListResponseBodyVulRecordsExtendContentJsonNecessity,
@@ -23226,6 +23354,7 @@ export class DescribeVulListResponseBodyVulRecords extends $tea.Model {
   online?: boolean;
   osVersion?: string;
   primaryId?: number;
+  regionId?: string;
   related?: string;
   repairTs?: number;
   resultCode?: string;
@@ -23251,6 +23380,7 @@ export class DescribeVulListResponseBodyVulRecords extends $tea.Model {
       online: 'Online',
       osVersion: 'OsVersion',
       primaryId: 'PrimaryId',
+      regionId: 'RegionId',
       related: 'Related',
       repairTs: 'RepairTs',
       resultCode: 'ResultCode',
@@ -23279,6 +23409,7 @@ export class DescribeVulListResponseBodyVulRecords extends $tea.Model {
       online: 'boolean',
       osVersion: 'string',
       primaryId: 'number',
+      regionId: 'string',
       related: 'string',
       repairTs: 'number',
       resultCode: 'string',
@@ -24801,17 +24932,14 @@ export default class Client extends OpenApi {
     return await this.describeInstallCaptchaWithOptions(request, runtime);
   }
 
-  async describeInstallCodesWithOptions(request: DescribeInstallCodesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstallCodesResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
+  async describeInstallCodesWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeInstallCodesResponse> {
+    let req = new $OpenApi.OpenApiRequest({ });
     return $tea.cast<DescribeInstallCodesResponse>(await this.doRPCRequest("DescribeInstallCodes", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeInstallCodesResponse({}));
   }
 
-  async describeInstallCodes(request: DescribeInstallCodesRequest): Promise<DescribeInstallCodesResponse> {
+  async describeInstallCodes(): Promise<DescribeInstallCodesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeInstallCodesWithOptions(request, runtime);
+    return await this.describeInstallCodesWithOptions(runtime);
   }
 
   async describeInstanceAntiBruteForceRulesWithOptions(request: DescribeInstanceAntiBruteForceRulesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceAntiBruteForceRulesResponse> {
@@ -25713,6 +25841,19 @@ export default class Client extends OpenApi {
     return await this.exportRecordWithOptions(request, runtime);
   }
 
+  async exportVulWithOptions(request: ExportVulRequest, runtime: $Util.RuntimeOptions): Promise<ExportVulResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<ExportVulResponse>(await this.doRPCRequest("ExportVul", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new ExportVulResponse({}));
+  }
+
+  async exportVul(request: ExportVulRequest): Promise<ExportVulResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.exportVulWithOptions(request, runtime);
+  }
+
   async fixCheckWarningsWithOptions(request: FixCheckWarningsRequest, runtime: $Util.RuntimeOptions): Promise<FixCheckWarningsResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -26361,6 +26502,19 @@ export default class Client extends OpenApi {
   async queryDiscoverDatabase(request: QueryDiscoverDatabaseRequest): Promise<QueryDiscoverDatabaseResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryDiscoverDatabaseWithOptions(request, runtime);
+  }
+
+  async queryGroupIdByGroupNameWithOptions(request: QueryGroupIdByGroupNameRequest, runtime: $Util.RuntimeOptions): Promise<QueryGroupIdByGroupNameResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<QueryGroupIdByGroupNameResponse>(await this.doRPCRequest("QueryGroupIdByGroupName", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new QueryGroupIdByGroupNameResponse({}));
+  }
+
+  async queryGroupIdByGroupName(request: QueryGroupIdByGroupNameRequest): Promise<QueryGroupIdByGroupNameResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryGroupIdByGroupNameWithOptions(request, runtime);
   }
 
   async queryPreCheckDatabaseWithOptions(request: QueryPreCheckDatabaseRequest, runtime: $Util.RuntimeOptions): Promise<QueryPreCheckDatabaseResponse> {
