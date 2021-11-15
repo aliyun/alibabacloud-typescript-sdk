@@ -5857,8 +5857,10 @@ export class GetLiveRoomResponseBodyResult extends $tea.Model {
 
 export class GetLiveRoomStatisticsResponseBodyResult extends $tea.Model {
   endTime?: number;
+  likeCount?: number;
   liveId?: string;
   messageCount?: number;
+  onlineCount?: number;
   pv?: number;
   startTime?: number;
   status?: number;
@@ -5867,8 +5869,10 @@ export class GetLiveRoomStatisticsResponseBodyResult extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       endTime: 'EndTime',
+      likeCount: 'LikeCount',
       liveId: 'LiveId',
       messageCount: 'MessageCount',
+      onlineCount: 'OnlineCount',
       pv: 'Pv',
       startTime: 'StartTime',
       status: 'Status',
@@ -5880,8 +5884,10 @@ export class GetLiveRoomStatisticsResponseBodyResult extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       endTime: 'number',
+      likeCount: 'number',
       liveId: 'string',
       messageCount: 'number',
+      onlineCount: 'number',
       pv: 'number',
       startTime: 'number',
       status: 'number',
