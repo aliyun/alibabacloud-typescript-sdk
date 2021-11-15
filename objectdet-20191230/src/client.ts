@@ -633,27 +633,21 @@ export class DetectVehicleResponse extends $tea.Model {
 
 export class DetectVehicleICongestionRequest extends $tea.Model {
   imageURL?: string;
-  originRequestId?: string;
   preRegionIntersectFeatures?: DetectVehicleICongestionRequestPreRegionIntersectFeatures[];
   roadRegions?: DetectVehicleICongestionRequestRoadRegions[];
-  streamArn?: string;
   static names(): { [key: string]: string } {
     return {
       imageURL: 'ImageURL',
-      originRequestId: 'OriginRequestId',
       preRegionIntersectFeatures: 'PreRegionIntersectFeatures',
       roadRegions: 'RoadRegions',
-      streamArn: 'StreamArn',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       imageURL: 'string',
-      originRequestId: 'string',
       preRegionIntersectFeatures: { 'type': 'array', 'itemType': DetectVehicleICongestionRequestPreRegionIntersectFeatures },
       roadRegions: { 'type': 'array', 'itemType': DetectVehicleICongestionRequestRoadRegions },
-      streamArn: 'string',
     };
   }
 
@@ -664,27 +658,21 @@ export class DetectVehicleICongestionRequest extends $tea.Model {
 
 export class DetectVehicleICongestionShrinkRequest extends $tea.Model {
   imageURL?: string;
-  originRequestId?: string;
   preRegionIntersectFeaturesShrink?: string;
   roadRegionsShrink?: string;
-  streamArn?: string;
   static names(): { [key: string]: string } {
     return {
       imageURL: 'ImageURL',
-      originRequestId: 'OriginRequestId',
       preRegionIntersectFeaturesShrink: 'PreRegionIntersectFeatures',
       roadRegionsShrink: 'RoadRegions',
-      streamArn: 'StreamArn',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       imageURL: 'string',
-      originRequestId: 'string',
       preRegionIntersectFeaturesShrink: 'string',
       roadRegionsShrink: 'string',
-      streamArn: 'string',
     };
   }
 
@@ -739,24 +727,18 @@ export class DetectVehicleICongestionResponse extends $tea.Model {
 
 export class DetectVehicleIllegalParkingRequest extends $tea.Model {
   imageURL?: string;
-  originRequestId?: string;
   roadRegions?: DetectVehicleIllegalParkingRequestRoadRegions[];
-  streamArn?: string;
   static names(): { [key: string]: string } {
     return {
       imageURL: 'ImageURL',
-      originRequestId: 'OriginRequestId',
       roadRegions: 'RoadRegions',
-      streamArn: 'StreamArn',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       imageURL: 'string',
-      originRequestId: 'string',
       roadRegions: { 'type': 'array', 'itemType': DetectVehicleIllegalParkingRequestRoadRegions },
-      streamArn: 'string',
     };
   }
 
@@ -767,24 +749,18 @@ export class DetectVehicleIllegalParkingRequest extends $tea.Model {
 
 export class DetectVehicleIllegalParkingShrinkRequest extends $tea.Model {
   imageURL?: string;
-  originRequestId?: string;
   roadRegionsShrink?: string;
-  streamArn?: string;
   static names(): { [key: string]: string } {
     return {
       imageURL: 'ImageURL',
-      originRequestId: 'OriginRequestId',
       roadRegionsShrink: 'RoadRegions',
-      streamArn: 'StreamArn',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       imageURL: 'string',
-      originRequestId: 'string',
       roadRegionsShrink: 'string',
-      streamArn: 'string',
     };
   }
 
@@ -2187,11 +2163,13 @@ export class DetectVehicleICongestionResponseBodyDataElementsBoxes extends $tea.
 
 export class DetectVehicleICongestionResponseBodyDataElements extends $tea.Model {
   boxes?: DetectVehicleICongestionResponseBodyDataElementsBoxes[];
+  id?: number;
   score?: number;
   typeName?: string;
   static names(): { [key: string]: string } {
     return {
       boxes: 'Boxes',
+      id: 'Id',
       score: 'Score',
       typeName: 'TypeName',
     };
@@ -2200,6 +2178,7 @@ export class DetectVehicleICongestionResponseBodyDataElements extends $tea.Model
   static types(): { [key: string]: any } {
     return {
       boxes: { 'type': 'array', 'itemType': DetectVehicleICongestionResponseBodyDataElementsBoxes },
+      id: 'number',
       score: 'number',
       typeName: 'string',
     };
@@ -2385,11 +2364,13 @@ export class DetectVehicleIllegalParkingResponseBodyDataElementsBoxes extends $t
 
 export class DetectVehicleIllegalParkingResponseBodyDataElements extends $tea.Model {
   boxes?: DetectVehicleIllegalParkingResponseBodyDataElementsBoxes[];
+  id?: number;
   score?: number;
   typeName?: string;
   static names(): { [key: string]: string } {
     return {
       boxes: 'Boxes',
+      id: 'Id',
       score: 'Score',
       typeName: 'TypeName',
     };
@@ -2398,6 +2379,7 @@ export class DetectVehicleIllegalParkingResponseBodyDataElements extends $tea.Mo
   static types(): { [key: string]: any } {
     return {
       boxes: { 'type': 'array', 'itemType': DetectVehicleIllegalParkingResponseBodyDataElementsBoxes },
+      id: 'number',
       score: 'number',
       typeName: 'string',
     };
