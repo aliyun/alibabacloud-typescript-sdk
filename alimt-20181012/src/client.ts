@@ -15,31 +15,31 @@ import { Readable } from 'stream';
 import * as $tea from '@alicloud/tea-typescript';
 
 export class CreateDocTranslateTaskRequest extends $tea.Model {
-  sourceLanguage?: string;
-  targetLanguage?: string;
-  fileUrl?: string;
-  scene?: string;
   callbackUrl?: string;
   clientToken?: string;
+  fileUrl?: string;
+  scene?: string;
+  sourceLanguage?: string;
+  targetLanguage?: string;
   static names(): { [key: string]: string } {
     return {
-      sourceLanguage: 'SourceLanguage',
-      targetLanguage: 'TargetLanguage',
-      fileUrl: 'FileUrl',
-      scene: 'Scene',
       callbackUrl: 'CallbackUrl',
       clientToken: 'ClientToken',
+      fileUrl: 'FileUrl',
+      scene: 'Scene',
+      sourceLanguage: 'SourceLanguage',
+      targetLanguage: 'TargetLanguage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      sourceLanguage: 'string',
-      targetLanguage: 'string',
-      fileUrl: 'string',
-      scene: 'string',
       callbackUrl: 'string',
       clientToken: 'string',
+      fileUrl: 'string',
+      scene: 'string',
+      sourceLanguage: 'string',
+      targetLanguage: 'string',
     };
   }
 
@@ -50,30 +50,30 @@ export class CreateDocTranslateTaskRequest extends $tea.Model {
 
 export class CreateDocTranslateTaskAdvanceRequest extends $tea.Model {
   fileUrlObject: Readable;
-  sourceLanguage?: string;
-  targetLanguage?: string;
-  scene?: string;
   callbackUrl?: string;
   clientToken?: string;
+  scene?: string;
+  sourceLanguage?: string;
+  targetLanguage?: string;
   static names(): { [key: string]: string } {
     return {
       fileUrlObject: 'FileUrlObject',
-      sourceLanguage: 'SourceLanguage',
-      targetLanguage: 'TargetLanguage',
-      scene: 'Scene',
       callbackUrl: 'CallbackUrl',
       clientToken: 'ClientToken',
+      scene: 'Scene',
+      sourceLanguage: 'SourceLanguage',
+      targetLanguage: 'TargetLanguage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       fileUrlObject: 'Readable',
-      sourceLanguage: 'string',
-      targetLanguage: 'string',
-      scene: 'string',
       callbackUrl: 'string',
       clientToken: 'string',
+      scene: 'string',
+      sourceLanguage: 'string',
+      targetLanguage: 'string',
     };
   }
 
@@ -83,21 +83,21 @@ export class CreateDocTranslateTaskAdvanceRequest extends $tea.Model {
 }
 
 export class CreateDocTranslateTaskResponseBody extends $tea.Model {
-  status?: string;
   requestId?: string;
+  status?: string;
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
-      status: 'Status',
       requestId: 'RequestId',
+      status: 'Status',
       taskId: 'TaskId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      status: 'string',
       requestId: 'string',
+      status: 'string',
       taskId: 'string',
     };
   }
@@ -130,28 +130,28 @@ export class CreateDocTranslateTaskResponse extends $tea.Model {
 }
 
 export class CreateImageTranslateTaskRequest extends $tea.Model {
-  urlList?: string;
+  clientToken?: string;
+  extra?: string;
   sourceLanguage?: string;
   targetLanguage?: string;
-  extra?: string;
-  clientToken?: string;
+  urlList?: string;
   static names(): { [key: string]: string } {
     return {
-      urlList: 'UrlList',
+      clientToken: 'ClientToken',
+      extra: 'Extra',
       sourceLanguage: 'SourceLanguage',
       targetLanguage: 'TargetLanguage',
-      extra: 'Extra',
-      clientToken: 'ClientToken',
+      urlList: 'UrlList',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      urlList: 'string',
+      clientToken: 'string',
+      extra: 'string',
       sourceLanguage: 'string',
       targetLanguage: 'string',
-      extra: 'string',
-      clientToken: 'string',
+      urlList: 'string',
     };
   }
 
@@ -162,24 +162,24 @@ export class CreateImageTranslateTaskRequest extends $tea.Model {
 
 export class CreateImageTranslateTaskResponseBody extends $tea.Model {
   code?: number;
+  data?: CreateImageTranslateTaskResponseBodyData;
   message?: string;
   requestId?: string;
-  data?: CreateImageTranslateTaskResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
+      data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
-      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       code: 'number',
+      data: CreateImageTranslateTaskResponseBodyData,
       message: 'string',
       requestId: 'string',
-      data: CreateImageTranslateTaskResponseBodyData,
     };
   }
 
@@ -211,31 +211,31 @@ export class CreateImageTranslateTaskResponse extends $tea.Model {
 }
 
 export class GetBatchTranslateRequest extends $tea.Model {
-  formatType?: string;
-  targetLanguage?: string;
-  sourceLanguage?: string;
-  scene?: string;
   apiType?: string;
+  formatType?: string;
+  scene?: string;
+  sourceLanguage?: string;
   sourceText?: string;
+  targetLanguage?: string;
   static names(): { [key: string]: string } {
     return {
-      formatType: 'FormatType',
-      targetLanguage: 'TargetLanguage',
-      sourceLanguage: 'SourceLanguage',
-      scene: 'Scene',
       apiType: 'ApiType',
+      formatType: 'FormatType',
+      scene: 'Scene',
+      sourceLanguage: 'SourceLanguage',
       sourceText: 'SourceText',
+      targetLanguage: 'TargetLanguage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      formatType: 'string',
-      targetLanguage: 'string',
-      sourceLanguage: 'string',
-      scene: 'string',
       apiType: 'string',
+      formatType: 'string',
+      scene: 'string',
+      sourceLanguage: 'string',
       sourceText: 'string',
+      targetLanguage: 'string',
     };
   }
 
@@ -377,34 +377,34 @@ export class GetDocTranslateTaskRequest extends $tea.Model {
 }
 
 export class GetDocTranslateTaskResponseBody extends $tea.Model {
-  status?: string;
-  requestId?: string;
-  translateFileUrl?: string;
-  translateErrorCode?: string;
   pageCount?: number;
+  requestId?: string;
+  status?: string;
   taskId?: string;
+  translateErrorCode?: string;
   translateErrorMessage?: string;
+  translateFileUrl?: string;
   static names(): { [key: string]: string } {
     return {
-      status: 'Status',
-      requestId: 'RequestId',
-      translateFileUrl: 'TranslateFileUrl',
-      translateErrorCode: 'TranslateErrorCode',
       pageCount: 'PageCount',
+      requestId: 'RequestId',
+      status: 'Status',
       taskId: 'TaskId',
+      translateErrorCode: 'TranslateErrorCode',
       translateErrorMessage: 'TranslateErrorMessage',
+      translateFileUrl: 'TranslateFileUrl',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      status: 'string',
-      requestId: 'string',
-      translateFileUrl: 'string',
-      translateErrorCode: 'string',
       pageCount: 'number',
+      requestId: 'string',
+      status: 'string',
       taskId: 'string',
+      translateErrorCode: 'string',
       translateErrorMessage: 'string',
+      translateFileUrl: 'string',
     };
   }
 
@@ -436,19 +436,19 @@ export class GetDocTranslateTaskResponse extends $tea.Model {
 }
 
 export class GetImageDiagnoseRequest extends $tea.Model {
-  url?: string;
   extra?: string;
+  url?: string;
   static names(): { [key: string]: string } {
     return {
-      url: 'Url',
       extra: 'Extra',
+      url: 'Url',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      url: 'string',
       extra: 'string',
+      url: 'string',
     };
   }
 
@@ -459,24 +459,24 @@ export class GetImageDiagnoseRequest extends $tea.Model {
 
 export class GetImageDiagnoseResponseBody extends $tea.Model {
   code?: number;
+  data?: GetImageDiagnoseResponseBodyData;
   message?: string;
   requestId?: string;
-  data?: GetImageDiagnoseResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
+      data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
-      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       code: 'number',
+      data: GetImageDiagnoseResponseBodyData,
       message: 'string',
       requestId: 'string',
-      data: GetImageDiagnoseResponseBodyData,
     };
   }
 
@@ -508,25 +508,25 @@ export class GetImageDiagnoseResponse extends $tea.Model {
 }
 
 export class GetImageTranslateRequest extends $tea.Model {
-  url?: string;
+  extra?: string;
   sourceLanguage?: string;
   targetLanguage?: string;
-  extra?: string;
+  url?: string;
   static names(): { [key: string]: string } {
     return {
-      url: 'Url',
+      extra: 'Extra',
       sourceLanguage: 'SourceLanguage',
       targetLanguage: 'TargetLanguage',
-      extra: 'Extra',
+      url: 'Url',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      url: 'string',
+      extra: 'string',
       sourceLanguage: 'string',
       targetLanguage: 'string',
-      extra: 'string',
+      url: 'string',
     };
   }
 
@@ -537,24 +537,24 @@ export class GetImageTranslateRequest extends $tea.Model {
 
 export class GetImageTranslateResponseBody extends $tea.Model {
   code?: number;
+  data?: GetImageTranslateResponseBodyData;
   message?: string;
   requestId?: string;
-  data?: GetImageTranslateResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
+      data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
-      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       code: 'number',
+      data: GetImageTranslateResponseBodyData,
       message: 'string',
       requestId: 'string',
-      data: GetImageTranslateResponseBodyData,
     };
   }
 
@@ -606,24 +606,24 @@ export class GetImageTranslateTaskRequest extends $tea.Model {
 
 export class GetImageTranslateTaskResponseBody extends $tea.Model {
   code?: number;
+  data?: GetImageTranslateTaskResponseBodyData;
   message?: string;
   requestId?: string;
-  data?: GetImageTranslateTaskResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
+      data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
-      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       code: 'number',
+      data: GetImageTranslateTaskResponseBodyData,
       message: 'string',
       requestId: 'string',
-      data: GetImageTranslateTaskResponseBodyData,
     };
   }
 
@@ -655,28 +655,28 @@ export class GetImageTranslateTaskResponse extends $tea.Model {
 }
 
 export class GetTitleDiagnoseRequest extends $tea.Model {
-  title?: string;
-  language?: string;
-  platform?: string;
   categoryId?: string;
   extra?: string;
+  language?: string;
+  platform?: string;
+  title?: string;
   static names(): { [key: string]: string } {
     return {
-      title: 'Title',
-      language: 'Language',
-      platform: 'Platform',
       categoryId: 'CategoryId',
       extra: 'Extra',
+      language: 'Language',
+      platform: 'Platform',
+      title: 'Title',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      title: 'string',
-      language: 'string',
-      platform: 'string',
       categoryId: 'string',
       extra: 'string',
+      language: 'string',
+      platform: 'string',
+      title: 'string',
     };
   }
 
@@ -687,24 +687,24 @@ export class GetTitleDiagnoseRequest extends $tea.Model {
 
 export class GetTitleDiagnoseResponseBody extends $tea.Model {
   code?: number;
+  data?: GetTitleDiagnoseResponseBodyData;
   message?: string;
   requestId?: string;
-  data?: GetTitleDiagnoseResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
+      data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
-      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       code: 'number',
+      data: GetTitleDiagnoseResponseBodyData,
       message: 'string',
       requestId: 'string',
-      data: GetTitleDiagnoseResponseBodyData,
     };
   }
 
@@ -736,34 +736,34 @@ export class GetTitleDiagnoseResponse extends $tea.Model {
 }
 
 export class GetTitleGenerateRequest extends $tea.Model {
-  title?: string;
+  attributes?: string;
+  categoryId?: string;
+  extra?: string;
+  hotWords?: string;
   language?: string;
   platform?: string;
-  categoryId?: string;
-  hotWords?: string;
-  attributes?: string;
-  extra?: string;
+  title?: string;
   static names(): { [key: string]: string } {
     return {
-      title: 'Title',
+      attributes: 'Attributes',
+      categoryId: 'CategoryId',
+      extra: 'Extra',
+      hotWords: 'HotWords',
       language: 'Language',
       platform: 'Platform',
-      categoryId: 'CategoryId',
-      hotWords: 'HotWords',
-      attributes: 'Attributes',
-      extra: 'Extra',
+      title: 'Title',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      title: 'string',
+      attributes: 'string',
+      categoryId: 'string',
+      extra: 'string',
+      hotWords: 'string',
       language: 'string',
       platform: 'string',
-      categoryId: 'string',
-      hotWords: 'string',
-      attributes: 'string',
-      extra: 'string',
+      title: 'string',
     };
   }
 
@@ -774,24 +774,24 @@ export class GetTitleGenerateRequest extends $tea.Model {
 
 export class GetTitleGenerateResponseBody extends $tea.Model {
   code?: number;
+  data?: GetTitleGenerateResponseBodyData;
   message?: string;
   requestId?: string;
-  data?: GetTitleGenerateResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
+      data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
-      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       code: 'number',
+      data: GetTitleGenerateResponseBodyData,
       message: 'string',
       requestId: 'string',
-      data: GetTitleGenerateResponseBodyData,
     };
   }
 
@@ -823,28 +823,28 @@ export class GetTitleGenerateResponse extends $tea.Model {
 }
 
 export class GetTitleIntelligenceRequest extends $tea.Model {
-  platform?: string;
-  extra?: string;
   catLevelThreeId?: number;
   catLevelTwoId?: number;
+  extra?: string;
   keywords?: string;
+  platform?: string;
   static names(): { [key: string]: string } {
     return {
-      platform: 'Platform',
-      extra: 'Extra',
       catLevelThreeId: 'CatLevelThreeId',
       catLevelTwoId: 'CatLevelTwoId',
+      extra: 'Extra',
       keywords: 'Keywords',
+      platform: 'Platform',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      platform: 'string',
-      extra: 'string',
       catLevelThreeId: 'number',
       catLevelTwoId: 'number',
+      extra: 'string',
       keywords: 'string',
+      platform: 'string',
     };
   }
 
@@ -855,24 +855,24 @@ export class GetTitleIntelligenceRequest extends $tea.Model {
 
 export class GetTitleIntelligenceResponseBody extends $tea.Model {
   code?: number;
+  data?: GetTitleIntelligenceResponseBodyData;
   message?: string;
   requestId?: string;
-  data?: GetTitleIntelligenceResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
+      data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
-      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       code: 'number',
+      data: GetTitleIntelligenceResponseBodyData,
       message: 'string',
       requestId: 'string',
-      data: GetTitleIntelligenceResponseBodyData,
     };
   }
 
@@ -904,24 +904,24 @@ export class GetTitleIntelligenceResponse extends $tea.Model {
 }
 
 export class GetTranslateReportRequest extends $tea.Model {
+  apiName?: string;
   beginTime?: string;
   endTime?: string;
-  apiName?: string;
   group?: string;
   static names(): { [key: string]: string } {
     return {
+      apiName: 'ApiName',
       beginTime: 'BeginTime',
       endTime: 'EndTime',
-      apiName: 'ApiName',
       group: 'Group',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      apiName: 'string',
       beginTime: 'string',
       endTime: 'string',
-      apiName: 'string',
       group: 'string',
     };
   }
@@ -933,14 +933,14 @@ export class GetTranslateReportRequest extends $tea.Model {
 
 export class GetTranslateReportResponseBody extends $tea.Model {
   code?: number;
-  message?: string;
   data?: string;
+  message?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
-      message: 'Message',
       data: 'Data',
+      message: 'Message',
       requestId: 'RequestId',
     };
   }
@@ -948,8 +948,8 @@ export class GetTranslateReportResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'number',
-      message: 'string',
       data: 'string',
+      message: 'string',
       requestId: 'string',
     };
   }
@@ -983,14 +983,14 @@ export class GetTranslateReportResponse extends $tea.Model {
 
 export class GetUserResponseBody extends $tea.Model {
   code?: number;
-  message?: string;
   data?: string;
+  message?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
-      message: 'Message',
       data: 'Data',
+      message: 'Message',
       requestId: 'RequestId',
     };
   }
@@ -998,8 +998,8 @@ export class GetUserResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'number',
-      message: 'string',
       data: 'string',
+      message: 'string',
       requestId: 'string',
     };
   }
@@ -1099,27 +1099,27 @@ export class OpenAlimtServiceResponse extends $tea.Model {
 
 export class TranslateRequest extends $tea.Model {
   formatType?: string;
-  targetLanguage?: string;
+  scene?: string;
   sourceLanguage?: string;
   sourceText?: string;
-  scene?: string;
+  targetLanguage?: string;
   static names(): { [key: string]: string } {
     return {
       formatType: 'FormatType',
-      targetLanguage: 'TargetLanguage',
+      scene: 'Scene',
       sourceLanguage: 'SourceLanguage',
       sourceText: 'SourceText',
-      scene: 'Scene',
+      targetLanguage: 'TargetLanguage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       formatType: 'string',
-      targetLanguage: 'string',
+      scene: 'string',
       sourceLanguage: 'string',
       sourceText: 'string',
-      scene: 'string',
+      targetLanguage: 'string',
     };
   }
 
@@ -1130,24 +1130,24 @@ export class TranslateRequest extends $tea.Model {
 
 export class TranslateResponseBody extends $tea.Model {
   code?: number;
+  data?: TranslateResponseBodyData;
   message?: string;
   requestId?: string;
-  data?: TranslateResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
+      data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
-      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       code: 'number',
+      data: TranslateResponseBodyData,
       message: 'string',
       requestId: 'string',
-      data: TranslateResponseBodyData,
     };
   }
 
@@ -1179,28 +1179,28 @@ export class TranslateResponse extends $tea.Model {
 }
 
 export class TranslateCertificateRequest extends $tea.Model {
+  certificateType?: string;
+  imageUrl?: string;
+  resultType?: string;
   sourceLanguage?: string;
   targetLanguage?: string;
-  imageUrl?: string;
-  certificateType?: string;
-  resultType?: string;
   static names(): { [key: string]: string } {
     return {
+      certificateType: 'CertificateType',
+      imageUrl: 'ImageUrl',
+      resultType: 'ResultType',
       sourceLanguage: 'SourceLanguage',
       targetLanguage: 'TargetLanguage',
-      imageUrl: 'ImageUrl',
-      certificateType: 'CertificateType',
-      resultType: 'ResultType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      certificateType: 'string',
+      imageUrl: 'string',
+      resultType: 'string',
       sourceLanguage: 'string',
       targetLanguage: 'string',
-      imageUrl: 'string',
-      certificateType: 'string',
-      resultType: 'string',
     };
   }
 
@@ -1211,27 +1211,27 @@ export class TranslateCertificateRequest extends $tea.Model {
 
 export class TranslateCertificateAdvanceRequest extends $tea.Model {
   imageUrlObject: Readable;
-  sourceLanguage?: string;
-  targetLanguage?: string;
   certificateType?: string;
   resultType?: string;
+  sourceLanguage?: string;
+  targetLanguage?: string;
   static names(): { [key: string]: string } {
     return {
       imageUrlObject: 'ImageUrlObject',
-      sourceLanguage: 'SourceLanguage',
-      targetLanguage: 'TargetLanguage',
       certificateType: 'CertificateType',
       resultType: 'ResultType',
+      sourceLanguage: 'SourceLanguage',
+      targetLanguage: 'TargetLanguage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       imageUrlObject: 'Readable',
-      sourceLanguage: 'string',
-      targetLanguage: 'string',
       certificateType: 'string',
       resultType: 'string',
+      sourceLanguage: 'string',
+      targetLanguage: 'string',
     };
   }
 
@@ -1241,19 +1241,19 @@ export class TranslateCertificateAdvanceRequest extends $tea.Model {
 }
 
 export class TranslateCertificateResponseBody extends $tea.Model {
-  requestId?: string;
   data?: TranslateCertificateResponseBodyData;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       data: 'Data',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       data: TranslateCertificateResponseBodyData,
+      requestId: 'string',
     };
   }
 
@@ -1286,27 +1286,27 @@ export class TranslateCertificateResponse extends $tea.Model {
 
 export class TranslateECommerceRequest extends $tea.Model {
   formatType?: string;
-  targetLanguage?: string;
+  scene?: string;
   sourceLanguage?: string;
   sourceText?: string;
-  scene?: string;
+  targetLanguage?: string;
   static names(): { [key: string]: string } {
     return {
       formatType: 'FormatType',
-      targetLanguage: 'TargetLanguage',
+      scene: 'Scene',
       sourceLanguage: 'SourceLanguage',
       sourceText: 'SourceText',
-      scene: 'Scene',
+      targetLanguage: 'TargetLanguage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       formatType: 'string',
-      targetLanguage: 'string',
+      scene: 'string',
       sourceLanguage: 'string',
       sourceText: 'string',
-      scene: 'string',
+      targetLanguage: 'string',
     };
   }
 
@@ -1317,24 +1317,24 @@ export class TranslateECommerceRequest extends $tea.Model {
 
 export class TranslateECommerceResponseBody extends $tea.Model {
   code?: number;
+  data?: TranslateECommerceResponseBodyData;
   message?: string;
   requestId?: string;
-  data?: TranslateECommerceResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
+      data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
-      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       code: 'number',
+      data: TranslateECommerceResponseBodyData,
       message: 'string',
       requestId: 'string',
-      data: TranslateECommerceResponseBodyData,
     };
   }
 
@@ -1367,27 +1367,27 @@ export class TranslateECommerceResponse extends $tea.Model {
 
 export class TranslateGeneralRequest extends $tea.Model {
   formatType?: string;
-  sourceLanguage?: string;
-  targetLanguage?: string;
-  sourceText?: string;
   scene?: string;
+  sourceLanguage?: string;
+  sourceText?: string;
+  targetLanguage?: string;
   static names(): { [key: string]: string } {
     return {
       formatType: 'FormatType',
-      sourceLanguage: 'SourceLanguage',
-      targetLanguage: 'TargetLanguage',
-      sourceText: 'SourceText',
       scene: 'Scene',
+      sourceLanguage: 'SourceLanguage',
+      sourceText: 'SourceText',
+      targetLanguage: 'TargetLanguage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       formatType: 'string',
-      sourceLanguage: 'string',
-      targetLanguage: 'string',
-      sourceText: 'string',
       scene: 'string',
+      sourceLanguage: 'string',
+      sourceText: 'string',
+      targetLanguage: 'string',
     };
   }
 
@@ -1398,24 +1398,24 @@ export class TranslateGeneralRequest extends $tea.Model {
 
 export class TranslateGeneralResponseBody extends $tea.Model {
   code?: number;
+  data?: TranslateGeneralResponseBodyData;
   message?: string;
   requestId?: string;
-  data?: TranslateGeneralResponseBodyData;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
+      data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
-      data: 'Data',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       code: 'number',
+      data: TranslateGeneralResponseBodyData,
       message: 'string',
       requestId: 'string',
-      data: TranslateGeneralResponseBodyData,
     };
   }
 
@@ -1438,6 +1438,90 @@ export class TranslateGeneralResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: TranslateGeneralResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TranslateImageRequest extends $tea.Model {
+  ext?: string;
+  field?: string;
+  imageBase64?: string;
+  imageUrl?: string;
+  sourceLanguage?: string;
+  targetLanguage?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ext: 'Ext',
+      field: 'Field',
+      imageBase64: 'ImageBase64',
+      imageUrl: 'ImageUrl',
+      sourceLanguage: 'SourceLanguage',
+      targetLanguage: 'TargetLanguage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ext: 'string',
+      field: 'string',
+      imageBase64: 'string',
+      imageUrl: 'string',
+      sourceLanguage: 'string',
+      targetLanguage: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TranslateImageResponseBody extends $tea.Model {
+  code?: number;
+  data?: TranslateImageResponseBodyData;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: TranslateImageResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TranslateImageResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: TranslateImageResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: TranslateImageResponseBody,
     };
   }
 
@@ -1485,22 +1569,22 @@ export class GetImageDiagnoseResponseBodyData extends $tea.Model {
 }
 
 export class GetImageTranslateResponseBodyData extends $tea.Model {
-  url?: string;
   orc?: string;
   pictureEditor?: string;
+  url?: string;
   static names(): { [key: string]: string } {
     return {
-      url: 'Url',
       orc: 'Orc',
       pictureEditor: 'PictureEditor',
+      url: 'Url',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      url: 'string',
       orc: 'string',
       pictureEditor: 'string',
+      url: 'string',
     };
   }
 
@@ -1529,42 +1613,42 @@ export class GetImageTranslateTaskResponseBodyData extends $tea.Model {
 }
 
 export class GetTitleDiagnoseResponseBodyData extends $tea.Model {
-  duplicateWords?: string;
-  containCoreClasses?: string;
-  wordCount?: string;
-  languageQualityScore?: string;
   allUppercaseWords?: string;
-  overLengthLimit?: string;
+  containCoreClasses?: string;
   disableWords?: string;
+  duplicateWords?: string;
+  languageQualityScore?: string;
   noFirstUppercaseList?: string;
+  overLengthLimit?: string;
   totalScore?: string;
+  wordCount?: string;
   wordSpelledCorrectError?: string;
   static names(): { [key: string]: string } {
     return {
-      duplicateWords: 'DuplicateWords',
-      containCoreClasses: 'ContainCoreClasses',
-      wordCount: 'WordCount',
-      languageQualityScore: 'LanguageQualityScore',
       allUppercaseWords: 'AllUppercaseWords',
-      overLengthLimit: 'OverLengthLimit',
+      containCoreClasses: 'ContainCoreClasses',
       disableWords: 'DisableWords',
+      duplicateWords: 'DuplicateWords',
+      languageQualityScore: 'LanguageQualityScore',
       noFirstUppercaseList: 'NoFirstUppercaseList',
+      overLengthLimit: 'OverLengthLimit',
       totalScore: 'TotalScore',
+      wordCount: 'WordCount',
       wordSpelledCorrectError: 'WordSpelledCorrectError',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      duplicateWords: 'string',
-      containCoreClasses: 'string',
-      wordCount: 'string',
-      languageQualityScore: 'string',
       allUppercaseWords: 'string',
-      overLengthLimit: 'string',
+      containCoreClasses: 'string',
       disableWords: 'string',
+      duplicateWords: 'string',
+      languageQualityScore: 'string',
       noFirstUppercaseList: 'string',
+      overLengthLimit: 'string',
       totalScore: 'string',
+      wordCount: 'string',
       wordSpelledCorrectError: 'string',
     };
   }
@@ -1635,14 +1719,14 @@ export class TranslateResponseBodyData extends $tea.Model {
 }
 
 export class TranslateCertificateResponseBodyDataTranslatedValues extends $tea.Model {
-  keyTranslation?: string;
   key?: string;
+  keyTranslation?: string;
   value?: string;
   valueTranslation?: string;
   static names(): { [key: string]: string } {
     return {
-      keyTranslation: 'KeyTranslation',
       key: 'Key',
+      keyTranslation: 'KeyTranslation',
       value: 'Value',
       valueTranslation: 'ValueTranslation',
     };
@@ -1650,8 +1734,8 @@ export class TranslateCertificateResponseBodyDataTranslatedValues extends $tea.M
 
   static types(): { [key: string]: any } {
     return {
-      keyTranslation: 'string',
       key: 'string',
+      keyTranslation: 'string',
       value: 'string',
       valueTranslation: 'string',
     };
@@ -1717,6 +1801,31 @@ export class TranslateGeneralResponseBodyData extends $tea.Model {
     return {
       translated: 'string',
       wordCount: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TranslateImageResponseBodyData extends $tea.Model {
+  finalImageUrl?: string;
+  inPaintingUrl?: string;
+  templateJson?: string;
+  static names(): { [key: string]: string } {
+    return {
+      finalImageUrl: 'FinalImageUrl',
+      inPaintingUrl: 'InPaintingUrl',
+      templateJson: 'TemplateJson',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      finalImageUrl: 'string',
+      inPaintingUrl: 'string',
+      templateJson: 'string',
     };
   }
 
@@ -1821,15 +1930,22 @@ export default class Client extends OpenApi {
     // Step 0: init client
     let accessKeyId = await this._credential.getAccessKeyId();
     let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
     let openPlatformEndpoint = this._openPlatformEndpoint;
     if (Util.isUnset(openPlatformEndpoint)) {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
     let authConfig = new $RPC.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
-      type: "access_key",
+      securityToken: securityToken,
+      type: credentialType,
       endpoint: openPlatformEndpoint,
       protocol: this._protocol,
       regionId: this._regionId,
@@ -2081,15 +2197,22 @@ export default class Client extends OpenApi {
     // Step 0: init client
     let accessKeyId = await this._credential.getAccessKeyId();
     let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
     let openPlatformEndpoint = this._openPlatformEndpoint;
     if (Util.isUnset(openPlatformEndpoint)) {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
     let authConfig = new $RPC.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
-      type: "access_key",
+      securityToken: securityToken,
+      type: credentialType,
       endpoint: openPlatformEndpoint,
       protocol: this._protocol,
       regionId: this._regionId,
@@ -2168,6 +2291,19 @@ export default class Client extends OpenApi {
   async translateGeneral(request: TranslateGeneralRequest): Promise<TranslateGeneralResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.translateGeneralWithOptions(request, runtime);
+  }
+
+  async translateImageWithOptions(request: TranslateImageRequest, runtime: $Util.RuntimeOptions): Promise<TranslateImageResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<TranslateImageResponse>(await this.doRPCRequest("TranslateImage", "2018-10-12", "HTTPS", "POST", "AK", "json", req, runtime), new TranslateImageResponse({}));
+  }
+
+  async translateImage(request: TranslateImageRequest): Promise<TranslateImageResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.translateImageWithOptions(request, runtime);
   }
 
 }
