@@ -235,19 +235,23 @@ export class BatchGetMediaInfosResponse extends $tea.Model {
 
 export class CreateEditingProjectRequest extends $tea.Model {
   businessConfig?: string;
+  clipsParam?: string;
   coverURL?: string;
   description?: string;
   materialMaps?: string;
   projectType?: string;
+  templateId?: string;
   timeline?: string;
   title?: string;
   static names(): { [key: string]: string } {
     return {
       businessConfig: 'BusinessConfig',
+      clipsParam: 'ClipsParam',
       coverURL: 'CoverURL',
       description: 'Description',
       materialMaps: 'MaterialMaps',
       projectType: 'ProjectType',
+      templateId: 'TemplateId',
       timeline: 'Timeline',
       title: 'Title',
     };
@@ -256,10 +260,12 @@ export class CreateEditingProjectRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       businessConfig: 'string',
+      clipsParam: 'string',
       coverURL: 'string',
       description: 'string',
       materialMaps: 'string',
       projectType: 'string',
+      templateId: 'string',
       timeline: 'string',
       title: 'string',
     };
@@ -1370,6 +1376,72 @@ export class GetTemplateResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: GetTemplateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTemplateMaterialsRequest extends $tea.Model {
+  fileList?: string;
+  templateId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fileList: 'FileList',
+      templateId: 'TemplateId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileList: 'string',
+      templateId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTemplateMaterialsResponseBody extends $tea.Model {
+  materialUrls?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      materialUrls: 'MaterialUrls',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      materialUrls: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTemplateMaterialsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetTemplateMaterialsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetTemplateMaterialsResponseBody,
     };
   }
 
@@ -2887,6 +2959,7 @@ export class SubmitMattingJobResponse extends $tea.Model {
 export class SubmitMediaProducingJobRequest extends $tea.Model {
   clientToken?: string;
   clipsParam?: string;
+  editingProduceConfig?: string;
   outputMediaConfig?: string;
   outputMediaTarget?: string;
   projectId?: string;
@@ -2899,6 +2972,7 @@ export class SubmitMediaProducingJobRequest extends $tea.Model {
     return {
       clientToken: 'ClientToken',
       clipsParam: 'ClipsParam',
+      editingProduceConfig: 'EditingProduceConfig',
       outputMediaConfig: 'OutputMediaConfig',
       outputMediaTarget: 'OutputMediaTarget',
       projectId: 'ProjectId',
@@ -2914,6 +2988,7 @@ export class SubmitMediaProducingJobRequest extends $tea.Model {
     return {
       clientToken: 'string',
       clipsParam: 'string',
+      editingProduceConfig: 'string',
       outputMediaConfig: 'string',
       outputMediaTarget: 'string',
       projectId: 'string',
@@ -2935,12 +3010,14 @@ export class SubmitMediaProducingJobResponseBody extends $tea.Model {
   mediaId?: string;
   projectId?: string;
   requestId?: string;
+  vodMediaId?: string;
   static names(): { [key: string]: string } {
     return {
       jobId: 'JobId',
       mediaId: 'MediaId',
       projectId: 'ProjectId',
       requestId: 'RequestId',
+      vodMediaId: 'VodMediaId',
     };
   }
 
@@ -2950,6 +3027,7 @@ export class SubmitMediaProducingJobResponseBody extends $tea.Model {
       mediaId: 'string',
       projectId: 'string',
       requestId: 'string',
+      vodMediaId: 'string',
     };
   }
 
@@ -3147,17 +3225,21 @@ export class SubmitSubtitleProduceJobResponse extends $tea.Model {
 
 export class UpdateEditingProjectRequest extends $tea.Model {
   businessStatus?: string;
+  clipsParam?: string;
   coverURL?: string;
   description?: string;
   projectId?: string;
+  templateId?: string;
   timeline?: string;
   title?: string;
   static names(): { [key: string]: string } {
     return {
       businessStatus: 'BusinessStatus',
+      clipsParam: 'ClipsParam',
       coverURL: 'CoverURL',
       description: 'Description',
       projectId: 'ProjectId',
+      templateId: 'TemplateId',
       timeline: 'Timeline',
       title: 'Title',
     };
@@ -3166,9 +3248,11 @@ export class UpdateEditingProjectRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       businessStatus: 'string',
+      clipsParam: 'string',
       coverURL: 'string',
       description: 'string',
       projectId: 'string',
+      templateId: 'string',
       timeline: 'string',
       title: 'string',
     };
@@ -3390,6 +3474,7 @@ export class UpdateTemplateRequest extends $tea.Model {
   coverUrl?: string;
   name?: string;
   previewMedia?: string;
+  relatedMediaids?: string;
   source?: string;
   status?: string;
   templateId?: string;
@@ -3399,6 +3484,7 @@ export class UpdateTemplateRequest extends $tea.Model {
       coverUrl: 'CoverUrl',
       name: 'Name',
       previewMedia: 'PreviewMedia',
+      relatedMediaids: 'RelatedMediaids',
       source: 'Source',
       status: 'Status',
       templateId: 'TemplateId',
@@ -3411,6 +3497,7 @@ export class UpdateTemplateRequest extends $tea.Model {
       coverUrl: 'string',
       name: 'string',
       previewMedia: 'string',
+      relatedMediaids: 'string',
       source: 'string',
       status: 'string',
       templateId: 'string',
@@ -3863,6 +3950,7 @@ export class BatchGetMediaInfosResponseBodyMediaInfos extends $tea.Model {
 export class CreateEditingProjectResponseBodyProject extends $tea.Model {
   businessConfig?: string;
   businessStatus?: string;
+  clipsParam?: string;
   coverURL?: string;
   createSource?: string;
   createTime?: string;
@@ -3874,6 +3962,7 @@ export class CreateEditingProjectResponseBodyProject extends $tea.Model {
   projectType?: string;
   status?: number;
   statusName?: string;
+  templateId?: string;
   templateType?: string;
   timeline?: string;
   title?: string;
@@ -3881,6 +3970,7 @@ export class CreateEditingProjectResponseBodyProject extends $tea.Model {
     return {
       businessConfig: 'BusinessConfig',
       businessStatus: 'BusinessStatus',
+      clipsParam: 'ClipsParam',
       coverURL: 'CoverURL',
       createSource: 'CreateSource',
       createTime: 'CreateTime',
@@ -3892,6 +3982,7 @@ export class CreateEditingProjectResponseBodyProject extends $tea.Model {
       projectType: 'ProjectType',
       status: 'Status',
       statusName: 'StatusName',
+      templateId: 'TemplateId',
       templateType: 'TemplateType',
       timeline: 'Timeline',
       title: 'Title',
@@ -3902,6 +3993,7 @@ export class CreateEditingProjectResponseBodyProject extends $tea.Model {
     return {
       businessConfig: 'string',
       businessStatus: 'string',
+      clipsParam: 'string',
       coverURL: 'string',
       createSource: 'string',
       createTime: 'string',
@@ -3913,6 +4005,7 @@ export class CreateEditingProjectResponseBodyProject extends $tea.Model {
       projectType: 'string',
       status: 'number',
       statusName: 'string',
+      templateId: 'string',
       templateType: 'string',
       timeline: 'string',
       title: 'string',
@@ -3927,6 +4020,7 @@ export class CreateEditingProjectResponseBodyProject extends $tea.Model {
 export class GetEditingProjectResponseBodyProject extends $tea.Model {
   businessConfig?: string;
   businessStatus?: string;
+  clipsParam?: string;
   coverURL?: string;
   createSource?: string;
   createTime?: string;
@@ -3937,6 +4031,7 @@ export class GetEditingProjectResponseBodyProject extends $tea.Model {
   projectId?: string;
   projectType?: string;
   status?: string;
+  templateId?: string;
   templateType?: string;
   timeline?: string;
   title?: string;
@@ -3944,6 +4039,7 @@ export class GetEditingProjectResponseBodyProject extends $tea.Model {
     return {
       businessConfig: 'BusinessConfig',
       businessStatus: 'BusinessStatus',
+      clipsParam: 'ClipsParam',
       coverURL: 'CoverURL',
       createSource: 'CreateSource',
       createTime: 'CreateTime',
@@ -3954,6 +4050,7 @@ export class GetEditingProjectResponseBodyProject extends $tea.Model {
       projectId: 'ProjectId',
       projectType: 'ProjectType',
       status: 'Status',
+      templateId: 'TemplateId',
       templateType: 'TemplateType',
       timeline: 'Timeline',
       title: 'Title',
@@ -3964,6 +4061,7 @@ export class GetEditingProjectResponseBodyProject extends $tea.Model {
     return {
       businessConfig: 'string',
       businessStatus: 'string',
+      clipsParam: 'string',
       coverURL: 'string',
       createSource: 'string',
       createTime: 'string',
@@ -3974,6 +4072,7 @@ export class GetEditingProjectResponseBodyProject extends $tea.Model {
       projectId: 'string',
       projectType: 'string',
       status: 'string',
+      templateId: 'string',
       templateType: 'string',
       timeline: 'string',
       title: 'string',
@@ -5944,6 +6043,20 @@ export default class Client extends OpenApi {
   async getTemplate(request: GetTemplateRequest): Promise<GetTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getTemplateWithOptions(request, runtime);
+  }
+
+  async getTemplateMaterialsWithOptions(request: GetTemplateMaterialsRequest, runtime: $Util.RuntimeOptions): Promise<GetTemplateMaterialsResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: query,
+    });
+    return $tea.cast<GetTemplateMaterialsResponse>(await this.doRPCRequest("GetTemplateMaterials", "2020-11-09", "HTTPS", "GET", "AK", "json", req, runtime), new GetTemplateMaterialsResponse({}));
+  }
+
+  async getTemplateMaterials(request: GetTemplateMaterialsRequest): Promise<GetTemplateMaterialsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getTemplateMaterialsWithOptions(request, runtime);
   }
 
   async listAllPublicMediaTagsWithOptions(request: ListAllPublicMediaTagsRequest, runtime: $Util.RuntimeOptions): Promise<ListAllPublicMediaTagsResponse> {
