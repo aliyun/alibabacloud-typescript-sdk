@@ -1630,78 +1630,6 @@ export class GetHotspotTagResponse extends $tea.Model {
   }
 }
 
-export class GetJobRequest extends $tea.Model {
-  instanceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceId: 'InstanceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetJobResponseBody extends $tea.Model {
-  code?: number;
-  message?: string;
-  requestId?: string;
-  status?: number;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      message: 'Message',
-      requestId: 'RequestId',
-      status: 'Status',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      message: 'string',
-      requestId: 'string',
-      status: 'number',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: GetJobResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: GetJobResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class GetLayoutDataRequest extends $tea.Model {
   subSceneId?: string;
   static names(): { [key: string]: string } {
@@ -2106,25 +2034,21 @@ export class GetSceneBuildTaskStatusResponseBody extends $tea.Model {
   code?: number;
   errorCode?: string;
   errorMsg?: string;
-  id?: string;
   message?: string;
   requestId?: string;
   sceneId?: string;
   status?: string;
   success?: boolean;
-  type?: string;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
       errorCode: 'ErrorCode',
       errorMsg: 'ErrorMsg',
-      id: 'Id',
       message: 'Message',
       requestId: 'RequestId',
       sceneId: 'SceneId',
       status: 'Status',
       success: 'Success',
-      type: 'Type',
     };
   }
 
@@ -2133,13 +2057,11 @@ export class GetSceneBuildTaskStatusResponseBody extends $tea.Model {
       code: 'number',
       errorCode: 'string',
       errorMsg: 'string',
-      id: 'string',
       message: 'string',
       requestId: 'string',
       sceneId: 'string',
       status: 'string',
       success: 'boolean',
-      type: 'string',
     };
   }
 
@@ -3430,6 +3352,78 @@ export class PublishSceneResponse extends $tea.Model {
   }
 }
 
+export class PublishStatusRequest extends $tea.Model {
+  sceneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      sceneId: 'SceneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sceneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PublishStatusResponseBody extends $tea.Model {
+  code?: number;
+  message?: string;
+  requestId?: string;
+  status?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      status: 'Status',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      message: 'string',
+      requestId: 'string',
+      status: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PublishStatusResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: PublishStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: PublishStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RecoveryOriginImageRequest extends $tea.Model {
   subSceneId?: string;
   static names(): { [key: string]: string } {
@@ -3955,18 +3949,18 @@ export class TempPreviewRequest extends $tea.Model {
 
 export class TempPreviewResponseBody extends $tea.Model {
   code?: number;
-  key?: string;
   message?: string;
   previewUrl?: string;
   requestId?: string;
+  sceneId?: string;
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
-      key: 'Key',
       message: 'Message',
       previewUrl: 'PreviewUrl',
       requestId: 'RequestId',
+      sceneId: 'SceneId',
       success: 'Success',
     };
   }
@@ -3974,10 +3968,10 @@ export class TempPreviewResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'number',
-      key: 'string',
       message: 'string',
       previewUrl: 'string',
       requestId: 'string',
+      sceneId: 'string',
       success: 'boolean',
     };
   }
@@ -4010,16 +4004,16 @@ export class TempPreviewResponse extends $tea.Model {
 }
 
 export class TempPreviewStatusRequest extends $tea.Model {
-  key?: string;
+  sceneId?: string;
   static names(): { [key: string]: string } {
     return {
-      key: 'Key',
+      sceneId: 'SceneId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      key: 'string',
+      sceneId: 'string',
     };
   }
 
@@ -5030,19 +5024,6 @@ export default class Client extends OpenApi {
     return await this.getHotspotTagWithOptions(request, runtime);
   }
 
-  async getJobWithOptions(request: GetJobRequest, runtime: $Util.RuntimeOptions): Promise<GetJobResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<GetJobResponse>(await this.doRPCRequest("GetJob", "2020-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new GetJobResponse({}));
-  }
-
-  async getJob(request: GetJobRequest): Promise<GetJobResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getJobWithOptions(request, runtime);
-  }
-
   async getLayoutDataWithOptions(request: GetLayoutDataRequest, runtime: $Util.RuntimeOptions): Promise<GetLayoutDataResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -5327,6 +5308,19 @@ export default class Client extends OpenApi {
   async publishScene(request: PublishSceneRequest): Promise<PublishSceneResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.publishSceneWithOptions(request, runtime);
+  }
+
+  async publishStatusWithOptions(request: PublishStatusRequest, runtime: $Util.RuntimeOptions): Promise<PublishStatusResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<PublishStatusResponse>(await this.doRPCRequest("PublishStatus", "2020-01-01", "HTTPS", "POST", "AK", "json", req, runtime), new PublishStatusResponse({}));
+  }
+
+  async publishStatus(request: PublishStatusRequest): Promise<PublishStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.publishStatusWithOptions(request, runtime);
   }
 
   async recoveryOriginImageWithOptions(request: RecoveryOriginImageRequest, runtime: $Util.RuntimeOptions): Promise<RecoveryOriginImageResponse> {
