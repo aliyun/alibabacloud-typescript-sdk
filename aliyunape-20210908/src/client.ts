@@ -267,14 +267,12 @@ export class WeatherforecastTimeRequest extends $tea.Model {
   lat?: string;
   lon?: string;
   orderId?: string;
-  sourceIp?: string;
   static names(): { [key: string]: string } {
     return {
       curHour: 'CurHour',
       lat: 'Lat',
       lon: 'Lon',
       orderId: 'OrderId',
-      sourceIp: 'SourceIp',
     };
   }
 
@@ -284,7 +282,6 @@ export class WeatherforecastTimeRequest extends $tea.Model {
       lat: 'string',
       lon: 'string',
       orderId: 'string',
-      sourceIp: 'string',
     };
   }
 
