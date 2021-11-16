@@ -3298,7 +3298,6 @@ export class PublishSceneRequest extends $tea.Model {
 
 export class PublishSceneResponseBody extends $tea.Model {
   code?: number;
-  instanceId?: string;
   message?: string;
   previewUrl?: string;
   requestId?: string;
@@ -3306,7 +3305,6 @@ export class PublishSceneResponseBody extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
-      instanceId: 'InstanceId',
       message: 'Message',
       previewUrl: 'PreviewUrl',
       requestId: 'RequestId',
@@ -3317,7 +3315,6 @@ export class PublishSceneResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'number',
-      instanceId: 'string',
       message: 'string',
       previewUrl: 'string',
       requestId: 'string',
