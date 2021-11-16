@@ -4244,6 +4244,84 @@ export class ListAlternativeSnapshotReposResponse extends $tea.Model {
   }
 }
 
+export class ListApmRequest extends $tea.Model {
+  description?: string;
+  instanceId?: string;
+  output?: string;
+  page?: number;
+  size?: number;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'description',
+      instanceId: 'instanceId',
+      output: 'output',
+      page: 'page',
+      size: 'size',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      instanceId: 'string',
+      output: 'string',
+      page: 'number',
+      size: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListApmResponseBody extends $tea.Model {
+  headers?: ListApmResponseBodyHeaders;
+  requestId?: string;
+  result?: ListApmResponseBodyResult[];
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'Headers',
+      requestId: 'RequestId',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: ListApmResponseBodyHeaders,
+      requestId: 'string',
+      result: { 'type': 'array', 'itemType': ListApmResponseBodyResult },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListApmResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListApmResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListApmResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListAvailableEsInstanceIdsResponseBody extends $tea.Model {
   requestId?: string;
   result?: ListAvailableEsInstanceIdsResponseBodyResult[];
@@ -7046,15 +7124,18 @@ export class ReinstallCollectorResponse extends $tea.Model {
 
 export class RemoveApmResponseBody extends $tea.Model {
   requestId?: string;
+  result?: boolean;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'requestId',
+      requestId: 'RequestId',
+      result: 'Result',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
+      result: 'boolean',
     };
   }
 
@@ -7732,15 +7813,18 @@ export class ShrinkNodeResponse extends $tea.Model {
 
 export class StartApmResponseBody extends $tea.Model {
   requestId?: string;
+  result?: boolean;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'requestId',
+      requestId: 'RequestId',
+      result: 'Result',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
+      result: 'boolean',
     };
   }
 
@@ -7836,15 +7920,18 @@ export class StartCollectorResponse extends $tea.Model {
 
 export class StopApmResponseBody extends $tea.Model {
   requestId?: string;
+  result?: boolean;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'requestId',
+      requestId: 'RequestId',
+      result: 'Result',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
+      result: 'boolean',
     };
   }
 
@@ -8628,28 +8715,28 @@ export class UpdateAliwsDictResponse extends $tea.Model {
 }
 
 export class UpdateApmRequest extends $tea.Model {
+  description?: string;
   outputES?: string;
   outputESPassword?: string;
   outputESUserName?: string;
   token?: string;
-  yml?: string;
   static names(): { [key: string]: string } {
     return {
+      description: 'description',
       outputES: 'outputES',
       outputESPassword: 'outputESPassword',
       outputESUserName: 'outputESUserName',
       token: 'token',
-      yml: 'yml',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      description: 'string',
       outputES: 'string',
       outputESPassword: 'string',
       outputESUserName: 'string',
       token: 'string',
-      yml: 'string',
     };
   }
 
@@ -8660,15 +8747,18 @@ export class UpdateApmRequest extends $tea.Model {
 
 export class UpdateApmResponseBody extends $tea.Model {
   requestId?: string;
+  result?: boolean;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'requestId',
+      requestId: 'RequestId',
+      result: 'Result',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
+      result: 'boolean',
     };
   }
 
@@ -11433,6 +11523,7 @@ export class DescribeAckOperatorResponseBodyResult extends $tea.Model {
 }
 
 export class DescribeApmResponseBodyResult extends $tea.Model {
+  apmServerDomain?: string;
   createdAt?: string;
   deployedReplica?: number;
   description?: string;
@@ -11454,30 +11545,32 @@ export class DescribeApmResponseBodyResult extends $tea.Model {
   vswitchId?: string;
   static names(): { [key: string]: string } {
     return {
-      createdAt: 'CreatedAt',
-      deployedReplica: 'DeployedReplica',
-      description: 'Description',
-      endTime: 'EndTime',
-      instanceId: 'InstanceId',
-      nodeAmount: 'NodeAmount',
-      outputES: 'OutputES',
-      outputESUserName: 'OutputESUserName',
-      outputEsDescription: 'OutputEsDescription',
-      ownerId: 'OwnerId',
-      paymentType: 'PaymentType',
-      region: 'Region',
-      replica: 'Replica',
-      resourceSpec: 'ResourceSpec',
-      status: 'Status',
-      version: 'Version',
-      vpcId: 'VpcId',
-      vsArea: 'VsArea',
-      vswitchId: 'VswitchId',
+      apmServerDomain: 'apmServerDomain',
+      createdAt: 'createdAt',
+      deployedReplica: 'deployedReplica',
+      description: 'description',
+      endTime: 'endTime',
+      instanceId: 'instanceId',
+      nodeAmount: 'nodeAmount',
+      outputES: 'outputES',
+      outputESUserName: 'outputESUserName',
+      outputEsDescription: 'outputEsDescription',
+      ownerId: 'ownerId',
+      paymentType: 'paymentType',
+      region: 'region',
+      replica: 'replica',
+      resourceSpec: 'resourceSpec',
+      status: 'status',
+      version: 'version',
+      vpcId: 'vpcId',
+      vsArea: 'vsArea',
+      vswitchId: 'vswitchId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      apmServerDomain: 'string',
       createdAt: 'string',
       deployedReplica: 'number',
       description: 'string',
@@ -13777,6 +13870,92 @@ export class ListAlternativeSnapshotReposResponseBodyResult extends $tea.Model {
     return {
       instanceId: 'string',
       repoPath: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListApmResponseBodyHeaders extends $tea.Model {
+  xTotalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      xTotalCount: 'X-Total-Count',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      xTotalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListApmResponseBodyResult extends $tea.Model {
+  createdAt?: string;
+  deployedReplica?: number;
+  description?: string;
+  instanceId?: string;
+  nodeAmount?: number;
+  outputES?: string;
+  outputESUserName?: string;
+  ownerId?: string;
+  paymentType?: string;
+  region?: string;
+  replica?: number;
+  resourceSpec?: string;
+  status?: string;
+  version?: string;
+  vpcId?: string;
+  vsArea?: string;
+  vswitchId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createdAt: 'createdAt',
+      deployedReplica: 'deployedReplica',
+      description: 'description',
+      instanceId: 'instanceId',
+      nodeAmount: 'nodeAmount',
+      outputES: 'outputES',
+      outputESUserName: 'outputESUserName',
+      ownerId: 'ownerId',
+      paymentType: 'paymentType',
+      region: 'region',
+      replica: 'replica',
+      resourceSpec: 'resourceSpec',
+      status: 'status',
+      version: 'version',
+      vpcId: 'vpcId',
+      vsArea: 'vsArea',
+      vswitchId: 'vswitchId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createdAt: 'string',
+      deployedReplica: 'number',
+      description: 'string',
+      instanceId: 'string',
+      nodeAmount: 'number',
+      outputES: 'string',
+      outputESUserName: 'string',
+      ownerId: 'string',
+      paymentType: 'string',
+      region: 'string',
+      replica: 'number',
+      resourceSpec: 'string',
+      status: 'string',
+      version: 'string',
+      vpcId: 'string',
+      vsArea: 'string',
+      vswitchId: 'string',
     };
   }
 
@@ -18958,6 +19137,42 @@ export default class Client extends OpenApi {
     return $tea.cast<ListAlternativeSnapshotReposResponse>(await this.doROARequest("ListAlternativeSnapshotRepos", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/instances/${InstanceId}/alternative-snapshot-repos`, "json", req, runtime), new ListAlternativeSnapshotReposResponse({}));
   }
 
+  async listApm(request: ListApmRequest): Promise<ListApmResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listApmWithOptions(request, headers, runtime);
+  }
+
+  async listApmWithOptions(request: ListApmRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListApmResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.description)) {
+      query["description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["instanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.output)) {
+      query["output"] = request.output;
+    }
+
+    if (!Util.isUnset(request.page)) {
+      query["page"] = request.page;
+    }
+
+    if (!Util.isUnset(request.size)) {
+      query["size"] = request.size;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    return $tea.cast<ListApmResponse>(await this.doROARequest("ListApm", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/apm`, "json", req, runtime), new ListApmResponse({}));
+  }
+
   async listAvailableEsInstanceIds(InstanceId: string): Promise<ListAvailableEsInstanceIdsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -20688,30 +20903,30 @@ export default class Client extends OpenApi {
   async updateApmWithOptions(instanceId: string, request: UpdateApmRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateApmResponse> {
     Util.validateModel(request);
     instanceId = OpenApiUtil.getEncodeParam(instanceId);
-    let query : {[key: string ]: any} = { };
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.description)) {
+      body["description"] = request.description;
+    }
+
     if (!Util.isUnset(request.outputES)) {
-      query["outputES"] = request.outputES;
+      body["outputES"] = request.outputES;
     }
 
     if (!Util.isUnset(request.outputESPassword)) {
-      query["outputESPassword"] = request.outputESPassword;
+      body["outputESPassword"] = request.outputESPassword;
     }
 
     if (!Util.isUnset(request.outputESUserName)) {
-      query["outputESUserName"] = request.outputESUserName;
+      body["outputESUserName"] = request.outputESUserName;
     }
 
     if (!Util.isUnset(request.token)) {
-      query["token"] = request.token;
-    }
-
-    if (!Util.isUnset(request.yml)) {
-      query["yml"] = request.yml;
+      body["token"] = request.token;
     }
 
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
-      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
     return $tea.cast<UpdateApmResponse>(await this.doROARequest("UpdateApm", "2017-06-13", "HTTPS", "PUT", "AK", `/openapi/apm/${instanceId}`, "json", req, runtime), new UpdateApmResponse({}));
   }
