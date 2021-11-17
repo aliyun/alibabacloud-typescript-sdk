@@ -4097,6 +4097,75 @@ export class DescribeDrdsDbRdsNameListResponse extends $tea.Model {
   }
 }
 
+export class DescribeDrdsDbSpecAndPriceRequest extends $tea.Model {
+  DBName?: string;
+  drdsInstanceId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBName: 'DBName',
+      drdsInstanceId: 'DrdsInstanceId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBName: 'string',
+      drdsInstanceId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDrdsDbSpecAndPriceResponseBody extends $tea.Model {
+  data?: DescribeDrdsDbSpecAndPriceResponseBodyData;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: DescribeDrdsDbSpecAndPriceResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDrdsDbSpecAndPriceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeDrdsDbSpecAndPriceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeDrdsDbSpecAndPriceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDrdsDbTasksRequest extends $tea.Model {
   dbName?: string;
   drdsInstanceId?: string;
@@ -4776,11 +4845,15 @@ export class DescribeDrdsShardingDbsRequest extends $tea.Model {
   dbName?: string;
   dbNamePattern?: string;
   drdsInstanceId?: string;
+  pageNumber?: number;
+  pageSize?: number;
   static names(): { [key: string]: string } {
     return {
       dbName: 'DbName',
       dbNamePattern: 'DbNamePattern',
       drdsInstanceId: 'DrdsInstanceId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
     };
   }
 
@@ -4789,6 +4862,8 @@ export class DescribeDrdsShardingDbsRequest extends $tea.Model {
       dbName: 'string',
       dbNamePattern: 'string',
       drdsInstanceId: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
     };
   }
 
@@ -4798,22 +4873,31 @@ export class DescribeDrdsShardingDbsRequest extends $tea.Model {
 }
 
 export class DescribeDrdsShardingDbsResponseBody extends $tea.Model {
+  pageNumber?: string;
+  pageSize?: string;
   requestId?: string;
   shardingDbs?: DescribeDrdsShardingDbsResponseBodyShardingDbs;
   success?: boolean;
+  total?: string;
   static names(): { [key: string]: string } {
     return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
       requestId: 'RequestId',
       shardingDbs: 'ShardingDbs',
       success: 'Success',
+      total: 'Total',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      pageNumber: 'string',
+      pageSize: 'string',
       requestId: 'string',
       shardingDbs: DescribeDrdsShardingDbsResponseBodyShardingDbs,
       success: 'boolean',
+      total: 'string',
     };
   }
 
@@ -15542,6 +15626,258 @@ export class DescribeDrdsDbRdsNameListResponseBodyInstanceNameList extends $tea.
   }
 }
 
+export class DescribeDrdsDbSpecAndPriceResponseBodyDataDrdsDbPrice extends $tea.Model {
+  currency?: string;
+  discountPrice?: number;
+  originalPrice?: number;
+  tradePrice?: number;
+  static names(): { [key: string]: string } {
+    return {
+      currency: 'Currency',
+      discountPrice: 'DiscountPrice',
+      originalPrice: 'OriginalPrice',
+      tradePrice: 'TradePrice',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currency: 'string',
+      discountPrice: 'number',
+      originalPrice: 'number',
+      tradePrice: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDrdsDbSpecAndPriceResponseBodyDataDrdsInstance extends $tea.Model {
+  drdsInstanceId?: string;
+  instRole?: string;
+  instanceSeries?: string;
+  instanceSpec?: string;
+  machineType?: string;
+  networkType?: string;
+  productVersion?: string;
+  protocolType?: number;
+  regionId?: string;
+  status?: string;
+  type?: string;
+  versionAction?: string;
+  vpcCloudInstanceId?: string;
+  vpcId?: string;
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      drdsInstanceId: 'DrdsInstanceId',
+      instRole: 'InstRole',
+      instanceSeries: 'InstanceSeries',
+      instanceSpec: 'InstanceSpec',
+      machineType: 'MachineType',
+      networkType: 'NetworkType',
+      productVersion: 'ProductVersion',
+      protocolType: 'ProtocolType',
+      regionId: 'RegionId',
+      status: 'Status',
+      type: 'Type',
+      versionAction: 'VersionAction',
+      vpcCloudInstanceId: 'VpcCloudInstanceId',
+      vpcId: 'VpcId',
+      zoneId: 'ZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      drdsInstanceId: 'string',
+      instRole: 'string',
+      instanceSeries: 'string',
+      instanceSpec: 'string',
+      machineType: 'string',
+      networkType: 'string',
+      productVersion: 'string',
+      protocolType: 'number',
+      regionId: 'string',
+      status: 'string',
+      type: 'string',
+      versionAction: 'string',
+      vpcCloudInstanceId: 'string',
+      vpcId: 'string',
+      zoneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDrdsDbSpecAndPriceResponseBodyDataRdsInstanceSpecsAndPricesRdsPrice extends $tea.Model {
+  coupons?: string;
+  currency?: string;
+  discountPrice?: number;
+  originalPrice?: number;
+  ruleIds?: string[];
+  tradePrice?: number;
+  static names(): { [key: string]: string } {
+    return {
+      coupons: 'Coupons',
+      currency: 'Currency',
+      discountPrice: 'DiscountPrice',
+      originalPrice: 'OriginalPrice',
+      ruleIds: 'RuleIds',
+      tradePrice: 'TradePrice',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      coupons: 'string',
+      currency: 'string',
+      discountPrice: 'number',
+      originalPrice: 'number',
+      ruleIds: { 'type': 'array', 'itemType': 'string' },
+      tradePrice: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDrdsDbSpecAndPriceResponseBodyDataRdsInstanceSpecsAndPricesStorageInstance extends $tea.Model {
+  connectUrl?: string;
+  DBInstType?: string;
+  DBInstanceCPU?: string;
+  DBInstanceClass?: string;
+  DBInstanceClassType?: string;
+  DBInstanceDescription?: string;
+  DBInstanceId?: string;
+  DBInstanceMemory?: number;
+  DBInstanceStatus?: number;
+  DBInstanceStorage?: number;
+  DBInstanceStorageType?: string;
+  engine?: string;
+  engineVersion?: string;
+  expireTime?: string;
+  networkType?: string;
+  payType?: string;
+  port?: number;
+  RDSInstType?: string;
+  readWeight?: number;
+  regionId?: string;
+  remainDays?: number;
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      connectUrl: 'ConnectUrl',
+      DBInstType: 'DBInstType',
+      DBInstanceCPU: 'DBInstanceCPU',
+      DBInstanceClass: 'DBInstanceClass',
+      DBInstanceClassType: 'DBInstanceClassType',
+      DBInstanceDescription: 'DBInstanceDescription',
+      DBInstanceId: 'DBInstanceId',
+      DBInstanceMemory: 'DBInstanceMemory',
+      DBInstanceStatus: 'DBInstanceStatus',
+      DBInstanceStorage: 'DBInstanceStorage',
+      DBInstanceStorageType: 'DBInstanceStorageType',
+      engine: 'Engine',
+      engineVersion: 'EngineVersion',
+      expireTime: 'ExpireTime',
+      networkType: 'NetworkType',
+      payType: 'PayType',
+      port: 'Port',
+      RDSInstType: 'RDSInstType',
+      readWeight: 'ReadWeight',
+      regionId: 'RegionId',
+      remainDays: 'RemainDays',
+      zoneId: 'ZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      connectUrl: 'string',
+      DBInstType: 'string',
+      DBInstanceCPU: 'string',
+      DBInstanceClass: 'string',
+      DBInstanceClassType: 'string',
+      DBInstanceDescription: 'string',
+      DBInstanceId: 'string',
+      DBInstanceMemory: 'number',
+      DBInstanceStatus: 'number',
+      DBInstanceStorage: 'number',
+      DBInstanceStorageType: 'string',
+      engine: 'string',
+      engineVersion: 'string',
+      expireTime: 'string',
+      networkType: 'string',
+      payType: 'string',
+      port: 'number',
+      RDSInstType: 'string',
+      readWeight: 'number',
+      regionId: 'string',
+      remainDays: 'number',
+      zoneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDrdsDbSpecAndPriceResponseBodyDataRdsInstanceSpecsAndPrices extends $tea.Model {
+  rdsPrice?: DescribeDrdsDbSpecAndPriceResponseBodyDataRdsInstanceSpecsAndPricesRdsPrice;
+  storageInstance?: DescribeDrdsDbSpecAndPriceResponseBodyDataRdsInstanceSpecsAndPricesStorageInstance;
+  static names(): { [key: string]: string } {
+    return {
+      rdsPrice: 'RdsPrice',
+      storageInstance: 'StorageInstance',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      rdsPrice: DescribeDrdsDbSpecAndPriceResponseBodyDataRdsInstanceSpecsAndPricesRdsPrice,
+      storageInstance: DescribeDrdsDbSpecAndPriceResponseBodyDataRdsInstanceSpecsAndPricesStorageInstance,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDrdsDbSpecAndPriceResponseBodyData extends $tea.Model {
+  drdsDbPrice?: DescribeDrdsDbSpecAndPriceResponseBodyDataDrdsDbPrice;
+  drdsInstance?: DescribeDrdsDbSpecAndPriceResponseBodyDataDrdsInstance;
+  rdsInstanceSpecsAndPrices?: DescribeDrdsDbSpecAndPriceResponseBodyDataRdsInstanceSpecsAndPrices[];
+  static names(): { [key: string]: string } {
+    return {
+      drdsDbPrice: 'DrdsDbPrice',
+      drdsInstance: 'DrdsInstance',
+      rdsInstanceSpecsAndPrices: 'RdsInstanceSpecsAndPrices',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      drdsDbPrice: DescribeDrdsDbSpecAndPriceResponseBodyDataDrdsDbPrice,
+      drdsInstance: DescribeDrdsDbSpecAndPriceResponseBodyDataDrdsInstance,
+      rdsInstanceSpecsAndPrices: { 'type': 'array', 'itemType': DescribeDrdsDbSpecAndPriceResponseBodyDataRdsInstanceSpecsAndPrices },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDrdsDbTasksResponseBodyTasksTask extends $tea.Model {
   allowCancel?: boolean;
   dbComputeLength?: number;
@@ -20334,6 +20670,19 @@ export default class Client extends OpenApi {
   async describeDrdsDbRdsNameList(request: DescribeDrdsDbRdsNameListRequest): Promise<DescribeDrdsDbRdsNameListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDrdsDbRdsNameListWithOptions(request, runtime);
+  }
+
+  async describeDrdsDbSpecAndPriceWithOptions(request: DescribeDrdsDbSpecAndPriceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDrdsDbSpecAndPriceResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<DescribeDrdsDbSpecAndPriceResponse>(await this.doRPCRequest("DescribeDrdsDbSpecAndPrice", "2019-01-23", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeDrdsDbSpecAndPriceResponse({}));
+  }
+
+  async describeDrdsDbSpecAndPrice(request: DescribeDrdsDbSpecAndPriceRequest): Promise<DescribeDrdsDbSpecAndPriceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDrdsDbSpecAndPriceWithOptions(request, runtime);
   }
 
   async describeDrdsDbTasksWithOptions(request: DescribeDrdsDbTasksRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDrdsDbTasksResponse> {
