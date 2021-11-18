@@ -2824,7 +2824,7 @@ export class ListNasesResponse extends $tea.Model {
 
 export class ListNetworkSecurityGroupsResponseBody extends $tea.Model {
   requestId?: string;
-  securityGroups?: SecurityGroup[][];
+  securityGroups?: SecurityGroup[];
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
@@ -2835,7 +2835,7 @@ export class ListNetworkSecurityGroupsResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      securityGroups: { 'type': 'array', 'itemType': { 'type': 'array', 'itemType': SecurityGroup } },
+      securityGroups: { 'type': 'array', 'itemType': SecurityGroup },
     };
   }
 
