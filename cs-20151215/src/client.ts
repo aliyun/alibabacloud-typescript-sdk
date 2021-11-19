@@ -412,6 +412,7 @@ export class CreateClusterRequest extends $tea.Model {
   keepInstanceName?: boolean;
   keyPair?: string;
   kubernetesVersion?: string;
+  loadBalancerSpec?: string;
   loggingType?: string;
   loginPassword?: string;
   masterAutoRenew?: boolean;
@@ -495,6 +496,7 @@ export class CreateClusterRequest extends $tea.Model {
       keepInstanceName: 'keep_instance_name',
       keyPair: 'key_pair',
       kubernetesVersion: 'kubernetes_version',
+      loadBalancerSpec: 'load_balancer_spec',
       loggingType: 'logging_type',
       loginPassword: 'login_password',
       masterAutoRenew: 'master_auto_renew',
@@ -581,6 +583,7 @@ export class CreateClusterRequest extends $tea.Model {
       keepInstanceName: 'boolean',
       keyPair: 'string',
       kubernetesVersion: 'string',
+      loadBalancerSpec: 'string',
       loggingType: 'string',
       loginPassword: 'string',
       masterAutoRenew: 'boolean',
@@ -695,8 +698,11 @@ export class CreateClusterResponse extends $tea.Model {
 export class CreateClusterNodePoolRequest extends $tea.Model {
   autoScaling?: CreateClusterNodePoolRequestAutoScaling;
   count?: number;
+  interconnectConfig?: CreateClusterNodePoolRequestInterconnectConfig;
+  interconnectMode?: string;
   kubernetesConfig?: CreateClusterNodePoolRequestKubernetesConfig;
   management?: CreateClusterNodePoolRequestManagement;
+  maxNodes?: number;
   nodepoolInfo?: CreateClusterNodePoolRequestNodepoolInfo;
   scalingGroup?: CreateClusterNodePoolRequestScalingGroup;
   teeConfig?: CreateClusterNodePoolRequestTeeConfig;
@@ -704,8 +710,11 @@ export class CreateClusterNodePoolRequest extends $tea.Model {
     return {
       autoScaling: 'auto_scaling',
       count: 'count',
+      interconnectConfig: 'interconnect_config',
+      interconnectMode: 'interconnect_mode',
       kubernetesConfig: 'kubernetes_config',
       management: 'management',
+      maxNodes: 'max_nodes',
       nodepoolInfo: 'nodepool_info',
       scalingGroup: 'scaling_group',
       teeConfig: 'tee_config',
@@ -716,8 +725,11 @@ export class CreateClusterNodePoolRequest extends $tea.Model {
     return {
       autoScaling: CreateClusterNodePoolRequestAutoScaling,
       count: 'number',
+      interconnectConfig: CreateClusterNodePoolRequestInterconnectConfig,
+      interconnectMode: 'string',
       kubernetesConfig: CreateClusterNodePoolRequestKubernetesConfig,
       management: CreateClusterNodePoolRequestManagement,
+      maxNodes: 'number',
       nodepoolInfo: CreateClusterNodePoolRequestNodepoolInfo,
       scalingGroup: CreateClusterNodePoolRequestScalingGroup,
       teeConfig: CreateClusterNodePoolRequestTeeConfig,
@@ -1928,8 +1940,11 @@ export class DescribeClusterNamespacesResponse extends $tea.Model {
 
 export class DescribeClusterNodePoolDetailResponseBody extends $tea.Model {
   autoScaling?: DescribeClusterNodePoolDetailResponseBodyAutoScaling;
+  interconnectConfig?: DescribeClusterNodePoolDetailResponseBodyInterconnectConfig;
+  interconnectMode?: string;
   kubernetesConfig?: DescribeClusterNodePoolDetailResponseBodyKubernetesConfig;
   management?: DescribeClusterNodePoolDetailResponseBodyManagement;
+  maxNodes?: number;
   nodepoolInfo?: DescribeClusterNodePoolDetailResponseBodyNodepoolInfo;
   scalingGroup?: DescribeClusterNodePoolDetailResponseBodyScalingGroup;
   status?: DescribeClusterNodePoolDetailResponseBodyStatus;
@@ -1937,8 +1952,11 @@ export class DescribeClusterNodePoolDetailResponseBody extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       autoScaling: 'auto_scaling',
+      interconnectConfig: 'interconnect_config',
+      interconnectMode: 'interconnect_mode',
       kubernetesConfig: 'kubernetes_config',
       management: 'management',
+      maxNodes: 'max_nodes',
       nodepoolInfo: 'nodepool_info',
       scalingGroup: 'scaling_group',
       status: 'status',
@@ -1949,8 +1967,11 @@ export class DescribeClusterNodePoolDetailResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       autoScaling: DescribeClusterNodePoolDetailResponseBodyAutoScaling,
+      interconnectConfig: DescribeClusterNodePoolDetailResponseBodyInterconnectConfig,
+      interconnectMode: 'string',
       kubernetesConfig: DescribeClusterNodePoolDetailResponseBodyKubernetesConfig,
       management: DescribeClusterNodePoolDetailResponseBodyManagement,
+      maxNodes: 'number',
       nodepoolInfo: DescribeClusterNodePoolDetailResponseBodyNodepoolInfo,
       scalingGroup: DescribeClusterNodePoolDetailResponseBodyScalingGroup,
       status: DescribeClusterNodePoolDetailResponseBodyStatus,
@@ -5072,6 +5093,37 @@ export class CreateClusterNodePoolRequestAutoScaling extends $tea.Model {
   }
 }
 
+export class CreateClusterNodePoolRequestInterconnectConfig extends $tea.Model {
+  bandwidth?: number;
+  ccnId?: string;
+  ccnRegionId?: string;
+  cenId?: string;
+  improvedPeriod?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bandwidth: 'bandwidth',
+      ccnId: 'ccn_id',
+      ccnRegionId: 'ccn_region_id',
+      cenId: 'cen_id',
+      improvedPeriod: 'improved_period',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bandwidth: 'number',
+      ccnId: 'string',
+      ccnRegionId: 'string',
+      cenId: 'string',
+      improvedPeriod: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateClusterNodePoolRequestKubernetesConfig extends $tea.Model {
   cmsEnabled?: boolean;
   cpuPolicy?: string;
@@ -5165,10 +5217,12 @@ export class CreateClusterNodePoolRequestManagement extends $tea.Model {
 export class CreateClusterNodePoolRequestNodepoolInfo extends $tea.Model {
   name?: string;
   resourceGroupId?: string;
+  type?: string;
   static names(): { [key: string]: string } {
     return {
       name: 'name',
       resourceGroupId: 'resource_group_id',
+      type: 'type',
     };
   }
 
@@ -5176,6 +5230,7 @@ export class CreateClusterNodePoolRequestNodepoolInfo extends $tea.Model {
     return {
       name: 'string',
       resourceGroupId: 'string',
+      type: 'string',
     };
   }
 
@@ -5460,6 +5515,37 @@ export class DescribeClusterNodePoolDetailResponseBodyAutoScaling extends $tea.M
       maxInstances: 'number',
       minInstances: 'number',
       type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeClusterNodePoolDetailResponseBodyInterconnectConfig extends $tea.Model {
+  bandwidth?: number;
+  ccnId?: string;
+  ccnRegionId?: string;
+  cenId?: string;
+  improvedPeriod?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bandwidth: 'bandwidth',
+      ccnId: 'ccn_id',
+      ccnRegionId: 'ccn_region_id',
+      cenId: 'cen_id',
+      improvedPeriod: 'improved_period',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bandwidth: 'number',
+      ccnId: 'string',
+      ccnRegionId: 'string',
+      cenId: 'string',
+      improvedPeriod: 'string',
     };
   }
 
@@ -5828,6 +5914,37 @@ export class DescribeClusterNodePoolsResponseBodyNodepoolsAutoScaling extends $t
   }
 }
 
+export class DescribeClusterNodePoolsResponseBodyNodepoolsInterconnectConfig extends $tea.Model {
+  bandwidth?: number;
+  ccnId?: string;
+  ccnRegionId?: string;
+  cenId?: string;
+  improvedPeriod?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bandwidth: 'bandwidth',
+      ccnId: 'ccn_id',
+      ccnRegionId: 'ccn_region_id',
+      cenId: 'cen_id',
+      improvedPeriod: 'improved_period',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bandwidth: 'number',
+      ccnId: 'string',
+      ccnRegionId: 'string',
+      cenId: 'string',
+      improvedPeriod: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeClusterNodePoolsResponseBodyNodepoolsKubernetesConfig extends $tea.Model {
   cmsEnabled?: boolean;
   cpuPolicy?: string;
@@ -6153,8 +6270,11 @@ export class DescribeClusterNodePoolsResponseBodyNodepoolsTeeConfig extends $tea
 
 export class DescribeClusterNodePoolsResponseBodyNodepools extends $tea.Model {
   autoScaling?: DescribeClusterNodePoolsResponseBodyNodepoolsAutoScaling;
+  interconnectConfig?: DescribeClusterNodePoolsResponseBodyNodepoolsInterconnectConfig;
+  interconnectMode?: string;
   kubernetesConfig?: DescribeClusterNodePoolsResponseBodyNodepoolsKubernetesConfig;
   management?: DescribeClusterNodePoolsResponseBodyNodepoolsManagement;
+  maxNodes?: number;
   nodepoolInfo?: DescribeClusterNodePoolsResponseBodyNodepoolsNodepoolInfo;
   scalingGroup?: DescribeClusterNodePoolsResponseBodyNodepoolsScalingGroup;
   status?: DescribeClusterNodePoolsResponseBodyNodepoolsStatus;
@@ -6162,8 +6282,11 @@ export class DescribeClusterNodePoolsResponseBodyNodepools extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       autoScaling: 'auto_scaling',
+      interconnectConfig: 'interconnect_config',
+      interconnectMode: 'interconnect_mode',
       kubernetesConfig: 'kubernetes_config',
       management: 'management',
+      maxNodes: 'max_nodes',
       nodepoolInfo: 'nodepool_info',
       scalingGroup: 'scaling_group',
       status: 'status',
@@ -6174,8 +6297,11 @@ export class DescribeClusterNodePoolsResponseBodyNodepools extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       autoScaling: DescribeClusterNodePoolsResponseBodyNodepoolsAutoScaling,
+      interconnectConfig: DescribeClusterNodePoolsResponseBodyNodepoolsInterconnectConfig,
+      interconnectMode: 'string',
       kubernetesConfig: DescribeClusterNodePoolsResponseBodyNodepoolsKubernetesConfig,
       management: DescribeClusterNodePoolsResponseBodyNodepoolsManagement,
+      maxNodes: 'number',
       nodepoolInfo: DescribeClusterNodePoolsResponseBodyNodepoolsNodepoolInfo,
       scalingGroup: DescribeClusterNodePoolsResponseBodyNodepoolsScalingGroup,
       status: DescribeClusterNodePoolsResponseBodyNodepoolsStatus,
@@ -8350,6 +8476,10 @@ export default class Client extends OpenApi {
       body["kubernetes_version"] = request.kubernetesVersion;
     }
 
+    if (!Util.isUnset(request.loadBalancerSpec)) {
+      body["load_balancer_spec"] = request.loadBalancerSpec;
+    }
+
     if (!Util.isUnset(request.loggingType)) {
       body["logging_type"] = request.loggingType;
     }
@@ -8599,12 +8729,24 @@ export default class Client extends OpenApi {
       body["count"] = request.count;
     }
 
+    if (!Util.isUnset($tea.toMap(request.interconnectConfig))) {
+      body["interconnect_config"] = request.interconnectConfig;
+    }
+
+    if (!Util.isUnset(request.interconnectMode)) {
+      body["interconnect_mode"] = request.interconnectMode;
+    }
+
     if (!Util.isUnset($tea.toMap(request.kubernetesConfig))) {
       body["kubernetes_config"] = request.kubernetesConfig;
     }
 
     if (!Util.isUnset($tea.toMap(request.management))) {
       body["management"] = request.management;
+    }
+
+    if (!Util.isUnset(request.maxNodes)) {
+      body["max_nodes"] = request.maxNodes;
     }
 
     if (!Util.isUnset($tea.toMap(request.nodepoolInfo))) {
