@@ -498,33 +498,27 @@ export class DeleteRuleResponse extends $tea.Model {
 
 export class DescribeCategoryTemplateRuleListRequest extends $tea.Model {
   currentPage?: number;
-  customType?: number;
   lang?: string;
   pageSize?: number;
   riskLevelId?: number;
   status?: number;
-  templateId?: number;
   static names(): { [key: string]: string } {
     return {
       currentPage: 'CurrentPage',
-      customType: 'CustomType',
       lang: 'Lang',
       pageSize: 'PageSize',
       riskLevelId: 'RiskLevelId',
       status: 'Status',
-      templateId: 'TemplateId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       currentPage: 'number',
-      customType: 'number',
       lang: 'string',
       pageSize: 'number',
       riskLevelId: 'number',
       status: 'number',
-      templateId: 'number',
     };
   }
 
@@ -3035,7 +3029,6 @@ export class StopMaskingProcessResponse extends $tea.Model {
 }
 
 export class DescribeCategoryTemplateRuleListResponseBodyItems extends $tea.Model {
-  customType?: number;
   description?: string;
   id?: number;
   identificationRuleIds?: string;
@@ -3043,10 +3036,8 @@ export class DescribeCategoryTemplateRuleListResponseBodyItems extends $tea.Mode
   name?: string;
   riskLevelId?: number;
   status?: number;
-  templateId?: number;
   static names(): { [key: string]: string } {
     return {
-      customType: 'CustomType',
       description: 'Description',
       id: 'Id',
       identificationRuleIds: 'IdentificationRuleIds',
@@ -3054,13 +3045,11 @@ export class DescribeCategoryTemplateRuleListResponseBodyItems extends $tea.Mode
       name: 'Name',
       riskLevelId: 'RiskLevelId',
       status: 'Status',
-      templateId: 'TemplateId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      customType: 'number',
       description: 'string',
       id: 'number',
       identificationRuleIds: 'string',
@@ -3068,7 +3057,6 @@ export class DescribeCategoryTemplateRuleListResponseBodyItems extends $tea.Mode
       name: 'string',
       riskLevelId: 'number',
       status: 'number',
-      templateId: 'number',
     };
   }
 
@@ -4653,23 +4641,10 @@ export class DescribeUserStatusResponseBodyUserStatus extends $tea.Model {
   authed?: boolean;
   buyed?: boolean;
   chargeType?: string;
-  dataMaskColumns?: number;
-  dataMaskTasks?: number;
-  datamaskColumns?: number;
-  divulgeCount?: number;
-  dlpTotalCount?: number;
-  incSensitiveObjects?: number;
   instanceId?: string;
   instanceNum?: number;
-  instanceStatus?: number;
   labStatus?: number;
-  ossBucketSet?: boolean;
-  ossSize?: number;
   remainDays?: number;
-  sensitiveObject?: number;
-  sensitiveTable?: number;
-  sensitiveTables?: number;
-  totalDataMaskColumns?: number;
   trail?: boolean;
   useInstanceNum?: number;
   useOssSize?: number;
@@ -4679,23 +4654,10 @@ export class DescribeUserStatusResponseBodyUserStatus extends $tea.Model {
       authed: 'Authed',
       buyed: 'Buyed',
       chargeType: 'ChargeType',
-      dataMaskColumns: 'DataMaskColumns',
-      dataMaskTasks: 'DataMaskTasks',
-      datamaskColumns: 'DatamaskColumns',
-      divulgeCount: 'DivulgeCount',
-      dlpTotalCount: 'DlpTotalCount',
-      incSensitiveObjects: 'IncSensitiveObjects',
       instanceId: 'InstanceId',
       instanceNum: 'InstanceNum',
-      instanceStatus: 'InstanceStatus',
       labStatus: 'LabStatus',
-      ossBucketSet: 'OssBucketSet',
-      ossSize: 'OssSize',
       remainDays: 'RemainDays',
-      sensitiveObject: 'SensitiveObject',
-      sensitiveTable: 'SensitiveTable',
-      sensitiveTables: 'SensitiveTables',
-      totalDataMaskColumns: 'TotalDataMaskColumns',
       trail: 'Trail',
       useInstanceNum: 'UseInstanceNum',
       useOssSize: 'UseOssSize',
@@ -4708,23 +4670,10 @@ export class DescribeUserStatusResponseBodyUserStatus extends $tea.Model {
       authed: 'boolean',
       buyed: 'boolean',
       chargeType: 'string',
-      dataMaskColumns: 'number',
-      dataMaskTasks: 'number',
-      datamaskColumns: 'number',
-      divulgeCount: 'number',
-      dlpTotalCount: 'number',
-      incSensitiveObjects: 'number',
       instanceId: 'string',
       instanceNum: 'number',
-      instanceStatus: 'number',
       labStatus: 'number',
-      ossBucketSet: 'boolean',
-      ossSize: 'number',
       remainDays: 'number',
-      sensitiveObject: 'number',
-      sensitiveTable: 'number',
-      sensitiveTables: 'number',
-      totalDataMaskColumns: 'number',
       trail: 'boolean',
       useInstanceNum: 'number',
       useOssSize: 'number',
