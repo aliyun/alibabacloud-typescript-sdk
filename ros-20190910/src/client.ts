@@ -9,22 +9,22 @@ import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
 export class CancelUpdateStackRequest extends $tea.Model {
-  stackId?: string;
-  regionId?: string;
   cancelType?: string;
+  regionId?: string;
+  stackId?: string;
   static names(): { [key: string]: string } {
     return {
-      stackId: 'StackId',
-      regionId: 'RegionId',
       cancelType: 'CancelType',
+      regionId: 'RegionId',
+      stackId: 'StackId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      stackId: 'string',
-      regionId: 'string',
       cancelType: 'string',
+      regionId: 'string',
+      stackId: 'string',
     };
   }
 
@@ -75,49 +75,49 @@ export class CancelUpdateStackResponse extends $tea.Model {
 }
 
 export class ContinueCreateStackRequest extends $tea.Model {
-  stackId?: string;
-  regionId?: string;
-  ramRoleName?: string;
-  mode?: string;
-  templateBody?: string;
-  templateURL?: string;
   dryRun?: boolean;
-  templateId?: string;
-  templateVersion?: string;
-  recreatingResources?: string[];
-  parameters?: ContinueCreateStackRequestParameters[];
+  mode?: string;
   parallelism?: number;
+  parameters?: ContinueCreateStackRequestParameters[];
+  ramRoleName?: string;
+  recreatingResources?: string[];
+  regionId?: string;
+  stackId?: string;
+  templateBody?: string;
+  templateId?: string;
+  templateURL?: string;
+  templateVersion?: string;
   static names(): { [key: string]: string } {
     return {
-      stackId: 'StackId',
-      regionId: 'RegionId',
-      ramRoleName: 'RamRoleName',
-      mode: 'Mode',
-      templateBody: 'TemplateBody',
-      templateURL: 'TemplateURL',
       dryRun: 'DryRun',
-      templateId: 'TemplateId',
-      templateVersion: 'TemplateVersion',
-      recreatingResources: 'RecreatingResources',
-      parameters: 'Parameters',
+      mode: 'Mode',
       parallelism: 'Parallelism',
+      parameters: 'Parameters',
+      ramRoleName: 'RamRoleName',
+      recreatingResources: 'RecreatingResources',
+      regionId: 'RegionId',
+      stackId: 'StackId',
+      templateBody: 'TemplateBody',
+      templateId: 'TemplateId',
+      templateURL: 'TemplateURL',
+      templateVersion: 'TemplateVersion',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      stackId: 'string',
-      regionId: 'string',
-      ramRoleName: 'string',
-      mode: 'string',
-      templateBody: 'string',
-      templateURL: 'string',
       dryRun: 'boolean',
-      templateId: 'string',
-      templateVersion: 'string',
-      recreatingResources: { 'type': 'array', 'itemType': 'string' },
-      parameters: { 'type': 'array', 'itemType': ContinueCreateStackRequestParameters },
+      mode: 'string',
       parallelism: 'number',
+      parameters: { 'type': 'array', 'itemType': ContinueCreateStackRequestParameters },
+      ramRoleName: 'string',
+      recreatingResources: { 'type': 'array', 'itemType': 'string' },
+      regionId: 'string',
+      stackId: 'string',
+      templateBody: 'string',
+      templateId: 'string',
+      templateURL: 'string',
+      templateVersion: 'string',
     };
   }
 
@@ -171,82 +171,88 @@ export class ContinueCreateStackResponse extends $tea.Model {
 }
 
 export class CreateChangeSetRequest extends $tea.Model {
-  stackId?: string;
-  stackPolicyURL?: string;
-  stackPolicyBody?: string;
-  stackName?: string;
-  usePreviousParameters?: boolean;
-  changeSetType?: string;
-  description?: string;
-  regionId?: string;
-  clientToken?: string;
-  templateURL?: string;
-  stackPolicyDuringUpdateURL?: string;
-  templateBody?: string;
-  timeoutInMinutes?: number;
-  disableRollback?: boolean;
   changeSetName?: string;
-  stackPolicyDuringUpdateBody?: string;
-  ramRoleName?: string;
-  replacementOption?: string;
-  templateId?: string;
-  templateVersion?: string;
-  parameters?: CreateChangeSetRequestParameters[];
+  changeSetType?: string;
+  clientToken?: string;
+  description?: string;
+  disableRollback?: boolean;
   notificationURLs?: string[];
+  parallelism?: number;
+  parameters?: CreateChangeSetRequestParameters[];
+  ramRoleName?: string;
+  regionId?: string;
+  replacementOption?: string;
   resourcesToImport?: CreateChangeSetRequestResourcesToImport[];
+  stackId?: string;
+  stackName?: string;
+  stackPolicyBody?: string;
+  stackPolicyDuringUpdateBody?: string;
+  stackPolicyDuringUpdateURL?: string;
+  stackPolicyURL?: string;
+  templateBody?: string;
+  templateId?: string;
+  templateScratchId?: string;
+  templateURL?: string;
+  templateVersion?: string;
+  timeoutInMinutes?: number;
+  usePreviousParameters?: boolean;
   static names(): { [key: string]: string } {
     return {
-      stackId: 'StackId',
-      stackPolicyURL: 'StackPolicyURL',
-      stackPolicyBody: 'StackPolicyBody',
-      stackName: 'StackName',
-      usePreviousParameters: 'UsePreviousParameters',
-      changeSetType: 'ChangeSetType',
-      description: 'Description',
-      regionId: 'RegionId',
-      clientToken: 'ClientToken',
-      templateURL: 'TemplateURL',
-      stackPolicyDuringUpdateURL: 'StackPolicyDuringUpdateURL',
-      templateBody: 'TemplateBody',
-      timeoutInMinutes: 'TimeoutInMinutes',
-      disableRollback: 'DisableRollback',
       changeSetName: 'ChangeSetName',
-      stackPolicyDuringUpdateBody: 'StackPolicyDuringUpdateBody',
-      ramRoleName: 'RamRoleName',
-      replacementOption: 'ReplacementOption',
-      templateId: 'TemplateId',
-      templateVersion: 'TemplateVersion',
-      parameters: 'Parameters',
+      changeSetType: 'ChangeSetType',
+      clientToken: 'ClientToken',
+      description: 'Description',
+      disableRollback: 'DisableRollback',
       notificationURLs: 'NotificationURLs',
+      parallelism: 'Parallelism',
+      parameters: 'Parameters',
+      ramRoleName: 'RamRoleName',
+      regionId: 'RegionId',
+      replacementOption: 'ReplacementOption',
       resourcesToImport: 'ResourcesToImport',
+      stackId: 'StackId',
+      stackName: 'StackName',
+      stackPolicyBody: 'StackPolicyBody',
+      stackPolicyDuringUpdateBody: 'StackPolicyDuringUpdateBody',
+      stackPolicyDuringUpdateURL: 'StackPolicyDuringUpdateURL',
+      stackPolicyURL: 'StackPolicyURL',
+      templateBody: 'TemplateBody',
+      templateId: 'TemplateId',
+      templateScratchId: 'TemplateScratchId',
+      templateURL: 'TemplateURL',
+      templateVersion: 'TemplateVersion',
+      timeoutInMinutes: 'TimeoutInMinutes',
+      usePreviousParameters: 'UsePreviousParameters',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      stackId: 'string',
-      stackPolicyURL: 'string',
-      stackPolicyBody: 'string',
-      stackName: 'string',
-      usePreviousParameters: 'boolean',
-      changeSetType: 'string',
-      description: 'string',
-      regionId: 'string',
-      clientToken: 'string',
-      templateURL: 'string',
-      stackPolicyDuringUpdateURL: 'string',
-      templateBody: 'string',
-      timeoutInMinutes: 'number',
-      disableRollback: 'boolean',
       changeSetName: 'string',
-      stackPolicyDuringUpdateBody: 'string',
-      ramRoleName: 'string',
-      replacementOption: 'string',
-      templateId: 'string',
-      templateVersion: 'string',
-      parameters: { 'type': 'array', 'itemType': CreateChangeSetRequestParameters },
+      changeSetType: 'string',
+      clientToken: 'string',
+      description: 'string',
+      disableRollback: 'boolean',
       notificationURLs: { 'type': 'array', 'itemType': 'string' },
+      parallelism: 'number',
+      parameters: { 'type': 'array', 'itemType': CreateChangeSetRequestParameters },
+      ramRoleName: 'string',
+      regionId: 'string',
+      replacementOption: 'string',
       resourcesToImport: { 'type': 'array', 'itemType': CreateChangeSetRequestResourcesToImport },
+      stackId: 'string',
+      stackName: 'string',
+      stackPolicyBody: 'string',
+      stackPolicyDuringUpdateBody: 'string',
+      stackPolicyDuringUpdateURL: 'string',
+      stackPolicyURL: 'string',
+      templateBody: 'string',
+      templateId: 'string',
+      templateScratchId: 'string',
+      templateURL: 'string',
+      templateVersion: 'string',
+      timeoutInMinutes: 'number',
+      usePreviousParameters: 'boolean',
     };
   }
 
@@ -303,70 +309,73 @@ export class CreateChangeSetResponse extends $tea.Model {
 }
 
 export class CreateStackRequest extends $tea.Model {
-  disableRollback?: boolean;
-  templateBody?: string;
-  stackPolicyURL?: string;
-  timeoutInMinutes?: number;
-  stackPolicyBody?: string;
-  stackName?: string;
-  regionId?: string;
   clientToken?: string;
-  templateURL?: string;
-  ramRoleName?: string;
-  deletionProtection?: string;
   createOption?: string;
-  templateId?: string;
-  templateVersion?: string;
-  parameters?: CreateStackRequestParameters[];
+  deletionProtection?: string;
+  disableRollback?: boolean;
   notificationURLs?: string[];
-  tags?: CreateStackRequestTags[];
-  resourceGroupId?: string;
   parallelism?: number;
+  parameters?: CreateStackRequestParameters[];
+  ramRoleName?: string;
+  regionId?: string;
+  resourceGroupId?: string;
+  stackName?: string;
+  stackPolicyBody?: string;
+  stackPolicyURL?: string;
+  tags?: CreateStackRequestTags[];
+  templateBody?: string;
+  templateId?: string;
+  templateScratchId?: string;
+  templateURL?: string;
+  templateVersion?: string;
+  timeoutInMinutes?: number;
   static names(): { [key: string]: string } {
     return {
-      disableRollback: 'DisableRollback',
-      templateBody: 'TemplateBody',
-      stackPolicyURL: 'StackPolicyURL',
-      timeoutInMinutes: 'TimeoutInMinutes',
-      stackPolicyBody: 'StackPolicyBody',
-      stackName: 'StackName',
-      regionId: 'RegionId',
       clientToken: 'ClientToken',
-      templateURL: 'TemplateURL',
-      ramRoleName: 'RamRoleName',
-      deletionProtection: 'DeletionProtection',
       createOption: 'CreateOption',
-      templateId: 'TemplateId',
-      templateVersion: 'TemplateVersion',
-      parameters: 'Parameters',
+      deletionProtection: 'DeletionProtection',
+      disableRollback: 'DisableRollback',
       notificationURLs: 'NotificationURLs',
-      tags: 'Tags',
-      resourceGroupId: 'ResourceGroupId',
       parallelism: 'Parallelism',
+      parameters: 'Parameters',
+      ramRoleName: 'RamRoleName',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      stackName: 'StackName',
+      stackPolicyBody: 'StackPolicyBody',
+      stackPolicyURL: 'StackPolicyURL',
+      tags: 'Tags',
+      templateBody: 'TemplateBody',
+      templateId: 'TemplateId',
+      templateScratchId: 'TemplateScratchId',
+      templateURL: 'TemplateURL',
+      templateVersion: 'TemplateVersion',
+      timeoutInMinutes: 'TimeoutInMinutes',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      disableRollback: 'boolean',
-      templateBody: 'string',
-      stackPolicyURL: 'string',
-      timeoutInMinutes: 'number',
-      stackPolicyBody: 'string',
-      stackName: 'string',
-      regionId: 'string',
       clientToken: 'string',
-      templateURL: 'string',
-      ramRoleName: 'string',
-      deletionProtection: 'string',
       createOption: 'string',
-      templateId: 'string',
-      templateVersion: 'string',
-      parameters: { 'type': 'array', 'itemType': CreateStackRequestParameters },
+      deletionProtection: 'string',
+      disableRollback: 'boolean',
       notificationURLs: { 'type': 'array', 'itemType': 'string' },
-      tags: { 'type': 'array', 'itemType': CreateStackRequestTags },
-      resourceGroupId: 'string',
       parallelism: 'number',
+      parameters: { 'type': 'array', 'itemType': CreateStackRequestParameters },
+      ramRoleName: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      stackName: 'string',
+      stackPolicyBody: 'string',
+      stackPolicyURL: 'string',
+      tags: { 'type': 'array', 'itemType': CreateStackRequestTags },
+      templateBody: 'string',
+      templateId: 'string',
+      templateScratchId: 'string',
+      templateURL: 'string',
+      templateVersion: 'string',
+      timeoutInMinutes: 'number',
     };
   }
 
@@ -420,55 +429,55 @@ export class CreateStackResponse extends $tea.Model {
 }
 
 export class CreateStackGroupRequest extends $tea.Model {
-  regionId?: string;
-  stackGroupName?: string;
-  description?: string;
-  templateBody?: string;
-  templateURL?: string;
-  clientToken?: string;
   administrationRoleName?: string;
-  executionRoleName?: string;
-  templateId?: string;
-  templateVersion?: string;
-  parameters?: CreateStackGroupRequestParameters[];
-  resourceGroupId?: string;
-  permissionModel?: string;
   autoDeployment?: CreateStackGroupRequestAutoDeployment;
+  clientToken?: string;
+  description?: string;
+  executionRoleName?: string;
+  parameters?: CreateStackGroupRequestParameters[];
+  permissionModel?: string;
+  regionId?: string;
+  resourceGroupId?: string;
+  stackGroupName?: string;
+  templateBody?: string;
+  templateId?: string;
+  templateURL?: string;
+  templateVersion?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
-      stackGroupName: 'StackGroupName',
-      description: 'Description',
-      templateBody: 'TemplateBody',
-      templateURL: 'TemplateURL',
-      clientToken: 'ClientToken',
       administrationRoleName: 'AdministrationRoleName',
-      executionRoleName: 'ExecutionRoleName',
-      templateId: 'TemplateId',
-      templateVersion: 'TemplateVersion',
-      parameters: 'Parameters',
-      resourceGroupId: 'ResourceGroupId',
-      permissionModel: 'PermissionModel',
       autoDeployment: 'AutoDeployment',
+      clientToken: 'ClientToken',
+      description: 'Description',
+      executionRoleName: 'ExecutionRoleName',
+      parameters: 'Parameters',
+      permissionModel: 'PermissionModel',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      stackGroupName: 'StackGroupName',
+      templateBody: 'TemplateBody',
+      templateId: 'TemplateId',
+      templateURL: 'TemplateURL',
+      templateVersion: 'TemplateVersion',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
-      stackGroupName: 'string',
-      description: 'string',
-      templateBody: 'string',
-      templateURL: 'string',
-      clientToken: 'string',
       administrationRoleName: 'string',
-      executionRoleName: 'string',
-      templateId: 'string',
-      templateVersion: 'string',
-      parameters: { 'type': 'array', 'itemType': CreateStackGroupRequestParameters },
-      resourceGroupId: 'string',
-      permissionModel: 'string',
       autoDeployment: CreateStackGroupRequestAutoDeployment,
+      clientToken: 'string',
+      description: 'string',
+      executionRoleName: 'string',
+      parameters: { 'type': 'array', 'itemType': CreateStackGroupRequestParameters },
+      permissionModel: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      stackGroupName: 'string',
+      templateBody: 'string',
+      templateId: 'string',
+      templateURL: 'string',
+      templateVersion: 'string',
     };
   }
 
@@ -478,55 +487,55 @@ export class CreateStackGroupRequest extends $tea.Model {
 }
 
 export class CreateStackGroupShrinkRequest extends $tea.Model {
-  regionId?: string;
-  stackGroupName?: string;
-  description?: string;
-  templateBody?: string;
-  templateURL?: string;
-  clientToken?: string;
   administrationRoleName?: string;
-  executionRoleName?: string;
-  templateId?: string;
-  templateVersion?: string;
-  parameters?: CreateStackGroupShrinkRequestParameters[];
-  resourceGroupId?: string;
-  permissionModel?: string;
   autoDeploymentShrink?: string;
+  clientToken?: string;
+  description?: string;
+  executionRoleName?: string;
+  parameters?: CreateStackGroupShrinkRequestParameters[];
+  permissionModel?: string;
+  regionId?: string;
+  resourceGroupId?: string;
+  stackGroupName?: string;
+  templateBody?: string;
+  templateId?: string;
+  templateURL?: string;
+  templateVersion?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
-      stackGroupName: 'StackGroupName',
-      description: 'Description',
-      templateBody: 'TemplateBody',
-      templateURL: 'TemplateURL',
-      clientToken: 'ClientToken',
       administrationRoleName: 'AdministrationRoleName',
-      executionRoleName: 'ExecutionRoleName',
-      templateId: 'TemplateId',
-      templateVersion: 'TemplateVersion',
-      parameters: 'Parameters',
-      resourceGroupId: 'ResourceGroupId',
-      permissionModel: 'PermissionModel',
       autoDeploymentShrink: 'AutoDeployment',
+      clientToken: 'ClientToken',
+      description: 'Description',
+      executionRoleName: 'ExecutionRoleName',
+      parameters: 'Parameters',
+      permissionModel: 'PermissionModel',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      stackGroupName: 'StackGroupName',
+      templateBody: 'TemplateBody',
+      templateId: 'TemplateId',
+      templateURL: 'TemplateURL',
+      templateVersion: 'TemplateVersion',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
-      stackGroupName: 'string',
-      description: 'string',
-      templateBody: 'string',
-      templateURL: 'string',
-      clientToken: 'string',
       administrationRoleName: 'string',
-      executionRoleName: 'string',
-      templateId: 'string',
-      templateVersion: 'string',
-      parameters: { 'type': 'array', 'itemType': CreateStackGroupShrinkRequestParameters },
-      resourceGroupId: 'string',
-      permissionModel: 'string',
       autoDeploymentShrink: 'string',
+      clientToken: 'string',
+      description: 'string',
+      executionRoleName: 'string',
+      parameters: { 'type': 'array', 'itemType': CreateStackGroupShrinkRequestParameters },
+      permissionModel: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      stackGroupName: 'string',
+      templateBody: 'string',
+      templateId: 'string',
+      templateURL: 'string',
+      templateVersion: 'string',
     };
   }
 
@@ -580,46 +589,46 @@ export class CreateStackGroupResponse extends $tea.Model {
 }
 
 export class CreateStackInstancesRequest extends $tea.Model {
-  regionId?: string;
-  stackGroupName?: string;
   accountIds?: string[];
-  regionIds?: string[];
   clientToken?: string;
+  deploymentTargets?: CreateStackInstancesRequestDeploymentTargets;
+  disableRollback?: boolean;
   operationDescription?: string;
   operationPreferences?: { [key: string]: any };
-  timeoutInMinutes?: number;
-  disableRollback?: boolean;
   parameterOverrides?: CreateStackInstancesRequestParameterOverrides[];
-  deploymentTargets?: CreateStackInstancesRequestDeploymentTargets;
+  regionId?: string;
+  regionIds?: string[];
+  stackGroupName?: string;
+  timeoutInMinutes?: number;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
-      stackGroupName: 'StackGroupName',
       accountIds: 'AccountIds',
-      regionIds: 'RegionIds',
       clientToken: 'ClientToken',
+      deploymentTargets: 'DeploymentTargets',
+      disableRollback: 'DisableRollback',
       operationDescription: 'OperationDescription',
       operationPreferences: 'OperationPreferences',
-      timeoutInMinutes: 'TimeoutInMinutes',
-      disableRollback: 'DisableRollback',
       parameterOverrides: 'ParameterOverrides',
-      deploymentTargets: 'DeploymentTargets',
+      regionId: 'RegionId',
+      regionIds: 'RegionIds',
+      stackGroupName: 'StackGroupName',
+      timeoutInMinutes: 'TimeoutInMinutes',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
-      stackGroupName: 'string',
       accountIds: { 'type': 'array', 'itemType': 'string' },
-      regionIds: { 'type': 'array', 'itemType': 'string' },
       clientToken: 'string',
+      deploymentTargets: CreateStackInstancesRequestDeploymentTargets,
+      disableRollback: 'boolean',
       operationDescription: 'string',
       operationPreferences: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      timeoutInMinutes: 'number',
-      disableRollback: 'boolean',
       parameterOverrides: { 'type': 'array', 'itemType': CreateStackInstancesRequestParameterOverrides },
-      deploymentTargets: CreateStackInstancesRequestDeploymentTargets,
+      regionId: 'string',
+      regionIds: { 'type': 'array', 'itemType': 'string' },
+      stackGroupName: 'string',
+      timeoutInMinutes: 'number',
     };
   }
 
@@ -629,46 +638,46 @@ export class CreateStackInstancesRequest extends $tea.Model {
 }
 
 export class CreateStackInstancesShrinkRequest extends $tea.Model {
-  regionId?: string;
-  stackGroupName?: string;
   accountIdsShrink?: string;
-  regionIdsShrink?: string;
   clientToken?: string;
+  deploymentTargetsShrink?: string;
+  disableRollback?: boolean;
   operationDescription?: string;
   operationPreferencesShrink?: string;
-  timeoutInMinutes?: number;
-  disableRollback?: boolean;
   parameterOverrides?: CreateStackInstancesShrinkRequestParameterOverrides[];
-  deploymentTargetsShrink?: string;
+  regionId?: string;
+  regionIdsShrink?: string;
+  stackGroupName?: string;
+  timeoutInMinutes?: number;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
-      stackGroupName: 'StackGroupName',
       accountIdsShrink: 'AccountIds',
-      regionIdsShrink: 'RegionIds',
       clientToken: 'ClientToken',
+      deploymentTargetsShrink: 'DeploymentTargets',
+      disableRollback: 'DisableRollback',
       operationDescription: 'OperationDescription',
       operationPreferencesShrink: 'OperationPreferences',
-      timeoutInMinutes: 'TimeoutInMinutes',
-      disableRollback: 'DisableRollback',
       parameterOverrides: 'ParameterOverrides',
-      deploymentTargetsShrink: 'DeploymentTargets',
+      regionId: 'RegionId',
+      regionIdsShrink: 'RegionIds',
+      stackGroupName: 'StackGroupName',
+      timeoutInMinutes: 'TimeoutInMinutes',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
-      stackGroupName: 'string',
       accountIdsShrink: 'string',
-      regionIdsShrink: 'string',
       clientToken: 'string',
+      deploymentTargetsShrink: 'string',
+      disableRollback: 'boolean',
       operationDescription: 'string',
       operationPreferencesShrink: 'string',
-      timeoutInMinutes: 'number',
-      disableRollback: 'boolean',
       parameterOverrides: { 'type': 'array', 'itemType': CreateStackInstancesShrinkRequestParameterOverrides },
-      deploymentTargetsShrink: 'string',
+      regionId: 'string',
+      regionIdsShrink: 'string',
+      stackGroupName: 'string',
+      timeoutInMinutes: 'number',
     };
   }
 
@@ -678,19 +687,19 @@ export class CreateStackInstancesShrinkRequest extends $tea.Model {
 }
 
 export class CreateStackInstancesResponseBody extends $tea.Model {
-  requestId?: string;
   operationId?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       operationId: 'OperationId',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       operationId: 'string',
+      requestId: 'string',
     };
   }
 
@@ -722,28 +731,28 @@ export class CreateStackInstancesResponse extends $tea.Model {
 }
 
 export class CreateTemplateRequest extends $tea.Model {
-  templateURL?: string;
   description?: string;
+  resourceGroupId?: string;
   templateBody?: string;
   templateName?: string;
-  resourceGroupId?: string;
+  templateURL?: string;
   static names(): { [key: string]: string } {
     return {
-      templateURL: 'TemplateURL',
       description: 'Description',
+      resourceGroupId: 'ResourceGroupId',
       templateBody: 'TemplateBody',
       templateName: 'TemplateName',
-      resourceGroupId: 'ResourceGroupId',
+      templateURL: 'TemplateURL',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      templateURL: 'string',
       description: 'string',
+      resourceGroupId: 'string',
       templateBody: 'string',
       templateName: 'string',
-      resourceGroupId: 'string',
+      templateURL: 'string',
     };
   }
 
@@ -797,19 +806,19 @@ export class CreateTemplateResponse extends $tea.Model {
 }
 
 export class DeleteChangeSetRequest extends $tea.Model {
-  regionId?: string;
   changeSetId?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
       changeSetId: 'ChangeSetId',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
       changeSetId: 'string',
+      regionId: 'string',
     };
   }
 
@@ -860,28 +869,28 @@ export class DeleteChangeSetResponse extends $tea.Model {
 }
 
 export class DeleteStackRequest extends $tea.Model {
-  stackId?: string;
-  retainAllResources?: boolean;
-  regionId?: string;
   ramRoleName?: string;
+  regionId?: string;
+  retainAllResources?: boolean;
   retainResources?: string[];
+  stackId?: string;
   static names(): { [key: string]: string } {
     return {
-      stackId: 'StackId',
-      retainAllResources: 'RetainAllResources',
-      regionId: 'RegionId',
       ramRoleName: 'RamRoleName',
+      regionId: 'RegionId',
+      retainAllResources: 'RetainAllResources',
       retainResources: 'RetainResources',
+      stackId: 'StackId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      stackId: 'string',
-      retainAllResources: 'boolean',
-      regionId: 'string',
       ramRoleName: 'string',
+      regionId: 'string',
+      retainAllResources: 'boolean',
       retainResources: { 'type': 'array', 'itemType': 'string' },
+      stackId: 'string',
     };
   }
 
@@ -995,40 +1004,40 @@ export class DeleteStackGroupResponse extends $tea.Model {
 }
 
 export class DeleteStackInstancesRequest extends $tea.Model {
-  regionId?: string;
-  stackGroupName?: string;
   accountIds?: string[];
-  regionIds?: string[];
-  retainStacks?: boolean;
   clientToken?: string;
+  deploymentTargets?: DeleteStackInstancesRequestDeploymentTargets;
   operationDescription?: string;
   operationPreferences?: { [key: string]: any };
-  deploymentTargets?: DeleteStackInstancesRequestDeploymentTargets;
+  regionId?: string;
+  regionIds?: string[];
+  retainStacks?: boolean;
+  stackGroupName?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
-      stackGroupName: 'StackGroupName',
       accountIds: 'AccountIds',
-      regionIds: 'RegionIds',
-      retainStacks: 'RetainStacks',
       clientToken: 'ClientToken',
+      deploymentTargets: 'DeploymentTargets',
       operationDescription: 'OperationDescription',
       operationPreferences: 'OperationPreferences',
-      deploymentTargets: 'DeploymentTargets',
+      regionId: 'RegionId',
+      regionIds: 'RegionIds',
+      retainStacks: 'RetainStacks',
+      stackGroupName: 'StackGroupName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
-      stackGroupName: 'string',
       accountIds: { 'type': 'array', 'itemType': 'string' },
-      regionIds: { 'type': 'array', 'itemType': 'string' },
-      retainStacks: 'boolean',
       clientToken: 'string',
+      deploymentTargets: DeleteStackInstancesRequestDeploymentTargets,
       operationDescription: 'string',
       operationPreferences: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      deploymentTargets: DeleteStackInstancesRequestDeploymentTargets,
+      regionId: 'string',
+      regionIds: { 'type': 'array', 'itemType': 'string' },
+      retainStacks: 'boolean',
+      stackGroupName: 'string',
     };
   }
 
@@ -1038,40 +1047,40 @@ export class DeleteStackInstancesRequest extends $tea.Model {
 }
 
 export class DeleteStackInstancesShrinkRequest extends $tea.Model {
-  regionId?: string;
-  stackGroupName?: string;
   accountIdsShrink?: string;
-  regionIdsShrink?: string;
-  retainStacks?: boolean;
   clientToken?: string;
+  deploymentTargetsShrink?: string;
   operationDescription?: string;
   operationPreferencesShrink?: string;
-  deploymentTargetsShrink?: string;
+  regionId?: string;
+  regionIdsShrink?: string;
+  retainStacks?: boolean;
+  stackGroupName?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
-      stackGroupName: 'StackGroupName',
       accountIdsShrink: 'AccountIds',
-      regionIdsShrink: 'RegionIds',
-      retainStacks: 'RetainStacks',
       clientToken: 'ClientToken',
+      deploymentTargetsShrink: 'DeploymentTargets',
       operationDescription: 'OperationDescription',
       operationPreferencesShrink: 'OperationPreferences',
-      deploymentTargetsShrink: 'DeploymentTargets',
+      regionId: 'RegionId',
+      regionIdsShrink: 'RegionIds',
+      retainStacks: 'RetainStacks',
+      stackGroupName: 'StackGroupName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
-      stackGroupName: 'string',
       accountIdsShrink: 'string',
-      regionIdsShrink: 'string',
-      retainStacks: 'boolean',
       clientToken: 'string',
+      deploymentTargetsShrink: 'string',
       operationDescription: 'string',
       operationPreferencesShrink: 'string',
-      deploymentTargetsShrink: 'string',
+      regionId: 'string',
+      regionIdsShrink: 'string',
+      retainStacks: 'boolean',
+      stackGroupName: 'string',
     };
   }
 
@@ -1081,19 +1090,19 @@ export class DeleteStackInstancesShrinkRequest extends $tea.Model {
 }
 
 export class DeleteStackInstancesResponseBody extends $tea.Model {
-  requestId?: string;
   operationId?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       operationId: 'OperationId',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       operationId: 'string',
+      requestId: 'string',
     };
   }
 
@@ -1204,19 +1213,19 @@ export class DescribeRegionsRequest extends $tea.Model {
 }
 
 export class DescribeRegionsResponseBody extends $tea.Model {
-  requestId?: string;
   regions?: DescribeRegionsResponseBodyRegions[];
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       regions: 'Regions',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       regions: { 'type': 'array', 'itemType': DescribeRegionsResponseBodyRegions },
+      requestId: 'string',
     };
   }
 
@@ -1248,25 +1257,25 @@ export class DescribeRegionsResponse extends $tea.Model {
 }
 
 export class DetectStackDriftRequest extends $tea.Model {
-  stackId?: string;
-  regionId?: string;
   clientToken?: string;
   logicalResourceId?: string[];
+  regionId?: string;
+  stackId?: string;
   static names(): { [key: string]: string } {
     return {
-      stackId: 'StackId',
-      regionId: 'RegionId',
       clientToken: 'ClientToken',
       logicalResourceId: 'LogicalResourceId',
+      regionId: 'RegionId',
+      stackId: 'StackId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      stackId: 'string',
-      regionId: 'string',
       clientToken: 'string',
       logicalResourceId: { 'type': 'array', 'itemType': 'string' },
+      regionId: 'string',
+      stackId: 'string',
     };
   }
 
@@ -1321,24 +1330,24 @@ export class DetectStackDriftResponse extends $tea.Model {
 
 export class DetectStackGroupDriftRequest extends $tea.Model {
   clientToken?: string;
+  operationPreferences?: { [key: string]: any };
   regionId?: string;
   stackGroupName?: string;
-  operationPreferences?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
+      operationPreferences: 'OperationPreferences',
       regionId: 'RegionId',
       stackGroupName: 'StackGroupName',
-      operationPreferences: 'OperationPreferences',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       clientToken: 'string',
+      operationPreferences: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       regionId: 'string',
       stackGroupName: 'string',
-      operationPreferences: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
     };
   }
 
@@ -1349,24 +1358,24 @@ export class DetectStackGroupDriftRequest extends $tea.Model {
 
 export class DetectStackGroupDriftShrinkRequest extends $tea.Model {
   clientToken?: string;
+  operationPreferencesShrink?: string;
   regionId?: string;
   stackGroupName?: string;
-  operationPreferencesShrink?: string;
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
+      operationPreferencesShrink: 'OperationPreferences',
       regionId: 'RegionId',
       stackGroupName: 'StackGroupName',
-      operationPreferencesShrink: 'OperationPreferences',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       clientToken: 'string',
+      operationPreferencesShrink: 'string',
       regionId: 'string',
       stackGroupName: 'string',
-      operationPreferencesShrink: 'string',
     };
   }
 
@@ -1420,25 +1429,25 @@ export class DetectStackGroupDriftResponse extends $tea.Model {
 }
 
 export class DetectStackResourceDriftRequest extends $tea.Model {
-  stackId?: string;
   clientToken?: string;
-  regionId?: string;
   logicalResourceId?: string;
+  regionId?: string;
+  stackId?: string;
   static names(): { [key: string]: string } {
     return {
-      stackId: 'StackId',
       clientToken: 'ClientToken',
-      regionId: 'RegionId',
       logicalResourceId: 'LogicalResourceId',
+      regionId: 'RegionId',
+      stackId: 'StackId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      stackId: 'string',
       clientToken: 'string',
-      regionId: 'string',
       logicalResourceId: 'string',
+      regionId: 'string',
+      stackId: 'string',
     };
   }
 
@@ -1448,42 +1457,42 @@ export class DetectStackResourceDriftRequest extends $tea.Model {
 }
 
 export class DetectStackResourceDriftResponseBody extends $tea.Model {
+  actualProperties?: string;
+  driftDetectionTime?: string;
+  expectedProperties?: string;
   logicalResourceId?: string;
-  resourceDriftStatus?: string;
+  physicalResourceId?: string;
   propertyDifferences?: DetectStackResourceDriftResponseBodyPropertyDifferences[];
   requestId?: string;
-  physicalResourceId?: string;
-  expectedProperties?: string;
-  driftDetectionTime?: string;
+  resourceDriftStatus?: string;
   resourceType?: string;
-  actualProperties?: string;
   stackId?: string;
   static names(): { [key: string]: string } {
     return {
+      actualProperties: 'ActualProperties',
+      driftDetectionTime: 'DriftDetectionTime',
+      expectedProperties: 'ExpectedProperties',
       logicalResourceId: 'LogicalResourceId',
-      resourceDriftStatus: 'ResourceDriftStatus',
+      physicalResourceId: 'PhysicalResourceId',
       propertyDifferences: 'PropertyDifferences',
       requestId: 'RequestId',
-      physicalResourceId: 'PhysicalResourceId',
-      expectedProperties: 'ExpectedProperties',
-      driftDetectionTime: 'DriftDetectionTime',
+      resourceDriftStatus: 'ResourceDriftStatus',
       resourceType: 'ResourceType',
-      actualProperties: 'ActualProperties',
       stackId: 'StackId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      actualProperties: 'string',
+      driftDetectionTime: 'string',
+      expectedProperties: 'string',
       logicalResourceId: 'string',
-      resourceDriftStatus: 'string',
+      physicalResourceId: 'string',
       propertyDifferences: { 'type': 'array', 'itemType': DetectStackResourceDriftResponseBodyPropertyDifferences },
       requestId: 'string',
-      physicalResourceId: 'string',
-      expectedProperties: 'string',
-      driftDetectionTime: 'string',
+      resourceDriftStatus: 'string',
       resourceType: 'string',
-      actualProperties: 'string',
       stackId: 'string',
     };
   }
@@ -1516,22 +1525,22 @@ export class DetectStackResourceDriftResponse extends $tea.Model {
 }
 
 export class ExecuteChangeSetRequest extends $tea.Model {
-  regionId?: string;
   changeSetId?: string;
   clientToken?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
       changeSetId: 'ChangeSetId',
       clientToken: 'ClientToken',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
       changeSetId: 'string',
       clientToken: 'string',
+      regionId: 'string',
     };
   }
 
@@ -1582,24 +1591,24 @@ export class ExecuteChangeSetResponse extends $tea.Model {
 }
 
 export class GenerateTemplatePolicyRequest extends $tea.Model {
-  templateURL?: string;
   templateBody?: string;
   templateId?: string;
+  templateURL?: string;
   templateVersion?: string;
   static names(): { [key: string]: string } {
     return {
-      templateURL: 'TemplateURL',
       templateBody: 'TemplateBody',
       templateId: 'TemplateId',
+      templateURL: 'TemplateURL',
       templateVersion: 'TemplateVersion',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      templateURL: 'string',
       templateBody: 'string',
       templateId: 'string',
+      templateURL: 'string',
       templateVersion: 'string',
     };
   }
@@ -1610,19 +1619,19 @@ export class GenerateTemplatePolicyRequest extends $tea.Model {
 }
 
 export class GenerateTemplatePolicyResponseBody extends $tea.Model {
-  requestId?: string;
   policy?: GenerateTemplatePolicyResponseBodyPolicy;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       policy: 'Policy',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       policy: GenerateTemplatePolicyResponseBodyPolicy,
+      requestId: 'string',
     };
   }
 
@@ -1654,22 +1663,22 @@ export class GenerateTemplatePolicyResponse extends $tea.Model {
 }
 
 export class GetChangeSetRequest extends $tea.Model {
-  showTemplate?: boolean;
-  regionId?: string;
   changeSetId?: string;
+  regionId?: string;
+  showTemplate?: boolean;
   static names(): { [key: string]: string } {
     return {
-      showTemplate: 'ShowTemplate',
-      regionId: 'RegionId',
       changeSetId: 'ChangeSetId',
+      regionId: 'RegionId',
+      showTemplate: 'ShowTemplate',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      showTemplate: 'boolean',
-      regionId: 'string',
       changeSetId: 'string',
+      regionId: 'string',
+      showTemplate: 'boolean',
     };
   }
 
@@ -1679,64 +1688,64 @@ export class GetChangeSetRequest extends $tea.Model {
 }
 
 export class GetChangeSetResponseBody extends $tea.Model {
-  status?: string;
+  changeSetId?: string;
   changeSetName?: string;
   changeSetType?: string;
-  statusReason?: string;
+  changes?: { [key: string]: any }[];
   createTime?: string;
+  description?: string;
   disableRollback?: boolean;
   executionStatus?: string;
-  stackName?: string;
-  timeoutInMinutes?: number;
-  regionId?: string;
-  stackId?: string;
-  requestId?: string;
-  description?: string;
-  changeSetId?: string;
-  templateBody?: string;
-  changes?: { [key: string]: any }[];
   parameters?: GetChangeSetResponseBodyParameters[];
+  regionId?: string;
+  requestId?: string;
+  stackId?: string;
+  stackName?: string;
+  status?: string;
+  statusReason?: string;
+  templateBody?: string;
+  timeoutInMinutes?: number;
   static names(): { [key: string]: string } {
     return {
-      status: 'Status',
+      changeSetId: 'ChangeSetId',
       changeSetName: 'ChangeSetName',
       changeSetType: 'ChangeSetType',
-      statusReason: 'StatusReason',
+      changes: 'Changes',
       createTime: 'CreateTime',
+      description: 'Description',
       disableRollback: 'DisableRollback',
       executionStatus: 'ExecutionStatus',
-      stackName: 'StackName',
-      timeoutInMinutes: 'TimeoutInMinutes',
-      regionId: 'RegionId',
-      stackId: 'StackId',
-      requestId: 'RequestId',
-      description: 'Description',
-      changeSetId: 'ChangeSetId',
-      templateBody: 'TemplateBody',
-      changes: 'Changes',
       parameters: 'Parameters',
+      regionId: 'RegionId',
+      requestId: 'RequestId',
+      stackId: 'StackId',
+      stackName: 'StackName',
+      status: 'Status',
+      statusReason: 'StatusReason',
+      templateBody: 'TemplateBody',
+      timeoutInMinutes: 'TimeoutInMinutes',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      status: 'string',
+      changeSetId: 'string',
       changeSetName: 'string',
       changeSetType: 'string',
-      statusReason: 'string',
+      changes: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
       createTime: 'string',
+      description: 'string',
       disableRollback: 'boolean',
       executionStatus: 'string',
-      stackName: 'string',
-      timeoutInMinutes: 'number',
-      regionId: 'string',
-      stackId: 'string',
-      requestId: 'string',
-      description: 'string',
-      changeSetId: 'string',
-      templateBody: 'string',
-      changes: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
       parameters: { 'type': 'array', 'itemType': GetChangeSetResponseBodyParameters },
+      regionId: 'string',
+      requestId: 'string',
+      stackId: 'string',
+      stackName: 'string',
+      status: 'string',
+      statusReason: 'string',
+      templateBody: 'string',
+      timeoutInMinutes: 'number',
     };
   }
 
@@ -1767,6 +1776,72 @@ export class GetChangeSetResponse extends $tea.Model {
   }
 }
 
+export class GetFeatureDetailsRequest extends $tea.Model {
+  feature?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      feature: 'Feature',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      feature: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFeatureDetailsResponseBody extends $tea.Model {
+  requestId?: string;
+  terraform?: GetFeatureDetailsResponseBodyTerraform;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      terraform: 'Terraform',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      terraform: GetFeatureDetailsResponseBodyTerraform,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFeatureDetailsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetFeatureDetailsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetFeatureDetailsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetResourceTypeRequest extends $tea.Model {
   resourceType?: string;
   static names(): { [key: string]: string } {
@@ -1787,28 +1862,28 @@ export class GetResourceTypeRequest extends $tea.Model {
 }
 
 export class GetResourceTypeResponseBody extends $tea.Model {
-  supportDriftDetection?: boolean;
-  resourceType?: string;
-  requestId?: string;
-  properties?: { [key: string]: any };
   attributes?: { [key: string]: any };
+  properties?: { [key: string]: any };
+  requestId?: string;
+  resourceType?: string;
+  supportDriftDetection?: boolean;
   static names(): { [key: string]: string } {
     return {
-      supportDriftDetection: 'SupportDriftDetection',
-      resourceType: 'ResourceType',
-      requestId: 'RequestId',
-      properties: 'Properties',
       attributes: 'Attributes',
+      properties: 'Properties',
+      requestId: 'RequestId',
+      resourceType: 'ResourceType',
+      supportDriftDetection: 'SupportDriftDetection',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      supportDriftDetection: 'boolean',
-      resourceType: 'string',
-      requestId: 'string',
-      properties: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       attributes: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      properties: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      requestId: 'string',
+      resourceType: 'string',
+      supportDriftDetection: 'boolean',
     };
   }
 
@@ -1859,19 +1934,19 @@ export class GetResourceTypeTemplateRequest extends $tea.Model {
 }
 
 export class GetResourceTypeTemplateResponseBody extends $tea.Model {
-  templateBody?: { [key: string]: any };
   requestId?: string;
+  templateBody?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
-      templateBody: 'TemplateBody',
       requestId: 'RequestId',
+      templateBody: 'TemplateBody',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      templateBody: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       requestId: 'string',
+      templateBody: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
     };
   }
 
@@ -1902,29 +1977,110 @@ export class GetResourceTypeTemplateResponse extends $tea.Model {
   }
 }
 
-export class GetStackRequest extends $tea.Model {
-  stackId?: string;
+export class GetServiceProvisionsRequest extends $tea.Model {
+  parameters?: GetServiceProvisionsRequestParameters[];
   regionId?: string;
-  clientToken?: string;
-  outputOption?: string;
-  showResourceProgress?: string;
+  services?: GetServiceProvisionsRequestServices[];
+  templateBody?: string;
+  templateId?: string;
+  templateURL?: string;
+  templateVersion?: string;
   static names(): { [key: string]: string } {
     return {
-      stackId: 'StackId',
+      parameters: 'Parameters',
       regionId: 'RegionId',
-      clientToken: 'ClientToken',
-      outputOption: 'OutputOption',
-      showResourceProgress: 'ShowResourceProgress',
+      services: 'Services',
+      templateBody: 'TemplateBody',
+      templateId: 'TemplateId',
+      templateURL: 'TemplateURL',
+      templateVersion: 'TemplateVersion',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      stackId: 'string',
+      parameters: { 'type': 'array', 'itemType': GetServiceProvisionsRequestParameters },
       regionId: 'string',
+      services: { 'type': 'array', 'itemType': GetServiceProvisionsRequestServices },
+      templateBody: 'string',
+      templateId: 'string',
+      templateURL: 'string',
+      templateVersion: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceProvisionsResponseBody extends $tea.Model {
+  requestId?: string;
+  serviceProvisions?: GetServiceProvisionsResponseBodyServiceProvisions[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      serviceProvisions: 'ServiceProvisions',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      serviceProvisions: { 'type': 'array', 'itemType': GetServiceProvisionsResponseBodyServiceProvisions },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceProvisionsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetServiceProvisionsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetServiceProvisionsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetStackRequest extends $tea.Model {
+  clientToken?: string;
+  outputOption?: string;
+  regionId?: string;
+  showResourceProgress?: string;
+  stackId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      outputOption: 'OutputOption',
+      regionId: 'RegionId',
+      showResourceProgress: 'ShowResourceProgress',
+      stackId: 'StackId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
       clientToken: 'string',
       outputOption: 'string',
+      regionId: 'string',
       showResourceProgress: 'string',
+      stackId: 'string',
     };
   }
 
@@ -1934,88 +2090,88 @@ export class GetStackRequest extends $tea.Model {
 }
 
 export class GetStackResponseBody extends $tea.Model {
-  status?: string;
-  description?: string;
-  parameters?: GetStackResponseBodyParameters[];
-  requestId?: string;
-  statusReason?: string;
-  parentStackId?: string;
   createTime?: string;
   deletionProtection?: string;
-  rootStackId?: string;
-  templateDescription?: string;
-  stackType?: string;
-  ramRoleName?: string;
-  updateTime?: string;
-  outputs?: { [key: string]: any }[];
-  driftDetectionTime?: string;
-  regionId?: string;
-  stackDriftStatus?: string;
-  notificationURLs?: string[];
+  description?: string;
   disableRollback?: boolean;
-  stackName?: string;
-  tags?: GetStackResponseBodyTags[];
-  timeoutInMinutes?: number;
-  stackId?: string;
+  driftDetectionTime?: string;
+  notificationURLs?: string[];
+  outputs?: { [key: string]: any }[];
+  parameters?: GetStackResponseBodyParameters[];
+  parentStackId?: string;
+  ramRoleName?: string;
+  regionId?: string;
+  requestId?: string;
   resourceGroupId?: string;
   resourceProgress?: GetStackResponseBodyResourceProgress;
+  rootStackId?: string;
+  stackDriftStatus?: string;
+  stackId?: string;
+  stackName?: string;
+  stackType?: string;
+  status?: string;
+  statusReason?: string;
+  tags?: GetStackResponseBodyTags[];
+  templateDescription?: string;
+  timeoutInMinutes?: number;
+  updateTime?: string;
   static names(): { [key: string]: string } {
     return {
-      status: 'Status',
-      description: 'Description',
-      parameters: 'Parameters',
-      requestId: 'RequestId',
-      statusReason: 'StatusReason',
-      parentStackId: 'ParentStackId',
       createTime: 'CreateTime',
       deletionProtection: 'DeletionProtection',
-      rootStackId: 'RootStackId',
-      templateDescription: 'TemplateDescription',
-      stackType: 'StackType',
-      ramRoleName: 'RamRoleName',
-      updateTime: 'UpdateTime',
-      outputs: 'Outputs',
-      driftDetectionTime: 'DriftDetectionTime',
-      regionId: 'RegionId',
-      stackDriftStatus: 'StackDriftStatus',
-      notificationURLs: 'NotificationURLs',
+      description: 'Description',
       disableRollback: 'DisableRollback',
-      stackName: 'StackName',
-      tags: 'Tags',
-      timeoutInMinutes: 'TimeoutInMinutes',
-      stackId: 'StackId',
+      driftDetectionTime: 'DriftDetectionTime',
+      notificationURLs: 'NotificationURLs',
+      outputs: 'Outputs',
+      parameters: 'Parameters',
+      parentStackId: 'ParentStackId',
+      ramRoleName: 'RamRoleName',
+      regionId: 'RegionId',
+      requestId: 'RequestId',
       resourceGroupId: 'ResourceGroupId',
       resourceProgress: 'ResourceProgress',
+      rootStackId: 'RootStackId',
+      stackDriftStatus: 'StackDriftStatus',
+      stackId: 'StackId',
+      stackName: 'StackName',
+      stackType: 'StackType',
+      status: 'Status',
+      statusReason: 'StatusReason',
+      tags: 'Tags',
+      templateDescription: 'TemplateDescription',
+      timeoutInMinutes: 'TimeoutInMinutes',
+      updateTime: 'UpdateTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      status: 'string',
-      description: 'string',
-      parameters: { 'type': 'array', 'itemType': GetStackResponseBodyParameters },
-      requestId: 'string',
-      statusReason: 'string',
-      parentStackId: 'string',
       createTime: 'string',
       deletionProtection: 'string',
-      rootStackId: 'string',
-      templateDescription: 'string',
-      stackType: 'string',
-      ramRoleName: 'string',
-      updateTime: 'string',
-      outputs: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
-      driftDetectionTime: 'string',
-      regionId: 'string',
-      stackDriftStatus: 'string',
-      notificationURLs: { 'type': 'array', 'itemType': 'string' },
+      description: 'string',
       disableRollback: 'boolean',
-      stackName: 'string',
-      tags: { 'type': 'array', 'itemType': GetStackResponseBodyTags },
-      timeoutInMinutes: 'number',
-      stackId: 'string',
+      driftDetectionTime: 'string',
+      notificationURLs: { 'type': 'array', 'itemType': 'string' },
+      outputs: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
+      parameters: { 'type': 'array', 'itemType': GetStackResponseBodyParameters },
+      parentStackId: 'string',
+      ramRoleName: 'string',
+      regionId: 'string',
+      requestId: 'string',
       resourceGroupId: 'string',
       resourceProgress: GetStackResponseBodyResourceProgress,
+      rootStackId: 'string',
+      stackDriftStatus: 'string',
+      stackId: 'string',
+      stackName: 'string',
+      stackType: 'string',
+      status: 'string',
+      statusReason: 'string',
+      tags: { 'type': 'array', 'itemType': GetStackResponseBodyTags },
+      templateDescription: 'string',
+      timeoutInMinutes: 'number',
+      updateTime: 'string',
     };
   }
 
@@ -2047,19 +2203,19 @@ export class GetStackResponse extends $tea.Model {
 }
 
 export class GetStackDriftDetectionStatusRequest extends $tea.Model {
-  regionId?: string;
   driftDetectionId?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
       driftDetectionId: 'DriftDetectionId',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
       driftDetectionId: 'string',
+      regionId: 'string',
     };
   }
 
@@ -2069,37 +2225,37 @@ export class GetStackDriftDetectionStatusRequest extends $tea.Model {
 }
 
 export class GetStackDriftDetectionStatusResponseBody extends $tea.Model {
-  stackId?: string;
-  requestId?: string;
-  driftDetectionTime?: string;
-  stackDriftStatus?: string;
   driftDetectionId?: string;
   driftDetectionStatus?: string;
-  driftedStackResourceCount?: number;
   driftDetectionStatusReason?: string;
+  driftDetectionTime?: string;
+  driftedStackResourceCount?: number;
+  requestId?: string;
+  stackDriftStatus?: string;
+  stackId?: string;
   static names(): { [key: string]: string } {
     return {
-      stackId: 'StackId',
-      requestId: 'RequestId',
-      driftDetectionTime: 'DriftDetectionTime',
-      stackDriftStatus: 'StackDriftStatus',
       driftDetectionId: 'DriftDetectionId',
       driftDetectionStatus: 'DriftDetectionStatus',
-      driftedStackResourceCount: 'DriftedStackResourceCount',
       driftDetectionStatusReason: 'DriftDetectionStatusReason',
+      driftDetectionTime: 'DriftDetectionTime',
+      driftedStackResourceCount: 'DriftedStackResourceCount',
+      requestId: 'RequestId',
+      stackDriftStatus: 'StackDriftStatus',
+      stackId: 'StackId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      stackId: 'string',
-      requestId: 'string',
-      driftDetectionTime: 'string',
-      stackDriftStatus: 'string',
       driftDetectionId: 'string',
       driftDetectionStatus: 'string',
-      driftedStackResourceCount: 'number',
       driftDetectionStatusReason: 'string',
+      driftDetectionTime: 'string',
+      driftedStackResourceCount: 'number',
+      requestId: 'string',
+      stackDriftStatus: 'string',
+      stackId: 'string',
     };
   }
 
@@ -2132,21 +2288,21 @@ export class GetStackDriftDetectionStatusResponse extends $tea.Model {
 
 export class GetStackGroupRequest extends $tea.Model {
   regionId?: string;
-  stackGroupName?: string;
   stackGroupId?: string;
+  stackGroupName?: string;
   static names(): { [key: string]: string } {
     return {
       regionId: 'RegionId',
-      stackGroupName: 'StackGroupName',
       stackGroupId: 'StackGroupId',
+      stackGroupName: 'StackGroupName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       regionId: 'string',
-      stackGroupName: 'string',
       stackGroupId: 'string',
+      stackGroupName: 'string',
     };
   }
 
@@ -2200,19 +2356,19 @@ export class GetStackGroupResponse extends $tea.Model {
 }
 
 export class GetStackGroupOperationRequest extends $tea.Model {
-  regionId?: string;
   operationId?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
       operationId: 'OperationId',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
       operationId: 'string',
+      regionId: 'string',
     };
   }
 
@@ -2338,19 +2494,19 @@ export class GetStackInstanceResponse extends $tea.Model {
 }
 
 export class GetStackPolicyRequest extends $tea.Model {
-  stackId?: string;
   regionId?: string;
+  stackId?: string;
   static names(): { [key: string]: string } {
     return {
-      stackId: 'StackId',
       regionId: 'RegionId',
+      stackId: 'StackId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      stackId: 'string',
       regionId: 'string',
+      stackId: 'string',
     };
   }
 
@@ -2360,19 +2516,19 @@ export class GetStackPolicyRequest extends $tea.Model {
 }
 
 export class GetStackPolicyResponseBody extends $tea.Model {
-  stackPolicyBody?: { [key: string]: any };
   requestId?: string;
+  stackPolicyBody?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
-      stackPolicyBody: 'StackPolicyBody',
       requestId: 'RequestId',
+      stackPolicyBody: 'StackPolicyBody',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      stackPolicyBody: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       requestId: 'string',
+      stackPolicyBody: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
     };
   }
 
@@ -2404,28 +2560,28 @@ export class GetStackPolicyResponse extends $tea.Model {
 }
 
 export class GetStackResourceRequest extends $tea.Model {
-  stackId?: string;
   clientToken?: string;
+  logicalResourceId?: string;
   regionId?: string;
   showResourceAttributes?: boolean;
-  logicalResourceId?: string;
+  stackId?: string;
   static names(): { [key: string]: string } {
     return {
-      stackId: 'StackId',
       clientToken: 'ClientToken',
+      logicalResourceId: 'LogicalResourceId',
       regionId: 'RegionId',
       showResourceAttributes: 'ShowResourceAttributes',
-      logicalResourceId: 'LogicalResourceId',
+      stackId: 'StackId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      stackId: 'string',
       clientToken: 'string',
+      logicalResourceId: 'string',
       regionId: 'string',
       showResourceAttributes: 'boolean',
-      logicalResourceId: 'string',
+      stackId: 'string',
     };
   }
 
@@ -2435,58 +2591,58 @@ export class GetStackResourceRequest extends $tea.Model {
 }
 
 export class GetStackResourceResponseBody extends $tea.Model {
-  status?: string;
-  description?: string;
-  requestId?: string;
-  statusReason?: string;
-  physicalResourceId?: string;
   createTime?: string;
-  metadata?: { [key: string]: any };
-  resourceType?: string;
-  resourceAttributes?: { [key: string]: any }[];
-  logicalResourceId?: string;
-  resourceDriftStatus?: string;
-  updateTime?: string;
+  description?: string;
   driftDetectionTime?: string;
-  stackName?: string;
+  logicalResourceId?: string;
+  metadata?: { [key: string]: any };
+  physicalResourceId?: string;
+  requestId?: string;
+  resourceAttributes?: { [key: string]: any }[];
+  resourceDriftStatus?: string;
+  resourceType?: string;
   stackId?: string;
+  stackName?: string;
+  status?: string;
+  statusReason?: string;
+  updateTime?: string;
   static names(): { [key: string]: string } {
     return {
-      status: 'Status',
-      description: 'Description',
-      requestId: 'RequestId',
-      statusReason: 'StatusReason',
-      physicalResourceId: 'PhysicalResourceId',
       createTime: 'CreateTime',
-      metadata: 'Metadata',
-      resourceType: 'ResourceType',
-      resourceAttributes: 'ResourceAttributes',
-      logicalResourceId: 'LogicalResourceId',
-      resourceDriftStatus: 'ResourceDriftStatus',
-      updateTime: 'UpdateTime',
+      description: 'Description',
       driftDetectionTime: 'DriftDetectionTime',
-      stackName: 'StackName',
+      logicalResourceId: 'LogicalResourceId',
+      metadata: 'Metadata',
+      physicalResourceId: 'PhysicalResourceId',
+      requestId: 'RequestId',
+      resourceAttributes: 'ResourceAttributes',
+      resourceDriftStatus: 'ResourceDriftStatus',
+      resourceType: 'ResourceType',
       stackId: 'StackId',
+      stackName: 'StackName',
+      status: 'Status',
+      statusReason: 'StatusReason',
+      updateTime: 'UpdateTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      status: 'string',
-      description: 'string',
-      requestId: 'string',
-      statusReason: 'string',
-      physicalResourceId: 'string',
       createTime: 'string',
-      metadata: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      resourceType: 'string',
-      resourceAttributes: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
-      logicalResourceId: 'string',
-      resourceDriftStatus: 'string',
-      updateTime: 'string',
+      description: 'string',
       driftDetectionTime: 'string',
-      stackName: 'string',
+      logicalResourceId: 'string',
+      metadata: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      physicalResourceId: 'string',
+      requestId: 'string',
+      resourceAttributes: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
+      resourceDriftStatus: 'string',
+      resourceType: 'string',
       stackId: 'string',
+      stackName: 'string',
+      status: 'string',
+      statusReason: 'string',
+      updateTime: 'string',
     };
   }
 
@@ -2518,37 +2674,37 @@ export class GetStackResourceResponse extends $tea.Model {
 }
 
 export class GetTemplateRequest extends $tea.Model {
-  stackId?: string;
-  regionId?: string;
   changeSetId?: string;
-  templateId?: string;
-  templateVersion?: string;
-  templateStage?: string;
   includePermission?: string;
+  regionId?: string;
   stackGroupName?: string;
+  stackId?: string;
+  templateId?: string;
+  templateStage?: string;
+  templateVersion?: string;
   static names(): { [key: string]: string } {
     return {
-      stackId: 'StackId',
-      regionId: 'RegionId',
       changeSetId: 'ChangeSetId',
-      templateId: 'TemplateId',
-      templateVersion: 'TemplateVersion',
-      templateStage: 'TemplateStage',
       includePermission: 'IncludePermission',
+      regionId: 'RegionId',
       stackGroupName: 'StackGroupName',
+      stackId: 'StackId',
+      templateId: 'TemplateId',
+      templateStage: 'TemplateStage',
+      templateVersion: 'TemplateVersion',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      stackId: 'string',
-      regionId: 'string',
       changeSetId: 'string',
-      templateId: 'string',
-      templateVersion: 'string',
-      templateStage: 'string',
       includePermission: 'string',
+      regionId: 'string',
       stackGroupName: 'string',
+      stackId: 'string',
+      templateId: 'string',
+      templateStage: 'string',
+      templateVersion: 'string',
     };
   }
 
@@ -2558,64 +2714,64 @@ export class GetTemplateRequest extends $tea.Model {
 }
 
 export class GetTemplateResponseBody extends $tea.Model {
-  templateARN?: string;
-  description?: string;
-  requestId?: string;
-  createTime?: string;
-  stackGroupName?: string;
-  templateVersion?: string;
-  templateBody?: string;
   changeSetId?: string;
+  createTime?: string;
+  description?: string;
   ownerId?: string;
-  updateTime?: string;
   permissions?: GetTemplateResponseBodyPermissions[];
-  templateName?: string;
   regionId?: string;
-  templateId?: string;
-  stackId?: string;
-  shareType?: string;
+  requestId?: string;
   resourceGroupId?: string;
+  shareType?: string;
+  stackGroupName?: string;
+  stackId?: string;
+  templateARN?: string;
+  templateBody?: string;
+  templateId?: string;
+  templateName?: string;
+  templateVersion?: string;
+  updateTime?: string;
   static names(): { [key: string]: string } {
     return {
-      templateARN: 'TemplateARN',
-      description: 'Description',
-      requestId: 'RequestId',
-      createTime: 'CreateTime',
-      stackGroupName: 'StackGroupName',
-      templateVersion: 'TemplateVersion',
-      templateBody: 'TemplateBody',
       changeSetId: 'ChangeSetId',
+      createTime: 'CreateTime',
+      description: 'Description',
       ownerId: 'OwnerId',
-      updateTime: 'UpdateTime',
       permissions: 'Permissions',
-      templateName: 'TemplateName',
       regionId: 'RegionId',
-      templateId: 'TemplateId',
-      stackId: 'StackId',
-      shareType: 'ShareType',
+      requestId: 'RequestId',
       resourceGroupId: 'ResourceGroupId',
+      shareType: 'ShareType',
+      stackGroupName: 'StackGroupName',
+      stackId: 'StackId',
+      templateARN: 'TemplateARN',
+      templateBody: 'TemplateBody',
+      templateId: 'TemplateId',
+      templateName: 'TemplateName',
+      templateVersion: 'TemplateVersion',
+      updateTime: 'UpdateTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      templateARN: 'string',
-      description: 'string',
-      requestId: 'string',
-      createTime: 'string',
-      stackGroupName: 'string',
-      templateVersion: 'string',
-      templateBody: 'string',
       changeSetId: 'string',
+      createTime: 'string',
+      description: 'string',
       ownerId: 'string',
-      updateTime: 'string',
       permissions: { 'type': 'array', 'itemType': GetTemplateResponseBodyPermissions },
-      templateName: 'string',
       regionId: 'string',
-      templateId: 'string',
-      stackId: 'string',
-      shareType: 'string',
+      requestId: 'string',
       resourceGroupId: 'string',
+      shareType: 'string',
+      stackGroupName: 'string',
+      stackId: 'string',
+      templateARN: 'string',
+      templateBody: 'string',
+      templateId: 'string',
+      templateName: 'string',
+      templateVersion: 'string',
+      updateTime: 'string',
     };
   }
 
@@ -2647,34 +2803,34 @@ export class GetTemplateResponse extends $tea.Model {
 }
 
 export class GetTemplateEstimateCostRequest extends $tea.Model {
-  templateURL?: string;
+  clientToken?: string;
+  parameters?: GetTemplateEstimateCostRequestParameters[];
   regionId?: string;
   templateBody?: string;
-  clientToken?: string;
   templateId?: string;
+  templateURL?: string;
   templateVersion?: string;
-  parameters?: GetTemplateEstimateCostRequestParameters[];
   static names(): { [key: string]: string } {
     return {
-      templateURL: 'TemplateURL',
+      clientToken: 'ClientToken',
+      parameters: 'Parameters',
       regionId: 'RegionId',
       templateBody: 'TemplateBody',
-      clientToken: 'ClientToken',
       templateId: 'TemplateId',
+      templateURL: 'TemplateURL',
       templateVersion: 'TemplateVersion',
-      parameters: 'Parameters',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      templateURL: 'string',
+      clientToken: 'string',
+      parameters: { 'type': 'array', 'itemType': GetTemplateEstimateCostRequestParameters },
       regionId: 'string',
       templateBody: 'string',
-      clientToken: 'string',
       templateId: 'string',
+      templateURL: 'string',
       templateVersion: 'string',
-      parameters: { 'type': 'array', 'itemType': GetTemplateEstimateCostRequestParameters },
     };
   }
 
@@ -2727,38 +2883,162 @@ export class GetTemplateEstimateCostResponse extends $tea.Model {
   }
 }
 
-export class GetTemplateSummaryRequest extends $tea.Model {
-  stackId?: string;
-  templateBody?: string;
+export class GetTemplateParameterConstraintsRequest extends $tea.Model {
+  clientToken?: string;
+  parameters?: GetTemplateParameterConstraintsRequestParameters[];
+  parametersKeyFilter?: string[];
   regionId?: string;
+  templateBody?: string;
   templateId?: string;
   templateURL?: string;
-  changeSetId?: string;
   templateVersion?: string;
-  stackGroupName?: string;
   static names(): { [key: string]: string } {
     return {
-      stackId: 'StackId',
-      templateBody: 'TemplateBody',
+      clientToken: 'ClientToken',
+      parameters: 'Parameters',
+      parametersKeyFilter: 'ParametersKeyFilter',
       regionId: 'RegionId',
+      templateBody: 'TemplateBody',
       templateId: 'TemplateId',
       templateURL: 'TemplateURL',
-      changeSetId: 'ChangeSetId',
       templateVersion: 'TemplateVersion',
-      stackGroupName: 'StackGroupName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      stackId: 'string',
-      templateBody: 'string',
+      clientToken: 'string',
+      parameters: { 'type': 'array', 'itemType': GetTemplateParameterConstraintsRequestParameters },
+      parametersKeyFilter: { 'type': 'array', 'itemType': 'string' },
       regionId: 'string',
+      templateBody: 'string',
       templateId: 'string',
       templateURL: 'string',
-      changeSetId: 'string',
       templateVersion: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTemplateParameterConstraintsShrinkRequest extends $tea.Model {
+  clientToken?: string;
+  parameters?: GetTemplateParameterConstraintsShrinkRequestParameters[];
+  parametersKeyFilterShrink?: string;
+  regionId?: string;
+  templateBody?: string;
+  templateId?: string;
+  templateURL?: string;
+  templateVersion?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      parameters: 'Parameters',
+      parametersKeyFilterShrink: 'ParametersKeyFilter',
+      regionId: 'RegionId',
+      templateBody: 'TemplateBody',
+      templateId: 'TemplateId',
+      templateURL: 'TemplateURL',
+      templateVersion: 'TemplateVersion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      parameters: { 'type': 'array', 'itemType': GetTemplateParameterConstraintsShrinkRequestParameters },
+      parametersKeyFilterShrink: 'string',
+      regionId: 'string',
+      templateBody: 'string',
+      templateId: 'string',
+      templateURL: 'string',
+      templateVersion: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTemplateParameterConstraintsResponseBody extends $tea.Model {
+  parameterConstraints?: GetTemplateParameterConstraintsResponseBodyParameterConstraints[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      parameterConstraints: 'ParameterConstraints',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      parameterConstraints: { 'type': 'array', 'itemType': GetTemplateParameterConstraintsResponseBodyParameterConstraints },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTemplateParameterConstraintsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetTemplateParameterConstraintsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetTemplateParameterConstraintsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTemplateSummaryRequest extends $tea.Model {
+  changeSetId?: string;
+  regionId?: string;
+  stackGroupName?: string;
+  stackId?: string;
+  templateBody?: string;
+  templateId?: string;
+  templateURL?: string;
+  templateVersion?: string;
+  static names(): { [key: string]: string } {
+    return {
+      changeSetId: 'ChangeSetId',
+      regionId: 'RegionId',
+      stackGroupName: 'StackGroupName',
+      stackId: 'StackId',
+      templateBody: 'TemplateBody',
+      templateId: 'TemplateId',
+      templateURL: 'TemplateURL',
+      templateVersion: 'TemplateVersion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      changeSetId: 'string',
+      regionId: 'string',
       stackGroupName: 'string',
+      stackId: 'string',
+      templateBody: 'string',
+      templateId: 'string',
+      templateURL: 'string',
+      templateVersion: 'string',
     };
   }
 
@@ -2768,34 +3048,34 @@ export class GetTemplateSummaryRequest extends $tea.Model {
 }
 
 export class GetTemplateSummaryResponseBody extends $tea.Model {
-  requestId?: string;
   description?: string;
-  version?: string;
   metadata?: { [key: string]: any };
-  resourceTypes?: string[];
   parameters?: { [key: string]: any }[];
+  requestId?: string;
   resourceIdentifierSummaries?: GetTemplateSummaryResponseBodyResourceIdentifierSummaries[];
+  resourceTypes?: string[];
+  version?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       description: 'Description',
-      version: 'Version',
       metadata: 'Metadata',
-      resourceTypes: 'ResourceTypes',
       parameters: 'Parameters',
+      requestId: 'RequestId',
       resourceIdentifierSummaries: 'ResourceIdentifierSummaries',
+      resourceTypes: 'ResourceTypes',
+      version: 'Version',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       description: 'string',
-      version: 'string',
       metadata: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      resourceTypes: { 'type': 'array', 'itemType': 'string' },
       parameters: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
+      requestId: 'string',
       resourceIdentifierSummaries: { 'type': 'array', 'itemType': GetTemplateSummaryResponseBodyResourceIdentifierSummaries },
+      resourceTypes: { 'type': 'array', 'itemType': 'string' },
+      version: 'string',
     };
   }
 
@@ -2827,37 +3107,37 @@ export class GetTemplateSummaryResponse extends $tea.Model {
 }
 
 export class ListChangeSetsRequest extends $tea.Model {
-  stackId?: string;
-  pageSize?: number;
-  regionId?: string;
-  pageNumber?: number;
   changeSetId?: string;
-  status?: string[];
   changeSetName?: string[];
   executionStatus?: string[];
+  pageNumber?: number;
+  pageSize?: number;
+  regionId?: string;
+  stackId?: string;
+  status?: string[];
   static names(): { [key: string]: string } {
     return {
-      stackId: 'StackId',
-      pageSize: 'PageSize',
-      regionId: 'RegionId',
-      pageNumber: 'PageNumber',
       changeSetId: 'ChangeSetId',
-      status: 'Status',
       changeSetName: 'ChangeSetName',
       executionStatus: 'ExecutionStatus',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+      stackId: 'StackId',
+      status: 'Status',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      stackId: 'string',
-      pageSize: 'number',
-      regionId: 'string',
-      pageNumber: 'number',
       changeSetId: 'string',
-      status: { 'type': 'array', 'itemType': 'string' },
       changeSetName: { 'type': 'array', 'itemType': 'string' },
       executionStatus: { 'type': 'array', 'itemType': 'string' },
+      pageNumber: 'number',
+      pageSize: 'number',
+      regionId: 'string',
+      stackId: 'string',
+      status: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -2867,28 +3147,28 @@ export class ListChangeSetsRequest extends $tea.Model {
 }
 
 export class ListChangeSetsResponseBody extends $tea.Model {
+  changeSets?: ListChangeSetsResponseBodyChangeSets[];
   pageNumber?: number;
   pageSize?: number;
   requestId?: string;
   totalCount?: number;
-  changeSets?: ListChangeSetsResponseBodyChangeSets[];
   static names(): { [key: string]: string } {
     return {
+      changeSets: 'ChangeSets',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       requestId: 'RequestId',
       totalCount: 'TotalCount',
-      changeSets: 'ChangeSets',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      changeSets: { 'type': 'array', 'itemType': ListChangeSetsResponseBodyChangeSets },
       pageNumber: 'number',
       pageSize: 'number',
       requestId: 'string',
       totalCount: 'number',
-      changeSets: { 'type': 'array', 'itemType': ListChangeSetsResponseBodyChangeSets },
     };
   }
 
@@ -2964,34 +3244,34 @@ export class ListResourceTypesResponse extends $tea.Model {
 }
 
 export class ListStackEventsRequest extends $tea.Model {
-  stackId?: string;
+  logicalResourceId?: string[];
+  pageNumber?: number;
   pageSize?: number;
   regionId?: string;
-  pageNumber?: number;
-  status?: string[];
   resourceType?: string[];
-  logicalResourceId?: string[];
+  stackId?: string;
+  status?: string[];
   static names(): { [key: string]: string } {
     return {
-      stackId: 'StackId',
+      logicalResourceId: 'LogicalResourceId',
+      pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       regionId: 'RegionId',
-      pageNumber: 'PageNumber',
-      status: 'Status',
       resourceType: 'ResourceType',
-      logicalResourceId: 'LogicalResourceId',
+      stackId: 'StackId',
+      status: 'Status',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      stackId: 'string',
+      logicalResourceId: { 'type': 'array', 'itemType': 'string' },
+      pageNumber: 'number',
       pageSize: 'number',
       regionId: 'string',
-      pageNumber: 'number',
-      status: { 'type': 'array', 'itemType': 'string' },
       resourceType: { 'type': 'array', 'itemType': 'string' },
-      logicalResourceId: { 'type': 'array', 'itemType': 'string' },
+      stackId: 'string',
+      status: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -3001,28 +3281,28 @@ export class ListStackEventsRequest extends $tea.Model {
 }
 
 export class ListStackEventsResponseBody extends $tea.Model {
+  events?: ListStackEventsResponseBodyEvents[];
   pageNumber?: number;
   pageSize?: number;
   requestId?: string;
   totalCount?: number;
-  events?: ListStackEventsResponseBodyEvents[];
   static names(): { [key: string]: string } {
     return {
+      events: 'Events',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       requestId: 'RequestId',
       totalCount: 'TotalCount',
-      events: 'Events',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      events: { 'type': 'array', 'itemType': ListStackEventsResponseBodyEvents },
       pageNumber: 'number',
       pageSize: 'number',
       requestId: 'string',
       totalCount: 'number',
-      events: { 'type': 'array', 'itemType': ListStackEventsResponseBodyEvents },
     };
   }
 
@@ -3054,25 +3334,25 @@ export class ListStackEventsResponse extends $tea.Model {
 }
 
 export class ListStackGroupOperationResultsRequest extends $tea.Model {
-  regionId?: string;
   operationId?: string;
-  pageSize?: number;
   pageNumber?: number;
+  pageSize?: number;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
       operationId: 'OperationId',
-      pageSize: 'PageSize',
       pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
       operationId: 'string',
-      pageSize: 'number',
       pageNumber: 'number',
+      pageSize: 'number',
+      regionId: 'string',
     };
   }
 
@@ -3082,28 +3362,28 @@ export class ListStackGroupOperationResultsRequest extends $tea.Model {
 }
 
 export class ListStackGroupOperationResultsResponseBody extends $tea.Model {
-  totalCount?: number;
-  requestId?: string;
-  pageSize?: number;
   pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
   stackGroupOperationResults?: ListStackGroupOperationResultsResponseBodyStackGroupOperationResults[];
+  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
-      totalCount: 'TotalCount',
-      requestId: 'RequestId',
-      pageSize: 'PageSize',
       pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
       stackGroupOperationResults: 'StackGroupOperationResults',
+      totalCount: 'TotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      totalCount: 'number',
-      requestId: 'string',
-      pageSize: 'number',
       pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
       stackGroupOperationResults: { 'type': 'array', 'itemType': ListStackGroupOperationResultsResponseBodyStackGroupOperationResults },
+      totalCount: 'number',
     };
   }
 
@@ -3135,25 +3415,25 @@ export class ListStackGroupOperationResultsResponse extends $tea.Model {
 }
 
 export class ListStackGroupOperationsRequest extends $tea.Model {
+  pageNumber?: number;
+  pageSize?: number;
   regionId?: string;
   stackGroupName?: string;
-  pageSize?: number;
-  pageNumber?: number;
   static names(): { [key: string]: string } {
     return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
       regionId: 'RegionId',
       stackGroupName: 'StackGroupName',
-      pageSize: 'PageSize',
-      pageNumber: 'PageNumber',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      pageNumber: 'number',
+      pageSize: 'number',
       regionId: 'string',
       stackGroupName: 'string',
-      pageSize: 'number',
-      pageNumber: 'number',
     };
   }
 
@@ -3163,28 +3443,28 @@ export class ListStackGroupOperationsRequest extends $tea.Model {
 }
 
 export class ListStackGroupOperationsResponseBody extends $tea.Model {
-  requestId?: string;
   pageNumber?: number;
   pageSize?: number;
-  totalCount?: number;
+  requestId?: string;
   stackGroupOperations?: ListStackGroupOperationsResponseBodyStackGroupOperations[];
+  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
-      totalCount: 'TotalCount',
+      requestId: 'RequestId',
       stackGroupOperations: 'StackGroupOperations',
+      totalCount: 'TotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       pageNumber: 'number',
       pageSize: 'number',
-      totalCount: 'number',
+      requestId: 'string',
       stackGroupOperations: { 'type': 'array', 'itemType': ListStackGroupOperationsResponseBodyStackGroupOperations },
+      totalCount: 'number',
     };
   }
 
@@ -3216,28 +3496,28 @@ export class ListStackGroupOperationsResponse extends $tea.Model {
 }
 
 export class ListStackGroupsRequest extends $tea.Model {
-  regionId?: string;
-  status?: string;
-  pageSize?: number;
   pageNumber?: number;
+  pageSize?: number;
+  regionId?: string;
   resourceGroupId?: string;
+  status?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
-      status: 'Status',
-      pageSize: 'PageSize',
       pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
+      status: 'Status',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
-      status: 'string',
-      pageSize: 'number',
       pageNumber: 'number',
+      pageSize: 'number',
+      regionId: 'string',
       resourceGroupId: 'string',
+      status: 'string',
     };
   }
 
@@ -3247,28 +3527,28 @@ export class ListStackGroupsRequest extends $tea.Model {
 }
 
 export class ListStackGroupsResponseBody extends $tea.Model {
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
   stackGroups?: ListStackGroupsResponseBodyStackGroups[];
   totalCount?: number;
-  requestId?: string;
-  pageSize?: number;
-  pageNumber?: number;
   static names(): { [key: string]: string } {
     return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
       stackGroups: 'StackGroups',
       totalCount: 'TotalCount',
-      requestId: 'RequestId',
-      pageSize: 'PageSize',
-      pageNumber: 'PageNumber',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
       stackGroups: { 'type': 'array', 'itemType': ListStackGroupsResponseBodyStackGroups },
       totalCount: 'number',
-      requestId: 'string',
-      pageSize: 'number',
-      pageNumber: 'number',
     };
   }
 
@@ -3300,31 +3580,31 @@ export class ListStackGroupsResponse extends $tea.Model {
 }
 
 export class ListStackInstancesRequest extends $tea.Model {
+  pageNumber?: number;
+  pageSize?: number;
   regionId?: string;
   stackGroupName?: string;
   stackInstanceAccountId?: string;
   stackInstanceRegionId?: string;
-  pageSize?: number;
-  pageNumber?: number;
   static names(): { [key: string]: string } {
     return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
       regionId: 'RegionId',
       stackGroupName: 'StackGroupName',
       stackInstanceAccountId: 'StackInstanceAccountId',
       stackInstanceRegionId: 'StackInstanceRegionId',
-      pageSize: 'PageSize',
-      pageNumber: 'PageNumber',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      pageNumber: 'number',
+      pageSize: 'number',
       regionId: 'string',
       stackGroupName: 'string',
       stackInstanceAccountId: 'string',
       stackInstanceRegionId: 'string',
-      pageSize: 'number',
-      pageNumber: 'number',
     };
   }
 
@@ -3334,28 +3614,28 @@ export class ListStackInstancesRequest extends $tea.Model {
 }
 
 export class ListStackInstancesResponseBody extends $tea.Model {
-  totalCount?: number;
-  requestId?: string;
-  pageSize?: number;
   pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
   stackInstances?: ListStackInstancesResponseBodyStackInstances[];
+  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
-      totalCount: 'TotalCount',
-      requestId: 'RequestId',
-      pageSize: 'PageSize',
       pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
       stackInstances: 'StackInstances',
+      totalCount: 'TotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      totalCount: 'number',
-      requestId: 'string',
-      pageSize: 'number',
       pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
       stackInstances: { 'type': 'array', 'itemType': ListStackInstancesResponseBodyStackInstances },
+      totalCount: 'number',
     };
   }
 
@@ -3387,34 +3667,34 @@ export class ListStackInstancesResponse extends $tea.Model {
 }
 
 export class ListStackOperationRisksRequest extends $tea.Model {
-  regionId?: string;
-  stackId?: string;
-  operationType?: string;
   clientToken?: string;
+  operationType?: string;
   ramRoleName?: string;
+  regionId?: string;
   retainAllResources?: boolean;
   retainResources?: string[];
+  stackId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
-      stackId: 'StackId',
-      operationType: 'OperationType',
       clientToken: 'ClientToken',
+      operationType: 'OperationType',
       ramRoleName: 'RamRoleName',
+      regionId: 'RegionId',
       retainAllResources: 'RetainAllResources',
       retainResources: 'RetainResources',
+      stackId: 'StackId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
-      stackId: 'string',
-      operationType: 'string',
       clientToken: 'string',
+      operationType: 'string',
       ramRoleName: 'string',
+      regionId: 'string',
       retainAllResources: 'boolean',
       retainResources: { 'type': 'array', 'itemType': 'string' },
+      stackId: 'string',
     };
   }
 
@@ -3468,28 +3748,28 @@ export class ListStackOperationRisksResponse extends $tea.Model {
 }
 
 export class ListStackResourceDriftsRequest extends $tea.Model {
-  stackId?: string;
-  regionId?: string;
   maxResults?: number;
   nextToken?: string;
+  regionId?: string;
   resourceDriftStatus?: string[];
+  stackId?: string;
   static names(): { [key: string]: string } {
     return {
-      stackId: 'StackId',
-      regionId: 'RegionId',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
+      regionId: 'RegionId',
       resourceDriftStatus: 'ResourceDriftStatus',
+      stackId: 'StackId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      stackId: 'string',
-      regionId: 'string',
       maxResults: 'number',
       nextToken: 'string',
+      regionId: 'string',
       resourceDriftStatus: { 'type': 'array', 'itemType': 'string' },
+      stackId: 'string',
     };
   }
 
@@ -3546,19 +3826,19 @@ export class ListStackResourceDriftsResponse extends $tea.Model {
 }
 
 export class ListStackResourcesRequest extends $tea.Model {
-  stackId?: string;
   regionId?: string;
+  stackId?: string;
   static names(): { [key: string]: string } {
     return {
-      stackId: 'StackId',
       regionId: 'RegionId',
+      stackId: 'StackId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      stackId: 'string',
       regionId: 'string',
+      stackId: 'string',
     };
   }
 
@@ -3612,43 +3892,46 @@ export class ListStackResourcesResponse extends $tea.Model {
 }
 
 export class ListStacksRequest extends $tea.Model {
+  pageNumber?: number;
   pageSize?: number;
   parentStackId?: string;
   regionId?: string;
-  pageNumber?: number;
+  resourceGroupId?: string;
   showNestedStack?: boolean;
   stackId?: string;
-  status?: string[];
+  stackIds?: string[];
   stackName?: string[];
+  status?: string[];
   tag?: ListStacksRequestTag[];
-  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
+      pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       parentStackId: 'ParentStackId',
       regionId: 'RegionId',
-      pageNumber: 'PageNumber',
+      resourceGroupId: 'ResourceGroupId',
       showNestedStack: 'ShowNestedStack',
       stackId: 'StackId',
-      status: 'Status',
+      stackIds: 'StackIds',
       stackName: 'StackName',
+      status: 'Status',
       tag: 'Tag',
-      resourceGroupId: 'ResourceGroupId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      pageNumber: 'number',
       pageSize: 'number',
       parentStackId: 'string',
       regionId: 'string',
-      pageNumber: 'number',
+      resourceGroupId: 'string',
       showNestedStack: 'boolean',
       stackId: 'string',
-      status: { 'type': 'array', 'itemType': 'string' },
+      stackIds: { 'type': 'array', 'itemType': 'string' },
       stackName: { 'type': 'array', 'itemType': 'string' },
+      status: { 'type': 'array', 'itemType': 'string' },
       tag: { 'type': 'array', 'itemType': ListStacksRequestTag },
-      resourceGroupId: 'string',
     };
   }
 
@@ -3658,28 +3941,28 @@ export class ListStacksRequest extends $tea.Model {
 }
 
 export class ListStacksResponseBody extends $tea.Model {
-  totalCount?: number;
+  pageNumber?: number;
   pageSize?: number;
   requestId?: string;
-  pageNumber?: number;
   stacks?: ListStacksResponseBodyStacks[];
+  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
-      totalCount: 'TotalCount',
+      pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       requestId: 'RequestId',
-      pageNumber: 'PageNumber',
       stacks: 'Stacks',
+      totalCount: 'TotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      totalCount: 'number',
+      pageNumber: 'number',
       pageSize: 'number',
       requestId: 'string',
-      pageNumber: 'number',
       stacks: { 'type': 'array', 'itemType': ListStacksResponseBodyStacks },
+      totalCount: 'number',
     };
   }
 
@@ -3711,22 +3994,22 @@ export class ListStacksResponse extends $tea.Model {
 }
 
 export class ListTagKeysRequest extends $tea.Model {
+  nextToken?: string;
   regionId?: string;
   resourceType?: string;
-  nextToken?: string;
   static names(): { [key: string]: string } {
     return {
+      nextToken: 'NextToken',
       regionId: 'RegionId',
       resourceType: 'ResourceType',
-      nextToken: 'NextToken',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      nextToken: 'string',
       regionId: 'string',
       resourceType: 'string',
-      nextToken: 'string',
     };
   }
 
@@ -3736,22 +4019,22 @@ export class ListTagKeysRequest extends $tea.Model {
 }
 
 export class ListTagKeysResponseBody extends $tea.Model {
+  keys?: string[];
   nextToken?: string;
   requestId?: string;
-  keys?: string[];
   static names(): { [key: string]: string } {
     return {
+      keys: 'Keys',
       nextToken: 'NextToken',
       requestId: 'RequestId',
-      keys: 'Keys',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      keys: { 'type': 'array', 'itemType': 'string' },
       nextToken: 'string',
       requestId: 'string',
-      keys: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -3783,27 +4066,27 @@ export class ListTagKeysResponse extends $tea.Model {
 }
 
 export class ListTagResourcesRequest extends $tea.Model {
-  regionId?: string;
-  resourceType?: string;
   nextToken?: string;
+  regionId?: string;
   resourceId?: string[];
+  resourceType?: string;
   tag?: ListTagResourcesRequestTag[];
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
-      resourceType: 'ResourceType',
       nextToken: 'NextToken',
+      regionId: 'RegionId',
       resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
       tag: 'Tag',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
-      resourceType: 'string',
       nextToken: 'string',
+      regionId: 'string',
       resourceId: { 'type': 'array', 'itemType': 'string' },
+      resourceType: 'string',
       tag: { 'type': 'array', 'itemType': ListTagResourcesRequestTag },
     };
   }
@@ -3861,25 +4144,25 @@ export class ListTagResourcesResponse extends $tea.Model {
 }
 
 export class ListTagValuesRequest extends $tea.Model {
+  key?: string;
+  nextToken?: string;
   regionId?: string;
   resourceType?: string;
-  nextToken?: string;
-  key?: string;
   static names(): { [key: string]: string } {
     return {
+      key: 'Key',
+      nextToken: 'NextToken',
       regionId: 'RegionId',
       resourceType: 'ResourceType',
-      nextToken: 'NextToken',
-      key: 'Key',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      key: 'string',
+      nextToken: 'string',
       regionId: 'string',
       resourceType: 'string',
-      nextToken: 'string',
-      key: 'string',
     };
   }
 
@@ -3935,109 +4218,22 @@ export class ListTagValuesResponse extends $tea.Model {
   }
 }
 
-export class ListTemplatesRequest extends $tea.Model {
-  pageNumber?: number;
-  pageSize?: number;
-  templateName?: string;
-  shareType?: string;
-  tag?: ListTemplatesRequestTag[];
-  resourceGroupId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      templateName: 'TemplateName',
-      shareType: 'ShareType',
-      tag: 'Tag',
-      resourceGroupId: 'ResourceGroupId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageNumber: 'number',
-      pageSize: 'number',
-      templateName: 'string',
-      shareType: 'string',
-      tag: { 'type': 'array', 'itemType': ListTemplatesRequestTag },
-      resourceGroupId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTemplatesResponseBody extends $tea.Model {
-  totalCount?: number;
-  pageSize?: number;
-  requestId?: string;
-  pageNumber?: number;
-  templates?: ListTemplatesResponseBodyTemplates[];
-  static names(): { [key: string]: string } {
-    return {
-      totalCount: 'TotalCount',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      pageNumber: 'PageNumber',
-      templates: 'Templates',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      totalCount: 'number',
-      pageSize: 'number',
-      requestId: 'string',
-      pageNumber: 'number',
-      templates: { 'type': 'array', 'itemType': ListTemplatesResponseBodyTemplates },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTemplatesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ListTemplatesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListTemplatesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ListTemplateVersionsRequest extends $tea.Model {
-  nextToken?: string;
   maxResults?: number;
+  nextToken?: string;
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
-      nextToken: 'NextToken',
       maxResults: 'MaxResults',
+      nextToken: 'NextToken',
       templateId: 'TemplateId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      nextToken: 'string',
       maxResults: 'number',
+      nextToken: 'string',
       templateId: 'string',
     };
   }
@@ -4094,26 +4290,113 @@ export class ListTemplateVersionsResponse extends $tea.Model {
   }
 }
 
-export class MoveResourceGroupRequest extends $tea.Model {
-  resourceType?: string;
-  resourceId?: string;
-  newResourceGroupId?: string;
-  regionId?: string;
+export class ListTemplatesRequest extends $tea.Model {
+  pageNumber?: number;
+  pageSize?: number;
+  resourceGroupId?: string;
+  shareType?: string;
+  tag?: ListTemplatesRequestTag[];
+  templateName?: string;
   static names(): { [key: string]: string } {
     return {
-      resourceType: 'ResourceType',
-      resourceId: 'ResourceId',
-      newResourceGroupId: 'NewResourceGroupId',
-      regionId: 'RegionId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      resourceGroupId: 'ResourceGroupId',
+      shareType: 'ShareType',
+      tag: 'Tag',
+      templateName: 'TemplateName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      resourceType: 'string',
-      resourceId: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      resourceGroupId: 'string',
+      shareType: 'string',
+      tag: { 'type': 'array', 'itemType': ListTemplatesRequestTag },
+      templateName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTemplatesResponseBody extends $tea.Model {
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  templates?: ListTemplatesResponseBodyTemplates[];
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      templates: 'Templates',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      templates: { 'type': 'array', 'itemType': ListTemplatesResponseBodyTemplates },
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTemplatesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListTemplatesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListTemplatesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MoveResourceGroupRequest extends $tea.Model {
+  newResourceGroupId?: string;
+  regionId?: string;
+  resourceId?: string;
+  resourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      newResourceGroupId: 'NewResourceGroupId',
+      regionId: 'RegionId',
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
       newResourceGroupId: 'string',
       regionId: 'string',
+      resourceId: 'string',
+      resourceType: 'string',
     };
   }
 
@@ -4164,52 +4447,52 @@ export class MoveResourceGroupResponse extends $tea.Model {
 }
 
 export class PreviewStackRequest extends $tea.Model {
-  disableRollback?: boolean;
-  timeoutInMinutes?: number;
-  templateBody?: string;
-  stackPolicyURL?: string;
-  regionId?: string;
-  stackPolicyBody?: string;
-  stackName?: string;
   clientToken?: string;
-  templateURL?: string;
-  templateId?: string;
-  templateVersion?: string;
-  parameters?: PreviewStackRequestParameters[];
+  disableRollback?: boolean;
   parallelism?: number;
+  parameters?: PreviewStackRequestParameters[];
+  regionId?: string;
+  stackName?: string;
+  stackPolicyBody?: string;
+  stackPolicyURL?: string;
+  templateBody?: string;
+  templateId?: string;
+  templateURL?: string;
+  templateVersion?: string;
+  timeoutInMinutes?: number;
   static names(): { [key: string]: string } {
     return {
-      disableRollback: 'DisableRollback',
-      timeoutInMinutes: 'TimeoutInMinutes',
-      templateBody: 'TemplateBody',
-      stackPolicyURL: 'StackPolicyURL',
-      regionId: 'RegionId',
-      stackPolicyBody: 'StackPolicyBody',
-      stackName: 'StackName',
       clientToken: 'ClientToken',
-      templateURL: 'TemplateURL',
-      templateId: 'TemplateId',
-      templateVersion: 'TemplateVersion',
-      parameters: 'Parameters',
+      disableRollback: 'DisableRollback',
       parallelism: 'Parallelism',
+      parameters: 'Parameters',
+      regionId: 'RegionId',
+      stackName: 'StackName',
+      stackPolicyBody: 'StackPolicyBody',
+      stackPolicyURL: 'StackPolicyURL',
+      templateBody: 'TemplateBody',
+      templateId: 'TemplateId',
+      templateURL: 'TemplateURL',
+      templateVersion: 'TemplateVersion',
+      timeoutInMinutes: 'TimeoutInMinutes',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      disableRollback: 'boolean',
-      timeoutInMinutes: 'number',
-      templateBody: 'string',
-      stackPolicyURL: 'string',
-      regionId: 'string',
-      stackPolicyBody: 'string',
-      stackName: 'string',
       clientToken: 'string',
-      templateURL: 'string',
-      templateId: 'string',
-      templateVersion: 'string',
-      parameters: { 'type': 'array', 'itemType': PreviewStackRequestParameters },
+      disableRollback: 'boolean',
       parallelism: 'number',
+      parameters: { 'type': 'array', 'itemType': PreviewStackRequestParameters },
+      regionId: 'string',
+      stackName: 'string',
+      stackPolicyBody: 'string',
+      stackPolicyURL: 'string',
+      templateBody: 'string',
+      templateId: 'string',
+      templateURL: 'string',
+      templateVersion: 'string',
+      timeoutInMinutes: 'number',
     };
   }
 
@@ -4263,22 +4546,22 @@ export class PreviewStackResponse extends $tea.Model {
 }
 
 export class SetDeletionProtectionRequest extends $tea.Model {
-  stackId?: string;
   deletionProtection?: string;
   regionId?: string;
+  stackId?: string;
   static names(): { [key: string]: string } {
     return {
-      stackId: 'StackId',
       deletionProtection: 'DeletionProtection',
       regionId: 'RegionId',
+      stackId: 'StackId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      stackId: 'string',
       deletionProtection: 'string',
       regionId: 'string',
+      stackId: 'string',
     };
   }
 
@@ -4329,14 +4612,14 @@ export class SetDeletionProtectionResponse extends $tea.Model {
 }
 
 export class SetStackPolicyRequest extends $tea.Model {
-  stackId?: string;
   regionId?: string;
+  stackId?: string;
   stackPolicyBody?: string;
   stackPolicyURL?: string;
   static names(): { [key: string]: string } {
     return {
-      stackId: 'StackId',
       regionId: 'RegionId',
+      stackId: 'StackId',
       stackPolicyBody: 'StackPolicyBody',
       stackPolicyURL: 'StackPolicyURL',
     };
@@ -4344,8 +4627,8 @@ export class SetStackPolicyRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      stackId: 'string',
       regionId: 'string',
+      stackId: 'string',
       stackPolicyBody: 'string',
       stackPolicyURL: 'string',
     };
@@ -4398,28 +4681,28 @@ export class SetStackPolicyResponse extends $tea.Model {
 }
 
 export class SetTemplatePermissionRequest extends $tea.Model {
-  shareOption?: string;
-  versionOption?: string;
-  templateVersion?: string;
-  templateId?: string;
   accountIds?: string[];
+  shareOption?: string;
+  templateId?: string;
+  templateVersion?: string;
+  versionOption?: string;
   static names(): { [key: string]: string } {
     return {
-      shareOption: 'ShareOption',
-      versionOption: 'VersionOption',
-      templateVersion: 'TemplateVersion',
-      templateId: 'TemplateId',
       accountIds: 'AccountIds',
+      shareOption: 'ShareOption',
+      templateId: 'TemplateId',
+      templateVersion: 'TemplateVersion',
+      versionOption: 'VersionOption',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      shareOption: 'string',
-      versionOption: 'string',
-      templateVersion: 'string',
-      templateId: 'string',
       accountIds: { 'type': 'array', 'itemType': 'string' },
+      shareOption: 'string',
+      templateId: 'string',
+      templateVersion: 'string',
+      versionOption: 'string',
     };
   }
 
@@ -4470,31 +4753,31 @@ export class SetTemplatePermissionResponse extends $tea.Model {
 }
 
 export class SignalResourceRequest extends $tea.Model {
-  stackId?: string;
-  status?: string;
-  regionId?: string;
-  uniqueId?: string;
   clientToken?: string;
   logicalResourceId?: string;
+  regionId?: string;
+  stackId?: string;
+  status?: string;
+  uniqueId?: string;
   static names(): { [key: string]: string } {
     return {
-      stackId: 'StackId',
-      status: 'Status',
-      regionId: 'RegionId',
-      uniqueId: 'UniqueId',
       clientToken: 'ClientToken',
       logicalResourceId: 'LogicalResourceId',
+      regionId: 'RegionId',
+      stackId: 'StackId',
+      status: 'Status',
+      uniqueId: 'UniqueId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      stackId: 'string',
-      status: 'string',
-      regionId: 'string',
-      uniqueId: 'string',
       clientToken: 'string',
       logicalResourceId: 'string',
+      regionId: 'string',
+      stackId: 'string',
+      status: 'string',
+      uniqueId: 'string',
     };
   }
 
@@ -4545,19 +4828,19 @@ export class SignalResourceResponse extends $tea.Model {
 }
 
 export class StopStackGroupOperationRequest extends $tea.Model {
-  regionId?: string;
   operationId?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
       operationId: 'OperationId',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
       operationId: 'string',
+      regionId: 'string',
     };
   }
 
@@ -4609,14 +4892,14 @@ export class StopStackGroupOperationResponse extends $tea.Model {
 
 export class TagResourcesRequest extends $tea.Model {
   regionId?: string;
-  resourceType?: string;
   resourceId?: string[];
+  resourceType?: string;
   tag?: TagResourcesRequestTag[];
   static names(): { [key: string]: string } {
     return {
       regionId: 'RegionId',
-      resourceType: 'ResourceType',
       resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
       tag: 'Tag',
     };
   }
@@ -4624,8 +4907,8 @@ export class TagResourcesRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       regionId: 'string',
-      resourceType: 'string',
       resourceId: { 'type': 'array', 'itemType': 'string' },
+      resourceType: 'string',
       tag: { 'type': 'array', 'itemType': TagResourcesRequestTag },
     };
   }
@@ -4677,27 +4960,27 @@ export class TagResourcesResponse extends $tea.Model {
 }
 
 export class UntagResourcesRequest extends $tea.Model {
-  regionId?: string;
-  resourceType?: string;
   all?: boolean;
+  regionId?: string;
   resourceId?: string[];
+  resourceType?: string;
   tagKey?: string[];
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
-      resourceType: 'ResourceType',
       all: 'All',
+      regionId: 'RegionId',
       resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
       tagKey: 'TagKey',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
-      resourceType: 'string',
       all: 'boolean',
+      regionId: 'string',
       resourceId: { 'type': 'array', 'itemType': 'string' },
+      resourceType: 'string',
       tagKey: { 'type': 'array', 'itemType': 'string' },
     };
   }
@@ -4749,70 +5032,70 @@ export class UntagResourcesResponse extends $tea.Model {
 }
 
 export class UpdateStackRequest extends $tea.Model {
-  stackId?: string;
   clientToken?: string;
-  stackPolicyDuringUpdateBody?: string;
-  timeoutInMinutes?: number;
-  templateBody?: string;
-  stackPolicyURL?: string;
-  stackPolicyDuringUpdateURL?: string;
-  stackPolicyBody?: string;
-  usePreviousParameters?: boolean;
-  regionId?: string;
   disableRollback?: boolean;
-  templateURL?: string;
-  ramRoleName?: string;
-  replacementOption?: string;
-  templateId?: string;
-  templateVersion?: string;
-  parameters?: UpdateStackRequestParameters[];
-  tags?: UpdateStackRequestTags[];
   parallelism?: number;
+  parameters?: UpdateStackRequestParameters[];
+  ramRoleName?: string;
+  regionId?: string;
+  replacementOption?: string;
+  stackId?: string;
+  stackPolicyBody?: string;
+  stackPolicyDuringUpdateBody?: string;
+  stackPolicyDuringUpdateURL?: string;
+  stackPolicyURL?: string;
+  tags?: UpdateStackRequestTags[];
+  templateBody?: string;
+  templateId?: string;
+  templateURL?: string;
+  templateVersion?: string;
+  timeoutInMinutes?: number;
+  usePreviousParameters?: boolean;
   static names(): { [key: string]: string } {
     return {
-      stackId: 'StackId',
       clientToken: 'ClientToken',
-      stackPolicyDuringUpdateBody: 'StackPolicyDuringUpdateBody',
-      timeoutInMinutes: 'TimeoutInMinutes',
-      templateBody: 'TemplateBody',
-      stackPolicyURL: 'StackPolicyURL',
-      stackPolicyDuringUpdateURL: 'StackPolicyDuringUpdateURL',
-      stackPolicyBody: 'StackPolicyBody',
-      usePreviousParameters: 'UsePreviousParameters',
-      regionId: 'RegionId',
       disableRollback: 'DisableRollback',
-      templateURL: 'TemplateURL',
-      ramRoleName: 'RamRoleName',
-      replacementOption: 'ReplacementOption',
-      templateId: 'TemplateId',
-      templateVersion: 'TemplateVersion',
-      parameters: 'Parameters',
-      tags: 'Tags',
       parallelism: 'Parallelism',
+      parameters: 'Parameters',
+      ramRoleName: 'RamRoleName',
+      regionId: 'RegionId',
+      replacementOption: 'ReplacementOption',
+      stackId: 'StackId',
+      stackPolicyBody: 'StackPolicyBody',
+      stackPolicyDuringUpdateBody: 'StackPolicyDuringUpdateBody',
+      stackPolicyDuringUpdateURL: 'StackPolicyDuringUpdateURL',
+      stackPolicyURL: 'StackPolicyURL',
+      tags: 'Tags',
+      templateBody: 'TemplateBody',
+      templateId: 'TemplateId',
+      templateURL: 'TemplateURL',
+      templateVersion: 'TemplateVersion',
+      timeoutInMinutes: 'TimeoutInMinutes',
+      usePreviousParameters: 'UsePreviousParameters',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      stackId: 'string',
       clientToken: 'string',
-      stackPolicyDuringUpdateBody: 'string',
-      timeoutInMinutes: 'number',
-      templateBody: 'string',
-      stackPolicyURL: 'string',
-      stackPolicyDuringUpdateURL: 'string',
-      stackPolicyBody: 'string',
-      usePreviousParameters: 'boolean',
-      regionId: 'string',
       disableRollback: 'boolean',
-      templateURL: 'string',
-      ramRoleName: 'string',
-      replacementOption: 'string',
-      templateId: 'string',
-      templateVersion: 'string',
-      parameters: { 'type': 'array', 'itemType': UpdateStackRequestParameters },
-      tags: { 'type': 'array', 'itemType': UpdateStackRequestTags },
       parallelism: 'number',
+      parameters: { 'type': 'array', 'itemType': UpdateStackRequestParameters },
+      ramRoleName: 'string',
+      regionId: 'string',
+      replacementOption: 'string',
+      stackId: 'string',
+      stackPolicyBody: 'string',
+      stackPolicyDuringUpdateBody: 'string',
+      stackPolicyDuringUpdateURL: 'string',
+      stackPolicyURL: 'string',
+      tags: { 'type': 'array', 'itemType': UpdateStackRequestTags },
+      templateBody: 'string',
+      templateId: 'string',
+      templateURL: 'string',
+      templateVersion: 'string',
+      timeoutInMinutes: 'number',
+      usePreviousParameters: 'boolean',
     };
   }
 
@@ -4866,67 +5149,67 @@ export class UpdateStackResponse extends $tea.Model {
 }
 
 export class UpdateStackGroupRequest extends $tea.Model {
-  regionId?: string;
-  stackGroupName?: string;
-  description?: string;
   accountIds?: string[];
-  regionIds?: string[];
-  templateBody?: string;
-  templateURL?: string;
+  administrationRoleName?: string;
+  autoDeployment?: UpdateStackGroupRequestAutoDeployment;
   clientToken?: string;
+  deploymentTargets?: UpdateStackGroupRequestDeploymentTargets;
+  description?: string;
+  executionRoleName?: string;
   operationDescription?: string;
   operationPreferences?: { [key: string]: any };
-  administrationRoleName?: string;
-  executionRoleName?: string;
-  templateId?: string;
-  templateVersion?: string;
   parameters?: UpdateStackGroupRequestParameters[];
   permissionModel?: string;
-  autoDeployment?: UpdateStackGroupRequestAutoDeployment;
-  deploymentTargets?: UpdateStackGroupRequestDeploymentTargets;
+  regionId?: string;
+  regionIds?: string[];
+  stackGroupName?: string;
+  templateBody?: string;
+  templateId?: string;
+  templateURL?: string;
+  templateVersion?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
-      stackGroupName: 'StackGroupName',
-      description: 'Description',
       accountIds: 'AccountIds',
-      regionIds: 'RegionIds',
-      templateBody: 'TemplateBody',
-      templateURL: 'TemplateURL',
+      administrationRoleName: 'AdministrationRoleName',
+      autoDeployment: 'AutoDeployment',
       clientToken: 'ClientToken',
+      deploymentTargets: 'DeploymentTargets',
+      description: 'Description',
+      executionRoleName: 'ExecutionRoleName',
       operationDescription: 'OperationDescription',
       operationPreferences: 'OperationPreferences',
-      administrationRoleName: 'AdministrationRoleName',
-      executionRoleName: 'ExecutionRoleName',
-      templateId: 'TemplateId',
-      templateVersion: 'TemplateVersion',
       parameters: 'Parameters',
       permissionModel: 'PermissionModel',
-      autoDeployment: 'AutoDeployment',
-      deploymentTargets: 'DeploymentTargets',
+      regionId: 'RegionId',
+      regionIds: 'RegionIds',
+      stackGroupName: 'StackGroupName',
+      templateBody: 'TemplateBody',
+      templateId: 'TemplateId',
+      templateURL: 'TemplateURL',
+      templateVersion: 'TemplateVersion',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
-      stackGroupName: 'string',
-      description: 'string',
       accountIds: { 'type': 'array', 'itemType': 'string' },
-      regionIds: { 'type': 'array', 'itemType': 'string' },
-      templateBody: 'string',
-      templateURL: 'string',
+      administrationRoleName: 'string',
+      autoDeployment: UpdateStackGroupRequestAutoDeployment,
       clientToken: 'string',
+      deploymentTargets: UpdateStackGroupRequestDeploymentTargets,
+      description: 'string',
+      executionRoleName: 'string',
       operationDescription: 'string',
       operationPreferences: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      administrationRoleName: 'string',
-      executionRoleName: 'string',
-      templateId: 'string',
-      templateVersion: 'string',
       parameters: { 'type': 'array', 'itemType': UpdateStackGroupRequestParameters },
       permissionModel: 'string',
-      autoDeployment: UpdateStackGroupRequestAutoDeployment,
-      deploymentTargets: UpdateStackGroupRequestDeploymentTargets,
+      regionId: 'string',
+      regionIds: { 'type': 'array', 'itemType': 'string' },
+      stackGroupName: 'string',
+      templateBody: 'string',
+      templateId: 'string',
+      templateURL: 'string',
+      templateVersion: 'string',
     };
   }
 
@@ -4936,67 +5219,67 @@ export class UpdateStackGroupRequest extends $tea.Model {
 }
 
 export class UpdateStackGroupShrinkRequest extends $tea.Model {
-  regionId?: string;
-  stackGroupName?: string;
-  description?: string;
   accountIdsShrink?: string;
-  regionIdsShrink?: string;
-  templateBody?: string;
-  templateURL?: string;
+  administrationRoleName?: string;
+  autoDeploymentShrink?: string;
   clientToken?: string;
+  deploymentTargetsShrink?: string;
+  description?: string;
+  executionRoleName?: string;
   operationDescription?: string;
   operationPreferencesShrink?: string;
-  administrationRoleName?: string;
-  executionRoleName?: string;
-  templateId?: string;
-  templateVersion?: string;
   parameters?: UpdateStackGroupShrinkRequestParameters[];
   permissionModel?: string;
-  autoDeploymentShrink?: string;
-  deploymentTargetsShrink?: string;
+  regionId?: string;
+  regionIdsShrink?: string;
+  stackGroupName?: string;
+  templateBody?: string;
+  templateId?: string;
+  templateURL?: string;
+  templateVersion?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
-      stackGroupName: 'StackGroupName',
-      description: 'Description',
       accountIdsShrink: 'AccountIds',
-      regionIdsShrink: 'RegionIds',
-      templateBody: 'TemplateBody',
-      templateURL: 'TemplateURL',
+      administrationRoleName: 'AdministrationRoleName',
+      autoDeploymentShrink: 'AutoDeployment',
       clientToken: 'ClientToken',
+      deploymentTargetsShrink: 'DeploymentTargets',
+      description: 'Description',
+      executionRoleName: 'ExecutionRoleName',
       operationDescription: 'OperationDescription',
       operationPreferencesShrink: 'OperationPreferences',
-      administrationRoleName: 'AdministrationRoleName',
-      executionRoleName: 'ExecutionRoleName',
-      templateId: 'TemplateId',
-      templateVersion: 'TemplateVersion',
       parameters: 'Parameters',
       permissionModel: 'PermissionModel',
-      autoDeploymentShrink: 'AutoDeployment',
-      deploymentTargetsShrink: 'DeploymentTargets',
+      regionId: 'RegionId',
+      regionIdsShrink: 'RegionIds',
+      stackGroupName: 'StackGroupName',
+      templateBody: 'TemplateBody',
+      templateId: 'TemplateId',
+      templateURL: 'TemplateURL',
+      templateVersion: 'TemplateVersion',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
-      stackGroupName: 'string',
-      description: 'string',
       accountIdsShrink: 'string',
-      regionIdsShrink: 'string',
-      templateBody: 'string',
-      templateURL: 'string',
+      administrationRoleName: 'string',
+      autoDeploymentShrink: 'string',
       clientToken: 'string',
+      deploymentTargetsShrink: 'string',
+      description: 'string',
+      executionRoleName: 'string',
       operationDescription: 'string',
       operationPreferencesShrink: 'string',
-      administrationRoleName: 'string',
-      executionRoleName: 'string',
-      templateId: 'string',
-      templateVersion: 'string',
       parameters: { 'type': 'array', 'itemType': UpdateStackGroupShrinkRequestParameters },
       permissionModel: 'string',
-      autoDeploymentShrink: 'string',
-      deploymentTargetsShrink: 'string',
+      regionId: 'string',
+      regionIdsShrink: 'string',
+      stackGroupName: 'string',
+      templateBody: 'string',
+      templateId: 'string',
+      templateURL: 'string',
+      templateVersion: 'string',
     };
   }
 
@@ -5006,19 +5289,19 @@ export class UpdateStackGroupShrinkRequest extends $tea.Model {
 }
 
 export class UpdateStackGroupResponseBody extends $tea.Model {
-  requestId?: string;
   operationId?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       operationId: 'OperationId',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       operationId: 'string',
+      requestId: 'string',
     };
   }
 
@@ -5050,43 +5333,43 @@ export class UpdateStackGroupResponse extends $tea.Model {
 }
 
 export class UpdateStackInstancesRequest extends $tea.Model {
-  regionId?: string;
-  stackGroupName?: string;
   accountIds?: string[];
-  regionIds?: string[];
   clientToken?: string;
+  deploymentTargets?: UpdateStackInstancesRequestDeploymentTargets;
   operationDescription?: string;
   operationPreferences?: { [key: string]: any };
-  timeoutInMinutes?: number;
   parameterOverrides?: UpdateStackInstancesRequestParameterOverrides[];
-  deploymentTargets?: UpdateStackInstancesRequestDeploymentTargets;
+  regionId?: string;
+  regionIds?: string[];
+  stackGroupName?: string;
+  timeoutInMinutes?: number;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
-      stackGroupName: 'StackGroupName',
       accountIds: 'AccountIds',
-      regionIds: 'RegionIds',
       clientToken: 'ClientToken',
+      deploymentTargets: 'DeploymentTargets',
       operationDescription: 'OperationDescription',
       operationPreferences: 'OperationPreferences',
-      timeoutInMinutes: 'TimeoutInMinutes',
       parameterOverrides: 'ParameterOverrides',
-      deploymentTargets: 'DeploymentTargets',
+      regionId: 'RegionId',
+      regionIds: 'RegionIds',
+      stackGroupName: 'StackGroupName',
+      timeoutInMinutes: 'TimeoutInMinutes',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
-      stackGroupName: 'string',
       accountIds: { 'type': 'array', 'itemType': 'string' },
-      regionIds: { 'type': 'array', 'itemType': 'string' },
       clientToken: 'string',
+      deploymentTargets: UpdateStackInstancesRequestDeploymentTargets,
       operationDescription: 'string',
       operationPreferences: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      timeoutInMinutes: 'number',
       parameterOverrides: { 'type': 'array', 'itemType': UpdateStackInstancesRequestParameterOverrides },
-      deploymentTargets: UpdateStackInstancesRequestDeploymentTargets,
+      regionId: 'string',
+      regionIds: { 'type': 'array', 'itemType': 'string' },
+      stackGroupName: 'string',
+      timeoutInMinutes: 'number',
     };
   }
 
@@ -5096,43 +5379,43 @@ export class UpdateStackInstancesRequest extends $tea.Model {
 }
 
 export class UpdateStackInstancesShrinkRequest extends $tea.Model {
-  regionId?: string;
-  stackGroupName?: string;
   accountIdsShrink?: string;
-  regionIdsShrink?: string;
   clientToken?: string;
+  deploymentTargetsShrink?: string;
   operationDescription?: string;
   operationPreferencesShrink?: string;
-  timeoutInMinutes?: number;
   parameterOverrides?: UpdateStackInstancesShrinkRequestParameterOverrides[];
-  deploymentTargetsShrink?: string;
+  regionId?: string;
+  regionIdsShrink?: string;
+  stackGroupName?: string;
+  timeoutInMinutes?: number;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
-      stackGroupName: 'StackGroupName',
       accountIdsShrink: 'AccountIds',
-      regionIdsShrink: 'RegionIds',
       clientToken: 'ClientToken',
+      deploymentTargetsShrink: 'DeploymentTargets',
       operationDescription: 'OperationDescription',
       operationPreferencesShrink: 'OperationPreferences',
-      timeoutInMinutes: 'TimeoutInMinutes',
       parameterOverrides: 'ParameterOverrides',
-      deploymentTargetsShrink: 'DeploymentTargets',
+      regionId: 'RegionId',
+      regionIdsShrink: 'RegionIds',
+      stackGroupName: 'StackGroupName',
+      timeoutInMinutes: 'TimeoutInMinutes',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
-      stackGroupName: 'string',
       accountIdsShrink: 'string',
-      regionIdsShrink: 'string',
       clientToken: 'string',
+      deploymentTargetsShrink: 'string',
       operationDescription: 'string',
       operationPreferencesShrink: 'string',
-      timeoutInMinutes: 'number',
       parameterOverrides: { 'type': 'array', 'itemType': UpdateStackInstancesShrinkRequestParameterOverrides },
-      deploymentTargetsShrink: 'string',
+      regionId: 'string',
+      regionIdsShrink: 'string',
+      stackGroupName: 'string',
+      timeoutInMinutes: 'number',
     };
   }
 
@@ -5142,19 +5425,19 @@ export class UpdateStackInstancesShrinkRequest extends $tea.Model {
 }
 
 export class UpdateStackInstancesResponseBody extends $tea.Model {
-  requestId?: string;
   operationId?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       operationId: 'OperationId',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       operationId: 'string',
+      requestId: 'string',
     };
   }
 
@@ -5186,31 +5469,31 @@ export class UpdateStackInstancesResponse extends $tea.Model {
 }
 
 export class UpdateStackTemplateByResourcesRequest extends $tea.Model {
-  stackId?: string;
-  dryRun?: boolean;
-  regionId?: string;
   clientToken?: string;
-  templateFormat?: string;
+  dryRun?: boolean;
   logicalResourceId?: string[];
+  regionId?: string;
+  stackId?: string;
+  templateFormat?: string;
   static names(): { [key: string]: string } {
     return {
-      stackId: 'StackId',
-      dryRun: 'DryRun',
-      regionId: 'RegionId',
       clientToken: 'ClientToken',
-      templateFormat: 'TemplateFormat',
+      dryRun: 'DryRun',
       logicalResourceId: 'LogicalResourceId',
+      regionId: 'RegionId',
+      stackId: 'StackId',
+      templateFormat: 'TemplateFormat',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      stackId: 'string',
-      dryRun: 'boolean',
-      regionId: 'string',
       clientToken: 'string',
-      templateFormat: 'string',
+      dryRun: 'boolean',
       logicalResourceId: { 'type': 'array', 'itemType': 'string' },
+      regionId: 'string',
+      stackId: 'string',
+      templateFormat: 'string',
     };
   }
 
@@ -5221,21 +5504,21 @@ export class UpdateStackTemplateByResourcesRequest extends $tea.Model {
 
 export class UpdateStackTemplateByResourcesResponseBody extends $tea.Model {
   newTemplateBody?: string;
-  requestId?: string;
   oldTemplateBody?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
       newTemplateBody: 'NewTemplateBody',
-      requestId: 'RequestId',
       oldTemplateBody: 'OldTemplateBody',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       newTemplateBody: 'string',
-      requestId: 'string',
       oldTemplateBody: 'string',
+      requestId: 'string',
     };
   }
 
@@ -5267,28 +5550,28 @@ export class UpdateStackTemplateByResourcesResponse extends $tea.Model {
 }
 
 export class UpdateTemplateRequest extends $tea.Model {
-  templateURL?: string;
-  templateName?: string;
   description?: string;
   templateBody?: string;
   templateId?: string;
+  templateName?: string;
+  templateURL?: string;
   static names(): { [key: string]: string } {
     return {
-      templateURL: 'TemplateURL',
-      templateName: 'TemplateName',
       description: 'Description',
       templateBody: 'TemplateBody',
       templateId: 'TemplateId',
+      templateName: 'TemplateName',
+      templateURL: 'TemplateURL',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      templateURL: 'string',
-      templateName: 'string',
       description: 'string',
       templateBody: 'string',
       templateId: 'string',
+      templateName: 'string',
+      templateURL: 'string',
     };
   }
 
@@ -5298,19 +5581,19 @@ export class UpdateTemplateRequest extends $tea.Model {
 }
 
 export class UpdateTemplateResponseBody extends $tea.Model {
-  templateId?: string;
   requestId?: string;
+  templateId?: string;
   static names(): { [key: string]: string } {
     return {
-      templateId: 'TemplateId',
       requestId: 'RequestId',
+      templateId: 'TemplateId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      templateId: 'string',
       requestId: 'string',
+      templateId: 'string',
     };
   }
 
@@ -5342,27 +5625,27 @@ export class UpdateTemplateResponse extends $tea.Model {
 }
 
 export class ValidateTemplateRequest extends $tea.Model {
-  templateURL?: string;
+  clientToken?: string;
   regionId?: string;
   templateBody?: string;
-  clientToken?: string;
+  templateURL?: string;
   validationOption?: string;
   static names(): { [key: string]: string } {
     return {
-      templateURL: 'TemplateURL',
+      clientToken: 'ClientToken',
       regionId: 'RegionId',
       templateBody: 'TemplateBody',
-      clientToken: 'ClientToken',
+      templateURL: 'TemplateURL',
       validationOption: 'ValidationOption',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      templateURL: 'string',
+      clientToken: 'string',
       regionId: 'string',
       templateBody: 'string',
-      clientToken: 'string',
+      templateURL: 'string',
       validationOption: 'string',
     };
   }
@@ -5374,24 +5657,24 @@ export class ValidateTemplateRequest extends $tea.Model {
 
 export class ValidateTemplateResponseBody extends $tea.Model {
   description?: string;
+  outputs?: ValidateTemplateResponseBodyOutputs[];
   parameters?: { [key: string]: any }[];
   requestId?: string;
-  outputs?: ValidateTemplateResponseBodyOutputs[];
   static names(): { [key: string]: string } {
     return {
       description: 'Description',
+      outputs: 'Outputs',
       parameters: 'Parameters',
       requestId: 'RequestId',
-      outputs: 'Outputs',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       description: 'string',
+      outputs: { 'type': 'array', 'itemType': ValidateTemplateResponseBodyOutputs },
       parameters: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
       requestId: 'string',
-      outputs: { 'type': 'array', 'itemType': ValidateTemplateResponseBodyOutputs },
     };
   }
 
@@ -5467,21 +5750,21 @@ export class CreateChangeSetRequestParameters extends $tea.Model {
 }
 
 export class CreateChangeSetRequestResourcesToImport extends $tea.Model {
-  resourceIdentifier?: string;
   logicalResourceId?: string;
+  resourceIdentifier?: string;
   resourceType?: string;
   static names(): { [key: string]: string } {
     return {
-      resourceIdentifier: 'ResourceIdentifier',
       logicalResourceId: 'LogicalResourceId',
+      resourceIdentifier: 'ResourceIdentifier',
       resourceType: 'ResourceType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      resourceIdentifier: 'string',
       logicalResourceId: 'string',
+      resourceIdentifier: 'string',
       resourceType: 'string',
     };
   }
@@ -5535,28 +5818,6 @@ export class CreateStackRequestTags extends $tea.Model {
   }
 }
 
-export class CreateStackGroupRequestParameters extends $tea.Model {
-  parameterKey?: string;
-  parameterValue?: string;
-  static names(): { [key: string]: string } {
-    return {
-      parameterKey: 'ParameterKey',
-      parameterValue: 'ParameterValue',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      parameterKey: 'string',
-      parameterValue: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class CreateStackGroupRequestAutoDeployment extends $tea.Model {
   enabled?: boolean;
   retainStacksOnAccountRemoval?: boolean;
@@ -5579,7 +5840,7 @@ export class CreateStackGroupRequestAutoDeployment extends $tea.Model {
   }
 }
 
-export class CreateStackGroupShrinkRequestParameters extends $tea.Model {
+export class CreateStackGroupRequestParameters extends $tea.Model {
   parameterKey?: string;
   parameterValue?: string;
   static names(): { [key: string]: string } {
@@ -5601,7 +5862,7 @@ export class CreateStackGroupShrinkRequestParameters extends $tea.Model {
   }
 }
 
-export class CreateStackInstancesRequestParameterOverrides extends $tea.Model {
+export class CreateStackGroupShrinkRequestParameters extends $tea.Model {
   parameterKey?: string;
   parameterValue?: string;
   static names(): { [key: string]: string } {
@@ -5634,6 +5895,28 @@ export class CreateStackInstancesRequestDeploymentTargets extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       rdFolderIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateStackInstancesRequestParameterOverrides extends $tea.Model {
+  parameterKey?: string;
+  parameterValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      parameterKey: 'ParameterKey',
+      parameterValue: 'ParameterValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      parameterKey: 'string',
+      parameterValue: 'string',
     };
   }
 
@@ -5684,21 +5967,21 @@ export class DeleteStackInstancesRequestDeploymentTargets extends $tea.Model {
 }
 
 export class DescribeRegionsResponseBodyRegions extends $tea.Model {
-  regionEndpoint?: string;
   localName?: string;
+  regionEndpoint?: string;
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionEndpoint: 'RegionEndpoint',
       localName: 'LocalName',
+      regionEndpoint: 'RegionEndpoint',
       regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionEndpoint: 'string',
       localName: 'string',
+      regionEndpoint: 'string',
       regionId: 'string',
     };
   }
@@ -5711,14 +5994,14 @@ export class DescribeRegionsResponseBodyRegions extends $tea.Model {
 export class DetectStackResourceDriftResponseBodyPropertyDifferences extends $tea.Model {
   actualValue?: string;
   differenceType?: string;
-  propertyPath?: string;
   expectedValue?: string;
+  propertyPath?: string;
   static names(): { [key: string]: string } {
     return {
       actualValue: 'ActualValue',
       differenceType: 'DifferenceType',
-      propertyPath: 'PropertyPath',
       expectedValue: 'ExpectedValue',
+      propertyPath: 'PropertyPath',
     };
   }
 
@@ -5726,8 +6009,8 @@ export class DetectStackResourceDriftResponseBodyPropertyDifferences extends $te
     return {
       actualValue: 'string',
       differenceType: 'string',
-      propertyPath: 'string',
       expectedValue: 'string',
+      propertyPath: 'string',
     };
   }
 
@@ -5737,22 +6020,22 @@ export class DetectStackResourceDriftResponseBodyPropertyDifferences extends $te
 }
 
 export class GenerateTemplatePolicyResponseBodyPolicyStatement extends $tea.Model {
+  action?: string[];
   effect?: string;
   resource?: string;
-  action?: string[];
   static names(): { [key: string]: string } {
     return {
+      action: 'Action',
       effect: 'Effect',
       resource: 'Resource',
-      action: 'Action',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      action: { 'type': 'array', 'itemType': 'string' },
       effect: 'string',
       resource: 'string',
-      action: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -5762,19 +6045,19 @@ export class GenerateTemplatePolicyResponseBodyPolicyStatement extends $tea.Mode
 }
 
 export class GenerateTemplatePolicyResponseBodyPolicy extends $tea.Model {
-  version?: string;
   statement?: GenerateTemplatePolicyResponseBodyPolicyStatement[];
+  version?: string;
   static names(): { [key: string]: string } {
     return {
-      version: 'Version',
       statement: 'Statement',
+      version: 'Version',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      version: 'string',
       statement: { 'type': 'array', 'itemType': GenerateTemplatePolicyResponseBodyPolicyStatement },
+      version: 'string',
     };
   }
 
@@ -5805,6 +6088,222 @@ export class GetChangeSetResponseBodyParameters extends $tea.Model {
   }
 }
 
+export class GetFeatureDetailsResponseBodyTerraformSupportedResourceTypes extends $tea.Model {
+  customTag?: string[];
+  estimateCost?: string[];
+  systemTag?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      customTag: 'CustomTag',
+      estimateCost: 'EstimateCost',
+      systemTag: 'SystemTag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      customTag: { 'type': 'array', 'itemType': 'string' },
+      estimateCost: { 'type': 'array', 'itemType': 'string' },
+      systemTag: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFeatureDetailsResponseBodyTerraformSupportedVersionsProviderVersions extends $tea.Model {
+  providerName?: string;
+  supportedVersions?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      providerName: 'ProviderName',
+      supportedVersions: 'SupportedVersions',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      providerName: 'string',
+      supportedVersions: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFeatureDetailsResponseBodyTerraformSupportedVersions extends $tea.Model {
+  providerVersions?: GetFeatureDetailsResponseBodyTerraformSupportedVersionsProviderVersions[];
+  terraformVersion?: string;
+  transform?: string;
+  static names(): { [key: string]: string } {
+    return {
+      providerVersions: 'ProviderVersions',
+      terraformVersion: 'TerraformVersion',
+      transform: 'Transform',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      providerVersions: { 'type': 'array', 'itemType': GetFeatureDetailsResponseBodyTerraformSupportedVersionsProviderVersions },
+      terraformVersion: 'string',
+      transform: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFeatureDetailsResponseBodyTerraform extends $tea.Model {
+  supportedResourceTypes?: GetFeatureDetailsResponseBodyTerraformSupportedResourceTypes;
+  supportedVersions?: GetFeatureDetailsResponseBodyTerraformSupportedVersions[];
+  static names(): { [key: string]: string } {
+    return {
+      supportedResourceTypes: 'SupportedResourceTypes',
+      supportedVersions: 'SupportedVersions',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      supportedResourceTypes: GetFeatureDetailsResponseBodyTerraformSupportedResourceTypes,
+      supportedVersions: { 'type': 'array', 'itemType': GetFeatureDetailsResponseBodyTerraformSupportedVersions },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceProvisionsRequestParameters extends $tea.Model {
+  parameterKey?: string;
+  parameterValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      parameterKey: 'ParameterKey',
+      parameterValue: 'ParameterValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      parameterKey: 'string',
+      parameterValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceProvisionsRequestServices extends $tea.Model {
+  serviceName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      serviceName: 'ServiceName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      serviceName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceProvisionsResponseBodyServiceProvisionsRoleProvisionRoles extends $tea.Model {
+  created?: boolean;
+  function?: string;
+  roleName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      created: 'Created',
+      function: 'Function',
+      roleName: 'RoleName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      created: 'boolean',
+      function: 'string',
+      roleName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceProvisionsResponseBodyServiceProvisionsRoleProvision extends $tea.Model {
+  authorizationURL?: string;
+  roles?: GetServiceProvisionsResponseBodyServiceProvisionsRoleProvisionRoles[];
+  static names(): { [key: string]: string } {
+    return {
+      authorizationURL: 'AuthorizationURL',
+      roles: 'Roles',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authorizationURL: 'string',
+      roles: { 'type': 'array', 'itemType': GetServiceProvisionsResponseBodyServiceProvisionsRoleProvisionRoles },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceProvisionsResponseBodyServiceProvisions extends $tea.Model {
+  autoEnableService?: boolean;
+  enableURL?: string;
+  roleProvision?: GetServiceProvisionsResponseBodyServiceProvisionsRoleProvision;
+  serviceName?: string;
+  status?: string;
+  statusReason?: string;
+  static names(): { [key: string]: string } {
+    return {
+      autoEnableService: 'AutoEnableService',
+      enableURL: 'EnableURL',
+      roleProvision: 'RoleProvision',
+      serviceName: 'ServiceName',
+      status: 'Status',
+      statusReason: 'StatusReason',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoEnableService: 'boolean',
+      enableURL: 'string',
+      roleProvision: GetServiceProvisionsResponseBodyServiceProvisionsRoleProvision,
+      serviceName: 'string',
+      status: 'string',
+      statusReason: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetStackResponseBodyParameters extends $tea.Model {
   parameterKey?: string;
   parameterValue?: string;
@@ -5819,6 +6318,68 @@ export class GetStackResponseBodyParameters extends $tea.Model {
     return {
       parameterKey: 'string',
       parameterValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetStackResponseBodyResourceProgressInProgressResourceDetails extends $tea.Model {
+  progressTargetValue?: number;
+  progressValue?: number;
+  resourceName?: string;
+  resourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      progressTargetValue: 'ProgressTargetValue',
+      progressValue: 'ProgressValue',
+      resourceName: 'ResourceName',
+      resourceType: 'ResourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      progressTargetValue: 'number',
+      progressValue: 'number',
+      resourceName: 'string',
+      resourceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetStackResponseBodyResourceProgress extends $tea.Model {
+  failedResourceCount?: number;
+  inProgressResourceCount?: number;
+  inProgressResourceDetails?: GetStackResponseBodyResourceProgressInProgressResourceDetails[];
+  pendingResourceCount?: number;
+  successResourceCount?: number;
+  totalResourceCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      failedResourceCount: 'FailedResourceCount',
+      inProgressResourceCount: 'InProgressResourceCount',
+      inProgressResourceDetails: 'InProgressResourceDetails',
+      pendingResourceCount: 'PendingResourceCount',
+      successResourceCount: 'SuccessResourceCount',
+      totalResourceCount: 'TotalResourceCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      failedResourceCount: 'number',
+      inProgressResourceCount: 'number',
+      inProgressResourceDetails: { 'type': 'array', 'itemType': GetStackResponseBodyResourceProgressInProgressResourceDetails },
+      pendingResourceCount: 'number',
+      successResourceCount: 'number',
+      totalResourceCount: 'number',
     };
   }
 
@@ -5849,60 +6410,20 @@ export class GetStackResponseBodyTags extends $tea.Model {
   }
 }
 
-export class GetStackResponseBodyResourceProgressInProgressResourceDetails extends $tea.Model {
-  resourceName?: string;
-  resourceType?: string;
-  progressValue?: number;
-  progressTargetValue?: number;
+export class GetStackGroupResponseBodyStackGroupAutoDeployment extends $tea.Model {
+  enabled?: boolean;
+  retainStacksOnAccountRemoval?: boolean;
   static names(): { [key: string]: string } {
     return {
-      resourceName: 'ResourceName',
-      resourceType: 'ResourceType',
-      progressValue: 'ProgressValue',
-      progressTargetValue: 'ProgressTargetValue',
+      enabled: 'Enabled',
+      retainStacksOnAccountRemoval: 'RetainStacksOnAccountRemoval',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      resourceName: 'string',
-      resourceType: 'string',
-      progressValue: 'number',
-      progressTargetValue: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetStackResponseBodyResourceProgress extends $tea.Model {
-  totalResourceCount?: number;
-  successResourceCount?: number;
-  failedResourceCount?: number;
-  inProgressResourceCount?: number;
-  pendingResourceCount?: number;
-  inProgressResourceDetails?: GetStackResponseBodyResourceProgressInProgressResourceDetails[];
-  static names(): { [key: string]: string } {
-    return {
-      totalResourceCount: 'TotalResourceCount',
-      successResourceCount: 'SuccessResourceCount',
-      failedResourceCount: 'FailedResourceCount',
-      inProgressResourceCount: 'InProgressResourceCount',
-      pendingResourceCount: 'PendingResourceCount',
-      inProgressResourceDetails: 'InProgressResourceDetails',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      totalResourceCount: 'number',
-      successResourceCount: 'number',
-      failedResourceCount: 'number',
-      inProgressResourceCount: 'number',
-      pendingResourceCount: 'number',
-      inProgressResourceDetails: { 'type': 'array', 'itemType': GetStackResponseBodyResourceProgressInProgressResourceDetails },
+      enabled: 'boolean',
+      retainStacksOnAccountRemoval: 'boolean',
     };
   }
 
@@ -5934,62 +6455,40 @@ export class GetStackGroupResponseBodyStackGroupParameters extends $tea.Model {
 }
 
 export class GetStackGroupResponseBodyStackGroupStackGroupDriftDetectionDetail extends $tea.Model {
-  driftDetectionTime?: string;
-  totalStackInstancesCount?: number;
-  failedStackInstancesCount?: number;
+  cancelledStackInstancesCount?: number;
   driftDetectionStatus?: string;
-  stackGroupDriftStatus?: string;
+  driftDetectionTime?: string;
+  driftedStackInstancesCount?: number;
+  failedStackInstancesCount?: number;
   inProgressStackInstancesCount?: number;
   inSyncStackInstancesCount?: number;
-  cancelledStackInstancesCount?: number;
-  driftedStackInstancesCount?: number;
+  stackGroupDriftStatus?: string;
+  totalStackInstancesCount?: number;
   static names(): { [key: string]: string } {
     return {
-      driftDetectionTime: 'DriftDetectionTime',
-      totalStackInstancesCount: 'TotalStackInstancesCount',
-      failedStackInstancesCount: 'FailedStackInstancesCount',
+      cancelledStackInstancesCount: 'CancelledStackInstancesCount',
       driftDetectionStatus: 'DriftDetectionStatus',
-      stackGroupDriftStatus: 'StackGroupDriftStatus',
+      driftDetectionTime: 'DriftDetectionTime',
+      driftedStackInstancesCount: 'DriftedStackInstancesCount',
+      failedStackInstancesCount: 'FailedStackInstancesCount',
       inProgressStackInstancesCount: 'InProgressStackInstancesCount',
       inSyncStackInstancesCount: 'InSyncStackInstancesCount',
-      cancelledStackInstancesCount: 'CancelledStackInstancesCount',
-      driftedStackInstancesCount: 'DriftedStackInstancesCount',
+      stackGroupDriftStatus: 'StackGroupDriftStatus',
+      totalStackInstancesCount: 'TotalStackInstancesCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      driftDetectionTime: 'string',
-      totalStackInstancesCount: 'number',
-      failedStackInstancesCount: 'number',
+      cancelledStackInstancesCount: 'number',
       driftDetectionStatus: 'string',
-      stackGroupDriftStatus: 'string',
+      driftDetectionTime: 'string',
+      driftedStackInstancesCount: 'number',
+      failedStackInstancesCount: 'number',
       inProgressStackInstancesCount: 'number',
       inSyncStackInstancesCount: 'number',
-      cancelledStackInstancesCount: 'number',
-      driftedStackInstancesCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetStackGroupResponseBodyStackGroupAutoDeployment extends $tea.Model {
-  enabled?: boolean;
-  retainStacksOnAccountRemoval?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      enabled: 'Enabled',
-      retainStacksOnAccountRemoval: 'RetainStacksOnAccountRemoval',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      enabled: 'boolean',
-      retainStacksOnAccountRemoval: 'boolean',
+      stackGroupDriftStatus: 'string',
+      totalStackInstancesCount: 'number',
     };
   }
 
@@ -5999,126 +6498,52 @@ export class GetStackGroupResponseBodyStackGroupAutoDeployment extends $tea.Mode
 }
 
 export class GetStackGroupResponseBodyStackGroup extends $tea.Model {
-  stackGroupId?: string;
-  status?: string;
   administrationRoleName?: string;
-  parameters?: GetStackGroupResponseBodyStackGroupParameters[];
-  description?: string;
-  stackGroupName?: string;
-  executionRoleName?: string;
-  templateBody?: string;
-  stackGroupDriftDetectionDetail?: GetStackGroupResponseBodyStackGroupStackGroupDriftDetectionDetail;
-  resourceGroupId?: string;
-  permissionModel?: string;
   autoDeployment?: GetStackGroupResponseBodyStackGroupAutoDeployment;
+  description?: string;
+  executionRoleName?: string;
+  parameters?: GetStackGroupResponseBodyStackGroupParameters[];
+  permissionModel?: string;
   rdFolderIds?: string[];
+  resourceGroupId?: string;
+  stackGroupDriftDetectionDetail?: GetStackGroupResponseBodyStackGroupStackGroupDriftDetectionDetail;
+  stackGroupId?: string;
+  stackGroupName?: string;
+  status?: string;
+  templateBody?: string;
   static names(): { [key: string]: string } {
     return {
-      stackGroupId: 'StackGroupId',
-      status: 'Status',
       administrationRoleName: 'AdministrationRoleName',
-      parameters: 'Parameters',
-      description: 'Description',
-      stackGroupName: 'StackGroupName',
-      executionRoleName: 'ExecutionRoleName',
-      templateBody: 'TemplateBody',
-      stackGroupDriftDetectionDetail: 'StackGroupDriftDetectionDetail',
-      resourceGroupId: 'ResourceGroupId',
-      permissionModel: 'PermissionModel',
       autoDeployment: 'AutoDeployment',
+      description: 'Description',
+      executionRoleName: 'ExecutionRoleName',
+      parameters: 'Parameters',
+      permissionModel: 'PermissionModel',
       rdFolderIds: 'RdFolderIds',
+      resourceGroupId: 'ResourceGroupId',
+      stackGroupDriftDetectionDetail: 'StackGroupDriftDetectionDetail',
+      stackGroupId: 'StackGroupId',
+      stackGroupName: 'StackGroupName',
+      status: 'Status',
+      templateBody: 'TemplateBody',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      stackGroupId: 'string',
-      status: 'string',
       administrationRoleName: 'string',
-      parameters: { 'type': 'array', 'itemType': GetStackGroupResponseBodyStackGroupParameters },
-      description: 'string',
-      stackGroupName: 'string',
-      executionRoleName: 'string',
-      templateBody: 'string',
-      stackGroupDriftDetectionDetail: GetStackGroupResponseBodyStackGroupStackGroupDriftDetectionDetail,
-      resourceGroupId: 'string',
-      permissionModel: 'string',
       autoDeployment: GetStackGroupResponseBodyStackGroupAutoDeployment,
+      description: 'string',
+      executionRoleName: 'string',
+      parameters: { 'type': 'array', 'itemType': GetStackGroupResponseBodyStackGroupParameters },
+      permissionModel: 'string',
       rdFolderIds: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetStackGroupOperationResponseBodyStackGroupOperationStackGroupDriftDetectionDetail extends $tea.Model {
-  driftDetectionTime?: string;
-  totalStackInstancesCount?: number;
-  failedStackInstancesCount?: number;
-  driftDetectionStatus?: string;
-  stackGroupDriftStatus?: string;
-  inProgressStackInstancesCount?: number;
-  inSyncStackInstancesCount?: number;
-  cancelledStackInstancesCount?: number;
-  driftedStackInstancesCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      driftDetectionTime: 'DriftDetectionTime',
-      totalStackInstancesCount: 'TotalStackInstancesCount',
-      failedStackInstancesCount: 'FailedStackInstancesCount',
-      driftDetectionStatus: 'DriftDetectionStatus',
-      stackGroupDriftStatus: 'StackGroupDriftStatus',
-      inProgressStackInstancesCount: 'InProgressStackInstancesCount',
-      inSyncStackInstancesCount: 'InSyncStackInstancesCount',
-      cancelledStackInstancesCount: 'CancelledStackInstancesCount',
-      driftedStackInstancesCount: 'DriftedStackInstancesCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      driftDetectionTime: 'string',
-      totalStackInstancesCount: 'number',
-      failedStackInstancesCount: 'number',
-      driftDetectionStatus: 'string',
-      stackGroupDriftStatus: 'string',
-      inProgressStackInstancesCount: 'number',
-      inSyncStackInstancesCount: 'number',
-      cancelledStackInstancesCount: 'number',
-      driftedStackInstancesCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetStackGroupOperationResponseBodyStackGroupOperationOperationPreferences extends $tea.Model {
-  maxConcurrentCount?: number;
-  failureToleranceCount?: number;
-  maxConcurrentPercentage?: number;
-  regionIdsOrder?: string[];
-  failureTolerancePercentage?: number;
-  static names(): { [key: string]: string } {
-    return {
-      maxConcurrentCount: 'MaxConcurrentCount',
-      failureToleranceCount: 'FailureToleranceCount',
-      maxConcurrentPercentage: 'MaxConcurrentPercentage',
-      regionIdsOrder: 'RegionIdsOrder',
-      failureTolerancePercentage: 'FailureTolerancePercentage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      maxConcurrentCount: 'number',
-      failureToleranceCount: 'number',
-      maxConcurrentPercentage: 'number',
-      regionIdsOrder: { 'type': 'array', 'itemType': 'string' },
-      failureTolerancePercentage: 'number',
+      resourceGroupId: 'string',
+      stackGroupDriftDetectionDetail: GetStackGroupResponseBodyStackGroupStackGroupDriftDetectionDetail,
+      stackGroupId: 'string',
+      stackGroupName: 'string',
+      status: 'string',
+      templateBody: 'string',
     };
   }
 
@@ -6128,19 +6553,93 @@ export class GetStackGroupOperationResponseBodyStackGroupOperationOperationPrefe
 }
 
 export class GetStackGroupOperationResponseBodyStackGroupOperationDeploymentTargets extends $tea.Model {
-  rdFolderIds?: string[];
   accountIds?: string[];
+  rdFolderIds?: string[];
   static names(): { [key: string]: string } {
     return {
-      rdFolderIds: 'RdFolderIds',
       accountIds: 'AccountIds',
+      rdFolderIds: 'RdFolderIds',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      rdFolderIds: { 'type': 'array', 'itemType': 'string' },
       accountIds: { 'type': 'array', 'itemType': 'string' },
+      rdFolderIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetStackGroupOperationResponseBodyStackGroupOperationOperationPreferences extends $tea.Model {
+  failureToleranceCount?: number;
+  failureTolerancePercentage?: number;
+  maxConcurrentCount?: number;
+  maxConcurrentPercentage?: number;
+  regionIdsOrder?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      failureToleranceCount: 'FailureToleranceCount',
+      failureTolerancePercentage: 'FailureTolerancePercentage',
+      maxConcurrentCount: 'MaxConcurrentCount',
+      maxConcurrentPercentage: 'MaxConcurrentPercentage',
+      regionIdsOrder: 'RegionIdsOrder',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      failureToleranceCount: 'number',
+      failureTolerancePercentage: 'number',
+      maxConcurrentCount: 'number',
+      maxConcurrentPercentage: 'number',
+      regionIdsOrder: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetStackGroupOperationResponseBodyStackGroupOperationStackGroupDriftDetectionDetail extends $tea.Model {
+  cancelledStackInstancesCount?: number;
+  driftDetectionStatus?: string;
+  driftDetectionTime?: string;
+  driftedStackInstancesCount?: number;
+  failedStackInstancesCount?: number;
+  inProgressStackInstancesCount?: number;
+  inSyncStackInstancesCount?: number;
+  stackGroupDriftStatus?: string;
+  totalStackInstancesCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      cancelledStackInstancesCount: 'CancelledStackInstancesCount',
+      driftDetectionStatus: 'DriftDetectionStatus',
+      driftDetectionTime: 'DriftDetectionTime',
+      driftedStackInstancesCount: 'DriftedStackInstancesCount',
+      failedStackInstancesCount: 'FailedStackInstancesCount',
+      inProgressStackInstancesCount: 'InProgressStackInstancesCount',
+      inSyncStackInstancesCount: 'InSyncStackInstancesCount',
+      stackGroupDriftStatus: 'StackGroupDriftStatus',
+      totalStackInstancesCount: 'TotalStackInstancesCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cancelledStackInstancesCount: 'number',
+      driftDetectionStatus: 'string',
+      driftDetectionTime: 'string',
+      driftedStackInstancesCount: 'number',
+      failedStackInstancesCount: 'number',
+      inProgressStackInstancesCount: 'number',
+      inSyncStackInstancesCount: 'number',
+      stackGroupDriftStatus: 'string',
+      totalStackInstancesCount: 'number',
     };
   }
 
@@ -6150,55 +6649,55 @@ export class GetStackGroupOperationResponseBodyStackGroupOperationDeploymentTarg
 }
 
 export class GetStackGroupOperationResponseBodyStackGroupOperation extends $tea.Model {
-  status?: string;
-  stackGroupId?: string;
   action?: string;
+  administrationRoleName?: string;
   createTime?: string;
-  retainStacks?: boolean;
-  stackGroupName?: string;
-  operationId?: string;
-  operationDescription?: string;
-  stackGroupDriftDetectionDetail?: GetStackGroupOperationResponseBodyStackGroupOperationStackGroupDriftDetectionDetail;
-  operationPreferences?: GetStackGroupOperationResponseBodyStackGroupOperationOperationPreferences;
+  deploymentTargets?: GetStackGroupOperationResponseBodyStackGroupOperationDeploymentTargets;
   endTime?: string;
   executionRoleName?: string;
-  administrationRoleName?: string;
-  deploymentTargets?: GetStackGroupOperationResponseBodyStackGroupOperationDeploymentTargets;
+  operationDescription?: string;
+  operationId?: string;
+  operationPreferences?: GetStackGroupOperationResponseBodyStackGroupOperationOperationPreferences;
+  retainStacks?: boolean;
+  stackGroupDriftDetectionDetail?: GetStackGroupOperationResponseBodyStackGroupOperationStackGroupDriftDetectionDetail;
+  stackGroupId?: string;
+  stackGroupName?: string;
+  status?: string;
   static names(): { [key: string]: string } {
     return {
-      status: 'Status',
-      stackGroupId: 'StackGroupId',
       action: 'Action',
+      administrationRoleName: 'AdministrationRoleName',
       createTime: 'CreateTime',
-      retainStacks: 'RetainStacks',
-      stackGroupName: 'StackGroupName',
-      operationId: 'OperationId',
-      operationDescription: 'OperationDescription',
-      stackGroupDriftDetectionDetail: 'StackGroupDriftDetectionDetail',
-      operationPreferences: 'OperationPreferences',
+      deploymentTargets: 'DeploymentTargets',
       endTime: 'EndTime',
       executionRoleName: 'ExecutionRoleName',
-      administrationRoleName: 'AdministrationRoleName',
-      deploymentTargets: 'DeploymentTargets',
+      operationDescription: 'OperationDescription',
+      operationId: 'OperationId',
+      operationPreferences: 'OperationPreferences',
+      retainStacks: 'RetainStacks',
+      stackGroupDriftDetectionDetail: 'StackGroupDriftDetectionDetail',
+      stackGroupId: 'StackGroupId',
+      stackGroupName: 'StackGroupName',
+      status: 'Status',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      status: 'string',
-      stackGroupId: 'string',
       action: 'string',
+      administrationRoleName: 'string',
       createTime: 'string',
-      retainStacks: 'boolean',
-      stackGroupName: 'string',
-      operationId: 'string',
-      operationDescription: 'string',
-      stackGroupDriftDetectionDetail: GetStackGroupOperationResponseBodyStackGroupOperationStackGroupDriftDetectionDetail,
-      operationPreferences: GetStackGroupOperationResponseBodyStackGroupOperationOperationPreferences,
+      deploymentTargets: GetStackGroupOperationResponseBodyStackGroupOperationDeploymentTargets,
       endTime: 'string',
       executionRoleName: 'string',
-      administrationRoleName: 'string',
-      deploymentTargets: GetStackGroupOperationResponseBodyStackGroupOperationDeploymentTargets,
+      operationDescription: 'string',
+      operationId: 'string',
+      operationPreferences: GetStackGroupOperationResponseBodyStackGroupOperationOperationPreferences,
+      retainStacks: 'boolean',
+      stackGroupDriftDetectionDetail: GetStackGroupOperationResponseBodyStackGroupOperationStackGroupDriftDetectionDetail,
+      stackGroupId: 'string',
+      stackGroupName: 'string',
+      status: 'string',
     };
   }
 
@@ -6230,46 +6729,46 @@ export class GetStackInstanceResponseBodyStackInstanceParameterOverrides extends
 }
 
 export class GetStackInstanceResponseBodyStackInstance extends $tea.Model {
-  status?: string;
-  stackGroupId?: string;
-  stackId?: string;
-  driftDetectionTime?: string;
-  stackDriftStatus?: string;
-  statusReason?: string;
-  parameterOverrides?: GetStackInstanceResponseBodyStackInstanceParameterOverrides[];
-  stackGroupName?: string;
   accountId?: string;
-  regionId?: string;
+  driftDetectionTime?: string;
+  parameterOverrides?: GetStackInstanceResponseBodyStackInstanceParameterOverrides[];
   rdFolderId?: string;
+  regionId?: string;
+  stackDriftStatus?: string;
+  stackGroupId?: string;
+  stackGroupName?: string;
+  stackId?: string;
+  status?: string;
+  statusReason?: string;
   static names(): { [key: string]: string } {
     return {
-      status: 'Status',
-      stackGroupId: 'StackGroupId',
-      stackId: 'StackId',
-      driftDetectionTime: 'DriftDetectionTime',
-      stackDriftStatus: 'StackDriftStatus',
-      statusReason: 'StatusReason',
-      parameterOverrides: 'ParameterOverrides',
-      stackGroupName: 'StackGroupName',
       accountId: 'AccountId',
-      regionId: 'RegionId',
+      driftDetectionTime: 'DriftDetectionTime',
+      parameterOverrides: 'ParameterOverrides',
       rdFolderId: 'RdFolderId',
+      regionId: 'RegionId',
+      stackDriftStatus: 'StackDriftStatus',
+      stackGroupId: 'StackGroupId',
+      stackGroupName: 'StackGroupName',
+      stackId: 'StackId',
+      status: 'Status',
+      statusReason: 'StatusReason',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      status: 'string',
-      stackGroupId: 'string',
-      stackId: 'string',
-      driftDetectionTime: 'string',
-      stackDriftStatus: 'string',
-      statusReason: 'string',
-      parameterOverrides: { 'type': 'array', 'itemType': GetStackInstanceResponseBodyStackInstanceParameterOverrides },
-      stackGroupName: 'string',
       accountId: 'string',
-      regionId: 'string',
+      driftDetectionTime: 'string',
+      parameterOverrides: { 'type': 'array', 'itemType': GetStackInstanceResponseBodyStackInstanceParameterOverrides },
       rdFolderId: 'string',
+      regionId: 'string',
+      stackDriftStatus: 'string',
+      stackGroupId: 'string',
+      stackGroupName: 'string',
+      stackId: 'string',
+      status: 'string',
+      statusReason: 'string',
     };
   }
 
@@ -6279,25 +6778,25 @@ export class GetStackInstanceResponseBodyStackInstance extends $tea.Model {
 }
 
 export class GetTemplateResponseBodyPermissions extends $tea.Model {
-  versionOption?: string;
   accountId?: string;
   shareOption?: string;
   templateVersion?: string;
+  versionOption?: string;
   static names(): { [key: string]: string } {
     return {
-      versionOption: 'VersionOption',
       accountId: 'AccountId',
       shareOption: 'ShareOption',
       templateVersion: 'TemplateVersion',
+      versionOption: 'VersionOption',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      versionOption: 'string',
       accountId: 'string',
       shareOption: 'string',
       templateVersion: 'string',
+      versionOption: 'string',
     };
   }
 
@@ -6328,23 +6827,101 @@ export class GetTemplateEstimateCostRequestParameters extends $tea.Model {
   }
 }
 
-export class GetTemplateSummaryResponseBodyResourceIdentifierSummaries extends $tea.Model {
-  resourceType?: string;
-  resourceIdentifiers?: string[];
-  logicalResourceIds?: string[];
+export class GetTemplateParameterConstraintsRequestParameters extends $tea.Model {
+  parameterKey?: string;
+  parameterValue?: string;
   static names(): { [key: string]: string } {
     return {
-      resourceType: 'ResourceType',
-      resourceIdentifiers: 'ResourceIdentifiers',
-      logicalResourceIds: 'LogicalResourceIds',
+      parameterKey: 'ParameterKey',
+      parameterValue: 'ParameterValue',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      resourceType: 'string',
-      resourceIdentifiers: { 'type': 'array', 'itemType': 'string' },
+      parameterKey: 'string',
+      parameterValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTemplateParameterConstraintsShrinkRequestParameters extends $tea.Model {
+  parameterKey?: string;
+  parameterValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      parameterKey: 'ParameterKey',
+      parameterValue: 'ParameterValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      parameterKey: 'string',
+      parameterValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTemplateParameterConstraintsResponseBodyParameterConstraints extends $tea.Model {
+  allowedValues?: string[];
+  associationParameterNames?: string[];
+  behavior?: string;
+  behaviorReason?: string;
+  parameterKey?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      allowedValues: 'AllowedValues',
+      associationParameterNames: 'AssociationParameterNames',
+      behavior: 'Behavior',
+      behaviorReason: 'BehaviorReason',
+      parameterKey: 'ParameterKey',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allowedValues: { 'type': 'array', 'itemType': 'string' },
+      associationParameterNames: { 'type': 'array', 'itemType': 'string' },
+      behavior: 'string',
+      behaviorReason: 'string',
+      parameterKey: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTemplateSummaryResponseBodyResourceIdentifierSummaries extends $tea.Model {
+  logicalResourceIds?: string[];
+  resourceIdentifiers?: string[];
+  resourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      logicalResourceIds: 'LogicalResourceIds',
+      resourceIdentifiers: 'ResourceIdentifiers',
+      resourceType: 'ResourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
       logicalResourceIds: { 'type': 'array', 'itemType': 'string' },
+      resourceIdentifiers: { 'type': 'array', 'itemType': 'string' },
+      resourceType: 'string',
     };
   }
 
@@ -6354,46 +6931,46 @@ export class GetTemplateSummaryResponseBodyResourceIdentifierSummaries extends $
 }
 
 export class ListChangeSetsResponseBodyChangeSets extends $tea.Model {
-  status?: string;
-  stackId?: string;
-  changeSetName?: string;
-  description?: string;
-  changeSetType?: string;
-  statusReason?: string;
-  createTime?: string;
   changeSetId?: string;
-  stackName?: string;
+  changeSetName?: string;
+  changeSetType?: string;
+  createTime?: string;
+  description?: string;
   executionStatus?: string;
   regionId?: string;
+  stackId?: string;
+  stackName?: string;
+  status?: string;
+  statusReason?: string;
   static names(): { [key: string]: string } {
     return {
-      status: 'Status',
-      stackId: 'StackId',
-      changeSetName: 'ChangeSetName',
-      description: 'Description',
-      changeSetType: 'ChangeSetType',
-      statusReason: 'StatusReason',
-      createTime: 'CreateTime',
       changeSetId: 'ChangeSetId',
-      stackName: 'StackName',
+      changeSetName: 'ChangeSetName',
+      changeSetType: 'ChangeSetType',
+      createTime: 'CreateTime',
+      description: 'Description',
       executionStatus: 'ExecutionStatus',
       regionId: 'RegionId',
+      stackId: 'StackId',
+      stackName: 'StackName',
+      status: 'Status',
+      statusReason: 'StatusReason',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      status: 'string',
-      stackId: 'string',
-      changeSetName: 'string',
-      description: 'string',
-      changeSetType: 'string',
-      statusReason: 'string',
-      createTime: 'string',
       changeSetId: 'string',
-      stackName: 'string',
+      changeSetName: 'string',
+      changeSetType: 'string',
+      createTime: 'string',
+      description: 'string',
       executionStatus: 'string',
       regionId: 'string',
+      stackId: 'string',
+      stackName: 'string',
+      status: 'string',
+      statusReason: 'string',
     };
   }
 
@@ -6403,40 +6980,40 @@ export class ListChangeSetsResponseBodyChangeSets extends $tea.Model {
 }
 
 export class ListStackEventsResponseBodyEvents extends $tea.Model {
-  status?: string;
+  createTime?: string;
   eventId?: string;
   logicalResourceId?: string;
-  stackId?: string;
   physicalResourceId?: string;
   resourceType?: string;
-  statusReason?: string;
-  createTime?: string;
+  stackId?: string;
   stackName?: string;
+  status?: string;
+  statusReason?: string;
   static names(): { [key: string]: string } {
     return {
-      status: 'Status',
+      createTime: 'CreateTime',
       eventId: 'EventId',
       logicalResourceId: 'LogicalResourceId',
-      stackId: 'StackId',
       physicalResourceId: 'PhysicalResourceId',
       resourceType: 'ResourceType',
-      statusReason: 'StatusReason',
-      createTime: 'CreateTime',
+      stackId: 'StackId',
       stackName: 'StackName',
+      status: 'Status',
+      statusReason: 'StatusReason',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      status: 'string',
+      createTime: 'string',
       eventId: 'string',
       logicalResourceId: 'string',
-      stackId: 'string',
       physicalResourceId: 'string',
       resourceType: 'string',
-      statusReason: 'string',
-      createTime: 'string',
+      stackId: 'string',
       stackName: 'string',
+      status: 'string',
+      statusReason: 'string',
     };
   }
 
@@ -6446,28 +7023,28 @@ export class ListStackEventsResponseBodyEvents extends $tea.Model {
 }
 
 export class ListStackGroupOperationResultsResponseBodyStackGroupOperationResults extends $tea.Model {
+  accountId?: string;
+  rdFolderId?: string;
+  regionId?: string;
   status?: string;
   statusReason?: string;
-  accountId?: string;
-  regionId?: string;
-  rdFolderId?: string;
   static names(): { [key: string]: string } {
     return {
+      accountId: 'AccountId',
+      rdFolderId: 'RdFolderId',
+      regionId: 'RegionId',
       status: 'Status',
       statusReason: 'StatusReason',
-      accountId: 'AccountId',
-      regionId: 'RegionId',
-      rdFolderId: 'RdFolderId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      accountId: 'string',
+      rdFolderId: 'string',
+      regionId: 'string',
       status: 'string',
       statusReason: 'string',
-      accountId: 'string',
-      regionId: 'string',
-      rdFolderId: 'string',
     };
   }
 
@@ -6477,37 +7054,37 @@ export class ListStackGroupOperationResultsResponseBodyStackGroupOperationResult
 }
 
 export class ListStackGroupOperationsResponseBodyStackGroupOperations extends $tea.Model {
-  status?: string;
-  stackGroupId?: string;
-  endTime?: string;
   action?: string;
   createTime?: string;
-  stackGroupName?: string;
-  operationId?: string;
+  endTime?: string;
   operationDescription?: string;
+  operationId?: string;
+  stackGroupId?: string;
+  stackGroupName?: string;
+  status?: string;
   static names(): { [key: string]: string } {
     return {
-      status: 'Status',
-      stackGroupId: 'StackGroupId',
-      endTime: 'EndTime',
       action: 'Action',
       createTime: 'CreateTime',
-      stackGroupName: 'StackGroupName',
-      operationId: 'OperationId',
+      endTime: 'EndTime',
       operationDescription: 'OperationDescription',
+      operationId: 'OperationId',
+      stackGroupId: 'StackGroupId',
+      stackGroupName: 'StackGroupName',
+      status: 'Status',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      status: 'string',
-      stackGroupId: 'string',
-      endTime: 'string',
       action: 'string',
       createTime: 'string',
-      stackGroupName: 'string',
-      operationId: 'string',
+      endTime: 'string',
       operationDescription: 'string',
+      operationId: 'string',
+      stackGroupId: 'string',
+      stackGroupName: 'string',
+      status: 'string',
     };
   }
 
@@ -6539,40 +7116,40 @@ export class ListStackGroupsResponseBodyStackGroupsAutoDeployment extends $tea.M
 }
 
 export class ListStackGroupsResponseBodyStackGroups extends $tea.Model {
-  stackGroupId?: string;
-  status?: string;
-  driftDetectionTime?: string;
-  description?: string;
-  stackGroupDriftStatus?: string;
-  stackGroupName?: string;
-  resourceGroupId?: string;
-  permissionModel?: string;
   autoDeployment?: ListStackGroupsResponseBodyStackGroupsAutoDeployment;
+  description?: string;
+  driftDetectionTime?: string;
+  permissionModel?: string;
+  resourceGroupId?: string;
+  stackGroupDriftStatus?: string;
+  stackGroupId?: string;
+  stackGroupName?: string;
+  status?: string;
   static names(): { [key: string]: string } {
     return {
-      stackGroupId: 'StackGroupId',
-      status: 'Status',
-      driftDetectionTime: 'DriftDetectionTime',
-      description: 'Description',
-      stackGroupDriftStatus: 'StackGroupDriftStatus',
-      stackGroupName: 'StackGroupName',
-      resourceGroupId: 'ResourceGroupId',
-      permissionModel: 'PermissionModel',
       autoDeployment: 'AutoDeployment',
+      description: 'Description',
+      driftDetectionTime: 'DriftDetectionTime',
+      permissionModel: 'PermissionModel',
+      resourceGroupId: 'ResourceGroupId',
+      stackGroupDriftStatus: 'StackGroupDriftStatus',
+      stackGroupId: 'StackGroupId',
+      stackGroupName: 'StackGroupName',
+      status: 'Status',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      stackGroupId: 'string',
-      status: 'string',
-      driftDetectionTime: 'string',
-      description: 'string',
-      stackGroupDriftStatus: 'string',
-      stackGroupName: 'string',
-      resourceGroupId: 'string',
-      permissionModel: 'string',
       autoDeployment: ListStackGroupsResponseBodyStackGroupsAutoDeployment,
+      description: 'string',
+      driftDetectionTime: 'string',
+      permissionModel: 'string',
+      resourceGroupId: 'string',
+      stackGroupDriftStatus: 'string',
+      stackGroupId: 'string',
+      stackGroupName: 'string',
+      status: 'string',
     };
   }
 
@@ -6582,43 +7159,43 @@ export class ListStackGroupsResponseBodyStackGroups extends $tea.Model {
 }
 
 export class ListStackInstancesResponseBodyStackInstances extends $tea.Model {
-  status?: string;
-  stackGroupId?: string;
-  stackId?: string;
-  driftDetectionTime?: string;
-  stackDriftStatus?: string;
-  statusReason?: string;
-  stackGroupName?: string;
   accountId?: string;
-  regionId?: string;
+  driftDetectionTime?: string;
   rdFolderId?: string;
+  regionId?: string;
+  stackDriftStatus?: string;
+  stackGroupId?: string;
+  stackGroupName?: string;
+  stackId?: string;
+  status?: string;
+  statusReason?: string;
   static names(): { [key: string]: string } {
     return {
-      status: 'Status',
-      stackGroupId: 'StackGroupId',
-      stackId: 'StackId',
-      driftDetectionTime: 'DriftDetectionTime',
-      stackDriftStatus: 'StackDriftStatus',
-      statusReason: 'StatusReason',
-      stackGroupName: 'StackGroupName',
       accountId: 'AccountId',
-      regionId: 'RegionId',
+      driftDetectionTime: 'DriftDetectionTime',
       rdFolderId: 'RdFolderId',
+      regionId: 'RegionId',
+      stackDriftStatus: 'StackDriftStatus',
+      stackGroupId: 'StackGroupId',
+      stackGroupName: 'StackGroupName',
+      stackId: 'StackId',
+      status: 'Status',
+      statusReason: 'StatusReason',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      status: 'string',
-      stackGroupId: 'string',
-      stackId: 'string',
-      driftDetectionTime: 'string',
-      stackDriftStatus: 'string',
-      statusReason: 'string',
-      stackGroupName: 'string',
       accountId: 'string',
-      regionId: 'string',
+      driftDetectionTime: 'string',
       rdFolderId: 'string',
+      regionId: 'string',
+      stackDriftStatus: 'string',
+      stackGroupId: 'string',
+      stackGroupName: 'string',
+      stackId: 'string',
+      status: 'string',
+      statusReason: 'string',
     };
   }
 
@@ -6628,37 +7205,37 @@ export class ListStackInstancesResponseBodyStackInstances extends $tea.Model {
 }
 
 export class ListStackOperationRisksResponseBodyRiskResources extends $tea.Model {
+  code?: string;
   logicalResourceId?: string;
+  message?: string;
   physicalResourceId?: string;
+  reason?: string;
   requestId?: string;
   resourceType?: string;
-  code?: string;
-  message?: string;
   riskType?: string;
-  reason?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       logicalResourceId: 'LogicalResourceId',
+      message: 'Message',
       physicalResourceId: 'PhysicalResourceId',
+      reason: 'Reason',
       requestId: 'RequestId',
       resourceType: 'ResourceType',
-      code: 'Code',
-      message: 'Message',
       riskType: 'RiskType',
-      reason: 'Reason',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
       logicalResourceId: 'string',
+      message: 'string',
       physicalResourceId: 'string',
+      reason: 'string',
       requestId: 'string',
       resourceType: 'string',
-      code: 'string',
-      message: 'string',
       riskType: 'string',
-      reason: 'string',
     };
   }
 
@@ -6670,14 +7247,14 @@ export class ListStackOperationRisksResponseBodyRiskResources extends $tea.Model
 export class ListStackResourceDriftsResponseBodyResourceDriftsPropertyDifferences extends $tea.Model {
   actualValue?: string;
   differenceType?: string;
-  propertyPath?: string;
   expectedValue?: string;
+  propertyPath?: string;
   static names(): { [key: string]: string } {
     return {
       actualValue: 'ActualValue',
       differenceType: 'DifferenceType',
-      propertyPath: 'PropertyPath',
       expectedValue: 'ExpectedValue',
+      propertyPath: 'PropertyPath',
     };
   }
 
@@ -6685,8 +7262,8 @@ export class ListStackResourceDriftsResponseBodyResourceDriftsPropertyDifference
     return {
       actualValue: 'string',
       differenceType: 'string',
-      propertyPath: 'string',
       expectedValue: 'string',
+      propertyPath: 'string',
     };
   }
 
@@ -6696,40 +7273,40 @@ export class ListStackResourceDriftsResponseBodyResourceDriftsPropertyDifference
 }
 
 export class ListStackResourceDriftsResponseBodyResourceDrifts extends $tea.Model {
-  logicalResourceId?: string;
-  stackId?: string;
-  physicalResourceId?: string;
-  driftDetectionTime?: string;
-  resourceType?: string;
-  expectedProperties?: string;
-  resourceDriftStatus?: string;
   actualProperties?: string;
+  driftDetectionTime?: string;
+  expectedProperties?: string;
+  logicalResourceId?: string;
+  physicalResourceId?: string;
   propertyDifferences?: ListStackResourceDriftsResponseBodyResourceDriftsPropertyDifferences[];
+  resourceDriftStatus?: string;
+  resourceType?: string;
+  stackId?: string;
   static names(): { [key: string]: string } {
     return {
-      logicalResourceId: 'LogicalResourceId',
-      stackId: 'StackId',
-      physicalResourceId: 'PhysicalResourceId',
-      driftDetectionTime: 'DriftDetectionTime',
-      resourceType: 'ResourceType',
-      expectedProperties: 'ExpectedProperties',
-      resourceDriftStatus: 'ResourceDriftStatus',
       actualProperties: 'ActualProperties',
+      driftDetectionTime: 'DriftDetectionTime',
+      expectedProperties: 'ExpectedProperties',
+      logicalResourceId: 'LogicalResourceId',
+      physicalResourceId: 'PhysicalResourceId',
       propertyDifferences: 'PropertyDifferences',
+      resourceDriftStatus: 'ResourceDriftStatus',
+      resourceType: 'ResourceType',
+      stackId: 'StackId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      logicalResourceId: 'string',
-      stackId: 'string',
-      physicalResourceId: 'string',
-      driftDetectionTime: 'string',
-      resourceType: 'string',
-      expectedProperties: 'string',
-      resourceDriftStatus: 'string',
       actualProperties: 'string',
+      driftDetectionTime: 'string',
+      expectedProperties: 'string',
+      logicalResourceId: 'string',
+      physicalResourceId: 'string',
       propertyDifferences: { 'type': 'array', 'itemType': ListStackResourceDriftsResponseBodyResourceDriftsPropertyDifferences },
+      resourceDriftStatus: 'string',
+      resourceType: 'string',
+      stackId: 'string',
     };
   }
 
@@ -6739,46 +7316,46 @@ export class ListStackResourceDriftsResponseBodyResourceDrifts extends $tea.Mode
 }
 
 export class ListStackResourcesResponseBodyResources extends $tea.Model {
-  status?: string;
-  logicalResourceId?: string;
-  updateTime?: string;
-  stackId?: string;
-  physicalResourceId?: string;
-  driftDetectionTime?: string;
-  resourceType?: string;
-  resourceDriftStatus?: string;
-  statusReason?: string;
   createTime?: string;
+  driftDetectionTime?: string;
+  logicalResourceId?: string;
+  physicalResourceId?: string;
+  resourceDriftStatus?: string;
+  resourceType?: string;
+  stackId?: string;
   stackName?: string;
+  status?: string;
+  statusReason?: string;
+  updateTime?: string;
   static names(): { [key: string]: string } {
     return {
-      status: 'Status',
-      logicalResourceId: 'LogicalResourceId',
-      updateTime: 'UpdateTime',
-      stackId: 'StackId',
-      physicalResourceId: 'PhysicalResourceId',
-      driftDetectionTime: 'DriftDetectionTime',
-      resourceType: 'ResourceType',
-      resourceDriftStatus: 'ResourceDriftStatus',
-      statusReason: 'StatusReason',
       createTime: 'CreateTime',
+      driftDetectionTime: 'DriftDetectionTime',
+      logicalResourceId: 'LogicalResourceId',
+      physicalResourceId: 'PhysicalResourceId',
+      resourceDriftStatus: 'ResourceDriftStatus',
+      resourceType: 'ResourceType',
+      stackId: 'StackId',
       stackName: 'StackName',
+      status: 'Status',
+      statusReason: 'StatusReason',
+      updateTime: 'UpdateTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      status: 'string',
-      logicalResourceId: 'string',
-      updateTime: 'string',
-      stackId: 'string',
-      physicalResourceId: 'string',
-      driftDetectionTime: 'string',
-      resourceType: 'string',
-      resourceDriftStatus: 'string',
-      statusReason: 'string',
       createTime: 'string',
+      driftDetectionTime: 'string',
+      logicalResourceId: 'string',
+      physicalResourceId: 'string',
+      resourceDriftStatus: 'string',
+      resourceType: 'string',
+      stackId: 'string',
       stackName: 'string',
+      status: 'string',
+      statusReason: 'string',
+      updateTime: 'string',
     };
   }
 
@@ -6832,58 +7409,58 @@ export class ListStacksResponseBodyStacksTags extends $tea.Model {
 }
 
 export class ListStacksResponseBodyStacks extends $tea.Model {
-  status?: string;
-  updateTime?: string;
-  driftDetectionTime?: string;
-  statusReason?: string;
   createTime?: string;
   disableRollback?: boolean;
-  tags?: ListStacksResponseBodyStacksTags[];
-  stackName?: string;
-  timeoutInMinutes?: number;
-  regionId?: string;
+  driftDetectionTime?: string;
   parentStackId?: string;
-  stackId?: string;
-  stackDriftStatus?: string;
-  stackType?: string;
+  regionId?: string;
   resourceGroupId?: string;
+  stackDriftStatus?: string;
+  stackId?: string;
+  stackName?: string;
+  stackType?: string;
+  status?: string;
+  statusReason?: string;
+  tags?: ListStacksResponseBodyStacksTags[];
+  timeoutInMinutes?: number;
+  updateTime?: string;
   static names(): { [key: string]: string } {
     return {
-      status: 'Status',
-      updateTime: 'UpdateTime',
-      driftDetectionTime: 'DriftDetectionTime',
-      statusReason: 'StatusReason',
       createTime: 'CreateTime',
       disableRollback: 'DisableRollback',
-      tags: 'Tags',
-      stackName: 'StackName',
-      timeoutInMinutes: 'TimeoutInMinutes',
-      regionId: 'RegionId',
+      driftDetectionTime: 'DriftDetectionTime',
       parentStackId: 'ParentStackId',
-      stackId: 'StackId',
-      stackDriftStatus: 'StackDriftStatus',
-      stackType: 'StackType',
+      regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
+      stackDriftStatus: 'StackDriftStatus',
+      stackId: 'StackId',
+      stackName: 'StackName',
+      stackType: 'StackType',
+      status: 'Status',
+      statusReason: 'StatusReason',
+      tags: 'Tags',
+      timeoutInMinutes: 'TimeoutInMinutes',
+      updateTime: 'UpdateTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      status: 'string',
-      updateTime: 'string',
-      driftDetectionTime: 'string',
-      statusReason: 'string',
       createTime: 'string',
       disableRollback: 'boolean',
-      tags: { 'type': 'array', 'itemType': ListStacksResponseBodyStacksTags },
-      stackName: 'string',
-      timeoutInMinutes: 'number',
-      regionId: 'string',
+      driftDetectionTime: 'string',
       parentStackId: 'string',
-      stackId: 'string',
-      stackDriftStatus: 'string',
-      stackType: 'string',
+      regionId: 'string',
       resourceGroupId: 'string',
+      stackDriftStatus: 'string',
+      stackId: 'string',
+      stackName: 'string',
+      stackType: 'string',
+      status: 'string',
+      statusReason: 'string',
+      tags: { 'type': 'array', 'itemType': ListStacksResponseBodyStacksTags },
+      timeoutInMinutes: 'number',
+      updateTime: 'string',
     };
   }
 
@@ -6915,25 +7492,59 @@ export class ListTagResourcesRequestTag extends $tea.Model {
 }
 
 export class ListTagResourcesResponseBodyTagResources extends $tea.Model {
-  tagValue?: string;
-  resourceType?: string;
   resourceId?: string;
+  resourceType?: string;
   tagKey?: string;
+  tagValue?: string;
   static names(): { [key: string]: string } {
     return {
-      tagValue: 'TagValue',
-      resourceType: 'ResourceType',
       resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
       tagKey: 'TagKey',
+      tagValue: 'TagValue',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      tagValue: 'string',
-      resourceType: 'string',
       resourceId: 'string',
+      resourceType: 'string',
       tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTemplateVersionsResponseBodyVersions extends $tea.Model {
+  createTime?: string;
+  description?: string;
+  templateId?: string;
+  templateName?: string;
+  templateVersion?: string;
+  updateTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      description: 'Description',
+      templateId: 'TemplateId',
+      templateName: 'TemplateName',
+      templateVersion: 'TemplateVersion',
+      updateTime: 'UpdateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      description: 'string',
+      templateId: 'string',
+      templateName: 'string',
+      templateVersion: 'string',
+      updateTime: 'string',
     };
   }
 
@@ -6965,77 +7576,43 @@ export class ListTemplatesRequestTag extends $tea.Model {
 }
 
 export class ListTemplatesResponseBodyTemplates extends $tea.Model {
-  templateARN?: string;
-  updateTime?: string;
-  description?: string;
   createTime?: string;
-  templateName?: string;
-  templateVersion?: string;
-  templateId?: string;
+  description?: string;
   ownerId?: string;
-  shareType?: string;
   resourceGroupId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      templateARN: 'TemplateARN',
-      updateTime: 'UpdateTime',
-      description: 'Description',
-      createTime: 'CreateTime',
-      templateName: 'TemplateName',
-      templateVersion: 'TemplateVersion',
-      templateId: 'TemplateId',
-      ownerId: 'OwnerId',
-      shareType: 'ShareType',
-      resourceGroupId: 'ResourceGroupId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      templateARN: 'string',
-      updateTime: 'string',
-      description: 'string',
-      createTime: 'string',
-      templateName: 'string',
-      templateVersion: 'string',
-      templateId: 'string',
-      ownerId: 'string',
-      shareType: 'string',
-      resourceGroupId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTemplateVersionsResponseBodyVersions extends $tea.Model {
-  updateTime?: string;
-  description?: string;
-  createTime?: string;
-  templateName?: string;
+  shareType?: string;
+  templateARN?: string;
   templateId?: string;
+  templateName?: string;
   templateVersion?: string;
+  updateTime?: string;
   static names(): { [key: string]: string } {
     return {
-      updateTime: 'UpdateTime',
-      description: 'Description',
       createTime: 'CreateTime',
-      templateName: 'TemplateName',
+      description: 'Description',
+      ownerId: 'OwnerId',
+      resourceGroupId: 'ResourceGroupId',
+      shareType: 'ShareType',
+      templateARN: 'TemplateARN',
       templateId: 'TemplateId',
+      templateName: 'TemplateName',
       templateVersion: 'TemplateVersion',
+      updateTime: 'UpdateTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      updateTime: 'string',
-      description: 'string',
       createTime: 'string',
-      templateName: 'string',
+      description: 'string',
+      ownerId: 'string',
+      resourceGroupId: 'string',
+      shareType: 'string',
+      templateARN: 'string',
       templateId: 'string',
+      templateName: 'string',
       templateVersion: 'string',
+      updateTime: 'string',
     };
   }
 
@@ -7089,31 +7666,31 @@ export class PreviewStackResponseBodyStackParameters extends $tea.Model {
 }
 
 export class PreviewStackResponseBodyStackResources extends $tea.Model {
-  logicalResourceId?: string;
-  resourceType?: string;
   description?: string;
-  stack?: { [key: string]: any };
-  requiredBy?: string[];
+  logicalResourceId?: string;
   properties?: { [key: string]: any };
+  requiredBy?: string[];
+  resourceType?: string;
+  stack?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
-      logicalResourceId: 'LogicalResourceId',
-      resourceType: 'ResourceType',
       description: 'Description',
-      stack: 'Stack',
-      requiredBy: 'RequiredBy',
+      logicalResourceId: 'LogicalResourceId',
       properties: 'Properties',
+      requiredBy: 'RequiredBy',
+      resourceType: 'ResourceType',
+      stack: 'Stack',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      logicalResourceId: 'string',
-      resourceType: 'string',
       description: 'string',
-      stack: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      requiredBy: { 'type': 'array', 'itemType': 'string' },
+      logicalResourceId: 'string',
       properties: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      requiredBy: { 'type': 'array', 'itemType': 'string' },
+      resourceType: 'string',
+      stack: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
     };
   }
 
@@ -7123,40 +7700,40 @@ export class PreviewStackResponseBodyStackResources extends $tea.Model {
 }
 
 export class PreviewStackResponseBodyStack extends $tea.Model {
-  templateDescription?: string;
-  parameters?: PreviewStackResponseBodyStackParameters[];
   description?: string;
   disableRollback?: boolean;
-  stackName?: string;
-  timeoutInMinutes?: number;
-  stackPolicyBody?: { [key: string]: any };
-  resources?: PreviewStackResponseBodyStackResources[];
+  parameters?: PreviewStackResponseBodyStackParameters[];
   regionId?: string;
+  resources?: PreviewStackResponseBodyStackResources[];
+  stackName?: string;
+  stackPolicyBody?: { [key: string]: any };
+  templateDescription?: string;
+  timeoutInMinutes?: number;
   static names(): { [key: string]: string } {
     return {
-      templateDescription: 'TemplateDescription',
-      parameters: 'Parameters',
       description: 'Description',
       disableRollback: 'DisableRollback',
-      stackName: 'StackName',
-      timeoutInMinutes: 'TimeoutInMinutes',
-      stackPolicyBody: 'StackPolicyBody',
-      resources: 'Resources',
+      parameters: 'Parameters',
       regionId: 'RegionId',
+      resources: 'Resources',
+      stackName: 'StackName',
+      stackPolicyBody: 'StackPolicyBody',
+      templateDescription: 'TemplateDescription',
+      timeoutInMinutes: 'TimeoutInMinutes',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      templateDescription: 'string',
-      parameters: { 'type': 'array', 'itemType': PreviewStackResponseBodyStackParameters },
       description: 'string',
       disableRollback: 'boolean',
-      stackName: 'string',
-      timeoutInMinutes: 'number',
-      stackPolicyBody: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      resources: { 'type': 'array', 'itemType': PreviewStackResponseBodyStackResources },
+      parameters: { 'type': 'array', 'itemType': PreviewStackResponseBodyStackParameters },
       regionId: 'string',
+      resources: { 'type': 'array', 'itemType': PreviewStackResponseBodyStackResources },
+      stackName: 'string',
+      stackPolicyBody: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      templateDescription: 'string',
+      timeoutInMinutes: 'number',
     };
   }
 
@@ -7231,28 +7808,6 @@ export class UpdateStackRequestTags extends $tea.Model {
   }
 }
 
-export class UpdateStackGroupRequestParameters extends $tea.Model {
-  parameterKey?: string;
-  parameterValue?: string;
-  static names(): { [key: string]: string } {
-    return {
-      parameterKey: 'ParameterKey',
-      parameterValue: 'ParameterValue',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      parameterKey: 'string',
-      parameterValue: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class UpdateStackGroupRequestAutoDeployment extends $tea.Model {
   enabled?: boolean;
   retainStacksOnAccountRemoval?: boolean;
@@ -7276,19 +7831,41 @@ export class UpdateStackGroupRequestAutoDeployment extends $tea.Model {
 }
 
 export class UpdateStackGroupRequestDeploymentTargets extends $tea.Model {
-  rdFolderIds?: string[];
   accountIds?: string[];
+  rdFolderIds?: string[];
   static names(): { [key: string]: string } {
     return {
-      rdFolderIds: 'RdFolderIds',
       accountIds: 'AccountIds',
+      rdFolderIds: 'RdFolderIds',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      rdFolderIds: { 'type': 'array', 'itemType': 'string' },
       accountIds: { 'type': 'array', 'itemType': 'string' },
+      rdFolderIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateStackGroupRequestParameters extends $tea.Model {
+  parameterKey?: string;
+  parameterValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      parameterKey: 'ParameterKey',
+      parameterValue: 'ParameterValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      parameterKey: 'string',
+      parameterValue: 'string',
     };
   }
 
@@ -7319,6 +7896,28 @@ export class UpdateStackGroupShrinkRequestParameters extends $tea.Model {
   }
 }
 
+export class UpdateStackInstancesRequestDeploymentTargets extends $tea.Model {
+  accountIds?: string[];
+  rdFolderIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      accountIds: 'AccountIds',
+      rdFolderIds: 'RdFolderIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountIds: { 'type': 'array', 'itemType': 'string' },
+      rdFolderIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateStackInstancesRequestParameterOverrides extends $tea.Model {
   parameterKey?: string;
   parameterValue?: string;
@@ -7333,28 +7932,6 @@ export class UpdateStackInstancesRequestParameterOverrides extends $tea.Model {
     return {
       parameterKey: 'string',
       parameterValue: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateStackInstancesRequestDeploymentTargets extends $tea.Model {
-  rdFolderIds?: string[];
-  accountIds?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      rdFolderIds: 'RdFolderIds',
-      accountIds: 'AccountIds',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      rdFolderIds: { 'type': 'array', 'itemType': 'string' },
-      accountIds: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -7386,19 +7963,19 @@ export class UpdateStackInstancesShrinkRequestParameterOverrides extends $tea.Mo
 }
 
 export class ValidateTemplateResponseBodyOutputs extends $tea.Model {
-  outputKey?: string;
   description?: string;
+  outputKey?: string;
   static names(): { [key: string]: string } {
     return {
-      outputKey: 'OutputKey',
       description: 'Description',
+      outputKey: 'OutputKey',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      outputKey: 'string',
       description: 'string',
+      outputKey: 'string',
     };
   }
 
@@ -7509,16 +8086,16 @@ export default class Client extends OpenApi {
       request.accountIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.accountIds, "AccountIds", "json");
     }
 
-    if (!Util.isUnset(tmpReq.regionIds)) {
-      request.regionIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.regionIds, "RegionIds", "json");
+    if (!Util.isUnset($tea.toMap(tmpReq.deploymentTargets))) {
+      request.deploymentTargetsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.deploymentTargets), "DeploymentTargets", "json");
     }
 
     if (!Util.isUnset(tmpReq.operationPreferences)) {
       request.operationPreferencesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.operationPreferences, "OperationPreferences", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.deploymentTargets))) {
-      request.deploymentTargetsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.deploymentTargets), "DeploymentTargets", "json");
+    if (!Util.isUnset(tmpReq.regionIds)) {
+      request.regionIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.regionIds, "RegionIds", "json");
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -7592,16 +8169,16 @@ export default class Client extends OpenApi {
       request.accountIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.accountIds, "AccountIds", "json");
     }
 
-    if (!Util.isUnset(tmpReq.regionIds)) {
-      request.regionIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.regionIds, "RegionIds", "json");
+    if (!Util.isUnset($tea.toMap(tmpReq.deploymentTargets))) {
+      request.deploymentTargetsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.deploymentTargets), "DeploymentTargets", "json");
     }
 
     if (!Util.isUnset(tmpReq.operationPreferences)) {
       request.operationPreferencesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.operationPreferences, "OperationPreferences", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.deploymentTargets))) {
-      request.deploymentTargetsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.deploymentTargets), "DeploymentTargets", "json");
+    if (!Util.isUnset(tmpReq.regionIds)) {
+      request.regionIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.regionIds, "RegionIds", "json");
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -7725,6 +8302,19 @@ export default class Client extends OpenApi {
     return await this.getChangeSetWithOptions(request, runtime);
   }
 
+  async getFeatureDetailsWithOptions(request: GetFeatureDetailsRequest, runtime: $Util.RuntimeOptions): Promise<GetFeatureDetailsResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<GetFeatureDetailsResponse>(await this.doRPCRequest("GetFeatureDetails", "2019-09-10", "HTTPS", "POST", "AK", "json", req, runtime), new GetFeatureDetailsResponse({}));
+  }
+
+  async getFeatureDetails(request: GetFeatureDetailsRequest): Promise<GetFeatureDetailsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getFeatureDetailsWithOptions(request, runtime);
+  }
+
   async getResourceTypeWithOptions(request: GetResourceTypeRequest, runtime: $Util.RuntimeOptions): Promise<GetResourceTypeResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -7749,6 +8339,19 @@ export default class Client extends OpenApi {
   async getResourceTypeTemplate(request: GetResourceTypeTemplateRequest): Promise<GetResourceTypeTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getResourceTypeTemplateWithOptions(request, runtime);
+  }
+
+  async getServiceProvisionsWithOptions(request: GetServiceProvisionsRequest, runtime: $Util.RuntimeOptions): Promise<GetServiceProvisionsResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<GetServiceProvisionsResponse>(await this.doRPCRequest("GetServiceProvisions", "2019-09-10", "HTTPS", "POST", "AK", "json", req, runtime), new GetServiceProvisionsResponse({}));
+  }
+
+  async getServiceProvisions(request: GetServiceProvisionsRequest): Promise<GetServiceProvisionsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getServiceProvisionsWithOptions(request, runtime);
   }
 
   async getStackWithOptions(request: GetStackRequest, runtime: $Util.RuntimeOptions): Promise<GetStackResponse> {
@@ -7866,6 +8469,25 @@ export default class Client extends OpenApi {
   async getTemplateEstimateCost(request: GetTemplateEstimateCostRequest): Promise<GetTemplateEstimateCostResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getTemplateEstimateCostWithOptions(request, runtime);
+  }
+
+  async getTemplateParameterConstraintsWithOptions(tmpReq: GetTemplateParameterConstraintsRequest, runtime: $Util.RuntimeOptions): Promise<GetTemplateParameterConstraintsResponse> {
+    Util.validateModel(tmpReq);
+    let request = new GetTemplateParameterConstraintsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.parametersKeyFilter)) {
+      request.parametersKeyFilterShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.parametersKeyFilter, "ParametersKeyFilter", "json");
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<GetTemplateParameterConstraintsResponse>(await this.doRPCRequest("GetTemplateParameterConstraints", "2019-09-10", "HTTPS", "POST", "AK", "json", req, runtime), new GetTemplateParameterConstraintsResponse({}));
+  }
+
+  async getTemplateParameterConstraints(request: GetTemplateParameterConstraintsRequest): Promise<GetTemplateParameterConstraintsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getTemplateParameterConstraintsWithOptions(request, runtime);
   }
 
   async getTemplateSummaryWithOptions(request: GetTemplateSummaryRequest, runtime: $Util.RuntimeOptions): Promise<GetTemplateSummaryResponse> {
@@ -8060,19 +8682,6 @@ export default class Client extends OpenApi {
     return await this.listTagValuesWithOptions(request, runtime);
   }
 
-  async listTemplatesWithOptions(request: ListTemplatesRequest, runtime: $Util.RuntimeOptions): Promise<ListTemplatesResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<ListTemplatesResponse>(await this.doRPCRequest("ListTemplates", "2019-09-10", "HTTPS", "POST", "AK", "json", req, runtime), new ListTemplatesResponse({}));
-  }
-
-  async listTemplates(request: ListTemplatesRequest): Promise<ListTemplatesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.listTemplatesWithOptions(request, runtime);
-  }
-
   async listTemplateVersionsWithOptions(request: ListTemplateVersionsRequest, runtime: $Util.RuntimeOptions): Promise<ListTemplateVersionsResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -8084,6 +8693,19 @@ export default class Client extends OpenApi {
   async listTemplateVersions(request: ListTemplateVersionsRequest): Promise<ListTemplateVersionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listTemplateVersionsWithOptions(request, runtime);
+  }
+
+  async listTemplatesWithOptions(request: ListTemplatesRequest, runtime: $Util.RuntimeOptions): Promise<ListTemplatesResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<ListTemplatesResponse>(await this.doRPCRequest("ListTemplates", "2019-09-10", "HTTPS", "POST", "AK", "json", req, runtime), new ListTemplatesResponse({}));
+  }
+
+  async listTemplates(request: ListTemplatesRequest): Promise<ListTemplatesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listTemplatesWithOptions(request, runtime);
   }
 
   async moveResourceGroupWithOptions(request: MoveResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<MoveResourceGroupResponse> {
@@ -8224,20 +8846,20 @@ export default class Client extends OpenApi {
       request.accountIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.accountIds, "AccountIds", "json");
     }
 
-    if (!Util.isUnset(tmpReq.regionIds)) {
-      request.regionIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.regionIds, "RegionIds", "json");
-    }
-
-    if (!Util.isUnset(tmpReq.operationPreferences)) {
-      request.operationPreferencesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.operationPreferences, "OperationPreferences", "json");
-    }
-
     if (!Util.isUnset($tea.toMap(tmpReq.autoDeployment))) {
       request.autoDeploymentShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.autoDeployment), "AutoDeployment", "json");
     }
 
     if (!Util.isUnset($tea.toMap(tmpReq.deploymentTargets))) {
       request.deploymentTargetsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.deploymentTargets), "DeploymentTargets", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.operationPreferences)) {
+      request.operationPreferencesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.operationPreferences, "OperationPreferences", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.regionIds)) {
+      request.regionIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.regionIds, "RegionIds", "json");
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -8259,16 +8881,16 @@ export default class Client extends OpenApi {
       request.accountIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.accountIds, "AccountIds", "json");
     }
 
-    if (!Util.isUnset(tmpReq.regionIds)) {
-      request.regionIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.regionIds, "RegionIds", "json");
+    if (!Util.isUnset($tea.toMap(tmpReq.deploymentTargets))) {
+      request.deploymentTargetsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.deploymentTargets), "DeploymentTargets", "json");
     }
 
     if (!Util.isUnset(tmpReq.operationPreferences)) {
       request.operationPreferencesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.operationPreferences, "OperationPreferences", "json");
     }
 
-    if (!Util.isUnset($tea.toMap(tmpReq.deploymentTargets))) {
-      request.deploymentTargetsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.deploymentTargets), "DeploymentTargets", "json");
+    if (!Util.isUnset(tmpReq.regionIds)) {
+      request.regionIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.regionIds, "RegionIds", "json");
     }
 
     let req = new $OpenApi.OpenApiRequest({
