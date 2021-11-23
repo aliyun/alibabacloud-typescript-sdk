@@ -14,295 +14,7 @@ import EndpointUtil from '@alicloud/endpoint-util';
 import { Readable } from 'stream';
 import * as $tea from '@alicloud/tea-typescript';
 
-export class RecognizeDrivingLicenseRequest extends $tea.Model {
-  imageURL?: string;
-  side?: string;
-  static names(): { [key: string]: string } {
-    return {
-      imageURL: 'ImageURL',
-      side: 'Side',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURL: 'string',
-      side: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeDrivingLicenseAdvanceRequest extends $tea.Model {
-  imageURLObject: Readable;
-  side?: string;
-  static names(): { [key: string]: string } {
-    return {
-      imageURLObject: 'ImageURLObject',
-      side: 'Side',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURLObject: 'Readable',
-      side: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeDrivingLicenseResponseBody extends $tea.Model {
-  requestId?: string;
-  data?: RecognizeDrivingLicenseResponseBodyData;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      data: 'Data',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      data: RecognizeDrivingLicenseResponseBodyData,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeDrivingLicenseResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: RecognizeDrivingLicenseResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: RecognizeDrivingLicenseResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeTableRequest extends $tea.Model {
-  imageURL?: string;
-  outputFormat?: string;
-  useFinanceModel?: boolean;
-  assureDirection?: boolean;
-  hasLine?: boolean;
-  skipDetection?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      imageURL: 'ImageURL',
-      outputFormat: 'OutputFormat',
-      useFinanceModel: 'UseFinanceModel',
-      assureDirection: 'AssureDirection',
-      hasLine: 'HasLine',
-      skipDetection: 'SkipDetection',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURL: 'string',
-      outputFormat: 'string',
-      useFinanceModel: 'boolean',
-      assureDirection: 'boolean',
-      hasLine: 'boolean',
-      skipDetection: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeTableAdvanceRequest extends $tea.Model {
-  imageURLObject: Readable;
-  outputFormat?: string;
-  useFinanceModel?: boolean;
-  assureDirection?: boolean;
-  hasLine?: boolean;
-  skipDetection?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      imageURLObject: 'ImageURLObject',
-      outputFormat: 'OutputFormat',
-      useFinanceModel: 'UseFinanceModel',
-      assureDirection: 'AssureDirection',
-      hasLine: 'HasLine',
-      skipDetection: 'SkipDetection',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURLObject: 'Readable',
-      outputFormat: 'string',
-      useFinanceModel: 'boolean',
-      assureDirection: 'boolean',
-      hasLine: 'boolean',
-      skipDetection: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeTableResponseBody extends $tea.Model {
-  requestId?: string;
-  data?: RecognizeTableResponseBodyData;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      data: 'Data',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      data: RecognizeTableResponseBodyData,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeTableResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: RecognizeTableResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: RecognizeTableResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeIdentityCardRequest extends $tea.Model {
-  imageURL?: string;
-  side?: string;
-  static names(): { [key: string]: string } {
-    return {
-      imageURL: 'ImageURL',
-      side: 'Side',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURL: 'string',
-      side: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeIdentityCardAdvanceRequest extends $tea.Model {
-  imageURLObject: Readable;
-  side?: string;
-  static names(): { [key: string]: string } {
-    return {
-      imageURLObject: 'ImageURLObject',
-      side: 'Side',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURLObject: 'Readable',
-      side: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeIdentityCardResponseBody extends $tea.Model {
-  requestId?: string;
-  data?: RecognizeIdentityCardResponseBodyData;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      data: 'Data',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      data: RecognizeIdentityCardResponseBodyData,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeIdentityCardResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: RecognizeIdentityCardResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: RecognizeIdentityCardResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeVerificationcodeRequest extends $tea.Model {
+export class DetectCardScreenshotRequest extends $tea.Model {
   imageURL?: string;
   static names(): { [key: string]: string } {
     return {
@@ -321,7 +33,7 @@ export class RecognizeVerificationcodeRequest extends $tea.Model {
   }
 }
 
-export class RecognizeVerificationcodeAdvanceRequest extends $tea.Model {
+export class DetectCardScreenshotAdvanceRequest extends $tea.Model {
   imageURLObject: Readable;
   static names(): { [key: string]: string } {
     return {
@@ -340,20 +52,20 @@ export class RecognizeVerificationcodeAdvanceRequest extends $tea.Model {
   }
 }
 
-export class RecognizeVerificationcodeResponseBody extends $tea.Model {
+export class DetectCardScreenshotResponseBody extends $tea.Model {
+  data?: DetectCardScreenshotResponseBodyData;
   requestId?: string;
-  data?: RecognizeVerificationcodeResponseBodyData;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       data: 'Data',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      data: DetectCardScreenshotResponseBodyData,
       requestId: 'string',
-      data: RecognizeVerificationcodeResponseBodyData,
     };
   }
 
@@ -362,9 +74,9 @@ export class RecognizeVerificationcodeResponseBody extends $tea.Model {
   }
 }
 
-export class RecognizeVerificationcodeResponse extends $tea.Model {
+export class DetectCardScreenshotResponse extends $tea.Model {
   headers: { [key: string]: string };
-  body: RecognizeVerificationcodeResponseBody;
+  body: DetectCardScreenshotResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -375,7 +87,398 @@ export class RecognizeVerificationcodeResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: RecognizeVerificationcodeResponseBody,
+      body: DetectCardScreenshotResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAsyncJobResultRequest extends $tea.Model {
+  jobId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jobId: 'JobId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAsyncJobResultResponseBody extends $tea.Model {
+  data?: GetAsyncJobResultResponseBodyData;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: GetAsyncJobResultResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAsyncJobResultResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetAsyncJobResultResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetAsyncJobResultResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeAccountPageRequest extends $tea.Model {
+  imageURL?: string;
+  static names(): { [key: string]: string } {
+    return {
+      imageURL: 'ImageURL',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageURL: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeAccountPageAdvanceRequest extends $tea.Model {
+  imageURLObject: Readable;
+  static names(): { [key: string]: string } {
+    return {
+      imageURLObject: 'ImageURLObject',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageURLObject: 'Readable',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeAccountPageResponseBody extends $tea.Model {
+  data?: RecognizeAccountPageResponseBodyData;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: RecognizeAccountPageResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeAccountPageResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: RecognizeAccountPageResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: RecognizeAccountPageResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeBankCardRequest extends $tea.Model {
+  imageURL?: string;
+  static names(): { [key: string]: string } {
+    return {
+      imageURL: 'ImageURL',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageURL: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeBankCardAdvanceRequest extends $tea.Model {
+  imageURLObject: Readable;
+  static names(): { [key: string]: string } {
+    return {
+      imageURLObject: 'ImageURLObject',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageURLObject: 'Readable',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeBankCardResponseBody extends $tea.Model {
+  data?: RecognizeBankCardResponseBodyData;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: RecognizeBankCardResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeBankCardResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: RecognizeBankCardResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: RecognizeBankCardResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeBusinessCardRequest extends $tea.Model {
+  imageURL?: string;
+  static names(): { [key: string]: string } {
+    return {
+      imageURL: 'ImageURL',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageURL: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeBusinessCardAdvanceRequest extends $tea.Model {
+  imageURLObject: Readable;
+  static names(): { [key: string]: string } {
+    return {
+      imageURLObject: 'ImageURLObject',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageURLObject: 'Readable',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeBusinessCardResponseBody extends $tea.Model {
+  data?: RecognizeBusinessCardResponseBodyData;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: RecognizeBusinessCardResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeBusinessCardResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: RecognizeBusinessCardResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: RecognizeBusinessCardResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeBusinessLicenseRequest extends $tea.Model {
+  imageURL?: string;
+  static names(): { [key: string]: string } {
+    return {
+      imageURL: 'ImageURL',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageURL: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeBusinessLicenseAdvanceRequest extends $tea.Model {
+  imageURLObject: Readable;
+  static names(): { [key: string]: string } {
+    return {
+      imageURLObject: 'ImageURLObject',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageURLObject: 'Readable',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeBusinessLicenseResponseBody extends $tea.Model {
+  data?: RecognizeBusinessLicenseResponseBodyData;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: RecognizeBusinessLicenseResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeBusinessLicenseResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: RecognizeBusinessLicenseResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: RecognizeBusinessLicenseResponseBody,
     };
   }
 
@@ -435,19 +538,19 @@ export class RecognizeCharacterAdvanceRequest extends $tea.Model {
 }
 
 export class RecognizeCharacterResponseBody extends $tea.Model {
-  requestId?: string;
   data?: RecognizeCharacterResponseBodyData;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       data: 'Data',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       data: RecognizeCharacterResponseBodyData,
+      requestId: 'string',
     };
   }
 
@@ -478,70 +581,7 @@ export class RecognizeCharacterResponse extends $tea.Model {
   }
 }
 
-export class GetAsyncJobResultRequest extends $tea.Model {
-  jobId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      jobId: 'JobId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      jobId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAsyncJobResultResponseBody extends $tea.Model {
-  requestId?: string;
-  data?: GetAsyncJobResultResponseBodyData;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      data: 'Data',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      data: GetAsyncJobResultResponseBodyData,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAsyncJobResultResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: GetAsyncJobResultResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: GetAsyncJobResultResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeTakeoutOrderRequest extends $tea.Model {
+export class RecognizeChinapassportRequest extends $tea.Model {
   imageURL?: string;
   static names(): { [key: string]: string } {
     return {
@@ -560,7 +600,7 @@ export class RecognizeTakeoutOrderRequest extends $tea.Model {
   }
 }
 
-export class RecognizeTakeoutOrderAdvanceRequest extends $tea.Model {
+export class RecognizeChinapassportAdvanceRequest extends $tea.Model {
   imageURLObject: Readable;
   static names(): { [key: string]: string } {
     return {
@@ -579,20 +619,20 @@ export class RecognizeTakeoutOrderAdvanceRequest extends $tea.Model {
   }
 }
 
-export class RecognizeTakeoutOrderResponseBody extends $tea.Model {
+export class RecognizeChinapassportResponseBody extends $tea.Model {
+  data?: RecognizeChinapassportResponseBodyData;
   requestId?: string;
-  data?: RecognizeTakeoutOrderResponseBodyData;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       data: 'Data',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      data: RecognizeChinapassportResponseBodyData,
       requestId: 'string',
-      data: RecognizeTakeoutOrderResponseBodyData,
     };
   }
 
@@ -601,9 +641,9 @@ export class RecognizeTakeoutOrderResponseBody extends $tea.Model {
   }
 }
 
-export class RecognizeTakeoutOrderResponse extends $tea.Model {
+export class RecognizeChinapassportResponse extends $tea.Model {
   headers: { [key: string]: string };
-  body: RecognizeTakeoutOrderResponseBody;
+  body: RecognizeChinapassportResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -614,7 +654,7 @@ export class RecognizeTakeoutOrderResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: RecognizeTakeoutOrderResponseBody,
+      body: RecognizeChinapassportResponseBody,
     };
   }
 
@@ -668,19 +708,19 @@ export class RecognizeDriverLicenseAdvanceRequest extends $tea.Model {
 }
 
 export class RecognizeDriverLicenseResponseBody extends $tea.Model {
-  requestId?: string;
   data?: RecognizeDriverLicenseResponseBodyData;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       data: 'Data',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       data: RecognizeDriverLicenseResponseBodyData,
+      requestId: 'string',
     };
   }
 
@@ -703,6 +743,182 @@ export class RecognizeDriverLicenseResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: RecognizeDriverLicenseResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeDrivingLicenseRequest extends $tea.Model {
+  imageURL?: string;
+  side?: string;
+  static names(): { [key: string]: string } {
+    return {
+      imageURL: 'ImageURL',
+      side: 'Side',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageURL: 'string',
+      side: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeDrivingLicenseAdvanceRequest extends $tea.Model {
+  imageURLObject: Readable;
+  side?: string;
+  static names(): { [key: string]: string } {
+    return {
+      imageURLObject: 'ImageURLObject',
+      side: 'Side',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageURLObject: 'Readable',
+      side: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeDrivingLicenseResponseBody extends $tea.Model {
+  data?: RecognizeDrivingLicenseResponseBodyData;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: RecognizeDrivingLicenseResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeDrivingLicenseResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: RecognizeDrivingLicenseResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: RecognizeDrivingLicenseResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeIdentityCardRequest extends $tea.Model {
+  imageURL?: string;
+  side?: string;
+  static names(): { [key: string]: string } {
+    return {
+      imageURL: 'ImageURL',
+      side: 'Side',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageURL: 'string',
+      side: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeIdentityCardAdvanceRequest extends $tea.Model {
+  imageURLObject: Readable;
+  side?: string;
+  static names(): { [key: string]: string } {
+    return {
+      imageURLObject: 'ImageURLObject',
+      side: 'Side',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageURLObject: 'Readable',
+      side: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeIdentityCardResponseBody extends $tea.Model {
+  data?: RecognizeIdentityCardResponseBodyData;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: RecognizeIdentityCardResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeIdentityCardResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: RecognizeIdentityCardResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: RecognizeIdentityCardResponseBody,
     };
   }
 
@@ -750,19 +966,19 @@ export class RecognizeLicensePlateAdvanceRequest extends $tea.Model {
 }
 
 export class RecognizeLicensePlateResponseBody extends $tea.Model {
-  requestId?: string;
   data?: RecognizeLicensePlateResponseBodyData;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       data: 'Data',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       data: RecognizeLicensePlateResponseBodyData,
+      requestId: 'string',
     };
   }
 
@@ -785,176 +1001,6 @@ export class RecognizeLicensePlateResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: RecognizeLicensePlateResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeTaxiInvoiceRequest extends $tea.Model {
-  imageURL?: string;
-  static names(): { [key: string]: string } {
-    return {
-      imageURL: 'ImageURL',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURL: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeTaxiInvoiceAdvanceRequest extends $tea.Model {
-  imageURLObject: Readable;
-  static names(): { [key: string]: string } {
-    return {
-      imageURLObject: 'ImageURLObject',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURLObject: 'Readable',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeTaxiInvoiceResponseBody extends $tea.Model {
-  requestId?: string;
-  data?: RecognizeTaxiInvoiceResponseBodyData;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      data: 'Data',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      data: RecognizeTaxiInvoiceResponseBodyData,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeTaxiInvoiceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: RecognizeTaxiInvoiceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: RecognizeTaxiInvoiceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeVATInvoiceRequest extends $tea.Model {
-  fileURL?: string;
-  fileType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      fileURL: 'FileURL',
-      fileType: 'FileType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      fileURL: 'string',
-      fileType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeVATInvoiceAdvanceRequest extends $tea.Model {
-  fileURLObject: Readable;
-  fileType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      fileURLObject: 'FileURLObject',
-      fileType: 'FileType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      fileURLObject: 'Readable',
-      fileType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeVATInvoiceResponseBody extends $tea.Model {
-  requestId?: string;
-  data?: RecognizeVATInvoiceResponseBodyData;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      data: 'Data',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      data: RecognizeVATInvoiceResponseBodyData,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeVATInvoiceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: RecognizeVATInvoiceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: RecognizeVATInvoiceResponseBody,
     };
   }
 
@@ -1002,19 +1048,19 @@ export class RecognizePassportMRZAdvanceRequest extends $tea.Model {
 }
 
 export class RecognizePassportMRZResponseBody extends $tea.Model {
-  requestId?: string;
   data?: RecognizePassportMRZResponseBodyData;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       data: 'Data',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       data: RecognizePassportMRZResponseBodyData,
+      requestId: 'string',
     };
   }
 
@@ -1037,6 +1083,88 @@ export class RecognizePassportMRZResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: RecognizePassportMRZResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizePdfRequest extends $tea.Model {
+  fileURL?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fileURL: 'FileURL',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileURL: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizePdfAdvanceRequest extends $tea.Model {
+  fileURLObject: Readable;
+  static names(): { [key: string]: string } {
+    return {
+      fileURLObject: 'FileURLObject',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileURLObject: 'Readable',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizePdfResponseBody extends $tea.Model {
+  data?: RecognizePdfResponseBodyData;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: RecognizePdfResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizePdfResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: RecognizePdfResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: RecognizePdfResponseBody,
     };
   }
 
@@ -1084,19 +1212,19 @@ export class RecognizePoiNameAdvanceRequest extends $tea.Model {
 }
 
 export class RecognizePoiNameResponseBody extends $tea.Model {
-  requestId?: string;
   data?: RecognizePoiNameResponseBodyData;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       data: 'Data',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       data: RecognizePoiNameResponseBodyData,
+      requestId: 'string',
     };
   }
 
@@ -1147,19 +1275,19 @@ export class RecognizeQrCodeRequest extends $tea.Model {
 }
 
 export class RecognizeQrCodeResponseBody extends $tea.Model {
-  requestId?: string;
   data?: RecognizeQrCodeResponseBodyData;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       data: 'Data',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       data: RecognizeQrCodeResponseBodyData,
+      requestId: 'string',
     };
   }
 
@@ -1182,838 +1310,6 @@ export class RecognizeQrCodeResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: RecognizeQrCodeResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeVINCodeRequest extends $tea.Model {
-  imageURL?: string;
-  static names(): { [key: string]: string } {
-    return {
-      imageURL: 'ImageURL',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURL: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeVINCodeAdvanceRequest extends $tea.Model {
-  imageURLObject: Readable;
-  static names(): { [key: string]: string } {
-    return {
-      imageURLObject: 'ImageURLObject',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURLObject: 'Readable',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeVINCodeResponseBody extends $tea.Model {
-  requestId?: string;
-  data?: RecognizeVINCodeResponseBodyData;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      data: 'Data',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      data: RecognizeVINCodeResponseBodyData,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeVINCodeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: RecognizeVINCodeResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: RecognizeVINCodeResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeChinapassportRequest extends $tea.Model {
-  imageURL?: string;
-  static names(): { [key: string]: string } {
-    return {
-      imageURL: 'ImageURL',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURL: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeChinapassportAdvanceRequest extends $tea.Model {
-  imageURLObject: Readable;
-  static names(): { [key: string]: string } {
-    return {
-      imageURLObject: 'ImageURLObject',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURLObject: 'Readable',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeChinapassportResponseBody extends $tea.Model {
-  requestId?: string;
-  data?: RecognizeChinapassportResponseBodyData;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      data: 'Data',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      data: RecognizeChinapassportResponseBodyData,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeChinapassportResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: RecognizeChinapassportResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: RecognizeChinapassportResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TrimDocumentRequest extends $tea.Model {
-  fileURL?: string;
-  fileType?: string;
-  outputType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      fileURL: 'FileURL',
-      fileType: 'FileType',
-      outputType: 'OutputType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      fileURL: 'string',
-      fileType: 'string',
-      outputType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TrimDocumentAdvanceRequest extends $tea.Model {
-  fileURLObject: Readable;
-  fileType?: string;
-  outputType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      fileURLObject: 'FileURLObject',
-      fileType: 'FileType',
-      outputType: 'OutputType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      fileURLObject: 'Readable',
-      fileType: 'string',
-      outputType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TrimDocumentResponseBody extends $tea.Model {
-  requestId?: string;
-  data?: TrimDocumentResponseBodyData;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      data: 'Data',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      data: TrimDocumentResponseBodyData,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TrimDocumentResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: TrimDocumentResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: TrimDocumentResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizePdfRequest extends $tea.Model {
-  fileURL?: string;
-  static names(): { [key: string]: string } {
-    return {
-      fileURL: 'FileURL',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      fileURL: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizePdfAdvanceRequest extends $tea.Model {
-  fileURLObject: Readable;
-  static names(): { [key: string]: string } {
-    return {
-      fileURLObject: 'FileURLObject',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      fileURLObject: 'Readable',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizePdfResponseBody extends $tea.Model {
-  requestId?: string;
-  data?: RecognizePdfResponseBodyData;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      data: 'Data',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      data: RecognizePdfResponseBodyData,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizePdfResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: RecognizePdfResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: RecognizePdfResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeBusinessLicenseRequest extends $tea.Model {
-  imageURL?: string;
-  static names(): { [key: string]: string } {
-    return {
-      imageURL: 'ImageURL',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURL: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeBusinessLicenseAdvanceRequest extends $tea.Model {
-  imageURLObject: Readable;
-  static names(): { [key: string]: string } {
-    return {
-      imageURLObject: 'ImageURLObject',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURLObject: 'Readable',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeBusinessLicenseResponseBody extends $tea.Model {
-  requestId?: string;
-  data?: RecognizeBusinessLicenseResponseBodyData;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      data: 'Data',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      data: RecognizeBusinessLicenseResponseBodyData,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeBusinessLicenseResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: RecognizeBusinessLicenseResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: RecognizeBusinessLicenseResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeBankCardRequest extends $tea.Model {
-  imageURL?: string;
-  static names(): { [key: string]: string } {
-    return {
-      imageURL: 'ImageURL',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURL: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeBankCardAdvanceRequest extends $tea.Model {
-  imageURLObject: Readable;
-  static names(): { [key: string]: string } {
-    return {
-      imageURLObject: 'ImageURLObject',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURLObject: 'Readable',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeBankCardResponseBody extends $tea.Model {
-  requestId?: string;
-  data?: RecognizeBankCardResponseBodyData;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      data: 'Data',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      data: RecognizeBankCardResponseBodyData,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeBankCardResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: RecognizeBankCardResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: RecognizeBankCardResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeAccountPageRequest extends $tea.Model {
-  imageURL?: string;
-  static names(): { [key: string]: string } {
-    return {
-      imageURL: 'ImageURL',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURL: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeAccountPageAdvanceRequest extends $tea.Model {
-  imageURLObject: Readable;
-  static names(): { [key: string]: string } {
-    return {
-      imageURLObject: 'ImageURLObject',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURLObject: 'Readable',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeAccountPageResponseBody extends $tea.Model {
-  requestId?: string;
-  data?: RecognizeAccountPageResponseBodyData;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      data: 'Data',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      data: RecognizeAccountPageResponseBodyData,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeAccountPageResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: RecognizeAccountPageResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: RecognizeAccountPageResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeBusinessCardRequest extends $tea.Model {
-  imageURL?: string;
-  static names(): { [key: string]: string } {
-    return {
-      imageURL: 'ImageURL',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURL: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeBusinessCardAdvanceRequest extends $tea.Model {
-  imageURLObject: Readable;
-  static names(): { [key: string]: string } {
-    return {
-      imageURLObject: 'ImageURLObject',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURLObject: 'Readable',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeBusinessCardResponseBody extends $tea.Model {
-  requestId?: string;
-  data?: RecognizeBusinessCardResponseBodyData;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      data: 'Data',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      data: RecognizeBusinessCardResponseBodyData,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeBusinessCardResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: RecognizeBusinessCardResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: RecognizeBusinessCardResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectCardScreenshotRequest extends $tea.Model {
-  imageURL?: string;
-  static names(): { [key: string]: string } {
-    return {
-      imageURL: 'ImageURL',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURL: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectCardScreenshotAdvanceRequest extends $tea.Model {
-  imageURLObject: Readable;
-  static names(): { [key: string]: string } {
-    return {
-      imageURLObject: 'ImageURLObject',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURLObject: 'Readable',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectCardScreenshotResponseBody extends $tea.Model {
-  requestId?: string;
-  data?: DetectCardScreenshotResponseBodyData;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      data: 'Data',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      data: DetectCardScreenshotResponseBodyData,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectCardScreenshotResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DetectCardScreenshotResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DetectCardScreenshotResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeStampRequest extends $tea.Model {
-  imageURL?: string;
-  static names(): { [key: string]: string } {
-    return {
-      imageURL: 'ImageURL',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURL: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeStampAdvanceRequest extends $tea.Model {
-  imageURLObject: Readable;
-  static names(): { [key: string]: string } {
-    return {
-      imageURLObject: 'ImageURLObject',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURLObject: 'Readable',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeStampResponseBody extends $tea.Model {
-  requestId?: string;
-  data?: RecognizeStampResponseBodyData;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      data: 'Data',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      data: RecognizeStampResponseBodyData,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeStampResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: RecognizeStampResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: RecognizeStampResponseBody,
     };
   }
 
@@ -2061,19 +1357,19 @@ export class RecognizeQuotaInvoiceAdvanceRequest extends $tea.Model {
 }
 
 export class RecognizeQuotaInvoiceResponseBody extends $tea.Model {
-  requestId?: string;
   data?: RecognizeQuotaInvoiceResponseBodyData;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       data: 'Data',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       data: RecognizeQuotaInvoiceResponseBodyData,
+      requestId: 'string',
     };
   }
 
@@ -2104,7 +1400,7 @@ export class RecognizeQuotaInvoiceResponse extends $tea.Model {
   }
 }
 
-export class RecognizeTrainTicketRequest extends $tea.Model {
+export class RecognizeStampRequest extends $tea.Model {
   imageURL?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2123,7 +1419,7 @@ export class RecognizeTrainTicketRequest extends $tea.Model {
   }
 }
 
-export class RecognizeTrainTicketAdvanceRequest extends $tea.Model {
+export class RecognizeStampAdvanceRequest extends $tea.Model {
   imageURLObject: Readable;
   static names(): { [key: string]: string } {
     return {
@@ -2142,20 +1438,20 @@ export class RecognizeTrainTicketAdvanceRequest extends $tea.Model {
   }
 }
 
-export class RecognizeTrainTicketResponseBody extends $tea.Model {
+export class RecognizeStampResponseBody extends $tea.Model {
+  data?: RecognizeStampResponseBodyData;
   requestId?: string;
-  data?: RecognizeTrainTicketResponseBodyData;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       data: 'Data',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      data: RecognizeStampResponseBodyData,
       requestId: 'string',
-      data: RecognizeTrainTicketResponseBodyData,
     };
   }
 
@@ -2164,9 +1460,9 @@ export class RecognizeTrainTicketResponseBody extends $tea.Model {
   }
 }
 
-export class RecognizeTrainTicketResponse extends $tea.Model {
+export class RecognizeStampResponse extends $tea.Model {
   headers: { [key: string]: string };
-  body: RecognizeTrainTicketResponseBody;
+  body: RecognizeStampResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2177,7 +1473,283 @@ export class RecognizeTrainTicketResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: RecognizeTrainTicketResponseBody,
+      body: RecognizeStampResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTableRequest extends $tea.Model {
+  assureDirection?: boolean;
+  hasLine?: boolean;
+  imageURL?: string;
+  outputFormat?: string;
+  skipDetection?: boolean;
+  useFinanceModel?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      assureDirection: 'AssureDirection',
+      hasLine: 'HasLine',
+      imageURL: 'ImageURL',
+      outputFormat: 'OutputFormat',
+      skipDetection: 'SkipDetection',
+      useFinanceModel: 'UseFinanceModel',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      assureDirection: 'boolean',
+      hasLine: 'boolean',
+      imageURL: 'string',
+      outputFormat: 'string',
+      skipDetection: 'boolean',
+      useFinanceModel: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTableAdvanceRequest extends $tea.Model {
+  imageURLObject: Readable;
+  assureDirection?: boolean;
+  hasLine?: boolean;
+  outputFormat?: string;
+  skipDetection?: boolean;
+  useFinanceModel?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      imageURLObject: 'ImageURLObject',
+      assureDirection: 'AssureDirection',
+      hasLine: 'HasLine',
+      outputFormat: 'OutputFormat',
+      skipDetection: 'SkipDetection',
+      useFinanceModel: 'UseFinanceModel',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageURLObject: 'Readable',
+      assureDirection: 'boolean',
+      hasLine: 'boolean',
+      outputFormat: 'string',
+      skipDetection: 'boolean',
+      useFinanceModel: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTableResponseBody extends $tea.Model {
+  data?: RecognizeTableResponseBodyData;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: RecognizeTableResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTableResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: RecognizeTableResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: RecognizeTableResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTakeoutOrderRequest extends $tea.Model {
+  imageURL?: string;
+  static names(): { [key: string]: string } {
+    return {
+      imageURL: 'ImageURL',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageURL: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTakeoutOrderAdvanceRequest extends $tea.Model {
+  imageURLObject: Readable;
+  static names(): { [key: string]: string } {
+    return {
+      imageURLObject: 'ImageURLObject',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageURLObject: 'Readable',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTakeoutOrderResponseBody extends $tea.Model {
+  data?: RecognizeTakeoutOrderResponseBodyData;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: RecognizeTakeoutOrderResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTakeoutOrderResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: RecognizeTakeoutOrderResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: RecognizeTakeoutOrderResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTaxiInvoiceRequest extends $tea.Model {
+  imageURL?: string;
+  static names(): { [key: string]: string } {
+    return {
+      imageURL: 'ImageURL',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageURL: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTaxiInvoiceAdvanceRequest extends $tea.Model {
+  imageURLObject: Readable;
+  static names(): { [key: string]: string } {
+    return {
+      imageURLObject: 'ImageURLObject',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageURLObject: 'Readable',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTaxiInvoiceResponseBody extends $tea.Model {
+  data?: RecognizeTaxiInvoiceResponseBodyData;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: RecognizeTaxiInvoiceResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTaxiInvoiceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: RecognizeTaxiInvoiceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: RecognizeTaxiInvoiceResponseBody,
     };
   }
 
@@ -2225,19 +1797,19 @@ export class RecognizeTicketInvoiceAdvanceRequest extends $tea.Model {
 }
 
 export class RecognizeTicketInvoiceResponseBody extends $tea.Model {
-  requestId?: string;
   data?: RecognizeTicketInvoiceResponseBodyData;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       data: 'Data',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       data: RecognizeTicketInvoiceResponseBodyData,
+      requestId: 'string',
     };
   }
 
@@ -2268,1270 +1840,7 @@ export class RecognizeTicketInvoiceResponse extends $tea.Model {
   }
 }
 
-export class RecognizeDrivingLicenseResponseBodyDataBackResult extends $tea.Model {
-  overallDimension?: string;
-  inspectionRecord?: string;
-  unladenMass?: string;
-  fileNumber?: string;
-  tractionMass?: string;
-  grossMass?: string;
-  plateNumber?: string;
-  approvedPassengerCapacity?: string;
-  energyType?: string;
-  approvedLoad?: string;
-  static names(): { [key: string]: string } {
-    return {
-      overallDimension: 'OverallDimension',
-      inspectionRecord: 'InspectionRecord',
-      unladenMass: 'UnladenMass',
-      fileNumber: 'FileNumber',
-      tractionMass: 'TractionMass',
-      grossMass: 'GrossMass',
-      plateNumber: 'PlateNumber',
-      approvedPassengerCapacity: 'ApprovedPassengerCapacity',
-      energyType: 'EnergyType',
-      approvedLoad: 'ApprovedLoad',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      overallDimension: 'string',
-      inspectionRecord: 'string',
-      unladenMass: 'string',
-      fileNumber: 'string',
-      tractionMass: 'string',
-      grossMass: 'string',
-      plateNumber: 'string',
-      approvedPassengerCapacity: 'string',
-      energyType: 'string',
-      approvedLoad: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeDrivingLicenseResponseBodyDataFaceResult extends $tea.Model {
-  issueDate?: string;
-  model?: string;
-  vehicleType?: string;
-  owner?: string;
-  engineNumber?: string;
-  plateNumber?: string;
-  address?: string;
-  useCharacter?: string;
-  vin?: string;
-  registerDate?: string;
-  static names(): { [key: string]: string } {
-    return {
-      issueDate: 'IssueDate',
-      model: 'Model',
-      vehicleType: 'VehicleType',
-      owner: 'Owner',
-      engineNumber: 'EngineNumber',
-      plateNumber: 'PlateNumber',
-      address: 'Address',
-      useCharacter: 'UseCharacter',
-      vin: 'Vin',
-      registerDate: 'RegisterDate',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      issueDate: 'string',
-      model: 'string',
-      vehicleType: 'string',
-      owner: 'string',
-      engineNumber: 'string',
-      plateNumber: 'string',
-      address: 'string',
-      useCharacter: 'string',
-      vin: 'string',
-      registerDate: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeDrivingLicenseResponseBodyData extends $tea.Model {
-  backResult?: RecognizeDrivingLicenseResponseBodyDataBackResult;
-  faceResult?: RecognizeDrivingLicenseResponseBodyDataFaceResult;
-  static names(): { [key: string]: string } {
-    return {
-      backResult: 'BackResult',
-      faceResult: 'FaceResult',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      backResult: RecognizeDrivingLicenseResponseBodyDataBackResult,
-      faceResult: RecognizeDrivingLicenseResponseBodyDataFaceResult,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeTableResponseBodyDataTablesTableRowsTableColumns extends $tea.Model {
-  endRow?: number;
-  endColumn?: number;
-  width?: number;
-  height?: number;
-  texts?: string[];
-  startRow?: number;
-  startColumn?: number;
-  static names(): { [key: string]: string } {
-    return {
-      endRow: 'EndRow',
-      endColumn: 'EndColumn',
-      width: 'Width',
-      height: 'Height',
-      texts: 'Texts',
-      startRow: 'StartRow',
-      startColumn: 'StartColumn',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      endRow: 'number',
-      endColumn: 'number',
-      width: 'number',
-      height: 'number',
-      texts: { 'type': 'array', 'itemType': 'string' },
-      startRow: 'number',
-      startColumn: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeTableResponseBodyDataTablesTableRows extends $tea.Model {
-  tableColumns?: RecognizeTableResponseBodyDataTablesTableRowsTableColumns[];
-  static names(): { [key: string]: string } {
-    return {
-      tableColumns: 'TableColumns',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      tableColumns: { 'type': 'array', 'itemType': RecognizeTableResponseBodyDataTablesTableRowsTableColumns },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeTableResponseBodyDataTables extends $tea.Model {
-  head?: string[];
-  tail?: string[];
-  tableRows?: RecognizeTableResponseBodyDataTablesTableRows[];
-  static names(): { [key: string]: string } {
-    return {
-      head: 'Head',
-      tail: 'Tail',
-      tableRows: 'TableRows',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      head: { 'type': 'array', 'itemType': 'string' },
-      tail: { 'type': 'array', 'itemType': 'string' },
-      tableRows: { 'type': 'array', 'itemType': RecognizeTableResponseBodyDataTablesTableRows },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeTableResponseBodyData extends $tea.Model {
-  fileContent?: string;
-  tables?: RecognizeTableResponseBodyDataTables[];
-  static names(): { [key: string]: string } {
-    return {
-      fileContent: 'FileContent',
-      tables: 'Tables',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      fileContent: 'string',
-      tables: { 'type': 'array', 'itemType': RecognizeTableResponseBodyDataTables },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeIdentityCardResponseBodyDataBackResult extends $tea.Model {
-  endDate?: string;
-  issue?: string;
-  startDate?: string;
-  static names(): { [key: string]: string } {
-    return {
-      endDate: 'EndDate',
-      issue: 'Issue',
-      startDate: 'StartDate',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      endDate: 'string',
-      issue: 'string',
-      startDate: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeIdentityCardResponseBodyDataFrontResultFaceRectangleSize extends $tea.Model {
-  width?: number;
-  height?: number;
-  static names(): { [key: string]: string } {
-    return {
-      width: 'Width',
-      height: 'Height',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      width: 'number',
-      height: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeIdentityCardResponseBodyDataFrontResultFaceRectangleCenter extends $tea.Model {
-  y?: number;
-  x?: number;
-  static names(): { [key: string]: string } {
-    return {
-      y: 'Y',
-      x: 'X',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      y: 'number',
-      x: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeIdentityCardResponseBodyDataFrontResultFaceRectangle extends $tea.Model {
-  size?: RecognizeIdentityCardResponseBodyDataFrontResultFaceRectangleSize;
-  angle?: number;
-  center?: RecognizeIdentityCardResponseBodyDataFrontResultFaceRectangleCenter;
-  static names(): { [key: string]: string } {
-    return {
-      size: 'Size',
-      angle: 'Angle',
-      center: 'Center',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      size: RecognizeIdentityCardResponseBodyDataFrontResultFaceRectangleSize,
-      angle: 'number',
-      center: RecognizeIdentityCardResponseBodyDataFrontResultFaceRectangleCenter,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeIdentityCardResponseBodyDataFrontResultFaceRectVertices extends $tea.Model {
-  y?: number;
-  x?: number;
-  static names(): { [key: string]: string } {
-    return {
-      y: 'Y',
-      x: 'X',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      y: 'number',
-      x: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeIdentityCardResponseBodyDataFrontResultCardAreas extends $tea.Model {
-  y?: number;
-  x?: number;
-  static names(): { [key: string]: string } {
-    return {
-      y: 'Y',
-      x: 'X',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      y: 'number',
-      x: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeIdentityCardResponseBodyDataFrontResult extends $tea.Model {
-  faceRectangle?: RecognizeIdentityCardResponseBodyDataFrontResultFaceRectangle;
-  birthDate?: string;
-  gender?: string;
-  address?: string;
-  faceRectVertices?: RecognizeIdentityCardResponseBodyDataFrontResultFaceRectVertices[];
-  cardAreas?: RecognizeIdentityCardResponseBodyDataFrontResultCardAreas[];
-  nationality?: string;
-  name?: string;
-  IDNumber?: string;
-  static names(): { [key: string]: string } {
-    return {
-      faceRectangle: 'FaceRectangle',
-      birthDate: 'BirthDate',
-      gender: 'Gender',
-      address: 'Address',
-      faceRectVertices: 'FaceRectVertices',
-      cardAreas: 'CardAreas',
-      nationality: 'Nationality',
-      name: 'Name',
-      IDNumber: 'IDNumber',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      faceRectangle: RecognizeIdentityCardResponseBodyDataFrontResultFaceRectangle,
-      birthDate: 'string',
-      gender: 'string',
-      address: 'string',
-      faceRectVertices: { 'type': 'array', 'itemType': RecognizeIdentityCardResponseBodyDataFrontResultFaceRectVertices },
-      cardAreas: { 'type': 'array', 'itemType': RecognizeIdentityCardResponseBodyDataFrontResultCardAreas },
-      nationality: 'string',
-      name: 'string',
-      IDNumber: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeIdentityCardResponseBodyData extends $tea.Model {
-  backResult?: RecognizeIdentityCardResponseBodyDataBackResult;
-  frontResult?: RecognizeIdentityCardResponseBodyDataFrontResult;
-  static names(): { [key: string]: string } {
-    return {
-      backResult: 'BackResult',
-      frontResult: 'FrontResult',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      backResult: RecognizeIdentityCardResponseBodyDataBackResult,
-      frontResult: RecognizeIdentityCardResponseBodyDataFrontResult,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeVerificationcodeResponseBodyData extends $tea.Model {
-  content?: string;
-  static names(): { [key: string]: string } {
-    return {
-      content: 'Content',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      content: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeCharacterResponseBodyDataResultsTextRectangles extends $tea.Model {
-  top?: number;
-  width?: number;
-  height?: number;
-  angle?: number;
-  left?: number;
-  static names(): { [key: string]: string } {
-    return {
-      top: 'Top',
-      width: 'Width',
-      height: 'Height',
-      angle: 'Angle',
-      left: 'Left',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      top: 'number',
-      width: 'number',
-      height: 'number',
-      angle: 'number',
-      left: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeCharacterResponseBodyDataResults extends $tea.Model {
-  textRectangles?: RecognizeCharacterResponseBodyDataResultsTextRectangles;
-  text?: string;
-  probability?: number;
-  static names(): { [key: string]: string } {
-    return {
-      textRectangles: 'TextRectangles',
-      text: 'Text',
-      probability: 'Probability',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      textRectangles: RecognizeCharacterResponseBodyDataResultsTextRectangles,
-      text: 'string',
-      probability: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeCharacterResponseBodyData extends $tea.Model {
-  results?: RecognizeCharacterResponseBodyDataResults[];
-  static names(): { [key: string]: string } {
-    return {
-      results: 'Results',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      results: { 'type': 'array', 'itemType': RecognizeCharacterResponseBodyDataResults },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAsyncJobResultResponseBodyData extends $tea.Model {
-  status?: string;
-  errorMessage?: string;
-  result?: string;
-  errorCode?: string;
-  jobId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      status: 'Status',
-      errorMessage: 'ErrorMessage',
-      result: 'Result',
-      errorCode: 'ErrorCode',
-      jobId: 'JobId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      status: 'string',
-      errorMessage: 'string',
-      result: 'string',
-      errorCode: 'string',
-      jobId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeTakeoutOrderResponseBodyDataElements extends $tea.Model {
-  value?: string;
-  boxes?: number[];
-  score?: number;
-  name?: string;
-  static names(): { [key: string]: string } {
-    return {
-      value: 'Value',
-      boxes: 'Boxes',
-      score: 'Score',
-      name: 'Name',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      value: 'string',
-      boxes: { 'type': 'array', 'itemType': 'number' },
-      score: 'number',
-      name: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeTakeoutOrderResponseBodyData extends $tea.Model {
-  elements?: RecognizeTakeoutOrderResponseBodyDataElements[];
-  static names(): { [key: string]: string } {
-    return {
-      elements: 'Elements',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      elements: { 'type': 'array', 'itemType': RecognizeTakeoutOrderResponseBodyDataElements },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeDriverLicenseResponseBodyDataBackResult extends $tea.Model {
-  archiveNumber?: string;
-  name?: string;
-  cardNumber?: string;
-  record?: string;
-  static names(): { [key: string]: string } {
-    return {
-      archiveNumber: 'ArchiveNumber',
-      name: 'Name',
-      cardNumber: 'CardNumber',
-      record: 'Record',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      archiveNumber: 'string',
-      name: 'string',
-      cardNumber: 'string',
-      record: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeDriverLicenseResponseBodyDataFaceResult extends $tea.Model {
-  vehicleType?: string;
-  issueDate?: string;
-  endDate?: string;
-  gender?: string;
-  address?: string;
-  startDate?: string;
-  licenseNumber?: string;
-  name?: string;
-  issueUnit?: string;
-  static names(): { [key: string]: string } {
-    return {
-      vehicleType: 'VehicleType',
-      issueDate: 'IssueDate',
-      endDate: 'EndDate',
-      gender: 'Gender',
-      address: 'Address',
-      startDate: 'StartDate',
-      licenseNumber: 'LicenseNumber',
-      name: 'Name',
-      issueUnit: 'IssueUnit',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      vehicleType: 'string',
-      issueDate: 'string',
-      endDate: 'string',
-      gender: 'string',
-      address: 'string',
-      startDate: 'string',
-      licenseNumber: 'string',
-      name: 'string',
-      issueUnit: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeDriverLicenseResponseBodyData extends $tea.Model {
-  backResult?: RecognizeDriverLicenseResponseBodyDataBackResult;
-  faceResult?: RecognizeDriverLicenseResponseBodyDataFaceResult;
-  static names(): { [key: string]: string } {
-    return {
-      backResult: 'BackResult',
-      faceResult: 'FaceResult',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      backResult: RecognizeDriverLicenseResponseBodyDataBackResult,
-      faceResult: RecognizeDriverLicenseResponseBodyDataFaceResult,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeLicensePlateResponseBodyDataPlatesRoi extends $tea.Model {
-  w?: number;
-  h?: number;
-  y?: number;
-  x?: number;
-  static names(): { [key: string]: string } {
-    return {
-      w: 'W',
-      h: 'H',
-      y: 'Y',
-      x: 'X',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      w: 'number',
-      h: 'number',
-      y: 'number',
-      x: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeLicensePlateResponseBodyDataPlatesPositions extends $tea.Model {
-  x?: number;
-  y?: number;
-  static names(): { [key: string]: string } {
-    return {
-      x: 'X',
-      y: 'Y',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      x: 'number',
-      y: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeLicensePlateResponseBodyDataPlates extends $tea.Model {
-  plateTypeConfidence?: number;
-  plateType?: string;
-  confidence?: number;
-  plateNumber?: string;
-  roi?: RecognizeLicensePlateResponseBodyDataPlatesRoi;
-  positions?: RecognizeLicensePlateResponseBodyDataPlatesPositions[];
-  static names(): { [key: string]: string } {
-    return {
-      plateTypeConfidence: 'PlateTypeConfidence',
-      plateType: 'PlateType',
-      confidence: 'Confidence',
-      plateNumber: 'PlateNumber',
-      roi: 'Roi',
-      positions: 'Positions',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      plateTypeConfidence: 'number',
-      plateType: 'string',
-      confidence: 'number',
-      plateNumber: 'string',
-      roi: RecognizeLicensePlateResponseBodyDataPlatesRoi,
-      positions: { 'type': 'array', 'itemType': RecognizeLicensePlateResponseBodyDataPlatesPositions },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeLicensePlateResponseBodyData extends $tea.Model {
-  plates?: RecognizeLicensePlateResponseBodyDataPlates[];
-  static names(): { [key: string]: string } {
-    return {
-      plates: 'Plates',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      plates: { 'type': 'array', 'itemType': RecognizeLicensePlateResponseBodyDataPlates },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeTaxiInvoiceResponseBodyDataInvoicesItemsItemRoiSize extends $tea.Model {
-  w?: number;
-  h?: number;
-  static names(): { [key: string]: string } {
-    return {
-      w: 'W',
-      h: 'H',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      w: 'number',
-      h: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeTaxiInvoiceResponseBodyDataInvoicesItemsItemRoiCenter extends $tea.Model {
-  y?: number;
-  x?: number;
-  static names(): { [key: string]: string } {
-    return {
-      y: 'Y',
-      x: 'X',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      y: 'number',
-      x: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeTaxiInvoiceResponseBodyDataInvoicesItemsItemRoi extends $tea.Model {
-  size?: RecognizeTaxiInvoiceResponseBodyDataInvoicesItemsItemRoiSize;
-  angle?: number;
-  center?: RecognizeTaxiInvoiceResponseBodyDataInvoicesItemsItemRoiCenter;
-  static names(): { [key: string]: string } {
-    return {
-      size: 'Size',
-      angle: 'Angle',
-      center: 'Center',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      size: RecognizeTaxiInvoiceResponseBodyDataInvoicesItemsItemRoiSize,
-      angle: 'number',
-      center: RecognizeTaxiInvoiceResponseBodyDataInvoicesItemsItemRoiCenter,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeTaxiInvoiceResponseBodyDataInvoicesItems extends $tea.Model {
-  itemRoi?: RecognizeTaxiInvoiceResponseBodyDataInvoicesItemsItemRoi;
-  text?: string;
-  static names(): { [key: string]: string } {
-    return {
-      itemRoi: 'ItemRoi',
-      text: 'Text',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      itemRoi: RecognizeTaxiInvoiceResponseBodyDataInvoicesItemsItemRoi,
-      text: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeTaxiInvoiceResponseBodyDataInvoicesInvoiceRoi extends $tea.Model {
-  w?: number;
-  h?: number;
-  y?: number;
-  x?: number;
-  static names(): { [key: string]: string } {
-    return {
-      w: 'W',
-      h: 'H',
-      y: 'Y',
-      x: 'X',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      w: 'number',
-      h: 'number',
-      y: 'number',
-      x: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeTaxiInvoiceResponseBodyDataInvoices extends $tea.Model {
-  items?: RecognizeTaxiInvoiceResponseBodyDataInvoicesItems[];
-  rotateType?: number;
-  invoiceRoi?: RecognizeTaxiInvoiceResponseBodyDataInvoicesInvoiceRoi;
-  static names(): { [key: string]: string } {
-    return {
-      items: 'Items',
-      rotateType: 'RotateType',
-      invoiceRoi: 'InvoiceRoi',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      items: { 'type': 'array', 'itemType': RecognizeTaxiInvoiceResponseBodyDataInvoicesItems },
-      rotateType: 'number',
-      invoiceRoi: RecognizeTaxiInvoiceResponseBodyDataInvoicesInvoiceRoi,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeTaxiInvoiceResponseBodyData extends $tea.Model {
-  invoices?: RecognizeTaxiInvoiceResponseBodyDataInvoices[];
-  static names(): { [key: string]: string } {
-    return {
-      invoices: 'Invoices',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      invoices: { 'type': 'array', 'itemType': RecognizeTaxiInvoiceResponseBodyDataInvoices },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeVATInvoiceResponseBodyDataBox extends $tea.Model {
-  payerRegisterNoes?: number[];
-  payeeAddresses?: number[];
-  payeeBankNames?: number[];
-  checkers?: number[];
-  taxAmounts?: number[];
-  sumAmounts?: number[];
-  clerks?: number[];
-  invoiceNoes?: number[];
-  invoiceDates?: number[];
-  invoiceCodes?: number[];
-  invoiceFakeCodes?: number[];
-  payerNames?: number[];
-  payerBankNames?: number[];
-  payees?: number[];
-  payeeNames?: number[];
-  invoiceAmounts?: number[];
-  withoutTaxAmounts?: number[];
-  payerAddresses?: number[];
-  payeeRegisterNoes?: number[];
-  static names(): { [key: string]: string } {
-    return {
-      payerRegisterNoes: 'PayerRegisterNoes',
-      payeeAddresses: 'PayeeAddresses',
-      payeeBankNames: 'PayeeBankNames',
-      checkers: 'Checkers',
-      taxAmounts: 'TaxAmounts',
-      sumAmounts: 'SumAmounts',
-      clerks: 'Clerks',
-      invoiceNoes: 'InvoiceNoes',
-      invoiceDates: 'InvoiceDates',
-      invoiceCodes: 'InvoiceCodes',
-      invoiceFakeCodes: 'InvoiceFakeCodes',
-      payerNames: 'PayerNames',
-      payerBankNames: 'PayerBankNames',
-      payees: 'Payees',
-      payeeNames: 'PayeeNames',
-      invoiceAmounts: 'InvoiceAmounts',
-      withoutTaxAmounts: 'WithoutTaxAmounts',
-      payerAddresses: 'PayerAddresses',
-      payeeRegisterNoes: 'PayeeRegisterNoes',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      payerRegisterNoes: { 'type': 'array', 'itemType': 'number' },
-      payeeAddresses: { 'type': 'array', 'itemType': 'number' },
-      payeeBankNames: { 'type': 'array', 'itemType': 'number' },
-      checkers: { 'type': 'array', 'itemType': 'number' },
-      taxAmounts: { 'type': 'array', 'itemType': 'number' },
-      sumAmounts: { 'type': 'array', 'itemType': 'number' },
-      clerks: { 'type': 'array', 'itemType': 'number' },
-      invoiceNoes: { 'type': 'array', 'itemType': 'number' },
-      invoiceDates: { 'type': 'array', 'itemType': 'number' },
-      invoiceCodes: { 'type': 'array', 'itemType': 'number' },
-      invoiceFakeCodes: { 'type': 'array', 'itemType': 'number' },
-      payerNames: { 'type': 'array', 'itemType': 'number' },
-      payerBankNames: { 'type': 'array', 'itemType': 'number' },
-      payees: { 'type': 'array', 'itemType': 'number' },
-      payeeNames: { 'type': 'array', 'itemType': 'number' },
-      invoiceAmounts: { 'type': 'array', 'itemType': 'number' },
-      withoutTaxAmounts: { 'type': 'array', 'itemType': 'number' },
-      payerAddresses: { 'type': 'array', 'itemType': 'number' },
-      payeeRegisterNoes: { 'type': 'array', 'itemType': 'number' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeVATInvoiceResponseBodyDataContent extends $tea.Model {
-  payerAddress?: string;
-  payeeRegisterNo?: string;
-  payeeBankName?: string;
-  invoiceNo?: string;
-  payerRegisterNo?: string;
-  checker?: string;
-  taxAmount?: string;
-  invoiceDate?: string;
-  withoutTaxAmount?: string;
-  invoiceAmount?: string;
-  antiFakeCode?: string;
-  payerName?: string;
-  payee?: string;
-  sumAmount?: string;
-  payerBankName?: string;
-  clerk?: string;
-  payeeName?: string;
-  payeeAddress?: string;
-  invoiceCode?: string;
-  static names(): { [key: string]: string } {
-    return {
-      payerAddress: 'PayerAddress',
-      payeeRegisterNo: 'PayeeRegisterNo',
-      payeeBankName: 'PayeeBankName',
-      invoiceNo: 'InvoiceNo',
-      payerRegisterNo: 'PayerRegisterNo',
-      checker: 'Checker',
-      taxAmount: 'TaxAmount',
-      invoiceDate: 'InvoiceDate',
-      withoutTaxAmount: 'WithoutTaxAmount',
-      invoiceAmount: 'InvoiceAmount',
-      antiFakeCode: 'AntiFakeCode',
-      payerName: 'PayerName',
-      payee: 'Payee',
-      sumAmount: 'SumAmount',
-      payerBankName: 'PayerBankName',
-      clerk: 'Clerk',
-      payeeName: 'PayeeName',
-      payeeAddress: 'PayeeAddress',
-      invoiceCode: 'InvoiceCode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      payerAddress: 'string',
-      payeeRegisterNo: 'string',
-      payeeBankName: 'string',
-      invoiceNo: 'string',
-      payerRegisterNo: 'string',
-      checker: 'string',
-      taxAmount: 'string',
-      invoiceDate: 'string',
-      withoutTaxAmount: 'string',
-      invoiceAmount: 'string',
-      antiFakeCode: 'string',
-      payerName: 'string',
-      payee: 'string',
-      sumAmount: 'string',
-      payerBankName: 'string',
-      clerk: 'string',
-      payeeName: 'string',
-      payeeAddress: 'string',
-      invoiceCode: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeVATInvoiceResponseBodyData extends $tea.Model {
-  box?: RecognizeVATInvoiceResponseBodyDataBox;
-  content?: RecognizeVATInvoiceResponseBodyDataContent;
-  static names(): { [key: string]: string } {
-    return {
-      box: 'Box',
-      content: 'Content',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      box: RecognizeVATInvoiceResponseBodyDataBox,
-      content: RecognizeVATInvoiceResponseBodyDataContent,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizePassportMRZResponseBodyDataRegions extends $tea.Model {
-  recognitionScore?: number;
-  detectionScore?: number;
-  name?: string;
-  content?: string;
-  bandBoxes?: number[];
-  static names(): { [key: string]: string } {
-    return {
-      recognitionScore: 'RecognitionScore',
-      detectionScore: 'DetectionScore',
-      name: 'Name',
-      content: 'Content',
-      bandBoxes: 'BandBoxes',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      recognitionScore: 'number',
-      detectionScore: 'number',
-      name: 'string',
-      content: 'string',
-      bandBoxes: { 'type': 'array', 'itemType': 'number' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizePassportMRZResponseBodyData extends $tea.Model {
-  regions?: RecognizePassportMRZResponseBodyDataRegions[];
-  static names(): { [key: string]: string } {
-    return {
-      regions: 'Regions',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      regions: { 'type': 'array', 'itemType': RecognizePassportMRZResponseBodyDataRegions },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizePoiNameResponseBodyDataSummary extends $tea.Model {
-  brand?: string;
-  score?: number;
-  static names(): { [key: string]: string } {
-    return {
-      brand: 'Brand',
-      score: 'Score',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      brand: 'string',
-      score: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizePoiNameResponseBodyDataSignboardsTexts extends $tea.Model {
-  type?: string;
-  score?: number;
-  tag?: string;
-  label?: string;
-  points?: number[];
-  static names(): { [key: string]: string } {
-    return {
-      type: 'Type',
-      score: 'Score',
-      tag: 'Tag',
-      label: 'Label',
-      points: 'Points',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      type: 'string',
-      score: 'number',
-      tag: 'string',
-      label: 'string',
-      points: { 'type': 'array', 'itemType': 'number' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizePoiNameResponseBodyDataSignboards extends $tea.Model {
-  texts?: RecognizePoiNameResponseBodyDataSignboardsTexts[];
-  static names(): { [key: string]: string } {
-    return {
-      texts: 'Texts',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      texts: { 'type': 'array', 'itemType': RecognizePoiNameResponseBodyDataSignboardsTexts },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizePoiNameResponseBodyData extends $tea.Model {
-  summary?: RecognizePoiNameResponseBodyDataSummary;
-  signboards?: RecognizePoiNameResponseBodyDataSignboards[];
-  static names(): { [key: string]: string } {
-    return {
-      summary: 'Summary',
-      signboards: 'Signboards',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      summary: RecognizePoiNameResponseBodyDataSummary,
-      signboards: { 'type': 'array', 'itemType': RecognizePoiNameResponseBodyDataSignboards },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeQrCodeRequestTasks extends $tea.Model {
+export class RecognizeTrainTicketRequest extends $tea.Model {
   imageURL?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3550,26 +1859,17 @@ export class RecognizeQrCodeRequestTasks extends $tea.Model {
   }
 }
 
-export class RecognizeQrCodeResponseBodyDataElementsResults extends $tea.Model {
-  suggestion?: string;
-  qrCodesData?: string[];
-  label?: string;
-  rate?: number;
+export class RecognizeTrainTicketAdvanceRequest extends $tea.Model {
+  imageURLObject: Readable;
   static names(): { [key: string]: string } {
     return {
-      suggestion: 'Suggestion',
-      qrCodesData: 'QrCodesData',
-      label: 'Label',
-      rate: 'Rate',
+      imageURLObject: 'ImageURLObject',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      suggestion: 'string',
-      qrCodesData: { 'type': 'array', 'itemType': 'string' },
-      label: 'string',
-      rate: 'number',
+      imageURLObject: 'Readable',
     };
   }
 
@@ -3578,23 +1878,149 @@ export class RecognizeQrCodeResponseBodyDataElementsResults extends $tea.Model {
   }
 }
 
-export class RecognizeQrCodeResponseBodyDataElements extends $tea.Model {
+export class RecognizeTrainTicketResponseBody extends $tea.Model {
+  data?: RecognizeTrainTicketResponseBodyData;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: RecognizeTrainTicketResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTrainTicketResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: RecognizeTrainTicketResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: RecognizeTrainTicketResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeVATInvoiceRequest extends $tea.Model {
+  fileType?: string;
+  fileURL?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fileType: 'FileType',
+      fileURL: 'FileURL',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileType: 'string',
+      fileURL: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeVATInvoiceAdvanceRequest extends $tea.Model {
+  fileURLObject: Readable;
+  fileType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fileURLObject: 'FileURLObject',
+      fileType: 'FileType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileURLObject: 'Readable',
+      fileType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeVATInvoiceResponseBody extends $tea.Model {
+  data?: RecognizeVATInvoiceResponseBodyData;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: RecognizeVATInvoiceResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeVATInvoiceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: RecognizeVATInvoiceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: RecognizeVATInvoiceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeVINCodeRequest extends $tea.Model {
   imageURL?: string;
-  taskId?: string;
-  results?: RecognizeQrCodeResponseBodyDataElementsResults[];
   static names(): { [key: string]: string } {
     return {
       imageURL: 'ImageURL',
-      taskId: 'TaskId',
-      results: 'Results',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       imageURL: 'string',
-      taskId: 'string',
-      results: { 'type': 'array', 'itemType': RecognizeQrCodeResponseBodyDataElementsResults },
     };
   }
 
@@ -3603,17 +2029,17 @@ export class RecognizeQrCodeResponseBodyDataElements extends $tea.Model {
   }
 }
 
-export class RecognizeQrCodeResponseBodyData extends $tea.Model {
-  elements?: RecognizeQrCodeResponseBodyDataElements[];
+export class RecognizeVINCodeAdvanceRequest extends $tea.Model {
+  imageURLObject: Readable;
   static names(): { [key: string]: string } {
     return {
-      elements: 'Elements',
+      imageURLObject: 'ImageURLObject',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      elements: { 'type': 'array', 'itemType': RecognizeQrCodeResponseBodyDataElements },
+      imageURLObject: 'Readable',
     };
   }
 
@@ -3622,17 +2048,20 @@ export class RecognizeQrCodeResponseBodyData extends $tea.Model {
   }
 }
 
-export class RecognizeVINCodeResponseBodyData extends $tea.Model {
-  vinCode?: string;
+export class RecognizeVINCodeResponseBody extends $tea.Model {
+  data?: RecognizeVINCodeResponseBodyData;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      vinCode: 'VinCode',
+      data: 'Data',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      vinCode: 'string',
+      data: RecognizeVINCodeResponseBodyData,
+      requestId: 'string',
     };
   }
 
@@ -3641,80 +2070,20 @@ export class RecognizeVINCodeResponseBodyData extends $tea.Model {
   }
 }
 
-export class RecognizeChinapassportResponseBodyData extends $tea.Model {
-  type?: string;
-  sex?: string;
-  authority?: string;
-  issuePlaceRaw?: string;
-  success?: boolean;
-  lineOne?: string;
-  expiryDate?: string;
-  birthPlace?: string;
-  passportNo?: string;
-  birthPlaceRaw?: string;
-  issueDate?: string;
-  sourceCountry?: string;
-  birthDate?: string;
-  nameChineseRaw?: string;
-  issuePlace?: string;
-  nameChinese?: string;
-  lineZero?: string;
-  country?: string;
-  birthDay?: string;
-  expiryDay?: string;
-  name?: string;
-  personId?: string;
+export class RecognizeVINCodeResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: RecognizeVINCodeResponseBody;
   static names(): { [key: string]: string } {
     return {
-      type: 'Type',
-      sex: 'Sex',
-      authority: 'Authority',
-      issuePlaceRaw: 'IssuePlaceRaw',
-      success: 'Success',
-      lineOne: 'LineOne',
-      expiryDate: 'ExpiryDate',
-      birthPlace: 'BirthPlace',
-      passportNo: 'PassportNo',
-      birthPlaceRaw: 'BirthPlaceRaw',
-      issueDate: 'IssueDate',
-      sourceCountry: 'SourceCountry',
-      birthDate: 'BirthDate',
-      nameChineseRaw: 'NameChineseRaw',
-      issuePlace: 'IssuePlace',
-      nameChinese: 'NameChinese',
-      lineZero: 'LineZero',
-      country: 'Country',
-      birthDay: 'BirthDay',
-      expiryDay: 'ExpiryDay',
-      name: 'Name',
-      personId: 'PersonId',
+      headers: 'headers',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      type: 'string',
-      sex: 'string',
-      authority: 'string',
-      issuePlaceRaw: 'string',
-      success: 'boolean',
-      lineOne: 'string',
-      expiryDate: 'string',
-      birthPlace: 'string',
-      passportNo: 'string',
-      birthPlaceRaw: 'string',
-      issueDate: 'string',
-      sourceCountry: 'string',
-      birthDate: 'string',
-      nameChineseRaw: 'string',
-      issuePlace: 'string',
-      nameChinese: 'string',
-      lineZero: 'string',
-      country: 'string',
-      birthDay: 'string',
-      expiryDay: 'string',
-      name: 'string',
-      personId: 'string',
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: RecognizeVINCodeResponseBody,
     };
   }
 
@@ -3723,17 +2092,17 @@ export class RecognizeChinapassportResponseBodyData extends $tea.Model {
   }
 }
 
-export class TrimDocumentResponseBodyData extends $tea.Model {
-  content?: string;
+export class RecognizeVerificationcodeRequest extends $tea.Model {
+  imageURL?: string;
   static names(): { [key: string]: string } {
     return {
-      content: 'Content',
+      imageURL: 'ImageURL',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      content: 'string',
+      imageURL: 'string',
     };
   }
 
@@ -3742,20 +2111,17 @@ export class TrimDocumentResponseBodyData extends $tea.Model {
   }
 }
 
-export class RecognizePdfResponseBodyDataWordsInfoPositions extends $tea.Model {
-  x?: number;
-  y?: number;
+export class RecognizeVerificationcodeAdvanceRequest extends $tea.Model {
+  imageURLObject: Readable;
   static names(): { [key: string]: string } {
     return {
-      x: 'X',
-      y: 'Y',
+      imageURLObject: 'ImageURLObject',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      x: 'number',
-      y: 'number',
+      imageURLObject: 'Readable',
     };
   }
 
@@ -3764,35 +2130,20 @@ export class RecognizePdfResponseBodyDataWordsInfoPositions extends $tea.Model {
   }
 }
 
-export class RecognizePdfResponseBodyDataWordsInfo extends $tea.Model {
-  angle?: number;
-  word?: string;
-  height?: number;
-  width?: number;
-  x?: number;
-  y?: number;
-  positions?: RecognizePdfResponseBodyDataWordsInfoPositions[];
+export class RecognizeVerificationcodeResponseBody extends $tea.Model {
+  data?: RecognizeVerificationcodeResponseBodyData;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      angle: 'Angle',
-      word: 'Word',
-      height: 'Height',
-      width: 'Width',
-      x: 'X',
-      y: 'Y',
-      positions: 'Positions',
+      data: 'Data',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      angle: 'number',
-      word: 'string',
-      height: 'number',
-      width: 'number',
-      x: 'number',
-      y: 'number',
-      positions: { 'type': 'array', 'itemType': RecognizePdfResponseBodyDataWordsInfoPositions },
+      data: RecognizeVerificationcodeResponseBodyData,
+      requestId: 'string',
     };
   }
 
@@ -3801,35 +2152,20 @@ export class RecognizePdfResponseBodyDataWordsInfo extends $tea.Model {
   }
 }
 
-export class RecognizePdfResponseBodyData extends $tea.Model {
-  height?: number;
-  width?: number;
-  orgHeight?: number;
-  orgWidth?: number;
-  pageIndex?: number;
-  angle?: number;
-  wordsInfo?: RecognizePdfResponseBodyDataWordsInfo[];
+export class RecognizeVerificationcodeResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: RecognizeVerificationcodeResponseBody;
   static names(): { [key: string]: string } {
     return {
-      height: 'Height',
-      width: 'Width',
-      orgHeight: 'OrgHeight',
-      orgWidth: 'OrgWidth',
-      pageIndex: 'PageIndex',
-      angle: 'Angle',
-      wordsInfo: 'WordsInfo',
+      headers: 'headers',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      height: 'number',
-      width: 'number',
-      orgHeight: 'number',
-      orgWidth: 'number',
-      pageIndex: 'number',
-      angle: 'number',
-      wordsInfo: { 'type': 'array', 'itemType': RecognizePdfResponseBodyDataWordsInfo },
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: RecognizeVerificationcodeResponseBody,
     };
   }
 
@@ -3838,26 +2174,17 @@ export class RecognizePdfResponseBodyData extends $tea.Model {
   }
 }
 
-export class RecognizeBusinessLicenseResponseBodyDataStamp extends $tea.Model {
-  top?: number;
-  width?: number;
-  height?: number;
-  left?: number;
+export class RecognizeVideoCharacterRequest extends $tea.Model {
+  videoURL?: string;
   static names(): { [key: string]: string } {
     return {
-      top: 'Top',
-      width: 'Width',
-      height: 'Height',
-      left: 'Left',
+      videoURL: 'VideoURL',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      top: 'number',
-      width: 'number',
-      height: 'number',
-      left: 'number',
+      videoURL: 'string',
     };
   }
 
@@ -3866,26 +2193,20 @@ export class RecognizeBusinessLicenseResponseBodyDataStamp extends $tea.Model {
   }
 }
 
-export class RecognizeBusinessLicenseResponseBodyDataTitle extends $tea.Model {
-  top?: number;
-  width?: number;
-  height?: number;
-  left?: number;
+export class RecognizeVideoCharacterResponseBody extends $tea.Model {
+  data?: RecognizeVideoCharacterResponseBodyData;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      top: 'Top',
-      width: 'Width',
-      height: 'Height',
-      left: 'Left',
+      data: 'Data',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      top: 'number',
-      width: 'number',
-      height: 'number',
-      left: 'number',
+      data: RecognizeVideoCharacterResponseBodyData,
+      requestId: 'string',
     };
   }
 
@@ -3894,26 +2215,20 @@ export class RecognizeBusinessLicenseResponseBodyDataTitle extends $tea.Model {
   }
 }
 
-export class RecognizeBusinessLicenseResponseBodyDataEmblem extends $tea.Model {
-  top?: number;
-  width?: number;
-  height?: number;
-  left?: number;
+export class RecognizeVideoCharacterResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: RecognizeVideoCharacterResponseBody;
   static names(): { [key: string]: string } {
     return {
-      top: 'Top',
-      width: 'Width',
-      height: 'Height',
-      left: 'Left',
+      headers: 'headers',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      top: 'number',
-      width: 'number',
-      height: 'number',
-      left: 'number',
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: RecognizeVideoCharacterResponseBody,
     };
   }
 
@@ -3922,26 +2237,23 @@ export class RecognizeBusinessLicenseResponseBodyDataEmblem extends $tea.Model {
   }
 }
 
-export class RecognizeBusinessLicenseResponseBodyDataQRCode extends $tea.Model {
-  top?: number;
-  width?: number;
-  height?: number;
-  left?: number;
+export class TrimDocumentRequest extends $tea.Model {
+  fileType?: string;
+  fileURL?: string;
+  outputType?: string;
   static names(): { [key: string]: string } {
     return {
-      top: 'Top',
-      width: 'Width',
-      height: 'Height',
-      left: 'Left',
+      fileType: 'FileType',
+      fileURL: 'FileURL',
+      outputType: 'OutputType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      top: 'number',
-      width: 'number',
-      height: 'number',
-      left: 'number',
+      fileType: 'string',
+      fileURL: 'string',
+      outputType: 'string',
     };
   }
 
@@ -3950,56 +2262,23 @@ export class RecognizeBusinessLicenseResponseBodyDataQRCode extends $tea.Model {
   }
 }
 
-export class RecognizeBusinessLicenseResponseBodyData extends $tea.Model {
-  type?: string;
-  stamp?: RecognizeBusinessLicenseResponseBodyDataStamp;
-  establishDate?: string;
-  validPeriod?: string;
-  business?: string;
-  angle?: number;
-  registerNumber?: string;
-  address?: string;
-  capital?: string;
-  title?: RecognizeBusinessLicenseResponseBodyDataTitle;
-  emblem?: RecognizeBusinessLicenseResponseBodyDataEmblem;
-  name?: string;
-  QRCode?: RecognizeBusinessLicenseResponseBodyDataQRCode;
-  legalPerson?: string;
+export class TrimDocumentAdvanceRequest extends $tea.Model {
+  fileURLObject: Readable;
+  fileType?: string;
+  outputType?: string;
   static names(): { [key: string]: string } {
     return {
-      type: 'Type',
-      stamp: 'Stamp',
-      establishDate: 'EstablishDate',
-      validPeriod: 'ValidPeriod',
-      business: 'Business',
-      angle: 'Angle',
-      registerNumber: 'RegisterNumber',
-      address: 'Address',
-      capital: 'Capital',
-      title: 'Title',
-      emblem: 'Emblem',
-      name: 'Name',
-      QRCode: 'QRCode',
-      legalPerson: 'LegalPerson',
+      fileURLObject: 'FileURLObject',
+      fileType: 'FileType',
+      outputType: 'OutputType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      type: 'string',
-      stamp: RecognizeBusinessLicenseResponseBodyDataStamp,
-      establishDate: 'string',
-      validPeriod: 'string',
-      business: 'string',
-      angle: 'number',
-      registerNumber: 'string',
-      address: 'string',
-      capital: 'string',
-      title: RecognizeBusinessLicenseResponseBodyDataTitle,
-      emblem: RecognizeBusinessLicenseResponseBodyDataEmblem,
-      name: 'string',
-      QRCode: RecognizeBusinessLicenseResponseBodyDataQRCode,
-      legalPerson: 'string',
+      fileURLObject: 'Readable',
+      fileType: 'string',
+      outputType: 'string',
     };
   }
 
@@ -4008,23 +2287,20 @@ export class RecognizeBusinessLicenseResponseBodyData extends $tea.Model {
   }
 }
 
-export class RecognizeBankCardResponseBodyData extends $tea.Model {
-  cardNumber?: string;
-  validDate?: string;
-  bankName?: string;
+export class TrimDocumentResponseBody extends $tea.Model {
+  data?: TrimDocumentResponseBodyData;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      cardNumber: 'CardNumber',
-      validDate: 'ValidDate',
-      bankName: 'BankName',
+      data: 'Data',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      cardNumber: 'string',
-      validDate: 'string',
-      bankName: 'string',
+      data: TrimDocumentResponseBodyData,
+      requestId: 'string',
     };
   }
 
@@ -4033,236 +2309,20 @@ export class RecognizeBankCardResponseBodyData extends $tea.Model {
   }
 }
 
-export class RecognizeAccountPageResponseBodyDataTitleArea extends $tea.Model {
-  top?: number;
-  width?: number;
-  height?: number;
-  left?: number;
+export class TrimDocumentResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: TrimDocumentResponseBody;
   static names(): { [key: string]: string } {
     return {
-      top: 'Top',
-      width: 'Width',
-      height: 'Height',
-      left: 'Left',
+      headers: 'headers',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      top: 'number',
-      width: 'number',
-      height: 'number',
-      left: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeAccountPageResponseBodyDataRegisterStampAreas extends $tea.Model {
-  top?: number;
-  width?: number;
-  height?: number;
-  left?: number;
-  static names(): { [key: string]: string } {
-    return {
-      top: 'Top',
-      width: 'Width',
-      height: 'Height',
-      left: 'Left',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      top: 'number',
-      width: 'number',
-      height: 'number',
-      left: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeAccountPageResponseBodyDataOtherStampAreas extends $tea.Model {
-  top?: number;
-  width?: number;
-  height?: number;
-  left?: number;
-  static names(): { [key: string]: string } {
-    return {
-      top: 'Top',
-      width: 'Width',
-      height: 'Height',
-      left: 'Left',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      top: 'number',
-      width: 'number',
-      height: 'number',
-      left: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeAccountPageResponseBodyDataUndertakeStampAreas extends $tea.Model {
-  top?: number;
-  width?: number;
-  height?: number;
-  left?: number;
-  static names(): { [key: string]: string } {
-    return {
-      top: 'Top',
-      width: 'Width',
-      height: 'Height',
-      left: 'Left',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      top: 'number',
-      width: 'number',
-      height: 'number',
-      left: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeAccountPageResponseBodyDataInvalidStampAreas extends $tea.Model {
-  top?: number;
-  width?: number;
-  height?: number;
-  left?: number;
-  static names(): { [key: string]: string } {
-    return {
-      top: 'Top',
-      width: 'Width',
-      height: 'Height',
-      left: 'Left',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      top: 'number',
-      width: 'number',
-      height: 'number',
-      left: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeAccountPageResponseBodyData extends $tea.Model {
-  gender?: string;
-  titleArea?: RecognizeAccountPageResponseBodyDataTitleArea;
-  angle?: number;
-  registerStampAreas?: RecognizeAccountPageResponseBodyDataRegisterStampAreas[];
-  nationality?: string;
-  birthPlace?: string;
-  otherStampAreas?: RecognizeAccountPageResponseBodyDataOtherStampAreas[];
-  undertakeStampAreas?: RecognizeAccountPageResponseBodyDataUndertakeStampAreas[];
-  birthDate?: string;
-  relation?: string;
-  nativePlace?: string;
-  name?: string;
-  IDNumber?: string;
-  invalidStampAreas?: RecognizeAccountPageResponseBodyDataInvalidStampAreas[];
-  static names(): { [key: string]: string } {
-    return {
-      gender: 'Gender',
-      titleArea: 'TitleArea',
-      angle: 'Angle',
-      registerStampAreas: 'RegisterStampAreas',
-      nationality: 'Nationality',
-      birthPlace: 'BirthPlace',
-      otherStampAreas: 'OtherStampAreas',
-      undertakeStampAreas: 'UndertakeStampAreas',
-      birthDate: 'BirthDate',
-      relation: 'Relation',
-      nativePlace: 'NativePlace',
-      name: 'Name',
-      IDNumber: 'IDNumber',
-      invalidStampAreas: 'InvalidStampAreas',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      gender: 'string',
-      titleArea: RecognizeAccountPageResponseBodyDataTitleArea,
-      angle: 'number',
-      registerStampAreas: { 'type': 'array', 'itemType': RecognizeAccountPageResponseBodyDataRegisterStampAreas },
-      nationality: 'string',
-      birthPlace: 'string',
-      otherStampAreas: { 'type': 'array', 'itemType': RecognizeAccountPageResponseBodyDataOtherStampAreas },
-      undertakeStampAreas: { 'type': 'array', 'itemType': RecognizeAccountPageResponseBodyDataUndertakeStampAreas },
-      birthDate: 'string',
-      relation: 'string',
-      nativePlace: 'string',
-      name: 'string',
-      IDNumber: 'string',
-      invalidStampAreas: { 'type': 'array', 'itemType': RecognizeAccountPageResponseBodyDataInvalidStampAreas },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeBusinessCardResponseBodyData extends $tea.Model {
-  companies?: string[];
-  titles?: string[];
-  emails?: string[];
-  departments?: string[];
-  officePhoneNumbers?: string[];
-  name?: string;
-  cellPhoneNumbers?: string[];
-  addresses?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      companies: 'Companies',
-      titles: 'Titles',
-      emails: 'Emails',
-      departments: 'Departments',
-      officePhoneNumbers: 'OfficePhoneNumbers',
-      name: 'Name',
-      cellPhoneNumbers: 'CellPhoneNumbers',
-      addresses: 'Addresses',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      companies: { 'type': 'array', 'itemType': 'string' },
-      titles: { 'type': 'array', 'itemType': 'string' },
-      emails: { 'type': 'array', 'itemType': 'string' },
-      departments: { 'type': 'array', 'itemType': 'string' },
-      officePhoneNumbers: { 'type': 'array', 'itemType': 'string' },
-      name: 'string',
-      cellPhoneNumbers: { 'type': 'array', 'itemType': 'string' },
-      addresses: { 'type': 'array', 'itemType': 'string' },
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: TrimDocumentResponseBody,
     };
   }
 
@@ -4272,19 +2332,19 @@ export class RecognizeBusinessCardResponseBodyData extends $tea.Model {
 }
 
 export class DetectCardScreenshotResponseBodyDataSpoofResultResultMap extends $tea.Model {
-  screenThreshold?: number;
   screenScore?: number;
+  screenThreshold?: number;
   static names(): { [key: string]: string } {
     return {
-      screenThreshold: 'ScreenThreshold',
       screenScore: 'ScreenScore',
+      screenThreshold: 'ScreenThreshold',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      screenThreshold: 'number',
       screenScore: 'number',
+      screenThreshold: 'number',
     };
   }
 
@@ -4340,20 +2400,29 @@ export class DetectCardScreenshotResponseBodyData extends $tea.Model {
   }
 }
 
-export class RecognizeStampResponseBodyDataResultsText extends $tea.Model {
-  confidence?: number;
-  content?: string;
+export class GetAsyncJobResultResponseBodyData extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  jobId?: string;
+  result?: string;
+  status?: string;
   static names(): { [key: string]: string } {
     return {
-      confidence: 'Confidence',
-      content: 'Content',
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      jobId: 'JobId',
+      result: 'Result',
+      status: 'Status',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      confidence: 'number',
-      content: 'string',
+      errorCode: 'string',
+      errorMessage: 'string',
+      jobId: 'string',
+      result: 'string',
+      status: 'string',
     };
   }
 
@@ -4362,26 +2431,26 @@ export class RecognizeStampResponseBodyDataResultsText extends $tea.Model {
   }
 }
 
-export class RecognizeStampResponseBodyDataResultsRoi extends $tea.Model {
-  top?: number;
-  width?: number;
+export class RecognizeAccountPageResponseBodyDataInvalidStampAreas extends $tea.Model {
   height?: number;
   left?: number;
+  top?: number;
+  width?: number;
   static names(): { [key: string]: string } {
     return {
-      top: 'Top',
-      width: 'Width',
       height: 'Height',
       left: 'Left',
+      top: 'Top',
+      width: 'Width',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      top: 'number',
-      width: 'number',
       height: 'number',
       left: 'number',
+      top: 'number',
+      width: 'number',
     };
   }
 
@@ -4390,20 +2459,26 @@ export class RecognizeStampResponseBodyDataResultsRoi extends $tea.Model {
   }
 }
 
-export class RecognizeStampResponseBodyDataResultsGeneralText extends $tea.Model {
-  confidence?: number;
-  content?: string;
+export class RecognizeAccountPageResponseBodyDataOtherStampAreas extends $tea.Model {
+  height?: number;
+  left?: number;
+  top?: number;
+  width?: number;
   static names(): { [key: string]: string } {
     return {
-      confidence: 'Confidence',
-      content: 'Content',
+      height: 'Height',
+      left: 'Left',
+      top: 'Top',
+      width: 'Width',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      confidence: 'number',
-      content: 'string',
+      height: 'number',
+      left: 'number',
+      top: 'number',
+      width: 'number',
     };
   }
 
@@ -4412,23 +2487,431 @@ export class RecognizeStampResponseBodyDataResultsGeneralText extends $tea.Model
   }
 }
 
-export class RecognizeStampResponseBodyDataResults extends $tea.Model {
-  text?: RecognizeStampResponseBodyDataResultsText;
-  roi?: RecognizeStampResponseBodyDataResultsRoi;
-  generalText?: RecognizeStampResponseBodyDataResultsGeneralText[];
+export class RecognizeAccountPageResponseBodyDataRegisterStampAreas extends $tea.Model {
+  height?: number;
+  left?: number;
+  top?: number;
+  width?: number;
   static names(): { [key: string]: string } {
     return {
+      height: 'Height',
+      left: 'Left',
+      top: 'Top',
+      width: 'Width',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      height: 'number',
+      left: 'number',
+      top: 'number',
+      width: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeAccountPageResponseBodyDataTitleArea extends $tea.Model {
+  height?: number;
+  left?: number;
+  top?: number;
+  width?: number;
+  static names(): { [key: string]: string } {
+    return {
+      height: 'Height',
+      left: 'Left',
+      top: 'Top',
+      width: 'Width',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      height: 'number',
+      left: 'number',
+      top: 'number',
+      width: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeAccountPageResponseBodyDataUndertakeStampAreas extends $tea.Model {
+  height?: number;
+  left?: number;
+  top?: number;
+  width?: number;
+  static names(): { [key: string]: string } {
+    return {
+      height: 'Height',
+      left: 'Left',
+      top: 'Top',
+      width: 'Width',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      height: 'number',
+      left: 'number',
+      top: 'number',
+      width: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeAccountPageResponseBodyData extends $tea.Model {
+  angle?: number;
+  birthDate?: string;
+  birthPlace?: string;
+  gender?: string;
+  IDNumber?: string;
+  invalidStampAreas?: RecognizeAccountPageResponseBodyDataInvalidStampAreas[];
+  name?: string;
+  nationality?: string;
+  nativePlace?: string;
+  otherStampAreas?: RecognizeAccountPageResponseBodyDataOtherStampAreas[];
+  registerStampAreas?: RecognizeAccountPageResponseBodyDataRegisterStampAreas[];
+  relation?: string;
+  titleArea?: RecognizeAccountPageResponseBodyDataTitleArea;
+  undertakeStampAreas?: RecognizeAccountPageResponseBodyDataUndertakeStampAreas[];
+  static names(): { [key: string]: string } {
+    return {
+      angle: 'Angle',
+      birthDate: 'BirthDate',
+      birthPlace: 'BirthPlace',
+      gender: 'Gender',
+      IDNumber: 'IDNumber',
+      invalidStampAreas: 'InvalidStampAreas',
+      name: 'Name',
+      nationality: 'Nationality',
+      nativePlace: 'NativePlace',
+      otherStampAreas: 'OtherStampAreas',
+      registerStampAreas: 'RegisterStampAreas',
+      relation: 'Relation',
+      titleArea: 'TitleArea',
+      undertakeStampAreas: 'UndertakeStampAreas',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      angle: 'number',
+      birthDate: 'string',
+      birthPlace: 'string',
+      gender: 'string',
+      IDNumber: 'string',
+      invalidStampAreas: { 'type': 'array', 'itemType': RecognizeAccountPageResponseBodyDataInvalidStampAreas },
+      name: 'string',
+      nationality: 'string',
+      nativePlace: 'string',
+      otherStampAreas: { 'type': 'array', 'itemType': RecognizeAccountPageResponseBodyDataOtherStampAreas },
+      registerStampAreas: { 'type': 'array', 'itemType': RecognizeAccountPageResponseBodyDataRegisterStampAreas },
+      relation: 'string',
+      titleArea: RecognizeAccountPageResponseBodyDataTitleArea,
+      undertakeStampAreas: { 'type': 'array', 'itemType': RecognizeAccountPageResponseBodyDataUndertakeStampAreas },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeBankCardResponseBodyData extends $tea.Model {
+  bankName?: string;
+  cardNumber?: string;
+  validDate?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bankName: 'BankName',
+      cardNumber: 'CardNumber',
+      validDate: 'ValidDate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bankName: 'string',
+      cardNumber: 'string',
+      validDate: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeBusinessCardResponseBodyData extends $tea.Model {
+  addresses?: string[];
+  cellPhoneNumbers?: string[];
+  companies?: string[];
+  departments?: string[];
+  emails?: string[];
+  name?: string;
+  officePhoneNumbers?: string[];
+  titles?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      addresses: 'Addresses',
+      cellPhoneNumbers: 'CellPhoneNumbers',
+      companies: 'Companies',
+      departments: 'Departments',
+      emails: 'Emails',
+      name: 'Name',
+      officePhoneNumbers: 'OfficePhoneNumbers',
+      titles: 'Titles',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addresses: { 'type': 'array', 'itemType': 'string' },
+      cellPhoneNumbers: { 'type': 'array', 'itemType': 'string' },
+      companies: { 'type': 'array', 'itemType': 'string' },
+      departments: { 'type': 'array', 'itemType': 'string' },
+      emails: { 'type': 'array', 'itemType': 'string' },
+      name: 'string',
+      officePhoneNumbers: { 'type': 'array', 'itemType': 'string' },
+      titles: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeBusinessLicenseResponseBodyDataEmblem extends $tea.Model {
+  height?: number;
+  left?: number;
+  top?: number;
+  width?: number;
+  static names(): { [key: string]: string } {
+    return {
+      height: 'Height',
+      left: 'Left',
+      top: 'Top',
+      width: 'Width',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      height: 'number',
+      left: 'number',
+      top: 'number',
+      width: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeBusinessLicenseResponseBodyDataQRCode extends $tea.Model {
+  height?: number;
+  left?: number;
+  top?: number;
+  width?: number;
+  static names(): { [key: string]: string } {
+    return {
+      height: 'Height',
+      left: 'Left',
+      top: 'Top',
+      width: 'Width',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      height: 'number',
+      left: 'number',
+      top: 'number',
+      width: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeBusinessLicenseResponseBodyDataStamp extends $tea.Model {
+  height?: number;
+  left?: number;
+  top?: number;
+  width?: number;
+  static names(): { [key: string]: string } {
+    return {
+      height: 'Height',
+      left: 'Left',
+      top: 'Top',
+      width: 'Width',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      height: 'number',
+      left: 'number',
+      top: 'number',
+      width: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeBusinessLicenseResponseBodyDataTitle extends $tea.Model {
+  height?: number;
+  left?: number;
+  top?: number;
+  width?: number;
+  static names(): { [key: string]: string } {
+    return {
+      height: 'Height',
+      left: 'Left',
+      top: 'Top',
+      width: 'Width',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      height: 'number',
+      left: 'number',
+      top: 'number',
+      width: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeBusinessLicenseResponseBodyData extends $tea.Model {
+  address?: string;
+  angle?: number;
+  business?: string;
+  capital?: string;
+  emblem?: RecognizeBusinessLicenseResponseBodyDataEmblem;
+  establishDate?: string;
+  legalPerson?: string;
+  name?: string;
+  QRCode?: RecognizeBusinessLicenseResponseBodyDataQRCode;
+  registerNumber?: string;
+  stamp?: RecognizeBusinessLicenseResponseBodyDataStamp;
+  title?: RecognizeBusinessLicenseResponseBodyDataTitle;
+  type?: string;
+  validPeriod?: string;
+  static names(): { [key: string]: string } {
+    return {
+      address: 'Address',
+      angle: 'Angle',
+      business: 'Business',
+      capital: 'Capital',
+      emblem: 'Emblem',
+      establishDate: 'EstablishDate',
+      legalPerson: 'LegalPerson',
+      name: 'Name',
+      QRCode: 'QRCode',
+      registerNumber: 'RegisterNumber',
+      stamp: 'Stamp',
+      title: 'Title',
+      type: 'Type',
+      validPeriod: 'ValidPeriod',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      address: 'string',
+      angle: 'number',
+      business: 'string',
+      capital: 'string',
+      emblem: RecognizeBusinessLicenseResponseBodyDataEmblem,
+      establishDate: 'string',
+      legalPerson: 'string',
+      name: 'string',
+      QRCode: RecognizeBusinessLicenseResponseBodyDataQRCode,
+      registerNumber: 'string',
+      stamp: RecognizeBusinessLicenseResponseBodyDataStamp,
+      title: RecognizeBusinessLicenseResponseBodyDataTitle,
+      type: 'string',
+      validPeriod: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeCharacterResponseBodyDataResultsTextRectangles extends $tea.Model {
+  angle?: number;
+  height?: number;
+  left?: number;
+  top?: number;
+  width?: number;
+  static names(): { [key: string]: string } {
+    return {
+      angle: 'Angle',
+      height: 'Height',
+      left: 'Left',
+      top: 'Top',
+      width: 'Width',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      angle: 'number',
+      height: 'number',
+      left: 'number',
+      top: 'number',
+      width: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeCharacterResponseBodyDataResults extends $tea.Model {
+  probability?: number;
+  text?: string;
+  textRectangles?: RecognizeCharacterResponseBodyDataResultsTextRectangles;
+  static names(): { [key: string]: string } {
+    return {
+      probability: 'Probability',
       text: 'Text',
-      roi: 'Roi',
-      generalText: 'GeneralText',
+      textRectangles: 'TextRectangles',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      text: RecognizeStampResponseBodyDataResultsText,
-      roi: RecognizeStampResponseBodyDataResultsRoi,
-      generalText: { 'type': 'array', 'itemType': RecognizeStampResponseBodyDataResultsGeneralText },
+      probability: 'number',
+      text: 'string',
+      textRectangles: RecognizeCharacterResponseBodyDataResultsTextRectangles,
     };
   }
 
@@ -4437,8 +2920,8 @@ export class RecognizeStampResponseBodyDataResults extends $tea.Model {
   }
 }
 
-export class RecognizeStampResponseBodyData extends $tea.Model {
-  results?: RecognizeStampResponseBodyDataResults[];
+export class RecognizeCharacterResponseBodyData extends $tea.Model {
+  results?: RecognizeCharacterResponseBodyDataResults[];
   static names(): { [key: string]: string } {
     return {
       results: 'Results',
@@ -4447,7 +2930,933 @@ export class RecognizeStampResponseBodyData extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      results: { 'type': 'array', 'itemType': RecognizeStampResponseBodyDataResults },
+      results: { 'type': 'array', 'itemType': RecognizeCharacterResponseBodyDataResults },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeChinapassportResponseBodyData extends $tea.Model {
+  authority?: string;
+  birthDate?: string;
+  birthDay?: string;
+  birthPlace?: string;
+  birthPlaceRaw?: string;
+  country?: string;
+  expiryDate?: string;
+  expiryDay?: string;
+  issueDate?: string;
+  issuePlace?: string;
+  issuePlaceRaw?: string;
+  lineOne?: string;
+  lineZero?: string;
+  name?: string;
+  nameChinese?: string;
+  nameChineseRaw?: string;
+  passportNo?: string;
+  personId?: string;
+  sex?: string;
+  sourceCountry?: string;
+  success?: boolean;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authority: 'Authority',
+      birthDate: 'BirthDate',
+      birthDay: 'BirthDay',
+      birthPlace: 'BirthPlace',
+      birthPlaceRaw: 'BirthPlaceRaw',
+      country: 'Country',
+      expiryDate: 'ExpiryDate',
+      expiryDay: 'ExpiryDay',
+      issueDate: 'IssueDate',
+      issuePlace: 'IssuePlace',
+      issuePlaceRaw: 'IssuePlaceRaw',
+      lineOne: 'LineOne',
+      lineZero: 'LineZero',
+      name: 'Name',
+      nameChinese: 'NameChinese',
+      nameChineseRaw: 'NameChineseRaw',
+      passportNo: 'PassportNo',
+      personId: 'PersonId',
+      sex: 'Sex',
+      sourceCountry: 'SourceCountry',
+      success: 'Success',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authority: 'string',
+      birthDate: 'string',
+      birthDay: 'string',
+      birthPlace: 'string',
+      birthPlaceRaw: 'string',
+      country: 'string',
+      expiryDate: 'string',
+      expiryDay: 'string',
+      issueDate: 'string',
+      issuePlace: 'string',
+      issuePlaceRaw: 'string',
+      lineOne: 'string',
+      lineZero: 'string',
+      name: 'string',
+      nameChinese: 'string',
+      nameChineseRaw: 'string',
+      passportNo: 'string',
+      personId: 'string',
+      sex: 'string',
+      sourceCountry: 'string',
+      success: 'boolean',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeDriverLicenseResponseBodyDataBackResult extends $tea.Model {
+  archiveNumber?: string;
+  cardNumber?: string;
+  name?: string;
+  record?: string;
+  static names(): { [key: string]: string } {
+    return {
+      archiveNumber: 'ArchiveNumber',
+      cardNumber: 'CardNumber',
+      name: 'Name',
+      record: 'Record',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      archiveNumber: 'string',
+      cardNumber: 'string',
+      name: 'string',
+      record: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeDriverLicenseResponseBodyDataFaceResult extends $tea.Model {
+  address?: string;
+  endDate?: string;
+  gender?: string;
+  issueDate?: string;
+  issueUnit?: string;
+  licenseNumber?: string;
+  name?: string;
+  startDate?: string;
+  vehicleType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      address: 'Address',
+      endDate: 'EndDate',
+      gender: 'Gender',
+      issueDate: 'IssueDate',
+      issueUnit: 'IssueUnit',
+      licenseNumber: 'LicenseNumber',
+      name: 'Name',
+      startDate: 'StartDate',
+      vehicleType: 'VehicleType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      address: 'string',
+      endDate: 'string',
+      gender: 'string',
+      issueDate: 'string',
+      issueUnit: 'string',
+      licenseNumber: 'string',
+      name: 'string',
+      startDate: 'string',
+      vehicleType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeDriverLicenseResponseBodyData extends $tea.Model {
+  backResult?: RecognizeDriverLicenseResponseBodyDataBackResult;
+  faceResult?: RecognizeDriverLicenseResponseBodyDataFaceResult;
+  static names(): { [key: string]: string } {
+    return {
+      backResult: 'BackResult',
+      faceResult: 'FaceResult',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      backResult: RecognizeDriverLicenseResponseBodyDataBackResult,
+      faceResult: RecognizeDriverLicenseResponseBodyDataFaceResult,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeDrivingLicenseResponseBodyDataBackResult extends $tea.Model {
+  approvedLoad?: string;
+  approvedPassengerCapacity?: string;
+  energyType?: string;
+  fileNumber?: string;
+  grossMass?: string;
+  inspectionRecord?: string;
+  overallDimension?: string;
+  plateNumber?: string;
+  tractionMass?: string;
+  unladenMass?: string;
+  static names(): { [key: string]: string } {
+    return {
+      approvedLoad: 'ApprovedLoad',
+      approvedPassengerCapacity: 'ApprovedPassengerCapacity',
+      energyType: 'EnergyType',
+      fileNumber: 'FileNumber',
+      grossMass: 'GrossMass',
+      inspectionRecord: 'InspectionRecord',
+      overallDimension: 'OverallDimension',
+      plateNumber: 'PlateNumber',
+      tractionMass: 'TractionMass',
+      unladenMass: 'UnladenMass',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      approvedLoad: 'string',
+      approvedPassengerCapacity: 'string',
+      energyType: 'string',
+      fileNumber: 'string',
+      grossMass: 'string',
+      inspectionRecord: 'string',
+      overallDimension: 'string',
+      plateNumber: 'string',
+      tractionMass: 'string',
+      unladenMass: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeDrivingLicenseResponseBodyDataFaceResult extends $tea.Model {
+  address?: string;
+  engineNumber?: string;
+  issueDate?: string;
+  model?: string;
+  owner?: string;
+  plateNumber?: string;
+  registerDate?: string;
+  useCharacter?: string;
+  vehicleType?: string;
+  vin?: string;
+  static names(): { [key: string]: string } {
+    return {
+      address: 'Address',
+      engineNumber: 'EngineNumber',
+      issueDate: 'IssueDate',
+      model: 'Model',
+      owner: 'Owner',
+      plateNumber: 'PlateNumber',
+      registerDate: 'RegisterDate',
+      useCharacter: 'UseCharacter',
+      vehicleType: 'VehicleType',
+      vin: 'Vin',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      address: 'string',
+      engineNumber: 'string',
+      issueDate: 'string',
+      model: 'string',
+      owner: 'string',
+      plateNumber: 'string',
+      registerDate: 'string',
+      useCharacter: 'string',
+      vehicleType: 'string',
+      vin: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeDrivingLicenseResponseBodyData extends $tea.Model {
+  backResult?: RecognizeDrivingLicenseResponseBodyDataBackResult;
+  faceResult?: RecognizeDrivingLicenseResponseBodyDataFaceResult;
+  static names(): { [key: string]: string } {
+    return {
+      backResult: 'BackResult',
+      faceResult: 'FaceResult',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      backResult: RecognizeDrivingLicenseResponseBodyDataBackResult,
+      faceResult: RecognizeDrivingLicenseResponseBodyDataFaceResult,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeIdentityCardResponseBodyDataBackResult extends $tea.Model {
+  endDate?: string;
+  issue?: string;
+  startDate?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endDate: 'EndDate',
+      issue: 'Issue',
+      startDate: 'StartDate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endDate: 'string',
+      issue: 'string',
+      startDate: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeIdentityCardResponseBodyDataFrontResultCardAreas extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeIdentityCardResponseBodyDataFrontResultFaceRectVertices extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeIdentityCardResponseBodyDataFrontResultFaceRectangleCenter extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeIdentityCardResponseBodyDataFrontResultFaceRectangleSize extends $tea.Model {
+  height?: number;
+  width?: number;
+  static names(): { [key: string]: string } {
+    return {
+      height: 'Height',
+      width: 'Width',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      height: 'number',
+      width: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeIdentityCardResponseBodyDataFrontResultFaceRectangle extends $tea.Model {
+  angle?: number;
+  center?: RecognizeIdentityCardResponseBodyDataFrontResultFaceRectangleCenter;
+  size?: RecognizeIdentityCardResponseBodyDataFrontResultFaceRectangleSize;
+  static names(): { [key: string]: string } {
+    return {
+      angle: 'Angle',
+      center: 'Center',
+      size: 'Size',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      angle: 'number',
+      center: RecognizeIdentityCardResponseBodyDataFrontResultFaceRectangleCenter,
+      size: RecognizeIdentityCardResponseBodyDataFrontResultFaceRectangleSize,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeIdentityCardResponseBodyDataFrontResult extends $tea.Model {
+  address?: string;
+  birthDate?: string;
+  cardAreas?: RecognizeIdentityCardResponseBodyDataFrontResultCardAreas[];
+  faceRectVertices?: RecognizeIdentityCardResponseBodyDataFrontResultFaceRectVertices[];
+  faceRectangle?: RecognizeIdentityCardResponseBodyDataFrontResultFaceRectangle;
+  gender?: string;
+  IDNumber?: string;
+  name?: string;
+  nationality?: string;
+  static names(): { [key: string]: string } {
+    return {
+      address: 'Address',
+      birthDate: 'BirthDate',
+      cardAreas: 'CardAreas',
+      faceRectVertices: 'FaceRectVertices',
+      faceRectangle: 'FaceRectangle',
+      gender: 'Gender',
+      IDNumber: 'IDNumber',
+      name: 'Name',
+      nationality: 'Nationality',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      address: 'string',
+      birthDate: 'string',
+      cardAreas: { 'type': 'array', 'itemType': RecognizeIdentityCardResponseBodyDataFrontResultCardAreas },
+      faceRectVertices: { 'type': 'array', 'itemType': RecognizeIdentityCardResponseBodyDataFrontResultFaceRectVertices },
+      faceRectangle: RecognizeIdentityCardResponseBodyDataFrontResultFaceRectangle,
+      gender: 'string',
+      IDNumber: 'string',
+      name: 'string',
+      nationality: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeIdentityCardResponseBodyData extends $tea.Model {
+  backResult?: RecognizeIdentityCardResponseBodyDataBackResult;
+  frontResult?: RecognizeIdentityCardResponseBodyDataFrontResult;
+  static names(): { [key: string]: string } {
+    return {
+      backResult: 'BackResult',
+      frontResult: 'FrontResult',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      backResult: RecognizeIdentityCardResponseBodyDataBackResult,
+      frontResult: RecognizeIdentityCardResponseBodyDataFrontResult,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeLicensePlateResponseBodyDataPlatesPositions extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeLicensePlateResponseBodyDataPlatesRoi extends $tea.Model {
+  h?: number;
+  w?: number;
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      h: 'H',
+      w: 'W',
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      h: 'number',
+      w: 'number',
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeLicensePlateResponseBodyDataPlates extends $tea.Model {
+  confidence?: number;
+  plateNumber?: string;
+  plateType?: string;
+  plateTypeConfidence?: number;
+  positions?: RecognizeLicensePlateResponseBodyDataPlatesPositions[];
+  roi?: RecognizeLicensePlateResponseBodyDataPlatesRoi;
+  static names(): { [key: string]: string } {
+    return {
+      confidence: 'Confidence',
+      plateNumber: 'PlateNumber',
+      plateType: 'PlateType',
+      plateTypeConfidence: 'PlateTypeConfidence',
+      positions: 'Positions',
+      roi: 'Roi',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      confidence: 'number',
+      plateNumber: 'string',
+      plateType: 'string',
+      plateTypeConfidence: 'number',
+      positions: { 'type': 'array', 'itemType': RecognizeLicensePlateResponseBodyDataPlatesPositions },
+      roi: RecognizeLicensePlateResponseBodyDataPlatesRoi,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeLicensePlateResponseBodyData extends $tea.Model {
+  plates?: RecognizeLicensePlateResponseBodyDataPlates[];
+  static names(): { [key: string]: string } {
+    return {
+      plates: 'Plates',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      plates: { 'type': 'array', 'itemType': RecognizeLicensePlateResponseBodyDataPlates },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizePassportMRZResponseBodyDataRegions extends $tea.Model {
+  bandBoxes?: number[];
+  content?: string;
+  detectionScore?: number;
+  name?: string;
+  recognitionScore?: number;
+  static names(): { [key: string]: string } {
+    return {
+      bandBoxes: 'BandBoxes',
+      content: 'Content',
+      detectionScore: 'DetectionScore',
+      name: 'Name',
+      recognitionScore: 'RecognitionScore',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bandBoxes: { 'type': 'array', 'itemType': 'number' },
+      content: 'string',
+      detectionScore: 'number',
+      name: 'string',
+      recognitionScore: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizePassportMRZResponseBodyData extends $tea.Model {
+  regions?: RecognizePassportMRZResponseBodyDataRegions[];
+  static names(): { [key: string]: string } {
+    return {
+      regions: 'Regions',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regions: { 'type': 'array', 'itemType': RecognizePassportMRZResponseBodyDataRegions },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizePdfResponseBodyDataWordsInfoPositions extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizePdfResponseBodyDataWordsInfo extends $tea.Model {
+  angle?: number;
+  height?: number;
+  positions?: RecognizePdfResponseBodyDataWordsInfoPositions[];
+  width?: number;
+  word?: string;
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      angle: 'Angle',
+      height: 'Height',
+      positions: 'Positions',
+      width: 'Width',
+      word: 'Word',
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      angle: 'number',
+      height: 'number',
+      positions: { 'type': 'array', 'itemType': RecognizePdfResponseBodyDataWordsInfoPositions },
+      width: 'number',
+      word: 'string',
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizePdfResponseBodyData extends $tea.Model {
+  angle?: number;
+  height?: number;
+  orgHeight?: number;
+  orgWidth?: number;
+  pageIndex?: number;
+  width?: number;
+  wordsInfo?: RecognizePdfResponseBodyDataWordsInfo[];
+  static names(): { [key: string]: string } {
+    return {
+      angle: 'Angle',
+      height: 'Height',
+      orgHeight: 'OrgHeight',
+      orgWidth: 'OrgWidth',
+      pageIndex: 'PageIndex',
+      width: 'Width',
+      wordsInfo: 'WordsInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      angle: 'number',
+      height: 'number',
+      orgHeight: 'number',
+      orgWidth: 'number',
+      pageIndex: 'number',
+      width: 'number',
+      wordsInfo: { 'type': 'array', 'itemType': RecognizePdfResponseBodyDataWordsInfo },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizePoiNameResponseBodyDataSignboardsTexts extends $tea.Model {
+  label?: string;
+  points?: number[];
+  score?: number;
+  tag?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      label: 'Label',
+      points: 'Points',
+      score: 'Score',
+      tag: 'Tag',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      label: 'string',
+      points: { 'type': 'array', 'itemType': 'number' },
+      score: 'number',
+      tag: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizePoiNameResponseBodyDataSignboards extends $tea.Model {
+  texts?: RecognizePoiNameResponseBodyDataSignboardsTexts[];
+  static names(): { [key: string]: string } {
+    return {
+      texts: 'Texts',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      texts: { 'type': 'array', 'itemType': RecognizePoiNameResponseBodyDataSignboardsTexts },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizePoiNameResponseBodyDataSummary extends $tea.Model {
+  brand?: string;
+  score?: number;
+  static names(): { [key: string]: string } {
+    return {
+      brand: 'Brand',
+      score: 'Score',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      brand: 'string',
+      score: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizePoiNameResponseBodyData extends $tea.Model {
+  signboards?: RecognizePoiNameResponseBodyDataSignboards[];
+  summary?: RecognizePoiNameResponseBodyDataSummary;
+  static names(): { [key: string]: string } {
+    return {
+      signboards: 'Signboards',
+      summary: 'Summary',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      signboards: { 'type': 'array', 'itemType': RecognizePoiNameResponseBodyDataSignboards },
+      summary: RecognizePoiNameResponseBodyDataSummary,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeQrCodeRequestTasks extends $tea.Model {
+  imageURL?: string;
+  static names(): { [key: string]: string } {
+    return {
+      imageURL: 'ImageURL',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageURL: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeQrCodeResponseBodyDataElementsResults extends $tea.Model {
+  label?: string;
+  qrCodesData?: string[];
+  rate?: number;
+  suggestion?: string;
+  static names(): { [key: string]: string } {
+    return {
+      label: 'Label',
+      qrCodesData: 'QrCodesData',
+      rate: 'Rate',
+      suggestion: 'Suggestion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      label: 'string',
+      qrCodesData: { 'type': 'array', 'itemType': 'string' },
+      rate: 'number',
+      suggestion: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeQrCodeResponseBodyDataElements extends $tea.Model {
+  imageURL?: string;
+  results?: RecognizeQrCodeResponseBodyDataElementsResults[];
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      imageURL: 'ImageURL',
+      results: 'Results',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageURL: 'string',
+      results: { 'type': 'array', 'itemType': RecognizeQrCodeResponseBodyDataElementsResults },
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeQrCodeResponseBodyData extends $tea.Model {
+  elements?: RecognizeQrCodeResponseBodyDataElements[];
+  static names(): { [key: string]: string } {
+    return {
+      elements: 'Elements',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      elements: { 'type': 'array', 'itemType': RecognizeQrCodeResponseBodyDataElements },
     };
   }
 
@@ -4457,28 +3866,28 @@ export class RecognizeStampResponseBodyData extends $tea.Model {
 }
 
 export class RecognizeQuotaInvoiceResponseBodyDataContent extends $tea.Model {
-  sumAmount?: string;
-  invoiceCode?: string;
-  invoiceNo?: string;
   invoiceAmount?: string;
+  invoiceCode?: string;
   invoiceDetails?: string;
+  invoiceNo?: string;
+  sumAmount?: string;
   static names(): { [key: string]: string } {
     return {
-      sumAmount: 'SumAmount',
-      invoiceCode: 'InvoiceCode',
-      invoiceNo: 'InvoiceNo',
       invoiceAmount: 'InvoiceAmount',
+      invoiceCode: 'InvoiceCode',
       invoiceDetails: 'InvoiceDetails',
+      invoiceNo: 'InvoiceNo',
+      sumAmount: 'SumAmount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      sumAmount: 'string',
-      invoiceCode: 'string',
-      invoiceNo: 'string',
       invoiceAmount: 'string',
+      invoiceCode: 'string',
       invoiceDetails: 'string',
+      invoiceNo: 'string',
+      sumAmount: 'string',
     };
   }
 
@@ -4539,33 +3948,33 @@ export class RecognizeQuotaInvoiceResponseBodyDataKeyValueInfos extends $tea.Mod
 
 export class RecognizeQuotaInvoiceResponseBodyData extends $tea.Model {
   angle?: number;
+  content?: RecognizeQuotaInvoiceResponseBodyDataContent;
   height?: number;
-  width?: number;
+  keyValueInfos?: RecognizeQuotaInvoiceResponseBodyDataKeyValueInfos[];
   orgHeight?: number;
   orgWidth?: number;
-  content?: RecognizeQuotaInvoiceResponseBodyDataContent;
-  keyValueInfos?: RecognizeQuotaInvoiceResponseBodyDataKeyValueInfos[];
+  width?: number;
   static names(): { [key: string]: string } {
     return {
       angle: 'Angle',
+      content: 'Content',
       height: 'Height',
-      width: 'Width',
+      keyValueInfos: 'KeyValueInfos',
       orgHeight: 'OrgHeight',
       orgWidth: 'OrgWidth',
-      content: 'Content',
-      keyValueInfos: 'KeyValueInfos',
+      width: 'Width',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       angle: 'number',
+      content: RecognizeQuotaInvoiceResponseBodyDataContent,
       height: 'number',
-      width: 'number',
+      keyValueInfos: { 'type': 'array', 'itemType': RecognizeQuotaInvoiceResponseBodyDataKeyValueInfos },
       orgHeight: 'number',
       orgWidth: 'number',
-      content: RecognizeQuotaInvoiceResponseBodyDataContent,
-      keyValueInfos: { 'type': 'array', 'itemType': RecognizeQuotaInvoiceResponseBodyDataKeyValueInfos },
+      width: 'number',
     };
   }
 
@@ -4574,38 +3983,427 @@ export class RecognizeQuotaInvoiceResponseBodyData extends $tea.Model {
   }
 }
 
-export class RecognizeTrainTicketResponseBodyData extends $tea.Model {
-  price?: number;
-  destination?: string;
-  departureStation?: string;
-  date?: string;
-  number?: string;
-  seat?: string;
-  name?: string;
-  level?: string;
+export class RecognizeStampResponseBodyDataResultsGeneralText extends $tea.Model {
+  confidence?: number;
+  content?: string;
   static names(): { [key: string]: string } {
     return {
-      price: 'Price',
-      destination: 'Destination',
-      departureStation: 'DepartureStation',
-      date: 'Date',
-      number: 'Number',
-      seat: 'Seat',
-      name: 'Name',
-      level: 'Level',
+      confidence: 'Confidence',
+      content: 'Content',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      price: 'number',
-      destination: 'string',
-      departureStation: 'string',
-      date: 'string',
-      number: 'string',
-      seat: 'string',
+      confidence: 'number',
+      content: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeStampResponseBodyDataResultsRoi extends $tea.Model {
+  height?: number;
+  left?: number;
+  top?: number;
+  width?: number;
+  static names(): { [key: string]: string } {
+    return {
+      height: 'Height',
+      left: 'Left',
+      top: 'Top',
+      width: 'Width',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      height: 'number',
+      left: 'number',
+      top: 'number',
+      width: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeStampResponseBodyDataResultsText extends $tea.Model {
+  confidence?: number;
+  content?: string;
+  static names(): { [key: string]: string } {
+    return {
+      confidence: 'Confidence',
+      content: 'Content',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      confidence: 'number',
+      content: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeStampResponseBodyDataResults extends $tea.Model {
+  generalText?: RecognizeStampResponseBodyDataResultsGeneralText[];
+  roi?: RecognizeStampResponseBodyDataResultsRoi;
+  text?: RecognizeStampResponseBodyDataResultsText;
+  static names(): { [key: string]: string } {
+    return {
+      generalText: 'GeneralText',
+      roi: 'Roi',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      generalText: { 'type': 'array', 'itemType': RecognizeStampResponseBodyDataResultsGeneralText },
+      roi: RecognizeStampResponseBodyDataResultsRoi,
+      text: RecognizeStampResponseBodyDataResultsText,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeStampResponseBodyData extends $tea.Model {
+  results?: RecognizeStampResponseBodyDataResults[];
+  static names(): { [key: string]: string } {
+    return {
+      results: 'Results',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      results: { 'type': 'array', 'itemType': RecognizeStampResponseBodyDataResults },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTableResponseBodyDataTablesTableRowsTableColumns extends $tea.Model {
+  endColumn?: number;
+  endRow?: number;
+  height?: number;
+  startColumn?: number;
+  startRow?: number;
+  texts?: string[];
+  width?: number;
+  static names(): { [key: string]: string } {
+    return {
+      endColumn: 'EndColumn',
+      endRow: 'EndRow',
+      height: 'Height',
+      startColumn: 'StartColumn',
+      startRow: 'StartRow',
+      texts: 'Texts',
+      width: 'Width',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endColumn: 'number',
+      endRow: 'number',
+      height: 'number',
+      startColumn: 'number',
+      startRow: 'number',
+      texts: { 'type': 'array', 'itemType': 'string' },
+      width: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTableResponseBodyDataTablesTableRows extends $tea.Model {
+  tableColumns?: RecognizeTableResponseBodyDataTablesTableRowsTableColumns[];
+  static names(): { [key: string]: string } {
+    return {
+      tableColumns: 'TableColumns',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tableColumns: { 'type': 'array', 'itemType': RecognizeTableResponseBodyDataTablesTableRowsTableColumns },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTableResponseBodyDataTables extends $tea.Model {
+  head?: string[];
+  tableRows?: RecognizeTableResponseBodyDataTablesTableRows[];
+  tail?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      head: 'Head',
+      tableRows: 'TableRows',
+      tail: 'Tail',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      head: { 'type': 'array', 'itemType': 'string' },
+      tableRows: { 'type': 'array', 'itemType': RecognizeTableResponseBodyDataTablesTableRows },
+      tail: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTableResponseBodyData extends $tea.Model {
+  fileContent?: string;
+  tables?: RecognizeTableResponseBodyDataTables[];
+  static names(): { [key: string]: string } {
+    return {
+      fileContent: 'FileContent',
+      tables: 'Tables',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileContent: 'string',
+      tables: { 'type': 'array', 'itemType': RecognizeTableResponseBodyDataTables },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTakeoutOrderResponseBodyDataElements extends $tea.Model {
+  boxes?: number[];
+  name?: string;
+  score?: number;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      boxes: 'Boxes',
+      name: 'Name',
+      score: 'Score',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      boxes: { 'type': 'array', 'itemType': 'number' },
       name: 'string',
-      level: 'string',
+      score: 'number',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTakeoutOrderResponseBodyData extends $tea.Model {
+  elements?: RecognizeTakeoutOrderResponseBodyDataElements[];
+  static names(): { [key: string]: string } {
+    return {
+      elements: 'Elements',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      elements: { 'type': 'array', 'itemType': RecognizeTakeoutOrderResponseBodyDataElements },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTaxiInvoiceResponseBodyDataInvoicesInvoiceRoi extends $tea.Model {
+  h?: number;
+  w?: number;
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      h: 'H',
+      w: 'W',
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      h: 'number',
+      w: 'number',
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTaxiInvoiceResponseBodyDataInvoicesItemsItemRoiCenter extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTaxiInvoiceResponseBodyDataInvoicesItemsItemRoiSize extends $tea.Model {
+  h?: number;
+  w?: number;
+  static names(): { [key: string]: string } {
+    return {
+      h: 'H',
+      w: 'W',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      h: 'number',
+      w: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTaxiInvoiceResponseBodyDataInvoicesItemsItemRoi extends $tea.Model {
+  angle?: number;
+  center?: RecognizeTaxiInvoiceResponseBodyDataInvoicesItemsItemRoiCenter;
+  size?: RecognizeTaxiInvoiceResponseBodyDataInvoicesItemsItemRoiSize;
+  static names(): { [key: string]: string } {
+    return {
+      angle: 'Angle',
+      center: 'Center',
+      size: 'Size',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      angle: 'number',
+      center: RecognizeTaxiInvoiceResponseBodyDataInvoicesItemsItemRoiCenter,
+      size: RecognizeTaxiInvoiceResponseBodyDataInvoicesItemsItemRoiSize,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTaxiInvoiceResponseBodyDataInvoicesItems extends $tea.Model {
+  itemRoi?: RecognizeTaxiInvoiceResponseBodyDataInvoicesItemsItemRoi;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      itemRoi: 'ItemRoi',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      itemRoi: RecognizeTaxiInvoiceResponseBodyDataInvoicesItemsItemRoi,
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTaxiInvoiceResponseBodyDataInvoices extends $tea.Model {
+  invoiceRoi?: RecognizeTaxiInvoiceResponseBodyDataInvoicesInvoiceRoi;
+  items?: RecognizeTaxiInvoiceResponseBodyDataInvoicesItems[];
+  rotateType?: number;
+  static names(): { [key: string]: string } {
+    return {
+      invoiceRoi: 'InvoiceRoi',
+      items: 'Items',
+      rotateType: 'RotateType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      invoiceRoi: RecognizeTaxiInvoiceResponseBodyDataInvoicesInvoiceRoi,
+      items: { 'type': 'array', 'itemType': RecognizeTaxiInvoiceResponseBodyDataInvoicesItems },
+      rotateType: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTaxiInvoiceResponseBodyData extends $tea.Model {
+  invoices?: RecognizeTaxiInvoiceResponseBodyDataInvoices[];
+  static names(): { [key: string]: string } {
+    return {
+      invoices: 'Invoices',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      invoices: { 'type': 'array', 'itemType': RecognizeTaxiInvoiceResponseBodyDataInvoices },
     };
   }
 
@@ -4615,10 +4413,10 @@ export class RecognizeTrainTicketResponseBodyData extends $tea.Model {
 }
 
 export class RecognizeTicketInvoiceResponseBodyDataResultsContent extends $tea.Model {
-  invoiceCode?: string;
-  invoiceNumber?: string;
-  invoiceDate?: string;
   antiFakeCode?: string;
+  invoiceCode?: string;
+  invoiceDate?: string;
+  invoiceNumber?: string;
   payeeName?: string;
   payeeRegisterNo?: string;
   payerName?: string;
@@ -4626,10 +4424,10 @@ export class RecognizeTicketInvoiceResponseBodyDataResultsContent extends $tea.M
   sumAmount?: string;
   static names(): { [key: string]: string } {
     return {
-      invoiceCode: 'InvoiceCode',
-      invoiceNumber: 'InvoiceNumber',
-      invoiceDate: 'InvoiceDate',
       antiFakeCode: 'AntiFakeCode',
+      invoiceCode: 'InvoiceCode',
+      invoiceDate: 'InvoiceDate',
+      invoiceNumber: 'InvoiceNumber',
       payeeName: 'PayeeName',
       payeeRegisterNo: 'PayeeRegisterNo',
       payerName: 'PayerName',
@@ -4640,10 +4438,10 @@ export class RecognizeTicketInvoiceResponseBodyDataResultsContent extends $tea.M
 
   static types(): { [key: string]: any } {
     return {
-      invoiceCode: 'string',
-      invoiceNumber: 'string',
-      invoiceDate: 'string',
       antiFakeCode: 'string',
+      invoiceCode: 'string',
+      invoiceDate: 'string',
+      invoiceNumber: 'string',
       payeeName: 'string',
       payeeRegisterNo: 'string',
       payerName: 'string',
@@ -4730,28 +4528,28 @@ export class RecognizeTicketInvoiceResponseBodyDataResultsSliceRectangle extends
 }
 
 export class RecognizeTicketInvoiceResponseBodyDataResults extends $tea.Model {
-  index?: number;
   content?: RecognizeTicketInvoiceResponseBodyDataResultsContent;
-  type?: string;
+  index?: number;
   keyValueInfos?: RecognizeTicketInvoiceResponseBodyDataResultsKeyValueInfos[];
   sliceRectangle?: RecognizeTicketInvoiceResponseBodyDataResultsSliceRectangle[];
+  type?: string;
   static names(): { [key: string]: string } {
     return {
-      index: 'Index',
       content: 'Content',
-      type: 'Type',
+      index: 'Index',
       keyValueInfos: 'KeyValueInfos',
       sliceRectangle: 'SliceRectangle',
+      type: 'Type',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      index: 'number',
       content: RecognizeTicketInvoiceResponseBodyDataResultsContent,
-      type: 'string',
+      index: 'number',
       keyValueInfos: { 'type': 'array', 'itemType': RecognizeTicketInvoiceResponseBodyDataResultsKeyValueInfos },
       sliceRectangle: { 'type': 'array', 'itemType': RecognizeTicketInvoiceResponseBodyDataResultsSliceRectangle },
+      type: 'string',
     };
   }
 
@@ -4763,18 +4561,18 @@ export class RecognizeTicketInvoiceResponseBodyDataResults extends $tea.Model {
 export class RecognizeTicketInvoiceResponseBodyData extends $tea.Model {
   count?: number;
   height?: number;
-  width?: number;
   orgHeight?: number;
   orgWidth?: number;
   results?: RecognizeTicketInvoiceResponseBodyDataResults[];
+  width?: number;
   static names(): { [key: string]: string } {
     return {
       count: 'Count',
       height: 'Height',
-      width: 'Width',
       orgHeight: 'OrgHeight',
       orgWidth: 'OrgWidth',
       results: 'Results',
+      width: 'Width',
     };
   }
 
@@ -4782,10 +4580,378 @@ export class RecognizeTicketInvoiceResponseBodyData extends $tea.Model {
     return {
       count: 'number',
       height: 'number',
-      width: 'number',
       orgHeight: 'number',
       orgWidth: 'number',
       results: { 'type': 'array', 'itemType': RecognizeTicketInvoiceResponseBodyDataResults },
+      width: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTrainTicketResponseBodyData extends $tea.Model {
+  date?: string;
+  departureStation?: string;
+  destination?: string;
+  level?: string;
+  name?: string;
+  number?: string;
+  price?: number;
+  seat?: string;
+  static names(): { [key: string]: string } {
+    return {
+      date: 'Date',
+      departureStation: 'DepartureStation',
+      destination: 'Destination',
+      level: 'Level',
+      name: 'Name',
+      number: 'Number',
+      price: 'Price',
+      seat: 'Seat',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      date: 'string',
+      departureStation: 'string',
+      destination: 'string',
+      level: 'string',
+      name: 'string',
+      number: 'string',
+      price: 'number',
+      seat: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeVATInvoiceResponseBodyDataBox extends $tea.Model {
+  checkers?: number[];
+  clerks?: number[];
+  invoiceAmounts?: number[];
+  invoiceCodes?: number[];
+  invoiceDates?: number[];
+  invoiceFakeCodes?: number[];
+  invoiceNoes?: number[];
+  payeeAddresses?: number[];
+  payeeBankNames?: number[];
+  payeeNames?: number[];
+  payeeRegisterNoes?: number[];
+  payees?: number[];
+  payerAddresses?: number[];
+  payerBankNames?: number[];
+  payerNames?: number[];
+  payerRegisterNoes?: number[];
+  sumAmounts?: number[];
+  taxAmounts?: number[];
+  withoutTaxAmounts?: number[];
+  static names(): { [key: string]: string } {
+    return {
+      checkers: 'Checkers',
+      clerks: 'Clerks',
+      invoiceAmounts: 'InvoiceAmounts',
+      invoiceCodes: 'InvoiceCodes',
+      invoiceDates: 'InvoiceDates',
+      invoiceFakeCodes: 'InvoiceFakeCodes',
+      invoiceNoes: 'InvoiceNoes',
+      payeeAddresses: 'PayeeAddresses',
+      payeeBankNames: 'PayeeBankNames',
+      payeeNames: 'PayeeNames',
+      payeeRegisterNoes: 'PayeeRegisterNoes',
+      payees: 'Payees',
+      payerAddresses: 'PayerAddresses',
+      payerBankNames: 'PayerBankNames',
+      payerNames: 'PayerNames',
+      payerRegisterNoes: 'PayerRegisterNoes',
+      sumAmounts: 'SumAmounts',
+      taxAmounts: 'TaxAmounts',
+      withoutTaxAmounts: 'WithoutTaxAmounts',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      checkers: { 'type': 'array', 'itemType': 'number' },
+      clerks: { 'type': 'array', 'itemType': 'number' },
+      invoiceAmounts: { 'type': 'array', 'itemType': 'number' },
+      invoiceCodes: { 'type': 'array', 'itemType': 'number' },
+      invoiceDates: { 'type': 'array', 'itemType': 'number' },
+      invoiceFakeCodes: { 'type': 'array', 'itemType': 'number' },
+      invoiceNoes: { 'type': 'array', 'itemType': 'number' },
+      payeeAddresses: { 'type': 'array', 'itemType': 'number' },
+      payeeBankNames: { 'type': 'array', 'itemType': 'number' },
+      payeeNames: { 'type': 'array', 'itemType': 'number' },
+      payeeRegisterNoes: { 'type': 'array', 'itemType': 'number' },
+      payees: { 'type': 'array', 'itemType': 'number' },
+      payerAddresses: { 'type': 'array', 'itemType': 'number' },
+      payerBankNames: { 'type': 'array', 'itemType': 'number' },
+      payerNames: { 'type': 'array', 'itemType': 'number' },
+      payerRegisterNoes: { 'type': 'array', 'itemType': 'number' },
+      sumAmounts: { 'type': 'array', 'itemType': 'number' },
+      taxAmounts: { 'type': 'array', 'itemType': 'number' },
+      withoutTaxAmounts: { 'type': 'array', 'itemType': 'number' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeVATInvoiceResponseBodyDataContent extends $tea.Model {
+  antiFakeCode?: string;
+  checker?: string;
+  clerk?: string;
+  invoiceAmount?: string;
+  invoiceCode?: string;
+  invoiceDate?: string;
+  invoiceNo?: string;
+  payee?: string;
+  payeeAddress?: string;
+  payeeBankName?: string;
+  payeeName?: string;
+  payeeRegisterNo?: string;
+  payerAddress?: string;
+  payerBankName?: string;
+  payerName?: string;
+  payerRegisterNo?: string;
+  sumAmount?: string;
+  taxAmount?: string;
+  withoutTaxAmount?: string;
+  static names(): { [key: string]: string } {
+    return {
+      antiFakeCode: 'AntiFakeCode',
+      checker: 'Checker',
+      clerk: 'Clerk',
+      invoiceAmount: 'InvoiceAmount',
+      invoiceCode: 'InvoiceCode',
+      invoiceDate: 'InvoiceDate',
+      invoiceNo: 'InvoiceNo',
+      payee: 'Payee',
+      payeeAddress: 'PayeeAddress',
+      payeeBankName: 'PayeeBankName',
+      payeeName: 'PayeeName',
+      payeeRegisterNo: 'PayeeRegisterNo',
+      payerAddress: 'PayerAddress',
+      payerBankName: 'PayerBankName',
+      payerName: 'PayerName',
+      payerRegisterNo: 'PayerRegisterNo',
+      sumAmount: 'SumAmount',
+      taxAmount: 'TaxAmount',
+      withoutTaxAmount: 'WithoutTaxAmount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      antiFakeCode: 'string',
+      checker: 'string',
+      clerk: 'string',
+      invoiceAmount: 'string',
+      invoiceCode: 'string',
+      invoiceDate: 'string',
+      invoiceNo: 'string',
+      payee: 'string',
+      payeeAddress: 'string',
+      payeeBankName: 'string',
+      payeeName: 'string',
+      payeeRegisterNo: 'string',
+      payerAddress: 'string',
+      payerBankName: 'string',
+      payerName: 'string',
+      payerRegisterNo: 'string',
+      sumAmount: 'string',
+      taxAmount: 'string',
+      withoutTaxAmount: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeVATInvoiceResponseBodyData extends $tea.Model {
+  box?: RecognizeVATInvoiceResponseBodyDataBox;
+  content?: RecognizeVATInvoiceResponseBodyDataContent;
+  static names(): { [key: string]: string } {
+    return {
+      box: 'Box',
+      content: 'Content',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      box: RecognizeVATInvoiceResponseBodyDataBox,
+      content: RecognizeVATInvoiceResponseBodyDataContent,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeVINCodeResponseBodyData extends $tea.Model {
+  vinCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      vinCode: 'VinCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      vinCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeVerificationcodeResponseBodyData extends $tea.Model {
+  content?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeVideoCharacterResponseBodyDataFramesElementsTextRectangles extends $tea.Model {
+  angle?: number;
+  height?: number;
+  left?: number;
+  top?: number;
+  width?: number;
+  static names(): { [key: string]: string } {
+    return {
+      angle: 'Angle',
+      height: 'Height',
+      left: 'Left',
+      top: 'Top',
+      width: 'Width',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      angle: 'number',
+      height: 'number',
+      left: 'number',
+      top: 'number',
+      width: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeVideoCharacterResponseBodyDataFramesElements extends $tea.Model {
+  score?: number;
+  text?: string;
+  textRectangles?: RecognizeVideoCharacterResponseBodyDataFramesElementsTextRectangles[];
+  static names(): { [key: string]: string } {
+    return {
+      score: 'Score',
+      text: 'Text',
+      textRectangles: 'TextRectangles',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      score: 'number',
+      text: 'string',
+      textRectangles: { 'type': 'array', 'itemType': RecognizeVideoCharacterResponseBodyDataFramesElementsTextRectangles },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeVideoCharacterResponseBodyDataFrames extends $tea.Model {
+  elements?: RecognizeVideoCharacterResponseBodyDataFramesElements[];
+  timestamp?: number;
+  static names(): { [key: string]: string } {
+    return {
+      elements: 'Elements',
+      timestamp: 'Timestamp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      elements: { 'type': 'array', 'itemType': RecognizeVideoCharacterResponseBodyDataFramesElements },
+      timestamp: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeVideoCharacterResponseBodyData extends $tea.Model {
+  frames?: RecognizeVideoCharacterResponseBodyDataFrames[];
+  height?: number;
+  width?: number;
+  static names(): { [key: string]: string } {
+    return {
+      frames: 'Frames',
+      height: 'Height',
+      width: 'Width',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      frames: { 'type': 'array', 'itemType': RecognizeVideoCharacterResponseBodyDataFrames },
+      height: 'number',
+      width: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TrimDocumentResponseBodyData extends $tea.Model {
+  content?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
     };
   }
 
@@ -4817,20 +4983,20 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
-  async recognizeDrivingLicenseWithOptions(request: RecognizeDrivingLicenseRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeDrivingLicenseResponse> {
+  async detectCardScreenshotWithOptions(request: DetectCardScreenshotRequest, runtime: $Util.RuntimeOptions): Promise<DetectCardScreenshotResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<RecognizeDrivingLicenseResponse>(await this.doRPCRequest("RecognizeDrivingLicense", "2019-12-30", "HTTPS", "POST", "AK", "json", req, runtime), new RecognizeDrivingLicenseResponse({}));
+    return $tea.cast<DetectCardScreenshotResponse>(await this.doRPCRequest("DetectCardScreenshot", "2019-12-30", "HTTPS", "POST", "AK", "json", req, runtime), new DetectCardScreenshotResponse({}));
   }
 
-  async recognizeDrivingLicense(request: RecognizeDrivingLicenseRequest): Promise<RecognizeDrivingLicenseResponse> {
+  async detectCardScreenshot(request: DetectCardScreenshotRequest): Promise<DetectCardScreenshotResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.recognizeDrivingLicenseWithOptions(request, runtime);
+    return await this.detectCardScreenshotWithOptions(request, runtime);
   }
 
-  async recognizeDrivingLicenseAdvance(request: RecognizeDrivingLicenseAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeDrivingLicenseResponse> {
+  async detectCardScreenshotAdvance(request: DetectCardScreenshotAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<DetectCardScreenshotResponse> {
     // Step 0: init client
     let accessKeyId = await this._credential.getAccessKeyId();
     let accessKeySecret = await this._credential.getAccessKeySecret();
@@ -4872,8 +5038,8 @@ export default class Client extends OpenApi {
     let uploadRequest = new $OSS.PostObjectRequest({ });
     let ossRuntime = new $OSSUtil.RuntimeOptions({ });
     OpenApiUtil.convert(runtime, ossRuntime);
-    let recognizeDrivingLicenseReq = new RecognizeDrivingLicenseRequest({ });
-    OpenApiUtil.convert(request, recognizeDrivingLicenseReq);
+    let detectCardScreenshotReq = new DetectCardScreenshotRequest({ });
+    OpenApiUtil.convert(request, detectCardScreenshotReq);
     if (!Util.isUnset(request.imageURLObject)) {
       authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
       ossConfig.accessKeyId = authResponse.accessKeyId;
@@ -4897,27 +5063,40 @@ export default class Client extends OpenApi {
         header: ossHeader,
       });
       await ossClient.postObject(uploadRequest, ossRuntime);
-      recognizeDrivingLicenseReq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+      detectCardScreenshotReq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
     }
 
-    let recognizeDrivingLicenseResp = await this.recognizeDrivingLicenseWithOptions(recognizeDrivingLicenseReq, runtime);
-    return recognizeDrivingLicenseResp;
+    let detectCardScreenshotResp = await this.detectCardScreenshotWithOptions(detectCardScreenshotReq, runtime);
+    return detectCardScreenshotResp;
   }
 
-  async recognizeTableWithOptions(request: RecognizeTableRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeTableResponse> {
+  async getAsyncJobResultWithOptions(request: GetAsyncJobResultRequest, runtime: $Util.RuntimeOptions): Promise<GetAsyncJobResultResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<RecognizeTableResponse>(await this.doRPCRequest("RecognizeTable", "2019-12-30", "HTTPS", "POST", "AK", "json", req, runtime), new RecognizeTableResponse({}));
+    return $tea.cast<GetAsyncJobResultResponse>(await this.doRPCRequest("GetAsyncJobResult", "2019-12-30", "HTTPS", "POST", "AK", "json", req, runtime), new GetAsyncJobResultResponse({}));
   }
 
-  async recognizeTable(request: RecognizeTableRequest): Promise<RecognizeTableResponse> {
+  async getAsyncJobResult(request: GetAsyncJobResultRequest): Promise<GetAsyncJobResultResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.recognizeTableWithOptions(request, runtime);
+    return await this.getAsyncJobResultWithOptions(request, runtime);
   }
 
-  async recognizeTableAdvance(request: RecognizeTableAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeTableResponse> {
+  async recognizeAccountPageWithOptions(request: RecognizeAccountPageRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeAccountPageResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<RecognizeAccountPageResponse>(await this.doRPCRequest("RecognizeAccountPage", "2019-12-30", "HTTPS", "POST", "AK", "json", req, runtime), new RecognizeAccountPageResponse({}));
+  }
+
+  async recognizeAccountPage(request: RecognizeAccountPageRequest): Promise<RecognizeAccountPageResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.recognizeAccountPageWithOptions(request, runtime);
+  }
+
+  async recognizeAccountPageAdvance(request: RecognizeAccountPageAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeAccountPageResponse> {
     // Step 0: init client
     let accessKeyId = await this._credential.getAccessKeyId();
     let accessKeySecret = await this._credential.getAccessKeySecret();
@@ -4959,8 +5138,8 @@ export default class Client extends OpenApi {
     let uploadRequest = new $OSS.PostObjectRequest({ });
     let ossRuntime = new $OSSUtil.RuntimeOptions({ });
     OpenApiUtil.convert(runtime, ossRuntime);
-    let recognizeTableReq = new RecognizeTableRequest({ });
-    OpenApiUtil.convert(request, recognizeTableReq);
+    let recognizeAccountPageReq = new RecognizeAccountPageRequest({ });
+    OpenApiUtil.convert(request, recognizeAccountPageReq);
     if (!Util.isUnset(request.imageURLObject)) {
       authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
       ossConfig.accessKeyId = authResponse.accessKeyId;
@@ -4984,27 +5163,27 @@ export default class Client extends OpenApi {
         header: ossHeader,
       });
       await ossClient.postObject(uploadRequest, ossRuntime);
-      recognizeTableReq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+      recognizeAccountPageReq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
     }
 
-    let recognizeTableResp = await this.recognizeTableWithOptions(recognizeTableReq, runtime);
-    return recognizeTableResp;
+    let recognizeAccountPageResp = await this.recognizeAccountPageWithOptions(recognizeAccountPageReq, runtime);
+    return recognizeAccountPageResp;
   }
 
-  async recognizeIdentityCardWithOptions(request: RecognizeIdentityCardRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeIdentityCardResponse> {
+  async recognizeBankCardWithOptions(request: RecognizeBankCardRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeBankCardResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<RecognizeIdentityCardResponse>(await this.doRPCRequest("RecognizeIdentityCard", "2019-12-30", "HTTPS", "POST", "AK", "json", req, runtime), new RecognizeIdentityCardResponse({}));
+    return $tea.cast<RecognizeBankCardResponse>(await this.doRPCRequest("RecognizeBankCard", "2019-12-30", "HTTPS", "POST", "AK", "json", req, runtime), new RecognizeBankCardResponse({}));
   }
 
-  async recognizeIdentityCard(request: RecognizeIdentityCardRequest): Promise<RecognizeIdentityCardResponse> {
+  async recognizeBankCard(request: RecognizeBankCardRequest): Promise<RecognizeBankCardResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.recognizeIdentityCardWithOptions(request, runtime);
+    return await this.recognizeBankCardWithOptions(request, runtime);
   }
 
-  async recognizeIdentityCardAdvance(request: RecognizeIdentityCardAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeIdentityCardResponse> {
+  async recognizeBankCardAdvance(request: RecognizeBankCardAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeBankCardResponse> {
     // Step 0: init client
     let accessKeyId = await this._credential.getAccessKeyId();
     let accessKeySecret = await this._credential.getAccessKeySecret();
@@ -5046,8 +5225,8 @@ export default class Client extends OpenApi {
     let uploadRequest = new $OSS.PostObjectRequest({ });
     let ossRuntime = new $OSSUtil.RuntimeOptions({ });
     OpenApiUtil.convert(runtime, ossRuntime);
-    let recognizeIdentityCardReq = new RecognizeIdentityCardRequest({ });
-    OpenApiUtil.convert(request, recognizeIdentityCardReq);
+    let recognizeBankCardReq = new RecognizeBankCardRequest({ });
+    OpenApiUtil.convert(request, recognizeBankCardReq);
     if (!Util.isUnset(request.imageURLObject)) {
       authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
       ossConfig.accessKeyId = authResponse.accessKeyId;
@@ -5071,27 +5250,27 @@ export default class Client extends OpenApi {
         header: ossHeader,
       });
       await ossClient.postObject(uploadRequest, ossRuntime);
-      recognizeIdentityCardReq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+      recognizeBankCardReq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
     }
 
-    let recognizeIdentityCardResp = await this.recognizeIdentityCardWithOptions(recognizeIdentityCardReq, runtime);
-    return recognizeIdentityCardResp;
+    let recognizeBankCardResp = await this.recognizeBankCardWithOptions(recognizeBankCardReq, runtime);
+    return recognizeBankCardResp;
   }
 
-  async recognizeVerificationcodeWithOptions(request: RecognizeVerificationcodeRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeVerificationcodeResponse> {
+  async recognizeBusinessCardWithOptions(request: RecognizeBusinessCardRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeBusinessCardResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<RecognizeVerificationcodeResponse>(await this.doRPCRequest("RecognizeVerificationcode", "2019-12-30", "HTTPS", "POST", "AK", "json", req, runtime), new RecognizeVerificationcodeResponse({}));
+    return $tea.cast<RecognizeBusinessCardResponse>(await this.doRPCRequest("RecognizeBusinessCard", "2019-12-30", "HTTPS", "POST", "AK", "json", req, runtime), new RecognizeBusinessCardResponse({}));
   }
 
-  async recognizeVerificationcode(request: RecognizeVerificationcodeRequest): Promise<RecognizeVerificationcodeResponse> {
+  async recognizeBusinessCard(request: RecognizeBusinessCardRequest): Promise<RecognizeBusinessCardResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.recognizeVerificationcodeWithOptions(request, runtime);
+    return await this.recognizeBusinessCardWithOptions(request, runtime);
   }
 
-  async recognizeVerificationcodeAdvance(request: RecognizeVerificationcodeAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeVerificationcodeResponse> {
+  async recognizeBusinessCardAdvance(request: RecognizeBusinessCardAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeBusinessCardResponse> {
     // Step 0: init client
     let accessKeyId = await this._credential.getAccessKeyId();
     let accessKeySecret = await this._credential.getAccessKeySecret();
@@ -5133,8 +5312,8 @@ export default class Client extends OpenApi {
     let uploadRequest = new $OSS.PostObjectRequest({ });
     let ossRuntime = new $OSSUtil.RuntimeOptions({ });
     OpenApiUtil.convert(runtime, ossRuntime);
-    let recognizeVerificationcodeReq = new RecognizeVerificationcodeRequest({ });
-    OpenApiUtil.convert(request, recognizeVerificationcodeReq);
+    let recognizeBusinessCardReq = new RecognizeBusinessCardRequest({ });
+    OpenApiUtil.convert(request, recognizeBusinessCardReq);
     if (!Util.isUnset(request.imageURLObject)) {
       authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
       ossConfig.accessKeyId = authResponse.accessKeyId;
@@ -5158,11 +5337,98 @@ export default class Client extends OpenApi {
         header: ossHeader,
       });
       await ossClient.postObject(uploadRequest, ossRuntime);
-      recognizeVerificationcodeReq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+      recognizeBusinessCardReq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
     }
 
-    let recognizeVerificationcodeResp = await this.recognizeVerificationcodeWithOptions(recognizeVerificationcodeReq, runtime);
-    return recognizeVerificationcodeResp;
+    let recognizeBusinessCardResp = await this.recognizeBusinessCardWithOptions(recognizeBusinessCardReq, runtime);
+    return recognizeBusinessCardResp;
+  }
+
+  async recognizeBusinessLicenseWithOptions(request: RecognizeBusinessLicenseRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeBusinessLicenseResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<RecognizeBusinessLicenseResponse>(await this.doRPCRequest("RecognizeBusinessLicense", "2019-12-30", "HTTPS", "POST", "AK", "json", req, runtime), new RecognizeBusinessLicenseResponse({}));
+  }
+
+  async recognizeBusinessLicense(request: RecognizeBusinessLicenseRequest): Promise<RecognizeBusinessLicenseResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.recognizeBusinessLicenseWithOptions(request, runtime);
+  }
+
+  async recognizeBusinessLicenseAdvance(request: RecognizeBusinessLicenseAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeBusinessLicenseResponse> {
+    // Step 0: init client
+    let accessKeyId = await this._credential.getAccessKeyId();
+    let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if (Util.isUnset(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
+    let authConfig = new $RPC.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenPlatform(authConfig);
+    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
+      product: "ocr",
+      regionId: this._regionId,
+    });
+    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
+    let ossConfig = new $OSS.Config({
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let ossClient : OSS = null;
+    let fileObj = new $FileForm.FileField({ });
+    let ossHeader = new $OSS.PostObjectRequestHeader({ });
+    let uploadRequest = new $OSS.PostObjectRequest({ });
+    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
+    OpenApiUtil.convert(runtime, ossRuntime);
+    let recognizeBusinessLicenseReq = new RecognizeBusinessLicenseRequest({ });
+    OpenApiUtil.convert(request, recognizeBusinessLicenseReq);
+    if (!Util.isUnset(request.imageURLObject)) {
+      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+      ossConfig.accessKeyId = authResponse.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+      ossClient = new OSS(ossConfig);
+      fileObj = new $FileForm.FileField({
+        filename: authResponse.objectKey,
+        content: request.imageURLObject,
+        contentType: "",
+      });
+      ossHeader = new $OSS.PostObjectRequestHeader({
+        accessKeyId: authResponse.accessKeyId,
+        policy: authResponse.encodedPolicy,
+        signature: authResponse.signature,
+        key: authResponse.objectKey,
+        file: fileObj,
+        successActionStatus: "201",
+      });
+      uploadRequest = new $OSS.PostObjectRequest({
+        bucketName: authResponse.bucket,
+        header: ossHeader,
+      });
+      await ossClient.postObject(uploadRequest, ossRuntime);
+      recognizeBusinessLicenseReq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    }
+
+    let recognizeBusinessLicenseResp = await this.recognizeBusinessLicenseWithOptions(recognizeBusinessLicenseReq, runtime);
+    return recognizeBusinessLicenseResp;
   }
 
   async recognizeCharacterWithOptions(request: RecognizeCharacterRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeCharacterResponse> {
@@ -5252,33 +5518,20 @@ export default class Client extends OpenApi {
     return recognizeCharacterResp;
   }
 
-  async getAsyncJobResultWithOptions(request: GetAsyncJobResultRequest, runtime: $Util.RuntimeOptions): Promise<GetAsyncJobResultResponse> {
+  async recognizeChinapassportWithOptions(request: RecognizeChinapassportRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeChinapassportResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<GetAsyncJobResultResponse>(await this.doRPCRequest("GetAsyncJobResult", "2019-12-30", "HTTPS", "POST", "AK", "json", req, runtime), new GetAsyncJobResultResponse({}));
+    return $tea.cast<RecognizeChinapassportResponse>(await this.doRPCRequest("RecognizeChinapassport", "2019-12-30", "HTTPS", "POST", "AK", "json", req, runtime), new RecognizeChinapassportResponse({}));
   }
 
-  async getAsyncJobResult(request: GetAsyncJobResultRequest): Promise<GetAsyncJobResultResponse> {
+  async recognizeChinapassport(request: RecognizeChinapassportRequest): Promise<RecognizeChinapassportResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.getAsyncJobResultWithOptions(request, runtime);
+    return await this.recognizeChinapassportWithOptions(request, runtime);
   }
 
-  async recognizeTakeoutOrderWithOptions(request: RecognizeTakeoutOrderRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeTakeoutOrderResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<RecognizeTakeoutOrderResponse>(await this.doRPCRequest("RecognizeTakeoutOrder", "2019-12-30", "HTTPS", "POST", "AK", "json", req, runtime), new RecognizeTakeoutOrderResponse({}));
-  }
-
-  async recognizeTakeoutOrder(request: RecognizeTakeoutOrderRequest): Promise<RecognizeTakeoutOrderResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.recognizeTakeoutOrderWithOptions(request, runtime);
-  }
-
-  async recognizeTakeoutOrderAdvance(request: RecognizeTakeoutOrderAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeTakeoutOrderResponse> {
+  async recognizeChinapassportAdvance(request: RecognizeChinapassportAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeChinapassportResponse> {
     // Step 0: init client
     let accessKeyId = await this._credential.getAccessKeyId();
     let accessKeySecret = await this._credential.getAccessKeySecret();
@@ -5320,8 +5573,8 @@ export default class Client extends OpenApi {
     let uploadRequest = new $OSS.PostObjectRequest({ });
     let ossRuntime = new $OSSUtil.RuntimeOptions({ });
     OpenApiUtil.convert(runtime, ossRuntime);
-    let recognizeTakeoutOrderReq = new RecognizeTakeoutOrderRequest({ });
-    OpenApiUtil.convert(request, recognizeTakeoutOrderReq);
+    let recognizeChinapassportReq = new RecognizeChinapassportRequest({ });
+    OpenApiUtil.convert(request, recognizeChinapassportReq);
     if (!Util.isUnset(request.imageURLObject)) {
       authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
       ossConfig.accessKeyId = authResponse.accessKeyId;
@@ -5345,11 +5598,11 @@ export default class Client extends OpenApi {
         header: ossHeader,
       });
       await ossClient.postObject(uploadRequest, ossRuntime);
-      recognizeTakeoutOrderReq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+      recognizeChinapassportReq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
     }
 
-    let recognizeTakeoutOrderResp = await this.recognizeTakeoutOrderWithOptions(recognizeTakeoutOrderReq, runtime);
-    return recognizeTakeoutOrderResp;
+    let recognizeChinapassportResp = await this.recognizeChinapassportWithOptions(recognizeChinapassportReq, runtime);
+    return recognizeChinapassportResp;
   }
 
   async recognizeDriverLicenseWithOptions(request: RecognizeDriverLicenseRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeDriverLicenseResponse> {
@@ -5439,6 +5692,180 @@ export default class Client extends OpenApi {
     return recognizeDriverLicenseResp;
   }
 
+  async recognizeDrivingLicenseWithOptions(request: RecognizeDrivingLicenseRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeDrivingLicenseResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<RecognizeDrivingLicenseResponse>(await this.doRPCRequest("RecognizeDrivingLicense", "2019-12-30", "HTTPS", "POST", "AK", "json", req, runtime), new RecognizeDrivingLicenseResponse({}));
+  }
+
+  async recognizeDrivingLicense(request: RecognizeDrivingLicenseRequest): Promise<RecognizeDrivingLicenseResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.recognizeDrivingLicenseWithOptions(request, runtime);
+  }
+
+  async recognizeDrivingLicenseAdvance(request: RecognizeDrivingLicenseAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeDrivingLicenseResponse> {
+    // Step 0: init client
+    let accessKeyId = await this._credential.getAccessKeyId();
+    let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if (Util.isUnset(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
+    let authConfig = new $RPC.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenPlatform(authConfig);
+    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
+      product: "ocr",
+      regionId: this._regionId,
+    });
+    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
+    let ossConfig = new $OSS.Config({
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let ossClient : OSS = null;
+    let fileObj = new $FileForm.FileField({ });
+    let ossHeader = new $OSS.PostObjectRequestHeader({ });
+    let uploadRequest = new $OSS.PostObjectRequest({ });
+    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
+    OpenApiUtil.convert(runtime, ossRuntime);
+    let recognizeDrivingLicenseReq = new RecognizeDrivingLicenseRequest({ });
+    OpenApiUtil.convert(request, recognizeDrivingLicenseReq);
+    if (!Util.isUnset(request.imageURLObject)) {
+      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+      ossConfig.accessKeyId = authResponse.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+      ossClient = new OSS(ossConfig);
+      fileObj = new $FileForm.FileField({
+        filename: authResponse.objectKey,
+        content: request.imageURLObject,
+        contentType: "",
+      });
+      ossHeader = new $OSS.PostObjectRequestHeader({
+        accessKeyId: authResponse.accessKeyId,
+        policy: authResponse.encodedPolicy,
+        signature: authResponse.signature,
+        key: authResponse.objectKey,
+        file: fileObj,
+        successActionStatus: "201",
+      });
+      uploadRequest = new $OSS.PostObjectRequest({
+        bucketName: authResponse.bucket,
+        header: ossHeader,
+      });
+      await ossClient.postObject(uploadRequest, ossRuntime);
+      recognizeDrivingLicenseReq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    }
+
+    let recognizeDrivingLicenseResp = await this.recognizeDrivingLicenseWithOptions(recognizeDrivingLicenseReq, runtime);
+    return recognizeDrivingLicenseResp;
+  }
+
+  async recognizeIdentityCardWithOptions(request: RecognizeIdentityCardRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeIdentityCardResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<RecognizeIdentityCardResponse>(await this.doRPCRequest("RecognizeIdentityCard", "2019-12-30", "HTTPS", "POST", "AK", "json", req, runtime), new RecognizeIdentityCardResponse({}));
+  }
+
+  async recognizeIdentityCard(request: RecognizeIdentityCardRequest): Promise<RecognizeIdentityCardResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.recognizeIdentityCardWithOptions(request, runtime);
+  }
+
+  async recognizeIdentityCardAdvance(request: RecognizeIdentityCardAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeIdentityCardResponse> {
+    // Step 0: init client
+    let accessKeyId = await this._credential.getAccessKeyId();
+    let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if (Util.isUnset(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
+    let authConfig = new $RPC.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenPlatform(authConfig);
+    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
+      product: "ocr",
+      regionId: this._regionId,
+    });
+    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
+    let ossConfig = new $OSS.Config({
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let ossClient : OSS = null;
+    let fileObj = new $FileForm.FileField({ });
+    let ossHeader = new $OSS.PostObjectRequestHeader({ });
+    let uploadRequest = new $OSS.PostObjectRequest({ });
+    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
+    OpenApiUtil.convert(runtime, ossRuntime);
+    let recognizeIdentityCardReq = new RecognizeIdentityCardRequest({ });
+    OpenApiUtil.convert(request, recognizeIdentityCardReq);
+    if (!Util.isUnset(request.imageURLObject)) {
+      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+      ossConfig.accessKeyId = authResponse.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+      ossClient = new OSS(ossConfig);
+      fileObj = new $FileForm.FileField({
+        filename: authResponse.objectKey,
+        content: request.imageURLObject,
+        contentType: "",
+      });
+      ossHeader = new $OSS.PostObjectRequestHeader({
+        accessKeyId: authResponse.accessKeyId,
+        policy: authResponse.encodedPolicy,
+        signature: authResponse.signature,
+        key: authResponse.objectKey,
+        file: fileObj,
+        successActionStatus: "201",
+      });
+      uploadRequest = new $OSS.PostObjectRequest({
+        bucketName: authResponse.bucket,
+        header: ossHeader,
+      });
+      await ossClient.postObject(uploadRequest, ossRuntime);
+      recognizeIdentityCardReq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    }
+
+    let recognizeIdentityCardResp = await this.recognizeIdentityCardWithOptions(recognizeIdentityCardReq, runtime);
+    return recognizeIdentityCardResp;
+  }
+
   async recognizeLicensePlateWithOptions(request: RecognizeLicensePlateRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeLicensePlateResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -5526,180 +5953,6 @@ export default class Client extends OpenApi {
     return recognizeLicensePlateResp;
   }
 
-  async recognizeTaxiInvoiceWithOptions(request: RecognizeTaxiInvoiceRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeTaxiInvoiceResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<RecognizeTaxiInvoiceResponse>(await this.doRPCRequest("RecognizeTaxiInvoice", "2019-12-30", "HTTPS", "POST", "AK", "json", req, runtime), new RecognizeTaxiInvoiceResponse({}));
-  }
-
-  async recognizeTaxiInvoice(request: RecognizeTaxiInvoiceRequest): Promise<RecognizeTaxiInvoiceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.recognizeTaxiInvoiceWithOptions(request, runtime);
-  }
-
-  async recognizeTaxiInvoiceAdvance(request: RecognizeTaxiInvoiceAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeTaxiInvoiceResponse> {
-    // Step 0: init client
-    let accessKeyId = await this._credential.getAccessKeyId();
-    let accessKeySecret = await this._credential.getAccessKeySecret();
-    let securityToken = await this._credential.getSecurityToken();
-    let credentialType = this._credential.getType();
-    let openPlatformEndpoint = this._openPlatformEndpoint;
-    if (Util.isUnset(openPlatformEndpoint)) {
-      openPlatformEndpoint = "openplatform.aliyuncs.com";
-    }
-
-    if (Util.isUnset(credentialType)) {
-      credentialType = "access_key";
-    }
-
-    let authConfig = new $RPC.Config({
-      accessKeyId: accessKeyId,
-      accessKeySecret: accessKeySecret,
-      securityToken: securityToken,
-      type: credentialType,
-      endpoint: openPlatformEndpoint,
-      protocol: this._protocol,
-      regionId: this._regionId,
-    });
-    let authClient = new OpenPlatform(authConfig);
-    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
-      product: "ocr",
-      regionId: this._regionId,
-    });
-    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
-    let ossConfig = new $OSS.Config({
-      accessKeySecret: accessKeySecret,
-      type: "access_key",
-      protocol: this._protocol,
-      regionId: this._regionId,
-    });
-    let ossClient : OSS = null;
-    let fileObj = new $FileForm.FileField({ });
-    let ossHeader = new $OSS.PostObjectRequestHeader({ });
-    let uploadRequest = new $OSS.PostObjectRequest({ });
-    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
-    OpenApiUtil.convert(runtime, ossRuntime);
-    let recognizeTaxiInvoiceReq = new RecognizeTaxiInvoiceRequest({ });
-    OpenApiUtil.convert(request, recognizeTaxiInvoiceReq);
-    if (!Util.isUnset(request.imageURLObject)) {
-      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-      ossConfig.accessKeyId = authResponse.accessKeyId;
-      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
-      ossClient = new OSS(ossConfig);
-      fileObj = new $FileForm.FileField({
-        filename: authResponse.objectKey,
-        content: request.imageURLObject,
-        contentType: "",
-      });
-      ossHeader = new $OSS.PostObjectRequestHeader({
-        accessKeyId: authResponse.accessKeyId,
-        policy: authResponse.encodedPolicy,
-        signature: authResponse.signature,
-        key: authResponse.objectKey,
-        file: fileObj,
-        successActionStatus: "201",
-      });
-      uploadRequest = new $OSS.PostObjectRequest({
-        bucketName: authResponse.bucket,
-        header: ossHeader,
-      });
-      await ossClient.postObject(uploadRequest, ossRuntime);
-      recognizeTaxiInvoiceReq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
-    }
-
-    let recognizeTaxiInvoiceResp = await this.recognizeTaxiInvoiceWithOptions(recognizeTaxiInvoiceReq, runtime);
-    return recognizeTaxiInvoiceResp;
-  }
-
-  async recognizeVATInvoiceWithOptions(request: RecognizeVATInvoiceRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeVATInvoiceResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<RecognizeVATInvoiceResponse>(await this.doRPCRequest("RecognizeVATInvoice", "2019-12-30", "HTTPS", "POST", "AK", "json", req, runtime), new RecognizeVATInvoiceResponse({}));
-  }
-
-  async recognizeVATInvoice(request: RecognizeVATInvoiceRequest): Promise<RecognizeVATInvoiceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.recognizeVATInvoiceWithOptions(request, runtime);
-  }
-
-  async recognizeVATInvoiceAdvance(request: RecognizeVATInvoiceAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeVATInvoiceResponse> {
-    // Step 0: init client
-    let accessKeyId = await this._credential.getAccessKeyId();
-    let accessKeySecret = await this._credential.getAccessKeySecret();
-    let securityToken = await this._credential.getSecurityToken();
-    let credentialType = this._credential.getType();
-    let openPlatformEndpoint = this._openPlatformEndpoint;
-    if (Util.isUnset(openPlatformEndpoint)) {
-      openPlatformEndpoint = "openplatform.aliyuncs.com";
-    }
-
-    if (Util.isUnset(credentialType)) {
-      credentialType = "access_key";
-    }
-
-    let authConfig = new $RPC.Config({
-      accessKeyId: accessKeyId,
-      accessKeySecret: accessKeySecret,
-      securityToken: securityToken,
-      type: credentialType,
-      endpoint: openPlatformEndpoint,
-      protocol: this._protocol,
-      regionId: this._regionId,
-    });
-    let authClient = new OpenPlatform(authConfig);
-    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
-      product: "ocr",
-      regionId: this._regionId,
-    });
-    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
-    let ossConfig = new $OSS.Config({
-      accessKeySecret: accessKeySecret,
-      type: "access_key",
-      protocol: this._protocol,
-      regionId: this._regionId,
-    });
-    let ossClient : OSS = null;
-    let fileObj = new $FileForm.FileField({ });
-    let ossHeader = new $OSS.PostObjectRequestHeader({ });
-    let uploadRequest = new $OSS.PostObjectRequest({ });
-    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
-    OpenApiUtil.convert(runtime, ossRuntime);
-    let recognizeVATInvoiceReq = new RecognizeVATInvoiceRequest({ });
-    OpenApiUtil.convert(request, recognizeVATInvoiceReq);
-    if (!Util.isUnset(request.fileURLObject)) {
-      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-      ossConfig.accessKeyId = authResponse.accessKeyId;
-      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
-      ossClient = new OSS(ossConfig);
-      fileObj = new $FileForm.FileField({
-        filename: authResponse.objectKey,
-        content: request.fileURLObject,
-        contentType: "",
-      });
-      ossHeader = new $OSS.PostObjectRequestHeader({
-        accessKeyId: authResponse.accessKeyId,
-        policy: authResponse.encodedPolicy,
-        signature: authResponse.signature,
-        key: authResponse.objectKey,
-        file: fileObj,
-        successActionStatus: "201",
-      });
-      uploadRequest = new $OSS.PostObjectRequest({
-        bucketName: authResponse.bucket,
-        header: ossHeader,
-      });
-      await ossClient.postObject(uploadRequest, ossRuntime);
-      recognizeVATInvoiceReq.fileURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
-    }
-
-    let recognizeVATInvoiceResp = await this.recognizeVATInvoiceWithOptions(recognizeVATInvoiceReq, runtime);
-    return recognizeVATInvoiceResp;
-  }
-
   async recognizePassportMRZWithOptions(request: RecognizePassportMRZRequest, runtime: $Util.RuntimeOptions): Promise<RecognizePassportMRZResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -5785,6 +6038,93 @@ export default class Client extends OpenApi {
 
     let recognizePassportMRZResp = await this.recognizePassportMRZWithOptions(recognizePassportMRZReq, runtime);
     return recognizePassportMRZResp;
+  }
+
+  async recognizePdfWithOptions(request: RecognizePdfRequest, runtime: $Util.RuntimeOptions): Promise<RecognizePdfResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<RecognizePdfResponse>(await this.doRPCRequest("RecognizePdf", "2019-12-30", "HTTPS", "POST", "AK", "json", req, runtime), new RecognizePdfResponse({}));
+  }
+
+  async recognizePdf(request: RecognizePdfRequest): Promise<RecognizePdfResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.recognizePdfWithOptions(request, runtime);
+  }
+
+  async recognizePdfAdvance(request: RecognizePdfAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<RecognizePdfResponse> {
+    // Step 0: init client
+    let accessKeyId = await this._credential.getAccessKeyId();
+    let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if (Util.isUnset(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
+    let authConfig = new $RPC.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenPlatform(authConfig);
+    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
+      product: "ocr",
+      regionId: this._regionId,
+    });
+    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
+    let ossConfig = new $OSS.Config({
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let ossClient : OSS = null;
+    let fileObj = new $FileForm.FileField({ });
+    let ossHeader = new $OSS.PostObjectRequestHeader({ });
+    let uploadRequest = new $OSS.PostObjectRequest({ });
+    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
+    OpenApiUtil.convert(runtime, ossRuntime);
+    let recognizePdfReq = new RecognizePdfRequest({ });
+    OpenApiUtil.convert(request, recognizePdfReq);
+    if (!Util.isUnset(request.fileURLObject)) {
+      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+      ossConfig.accessKeyId = authResponse.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+      ossClient = new OSS(ossConfig);
+      fileObj = new $FileForm.FileField({
+        filename: authResponse.objectKey,
+        content: request.fileURLObject,
+        contentType: "",
+      });
+      ossHeader = new $OSS.PostObjectRequestHeader({
+        accessKeyId: authResponse.accessKeyId,
+        policy: authResponse.encodedPolicy,
+        signature: authResponse.signature,
+        key: authResponse.objectKey,
+        file: fileObj,
+        successActionStatus: "201",
+      });
+      uploadRequest = new $OSS.PostObjectRequest({
+        bucketName: authResponse.bucket,
+        header: ossHeader,
+      });
+      await ossClient.postObject(uploadRequest, ossRuntime);
+      recognizePdfReq.fileURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    }
+
+    let recognizePdfResp = await this.recognizePdfWithOptions(recognizePdfReq, runtime);
+    return recognizePdfResp;
   }
 
   async recognizePoiNameWithOptions(request: RecognizePoiNameRequest, runtime: $Util.RuntimeOptions): Promise<RecognizePoiNameResponse> {
@@ -5887,20 +6227,20 @@ export default class Client extends OpenApi {
     return await this.recognizeQrCodeWithOptions(request, runtime);
   }
 
-  async recognizeVINCodeWithOptions(request: RecognizeVINCodeRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeVINCodeResponse> {
+  async recognizeQuotaInvoiceWithOptions(request: RecognizeQuotaInvoiceRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeQuotaInvoiceResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<RecognizeVINCodeResponse>(await this.doRPCRequest("RecognizeVINCode", "2019-12-30", "HTTPS", "POST", "AK", "json", req, runtime), new RecognizeVINCodeResponse({}));
+    return $tea.cast<RecognizeQuotaInvoiceResponse>(await this.doRPCRequest("RecognizeQuotaInvoice", "2019-12-30", "HTTPS", "POST", "AK", "json", req, runtime), new RecognizeQuotaInvoiceResponse({}));
   }
 
-  async recognizeVINCode(request: RecognizeVINCodeRequest): Promise<RecognizeVINCodeResponse> {
+  async recognizeQuotaInvoice(request: RecognizeQuotaInvoiceRequest): Promise<RecognizeQuotaInvoiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.recognizeVINCodeWithOptions(request, runtime);
+    return await this.recognizeQuotaInvoiceWithOptions(request, runtime);
   }
 
-  async recognizeVINCodeAdvance(request: RecognizeVINCodeAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeVINCodeResponse> {
+  async recognizeQuotaInvoiceAdvance(request: RecognizeQuotaInvoiceAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeQuotaInvoiceResponse> {
     // Step 0: init client
     let accessKeyId = await this._credential.getAccessKeyId();
     let accessKeySecret = await this._credential.getAccessKeySecret();
@@ -5942,8 +6282,8 @@ export default class Client extends OpenApi {
     let uploadRequest = new $OSS.PostObjectRequest({ });
     let ossRuntime = new $OSSUtil.RuntimeOptions({ });
     OpenApiUtil.convert(runtime, ossRuntime);
-    let recognizeVINCodeReq = new RecognizeVINCodeRequest({ });
-    OpenApiUtil.convert(request, recognizeVINCodeReq);
+    let recognizeQuotaInvoiceReq = new RecognizeQuotaInvoiceRequest({ });
+    OpenApiUtil.convert(request, recognizeQuotaInvoiceReq);
     if (!Util.isUnset(request.imageURLObject)) {
       authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
       ossConfig.accessKeyId = authResponse.accessKeyId;
@@ -5967,707 +6307,11 @@ export default class Client extends OpenApi {
         header: ossHeader,
       });
       await ossClient.postObject(uploadRequest, ossRuntime);
-      recognizeVINCodeReq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+      recognizeQuotaInvoiceReq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
     }
 
-    let recognizeVINCodeResp = await this.recognizeVINCodeWithOptions(recognizeVINCodeReq, runtime);
-    return recognizeVINCodeResp;
-  }
-
-  async recognizeChinapassportWithOptions(request: RecognizeChinapassportRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeChinapassportResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<RecognizeChinapassportResponse>(await this.doRPCRequest("RecognizeChinapassport", "2019-12-30", "HTTPS", "POST", "AK", "json", req, runtime), new RecognizeChinapassportResponse({}));
-  }
-
-  async recognizeChinapassport(request: RecognizeChinapassportRequest): Promise<RecognizeChinapassportResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.recognizeChinapassportWithOptions(request, runtime);
-  }
-
-  async recognizeChinapassportAdvance(request: RecognizeChinapassportAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeChinapassportResponse> {
-    // Step 0: init client
-    let accessKeyId = await this._credential.getAccessKeyId();
-    let accessKeySecret = await this._credential.getAccessKeySecret();
-    let securityToken = await this._credential.getSecurityToken();
-    let credentialType = this._credential.getType();
-    let openPlatformEndpoint = this._openPlatformEndpoint;
-    if (Util.isUnset(openPlatformEndpoint)) {
-      openPlatformEndpoint = "openplatform.aliyuncs.com";
-    }
-
-    if (Util.isUnset(credentialType)) {
-      credentialType = "access_key";
-    }
-
-    let authConfig = new $RPC.Config({
-      accessKeyId: accessKeyId,
-      accessKeySecret: accessKeySecret,
-      securityToken: securityToken,
-      type: credentialType,
-      endpoint: openPlatformEndpoint,
-      protocol: this._protocol,
-      regionId: this._regionId,
-    });
-    let authClient = new OpenPlatform(authConfig);
-    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
-      product: "ocr",
-      regionId: this._regionId,
-    });
-    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
-    let ossConfig = new $OSS.Config({
-      accessKeySecret: accessKeySecret,
-      type: "access_key",
-      protocol: this._protocol,
-      regionId: this._regionId,
-    });
-    let ossClient : OSS = null;
-    let fileObj = new $FileForm.FileField({ });
-    let ossHeader = new $OSS.PostObjectRequestHeader({ });
-    let uploadRequest = new $OSS.PostObjectRequest({ });
-    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
-    OpenApiUtil.convert(runtime, ossRuntime);
-    let recognizeChinapassportReq = new RecognizeChinapassportRequest({ });
-    OpenApiUtil.convert(request, recognizeChinapassportReq);
-    if (!Util.isUnset(request.imageURLObject)) {
-      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-      ossConfig.accessKeyId = authResponse.accessKeyId;
-      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
-      ossClient = new OSS(ossConfig);
-      fileObj = new $FileForm.FileField({
-        filename: authResponse.objectKey,
-        content: request.imageURLObject,
-        contentType: "",
-      });
-      ossHeader = new $OSS.PostObjectRequestHeader({
-        accessKeyId: authResponse.accessKeyId,
-        policy: authResponse.encodedPolicy,
-        signature: authResponse.signature,
-        key: authResponse.objectKey,
-        file: fileObj,
-        successActionStatus: "201",
-      });
-      uploadRequest = new $OSS.PostObjectRequest({
-        bucketName: authResponse.bucket,
-        header: ossHeader,
-      });
-      await ossClient.postObject(uploadRequest, ossRuntime);
-      recognizeChinapassportReq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
-    }
-
-    let recognizeChinapassportResp = await this.recognizeChinapassportWithOptions(recognizeChinapassportReq, runtime);
-    return recognizeChinapassportResp;
-  }
-
-  async trimDocumentWithOptions(request: TrimDocumentRequest, runtime: $Util.RuntimeOptions): Promise<TrimDocumentResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<TrimDocumentResponse>(await this.doRPCRequest("TrimDocument", "2019-12-30", "HTTPS", "POST", "AK", "json", req, runtime), new TrimDocumentResponse({}));
-  }
-
-  async trimDocument(request: TrimDocumentRequest): Promise<TrimDocumentResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.trimDocumentWithOptions(request, runtime);
-  }
-
-  async trimDocumentAdvance(request: TrimDocumentAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<TrimDocumentResponse> {
-    // Step 0: init client
-    let accessKeyId = await this._credential.getAccessKeyId();
-    let accessKeySecret = await this._credential.getAccessKeySecret();
-    let securityToken = await this._credential.getSecurityToken();
-    let credentialType = this._credential.getType();
-    let openPlatformEndpoint = this._openPlatformEndpoint;
-    if (Util.isUnset(openPlatformEndpoint)) {
-      openPlatformEndpoint = "openplatform.aliyuncs.com";
-    }
-
-    if (Util.isUnset(credentialType)) {
-      credentialType = "access_key";
-    }
-
-    let authConfig = new $RPC.Config({
-      accessKeyId: accessKeyId,
-      accessKeySecret: accessKeySecret,
-      securityToken: securityToken,
-      type: credentialType,
-      endpoint: openPlatformEndpoint,
-      protocol: this._protocol,
-      regionId: this._regionId,
-    });
-    let authClient = new OpenPlatform(authConfig);
-    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
-      product: "ocr",
-      regionId: this._regionId,
-    });
-    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
-    let ossConfig = new $OSS.Config({
-      accessKeySecret: accessKeySecret,
-      type: "access_key",
-      protocol: this._protocol,
-      regionId: this._regionId,
-    });
-    let ossClient : OSS = null;
-    let fileObj = new $FileForm.FileField({ });
-    let ossHeader = new $OSS.PostObjectRequestHeader({ });
-    let uploadRequest = new $OSS.PostObjectRequest({ });
-    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
-    OpenApiUtil.convert(runtime, ossRuntime);
-    let trimDocumentReq = new TrimDocumentRequest({ });
-    OpenApiUtil.convert(request, trimDocumentReq);
-    if (!Util.isUnset(request.fileURLObject)) {
-      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-      ossConfig.accessKeyId = authResponse.accessKeyId;
-      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
-      ossClient = new OSS(ossConfig);
-      fileObj = new $FileForm.FileField({
-        filename: authResponse.objectKey,
-        content: request.fileURLObject,
-        contentType: "",
-      });
-      ossHeader = new $OSS.PostObjectRequestHeader({
-        accessKeyId: authResponse.accessKeyId,
-        policy: authResponse.encodedPolicy,
-        signature: authResponse.signature,
-        key: authResponse.objectKey,
-        file: fileObj,
-        successActionStatus: "201",
-      });
-      uploadRequest = new $OSS.PostObjectRequest({
-        bucketName: authResponse.bucket,
-        header: ossHeader,
-      });
-      await ossClient.postObject(uploadRequest, ossRuntime);
-      trimDocumentReq.fileURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
-    }
-
-    let trimDocumentResp = await this.trimDocumentWithOptions(trimDocumentReq, runtime);
-    return trimDocumentResp;
-  }
-
-  async recognizePdfWithOptions(request: RecognizePdfRequest, runtime: $Util.RuntimeOptions): Promise<RecognizePdfResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<RecognizePdfResponse>(await this.doRPCRequest("RecognizePdf", "2019-12-30", "HTTPS", "POST", "AK", "json", req, runtime), new RecognizePdfResponse({}));
-  }
-
-  async recognizePdf(request: RecognizePdfRequest): Promise<RecognizePdfResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.recognizePdfWithOptions(request, runtime);
-  }
-
-  async recognizePdfAdvance(request: RecognizePdfAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<RecognizePdfResponse> {
-    // Step 0: init client
-    let accessKeyId = await this._credential.getAccessKeyId();
-    let accessKeySecret = await this._credential.getAccessKeySecret();
-    let securityToken = await this._credential.getSecurityToken();
-    let credentialType = this._credential.getType();
-    let openPlatformEndpoint = this._openPlatformEndpoint;
-    if (Util.isUnset(openPlatformEndpoint)) {
-      openPlatformEndpoint = "openplatform.aliyuncs.com";
-    }
-
-    if (Util.isUnset(credentialType)) {
-      credentialType = "access_key";
-    }
-
-    let authConfig = new $RPC.Config({
-      accessKeyId: accessKeyId,
-      accessKeySecret: accessKeySecret,
-      securityToken: securityToken,
-      type: credentialType,
-      endpoint: openPlatformEndpoint,
-      protocol: this._protocol,
-      regionId: this._regionId,
-    });
-    let authClient = new OpenPlatform(authConfig);
-    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
-      product: "ocr",
-      regionId: this._regionId,
-    });
-    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
-    let ossConfig = new $OSS.Config({
-      accessKeySecret: accessKeySecret,
-      type: "access_key",
-      protocol: this._protocol,
-      regionId: this._regionId,
-    });
-    let ossClient : OSS = null;
-    let fileObj = new $FileForm.FileField({ });
-    let ossHeader = new $OSS.PostObjectRequestHeader({ });
-    let uploadRequest = new $OSS.PostObjectRequest({ });
-    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
-    OpenApiUtil.convert(runtime, ossRuntime);
-    let recognizePdfReq = new RecognizePdfRequest({ });
-    OpenApiUtil.convert(request, recognizePdfReq);
-    if (!Util.isUnset(request.fileURLObject)) {
-      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-      ossConfig.accessKeyId = authResponse.accessKeyId;
-      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
-      ossClient = new OSS(ossConfig);
-      fileObj = new $FileForm.FileField({
-        filename: authResponse.objectKey,
-        content: request.fileURLObject,
-        contentType: "",
-      });
-      ossHeader = new $OSS.PostObjectRequestHeader({
-        accessKeyId: authResponse.accessKeyId,
-        policy: authResponse.encodedPolicy,
-        signature: authResponse.signature,
-        key: authResponse.objectKey,
-        file: fileObj,
-        successActionStatus: "201",
-      });
-      uploadRequest = new $OSS.PostObjectRequest({
-        bucketName: authResponse.bucket,
-        header: ossHeader,
-      });
-      await ossClient.postObject(uploadRequest, ossRuntime);
-      recognizePdfReq.fileURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
-    }
-
-    let recognizePdfResp = await this.recognizePdfWithOptions(recognizePdfReq, runtime);
-    return recognizePdfResp;
-  }
-
-  async recognizeBusinessLicenseWithOptions(request: RecognizeBusinessLicenseRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeBusinessLicenseResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<RecognizeBusinessLicenseResponse>(await this.doRPCRequest("RecognizeBusinessLicense", "2019-12-30", "HTTPS", "POST", "AK", "json", req, runtime), new RecognizeBusinessLicenseResponse({}));
-  }
-
-  async recognizeBusinessLicense(request: RecognizeBusinessLicenseRequest): Promise<RecognizeBusinessLicenseResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.recognizeBusinessLicenseWithOptions(request, runtime);
-  }
-
-  async recognizeBusinessLicenseAdvance(request: RecognizeBusinessLicenseAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeBusinessLicenseResponse> {
-    // Step 0: init client
-    let accessKeyId = await this._credential.getAccessKeyId();
-    let accessKeySecret = await this._credential.getAccessKeySecret();
-    let securityToken = await this._credential.getSecurityToken();
-    let credentialType = this._credential.getType();
-    let openPlatformEndpoint = this._openPlatformEndpoint;
-    if (Util.isUnset(openPlatformEndpoint)) {
-      openPlatformEndpoint = "openplatform.aliyuncs.com";
-    }
-
-    if (Util.isUnset(credentialType)) {
-      credentialType = "access_key";
-    }
-
-    let authConfig = new $RPC.Config({
-      accessKeyId: accessKeyId,
-      accessKeySecret: accessKeySecret,
-      securityToken: securityToken,
-      type: credentialType,
-      endpoint: openPlatformEndpoint,
-      protocol: this._protocol,
-      regionId: this._regionId,
-    });
-    let authClient = new OpenPlatform(authConfig);
-    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
-      product: "ocr",
-      regionId: this._regionId,
-    });
-    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
-    let ossConfig = new $OSS.Config({
-      accessKeySecret: accessKeySecret,
-      type: "access_key",
-      protocol: this._protocol,
-      regionId: this._regionId,
-    });
-    let ossClient : OSS = null;
-    let fileObj = new $FileForm.FileField({ });
-    let ossHeader = new $OSS.PostObjectRequestHeader({ });
-    let uploadRequest = new $OSS.PostObjectRequest({ });
-    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
-    OpenApiUtil.convert(runtime, ossRuntime);
-    let recognizeBusinessLicenseReq = new RecognizeBusinessLicenseRequest({ });
-    OpenApiUtil.convert(request, recognizeBusinessLicenseReq);
-    if (!Util.isUnset(request.imageURLObject)) {
-      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-      ossConfig.accessKeyId = authResponse.accessKeyId;
-      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
-      ossClient = new OSS(ossConfig);
-      fileObj = new $FileForm.FileField({
-        filename: authResponse.objectKey,
-        content: request.imageURLObject,
-        contentType: "",
-      });
-      ossHeader = new $OSS.PostObjectRequestHeader({
-        accessKeyId: authResponse.accessKeyId,
-        policy: authResponse.encodedPolicy,
-        signature: authResponse.signature,
-        key: authResponse.objectKey,
-        file: fileObj,
-        successActionStatus: "201",
-      });
-      uploadRequest = new $OSS.PostObjectRequest({
-        bucketName: authResponse.bucket,
-        header: ossHeader,
-      });
-      await ossClient.postObject(uploadRequest, ossRuntime);
-      recognizeBusinessLicenseReq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
-    }
-
-    let recognizeBusinessLicenseResp = await this.recognizeBusinessLicenseWithOptions(recognizeBusinessLicenseReq, runtime);
-    return recognizeBusinessLicenseResp;
-  }
-
-  async recognizeBankCardWithOptions(request: RecognizeBankCardRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeBankCardResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<RecognizeBankCardResponse>(await this.doRPCRequest("RecognizeBankCard", "2019-12-30", "HTTPS", "POST", "AK", "json", req, runtime), new RecognizeBankCardResponse({}));
-  }
-
-  async recognizeBankCard(request: RecognizeBankCardRequest): Promise<RecognizeBankCardResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.recognizeBankCardWithOptions(request, runtime);
-  }
-
-  async recognizeBankCardAdvance(request: RecognizeBankCardAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeBankCardResponse> {
-    // Step 0: init client
-    let accessKeyId = await this._credential.getAccessKeyId();
-    let accessKeySecret = await this._credential.getAccessKeySecret();
-    let securityToken = await this._credential.getSecurityToken();
-    let credentialType = this._credential.getType();
-    let openPlatformEndpoint = this._openPlatformEndpoint;
-    if (Util.isUnset(openPlatformEndpoint)) {
-      openPlatformEndpoint = "openplatform.aliyuncs.com";
-    }
-
-    if (Util.isUnset(credentialType)) {
-      credentialType = "access_key";
-    }
-
-    let authConfig = new $RPC.Config({
-      accessKeyId: accessKeyId,
-      accessKeySecret: accessKeySecret,
-      securityToken: securityToken,
-      type: credentialType,
-      endpoint: openPlatformEndpoint,
-      protocol: this._protocol,
-      regionId: this._regionId,
-    });
-    let authClient = new OpenPlatform(authConfig);
-    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
-      product: "ocr",
-      regionId: this._regionId,
-    });
-    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
-    let ossConfig = new $OSS.Config({
-      accessKeySecret: accessKeySecret,
-      type: "access_key",
-      protocol: this._protocol,
-      regionId: this._regionId,
-    });
-    let ossClient : OSS = null;
-    let fileObj = new $FileForm.FileField({ });
-    let ossHeader = new $OSS.PostObjectRequestHeader({ });
-    let uploadRequest = new $OSS.PostObjectRequest({ });
-    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
-    OpenApiUtil.convert(runtime, ossRuntime);
-    let recognizeBankCardReq = new RecognizeBankCardRequest({ });
-    OpenApiUtil.convert(request, recognizeBankCardReq);
-    if (!Util.isUnset(request.imageURLObject)) {
-      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-      ossConfig.accessKeyId = authResponse.accessKeyId;
-      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
-      ossClient = new OSS(ossConfig);
-      fileObj = new $FileForm.FileField({
-        filename: authResponse.objectKey,
-        content: request.imageURLObject,
-        contentType: "",
-      });
-      ossHeader = new $OSS.PostObjectRequestHeader({
-        accessKeyId: authResponse.accessKeyId,
-        policy: authResponse.encodedPolicy,
-        signature: authResponse.signature,
-        key: authResponse.objectKey,
-        file: fileObj,
-        successActionStatus: "201",
-      });
-      uploadRequest = new $OSS.PostObjectRequest({
-        bucketName: authResponse.bucket,
-        header: ossHeader,
-      });
-      await ossClient.postObject(uploadRequest, ossRuntime);
-      recognizeBankCardReq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
-    }
-
-    let recognizeBankCardResp = await this.recognizeBankCardWithOptions(recognizeBankCardReq, runtime);
-    return recognizeBankCardResp;
-  }
-
-  async recognizeAccountPageWithOptions(request: RecognizeAccountPageRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeAccountPageResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<RecognizeAccountPageResponse>(await this.doRPCRequest("RecognizeAccountPage", "2019-12-30", "HTTPS", "POST", "AK", "json", req, runtime), new RecognizeAccountPageResponse({}));
-  }
-
-  async recognizeAccountPage(request: RecognizeAccountPageRequest): Promise<RecognizeAccountPageResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.recognizeAccountPageWithOptions(request, runtime);
-  }
-
-  async recognizeAccountPageAdvance(request: RecognizeAccountPageAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeAccountPageResponse> {
-    // Step 0: init client
-    let accessKeyId = await this._credential.getAccessKeyId();
-    let accessKeySecret = await this._credential.getAccessKeySecret();
-    let securityToken = await this._credential.getSecurityToken();
-    let credentialType = this._credential.getType();
-    let openPlatformEndpoint = this._openPlatformEndpoint;
-    if (Util.isUnset(openPlatformEndpoint)) {
-      openPlatformEndpoint = "openplatform.aliyuncs.com";
-    }
-
-    if (Util.isUnset(credentialType)) {
-      credentialType = "access_key";
-    }
-
-    let authConfig = new $RPC.Config({
-      accessKeyId: accessKeyId,
-      accessKeySecret: accessKeySecret,
-      securityToken: securityToken,
-      type: credentialType,
-      endpoint: openPlatformEndpoint,
-      protocol: this._protocol,
-      regionId: this._regionId,
-    });
-    let authClient = new OpenPlatform(authConfig);
-    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
-      product: "ocr",
-      regionId: this._regionId,
-    });
-    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
-    let ossConfig = new $OSS.Config({
-      accessKeySecret: accessKeySecret,
-      type: "access_key",
-      protocol: this._protocol,
-      regionId: this._regionId,
-    });
-    let ossClient : OSS = null;
-    let fileObj = new $FileForm.FileField({ });
-    let ossHeader = new $OSS.PostObjectRequestHeader({ });
-    let uploadRequest = new $OSS.PostObjectRequest({ });
-    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
-    OpenApiUtil.convert(runtime, ossRuntime);
-    let recognizeAccountPageReq = new RecognizeAccountPageRequest({ });
-    OpenApiUtil.convert(request, recognizeAccountPageReq);
-    if (!Util.isUnset(request.imageURLObject)) {
-      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-      ossConfig.accessKeyId = authResponse.accessKeyId;
-      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
-      ossClient = new OSS(ossConfig);
-      fileObj = new $FileForm.FileField({
-        filename: authResponse.objectKey,
-        content: request.imageURLObject,
-        contentType: "",
-      });
-      ossHeader = new $OSS.PostObjectRequestHeader({
-        accessKeyId: authResponse.accessKeyId,
-        policy: authResponse.encodedPolicy,
-        signature: authResponse.signature,
-        key: authResponse.objectKey,
-        file: fileObj,
-        successActionStatus: "201",
-      });
-      uploadRequest = new $OSS.PostObjectRequest({
-        bucketName: authResponse.bucket,
-        header: ossHeader,
-      });
-      await ossClient.postObject(uploadRequest, ossRuntime);
-      recognizeAccountPageReq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
-    }
-
-    let recognizeAccountPageResp = await this.recognizeAccountPageWithOptions(recognizeAccountPageReq, runtime);
-    return recognizeAccountPageResp;
-  }
-
-  async recognizeBusinessCardWithOptions(request: RecognizeBusinessCardRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeBusinessCardResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<RecognizeBusinessCardResponse>(await this.doRPCRequest("RecognizeBusinessCard", "2019-12-30", "HTTPS", "POST", "AK", "json", req, runtime), new RecognizeBusinessCardResponse({}));
-  }
-
-  async recognizeBusinessCard(request: RecognizeBusinessCardRequest): Promise<RecognizeBusinessCardResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.recognizeBusinessCardWithOptions(request, runtime);
-  }
-
-  async recognizeBusinessCardAdvance(request: RecognizeBusinessCardAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeBusinessCardResponse> {
-    // Step 0: init client
-    let accessKeyId = await this._credential.getAccessKeyId();
-    let accessKeySecret = await this._credential.getAccessKeySecret();
-    let securityToken = await this._credential.getSecurityToken();
-    let credentialType = this._credential.getType();
-    let openPlatformEndpoint = this._openPlatformEndpoint;
-    if (Util.isUnset(openPlatformEndpoint)) {
-      openPlatformEndpoint = "openplatform.aliyuncs.com";
-    }
-
-    if (Util.isUnset(credentialType)) {
-      credentialType = "access_key";
-    }
-
-    let authConfig = new $RPC.Config({
-      accessKeyId: accessKeyId,
-      accessKeySecret: accessKeySecret,
-      securityToken: securityToken,
-      type: credentialType,
-      endpoint: openPlatformEndpoint,
-      protocol: this._protocol,
-      regionId: this._regionId,
-    });
-    let authClient = new OpenPlatform(authConfig);
-    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
-      product: "ocr",
-      regionId: this._regionId,
-    });
-    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
-    let ossConfig = new $OSS.Config({
-      accessKeySecret: accessKeySecret,
-      type: "access_key",
-      protocol: this._protocol,
-      regionId: this._regionId,
-    });
-    let ossClient : OSS = null;
-    let fileObj = new $FileForm.FileField({ });
-    let ossHeader = new $OSS.PostObjectRequestHeader({ });
-    let uploadRequest = new $OSS.PostObjectRequest({ });
-    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
-    OpenApiUtil.convert(runtime, ossRuntime);
-    let recognizeBusinessCardReq = new RecognizeBusinessCardRequest({ });
-    OpenApiUtil.convert(request, recognizeBusinessCardReq);
-    if (!Util.isUnset(request.imageURLObject)) {
-      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-      ossConfig.accessKeyId = authResponse.accessKeyId;
-      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
-      ossClient = new OSS(ossConfig);
-      fileObj = new $FileForm.FileField({
-        filename: authResponse.objectKey,
-        content: request.imageURLObject,
-        contentType: "",
-      });
-      ossHeader = new $OSS.PostObjectRequestHeader({
-        accessKeyId: authResponse.accessKeyId,
-        policy: authResponse.encodedPolicy,
-        signature: authResponse.signature,
-        key: authResponse.objectKey,
-        file: fileObj,
-        successActionStatus: "201",
-      });
-      uploadRequest = new $OSS.PostObjectRequest({
-        bucketName: authResponse.bucket,
-        header: ossHeader,
-      });
-      await ossClient.postObject(uploadRequest, ossRuntime);
-      recognizeBusinessCardReq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
-    }
-
-    let recognizeBusinessCardResp = await this.recognizeBusinessCardWithOptions(recognizeBusinessCardReq, runtime);
-    return recognizeBusinessCardResp;
-  }
-
-  async detectCardScreenshotWithOptions(request: DetectCardScreenshotRequest, runtime: $Util.RuntimeOptions): Promise<DetectCardScreenshotResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<DetectCardScreenshotResponse>(await this.doRPCRequest("DetectCardScreenshot", "2019-12-30", "HTTPS", "POST", "AK", "json", req, runtime), new DetectCardScreenshotResponse({}));
-  }
-
-  async detectCardScreenshot(request: DetectCardScreenshotRequest): Promise<DetectCardScreenshotResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.detectCardScreenshotWithOptions(request, runtime);
-  }
-
-  async detectCardScreenshotAdvance(request: DetectCardScreenshotAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<DetectCardScreenshotResponse> {
-    // Step 0: init client
-    let accessKeyId = await this._credential.getAccessKeyId();
-    let accessKeySecret = await this._credential.getAccessKeySecret();
-    let securityToken = await this._credential.getSecurityToken();
-    let credentialType = this._credential.getType();
-    let openPlatformEndpoint = this._openPlatformEndpoint;
-    if (Util.isUnset(openPlatformEndpoint)) {
-      openPlatformEndpoint = "openplatform.aliyuncs.com";
-    }
-
-    if (Util.isUnset(credentialType)) {
-      credentialType = "access_key";
-    }
-
-    let authConfig = new $RPC.Config({
-      accessKeyId: accessKeyId,
-      accessKeySecret: accessKeySecret,
-      securityToken: securityToken,
-      type: credentialType,
-      endpoint: openPlatformEndpoint,
-      protocol: this._protocol,
-      regionId: this._regionId,
-    });
-    let authClient = new OpenPlatform(authConfig);
-    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
-      product: "ocr",
-      regionId: this._regionId,
-    });
-    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
-    let ossConfig = new $OSS.Config({
-      accessKeySecret: accessKeySecret,
-      type: "access_key",
-      protocol: this._protocol,
-      regionId: this._regionId,
-    });
-    let ossClient : OSS = null;
-    let fileObj = new $FileForm.FileField({ });
-    let ossHeader = new $OSS.PostObjectRequestHeader({ });
-    let uploadRequest = new $OSS.PostObjectRequest({ });
-    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
-    OpenApiUtil.convert(runtime, ossRuntime);
-    let detectCardScreenshotReq = new DetectCardScreenshotRequest({ });
-    OpenApiUtil.convert(request, detectCardScreenshotReq);
-    if (!Util.isUnset(request.imageURLObject)) {
-      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-      ossConfig.accessKeyId = authResponse.accessKeyId;
-      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
-      ossClient = new OSS(ossConfig);
-      fileObj = new $FileForm.FileField({
-        filename: authResponse.objectKey,
-        content: request.imageURLObject,
-        contentType: "",
-      });
-      ossHeader = new $OSS.PostObjectRequestHeader({
-        accessKeyId: authResponse.accessKeyId,
-        policy: authResponse.encodedPolicy,
-        signature: authResponse.signature,
-        key: authResponse.objectKey,
-        file: fileObj,
-        successActionStatus: "201",
-      });
-      uploadRequest = new $OSS.PostObjectRequest({
-        bucketName: authResponse.bucket,
-        header: ossHeader,
-      });
-      await ossClient.postObject(uploadRequest, ossRuntime);
-      detectCardScreenshotReq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
-    }
-
-    let detectCardScreenshotResp = await this.detectCardScreenshotWithOptions(detectCardScreenshotReq, runtime);
-    return detectCardScreenshotResp;
+    let recognizeQuotaInvoiceResp = await this.recognizeQuotaInvoiceWithOptions(recognizeQuotaInvoiceReq, runtime);
+    return recognizeQuotaInvoiceResp;
   }
 
   async recognizeStampWithOptions(request: RecognizeStampRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeStampResponse> {
@@ -6757,20 +6401,20 @@ export default class Client extends OpenApi {
     return recognizeStampResp;
   }
 
-  async recognizeQuotaInvoiceWithOptions(request: RecognizeQuotaInvoiceRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeQuotaInvoiceResponse> {
+  async recognizeTableWithOptions(request: RecognizeTableRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeTableResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<RecognizeQuotaInvoiceResponse>(await this.doRPCRequest("RecognizeQuotaInvoice", "2019-12-30", "HTTPS", "POST", "AK", "json", req, runtime), new RecognizeQuotaInvoiceResponse({}));
+    return $tea.cast<RecognizeTableResponse>(await this.doRPCRequest("RecognizeTable", "2019-12-30", "HTTPS", "POST", "AK", "json", req, runtime), new RecognizeTableResponse({}));
   }
 
-  async recognizeQuotaInvoice(request: RecognizeQuotaInvoiceRequest): Promise<RecognizeQuotaInvoiceResponse> {
+  async recognizeTable(request: RecognizeTableRequest): Promise<RecognizeTableResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.recognizeQuotaInvoiceWithOptions(request, runtime);
+    return await this.recognizeTableWithOptions(request, runtime);
   }
 
-  async recognizeQuotaInvoiceAdvance(request: RecognizeQuotaInvoiceAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeQuotaInvoiceResponse> {
+  async recognizeTableAdvance(request: RecognizeTableAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeTableResponse> {
     // Step 0: init client
     let accessKeyId = await this._credential.getAccessKeyId();
     let accessKeySecret = await this._credential.getAccessKeySecret();
@@ -6812,8 +6456,8 @@ export default class Client extends OpenApi {
     let uploadRequest = new $OSS.PostObjectRequest({ });
     let ossRuntime = new $OSSUtil.RuntimeOptions({ });
     OpenApiUtil.convert(runtime, ossRuntime);
-    let recognizeQuotaInvoiceReq = new RecognizeQuotaInvoiceRequest({ });
-    OpenApiUtil.convert(request, recognizeQuotaInvoiceReq);
+    let recognizeTableReq = new RecognizeTableRequest({ });
+    OpenApiUtil.convert(request, recognizeTableReq);
     if (!Util.isUnset(request.imageURLObject)) {
       authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
       ossConfig.accessKeyId = authResponse.accessKeyId;
@@ -6837,11 +6481,272 @@ export default class Client extends OpenApi {
         header: ossHeader,
       });
       await ossClient.postObject(uploadRequest, ossRuntime);
-      recognizeQuotaInvoiceReq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+      recognizeTableReq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
     }
 
-    let recognizeQuotaInvoiceResp = await this.recognizeQuotaInvoiceWithOptions(recognizeQuotaInvoiceReq, runtime);
-    return recognizeQuotaInvoiceResp;
+    let recognizeTableResp = await this.recognizeTableWithOptions(recognizeTableReq, runtime);
+    return recognizeTableResp;
+  }
+
+  async recognizeTakeoutOrderWithOptions(request: RecognizeTakeoutOrderRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeTakeoutOrderResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<RecognizeTakeoutOrderResponse>(await this.doRPCRequest("RecognizeTakeoutOrder", "2019-12-30", "HTTPS", "POST", "AK", "json", req, runtime), new RecognizeTakeoutOrderResponse({}));
+  }
+
+  async recognizeTakeoutOrder(request: RecognizeTakeoutOrderRequest): Promise<RecognizeTakeoutOrderResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.recognizeTakeoutOrderWithOptions(request, runtime);
+  }
+
+  async recognizeTakeoutOrderAdvance(request: RecognizeTakeoutOrderAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeTakeoutOrderResponse> {
+    // Step 0: init client
+    let accessKeyId = await this._credential.getAccessKeyId();
+    let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if (Util.isUnset(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
+    let authConfig = new $RPC.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenPlatform(authConfig);
+    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
+      product: "ocr",
+      regionId: this._regionId,
+    });
+    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
+    let ossConfig = new $OSS.Config({
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let ossClient : OSS = null;
+    let fileObj = new $FileForm.FileField({ });
+    let ossHeader = new $OSS.PostObjectRequestHeader({ });
+    let uploadRequest = new $OSS.PostObjectRequest({ });
+    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
+    OpenApiUtil.convert(runtime, ossRuntime);
+    let recognizeTakeoutOrderReq = new RecognizeTakeoutOrderRequest({ });
+    OpenApiUtil.convert(request, recognizeTakeoutOrderReq);
+    if (!Util.isUnset(request.imageURLObject)) {
+      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+      ossConfig.accessKeyId = authResponse.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+      ossClient = new OSS(ossConfig);
+      fileObj = new $FileForm.FileField({
+        filename: authResponse.objectKey,
+        content: request.imageURLObject,
+        contentType: "",
+      });
+      ossHeader = new $OSS.PostObjectRequestHeader({
+        accessKeyId: authResponse.accessKeyId,
+        policy: authResponse.encodedPolicy,
+        signature: authResponse.signature,
+        key: authResponse.objectKey,
+        file: fileObj,
+        successActionStatus: "201",
+      });
+      uploadRequest = new $OSS.PostObjectRequest({
+        bucketName: authResponse.bucket,
+        header: ossHeader,
+      });
+      await ossClient.postObject(uploadRequest, ossRuntime);
+      recognizeTakeoutOrderReq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    }
+
+    let recognizeTakeoutOrderResp = await this.recognizeTakeoutOrderWithOptions(recognizeTakeoutOrderReq, runtime);
+    return recognizeTakeoutOrderResp;
+  }
+
+  async recognizeTaxiInvoiceWithOptions(request: RecognizeTaxiInvoiceRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeTaxiInvoiceResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<RecognizeTaxiInvoiceResponse>(await this.doRPCRequest("RecognizeTaxiInvoice", "2019-12-30", "HTTPS", "POST", "AK", "json", req, runtime), new RecognizeTaxiInvoiceResponse({}));
+  }
+
+  async recognizeTaxiInvoice(request: RecognizeTaxiInvoiceRequest): Promise<RecognizeTaxiInvoiceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.recognizeTaxiInvoiceWithOptions(request, runtime);
+  }
+
+  async recognizeTaxiInvoiceAdvance(request: RecognizeTaxiInvoiceAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeTaxiInvoiceResponse> {
+    // Step 0: init client
+    let accessKeyId = await this._credential.getAccessKeyId();
+    let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if (Util.isUnset(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
+    let authConfig = new $RPC.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenPlatform(authConfig);
+    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
+      product: "ocr",
+      regionId: this._regionId,
+    });
+    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
+    let ossConfig = new $OSS.Config({
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let ossClient : OSS = null;
+    let fileObj = new $FileForm.FileField({ });
+    let ossHeader = new $OSS.PostObjectRequestHeader({ });
+    let uploadRequest = new $OSS.PostObjectRequest({ });
+    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
+    OpenApiUtil.convert(runtime, ossRuntime);
+    let recognizeTaxiInvoiceReq = new RecognizeTaxiInvoiceRequest({ });
+    OpenApiUtil.convert(request, recognizeTaxiInvoiceReq);
+    if (!Util.isUnset(request.imageURLObject)) {
+      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+      ossConfig.accessKeyId = authResponse.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+      ossClient = new OSS(ossConfig);
+      fileObj = new $FileForm.FileField({
+        filename: authResponse.objectKey,
+        content: request.imageURLObject,
+        contentType: "",
+      });
+      ossHeader = new $OSS.PostObjectRequestHeader({
+        accessKeyId: authResponse.accessKeyId,
+        policy: authResponse.encodedPolicy,
+        signature: authResponse.signature,
+        key: authResponse.objectKey,
+        file: fileObj,
+        successActionStatus: "201",
+      });
+      uploadRequest = new $OSS.PostObjectRequest({
+        bucketName: authResponse.bucket,
+        header: ossHeader,
+      });
+      await ossClient.postObject(uploadRequest, ossRuntime);
+      recognizeTaxiInvoiceReq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    }
+
+    let recognizeTaxiInvoiceResp = await this.recognizeTaxiInvoiceWithOptions(recognizeTaxiInvoiceReq, runtime);
+    return recognizeTaxiInvoiceResp;
+  }
+
+  async recognizeTicketInvoiceWithOptions(request: RecognizeTicketInvoiceRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeTicketInvoiceResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<RecognizeTicketInvoiceResponse>(await this.doRPCRequest("RecognizeTicketInvoice", "2019-12-30", "HTTPS", "POST", "AK", "json", req, runtime), new RecognizeTicketInvoiceResponse({}));
+  }
+
+  async recognizeTicketInvoice(request: RecognizeTicketInvoiceRequest): Promise<RecognizeTicketInvoiceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.recognizeTicketInvoiceWithOptions(request, runtime);
+  }
+
+  async recognizeTicketInvoiceAdvance(request: RecognizeTicketInvoiceAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeTicketInvoiceResponse> {
+    // Step 0: init client
+    let accessKeyId = await this._credential.getAccessKeyId();
+    let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if (Util.isUnset(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
+    let authConfig = new $RPC.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenPlatform(authConfig);
+    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
+      product: "ocr",
+      regionId: this._regionId,
+    });
+    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
+    let ossConfig = new $OSS.Config({
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let ossClient : OSS = null;
+    let fileObj = new $FileForm.FileField({ });
+    let ossHeader = new $OSS.PostObjectRequestHeader({ });
+    let uploadRequest = new $OSS.PostObjectRequest({ });
+    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
+    OpenApiUtil.convert(runtime, ossRuntime);
+    let recognizeTicketInvoiceReq = new RecognizeTicketInvoiceRequest({ });
+    OpenApiUtil.convert(request, recognizeTicketInvoiceReq);
+    if (!Util.isUnset(request.imageURLObject)) {
+      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+      ossConfig.accessKeyId = authResponse.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+      ossClient = new OSS(ossConfig);
+      fileObj = new $FileForm.FileField({
+        filename: authResponse.objectKey,
+        content: request.imageURLObject,
+        contentType: "",
+      });
+      ossHeader = new $OSS.PostObjectRequestHeader({
+        accessKeyId: authResponse.accessKeyId,
+        policy: authResponse.encodedPolicy,
+        signature: authResponse.signature,
+        key: authResponse.objectKey,
+        file: fileObj,
+        successActionStatus: "201",
+      });
+      uploadRequest = new $OSS.PostObjectRequest({
+        bucketName: authResponse.bucket,
+        header: ossHeader,
+      });
+      await ossClient.postObject(uploadRequest, ossRuntime);
+      recognizeTicketInvoiceReq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    }
+
+    let recognizeTicketInvoiceResp = await this.recognizeTicketInvoiceWithOptions(recognizeTicketInvoiceReq, runtime);
+    return recognizeTicketInvoiceResp;
   }
 
   async recognizeTrainTicketWithOptions(request: RecognizeTrainTicketRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeTrainTicketResponse> {
@@ -6931,20 +6836,20 @@ export default class Client extends OpenApi {
     return recognizeTrainTicketResp;
   }
 
-  async recognizeTicketInvoiceWithOptions(request: RecognizeTicketInvoiceRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeTicketInvoiceResponse> {
+  async recognizeVATInvoiceWithOptions(request: RecognizeVATInvoiceRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeVATInvoiceResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<RecognizeTicketInvoiceResponse>(await this.doRPCRequest("RecognizeTicketInvoice", "2019-12-30", "HTTPS", "POST", "AK", "json", req, runtime), new RecognizeTicketInvoiceResponse({}));
+    return $tea.cast<RecognizeVATInvoiceResponse>(await this.doRPCRequest("RecognizeVATInvoice", "2019-12-30", "HTTPS", "POST", "AK", "json", req, runtime), new RecognizeVATInvoiceResponse({}));
   }
 
-  async recognizeTicketInvoice(request: RecognizeTicketInvoiceRequest): Promise<RecognizeTicketInvoiceResponse> {
+  async recognizeVATInvoice(request: RecognizeVATInvoiceRequest): Promise<RecognizeVATInvoiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.recognizeTicketInvoiceWithOptions(request, runtime);
+    return await this.recognizeVATInvoiceWithOptions(request, runtime);
   }
 
-  async recognizeTicketInvoiceAdvance(request: RecognizeTicketInvoiceAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeTicketInvoiceResponse> {
+  async recognizeVATInvoiceAdvance(request: RecognizeVATInvoiceAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeVATInvoiceResponse> {
     // Step 0: init client
     let accessKeyId = await this._credential.getAccessKeyId();
     let accessKeySecret = await this._credential.getAccessKeySecret();
@@ -6986,8 +6891,95 @@ export default class Client extends OpenApi {
     let uploadRequest = new $OSS.PostObjectRequest({ });
     let ossRuntime = new $OSSUtil.RuntimeOptions({ });
     OpenApiUtil.convert(runtime, ossRuntime);
-    let recognizeTicketInvoiceReq = new RecognizeTicketInvoiceRequest({ });
-    OpenApiUtil.convert(request, recognizeTicketInvoiceReq);
+    let recognizeVATInvoiceReq = new RecognizeVATInvoiceRequest({ });
+    OpenApiUtil.convert(request, recognizeVATInvoiceReq);
+    if (!Util.isUnset(request.fileURLObject)) {
+      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+      ossConfig.accessKeyId = authResponse.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+      ossClient = new OSS(ossConfig);
+      fileObj = new $FileForm.FileField({
+        filename: authResponse.objectKey,
+        content: request.fileURLObject,
+        contentType: "",
+      });
+      ossHeader = new $OSS.PostObjectRequestHeader({
+        accessKeyId: authResponse.accessKeyId,
+        policy: authResponse.encodedPolicy,
+        signature: authResponse.signature,
+        key: authResponse.objectKey,
+        file: fileObj,
+        successActionStatus: "201",
+      });
+      uploadRequest = new $OSS.PostObjectRequest({
+        bucketName: authResponse.bucket,
+        header: ossHeader,
+      });
+      await ossClient.postObject(uploadRequest, ossRuntime);
+      recognizeVATInvoiceReq.fileURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    }
+
+    let recognizeVATInvoiceResp = await this.recognizeVATInvoiceWithOptions(recognizeVATInvoiceReq, runtime);
+    return recognizeVATInvoiceResp;
+  }
+
+  async recognizeVINCodeWithOptions(request: RecognizeVINCodeRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeVINCodeResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<RecognizeVINCodeResponse>(await this.doRPCRequest("RecognizeVINCode", "2019-12-30", "HTTPS", "POST", "AK", "json", req, runtime), new RecognizeVINCodeResponse({}));
+  }
+
+  async recognizeVINCode(request: RecognizeVINCodeRequest): Promise<RecognizeVINCodeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.recognizeVINCodeWithOptions(request, runtime);
+  }
+
+  async recognizeVINCodeAdvance(request: RecognizeVINCodeAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeVINCodeResponse> {
+    // Step 0: init client
+    let accessKeyId = await this._credential.getAccessKeyId();
+    let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if (Util.isUnset(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
+    let authConfig = new $RPC.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenPlatform(authConfig);
+    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
+      product: "ocr",
+      regionId: this._regionId,
+    });
+    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
+    let ossConfig = new $OSS.Config({
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let ossClient : OSS = null;
+    let fileObj = new $FileForm.FileField({ });
+    let ossHeader = new $OSS.PostObjectRequestHeader({ });
+    let uploadRequest = new $OSS.PostObjectRequest({ });
+    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
+    OpenApiUtil.convert(runtime, ossRuntime);
+    let recognizeVINCodeReq = new RecognizeVINCodeRequest({ });
+    OpenApiUtil.convert(request, recognizeVINCodeReq);
     if (!Util.isUnset(request.imageURLObject)) {
       authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
       ossConfig.accessKeyId = authResponse.accessKeyId;
@@ -7011,11 +7003,198 @@ export default class Client extends OpenApi {
         header: ossHeader,
       });
       await ossClient.postObject(uploadRequest, ossRuntime);
-      recognizeTicketInvoiceReq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+      recognizeVINCodeReq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
     }
 
-    let recognizeTicketInvoiceResp = await this.recognizeTicketInvoiceWithOptions(recognizeTicketInvoiceReq, runtime);
-    return recognizeTicketInvoiceResp;
+    let recognizeVINCodeResp = await this.recognizeVINCodeWithOptions(recognizeVINCodeReq, runtime);
+    return recognizeVINCodeResp;
+  }
+
+  async recognizeVerificationcodeWithOptions(request: RecognizeVerificationcodeRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeVerificationcodeResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<RecognizeVerificationcodeResponse>(await this.doRPCRequest("RecognizeVerificationcode", "2019-12-30", "HTTPS", "POST", "AK", "json", req, runtime), new RecognizeVerificationcodeResponse({}));
+  }
+
+  async recognizeVerificationcode(request: RecognizeVerificationcodeRequest): Promise<RecognizeVerificationcodeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.recognizeVerificationcodeWithOptions(request, runtime);
+  }
+
+  async recognizeVerificationcodeAdvance(request: RecognizeVerificationcodeAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeVerificationcodeResponse> {
+    // Step 0: init client
+    let accessKeyId = await this._credential.getAccessKeyId();
+    let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if (Util.isUnset(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
+    let authConfig = new $RPC.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenPlatform(authConfig);
+    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
+      product: "ocr",
+      regionId: this._regionId,
+    });
+    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
+    let ossConfig = new $OSS.Config({
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let ossClient : OSS = null;
+    let fileObj = new $FileForm.FileField({ });
+    let ossHeader = new $OSS.PostObjectRequestHeader({ });
+    let uploadRequest = new $OSS.PostObjectRequest({ });
+    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
+    OpenApiUtil.convert(runtime, ossRuntime);
+    let recognizeVerificationcodeReq = new RecognizeVerificationcodeRequest({ });
+    OpenApiUtil.convert(request, recognizeVerificationcodeReq);
+    if (!Util.isUnset(request.imageURLObject)) {
+      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+      ossConfig.accessKeyId = authResponse.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+      ossClient = new OSS(ossConfig);
+      fileObj = new $FileForm.FileField({
+        filename: authResponse.objectKey,
+        content: request.imageURLObject,
+        contentType: "",
+      });
+      ossHeader = new $OSS.PostObjectRequestHeader({
+        accessKeyId: authResponse.accessKeyId,
+        policy: authResponse.encodedPolicy,
+        signature: authResponse.signature,
+        key: authResponse.objectKey,
+        file: fileObj,
+        successActionStatus: "201",
+      });
+      uploadRequest = new $OSS.PostObjectRequest({
+        bucketName: authResponse.bucket,
+        header: ossHeader,
+      });
+      await ossClient.postObject(uploadRequest, ossRuntime);
+      recognizeVerificationcodeReq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    }
+
+    let recognizeVerificationcodeResp = await this.recognizeVerificationcodeWithOptions(recognizeVerificationcodeReq, runtime);
+    return recognizeVerificationcodeResp;
+  }
+
+  async recognizeVideoCharacterWithOptions(request: RecognizeVideoCharacterRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeVideoCharacterResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<RecognizeVideoCharacterResponse>(await this.doRPCRequest("RecognizeVideoCharacter", "2019-12-30", "HTTPS", "POST", "AK", "json", req, runtime), new RecognizeVideoCharacterResponse({}));
+  }
+
+  async recognizeVideoCharacter(request: RecognizeVideoCharacterRequest): Promise<RecognizeVideoCharacterResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.recognizeVideoCharacterWithOptions(request, runtime);
+  }
+
+  async trimDocumentWithOptions(request: TrimDocumentRequest, runtime: $Util.RuntimeOptions): Promise<TrimDocumentResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<TrimDocumentResponse>(await this.doRPCRequest("TrimDocument", "2019-12-30", "HTTPS", "POST", "AK", "json", req, runtime), new TrimDocumentResponse({}));
+  }
+
+  async trimDocument(request: TrimDocumentRequest): Promise<TrimDocumentResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.trimDocumentWithOptions(request, runtime);
+  }
+
+  async trimDocumentAdvance(request: TrimDocumentAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<TrimDocumentResponse> {
+    // Step 0: init client
+    let accessKeyId = await this._credential.getAccessKeyId();
+    let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if (Util.isUnset(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
+    let authConfig = new $RPC.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenPlatform(authConfig);
+    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
+      product: "ocr",
+      regionId: this._regionId,
+    });
+    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
+    let ossConfig = new $OSS.Config({
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let ossClient : OSS = null;
+    let fileObj = new $FileForm.FileField({ });
+    let ossHeader = new $OSS.PostObjectRequestHeader({ });
+    let uploadRequest = new $OSS.PostObjectRequest({ });
+    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
+    OpenApiUtil.convert(runtime, ossRuntime);
+    let trimDocumentReq = new TrimDocumentRequest({ });
+    OpenApiUtil.convert(request, trimDocumentReq);
+    if (!Util.isUnset(request.fileURLObject)) {
+      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+      ossConfig.accessKeyId = authResponse.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+      ossClient = new OSS(ossConfig);
+      fileObj = new $FileForm.FileField({
+        filename: authResponse.objectKey,
+        content: request.fileURLObject,
+        contentType: "",
+      });
+      ossHeader = new $OSS.PostObjectRequestHeader({
+        accessKeyId: authResponse.accessKeyId,
+        policy: authResponse.encodedPolicy,
+        signature: authResponse.signature,
+        key: authResponse.objectKey,
+        file: fileObj,
+        successActionStatus: "201",
+      });
+      uploadRequest = new $OSS.PostObjectRequest({
+        bucketName: authResponse.bucket,
+        header: ossHeader,
+      });
+      await ossClient.postObject(uploadRequest, ossRuntime);
+      trimDocumentReq.fileURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    }
+
+    let trimDocumentResp = await this.trimDocumentWithOptions(trimDocumentReq, runtime);
+    return trimDocumentResp;
   }
 
 }
